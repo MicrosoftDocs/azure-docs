@@ -3,7 +3,7 @@ title: Use Data Lake Storage Gen1 with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Storage Gen1 and to store results of your analysis.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 12/07/2023
 ---
 
@@ -19,7 +19,7 @@ In this article, you learn how Data Lake Storage Gen1 works with HDInsight clust
 > [!NOTE]  
 > Data Lake Storage Gen1 is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Availability for HDInsight clusters
 

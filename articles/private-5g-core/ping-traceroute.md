@@ -27,16 +27,16 @@ To access the local UI, see [Tutorial: Connect to Azure Stack Edge Pro with GPU]
 
 ## Run the ping and traceroute tools
 
-1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the UPF-PP troubleshooter pod:
+1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the MEC-DP troubleshooter pod:
 
     ```azurecli
-    kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- bash
+    kubectl exec -it -n core core-mec-dp-0 -c troubleshooter -- bash
     ```
 
 1. View the list of configured user plane interfaces:
 
     ```azurecli
-    upft list
+    mect list
     ```
 
     This should report a single interface on the control plane network (N2), a single interface on the access network (N3) and an interface for each attached data network (N6). For example:

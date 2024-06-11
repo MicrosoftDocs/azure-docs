@@ -8,7 +8,7 @@ ms.date: 11/16/2023
 ms.author: sidandrews
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
-ms.custom: devx-track-dotnet, ignite-2022
+ms.custom: devx-track-dotnet
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB .NET SDK request timeout exceptions

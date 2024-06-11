@@ -6,7 +6,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: sample
-ms.workload: infrastructure-services
 ms.custom: devx-track-arm-template, devx-track-bicep
 ms.date: 07/25/2023
 ms.author: duau

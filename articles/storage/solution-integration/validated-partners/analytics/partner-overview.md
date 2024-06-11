@@ -1,5 +1,5 @@
 ---
-title: Big data and analytics partners 
+title: Big data and analytics partners
 titleSuffix: Azure Storage
 description: List of Microsoft partner companies that build customer solutions for big data and analytics with Azure Storage
 
@@ -9,7 +9,6 @@ ms.date: 04/12/2021
 ms.topic: conceptual
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
-ms.custom: ignite-2022
 ---
 
 # Azure Storage analytics and big data partners

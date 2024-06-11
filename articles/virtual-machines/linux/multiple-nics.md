@@ -5,7 +5,6 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
-ms.workload: infrastructure
 ms.custom: devx-track-azurecli, linux-related-content
 ms.date: 04/06/2023
 ms.author: mattmcinnes

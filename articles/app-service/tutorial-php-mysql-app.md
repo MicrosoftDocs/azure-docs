@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: PHP app with MySQL and Redis' 
+title: 'Tutorial: PHP app with MySQL and Redis'
 description: Learn how to get a PHP app working in Azure, with connection to a MySQL database and a Redis cache in Azure. Laravel is used in the tutorial.
 author: msangapu-msft
 ms.author: msangapu
@@ -7,7 +7,7 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/30/2023
-ms.custom: mvc, cli-validate, seodec18, devdivchpfy22, AppServiceConnectivity
+ms.custom: mvc, cli-validate, devdivchpfy22, AppServiceConnectivity
 ---
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service
@@ -16,7 +16,7 @@ This tutorial shows how to create a secure PHP app in Azure App Service that's c
 
 :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sample application
 

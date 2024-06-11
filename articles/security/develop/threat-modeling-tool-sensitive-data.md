@@ -8,7 +8,7 @@ ms.subservice: aiplabels
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 
 # Security Frame: Sensitive Data | Mitigations 
@@ -228,7 +228,7 @@ instance: 'https://login.microsoftonline.com/',
 tenant: ns.Configurations.Tenant,
 clientId: ns.Configurations.AADApplicationClientID,
 postLogoutRedirectUri: window.location.origin,
-cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionStorage does not work for localhost.
 };
 ```
 

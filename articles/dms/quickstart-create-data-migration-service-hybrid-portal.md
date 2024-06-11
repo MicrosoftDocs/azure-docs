@@ -9,7 +9,6 @@ ms.date: 03/13/2020
 ms.service: dms
 ms.topic: quickstart
 ms.custom:
-  - seo-lt-2019
   - mode-ui
   - subject-rbac-steps
   - sql-migration-content
@@ -104,17 +103,17 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 
 7. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
 8. On the **Role** tab, select the **Contributor** role.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
 
 9. On the **Members** tab, select **User, group, or service principal**, and then select the App ID name.
 
 10. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## Download and install the hybrid worker
 

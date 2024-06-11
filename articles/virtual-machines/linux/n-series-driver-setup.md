@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.custom: linux-related-content
 ms.date: 04/06/2023
 ms.author: vikancha
@@ -15,6 +14,9 @@ ms.reviewer: padmalathas, mattmcinnes
 ---
 
 # Install NVIDIA GPU drivers on N-series VMs running Linux
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -47,131 +49,45 @@ Then run installation commands specific for your distribution.
 
 ### Ubuntu
 
-1. Download and install the CUDA drivers from the NVIDIA website.
+Ubuntu packages NVIDIA proprietary drivers. Those drivers come directly from NVIDIA and are simply packaged by Ubuntu so that they can be automatically managed by the system. Downloading and installing drivers from another source can lead to a broken system. Moreover, installing third-party drivers requires extra-steps on VMs with TrustedLaunch and Secure Boot enabled. They require the user to add a new Machine Owner Key for the system to boot. Drivers from Ubuntu are signed by Canonical and will work with Secure Boot.
+
+1. Install `ubuntu-drivers` utility:
+   ```bash
+   sudo apt update && sudo apt install -y ubuntu-drivers-common
+   ```
+2. Install the latest NVIDIA drivers:
+   ```bash
+   sudo ubuntu-drivers install
+   ```
+   Reboot the VM after the GPU driver is installed.
+3. Download and install the CUDA toolkit from NVIDIA:
     > [!NOTE]
-   >  The example shows the CUDA package path for Ubuntu 20.04. Replace the path specific to the version you plan to use.
+   >  The example shows the CUDA package path for Ubuntu 22.04 LTS. Replace the path specific to the version you plan to use.
    >
    >  Visit the [NVIDIA Download Center](https://developer.download.nvidia.com/compute/cuda/repos/) or the [NVIDIA CUDA Resources page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_network) for the full path specific to each version.
    >
    ```bash
-   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb
-   sudo dpkg -i cuda-keyring_1.0-1_all.deb
-   sudo apt-get update
-   sudo apt-get -y install cuda-drivers
-
+   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+   sudo apt install -y ./cuda-keyring_1.1-1_all.deb
+   sudo apt update
+   sudo apt -y install cuda-toolkit-12-3
    ```
 
    The installation can take several minutes.
 
-2. Reboot the VM and proceed to verify the installation.
-
-#### CUDA driver updates
-
-We recommend that you periodically update CUDA drivers after deployment.
-
-```bash
-sudo apt-get update
-sudo apt-get upgrade -y
-sudo apt-get dist-upgrade -y
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-#### Install CUDA driver on Ubuntu with Secure Boot enabled
-
-With Secure Boot enabled, all Linux kernel modules are required to be signed by the key trusted by the system.
-
-1. Install pre-built Azure Linux kernel based NVIDIA modules and CUDA drivers
-
+4. Verify that the GPU is correctly recognized (you may need to reboot your VM for system changes to take effect):
    ```bash
-   sudo apt-get update
-   sudo apt install -y linux-modules-nvidia-525-azure nvidia-driver-525
-   ```
-
-2. Change preference of NVIDIA packages to prefer NVIDIA repository
-
-   ```bash
-   sudo tee /etc/apt/preferences.d/cuda-repository-pin-600 > /dev/null <<EOL
-   Package: nsight-compute
-   Pin: origin *ubuntu.com*
-   Pin-Priority: -1
-   Package: nsight-systems
-   Pin: origin *ubuntu.com*
-   Pin-Priority: -1
-   Package: nvidia-modprobe
-   Pin: release l=NVIDIA CUDA
-   Pin-Priority: 600
-   Package: nvidia-settings
-   Pin: release l=NVIDIA CUDA
-   Pin-Priority: 600
-   Package: *
-   Pin: release l=NVIDIA CUDA
-   Pin-Priority: 100
-   EOL
-   ```
-
-3. Add CUDA repository
-
-   ```bash
-   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub
-   ```
-
-   ```bash
-   sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/ /"
-   ```
-
-   where `$distro/$arch` should be replaced by one of the following:
-
-   ```
-   ubuntu2004/arm64
-   ubuntu2004/x86_64
-   ubuntu2204/arm64
-   ubuntu2204/x86_64
-   ```
-
-   If `add-apt-repository` command is not found, run `sudo apt-get install software-properties-common` to install it.
-
-4. Install kernel headers and development packages, and remove outdated signing key
-
-   ```bash
-   sudo apt-get install linux-headers-$(uname -r)
-   sudo apt-key del 7fa2af80
-   ```
-
-5. Install the new cuda-keyring package
-
-   ```bash
-   wget https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/cuda-keyring_1.1-1_all.deb
-   sudo dpkg -i cuda-keyring_1.1-1_all.deb
-   ```
-
-   Note: When prompt on different versions of cuda-keyring, select `Y or I  : install the package maintainer's version` to proceed.
-
-6. Update APT repository cache and install NVIDIA GPUDirect Storage
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install -y nvidia-gds
-   ```
-
-   Note that during the installation you will be prompted for password when configuring secure boot, a password of your choice needs to be provided and then proceed.
-
-   ![Secure Boot Password Configuration](./media/n-series-driver-setup/secure-boot-passwd.png)
-
-7. Reboot the VM
-
-   ```bash
-   sudo reboot
-   ```
-
-8. Verify NVIDIA CUDA drivers are installed and loaded
-
-   ```bash
-   dpkg -l | grep -i nvidia
    nvidia-smi
    ```
 
+#### NVIDIA driver updates
+
+We recommend that you periodically update NVIDIA drivers after deployment.
+
+```bash
+sudo apt update
+sudo apt full-upgrade
+```
 
 ### CentOS or Red Hat Enterprise Linux
 

@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 01/19/2024
+ms.date: 02/26/2024
 ---
 
 ## Latest client versions
@@ -11,14 +11,25 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.9.5         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.9.5         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.6         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.6         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.6
+
+*Published: February 26, 2024*
+
+In this release, we made the following changes:
+
+- Bug fixes for issues reported by users and internal telemetry.
+
+>[!IMPORTANT]
+>Starting with verison 10.9.6, the macOS client only supports macOS 12 and later.
 
 ## Updates for version 10.9.5
 
 *Published: December 12, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Resolved some of the top crashes reported by customers from our telemetry.
 - Fixed microphone redirection on macOS 14.
@@ -30,7 +41,7 @@ In this release, we've made the following changes:
 
 *Published: October 20, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused printer redirection to not work for connections between macOS Sonoma and Windows 10 or later.
 
@@ -38,7 +49,7 @@ In this release, we've made the following changes:
 
 *Published: October 2, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where using workspace refresh deleted the workspace.
 - Resolved a RemoteApp issue where drag operations sometimes didn't work on certain apps.
@@ -49,7 +60,7 @@ In this release, we've made the following changes:
 
 *Published: September 11, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed "Proof Key for Code Exchange is required" message users receive when refreshing AVD workspaces after upgrading from versions 10.9.0 and 10.9.1.
 
@@ -57,7 +68,7 @@ In this release, we've made the following changes:
 
 *Published: September 5, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed clipboard redirection issue for macOS 11.
 
@@ -79,7 +90,7 @@ In this release,  we added two new features for Azure Virtual Desktop and addres
 
 *Published: June 16, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Updated time zone redirection to accommodate certain daylight savings scenarios.
 - Resolved an issue that incorrectly toggled Caps Lock in RemoteApp connections.
@@ -92,7 +103,7 @@ In this release, we've made the following changes:
 
 *Published: May 20, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed connectivity issue that affected connections with Windows XP and Windows Vista.
 - Addressed an issue that caused diagnostics reporting for Azure Virtual Desktop connections to be inaccurate.
@@ -101,7 +112,7 @@ In this release, we've made the following changes:
 
 *Published: April 25, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Integrated support for the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth Protocol for authentication and session security.
 - Added deterministic progress UI for Azure Virtual Desktop workspace refresh. 
@@ -117,7 +128,7 @@ In this release, we've made the following changes:
 
 *Published: January 25, 2023*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Bug fixes and feature updates.
 - Teams redirection for Azure Virtual Desktop now supports Noise Cancellation and Give/Take Control.
@@ -129,7 +140,7 @@ In this release, we've made the following changes:
 
 *Published: December 14, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed a few bugs, cleaned up some underlying code, and made changes to prepare for future updates.
 - Added a button to the General Preferences dialog that allows you to clear stored PC thumbnails.
@@ -161,7 +172,7 @@ In this release, we fixed some customer-reported bugs and issues reported by tel
 
 *Date Published: July 25, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added thumbnail snapshots for published PC resources to the Workspaces tab of the Connection Center.
 - Integrated logging support that you could previously only access with user defaults to the UI. To access the logs, go to **Help** > **Troubleshooting** > **Logging**.
@@ -205,7 +216,7 @@ In this release, we made some changes to improve connection reliability for Azur
 
 *Published: January 25, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused display configuration to not work properly when using the client on 2021 MacBook Pro 14" and 16" devices with multiple monitors. This issue mainly affected devices with external monitors positioned above the MacBook display.
 - Fixed an issue that caused the client to crash when used on earlier versions of macOS 12
@@ -215,7 +226,7 @@ In this release, we've made the following changes:
 
 *Published: January 13, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed full screen display issues with 2021 MacBook Pro 14" and 16" models.
 - Better handle load-balanced Remote Desktop Gateway configurations.
@@ -230,7 +241,7 @@ Unfortunately, the 10.7.2 update disabled smart card redirection for some users 
 
 *Published: December 13, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for the Touch Bar on MacBook Pro devices.
 - Refreshed the look and feel of the PCs and Apps tabs in the Connection Center.
@@ -247,7 +258,7 @@ In this release, we've made the following changes:
 
 *Published: November 4, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed issues that caused the app to crash.
 
@@ -255,7 +266,7 @@ In this release, we've made the following changes:
 
 *Published: October 21, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed issues brought up by users in crash reports and general feedback.
 - Invertible cursors, such as the text cursor, are now outlined to make them visible on dark backgrounds.
@@ -272,7 +283,7 @@ In this release, we've made the following changes:
 
 *Published: August 16, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added background refresh for subscribed workspaces.
 - Addressed issues where the session window may switch to another monitor when auto-reconnecting.
@@ -298,7 +309,7 @@ In this release, we've made the following changes:
 
 *Published: June 21, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed three connectivity errors that users reported to us:
   
@@ -316,7 +327,7 @@ In this release, we've made the following changes:
 
 *Published: May 4, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Enabled connections to Windows Server 2003 servers that have Transport Layer Security (TLS) enabled for Remote Desktop connections.
 - Addressed a `0x3000066` error message that appeared in Remote Desktop Gateway scenarios, and aligned TLS version usage with the Windows Remote Desktop client.
@@ -325,7 +336,7 @@ In this release, we've made the following changes:
 
 *Published: April 29, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that made the client return a `0x907` error code when connecting to a server endpoint with a certificate that had a Remote Desktop Authentication EKU property of `1.3.6.1.4.1.311.54.1.2`.
 - Updated the client to address a `0x2407` error code that prevented the client from authorizing users for remote access.
@@ -334,7 +345,7 @@ In this release, we've made the following changes:
 
 *Published: April 22, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused the client to return a `0x907` error code when processing a server authentication certificate with a validity lifetime of over 825 days.
 
@@ -342,7 +353,7 @@ In this release, we've made the following changes:
 
 *Published: April 20, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue that caused the client to return a `0x507` error code.
 - Enabled support for the AVC420 codec on Apple Silicon.
@@ -352,7 +363,7 @@ In this release, we've made the following changes:
 
 *Published: April 20, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Removed a double prompt for credentials that occurred in some scenarios when users tried to connect with a Remote Desktop Gateway.
 
@@ -366,7 +377,7 @@ In this update, we fixed an issue that caused the client to stop responding when
 
 *Published: April 19, 2021*
 
-In this release we've made some significant updates to the shared underlying code that powers the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reports.
+In this release we made some significant updates to the shared underlying code that powers the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reports.
 
 - Added native support for Apple Silicon.
 - Added client-side IME support when using Unicode keyboard mode.
@@ -383,7 +394,7 @@ In this release we've made some significant updates to the shared underlying cod
 
 *Published: February 15, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added HTTP proxy support for Remote Desktop Gateway connections.
 - Fixed an issue where a Remote Desktop Gateway connection would disconnect and a message with error code 0x3000064 would appear.
@@ -397,7 +408,7 @@ In this release, we've made the following changes:
 
 *Published: January 29, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed an issue where the UI would stop resolving a workspace name during subscription.
 - Fixed an in-session bug where graphics updates would stall while the client continued to send input.
@@ -407,7 +418,7 @@ In this release, we've made the following changes:
 
 *Published: December 2, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - You can now edit the display, device, and folder redirection settings of published PC connections.
 - RemoteApp windows now shrink to the dock when minimized.
@@ -425,7 +436,7 @@ In this release, we've made the following changes:
 
 *Published: November 6, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed several reliability issues identified through crash reporting.
 - Addressed keyboard and VoiceOver-related accessibility bugs.
@@ -442,7 +453,7 @@ In this release, we've made the following changes:
 
 *Published: August 20, 2020*
 
-In this release, we've made substantial updates to the underlying code for the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reporting. Here are some changes you may notice:
+In this release, we made substantial updates to the underlying code for the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reporting. Here are some changes you may notice:
 
 - PC Quick Connect (Cmd+K) allows you to connect to a PC without creating a bookmark.
 - Auto-reconnect now recovers from transient network glitches for PC connections.
@@ -483,7 +494,7 @@ In this release, we've made substantial updates to the underlying code for the R
 
 *Published: April 6, 2020*
 
-In this release, we've made some changes to improve interoperability with the [Azure Virtual Desktop service](https://azure.microsoft.com/services/virtual-desktop/). In addition, we've included the following updates:
+In this release, we made some changes to improve interoperability with the [Azure Virtual Desktop service](https://azure.microsoft.com/services/virtual-desktop/). In addition, we've included the following updates:
 
 - **Control+Option+Delete** now triggers the **Ctrl+Alt+Del** sequence (previously required pressing the Fn key).
 - Fixed the keyboard mode notification color scheme for Light mode.
@@ -511,7 +522,7 @@ Other updates in this release include:
 
 *Published: January 6, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Copying things from the remote session to a network share or USB drive no longer creates empty files.
 - Specifying an empty password in a user account no longer causes a double certificate prompt.
@@ -520,7 +531,7 @@ In this release, we've made the following changes:
 
 *Published: January 6, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed an issue that created zero-length files whenever you copied a folder from the remote session to the local machine using file copy and paste.
 
@@ -528,7 +539,7 @@ In this release, we've made the following changes:
 
 *Published: January 6, 2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Redirected folders can now be marked as read-only to prevent their contents from being changed in the remote session.
 - We addressed a 0x607 error that appeared when connecting using RPC over HTTPS Remote Desktop Gateway scenarios.
@@ -543,7 +554,7 @@ In this release, we've made the following changes:
 
 *Published: November 18, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - When connecting via a Remote Desktop Gateway with multifactor authentication, the gateway connection will be held open to avoid multiple MFA prompts.
 - All the client UI is now fully keyboard-accessible with Voiceover support.
@@ -562,7 +573,7 @@ In this release, we've made the following changes:
 
 *Published: November 18, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added user defaults to disable smart card, clipboard, microphone, camera, and folder redirection:
 
@@ -591,7 +602,7 @@ In this release, we fixed a bug that made the display low resolution while conne
 
 *Published: November 18, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed connectivity issues with Remote Desktop Gateway servers that were using 4096-bit asymmetric keys.
 - Fixed a bug that caused the client to randomly stop responding when downloading feed resources.
@@ -602,7 +613,7 @@ In this release, we've made the following changes:
 
 *Published: August 27, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Camera redirection is now possible when connecting to Windows 10 1809, Windows Server 2019 and later.
 - On Mojave and Catalina we've added a new dialog that requests your permission to use the microphone and camera for device redirection.
@@ -621,7 +632,7 @@ In this release, we've made the following changes:
 
 *Published: May 8, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed a hang that occurred when connecting via a Remote Desktop Gateway.
 - Added a privacy notice to the "Add Feed" dialog.
@@ -630,7 +641,7 @@ In this release, we've made the following changes:
 
 *Published: April 16, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Resolved random disconnects (with error code 0x904) that took place when connecting via a Remote Desktop Gateway.
 - Fixed a bug that caused the resolutions list in application preferences to be empty after installation.
@@ -641,7 +652,7 @@ In this release, we've made the following changes:
 
 *Published: March 30, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Addressed instability caused by the recent macOS 10.14.4 update.
 - Fixed mis-paints that appeared when decoding AVC codec data encoded by a server using NVIDIA hardware.
@@ -650,7 +661,7 @@ In this release, we've made the following changes:
 
 *Published: March 6, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed a Remote Desktop Gateway connectivity issue that can occur when server redirection takes place.
 - We also addressed a Remote Desktop Gateway regression caused by the 10.2.8 update.
@@ -659,7 +670,7 @@ In this release, we've made the following changes:
 
 *Published: March 1, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Resolved connectivity issues that surfaced when using a Remote Desktop Gateway.
 - Fixed incorrect certificate warnings that were displayed when connecting.
@@ -677,7 +688,7 @@ In this release, we addressed graphics mis-paints (caused by a server encoding b
 
 *Published: January 28, 2019*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for the AVC (420 and 444) codec, available when connecting to current versions of Windows 10.
 - In Fit to Window mode, a window refresh now occurs immediately after a resize to ensure that content is rendered at the correct interpolation level.
@@ -693,7 +704,7 @@ In this release, we've made the following changes:
 
 *Published: December 18, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added dark mode support for macOS Mojave 10.14.
 - An option to import from Microsoft Remote Desktop 8 now appears in the Connection Center if it is empty.
@@ -707,7 +718,7 @@ In this release, we've made the following changes:
 
 *Published: November 6, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for the *remoteapplicationcmdline* RDP file setting for RemoteApp scenarios.
 - The title of the session window now includes the name of the RDP file (and server name) when launched from an RDP file.
@@ -725,7 +736,7 @@ In this release, we've made the following changes:
 
 *Published: October 9, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - A brand new Connection Center that supports drag and drop, manual arrangement of desktops, resizable columns in list view mode, column-based sorting, and simpler group management.
 - The Connection Center now remembers the last active pivot (Desktops or Feeds) when closing the app.
@@ -756,7 +767,7 @@ In this release, we've made the following changes:
 
 *Published: August 6, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Enabled connectivity to Azure Active Directory (Azure AD) joined PCs. To connect to an Azure AD joined PC, your username must be in one of the following formats: "AzureAD\user" or "AzureAD\user@domain".
 - Addressed some bugs affecting the usage of smart cards in a remote session.
@@ -765,7 +776,7 @@ In this release, we've made the following changes:
 
 *Published: July 24, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Incorporated updates for GDPR compliance.
 - MicrosoftAccount\username@domain is now accepted as a valid username.
@@ -796,7 +807,7 @@ In this release, we've made the following changes:
 
 *Published: May 4, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for changing the remote resolution by resizing the session window!
 - Fixed scenarios where remote resource feed download would take an excessively long time.
@@ -806,7 +817,7 @@ In this release, we've made the following changes:
 
 *Published: April 5, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Made security fixes to incorporate CredSSP encryption oracle remediation updates as described in CVE-2018-0886.
 - Improved RemoteApp icon and mouse cursor rendering to address reported mispaints.
@@ -822,7 +833,7 @@ In this release, we've made the following changes:
 
 *Published: March 26, 2018*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Fixed an issue where RemoteApp windows would reorder themselves.
 - Resolved a bug that caused some RemoteApp windows to get stuck behind their parent window.

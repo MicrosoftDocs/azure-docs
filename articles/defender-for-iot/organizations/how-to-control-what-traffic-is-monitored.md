@@ -86,7 +86,7 @@ While the OT network sensor automatically learns the subnets in your network, we
     |**Segregated**     |   Select to show this subnet separately when displaying the device map according to Purdue level.  |
     | **Remove subnet** | Select to remove any subnets that aren't related to your IoT/OT network scope.| 
 
-    In the subnet grid, subnets marked as **ICS subnet** are recognized as OT activity or protocols. This option is read-only in this grid, but you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics) if there's an OT subnet not being recognized correctly.
+    In the subnet grid, subnets marked as **ICS subnet** are recognized as OT networks. This option is read-only in this grid, but you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics) if there's an OT subnet not being recognized correctly.
 
 1. When you're done, select **Save** to save your updates.
 
@@ -99,7 +99,7 @@ While the OT network sensor automatically learns the subnets in your network, we
 If you have an OT subnet that isn't being marked automatically as an ICS subnet by the sensor, edit the device type for any of the devices in the relevant subnet to an ICS or IoT device type. The subnet will then be automatically marked by the sensor as an ICS subnet.
 
 > [!NOTE]
-> To manually change the subnet to be marked as ICS, the device type must be changed in device inventory in the OT sensor, and not from the Azure portal.
+> To manually change the subnet to be marked as ICS, change the device type in the device inventory in the OT sensor. In the Azure portal, subnets in the subnet list are marked as ICS by default in the [sensor settings](configure-sensor-settings-portal.md#local-subnets).
 
 **To change the device type to manually update the subnet**:
 

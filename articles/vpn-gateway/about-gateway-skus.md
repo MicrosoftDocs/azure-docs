@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 01/23/2024
 ms.author: cherylmc 
 
 ---
@@ -16,7 +16,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 ## <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
-[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [Aggregated throughput by SKU](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 (*) If you need more than 100 S2S VPN tunnels, use [Virtual WAN](../virtual-wan/virtual-wan-about.md) instead of VPN Gateway.
 
@@ -38,7 +38,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 ## <a name="performance"></a>Gateway SKUs by performance
 
-[!INCLUDE [Performance by SKU](../../includes/vpn-gateway-table-sku-performance.md)]
+[!INCLUDE [Performance by SKU](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-sku-performance.md)]
 
 ## <a name="feature"></a>Gateway SKUs by feature set
 
@@ -58,8 +58,8 @@ Due to the differences in SLAs and feature sets, we recommend the following SKUs
 
 | **Workload**                       | **SKUs**               |
 | ---                                | ---                    |
-| **Production, critical workloads** | All Generation1 and Generation2 SKUs except Basic |
-| **Dev-test or proof of concept**   | Basic (**)                 |
+| **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic|
+| **Dev-test or proof of concept**   | Basic (**)             |
 |                                    |                        |
 
 (\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature and performance limitations and should not be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.

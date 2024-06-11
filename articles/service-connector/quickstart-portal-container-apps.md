@@ -4,10 +4,8 @@ description: This quickstart shows how to create a service connection in Azure C
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: quickstart
 ms.date: 10/31/2023
-
 #Customer intent: As an app developer, I want to connect Azure Container Apps to a storage account in the Azure portal using Service Connector.
 ---
 

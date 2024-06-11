@@ -3,11 +3,10 @@ title: Use SCP to move files to and from a VM
 description: Securely move files to and from a Linux VM in Azure using SCP and an SSH key pair.
 author: mattmcinnes
 ms.service: virtual-machines
-ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 12/9/2022
 ms.author: mattmcinnes
-ms.custom: GGAL-freshness822
+ms.custom: GGAL-freshness822, linux-related-content
 ---
 
 # Use SCP to move files to and from a VM 

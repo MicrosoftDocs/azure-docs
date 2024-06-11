@@ -20,9 +20,9 @@ Common scenarios for sending optional payloads are:
 
 * [Custom allocation policies](concepts-custom-allocation.md) can use the device payload to help select an IoT hub for a device or set its initial twin. For example, you may want to allocate your devices based on the device model. In this case, you can configure the device to report its model information when it registers. DPS will pass the device’s payload to the custom allocation webhook. Then your webhook can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can also return data back to the device as a JSON object in the webhook response. To learn more, see [Use device payloads in custom allocation](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation).
 
-* [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) devices *may* use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
+* [IoT Plug and Play (PnP)](../iot/overview-iot-plug-and-play.md) devices *may* use the payload to send their model ID when they register with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example, [C# PnP thermostat](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
 
-* [IoT Central](../iot-central/core/overview-iot-central.md) devices that connect through DPS *should* follow [IoT Plug and Play conventions](..//iot-develop/concepts-convention.md) and send their model ID when they register. IoT Central uses the model ID to assign the device to the correct device template. To learn more, see [Device implementation and best practices for IoT Central](../iot-central/core/concepts-device-implementation.md).  
+* [IoT Central](../iot-central/core/overview-iot-central.md) devices that connect through DPS *should* follow [IoT Plug and Play conventions](..//iot/concepts-convention.md) and send their model ID when they register. IoT Central uses the model ID to assign the device to the correct device template. To learn more, see [Device implementation and best practices for IoT Central](../iot-central/core/concepts-device-implementation.md).  
 
 ## Device sends data payload to DPS
 
@@ -43,7 +43,7 @@ The **payload** property must be a JSON object and can contain any data relevant
 
 ## DPS returns data to the device
 
-DPS can return data back to the device in the registration response. Currently, this feature is exclusively used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it can pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **registrationState.payload** property in the [Register Device response](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus). For example, the following JSON shows the body of a successful response to register using TPM attestation.
+DPS can return data back to the device in the registration response. Currently, this feature is exclusively used in custom allocation scenarios. If the custom allocation policy webhook needs to return data to the device, it can pass the data back as a JSON object in the webhook response. DPS will then pass that data back in the **registrationState.payload** property in the [Register Device response](/rest/api/iot-dps/device/runtime-registration/register-device). For example, the following JSON shows the body of a successful response to register using TPM attestation.
 
 ```json
 {

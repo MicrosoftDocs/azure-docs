@@ -13,6 +13,9 @@ author: ju-shim
 
 # Known issues with HB-series and N-series VMs
 
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 This article attempts to list recent common issues and their solutions when using the [HB-series](sizes-hpc.md) and [N-series](sizes-gpu.md) HPC and GPU VMs.

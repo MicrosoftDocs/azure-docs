@@ -2,20 +2,16 @@
 title: SAP ASCS/SCS multi-SID HA with WSFC&shared disk on Azure | Microsoft Docs
 description:  Multi-SID high availability for an SAP ASCS/SCS instance with Windows Server Failover Clustering and shared disk on Azure
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-tags: azure-resource-manager
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
-
 ---
 # SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure
 
@@ -39,7 +35,7 @@ For more information about load-balancer limits, see the "Private front-end IP p
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ---
 # Azure Virtual Desktop terminology
 
@@ -16,7 +15,7 @@ Azure Virtual Desktop is a service that gives users easy and secure access to th
 
 ## Host pools
 
-A host pool is a collection of Azure virtual machines that register to Azure Virtual Desktop as session hosts when you run the Azure Virtual Desktop agent. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience. You control the resources published to users through application groups.
+A host pool is a collection of Azure virtual machines that are registered to Azure Virtual Desktop as session hosts. All session host virtual machines in a host pool should be sourced from the same image for a consistent user experience. You control the resources published to users through application groups.
 
 A host pool can be one of two types:
 
@@ -43,37 +42,23 @@ To ensure your apps work with the latest updates, the validation environment sho
 
 ## Application groups
 
-An [application group](deploy-azure-virtual-desktop.md#create-an-application-group) is a logical grouping of applications installed on session hosts in the host pool.
+An application group is a logical grouping of applications that are available on session hosts in a host pool. Application groups control whether a full desktop or which applications from a host pool are available to users to connect to. An application group can only be assigned to a single host pool, but you can assign multiple application groups with to the same host pool. Users can be assigned to multiple application groups across multiple host pools, which enable you to vary the applications and desktops that users can access.
 
-An application group can be one of two types:
+When you create an application group, it can be one of two types:
 
-- RemoteApp, where users access the applications you individually select and publish to the application group. Available with pooled host pools only.
+- **Desktop**: users access the full Windows desktop from a session host. Available with pooled or personal host pools.
 
-- Desktop, where users access the full desktop. Available with pooled or personal host pools.
+- **RemoteApp**: users access individual applications you select and publish to the application group. Available with pooled host pools only.
 
-Pooled host pools have a preferred application group type that dictates whether users see RemoteApp or Desktop apps in their feed if both resources have been published to the same user. By default, Azure Virtual Desktop automatically creates a Desktop application group with the friendly name **Default Desktop** whenever you create a host pool and sets the host pool's preferred application group type to **Desktop**. You can remove the Desktop application group at any time. If you want your users to only see applications in their feed, you should set the **preferred application group type** value to **RemoteApp**. If you want your users to only see session desktops in their feed, you should set the **preferred application group type** value to **Desktop**. You can't create another Desktop application group in a host pool while a Desktop application group exists.
+With pooled host pools, you can assign both application group types to the same host pool at the same time. You can only assign a single desktop application group with a host pool, but you can also assign multiple RemoteApp application groups to the same host pool.
 
-To publish resources to users, you must assign them to application groups. When assigning users to application groups, consider the following things:
+Users assigned to multiple RemoteApp application groups assigned to the same host pool have access to an aggregate of all the applications in the application groups they're assigned to.
 
-- We don't support assigning both the RemoteApp and desktop application groups in a single host pool to the same user. Doing so will cause a single user to have two user sessions in a single host pool. Users aren't supposed to have two active user sessions at the same time, as this can cause the following things to happen:
-
-  - The session hosts become overloaded
-  - Users get stuck when trying to login
-  - Connections won't work
-  - The screen turns black
-  - The application crashes
-  - Other negative effects on end-user experience and session performance
-
-- A user can be assigned to multiple application groups within the same host pool, and their feed will be an accumulation of all application groups.
-
-- Personal host pools only allow and support Desktop application groups.
-
-> [!NOTE]
-> If your host pool's *preferred application group type* is set to **Undefined**, that means you haven't set the value yet. You must finish configuring your host pool by setting its *preferred application group type* before you start using it to prevent app incompatibility and session host overload issues.
+To learn more about application groups, see [Preferred application group type behavior for pooled host pools](preferred-application-group-type.md).
 
 ## Workspaces
 
-A [workspace](deploy-azure-virtual-desktop.md#create-a-workspace) is a logical grouping of application groups in Azure Virtual Desktop. Each Azure Virtual Desktop application group must be associated with a workspace for users to see the desktops and applications published to them.
+A workspace is a logical grouping of application groups. Each application group must be associated with a workspace for users to see the desktops and applications published to them.
 
 ## End users
 
@@ -95,18 +80,6 @@ A disconnected user session is an inactive session that the user hasn't signed o
 
 A pending user session is a placeholder session that reserves a spot on the load-balanced virtual machine for the user. Because the sign-in process can take anywhere from 30 seconds to five minutes depending on the user profile, this placeholder session ensures that the user won't be kicked out of their session if another user completes their sign-in process first.
 
-## Next steps
+## Next step
 
-Learn more about delegated access and how to assign roles to users at [Delegated Access in Azure Virtual Desktop](delegated-access-virtual-desktop.md).
-
-To learn how to set up your Azure Virtual Desktop host pool, see [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
-
-To learn how to connect to Azure Virtual Desktop, see one of the following articles:
-
-- [Connect with Windows](./users/connect-windows.md)
-- [Connect with the Azure Virtual Desktop Store app for Windows](./users/connect-windows-azure-virtual-desktop-app.md)
-- [Connect with a web browser](./users/connect-web.md)
-- [Connect with the Android client](./users/connect-android-chrome-os.md)
-- [Connect with the macOS client](./users/connect-macos.md)
-- [Connect with the iOS client](./users/connect-ios-ipados.md)
-- [Connect with the Remote Desktop app for Windows](./users/connect-microsoft-store.md)
+Learn about [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).

@@ -6,7 +6,6 @@ author: mbender-ms
 manager: kumudD
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 01/09/2024
 ms.author: mbender
 ms.custom: engagement-fy23
@@ -35,7 +34,7 @@ Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the in
 Standard load balancers and standard public IP addresses are closed to inbound connections unless opened by Network Security Groups. NSGs are used to explicitly permit allowed traffic. If you don't have an NSG on a subnet or NIC of your virtual machine resource, traffic isn't allowed to reach this resource.
 
 ### Resolution
-In order to allow the ingress traffic, add a Network Security Group to the Subnet or interface for your virtual resource.
+In order to allow the ingress traffic, [add a Network Security Group](../virtual-network/manage-network-security-group.md) to the Subnet or interface for your virtual resource.
 
 ## Problem: Can't change backend port for existing LB rule of a load balancer that has Virtual Machine Scale Set deployed in the backend pool.
 

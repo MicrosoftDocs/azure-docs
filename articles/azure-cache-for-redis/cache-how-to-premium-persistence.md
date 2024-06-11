@@ -18,6 +18,10 @@ ms.date: 04/10/2023
 > If you are using persistence on the Premium tier, check to see if your storage account has soft delete enabled before using the data persistence feature. Using data persistence with soft delete causes very high storage costs. For more information, see [should I enable soft delete?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete).
 >
 
+>[!WARNING]
+> The _always write_ option for AOF persistence on the Enterprise and Enterprise Flash tiers is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
+>
+
 ## Scope of availability
 
 |Tier     | Basic, Standard  | Premium  |Enterprise, Enterprise Flash  |
@@ -146,6 +150,10 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 1. Finish creating the cache by following the rest of the instructions in the [Enterprise tier quickstart guide](quickstart-create-redis-enterprise.md).
 
+>[!WARNING]
+> The _always write_ option for AOF persistence is set to be retired on April 1, 2025. This option has significant performance limitations is no longer recommended. Using the _write every second_ option or using RDB persistence is recommended instead.
+>
+ 
 > [!NOTE]
 > You can add persistence to a previously created Enterprise tier cache at any time by navigating to the **Advanced settings** in the Resource menu.
 >

@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 12/10/2021
 
 ms.reviewer: nachakra
-ms.custom: contperf-fy21q1
 ---
 
 # Choose how to authorize access to blob data in the Azure portal

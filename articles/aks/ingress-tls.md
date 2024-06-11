@@ -3,11 +3,11 @@ title: Use TLS with an ingress controller on Azure Kubernetes Service (AKS)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an ingress controller that uses TLS in an Azure Kubernetes Service (AKS) cluster.
 ms.subservice: aks-networking
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: asudbring
 ms.author: allensu
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 03/14/2024
 ROBOTS: NOINDEX
 #Customer intent: As a cluster operator or developer, I want to use TLS with an ingress controller to handle the flow of incoming traffic and secure my apps using my own certificates or automatically generated certificates.
 ---
@@ -72,6 +72,9 @@ To use TLS with [Let's Encrypt][lets-encrypt] certificates, you'll deploy [cert-
 ### [Azure PowerShell](#tab/azure-powershell)
 
 * Use `Import-AzContainerRegistryImage` to import the following images into your ACR.
+
+   >[!NOTE]
+   >When performing the steps to import the images into your ACR when working in Azure Government, you need to include the [`targetTag`][parameter-targettag] parameter with the value representing the tag of the image you want to import. 
 
     ```azurepowershell
     $RegistryName = "<REGISTRY_NAME>"
@@ -242,7 +245,7 @@ You can configure your FQDN using one of the following methods:
 * Set the DNS label using Azure CLI or Azure PowerShell.
 * Set the DNS label using Helm chart settings.
 
-For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#dns-name-label).
+For more information, see [Public IP address DNS name labels](../virtual-network/ip-services/public-ip-addresses.md#domain-name-label).
 
 #### Set the DNS label using Azure CLI or Azure PowerShell
 
@@ -660,3 +663,5 @@ You can also:
 [get-az-aks-cluster]: /powershell/module/az.aks/get-azakscluster
 [new-az-public-ip-address]: /powershell/module/az.network/new-azpublicipaddress
 [aks-app-add-on]: app-routing.md
+[parameter-targettag]: /powershell/module/az.containerregistry/import-azcontainerregistryimage
+

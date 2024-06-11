@@ -5,7 +5,6 @@ description: Learn how to use Docker containers to use Azure AI services on-prem
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: azure-ai-services
 ms.topic: overview
 ms.date: 08/28/2023

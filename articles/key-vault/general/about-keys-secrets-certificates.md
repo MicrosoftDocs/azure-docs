@@ -3,12 +3,11 @@ title: Azure Key Vault Keys, Secrets, and Certificates Overview
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 04/18/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 

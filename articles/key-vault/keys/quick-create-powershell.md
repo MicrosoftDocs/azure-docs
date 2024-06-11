@@ -3,11 +3,10 @@ title: Create and retrieve attributes of a key in Azure Key Vault – Azure Powe
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 01/04/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -18,7 +17,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure PowerSh
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -28,7 +27,7 @@ Connect-AzAccount
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
 
 ## Create a key vault
 
@@ -56,7 +55,7 @@ Now, you've created a Key Vault, stored a key, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
 
 ## Next steps
 

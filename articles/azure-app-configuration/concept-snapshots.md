@@ -57,7 +57,7 @@ To create a snapshot in stores using Microsoft Entra authentication, the followi
 - `Microsoft.AppConfiguration/configurationStores/keyvalues/read`
 - `Microsoft.AppConfiguration/configurationStores/snapshots/write`
 
-To archive and/or recover a snapshot using HMAC authentication, a read-write access key must be used.
+To create a snapshot using HMAC authentication, a read-write access key must be used.
 
 ### Archive and recover a snapshot
 

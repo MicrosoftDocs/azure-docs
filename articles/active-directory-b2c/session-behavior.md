@@ -25,6 +25,9 @@ With single sign-on, users sign in once with a single account and get access to 
 
 When the user initially signs in to an application, Azure AD B2C persists a cookie-based session. Upon subsequent authentication requests, Azure AD B2C reads and validates the cookie-based session, and issues an access token without prompting the user to sign in again. If the cookie-based session expires or becomes invalid, the user is prompted to sign-in again.  
 
+>[!NOTE]
+>If the user uses a browser that blocks third-party cookies, there are limitations with SSO due to limited access to the cookie-based session.  The most user-visible impact is that there are more interactions required for sign-in. Additionally, the front channel sign-out doesn't immediately clear authentication state from federated applications. Check our recommended ways about [how to handle third-party cookie blocking in browsers](/entra/identity-platform/reference-third-party-cookies-spas). 
+
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]

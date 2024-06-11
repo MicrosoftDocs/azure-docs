@@ -3,7 +3,7 @@ title: What's new in Azure Disk Storage
 description: Learn about new features and enhancements in Azure Disk Storage.   
 author: roygara
 ms.author: rogarana
-ms.date: 01/17/2024
+ms.date: 01/22/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ms.custom: references_regions
@@ -16,10 +16,14 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
 ## Update summary
 
 - [What's new in 2024](#whats-new-in-2024)
-    - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
-        - [Generally available: Trusted launch support for Ultra Disks and Premium SSD v2](#generally-available-trusted-launch-support-for-ultra-disks-and-premium-ssd-v2)
-        - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
-        - [Expanded regional availability for zone-redundant storage disks](#expanded-regional-availability-for-zone-redundant-storage-disks)
+
+  - [Quarter 2 (April, May, June)](#quarter-2-april-may-june)
+    - [Generally available: New Property for Disks-LastOwnershipUpdateTime](#generally-available-new-property-for-disks-lastownershipupdatetime)
+  - [Quarter 1 (January, February, March)](#quarter-1-january-february-march)
+      - [Generally available: Azure VM Backup support for Ultra Disks and Premium SSD v2](#generally-available-azure-vm-backup-support-for-ultra-disks-and-premium-ssd-v2)
+      - [Generally available: Trusted launch support for Ultra Disks and Premium SSD v2](#generally-available-trusted-launch-support-for-ultra-disks-and-premium-ssd-v2)
+      - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks)
+      - [Expanded regional availability for zone-redundant storage disks](#expanded-regional-availability-for-zone-redundant-storage-disks)
 - [What's new in 2023](#whats-new-in-2023)
     - [Quarter 4 (October, November, December)](#quarter-4-october-november-december)
         - [Encryption at host GA for Premium SSD v2 and Ultra Disks](#encryption-at-host-ga-for-premium-ssd-v2-and-ultra-disks)
@@ -39,10 +43,23 @@ Azure Disk Storage regularly receives updates for new features and enhancements.
         - [Preview - Performance plus](#preview---performance-plus)
         - [Expanded regional availability for Ultra Disks](#expanded-regional-availability-for-ultra-disks-1)
         - [More transactions at no extra cost - Standard SSDs](#more-transactions-at-no-extra-cost---standard-ssds)
+        - [GA: Create disks from snapshots encrypted with customer-managed keys across subscriptions](#ga-create-disks-from-snapshots-encrypted-with-customer-managed-keys-across-subscriptions)
+        - [GA: Entra ID support for managed disks](#ga-entra-id-support-for-managed-disks)
 
 ## What's new in 2024
 
+### Quarter 2 (April, May, June)
+
+#### Generally Available: New Property for Disks-LastOwnershipUpdateTime
+
+We are excited to introduce a new property for disks in the Azure Portal, Azure PowerShell module, and Azure CLI. This property, `LastOwnershipUpdateTime`, reflects the time when a disk’s state was last changed. This property can be used with the `diskState` to identify the current state of a disk, and when it was last updated. For more information, see the [Azure Update](https://azure.microsoft.com/updates/ga-new-property-for-diskslastownershipupdatetime/) or [the documentation.](/azure/virtual-machines/windows/find-unattached-disks)
+
 ### Quarter 1 (January, February, March)
+
+#### Generally available: Azure VM Backup Support for Ultra Disks and Premium SSD v2
+
+Azure Backup enabled support on Azure VMs using Ultra Disks and Premium SSD v2 that offers high throughput, high IOPS, and low latency. Azure VM Backup support allows you to ensure business continuity for your virtual machines and to recover from any disasters or ransomware attacks. Enabling backup on VMs using Ultra Disks and Premium SSD v2 is available in all regions where creation of Ultra disks and Premium SSD v2 are supported. To learn more, refer to the [documentation](../backup/backup-support-matrix-iaas.md#vm-storage-support) and enable backup on your Azure VMs. 
+
 
 #### Generally available: Trusted launch support for Ultra Disks and Premium SSD v2
 
@@ -123,7 +140,15 @@ In quarter 1, Ultra Disks were made available in the Brazil Southeast, China Nor
 
 #### More transactions at no extra cost - Standard SSDs
 
-In quarter 1, we added an hourly limit to the number of transactions that can occur a billable cost. Any transactions beyond that limit don't occur a cost. For information, see the [blog post](https://aka.ms/billedcapsblog) or [Standard SSD transactions](disks-types.md#standard-ssd-transactions).
+In quarter 1, we added an hourly limit to the number of transactions that can occur a billable cost. Any transactions beyond that limit don't occur a cost. For more information, see the [blog post](https://aka.ms/billedcapsblog) or [Standard SSD transactions](disks-types.md#standard-ssd-transactions).
+
+#### GA: Create disks from snapshots encrypted with customer-managed keys across subscriptions
+
+In quarter 1, support for creating disks from snapshots or other disks encrypted with customer-managed keys in different subscriptions while within the same tenant was added. For more information, see either the [Azure Update](https://azure.microsoft.com/updates/ga-create-disks-from-cmkencrypted-snapshots-across-subscriptions-and-in-the-same-tenant/) or [the documentation](disk-encryption.md#customer-managed-keys).
+
+#### GA: Entra ID support for managed disks
+
+In quarter 1, support for using Entra ID to secure uploads and downloads of managed disks was added. For details, see [Secure downloads with Microsoft Entra ID](linux/download-vhd.md#secure-downloads-and-uploads-with-microsoft-entra-id) or [Secure uploads with Microsoft Entra ID](windows/disks-upload-vhd-to-managed-disk-powershell.md#secure-uploads-with-microsoft-entra-id).
 
 ## Next steps
 

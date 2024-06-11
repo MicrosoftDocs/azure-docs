@@ -3,8 +3,12 @@ title: Start an investigation by searching large datasets - Microsoft Sentinel
 description: Learn about search jobs and restoring archived data in Microsoft Sentinel.
 author: cwatson-cat
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 03/03/2024
 ms.author: cwatson
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Start an investigation by searching for events in large datasets
@@ -13,6 +17,7 @@ One of the primary activities of a security team is to search logs for specific 
 
 In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If you need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and deeper analysis.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Search large datasets
 
@@ -43,7 +48,7 @@ Before you start a search job, be aware of the following limitations:
 - Search date range is up to seven years.
 - Supports long running searches up to a 24-hour time-out.
 - Results are limited to one million records in the record set.
-- Concurrent execution is limited to five search jobs per workspace.
+- Concurrent execution per user is limited to five search jobs per workspace.
 - Limited to 100 search results tables per workspace.
 - Limited to 100 search job executions per day per workspace.
 

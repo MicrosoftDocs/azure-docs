@@ -53,6 +53,6 @@ environment:
 ```
 
 ## Next steps
-To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments articles](service-fabric-manage-multiple-environment-app-configuration.md).
+To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
 For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

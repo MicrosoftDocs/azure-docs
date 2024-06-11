@@ -1,6 +1,6 @@
 ---
 title: Edit and manage pipelines
-description: Use the advanced features in the Digital Operations portal to edit pipelines and import and export pipelines.
+description: Use the advanced features in the Azure IoT Operations portal to edit Azure IoT Data Processor pipelines and import and export pipelines.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: data-processor
@@ -12,17 +12,21 @@ ms.date: 10/17/2023
 #CustomerIntent: As an OT user, I want edit and manage my pipelines so that I have greater flexibility in advanced editing capabilities.
 ---
 
-# Edit and manage pipelines
+# Edit and manage Azure IoT Data Processor Preview pipelines
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The Digital Operations portal provides a graphical user interface (GUI) for editing pipelines. To edit the JSON definition of a stage directly, you can use the **Advanced** tab. This feature gives you more flexibility and control over the pipeline configuration, especially if you need to manage complex configurations that might not be fully supported by the GUI such as for the [filter stage](howto-configure-filter-stage.md).
+The Azure IoT Operations (preview) portal provides a graphical user interface (GUI) for editing pipelines. To edit the JSON definition of a stage directly, you can use the **Advanced** tab. This feature gives you more flexibility and control over the pipeline configuration, especially if you need to manage complex configurations that might not be fully supported by the GUI such as for the [filter stage](howto-configure-filter-stage.md).
 
 The portal also lets you import and export complete pipelines as JSON files.
 
 ## Prerequisites
 
-To configure and use an aggregate pipeline stage, you need a deployed instance of Azure IoT Data Processor (preview).
+To configure and use a data processor pipeline, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
+
+If Data Processor isn't installed, you see the following message when you try to access the **Pipelines** tab in the Azure IoT Operations (preview) portal:
+
+_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the Data Processor._
 
 ## Edit the JSON definition of a stage
 
@@ -50,13 +54,8 @@ To pause or restart a pipeline, open the pipeline, select **Edit** and use **Pip
 
 ## Manage pipelines in your cluster
 
-To create, delete or copy pipelines, use the **Pipelines** tab in the Digital Operations portal:
+To create, delete or copy pipelines, use the **Pipelines** tab in the Azure IoT Operations (preview) portal:
 
 :::image type="content" source="media/pipelines-manage.png" alt-text="A screenshot that shows the options in the pipelines list.":::
 
 This list also lets you view the provisioning state and status of your pipelines
-
-## Related content
-
-- [Data Processor pipeline deployment status is failed](../troubleshoot/troubleshoot.md#data-processor-pipeline-deployment-status-is-failed)
-- [What are configuration patterns?](concept-configuration-patterns.md)

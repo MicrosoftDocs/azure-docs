@@ -2,24 +2,15 @@
 author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-custom-vision
-ms.date: 09/15/2020
+ms.date: 01/21/2024
 ms.custom: devx-track-csharp
 ms.topic: include
 ---
 
-Get started with the Custom Vision client library for .NET. Follow these steps to install the package and try out the example code for building an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
+Get started with the Custom Vision client library for .NET. Follow these steps to install the package and try out the example code for building an image classification model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to test it programmatically. Use this example as a template for building your own image recognition app.
 
 > [!NOTE]
 > If you want to build and train a classification model _without_ writing code, see the [browser-based guidance](../../getting-started-build-a-classifier.md) instead.
-
-Use the Custom Vision client library for .NET to:
-
-* Create a new Custom Vision project
-* Add tags to the project
-* Upload and tag images
-* Train the project
-* Publish the current iteration
-* Test the prediction endpoint
 
 [Reference documentation](/dotnet/api/overview/azure/custom-vision) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training) [(prediction)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction) | Package (NuGet) [(training)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/) [(prediction)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [Samples](/samples/browse/?products=azure&term=vision&terms=vision)
 
@@ -35,9 +26,9 @@ Use the Custom Vision client library for .NET to:
 
 ## Setting up
 
-### Create a new C# application
-
 #### [Visual Studio IDE](#tab/visual-studio)
+
+### Create a new C# application
 
 Using Visual Studio, create a new .NET Core application. 
 
@@ -46,6 +37,8 @@ Using Visual Studio, create a new .NET Core application.
 Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` and `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction`. Select the latest version and then **Install**. 
 
 #### [CLI](#tab/cli)
+
+### Create a new C# application
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `custom-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
 
@@ -95,27 +88,6 @@ In the application's **Main** method, create variables that retrieve your resour
 In the application's **Main** method, add calls for the methods used in this quickstart. You will implement these later.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_maincalls)]
-
-## Object model
-
-|Name|Description|
-|---|---|
-|[CustomVisionTrainingClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) | This class handles the creation, training, and publishing of your models. |
-|[CustomVisionPredictionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient)| This class handles the querying of your models for image classification predictions.|
-|[PredictionModel](/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel)| This class defines a single prediction on a single image. It includes properties for the object ID and name, and a confidence score.|
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the Custom Vision client library for .NET:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Create a new Custom Vision project](#create-a-new-custom-vision-project)
-* [Add tags to the project](#add-tags-to-the-project)
-* [Upload and tag images](#upload-and-tag-images)
-* [Train the project](#train-the-project)
-* [Publish the current iteration](#publish-the-current-iteration)
-* [Test the prediction endpoint](#test-the-prediction-endpoint)
-
 
 ## Authenticate the client
 

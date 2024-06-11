@@ -6,11 +6,11 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 02/20/2024
 ms.author: mbaldwin
 
 ---
 # Azure Key Vault service limits
 
-[!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault-limits.md)]
 

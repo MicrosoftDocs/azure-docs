@@ -37,11 +37,13 @@ This article shows you how to use Azure CNI networking to create and use a virtu
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
 
 ## Configure networking
+
+For information on planning IP addressing for your AKS cluster, see [Plan IP addressing for your cluster](concepts-network-ip-address-planning.md).
 
 # [**Portal**](#tab/configure-networking-portal)
 
@@ -104,7 +106,7 @@ New-AzAksCluster @net
 
 When you create an AKS cluster with the Azure CLI, you can also configure Azure CNI networking. 
 
-Use  [`az aks create`][az-aks-create] with the `--network-plugin azure` argument to create a cluster with advanced networking:
+Use [`az aks create`][az-aks-create] with the `--network-plugin azure` argument to create a cluster with advanced networking:
 
 ```azurecli-interactive
 az group create \
@@ -124,3 +126,5 @@ az aks create \
 
 To configure Azure CNI networking with dynamic IP allocation and enhanced subnet support, see [Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS](configure-azure-cni-dynamic-ip-allocation.md).
 
+<!-- LINKS - Internal -->
+[az-aks-create]: /cli/azure/aks#az_aks_create

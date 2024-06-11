@@ -5,8 +5,6 @@ ms.date: 04/18/2022
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
-author: davidsmatlak
-ms.author: davidsmatlak
 ---
 # Export Azure Policy resources
 

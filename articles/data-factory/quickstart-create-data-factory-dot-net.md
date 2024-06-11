@@ -49,10 +49,10 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Azure.ResourceManager.DataFactory NuGet package](https://www.nuget.org/packages/Azure.ResourceManager.DataFactory/).
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Azure.ResourceManager.DataFactory](https://www.nuget.org/packages/Azure.ResourceManager.DataFactory/) NuGet package.
 
     ```powershell
-    Install-Package Azure.Management.DataFactory -IncludePrerelease
+    Install-Package Azure.ResourceManager.DataFactory -IncludePrerelease
     Install-Package Azure.Identity 
     ```
 
@@ -85,7 +85,7 @@ Next, create a C# .NET console application in Visual Studio:
     string region = "<the location of your resource group>";
     string dataFactoryName = 
         "<specify the name of data factory to create. It must be globally unique.>";
-    string storageAccount = "<your storage account name to copy data>";
+    string storageAccountName = "<your storage account name to copy data>";
     string storageKey = "<your storage account key>";
     // specify the container and input folder from which all files 
     // need to be copied to the output folder. 
@@ -137,7 +137,7 @@ You create linked services in a data factory to link your data stores and comput
 
 ```csharp
 // Create an Azure Storage linked service
-CConsole.WriteLine("Create a linked service " + storageLinkedServiceName + "...");
+Console.WriteLine("Create a linked service " + storageLinkedServiceName + "...");
 AzureBlobStorageLinkedService azureBlobStorage = new AzureBlobStorageLinkedService()
 {
     ConnectionString = azureBlobStorageConnectionString

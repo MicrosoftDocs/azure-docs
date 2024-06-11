@@ -42,7 +42,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 > [!NOTE]
 > - Installation of the **CUDA & GRID drivers on Secure Boot enabled Windows VMs** does not require any extra steps.
-> - Installation of the **CUDA driver on Secure Boot enabled Ubuntu VMs** requires extra  steps documented at [Install NVIDIA GPU drivers on N-series VMs running Linux](./linux/n-series-driver-setup.md#install-cuda-driver-on-ubuntu-with-secure-boot-enabled). Secure Boot should be disabled for installing CUDA Drivers on other Linux VMs.
+> - Installation of the **CUDA driver on Secure Boot enabled Ubuntu VMs** requires extra  steps documented at [Install NVIDIA GPU drivers on N-series VMs running Linux](./linux/n-series-driver-setup.md#install-cuda-drivers-on-n-series-vms). Secure Boot should be disabled for installing CUDA Drivers on other Linux VMs.
 > - Installation of the  **GRID driver** requires secure boot to be disabled for Linux VMs.
 > - **Not Supported** size families do not support [generation 2](generation-2.md) VMs. Change VM Size to equivalent **Supported size families** for enabling Trusted Launch.
 
@@ -70,6 +70,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 - All public regions
 - All Azure Government regions
+- All Azure China regions
 
 **Pricing**:
 Trusted launch does not increase existing VM pricing costs.
@@ -77,10 +78,10 @@ Trusted launch does not increase existing VM pricing costs.
 ## Unsupported features
 
 > [!NOTE]
-> The following Virtual Machine features are currently not  supported with Trusted Launch.
+> The following Virtual Machine features are currently not supported with Trusted Launch.
 
-- [Azure Site Recovery](../site-recovery/site-recovery-overview.md)
-- [Managed Image](capture-image-resource.md) (Customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images))
+- [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (**Currently in Preview**)
+- [Managed Image](capture-image-resource.yml) (Customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images))
 - Nested Virtualization (most v5 VM size families supported)
 
 ## Secure boot

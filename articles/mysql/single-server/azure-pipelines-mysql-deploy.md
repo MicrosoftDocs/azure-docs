@@ -1,10 +1,10 @@
 ---
-title: Azure Pipelines task for Azure Database for MySQL single server 
+title: Azure Pipelines task for Azure Database for MySQL single server
 description: Enable Azure Database for MySQL Single Server CLI  task for using with Azure Pipelines
 ms.topic: how-to
 ms.service: mysql
 ms.subservice: single-server
-ms.custom: seodec18, devops-pipelines-deploy
+ms.custom: devops-pipelines-deploy
 ms.author: jukullam
 author: juliakm
 ms.date: 09/14/2022

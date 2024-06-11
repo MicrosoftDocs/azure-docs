@@ -8,8 +8,7 @@ ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.date: 01/19/2024
 ms.topic: include
-ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
-
+ms.custom: include file, devx-track-js
 ---
 Use the Language Understanding (LUIS) client libraries for Node.js to:
 
@@ -223,7 +222,7 @@ Publish the LUIS app using the [app.publish](/javascript/api/@azure/cognitiveser
 
 ## Authenticate the prediction runtime client
 
-Use an msRest.ApiKeyCredentials object with your key, and use it with your endpoint to create an [LUIS.LUISRuntimeClient](/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient) object.
+Use an `msRest.ApiKeyCredentials` object with your key, and use it with your endpoint to create an [LUIS.LUISRuntimeClient](/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient) object.
 
 [!INCLUDE [Caution about using authoring key](caution-authoring-key.md)]
 

@@ -5,7 +5,8 @@ author: qpetraroia
 ms.author: qpetraroia
 ms.topic: article
 ms.date: 06/22/2023
-ms.custom: devx-track-azurecli, build-spring-2022, event-tier1-build-2022
+ms.subservice: aks-developer
+ms.custom: devx-track-azurecli, build-spring-2022
 ---
 
 # Draft for Azure Kubernetes Service (AKS) (preview)
@@ -29,7 +30,7 @@ Draft has the following commands to help ease your development on Kubernetes:
 
 ### Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
 
@@ -127,3 +128,4 @@ After you create your artifacts and set up GitHub OIDC, you can use `draft gener
 [az-aks-draft-create]: /cli/azure/aks/draft#az-aks-draft-create
 [az-aks-draft-setup-gh]: /cli/azure/aks/draft#az-aks-draft-setup-gh
 [az-aks-draft-generate-workflow]: /cli/azure/aks/draft#az-aks-draft-generate-workflow
+

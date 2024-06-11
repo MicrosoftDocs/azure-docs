@@ -1,6 +1,6 @@
 ---
-title: Rotate user-provided TLS certificate in indirectly connected SQL Server Managed Instance enabled by Azure Arc
-description: Rotate user-provided TLS certificate in indirectly connected SQL Server Managed Instance enabled by Azure Arc
+title: Rotate user-provided TLS certificate in indirectly connected SQL Managed Instance enabled by Azure Arc
+description: Rotate user-provided TLS certificate in indirectly connected SQL Managed Instance enabled by Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -11,7 +11,7 @@ ms.reviewer: mikeray
 ms.date: 12/15/2021
 ms.topic: how-to
 ---
-# Rotate certificate SQL Server Managed Instance enabled by Azure Arc (indirectly connected)
+# Rotate certificate SQL Managed Instance enabled by Azure Arc (indirectly connected)
 
 This article describes how to rotate user-provided Transport Layer Security(TLS) certificate for SQL Managed Instance enabled by Azure Arc in indirectly connected mode using Azure CLI or `kubectl` commands.  
 

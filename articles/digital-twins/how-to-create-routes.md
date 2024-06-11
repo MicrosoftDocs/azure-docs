@@ -35,7 +35,7 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
 
 Next, follow the instructions below if you intend to use the Azure CLI while following this guide.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create an event route
 

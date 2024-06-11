@@ -1,10 +1,9 @@
 ---
 title: Restore a backup to a new Azure NetApp Files volume | Microsoft Docs
-description: Describes how to restore a backup to a new volume. 
+description: Describes how to restore a backup to a new volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 10/17/2023
 ms.author: anfdocs
@@ -19,13 +18,13 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 * You can restore backups to a different capacity pool within the same NetApp account.
 
-* You can restore a backup only to a new volume.  You cannot overwrite the existing volume with the backup. 
+* You can restore a backup only to a new volume. You cannot overwrite the existing volume with the backup. 
 
 * The new volume created by the restore operation cannot be mounted until the restore completes. 
 
 * You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
 
-* For large volumes (greater than 10 TB), it can take multiple hours to transfer all the data from the backup media.
+* For volumes greater than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 
 * Restoring a backup to a new volume is not dependent on the networking type used by the source volume. You can restore the backup of a volume configured with Basic networking to a volume configured with Standard networking and vice versa.
 
@@ -42,7 +41,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 ## Steps
 
 >[!IMPORTANT]
->All backups must be migrated to backup vaults. You will not be able to perform any operation on or with a backup until you have migrated the backup to a vault. For more information about this procedure, see [Manage backup vaults](backup-vault-manage.md).
+>All backups must be migrated to backup vaults. You are unable to perform any operation on or with a backup until you have migrated the backup to a backup vault. For more information about this procedure, see [Manage backup vaults](backup-vault-manage.md).
 
 1. Select **Backup Vault**. Navigate to **Backups**.
 <!-- 
@@ -51,7 +50,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 
 2. From the backup list, select the backup to restore. Select the three dots (`…`) to the right of the backup, then select **Restore to new volume** from the Action menu.   
 
-    :::image type="content" source="../media/azure-netapp-files/backup-restore-new-volume.png" alt-text="Screenshot of selecting restore backup to new volume." lightbox="../media/azure-netapp-files/backup-restore-new-volume.png":::
+    :::image type="content" source="./media/backup-restore-new-volume/backup-restore-new-volume.png" alt-text="Screenshot of selecting restore backup to new volume." lightbox="./media/backup-restore-new-volume/backup-restore-new-volume.png":::
 
 3. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and select **Review + Create** to begin restoring the backup to a new volume.   
 
@@ -63,7 +62,7 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 
     * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.   
 
-    ![Screenshot that shows the Create a Volume page.](../media/azure-netapp-files/backup-restore-create-volume.png)
+    ![Screenshot that shows the Create a Volume page.](./media/backup-restore-new-volume/backup-restore-create-volume.png)
 
 4. The Volumes page displays the new volume. In the Volumes page, the **Originated from** field identifies the name of the snapshot used to create the volume.
 
@@ -76,7 +75,6 @@ See [Requirements and considerations for Azure NetApp Files backup](backup-requi
 * [Configure manual backups](backup-configure-manual.md)
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)
-* [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](faq-backup.md)

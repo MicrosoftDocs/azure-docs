@@ -38,7 +38,7 @@ GEOMASTER_LOCATION="TODO: Why so many different locations for different resource
 
 Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-[![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 Because these CLI commands are not yet part of the core CLI set, add them with the following commands.
 
@@ -359,7 +359,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     ```bash
     CUSTOM_LOCATION_NAME="my-custom-location" # Name of the custom location
     
-    CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME-query id --output tsv)
+    CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $GROUP_NAME --name $CLUSTER_NAME --query id --output tsv)
     ```
 
     # [PowerShell](#tab/powershell)

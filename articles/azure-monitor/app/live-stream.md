@@ -48,7 +48,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
 1. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Enable Live Metrics by using code for any .NET application
 
@@ -407,7 +407,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 ## Troubleshooting
 
-Live Metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check that [outgoing ports for Live Metrics](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
+Live Metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../ip-addresses.md) are open in your firewall. Also check that [outgoing ports for Live Metrics](../ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
 As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), Live Metrics now only supports TLS 1.2. If you're using an older version of TLS, Live Metrics doesn't display any data. For applications based on .NET Framework 4.5.1, see [Enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support the newer TLS version.
 

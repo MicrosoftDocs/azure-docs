@@ -67,14 +67,39 @@ In Azure Functions, a function project is a container for one or more individual
 If desired, you can skip to [Run the function locally](#run-the-function-locally) and examine the file contents later.
 
 #### HttpExample.cs
+    
+*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable as an [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) object. That parameter is decorated with the **HttpTriggerAttribute**, to define the trigger behavior.
+    
+```csharp
+using System.Net;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
-The function code generated from the template depends on the type of compiled C# project.
+namespace Company.Function
+{
+    public class HttpExample
+    {
+        private readonly ILogger<HttpExample> _logger;
 
-*HttpExample.cs* contains a `Run` method that receives request data in the `req` variable is an [HttpRequestData](/dotnet/api/microsoft.azure.functions.worker.http.httprequestdata) object that's decorated with the **HttpTriggerAttribute**, which defines the trigger behavior. Because of the isolated worker process model,    `HttpRequestData` is a representation of the actual `HttpRequest`, and not the request object itself.
+        public HttpExample(ILogger<HttpExample> logger)
+        {
+            _logger = logger;
+        }
 
-:::code language="csharp" source="~/functions-docs-csharp/http-trigger-isolated/HttpExample.cs":::
+        [Function("HttpExample")]
+        public IActionResult Run([HttpTrigger(AuthorizationLevel.AuthLevelValue, "get", "post")] HttpRequest req)
+        {            
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-The return object is an [HttpResponseData](/dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata) object that contains the data that's handed back to the HTTP response.
+            return new OkObjectResult("Welcome to Azure Functions!");
+        }
+    }
+}
+```
+    
+The return object is an [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) object that contains the data that's handed back to the HTTP response.
 
 To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=csharp).
 

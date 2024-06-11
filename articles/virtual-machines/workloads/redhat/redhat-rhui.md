@@ -125,7 +125,8 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Add EUS repositories.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config' install rhui-azure-rhel8-eus
+   wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+   sudo dnf --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
    ```
 
 
@@ -206,7 +207,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install rhui-azure-rhel7
+   sudo yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config install rhui-azure-rhel7
    ```
 
 1. Update your RHEL VM.
@@ -234,7 +235,8 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config' install rhui-azure-rhel8
+   wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+   sudo dnf --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
    ```
 
 1. Update your RHEL VM.
@@ -339,7 +341,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
 In September 2016, Azure deployed an updated Azure RHUI. In April 2017, the old Azure RHUI was shut down. If you have been using the RHEL PAYG images or their snapshots from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
 
-The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com and rhui4-1.microfot.com, regardless of region.
+The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, any VM can use a single endpoint, rhui-1.microsoft.com and rhui4-1.microsoft.com, regardless of region.
 
 ### Manual update procedure to use the Azure RHUI servers
 

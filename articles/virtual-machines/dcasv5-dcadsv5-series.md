@@ -102,4 +102,4 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-solutions.md)
+> [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-options.md)

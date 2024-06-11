@@ -3,7 +3,7 @@ title: Create a standalone Azure Automation account
 description: This article tells how to create a standalone Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 04/25/2024
 ms.topic: conceptual
 ---
 # Create a standalone Azure Automation account
@@ -28,7 +28,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
 1. Select **+ Create a Resource**.
 1. Search for **Automation**. In the search results, select **Automation**.
 
-   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Locating Automation accounts in portal":::
+   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Screenshot of Automation accounts in the portal." lightbox="./media/automation-create-standalone-account/automation-account-portal.png":::
 
 Options for your new Automation account are organized into tabs in the **Create an Automation Account** page. The following sections describe each of the tabs and their options.
 

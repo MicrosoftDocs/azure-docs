@@ -4,8 +4,8 @@ titleSuffix: Azure Load Testing
 description: Learn about the scenarios for deploying Azure Load Testing in a virtual network. This deployment enables you to load test private application endpoints and hybrid deployments.
 services: load-testing
 ms.service: load-testing
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 ms.topic: conceptual
 ms.date: 08/22/2023
 ---

@@ -6,10 +6,9 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 06/27/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurepowershell, engagement-fy23
+ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Load balancing on multiple IP configurations using PowerShell
@@ -23,7 +22,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 
 ## Steps to load balance on multiple IP configurations
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Follow the steps below to achieve the scenario outlined in this article:
 

@@ -6,8 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2021
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Transform data in delta lake using mapping data flows

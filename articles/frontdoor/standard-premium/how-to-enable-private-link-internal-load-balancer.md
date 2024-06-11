@@ -33,7 +33,7 @@ In this section, you map the Private Link service to a private endpoint created 
 1. Select **+ Add an origin** to add new origin. Select or enter the following settings to configure the internal load balancer origin. 
 
     > [!NOTE] 
-    > The hostname must be a valid domain name, IPv4 or IPv6. The hostname can be the private IP of the internal load balancer or a domain name. If you are using a domain name, you must have a DNS record that resolves to the private IP of the internal load balancer. 
+    > The hostname must be a valid domain name, IPv4 or IPv6. The hostname can be the private IP of the internal load balancer or a domain name. 
 
     :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-endpoint-internal-load-balancer-ip.png" alt-text="Screenshot of enabling private link to an internal load balancer using an IP address.":::
 

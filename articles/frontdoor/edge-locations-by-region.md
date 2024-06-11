@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/30/2023
 ms.author: duau
 ms.custom: references_regions
@@ -20,7 +19,7 @@ This article lists current metro cities with Azure Front Door point-of-presence 
 > [!NOTE]
 > A location may contain more than one POP, noted by the number in parentheses.
 
-[!INCLUDE [front-door-edge-locations](../../includes/front-door-edge-locations.md)]
+[!INCLUDE [front-door-edge-locations](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations.md)]
 
 ## Next steps
 

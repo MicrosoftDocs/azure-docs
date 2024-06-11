@@ -11,7 +11,7 @@ ms.author: thvankra
 
 # DBA commands for Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment, scaling, and [management operations](management-operations.md) for open-source Apache Cassandra data centers. The automation in the service should be sufficient for many use cases. However, this article describes how to run DBA commands manually when the need arises. 
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed. This article describes how to run DBA commands manually when the need arises. 
 
 > [!IMPORTANT]
 > Nodetool and sstable commands are in public preview.
@@ -82,10 +82,30 @@ The `cassandra-reset-password` command lets a user change their password for the
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-password --arguments password="<password>"
 ```
+> [!IMPORTANT]
+> The password is URL encoded (UTF-8) when it is passed into this command, meaning the following rules apply:
+> 
+> * `The alphanumeric characters "a" through "z", "A" through "Z" and "0" through "9" remain the same.`
+> * `The special characters ".", "-", "*", and "_" remain the same.`
+> * `The space character " " is converted into a plus sign "+".`
+> * `All other characters are unsafe and are first converted into one or more bytes using some encoding scheme. Then each byte is represented
+> by the 3-character string "%xy", where xy is the two-digit
+> hexadecimal representation of the byte.`
+
 The `cassandra-reset-auth-replication` command lets a user change their schema for the Cassandra user. Separate the datacenter names by space.
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name cassandra-reset-auth-replication --arguments password="<datacenters>"
 ```
+> [!IMPORTANT]
+> The datacenters are URL encoded (UTF-8) when they are passed into this command, meaning the following rules apply:
+> 
+> * `The alphanumeric characters "a" through "z", "A" through "Z" and "0" through "9" remain the same.`
+> * `The special characters ".", "-", "*", and "_" remain the same.`
+> * `The space character " " is converted into a plus sign "+".`
+> * `All other characters are unsafe and are first converted into one or more bytes using some encoding scheme. Then each byte is represented
+> by the 3-character string "%xy", where xy is the two-digit
+> hexadecimal representation of the byte.`
+
 The `sstable-tree` command lets a user see their sstables.
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command --resource-group <rg> --cluster-name <cluster> --host <ip of data node> --command-name sstable-tree

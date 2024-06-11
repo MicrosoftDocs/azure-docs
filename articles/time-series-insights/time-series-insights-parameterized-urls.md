@@ -8,7 +8,6 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: conceptual
 ms.date: 10/02/2020
-ms.custom: seodec18
 ---
 
 # Share a custom view using a parameterized URL

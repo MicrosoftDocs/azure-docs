@@ -1,3 +1,4 @@
+items:
 - name: Azure AI services documentation
   href: index.yml
 - name: Overview
@@ -31,8 +32,8 @@
     href: cognitive-services-custom-subdomains.md
 - name: How-to
   items:
-  - name: Plan and manage costs 
-    href: plan-manage-costs.md
+  - name: Plan and manage costs
+    href: ../ai-studio/how-to/costs-plan-manage.md?context=/azure/ai-services/context/context
   - name: Increase rate limit
     href: autoscale.md
   - name: Use commitment tier pricing 
@@ -101,6 +102,10 @@
     href: cognitive-services-limited-access.md
 - name: Reference
   items:
+  - name: Azure AI services SDKs
+    href: reference/sdk-package-resources.md
+  - name: Azure AI services REST APIs
+    href: reference/rest-api-resources.md
   - name: REST API
     href: /rest/api/cognitiveservices/accountmanagement/accounts
   - name: .NET

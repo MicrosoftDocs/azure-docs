@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # Connection string and account key operations for an Azure Cosmos DB account using PowerShell
 
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This sample requires the Az PowerShell module 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
 If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).

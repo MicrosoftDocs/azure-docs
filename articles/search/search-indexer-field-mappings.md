@@ -63,6 +63,8 @@ Field mappings are added to the `fieldMappings` array of an indexer definition. 
 | targetFieldName | Optional. Represents a field in your search index. If omitted, the value of `sourceFieldName` is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
 | mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
 
+If you get an error similar to `"Field mapping specifies target field 'Address/city' that doesn't exist in the index"`, it's because target field mappings can't be a complex type. The workaround is to create an index schema that's identical to the raw content for field names and data types. See [Tutorial: Index nested JSON blobs](search-semi-structured-data.md) for an example.
+
 Azure AI Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
 
 > [!NOTE]
@@ -144,7 +146,7 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 Only URL-safe characters can appear in an Azure AI Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/lookup-document)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
 
-The following example specifies the base64Encode function on `metadata_storage_name `to handle unsupported characters.
+The following example specifies the base64Encode function on `metadata_storage_name` to handle unsupported characters.
 
 ```http
 PUT /indexers?api-version=2020-06-30
@@ -373,6 +375,48 @@ When errors occur that are related to document key length exceeding 1024 charact
     "targetFieldName" : "your key field",
     "mappingFunction" : {
       "name" : "fixedLengthEncode"
+    }
+  }
+]
+ ```
+
+<a name="toJsonFunction"></a>
+
+### toJson function
+ 
+This function converts a string into a formatted JSON object. This can be used for scenarios where the data source, such as Azure SQL, doesn't natively support compound or hierarchical data types, and then map it to complex fields.
+
+### Example - map text content to a complex field
+
+Assume there's a SQL row with a JSON string that needs to be mapped to a (correspondingly defined) complex field in the index, the `toJson` function can be used to achieve this. For instance, if a complex field in the index needs to be populated with the following data:
+
+```JSON
+{
+    "id": "5",
+    "info": {
+        "name": "Jane",
+        "surname": "Smith",
+        "skills": [
+            "SQL",
+            "C#",
+            "Azure"
+        ],
+        "dob": "2005-11-04T12:00:00"
+    }
+}
+```
+It can be achieved by using the `toJson` mapping function on a JSON string column in a SQL row that looks like this: `{"id": 5, "info": {"name": "Jane", "surname": "Smith", "skills": ["SQL", "C#", "Azure"]}, "dob": "2005-11-04T12:00:00"}`. 
+
+The field mapping needs to be specified as shown below.
+
+```JSON
+
+"fieldMappings" : [
+  {
+    "sourceFieldName" : "content",
+    "targetFieldName" : "complexField",
+    "mappingFunction" : {
+      "name" : "toJson"
     }
   }
 ]

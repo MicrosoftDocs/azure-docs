@@ -1,14 +1,14 @@
 ---
 title: Contact support for Confluent Cloud
 description: This article describes how to contact support for Confluent Cloud on the Azure portal.
+# customerIntent: As a developer I want learn how I can contact support for Apache Kafka & Apache Flink on Confluent Cloud.
 ms.topic: conceptual
-
-ms.date: 11/20/2023
+ms.date: 1/31/2024
 ---
 
 # Get support for Confluent Cloud resource
 
-This article describes how to contact support for your instance of Apache Kafka for Confluent Cloud on Azure.
+This article describes how to contact support for your instance of Apache Kafka® & Apache Flink® on Confluent Cloud™ on Azure.
 
 ## Contact support
 
@@ -17,7 +17,7 @@ To submit a support request to Confluent, either contact [Confluent support](htt
 > [!NOTE]
 > For first time users, reset your password before you sign in to the Confluent support portal. If you don't have an account with Confluent Cloud, send an email to `cloud-support@confluent.io` for further assistance.
 
-In the portal, you can either submit a request through Azure Help and Support, or directly from your instance of Apache Kafka for Confluent Cloud on Azure.
+In the portal, you can either submit a request through Azure Help and Support, or directly from your instance of Apache Kafka & Apache Flink on Confluent Cloud on Azure.
 
 To submit a request through Azure Help and Support:
 
@@ -37,8 +37,8 @@ To submit a request from your resource, follow these steps:
 
 ## Next steps
 
-- For help with troubleshooting, see [Troubleshooting Apache Kafka on Confluent Cloud solutions](troubleshoot.md).
-- Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
+- For help with troubleshooting, see [Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions](troubleshoot.md).
+- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

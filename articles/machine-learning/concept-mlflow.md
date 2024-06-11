@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 01/10/2024
 ms.topic: conceptual
-ms.custom: cliv2, sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: cliv2, sdkv2
 ---
 
 # MLflow and Azure Machine Learning

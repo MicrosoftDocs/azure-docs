@@ -7,8 +7,7 @@ ms.topic: article
 ms.date: 08/29/2023
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure Premium V3 tier for Azure App Service
@@ -100,7 +99,7 @@ az appservice plan create \
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following command creates an App Service plan in _P1V3_. The options for `-WorkerSize` are _Small_, _Medium_, and _Large_.
 

@@ -3,11 +3,11 @@ title: How to generate and transfer HSM-protected keys for Azure Key Vault Manag
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM. Also known as bring your own key (BYOK).
 services: key-vault
 author: mbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 01/04/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
@@ -44,7 +44,7 @@ To use the Azure CLI commands in this article, you must have the following items
 * The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM the [supported HSMs list](#supported-hsms) in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 To sign in to Azure using the CLI, type:
 

@@ -8,7 +8,6 @@ ms.date: 05/26/2021
 ms.author: sidandrews
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
-ms.custom: ignite-fall-2021
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB not found exceptions

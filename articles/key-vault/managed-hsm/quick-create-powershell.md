@@ -3,11 +3,10 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/05/2023
+ms.date: 01/30/2024
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-tags: azure-resource-manager
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -105,7 +104,7 @@ After successfully downloading the security domain, your HSM will be in an activ
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
 
 > [!WARNING]
 > Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)

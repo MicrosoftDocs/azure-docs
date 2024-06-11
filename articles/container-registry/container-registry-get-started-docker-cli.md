@@ -6,7 +6,7 @@ ms.date: 10/31/2023
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
-ms.custom: seodec18, H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017
 ---
 
 # Push your first image to your Azure container registry using the Docker CLI

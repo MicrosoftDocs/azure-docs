@@ -1,20 +1,25 @@
 ---
-title: 'Quickstart: Connect with C#'
+title: "Quickstart: Connect with C#"
 description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL - Flexible Server."
+author: agapovm
+ms.author: maximagapov
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
-ms.custom: mvc, devcenter, devx-track-csharp, mode-other, devx-track-dotnet
-ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.custom:
+  - mvc
+  - devcenter
+  - devx-track-csharp
+  - mode-other
+  - devx-track-dotnet
+ms.devlang: csharp
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL flexible server instance using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using C#, and that you are new to working with Azure Database for PostgreSQL flexible server.
 
@@ -334,7 +339,7 @@ az group delete \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using Portal](./how-to-manage-server-portal.md)<br/>
+> [Manage Azure Database for PostgreSQL server using Portal](./how-to-manage-server-portal.md)<br/>
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)
+> [Manage Azure Database for PostgreSQL server using CLI](./how-to-manage-server-cli.md)

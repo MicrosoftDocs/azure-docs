@@ -20,7 +20,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -64,7 +64,7 @@ Azure CLI offers commands that perform operations on one resource or on multiple
 
 To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the source path and file name with the `--file` parameter, and the name of the destination container with the `--container-name` parameter. You'll also need to supply the `--account-name` parameter. This command creates a new blob or overwrites the original blob if it already exists.
 
-You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. You can use Unix filename pattern matching specify a range of files to upload with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. You can use Unix filename pattern matching specify a range of files to upload with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3/library/fnmatch.html).
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
@@ -156,7 +156,7 @@ done
 
 Depending on your use case, you'll use either the `az storage blob download` or `az storage blob download-batch` command to download blobs. To download an individual blob, call the `az storage blob download` command directly and pass values for the `--container-name`, `--file`, and `--name` parameters. The blob will be downloaded to the shell directory by default, but an alternate location can be specified. The operation will fail with an error if your specified path doesn't exist.
 
-To recursively download multiple blobs from a storage container, use the `az storage blob download-batch` command. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+To recursively download multiple blobs from a storage container, use the `az storage blob download-batch` command. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3/library/fnmatch.html).
 
 The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have many thousands of resources, using the `--num-results` parameter is recommended.
 
@@ -284,7 +284,7 @@ To copy a specific blob, use the `az storage blob copy start` command and specif
 
 You can also specify the conditions under which the blob will be copied. These conditions can be set for either the source or destination blob. You can reference the last modified date, tag data, or ETag value. You may, for example, choose to copy blobs that haven't been recently modified to a separate container. For more information, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).
 
-You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3/library/fnmatch.html).
 
 > [!NOTE]
 > Consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](../common/storage-use-azcopy-v10.md).

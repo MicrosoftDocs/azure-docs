@@ -2,8 +2,12 @@
 title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: linux-related-content
+ms.custom:
+ms.subservice: aks-storage
 ms.date: 01/11/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -346,7 +350,10 @@ mountOptions:
 
 ### Create NFS file share storage class
 
-Create a file named `nfs-sc.yaml` and copy the manifest below. For a list of supported `mountOptions`, see [NFS mount options][nfs-file-share-mount-options]
+Create a file named `nfs-sc.yaml` and copy the manifest below. For a list of supported `mountOptions`, see [NFS mount options][nfs-file-share-mount-options].
+
+> [!NOTE]
+> `vers`, `minorversion`, `sec` are configured by the Azure File CSI driver. Specifying a value in your manifest for these properties aren't supported.
 
 ```yml
 apiVersion: storage.k8s.io/v1

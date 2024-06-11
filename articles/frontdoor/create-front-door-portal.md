@@ -6,7 +6,6 @@ author: duongau
 manager: KumudD
 ms.service: frontdoor
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 10/02/2023
 ms.author: duau
 ms.custom: mode-ui
@@ -21,7 +20,7 @@ In this quickstart, you use the Custom create option to create an Azure Front Do
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
 
-[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
 
 ## Prerequisites
 

@@ -72,7 +72,7 @@ Machine Learning environments are an encapsulation of the environment where your
 
 Machine Learning supports two types of environments: curated and custom.
 
-Curated environments are provided by Machine Learning and are available in your workspace by default. They're intended to be used as is. They contain collections of Python packages and settings to help you get started with various machine learning frameworks. These precreated environments also allow for faster deployment time. For a full list, see [Azure Machine Learning curated environments](resource-curated-environments.md).
+Curated environments are provided by Machine Learning and are available in your workspace by default. They're intended to be used as is. They contain collections of Python packages and settings to help you get started with various machine learning frameworks. These precreated environments also allow for faster deployment time. To retrieve a full list of available environments, see [Azure Machine Learning environments with the CLI & SDK (v2)](/azure/machine-learning/how-to-manage-environments-v2?view=azureml-api-2&tabs=cli&preserve-view=true#curated-environments).
 
 In custom environments, you're responsible for setting up your environment. Make sure to install the packages and any other dependencies that your training or scoring script needs on the compute. Machine Learning allows you to create your own environment by using:
 
@@ -82,7 +82,7 @@ In custom environments, you're responsible for setting up your environment. Make
 
 ## Model
 
-Machine Learning models consist of the binary files that represent a machine learning model and any corresponding metadata. You can create models from a local or remote file or directory. For remote locations, `https`, `wasbs`, and `azureml` locations are supported. The created model is tracked in the workspace under the specified name and version. Machine Learning supports three types of storage format for models:
+Machine Learning models consist of the binary files that represent a machine learning model and any corresponding metadata. You can create models from a local or remote file or directory. For remote locations, `https`, `wasbs`, and `azureml` locations are supported. The created model is tracked in the workspace under the specified name and version. Machine Learning supports three types of storage formats for models:
 
 * `custom_model`
 * `mlflow_model`

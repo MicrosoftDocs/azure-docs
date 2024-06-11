@@ -5,7 +5,7 @@ description: Learn how to set up a Microsoft Entra tenant for P2S OpenVPN authen
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/17/2023
+ms.date: 01/23/2024
 ms.author: cherylmc
 ms.custom: engagement-fy23
 ---
@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 When you use Microsoft Entra ID as the authentication method for P2S, you can configure P2S to allow different access for different users and groups. If you want different sets of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up a Microsoft Entra tenant for P2S Microsoft Entra authentication and create and register multiple apps in Microsoft Entra ID for allowing different access for different users and groups. For more information about point-to-site protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
 
-[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-openvpn-auth-include.md)]
 
 <a name='azure-ad-tenant'></a>
 
@@ -40,7 +40,7 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
 
 ## Authorize the Azure VPN application
 
-[!INCLUDE [Steps to authorize the Azure VPN app](../../includes/vpn-gateway-vwan-azure-ad-tenant.md)]
+[!INCLUDE [Steps to authorize the Azure VPN app](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-azure-ad-tenant.md)]
 
 ## Register additional applications
 
@@ -89,7 +89,7 @@ When you enable authentication on the VPN gateway, you'll need the **Application
 
 ## Assign users to applications
 
-Assign the users to your applications.
+Assign the users to your applications. If you're specifying a group, the user must be a direct member of the group. Nested groups aren't supported.
 
 1. Go to your Microsoft Entra ID and select **Enterprise applications**.
 1. From the list, locate the application you just registered and click to open it.

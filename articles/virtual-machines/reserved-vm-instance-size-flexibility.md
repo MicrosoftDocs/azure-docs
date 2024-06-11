@@ -1,10 +1,9 @@
 ---
-title: Virtual machine size flexibility -Azure Reserved VM Instances 
+title: Virtual machine size flexibility -Azure Reserved VM Instances
 description: Learn what size series a reservation discount applies to when you by a reserved VM instance.
 ms.service: virtual-machines
 ms.subservice: billing
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 04/06/2021
 ---
 

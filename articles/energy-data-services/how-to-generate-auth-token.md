@@ -76,7 +76,7 @@ The `redirect-uri` of your app, where your app sends and receives the authentica
 
 ### Find the adme-url for your Azure Data Manager for Energy instance
 
-1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+1. Create an [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) using the `client-id` generated above.
 1. Go to your Azure Data Manager for Energy **Overview** page on the Azure portal.
 1. On the **Essentials** pane, copy the URI.
 
@@ -96,9 +96,12 @@ You have two ways to get the list of data partitions in your Azure Data Manager 
 
    :::image type="content" source="media/how-to-generate-auth-token/data-partition-id-second-option-step-2.png" alt-text="Screenshot that shows finding the data-partition-id from the Azure Data Manager for Energy instance Overview page with the data partitions.":::
 
+### Find domain
+By default, the `domain` is dataservices.energy for all the Azure Data Manager for Energy instances.
+
 ## Generate the client-id auth token
 
-Run the following curl command in Azure Cloud Bash after you replace the placeholder values with the corresponding values found earlier in the previous steps. The access token in the response is the `client-id` auth token.
+Run the following curl command in [Azure Cloud Bash](../cloud-shell/overview.md) after you replace the placeholder values with the corresponding values found earlier in the previous steps. The access token in the response is the `client-id` auth token.
 
 **Request format**
 
@@ -131,50 +134,33 @@ Generating a user's auth token is a two-step process.
 
 The first step to get an access token for many OpenID Connect (OIDC) and OAuth 2.0 flows is to redirect the user to the Microsoft identity platform `/authorize` endpoint. Microsoft Entra ID signs the user in and requests their consent for the permissions your app requests. In the authorization code grant flow, after consent is obtained, Microsoft Entra ID returns an authorization code to your app that it can redeem at the Microsoft identity platform `/token` endpoint for an access token.
 
-1. After you replace the parameters, you can paste the request in the URL of any browser and select Enter.
-1. Sign in to your Azure portal if you aren't signed in already.
-1. You might see the "Hmmm...can't reach this page" error message in the browser. You can ignore it.
+1. Prepare the request format using the parameters.
+   ```bash
+   https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/authorize?client_id=<client-id>
+   &response_type=code
+   &redirect_uri=<redirect-uri>
+   &response_mode=query
+   &scope=<client-id>%2f.default&state=12345&sso_reload=true
+   ```
+2. After you replace the parameters, you can paste the request in the URL of any browser and select Enter.
+3. Sign in to your Azure portal if you aren't signed in already.
+4. You might see the "Hmmm...can't reach this page" error message in the browser. You can ignore it.
 
    :::image type="content" source="media/how-to-generate-auth-token/localhost-redirection-error.png" alt-text="Screenshot of localhost redirection.":::
 
-1. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
-1. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`.
-1. Keep this `authorization-code` handy for future use.
+5. The browser redirects to `http://localhost:8080/?code={authorization code}&state=...` upon successful authentication.
+6. Copy the response from the URL bar of the browser and fetch the text between `code=` and `&state`.
+   ```bash
+   http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
+   ```
 
-#### Request format
+7. Keep this `authorization-code` handy for future use.
 
- ```bash
-  https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/authorize?client_id={client-id}
-  &response_type=code
-  &redirect_uri={redirect-uri}
-  &response_mode=query
-  &scope={client-id}%2f.default&state=12345&sso_reload=true
-```
-  
-| Parameter | Required? | Description |
-| --- | --- | --- |
-|tenant-id|Required|Name of your Microsoft Entra tenant.|
-| client-id |Required |The application ID assigned to your app in the [Azure portal](https://portal.azure.com). |
-| response_type |Required |The response type, which must include `code` for the authorization code flow. You can receive an ID token if you include it in the response type, such as `code+id_token`, and in this case, the scope needs to include `openid`.|
-| redirect_uri |Required |The redirect URI of your app, where your app sends and receives the authentication responses. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL encoded. |
-| scope |Required |A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application needs a *refresh token* for extended access to resources. The client ID indicates the token issued is intended for use by an Azure Active Directory B2C registered client. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. |
-| response_mode |Recommended |The method that you use to send the resulting authorization code back to your app. It can be `query`, `form_post`, or `fragment`. |
-| state |Recommended |A value included in the request that can be a string of any content that you want to use. Usually, a randomly generated unique value is used to prevent cross-site request forgery (CSRF) attacks. The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page the user was on, or the user flow that was being executed. |
-
-#### Sample response
-
-```bash
-http://localhost:8080/?code=0.BRoAv4j5cvGGr0...au78f&state=12345&session....
-```
-
-> [!NOTE]
-> The browser might say that the site can't be reached, but it should still have the authorization code in the URL bar.
-
-|Parameter| Description|
-| --- | --- |
-|code|The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived. Typically, they expire after about 10 minutes.|
-|state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.|
-|session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
+   |Parameter| Description|
+   | --- | --- |
+   |code|The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. Authorization codes are short lived. Typically, they expire after about 10 minutes.|
+   |state|If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. This check helps to detect [CSRF attacks](https://tools.ietf.org/html/rfc6749#section-10.12) against the client.|
+   |session_state|A unique value that identifies the current user session. This value is a GUID, but it should be treated as an opaque value that's passed without examination.|
 
 > [!WARNING]
 > Running the URL in Postman won't work because it requires extra configuration for token retrieval.
@@ -186,23 +172,13 @@ The second step is to get the auth token and the refresh token. Your app uses th
 #### Request format
 
 ```bash
-  curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id={client-id}
-  &scope={client-id}%2f.default openid profile offline_access
-  &code={authorization-code}
-  &redirect_uri={redirect-uri}
+  curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=<client-id>
+  &scope=<client-id>%2f.default openid profile offline_access
+  &code=<authorization-code>
+  &redirect_uri=<redirect-uri>
   &grant_type=authorization_code
-  &client_secret={client-secret}' 'https://login.microsoftonline.com/{tenant-id}/oauth2/v2.0/token'
+  &client_secret=<client-secret>' 'https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token'
 ```
-
-|Parameter  |Required  |Description  |
-|---------|---------|---------|
-|tenant     | Required        | The `{tenant-id}` value in the path of the request can be used to control who can sign in to the application.|
-|client_id     | Required         | The application ID assigned to your app upon registration.        |
-|scope     | Required        | A space-separated list of scopes. The scopes that your app requests in this leg must be equivalent to or a subset of the scopes that it requested in the first (authorization) leg. If the scopes specified in this request span multiple resource servers, the v2.0 endpoint returns a token for the resource specified in the first scope.        |
-|code    |Required         |The authorization code that you acquired in the first step of the flow.         |
-|redirect_uri     | Required        |The same redirect URI value that was used to acquire the authorization code.         |
-|grant_type     | Required        | Must be `authorization_code` for the authorization code flow.        |
-|client_secret | Required | The client secret that you created in the app registration portal for your app. It shouldn't be used in a native app because client secrets can't be reliably stored on devices. It's required for web apps and web APIs, which have the ability to store the client secret securely on the server side.|
 
 #### Sample response
 
@@ -226,7 +202,7 @@ The second step is to get the auth token and the refresh token. Your app uses th
 
 For more information on generating a user access token and using a refresh token to generate a new access token, see [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 

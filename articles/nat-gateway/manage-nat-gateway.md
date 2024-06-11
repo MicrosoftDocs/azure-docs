@@ -6,8 +6,9 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 02/16/2024
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
+#Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
 ---
 
 # Manage NAT gateway
@@ -76,7 +77,7 @@ To use Azure CLI for this article, you need:
 
 - Azure CLI version 2.31.0 or later. Azure Cloud Shell uses the latest version.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 # [**Bicep**](#tab/manage-nat-bicep)
 

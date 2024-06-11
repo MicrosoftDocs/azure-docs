@@ -2,7 +2,6 @@
 title: SMB FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about the SMB protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
@@ -26,9 +25,9 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ## How many Active Directory connections are supported?
 
-You can configure only one Active Directory (AD) connection per subscription and per region. See [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) for additional information. 
+Azure NetApp Files now supports the ability to [create multiple Active Directory configurations in a subscription](create-active-directory-connections.md#multi-ad). 
 
-However, you can map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
+You can also map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
 <a name='does-azure-netapp-files-support-azure-active-directory'></a>
 
@@ -80,6 +79,20 @@ See [Modify SMB share permissions](azure-netapp-files-create-volumes-smb.md#modi
 
 Azure NetApp Files also supports [access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) and [non-browsable shares](azure-netapp-files-create-volumes-smb.md#non-browsable-share) on SMB and dual-protocol volumes. You can enable these features during or after the creation of an SMB or dual-protocol volume.
 
+## Can I use the same share name for multiple volumes? 
+
+The same share name can be used for:
+* volumes deployed in different regions
+* volumes deployed to different availability zones within the same region 
+
+If you're using:
+* regional volumes (without availability zones) or
+* volumes within the same availability zone, 
+
+the same share name can be used, however the share name must be unique within each delegated subnet or assigned to different delegated subnets. 
+
+For more information, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
+
 ## Can I change the SMB share name after the SMB volume has been created?
 
 No. However, you can create a new SMB volume with the new share name from a snapshot of the SMB volume with the old share name.   
@@ -112,7 +125,7 @@ The Azure NetApp Files service has a policy that automatically updates the passw
 
 To see  when the password was last updated on the Azure NetApp Files SMB computer account, check the `pwdLastSet` property on the computer account using the [Attribute Editor](create-volumes-dual-protocol.md#access-active-directory-attribute-editor) in the **Active Directory Users and Computers** utility:
 
-![Screenshot that shows the Active Directory Users and Computers utility](../media/azure-netapp-files/active-directory-users-computers-utility.png)
+![Screenshot that shows the Active Directory Users and Computers utility](./media/faq-smb/active-directory-users-computers-utility.png)
 
 >[!NOTE] 
 > Due to an interoperability issue with the [April 2022 Monthly Windows Update](

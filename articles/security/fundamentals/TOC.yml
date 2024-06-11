@@ -177,10 +177,16 @@
       href: database-security-checklist.md
   - name: Storage security guide
     href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Customer Lockbox
-    href: customer-lockbox-overview.md
-  - name: Security baseline for Customer Lockbox
-    href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
+  - name: Customer Lockbox for Microsoft Azure
+    items:
+    - name: Overview
+      href: customer-lockbox-overview.md
+    - name: Alternate email notifications
+      href: customer-lockbox-alternative-email.md
+    - name: FAQ
+      href: customer-lockbox-faq.yml
+    - name: Security baseline for Customer Lockbox
+      href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
   - name: Trusted Hardware Identity Management
     href: trusted-hardware-identity-management.md
 

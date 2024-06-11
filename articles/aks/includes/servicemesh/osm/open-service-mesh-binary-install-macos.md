@@ -2,7 +2,7 @@
 author: phillipgibson
 
 ms.topic: include
-ms.custom: linux-related-content
+ms.custom:
 ms.date: 03/15/2021
 ms.author: phillipgibson
 ---

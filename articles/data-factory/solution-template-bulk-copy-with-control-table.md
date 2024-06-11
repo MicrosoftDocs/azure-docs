@@ -6,8 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Bulk copy from a database with a control table

@@ -1,14 +1,15 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ---
 
 [!INCLUDE [Header](../../common/csharp.md)]
 
-This guide shows how to install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C#.
+In this quickstart, you install the [Speech SDK](~/articles/ai-services/speech-service/speech-sdk.md) for C#.
 
 Code samples in the documentation are written in C# 8 and run on .NET standard 2.0.
 

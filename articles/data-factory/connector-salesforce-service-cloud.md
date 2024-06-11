@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/15/2024
+ms.date: 04/01/2024
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Azure Synapse Analytics
@@ -19,7 +19,7 @@ ms.date: 01/15/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!IMPORTANT]
->The new Salesforce Service Cloud connector provides improved native Salesforce Service Cloud support. If you are using the legacy Salesforce Service Cloud connector in your solution, supported as-is for backward compatibility only, refer to [Salesforce Service Cloud connector (legacy)](connector-salesforce-service-cloud-legacy.md) article.
+>The new Salesforce Service Cloud connector provides improved native Salesforce Service Cloud support. If you are using the legacy Salesforce Service Cloud connector in your solution, please [upgrade your Salesforce Service Cloud connector](#upgrade-the-salesforce-service-cloud-linked-service) before **October 11, 2024**. Refer to this [section](#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 
@@ -37,7 +37,7 @@ For a list of data stores that are supported as sources or sinks, see the [Suppo
 Specifically, this Salesforce Service Cloud connector supports:
 
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
-- Copying data from and to custom domain.
+- Copying data from and to custom domain (Custom domain can be configured in both production and sandbox environments).
 
 You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce Service Cloud, the connector uses BULK API 2.0.
 
@@ -45,20 +45,19 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
 ## Prerequisites
 
 - API permission must be enabled in Salesforce.
-- You need configure the Connected Apps in Salesforce portal referring to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
+- You need configure the Connected Apps in Salesforce portal referring to this [official doc](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) or our step by step guideline in the recommendation in this [article](connector-troubleshoot-salesforce.md#error-code-salesforceoauth2clientcredentialfailure).
 
     >[!IMPORTANT]
     > - The execution user must have the API Only permission.
     > - Access Token expire time could be changed through session policies instead of the refresh token.
 
-## Salesforce request limits
+## Salesforce Bulk API 2.0 Limits
 
-Salesforce has limits for both total API requests and concurrent API requests. Note the following points:
+We use Salesforce Bulk API 2.0 to query and ingest data. In Bulk API 2.0, batches are created for you automatically. You can submit up to **15,000** batches per rolling 24-hour period. If batches exceed the limit, you will see failures.
 
-- If the number of concurrent requests exceeds the limit, throttling occurs and you see random failures.
-- If the total number of requests exceeds the limit, the Salesforce Service Cloud account is blocked for 24 hours.
+In Bulk API 2.0, only ingest jobs consume batches. Query jobs don't. For details, see [How Requests Are Processed in the Bulk API 2.0 Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/how_requests_are_processed.htm).
 
-You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenarios. For more information, see the "API request limits" section in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm).
+For more information, see the "General Limits" section in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm).
 
 ## Get started
 
@@ -98,9 +97,10 @@ The following properties are supported for the Salesforce Service Cloud linked s
 |:--- |:--- |:--- |
 | type |The type property must be set to **SalesforceServiceCloudV2**. |Yes |
 | environmentUrl | Specify the URL of the Salesforce Service Cloud instance. <br>For example, specify `"https://<domainName>.my.salesforce.com"` to copy data from the custom domain. Learn how to configure or view your custom domain referring to this [article](https://help.salesforce.com/s/articleView?id=sf.domain_name_setting_login_policy.htm&type=5). |Yes |
+| authenticationType | Type of authentication used to connect to the Salesforce Service Cloud. <br/>The allowed value is **OAuth2ClientCredentials**. | Yes |
 | clientId |Specify the client ID of the Salesforce OAuth 2.0 Connected App. For more information, go to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) |Yes |
 | clientSecret |Specify the client secret of the Salesforce OAuth 2.0 Connected App. For more information, go to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) |Yes |
-| apiVersion | Specify the Salesforce Bulk API 2.0 version to use, e.g. `52.0`. The Bulk API 2.0 only support API version >= 47.0. To learn about Bulk API 2.0 version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm). If you use a lower API version, it will result in a failure. | Yes |
+| apiVersion | Specify the Salesforce Bulk API 2.0 version to use, e.g. `52.0`. The Bulk API 2.0 only supports API version >= 47.0. To learn about Bulk API 2.0 version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm). If you use a lower API version, it will result in a failure. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example: Store credentials**
@@ -112,6 +112,7 @@ The following properties are supported for the Salesforce Service Cloud linked s
         "type": "SalesforceServiceCloudV2",
         "typeProperties": {
             "environmentUrl": "<environment URL>",
+            "authenticationType": "OAuth2ClientCredentials",
             "clientId": "<client ID>",
             "clientSecret": {
                 "type": "SecureString",
@@ -136,6 +137,7 @@ The following properties are supported for the Salesforce Service Cloud linked s
         "type": "SalesforceServiceCloudV2",
         "typeProperties": {
             "environmentUrl": "<environment URL>",
+            "authenticationType": "OAuth2ClientCredentials",
             "clientId": "<client ID>",
             "clientSecret": {
                 "type": "AzureKeyVaultSecret",
@@ -202,7 +204,8 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceServiceCloudV2Source**. | Yes |
-| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**. | No |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -231,7 +234,8 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
         "typeProperties": {
             "source": {
                 "type": "SalesforceServiceCloudV2Source",
-                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
+                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
+                "includeDeletedObjects": false
             },
             "sink": {
                 "type": "<sink type>"
@@ -322,15 +326,28 @@ When you copy data from Salesforce Service Cloud, the following mappings are use
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Migrate the Salesforce Service Cloud linked service 
+## Upgrade the Salesforce Service Cloud linked service 
 
-Migrating your Salesforce Service Cloud linked service is highly recommended if you use the legacy version. Take the following steps:  
+Here are steps that help you upgrade your linked service and related queries:
 
 1. Configure the connected apps in Salesforce portal by referring to [Prerequisites](connector-salesforce-service-cloud.md#prerequisites).
 
 1. Create a new Salesforce Service Cloud linked service and configure it by referring to [Linked service properties](connector-salesforce-service-cloud.md#linked-service-properties).  
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
+
+1. readBehavior is replaced with includeDeletedObjects in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce Service Cloud as a source type](connector-salesforce-service-cloud.md#salesforce-service-cloud-as-a-source-type).
+
+## Differences between Salesforce Service Cloud and Salesforce Service Cloud (legacy)
+
+The Salesforce Service Cloud connector offers new functionalities and is compatible with most features of Salesforce Service Cloud (legacy) connector. The table below shows the feature differences between Salesforce Service Cloud and Salesforce Service Cloud (legacy).
+
+|Salesforce Service Cloud |Salesforce Service Cloud (legacy)|
+|:---|:---|
+|Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses are not supported. <br>• Aggregate Functions such as COUNT() are not supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses are not supported, but they are supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields are not supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries are not supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
+|Objects that contain binary fields are not supported.| Objects that contain binary fields are supported, like Attachment object.|
+|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are not supported by Bulk API, like CaseStatus.|
+|Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,12 +1,13 @@
 ---
 title: Create an experiment using a Chaos Mesh fault with the Azure portal
 description: Create an experiment that uses an AKS Chaos Mesh fault by using Azure Chaos Studio with the Azure portal.
-author: prasha-microsoft 
+author: prasha-microsoft
 ms.topic: how-to
 ms.date: 04/21/2022
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to
 ---
 
 # Create a chaos experiment that uses a Chaos Mesh fault to kill AKS pods with the Azure portal
@@ -17,7 +18,7 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An AKS cluster with a Linux node pool. If you don't have an AKS cluster, see the AKS quickstart that uses the [Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or the [Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 
 ## Limitations

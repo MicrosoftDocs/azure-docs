@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021
-ms.custom: devx-track-java, ignite-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
@@ -34,7 +34,7 @@ ms.reviewer: mjbrown
 >
 
 > [!IMPORTANT]  
->[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+>[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 >  
 >- You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 >

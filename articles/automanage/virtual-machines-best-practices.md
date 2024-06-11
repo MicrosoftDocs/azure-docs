@@ -3,7 +3,6 @@ title: Azure Automanage Machine Best Practices
 description: Learn about the Azure Automanage machine best practices for services that are automatically onboarded and configured for you.
 author: mmccrory
 ms.service: automanage
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/10/2021
 ms.author: memccror

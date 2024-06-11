@@ -4,7 +4,6 @@ description: Explains regional capacity quota of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: anfdocs
@@ -19,7 +18,7 @@ You can click **Quota** under Settings of Azure NetApp Files to display the curr
 
 For example: 
 
-![Screenshot that shows how to display quota information.](../media/azure-netapp-files/quota-display.png) 
+![Screenshot that shows how to display quota information.](./media/regional-capacity-quota/quota-display.png) 
 
 ## Request regional capacity quota increase
 

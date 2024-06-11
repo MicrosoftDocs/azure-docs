@@ -2,7 +2,6 @@
 title: Azure NetApp Files backup FAQs | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about using the Azure NetApp Files backup feature.
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
@@ -14,27 +13,29 @@ This article answers frequently asked questions (FAQs) about using the [Azure Ne
 
 ## When do my backups occur?   
 
-Azure NetApp Files backups start within a randomized time frame after the frequency of a backup policy is entered. For example, weekly backups are initiated Sunday within a randomly assigned interval after 12:00 a.m. midnight. This timing cannot be modified by the users at this time. The baseline backup is initiated as soon as you assign the backup policy to the volume.
+Azure NetApp Files backups start within a randomized time frame after the frequency of a backup policy is entered. For example, weekly backups are initiated Sunday within a randomly assigned interval after 12:00 a.m. midnight. This timing can't be modified by the users at this time. The baseline backup is initiated as soon as you assign the backup policy to the volume.
 
 ## What happens if a backup operation encounters a problem?
 
-If a problem occurs during a backup operation, Azure NetApp Files backup automatically retries the operation, without requiring user interaction. If the retries continue to fail, Azure NetApp Files backup will report the failure of the operation.
+If a problem occurs during a backup operation, Azure NetApp Files backup automatically retries the operation, without requiring user interaction. If the retries continue to fail, Azure NetApp Files backup reports the failure of the operation.
 
 ## Can I change the location or storage tier of my backup vault?
 
-No, Azure NetApp Files automatically manages the backup data location within Azure storage. This location or Azure storage tier cannot be modified by the user.
+No, Azure NetApp Files automatically manages the backup data location within Azure storage. This location or Azure storage tier can't be modified by the user.
 
 ## What types of security are provided for the backup data?
 
 Azure NetApp Files uses AES-256 bit encryption during the encoding of the received backup data. In addition, the encrypted data is securely transmitted to Azure storage using HTTPS TLSv1.2 connections. Azure NetApp Files backup depends on the Azure Storage account’s built-in encryption at rest functionality for storing the backup data.
 
-## What happens to the backups when I delete a volume or my NetApp account? 
+## What happens to the backups when I delete a volume or backup vault? 
 
- When you delete an Azure NetApp Files volume, the backups are retained. If you don’t want the backups to be retained, disable the backups before deleting the volume. When you delete a NetApp account, the backups are still retained and displayed under other NetApp accounts of the same subscription, so that it’s still available for restore. If you delete all the NetApp accounts under a subscription, you need to make sure to disable backups before deleting all volumes under all the NetApp accounts.
+When you delete an Azure NetApp Files volume, the backups are retained under the backup vault. If you don’t want to retain the backups, first delete the older backups followed by the most recent backup.
+
+If you wish to delete the backup vault, ensure that all the backups under the backup vault are deleted before deleting the backup vault.
 
 ## What’s the system’s maximum backup retries for a volume?  
 
-The system makes 10 retries when processing a scheduled backup job. If the job fails, then the system fails the backup operation. In case of scheduled backups (based on the configured policy), the system tries to back up the data once every hour. If new snapshots are available that were not transferred (or failed during the last try), those snapshots will be considered for transfer. 
+The system makes 10 retries when processing a scheduled backup job. If the job fails, then the system fails the backup operation. For scheduled backups (based on the configured policy), the system tries to back up the data once every hour. If new snapshots are available that weren't transferred (or failed during the last try), those snapshots are considered for transfer. 
 
 ## Next steps  
 

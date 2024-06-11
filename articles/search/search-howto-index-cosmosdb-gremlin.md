@@ -1,7 +1,7 @@
 ---
 title: Azure Cosmos DB Gremlin indexer
 titleSuffix: Azure AI Search
-description: Set up an Azure Cosmos DB indexer to automate indexing of Azure Cosmos DB for Apache Gremlin content for full text search in Azure AI Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
+description: Set up an Azure Cosmos DB indexer to automate indexing of Apache Gremlin content for full text search in Azure AI Search. This article explains how index data using the Azure Cosmos DB for Apache Gremlin protocol.
 
 author: mgottein
 ms.author: magottei
@@ -11,10 +11,10 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 02/28/2024
 ---
 
-# Import data from Azure Cosmos DB for Apache Gremlin for queries in Azure AI Search
+# Index data from Azure Cosmos DB for Apache Gremlin for queries in Azure AI Search
 
 > [!IMPORTANT]
 > The Azure Cosmos DB for Apache Gremlin indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
@@ -27,7 +27,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 ## Prerequisites
 
-+ [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
++ [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide scenario feedback. You can access the feature automatically after form submission.
 
 + An [Azure Cosmos DB account, database, container, and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Azure AI Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
@@ -35,7 +35,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
 
-+ A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer. 
++ A [REST client](search-get-started-rest.md) to create the data source, index, and indexer. 
 
 ## Define the data source
 
@@ -312,7 +312,7 @@ The Azure Cosmos DB for Apache Gremlin indexer will automatically map a couple p
 
 1. The indexer will map `_id` to an `id` field in the index if it exists.
 
-1. When querying your Azure Cosmos DB database using the Azure Cosmos DB for Apache Gremlin you may notice that the JSON output for each property has an `id` and a `value`. Azure AI Search Azure Cosmos DB indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
+1. When querying your Azure Cosmos DB database using the Azure Cosmos DB for Apache Gremlin you may notice that the JSON output for each property has an `id` and a `value`. The indexer will automatically map the properties `value` into a field in your search index that has the same name as the property if it exists. In the following example, 450 would be mapped to a `pages` field in the search index.
 
 ```http
     {

@@ -3,11 +3,11 @@ title: Manage Azure private endpoints
 titleSuffix: Azure Private Link
 description: Learn how to manage private endpoints in Azure.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: how-to
-ms.date: 05/17/2022
-ms.author: allensu 
+ms.date: 03/28/2024
+ms.author: abell 
 ms.custom: devx-track-azurepowershell, template-how-to, devx-track-azurecli
 ---
 

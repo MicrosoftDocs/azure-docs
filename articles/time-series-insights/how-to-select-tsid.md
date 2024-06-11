@@ -7,7 +7,6 @@ manager: cnovak
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.custom: seodec18
 ---
 
 # Best practices for choosing a Time Series ID

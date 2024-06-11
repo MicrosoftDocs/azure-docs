@@ -1,5 +1,5 @@
 ---
-title: "Configure secure access with managed identities and private endpoints"
+title: "Configure secure access with managed identities and virtual networks"
 titleSuffix: Azure AI services
 description: Learn how to configure secure communications between Document Intelligence and other Azure Services.
 author: laujan
@@ -8,13 +8,13 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 05/23/2024
 ms.author: vikurpad
 monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
-# Configure secure access with managed identities and private endpoints
+# Configure secure access with managed identities and virtual networks
 
 [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
@@ -28,7 +28,7 @@ This how-to guide walks you through the process of enabling secure connections f
 
  You're setting up your environment to secure the resources:
 
-  :::image type="content" source="media/managed-identities/secure-config.png" alt-text="Screenshot of secure configuration with managed identity and private endpoints.":::
+  :::image type="content" source="media/managed-identities/secure-config-di.png" alt-text="Screenshot of secure configuration with managed identity and virtual networks.":::
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 * Configure the Document Intelligence Studio to use the newly created Document Intelligence resource by accessing the settings page and selecting the resource.
 
-* Validate that the configuration works by selecting the Read API and analyzing a sample document. If the resource was configured correctly, the request successfully completes.
+* Ensure and validate that the configuration works by selecting the Read API and analyzing a sample document. If the resource was configured correctly, the request successfully completes.
 
 * Add a training dataset to a container in the Storage account you created.
 
@@ -58,27 +58,27 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 * Select the container with the training dataset you uploaded in the previous step. Ensure that if the training dataset is within a folder, the folder path is set appropriately.
 
-* If you have the required permissions, the Studio sets the CORS setting required to access the storage account. If you don't have the permissions, you need to ensure that the CORS settings are configured on the Storage account before you can proceed.
+* Ensure that you have the required permissions, the Studio sets the CORS setting required to access the storage account. If you don't have the permissions, you need to make certain that the CORS settings are configured on the Storage account before you can proceed.
 
-* Validate that the Studio is configured to access your training data, if you can see your documents in the labeling experience, all the required connections are established.
+* Ensure and validate that the Studio is configured to access your training data. If you can see your documents in the labeling experience, all the required connections are established.
 
 You now have a working implementation of all the components needed to build a Document Intelligence solution with the default security model:
 
-  :::image type="content" source="media/managed-identities/default-config.png" alt-text="Screenshot of default security configuration.":::
+  :::image type="content" source="media/managed-identities/default-config-di.png" alt-text="Screenshot of default security configuration.":::
 
 Next, complete the following steps:
 
-* Setup managed identity on the Document Intelligence resource.
+* Configure managed identity on the Document Intelligence resource.
 
 * Secure the storage account to restrict traffic from only specific virtual networks and IP addresses.
 
 * Configure the Document Intelligence managed identity to communicate with the storage account.
 
-* Disable public access to the Document Intelligence resource and create a private endpoint to make it accessible from the virtual network.
+* Disable public access to the Document Intelligence resource and create a private endpoint. Your resource is then only accessible from specific virtual networks and IP addresses.
 
 * Add a private endpoint for the storage account in a selected virtual network.
 
-* Validate that you can train models and analyze documents from within the virtual network.
+* Ensure and validate that you can train models and analyze documents from within the virtual network.
 
 ## Setup managed identity for Document Intelligence
 
@@ -86,7 +86,7 @@ Navigate to the Document Intelligence resource in the Azure portal and select th
 
   :::image type="content" source="media/managed-identities/v2-fr-mi.png" alt-text="Screenshot of configure managed identity.":::
 
-## Secure the Storage account to limit traffic
+## Secure the Storage account
 
 Start configuring secure communications by navigating to the **Networking** tab on your **Storage account** in the Azure portal.
 
@@ -141,7 +141,7 @@ Great! You configured your Document Intelligence resource to use a managed ident
 > When you try the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio), you'll see the READ API and other prebuilt models don't require storage access to process documents. However, training a custom model requires additional configuration because the Studio can't directly communicate with a storage account.
   > You can enable storage access by selecting **Add your client IP address** from the **Networking** tab of the storage account to configure your machine to access the storage account via IP allowlisting.
 
-## Configure private endpoints for access from VNETs
+## Configure private endpoints for access from `VNET`s
 
 > [!NOTE]
 >
@@ -155,7 +155,7 @@ When you connect to resources from a virtual network, adding private endpoints e
 
 Next, configure the virtual network to ensure only resources within the virtual network or traffic router through the network have access to the Document Intelligence resource and the storage account.
 
-### Enable your virtual network and private endpoints
+### Enable your firewalls and virtual networks
 
 1. In the Azure portal, navigate to your Document Intelligence resource.
 
@@ -165,7 +165,7 @@ Next, configure the virtual network to ensure only resources within the virtual 
 
 > [!NOTE]
 >
->If you try accessing any of the Document Intelligence Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **client IP address checkbox** and **Save** to restore access.
+>If you try accessing any of the Document Intelligence Studio features, you'll see an access denied message. To enable access from the Studio on your machine, select the **Add your client IP address** checkbox and **Save** to restore access.
 
   :::image type="content" source="media/managed-identities/v2-fr-network.png" alt-text="Screenshot showing how to disable public access to Document Intelligence.":::
 
@@ -242,7 +242,7 @@ Navigate to your **storage account** on the Azure portal.
 Great work! You now have all the connections between the Document Intelligence resource and storage configured to use managed identities.
 
 > [!NOTE]
-> The resources are only accessible from the virtual network.
+> The resources are only accessible from the virtual network and allowed IPs.
 >
 > Studio access and analyze requests to your Document Intelligence resource will fail unless the request originates from the virtual network or is routed via the virtual network.
 
@@ -252,7 +252,7 @@ To validate your deployment, you can deploy a virtual machine (VM) to the virtua
 
 1. Configure a [Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) in the virtual network.
 
-1. Remotely connect into the VM from your desktop to launch a browser session to access Document Intelligence Studio.
+1. Remotely connect into the VM from your desktop and launch a browser session that accesses Document Intelligence Studio.
 
 1. Analyze requests and the training operations should now work successfully.
 
@@ -264,13 +264,16 @@ That's it! You can now configure secure access for your Document Intelligence re
 
    :::image type="content" source="media/managed-identities/cors-error.png" alt-text="Screenshot of error message when CORS config is required":::
 
-  **Resolution**: [Configure CORS](quickstarts/try-document-intelligence-studio.md#prerequisites-for-new-users).
+  **Resolution**:
+    1. [Configure CORS](quickstarts/try-document-intelligence-studio.md#configure-cors).
+ 
+    1. Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same `VNET`, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
 
 * **AuthorizationFailure**:
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
-  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the Document Intelligence Studio and the storage account. For example, you can add the client IP address in the storage account's networking tab.
+  **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same `VNET`, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
 
 * **ContentSourceNotAccessible**:
 
@@ -282,7 +285,7 @@ That's it! You can now configure secure access for your Document Intelligence re
 
   :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
-  **Resolution**: Check to make sure there's connectivity between the computer accessing the Document Intelligence Studio and the Document Intelligence service. For example, you might need to add the client IP address to the Document Intelligence service's networking tab.
+  **Resolution**: Make sure the client computer can access Document Intelligence resource and storage account, either they are in the same `VNET`, or client IP address is allowed in **Networking > Firewalls and virtual networks** setting page of both Document Intelligence resource and storage account.
 
 ## Next steps
 

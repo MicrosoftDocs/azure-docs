@@ -121,7 +121,7 @@ If you have an existing Grafana environment, then you can continue to use it and
 
 When you enable Container Insights for your Kubernetes cluster, it deploys a containerized version of the [Azure Monitor agent](../agents/log-analytics-agent.md) that sends data to a Log Analytics workspace in Azure Monitor. Container insights collects container stdout/stderr, infrastructure logs, and performance data. All log data is stored in a Log Analytics workspace where they can be analyzed using [Kusto Query Language (KQL)](../logs/log-query-overview.md).
 
-See [Enable Container insights](../containers/container-insights-onboard.md) for prerequisites and configuration options for onboarding your Kubernetes clusters. [Onboard using Azure Policy](container-insights-enable-aks-policy.md) to ensure that all clusters retain a consistent configuration. 
+See [Enable Container insights](../containers/container-insights-onboard.md) for prerequisites and configuration options for onboarding your Kubernetes clusters. [Onboard using Azure Policy](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=policy#enable-container-insights) to ensure that all clusters retain a consistent configuration. 
 
 Once Container insights is enabled for a cluster, perform the following actions to optimize your installation.
 
@@ -268,7 +268,7 @@ The following table describes the different types of custom alert rules that you
 |:---|:---|
 | Prometheus alerts | [Prometheus alerts](../alerts/prometheus-alerts.md) are written in Prometheus Query Language (Prom QL) and applied on Prometheus metrics stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). Recommended alerts already include the most common Prometheus alerts, and you can [create addition alert rules](../essentials/prometheus-rule-groups.md) as required. |
 | Metric alert rules | Metric alert rules use the same metric values as the Metrics explorer. In fact, you can create an alert rule directly from the metrics explorer with the data you're currently analyzing. Metric alert rules can be useful to alert on AKS performance using any of the values in [AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics). |
-| Log alert rules | Use log alert rules to generate an alert from the results of a log query. For more information, see [How to create log alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md). |
+| Log search alert rules | Use log search alert rules to generate an alert from the results of a log query. For more information, see [How to create log search alerts from Container Insights](container-insights-log-alerts.md) and [How to query logs from Container Insights](container-insights-log-query.md). |
 
 #### Recommended alerts
 Start with a set of recommended Prometheus alerts from [Metric alert rules in Container insights (preview)](container-insights-metric-alerts.md#prometheus-alert-rules) which include the most common alerting conditions for a Kubernetes cluster. You can add more alert rules later as you identify additional alerting conditions.
@@ -309,7 +309,7 @@ Following are common scenarios for monitoring your application.
 - Use the **Performance** view in Application insights to view the performance of different operations in your application.
 - Use [Profiler](../profiler/profiler-overview.md) to capture and view performance traces for your application.
 - Use [Application Map](../app/app-map.md) to view the dependencies between your application components and identify any bottlenecks.
-- Enable [distributed tracing](../app/distributed-tracing-telemetry-correlation.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
+- Enable [distributed tracing](../app/distributed-trace-data.md), which provides a performance profiler that works like call stacks for cloud and microservices architectures, to gain better observability into the interaction between services.
 
 **Application failures**<br>
 - Use the **Failures** tab of Application insights to view the number of failed requests and the most common exceptions.

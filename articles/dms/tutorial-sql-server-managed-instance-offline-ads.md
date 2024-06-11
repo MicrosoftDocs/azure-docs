@@ -8,7 +8,6 @@ ms.date: 06/07/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 
@@ -31,7 +30,7 @@ In this tutorial, you learn how to:
 > - Create an instance of Azure Database Migration Service
 > - Start your migration and monitor progress to completion
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This tutorial describes an offline migration from SQL Server to Azure SQL Managed Instance. For an online migration, see [Migrate SQL Server to Azure SQL Managed Instance online in Azure Data Studio](tutorial-sql-server-managed-instance-online-ads.md).
 

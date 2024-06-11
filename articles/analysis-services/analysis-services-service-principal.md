@@ -1,11 +1,11 @@
 ---
 title: Automate Azure Analysis Services tasks with service principals | Microsoft Docs
 description: Learn how to create a service principal for automating Azure Analysis Services administrative tasks.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 02/02/2022
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan 
 ---
 
@@ -41,7 +41,7 @@ Service principal appID and password or certificate can be used in connection st
 
 ### PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 #### <a name="azmodule"></a>Using Az.AnalysisServices module
 

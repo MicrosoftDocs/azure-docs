@@ -1,11 +1,12 @@
 ---
 title: What is Azure Managed Grafana? 
-description: Read an overview of Azure Managed Grafana. Understand why and how to use Managed Grafana. 
+description: Read an overview of Azure Managed Grafana. This article explains what Azure Managed Grafana is, its benefits and presents its service tiers.
+#customer intent: As a developer, devops or data professional, I want to learn about Grafana so that I understand how to use Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: overview 
-ms.date: 11/17/2023
+ms.date: 04/25/2024
 --- 
 
 # What is Azure Managed Grafana?
@@ -60,7 +61,7 @@ The [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/det
 
 ## Quotas
 
-Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#quotas).
+Different quotas apply to Azure Managed Grafana service instances depending on their service tiers. For a list of the quotas that apply to the Essential (preview) and Standard pricing plans, see [quotas](known-limitations.md#throttling-limits-and-quotas).
 
 ## Next steps
 

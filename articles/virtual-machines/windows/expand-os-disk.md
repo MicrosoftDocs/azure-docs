@@ -6,9 +6,9 @@ manager: roshar
 ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: article
-ms.date: 07/12/2023
+ms.date: 01/25/2024
 ms.author: kirpas
-ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
+ms.custom: devx-track-azurepowershell, references_regions
 ---
 # How to expand virtual hard disks attached to a Windows virtual machine
 
@@ -25,6 +25,8 @@ An OS disk has a maximum capacity of 4,095 GiB. However, many operating systems 
 > Shrinking an existing disk isn’t supported and may result in data loss.
 > 
 > After expanding the disks, you need to [Expand the volume in the operating system](#expand-the-volume-in-the-operating-system) to take advantage of the larger disk.
+> 
+> You can't expand the size of striped volumes.
 
 ## Expand without downtime
 
@@ -179,4 +181,4 @@ foreach($vmSize in $vmSizes){
 
 ## Next steps
 
-You can also attach disks using the [Azure portal](attach-managed-disk-portal.md).
+You can also attach disks using the [Azure portal](attach-managed-disk-portal.yml).

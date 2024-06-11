@@ -211,7 +211,7 @@ $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $c
 
 Run the Azure CLI script below or follow the steps in Azure portal to deploy a Service Catalog managed application definition:
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](~/reusable-content/ce-skilling/azure/includes/sample-cli-install.md)]
 
 # [Azure CLI](#tab/azurecli-interactive)
 
@@ -222,7 +222,7 @@ az account set --subscription <subscriptionID>
 az group create --name $resourceGroup --location eastus
 
 # Get object ID of your identity
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user list --upn example@contoso.org --query [0].id --output tsv)
 # Get role definition ID for the Owner role
 roleid=$(az role definition list --name Owner --query [].name --output tsv)
 
@@ -338,7 +338,7 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 ![Screenshot shows Custom Context Action selected.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
-[!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [clean-up-section-portal](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
 
 ## Looking for help
 

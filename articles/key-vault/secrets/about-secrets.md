@@ -3,12 +3,11 @@ title: About Azure Key Vault secrets - Azure Key Vault
 description: Overview of Azure Key Vault secrets.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: overview
-ms.date: 01/17/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 

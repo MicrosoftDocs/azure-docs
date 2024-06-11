@@ -53,10 +53,13 @@ To create a dev center in the Azure portal:
    | **ResourceGroup** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
    | **Name** | Enter a name for your dev center. |
    | **Location** | Select the location or region where you want the dev center to be created. |
+   | **Attach a quick start catalog** | Clear both checkboxes. |
 
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/how-to-manage-dev-center/create-dev-center-basics.png":::
+   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics-not-selected.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/how-to-manage-dev-center/create-dev-center-basics-not-selected.png":::
 
    For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
+
+   The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. You can attach a quick start catalog to a dev center later. For more information, see [Create reusable dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
 
 1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
 
@@ -116,7 +119,7 @@ To make role assignments:
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign a role by configuring the following settings. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     |---|---|

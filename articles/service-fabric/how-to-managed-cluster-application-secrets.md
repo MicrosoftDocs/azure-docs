@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 04/08/2024
 ---
 
 # Deploy application secrets to a Service Fabric managed cluster
@@ -46,7 +46,7 @@ For managed clusters you'll need three values, two from Azure Key Vault, and one
 Parameters: 
 * `Source Vault`: This is the 
     * e.g.:  /subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1
-* `Certificate URL`: This is the full object identifier and is case-insensitive and immutable
+* `Certificate URL`: This is the full Key Vault secret identifier and is case-insensitive and immutable
     * https://mykeyvault1.vault.azure.net/secrets/{secretname}/{secret-version}
 * `Certificate Store`: This is the local certificate store on the nodes where the cert will be placed
     * certificate store name on the nodes, e.g.: "MY"

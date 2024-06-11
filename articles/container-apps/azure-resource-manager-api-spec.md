@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: reference
 ms.date: 10/24/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Azure Container Apps ARM and YAML template specifications

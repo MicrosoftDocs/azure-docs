@@ -7,13 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 01/10/2024
-
-# As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
+# Customer intent: As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
 
 # Secure traffic between Standard logic apps and Azure virtual networks using private endpoints
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
 To securely and privately communicate between your workflow in a Standard logic app and an Azure virtual network, you can set up *private endpoints* for inbound traffic and use virtual network integration for outbound traffic.
 

@@ -9,8 +9,8 @@ ms.topic:  how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: lagayhar
-ms.date: 11/09/2022
-ms.custom: responsible-ml, event-tier1-build-2022
+ms.date: 02/21/2024
+ms.custom: responsible-ml
 ---
 
 # Assess AI systems by using the Responsible AI dashboard
@@ -171,6 +171,7 @@ The following people can use the Responsible AI dashboard, and its corresponding
 - The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, the user has to explicitly specify the feature names.  
 - The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
 - The Responsible AI dashboard currently doesn't support AutoML MLFlow model.
+- The Responsible AI dashboard currently doesn't support registered AutoML models from the UI.
 
 
 ## Next steps

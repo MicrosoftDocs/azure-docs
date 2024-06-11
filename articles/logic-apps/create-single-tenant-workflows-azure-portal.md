@@ -6,14 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/03/2024
-ms.custom: ignite-fall-2021
-
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
 # Create an example Standard workflow in single-tenant Azure Logic Apps with the Azure portal
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
 This how-to guide shows how to create an example automated workflow that waits for an inbound web request and then sends a message to an email account. More specifically, you'll create a [Standard logic app resource](logic-apps-overview.md#resource-environment-differences), which can include multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless) that run in single-tenant Azure Logic Apps. 
 
@@ -64,6 +62,18 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 * To deploy your Standard logic app resource to an [App Service Environment v3 (ASEv3) - Windows plan only](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
 
 * Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v4 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
+
+## Best practices and recommendations
+
+For optimal designer responsiveness and performance, review and follow these guidelines:
+
+- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
+
+- Consider splitting business logic into multiple workflows where necessary.
+
+- Have no more than 10-15 workflows per logic app resource.
+
+More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you have mission-critical logic apps that require zero downtime deployments, consider [setting up deployment slots](set-up-deployment-slots.md).
 
 <a name="create-logic-app-resource"></a>
 
@@ -352,16 +362,6 @@ In this example, the workflow runs when the Request trigger receives an inbound 
       When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
 
       ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
-
-## Best practices and recommendations
-
-For optimal designer responsiveness and performance, review and follow these guidelines:
-
-- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
-
-- Consider splitting business logic into multiple workflows where necessary.
-
-- Have no more than 10-15 workflows per logic app resource.
 
 <a name="review-run-history"></a>
 

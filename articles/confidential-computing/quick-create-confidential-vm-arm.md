@@ -4,11 +4,10 @@ description: Learn how to quickly create and deploy an Azure confidential virtua
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, linux-related-content, has-azure-ad-ps-ref
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, has-azure-ad-ps-ref
 ms.devlang: azurecli
 ---
 
@@ -167,11 +166,11 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. Grant confidential VM Service Principal `Confidential VM Orchestrator` to tenant
 
-    For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role.
+    For this step you need to be a Global Admin or you need to have the User Access Administrator RBAC role. [Install Microsoft Graph SDK](/powershell/microsoftgraph/installation) to execute the commands below.
 
-    ```azurecli-interactive
-    Connect-AzureAD -Tenant "your tenant ID"
-    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
+    ```Powershell
+    Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
+    New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
 1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
@@ -303,7 +302,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or [Intel TDX](https://accpublicdocshare.blob.core.windows.net/tdxpublicpreview/TDXpreviewtemplateCMK.json) and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>

@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 05/03/2023
+ms.date: 01/26/2024
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -11,7 +11,7 @@ adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
 author: cephalin
 ms.author: cephalin
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, devdivchpfy22, devx-track-azurepowershell, devx-track-dotnet, ai-video-demo, devx-track-extended-azdevcli
 ai-usage: ai-assisted
 ---
 
@@ -33,6 +33,8 @@ target cross-platform with .NET 7.0.
 -->
 
 # Quickstart: Deploy an ASP.NET web app
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 In this quickstart, you learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
@@ -237,12 +239,6 @@ Retrieve and initialize [the ASP.NET Core web app template](https://github.com/A
 :::zone-end
 
 ## 2. Publish your web app
-
-The AZD template contains files that will generate the following required resources for your application to run in App service:
-
-- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
-- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
-- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
 
 Follow these steps to create your App Service resources and publish your project:
 
@@ -485,9 +481,9 @@ Follow these steps to create your App Service resources and publish your project
 
     -----
 
-1. Select the **Next: Deployment >** button at the bottom of the page.
+1. Select the **Deployment** tab at the top of the page
 
-1. In the **Deployment** tab, under **GitHub Actions settings** make sure **Continuous deployment** is *Enable*.
+1. Under **GitHub Actions settings**, set **Continuous deployment** to *Enable*.
 
 1. Under **GitHub Actions details**, authenticate with your GitHub account, and select the following options:
 
@@ -508,6 +504,9 @@ Follow these steps to create your App Service resources and publish your project
     :::image type="content" source="media/quickstart-dotnet/app-service-deploy-48.png" lightbox="media/quickstart-dotnet/app-service-deploy-48.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET Framework 4.8 runtime.":::
     
     -----
+
+    > [!NOTE]
+    > By default, the creation wizard [disables basic authentication](configure-basic-auth-disable.md) and GitHub Actions deployment is created [using a user-assigned identity](deploy-continuous-deployment.md#what-does-the-user-assigned-identity-option-do-for-github-actions). If you get a permissions error during resource creation, your Azure account may not have [enough permissions](deploy-continuous-deployment.md#why-do-i-see-the-error-you-do-not-have-sufficient-permissions-on-this-app-to-assign-role-based-access-to-a-managed-identity-and-configure-federated-credentials). You can [configure GitHub Actions deployment later](deploy-continuous-deployment.md) with an identity generated for you by an Azure administrator, or you can also enable basic authentication instead.
 
 1. Select the **Review + create** button at the bottom of the page.
 
@@ -532,6 +531,12 @@ Follow these steps to create your App Service resources and publish your project
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-azd"
+
+The AZD template contains files that will generate the following required resources for your application to run in App service:
+
+- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
+- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
+- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
 
 1. Sign into your Azure account by using the az login command and following the prompt:
 
@@ -837,12 +842,12 @@ The **Overview** page for your web app, contains options for basic management li
 <!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
-[!INCLUDE [Clean-up CLI resources](../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [Clean-up CLI resources](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-ps"
 <!-- markdownlint-enable MD044 -->
-[!INCLUDE [Clean-up PowerShell resources](../../includes/powershell-samples-clean-up.md)]
+[!INCLUDE [Clean-up PowerShell resources](~/reusable-content/ce-skilling/azure/includes/powershell-samples-clean-up.md)]
 :::zone-end
 <!-- markdownlint-enable MD044 -->
 

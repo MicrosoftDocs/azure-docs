@@ -1,21 +1,24 @@
 ---
-title: "Speech to text quickstart - Speech service"
+title: "Speech to text quickstart"
 titleSuffix: Azure AI services
-description: In this quickstart, learn how to convert speech to text with recognition from a microphone or .wav file.
+description: In this quickstart, learn how to use the Speech service for real-time speech to text conversion.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: quickstart
-ms.date: 08/24/2023
+ms.date: 5/21/2024
 ms.author: eur
-ms.devlang: cpp
-# ms.devlang: cpp, csharp, golang, java, javascript, objective-c, python
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other, devx-track-extended-java, devx-track-go
-zone_pivot_groups: programming-languages-speech-services
-keywords: speech to text, speech to text software
+ms.reviewer: eur
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other, devx-track-extended-java, devx-track-go, build-2024
+zone_pivot_groups: programming-languages-speech-services-studio
+#customer intent: As a developer, I want to use Speech services to covert speech to text, from either a microphone or a file using my choice of technology.
 ---
 
 # Quickstart: Recognize and convert speech to text
+
+::: zone pivot="ai-studio"
+[!INCLUDE [AI Studio include](includes/quickstarts/speech-to-text-basics/ai-studio.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/speech-to-text-basics/csharp.md)]
@@ -37,16 +40,12 @@ keywords: speech to text, speech to text software
 [!INCLUDE [JavaScript include](includes/quickstarts/speech-to-text-basics/javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-objectivec"
-[!INCLUDE [ObjectiveC include](includes/quickstarts/speech-to-text-basics/objectivec.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python include](./includes/quickstarts/speech-to-text-basics/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
 [!INCLUDE [Swift include](includes/quickstarts/speech-to-text-basics/swift.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python include](./includes/quickstarts/speech-to-text-basics/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-rest"
@@ -57,7 +56,7 @@ keywords: speech to text, speech to text software
 [!INCLUDE [CLI include](includes/quickstarts/speech-to-text-basics/cli.md)]
 ::: zone-end
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about speech recognition](how-to-recognize-speech.md)

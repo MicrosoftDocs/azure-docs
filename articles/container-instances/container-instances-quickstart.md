@@ -6,8 +6,8 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.date: 06/17/2022
-ms.custom: seo-python-october2019, seodec18, mvc, devx-track-azurecli, mode-api
+ms.date: 04/26/2024
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure CLI
@@ -18,9 +18,9 @@ In this quickstart, you use the Azure CLI to deploy an isolated Docker container
 
 ![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

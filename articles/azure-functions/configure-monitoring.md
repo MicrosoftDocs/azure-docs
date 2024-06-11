@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.date: 11/29/2023
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devdivchpfy22
+ms.custom: devdivchpfy22
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
 ---
 
@@ -477,6 +477,6 @@ For more information about monitoring, see:
 
 + [Monitor Azure Functions](functions-monitoring.md)
 + [Analyze Azure Functions telemetry data in Application Insights](analyze-telemetry-data.md)
-+ [Application Insights](/azure/application-insights/)
++ [Application Insights](../azure-monitor/app/app-insights-overview.md)
 
 [host.json]: functions-host-json.md

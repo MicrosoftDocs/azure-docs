@@ -1,12 +1,14 @@
 ---
 title: Smart Detection of Failure Anomalies in Application Insights | Microsoft Docs
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 12/18/2018
-ms.reviewer: yalavi
+ms.date: 04/01/2024
+ms.reviewer: yagil
 ---
 
 # Smart Detection - Failure Anomalies
+
 [Application Insights](../app/app-insights-overview.md) automatically alerts you in near real time if your web app experiences an abnormal rise in the rate of failed requests. It detects an unusual rise in the rate of HTTP requests or dependency calls that are reported as failed. For requests, failed requests usually have response codes of 400 or higher. To help you triage and diagnose the problem, an analysis of the characteristics of the failures and related application data is provided in the alert details. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up nor configuration, as it uses machine learning algorithms to predict the normal failure rate.
 
 This feature works for any web app, hosted in the cloud or on your own servers that generate application request or dependency data. For example, if you have a worker role that calls [TrackRequest()](../app/api-custom-events-metrics.md#trackrequest) or [TrackDependency()](../app/api-custom-events-metrics.md#trackdependency).
@@ -383,7 +385,6 @@ Notice that if you delete an Application Insights resource, the associated Failu
 
 ## Triage and diagnose an alert
 
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
 An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
 
 To investigate further, click on 'View full details in Application Insights.' The links in this page take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 

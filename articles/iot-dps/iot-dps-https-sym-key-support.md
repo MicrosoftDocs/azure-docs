@@ -133,7 +133,7 @@ az iot dps enrollment-group show -g {resource_group_name} --dps-name {dps_name} 
 
 ### Derive a device key
 
-When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key for each device from the enrollment group key. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
+When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key for each device from the enrollment group key. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments-with-symmetric-keys).
 
 In this section, you'll generate a device key from the enrollment group primary key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
 
@@ -285,7 +285,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 {"operationId":"5.316aac5bdc130deb.b1e02da8-c3a0-4ff2-a121-7ea7a6b7f550","status":"assigning"}
 ```
 
-The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
+The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/operation-groups) REST API to determine when your device has been assigned or whether a failure has occurred.
 
 The valid status values for DPS are:
 
@@ -399,7 +399,7 @@ To learn more about creating SAS tokens for IoT Hub, including example code in o
 
 ### Send data to your IoT hub
 
-You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
+You call the IoT Hub [Send Device Event](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send) REST API to send telemetry to the device.
 
 Use the following curl command:
 

@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: seesharprun
 ms.author: sidandrews
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js
 ---
 # How to use Azure Table storage or the Azure Cosmos DB for Table from Node.js
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
-[!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
+[!INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 This article shows you how to create tables, store your data, and perform CRUD operations on said data. The samples are written in Node.js.
 

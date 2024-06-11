@@ -30,14 +30,14 @@ In this tutorial, you learn how to:
 * This tutorial uses the Azure CLI to create cloud resources. There are two ways to run CLI commands:
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md). For more information, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md).
-   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
   * If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
     * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
     * When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
-  [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+  [!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
 
 * The sample application that you run in this tutorial uses Node.js. You need Node.js v10.x.x or later on your development machine.
 
@@ -54,7 +54,7 @@ In this tutorial, you learn how to:
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
+[!INCLUDE [iot-hub-include-create-hub-cli](~/reusable-content/ce-skilling/azure/includes/iot-hub-include-create-hub-cli.md)]
 
 ## Check device authentication
 

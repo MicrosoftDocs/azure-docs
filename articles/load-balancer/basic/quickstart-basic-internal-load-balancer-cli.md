@@ -5,7 +5,8 @@ description: This quickstart shows how to create an internal basic load balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 04/10/2023
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
@@ -14,9 +15,9 @@ ms.custom: devx-track-azurecli, mode-api
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
 This quickstart requires version 2.0.28 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -57,7 +58,7 @@ In this example, you'll create an Azure Bastion host. The Azure Bastion host is 
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -200,7 +201,7 @@ To create a network security group rule, use [az network nsg rule create](/cli/a
     --priority 200
 ```
 
-## Create back-end servers
+## Create backend servers
 
 In this section, you create:
 
@@ -257,7 +258,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
 It can take a few minutes for the VMs to deploy.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Add virtual machines to the backend pool
 

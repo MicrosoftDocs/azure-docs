@@ -5,7 +5,6 @@ author: yelevin
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 # Scenarios detected by the Microsoft Sentinel Fusion engine
 

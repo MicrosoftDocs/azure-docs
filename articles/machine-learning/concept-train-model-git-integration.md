@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: ositanachi  
+author: ositanachi
 ms.author: osiotugo
 ms.reviewer: larryfr
 ms.date: 06/02/2023
-ms.custom: sdkv2, event-tier1-build-2022, build-2023
+ms.custom: sdkv2, build-2023
 ---
 # Git integration for Azure Machine Learning
 
@@ -85,7 +85,7 @@ cat ~/.ssh/id_rsa.pub
 > **Copy and Paste in Terminal**
 > * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
 > * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
-> * FireFox/IE may not support clipboard permissions properly.
+> * FireFox and Internet Explorer may not support clipboard permissions properly.
 
 2) Select and copy the SSH key output to your clipboard.
 3) Next, follow the steps to add the SSH key to your preferred account type:

@@ -1,11 +1,11 @@
 ---
 title: Manage Azure Analysis Services with PowerShell | Microsoft Docs
 description: Describes Azure Analysis Services PowerShell cmdlets for common administrative tasks such as creating servers, suspending operations, or changing service level.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/27/2021
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 
 ---
@@ -16,7 +16,7 @@ This article describes PowerShell cmdlets used to perform Azure Analysis Service
 
 Server resource management tasks like creating or deleting a server, suspending or resuming server operations, or changing the service level (tier) use Azure Analysis Services cmdlets. Other tasks for managing databases like adding or removing role members, processing, or partitioning use cmdlets included in the same SqlServer module as SQL Server Analysis Services.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Permissions
 

@@ -48,6 +48,9 @@ The following table describes the categories from the `_LogOperation` function.
 
 Ingestion operations are issues that occurred during data ingestion and include notification about reaching the Log Analytics workspace limits. Error conditions in this category might suggest data loss, so they're important to monitor. For service limits for Log Analytics workspaces, see [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces).
 
+> [!IMPORTANT]
+> If you're troubleshooting data collection for a scenario that uses a data collection rule (DCR) such as Azure Monitor agent or Logs ingestion API, see [Monitor and troubleshoot DCR data collection in Azure Monitor](../essentials/data-collection-monitor.md) for additional troubleshooting information.
+
 #### Operation: Data collection stopped
 
 "Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota"
@@ -136,11 +139,11 @@ The list shows the resource IDs where the agent has the wrong configuration. To 
 
 ## Alert rules
 
-Use [log query alerts](../alerts/alerts-log-query.md) in Azure Monitor to be proactively notified when an issue is detected in your Log Analytics workspace. Use a strategy that allows you to respond in a timely manner to issues while minimizing your costs. Your subscription will be charged for each alert rule as listed in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
+Use [log search alerts](../alerts/alerts-log-query.md) in Azure Monitor to be proactively notified when an issue is detected in your Log Analytics workspace. Use a strategy that allows you to respond in a timely manner to issues while minimizing your costs. Your subscription will be charged for each alert rule as listed in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
 A recommended strategy is to start with two alert rules based on the level of the issue. Use a short frequency such as every 5 minutes for Errors and a longer frequency such as 24 hours for Warnings. Because Errors indicate potential data loss, you want to respond to them quickly to minimize any loss. Warnings typically indicate an issue that doesn't require immediate attention, so you can review them daily.
 
-Use the process in [Create, view, and manage log alerts by using Azure Monitor](../alerts/alerts-log.md) to create the log alert rules. The following sections describe the details for each rule.
+Use the process in [Create, view, and manage log search alerts by using Azure Monitor](../alerts/alerts-log.md) to create the log search alert rules. The following sections describe the details for each rule.
 
 | Query | Threshold value | Period | Frequency |
 |:---|:---|:---|:---|
@@ -181,5 +184,5 @@ The following example creates a Warning alert when the data collection has reach
 
 ## Next steps
 
-- Learn more about [log alerts](../alerts/alerts-log.md).
+- Learn more about [log search alerts](../alerts/alerts-log.md).
 - [Collect query audit data](./query-audit.md) for your workspace.

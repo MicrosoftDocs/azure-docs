@@ -16,10 +16,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Rehydrate an archived blob to an online tier
 
-To read a blob that is in the archive tier, you must first rehydrate the blob to an online tier (hot or cool) tier. You can rehydrate a blob in one of two ways:
+To read a blob that is in the archive tier, you must first rehydrate the blob to an online (hot, cool, or cold) tier. You can rehydrate a blob in one of two ways:
 
-- By copying it to a new blob in the hot or cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. 
-- By changing its tier from archive to hot or cool with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
+- By copying it to a new blob in the hot, cool, or cold tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. 
+- By changing its tier from archive to hot, cool, or cold tier with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
 When you rehydrate a blob, you can specify the priority for the operation to either standard priority or high priority. A standard-priority rehydration operation may take up to 15 hours to complete. A high-priority operation is prioritized over standard-priority requests and may complete in less than one hour for objects under 10 GB in size. You can change the rehydration priority from *Standard* to *High* while the operation is pending.
 

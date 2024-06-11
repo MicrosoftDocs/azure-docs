@@ -1,13 +1,13 @@
 ---
 title: Confidential containers on Azure Container Instances
-description: Learn more about confidential container groups. 
+description: Learn more about confidential container groups.
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
 ms.date: 05/23/2023
-ms.custom: "seodec18, mvc"
+ms.custom: mvc
 ---
 
 # Confidential containers on Azure Container Instances

@@ -29,8 +29,6 @@ landingContent:
             url: ./learn/powershell-runbook-managed-identity.md
       - linkListType: deploy
         links:
-          - text: Start/Stop VMs during off-hours
-            url: automation-solution-vm-management.md
           - text: Change tracking and inventory using Azure Monitoring Agent
             url:  change-tracking/overview-monitoring-agent.md
 

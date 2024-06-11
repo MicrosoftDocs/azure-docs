@@ -1,23 +1,23 @@
 ---
-title: Approve private link connections across subscriptions
+title: Approve private endpoint connections across subscriptions
 titleSuffix: Azure Private Link
-description: Get started learning how to approve and manage private link connections across subscriptions with Azure Private Link.
-author: asudbring
-ms.author: allensu
+description: Get started learning how to approve and manage private endpoint connections across subscriptions by using Azure Private Link.
+author: abell
+ms.author: abell
 ms.service: private-link
 ms.topic: how-to 
 ms.date: 01/11/2024
-#customer intent: As a Network Administrator, I want the approve private link connections across Azure subscriptions.
+# Customer intent: As a network administrator, I want to approve Private Link connections across Azure subscriptions.
 
 ---
 
-# Approve private link connections across subscriptions 
+# Approve Private Link connections across subscriptions
 
 Azure Private Link enables you to connect privately to Azure resources. Private Link connections are scoped to a specific subscription. This article shows you how to approve a private endpoint connection across subscriptions.
 
 ## Prerequisites
 
-- Two active Azure subscriptions. 
+- Two active Azure subscriptions:
     
     - One subscription hosts the Azure resource and the other subscription contains the consumer private endpoint and virtual network.
 
@@ -27,7 +27,7 @@ Resources used in this article:
 
 | Resource | Subscription | Resource group | Location |
 | --- | --- | --- | --- |
-| **storage1** *(This name is unique, replace with the name you create)* | subscription-1 | test-rg | East US 2 |
+| **storage1** *(This name is unique. Replace with the name you create.)* | subscription-1 | test-rg | East US 2 |
 | **vnet-1** | subscription-2 | test-rg | East US 2 |
 | **private-endpoint** | subscription-2 | test-rg | East US 2 |
 
@@ -37,7 +37,7 @@ Sign in to **subscription-1** in the [Azure portal](https://portal.azure.com).
 
 ## Register the resource providers for subscription-1
 
-For the private endpoint connection to complete successfully, the `Microsoft.Network` and `Microsoft.Storage` resource providers must be registered in **subscription-1**. Use the following steps to register the resource providers. If the `Microsoft.Network` and `Microsoft.Storage` resource providers are already registered, skip this step.
+For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource providers must be registered in **subscription-1**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
@@ -52,7 +52,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Net
 
 1. Select **Register**.
 
-1. Repeat the previous steps to register the **Microsoft.Network** resource provider.
+1. Repeat the previous steps to register the `Microsoft.Network` resource provider.
 
 ## Create a resource group
 
@@ -60,7 +60,7 @@ For the private endpoint connection to complete successfully, the `Microsoft.Net
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create a resource group**, enter or select the following information:
+1. On the **Basics** tab of **Create a resource group**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -73,9 +73,9 @@ For the private endpoint connection to complete successfully, the `Microsoft.Net
 
 1. Select **Create**.
 
-[!INCLUDE [create-storage-account.md](../../includes/create-storage-account.md)]
+[!INCLUDE [create-storage-account.md](~/reusable-content/ce-skilling/azure/includes/create-storage-account.md)]
 
-## Obtain storage account resource ID
+## Obtain the storage account resource ID
 
 You need the storage account resource ID to create the private endpoint connection in **subscription-2**. Use the following steps to obtain the storage account resource ID.
 
@@ -93,7 +93,7 @@ Sign in to **subscription-2** in the [Azure portal](https://portal.azure.com).
 
 ## Register the resource providers for subscription-2
 
-For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource provider must be registered in **subscription-2**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
+For the private endpoint connection to complete successfully, the `Microsoft.Storage` and `Microsoft.Network` resource providers must be registered in **subscription-2**. Use the following steps to register the resource providers. If the `Microsoft.Storage` and `Microsoft.Network` resource providers are already registered, skip this step.
 
 > [!IMPORTANT]
 > If you're using a different resource type, you must register the resource provider for that resource type if it's not already registered.
@@ -108,9 +108,9 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **Register**.
 
-1. Repeat the previous steps to register the **Microsoft.Network** resource provider.
+1. Repeat the previous steps to register the `Microsoft.Network` resource provider.
 
-[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
+[!INCLUDE [virtual-network-create.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create.md)]
 
 ## Create private endpoint
 
@@ -118,13 +118,13 @@ For the private endpoint connection to complete successfully, the `Microsoft.Sto
 
 1. Select **+ Create** in **Private endpoints**.
 
-1. In the **Basics** tab of **Create a private endpoint**, enter or select the following information:
+1. On the **Basics** tab of **Create a private endpoint**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |  |
     | Subscription | Select **subscription-2**. |
-    | Resource group | Select **test-rg** |
+    | Resource group | Select **test-rg**. |
     | **Instance details** |   |
     | Name | Enter **private-endpoint**. |
     | Network Interface Name | Leave the default of **private-endpoint-nic**. |
@@ -175,5 +175,4 @@ The private endpoint connection is in a **Pending** state until approved. Use th
 In this article, you learned how to approve a private endpoint connection across subscriptions. To learn more about Azure Private Link, continue to the following articles:
 
 - [Azure Private Link overview](private-link-overview.md)
-
-- [Azure Private endpoint overview](private-endpoint-overview.md)
+- [Azure private endpoint overview](private-endpoint-overview.md)

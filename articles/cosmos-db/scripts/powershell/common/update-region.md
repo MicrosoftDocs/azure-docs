@@ -6,8 +6,8 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/02/2022
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update regions for an Azure Cosmos DB account by using PowerShell
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell, ignite-2022
 
 This PowerShell script updates the Azure regions that an Azure Cosmos DB account uses. You can use this script to add an Azure region or change region failover order.
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

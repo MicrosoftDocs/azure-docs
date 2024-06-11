@@ -7,7 +7,6 @@ manager: CelesteDG
 
 ms.service: app-service
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 03/08/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff

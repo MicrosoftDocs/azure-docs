@@ -24,6 +24,8 @@ Get started with facial recognition using the Face REST API. The Face service pr
     * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
+* [cURL](https://curl.haxx.se/) installed.
+
 
 
 
@@ -52,7 +54,7 @@ Get started with facial recognition using the Face REST API. The Face service pr
 
     Save the IDs of each **Person** created; it's important to keep track of which person name has which ID.
 
-1. Next you'll need to detect new faces and associate them with the **Person** objects that exist. The following command detects a face from the image *Family1-Dad.jpg* and adds it to the corresponding person. You need to specify the `personId` as the ID that was returned when you created the "Family1-Dad" **Person** object. The image name corresponds to the name of the created **Person**. Also enter the **LargePersonGroup** ID and your key in the appropriate fields.
+1. Next you'll need to detect new faces and associate them with the **Person** objects that exist. The following command detects a face from the image *Family1-Dad1.jpg* and adds it to the corresponding person. You need to specify the `personId` as the ID that was returned when you created the "Family1-Dad" **Person** object. The image name corresponds to the name of the created **Person**. Also enter the **LargePersonGroup** ID and your key in the appropriate fields.
 
     :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_add_face":::
 

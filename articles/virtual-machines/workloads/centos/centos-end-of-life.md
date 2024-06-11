@@ -1,9 +1,9 @@
 ---
 title: CentOS end-of-life (EOL) guidance
 description: Understand your options for moving CentOS workloads
-author: chasecrum
+author: clausw
 ms.service: virtual-machines
-ms.subservice:
+ms.subservice: vm-linux-setup-configuration
 ms.custom: linux-related-content, linux-related-content
 ms.collection: linux
 ms.topic: article
@@ -25,11 +25,11 @@ Workloads running on these CentOS versions need to migrate to alternate platform
 
 ## Migration options
 
-There are several options for CentOS customers to move to a supported OS. The decision of where and how to migrate depends on whether you need to:
+There are several options for CentOS customers to move to a supported OS. The decision of where and how to migrate depends on:
 
-- Retain compatibility with CentOS / Red Hat Enterprise Linux (RHEL)
+- Whether you need to retain compatibility with CentOS / Red Hat Enterprise Linux (RHEL)
 - Prefer a community supported distribution vs. commercial distribution (for example Red Hat Enterprise Linux or RHEL)
-- Configuration and image source(s) of your CentOS estate in Azure
+- The configuration and image source(s) of your CentOS estate in Azure
 
 If you need to keep CentOS compatibility, migration to Red Hat Enterprise Linux, a commercial distribution, is a low-risk option. There are also several choices such as Oracle Linux, Alma Linux, Rocky Linux, etc.
 
@@ -49,15 +49,17 @@ See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for detai
 
 | **Distribution** | **Description** | **Azure Images** | **Support Model** |
 |---|---|---|---|
-| **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-3p-migration?tab=Overview) available in the Azure Marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](../redhat/overview.md) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
+| **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-migration?tab=Overview) available in the Azure Marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](../redhat/overview.md) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
 | **AlmaLinux** | Official community images: <br/> [AlmaLinux OS (x86_64/AMD64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-x86_64?tab=Overview)<br/> [AlmaLinux OS (AArch64/Arm64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-arm?tab=Overview)<br/> [AlmaLinux HPC](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-hpc?tab=Overview)<br/> [Conversion tool](https://wiki.almalinux.org/documentation/migration-guide.html#how-to-migrate) available from AlmaLinux. | Yes (multiple publishers) | Community, commercial support by third parties |
 | **Oracle Linux** | [Migration tooling and guidance](https://docs.oracle.com/en/learn/switch_centos7_ol7/index.html#introduction) available from Oracle. | Yes BYOS | Community and commercial |
 | **Rocky Linux** | Official community images:<br/>[Rocky Linux for x86_64 (AMD64) - Official](https://azuremarketplace.microsoft.com/marketplace/apps/resf.rockylinux-x86_64?tab=PlansAndPrice)<br/> [Conversion tool](https://docs.rockylinux.org/guides/migrate2rocky/) available from Rocky.| Yes (multiple publishers), BYOS, ARM64 | Community and commercial |
 
-> [!NOTE]
-> - “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
-> - For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
-> - For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
+> [!CAUTION]
+> If you perform an in-place major version update following a migration (e.g. CentOS 7 -> RHEL 7 -> RHEL 8) there will be a disconnection between the data plane and the **[control plane](/azure/architecture/guide/multitenant/considerations/control-planes)** of the virtual machine (VM). Azure capabilities such as **[Auto guest patching](/azure/virtual-machines/automatic-vm-guest-patching)**, **[Auto OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)**, **[Hotpatching](/windows-server/get-started/hotpatch?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json)**, and **[Azure Update Manager](/azure/update-manager/overview)** won't be available. To utilize these features, it's recommended to create a new VM using your preferred operating system instead of performing an in-place upgrade.
+> > [!NOTE]
+> - “Binary compatible” (Application Binary Interface or ABI) means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
+- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
+- For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
 
 ## Alternate distributions
 
@@ -86,7 +88,7 @@ As you consider whether to convert your VM in-place vs redeploying, the way you 
 
 If you created your own VM for use in Azure, no software billing information is present in your VM. You're likely OK to convert it in place (after a backup and any necessary prerequisites and updates).
 
-Rogue Wave Software (formerly OpenLogic) Azure Marketplace offer
+OpenLogic by Perforce Azure Marketplace offers:
 
 - [CentOS-based](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos?tab=Overview)
 
@@ -94,7 +96,7 @@ Rogue Wave Software (formerly OpenLogic) Azure Marketplace offer
 
 - [CentOS-based LVM](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-lvm?tab=Overview)
 
-These are the official / endorsed CentOS image in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
+These are the official / endorsed CentOS images in Azure, and don't have software billing information associated. They're candidates for an in-place conversion (after a backup and any necessary prerequisites and updates).
 
 **Other Azure Marketplace offers**
 

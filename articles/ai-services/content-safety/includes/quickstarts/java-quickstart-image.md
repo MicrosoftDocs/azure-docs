@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom:
 ms.topic: include
-ms.date: 10/10/2023
+ms.date: 03/07/2024
 ms.author: pafarley
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-contentsafety-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety/azure-ai-contentsafety/src) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-contentsafety) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety/azure-ai-contentsafety/src/samples/java/com/azure/ai/contentsafety)
+[Reference documentation](/java/api/overview/azure/ai-contentsafety-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/contentsafety/azure-ai-contentsafety/src) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-contentsafety) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/java/1.0.0)
 
 
 ## Prerequisites
@@ -19,7 +19,7 @@ ms.author: pafarley
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region, and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (see [Region availability](/azure/ai-services/content-safety/overview#region-availability)), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 
 ## Set up application
@@ -68,7 +68,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-contentsafety", version = "1.0.0-beta.1")
+    implementation(group = "com.azure", name = "azure-ai-contentsafety", version = "1.0.0")
 }
 ```
 
@@ -79,16 +79,20 @@ dependencies {
 Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in the following code. Replace the `source` variable with the path to your sample image.
 
 ```java
+import com.azure.ai.contentsafety.ContentSafetyClient;
+import com.azure.ai.contentsafety.ContentSafetyClientBuilder;
 import com.azure.ai.contentsafety.models.AnalyzeImageOptions;
 import com.azure.ai.contentsafety.models.AnalyzeImageResult;
-import com.azure.ai.contentsafety.models.ImageData;
-import com.azure.ai.contentsafety.*;
+import com.azure.ai.contentsafety.models.ContentSafetyImageData;
+import com.azure.ai.contentsafety.models.ImageCategoriesAnalysis;
 import com.azure.core.credential.KeyCredential;
+import com.azure.core.util.BinaryData;
 import com.azure.core.util.Configuration;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
 
 public class ContentSafetyQuickstart {
     public static void main(String[] args) throws IOException {
@@ -101,20 +105,18 @@ public class ContentSafetyQuickstart {
             .credential(new KeyCredential(key))
             .endpoint(endpoint).buildClient();
 
-        ImageData image = new ImageData();
+        ContentSafetyImageData image = new ContentSafetyImageData();
         String cwd = System.getProperty("user.dir");
+        String source = "/src/samples/resources/image.png";
 
-        // replace with your own sample image file path
-        String source = "/src/resources/image.jpg";
-        image.setContent(Files.readAllBytes(Paths.get(cwd, source)));
+        image.setContent(BinaryData.fromBytes(Files.readAllBytes(Paths.get(cwd, source))));
 
         AnalyzeImageResult response =
                 contentSafetyClient.analyzeImage(new AnalyzeImageOptions(image));
 
-        System.out.println("Hate severity: " + response.getHateResult().getSeverity());
-        System.out.println("SelfHarm severity: " + response.getSelfHarmResult().getSeverity());
-        System.out.println("Sexual severity: " + response.getSexualResult().getSeverity());
-        System.out.println("Violence severity: " + response.getViolenceResult().getSeverity());
+        for (ImageCategoriesAnalysis result : response.getCategoriesAnalysis()) {
+            System.out.println(result.getCategory() + " severity: " + result.getSeverity());
+        }
     }
 }
 ```

@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/29/2023
+ms.date: 05/07/2024
 ms.author: franlanglois 
 ms.custom: engagement-fy23
 ---
@@ -31,13 +31,12 @@ You can view and configure the following settings using the **Resource Menu**. T
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
 - [Events](#events)
 - [Settings](#settings)
-  - [Access keys](#access-keys)
+  - [Authentication](#authentication)
   - [Advanced settings](#advanced-settings)
   - [Scale](#scale)
   - [Cluster size](#cluster-size)
   - [Data persistence](#data-persistence)
   - [Identity](#identity)
-  - [Alerts](#alerts)
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
   - [Virtual Network](#virtual-network)
@@ -50,12 +49,6 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Export data](#importexport)
   - [Reboot](#reboot)
 - [Monitoring](#monitoring)
-  - [Insights](#insights)  
-  - [Alerts](#alerts)
-  - [Metrics](#metrics)
-  - [Diagnostic settings](#diagnostic-settings)
-  - [Advisor recommendations](#advisor-recommendations)
-  - [Workbooks](#workbooks)
 - Automation
   - [Tasks (preview)](#tasks)
   - [Export template](#export-template)
@@ -69,15 +62,15 @@ The **Overview** section provides you with basic information about your cache, s
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log). For more information on monitoring the activity log, see [Activity log](monitor-cache.md#azure-activity-log).
 
 ### Access control (IAM)
 
-The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### Tags
 
-The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
+The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources).
 
 ### Diagnose and solve problems
 
@@ -87,7 +80,7 @@ Select **Diagnose and solve problems** to be provided with common issues and str
 
 Select **Events** to add event subscriptions to your cache. Use events to build reactive, event-driven apps with the fully managed event routing service that is built into Azure.
 
-The Event Grid helps you build automation into your cloud infrastructure, create serverless apps, and integrate across services and clouds. For more information, see [What is Azure Event Grid](../event-grid/overview.md).
+The Event Grid helps you build automation into your cloud infrastructure, create serverless apps, and integrate across services and clouds. For more information, see [What is Azure Event Grid](/azure/event-grid/overview).
 
 ## Redis console
 
@@ -135,13 +128,13 @@ You can move your cache to a new subscription by selecting **Move**.
 
 :::image type="content" source="media/cache-configure/redis-cache-move.png" alt-text="Move Azure Cache for Redis":::
 
-For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 
 ## Settings
 
 The **Settings** section allows you to access and configure the following settings for your cache.
 
-- [Access keys](#access-keys)
+- [Authentication](#authentication)
 - [Advanced settings](#advanced-settings)
 - [Scale](#scale)
 - [Cluster size](#cluster-size)
@@ -154,11 +147,23 @@ The **Settings** section allows you to access and configure the following settin
 - [Properties](#properties)
 - [Locks](#locks)
 
-### Access keys
+### Authentication
+
+You have two options for authentication: access keys and Microsoft Entra Authentication.
+
+#### [Access keys](#tab/access-keys)
 
 Select **Access keys** to view or regenerate the access keys for your cache. These keys are used by the clients connecting to your cache.
 
-:::image type="content" source="media/cache-configure/redis-cache-manage-keys.png" alt-text="Azure Cache for Redis Access Keys":::
+:::image type="content" source="media/cache-configure/redis-cache-manage-keys.png" alt-text="Screenshot showing Authentication selected in the Resource menu and access Keys in the working pane.":::
+
+#### [Microsoft Entra Authentication](#tab/entra)
+
+Select **Microsoft Entra Authentication** to  a password-free authentication mechanism by integrating with Microsoft Entra ID. This integration also includes role-based access control functionality provided through access control lists (ACLs) supported in open source Redis.
+
+:::image type="content" source="media/cache-configure/cache-microsoft-entra.png" alt-text="Screenshot showing Authentication selected in the Resource menu and Microsoft Entra ID in the working pane.":::
+
+---
 
 ### Advanced settings
 
@@ -196,11 +201,11 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
-The **maxmemory-reserved** setting configures the amount of memory in MB per instance in a cluster that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
+The **maxmemory-reserved** setting configures the amount of memory in MB per instance in a cluster that is reserved for noncache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
 
 The **maxfragmentationmemory-reserved** setting configures the amount of memory in MB per instance in a cluster that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data. The minimum and maximum values on the slider are 10% and 60%, shown in megabytes. You must set the value in that range.
 
-When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system will have to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
+When choosing a new memory reservation value (**maxmemory-reserved** or **maxfragmentationmemory-reserved**), consider how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB, this change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system has to evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
 > [!IMPORTANT]
 > The **maxmemory-reserved** and **maxfragmentationmemory-reserved** settings are available for Basic,Standard and Premium caches.
@@ -252,7 +257,7 @@ Presently, you can only use managed identities for storage. For more information
 
 ### Schedule updates
 
-The **Schedule updates** section on the left allows you to choose a maintenance window for Redis server updates for your cache.
+The **Schedule updates** section allows you to choose a maintenance window for Redis server updates for your cache.
 
 > [!IMPORTANT]
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
@@ -265,7 +270,7 @@ For more information and instructions, see [Update channel and Schedule updates]
 
 ### Geo-replication
 
-**Geo-replication**, on the left, provides a mechanism for linking two Premium tier Azure Cache for Redis instances. One cache is named as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
+**Geo-replication**, on the Resource menu, provides a mechanism for linking two Premium tier Azure Cache for Redis instances. One cache is named as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
 
 > [!IMPORTANT]
 > **Geo-replication** is only available for Premium tier caches. For more information and instructions, see [How to configure Geo-replication for Azure Cache for Redis](cache-how-to-geo-replication.md).
@@ -305,7 +310,7 @@ Select **Properties** to view information about your cache, including the cache 
 
 ### Locks
 
-The **Locks** section allows you to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
+The **Locks** section allows you to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](/azure/azure-resource-manager/management/lock-resources).
 
 ## Administration settings
 
@@ -327,7 +332,7 @@ You can use import with Redis-compatible RDB files from any Redis server running
 - Windows
 - any cloud provider such as Amazon Web Services and others
 
-Importing data is an easy way to create a cache with pre-populated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory, and then inserts the keys into the cache.
+Importing data is an easy way to create a cache with prepopulated data. During the import process, Azure Cache for Redis loads the RDB files from Azure storage into memory, and then inserts the keys into the cache.
 
 Export allows you to export the data stored in Azure Cache for Redis to Redis compatible RDB files. You can use this feature to move data from one Azure Cache for Redis instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Cache for Redis server instance. The temporary file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
@@ -337,7 +342,7 @@ Export allows you to export the data stored in Azure Cache for Redis to Redis co
 
 ### Reboot
 
-The **Reboot** item on the left allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
+The **Reboot** item allows you to reboot the nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
 
 :::image type="content" source="media/cache-configure/redis-cache-reboot.png" alt-text="Reboot":::
 
@@ -353,28 +358,20 @@ To reboot one or more nodes of your cache, select the desired nodes and select *
 
 ## Monitoring
 
-The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis.
-For more information on Azure Cache for Redis monitoring and diagnostics, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md).
+The **Monitoring** section allows you to configure diagnostics and monitoring for your Azure Cache for Redis instance.
+
+- For more information on Azure Cache for Redis monitoring and diagnostics, see [Monitor Azure Cache for Redis](monitor-cache.md).
+- For information on how to set up and use Azure Cache for Redis monitoring and diagnostics, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md).
 
 :::image type="content" source="media/cache-configure/redis-cache-diagnostics.png" alt-text="Diagnostics":::
 
-- [Insights](#insights)
-- [Metrics](#metrics)
-- [Alerts](#alerts)
-- [Diagnostic settings](#diagnostic-settings)
-- [Advisor recommendations](#advisor-recommendations)
-
 ### Insights
 
-Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics.
-
-For more information, see [Use Insights for predefined charts](cache-how-to-monitor.md#use-insights-for-predefined-charts).
-
-<!-- create link to new content for Insights when it is added by the monitor team -->
+Use **Insights** to see groups of predefined tiles and charts to use as starting point for your cache metrics. For more information, see [Insights](monitor-cache.md#insights).
 
 ### Metrics
 
-Select **Metrics** to Create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create alerts](cache-how-to-monitor.md#create-alerts).
+Select **Metrics** to create your own custom chart to track the metrics you want to see for your cache. For more information, see [Create your own metrics](cache-how-to-monitor.md#create-your-own-metrics).
 
 ### Alerts
 
@@ -382,15 +379,14 @@ Select **Alerts** to configure alerts based on Azure Cache for Redis metrics. Fo
 
 ### Diagnostic settings
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/essentials/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. To persist your cache metrics for longer than 30 days, select **Diagnostics settings** to [configure the storage account](monitor-cache.md#data-storage) used to store cache diagnostics.
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
->
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs).
 
 ### Advisor recommendations
 
-The **Advisor recommendations** on the left displays recommendations for your cache. During normal operations, no recommendations are displayed.
+The **Advisor recommendations** displays recommendations for your cache. During normal operations, no recommendations are displayed.
 
 :::image type="content" source="media/cache-configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the Advisor recommendations are displayed but there are no current ones.":::
 
@@ -401,7 +397,6 @@ If any conditions occur during the operations of your cache such as imminent cha
 Further information can be found on the **Recommendations** in the working pane of the Azure portal.
 
 :::image type="content" source="media/cache-configure/redis-cache-recommendations.png" alt-text="Screenshot that shows Advisor recommendations":::
-<!-- How do we trigger an event that causes a good recommendation for the image? -->
 
 You can monitor these metrics on the [Monitoring](cache-how-to-monitor.md) section of the Resource menu.
 
@@ -426,11 +421,11 @@ Azure Automation delivers a cloud-based automation, operating system updates, an
 
 Select **Tasks** to  help you manage Azure Cache for Redis resources more easily. These tasks vary in number and availability, based on the resource type. Presently, you can only use the **Send monthly cost for resource** template to create a task while in preview.
 
-For more information, see [Manage Azure resources and monitor costs by creating automation tasks](../logic-apps/create-automation-tasks-azure-resources.md).
+For more information, see [Manage Azure resources and monitor costs by creating automation tasks](/azure/logic-apps/create-automation-tasks-azure-resources).
 
 ### Export template
 
-Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md).
+Select **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Support & troubleshooting settings
 
@@ -443,7 +438,7 @@ The settings in the **Support + troubleshooting** section provide you with optio
 
 ### Resource health
 
-**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](../service-health/resource-health-overview.md).
+**Resource health** watches your resource and tells you if it's running as expected. For more information about the Azure Resource health service, see [Azure Resource health overview](/azure/service-health/resource-health-overview).
 
 > [!NOTE]
 > Resource health is currently unable to report on the health of Azure Cache for Redis instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)

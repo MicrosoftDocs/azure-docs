@@ -5,9 +5,9 @@ author: EliotSeattle
 ms.author: eliotgra
 ms.service: azure-government
 ms.topic: quickstart
-ms.custom: mode-other, kr2b-contr-experiment
+ms.custom: mode-other, kr2b-contr-experiment, linux-related-content
 recommendations: false
-ms.date: 06/14/2023
+ms.date: 06/06/2024
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -93,7 +93,7 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 
     b. Enter Log Analytics workspace (optional, required to store log analytics).
 
-    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8, CentOS 7.7/7.8/7.9, and Ubuntu 18.04).
+    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8 and Ubuntu 18.04).
 
     :::image type="content" source="./media/stig-linux-diagnostic-settings.png" alt-text="Management section showing where you select the diagnostic settings for the virtual machine" border="false":::
 
@@ -115,22 +115,22 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 1. The deployed virtual machine can be found in the resource group used for the deployment. Since inbound RDP is disallowed, Azure Bastion must be used to connect to the VM.
 
 ## High availability and resiliency
- 
+
 Our solution template creates a single instance virtual machine using premium or standard operating system disk, which supports [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
- 
+
 We recommend you deploy multiple instances of virtual machines configured behind Azure Load Balancer and/or Azure Traffic Manager for higher availability and resiliency.
- 
+
 ## Business continuity and disaster recovery (BCDR)
- 
+
 As an organization you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
- 
+
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery replicates workloads running on physical and virtual machines from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
- 
+
 Site Recovery can manage replication for:
- 
+
 - Azure VMs replicating between Azure regions.
 - On-premises VMs, Azure Stack VMs, and physical servers.
- 
+
 To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](../virtual-machines/backup-recovery.md).
 
 ## Clean up resources

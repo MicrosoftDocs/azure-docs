@@ -1,6 +1,6 @@
 ---
 title: Connect a Node.js Mongoose application to Azure Cosmos DB
-description: Learn how to use the Mongoose Framework to store and manage data in Azure Cosmos DB. 
+description: Learn how to use the Mongoose Framework to store and manage data in Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.custom: seodec18, devx-track-js, ignite-2022
+ms.custom: devx-track-js
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This tutorial demonstrates how to use the [Mongoose Framework](https://mongoosejs.com/) when storing data in Azure Cosmos DB. We use the Azure Cosmos DB's API for MongoDB for this walkthrough. For those of you unfamiliar, Mongoose is an object modeling framework for MongoDB in Node.js and provides a straight-forward, schema-based solution to model your application data.
 
@@ -19,7 +19,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -71,7 +71,7 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
    ```javascript
    var mongoose = require('mongoose');
    var env = require('dotenv').config();   //Use the .env file to load the variables
-    ```
+   ```
 
 5. Add your Azure Cosmos DB connection string and Azure Cosmos DB Name to the ```.env``` file. Replace the placeholders {cosmos-account-name} and {dbname} with your own Azure Cosmos DB account name and database name, without the brace symbols.
 
@@ -87,15 +87,15 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 6. Connect to Azure Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
 
-   ```javascript
-   mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
-      auth: {
-        username: process.env.COSMOSDB_USER,
-        password: process.env.COSMOSDB_PASSWORD
-      },
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    retryWrites: false
+    ```javascript
+    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true& replicaSet=globaldb", {
+       auth: {
+         username: process.env.COSMOSDB_USER,
+         password: process.env.COSMOSDB_PASSWORD
+       },
+       useNewUrlParser: true,
+       useUnifiedTopology: true,
+       retryWrites: false
     })
     .then(() => console.log('Connection to CosmosDB successful'))
     .catch((err) => console.error(err));

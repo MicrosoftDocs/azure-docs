@@ -5,7 +5,6 @@ description: The LUIS container runtime environment is configured using the `doc
 #services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: azure-ai-language
 ms.subservice: azure-ai-luis
 ms.topic: how-to
@@ -51,7 +50,7 @@ Do not use the starter key or the authoring key.
 
 ## ApplicationInsights setting
 
-[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## Billing setting
 
@@ -68,19 +67,19 @@ This setting can be found in the following places:
 
 ## Eula setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## HTTP proxy credentials settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
-[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+[!INCLUDE [Container shared configuration logging settings](../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
 ## Mount settings
 
@@ -112,7 +111,7 @@ Replace {_argument_name_} with your own values:
 | **{API_KEY}** | The endpoint key of the `LUIS` resource on the Azure `LUIS` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `LUIS` Overview page.| See [gather required parameters](luis-container-howto.md#gather-required-parameters) for explicit examples. |
 
-[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
+[!INCLUDE [subdomains-note](../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start. For more information, see [Billing](luis-container-howto.md#billing).

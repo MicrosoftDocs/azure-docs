@@ -14,7 +14,7 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Archite
 
 Azure IoT Hub provides the features and an extensibility model that enable device and back-end developers to build robust device management solutions. Devices range from constrained sensors and single purpose microcontrollers, to powerful gateways that route communications for groups of devices.  Also, the use cases and requirements for IoT operators vary significantly across industries.  Despite this variation, device management with IoT Hub provides the capabilities, patterns, and code libraries to cater to a diverse set of devices and end users.
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
 
 A crucial part of creating a successful enterprise IoT solution is to provide a strategy for how operators handle the ongoing management of their collection of devices. IoT operators require simple and reliable tools and applications that enable them to focus on the more strategic aspects of their jobs. This article provides:
 
@@ -94,7 +94,7 @@ IoT Hub enables the following set of device management patterns. The [device man
 
 [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md)  is a comprehensive platform that customers can use to publish, distribute, and manage over-the-air updates for everything from tiny sensors to gateway-level devices. Device Update for IoT Hub allows customers to rapidly respond to security threats and deploy features to meet business objectives without incurring more development and maintenance costs of building custom update platforms.
 
-Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with Azure IoT Hub. With extended reach through Azure IoT Edge, it provides a cloud-hosted solution that connects virtually any device. It supports a broad range of IoT operating systems—including Linux and Azure RTOS (real-time operating system)—and is extensible via open source. Some features include:
+Device Update for IoT Hub offers optimized update deployment and streamlined operations through integration with Azure IoT Hub. With extended reach through Azure IoT Edge, it provides a cloud-hosted solution that connects virtually any device. It supports a broad range of IoT operating systems—including Linux and Eclipse ThreadX (real-time operating system)—and is extensible via open source. Some features include:
 
 * Support for updating edge devices, including the host-level components of Azure IoT Edge
 * Update management UX integrated with Azure IoT Hub

@@ -3,7 +3,6 @@ title: Modify an Active Directory Connection for Azure NetApp Files | Microsoft 
 description: This article shows you how to modify Active Directory connections for Azure NetApp Files.
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: how-to
 ms.date: 02/21/2023
 ms.author: anfdocs

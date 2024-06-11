@@ -2,10 +2,9 @@
 title: Delete an Azure Site Recovery vault
 description: Learn how to delete a Recovery Services vault configured for Azure Site Recovery
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: site-recovery
 ms.topic: how-to
-ms.date: 11/05/2019
+ms.date: 03/29/2024
 ms.author: ankitadutta 
 
 ---
@@ -13,7 +12,7 @@ ms.author: ankitadutta
 
 This article describes how to delete a Recovery Services vault for Site Recovery. To delete a vault used in Azure Backup, see [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 
 ## Before you start
@@ -69,4 +68,9 @@ $vault = Get-AzRecoveryServicesVault -Name "vaultname"
 Remove-AzRecoveryServicesVault -Vault $vault
 ```
 
-Learn more about [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), and [Remove-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+## Next steps
+
+Learn more about:
+
+-  [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)
+- [Remove-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

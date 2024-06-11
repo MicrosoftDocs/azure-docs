@@ -35,15 +35,16 @@ NVIDIA NVLink Interconnect: Supported <br>
 <br> 
 
 >[!IMPORTANT]
->To get started with ND H100 v5 VMs, refer to HPC Workload Configuration and Optimization for steps including driver and network configuration. Due to increased GPU memory I/O footprint, the ND H100 v5 requires the use of Generation 2 VMs and marketplace images. The Azure HPC images are strongly recommended. Azure HPC Ubuntu 20.04 image is supported. 
+>To get started with ND H100 v5 VMs, refer to HPC Workload Configuration and Optimization for steps including driver and network configuration. Due to increased GPU memory I/O footprint, the ND H100 v5 requires the use of Generation 2 VMs and marketplace images.
+>
+>Azure supports Ubuntu 20.04/22.04, RHEL 7.9/8.7/9.3, AlmaLinux 8.8/9.2, and SLES 15 for ND H100 v5 VMs. On Azure marketplace, there are offerings of optimized and pre-configured [Linux VM images](configure.md#vm-images) for HPC/AI workloads with a variety of HPC tools and libraries installed, and thus they are strongly recommended. Currently, Ubuntu-HPC 20.04/22.04 and AlmaLinux-HPC 8.6/8.7 VM images are supported.
 
 ## Example
-The ND H100 v5 series supports the following kernel version: 
-Ubuntu 20.04: 5.4.0-1046-azure 
+[comment]: # (The ND H100 v5 series supports the following kernel version: Ubuntu 20.04: 5.4.0-1046-azure)
 
 | Size                | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU                        | GPU Memory GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max network bandwidth  | Max NICs |
 |---------------------|------|------------|------------------------|----------------------------|----------------|----------------|-----------------------------------------|------------------------------|----------|
-| Standard_ND96isr_H100_v5 | 96   | 1900       | 1000                   | 8 H100 80 GB GPUs(NVLink)  | 80             | 32             | 40800/612                               | 80,000 Mbps                         | 8        |
+| Standard_ND96isr_H100_v5 | 96   | 1900       | 28000                   | 8 H100 80 GB GPUs(NVLink)  | 80             | 32             | 40800/612                               | 80,000 Mbps                         | 8        |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

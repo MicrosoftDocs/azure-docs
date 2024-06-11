@@ -72,7 +72,7 @@ To determine the best region to host the dev boxes, you can let dev box users ta
 
 ### Microsoft Intune integration
 
-Microsoft Intune is used to manage your dev boxes. After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users’ dev boxes.
+Microsoft Intune is used to manage your dev boxes. Every Dev Box user needs one Microsoft Intune license and can create multiple dev boxes. After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users’ dev boxes.
 
 Microsoft Intune and associated Windows components have various [network endpoints](/mem/intune/fundamentals/intune-endpoints) that must be allowed through the Virtual Network. Apple and Android endpoints can be safely ignored if you don’t use Microsoft Intune for managing those device types.
 

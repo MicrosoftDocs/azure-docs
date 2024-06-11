@@ -1,7 +1,7 @@
 ---
 title: Deploy ML models to FPGAs
 titleSuffix: Azure Machine Learning
-description: Learn about field-programmable gate arrays. You can deploy a web service on an FPGA with Azure Machine Learning for ultra-low latency inference. 
+description: Learn about field-programmable gate arrays. You can deploy a web service on an FPGA with Azure Machine Learning for ultra-low latency inference.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
@@ -10,14 +10,14 @@ author: bozhong68
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, contperf-fy21q2, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel) from [Azure Machine Learning](../overview-what-is-azure-machine-learning.md).
+In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel.models) from [Azure Machine Learning](../overview-what-is-azure-machine-learning.md).
 
 ## What are FPGAs?
 
@@ -54,7 +54,7 @@ The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "
 
 ## Deploy models on FPGAs
 
-You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](/python/api/azureml-accel-models/azureml.accel). Using FPGAs provides ultra-low latency inference, even with a single batch size. 
+You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](/python/api/azureml-accel-models/azureml.accel.models). Using FPGAs provides ultra-low latency inference, even with a single batch size. 
 
 In this example, you create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set. Then, the model is deployed to an AKS cluster.
 

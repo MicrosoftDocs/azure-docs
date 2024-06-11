@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 02/14/2024
 ms.custom: template-tutorial, engagement-fy23
 ---
 
@@ -84,7 +84,7 @@ In this section, you'll create a virtual network for the load balancer, NAT gate
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 

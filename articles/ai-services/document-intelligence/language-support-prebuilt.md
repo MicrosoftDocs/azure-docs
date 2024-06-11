@@ -1,14 +1,14 @@
 ---
 title: Language and locale support for prebuilt models - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Document Intelligence prebuilt / pretrained model language extraction and detection support
+description: Document Intelligence prebuilt / pretrained model language extraction and detection support.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/19/2024
+ms.date: 02/29/2024
 ---
 
 # Language support: prebuilt models
@@ -40,7 +40,7 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 :::moniker range="doc-intel-4.0.0"
  > [!IMPORTANT]
-> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business cards, use the following:
+> Starting with Document Intelligence **v4.0 (preview)**, and going forward, the business card model (prebuilt-businessCard) is deprecated. To extract data from business cards, use earlier models.
 
 | Feature   | version| Model ID |
 |----------  |---------|--------|
@@ -127,68 +127,88 @@ Azure AI Document Intelligence models provide multilingual document processing s
 
 | Languages | Details |
 |:----------------------|:---------|
-| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
-| &bullet; Spanish (`es`) |Spain (`es`)|
-| &bullet; German (`de`) | Germany (`de`)|
-| &bullet; French (`fr`) | France (`fr`) |
-| &bullet; Italian (`it`) | Italy (`it`)|
-| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
-| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
+| &bullet; Albanian (`sq`) | Albania (`al`)|
+| &bullet; Arabic (`ar`) | Arabic (`ar`)|
+| &bullet; Bulgarian (`bg`) | Bulgaria (`bg`)|
+| &bullet; Chinese (simplified (`zh-hans`)) | China (`zh-hans-cn`)|
+| &bullet; Chinese (traditional (`zh-hant`)) | Hong Kong SAR (`zh-hant-hk`), Taiwan (`zh-hant-tw`)|
+| &bullet; Croatian (`hr`) | Bosnia and Herzegovina (`ba`), Croatia (`hr`), Serbia (`rs`)|
 | &bullet; Czech (`cs`) | Czech Republic (`cz`)|
 | &bullet; Danish (`da`) | Denmark (`dk`)|
+| &bullet; Dutch (`nl`) | Netherlands (`nl`)|
+| &bullet; English (`en`) | United States (`us`), Australia (`au`), Canada (`ca`), United Kingdom (-uk), India (-in)|
 | &bullet; Estonian (`et`) | Estonia (`ee`)|
 | &bullet; Finnish (`fi`) | Finland (`fl`)|
-| &bullet; Croatian (`hr`) | Bosnia and Herzegovina (`ba`), Croatia (`hr`), Serbia (`rs`)|
+| &bullet; French (`fr`) | France (`fr`) |
+| &bullet; German (`de`) | Germany (`de`)|
+| &bullet; Greek (`el`) | Greece (`el`)|
+| &bullet; Hebrew (`he`) | Hebrew (`he`)|
 | &bullet; Hungarian (`hu`) | Hungary (`hu`)|
 | &bullet; Icelandic (`is`) | Iceland (`is`)|
+| &bullet; Italian (`it`) | Italy (`it`)|
 | &bullet; Japanese (`ja`) | Japan (`ja`)|
 | &bullet; Korean (`ko`) | Korea (`kr`)|
-| &bullet; Lithuanian (`lt`) | Lithuania (`lt`)|
 | &bullet; Latvian (`lv`) | Latvia (`lv`)|
+| &bullet; Lithuanian (`lt`) | Lithuania (`lt`)|
+| &bullet; Macedonian (`mk`) | Macedonia (`mk`)|
 | &bullet; Malay (`ms`) | Malaysia (`ms`)|
 | &bullet; Norwegian (`nb`) | Norway (`no`)|
 | &bullet; Polish (`pl`) | Poland (`pl`)|
+| &bullet; Portuguese (`pt`) | Portugal (`pt`), Brazil (`br`)|
 | &bullet; Romanian (`ro`) | Romania (`ro`)|
+| &bullet; Russian (`ru`) | Russia (`ru`)|
+| &bullet; Serbian (Cyrillic) (`sr-cyrl`) | Serbia (`sr`)|
+| &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
 | &bullet; Slovak (`sk`) | Slovakia (`sv`)|
 | &bullet; Slovenian (`sl`) | Slovenia (`sl`)|
-| &bullet; Serbian (sr-Latn) | Serbia (latn-rs)|
-| &bullet; Albanian (`sq`) | Albania (`al`)|
+| &bullet; Spanish (`es`) |Spain (`es`)|
 | &bullet; Swedish (`sv`) | Sweden (`se`)|
-| &bullet; Chinese (simplified (`zh-hans`)) | China (`zh-hans-cn`)|
-| &bullet; Chinese (traditional (`zh-hant`)) | Hong Kong SAR (`zh-hant-hk`), Taiwan (`zh-hant-tw`)|
+| &bullet; Thai (`th`) | Thailand (`th`)|
+| &bullet; Turkish (`tr`) | Turkey (`tr`)|
+| &bullet; Ukrainian (`uk`) | Ukraine (`uk`)|
+| &bullet; Vietnamese (`vi`) | Vietnam (`vi`)|
 
 ### [Supported Currency Codes](#tab/currency)
 
 | Currency Code | Details |
 |:----------------------|:---------|
-| &bullet; ARS | Argentine Peso (`ar`) |
-| &bullet; AUD | Australian Dollar (`au`) |
-| &bullet; BRL | Brazilian Real (`br`) |
-| &bullet; CAD | Canadian Dollar (`ca`) |
-| &bullet; CLP | Chilean Peso (`cl`) |
-| &bullet; CNY | Chinese Yuan (`cn`) |
-| &bullet; COP | Colombian Peso (`co`) |
-| &bullet; CRC | Costa Rican Coldón (`us`) |
-| &bullet; CZK | Czech Koruna (`cz`) |
-| &bullet; DKK | Danish Krone (`dk`) |
-| &bullet; EUR | Euro (`eu`) |
-| &bullet; GBP | British Pound Sterling (`gb`) |
-| &bullet; GGP | Guernsey Pound (`gg`) |
-| &bullet; HUF | Hungarian Forint (`hu`) |
-| &bullet; IDR | Indonesian Rupiah (`id`) |
-| &bullet; INR | Indian Rupee (`in`) |
-| &bullet; ISK | Icelandic Króna (`us`) |
-| &bullet; JPY | Japanese Yen (`jp`) |
-| &bullet; KRW | South Korean Won (`kr`) |
-| &bullet; NOK | Norwegian Krone (`no`) |
-| &bullet; PAB | Panamanian Balboa (`pa`) |
-| &bullet; PEN | Peruvian Sol (`pe`) |
-| &bullet; PLN | Polish Zloty (`pl`) |
-| &bullet; RON | Romanian Leu (`ro`) |
-| &bullet; RSD | Serbian Dinar (`rs`) |
-| &bullet; SEK | Swedish Krona (`se`) |
-| &bullet; TWD | New Taiwan Dollar (`tw`) |
-| &bullet; USD | United States Dollar (`us`) |
+| &bullet; `ARS` | Argentine Peso (`ar`) |
+| &bullet; `AUD` | Australian Dollar (`au`) |
+| &bullet; `BAM` | Bosnian Convertible Mark (`ba`) |
+| &bullet; `BRL` | Brazilian Real (`br`) |
+| &bullet; `GBP` | British Pound Sterling (`gb`) |
+| &bullet; `BGN` | Bulgarian Lev (`bg`) |
+| &bullet; `CAD` | Canadian Dollar (`ca`) |
+| &bullet; `CLP` | Chilean Peso (`cl`) |
+| &bullet; `CNY` | Chinese Yuan (`cn`) |
+| &bullet; `COP` | Colombian Peso (`co`) |
+| &bullet; `CRC` | Costa Rican Coldón (`us`) |
+| &bullet; `CZK` | Czech Koruna (`cz`) |
+| &bullet; `DKK` | Danish Krone (`dk`) |
+| &bullet; `EUR` | Euro (`eu`) |
+| &bullet; `GGP` | Guernsey Pound (`gg`) |
+| &bullet; `HUF` | Hungarian Forint (`hu`) |
+| &bullet; `ISK` | Icelandic Króna (`us`) |
+| &bullet; `INR` | Indian Rupee (`in`) |
+| &bullet; `IDR` | Indonesian Rupiah (`id`) |
+| &bullet; `ILS` | Israeli New Shekel (`il`) |
+| &bullet; `JPY` | Japanese Yen (`jp`) |
+| &bullet; `MKD` | Macedonian Denar (`mk`) |
+| &bullet; `TWD` | New Taiwan Dollar (`tw`) |
+| &bullet; `NOK` | Norwegian Krone (`no`) |
+| &bullet; `PAB` | Panamanian Balboa (`pa`) |
+| &bullet; `PEN` | Peruvian Sol (`pe`) |
+| &bullet; `PLN` | Polish Zloty (`pl`) |
+| &bullet; `RON` | Romanian Leu (`ro`) |
+| &bullet; `RUB` | Russian Ruble (`ru`) |
+| &bullet; `RSD` | Serbian Dinar (`rs`) |
+| &bullet; `KRW` | South Korean Won (`kr`) |
+| &bullet; `SEK` | Swedish Krona (`se`) |
+| &bullet; `THB` | Thai Baht (`th`) |
+| &bullet; `TRY` | Turkish Lira (`tr`) |
+| &bullet; `UAH` | Ukrainian Hryvnia (`ua`) |
+| &bullet; `USD` | United States Dollar (`us`) |
+| &bullet; `VND` | Vietnamese Dong (`vn`) |
 
 ---
 :::moniker-end
@@ -209,13 +229,13 @@ Azure AI Document Intelligence models provide multilingual document processing s
 ### [Supported Currency Codes](#tab/currency)
 | Supported Currency Codes | Details |
 |:----------------------|:---------|
-| &bullet; BRL | Brazilian Real (`br`) |
-| &bullet; GBP | British Pound Sterling (`gb`) |
-| &bullet; CAD | Canada (`ca`) |
-| &bullet; EUR | Euro (`eu`) |
-| &bullet; GGP | Guernsey Pound (`gg`) |
-| &bullet; INR | Indian Rupee (`in`) |
-| &bullet; USD | United States (`us`) |
+| &bullet; `BRL` | Brazilian Real (`br`) |
+| &bullet; `GBP` | British Pound Sterling (`gb`) |
+| &bullet; `CAD` | Canada (`ca`) |
+| &bullet; `EUR` | Euro (`eu`) |
+| &bullet; `GGP` | Guernsey Pound (`gg`) |
+| &bullet; `INR` | Indian Rupee (`in`) |
+| &bullet; `USD` | United States (`us`) |
 ---
 :::moniker-end
 

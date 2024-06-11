@@ -7,10 +7,9 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.custom: linux-related-content
 ms.date: 10/09/2023
 ms.author: radeltch
-
 ---
 
 # Set up Pacemaker on Red Hat Enterprise Linux in Azure
@@ -342,7 +341,7 @@ Assign the custom role `Linux Fence Agent Role` that was created in the last sec
 
 #### [Service principal](#tab/spn)
 
-Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 Make sure to assign the role for both cluster nodes.
 
@@ -489,8 +488,10 @@ When the cluster health attribute is set for a node, the location constraint tri
 
    ```bash
    sudo pcs resource create health-azure-events \
-   ocf:heartbeat:azure-events-az op monitor interval=10s
-   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   ocf:heartbeat:azure-events-az \
+   op monitor interval=10s timeout=240s \
+   op start timeout=10s start-delay=90s
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
    ```
 
 1. Take the Pacemaker cluster out of maintenance mode.

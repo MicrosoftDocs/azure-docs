@@ -5,7 +5,7 @@ ms.service: mysql
 ms.subservice: single-server
 author: SudheeshGH
 ms.author: sunaray
-ms.custom: mvc, seo-python-october2019, devx-track-python, mode-api
+ms.custom: mvc, devx-track-python, mode-api
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/20/2022
@@ -15,7 +15,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 In this quickstart, you connect to an Azure Database for MySQL by using Python. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
@@ -301,4 +301,3 @@ az group delete \
 
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
-

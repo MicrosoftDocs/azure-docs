@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
-ms.date: 01/22/2023
+ms.date: 05/31/2024
 ---
 
 # Azure Monitor workspace
@@ -79,6 +79,8 @@ This section provides answers to common questions.
 ### What's the difference between an Azure Monitor workspace and a Log Analytics workspace?
 
 An Azure Monitor workspace is a unique environment for data collected by Azure Monitor. Each workspace has its own data repository, configuration, and permissions. Azure Monitor workspaces will eventually contain all metrics collected by Azure Monitor, including native metrics. Currently, the only data hosted by an Azure Monitor workspace is Prometheus metrics.
+
+You cannot use quota limits, similar to the Log Anlytics Workspace (Daily Cap or Data retention) in the Azure Monitor workspace.
 
 ### Can I delete Prometheus metrics from an Azure Monitor workspace?
         

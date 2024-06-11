@@ -1,7 +1,7 @@
 ---
 title: 'How to deploy pipeline as batch endpoint'
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy pipeline component as batch endpoint to trigger the pipeline using REST endpoint
+description: Learn how to deploy pipeline component as batch endpoint to trigger the pipeline using REST endpoint.
 ms.reviewer: lagayhar
 author: zhanxia
 ms.author: zhanxia
@@ -11,7 +11,7 @@ ms.subservice: core
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 4/28/2023
+ms.date: 03/29/2024
 ---
 # Deploy your pipeline as batch endpoint 
 
@@ -22,11 +22,11 @@ After building your machine learning pipeline, you can [deploy your pipeline as 
 
 ## Pipeline component deployment as batch endpoint
 
-Pipeline component deployment as batch endpoint is the feature that allows you to achieve the goals for the previously-listed scenarios. This is the equivalent feature with published pipeline/pipeline endpoint in SDK v1.
+Pipeline component deployment as batch endpoint is the feature that allows you to achieve the goals for the previously listed scenarios. This is the equivalent feature with published pipeline/pipeline endpoint in SDK v1.
 
 To deploy your pipeline as a batch endpoint, we recommend that you first convert your pipeline into a [pipeline component](./how-to-use-pipeline-component.md), and then deploy the pipeline component as a batch endpoint. For more information on deploying pipelines as batch endpoints, see [How to deploy pipeline component as batch endpoint](how-to-use-batch-pipeline-deployments.md).
 
-It's also possible to deploy your pipeline job as a batch endpoint. In this case, Azure Machine Learning can accept that job as the input to your batch endpoint and create the pipeline component automatically for you. For more information. see [Deploy existing pipeline jobs to batch endpoints](how-to-use-batch-pipeline-from-job.md).
+It's also possible to deploy your pipeline job as a batch endpoint. In this case, Azure Machine Learning can accept that job as the input to your batch endpoint and create the pipeline component automatically for you. For more information, see [Deploy existing pipeline jobs to batch endpoints](how-to-use-batch-pipeline-from-job.md).
 
 > [!NOTE]
 > The consumer of the batch endpoint that invokes the pipeline job should be the user application, not the final end user. The application should control the inputs to the endpoint to prevent malicious inputs.

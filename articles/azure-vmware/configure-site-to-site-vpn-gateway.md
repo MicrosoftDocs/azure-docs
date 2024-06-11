@@ -1,10 +1,10 @@
 ---
-title: Configure a site-to-site VPN in vWAN for Azure VMware Solution 
+title: Configure a site-to-site VPN in vWAN for Azure VMware Solution
 description: Learn how to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel into Azure VMware Solutions.
 ms.topic: how-to
-ms.custom: contperf-fy22q1, engagement-fy23
+ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/15/2023
+ms.date: 2/27/2024
 ---
 
 # Configure a site-to-site VPN in vWAN for Azure VMware Solution
@@ -18,22 +18,20 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
 ## Create an Azure Virtual WAN
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
 
 ## Create a virtual hub
 
-A virtual hub is a virtual network that is created and used by Virtual WAN. It's the core of your Virtual WAN network in a region.  It can contain gateways for site-to-site and ExpressRoute. 
+A virtual hub is a virtual network that is created and used by Azure Virtual WAN. It's the core of your Virtual WAN network in a region.  It can contain gateways for site-to-site and ExpressRoute. 
 
 >[!TIP]
 >You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
 
-
-[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
 
 ## Create a VPN gateway 
 
-[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
-
+[!INCLUDE [Create a gateway](~/reusable-content/ce-skilling/azure/includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 ## Create a site-to-site VPN
 
@@ -45,7 +43,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot showing the Create VPN site page with the Basics tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot showing the Create VPN site page with the Basics tab open." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/site-basics.png":::
 
    * **Region** - Previously referred to as location. It's the location you want to create this site resource in.
    
@@ -57,7 +55,6 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
     
    >[!NOTE]
    >If you edit the address space after creating the site (for example, add an additional address space) it can take 8-10 minutes to update the effective routes while the components are recreated.
-
 
 1. Select **Links** to add information about the physical links at the branch. If you have a Virtual WAN partner CPE device, check with them to see if this information gets exchanged with Azure as a part of the branch information upload set up from their systems.
 
@@ -72,7 +69,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
 1. Navigate to the virtual hub you want, and deselect **Hub association** to connect your VPN site to the hub.
  
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="../../includes/media/virtual-wan-tutorial-site-include/connect.png":::   
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/connect.png":::   
 
 ## (Optional) Create policy-based VPN site-to-site tunnels
 
@@ -118,7 +115,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
    >[!TIP]
    >If you don't have a previously defined key, you can leave this field blank. A key is generated for you automatically. 
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. "::: 
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. "::: 
 
 1. If you're deploying a firewall in the hub and it's the next hop, set the **Propagate Default Route** option to **Enable**. 
 
@@ -137,8 +134,6 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
     * **Connected**: Connectivity established between Azure VPN gateway and on-premises VPN site.
     * **Disconnected**: Typically seen if disconnected for any reason (on-premises or in Azure)
 
-
-
 1. Download the VPN configuration file and apply it to the on-premises endpoint.  
    
    1. On the VPN (Site to site) page, near the top, select **Download VPN Config**.  Azure creates a storage account in the resource group 'microsoft-network-\[location\]', where location is the location of the WAN. After you apply the configuration to your VPN devices, you can delete this storage account.
@@ -149,15 +144,19 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 
    For more information about the configuration file, see [About the VPN device configuration file](../virtual-wan/virtual-wan-site-to-site-portal.md#config-file).
 
+
 1. Patch the Azure VMware Solution ExpressRoute in the Virtual WAN hub. 
+
 
    >[!IMPORTANT]
    >You must first have a private cloud created before you can patch the platform. 
 
->[!IMPORTANT]
+   >[!IMPORTANT]
    >You must also have an ExpressRoute Gateway configured as part of your Virtual WAN Hub. 
 
+
    [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
+
 
 1. Link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. You use the authorization key and ExpressRoute ID (peer circuit URI) from the previous step.
 

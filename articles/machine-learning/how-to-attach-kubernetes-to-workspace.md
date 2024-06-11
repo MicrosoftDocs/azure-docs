@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/18/2024
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: build-spring-2022, cliv2, sdkv2
 ---
 
 # Attach a Kubernetes cluster to Azure Machine Learning workspace
@@ -176,7 +176,7 @@ To access Azure Container Registry (ACR) for a Docker image, and a Storage Accou
 
 ### Assign Azure roles to managed identity
 Azure offers a couple of ways to assign roles to a managed identity.
-- [Use Azure portal to assign roles](../role-based-access-control/role-assignments-portal.md)
+- [Use Azure portal to assign roles](../role-based-access-control/role-assignments-portal.yml)
 - [Use Azure CLI to assign roles](../role-based-access-control/role-assignments-cli.md)
 - [Use Azure PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md)
 

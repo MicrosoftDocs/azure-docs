@@ -5,7 +5,6 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 06/01/2023
 ms.author: duau
 ms.custom: references_regions
@@ -17,7 +16,7 @@ This article lists Microsoft POP (point-of-presence) locations, sorted by locati
 
 ## POP locations
 
-[!INCLUDE [front-door-edge-locations-by-abbreviation](../../includes/front-door-edge-locations-by-abbreviation.md)]
+[!INCLUDE [front-door-edge-locations-by-abbreviation](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations-by-abbreviation.md)]
 
 ## Next steps
 

@@ -2,15 +2,13 @@
 title:  Peer two virtual networks - Azure CLI script sample
 description: Create and connect two virtual networks in the same region through the Azure network by using an Azure CLI script sample.
 services: virtual-network
-documentationcenter: virtual-network
 author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
-ms.workload: infrastructure
 ms.date: 02/03/2022
-ms.author: allensu 
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ---
 
@@ -18,13 +16,13 @@ ms.custom: devx-track-azurecli
 
 This script sample creates and connects two virtual networks in the same region through the Azure network. After running the script, you have a peering between two virtual networks.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -32,7 +30,7 @@ This script sample creates and connects two virtual networks in the same region 
 
 ## Clean up deployment
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

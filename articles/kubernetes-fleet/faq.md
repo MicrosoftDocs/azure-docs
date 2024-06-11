@@ -5,15 +5,12 @@ ms.date: 10/03/2022
 author: shashankbarsin
 ms.author: shasb
 ms.service: kubernetes-fleet
-ms.custom: ignite-2022
 ms.topic: conceptual
 ---
 
 # Frequently Asked Questions - Azure Kubernetes Fleet Manager
 
 This article covers the frequently asked questions for Azure Kubernetes Fleet Manager.
-
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Relationship to Azure Kubernetes Service clusters
 
@@ -62,4 +59,4 @@ The roadmap for Azure Kubernetes Fleet Manager resource is available [here](http
 
 ## Next steps
 
-* Create an [Azure Kubernetes Fleet Manager resource and join member clusters](./quickstart-create-fleet-and-members.md)
+* [Create a fleet and join member clusters](./quickstart-create-fleet-and-members.md).

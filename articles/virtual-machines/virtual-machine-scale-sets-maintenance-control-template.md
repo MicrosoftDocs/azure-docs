@@ -4,9 +4,8 @@ description: Learn how to control when automatic OS image upgrades are rolled ou
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 11/22/2022
-ms.author: jushiman 
+ms.author: jushiman
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #pmcontact: PPHILLIPS
 ---
@@ -20,7 +19,7 @@ This article explains how you can use an Azure Resource Manager (ARM) template t
 - Create the configuration 
 - Assign the configuration to a virtual machine
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] 
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)] 
 
 ## Create the configuration
 

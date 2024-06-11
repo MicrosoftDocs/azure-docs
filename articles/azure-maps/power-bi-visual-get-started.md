@@ -145,7 +145,7 @@ The Azure Maps Power BI visual is available in the following services and applic
 | Power BI service (app.powerbi.com)       | Yes          |
 | Power BI mobile applications             | Yes          |
 | Power BI publish to web                  | No           |
-| Power BI Embedded                        | No           |
+| Power BI Embedded                        | Yes          |
 | Power BI service embedding (PowerBI.com) | Yes          |
 
 **Where is Azure Maps available?**

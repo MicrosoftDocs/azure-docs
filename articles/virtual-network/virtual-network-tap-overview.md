@@ -43,7 +43,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
-- [cPacket Cloud Visbility](https://www.cpacket.com/solutions/cloud-visibility/)
+- [cPacket Cloud Visbility](https://www.cpacket.com/resources/ccloud/)
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
@@ -55,7 +55,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Darktrace](https://www.darktrace.com)
 
-- [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
+- [ExtraHop Reveal(x)](https://hop.extrahop.com/partners/tech-partners/microsoft/)
 
 - [Fidelis Cybersecurity](https://fidelissecurity.com/)
 
@@ -63,7 +63,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 
-- [Netscout vSTREAM]( https://www.netscout.com/marketplace-azure)
+- [Netscout vSTREAM](https://www.netscout.com/technology-partners/microsoft-azure)
 
 - [Noname Security](https://nonamesecurity.com/)
 

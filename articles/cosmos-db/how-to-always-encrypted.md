@@ -2,7 +2,6 @@
 title: Use client-side encryption with Always Encrypted for Azure Cosmos DB
 description: Learn how to use client-side encryption with Always Encrypted for Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 04/04/2022
 ms.author: sidandrews
@@ -150,6 +149,8 @@ Creating a new data encryption key is done by calling the `CreateClientEncryptio
   - The `type` defines the type of key resolver (for example, Azure Key Vault).
   - The `name` can be any friendly name you want.
   - The `value` must be the key identifier.
+  > [!IMPORTANT]
+  > Once the key is created, browse to its current version, and copy its full key identifier: `https://<my-key-vault>.vault.azure.net/keys/<key>/<version>`. If you omit the key version at the end of the key identifier, the latest version of the key is used.
   - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
 
 ```csharp
@@ -174,6 +175,8 @@ Creating a new data encryption key is done by calling the `createClientEncryptio
   - The `type` defines the type of key resolver (for example, Azure Key Vault).
   - The `name` can be any friendly name you want.
   - The `value` must be the key identifier.
+  > [!IMPORTANT]
+  > Once the key is created, browse to its current version, and copy its full key identifier: `https://<my-key-vault>.vault.azure.net/keys/<key>/<version>`. If you omit the key version at the end of the key identifier, the latest version of the key is used.
   - The `algorithm` defines which algorithm shall be used to wrap the key encryption key with the customer-managed key.
 
 ```java

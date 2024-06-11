@@ -19,10 +19,10 @@ Use this guide to get started generating images with Azure OpenAI in your browse
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
-- An Azure OpenAI resource created in the `SwedenCentral` region.
+- An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
 - Then, you need to deploy a `dalle3` model with your Azure resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
 - Access granted to DALL-E in the desired Azure subscription.
@@ -41,7 +41,7 @@ Browse to [Azure OpenAI Studio](https://oai.azure.com/) and sign in with the cre
 
 From the Azure OpenAI Studio landing page, select **DALL·E playground (Preview)** to use the image generation APIs. Select **Settings** near the top of the page and confirm that the **Deployment** dropdown has your DALL-E 3 deployment selected.
 
-#### [DALL-E 2](#tab/dalle2)
+#### [DALL-E 2 (preview)](#tab/dalle2)
 
 From the Azure OpenAI Studio landing page, select **DALL·E playground (Preview)** to use the image generation APIs. Select **Settings** near the top of the page and confirm that the **Deployment** dropdown has the default **DALL-E 2** choice selected.
 
@@ -67,6 +67,6 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-* Learn more in this [Azure OpenAI overview](../overview.md).
+* Explore the image generation APIs in more depth with the [DALL-E how-to guide](../how-to/dall-e.md).
 * Try examples in the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).
 * See the [API reference](../reference.md#image-generation)

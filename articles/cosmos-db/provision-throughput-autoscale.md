@@ -6,7 +6,6 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/01/2022
-ms.custom: seo-nov-2020, ignite-2022
 ---
 
 # Create Azure Cosmos DB containers and databases with autoscale throughput

@@ -9,7 +9,6 @@ ms.date: 11/30/2023
 ms.service: dms
 ms.topic: troubleshooting
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 
@@ -27,6 +26,18 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Cause**: The error can occur due to the backups being placed incorrectly in the Azure Storage container. If the backups are placed in the network file share, this error could also occur due to network connectivity issues.
 
 - **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you're using network file share, there can be network-related issues and lags that are causing this error. Wait for the process to be completed.
+
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'errorCode: Ext_RestoreSettingsError, message: RestoreId: {RestoreId}, OperationId: {operationId}, Detail: Failed to complete restore., RestoreJobState: Restoring, CompleteRestoreErrorMessage: The database contains incompatible physical layout. Too many full text catalog files.`
+
+- **Cause**:  SQL Vm restore currently does not support restoring databases with full text catalog files as Azure SQL Vm does not support them at the moment.
+
+- **Recommendation**: Remove full text catalog files from database when creating the restore
+
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'Migration cannot be completed because provided backup file name '{providedFileName}' should be the last restore backup file '{lastRestoredFileName}'.'`
+
+- **Cause**:  This error occurs due to a known limitation in SqlMi. It means the '{providedFileName}' is different from '{lastRestoredFileName}'. SqlMi will automatically restore all valid backup files in the container based on the LSN sequence. A typical failure case could be: the '{providedFileName}' is "log1", but the files in container has other files, like "log2", which have largest LSN number than "log1". In this case, SqlMi will automatically restore all files in the container. In the end of completing the migration, SqlMi will report this error message.
+
+- **Recommendation**: For offline migration mode, please provide the "lastBackupName" with the largest LSN. For online migration scenario this warning/error can be ignored if the migration status is succeeded.
 
 ## Error code: 2009 - MigrationRestoreFailed
 
@@ -229,7 +240,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**:
   1) Make sure to migrate the Schema to target Azure SQL Database using Database Migration Service. Refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/public-preview-schema-migration-for-target-azure-sql-db/ba-p/3990463).
-  2) Follow this [article](https://learn.microsoft.com/sql/relational-databases/collations/set-or-change-the-column-collation?) to manually change collation. 
+  2) Follow this [article](/sql/relational-databases/collations/set-or-change-the-column-collation) to manually change collation. 
   For more information, see [Collation and Unicode support](/sql/relational-databases/collations/collation-and-unicode-support)
 
 - **Message**: `DatabaseSizeMoreThanMax: No tables were found in the target Azure SQL Database. Check if schema migration was completed beforehand.`
@@ -376,6 +387,30 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It's also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in your DNS server, your SQL Server on Azure VM target has no chance to resolve the remote storage blob endpoint.
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
+
+## Error code: No such host is known OR urlopen error [Errno 11001] getaddrinfo failed
+
+- **Message**: `No such host is known`
+
+- **Cause**: While migrating logins using PowerShell command [New-AzDataMigrationLoginsMigration](/powershell/module/az.datamigration/new-azdatamigrationloginsmigration), it fails with the previous message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure PowerShell - Database Migration Service cmdlets - Az.DataMigration above minimum 0.14.5 version.
+  Latest version of Az.Datamigration can be downloaded from [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DataMigration/) or the following command can be used to upgrade.
+```Command
+ Update-Module -Name Az.DataMigration
+```
+- **Message**: `urlopen error [Errno 11001] getaddrinfo failed`
+
+- **Cause**: While migrating logins using Azure CLI [Az dataMigration login-migration](/cli/azure/datamigration), it fails with the previous message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure CLI - Database Migration Service extension - az dataMigration to 1.0.0b1 or a later version. Run the following command to upgrade.
+```Command
+ az extension update -n datamigration
+```
+
+## Azure Database Migration Service Naming Rules
+
+If your DMS service failed with "Error: Service name 'x_y_z' is not valid", then you need to follow the Azure Database Migration Service Naming Rules. As Azure Database Migration Service uses Azure Data factory for its compute, it follows the exact same naming rules as mentioned [here](../data-factory/naming-rules.md).
 
 ## Azure SQL Database limitations
 

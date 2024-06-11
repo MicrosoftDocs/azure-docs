@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Configure ExpressRoute Global Reach
 
-This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
 
  ## Before you begin
 
@@ -25,7 +25,7 @@ Before you start configuration, confirm the following information:
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

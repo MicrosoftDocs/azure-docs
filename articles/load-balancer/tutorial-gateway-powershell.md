@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 06/27/2023
-ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurepowershell, engagement-fy23
+ms.custom: template-tutorial, devx-track-azurepowershell, engagement-fy23
 ---
 
 # Tutorial: Create a gateway load balancer using Azure PowerShell
@@ -48,7 +48,7 @@ A virtual network is needed for the resources that are in the backend pool of th
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 

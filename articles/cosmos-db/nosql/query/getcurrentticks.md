@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the number of 100-nanosecond ticks that have elapsed since `00:00:00 Thu
   
 ## Syntax
   
-```sql
+```nosql
 GetCurrentTicks()
 ```
 
@@ -32,7 +33,7 @@ Returns a signed numeric value that represents the current number of 100-nanosec
 
 The following example returns the current time measured in ticks:
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticks/query.novalidate.sql" highlight="2":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticks/query.novalidate.sql" highlight="2":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/getcurrentticks/result.novalidate.json":::
 

@@ -2,9 +2,8 @@
 title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 01/31/2024
 ms.devlang: csharp
-ms.custom: contperf-fy21q1
 ---
 
 # Configure Application Insights for your ASP.NET website
@@ -13,7 +12,7 @@ This procedure configures your ASP.NET web app to send telemetry to the [Applica
 
 [!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:

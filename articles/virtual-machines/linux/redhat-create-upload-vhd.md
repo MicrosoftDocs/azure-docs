@@ -5,7 +5,6 @@ author: srijang
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.topic: how-to
@@ -223,20 +222,24 @@ EOF
 
 
     ```config-grub
-    GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
+    ENABLE_BLSCFG=true
     ```
 
-    This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
+   > [!NOTE]
+   > If [**ENABLE_BLSCFG=false**](https://access.redhat.com/solutions/6929571) is  present in `/etc/default/grub` instead of 'ENABLE_BLSCFG=true` tools such as ___grubedit___ or ___gubby___, which rely on the Boot Loader Specification (BLS) for managing boot entries and configurations, may not function correctly in RHEL 8 and 9.  Be advised, if ENABLE_BLSCFG is not present, the default behavior is "false".
 
-    ```config
-    rhgb quiet crashkernel=auto
-    ```
+   This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
 
-    Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+   ```config
+   rhgb quiet crashkernel=auto
+   ```
 
-8. After you're done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
+   Graphical and quiet boots aren't useful in a cloud environment where we want all the logs to be sent to the serial port. You can leave the `crashkernel` option configured if desired. Note that this parameter reduces the amount of available memory in the virtual machine by 128 MB or more, which might be problematic on smaller virtual machine sizes.
+
+7. After you're done editing `/etc/default/grub`, run the following command to rebuild the grub configuration:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -244,19 +247,19 @@ EOF
     > [!NOTE]
     > If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg`.
 
-9. Ensure that the SSH server is installed and configured to start at boot time, which is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
+8. Ensure that the SSH server is installed and configured to start at boot time, which is usually the default. Modify `/etc/ssh/sshd_config` to include the following line:
 
     ```config
     ClientAliveInterval 180
     ```
 
-10. The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
+9. The WALinuxAgent package, `WALinuxAgent-<version>`, has been pushed to the Red Hat extras repository. Enable the extras repository by running the following command:
 
     ```bash
     sudo subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-11. Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
+10. Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
 
     ```bash
     sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -264,7 +267,7 @@ EOF
     sudo systemctl enable cloud-init.service
     ```
 
-12. Configure cloud-init to handle the provisioning:
+11. Configure cloud-init to handle the provisioning:
 
     1. Configure waagent for cloud-init:
 
@@ -320,7 +323,7 @@ EOF
 
     ```
 
-13. Swap configuration.
+12. Swap configuration.
     Don't create swap space on the operating system disk.
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
@@ -354,13 +357,13 @@ EOF
           - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
         EOF
         ```
-14. If you want to unregister the subscription, run the following command:
+13. If you want to unregister the subscription, run the following command:
 
     ```bash
     sudo subscription-manager unregister
     ```
 
-15. Deprovision
+14. Deprovision
 
     Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
@@ -376,9 +379,9 @@ EOF
     ```
 
 
-16. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
+15. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
-### RHEL 8 using Hyper-V Manager
+### RHEL 8+ using Hyper-V Manager
 
 1. In Hyper-V Manager, select the virtual machine.
 

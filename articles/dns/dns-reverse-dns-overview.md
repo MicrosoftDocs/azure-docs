@@ -5,9 +5,8 @@ author: greg-lindsay
 manager: KumuD
 ms.service: dns
 ms.topic: article
-ms.custom: linux-related-content
-ms.workload: infrastructure-services
-ms.date: 04/27/2023
+ms.custom:
+ms.date: 06/10/2024
 ms.author: greglin
 ---
 

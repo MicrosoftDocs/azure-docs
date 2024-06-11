@@ -1,17 +1,16 @@
 ---
 title: Estimate costs using the Azure Cosmos DB capacity planner - API for MongoDB
-description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the capacity planner to estimate the throughput and cost required when using Azure Cosmos DB for MongoDB. 
+description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the capacity planner to estimate the throughput and cost required when using Azure Cosmos DB for MongoDB.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: dech
 ---
 
 # Estimate RU/s using the Azure Cosmos DB capacity planner - Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!NOTE]
 > If you are planning a data migration to Azure Cosmos DB and all that you know is the number of vcores and servers in your existing sharded and replicated database cluster, please also read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

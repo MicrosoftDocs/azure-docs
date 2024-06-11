@@ -7,8 +7,8 @@ ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/19/2022
 ms.author: sidandrews
-ms.reviewer: mjbrown 
-ms.custom: devx-track-azurecli, seo-azure-cli, ignite-2022
+ms.reviewer: mjbrown
+ms.custom: devx-track-azurecli, seo-azure-cli
 keywords: cosmos-db, azure cli samples, azure cli code samples, azure cli script samples
 ---
 

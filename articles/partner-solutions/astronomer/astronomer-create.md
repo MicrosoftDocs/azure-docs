@@ -2,15 +2,19 @@
 title: Create an Apache Airflow on Astro deployment
 description: This article describes how to use the Azure portal to create an instance of Apache Airflow on Astro - An Azure Native ISV Service.
 ms.topic: quickstart
-ms.date: 11/13/2023
+ms.date: 02/14/2024
 ms.custom:
   - references_regions
   - ignite-2023
 ---
 
-# QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service (Preview)
+# QuickStart: Get started with Apache Airflow on Astro – An Azure Native ISV Service 
 
-In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Apache Airflow on Astro - An Azure Native ISV Service (Preview).
+In this quickstart, you use the Azure portal and Marketplace to find and create an instance of Apache Airflow on Astro - An Azure Native ISV Service. Use Apache Airflow on Astro to run data pipelines that power company dashboards, AI, and ML applications.
+
+When you install Astro as an Azure Native ISV Service, you manage your Astro resource usage and billing alongside your existing Azure applications. You also get an integration with Microsoft Entra ID for your organization.
+
+For more information, see [Install Astro from the Azure Marketplace](https://docs.astronomer.io/astro/install-azure).
 
 ## Prerequisites
 

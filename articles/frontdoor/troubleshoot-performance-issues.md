@@ -6,7 +6,6 @@ services: frontdoor
 author: sbdoroff
 ms.service: frontdoor
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 08/30/2023
 ms.author: stdoroff
 #Customer intent: As a <type of user>, I want <some goal> so that <some reason>.

@@ -13,13 +13,13 @@ This article shows you how to create a [serverless](https://azure.microsoft.com/
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Set up your development environment
 
 To develop a functions app with Java and Eclipse, you must have the following installed:
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
+-  [Java Developer Kit](/java/openjdk/download#openjdk-17), version 8, 11, 17 or 21. (Java 21 is currently supported in preview only on Linux)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), with Java and Maven support.
 -  [Azure CLI](/cli/azure)

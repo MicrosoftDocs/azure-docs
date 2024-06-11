@@ -6,7 +6,7 @@ ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.topic: quickstart
 ms.service: container-registry
-ms.custom: mvc, contperf-fy21q4, mode-ui
+ms.custom: mvc, mode-ui
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 

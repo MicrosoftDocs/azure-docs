@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: how-to
-ms.date: 08/01/2023
+ms.date: 05/31/2024
 ms.author: mbullwin
 ---
 
@@ -57,11 +57,7 @@ Post deployment you can adjust your TPM allocation by selecting **Edit deploymen
 
 ## Model specific settings
 
-Different model deployments, also called model classes have unique max TPM values that you're now able to control. **This represents the maximum amount of TPM that can be allocated to that type of model deployment in a given region.** While each model type represents its own unique model class, the max TPM value is currently only different for certain model classes:
-
-- GPT-4
-- GPT-4-32K
-- Text-Davinci-003
+Different model deployments, also called model classes have unique max TPM values that you're now able to control. **This represents the maximum amount of TPM that can be allocated to that type of model deployment in a given region.** 
 
 All other model classes have a common max TPM value.
 
@@ -135,7 +131,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **Request body**
 
-This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update?tabs=HTTP).
+This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/aiservices/accountmanagement/deployments/create-or-update?tabs=HTTP).
 
 |Parameter|Type| Description |
 |--|--|--|
@@ -154,7 +150,7 @@ curl -X PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-0
 > [!NOTE]
 > There are multiple ways to generate an authorization token. The easiest method for initial testing is to launch the Cloud Shell from the [Azure portal](https://portal.azure.com). Then run [`az account get-access-token`](/cli/azure/account?view=azure-cli-latest#az-account-get-access-token&preserve-view=true). You can use this token as your temporary authorization token for API testing.
 
-For more information, refer to the REST API reference documentation for [usages](/rest/api/cognitiveservices/accountmanagement/usages/list?branch=main&tabs=HTTP) and [deployment](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update).
+For more information, refer to the REST API reference documentation for [usages](/rest/api/aiservices/accountmanagement/usages/list?branch=main&tabs=HTTP) and [deployment](/rest/api/aiservices/accountmanagement/deployments/create-or-update).
 
 ### Usage
 

@@ -25,15 +25,16 @@ By default, audit logs are disabled. To enable them, set the `audit_log_enabled`
 Other parameters you can adjust to control audit logging behavior include:
 
 - `audit_log_events`: controls the events to be logged. See below table for specific audit events.
-- `audit_log_include_users`: MySQL users to be included for logging. The default value for this parameter is empty, which will include all the users for logging. This has higher priority over `audit_log_exclude_users`. Max length of the parameter is 512 characters.
-- `audit_log_exclude_users`: MySQL users to be excluded from logging. Max length of the parameter is 512 characters.
+- `audit_log_include_users`: MySQL users to be included for logging. The default value for this parameter is empty, which will include all the users for logging. This has higher priority over `audit_log_exclude_users`. Max length of the parameter is 512 characters. For example, wildcard value of `dev*` includes all the users with entries starting with keyword `dev` like "dev1,dev_user,dev_2". Another example for wildcard entry for including user is `*dev` in this example, all users ending with value "dev" like "stage_dev,prod_dev,user_dev" are included in the audit log entries. Additionally, the use of a question mark `(?)` as a wildcard character is permitted in patterns.
+- `audit_log_exclude_users`: MySQL users to be excluded from logging. The Max length of the parameter is 512 characters. Wildcard entries for user are also accepted to exclude users in audit logs. For example, wildcard value of `stage*` excludes all the users with entries starting with keyword `stage` like "stage1,stage_user,stage_2". Another example for wildcard entry for excluding user is `*com` in this example, all users ending with value `com` will be excluded from the audit log entries. Additionally, the use of a question mark `(?)` as a wildcard character is permitted in patterns.
 
 > [!NOTE]  
 > `audit_log_include_users` has higher priority over `audit_log_exclude_users`. For example, if `audit_log_include_users` = `demouser` and `audit_log_exclude_users` = `demouser`, the user will be included in the audit logs because `audit_log_include_users` has higher priority.
 
 | **Event** | **Description** |
 | --- | --- |
-| `CONNECTION` | - Connection initiation (successful or unsuccessful)<br />- User reauthentication with different user/password during session<br />- Connection termination |
+| `CONNECTION` | - Connection initiation<br />- Connection termination |
+| `CONNECTION_V2` | - Connection initiation (successful or unsuccessful attempt error code)<br />- Connection termination<br /> |
 | `DML_SELECT` | SELECT queries |
 | `DML_NONSELECT` | INSERT/DELETE/UPDATE queries |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
@@ -77,6 +78,7 @@ The following sections describe the output of MySQL audit logs based on the even
 | `user_s` | Name of user executing the query |
 | `db_s` | Name of database connected to |
 | `\_ResourceId` | Resource URI |
+| `status_d` | Connection [Error code](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html) entry for CONNECTIONS_V2 event. |
 
 ### General
 
@@ -150,6 +152,17 @@ Once your audit logs are piped to Azure Monitor Logs through Diagnostic Logs, yo
     | where Resource  == '<your server name>' //Server name must be in Upper case
     | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
     | project TimeGenerated, Resource, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | order by TimeGenerated asc nulls last
+    ```
+
+
+- List CONNECTION_V2 events on a particular server, `status_d` column denotes the client connection [error code](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html) faced by the client application while connecting.
+
+    ```kusto
+    AzureDiagnostics
+    | where Resource  == '<your server name>' //Server name must be in Upper case
+    | where Category == 'MySqlAuditLogs' and event_subclass_s == "CONNECT"
+    | project TimeGenerated, Resource, event_class_s, event_subclass_s, user_s, ip_s, status_d
     | order by TimeGenerated asc nulls last
     ```
 

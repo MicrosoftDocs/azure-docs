@@ -3,13 +3,11 @@ title: Tutorial deploys into an existing virtual network using PowerShell - Azur
 description: Tutorial showing how to deploy a dedicated HSM using PowerShell into an existing virtual network
 services: dedicated-hsm
 author: msmbaldwin
-manager: rkarlin
-
-ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18, devx-track-azurepowershell"
-ms.date: 03/25/2021
-ms.author: keithp
+ms.custom: mvc, devx-track-azurepowershell
+ms.service: dedicated-hsm
+ms.date: 02/20/2024
+ms.author: mbaldwin
 ---
 
 # Tutorial – Deploying HSMs into an existing virtual network using PowerShell
@@ -28,7 +26,7 @@ A typical, high availability, multi-region deployment architecture may look as f
 This tutorial focuses on a pair of HSMs and the required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

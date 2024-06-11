@@ -9,7 +9,7 @@ ms.reviewer: orspodek
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/29/2020
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: devx-track-csharp
 ---
 
 # Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp

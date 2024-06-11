@@ -9,7 +9,6 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: reference
 ms.date: 04/17/2019
-ms.custom: seodec18
 ---
 
 # Azure AI Vision 86-category taxonomy

@@ -6,12 +6,11 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
-tags: connectors
 ---
 
 # Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
 
 This how-to guide shows create a logic app workflow that can receive and handle an inbound HTTPS request or call from another service using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS request by using the Response built-in action.
 

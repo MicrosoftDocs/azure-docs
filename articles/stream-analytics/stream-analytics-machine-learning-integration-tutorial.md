@@ -6,12 +6,11 @@ author: ajetasin
 ms.author: ajetasi
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.custom: seodec18
 ---
 
 # Do sentiment analysis with Azure Stream Analytics and Machine Learning Studio (classic)
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 This article shows you how to set up a simple Azure Stream Analytics job that uses Machine Learning Studio (classic) for sentiment analysis. You use a Studio (classic) sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score.
 

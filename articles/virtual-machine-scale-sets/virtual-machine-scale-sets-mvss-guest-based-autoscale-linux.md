@@ -8,8 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-ms.custom: avverma
-
+ms.custom: avverma, linux-related-content
 ---
 
 # Autoscale using guest metrics in a Linux scale set template

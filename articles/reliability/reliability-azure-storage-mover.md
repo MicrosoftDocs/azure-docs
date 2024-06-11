@@ -3,7 +3,7 @@ title: Reliability in Azure Storage Mover
 description: Find out about reliability in Azure Storage Mover
 author: johnmic
 ms.author: johnmic
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.service: azure-storage-mover
 ms.date: 03/21/2023

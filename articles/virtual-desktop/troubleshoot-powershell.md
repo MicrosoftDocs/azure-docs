@@ -6,7 +6,6 @@ ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Azure Virtual Desktop PowerShell
 

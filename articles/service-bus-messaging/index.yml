@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: spelluru
   ms.author: spelluru
-  ms.date: 01/13/2023
+  ms.date: 02/22/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -24,7 +24,7 @@ landingContent:
         links:
           - text: What is Service Bus Messaging?
             url: service-bus-messaging-overview.md
-          - text: Use Service Bus with JMS 2.0
+          - text: Use Service Bus with Java Message Service (JMS) 2.0
             url: how-to-use-java-message-service-20.md
       - linkListType: concept
         links:
@@ -138,7 +138,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide      
         links:
-          - text: Use PowerShell to provision entities
+          - text: Use PowerShell to create entities
             url: service-bus-manage-with-ps.md        
           - text: Monitor Service Bus using Azure Monitor
             url: monitor-service-bus-reference.md
@@ -162,5 +162,5 @@ landingContent:
             url: service-bus-managed-service-identity.md            
           - text: Authenticate an application with Microsoft Entra ID
             url: authenticate-application.md
-          - text: Enforce minimum required TLS version
+          - text: Enforce minimum required Transport Layer Security (TLS) version
             url: transport-layer-security-enforce-minimum-version.md

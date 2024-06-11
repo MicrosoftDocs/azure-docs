@@ -5,7 +5,6 @@ author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 04/04/2023
 ms.author: jushiman
 ms.custom: mvc, devx-track-azurepowershell, mode-api
@@ -30,7 +29,7 @@ To open the Cloud Shell, just select **Open Cloudshell** from the upper right co
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name 'myResourceGroup' -Location 'EastUS'
+New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus'
 ```
 
 ## Create virtual machine
@@ -43,7 +42,7 @@ When prompted, provide a username and password to be used as the sign-in credent
 New-AzVm `
     -ResourceGroupName 'myResourceGroup' `
     -Name 'myVM' `
-    -Location 'East US' `
+    -Location 'eastus' `
     -Image 'MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest' `
     -VirtualNetworkName 'myVnet' `
     -SubnetName 'mySubnet' `
@@ -52,7 +51,7 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
-Cost information isn't presented during the virtual machine creation process for PowerShell like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+Cost information isn't presented during the virtual machine creation process for PowerShell like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 ## Install web server
 

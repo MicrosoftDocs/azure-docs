@@ -4,7 +4,7 @@ description: Learn to send Azure Service Bus triggers and bindings in Azure Func
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/12/2022
-ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -30,6 +30,8 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 Add the extension to your project installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.servicebus).
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or later._ 
 
@@ -144,7 +146,7 @@ The Service Bus extension supports parameter types according to the table below.
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.ServiceBus] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 This version of the extension supports parameter types according to the table below.
 
@@ -166,7 +168,7 @@ The Service Bus extension supports parameter types according to the table below.
 
 Functions 1.x exposed types from the deprecated [Microsoft.ServiceBus.Messaging] namespace. Newer types from [Azure.Messaging.ServiceBus] are exclusive to **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
@@ -261,9 +263,9 @@ The `clientRetryOptions` settings only apply to interactions with the Service Bu
 |**maxDelay**|`00:01:00`|The maximum delay to allow between retry attempts|
 |**maxRetries**|`3`|The maximum number of retry attempts before considering the associated operation to have failed.|
 |**prefetchCount**|`0`|Gets or sets the number of messages that the message receiver can simultaneously request.|
-| **transportType**| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
-| **webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
-|**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
+|**transportType**| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
+|**webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
+|**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function.|
 |**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
 |**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that should be initiated per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `false`. This setting only applies for functions that receive a single message at a time.|
 |**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting is used only when the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) is set to `true`. This setting only applies for functions that receive a single message at a time.|

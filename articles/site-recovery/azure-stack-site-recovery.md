@@ -1,13 +1,16 @@
 ---
-title: Replicate Azure Stack VMs to Azure using Azure Site Recovery | Microsoft Docs
+title: Replicate Azure Stack VMs to Azure using Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for Azure Stack VMs with the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 10/02/2021
+ms.date: 02/20/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 ms.service: site-recovery
 ---
 # Replicate Azure Stack VMs to Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article shows you how to set up disaster recovery Azure Stack VMs to Azure, using the [Azure Site Recovery service](site-recovery-overview.md).
 
@@ -37,7 +40,7 @@ With these steps complete, you can then run a full failover to Azure as and when
 
 **Location** | **Component** |**Details**
 --- | --- | ---
-**Configuration server** | Runs on a single Azure Stack VM. | In each subscription you set up a configuration server VM. This VM runs the following Site Recovery components:<br/><br/> - Configuration server: Coordinates communications between on-premises and Azure, and manages data replication. - Process server: Acts as a replication gateway. It receives replication data, optimizes with caching, compression, and encryption; and sends it to Azure storage.<br/><br/> If VMs you want to replicate exceed the limits stated below, you can set up a separate standalone process server. [Learn more](vmware-azure-set-up-process-server-scale.md).
+**Configuration server** | Runs on a single Azure Stack VM. | In each subscription you set up a configuration server VM. This VM runs the following Site Recovery components:<br/><br/> - **Configuration server**: Coordinates communications between on-premises and Azure, and manages data replication. <br> <br> - **Process server**: Acts as a replication gateway. It receives replication data, optimizes with caching, compression, and encryption; and sends it to Azure storage.<br/><br/> If VMs you want to replicate exceed the limits stated below, you can set up a separate standalone process server. [Learn more](vmware-azure-set-up-process-server-scale.md).
 **Mobility service** | Installed on each VM you want to replicate. | In the steps in this article, we prepare an account so that the Mobility service is installed automatically on a VM when replication is enabled. If you don't want to install the service automatically, there are a number of other methods you can use. [Learn more](vmware-azure-install-mobility-service.md).
 **Azure** | In Azure you need a Recovery Services vault, a storage account, and a virtual network. |  Replicated data is stored in the storage account. Azure VMs are added to the Azure network when failover occurs.
 
@@ -47,7 +50,7 @@ Replication works as follows:
 1. In the vault, you specify the replication source and target, set up the configuration server, create a replication policy, and enable replication.
 2. The Mobility service is installed on the machine (if you've used push installation), and machines begin replication in accordance with the replication policy.
 3. An initial copy of the server data is replicated to Azure storage.
-4. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in a .hrl file.
+4. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in an .hrl file.
 5. The configuration server orchestrates replication management with Azure (port HTTPS 443 outbound).
 6. The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage (port 443 outbound).
 7. Replicated machines communicate with the configuration server (port HTTPS 443 inbound, for replication management. Machines send replication data to the process server (port HTTPS 9443 inbound - can be modified).
@@ -320,4 +323,4 @@ In this article we replicated Azure Stack VMs to Azure. With replication in plac
 
 ## Next steps
 
-After failing back, you can reprotect the VM and start replicating it to Azure again To do this, repeat the steps in this article.
+After failing back, you can reprotect the VM and start replicating it to Azure again. To do this, repeat the steps in this article.

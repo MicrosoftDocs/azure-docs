@@ -65,7 +65,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Secure your AWS management ports with just-in-time access
-            url: just-in-time-access-usage.md?tabs=jit-config-asc%2Cjit-request-asc
+            url: just-in-time-access-usage.yml?tabs=jit-config-asc%2Cjit-request-asc
           - text: Protect your AWS virtual machines with Microsoft Defender for Endpoint
             url: integration-defender-for-endpoint.md?tabs=windows
           - text: Harden your AWS Docker hosts

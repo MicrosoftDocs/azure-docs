@@ -9,7 +9,6 @@ ms.date: 04/11/2020
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
-  - seo-lt-2019
   - sql-migration-content
 ---
 
@@ -33,7 +32,7 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This article describes how to perform an online migration from an on-premises instance of PostgreSQL to Azure Database for PostgreSQL.
 
@@ -103,7 +102,7 @@ To complete this tutorial, you need to:
   > [!NOTE]
    > The migration service internally handles the enable/disable of foreign keys and triggers to ensure a reliable and robust data migration. As a result, you do not have to worry about making any modifications to the target database schema.
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
 ## Create an instance of Azure Database Migration Service
 

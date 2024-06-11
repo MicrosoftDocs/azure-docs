@@ -24,12 +24,12 @@ Connections in prompt flow play a crucial role in establishing connections to re
 
 In the Azure Machine Learning workspace, connections can be configured to be shared across the entire workspace or limited to the creator. Secrets associated with connections are securely persisted in the corresponding Azure Key Vault, adhering to robust security and compliance standards.
 
-Prompt flow provides various prebuilt connections, including Azure Open AI, Open AI, and Azure Content Safety. These prebuilt connections enable seamless integration with these resources within the built-in tools. Additionally, users have the flexibility to create custom connection types using key-value pairs, empowering them to tailor the connections to their specific requirements, particularly in Python tools.
+Prompt flow provides various prebuilt connections, including Azure OpenAI, OpenAI, and Azure Content Safety. These prebuilt connections enable seamless integration with these resources within the built-in tools. Additionally, users have the flexibility to create custom connection types using key-value pairs, empowering them to tailor the connections to their specific requirements, particularly in Python tools.
 
 | Connection type                                              | Built-in tools                  |
 | ------------------------------------------------------------ | ------------------------------- |
-| [Azure Open AI](https://azure.microsoft.com/products/cognitive-services/openai-service) | LLM or Python                   |
-| [Open AI](https://openai.com/)                               | LLM or Python                   |
+| [Azure OpenAI](https://azure.microsoft.com/products/cognitive-services/openai-service) | LLM or Python                   |
+| [OpenAI](https://openai.com/)                               | LLM or Python                   |
 | [Azure Content Safety](https://aka.ms/acs-doc)               | Content Safety (Text) or Python |
 | [Azure AI Search](https://azure.microsoft.com/products/search) (formerly Cognitive Search) | Vector DB Lookup or Python      |
 | [Serp](https://serpapi.com/)                                 | Serp API or Python              |

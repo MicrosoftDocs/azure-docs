@@ -61,6 +61,8 @@ CLUSTER_NAME="myNexusK8sCluster"
 K8S_VERSION="v1.24.9"
 ADMIN_USERNAME="azureuser"
 SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
+CONTROL_PLANE_SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
+AGENT_POOL_SSH_PUBLIC_KEY="$(cat ~/.ssh/id_rsa.pub)"
 CONTROL_PLANE_COUNT="1"
 CONTROL_PLANE_VM_SIZE="NC_G6_28_v1"
 INITIAL_AGENT_POOL_NAME="${CLUSTER_NAME}-nodepool-1"
@@ -90,7 +92,8 @@ az networkcloud kubernetescluster create \
   --control-plane-node-configuration \
     count="${CONTROL_PLANE_COUNT}" \
     vm-sku-name="${CONTROL_PLANE_VM_SIZE}" \
-  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE}}]" \
+    ssh-key-values='["${CONTROL_PLANE_SSH_PUBLIC_KEY}"]' \
+  --initial-agent-pool-configurations "[{count:${INITIAL_AGENT_POOL_COUNT},mode:System,name:${INITIAL_AGENT_POOL_NAME},vm-sku-name:${INITIAL_AGENT_POOL_VM_SIZE},ssh-key-values:['${AGENT_POOL_SSH_PUBLIC_KEY}']}]" \
   --network-configuration \
     cloud-services-network-id="${CSN_ARM_ID}" \
     cni-network-id="${CNI_ARM_ID}" \
@@ -98,6 +101,11 @@ az networkcloud kubernetescluster create \
     service-cidrs="[${SERVICE_CIDR}]" \
     dns-service-ip="${DNS_SERVICE_IP}"
 ```
+
+If there isn't enough capacity to deploy requested cluster nodes, an error message appears. However, this message doesn't provide any details about the available capacity. It states that the cluster creation can't proceed due to insufficient capacity.
+
+> [!NOTE]
+> The capacity calculation takes into account the entire platform cluster, rather than being limited to individual racks. Therefore, if an agent pool is created in a zone (where a rack equals a zone) with insufficient capacity, but another zone has enough capacity, the cluster creation continues but will eventually time out. This approach to capacity checking only makes sense if a specific zone isn't specified during the creation of the cluster or agent pool.
 
 After a few minutes, the command completes and returns information about the cluster. For more advanced options, see [Quickstart: Deploy an Azure Nexus Kubernetes cluster using Bicep](./quickstarts-kubernetes-cluster-deployment-bicep.md).
 

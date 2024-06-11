@@ -6,7 +6,6 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Delegated access in Azure Virtual Desktop
 

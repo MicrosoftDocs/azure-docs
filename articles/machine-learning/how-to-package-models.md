@@ -76,10 +76,21 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 1. Import the required libraries:
 
     ```python
-    from azure.ai.ml import MLClient, Input
-    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
-    from azure.ai.ml.constants import AssetTypes
     from azure.identity import DefaultAzureCredential
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import (
+        AzureMLOnlineInferencingServer,
+        ModelPackage,
+        CodeConfiguration,
+        BaseEnvironment,
+        ModelConfiguration,
+    )
+    from azure.ai.ml.entities import (
+        ManagedOnlineEndpoint,
+        ManagedOnlineDeployment,
+        Environment,
+        Model,
+    )
     ```
 
 2. If you're running in a compute instance in Azure Machine Learning, create an `MLClient` as follows:
@@ -219,21 +230,21 @@ You can create model packages in Azure Machine Learning, using the Azure CLI or 
 
 ## Package a model that has dependencies in private Python feeds
 
-Model packages can resolve Python dependencies that are available in private feeds. To use this capability, you need to create a connection from your workspace to the feed and specify the credentials. The following Python code shows how you can configure the workspace where you're running the package operation.
+Model packages can resolve Python dependencies that are available in private feeds. To use this capability, you need to create a connection from your workspace to the feed and specify the PAT token configuration. The following Python code shows how you can configure the workspace where you're running the package operation.
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import SasTokenConfiguration
+from azure.ai.ml.entities import PatTokenConfiguration
 
 # fetching secrets from env var to secure access, these secrets can be set outside or source code
-python_feed_sas = os.environ["PYTHON_FEED_SAS"]
+git_pat = os.environ["GIT_PAT"]
 
-credentials = SasTokenConfiguration(sas_token=python_feed_sas)
+credentials = PatTokenConfiguration(pat=git_pat)
 
 ws_connection = WorkspaceConnection(
-    name="<connection_name>",
-    target="<python_feed_url>",
-    type="python_feed",
+    name="<workspace_connection_name>",
+    target="<git_url>",
+    type="git",
     credentials=credentials,
 )
 
@@ -260,7 +271,7 @@ If you're using an MLflow model, model dependencies are indicated inside the mod
 
 ## Package a model that is hosted in a registry
 
-Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the `target_environment_name` property to specify the full location where you want the model package to be created, instead of just its name.
+Model packages provide a convenient way to collect dependencies before deployment. However, when models are hosted in registries, the deployment target is usually another workspace. When creating packages in this setup, use the `target_environment` property to specify the full location where you want the model package to be created, instead of just its name.
 
 The following code creates a package of the `t5-base` model from a registry:
 

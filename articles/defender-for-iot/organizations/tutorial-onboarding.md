@@ -126,7 +126,7 @@ Before you can start using your Defender for IoT sensor, you need to onboard you
 
 1. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the endpoints you must configure as secure endpoints from your sensor.
 
-    Save the downloaded file locally. Use the endpoints listed in the downloaded file to [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
+    Save the downloaded file locally. Use the endpoints listed in the downloaded file [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).

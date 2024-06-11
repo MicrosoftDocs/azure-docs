@@ -32,7 +32,7 @@ Configuring a version-level immutability policy is a two-step process:
 
 To configure version-level time-based retention policies, blob versioning must be enabled for the storage account. Keep in mind that enabling blob versioning may have a billing impact. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
-For information about supported storage account configurations for version-level immutability policies, see [Supported account configurations](immutable-storage-overview.md#supported-account-configurations).
+For information about supported storage account configurations for version-level immutability policies, see [Version-level WORM policies for immutable blob data](immutable-version-level-worm-policies.md).
 
 ## Enable support for version-level immutability
 
@@ -289,7 +289,7 @@ To configure a default version-level immutability policy for a container in the 
 
    The **Block and append blobs** option extends this support by adding the ability to write new blocks to a block blob.  The Blob Storage API does not provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
 
-   To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
+   To learn more about these options, see [Allow protected append blobs writes](immutable-container-level-worm-policies.md#allow-protected-append-blobs-writes).
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-container-scope.png" alt-text="Screenshot showing how to configure immutability policy scoped to container.":::
 

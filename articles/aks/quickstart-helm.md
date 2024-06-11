@@ -3,7 +3,10 @@ title: Develop on Azure Kubernetes Service (AKS) with Helm
 description: Use Helm with AKS and Azure Container Registry to package and run application containers in a cluster.
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/18/2024
+ms.date: 01/25/2024
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Quickstart: Develop on Azure Kubernetes Service (AKS) with Helm
@@ -30,7 +33,7 @@ You need to store your container images in an Azure Container Registry (ACR) to 
     az group create --name myResourceGroup --location eastus
     ```
 
-2. Create an Azure Container Registry using the [az acr create][az-acr-create] command. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
+2. Create an Azure Container Registry with a unique name by calling the [az acr create][az-acr-create] command. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
 
     ```azurecli-interactive
     az acr create --resource-group myResourceGroup --name myhelmacr --sku Basic
@@ -68,10 +71,10 @@ You need to store your container images in an Azure Container Registry (ACR) to 
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
-2. Create an Azure Container Registry using the [New-AzContainerRegistry][new-azcontainerregistry] cmdlet. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
+2. Create an Azure Container Registry with a unique name by calling the [New-AzContainerRegistry][new-azcontainerregistry] cmdlet. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
 
     ```azurepowershell-interactive
-    New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myhelmacr -Sku Basic
+    New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myhelmacr -Sku Basic -Location eastus
     ```
 
     Your output should look similar to the following condensed example output. Take note of your *loginServer* value for your ACR to use in a later step.
@@ -327,3 +330,4 @@ For more information about using Helm, see the [Helm documentation][helm-documen
 [helm-install]: https://helm.sh/docs/intro/install/
 [sp-delete]: kubernetes-service-principal.md#other-considerations
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
+

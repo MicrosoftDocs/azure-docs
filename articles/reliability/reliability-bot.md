@@ -3,7 +3,7 @@ title: Reliability in Azure Bot Service
 description: Find out about reliability in Azure Bot Service  
 author: hibrenda 
 ms.author: anaharris
-ms.topic: overview
+ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: bot-service
 ms.date: 01/06/2022 

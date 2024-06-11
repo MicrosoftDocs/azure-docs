@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 10/01/2023
  ms.author: jonels
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 > [!IMPORTANT]

@@ -18,7 +18,7 @@ Resource Graph query.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Getting started with REST API
 
@@ -153,8 +153,7 @@ For more examples of REST API calls for Azure Resource Graph, see the
 
 ## Clean up resources
 
-REST API has no libraries or modules to uninstall. If you installed a tool such as _ARMClient_ or
-_Postman_ to make the calls and no longer need it, you may uninstall the tool now.
+REST API has no libraries or modules to uninstall. If you installed a tool like _ARMClient_ to make the calls and no longer need it, you may uninstall the tool now.
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Common use cases and scenarios for Azure Cosmos DB
-description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
+description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).'
 ms.service: cosmos-db
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.custom: cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Common Azure Cosmos DB use cases
@@ -65,7 +65,7 @@ Consider an example of a product catalog for an automotive parts supplier. Every
 
 Azure Cosmos DB is often used for event sourcing to power event driven architectures using its [change feed](change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events) made to an Azure Cosmos DB. This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
-:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
 In addition, data stored in Azure Cosmos DB can be integrated with HDInsight for big data analytics via Apache Spark jobs. For details on the Spark Connector for Azure Cosmos DB, see [Run a Spark job with Azure Cosmos DB and HDInsight](./nosql/quickstart-spark.md).
 

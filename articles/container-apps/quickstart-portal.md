@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 01/10/2024
 ms.author: cshoe
-ms.custom: mode-ui, event-tier1-build-2022
+ms.custom: mode-ui
 ---
 
 # Quickstart: Deploy your first container app using the Azure portal
@@ -43,8 +43,6 @@ Select **Go to resource** to view your new container app.
 Select the link next to *Application URL* to view your application. The following message appears in your browser.
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
-
-[!INCLUDE [.NET data protection](../../includes/container-apps-net-data-protection-scaling.md)]
 
 ## Clean up resources
 

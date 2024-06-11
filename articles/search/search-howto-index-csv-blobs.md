@@ -1,7 +1,7 @@
 ---
 title: Search over CSV blobs
 titleSuffix: Azure AI Search
-description: Extract CSV blobs from Azure Blob Storage and import as search documents into Azure AI Search using the delimitedText parsing mode.
+description: Extract CSV blobs from Azure Blob Storage or Azure Files and import as search documents into Azure AI Search using the delimitedText parsing mode.
 
 manager: nitinme
 author: HeidiSteen
@@ -18,12 +18,19 @@ ms.date: 01/17/2024
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
-In Azure AI Search, both blob indexers and file indexers support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, the `delimitedText` parsing mode would result in two documents in the search index: 
+In Azure AI Search, indexers for Azure Blob Storage and Azure Files support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, the `delimitedText` parsing mode would result in two documents in the search index: 
 
 ```text
 id, datePublished, tags
 1, 2016-01-12, "azure-search,azure,cloud"
 2, 2016-07-07, "cloud,mobile"
+```
+
+If a field inside the CSV file contains the delimeter, it should be wrapped in quotes. If the field contains a quote, it must be escaped using double quotes (`""`).
+
+```text
+id, datePublished, tags
+1, 2020-01-05, "tags,with,""quoted text"""
 ```
 
 Without the `delimitedText` parsing mode, the entire contents of the CSV file would be treated as one search document.
