@@ -547,8 +547,6 @@ tls_config:
     key_file: /etc/prometheus/certs/<keyfile>
     insecure_skip_verify: false
 ```
-
----
 ### [Scrape Config using CRD(Pod/Service Monitor)](#tab/CRDScrapeConfigTLSAuth)
 
 - To provide the TLS config setting in a CRD(Pod/Service Monitor), please follow the below example.
@@ -586,10 +584,10 @@ metadata:
   namespace: kube-system
 type: Opaque
 data:
-  <certfile>: base64_cert_content    # used for Tls
-  <keyfile>: base64_key_content      # used for Tls
-  password1: <base64-encoded-string> # used for basic auth
-  password2: <base64-encoded-string> # used for basic auth
+  certfile: base64_cert_content    # used for Tls
+  keyfile: base64_key_content      # used for Tls
+  password1: base64-encoded-string # used for basic auth
+  password2: base64-encoded-string # used for basic auth
 > 
 > The secret should be created and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
 > 
