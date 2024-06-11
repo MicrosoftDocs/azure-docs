@@ -140,7 +140,7 @@ This article assumes that you already installed a CentOS (or similar derivative)
    gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
    ```
 
-    > [!Note]
+    > [!NOTE]
     > The rest of this article assumes that you're using at least the `[openlogic]` repo, which is used to install the Azure Linux agent.
 
 1. Add the following line to `/etc/yum.conf`:
@@ -163,7 +163,7 @@ This article assumes that you already installed a CentOS (or similar derivative)
 
     A reboot might be required after running this command.
 
-1. (Optional) Install the drivers for the Linux Integration Services (LIS).
+1. Optional: Install the drivers for the Linux Integration Services (LIS).
 
     > [!IMPORTANT]
     > The step is *required* for CentOS 6.3 and earlier and is optional for later releases.
@@ -201,7 +201,7 @@ This article assumes that you already installed a CentOS (or similar derivative)
 
     Graphical and `quiet boot` isn't useful in a cloud environment where you want all the logs to be sent to the serial port. The `crashkernel` option can be left configured if you want. But this parameter reduces the amount of available memory in the VM by 128 MB or more, which might be a problem for smaller VM sizes.
 
-    > [!Important]
+    > [!IMPORTANT]
     > CentOS 6.5 and earlier must also set the kernel parameter `numa=off`. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 1. Ensure that the Secure Shell server is installed and configured to start at boot time. This setting is usually the default.
@@ -232,7 +232,7 @@ This article assumes that you already installed a CentOS (or similar derivative)
 
 ## CentOS 7.0+
 
-Follow the steps in the following sections if you're using CentOS 7.0+.
+Follow the steps in the next sections if you're using CentOS 7.0+.
 
 ### Changes in CentOS 7 (and similar derivatives)
 
