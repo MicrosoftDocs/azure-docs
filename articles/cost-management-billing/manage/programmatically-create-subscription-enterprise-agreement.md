@@ -19,7 +19,7 @@ In this article, you learn how to create subscriptions programmatically using Az
 
 When you create an Azure subscription programmatically, it falls under the terms of the agreement where you receive Azure services from Microsoft or a certified seller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
 

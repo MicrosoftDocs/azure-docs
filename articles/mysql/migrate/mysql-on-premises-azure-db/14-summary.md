@@ -1,19 +1,18 @@
 ---
 title: "Migrate MySQL on-premises to Azure Database for MySQL: Summary"
 description: "This document has covered several topics related to migrating an application from on-premises MySQL to Azure Database for MySQL."
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.reviewer: maghan
-ms.custom:
-ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Summary
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -41,22 +40,23 @@ For any questions or suggestions you might have about working with Azure Databas
 
 ## Find a partner to help migrate
 
-This guide can be overwhelming, but don’t fret\! There are many experts in the community with a proven migration track record. [Search for a Microsoft Partner](https://www.microsoft.com/solution-providers/home) or [Microsoft MVP](https://mvp.microsoft.com/MvpSearch) to help with finding the most appropriate migration strategy. You aren't alone\!
+This guide can be overwhelming, but don't fret\! There are many experts in the community with a proven migration track record. [Search for a Microsoft Partner](https://appsource.microsoft.com/en-us/marketplace/partner-dir) or [Microsoft MVP](https://mvp.microsoft.com/search?target=Profile&program=MVP) to help with finding the most appropriate migration strategy. You aren't alone\!
 
 You can also browse the technical forums and social groups for more detailed real-world information:
 
   - [Microsoft Community Forum ](/answers/topics/azure-database-mysql.html)
 
-  - [Azure Database for MySQL Tech Community ](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/bg-p/ADforMySQL)
+  - [Azure Database for MySQL Tech Community ](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/bg-p/ADforMySQL)
 
   - [StackOverflow for Azure MySQL ](https://stackoverflow.com/questions/tagged/azure-database-mysql)
 
-  - [Azure Facebook Group ](https://www.facebook.com/groups/MsftAzure)
+  - [Azure Facebook Group ](https://m.facebook.com/groups/MsftAzure)
 
-  - [LinkedIn Azure Group ](https://www.linkedin.com/groups/2733961/)
+  - [LinkedIn Azure Group ](https://www.linkedin.com/error_pages/unsupported-browser.html)
 
-  - [LinkedIn Azure Developers Group ](https://www.linkedin.com/groups/1731317/)
+  - [LinkedIn Azure Developers Group ](https://www.linkedin.com/error_pages/unsupported-browser.html)
 
-## Next steps
+## Next step
 
-To deploy a sample application with an end-to-end MySQL migration guide and to review available server parameters, visit the [appendix](15-appendix.md).
+> [!div class="nextstepaction"]
+> [appendix](15-appendix.md)

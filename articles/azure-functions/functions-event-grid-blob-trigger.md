@@ -2,7 +2,7 @@
 title: 'Tutorial: Trigger Azure Functions on blob containers using an event subscription'
 description: This tutorial shows how to create a low-latency, event-driven trigger on an Azure Blob Storage container using an Event Grid event subscription. 
 ms.topic: tutorial
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want learn how to create an event-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
@@ -33,7 +33,7 @@ This article creates a C# app that runs in isolated worker mode, which supports 
 ::: zone-end
 
 > [!IMPORTANT]  
-> This tutorial has you use the [Flex Consumption plan](flex-consumption-plan.md), which is currently in preview. The Flex Consumption plan only supports event subscriptions for triggering your functions based on changes in Blob Storage containers.
+> This tutorial has you use the [Flex Consumption plan](flex-consumption-plan.md), which is currently in preview. The Flex Consumption plan only supports the event-based version of the Blob Storage trigger.
 > You can complete this tutorial using any other [hosting plan](functions-scale.md) for your function app. 
 
 ## Prerequisites
@@ -189,8 +189,6 @@ Visual Studio Code uses Azurite to emulate Azure Storage services when running l
 1. Verify that the *local.settings.json* file has `"UseDevelopmentStorage=true"` set for `AzureWebJobsStorage`, which tells Core Tools to use Azurite instead of a real storage account connection when running locally. 
 
 1. Press F1 to open the command palette, type `Azurite: Start Blob Service`, and press enter, which starts the Azurite Blob Storage service emulator.
-
-1. In the command palette, type `Azure storage: Create Blob Container...`, enter the name `samples-workitems`, and press Enter. 
 
 1. Select the Azure icon in the Activity bar, expand **Workspace** > **Attached Storage Accounts** > **Local Emulator**, right-click **Blob Containers**, select **Create Blob Container...**, enter the name `samples-workitems`, and press Enter.
  

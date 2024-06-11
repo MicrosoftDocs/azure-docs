@@ -5,7 +5,7 @@ author: robece
 ms.author: robece
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, build-2024
-ms.date: 12/08/2023
+ms.date: 05/22/2024
 ---
 
 # Receive Microsoft Graph API change events through Azure Event Grid 
@@ -13,17 +13,19 @@ ms.date: 12/08/2023
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the event sources for which events are available through Graph API. For most resources, events announcing its creation, update, and deletion are supported. For detailed information about the resources for which events are raised for event sources, see [supported resources by Microsoft Graph API change notifications](/graph/webhooks#supported-resources)
 .
 
-|Microsoft event source |Available event types | 
-|:--- | :----|
-|Microsoft Entra ID| [Microsoft Entra event types](azure-active-directory-events.md) |
-|Microsoft Outlook| [Microsoft Outlook event types](outlook-events.md) |
-|Microsoft 365 group conversations ||
-|Microsoft Teams| [Microsoft Teams event types](teams-events.md) |
-|Microsoft SharePoint and OneDrive|  |
-|Microsoft SharePoint| |
-|Security alerts| |
-|Microsoft Conversations|  |
-|Microsoft Universal Print||
+|Microsoft event source |Resources | Available event types | 
+|:--- | :--- | :----|
+| Microsoft Entra ID | [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Microsoft Entra event types](microsoft-entra-events.md) |
+| Microsoft Outlook|[Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) | [Microsoft Outlook event types](outlook-events.md) |
+| Microsoft Teams |[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | [Microsoft Teams event types](teams-events.md) |
+| OneDrive | [DriveItem](/graph/api/resources/driveitem)| [Microsoft OneDrive events](one-drive-events.md) |
+| Microsoft SharePoint | [List](/graph/api/resources/list) | [Microsoft SharePoint events](share-point-events.md) |
+| To Do | [To Do Task](/graph/api/resources/todotask) | [Microsoft ToDo events](to-do-events.md) |
+| Security alerts | [Alert](/graph/api/resources/alert)| [Microsoft Security Alert events](security-alert-events.md) |
+| Cloud printing | [Printer](/graph/api/resources/printer), [Print Task Definition](/graph/api/resources/printtaskdefinition) | [Microsoft Cloud Printing events](cloud-printing-events.md) |
+| Microsoft Conversations | [Conversation](/graph/api/resources/conversation) | [Microsoft 365 Group Conversation events](conversation-events.md) |
+
+You create a Microsoft Graph API subscription to enable Graph API events to flow into a partner topic. The partner topic is automatically created for you as part of the Graph API subscription creation. You use that partner topic to [create event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events.
 
 > [!IMPORTANT]
 >If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md).
@@ -122,13 +124,13 @@ Content-type: application/json
 ---
 
 - `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated`, `Deleted`, and `Created`. You can specify one or more of these values separated by commas.
-- `notificationUrl`: a URI used to define the partner topic to which events are sent. It must conform to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-name-where-you-want-the-topic-created>`. The location (also known as Azure region) `name` can be obtained by executing the **az account list-locations** command. Don't use a location display name. For example, don't use "West Central US". Use `westcentralus` instead.
+- `notificationUrl`: a URI used to define the partner topic to which events are sent. It must conform to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-name-where-you-want-the-topic-created>`. The location (also known as Azure region) `name` can be obtained by executing the **az account list-locations** command. Don't use a location display name. For example, don't use West Central US. Use `westcentralus` instead.
    ```azurecli-interactive
     az account list-locations
    ```
 - `lifecycleNotificationUrl`: a URI used to define the partner topic to which `microsoft.graph.subscriptionReauthorizationRequired`events are sent. This event signals your application that the Graph API subscription is expiring soon. The URI follows the same pattern as *notificationUrl* described earlier if using Event Grid as destination to lifecycle events. In that case, the partner topic should be the same as the one specified in *notificationUrl*.
 - resource: the resource that generates events that announce state changes.
-- expirationDateTime: the expiration time at which the subscription expires and the flow of events stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable per resource type](/graph/api/resources/subscription#subscription-lifetime).
+- expirationDateTime: the expiration time at which the subscription expires and the flow of events stop. It must conform to the format specified in [Request for Change (RFC) 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable per resource type](/graph/api/resources/subscription#subscription-lifetime).
 - client state. This property is optional. It's used for verification of calls to your event handler application during event delivery. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
 
 > [!IMPORTANT]

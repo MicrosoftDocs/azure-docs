@@ -544,6 +544,16 @@ For more information on how to deploy models to managed compute using the studio
 
 For reference about how to invoke Meta Llama 3 models deployed to real-time endpoints, see the model's card in Azure Machine Learning studio [model catalog](concept-model-catalog.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
 
+#### Additional inference examples
+
+| **Package**       | **Sample Notebook**                             |
+|----------------|----------------------------------------|
+| CLI using CURL and Python web requests  | [cohere-embed.ipynb](https://aka.ms/samples/embed-v3/webrequests)|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-embed/openaisdk)                                    |
+| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere-embed/langchain)                                |
+| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-embed/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+
 ## Cost and quotas
 
 ### Cost and quota considerations for Meta Llama models deployed as a serverless API

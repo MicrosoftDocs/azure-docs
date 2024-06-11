@@ -48,26 +48,26 @@ To integrate with GreyNoise Threat Intelligence (using Azure Functions) make sur
 You can connect GreyNoise Threat Intelligence to Microsoft Sentinel by following the below steps: 
 
 
-> The following steps create an Azure AAD application, retrieves a GreyNoise API key, and saves the values in an Azure Function App Configuration.
+> The following steps create a Microsoft Entra ID application, retrieves a GreyNoise API key, and saves the values in an Azure Function App Configuration.
 
 1. Retrieve your API Key from GreyNoise Visualizer.
 
 Generate an API key from GreyNoise Visualizer https://docs.greynoise.io/docs/using-the-greynoise-api
 
-2. In your Azure AD tenant, create an Azure Active Directory (AAD) application and acquire Tenant ID and Client ID. Also, get the Log Analytics Workspace ID associated with your Microsoft Sentinel instance (it should display below).
+2. In your Microsoft Entra ID tenant, create an Microsoft Entra ID application and acquire Tenant ID and Client ID. Also, get the Log Analytics Workspace ID associated with your Microsoft Sentinel instance (it should display below).
 
-Follow the instructions here to create your Azure AAD app and save your Client ID and Tenant ID: /azure/sentinel/connect-threat-intelligence-upload-api#instructions
+Follow the instructions here to create your Microsoft Entra ID app and save your Client ID and Tenant ID: /azure/sentinel/connect-threat-intelligence-upload-api#instructions
  NOTE: Wait until step 5 to generate your client secret.
 
 
-3. Assign the AAD application the Microsoft Sentinel Contributor Role.
+3. Assign the Microsoft Entra ID application the Microsoft Sentinel Contributor Role.
 
 Follow the instructions here to add the Microsoft Sentinel Contributor Role: /azure/sentinel/connect-threat-intelligence-upload-api#assign-a-role-to-the-application
 
-4. Specify the AAD permissions to enable MS Graph API access to the upload-indicators API.
+4. Specify the Microsoft Entra ID permissions to enable MS Graph API access to the upload-indicators API.
 
-Follow this section here to add **'ThreatIndicators.ReadWrite.OwnedBy'** permission to the AAD App: /azure/sentinel/connect-threat-intelligence-tip#specify-the-permissions-required-by-the-application. 
- Back in your AAD App, ensure you grant admin consent for the permissions you just added. 
+Follow this section here to add **'ThreatIndicators.ReadWrite.OwnedBy'** permission to the Microsoft Entra ID App: /azure/sentinel/connect-threat-intelligence-tip#specify-the-permissions-required-by-the-application. 
+ Back in your Microsoft Entra ID App, ensure you grant admin consent for the permissions you just added. 
  Finally, in the 'Tokens and APIs' section, generate a client secret and save it. You will need it in Step 6. 
 
 5. Deploy the Threat Intelligence (Preview) Solution, which includes the Threat Intelligence Upload Indicators API (Preview)

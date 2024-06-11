@@ -4,7 +4,7 @@ description: Learn about backends in Azure API Management. Backend entities enca
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: concept article
+ms.topic: concept-article
 ms.date: 05/13/2024
 ms.author: danlep
 ms.custom:

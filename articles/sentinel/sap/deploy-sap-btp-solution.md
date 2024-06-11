@@ -4,8 +4,8 @@ description: Learn how to deploy the Microsoft Sentinel solution for SAP Busines
 author: batamig
 ms.author: bagol
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ms.date: 03/30/2023
-
 # customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP BTP so that I can plan a deployment.
 ---
 

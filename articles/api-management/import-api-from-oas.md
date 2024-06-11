@@ -33,7 +33,7 @@ In this article, you learn how to:
 
 
 * Azure PowerShell
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## <a name="create-api"> </a>Import a backend API
 
