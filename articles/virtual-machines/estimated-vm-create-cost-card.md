@@ -25,7 +25,7 @@ The cost displayed in this card doesn't reflect usage and other costs incurred o
 
 Currently, the estimated cost card feature for VMs in the Azure portal is limited to Pay-as-you-go customers. This feature isn't available or visible for other subscription types and other discount plans, such as the Savings Plan and Reserved Instances.
 
-If your subscription has policy restrictions for specific users, those users aren't able to view the cost card unless those restrictions are lifted.
+If your subscription has policy restrictions for specific users, those users aren't able to view the cost card unless those restrictions are lifted. If your subscription has policy restrictions to not show costs, cost card will not be shown unless those restrictions are lifted.
 
 ## Cost card
 
