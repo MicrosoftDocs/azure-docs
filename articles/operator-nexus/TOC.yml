@@ -154,6 +154,14 @@
               href: howto-delete-access-control-list-network-to-network-interconnect.md
             - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
               href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
+            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+              href: howto-delete-layer-3-isolation-domains.md
+            - name: How to monitor interface In and Out packet rate for network fabric devices
+              href: howto-monitor-interface-packet-rate.md
+            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+              href: howto-delete-layer-3-isolation-domains.md
+            - name: How to put a device into maintenance mode
+              href: howto-put-device-in-maintenance-mode.md
             - name: How to upgrade Network Fabric
               href: howto-upgrade-nexus-fabric.md
     - name: Nexus Kubernetes cluster
