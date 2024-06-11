@@ -72,7 +72,7 @@ Global requests from clients can be processed by action group services in any re
 
     1. Select if you want to enable the **Common alert schema**. The common alert schema is a single extensible and unified alert payload that can be used across all the alert services in Azure Monitor. For more information about the common schema, see [Common alert schema](./alerts-common-schema.md).
 
-       :::image type="content" source="~/reusable-content/ce-skilling/azure/media/action-groups/action-group-2-notifications.png" alt-text="Screenshot that shows the Notifications tab of the Create action group dialog. Configuration information for an email notification is visible.":::
+       :::image type="content" source="~/reusable-content/ce-skilling/azure/media/azure-monitor/action-group-2-notifications.png" alt-text="Screenshot that shows the Notifications tab of the Create action group dialog. Configuration information for an email notification is visible.":::
 
     1. Select **OK**.
 
