@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-app-configuration
 
 ---
-# Import a configuration file in your GitHub repository to App Configuration
+# Import configuration files from your GitHub repository to App Configuration
 
 Teams that want to continue using their existing source control practices can use GitHub Actions to automatically import configuration files from their GitHub repository with their App Configuration store. This allows you to make changes to your configuration files as you normally would, while getting App Configuration benefits like:
-*	Centralized configuration outside of your code.
-* Updating configuration without redeploying your entire app.  
-* Integration with services like Azure App Service and Functions. 
+* Centralized configuration outside of your code.
+* Updating configuration without redeploying your entire app. 
+* Integration with services like Azure App Service and Functions.
 
-A GitHub Actions [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) defines an automated process in a GitHub repository.To import a configuration file from your github repository to Azure App Configuration, we recommend using [Azure CLI GitHub action](https://github.com/Azure/cli).
+A GitHub Actions [workflow](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) defines an automated process in a GitHub repository. To import a configuration file from your github repository to Azure App Configuration, we recommend using [Azure CLI GitHub action](https://github.com/Azure/cli).
 
 You can create a custom Azure CLI script to trigger updates to an App Configuration instance when changes are made to the source repository. This script can be included in a YAML (.yml) file found in the `/.github/workflows/` path of your repository to define the steps and parameters. You can trigger configuration updates when pushing, reviewing, or branching app configuration files just as you do with app code.
 
@@ -34,44 +34,24 @@ To start using this GitHub Action, go to your repository and select the **Action
 ## Authentication
 To import configurations to your Azure App Configuration you can authenticate using one of the following methods:
 
-### 1. Using Azure login.
-The recommended way to authenticate is by using the [Azure login](/azure/developer/github/connect-from-azure) Github action.
+### Use Microsoft Entra ID
+The recommended way to authenticate is by using Microsoft Entra ID, which allows you to securely connect to your Azure resources. You can automate the authentication process using the [Azure login](/azure/developer/github/connect-from-azure) Github action.
 
-### 2. Using a Connection String. 
-Alternatively, you can authenticate by passing the connection string directly to the Azure CLI command.
+Azure login supports authentication with Azure using service principals with secrets and OpenID Connect with an Azure service principal using a Federated Identity Credential. However, for enhanced security, it's recommended to utilize OpenID Connect with an Azure service principal.
 
-## Sync configuration files after a push
-This action syncs Azure App Configuration files when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the App Configuration Sync action updates the App Configuration instance with the new values.
+#### Use Azure login with OpenID Connect
+To get started, you will need to create a [Microsoft Entra application and service principal](/entra/identity-platform/howto-create-service-principal-portal) and then assign it the **App Configuration Data Owner** role to allow your GitHub action to read and write to the App Configuration store.
 
-The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance using the connection string stored as a secret in the repository.  For more information about using secrets in GitHub, see [GitHub's article](https://docs.github.com/en/actions/reference/encrypted-secrets) about creating and using encrypted secrets.
+To use the Azure login action with OpenID Connect, you will need to configure your Microsoft Entra application with a federated credential to trust tokens issued by Github Actions to your Github repository. For more detailed instructions, refer to the [Azure login](/azure/developer/github/connect-from-azure) documentation.
 
-### Example using Connection string
-```yaml
-on: 
-  push: 
-    branches: 
-      - 'main' 
-    paths: 
-      - 'appsettings.json'
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest
-    
-    # pass the secret variable as an environment variable to access it in your CLI action.
-    env:
-      CONNECTION_STRING: ${{ secrets.<ConnectionString> }} 
-    steps: 
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/cli@v2
-        with: 
-          azcliversion: latest
-          inlineScript: |
-            az appconfig kv import -s file --path appsettings.json --format json --connection-string $CONNECTION_STRING --yes
-```
+You need to provide your application's Client ID, Tenant ID, and Subscription ID to the login action. These values can be provided directly in the workflow or stored as GitHub secrets for better security. In the example below, these values are set as secrets.
+For more information about using secrets in GitHub, see [GitHub's article](https://docs.github.com/en/actions/reference/encrypted-secrets).
 
-## Example using Azure login
+#### Example using Microsoft Entra ID
+The example below we use the Azure CLI action to import configuration files into an Azure App Configuration store when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the script passed to the Azure CLI action updates the App Configuration instance with the new values.
+
+The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance.
+
 ```yaml
 on: 
   push: 
@@ -105,8 +85,17 @@ jobs:
             az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path appsettings.json --format json --yes
 ```
 
-## Use strict sync
-By default the CLI does not enable strict mode, meaning that the sync will only add key-values from the configuration file to the App Configuration instance (no key-value pairs will be deleted). Enabling strict mode will mean key-value pairs that aren't in the configuration file are deleted from the App Configuration instance, so that it matches the configuration file. If you are syncing from multiple sources or using Azure Key Vault with App Configuration, you'll want to use different prefixes or labels with strict sync to avoid wiping out configuration settings from other files (see samples below). 
+### Use a connection string
+Alternatively, you can authenticate by passing the connection string directly to the Azure CLI command. This method involves retrieving the connection string from the Azure portal and using it in your commands or scripts.
+
+To get started, you can find the connection string under **Access Settings** of your App Configuration store in the Azure portal.
+
+Next, set this connection string as a secret variable in your GitHub repository. For more information about using secrets in GitHub, see [GitHub's article](https://docs.github.com/en/actions/reference/encrypted-secrets). 
+
+### Example using a connection string
+In the example below we use the Azure CLI action to import configuration files into an Azure App Configuration store when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the script passed to the Azure CLI action updates the App Configuration instance with the new values.
+
+The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section lists the jobs run once the action is triggered. The action checks out the relevant files and updates the App Configuration instance.
 
 ```yaml
 on: 
@@ -115,134 +104,34 @@ on:
       - 'main' 
     paths: 
       - 'appsettings.json'
-
-# Set permissions for the workflow. Specify 'id-token: write' to allow OIDC token generation at the workflow level
-permissions: 
-  id-token: write
-  contents: read
  
 jobs: 
   syncconfig: 
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
+    
+    # pass the secret variable as an environment variable to access it in your CLI action.
+    env:
+      CONNECTION_STRING: ${{ secrets.<ConnectionString> }} 
     steps: 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-       
       # checkout done so that files in the repo can be read by the sync 
       - uses: actions/checkout@v1 
       - uses: azure/cli@v2
         with: 
           azcliversion: latest
           inlineScript: |
-            az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path appsettings.json --format json --strict --yes
+            az appconfig kv import -s file --path appsettings.json --format json --connection-string $CONNECTION_STRING --yes
 ```
 
-## Sync by prefix or label
-Specifying prefixes or labels in your custom CLI script the action will sync only that particular set. This is important for using strict sync with multiple files. Depending on how the configuration is set up, either a prefix or a label can be associated with each file and then each prefix or label can be synced separately so that nothing is overwritten. Typically prefixes are used for different applications or services and labels are used for different environments. 
-
-Sync by prefix: 
-
-```yaml
-on: 
-  push: 
-    branches: 
-      - 'main' 
-    paths: 
-      - 'appsettings.json'
-
-# Set permissions for the workflow. Specify 'id-token: write' to allow OIDC token generation at the workflow level
-permissions: 
-  id-token: write
-  contents: read
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-       
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/cli@v2
-        with: 
-          azcliversion: latest
-          inlineScript: |
-            az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path appsettings.json --format json --prefix Prefix:: --yes
-```
-
-Sync by label: 
-
-```yaml
-on: 
-  push: 
-    branches: 
-      - 'main' 
-    paths: 
-      - 'appsettings.json'
-
-# Set permissions for the workflow. Specify 'id-token: write' to allow OIDC token generation at the workflow level
-permissions: 
-  id-token: write
-  contents: read
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-       
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/cli@v2
-        with: 
-          azcliversion: latest
-          inlineScript: |
-            az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path appsettings.json --format json --label Label --yes
-```
-
-## Use a dynamic label on sync
-The following action inserts a dynamic label on each sync, ensuring that each sync can be uniquely identified and allowing code changes to be mapped to config changes.
+## Use a dynamic label on import
+The following action inserts a dynamic label on each import, ensuring that each import to your App Configuration store can be uniquely identified and allowing code changes to be mapped to config changes.
 
 The first section of this workflow specifies that the action triggers *on* a *push* containing `appsettings.json` to the *main* branch. The second section runs a job that creates a unique label for the config update based on the commit hash. The job then updates the App Configuration instance with the new values and the unique label for this update.
 
 ```yaml
-on: 
-  push: 
-    branches: 
-      - 'main' 
-    paths: 
-      - 'appsettings.json'
-
-# Set permissions for the workflow. Specify 'id-token: write' to allow OIDC token generation at the workflow level
-permissions: 
-  id-token: write
-  contents: read
- 
-jobs: 
+ jobs: 
   syncconfig: 
     runs-on: ubuntu-latest 
-    steps: 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      
+    steps:      
       # Creates a label based on the branch name and the first 8 characters          
       # of the commit hash 
       - id: determine_label 
@@ -255,114 +144,6 @@ jobs:
           inlineScript: |
             az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path appsettings.json --format json --label ${{ steps.determine_label.outputs.LABEL }} --yes
 ```
-
-## Use Azure Key Vault with GitHub Action
-Developers using Azure Key Vault with AppConfiguration should use two separate files, typically an appsettings.json and a secretreferences.json. The secretreferences.json will contain the url to the key vault secret.
-
-{
-  "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret"}"
-}
-
-The GitHub Action can then be configured to do a strict sync on the appsettings.json, followed by a non-strict sync on secretreferences.json. The following sample will trigger a sync when either file is updated:
-
-```yaml
-on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - 'appsettings.json'
-      - 'secretreferences.json'
-
-# Set permissions for the workflow. Specify 'id-token: write' to allow OIDC token generation at the workflow level
-permissions: 
-  id-token: write
-  contents: read
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/cli@v2
-        with: 
-          azcliversion: latest
-          inlineScript: |
-            az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path appsettings.json --format json --strict --yes
-
-      - uses: azure/cli@v2
-        with: 
-          azcliversion: latest
-          inlineScript: |
-            az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path secretreferences.json --format json --content-type application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 --yes
-```
-
-## Use max depth to limit GitHub Action
-The default behavior for nested JSON attributes is to flatten the entire object.  The JSON below defines this key-value pair:
-
-| Key | Value |
-| --- | --- |
-| Object:Inner:InnerKey | InnerValue |
-
-```json
-{ "Object": 
-    { "Inner":
-        {
-        "InnerKey": "InnerValue"
-        }
-    }
-}
-```
-
-If the nested object is intended to be the value pushed to the Configuration instance, you can use the *depth* value to stop the flattening at the appropriate depth.
-
-```yaml
-on: 
-  push: 
-    branches: 
-      - 'main' 
-    paths: 
-      - 'appsettings.json'
-
-# Set permissions for the workflow. Specify 'id-token: write' to allow OIDC token generation at the workflow level
-permissions: 
-  id-token: write
-  contents: read
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-       
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/cli@v2
-        with: 
-          azcliversion: latest
-          inlineScript: |
-            az appconfig kv import --endpoint https://teststore.azconfig.io --auth-mode login -s file --path appsettings.json --format json --separator : --depth 2 --yes
-```
-
-Given a depth of 2, the example above now returns the following key-value pair:
-
-| Key | Value |
-| --- | --- |
-| Object:Inner | {"InnerKey":"InnerValue"} |
-
 ## Next steps
 
 > [!div class="nextstepaction"]
