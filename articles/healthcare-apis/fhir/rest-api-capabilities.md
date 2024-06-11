@@ -74,8 +74,7 @@ The history interaction retrieves the history of either a particular resource, a
 
 For example: 
   `GET https://{{FHIR_URL}}/{resource type}/{resource id}/_history
-   GET https://{{FHIR_URL}}/{resource type})/_history
-   GET https://{{FHIR_URL}}/_history`
+   GET https://{{FHIR_URL}}/{resource type})/_history`
 
 The response is a Bundle with type set to history containing the specified version history, sorted with oldest versions last, and including deleted resources. 
 
