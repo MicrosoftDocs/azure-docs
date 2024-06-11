@@ -18,7 +18,7 @@ This article describes how to set up, view, and manage [Azure Monitor resource l
 
 ![Resource logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## What's logged?
 

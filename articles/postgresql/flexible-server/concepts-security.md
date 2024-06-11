@@ -4,7 +4,7 @@ description: Learn about security in the Flexible Server deployment option for A
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/23/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.devlang: python
 
 # Security in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Multiple layers of security are available to help protect the data on your Azure Database for PostgreSQL - Flexible Server instance. This article outlines those security options.
 

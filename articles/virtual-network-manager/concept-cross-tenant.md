@@ -14,8 +14,6 @@ ms.custom: template-concept
 
 In this article, you learn about cross-tenant support in Azure Virtual Network Manager. Cross-tenant supports allows organizations to use a central Network Manager instance for managing virtual networks across different tenants and subscriptions.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
  ## Overview of Cross-tenant 
 
 Cross-tenant support in Azure Virtual Network Manager allows you to add subscriptions or management groups from other tenants to your network manager. This is done by establishing a two-way connection between the network manager and target tenants. Once connected, the central manager can deploy connectivity and/or security admin rules to virtual networks across those connected subscriptions or management groups. This support assists organizations that fit the following scenarios: 

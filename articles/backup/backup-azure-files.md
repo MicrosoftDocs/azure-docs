@@ -2,7 +2,7 @@
 title: Back up Azure File shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services vault
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 06/05/2024
 ms.service: backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -18,7 +18,7 @@ Azure File share backup is a native, cloud based backup solution that protects y
 [Learn about](azure-file-share-backup-overview.md) the Azure File share snapshot-based backup solution.
 
 >[!Note]
->Vaulted backup for Azure File share is currently in preview.
+>Vaulted backup for Azure File share is currently in preview and available in limited regions mentioned [here](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).
 
 ## Prerequisites
 
@@ -110,7 +110,7 @@ The following steps explain how you can configure backup for individual file sha
 
 1. On the **File share settings** blade, all the file shares present in the storage account appear. Select the file share you want to back up.
 
-   ![Screenshot shows the File shares list.](./media/backup-afs/file-shares-list.png)
+   :::image type="content" source="./media/backup-afs/file-shares-list.png" alt-text="Screenshot shows the File shares list." lightbox="./media/backup-afs/file-shares-list.png":::
 
 1. On the *file share* blade, under the **Operations** section, select **Backup**.
 

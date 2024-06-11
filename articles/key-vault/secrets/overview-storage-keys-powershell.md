@@ -35,7 +35,7 @@ When you use the managed storage account key feature, consider the following poi
 > [!IMPORTANT]
 > Regenerating key directly in storage account breaks managed storage account setup and can invalidate SAS tokens in use and cause an outage.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Service principal application ID
 

@@ -4,7 +4,7 @@ description: Learn how to set up Microsoft Entra ID for authentication with Azur
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/24/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Use Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you configure Microsoft Entra ID access for authentication with Azure Database for PostgreSQL flexible server. You'll also learn how to use a Microsoft Entra token with Azure Database for PostgreSQL flexible server.
 
@@ -104,7 +104,7 @@ The command opens a browser window to the Microsoft Entra authentication page. I
 Use the Azure CLI to acquire an access token for the Microsoft Entra authenticated user to access Azure Database for PostgreSQL. Here's an example of the public cloud:
 
 ```azurecli-interactive
-az account get-access-token --resource https://server-name.database.windows.net
+az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 The preceding resource value must be specified as shown. For other clouds, you can look up the resource value by using the following command:
@@ -228,7 +228,7 @@ az login
 Use the Azure CLI to acquire an access token for the Microsoft Entra authenticated user to access Azure Database for PostgreSQL. Here's an example of the public cloud:
 
 ```azurecli-interactive
-az account get-access-token --resource https://server-name.database.windows.net
+az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 You must specify the initial resource value exactly as shown. For other clouds, you can look up the resource value by using the following command:

@@ -418,6 +418,10 @@
     href: hybrid-search-how-to-query.md
   - name: Security
     items:
+    - name: Enable role-based access control
+      href: search-security-enable-roles.md
+    - name: Configure a managed identity
+      href: search-howto-managed-identities-data-sources.md
     - name: Inbound connections
       items:
       - name: Connect using API keys
@@ -438,8 +442,6 @@
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Connect using a managed identity
         items:
-        - name: Any Azure resource
-          href: search-howto-managed-identities-data-sources.md
         - name: Azure Storage
           href: search-howto-managed-identities-storage.md
         - name: Azure Cosmos DB
@@ -472,16 +474,16 @@
       href: search-api-versions.md
     - name: Preview features
       href: search-api-preview.md
-    - name: Handle concurrent updates
-      href: search-howto-concurrency.md
-    - name: Develop in .NET
-      href: search-howto-dotnet-sdk.md
-    - name: Upgrade .NET libraries
-      href: search-dotnet-sdk-migration-version-11.md
-    - name: Manage with Azure SDKs
-      href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
+    - name: Upgrade .NET libraries
+      href: search-dotnet-sdk-migration-version-11.md
+    - name: Develop in .NET
+      href: search-howto-dotnet-sdk.md
+    - name: Manage with Azure SDKs
+      href: search-dotnet-mgmt-sdk-migration.md
+    - name: Handle concurrent updates
+      href: search-howto-concurrency.md
   - name: Monitoring and performance
     items:
     - name: Monitor
