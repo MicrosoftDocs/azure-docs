@@ -16,9 +16,14 @@ ms.custom: attributes
 ## Overview
 Time Series Insights is a service that enables operational analytics and reporting on historical data. It offers data ingestion, storage, contextualization, analysis, and querying capabilities. As part of migrating to [Real-Time Intelligence](/fabric/real-time-intelligence/overview), all of these capabilities can be met and even improved by migrating to [Eventhouse](/fabric/real-time-intelligence/eventhouse), the time series database in Real-Time Intelligence.
 
+> [!NOTE]
+> [Eventhouse](/fabric/real-time-intelligence/eventhouse) the evolution of [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) (ADX), a service that is trusted by many customers. Eventhouse uses the strength of ADX and offers a SaaS version in Fabric Real-Time Intelligence. We recommend Eventhouse because we think it will fit your needs better. 
+
 ## Migration steps
 
 Time Series Insights has two offerings, Gen1 and Gen2, with different migration steps.
+
+If you need more migration guidance from Microsoft, such as architecture review, clarification about specific capabilities, please fill out your request [here](https://aka.ms/TSI2FabricMigrationHelp). Microsoft will evaluate your request and contact you as soon as possible to discuss the migration details and support needed.
 
 ### Time Series Insights Gen1
 
