@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 01/19/2023
+ms.date: 06/11/2024
 ms.topic: how-to
 ms.custom: security
 monikerRange: 'azureml-api-2 || azureml-api-1'

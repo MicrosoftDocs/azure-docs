@@ -9,9 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 06/03/2024
-ms.custom:
-  - subject-rbac-steps
-  - references_regions
+ms.custom: subject-rbac-steps, references_regions, devx-track-azurepowershell
 ---
 
 # Connect to Azure AI Search using role-based access controls
@@ -32,7 +30,7 @@ Role-based access is optional, but recommended. The alternative is [key-based au
 
 ## Prerequisites
 
-+ **Owner**, **User Access Administrator**, or a role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
++ **Owner**, **User Access Administrator**, or a custom role with [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) permissions.
 
 + A search service in any region, on any tier, [enabled for role-based access](search-security-enable-roles.md).
 
@@ -126,7 +124,6 @@ New-AzRoleAssignment -SignInName <email> `
 ### Assign roles for development
 
 Role assignments are global across the search service. To [scope permissions to a single index](#rbac-single-index), use PowerShell or the Azure CLI to create a custom role.
-
 
 Another combination of roles that provides full access is Contributor or Owner, plus Search Index Data Reader.
 

@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 # Starter Resource Graph query samples
 
-[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/samples/archive-samples.md)]
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with

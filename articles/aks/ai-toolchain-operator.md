@@ -15,7 +15,7 @@ The AI toolchain operator (KAITO) is a managed add-on for AKS that simplifies th
 
 This article shows you how to enable the AI toolchain operator add-on and deploy an AI model on AKS.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Before you begin
 

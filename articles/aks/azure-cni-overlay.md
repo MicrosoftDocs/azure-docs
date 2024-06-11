@@ -252,8 +252,6 @@ The following attributes are provided to support dual-stack clusters:
         --generate-ssh-keys
     ```
 
----
-
 ## Create an example workload
 
 Once the cluster has been created, you can deploy your workloads. This article walks you through an example workload deployment of an NGINX web server.
@@ -383,4 +381,3 @@ To learn how to utilize AKS with your own Container Network Interface (CNI) plug
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-
