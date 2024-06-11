@@ -27,7 +27,9 @@ When you confirm that you've reviewed the errors and are ready to proceed, the d
 Once the data upload is complete, order status updates to **Completed**.
 
 > [!NOTE]
-> Data Box automatically performs CRC validation to ensure that data copied to the device is identical to the data uploaded to Azure. You can use the CRC checksum tool script to compare the checksums of the on-premises source data with the data uploaded to Azure. The script can be downloaded from [Azure Samples](https://github.com/Azure-Samples/data-box-samples/tree/main/JavaToolforCRC). See the [README file](https://github.com/Azure-Samples/data-box-samples/blob/main/JavaToolforCRC/README.md) for more information.
+> A Cyclic Redundancy Check (CRC) computation is completed during the upload to Azure. The CRCs from the data copy and data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
+> 
+> You can use the CRC checksum tool script to compare the checksums of the on-premises source data with the data uploaded to Azure. The script can be downloaded from [Azure Samples](https://github.com/Azure-Samples/data-box-samples/tree/main/JavaToolforCRC). See the [README file](https://github.com/Azure-Samples/data-box-samples/blob/main/JavaToolforCRC/README.md) for more information.
 
 Verify that your data is uploaded to Azure before you delete it from the source. Your data can be in:
 
