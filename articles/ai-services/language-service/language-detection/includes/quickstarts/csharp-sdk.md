@@ -11,21 +11,25 @@ ms.author: jboback
 
 Use this quickstart to create a language detection application with the client library for .NET. In the following example, you create a C# application that can identify the language a text sample was written in.
 
-[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
-
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-    * You need the key and endpoint from the resource you create to connect your application to the API. You paste your key and endpoint into the code later in the quickstart.
-    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature, you need a Language resource with the standard (S) pricing tier.
-
 
 
 ## Setting up
+
+[!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
+
+
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+
+
+[!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
 
 ### Create a new .NET Core application
 
@@ -34,13 +38,9 @@ Using the Visual Studio IDE, create a new .NET Core console app. This creates a 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.2.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
 
-
-
 ## Code example
 
-Copy the following code into your *program.cs* file. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
-
-[!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
+Copy the following code into your *program.cs* file. Then run the code.  
 
 ```csharp
 using Azure;
@@ -51,10 +51,12 @@ namespace LanguageDetectionExample
 {
     class Program
     {
-
         // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
         static string languageKey = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
         static string languageEndpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
+
+        private static readonly AzureKeyCredential credentials = new AzureKeyCredential(languageKey);
+        private static readonly Uri endpoint = new Uri(languageEndpoint);
 
         // Example method for detecting the language of text
         static void LanguageDetectionExample(TextAnalyticsClient client)
