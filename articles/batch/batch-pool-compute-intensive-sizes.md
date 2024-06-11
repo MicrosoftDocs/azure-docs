@@ -25,7 +25,7 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Dependencies
 
-The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. (The list of supported operating systems is a subset of those supported for virtual machines created in these sizes.) Depending on how you create your Batch pool, you might need to install or configure extra driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
+The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. (The supported operating systems for these VM sizes include only a subset of those available for virtual machine creation.) Depending on how you create your Batch pool, you might need to install or configure extra driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
 
 ### Linux pools - Virtual machine configuration
 
