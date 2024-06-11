@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: quickstart-arm  #Don't change
-ms.date: 06/10/2024
+ms.date: 06/11/2024
 ms.custom: subject-armqs
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy a virtual machine in an Azure Extended Zone.
@@ -306,11 +306,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ```
 Multiple Azure resources are defined in the template:
 
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces?pivots=deployment-language-arm-template)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups?pivots=deployment-language-arm-template)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses?pivots=deployment-language-arm-template)
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines?pivots=deployment-language-arm-template)
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks?pivots=deployment-language-arm-template)
 
 
 
