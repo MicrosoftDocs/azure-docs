@@ -27,10 +27,10 @@ Since we're using sensitive information that you don't want others to access, we
 
 To add a Variable, you click the **Variables** button next to the Save button in the top-right of the editing view for your pipeline. Select the **New Variable** button and enter your information. Add the variables below with your own secrets appropriate from each resource.
 
-- vmImageName: ‘windows-latest'
-- imageRepository: ‘your-image-repo-name'
-- dockerfilePath: ‘$(Build.SourcesDirectory)/path/to/Dockerfile'
-- dockerRegistryServiceConnection: ‘your-service-connection-number'
+- vmImageName: 'windows-latest'
+- imageRepository: 'your-image-repo-name'
+- dockerfilePath: '$(Build.SourcesDirectory)/path/to/Dockerfile'
+- dockerRegistryServiceConnection: 'your-service-connection-number'
 
 ## Create a new pipeline
 Once your repository is created with your .NET application and supporting dockerfile, you can create your pipeline following these steps.
