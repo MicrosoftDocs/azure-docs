@@ -12,7 +12,7 @@ ms.date: 04/04/2023
 
 Azure Kubernetes Service (AKS) for Edge provides an extensive and sophisticated set of capabilities that make it simpler to deploy and operate a fully managed Kubernetes cluster in an edge computing scenario.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## What are Edge Zones and Azure public multi-access edge compute?
 

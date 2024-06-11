@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure IoT Edge common errors
-description: Resolve common issues encountered when using an IoT Edge solution
+description: Resolve common issues in Azure IoT Edge solutions. Learn how to troubleshoot issues with provisioning, deployment, the IoT Edge runtime, and networking.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 02/26/2024
-ms.topic: conceptual
+ms.date: 06/06/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 services: iot-edge
 ms.custom:  [amqp, mqtt]
@@ -82,7 +82,7 @@ Ensure that there's a route to the internet for the IP addresses assigned to thi
 
 **Option 1: Set DNS server in container engine settings**
 
-Specify the DNS server for your environment in the container engine settings, which will apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
+Specify the DNS server for your environment in the container engine settings, which apply to all container modules started by the engine. Create a file named `daemon.json`, then specify the DNS server to use. For example:
 
 ```json
 {
