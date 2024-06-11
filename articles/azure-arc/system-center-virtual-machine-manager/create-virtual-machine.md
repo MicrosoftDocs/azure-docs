@@ -2,7 +2,7 @@
 title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
 description: This article helps you create a virtual machine using Azure portal. 
 ms.date: 11/15/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
 author: Farha-Bano
