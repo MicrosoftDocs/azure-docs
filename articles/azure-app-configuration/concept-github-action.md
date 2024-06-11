@@ -1,5 +1,5 @@
 ---
-title: Import a configuration file in your GitHub repository to App Configuration
+title:  Import configuration files from your GitHub repository to App Configuration
 description: Use GitHub Actions to automatically update your App Configuration instance when you update your configuration file in your GitHub repository
 author: christinewanjau
 ms.author: cwanjau
