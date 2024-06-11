@@ -11,10 +11,10 @@ ms.author: msmbaldwin
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Using RBAC to provide access to a key vault - CLI](./key-vault-quickstart-rbac-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault - CLI](./upn-secrets-officer-cli.md)]
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Using RBAC to provide access to a key vault - PowerShell](./key-vault-quickstart-rbac-powershell.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault - PowerShell](./upn-secrets-officer-powershell.md)]
 
 ---
