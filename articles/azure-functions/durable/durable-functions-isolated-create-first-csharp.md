@@ -69,7 +69,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files. 
 
-There's also a file called *HelloOrchestration.cs*, which contains the basic building blocks of a Durable Functions:
+There's also a file called *HelloOrchestration.cs*, which contains the basic building blocks of a Durable Functions app:
 
 | Method | Description |
 | -----  | ----------- |
