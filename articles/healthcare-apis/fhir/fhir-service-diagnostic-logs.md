@@ -94,8 +94,7 @@ You can use these basic Log Analytics queries to explore your log data:
   | where ResultType == "Failed"`	
 
 ## Conclusion
-
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. In this article, you learned how to enable these logs for the FHIR service. 
+In this article, you learned how to enable these logs for the FHIR service. Having access to logs is essential for monitoring a service and providing compliance reports. 
 
 
 ## Next steps
