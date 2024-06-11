@@ -44,11 +44,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: AutoML image object detection job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml":::
+:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml":::
 
 ## YAML: AutoML image object detection pipeline job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-object-detection-task-fridge-items-pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/pipelines/automl/image-object-detection-task-fridge-items-pipeline/pipeline.yml":::
 
 ## Next steps
 
