@@ -1,7 +1,7 @@
 ---
 title: Register and work with models
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Azure Machine Learning CLI or Python SDK to create, register, and work with different model types such as custom, MLflow, and Triton.
+description: Learn how to use the Azure Machine Learning CLI or Python SDK to create and work with different registered model types and locations.
 services: machine-learning
 author: fkriti
 ms.author: kritifaujdar
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: cli-v2, sdk-v2, devx-track-azurecli, update-code
 ---
 
-# Work with models in Azure Machine Learning
+# Work with registered models in Azure Machine Learning
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
