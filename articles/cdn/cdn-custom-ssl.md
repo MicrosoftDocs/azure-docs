@@ -110,70 +110,9 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 > - Azure Content Delivery Network only supports PFX certificates.
 > - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
-### Register Azure CDN
+### Set up managed identity for Azure CDN
 
-Register Azure CDN as an app in your Microsoft Entra ID.
-
-> [!NOTE]
-> - `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.
-> - You need to have the **Global Administrator** role to run this command.
-> - The service principal name was changed from `Microsoft.Azure.Cdn` to `Microsoft.AzureFrontDoor-Cdn`.
-
-#### Azure PowerShell
-
-1. If needed, install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine.
-
-2. In PowerShell, run the following command:
-
-     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
-
-    ```
-    New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
-
-    Secret                :
-    ServicePrincipalNames : {205478c0-bd83-4e1b-a9d6-db63a3e1e1c8,
-				https://microsoft.onmicrosoft.com/033ce1c9-f832-4658-b024-ef1cbea108b8}
-    ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
-    ObjectType            : ServicePrincipal DisplayName           : Microsoft.AzureFrontDoor-Cdn Id                    : abcdef12-3456-7890-abcd-ef1234567890
-    Type                  :
-    ```
-
-<a name='azure-cli'></a>
-
-#### The Azure CLI
-
-1. If needed, install the [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
-
-1. Use the Azure CLI to run the following command:
-
-     ```azurecli-interactive
-     az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
-     ```
-
-### Grant Azure CDN access to your key vault
-
-Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
-
-1. In your key vault in the **Settings** section, select **Access policies**. In the right pane, select **+ Add Access Policy**:
-
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-new-access-policy.png" alt-text="Screenshot of create a Key Vault access policy for Azure Content Delivery Network." border="true":::
-
-2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**. Choose **Select**:
-
-3. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Choose **Select**.
-
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
-
-4. Select **Certificate permissions**. Select the checkbox for **Get** to allow CDN permissions to get the certificates.
-
-5. Select **Secret permissions**. Select the checkbox for **Get** to allow CDN permissions to get the secrets:
-
-    :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Screenshot of select permissions for Azure Content Delivery Network to Key Vault." border="true":::
-
-6. Select **Add**.
-
-> [!NOTE]
-> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault.
+Follow the steps in [Configure managed identity for Azure CDN](./cdn-managed-identity.md) to allow Azure CDN to access your Azure Key Vault account.
 
 ### Select the certificate for Azure CDN to deploy
 
