@@ -17,7 +17,7 @@ This article shows you how to use Virtual WAN and Azure Firewall rules and filte
 
 The steps in this article help you create the architecture in the following diagram to allow User VPN clients to access a specific resource (VM1) in a spoke VNet connected to the virtual hub, but not other resources (VM2). Use this architecture example as a basic guideline.
 
-:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram of a Secured virtual hub.":::
+:::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="Diagram of a Secured virtual hub." lightbox="./media/manage-secure-access-resources-spoke-p2s/diagram.png":::
 
 ## Prerequisites
 
