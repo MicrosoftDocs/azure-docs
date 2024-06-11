@@ -43,7 +43,12 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
    1. You can then enter up to 10 **Names** and **Email addresses** that are used as contacts for the maintenance process.
    1. Select **Next** to continue.
 1. From the **Consent** tab of the Create Oracle Exadata Infrastructure flow, you must agree to the terms of service, privacy policy, and agree to access permissions. Once accepted, select **Next** to continue.
-1. From the **Tags** tab of the Create Oracle Exadata Infrastructure flow, you define Microsoft Azure tags. **NOTE:** These tags aren't propagated to the Oracle Cloud Infrastructure (OCI) portal. Once you have created the tags, if any, for your environment, select **Next** to continue.
+1. From the **Tags** tab of the Create Oracle Exadata Infrastructure flow, you define Microsoft Azure tags.
+
+    >[!NOTE]
+    > These tags aren't propagated to the Oracle Cloud Infrastructure (OCI) portal.
+
+1. After you create the tags, if any, for your environment, select **Next** to continue.
 1. From the **Review _+** create tab of the Create Oracle Exadata Infrastructure flow, a short validation process is run to check the values that you entered from the previous steps. If the validation fails, you must correct any errors before you can start the provisioning process.
 1. Select the **Create** button to start the provisioning flow.
 1. Return to the Oracle Exadata Infrastructure blade to monitor and manage the state of your Oracle Exadata Infrastructure environments.

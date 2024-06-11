@@ -21,7 +21,11 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
 1. You provision Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources from the OracleDB@Azure blade. By default, the Oracle Exadata Infrastructure tab is selected. To create an Oracle Exadata VM Cluster resource, select that tab first.
 1. Select the **+ Create** icon at the top of the blade to begin the provisioning flow.
 1. Check that you're using the **Create** Oracle Exadata VM Cluster flow. If not, exit the flow.
-1. From the **Basics** tab of the Create Oracle Exadata VM Cluster flow, enter the following information. **NOTE:** Before you can provision an Oracle Exadata VM Cluster, you must have a provisioned Oracle Exadata Infrastructure, which you'll assign for your Oracle Exadata VM Cluster.
+1. From the **Basics** tab of the Create Oracle Exadata VM Cluster flow, enter the following information.
+
+  >[!NOTE]
+  > Before you can provision an Oracle Exadata VM Cluster, you must have a provisioned Oracle Exadata Infrastructure, which you'll assign for your Oracle Exadata VM Cluster.
+
    1. Select the Microsoft Azure subscription to which the Oracle Exadata VM Cluster will be provisioned.
    1. Select an existing **Resource group** or select the **Create new** link to create and use a new Resource group for this resource.
    1. Enter a unique **Name** for the Oracle Exadata VM Cluster on this subscription.
@@ -43,6 +47,7 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
    1. **Usable Exadata Storage (TB)** is limited by the Oracle Exadata Infrastructure.
    1. **Use Exadata sparse snapshots**, **Use local backups**, and **Usable storage allocation** are options that can only be set at this time before the Oracle Exadata VM Cluster has been provisioned.
    1. Select **Next** to continue.
+
 1. From the **Networking** tab of the Create Oracle Exadata VM Cluster flow, enter the following information.
    1. The **Virtual network** is limited based on the **Subscription** and **Resource group** that you selected earlier in the provisioning flow.
    1. The **Client subnet** is selectable based on the selected **Virtual network**.
@@ -55,6 +60,6 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
 1. From the **Diagnostics Collection** tab of the Create Oracle Exadata VM Cluster flow allows you to specify the diagnostic events, health monitoring, and incident logs and tracing that Oracle can use to identify, track, and resolve issues. Select **Next** to continue.
 1. From the **Consent** tab of the **Create Oracle Exadata VM Cluster** flow, you must agree to the terms of service, privacy policy, and agree to access permissions. Select **Next** to continue.
 1. From the **Tags** tab of the Create Oracle Exadata VM Cluster flow, you can define Microsoft Azure tags. **NOTE:** These tags aren't propagated to the Oracle Cloud Infrastructure (OCI) portal. Select **Next** to continue.
-1. From the **Review _+ create** tab of the Create Oracle Exadata VM Cluster flow, a short validation process is run to check the values that you entered from the previous steps. If the validation fails, you must correct any errors before you can start the provisioning process.
+1. From the **Review + create** tab of the Create Oracle Exadata VM Cluster flow, a short validation process is run to check the values that you entered from the previous steps. If the validation fails, you must correct any errors before you can start the provisioning process.
 1. Select the **Create** button to start the provisioning flow.
 1. Return to the Oracle Exadata VM Cluster blade to monitor and manage the state of your Oracle Exadata VM Cluster environments.

@@ -17,7 +17,7 @@ After you provision an OracleDB@Azure resource, for example an Oracle Exadata In
 
 The following management functions are available for all resources from the Microsoft Azure blade for that resource.
 
-* Access the resource blade.
+* **Access the resource blade**.
    1. From the Microsoft Azure portal, select OracleDB@Azure application.
    1. From the left menu, select the resource type. For example, select **Oracle Exadata Database@Azure** or **Oracle Autonomous Database@Azure**.
    1. If the blade lists and manages several resources, select the resource type at the top of the blade. For example, the **Oracle Exadata Database@Azure** blade accesses both Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources.
@@ -45,8 +45,8 @@ The following management functions are available for all resources from the Micr
    1. To create and use a new resource group, select the **Create new** link below the Resource group field. Enter a new resource group name in the **Name** field. Select the **OK** button to save your new resource group and use it. Select the **Cancel** button to return without creating a new resource group.
 * **Move the resource to a new subscription.**
 
-> [!NOTE]
-> You must have access to another Microsoft Azure subscription, and that subscription must have been setup for access to OracleDB@Azure. If both of these conditions are not met, you will not be able to successfully move the resource to another subscription.
+   > [!NOTE]
+   > You must have access to another Microsoft Azure subscription, and that subscription must have been setup for access to OracleDB@Azure. If both of these conditions are not met, you will not be able to successfully move the resource to another subscription.
 
    1. Follow the steps to access the resource blade.
    1. Select the link to the resource from the Name field in the table.
@@ -59,18 +59,24 @@ The following management functions are available for all resources from the Micr
    1. To create a new tag, enter values in the **Name** and **Value** fields.
    1. To edit an existing tag, change the value in the existing tag's **Value** field.
    1. To delete an existing tag, select the **Trashcan** icon at the right-side of the tag.
-     * **Manage Resource Allocation for Oracle Autonomous Database Serverless Instances.**
+
+## Manage resource allocation for Oracle Autonomous Database Serverless instances
+
+The following management functions are available for Oracle Autonomous Database Serverless instances from the Microsoft Azure blade for that resource.
 
 > [!NOTE]
 > You can only change the resource allocation settings for Oracle Autonomous Database Serverless instances using these steps. This does not apply to any other resource type.
 
-   1. Follow the steps to access the Oracle Autonomous Database@Azure blade.
+Follow the following steps to access the Oracle Autonomous Database@Azure blade.
+
    1. Select the link to the resource from the **Name** field in the table.
    1. From the resource's overview page, select the **Setting** link left-menu, and then the **Resource allocation** link.
    1. Select the **Manage** button at the top of the Resource allocation page.
    1. From the **Manage resource allocation** window, you can set the **ECPU count** from 2 to 512. The **Compute auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its computing allocation automatically up to 512. The **Storage** is a slider UI that allows setting the Storage allocation from 1 TB to 384 TB. The **Storage auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its storage allocation automatically up to 384 TB.
    1. After you have set or reviewed the fields, select the **Apply** or **Cancel** button as appropriate.
-     * **Use the OCI console for complete management of the resource.**
+
+* **Use the OCI console for complete management of the resource.**
+
    1. Follow the steps to access the resource blade.
    1. Select the link to the resource from the **Name** field in the table.
    1. From the resource's detail page, select the **Go to OCI** link on the **OCI Database URL** field.
