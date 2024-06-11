@@ -192,7 +192,7 @@ Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microso
     ```
 
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/_/microsoft-service-fabric-onebox) page.
 
 # [Local cluster](#tab/localcluster)
 
