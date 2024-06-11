@@ -67,4 +67,6 @@ For more in-depth information about disaster recovery in Azure, check out these 
 
 - [Cloud Adoption Framework Azure Virtual Desktop business continuity and disaster recovery documentation](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery)
 
+- [Multiregion BCDR for Azure Virtual Desktop](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr)
+
 - [Azure Virtual Desktop Handbook: Disaster Recovery](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-disaster-recovery/)
