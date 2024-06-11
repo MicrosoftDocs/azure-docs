@@ -9,9 +9,9 @@ ms.author: jefmarti
 
 # Deploy a custom container to App Service using Azure Pipelines
 
-Azure DevOps enables you to host, build, plan and test your code with complimentary workflows. Using Azure Pipelines as one of these workflows allows you to deploy your application with CI/CD that works with any platform and cloud. A pipeline is defined as a YAML file in the root directory of your repository.
+Azure DevOps enables you to host, build, plan, and test your code with complimentary workflows. Using Azure Pipelines as one of these workflows allows you to deploy your application with CI/CD that works with any platform and cloud. A pipeline is defined as a YAML file in the root directory of your repository.
 
-In this article, we will use Azure Pipelines to deploy a Windows container application to App Service from a Git repository in Azure DevOps. It assumes you already have a .NET application with a supporting dockerfile in Azure DevOps.
+In this article, we use Azure Pipelines to deploy a Windows container application to App Service from a Git repository in Azure DevOps. It assumes you already have a .NET application with a supporting dockerfile in Azure DevOps.
 
 ## Prerequisites
 
@@ -20,10 +20,10 @@ In this article, we will use Azure Pipelines to deploy a Windows container appli
 - A working Windows app with Dockerfile hosted on [Azure Repos](https://docs.github.com/get-started/quickstart/create-a-repo). 
 
 ## 1. Add a Service Connection
-Before you create your pipeline, you should first create your Service Connection since you will be asked to choose and verify your connection when creating your template. A Service Connection will allow you to connect to your registry of choice (ACR or Docker Hub) when using the task templates. When adding a new service connection, choose the Docker Registry option. The following form will ask you to choose Docker Hub or Azure Container Registry along with pertaining information. To follow along with this tutorial, use Azure Container Registry. You can create a new Service Connection following the directions [here](https://learn.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#create-new).
+Before you create your pipeline, you should first create your Service Connection since you'll be asked to choose and verify your connection when creating your template. A Service Connection allows you to connect to your registry of choice (ACR or Docker Hub) when using the task templates. When adding a new service connection, choose the Docker Registry option. The following form asks you to choose Docker Hub or Azure Container Registry along with pertaining information. To follow along with this tutorial, use Azure Container Registry. You can create a new Service Connection following the directions [here](https://learn.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#create-new).
 
 ## 2. Secure your secrets
-Since we are using sensitive information that you don’t want others to access, we will use variables to protect our information. Create a variable by following the directions [here](https://learn.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
+Since we're using sensitive information that you don’t want others to access, we use variables to protect our information. Create a variable by following the directions [here](https://learn.microsoft.com/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables).
 
 To add a Variable, you click the **Variables** button next to the Save button in the top-right of the editing view for your pipeline. Select the **New Variable** button and enter your information. Add the variables below with your own secrets appropriate from each resource.
 
@@ -36,12 +36,12 @@ To add a Variable, you click the **Variables** button next to the Save button in
 Once your repository is created with your .NET application and supporting dockerfile, you can create your pipeline following these steps.
 
 1. Navigate to **Pipelines** on the left menu bar and click on the **Create pipeline** button
-1. On the next screen, select **Azure Repos Git** as your repository option and select the repository where you code is
-1. Under the Configure tab choose the **Starter Pipeline** option
+1. On the next screen, select **Azure Repos Git** as your repository option and select the repository where your code is
+1. Under the Configure tab, choose the **Starter Pipeline** option
 1. Under the next Review tab, click the **Save** button
 
 ## 4. Build and push image to Azure container registry
-After your pipeline is created and saved, you will need to edit the pipeline to run the steps for building the container, pushing to a registry, and deploying the image to App Service. To start, navigate to the **Pipelines** menu, choose your pipeline that you just created and click the **Edit** button.
+After your pipeline is created and saved, you'll need to edit the pipeline to run the steps for building the container, pushing to a registry, and deploying the image to App Service. To start, navigate to the **Pipelines** menu, choose your pipeline that you created and click the **Edit** button.
 
 First, you need to add the docker task so you can build the image. Add the following code and replace the Dockerfile: app/Dockerfile with the path to your Dockerfile.
 
@@ -78,7 +78,7 @@ trigger:
 ```
 
 ## 5. Add the App Service deploy task
-Next, you’ll need to setup the deploy task. This will require your subscription name, application name, and container registry. Add a new stage to the yaml file by pasting the code below.
+Next, you need to set up the deploy task. This requires your subscription name, application name, and container registry. Add a new stage to the yaml file by pasting the code below.
 
 ```yaml
 - stage: Deploy
@@ -113,7 +113,7 @@ Once you have those filled out, click the **Add** button to add the task below:
     DockerRepository: 'dotnetframework:12'
 ```
 
-After you’ve added the task the pipeline is ready to run. Click the **Validate and save** button and run the pipeline. The pipeline will go through the steps to build and push the Windows container image to Azure Container Registry and deploy the image to App Service.
+After you’ve added the task the pipeline is ready to run. Click the **Validate and save** button and run the pipeline. The pipeline goes through the steps to build and push the Windows container image to Azure Container Registry and deploy the image to App Service.
 
 Below is the example of the full yaml file:
 
