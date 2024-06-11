@@ -706,6 +706,19 @@ items:
     - name: Azure API for FHIR
       tocHref: /azure/healthcare-apis/azure-api-for-fhir/
       topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
+  - name: Health Insights
+    tocHref: /azure/azure-health-insights/
+    topicHref: /azure/azure-health-insights/
+    items:
+    - name: Onco-Phenotype documentation
+      tocHref: /azure/azure-health-insights/oncophenotype
+      topicHref: /azure/healthcare-apis/oncophenotype/index
+    - name: Radiology Insights documentation
+      tocHref: /azure/azure-health-insights/radiology-insights
+      topicHref: /azure/healthcare-apis/radiology-insights/index      
+    - name: Trial Matcher documentation
+      tocHref: /azure/azure-health-insights/trial-matcher
+      topicHref: /azure/healthcare-apis/trial-matcher/index      
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
