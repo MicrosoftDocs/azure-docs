@@ -59,7 +59,7 @@ When you're done, your workflow looks similar to the following high level exampl
 
 1. On the **Create Logic App** pane, on the **Basics** tab, provide the following information about your logic app resource.
 
-   :::image type="content" source="{source}" alt-text="Screenshot shows Azure portal, logic app creation pane, and info for new logic app resource." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png":::
+   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal, logic app creation pane, and info for new logic app resource." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png":::
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|

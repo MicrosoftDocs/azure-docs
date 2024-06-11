@@ -153,12 +153,7 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
 
 1. After Azure deploys your app, select **Go to resource**.
 
-   Azure opens the workflow template selection pane, which shows an introduction video, commonly used triggers, and workflow template patterns.
-
-1. Scroll down past the video and common triggers sections to the **Templates** section, and select **Blank Logic App**.
-
-   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
-
+   Azure opens the workflow designer for your logic app.
 
 ## Configure the workflow parameters
 
