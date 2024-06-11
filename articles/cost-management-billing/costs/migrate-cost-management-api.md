@@ -45,8 +45,7 @@ The following items help you transition to MCA APIs.
 EA APIs use an API key for authentication and authorization. MCA APIs use Microsoft Entra authentication.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. Any remaining Enterprise Reporting APIs will stop responding to requests. Customers need to transition to using Microsoft Cost Management APIs before then.
-> To learn more, see [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview](../automate/migrate-ea-reporting-arm-apis-overview.md).
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](../automate/migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
 | Purpose | EA API | MCA API |
 | --- | --- | --- |
@@ -474,6 +473,6 @@ To get reservation summaries with the Reservation Summaries API:
 
 You can also use Power BI for cost reporting. The [Cost Management connector](/power-bi/desktop-connect-azure-cost-management) for Power BI Desktop can be used to create powerful, customized reports that help you better understand your Azure spend. The Cost Management connector currently supports customers with either a Microsoft Customer Agreement or an Enterprise Agreement (EA).
 
-## Next steps
+## Related content
 
 - Read the [Cost Management documentation](../index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.

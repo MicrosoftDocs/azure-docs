@@ -108,6 +108,27 @@ This table lists the methods that you can use to create a virtual network and su
 | [Azure CLI](../virtual-network/quick-create-cli.md) | The subnet and the virtual network are created at the same time. Provide a **`--subnet-name`** parameter to [az network vnet create](/cli/azure/network/vnet) with the subnet name. |
 | [Template](../virtual-network/template-samples.md) | For more information on using a template to create a virtual network and subnets, see [Virtual Network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/vnet-two-subnets). |
 
+### Multiple address prefixes on a subnet
+
+Multiple address prefixes on a subnet is a feature that offers the ability to modify IP address spaces on a subnet. With this solution, customers using virtual machines and virtual machine scale sets can add and remove IP address prefixes to meet their scaling requirements.
+
+**Limitations**: 
+
+- Customers can only use a single customer address (CA) configuration per NIC.
+
+- Customers can only use on VM and Virtual Machine Scale Sets subnets. Delegated subnets aren't supported.
+
+**Pricing**: Multiple address prefixes on a subnet is offered free of charge.
+
+We welcome you to share your feedback about this feature in this [quick survey](https://aka.ms/multiple-prefixes-feedback).  
+
+> [!IMPORTANT]
+> Multiple prefix support for Azure Virtual Network subnets is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+For more information about how-to configure multiple address prefixes on a subnet, see [Create multiple prefixes for a subnet](how-to-multiple-prefixes-subnet.md). 
+
 ## Network security groups
 
 A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to subnets, NICs, or both. NSGs can be associated with either subnets or individual NICs connected to a subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. Traffic to an individual NIC can be restricted by associating an NSG directly to a NIC.

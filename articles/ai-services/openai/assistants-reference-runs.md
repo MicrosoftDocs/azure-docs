@@ -5,7 +5,7 @@ description: Learn how to use Azure OpenAI's Python & REST API runs with Assista
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 04/16/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -585,3 +585,115 @@ Represent a step in execution of a run.
 | `failed_at`| integer or null | The Unix timestamp (in seconds) for when the run step failed.|
 | `completed_at`| integer or null | The Unix timestamp (in seconds) for when the run step completed.|
 | `metadata`| map | Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maximum of 512 characters long.|
+
+## Stream a run result (preview)
+
+Stream the result of executing a Run or resuming a Run after submitting tool outputs. You can stream events after:
+* [Create Thread and Run](#create-thread-and-run) 
+* [Create Run](#create-run)
+* [Submit Tool Outputs](#submit-tool-outputs-to-run) 
+
+To stream a result, pass `"stream": true` while creating a run. The response will be a [Server-Sent events](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events) stream.
+
+### Streaming example
+
+```python
+from typing_extensions import override
+from openai import AssistantEventHandler
+ 
+# First, we create a EventHandler class to define
+# how we want to handle the events in the response stream.
+ 
+class EventHandler(AssistantEventHandler):    
+  @override
+  def on_text_created(self, text) -> None:
+    print(f"\nassistant > ", end="", flush=True)
+      
+  @override
+  def on_text_delta(self, delta, snapshot):
+    print(delta.value, end="", flush=True)
+      
+  def on_tool_call_created(self, tool_call):
+    print(f"\nassistant > {tool_call.type}\n", flush=True)
+  
+  def on_tool_call_delta(self, delta, snapshot):
+    if delta.type == 'code_interpreter':
+      if delta.code_interpreter.input:
+        print(delta.code_interpreter.input, end="", flush=True)
+      if delta.code_interpreter.outputs:
+        print(f"\n\noutput >", flush=True)
+        for output in delta.code_interpreter.outputs:
+          if output.type == "logs":
+            print(f"\n{output.logs}", flush=True)
+ 
+# Then, we use the `create_and_stream` SDK helper 
+# with the `EventHandler` class to create the Run 
+# and stream the response.
+ 
+with client.beta.threads.runs.stream(
+  thread_id=thread.id,
+  assistant_id=assistant.id,
+  instructions="Please address the user as Jane Doe. The user has a premium account.",
+  event_handler=EventHandler(),
+) as stream:
+  stream.until_done()
+```
+
+
+## Message delta object
+
+Represents a message delta. For example any changed fields on a message during streaming.
+
+|Name | Type | Description |
+|---  |---   |---         |
+| `id` | string | The identifier of the message, which can be referenced in API endpoints. |
+| `object` | string | The object type, which is always `thread.message.delta`. |
+| `delta` | object | The delta containing the fields that have changed on the Message. |
+
+## Run step delta object
+
+Represents a run step delta. For example any changed fields on a run step during streaming.
+
+|Name | Type | Description |
+|---  |---   |---         |
+| `id` | string | The identifier of the run step, which can be referenced in API endpoints. |
+| `object` | string | The object type, which is always `thread.run.step.delta`. |
+| `delta` | object | The delta containing the fields that have changed on the run step.
+
+## Assistant stream events
+
+Represents an event emitted when streaming a Run. Each event in a server-sent events stream has an event and data property:
+
+```json
+event: thread.created
+data: {"id": "thread_123", "object": "thread", ...}
+```
+
+Events are emitted whenever a new object is created, transitions to a new state, or is being streamed in parts (deltas). For example, `thread.run.created` is emitted when a new run is created, `thread.run.completed` when a run completes, and so on. When an Assistant chooses to create a message during a run, we emit a `thread.message.created` event, a `thread.message.in_progress` event, many thread.`message.delta` events, and finally a `thread.message.completed` event.
+
+|Name | Type | Description |
+|---  |---   |---         |
+| `thread.created` | `data` is a thread. | Occurs when a new thread is created. |
+| `thread.run.created` | `data` is a run. | Occurs when a new run is created. |
+| `thread.run.queued` | `data` is a run. | Occurs when a run moves to a queued status. |
+| `thread.run.in_progress` | `data` is a run. | Occurs when a run moves to an in_progress status. |
+| `thread.run.requires_action` | `data` is a run. | Occurs when a run moves to a `requires_action` status. |
+| `thread.run.completed` | `data` is a run. | Occurs when a run is completed. |
+| `thread.run.failed` | `data` is a run. | Occurs when a run fails. |
+| `thread.run.cancelling` | `data` is a run. | Occurs when a run moves to a `cancelling` status. |
+| `thread.run.cancelled` | `data` is a run. | Occurs when a run is cancelled. |
+| `thread.run.expired` | `data` is a run. | Occurs when a run expires. |
+| `thread.run.step.created` | `data` is a run step. | Occurs when a run step is created. |
+| `thread.run.step.in_progress` | `data` is a run step. | Occurs when a run step moves to an `in_progress` state. | 
+| `thread.run.step.delta` | `data` is a run step delta. | Occurs when parts of a run step are being streamed. |
+| `thread.run.step.completed` | `data` is a run step. | Occurs when a run step is completed. |
+| `thread.run.step.failed` | `data` is a run step. | Occurs when a run step fails. |
+| `thread.run.step.cancelled` | `data` is a run step. | Occurs when a run step is cancelled. |
+| `thread.run.step.expired` | `data` is a run step. | Occurs when a run step expires. |
+| `thread.message.created` | `data` is a message. | Occurs when a message is created. |
+| `thread.message.in_progress` | `data` is a message. | Occurs when a message moves to an in_progress state. | 
+| `thread.message.delta` | `data` is a message delta. | Occurs when parts of a Message are being streamed. |
+| `thread.message.completed` | `data` is a message. | Occurs when a message is completed. |
+| `thread.message.incomplete` | `data` is a message. | Occurs when a message ends before it is completed. |
+| `error` | `data` is an error. | Occurs when an error occurs. This can happen due to an internal server error or a timeout. |
+| `done` | `data` is `[DONE]` | Occurs when a stream ends. |

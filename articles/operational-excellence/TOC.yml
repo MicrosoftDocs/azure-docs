@@ -26,6 +26,8 @@
       items:
       - name: Azure AI Search
         href: ../search/search-howto-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Application Gateway and Web Application Firewall
+        href: relocation-app-gateway.md
       - name: Azure API Management
         href: ../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json
       - name: Azure App Service

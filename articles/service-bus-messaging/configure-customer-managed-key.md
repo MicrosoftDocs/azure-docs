@@ -405,7 +405,8 @@ This section gives you an example that shows you how to do the following tasks u
              "type":"string",
              "metadata":{
                 "description":"KeyName."
-             },
+             }
+          },
          "identity": {
             "type": "Object",
             "defaultValue": {

@@ -53,5 +53,6 @@ Marketplace and reservation purchases are billed separately from Azure services.
 5. In the subscription drop-down filter, select the subscription associated with your Marketplace or reservation purchase.
 6. In the invoices grid, review the type column. If the type is **Azure Marketplace and Reservations**, then you'll see a **Pay now** link if the invoice is due or past due. If you don't see **Pay now**, it means your invoice has already been paid. You'll be prompted to complete multi-factor authentication during Pay now.
 
-## Next steps
+## Related content
+
 - See [Resolve past due balance for your Azure subscription](resolve-past-due-balance.md) if you need to pay an Azure bill.

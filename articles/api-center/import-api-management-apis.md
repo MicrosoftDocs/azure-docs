@@ -131,14 +131,14 @@ When you add APIs from an API Management instance to your API center using `az a
 
 ### Add a managed identity in your API center
 
-For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access APIs in your API Management instance. Depending on your needs, use either a system-assigned or user-assigned managed identity. If you haven't added a managed identity in your API center, you can add it in the Azure portal or by using the Azure CLI. 
+For this scenario, your API center uses a [managed identity](/entra/identity/managed-identities-azure-resources/overview) to access APIs in your API Management instance. Depending on your needs, configure either a system-assigned or one or more user-assigned managed identities. 
 
-#### Add a system-assigned identity
+The following examples show how to configure a system-assigned managed identity by using the Azure portal or the Azure CLI. At a high level, configuration steps are similar for a user-assigned managed identity. 
 
 #### [Portal](#tab/portal)
 
 1. In the [portal](https://azure.microsoft.com), navigate to your API center.
-1. In the left menu, select **Managed identities**.
+1. In the left menu, under **Security**, select **Managed identities**.
 1. Select **System assigned**, and set the status to **On**.
 1. Select **Save**.
 
@@ -149,54 +149,6 @@ Set the system-assigned identity in your API center using the following [az apic
 ```azurecli 
 az apic service update --name <api-center-name> --resource-group <resource-group-name> --identity '{"type": "SystemAssigned"}'
 ```
----
-
-#### Add a user-assigned identity
-
-To add a user-assigned identity, you need to create a user-assigned identity resource, and then add it to your API center.
-
-#### [Portal](#tab/portal)
-
-1. Create a user-assigned identity according to [these instructions](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity).
-1. In the [portal](https://azure.microsoft.com), navigate to your API center.
-1. In the left menu, select **Managed identities**.
-1. Select **User assigned** > **+ Add**.
-1. Search for the identity you created earlier, select it, and select **Add**.
-
-#### [Azure CLI](#tab/cli)
-
-1. Create a user-assigned identity.
-
-    ```azurecli
-    az identity create --resource-group <resource-group-name> --name <identity-name> 
-    ```
-
-    In the command output, note the value of the identity's `id` property. The `id` property should look something like this:
-
-    ```json
-    {
-    [...]
-        "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"
-    [...]
-    }
-    ```
-
-1. Create a JSON file with the following content, substituting the value of the `id` property from the previous step.
-
-    ```json
-    {
-        "type": "UserAssigned",
-        "userAssignedIdentities": {
-            "<identity-id>": {}
-        }
-    }
-    ```
-
-1. Add the user-assigned identity to your API center using the following [az apic service update](/cli/azure/apic/service#az-apic-service-update) command. Substitute the names of your API center and resource group, and pass the JSON file as the value of the `--identity` parameter. Here, the JSON file is named `identity.json`.
-
-    ```azurecli 
-    az apic service update --name <api-center-name> --resource-group <resource-group-name> --identity "@identity.json"
-    ```
 ---
 
 ### Assign the managed identity the API Management Service Reader role
@@ -211,14 +163,13 @@ To allow import of APIs, assign your API center's managed identity the **API Man
 1. On the **Add role assignment** page, set the values as follows: 
     1. On the **Role** tab - Select **API Management Service Reader**.
     1. On the **Members** tab, in **Assign access to** - Select **Managed identity** > **+ Select members**.
-    1. On the **Select managed identities** page - Select the system-assigned or user-assigned managed identity of your API center that you added in the previous section. Click **Select**.
+    1. On the **Select managed identities** page - Select the system-assigned managed identity of your API center that you added in the previous section. Click **Select**.
     1. Select **Review + assign**.
 
 #### [Azure CLI](#tab/cli)
 
-1. Get the principal ID of the identity. If you're configuring a system-assigned identity, use the [az apic service show](/cli/azure/apic/service#az-apic-service-show) command. For a user-assigned identity, use [az identity show](/cli/azure/identity#az-identity-show).
+1. Get the principal ID of the identity. For a system-assigned identity, use the [az apic service show](/cli/azure/apic/service#az-apic-service-show) command. 
 
-    **System-assigned identity**
     ```azurecli
     #! /bin/bash
     apicObjID=$(az apic service show --name <api-center-name> \
@@ -233,16 +184,6 @@ To allow import of APIs, assign your API center's managed identity the **API Man
         --query "identity.principalId" --output tsv)
     ```
 
-    **User-assigned identity**
-    ```azurecli
-    #! /bin/bash   
-    apicObjID=$(az identity show --name <identity-name> --resource-group <resource-group-name> --query "principalId" --output tsv)
-    ```
-    
-    ```azurecli
-    # PowerShell syntax   
-    $apicObjID=$(az identity show --name <identity-name> --resource-group <resource-group-name> --query "principalId" --output tsv)
-    ```
 1. Get the resource ID of your API Management instance using the [az apim show](/cli/azure/apim#az-apim-show) command.
  
     ```azurecli
@@ -279,7 +220,7 @@ To allow import of APIs, assign your API center's managed identity the **API Man
         --scope $scope 
 ---
 
-### Import APIs directly from your API Management instance
+### Import APIs from API Management
 
 Use the [az apic service import-from-apim](/cli/azure/apic/service#az-apic-service-import-from-apim) command to import one or more APIs from your API Management instance to your API center. 
 

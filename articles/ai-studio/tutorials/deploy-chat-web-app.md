@@ -79,6 +79,12 @@ In the next section, you'll add your data to the model to help it answer questio
 
 Follow these steps to add your data to the playground to help the assistant answer questions about your products. You're not changing the deployed model itself. Your data is stored separately and securely in your Azure subscription. 
 
+> [!IMPORTANT]
+> The "Add your data" feature in the Azure AI Studio playground doesn't support using a virtual network or private endpoint on the following resources:
+> * Azure AI Search
+> * Azure OpenAI
+> * Storage resource
+
 1. If you aren't already in the playground, select **Build** from the top menu and then select **Playground** from the collapsible left menu.
 1. On the **Assistant setup** pane, select **Add your data (preview)** > **+ Add a data source**.
 

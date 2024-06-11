@@ -26,7 +26,7 @@ This guide shows you how to scale up from existing **PersonGroup** and **FaceLis
 > [!IMPORTANT]
 > The newer data structure **PersonDirectory** is recommended for new development. It can hold up to 75 million identities and does not require manual training. For more information, see the [PersonDirectory guide](./use-persondirectory.md).
 
-This guide demonstrates the migration process. It assumes a basic familiarity with **PersonGroup** and **FaceList** objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concept-face-recognition.md) conceptual guide.
+This guide demonstrates the migration process. It assumes a basic familiarity with **PersonGroup** and **FaceList** objects, the **Train** operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concept-face-recognition.md) conceptual guide.
 
 **LargePersonGroup** and **LargeFaceList** are collectively referred to as large-scale operations. **LargePersonGroup** can contain up to 1 million persons, each with a maximum of 248 faces. **LargeFaceList** can contain up to 1 million faces. The large-scale operations are similar to the conventional **PersonGroup** and **FaceList** but have some differences because of the new architecture. 
 
@@ -65,8 +65,8 @@ Add all of the faces and persons from the **PersonGroup** to the new **LargePers
 | - | Train |
 | - | Get Training Status |
 
-The preceding table is a comparison of list-level operations between **FaceList** and **LargeFaceList**. As is shown, **LargeFaceList** comes with new operations, **Train** and **Get Training Status**, when compared with **FaceList**. Training the **LargeFaceList** is a precondition of the 
-[FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operation. Training isn't required for **FaceList**. The following snippet is a helper function to wait for the training of a **LargeFaceList**:
+The preceding table is a comparison of list-level operations between **FaceList** and **LargeFaceList**. As is shown, **LargeFaceList** comes with new operations, [Train](/rest/api/face/face-list-operations/train-large-face-list) and [Get Training Status](/rest/api/face/face-list-operations/get-large-face-list-training-status), when compared with **FaceList**. Training the **LargeFaceList** is a precondition of the 
+[FindSimilar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) operation. Training isn't required for **FaceList**. The following snippet is a helper function to wait for the training of a **LargeFaceList**:
 
 ```csharp
 /// <summary>
@@ -190,8 +190,8 @@ As previously shown, the data management and the **FindSimilar** part are almost
 
 ## Step 3: Train suggestions
 
-Although the **Train** operation speeds up **[FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)**
-and **[Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)**, the training time suffers, especially when coming to large scale. The estimated training time in different scales is listed in the following table.
+Although the **Train** operation speeds up [FindSimilar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list)
+and [Identification](/rest/api/face/face-recognition-operations/identify-from-large-person-group), the training time suffers, especially when coming to large scale. The estimated training time in different scales is listed in the following table.
 
 | Scale for faces or persons | Estimated training time |
 |:---:|:---:|

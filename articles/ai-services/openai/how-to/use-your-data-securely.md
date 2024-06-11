@@ -168,6 +168,9 @@ To allow your Azure AI Search to call your Azure OpenAI `preprocessing-jobs` as 
 
 Set `networkAcls.bypass` as `AzureServices` from the management API. For more information, see [Virtual networks article](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal#grant-access-to-trusted-azure-services-for-azure-openai).
 
+> [!NOTE]
+> The trusted service feature is only available using the command described above, and cannot be done using the Azure portal.
+
 This step can be skipped only if you have a [shared private link](#create-shared-private-link) for your Azure AI Search resource.
 
 ### Disable public network access
@@ -248,9 +251,6 @@ The Azure AI Search shared private link you created is also in a Microsoft manag
 To allow access to your Storage Account from Azure OpenAI and Azure AI Search, while the Storage Account has no public network access, you need to set up Storage Account to bypass your Azure OpenAI and Azure AI Search as [trusted services based on managed identity](/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity).
 
 In the Azure portal, navigate to your storage account networking tab, choose "Selected networks", and then select **Allow Azure services on the trusted services list to access this storage account** and click Save.
-
-> [!NOTE]
-> The trusted service feature is only available using the command line described above, and cannot be done using the Azure portal.
 
 ### Disable public network access
 
@@ -378,3 +378,4 @@ curl -i -X GET https://my-resource.openai.azure.com/openai/extensions/on-your-da
 ### Inference API
 
 See the [inference API reference article](../references/on-your-data.md) for details on the request and response objects used by the inference API.   
+    

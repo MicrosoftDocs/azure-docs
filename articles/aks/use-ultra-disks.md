@@ -29,7 +29,7 @@ This feature can only be set at cluster creation or when creating a node pool.
 Create an AKS cluster that is able to leverage Azure ultra Disks by using the following CLI commands. Use the `--enable-ultra-ssd` parameter to set the `EnableUltraSSD` feature.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
+az aks create --resource-group MyResourceGroup --name myAKSCluster --location westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
 If you want to create a cluster without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.

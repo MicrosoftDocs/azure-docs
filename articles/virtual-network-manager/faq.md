@@ -42,6 +42,14 @@ Azure Virtual Network Manager charges are based on the number of subscriptions t
 
 Current pricing for your region can be found on the [Azure Virtual Network Manager pricing](https://azure.microsoft.com/pricing/details/virtual-network-manager/) page.
 
+### How do I deploy Azure Virtual Network Manager?
+
+You can deploy and manage a virtual network manager instance and configurations through a variety of tools including:
+- [Azure portal](./create-virtual-network-manager-portal.md)
+- [Azure CLI](./create-virtual-network-manager-cli.md)
+- [Azure PowerShell](./create-virtual-network-manager-powershell.md)
+- [Terraform](./create-virtual-network-manager-terraform.md).
+
 ## Technical
 
 ### Can a virtual network belong to multiple Azure Virtual Network Managers?

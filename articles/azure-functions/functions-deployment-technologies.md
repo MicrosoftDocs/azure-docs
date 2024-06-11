@@ -68,9 +68,14 @@ You can sync triggers in one of three ways:
 + Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook-trigger.md#authorization-keys).
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header). 
 
-When you deploy using an external package URL, you need to manually restart your function app to fully sync your deployment when the package changes without changing the URL, which includes initial deployment.
 
-When your function app is secured by inbound network restrictions, the sync triggers endpoint can only be called from a client inside the virtual network.
+When you deploy an updated version of the deployment package and maintain the same external package URL, you need to manually restart your function app. This indicates to the host that it should synchronize and redeploy your updates from the same package URL.
+The Functions host also performs a background trigger sync after the application has started. However, for the Consumption and Elastic Premium hosting plans you should also [manually sync triggers](#trigger-syncing) in these scenarios:
+
++ Deployments using an external package URL with either ARM Templates or Terraform.
++ When updating the deployment package at the same external package URL.
+
+
 
 ### Remote build
 

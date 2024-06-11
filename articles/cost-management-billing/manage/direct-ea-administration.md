@@ -663,7 +663,7 @@ Enrollments where all associated accounts and services were transferred to a new
  > [!NOTE]
  > Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
 
-## Next steps
+## Related content
 
 - If you need to create an Azure support request for your EA enrollment, see [How to create an Azure support request for an Enterprise Agreement issue](../troubleshoot-billing/how-to-create-azure-support-request-ea.md).
 - Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions about EA subscription ownership.

@@ -1,10 +1,10 @@
 ---
-title: Use Microsoft Entra ID to access Azure file shares over SMB for hybrid identities using Kerberos authentication
+title: Microsoft Entra Kerberos for hybrid identities on Azure Files
 description: Learn how to enable identity-based Kerberos authentication for hybrid user identities over Server Message Block (SMB) for Azure Files through Microsoft Entra ID. Your users can then access Azure file shares by using their Microsoft Entra credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -12,7 +12,7 @@ recommendations: false
 
 # Enable Microsoft Entra Kerberos authentication for hybrid identities on Azure Files
 
-This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID. Cloud-only identities aren't currently supported.
+This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID. **Cloud-only identities aren't currently supported**.
 
 This configuration allows hybrid users to access Azure file shares using Kerberos authentication, using Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring unimpeded network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined clients. However, configuring Windows access control lists (ACLs)/directory and file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
 

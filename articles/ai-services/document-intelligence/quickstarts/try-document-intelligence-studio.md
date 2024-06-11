@@ -33,10 +33,13 @@ monikerRange: '>=doc-intel-3.0.0'
 #### Azure role assignments
 
 For document analysis and prebuilt models, following role assignments are required for different scenarios.
+
 * Basic
   * **Cognitive Services User**: you need this role to Document Intelligence or Azure AI services resource to enter the analyze page.
 * Advanced
   * **Contributor**: you need this role to create resource group, Document Intelligence service, or Azure AI services resource.
+
+For more information on authorization, *see* [Document Intelligence Studio authorization policies](../studio-overview.md#authorization-policies).
 
 ## Models
 

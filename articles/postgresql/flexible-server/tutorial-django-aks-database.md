@@ -213,7 +213,7 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 > If you are using Azure container registry (ACR), then run the `az aks update` command to attach ACR account with the AKS cluster.
 >
 > ```azurecli-interactive
-> az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
+> az aks update --name djangoappcluster --resource-group django-project --attach-acr <your-acr-name>
 > ```
 
 ## Create Kubernetes manifest file

@@ -79,11 +79,11 @@ items:
     - name: OCR REST API v4.0 (preview)
       href: https://westus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2022-10-12-preview/operations/61d65934cd35050c20f73ab6
     - name: OCR REST API v3.2
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+      href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.2-preview
     - name: OCR REST API v3.1
-      href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+      href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.1
     - name: OCR REST API v2.1
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
+      href: /rest/api/computervision/operation-groups?view=rest-computervision-v2.1
     - name: .NET
       href: /dotnet/api/overview/azure/computer-vision
     - name: Node.js
@@ -245,7 +245,7 @@ items:
       - name: Image Analysis REST API v4.0 (Analyze and multimodal embeddings, GA)
         href: https://aka.ms/vision-4-0-ref
       - name: Image Analysis REST API v4.0 (other features, preview)
-        href: https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/63ed8e8a5ddd171058e2e1f0
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview
       - name: .NET
         href: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
       - name: Python
@@ -271,9 +271,9 @@ items:
     - name: Older versions
       items: 
       - name: Image Analysis REST API v3.1
-        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.1
       - name: Image Analysis REST API v2.1
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-v2.1
     - name: Azure CLI
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell

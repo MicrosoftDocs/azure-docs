@@ -217,13 +217,13 @@ Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 Use [az vmss create](/cli/azure/vmss#az-vmss-create) to configure automatic OS image upgrades for your scale set during provisioning. Use Azure CLI 2.0.47 or above. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
-az vmss create --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+az vmss create --name myScaleSet --resource-group myResourceGroup --enable-auto-os-upgrade true --upgrade-policy-mode Rolling
 ```
 
 Use [az vmss update](/cli/azure/vmss#az-vmss-update) to configure automatic OS image upgrades for your existing scale set. Use Azure CLI 2.0.47 or above. The following example configures automatic upgrades for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
-az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+az vmss update --name myScaleSet --resource-group myResourceGroup --enable-auto-os-upgrade true --upgrade-policy-mode Rolling
 ```
 
 > [!NOTE]

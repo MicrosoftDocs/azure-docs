@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Connect Azure IoT Edge devices to create a hierarchy
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides steps for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device. This configuration is also known as *nested edge*.
 
@@ -299,11 +299,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
-01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.4. For example:
+01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
 
     ```toml
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     ```
 
 01. The beginning of your parent configuration file should look similar to the following example.
@@ -362,8 +362,8 @@ To verify the *hostname*, you need to inspect the environment variables of the *
     ```output
     NAME                        STATUS           DESCRIPTION      CONFIG
     SimulatedTemperatureSensor  running          Up 5 seconds     mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.4
-    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.4
+    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.5
+    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.5
     ```
 01. Inspect the *edgeHub* container.
 
@@ -509,11 +509,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
     pk = "file:///var/aziot/secrets/iot-device-downstream.key.pem"
     ```
 
-01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.4. For example:
+01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
 
     ```toml
     [agent.config]
-    image: "mcr.microsoft.com/azureiotedge-agent:1.4"
+    image: "mcr.microsoft.com/azureiotedge-agent:1.5"
     ```
 
 01. The beginning of your downstream configuration file should look similar to the following example.
@@ -741,14 +741,14 @@ The API proxy module was designed to be customized to handle most common gateway
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
                                "createOptions": "{}"
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -816,7 +816,7 @@ name = "edgeAgent"
 type = "docker"
 
 [agent.config]
-image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.4"
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.5"
 ```
 
 If you are using a local container registry, or providing the container images manually on the device, update the config file accordingly.

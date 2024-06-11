@@ -22,7 +22,7 @@ Cohere offers two Command models in [Azure AI Studio](https://ai.azure.com). The
 * Cohere Command R 
 * Cohere Command R+
 
-You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
+You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
 
 ## Models 
 

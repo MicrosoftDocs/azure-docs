@@ -118,7 +118,7 @@ PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 DELETE https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01 
 ```
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management automation at [Cost Management automation overview](automation-overview.md).
 Automation scenarios.

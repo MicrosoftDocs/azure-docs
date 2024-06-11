@@ -19,9 +19,9 @@ You can use this information to create a site in an existing private mobile netw
 
 ## Prerequisites
 
-- You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
-- If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
+- Complete the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Make a note of the resource group that contains your private mobile network that was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). We recommend that the mobile network site resource you create in this procedure belongs to the same resource group.
+- Ensure you have the relevant permissions on your account if you want to give Azure role-based access control (Azure RBAC) to storage accounts.
 
 ## Choose a service plan
 
@@ -29,7 +29,7 @@ Choose the service plan that best fits your requirements and verify pricing and 
 
 ## Collect mobile network site resource values
 
-Collect all the values in the following table for the mobile network site resource that will represent your site.
+Collect all the values in the following table for the mobile network site resource that represents your site.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
@@ -38,37 +38,37 @@ Collect all the values in the following table for the mobile network site resour
    |The name for the site.           |**Instance details: Name**|
    |The region in which you deployed the private mobile network.                         |**Instance details: Region**|
    |The packet core in which to create the mobile network site resource.                         |**Instance details: Packet core name**|
-   |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network.</br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
+   |The [region code name](region-code-names.md) of the region in which you deployed the private mobile network. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
    |The mobile network resource representing the private mobile network to which you’re adding the site. </br></br>You only need to collect this value if you're going to create your site using an ARM template.                         |Not applicable.|
-   |The service plan for the site that you are creating. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/). |**Instance details: Service plan**|
+   |The service plan for the site. See [Azure Private 5G Core pricing](https://azure.microsoft.com/pricing/details/private-5g-core/). |**Instance details: Service plan**|
 
 ## Collect packet core configuration values
 
-Collect all the values in the following table for the packet core instance that will run in the site.
+Collect all the values in the following table for the packet core instance that runs in the site.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
    |The core technology type the packet core instance should support: 5G, 4G, or combined 4G and 5G. |**Technology type**|
-   | The Azure Stack Edge resource representing the Azure Stack Edge Pro device in the site. You created this resource as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).</br></br> If you're going to create your site using the Azure portal, collect the name of the Azure Stack Edge resource.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the Azure Stack Edge resource. You can do this by navigating to the Azure Stack Edge resource, selecting **JSON View** and copying the contents of the **Resource ID** field. | **Azure Stack Edge device** |
-   |The custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Commission the AKS cluster](commission-cluster.md).</br></br> If you're going to create your site using the Azure portal, collect the name of the custom location.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the custom location. You can do this by navigating to the Custom location resource, selecting **JSON View** and copying the contents of the **Resource ID** field.|**Custom location**|
+   | The Azure Stack Edge resource representing the Azure Stack Edge Pro device in the site. You created this resource as part of the steps in [Order and set up your Azure Stack Edge Pro devices](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).</br></br> If you're going to create your site using the Azure portal, collect the name of the Azure Stack Edge resource.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the Azure Stack Edge resource. You can do this by navigating to the Azure Stack Edge resource, selecting **JSON View**, and copying the contents of the **Resource ID** field. | **Azure Stack Edge device** |
+   |The custom location that targets the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on the Azure Stack Edge Pro device in the site. You commissioned the AKS-HCI cluster as part of the steps in [Commission the AKS cluster](commission-cluster.md).</br></br> If you're going to create your site using the Azure portal, collect the name of the custom location.</br></br> If you're going to create your site using an ARM template, collect the full resource ID of the custom location. You can do this by navigating to the Custom location resource, selecting **JSON View**, and copying the contents of the **Resource ID** field.|**Custom location**|
 
 ## Collect access network values
 
-Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces. The field name displayed in the Azure portal will depend on the value you have chosen for **Technology type**, as described in [Collect packet core configuration values](#collect-packet-core-configuration-values).
+Collect all the values in the following table to define the packet core instance's connection to the access network over the control plane and user plane interfaces. The field name displayed in the Azure portal depends on the value you have chosen for **Technology type**, as described in [Collect packet core configuration values](#collect-packet-core-configuration-values).
 
 :::zone pivot="ase-pro-gpu"
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2 and S1-MME interfaces. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br> This IP address must match the value you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices). |**N2 address (Signaling)** (for 5G), **S1-MME address** (for 4G), or **S1-MME/N2 address (Signaling)** (for combined 4G and 5G). |
-   | The virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface. | **ASE N2 virtual subnet** (for 5G), **ASE S1-MME virtual subnet** (for 4G), or **ASE N2/S1-MME virtual subnet** (for combined 4G and 5G). |
-   | The virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface. | **ASE N3 virtual subnet** (for 5G), **ASE S1-U virtual subnet** (for 4G), or **ASE N3/S1-U virtual subnet** (for combined 4G and 5G). |
+   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2 and S1-MME interfaces. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br> This IP address must match the value you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro devices](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices). |**N2 address (Signaling)** (for 5G), **S1-MME address** (for 4G), or **S1-MME/N2 address (Signaling)** (for combined 4G and 5G). |
+   | The virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface. </br></br> For an HA deployment, this IP address MUST NOT be in any control plane or user plane subnets; it's used as the destination of routes in the access network gateway routers. | **ASE N2 virtual subnet** (for 5G), **ASE S1-MME virtual subnet** (for 4G), or **ASE N2/S1-MME virtual subnet** (for combined 4G and 5G). |
+   | The virtual network name on port 5 on your Azure Stack Edge Pro device corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface. </br></br> For an HA deployment, this IP address MUST NOT be in any control plane or user plane subnets; it's used as the destination of routes in the access network gateway routers. | **ASE N3 virtual subnet** (for 5G), **ASE S1-U virtual subnet** (for 4G), or **ASE N3/S1-U virtual subnet** (for combined 4G and 5G). |
 :::zone-end
 :::zone pivot="ase-pro-2"
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2 and S1-MME interfaces. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md?pivots=ase-pro-2#allocate-subnets-and-ip-addresses). </br></br> This IP address must match the value you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md?pivots=ase-pro-2#order-and-set-up-your-azure-stack-edge-pro-devices). |**N2 address (Signaling)** (for 5G), **S1-MME address** (for 4G), or **S1-MME/N2 address (Signaling)** (for combined 4G and 5G). |
-   | The virtual network name on port 3 on your Azure Stack Edge Pro 2 corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface. | **ASE N2 virtual subnet** (for 5G), **ASE S1-MME virtual subnet** (for 4G), or **ASE N2/S1-MME virtual subnet** (for combined 4G and 5G). |
-   | The virtual network name on port 3 on your Azure Stack Edge Pro 2 corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface.  | **ASE N3 virtual subnet** (for 5G), **ASE S1-U virtual subnet** (for 4G), or **ASE N3/S1-U virtual subnet** (for combined 4G and 5G). |
+   | The IP address for the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2 and S1-MME interfaces. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md?pivots=ase-pro-2#allocate-subnets-and-ip-addresses). </br></br> This IP address must match the value you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro devices](complete-private-mobile-network-prerequisites.md?pivots=ase-pro-2#order-and-set-up-your-azure-stack-edge-pro-devices). |**N2 address (Signaling)** (for 5G), **S1-MME address** (for 4G), or **S1-MME/N2 address (Signaling)** (for combined 4G and 5G). |
+   | The virtual network name on port 3 on your Azure Stack Edge Pro 2 corresponding to the control plane interface on the access network. For 5G, this interface is the N2 interface; for 4G, it's the S1-MME interface; for combined 4G and 5G, it's the N2/S1-MME interface. </br></br> For an HA deployment, this IP address MUST NOT be in any control plane or user plane subnets; it's used as the destination of routes in the access network gateway routers. | **ASE N2 virtual subnet** (for 5G), **ASE S1-MME virtual subnet** (for 4G), or **ASE N2/S1-MME virtual subnet** (for combined 4G and 5G). |
+   | The virtual network name on port 3 on your Azure Stack Edge Pro 2 corresponding to the user plane interface on the access network. For 5G, this interface is the N3 interface; for 4G, it's the S1-U interface; for combined 4G and 5G, it's the N3/S1-U interface. </br></br> For an HA deployment, this IP address MUST NOT be in any control plane or user plane subnets; it's used as the destination of routes in the access network gateway routers.  | **ASE N3 virtual subnet** (for 5G), **ASE S1-U virtual subnet** (for 4G), or **ASE N3/S1-U virtual subnet** (for combined 4G and 5G). |
 :::zone-end
 
 ## Collect UE usage tracking values
@@ -83,8 +83,8 @@ If you want to configure UE usage tracking for your site, collect all the values
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   |The namespace for the Azure Event Hubs instance that your site will use for UE usage tracking. |**Azure Event Hub Namespace**|
-   |The name of the Azure Event Hubs instance that your site will use for UE usage tracking.|**Event Hub name**|
+   |The namespace for the Azure Event Hubs instance that your site uses for UE usage tracking. |**Azure Event Hub Namespace**|
+   |The name of the Azure Event Hubs instance that your site uses for UE usage tracking.|**Event Hub name**|
    |The user assigned managed identity that has the **Resource Policy Contributor** role for the Event Hubs instance. <br /> **Note:** The managed identity must be assigned to the Packet Core Control Plane for the site and assigned to the Event Hubs instance via the instance's **Identity and Access Management (IAM)** blade. <br /> **Note:** Only assign one managed identity to the site. This managed identity must be used for any UE usage tracking for the site after upgrade and site configuration modifications.<br /><br /> See [Use a user-assigned managed identity to capture events](/azure/event-hubs/event-hubs-capture-managed-identity) for more information on managed identities.  |**User Assigned Managed Identity**|
 
 ## Collect data network values
@@ -118,7 +118,7 @@ For each data network that you want to configure, collect all the values in the 
 
 You can use a storage account and user assigned managed identity, with write access to the storage account, to gather diagnostics packages for the site.
 
-If you don't want to configure diagnostics package gathering at this stage, you do not need to collect anything. You can configure this after site creation.
+If you don't want to configure diagnostics package gathering at this stage, you don't need to collect anything. You can configure this after site creation.
 
 If you want to configure diagnostics package gathering during site creation, see [Collect values for diagnostics package gathering](gather-diagnostics.md#set-up-a-storage-account).
 
@@ -155,7 +155,7 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
       > [!NOTE]
       >
-      > - Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
+      > - Certificate validation is always performed against the latest version of the local access certificate in the Key Vault.
       > - If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
 
    1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).

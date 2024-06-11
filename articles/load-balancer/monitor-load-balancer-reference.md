@@ -29,6 +29,13 @@ See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecti
 | Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes aren't distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
 | Packet count | Public and internal load balancer | Standard Load Balancer reports the packets processed per front end. | Sum |
 
+### Global load balancer metrics
+
+| **Metric** | **Resource type** | **Description** | **Recommended aggregation** |
+| ------ | ------------- | ----------- | ----------------------- |
+| Data path availability | Public global load balancer|  Global load balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. | Average |
+| Health probe status | Public global load balancer | Global load balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance regional load balancer in the global load balancer's backend pool. You can see how global load balancer views the health of your application, as indicated by your health probe configuration. | Average |
+
 For more information, see a list of [all platform metrics supported in Azure Monitor for load balancer](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkloadbalancers).
 
 ## Metric dimensions

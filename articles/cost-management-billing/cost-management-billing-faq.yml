@@ -47,12 +47,7 @@ sections:
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
       - question: When does Azure finalize or close the billing cycle of a closed month?
         answer: |
-          Azure finalizes or closes the current billing period up to 72 hours (three calendar days) after the billing period ends. The following examples illustrate how billing periods could end:
-          
-            - Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
-            - Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
-          
-          For more information, see [Cost and usage data updates and retention](costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
+          Azure finalizes or closes the current billing period up to the fifth day after a closed month. Changes might continue and change until the fifth day after a billing period ends as the billing system processes data.
 
   - name: Cost Management questions
     questions:
@@ -135,7 +130,7 @@ sections:
     questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
-          On May 1, 2024, Azure Enterprise Reporting APIs will be retired. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
+          All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
           See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).

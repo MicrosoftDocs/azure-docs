@@ -25,7 +25,7 @@ You often hear this interaction with a model referred to as "inferencing". Infer
 
 First you might ask:
 - "What models can I deploy?" Azure AI Studio supports deploying some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta.
-- "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog.md) that allows you to search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
+- "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog-overview.md) that allows you to search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
 - "From where in Azure AI Studio can I deploy a model?" You can deploy a model from the model catalog or from your project's deployment page.
 
 Azure AI Studio simplifies deployments. A simple select or a line of code deploys a model and generate an API endpoint for your applications to consume. 

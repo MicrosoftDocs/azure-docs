@@ -27,6 +27,10 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 > [!IMPORTANT]
 > Preview API versions are retired once the GA API is released. The 2023-02-28-preview API version is being retired, if you are still using the preview API or the associated SDK versions, please update your code to target the latest API version 2023-07-31 (GA).
 
+## May 2024
+
+The Document Intelligence Studio has added support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](studio-overview.md#authentication).
+
 ## February 2024
 
 The Document Intelligence [**2024-02-29-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:

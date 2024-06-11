@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: conceptual
 ms.service: virtual-network-manager
-ms.date: 04/13/2023
+ms.date: 04/13/2024
 ---
 
 # Event log options for Azure Virtual Network Manager

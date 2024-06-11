@@ -107,4 +107,4 @@ You can filter the prompt samples by modalities, industries, or task to find the
 
 ## Next steps
 
-- [Explore the model catalog in Azure AI Studio](model-catalog.md)
+- [Explore the model catalog in Azure AI Studio](model-catalog-overview.md)

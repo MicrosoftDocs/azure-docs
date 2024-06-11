@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Bicep'
 description: Learn how to quickly deploy a Kubernetes cluster using a Bicep file and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 12/27/2023
+ms.date: 04/28/2024
 author: tamram
 ms.author: tamram
 

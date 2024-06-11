@@ -89,7 +89,7 @@ Application settings used:
 - _ServicePointManager.DefaultConnectionLimit = int.MaxValue_. Setting it to a maximum value effectively passes full control of transfer parallelism to the _ParallelOperations_ setting above.
 - _TransferManager.Configurations.BlockSize = 4,194,304_. It had some effect on transfer rates with 4 MB, proving to be best for testing.
 
-For more information and sample code, see links in the [Next steps](#next-steps) section.
+For more information and sample code, see links in the [Related content](#related-content) section.
 
 ### Test results
 
@@ -131,7 +131,7 @@ You can invoke the _TransferManager.CopyDirectoryAsync()_ method with the _CopyM
 
 Azure blob storage supports high global transfer rates with its service-side sync transfer feature. Using the feature in .NET applications is straightforward using the Data Movement Library. It's possible for Cost Management exports to reliably copy hundreds of gigabytes of data to a storage account anywhere in less than an hour.
 
-## Next steps
+## Related content
 
 - See the [Microsoft Azure Storage Data Movement Library](https://github.com/Azure/azure-storage-net-data-movement) source.
 - [Transfer data with the Data Movement library](../../storage/common/storage-use-data-movement-library.md).

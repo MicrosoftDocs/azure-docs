@@ -95,7 +95,7 @@ Start artifact streaming, by following these general steps:
 
     ```azurecli-interactive
     az configure --defaults acr="mystreamingtest"
-    az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
+    az acr import --source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
     ```
 
 3. Create an artifact streaming from the Image

@@ -113,6 +113,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
 |**Networking**|Traffic Manager|trafficmanager.net|usgovtrafficmanager.net||
 |**Security**|Key Vault|vault.azure.net|vault.usgovcloudapi.net||
+||Managed HSM|managedhsm.azure.net|managedhsm.usgovcloudapi.net||
 |**Storage**|Azure Backup|backup.windowsazure.com|backup.windowsazure.us||
 ||Blob|blob.core.windows.net|blob.core.usgovcloudapi.net||
 ||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||

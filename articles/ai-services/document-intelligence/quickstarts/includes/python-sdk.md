@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/25/2024
+ms.date: 05/01/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
@@ -135,6 +135,7 @@ import os
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 from azure.ai.documentintelligence.models import AnalyzeResult
+from azure.ai.documentintelligence.models import AnalyzeDocumentRequest
 
 # set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
 endpoint = "<your-endpoint>"
@@ -168,12 +169,8 @@ def analyze_layout():
     )
 
     poller = document_intelligence_client.begin_analyze_document(
-        "prebuilt-layout", formUrl
-    )
-
-    analyze_request = AnalyzeDocumentRequest(
-        url_source=formUrl
-    )
+        "prebuilt-layout", AnalyzeDocumentRequest(url_source=formUrl
+    ))
 
     result: AnalyzeResult = poller.result()
 
@@ -548,6 +545,9 @@ Analyze and extract common fields from specific document types using a prebuilt 
 import os
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
+from azure.ai.documentintelligence.models import AnalyzeResult
+from azure.ai.documentintelligence.models import AnalyzeDocumentRequest
+
 
 
 # set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
@@ -564,7 +564,7 @@ def analyze_invoice():
     )
 
     poller = document_intelligence_client.begin_analyze_document(
-        "prebuilt-invoice", invoiceUrl
+        "prebuilt-invoice", AnalyzeDocumentRequest(url_source=invoiceUrl)
     )
     invoices = poller.result()
 

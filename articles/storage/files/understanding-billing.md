@@ -1,14 +1,14 @@
 ---
 title: Understand Azure Files billing
-description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure file shares.
+description: Learn how to interpret the provisioned and pay-as-you-go billing models for SMB and NFS Azure file shares. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/16/2024
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
-# Understand Azure Files billing
+# Understand Azure Files billing models
 
 Azure Files provides two distinct billing models: provisioned and pay-as-you-go. The provisioned model is only available for premium file shares, which are file shares deployed in the **FileStorage** storage account kind. The pay-as-you-go model is only available for standard file shares, which are file shares deployed in the **general purpose version 2 (GPv2)** storage account kind. This article explains how both models work to help you understand your monthly Azure Files bill.
 

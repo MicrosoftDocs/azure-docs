@@ -1,5 +1,5 @@
 ---
-title: Automatic VM Guest Patching for Azure VMs
+title: Automatic Guest Patching for Azure Virtual Machines and Scale Sets
 description: Learn how to automatically patch virtual machines in Azure.
 author: maulikshah23
 ms.service: virtual-machines
@@ -10,20 +10,20 @@ ms.author: maulikshah
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ---
-# Automatic VM guest patching for Azure VMs
+# Automatic Guest Patching for Azure Virtual Machines and Scale Sets
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
-Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
+Enabling automatic guest patching for your Azure Virtual Machines (VMs) and Scale Sets (VMSS) helps ease update management by safely and automatically patching virtual machines to maintain security compliance, while limiting the blast radius of VMs.
 
 Automatic VM guest patching has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours for IaaS VMs in the VM's time zone.
 - Patches are applied during all hours for VMSS Flex.
-- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-updates).
+- Azure manages the patch orchestration and follows [availability-first principles](#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Application health can be monitored through the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md).
 - Works for all VM sizes.
@@ -34,7 +34,7 @@ If automatic VM guest patching is enabled on a VM, then the available *Critical*
 
 The VM is assessed periodically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. The patches can be installed any day on the VM during off-peak hours for the VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
-Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration described below. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the VM will be automatically assessed and applicable patches will be installed automatically during the next periodic assessment (usually within a few days) when the VM is powered on.
+Patches are installed within 30 days of the monthly patch releases, following availability-first orchestration. Patches are installed only during off-peak hours for the VM, depending on the time zone of the VM. The VM must be running during the off-peak hours for patches to be automatically installed. If a VM is powered off during a periodic assessment, the platform will automatically assess and apply patches (if required) during the next periodic assessment (usually within a few days) when the VM is powered on.
 
 Definition updates and other patches not classified as *Critical* or *Security* won't be installed through automatic VM guest patching. To install patches with other patch classifications or schedule patch installation within your own custom maintenance window, you can use [Update Management](./windows/tutorial-config-management.md#manage-windows-updates).
 
@@ -67,9 +67,9 @@ The patch installation date for a given VM may vary month-to-month, as a specifi
 ### Which patches are installed?
 The patches installed depend on the rollout stage for the VM. Every month, a new global rollout is started where all security and critical patches assessed for an individual VM are installed for that VM. The rollout is orchestrated across all Azure regions in batches (described in the availability-first patching section above).
 
-The exact set of patches to be installed vary based on the VM configuration, including OS type, and assessment timing. It is possible for two identical VMs in different regions to get different patches installed if there are more or less patches available when the patch orchestration reaches different regions at different times. Similarly, but less frequently, VMs within the same region but assessed at different times (due to different Availability Zone or Availability Set batches) might get different patches.
+The exact set of patches to be installed vary based on the VM configuration, including OS type, and assessment timing. It's possible for two identical VMs in different regions to get different patches installed if there are more or less patches available when the patch orchestration reaches different regions at different times. Similarly, but less frequently, VMs within the same region but assessed at different times (due to different Availability Zone or Availability Set batches) might get different patches.
 
-As the Automatic VM Guest Patching does not configure the patch source, two similar VMs configured to different patch sources, such as public repository vs private repository, may also see a difference in the exact set of patches installed.
+As the Automatic VM Guest Patching doesn't configure the patch source, two similar VMs configured to different patch sources, such as public repository vs private repository, may also see a difference in the exact set of patches installed.
 
 For OS types that release patches on a fixed cadence, VMs configured to the public repository for the OS can expect to receive the same set of patches across the different rollout phases in a month. For example, Windows VMs configured to the public Windows Update repository.
 
@@ -142,7 +142,7 @@ VMs on Azure now support the following patch orchestration modes:
 **AutomaticByPlatform (Azure-orchestrated patching):**
 - This mode is supported for both Linux and Windows VMs.
 - This mode enables automatic VM guest patching for the virtual machine and subsequent patch installation is orchestrated by Azure.
-- During the installation process, this mode will [assess the VM](/rest/api/compute/virtual-machines/assess-patches) for available patches and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview).
+- During the installation process, this mode will [assess the VM](/rest/api/compute/virtual-machines/assess-patches) for available patches and save the details in [Azure Resource Graph](/azure/update-center/query-logs). 
 - This mode is required for availability-first patching.
 - This mode is only supported for VMs that are created using the supported OS platform images above.
 - For Windows VMs, setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
@@ -153,7 +153,7 @@ VMs on Azure now support the following patch orchestration modes:
 **AutomaticByOS:**
 - This mode is supported only for Windows VMs.
 - This mode enables Automatic Updates on the Windows virtual machine, and patches are installed on the VM through Automatic Updates.
-- This mode does not support availability-first patching.
+- This mode doesn't support availability-first patching.
 - This mode is set by default if no other patch mode is specified for a Windows VM.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` in the VM template.
 - Enabling this mode will set the Registry Key SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate to 0
@@ -161,21 +161,21 @@ VMs on Azure now support the following patch orchestration modes:
 **Manual:**
 - This mode is supported only for Windows VMs.
 - This mode disables Automatic Updates on the Windows virtual machine. When deploying a VM using CLI or PowerShell, setting `--enable-auto-updates` to `false` will also set `patchMode` to `manual` and will disable Automatic Updates.
-- This mode does not support availability-first patching.
+- This mode doesn't support availability-first patching.
 - This mode should be set when using custom patching solutions.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
 - Enabling this mode will set the Registry Key SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate to 1
 
 **ImageDefault:**
 - This mode is supported only for Linux VMs.
-- This mode does not support availability-first patching.
+- This mode doesn't support availability-first patching.
 - This mode honors the default patching configuration in the image used to create the VM.
 - This mode is set by default if no other patch mode is specified for a Linux VM.
 - To use this mode on Linux VMs, set the property `osProfile.linuxConfiguration.patchSettings.patchMode=ImageDefault` in the VM template.
 
 > [!NOTE]
 >For Windows VMs, the property `osProfile.windowsConfiguration.enableAutomaticUpdates` can only be set when the VM is first created. This impacts certain patch mode transitions. Switching between AutomaticByPlatform and Manual modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=false`. Similarly switching between AutomaticByPlatform and AutomaticByOS modes is supported on VMs that have `osProfile.windowsConfiguration.enableAutomaticUpdates=true`. Switching between AutomaticByOS and Manual modes is not supported.
->Azure recommends that [Assessment Mode](/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration is not enabled for patching. This will allow the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](/azure/update-center/query-logs). (preview). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This will be reported as a ‘Platform’-initated assessment.
+>Azure recommends that [Assessment Mode](/rest/api/compute/virtual-machines/assess-patches) be enabled on a VM even if Azure Orchestration is not enabled for patching. This will allow the platform to assess the VM every 24 hours for any pending updates, and save the details in [Azure Resource Graph](/azure/update-center/query-logs). The platform performs assessment to report consolidated results when the machine’s desired patch configuration state is applied or confirmed. This will be reported as a ‘Platform’-initated assessment.
 
 ## Requirements for enabling automatic VM guest patching
 
@@ -436,7 +436,7 @@ Example to install all Critical and Security patches on a Windows VM, while excl
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
-## Strict Safe Deployment on Canonical Images (Preview)
+## Strict Safe Deployment on Canonical Images
 
 [Microsoft and Canonical have partnered](https://ubuntu.com/blog/ubuntu-snapshots-on-azure-ensuring-predictability-and-consistency-in-cloud-deployments) to make it easier for our customers to stay current with Linux OS updates and increase the security and resiliency of their Ubuntu workloads on Azure. By leveraging Canonical’s snapshot service, Azure will now apply the same set of Ubuntu updates consistently to your fleet across regions.
 

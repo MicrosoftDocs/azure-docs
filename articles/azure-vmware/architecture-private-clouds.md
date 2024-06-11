@@ -3,7 +3,7 @@ title: Architecture - Private clouds and clusters
 description: Understand the key capabilities of Azure VMware Solution software-defined data centers and VMware vSphere clusters. 
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 4/10/2024
+ms.date: 5/5/2024
 ms.custom: engagement-fy23
 ---
 
@@ -51,7 +51,7 @@ Each Azure VMware Solution architectural component has the following function:
 When planning your Azure VMware Solution design, use the following table to understand what SKUs are available in each physical Availability Zone of an [Azure region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies). 
 
 >[!IMPORTANT]
-> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Storage (CBS). 
+> This mapping is important for placing your private clouds in close proximity to your Azure native workloads, including integrated services such as Azure NetApp Files and Pure Cloud Block Store (CBS). 
 
 The Multi-AZ capability for Azure VMware Solution Stretched Clusters is also tagged in the following table. Customer quota for Azure VMware Solution is assigned by Azure region, and you are not able to specify the Availability Zone during private cloud provisioning. An auto selection algorithm is used to balance deployments across the Azure region. If you have a particular Availability Zone you want to deploy to, open a [Service Request](https://rc.portal.azure.com/#create/Microsoft.Support) with Microsoft requesting a "special placement policy" for your subscription, Azure region, Availability Zone, and SKU type. This policy remains in place until you request it be removed or changed.
 

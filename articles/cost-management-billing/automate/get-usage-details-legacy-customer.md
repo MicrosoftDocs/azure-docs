@@ -42,7 +42,8 @@ If you need actual costs to show purchases as they're accrued, change the `metri
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
-## Next steps
+
+## Related content
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

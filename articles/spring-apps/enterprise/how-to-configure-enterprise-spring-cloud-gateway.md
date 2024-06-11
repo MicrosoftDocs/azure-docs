@@ -244,7 +244,7 @@ If you send the `GET` request to the `/scg-logout` endpoint by using `XMLHttpReq
 
 You need to have a route configuration to route the logout request to your application, as shown in the following example. This code makes a gateway-only logout SSO session.
 
-```java
+```javascript
 const req = new XMLHttpRequest();
 req.open("GET", "/scg-logout);
 req.send();

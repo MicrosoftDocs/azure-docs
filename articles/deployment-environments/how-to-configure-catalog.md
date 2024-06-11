@@ -415,7 +415,7 @@ Get the path to the secret you created in the key vault.
 
 ## Update a catalog
 
-If you update the Azure Resource Manager template (ARM template) contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
+If you update the template contents or definition in the attached repository, you can provide the latest set of environment definitions to your development teams by syncing the catalog.
 
 To sync an updated catalog in Azure Deployment Environments:
 
@@ -454,7 +454,7 @@ An invalid environment definition error might occur for various reasons:
 
 - **Validation errors**. Check the following items to resolve validation errors:
 
-  - Ensure that the environment file's engine type is correctly configured as `ARM`.
+  - Ensure that the environment file's engine type is correctly configured.
   - Ensure that the environment definition name is between 3 and 63 characters.
   - Ensure that the environment definition name includes only characters that are valid for a URL, which are alphanumeric characters and these symbols: `~` `!` `,` `.` `'` `;` `:` `=` `-` `_` `+` `(` `)` `*` `&` `$` `@`
   

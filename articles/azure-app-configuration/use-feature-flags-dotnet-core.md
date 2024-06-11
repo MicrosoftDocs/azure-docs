@@ -28,7 +28,7 @@ In this tutorial, you will learn how to:
 
 ## Prerequisites
 
-The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows a simple example of how to use feature flags in an ASP.NET Core application. This tutorial shows additional setup options and capabilities of the Feature Management libraries. You can use the sample app created in the quickstart to try out the sample code shown in this tutorial. 
+- The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows a simple example of how to use feature flags in an ASP.NET Core application. This tutorial shows additional setup options and capabilities of the Feature Management libraries. You can use the sample app created in the quickstart to try out the sample code shown in this tutorial. 
 
 ## Set up feature management
 
@@ -53,17 +53,7 @@ using Microsoft.FeatureManagement;
 builder.Services.AddFeatureManagement(Configuration.GetSection("MyFeatureFlags"));
 ```
 
-If you use filters in your feature flags, you must include the [Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) namespace and add a call to [AddFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) specifying the type name of the filter you want to use as the generic type of the method. For more information on using feature filters to dynamically enable and disable functionality, see [Enable staged rollout of features for targeted audiences](./howto-targetingfilter-aspnet-core.md).
-
-The following example shows how to use a built-in feature filter called `PercentageFilter`:
-
-
-```csharp
-using Microsoft.FeatureManagement;
-
-builder.Services.AddFeatureManagement()
-    .AddFeatureFilter<PercentageFilter>();
-```
+You can use feature filters to enable conditional feature flags. To use either built-in feature filters or create your own, see [Enable conditional features with feature filters](./howto-feature-filters.md).
 
 Rather than hard coding your feature flags into your application, we recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. The Azure App Configuration service provides a dedicated portal UI for managing all of your feature flags. The Azure App Configuration service also delivers the feature flags to your application directly through its .NET client libraries.
 

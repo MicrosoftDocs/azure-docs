@@ -191,4 +191,4 @@ If you're not using managed identity and instead authorizing a storage account w
 ## Related content
 
 - [Learn more](cache-overview.md#service-tiers) about Azure Cache for Redis features
-- [What are managed identifies](../active-directory/managed-identities-azure-resources/overview.md)
+- [What are managed identities](../active-directory/managed-identities-azure-resources/overview.md)

@@ -2,17 +2,17 @@ items:
   - name: Azure IoT Operations
     href: index.yml
     items:
+    - name: Overview
+      href: get-started/overview-iot-operations.md
     - name: Get started
       expanded: true
       items:
-      - name: Overview
-        href: get-started/overview-iot-operations.md
       - name: Deploy Azure IoT Operations
         href: get-started/quickstart-deploy.md
       - name: Add OPC UA assets to your cluster
         href: get-started/quickstart-add-assets.md
-      - name: Use pipelines to process data
-        href: get-started/quickstart-process-telemetry.md
+      - name: Upload data to the cloud
+        href: get-started/quickstart-upload-telemetry-to-cloud.md
       - name: Get insights from your data
         href: get-started/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations components

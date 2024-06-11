@@ -57,7 +57,12 @@ Virtual machine reserved instance and SQL reserved capacity discounts apply only
 
 You can get the cost of each of the meters with the Azure Retail Prices API. For information on how to get the rates for an Azure meter, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
-## Next steps
+## Need help? Contact us
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Related content
+
 To learn more about reservations for Azure, see the following articles:
 
 - [What are reservations for Azure?](save-compute-costs-reservations.md)
@@ -66,7 +71,3 @@ To learn more about reservations for Azure, see the following articles:
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-
-## Need help? Contact us
-
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

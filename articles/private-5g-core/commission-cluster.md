@@ -125,7 +125,9 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
       1. Enter one IP address in a range for the service IP address, also on the management network. This will be used for accessing local monitoring tools for the packet core instance.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Under **Virtual network**, select a virtual network, from **N2**, **N3**, **N6-DNX** (where *X* is the DN number 1-10). In the side panel:
-      1. Enable the virtual network for Kubernetes and add a pool of IP addresses. Add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
+      1. Enable the virtual network for Kubernetes and add a pool of IP addresses.
+        1. For a standard deployment, add a range of one IP address for the appropriate address (N2, N3, or N6-DNX as collected earlier). For example, *10.10.10.20-10.10.10.20*.
+        1. For an HA deployment, add a range of two IP addresses for each virtual network, where the N2 and N3 pod IP addresses are in the local access subnet and the N6 pod IP addresses are in the appropriate local data subnet.
       1. Repeat for each of the N2, N3, and N6-DNX virtual networks.
       1. Select **Modify** at the bottom of the panel to save the configuration.
 1. Select **Apply** at the bottom of the page and wait for the settings to be applied. Applying the settings will take approximately 5 minutes.
@@ -157,7 +159,7 @@ If you're running other VMs on your Azure Stack Edge, we recommend that you stop
 
 1. For the **Node size**, select **Standard_F16s_HPN**.
 1. Ensure the **Arc enabled Kubernetes** checkbox is selected.
-1. Select the **Change** link and enter the Microsoft Entra application Object Id (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
+1. Select the **Change** link and enter the Microsoft Entra application Object ID (OID) for the custom location which you obtained from [Retrieve the Object ID (OID)](complete-private-mobile-network-prerequisites.md#retrieve-the-object-id-oid).
 
    :::image type="content" source="media/commission-cluster/commission-cluster-configure-kubernetes.png" alt-text="Screenshot of Configure Arc enabled Kubernetes pane, showing where to enter the custom location OID.":::
 
@@ -339,6 +341,7 @@ Your packet core should now be in service with the updated ASE configuration. To
 
 ## Next steps
 
-Your Azure Stack Edge device is now ready for Azure Private 5G Core. The next step is to collect the information you'll need to deploy your private network.
+Your Azure Stack Edge device is now ready for Azure Private 5G Core. For an HA deployment, you will also need to configure your routers. Otherwise, the next step is to collect the information you'll need to deploy your private network.
 
+- [Configure routers for a Highly Available (HA) deployment](configure-routers-high-availability.md)
 - [Collect the required information to deploy a private mobile network](./collect-required-information-for-private-mobile-network.md)

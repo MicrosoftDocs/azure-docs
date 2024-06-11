@@ -47,7 +47,7 @@ We also recommend setting the **Minimum API version** in your API Management ins
     * Terraform azurerm provider: 3.0.0
     
 * **Azure SDKs** - Update the Azure API Management SDKs to the latest versions or at least the following versions: 
-    * .NET: 8.0.0 
+    * .NET: v1.1.0 
     * Go: 1.0.0 
     * Python: 3.0.0 
    - JavaScript: 8.0.1 

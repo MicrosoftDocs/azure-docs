@@ -68,7 +68,7 @@ Your usage file shows your charges by billing period and daily usage. For inform
 
 Reserved VM Instances are available for most VM sizes with some exceptions. Reservation discounts don't apply for the following VMs:
 
-- **VM series** - A-series, Av2-series, or G-series.
+- **VM series** - A-series, or G-series.
 
 - **Preview or Promo VMs** - Any VM-series or size that is in preview or uses promotional meter.
 

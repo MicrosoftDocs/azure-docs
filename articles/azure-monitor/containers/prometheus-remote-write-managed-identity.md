@@ -118,7 +118,7 @@ This step isn't required if you're using an AKS identity. An AKS identity alread
     | Value | Description |
     |:---|:---|
     | `<AKS-CLUSTER-NAME>` | The name of your AKS cluster. |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br> The remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/containerinsights/ciprod/prometheus-remote-write/images:prom-remotewrite-20240507.1`<br> The remote write container image version.   |
     | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
     | `<MANAGED-IDENTITY-CLIENT-ID>` | The value for **Client ID** from the **Overview** page for the managed identity. |
     | `<CLUSTER-NAME>` | Name of the cluster that Prometheus is running on. |

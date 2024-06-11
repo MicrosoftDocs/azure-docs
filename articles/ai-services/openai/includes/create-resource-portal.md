@@ -89,7 +89,9 @@ As an option, you can add a private endpoint for access to your resource. Select
 
 1. Confirm your configuration settings, and select **Create**.
 
-The Azure portal displays a notification when the new resource is available.
+1. The Azure portal displays a notification when the new resource is available. Select **Go to resource**.
+
+   :::image type="content" source="../media/create-resource/create-resource-go-to-resource.png" alt-text="Screenshot showing the Go to resource button in the Azure portal.":::
 
 ## Deploy a model
 
