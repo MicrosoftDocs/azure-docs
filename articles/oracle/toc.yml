@@ -19,7 +19,7 @@ items:
     href: oracle-db/oracle-database-groups-roles.md
   - name: Provision and manage Oracle Database@Azure
     items:
-    - name: Overview - provision and manage Oracle Database@Azure
+    - name: Overview of provisioning
       href: oracle-db/provision-oracle-database.md
     - name: Provision Exadata Infrastructure
       href: oracle-db/provision-oracle-exadata-infrastructure.md
