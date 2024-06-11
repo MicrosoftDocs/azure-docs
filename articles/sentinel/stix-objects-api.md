@@ -6,11 +6,13 @@ author: austinmccollum
 ms.topic: reference
 ms.date: 05/30/2024
 ms.author: austinmc
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 ---
 
 # Import threat intelligence to Microsoft Sentinel with the STIX objects API (Preview)
 
-Import indicators of compromise and other STIX domain objects to use in Microsoft Sentinel workspace with the STIX objects API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel STIX objects API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API.
+Import threat intelligence to use in Microsoft Sentinel with the STIX objects API. Whether you're using a threat intelligence platform or a custom application, use this document as a supplemental reference to the instructions in the [Microsoft Sentinel STIX objects API data connector](connect-threat-intelligence-upload-api.md). Installing the data connector isn't required to connect to the API. The threat intelligence you can import includes indicators of compromise and other STIX domain objects.
 
 > [!IMPORTANT]
 > This API is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -93,6 +95,8 @@ The JSON object for the body contains the following fields:
 Create the array of STIX objects using the STIX format specification. Some of the STIX property specifications are expanded here for your convenience with links to the relevant STIX document sections. Also note some properties, while valid for STIX, don't have corresponding object schema properties in Microsoft Sentinel.
 
 #### Common properties
+
+All the objects you import with the STIX objects API share these common properties.
 
 |Property Name	|Type |	Description |
 |----|----|----|

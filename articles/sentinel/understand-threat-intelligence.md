@@ -3,8 +3,8 @@ title: Understand threat intelligence
 titleSuffix: Microsoft Sentinel
 description: Understand how threat intelligence feeds are connected to, managed, and used in Microsoft Sentinel to analyze data, detect threats, and enrich alerts.
 author: austinmccollum
-ms.topic: concept
-ms.date: 5/30/2024
+ms.topic: conceptual
+ms.date: 6/10/2024
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -26,7 +26,7 @@ For SIEM solutions like Microsoft Sentinel, the most common forms of CTI are thr
 
 Integrate threat intelligence (TI) into Microsoft Sentinel through the following activities:
 
-- **Import threat intelligence** into Microsoft Sentinel by enabling **data connectors** to various TI [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
+- **Import threat intelligence** into Microsoft Sentinel by enabling **data connectors** or using the STIX objects API to connect various TI [platforms](connect-threat-intelligence-tip.md) and [feeds](connect-threat-intelligence-taxii.md).
 
 - **View and manage** the imported threat intelligence in **Logs** and in the **Threat Intelligence** blade of Microsoft Sentinel.
 
@@ -42,14 +42,14 @@ Threat Intelligence also provides useful context within other Microsoft Sentinel
 
 ## Import threat intelligence with data connectors
 
-Just like all the other event data in Microsoft Sentinel, threat indicators are imported using data connectors. Here are the data connectors in Microsoft Sentinel provided specifically for threat indicators.
+Most threat intelligence is imported using data connectors or an API. Here are the solutions available for Microsoft Sentinel.
 
 - **Microsoft Defender Threat Intelligence data connector** to ingest Microsoft's threat indicators 
-- **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds and 
-- **Threat Intelligence upload indicators API** for integrated and curated TI feeds using a REST API to connect 
+- **Threat Intelligence - TAXII** for industry-standard STIX/TAXII feeds
+- **Threat Intelligence STIX objects API** for integrated and curated TI feeds using a REST API to connect 
 - **Threat Intelligence Platform data connector** also connects TI feeds using a REST API, but is on the path for deprecation
  
-Use any of these data connectors in any combination together, depending on where your organization sources threat indicators. All three of these are available in **Content hub** as part of the **Threat Intelligence** solution. For more information about this solution, see the Azure Marketplace entry [Threat Intelligence](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview).
+Use any of these solutions in any combination together, depending on where your organization sources threat intelligence. All three of these are available in **Content hub** as part of the **Threat Intelligence** solution. For more information about this solution, see the Azure Marketplace entry [Threat Intelligence](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview).
 
 Also, see this catalog of [threat intelligence integrations](threat-intelligence-integration.md) available with Microsoft Sentinel.
 
@@ -74,7 +74,7 @@ For more information, see [Connect your threat intelligence platform using STIX 
 
 ### Add threat indicators to Microsoft Sentinel with the Threat Intelligence Platforms data connector
 
-Much like the existing upload indicators API data connector, the **Threat Intelligence Platform data connector** uses an API allowing your TIP or custom solution to send indicators into Microsoft Sentinel. However, this data connector is now on a path for deprecation. We recommend new solutions to take advantage of the optimizations the upload indicators API has to offer.
+this data connector is now on a path for deprecation. Much like the existing STIX objects API, the **Threat Intelligence Platform data connector** uses an API allowing your TIP or custom solution to send indicators into Microsoft Sentinel. So, we recommend new solutions to take advantage of the optimizations the STIX objects API has to offer.
 
 The TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). It can also be used by any custom threat intelligence platform that communicates with the tiIndicators API to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Microsoft Defender XDR).
 
