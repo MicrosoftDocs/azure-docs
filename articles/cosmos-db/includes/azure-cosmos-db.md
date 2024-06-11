@@ -1,10 +1,9 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: cosmos-db
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: davidsmatlak
-ms.custom: generated
+author: manishmsfte
+ms.author: mansha
 ---
 
 ### List Azure Cosmos DB with specific write locations
