@@ -37,7 +37,7 @@ To view the utilization and performance of your storage accounts across all your
 
 1. Search for **Monitor** and select **Monitor**.
 
-    ![Screenshot that shows the Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer-style image.](./media/insights-overview/search-monitor.png)
+    ![Screenshot that shows the Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer-style image.](~/reusable-content/ce-skilling/azure/media/cosmos-db/search-monitor.png)
 
 1. Select **Azure Cosmos DB**.
 
@@ -137,25 +137,25 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 
 You can pin any one of the metric sections to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md) by selecting the pushpin in the upper-right corner of the section.
 
-![Screenshot that shows the metric section pin to dashboard example.](./media/insights-overview/pin.png)
+![Screenshot that shows the metric section pin to dashboard example.](~/reusable-content/ce-skilling/azure/media/cosmos-db/pin.png)
 
 To export your data into the Excel format, select the down arrow to the left of the pushpin.
 
-![Screenshot that shows the Export workbook down arrow.](./media/insights-overview/export.png)
+![Screenshot that shows the Export workbook down arrow.](~/reusable-content/ce-skilling/azure/media/cosmos-db/export.png)
 
 To expand or collapse all dropdown views in the workbook, select the expand arrow to the left of the down arrow.
 
-![Screenshot that shows the Expand workbook arrow.](./media/insights-overview/expand.png)
+![Screenshot that shows the Expand workbook arrow.](~/reusable-content/ce-skilling/azure/media/cosmos-db/expand.png)
 
 ## Customize Azure Cosmos DB insights
 
 This experience is built on top of Azure Monitor workbook templates. You can use **Customize** > **Edit** > **Save** to modify and save a copy of your modified version into a custom workbook.
 
-![Screenshot that shows the Customize button.](./media/insights-overview/customize.png)
+![Screenshot that shows the Customize button.](~/reusable-content/ce-skilling/azure/media/cosmos-db/customize.png)
 
 Workbooks are saved within a resource group. The **My Reports** section is private to you. The **Shared Reports** section is accessible to everyone with access to the resource group. After you save the custom workbook, you must go to the workbook gallery to start it.
 
-![Screenshot that shows the Gallery button.](./media/insights-overview/gallery.png)
+![Screenshot that shows the Gallery button.](~/reusable-content/ce-skilling/azure/media/cosmos-db/gallery.png)
 
 ## Troubleshooting
 
