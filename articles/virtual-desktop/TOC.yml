@@ -138,6 +138,9 @@
         href: store-fslogix-profile.md
     - name: Applications
       items:
+      - name: Preferred application group type
+        displayName: applications, apps
+        href: preferred-application-group-type.md
       - name: App attach
         displayName: applications, apps, msix app attach, app attach, app packages, appx packages
         href: app-attach-overview.md
@@ -306,6 +309,9 @@
           - name: MSIXMGR tool parameters
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
+        - name: Set preferred application group type
+          displayName: applications, apps, host pool properties
+          href: set-preferred-application-group-type.md
         - name: Specific applications
           items:
           - name: Use Microsoft Teams
