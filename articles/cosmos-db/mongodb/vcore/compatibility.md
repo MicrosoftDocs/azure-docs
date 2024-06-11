@@ -388,7 +388,8 @@ Below are the list of operators currently supported on Azure Cosmos DB for Mongo
 
 <tr><td rowspan="1">Text Expression Operator</td><td><code>$meta</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 
-<tr><td rowspan="1">Timestamp Expression Operators</td><td colspan="4">Not supported yet.</td></tr>
+<tr><td rowspan="2">Timestamp Expression Operators</td><td><code>$tsIncrement</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
+<tr><td><code>$tsSecond</code></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td><td><img src="media/compatibility/yes-icon.svg" alt="Yes"></td></tr>
 
 <tr><td rowspan="1">Trigonometry Expression Operators</td><td colspan="4">Not supported yet.</td></tr>
 
