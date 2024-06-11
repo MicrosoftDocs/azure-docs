@@ -188,7 +188,7 @@ Here are examples of valid vector index policies:
 > The Quantized Flat and DiskANN indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead, and will lead to higher RU charges for a vector search query.
 
 > [!IMPORTANT]
-> At this time in the vector search preview, do not use nested paths, wild card characters in the path of the vector policy. Replace operations on the vector policy are currently not supported.
+> At this time in the vector search preview do not use nested path or wild card characters in the path of the vector policy. Replace operations on the vector policy are currently not supported.
 
 ## Perform vector search with queries using VectorDistance()
 
