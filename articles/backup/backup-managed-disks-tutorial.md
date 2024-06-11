@@ -24,18 +24,18 @@ For information on the Azure Disk backup region availability, supported scenario
 
 1. In the *DemoVault* **Backup vault** created in the previous step, go to **Backup policies** and select **Add**.
 
-   ![Add backup policy](./media/backup-managed-disks/backup-policies.png)
+   :::image type="content" source="./media/backup-managed-disks/backup-policies.png" alt-text="Screenshot shows how to add backup policy." lightbox="./media/backup-managed-disks/backup-policies.png":::
 
 1. In the **Basics** tab, provide policy name, select **Datasource type** as **Azure Disk**. The vault is already prepopulated and the selected vault properties are presented.
 
    >[!NOTE]
    > Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
 
-   ![Select datasource type](./media/backup-managed-disks/datasource-type.png)
+   :::image type="content" source="./media/backup-managed-disks/datasource-type.png" alt-text="Screenshot shows how to select datasource type." lightbox="./media/backup-managed-disks/datasource-type.png":::
 
 1. In the **Backup policy** tab, select the backup schedule frequency.
 
-   ![Select backup schedule frequency](./media/backup-managed-disks/backup-schedule-frequency.png)
+   :::image type="content" source="./media/backup-managed-disks/backup-schedule-frequency.png" alt-text="Screenshot shows how to select backup schedule frequency." lightbox="./media/backup-managed-disks/backup-schedule-frequency.png":::
 
    Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every *1*, *2*, *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once a day backup is sufficient, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
 
@@ -43,11 +43,11 @@ For information on the Azure Disk backup region availability, supported scenario
 
    The default retention rule applies if no other retention rule is specified. The default retention rule can be modified to change the retention duration, but it cannot be deleted. You can add a new retention rule by selecting **Add retention rule**.
 
-   ![Add a retention rule](./media/backup-managed-disks/add-retention-rule.png)
+   :::image type="content" source="./media/backup-managed-disks/add-retention-rule.png" alt-text="Screenshot shows how to add a retention rule." lightbox="./media/backup-managed-disks/add-retention-rule.png":::
 
    You can pick **first successful backup** taken daily or weekly, and provide the retention duration that the specific backups are to be retained before they're deleted. This option is useful to retain specific backups of the day or week for a longer duration of time. All other frequent backups can be retained for a shorter duration.
 
-   ![Retention settings](./media/backup-managed-disks/retention-settings.png) 
+   :::image type="content" source="./media/backup-managed-disks/retention-settings.png" alt-text="Screenshot shows the retention settings." lightbox="./media/backup-managed-disks/retention-settings.png"::: 
 
    >[!NOTE]
    >Azure Backup for Managed Disks uses incremental snapshots which are limited to 500 snapshots per disk. At a point in time you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk.
@@ -175,7 +175,7 @@ To configure disk backup, follow these steps:
 
 1. In the *DemoVault* **Backup vault** created in the previous step, go to **Backup instances** and select a backup instance.
 
-   ![Select backup instance](./media/backup-managed-disks/select-backup-instance.png)
+   :::image type="content" source="./media/backup-managed-disks/select-backup-instance.png" alt-text="Screenshot shows how to select backup instance." lightbox="./media/backup-managed-disks/select-backup-instance.png":::
 
 1. In the **Backup instances** screen, you'll find:
 
@@ -185,11 +185,11 @@ To configure disk backup, follow these steps:
 
 1. Select **Backup** to initiate an on-demand backup.
 
-   ![Select Backup Now](./media/backup-managed-disks/backup-now.png)
+   :::image type="content" source="./media/backup-managed-disks/backup-now.png" alt-text="Screenshot shows how to select Backup Now." lightbox="./media/backup-managed-disks/backup-now.png":::
 
 1. Select one of the retention rules associated with the backup policy. This retention rule will determine the retention duration of this on-demand  backup. Select **Backup now** to start the backup.
 
-   ![Initiate backup](./media/backup-managed-disks/initiate-backup.png)
+   :::image type="content" source="./media/backup-managed-disks/initiate-backup.png" alt-text="Screenshot shows how to initiate the backup operation." lightbox="./media/backup-managed-disks/initiate-backup.png":::
 
 ## Next step
 
