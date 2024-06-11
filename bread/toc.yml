@@ -710,13 +710,13 @@ items:
     tocHref: /azure/azure-health-insights/
     topicHref: /azure/azure-health-insights/
     items:
-    - name: Onco-Phenotype documentation
+    - name: Onco-Phenotype
       tocHref: /azure/azure-health-insights/oncophenotype
       topicHref: /azure/azure-health-insights/oncophenotype/index
-    - name: Radiology Insights documentation
+    - name: Radiology Insights
       tocHref: /azure/azure-health-insights/radiology-insights
       topicHref: /azure/azure-health-insights/radiology-insights/index      
-    - name: Trial Matcher documentation
+    - name: Trial Matcher
       tocHref: /azure/azure-health-insights/trial-matcher
       topicHref: /azure/azure-health-insights/trial-matcher/index      
   - name: Azure for Industry
