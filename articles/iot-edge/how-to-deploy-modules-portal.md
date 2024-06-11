@@ -19,7 +19,6 @@ services: iot-edge
 >
 > To ensure uninterrupted operation of your Azure IoT Edge devices that use Azure Marketplace partner modules, contact the [IoT Edge module publisher] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
 >
-> Image URIs for [Microsoft-provided modules including those listed in Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=microsoft&page=1&subcategories=iot-edge-modules) are available on [Microsoft Artifact Registry](https://mcr.microsoft.com/). Microsoft module image URIs won't change and no action is required. 
 >
 > IoT Edge devices that don't use [partner modules] (https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1&subcategories=iot-edge-modules) acquired from Azure Marketplace aren't affected and no action is required.
 
