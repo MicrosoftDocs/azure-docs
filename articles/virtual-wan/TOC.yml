@@ -52,7 +52,7 @@
       href: how-to-palo-alto-cloud-ngfw.md
     - name: Branch IPSEC connectivity automation 
       items:
-        - name: Hub locations and partners
+        - name: About branch IPSEC connectivity automation
           href: virtual-wan-locations-partners.md
         - name: Automation guidelines for partners
           href: virtual-wan-configure-automation-providers.md

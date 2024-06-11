@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 03/05/2024
 ms.author: cherylmc
 ms.custom: references_regions
-# Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+# Customer intent: As someone with a networking background, I want to learn more aobut Branch IPsec connectivity automation
 ---
-# Virtual WAN Branch IPsec connectivity automation from partners 
+# Virtual WAN Branch IPsec connectivity automation 
 
 This article provides information on Virtual WAN partners for connectivity into a Virtual WAN hub.
 
