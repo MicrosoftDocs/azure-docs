@@ -31,13 +31,13 @@ If a malicious actor gains access to your onboarding credential, they could use 
 
 ## Protecting secrets in onboarding script
 
-The onboarding script contains all the information needed to connect your server to Azure. This includes steps to download, install, and configure the Azure Connected Machine agent on your server. It also includes the onboarding credential used to non-interactively connect that server to Azure. It’s important to protect the onboarding credential so that it doesn’t end up in the wrong hands or accidentally captured in logs.
+The onboarding script contains all the information needed to connect your server to Azure. This includes steps to download, install, and configure the Azure Connected Machine agent on your server. It also includes the onboarding credential used to non-interactively connect that server to Azure. It’s important to protect the onboarding credential so it isn't accidentally captured in logs and end up in the wrong hands.
 
-For production deployments, it’s common to orchestrate the onboarding script using an automation tool such as Microsoft Configuration Manager, Red Hat Ansible, or Group Policy. Check with your automation tool to see if it has a way to protect secrets used in the installation script. If it doesn’t, consider moving the onboarding script parameters to a dedicated configuration file. This will prevent secrets from being parsed and potentially logged directly on the command line. The Group Policy onboarding guidance includes extra steps to encrypt the configuration file so that only computer accounts can decrypt it, not users or others outside your organization, providing more protection.
+For production deployments, it’s common to orchestrate the onboarding script using an automation tool such as Microsoft Configuration Manager, Red Hat Ansible, or Group Policy. Check with your automation tool to see if it has a way to protect secrets used in the installation script. If it doesn’t, consider moving the onboarding script parameters to a dedicated configuration file. This prevents secrets from being parsed and potentially logged directly on the command line. The [Group Policy onboarding guidance](onboard-group-policy-powershell.md) includes extra steps to encrypt the configuration file so that only computer accounts can decrypt it, not users or others outside your organization.
 
 If your automation tool copies the configuration file to the server, make sure it also cleans up the file after it's done so the secrets don’t persist longer than necessary.
 
-Additionally, as with all Azure resources, tags for Azure Arc-enabled servers are stored as plain text. Do not put sensitive information in tags.
+Additionally, as with all Azure resources, tags for Azure Arc-enabled servers are stored as plain text. Don't put sensitive information in tags.
 
 ## Using disk encryption
 

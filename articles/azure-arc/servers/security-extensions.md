@@ -7,7 +7,7 @@ ms.date: 06/06/2024
 
 # Extensions security
 
-This article describes the fundamentals of [VM extensions](manage-vm-extensions.md) for Azure Arc-enabled servers and details how extension settings can be customized. It also covers the execution of scripts using the extension manager and the option to disable the extension manager if extensions aren't needed.
+This article describes the fundamentals of [VM extensions](manage-vm-extensions.md) for Azure Arc-enabled servers and details how extension settings can be customized.
 
 ## Extension basics
 

@@ -7,7 +7,7 @@ ms.date: 06/06/2024
 
 # Machine configuration
 
-This article describes the basics of Azure Machine Configuration, a compliance reporting and configuration tool based on PowerShell Desired State Configuration. It explains how the tool can check and optionally remediate security and other settings on machines at scale. Users can utilize built-in policies from Microsoft or author their own. The article also details the permissions needed to assign these policies and provides instructions for disabling the machine configuration agent if not needed. 
+This article describes the basics of Azure Machine Configuration, a compliance reporting and configuration tool that can check and optionally remediate security and other settings on machines at scale. 
 
 ## Machine configuration basics
 
@@ -25,9 +25,9 @@ If you don’t intend to use machine configuration policies, you can disable the
 
 The Azure Connected Machine agent has two possible modes:
 
-1. Full mode, the default mode which allows all use of agent functionality.
+- **Full mode**, the default mode which allows all use of agent functionality.
 
-1. Monitor mode, which applies a Microsoft-managed extension allowlist, disables remote connectivity, and disables the machine configuration agent.
+- **Monitor mode**, which applies a Microsoft-managed extension allowlist, disables remote connectivity, and disables the machine configuration agent.
 
 If you’re using Arc solely for monitoring purposes, setting the agent to Monitor mode makes it easy to restrict the agent to just the functionality required to use Azure Monitor. You can configure the agent mode with the following command (run locally on each machine):
 
