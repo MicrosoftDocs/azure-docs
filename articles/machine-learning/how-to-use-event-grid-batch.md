@@ -192,15 +192,15 @@ This logic app workflow uses parameters to store specific pieces of information 
    | `tenant_id`    | The tenant ID where the endpoint is deployed. |`00000000-0000-0000-00000000` |
    | `client_id`    | The client ID for the service principal used to invoke the endpoint. | `00000000-0000-0000-00000000` |
    | `client_secret` | The client secret of the service principal used to invoke the endpoint. | `ABCDEFGhijkLMNOPQRstUVwz` |
-   | `endpoint_uri`  | The endpoint scoring URI. **Important**: This URI is for the endpoint you are trying to execute. The endpoint must have a default deployment configured. | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
+   | `endpoint_uri`  | The endpoint scoring URI. <br><br>**Important**: This URI is for the endpoint that you want to execute. The endpoint must have a default deployment configured. | `https://<endpoint_name>.<region>.inference.ml.azure.com/jobs` |
 
    The following example shows a sample parameter:
 
-   :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Screenshot showing how to add one parameter in designer.":::
+   :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Screenshot shows how to add one parameter in designer.":::
 
 ## Add the trigger
 
-We want to trigger the logic app workflow each time a new file is created in a given folder (data asset) of a Storage Account. The logic app uses the information of the event to invoke the batch endpoint and pass the specific file to be processed.
+We want to trigger the logic app workflow each time a new file is created in a specific folder (data asset) of a storage account. The logic app uses the information from the event to invoke the batch endpoint and pass the specific file to process.
 
 1. On the workflow designer, [follow these general steps to add an **Event Grid** trigger named **When a resource event occurs**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
@@ -211,8 +211,8 @@ We want to trigger the logic app workflow each time a new file is created in a g
    | Property | Value | Description |
    |----------|-------|-------------|
    | **Resource Type** | `Microsoft.Storage.StorageAccounts` | The resource type emitting the events. |
-   | **Subscription** | Your subscription name | The subscription where the Azure Storage Account is placed. |
-   | **Resource Name** | Your storage account name | The name of the Storage Account where the files will be generated. |
+   | **Subscription** | Your subscription name | The subscription for the storage account. |
+   | **Resource Name** | Your storage account name | The name of the storage account where the files are generated. |
    | **Event Type Item** | `Microsoft.Storage.BlobCreated` | The event type. |
 
 1. From the **Advanced parameters** list, select **Prefix Filter**, and provide the following value:
@@ -272,7 +272,7 @@ We want to trigger the logic app workflow each time a new file is created in a g
 
    > [!TIP]
    >
-   > The previous payload corresponds to a **Model deployment**. If you are working with a **Pipeline component deployment**, adapt the format according to the expectations of the pipeline's inputs. For more information about how to structure the input in REST calls, see [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
+   > The previous payload corresponds to a **Model deployment**. If you're working with a **Pipeline component deployment**, adapt the format according to the expectations of the pipeline's inputs. For more information about how to structure the input in REST calls, see [Create jobs and input data for batch endpoints (REST)](how-to-access-data-batch-endpoints-jobs.md?tabs=rest).
 
    The following example shows a sample **Invoke** action:
 
