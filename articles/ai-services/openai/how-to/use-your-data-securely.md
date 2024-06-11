@@ -334,46 +334,7 @@ Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` ro
 
 ### Ingestion API
 
-
 See the [ingestion API reference article](/rest/api/azureopenai/ingestion-jobs?context=/azure/ai-services/openai/context/context) for details on the request and response objects used by the ingestion API.
-
-More notes:
-
-* `JOB_NAME` in the API path will be used as the index name in Azure AI Search.
-* Use the `Authorization` header rather than api-key.
-* Explicitly set `storageEndpoint` header.
-* Use `ResourceId=` format for `storageConnectionString` header, so Azure OpenAI and Azure AI Search use managed identity to authenticate the storage account, which is required to bypass network restrictions.
-* **Do not** set the `searchServiceAdminKey` header. The system-assigned identity of the Azure OpenAI resource is used to authenticate Azure AI Search.
-* **Do not** set `embeddingEndpoint` or `embeddingKey`. Instead, use the `embeddingDeploymentName` header to enable text vectorization.
-
-
-**Submit job example**
-
-```bash
-accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com/ --query "accessToken" --output tsv)
-curl -i -X PUT https://my-resource.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/vpn1025a?api-version=2023-10-01-preview \
--H "Content-Type: application/json" \
--H "Authorization: Bearer $accessToken" \
--H "storageEndpoint: https://mystorage.blob.core.windows.net/" \
--H "storageConnectionString: ResourceId=/subscriptions/1234567-abcd-1234-5678-1234abcd/resourceGroups/my-resource/providers/Microsoft.Storage/storageAccounts/mystorage" \
--H "storageContainer: my-container" \
--H "searchServiceEndpoint: https://mysearch.search.windows.net" \
--H "embeddingDeploymentName: ada" \
--d \
-'
-{
-}
-'
-```
-
-**Get job status example**
-
-```bash
-accessToken=$(az account get-access-token --resource https://cognitiveservices.azure.com/ --query "accessToken" --output tsv)
-curl -i -X GET https://my-resource.openai.azure.com/openai/extensions/on-your-data/ingestion-jobs/abc1234?api-version=2023-10-01-preview \
--H "Content-Type: application/json" \
--H "Authorization: Bearer $accessToken"
-```
 
 ### Inference API
 

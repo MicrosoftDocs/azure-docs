@@ -65,7 +65,7 @@ If you need to create another web app with an outdated runtime version that is n
 Create your first web app.
 
 > [!div class="nextstepaction"]
-> [Getting started)](getting-started.md)
+> [Getting started](getting-started.md)
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)

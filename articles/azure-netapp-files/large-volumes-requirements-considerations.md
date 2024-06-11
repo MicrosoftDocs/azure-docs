@@ -17,7 +17,7 @@ This article describes the requirements and considerations you need to be aware 
 
 The following requirements and considerations apply to large volumes. For performance considerations of *regular volumes*, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
-* Existing volumes can't be converted or resized to volumes over 100 TiB.
+* A regular volume can’t be converted to a large volume.
 * You must create a large volume at a size of 50 TiB or larger. A single volume can't exceed 500 TiB.  
 * You can't resize a large volume to less than 50 TiB.
     A large volume cannot be resized to less than 30% of its lowest provisioned size. This limit is adjustable via [a support request](azure-netapp-files-resource-limits.md#resource-limits).
