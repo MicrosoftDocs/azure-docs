@@ -63,7 +63,7 @@ Costs associated with selecting existing resources during the VM creation proces
 
 | Resource or feature                      | Notes                                          |
 |------------------------------------------|-----------------------------------------------------------|
-| [Azure Backup](https://azure.microsoft.com/pricing/details/backup/) | Monthly average backup cost is based on the operating system disk size of the VM that needs backup, the backup policy selected, and estimated moderate daily data churn. |
+| [Azure Backup](https://azure.microsoft.com/pricing/details/backup/) | Monthly average backup cost is based on the operating system disk size of the VM that needs backup, the backup policy selected, and estimated moderate daily data churn. Storage consumed by Azure Backup grows incrementally over a period; the monthly cost of Azure Back also increases as consumption grows. Azure models the growth of consumed storage over a year, aggregates it and uses the average monthly consumption to propose the estimate. |
 | [Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) | Estimate for recovering a VM to Azure.|
 
 ### Monitoring 
