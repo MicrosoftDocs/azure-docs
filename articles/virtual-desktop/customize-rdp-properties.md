@@ -47,7 +47,7 @@ To customize a host pool's RDP properties, you need:
 
 - A host pool with at least one session host.
 
-- An Azure account assigned the [Desktop Virtualization Power On Off Contributor](rbac.md#desktop-virtualization-power-on-off-contributor) role.
+- An Azure account assigned the [Desktop Virtualization Host Pool Contributor](rbac.md#desktop-virtualization-host-pool-contributor) role.
 
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
