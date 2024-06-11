@@ -33,7 +33,7 @@ For more information about Azure Bastion, see [What is Azure Bastion?](../bastio
 > [!IMPORTANT]
 > [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
-![Tutorial network infrastructure](media/deploy-ps/tutorial-network.png)
+:::image type="content" source="media/deploy-ps/tutorial-network.png" alt-text="Diagram that shows a firewall network infrastructure." lightbox="media/deploy-ps/tutorial-network.png":::
 
 In this article, you learn how to:
 
