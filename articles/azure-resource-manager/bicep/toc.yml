@@ -601,6 +601,8 @@
     href: /powershell/module/az.resources/
   - name: Bicep warnings and errors 
     items:
+    - name: All codes
+      href: bicep-error-codes.md
     - name: BCP033 
       href: bcp033.md
     - name: BCP035
