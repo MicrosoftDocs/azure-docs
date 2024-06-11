@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/05/2024
+ms.date: 06/11/2024
 ms.author: wgries
 ---
 
@@ -21,7 +21,9 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V18 Release - [KB5023057](https://support.microsoft.com/topic/feb374ad-6256-4eeb-9371-eb85071f756f)| 18.0.0.0 | May 8, 2024 | Supported - Flighting |
+| V18.1 Release - [KB5023057](https://support.microsoft.com/topic/961af341-40f2-4e95-94c4-f2854add60a5)| 18.1.0.0 | June 11, 2024 | Supported |
+| V17.3 Release - [KB5039814](https://support.microsoft.com/topic/97bd6ab9-fa4c-42c0-a510-cdb1d23825bf)| 17.3.0.0 | June 11, 2024 | Supported |
+| V18 Release - [KB5023057](https://support.microsoft.com/topic/feb374ad-6256-4eeb-9371-eb85071f756f)| 18.0.0.0 | May 8, 2024 | Supported |
 | V17.2 Release - [KB5023055](https://support.microsoft.com/topic/dfa4c285-a4cb-4561-b0ed-bbd4ae09d91d)| 17.2.0.0 | February 28, 2024 | Supported |
 | V17.1 Release - [KB5023054](https://support.microsoft.com/topic/azure-file-sync-agent-v17-1-release-february-2024-security-only-update-bd1ce41c-27f4-4e3d-a80f-92f74817c55b)| 17.1.0.0 | February 13, 2024 | Supported - Security Update|
 | V16.2 Release - [KB5023052](https://support.microsoft.com/topic/azure-file-sync-agent-v16-2-release-february-2024-security-only-update-8247bf99-8f51-4eb6-b378-b86b6d1d45b8)| 16.2.0.0 | February 13, 2024 | Supported - Security Update - Agent version will expire on July 29, 2024|
@@ -68,7 +70,23 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 >[!NOTE]
 >Azure File Sync agent v17.2 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
 
-## Version 18.0.0.0 (Flighting)
+## Version 18.1.0.0 (Security Update)
+
+The following release notes are for Azure File Sync version 18.1.0.0 (released June 11, 2024). This release contains a security update for servers that have v18 agent version installed. These notes are in addition to the release notes listed for version 18.0.0.0.
+
+### Improvements and issues that are fixed
+
+- Fixes an issue that might allow unauthorized users to delete files in locations they don’t have access. This is a security-only update. For more information about this vulnerability, see [CVE-2024-35253](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-35253).
+
+## Version 17.3.0.0 (Security Update)
+
+The following release notes are for Azure File Sync version 17.3.0.0 (released June 11, 2024). This release contains a security update for servers that have v16.x or v17.x agent versions installed. These notes are in addition to the release notes listed for version 17.0.0.0.
+
+### Improvements and issues that are fixed
+
+- Fixes an issue that might allow unauthorized users to delete files in locations they don’t have access. This is a security-only update. For more information about this vulnerability, see [CVE-2024-35253](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-35253).
+
+## Version 18.0.0.0
 
 The following release notes are for Azure File Sync version 18.0.0.0 (released May 8, 2024). This release contains improvements for the Azure File Sync service and agent.
 
@@ -234,7 +252,7 @@ The following release notes are for Azure File Sync version 16.2.0.0 (released F
 
 - Fixes an issue that might allow unauthorized users to create new files in locations they aren't allowed to. This is a security-only update. For more information about this vulnerability, see [CVE-2024-21397](https://msrc.microsoft.com/update-guide/en-US/advisory/CVE-2024-21397).
 
-## Version 17.0.0.0 (Flighting)
+## Version 17.0.0.0 
 
 The following release notes are for Azure File Sync version 17.0.0.0 (released December 6, 2023). This release contains improvements for the Azure File Sync service and agent.
 
