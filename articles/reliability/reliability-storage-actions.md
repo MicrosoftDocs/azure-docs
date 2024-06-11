@@ -15,10 +15,7 @@ This article describes reliability support in [Azure Storage Actions](../storage
 
 Azure Storage Actions is a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. The service itself is regional, and it doesn’t have SKUs or support for availability zones. However, the control plane of the service automatically supports zone-redundancy. The data plane also may support redundancy depending on whether or not the storage account is running on a zone-redundant configuration.
 
-## Reliability recommendations
 
-[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
- 
 
 ## Availability zone support
 
