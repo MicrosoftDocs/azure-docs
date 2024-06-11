@@ -27,7 +27,7 @@
   items: 
     - name: Workspace overview
       href: workspace-overview.md
-    - name: Workspace quickstart
+    - name: Azure Health Data Services quickstart
       href: healthcare-apis-quickstart.md
     - name: Deployment overview
       href: health-data-services-get-started.md
