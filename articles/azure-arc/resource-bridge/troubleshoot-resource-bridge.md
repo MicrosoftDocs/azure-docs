@@ -13,7 +13,7 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the management machine used to deploy the Arc resource bridge. If you're using a different machine, it needs to meet the [management machine requirements](system-requirements.md#management-machine-requirements).
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the management machine used to deploy the Arc resource bridge. If you're using a different machine, the machine must meet the [management machine requirements](system-requirements.md#management-machine-requirements).
 
 If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM. Contact your network administrator to allow SSH communication from the management machine to the Appliance VM on TCP port 22. 
 
@@ -63,7 +63,7 @@ When you run the Azure CLI commands, the following error might be returned: *The
 
 ### Default host resource pools are unavailable for deployment
 
-When using the `az arcappliance createconfig` or `az arcappliance run` command, there will be an interactive experience which shows the list of the VMware entities where you can select to deploy the virtual appliance. This list will show all user-created resource pools along with default cluster resource pools, but the default host resource pools aren't listed. When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
+When using the `az arcappliance createconfig` or `az arcappliance run` command, there is an interactive experience which shows the list of the VMware entities where you can select to deploy the virtual appliance. This lists show all user-created resource pools along with default cluster resource pools, but the default host resource pools aren't listed. When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. We recommend that you don't deploy the appliance in a host resource pool.
 
 ### Resource bridge status "Offline" and `provisioningState` "Failed"
 
@@ -129,13 +129,11 @@ This occurs when a `.local` path is provided for a configuration setting, such a
 
 ### Azure Arc resource bridge is unreachable
 
-Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if it's not reserved. Rebooting the Azure Arc resource bridge or VM can trigger an IP address change, resulting in failing services.
+Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if it's not reserved. Rebooting the Azure Arc resource bridge or VM can trigger an IP address change and result in failing services.
 
-Intermittently, the resource bridge can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge VM, any call to the resource bridge API server will fail. As a result, you can't create any new resource through the resource bridge, ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
+Arc resource bridge may intermittently lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge VM, any call to the resource bridge API server fails. Core operations, such as creating a new resource, connecting to your private cloud from Azure, creating a custom location, won't function as expected. To resolve this issue, reboot the resource bridge VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge.
 
-Another possible cause is slow disk access. Azure Arc resource bridge uses etcd which requires 10 ms latency or less per [recommendation](https://docs.openshift.com/container-platform/4.6/scalability_and_performance/recommended-host-practices.html#recommended-etcd-practices_). If the underlying disk has low performance, it can impact the operations, and causing failures.
-
-To resolve this issue, reboot the resource bridge VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge.
+The Arc resource bridge may also be unreachable due to slow disk access. Azure Arc resource bridge uses Kubernetes extended configuration tree (ETCD) which requires [10 ms latency or less](https://docs.openshift.com/container-platform/4.6/scalability_and_performance/recommended-host-practices.html#recommended-etcd-practices_). If the underlying disk has low performance, operations are impacted and failures may occur.
 
 ### SSL proxy configuration issues
 
@@ -228,7 +226,7 @@ If you receive an error during deployment that states: `errorCode_: _CreateConfi
 
 ### vSphere SDK client - 403 Forbidden or 404 not found
 
-If you receive an error that contains `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: POST \_/sdk\_: 403 Forbidden` or `404 not found` while deploying Arc resource bridge, this is most likely due to an incorrect vCenter address being provided during configuration file creation where you're prompted to enter the vCenter address as either FQDN or IP address. There are different ways to find your vCenter address. One option is to access the vSphere client via its web interface. The vCenter FQDN or IP address is typically what you use in the browser to access the vSphere client. If you're already logged in, you can look at the browser's address bar; the URL you use to access vSphere is your vCenter server's FQDN or IP address. Alternatively, after logging in, go to the Menu > Administration section. Under System Configuration, choose Nodes. Your vCenter server instance(s) will be listed there along with its FQDN. Verify your vCenter address and then re-try the deployment.
+If you receive an error that contains `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: POST \_/sdk\_: 403 Forbidden` or `404 not found` while deploying Arc resource bridge, this is most likely due to an incorrect vCenter address being provided during configuration file creation when you're prompted to enter the vCenter address as either a hostname or IP address. There are different ways to find your vCenter address. One option is to access the vSphere client via its web interface. The vCenter hostname or IP address is typically what you use in the browser to access the vSphere client. If you're already logged in, you can look at the browser's address bar; the URL you use to access vSphere is your vCenter server's hostname or IP address. Verify your vCenter address and then re-try the deployment.
 
 ### vSphere SDK client - no such host
 
@@ -271,7 +269,7 @@ To resolve this issue, manually delete the existing template. Then run [`az arca
 
 ### Unable to find folders
 
-When deploying the resource bridge on VMware vCenter, you specify the folder in which the template and VM will be created. The folder must be VM and template folder type. Other types of folder, such as storage folders, network folders, or host and cluster folders, can't be used for the resource bridge deployment.
+When deploying Arc resource bridge on VMware, you specify the folder in which the template and VM are created. The selected folder must be a VM and template folder type. Other types of folder, such as storage folders, network folders, or host and cluster folders, can't be used for the resource bridge deployment.
 
 ### Insufficient permissions
 
