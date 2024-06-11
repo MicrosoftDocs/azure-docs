@@ -11,7 +11,7 @@ ms.date: 01/10/2024
 
 # Enable stateful mode for stateless built-in connectors in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
 In Standard logic app workflows, the following built-in, service provider-based connectors are stateless, by default:
 

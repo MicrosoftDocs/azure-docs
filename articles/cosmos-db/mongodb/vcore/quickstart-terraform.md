@@ -9,6 +9,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
 ms.date: 03/18/2024
+ms.custom: devx-track-terraform
 ---
 
 # Azure Cosmos DB for MongoDB (vCore) with Terraform

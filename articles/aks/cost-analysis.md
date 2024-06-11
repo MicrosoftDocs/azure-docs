@@ -5,9 +5,9 @@ author: nickomang
 ms.author: nickoman
 ms.service: azure-kubernetes-service
 ms.subservice: aks-monitoring
-ms.custom: ignite-2023, devx-track-azurecli
+ms.custom: ignite-2023, devx-track-azurecli, build-2024
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 05/06/2024
 
 #CustomerIntent: As a cluster operator, I want to obtain cost management information, perform cost attribution, and improve my cluster footprint
 ---
@@ -40,14 +40,17 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 
 * Your cluster must be deployed with a [Microsoft Entra Workload ID](./workload-identity-overview.md) configured.
 
-* If using the Azure CLI, you must have version `2.44.0` or later installed, and the `aks-preview` Azure CLI extension version `0.5.155` or later installed.
-
 * Kubernetes cost views are available only for the following Microsoft Azure Offer types. For more information on offer types, see [Supported Microsoft Azure offers](/azure/cost-management-billing/costs/understand-cost-mgt-data#supported-microsoft-azure-offers). 
     * Enterprise Agreement
     * Microsoft Customer Agreement
 
+* Access to the Azure API including Azure Resource Manager (ARM) API. For a list of fully qualified domain names (FQDNs) required, see [AKS Cost Analysis required FQDN](./outbound-rules-control-egress.md#aks-cost-analysis-add-on).
+
 * Virtual nodes aren't supported at this time.
 
+* AKS Automatic is not supported at this time.
+
+* If using the Azure CLI, you must have version `2.44.0` or later installed, and the `aks-preview` Azure CLI extension version `0.5.155` or later installed.
 
 ### Install or update the `aks-preview` Azure CLI extension
 
@@ -80,7 +83,13 @@ You can enable the cost analysis with the `--enable-cost-analysis` flag during o
 The following example creates a new AKS cluster in the `Standard` tier with cost analysis enabled:
 
 ```azurecli-interactive
-az aks create --resource-group <resource-group> --name <cluster-name> --location <location> --enable-managed-identity --generate-ssh-keys --tier standard --enable-cost-analysis
+az aks create \
+    --resource-group <resource-group> \
+    --name <cluster-name> \
+    --location <location> \
+    --tier standard \
+    --enable-cost-analysis \
+    --generate-ssh-keys
 ```
 
 The following example updates an existing AKS cluster in the `Standard` tier to enable cost analysis:
