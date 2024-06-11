@@ -138,9 +138,9 @@ A user-assigned managed identity is a resource on Azure. You can create multiple
 Steps are:
 
 + In your Azure subscription, create a user-assigned managed identity.
-+ On your search service, update the service definition to use the user-assigned managed identity (this step is in preview).
-+ On other Azure services you want to connect to, create a role assignment.
-+ In data source connections on Azure AI Search, such as an indexer data source, specify a connection that references the user-managed identity (this step is generally available if support for the feature is generally available).
++ On your search service, update the service definition to enable the user-assigned managed identity (this step is in preview).
++ On other Azure services you want to connect to, create a role assignment for the identity.
++ In data source connections on Azure AI Search, such as an indexer data source, reference the user-managed identity in the connection details (this step is generally available if support for the feature is generally available).
 
 A user-assigned managed identity can be scoped to subscriptions, resource groups, or resource types. 
 
