@@ -6,7 +6,7 @@ ms.topic: sample
 ms.date: 11/09/2023
 ---
 
-# ImmuneCODE Database
+# ImmuneCODE database
 
 The ImmuneCODE™ database, which includes hundreds of millions of T-cell Receptor (TCR) sequences from over 1,400 subjects exposed to or infected with the SARS-CoV-2 virus, and over 160,000 high-confidence SARS-CoV-2-specific TCRs. 
 The database is accessible at no cost. Its data can be analyzed to aid global initiatives aimed at comprehending the immune response to the SARS-CoV-2 virus and crafting novel interventions. To learn more about the dataset refer the associated [publication.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/)
@@ -30,7 +30,7 @@ This dataset contains approximately 228 GB of data and is updated daily.
 
 This dataset is stored in the West US 2 Azure regions. Allocating compute resources in West US 2 is recommended for affinity.
 
-## Data Access
+## Data access
 
 West US 2: 'https://dataset1000genomes.blob.core.windows.net/dataset'
 
@@ -38,7 +38,7 @@ West Central US: 'https://dataset1000genomes-secondary.blob.core.windows.net/dat
 
 [SAS Token](../storage/common/storage-sas-overview.md): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
 
-## Use Terms
+## Use terms
 
 To learn more about the data use terms refer the [publication] (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/) and [Terms of Use.] (https://clients.adaptivebiotech.com/terms-of-use)
 ## Contact
