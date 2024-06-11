@@ -140,6 +140,8 @@ items:
       href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
     - name: Use Service Registry
       href: how-to-enterprise-service-registry.md
+    - name: Set up a Config Server
+      href: how-to-config-server.md?pivots=sc-enterprise
     - name: Use API portal
       href: how-to-use-enterprise-api-portal.md
     - name: Spring Cloud Gateway
