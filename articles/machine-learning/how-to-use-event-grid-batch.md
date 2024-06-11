@@ -185,7 +185,7 @@ This logic app workflow uses parameters to store specific pieces of information 
 
    > [!TIP]
    >
-   > Use the values configured at [Authenticating against batch endpoints](#authenticating-against-batch-endpoints).
+   > Use the values configured at [Authenticating against batch endpoints](#authenticate-against-batch-endpoints).
 
    | Parameter name | Description | Sample value |
    |----------------|-------------|--------------|
@@ -217,11 +217,11 @@ We want to trigger the logic app workflow each time a new file is created in a g
 
 1. From the **Advanced parameters** list, select **Prefix Filter**, and provide the following value:
 
-   **/blobServices/default/containers/<container-name>/blobs/<path-to-data-folder>**
+   **/blobServices/default/containers/<*container-name*>/blobs/<*path-to-data-folder*>**
 
    > [!IMPORTANT]
    >
-   > The **Prefix Filter** property allows Event Grid to only notify the workflow when a blob is created in the specific path we indicated. In this case, we assume that files are created by some external process in the folder specified by **<path-to-data-folder>** inside the container **<container-name>**, which is in the selected storage account. Configure this parameter to match the location of your data. Otherwise, the event is fired for any file created at any location of the storage account. For more information, see [Event filtering for Event Grid](../event-grid/event-filtering.md).
+   > The **Prefix Filter** property allows Event Grid to only notify the workflow when a blob is created in the specific path we indicated. In this case, we assume that files are created by some external process in the folder specified by **<*path-to-data-folder*>** inside the container **<*container-name*>**, which is in the selected storage account. Configure this parameter to match the location of your data. Otherwise, the event is fired for any file created at any location of the storage account. For more information, see [Event filtering for Event Grid](../event-grid/event-filtering.md).
 
    The following example shows how the trigger appears:
 
