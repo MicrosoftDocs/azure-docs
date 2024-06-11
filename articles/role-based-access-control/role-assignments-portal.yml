@@ -178,7 +178,7 @@ procedureSection:
       - |
         On the **Assignment type** tab, select the **Assignment type**.
 
-        - **Eligible** - User must perform one or more actions to use the role, such as perform a multifactor authentication check, provide a business justification, or request approval from designated approvers.
+        - **Eligible** - User must perform one or more actions to use the role, such as perform a multifactor authentication check, provide a business justification, or request approval from designated approvers. You can't create eligible role assignments for applications, service principals, or managed identities because they can't perform the activation steps.
         - **Active** -  User doesn't have to perform any action to use the role.
 
         :::image type="content" source="./media/shared/assignment-type-eligible.png" alt-text="Screenshot of Add role assignment with Assignment type options displayed." lightbox="./media/shared/assignment-type-eligible.png":::
@@ -189,9 +189,9 @@ procedureSection:
         Select permanent if you want member to always be allowed to activate or use role. Select time bound to specify start and end dates. This option might be disabled if permanent assignments creation is not allowed by PIM policy.
 
       - |
-        If **Start date and time** and **Start date and time** are enabled, specify when user is allowed to activate or use role.
+        If **Time bound** is selected, set **Start date and time** and **Start date and time** to specify when user is allowed to activate or use role.
 
-        The maximum allowed eligible duration depends on your PIM policy.
+        It's possible to set the start date in the future. The maximum allowed eligible duration depends on your Privileged Identity Management (PIM) policy.
 
       - |
         (Optional) Use **Configure PIM Policy** to configure expiration options, role activation requirements (approval, multifactor authentication, or Conditional Access authentication context), and other settings.
