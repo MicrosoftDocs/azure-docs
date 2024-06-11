@@ -1,15 +1,14 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: container-registry
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: davidsmatlak
-ms.custom: generated
+author: tejaswikolli-web
+ms.author: tejaswikolli
 ---
 
 ### List Container Registry vulnerability assessment results
 
-Returns all the all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
+Returns all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
 
 ```kusto
 SecurityResources
@@ -17,23 +16,23 @@ SecurityResources
 | where properties.displayName contains 'Container registry images should have vulnerability findings resolved'
 | summarize by assessmentKey=name //the ID of the assessment
 | join kind=inner (
-	securityresources
-	| where type == 'microsoft.security/assessments/subassessments'
-	| extend assessmentKey = extract('.*assessments/(.+?)/.*',1,  id)
+  securityresources
+  | where type == 'microsoft.security/assessments/subassessments'
+  | extend assessmentKey = extract('.*assessments/(.+?)/.*',1,  id)
 ) on assessmentKey
 | project assessmentKey, subassessmentKey=name, id, parse_json(properties), resourceGroup, subscriptionId, tenantId
 | extend description = properties.description,
-	displayName = properties.displayName,
-	resourceId = properties.resourceDetails.id,
-	resourceSource = properties.resourceDetails.source,
-	category = properties.category,
-	severity = properties.status.severity,
-	code = properties.status.code,
-	timeGenerated = properties.timeGenerated,
-	remediation = properties.remediation,
-	impact = properties.impact,
-	vulnId = properties.id,
-	additionalData = properties.additionalData
+  displayName = properties.displayName,
+  resourceId = properties.resourceDetails.id,
+  resourceSource = properties.resourceDetails.source,
+  category = properties.category,
+  severity = properties.status.severity,
+  code = properties.status.code,
+  timeGenerated = properties.timeGenerated,
+  remediation = properties.remediation,
+  impact = properties.impact,
+  vulnId = properties.id,
+  additionalData = properties.additionalData
 ```
 
 # [Azure CLI](#tab/azure-cli)
