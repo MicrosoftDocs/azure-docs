@@ -28,8 +28,8 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
        >[!NOTE] 
        > The regions where the OracleDB@Azure service is available are limited.
    1. Select the **Availability zone** where this Oracle Exadata Infrastructure is provisioned.
-     > [!NOTE]
-     > The availability zones where the OracleDB@Azure service is available are limited.
+       > [!NOTE]
+       > The availability zones where the OracleDB@Azure service is available are limited.
    1. The **Oracle Cloud account name** field is display-only. If the name isn't showing correctly, your OracleDB@Azure account setup hasn't been successfully completed.
    1. Select **Next** to continue.
 1. From the **Configuration** tab of the Create Oracle Exadata Infrastructure flow, enter the following information.
