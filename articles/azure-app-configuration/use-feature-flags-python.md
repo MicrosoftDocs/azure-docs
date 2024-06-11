@@ -24,7 +24,7 @@ In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Add feature flags in key parts of your application to control feature availability.
-> * Integrate with App Configuration when you're using it to manage feature flags.
+> * Integrate with App Configuration to manage feature flags.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ To access the Python feature manager, your app must have the Python `FeatureMana
 
 The Python feature manager is configured from a Python `dict`. As a result, you can define your application's feature flag settings by using any configuration source that can be read into a `dict`, such as loading via json or the Azure App Configuration provider.
 
-By default, the feature manager retrieves feature flag configuration from the `"FeatureManagement"` section of the dictionary.
+By default, the feature manager retrieves feature flag configuration from the `"feature_management"` section of the dictionary.
 
 ```python
 from featuremanagement import FeatureManager
@@ -82,7 +82,6 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_fl
 ...
 
 # Refresh your configurations
-
 config.refresh()
 ```
 
@@ -93,6 +92,8 @@ Because the feature manager has access to the configuration provider, it automat
 Each feature flag declaration has three main parts: a name, enabled, and a set of zero or more filters that are used to evaluate if a feature's state is *on* (that is, when its value is `True`). A filter defines a criterion for when a feature should be turned on.
 
 By default, when a feature flag has multiple filters, the filter set is traversed in order until one of the filters determines the feature should be enabled. At that point, the feature flag is *on*, and any remaining filter results are skipped. If no filter indicates the feature should be enabled, the feature flag is *off*.
+
+This default behavior can be changed by setting the `requirement_type` property of the feature flag to `All`. When `requirement_type` is set to `All`, all filters must indicate that the feature should be enabled for the feature flag to be *on*.
 
 The following example shows how to set up feature flags in a JSON file:
 
@@ -113,11 +114,23 @@ The following example shows how to set up feature flags in a JSON file:
             {
                 "id": "FeatureC",
                 "description": "A feature flag that returns true 50% of the time.",
-                "enabled_for": {
-                    "name": "Percentage",
-                    "parameters": {
-                        "Value": 50
-                    }
+                "conditions": {
+                    "requirement_type": "All",
+                    "enabled_for": [
+                        {
+                            "name": "Percentage",
+                            "parameters": {
+                                "Value": 50
+                            }
+                        },
+                        {
+                            "name": "TimeWindow",
+                            "parameters": {
+                                "Start": "2021-01-01T00:00:00Z",
+                                "End": "2021-12-31T23:59:59Z"
+                            }
+                        }
+                    ]
                 }
             }
         ]
@@ -144,6 +157,6 @@ if feature_manager.is_enabled("FeatureA"):
 
 In this tutorial, you learned how to implement feature flags in your Python application by using the `FeatureManagement` library. For more information about feature management support in Python and App Configuration, see the following resources:
 
-* [Python Core feature flag sample code](./quickstart-feature-flag-python.md)
+* [Python feature flag sample code](./quickstart-feature-flag-python.md)
 * [FeatureManagement API documentation](https://microsoft.github.io/FeatureManagement-Python/html/index.html)
 * [Manage feature flags](./manage-feature-flags.md)

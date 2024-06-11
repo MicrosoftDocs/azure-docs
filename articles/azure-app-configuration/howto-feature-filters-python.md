@@ -54,15 +54,15 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     ```python
     from featuremanagement import FeatureManager
     from azure.appconfiguration.provider import load
+    from azure.identity import DefaultAzureCredential
     import os
-    from time import sleep
     
-    connection_string = os.environ["APP_CONFIGURATION_CONNECTION_STRING"]
+    endpoint = os.environ.get("APPCONFIGURATION_ENDPOINT_STRING")
     
-    # Connecting to Azure App Configuration using a connection string
+    # Connect to Azure App Configuration using and Endpoint and Azure Entra ID
     # feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
     # feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
-    config = load(connection_string=connection_string, feature_flag_enabled=True)
+    config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flag_enabled=True)
     
     feature_manager = FeatureManager(config, feature_filters=[RandomFilter()])
     
