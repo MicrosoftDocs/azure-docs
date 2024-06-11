@@ -67,14 +67,14 @@ When you're done, your workflow looks similar to the following high level exampl
    | **Resource Group** | Yes | **LA-TravelTime-RG** | The [Azure resource group](../azure-resource-manager/management/overview.md) where you create your logic app resource and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
    | **Name** | Yes | **LA-TravelTime** | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
 
-1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** to show only the settings for a Consumption logic app workflow, which runs in multi-tenant Azure Logic Apps.
+1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** to show only the settings for a Consumption logic app workflow, which runs in multienant Azure Logic Apps.
 
    The **Plan type** property also specifies the billing model to use.
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing plan](logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type runs in global, multitenant Azure Logic Apps and uses the [Consumption billing plan](logic-apps-pricing.md#consumption-pricing). |
 
 1. Now continue with the following selections:
 
@@ -89,7 +89,7 @@ When you're done, your workflow looks similar to the following high level exampl
 
    The Azure portal opens your Consumption logic app and the workflow designer.
 
-Next, add the **Schedule** trigger named **Recurrence**, which runs the workflow based on a specified schedule. Every workflow must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
+Next, add the **Schedule** trigger named **Recurrence**, which runs the workflow based on a specified schedule. Every workflow must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create an example Consumption logic app workflow in multitenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ## Add the Recurrence trigger
 
@@ -170,7 +170,7 @@ Sometimes, you might want to run operations on data in your workflow, and then u
 
 By default, the **Get route** action returns the current travel time with traffic in seconds from the **Travel Duration Traffic** property. By converting and storing this value as minutes instead, you make the value easier to reuse later without converting again.
 
-1. Under the **Get route** action, [follow these general steps to add a **Variables** action named **Initliaze variable**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. Under the **Get route** action, [follow these general steps to add a **Variables** action named **Initialize variable**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
 1. Rename **Initialize variable** action with the following title: **Create variable to store travel time**.
 
@@ -198,7 +198,7 @@ By default, the **Get route** action returns the current travel time with traffi
 
       :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-dynamic-content.png" alt-text="Screenshot shows where to put cursor in the div(,60) expression and select Dynamic content." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-dynamic-content.png":::
 
-   1. In the dynamic content list, under select the ouptut value, **Travel Duration Traffic**.
+   1. In the dynamic content list, under select the output value, **Travel Duration Traffic**.
 
       If the output doesn't appear, in the dynamic content list, next to the action name, select **See more**.
 
@@ -244,7 +244,7 @@ Next, add the action to run when the travel time exceeds your limit.
 
 ## Send email when limit exceeded
 
-Now, add an action that sends you email when the travel time exceeds your limit. This email includes the current travel time and the extra time necessary to travel the specified route.
+Now, add an action that sends email when the travel time exceeds your limit. This email includes the current travel time and the extra time necessary to travel the specified route.
 
 1. In the condition's **True** branch, the plus sign (**+**), and then select **Add an action**.
 
@@ -311,7 +311,7 @@ To manually start your workflow, on the designer toolbar, select **Run** > **Run
 
 * If the current travel time stays under your limit, your workflow does nothing else and waits or the next interval before checking again.
 
-* If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. Here is an example email that your workflow sends:
+* If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. The following example shows a sample email that your workflow sends:
 
   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png" alt-text="Screenshot shows example email that reports current travel time and extra travel time that exceeds your specified limit." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/received-example-email-notification.png":::
 
