@@ -9,7 +9,6 @@ ms.service: azure-operator-nexus
 ms.custom: template-how-to
 ---
 
-
 ## **Network Fabric upgrade guide**
 
 This how to guide provides a streamlined upgrade process for your network fabric. It is designed to assist users in enhancing their network infrastructure through Azure APIs, which facilitate the lifecycle management of various network devices. Regular updates are crucial for maintaining system integrity and accessing the latest product improvements.
