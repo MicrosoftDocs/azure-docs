@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 06/10/2024
+ms.date: 06/11/2024
 ---
 
 # Create parameters files for Bicep deployment

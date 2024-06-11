@@ -3,7 +3,7 @@ title: Using statement
 description: Describes how to use the using statement in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/10/2024
+ms.date: 06/11/2024
 ---
 
 # Using statement
@@ -29,7 +29,7 @@ The `using` statement in [Bicep parameter files](./parameter-files.md) ties the 
   using '<path>/<file-name>.json'
   ```
 
-- To use [Azure Verified Modules](./modules.md##path-to-module):
+- To use [public modules](./modules.md#path-to-module):
 
   ```bicep
   using 'br/public:<file-path>:<tag>'

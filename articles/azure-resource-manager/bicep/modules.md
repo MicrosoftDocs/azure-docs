@@ -3,7 +3,7 @@ title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/06/2024
+ms.date: 06/11/2024
 ---
 
 # Bicep modules
@@ -93,26 +93,28 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 ### File in registry
 
-#### Azure Verified Modules
+#### Public module registry
 
 > [!NOTE]
-> Non-AVM modules are retired from the public registry.
+> Non-AVM (Azure Verified Modules) modules are retired from the public module registry.
 
-[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) are pre-built, pre-tested, and pre-verified modules for deploying resources on Azure. These modules are created by Microsoft or trusted partners and are designed to simplify and accelerate the deployment process for common Azure resources and configurations. Select the highlighted numbers in the following screenshot to see the list of modules.
+[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) are pre-built, pre-tested, and pre-verified modules for deploying resources on Azure. These modules are created by Microsoft or trusted partners and are designed to simplify and accelerate the deployment process for common Azure resources and configurations.
+
+Browse to the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) site, and select the highlighted numbers in the following screenshot to see the list of modules.
 
 :::image type="content" source="./media/modules/bicep-azure-verified-modules-avm.png" alt-text="The screenshot of Azure Verified Modules(AVM).":::
 
 The module list shows the latest version. Select the version number to see a list of available versions:
 
-:::image type="content" source="./media/modules/bicep-azure-verified-modules-avm-version.png" alt-text="The screenshot of Azure Verified Modules(AVM).":::
+:::image type="content" source="./media/modules/bicep-azure-verified-modules-avm-version.png" alt-text="The screenshot of Azure Verified Modules(AVM) versions.":::
 
-To link to an Azure verified module, specify the module path with the following syntax:
+To link to a public module, specify the module path with the following syntax:
 
 ```bicep
 module <symbolic-name> 'br/public:<file-path>:<tag>' = {}
 ```
 
-- **br/public** is the alias for Azure Verfied Modules. This alias is predefined in your configuration.
+- **br/public** is the alias for public modules. You can customize this alias in the [Bicep configuration file](./bicep-config-modules.md).
 - **file path** can contain segments that can be separated by the `/` character.
 - **tag** is used for specifying a version for the module.
 
@@ -128,7 +130,7 @@ module storage 'br/public:avm/res/storage/storage-account:0.9.0' = {
 ```
 
 > [!NOTE]
-> **br/public** is the alias for Azure Verified Modules. It can also be written as:
+> **br/public** is the alias for public modules. It can also be written as:
 >
 > ```bicep
 > module <symbolic-name> 'br:mcr.microsoft.com/bicep/<file-path>:<tag>' = {}
