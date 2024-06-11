@@ -209,13 +209,13 @@ Use the following steps to use the private DNS zone to translate/resolve DNS:
 
 1. In **Add record set**, enter or select the following information:
 
-   | Setting        | Value                                                                                                               |
-   |----------------|---------------------------------------------------------------------------------------------------------------------|
-   | **Name**       | Enter *\**.                                                                                                         |
-   | **Type**       | Select **A**.                                                                                                       |
-   | **TTL**        | Enter *1*.                                                                                                          |
-   | **TTL unit**   | Select **Hours**.                                                                                                   |
-   | **IP address** | Enter the [IP address](#find-the-ip-for-your-application). The following screenshot uses the IP address *10.1.0.7*. |
+   | Setting        | Value                                                                                                                       |
+   |----------------|-----------------------------------------------------------------------------------------------------------------------------|
+   | **Name**       | Enter *\**.                                                                                                                 |
+   | **Type**       | Select **A**.                                                                                                               |
+   | **TTL**        | Enter *1*.                                                                                                                  |
+   | **TTL unit**   | Select **Hours**.                                                                                                           |
+   | **IP address** | Enter the [IP address](#find-the-ip-address-for-your-application). The following screenshot uses the IP address *10.1.0.7*. |
 
    :::image type="content" source="media/access-app-virtual-network/private-dns-zone-add-record.png" alt-text="Screenshot of the Azure portal that shows the Add record set page." lightbox="media/access-app-virtual-network/private-dns-zone-add-record.png":::
 
