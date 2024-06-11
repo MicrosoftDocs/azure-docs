@@ -23,8 +23,8 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
 1. Check that you're using the **Create** Oracle Exadata VM Cluster flow. If not, exit the flow.
 1. From the **Basics** tab of the Create Oracle Exadata VM Cluster flow, enter the following information.
 
-  >[!NOTE]
-  > Before you can provision an Oracle Exadata VM Cluster, you must have a provisioned Oracle Exadata Infrastructure, which you'll assign for your Oracle Exadata VM Cluster.
+      >[!NOTE]
+      > Before you can provision an Oracle Exadata VM Cluster, you must have a provisioned Oracle Exadata Infrastructure, which you'll assign for your Oracle Exadata VM Cluster.
 
    1. Select the Microsoft Azure subscription to which the Oracle Exadata VM Cluster will be provisioned.
    1. Select an existing **Resource group** or select the **Create new** link to create and use a new Resource group for this resource.
