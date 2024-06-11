@@ -137,6 +137,10 @@ Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-fo
 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
 
+> [!NOTE]
+> Enable replication through create virtual machine deployment workflow isn't supported for virtual machines with OS RHEL 9* and above. 
+
+
 **Release** | **Mobility service version** | **Red Hat kernel version** |
 --- | --- | --- |
 RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.61 | 5.14.0-70.93.2.el9_0.x86_64 <br> 5.14.0-284.54.1.el9_2.x86_64 <br>5.14.0-284.57.1.el9_2.x86_64 <br>5.14.0-284.59.1.el9_2.x86_64 <br>5.14.0-362.24.1.el9_3.x86_64 |

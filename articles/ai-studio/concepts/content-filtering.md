@@ -36,7 +36,7 @@ The content filtering models have been trained and tested on the following langu
 ## Create a content filter
 
 ## How to create a content filter? 
-For any model deployment in [Azure AI Studio](https://ai.azure.com), you could directly use the default content filter, but when you want to have more customized setting on content filter, for example set a stricter or looser filter, or enable more advanced capabilities, like jailbreak risk detection and protected material detection.  
+For any model deployment in [Azure AI Studio](https://ai.azure.com), you can directly use the default content filter, but you might want to have more control. For example, you could make a filter stricter or more lenient, or enable more advanced capabilities like prompt shields and protected material detection.
 
 Follow these steps to create a content filter:
 
@@ -87,7 +87,7 @@ Now, you can go to the playground to test whether the content filter works as ex
 
 ## Content filtering categories and configurability
 
-The content filtering system integrated in Azure AI Studio contains neural multi-class classification models aimed at detecting and filtering harmful content; the models cover four categories (hate, sexual, violence, and self-harm) across four severity levels (safe, low, medium, and high). Content detected at the 'safe' severity level is labeled in annotations but isn't subject to filtering and isn't configurable.
+You can apply a blocklist as either an input or output filter, or both. Enable the **Blocklist** option on the **Input filter** and/or **Output filter** page. Select one or more blocklists from the dropdown, or use the built-in profanity blocklist. You can combine multiple blocklists into the same filter.
 
 ### Categories
 
