@@ -242,7 +242,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 4. Copy the URL value for `statusQueryGetUri`, paste it into the browser's address bar, and execute the request.
 
-    The request will query the orchestration instance for the status. You should see that the instance has completed and includes the outputs or results of the durable function. It looks like:
+    The request will query the orchestration instance for the status. You should see that the instance has completed and includes the outputs of your activity invocations. It looks like:
 
     ```json
     {
