@@ -7,8 +7,9 @@ ms.subservice: redhat
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
-ms.date: 06/06/2024
+ms.date: 06/11/2024
 ms.author: arukum
+ms.custom: references_regions
 ---
 
 # Red Hat Enterprise Linux (RHEL) Extended Life Cycle Support
@@ -24,14 +25,14 @@ This article provides information on Extended Life Cycle Support for the Red Hat
 
 Microsoft Azure follows the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata/#:~:text=Red%20Hat%20Enterprise%20Linux%20Version%208%20and%209,Support%20Phases%20followed%20by%20an%20Extended%20Life%20Phase.). If you have valid Extended Update Support agreement from Red Hat or a Red Hat Partner you continue to receive support on Azure, including our integrated customer support  (subject to our [support terms](/troubleshoot/azure/cloud-services/support-linux-open-source-technology)).
 
-## Red Hat Enterprise Linux 6 Lifecycle
+## Red Hat Enterprise Linux 6 Life Cycle
 Red Hat Enterprise Linux 6 will reach permanent end of maintenance (including extended support) on June 30, 2024. Upgrading to Red Hat Enterprise Linux 7 with Extended Life Cycle Support (ELS), 8 or 9. Check [FAQ: Red Hat Enterprise Linux 6 reaches End of Maintenance Phase and transitions to Extended Life Phase](https://access.redhat.com/articles/4665701) for more details on RHEL6 ELS.
 
-## Red Hat Enterprise Linux 7 Lifecycle
+## Red Hat Enterprise Linux 7 Life Cycle
 Starting June 30, 2024, Red Hat Enterprise Linux 7 will reach the end of maintenance support 2 phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 7 transitions out of the Full/Maintenance Phases, upgrading to Red Hat Enterprise Linux 8 or 9. If customers must stay on Red Hat Enterprise Linux 7, it's recommended to add the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
 
 ## Steps to add Extended Life Cycle Support (ELS) through Azure Marketplace
-1. "ELS" can be purchased thru the following Azure marketplace offers: 
+1. "ELS" can be purchased thru the following Azure Marketplace offers: 
     - For customers outside of EMEA Regions - [Red Hat Enterprise Linux 7 Extended Life Cycle Support (ELS) by Red Hat Inc](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-els-7?tab=Overview) 
     - For customers in EMEA Regions - [Red Hat Enterprise Linux 7 Extended Life Cycle Support (ELS) by Red Hat Limited](https://azuremarketplace.microsoft.com/marketplace/apps/redhat-limited.rh-rhel-els-7?tab=Overview) 
 1. "After" purchasing the SaaS offer from Marketplace, implement the steps outlined in [Enabling Red Hat Enterprise Linux 7 Extended Life-cycle Support via Cloud Marketplaces](https://access.redhat.com/articles/rhel-7-els-on-cloud) to configure the ELS add-on repos in Azure RHEL Virtual Machine.
@@ -78,9 +79,7 @@ They continue to run but will no longer receive security updates and support, le
 [FAQ: Red Hat Enterprise Linux 7 reaches End of Maintenance Phase and transitions to Extended Life Phase - Red Hat Customer Portal] (https://access.redhat.com/articles/7005471)
 
 #### Why is the SaaS offer asking for Resource Group (RG) information when purchasing? 
-Azure provides four levels of management: management groups, subscriptions, resource groups, and resources. Resource Groups are used to organize your Azure resources more effectively. If you are applying the RHEL 7 ELS offer to VM’s within a Resource Group, Azure prompts you for the name of the Resource Group. The offer is applied to each of the RHEL 7 ELS VM’s within it.
-
-
+Azure provides four levels of management: management groups, subscriptions, resource groups, and resources. Resource Groups are used to organize your Azure resources more effectively. If you are applying the RHEL 7 ELS offer to VMs within a Resource Group, Azure prompts you for the name of the Resource Group. The offer is applied to each of the RHEL 7 ELS VMs within it.
 
 ## Next steps
 
