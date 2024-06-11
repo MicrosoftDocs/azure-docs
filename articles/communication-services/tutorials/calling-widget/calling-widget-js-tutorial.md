@@ -198,6 +198,9 @@ This script using Node starts an HTTP server and hosts the `index.html` file and
 
 Click the `start call` button seen in the [UI Library `CallComposite`](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) to initiate a call to your Teams voice app.
 
+## Taking to Production
+Currently this tutorial and the JS bundles are in public preview. If you are wanting to see how you can use the `CallComposite` to create Click to Call experiences for you product today, we have a discussion post in our [Github repo](https://github.com/Azure/communication-ui-library) that will show you how to integrate the UI library on other Node Frameworks. The steps of the tutorial you just did directly translate to what is outlined in this show and tell on [loading the UI library composites in other frameworks than React](https://github.com/Azure/communication-ui-library/discussions/4723).
+
 ## Next steps
 
 For more information about Teams voice applications, check out our documentation on Teams auto attendants and Teams call queues. Or also see our tutorial to build a more complete experience using [React](https://react.dev/).
