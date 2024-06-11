@@ -5,7 +5,7 @@ description: embedding model regional availability
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 03/13/2024
+ms.date: 06/11/2024
 ---
 
 | **Region**   | **text-embedding-ada-002**, **1**   | **text-embedding-ada-002**, **2**   | **text-embedding-3-small**, **1**   | **text-embedding-3-large**, **1**   |
@@ -28,3 +28,4 @@ ms.date: 03/13/2024
 | westeurope       | -                             | ✅                              | -                             | -                             |
 | westus           | -                             | ✅                              | -                             | -                             |
 | westus3          | -                             | ✅                              | -                             | ✅                              |
+
