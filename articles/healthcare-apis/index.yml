@@ -127,7 +127,17 @@ conceptualContent:
             - url: ./events/events-troubleshooting-guide.md
               itemType: how-to-guide
               text: Troubleshoot events
-             
+                     
+        # Card
+        - title: De-identification service
+          links:
+            - url: ./deidentification/overview.md
+              itemType: overview
+              text: De-ID ./deidentification/overview.md
+            - url: ./deidentification/quickstart.md
+              itemType: how-to-guide
+              text: De-ID quickstart
+
 additionalContent:
   sections:
     - title: Tools & resources 
