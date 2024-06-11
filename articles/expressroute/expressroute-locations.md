@@ -307,7 +307,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Tamares Telecom](https://www.tamarestelecom.com/services/)** | Equinix | London | 
 | **[Tata Teleservices](https://www.tatatelebusiness.com/data-services/ez-cloud-connect/)** | Tata Communications | Chennai<br/>Mumbai |
 | **[TDC Erhverv](https://tdc.dk/)** | Equinix | Amsterdam | 
-| **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/enterprise-platform/sparkle-cloud-connect/)**| Equinix | Amsterdam |
+| **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/enterprise-platform/sparkle-cloud-connect)**| Equinix | Amsterdam |
 | **[Telekom Deutschland GmbH](https://cloud.telekom.de/de/infrastruktur/managed-it-services/managed-hybrid-infrastructure-mit-microsoft-azure)** | Interxion | Amsterdam<br/>Frankfurt |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdam |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
