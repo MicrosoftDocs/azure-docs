@@ -12,7 +12,7 @@ ms.author: jacobjaygbay
 
 # Provision Oracle Autonomous Databases
 
-This article discusses how provision and conduct basic management functions for an Oracle Autonomous Database Serverless instance from the Oracle Autonomous Database@Azure blade. More management functions are available within the Oracle Cloud Infrastructure (OCI) portal available via the link to that Oracle Autonomous Database from the Oracle Autonomous Database@Azure blade.
+This article discusses how to provision and conduct basic management functions for an Oracle Autonomous Database Serverless instance from the Oracle Autonomous Database@Azure blade. More management functions are available within the Oracle Cloud Infrastructure (OCI) portal available via the link to that Oracle Autonomous Database from the Oracle Autonomous Database@Azure blade.
 
 1. Provision an Oracle Autonomous Database instance from the Microsoft Azure portal. Select the Oracle Autonomous Database@Azure blade.
 1. There are two paths to begin the Oracle Autonomous Database instance provisioning flow.
