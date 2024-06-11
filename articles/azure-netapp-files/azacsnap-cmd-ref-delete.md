@@ -32,7 +32,7 @@ The `-c delete` command has the following options:
 
 - `--delete sync` when used with options `--dbsid <SID>` and `--snapshot <snapshot name>` will check for any entries in the backup catalog for the `<snapshot name>`, gets the SAP HANA backup ID and deletes both the entry in the backup catalog _and_ the snapshot from any of the volumes containing the named snapshot.
 
-  > [!IMPORTANT}
+  > [!IMPORTANT]
   > In case the `anfBackup` option is configured in the AzAcSnap JSON configuration file, then for the `--snapshot <snapshot name>` the volume portion of the snapshot name must not be provided!
 
 - `[--force]` (optional) *Use with caution*.  This operation will force deletion without prompting for confirmation.
