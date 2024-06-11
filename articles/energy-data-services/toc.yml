@@ -8,6 +8,8 @@
     - name: About Domain Data Management Services (DDMS)
       displayName: DDMS overview
       href: overview-ddms.md
+    - name: OSDU:tm: Services Available on Azure Data Manager for Energy
+      href: osdu-services-on-adme.md
     - name: What's new
       items:
         - name: Release notes
