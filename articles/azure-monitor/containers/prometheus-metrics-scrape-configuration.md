@@ -508,64 +508,87 @@ Please follow the below steps.
 1. Create a secret object using the TLS certificate in the **kube-system** namespace named **ama-metrics-mtls-secret**. Inside the secret object , you can specify as many number of secret values under data section and name them how ever you want.
    Each secret name-value pair specified in the data section of the secret object will be mounted as a seperate file in this /etc/prometheus/certs  location with filename(s) same as key(s) specified in the data section.
    The secret values should be base64 encoded before putting them under the data section, in case of creating secret with YAML as shown below.
-   
+
+   ### [Create secret with command for CRD based scraping](#tab/CommandSecretCRD)
    Below is an example command for creating a secret using the TLS self-signed certificate, in case of CRD based scraping. Please make sure that the secret object is created using the file naming format exactly as in the example below, in case of a CRD based scraping.
      ```console
     kubectl create secret generic ama-metrics-mtls-secret --from-file=secret_kube-system_ama-metrics-mtls-secret_<certfile>=secret_kube-system_ama-metrics-mtls-secret_<certfile> --from-file=secret_kube-system_ama-metrics-mtls-secret_<keyfile>=secret_kube-system_ama-metrics-mtls-secret_<keyfile> -n kube-system
     ```
-
+   ### [Create secret with command for Configmap based scraping](#tab/CommandSecretConfigmap)
    Below is an example command for creating a secret using the TLS self-signed certificate, in case of config map based scraping. 
      ```console
     kubectl create secret generic ama-metrics-mtls-secret --from-file=<certfile>=<certfile> --from-file=<keyfile>=<keyfile> -n kube-system
     ```   
-    
-    Below is an example of creating secret through YAML, in case of config map based scraping. 
+   ### [Create secret using YAML](#tab/YAMLSecret) 
+   Below is an example of creating secret through YAML. 
 
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: ama-metrics-mtls-secret
-  namespace: kube-system
-type: Opaque
-data:
-  <certfile>: base64_cert_content    
-  <keyfile>: base64_key_content 
-```
-The **ama-metrics-mtls-secret** secret is mounted on to the ama-metrics containers at path - **/etc/prometheus/certs/**  and is made available to the process that is scraping prometheus metrics. The key( ex - certfile) in the above example will be the file name and the value is base64 decoded and added to the contents of the file within the container and the prometheus scraper uses the contents of this file to get the value that is used as the password used to scrape the endpoint.
+   ```yaml
+   apiVersion: v1
+   kind: Secret
+   metadata:
+     name: ama-metrics-mtls-secret
+     namespace: kube-system
+   type: Opaque
+   data:
+     <certfile>: base64_cert_content    
+     <keyfile>: base64_key_content 
+   ```
+   
+   ### [Create secret using YAML for both basic and Tls auth](#tab/YAMLSecretBasicTls) 
+
+   If you want to use both basic and Tls authentication settings in your configmap/CRD, just make sure that the secret **ama-metrics-mtls-secret** includes all the files(keys) under the data section with their corresponding base 64 encoded values, as shown below.
+   
+   ```yaml
+   apiVersion: v1
+   kind: Secret
+   metadata:
+     name: ama-metrics-mtls-secret
+     namespace: kube-system
+   type: Opaque
+   data:
+     certfile: base64_cert_content    # used for Tls
+     keyfile: base64_key_content      # used for Tls
+     password1: base64-encoded-string # used for basic auth
+     password2: base64-encoded-string # used for basic auth
+   ```yaml
+   
+---
+      
+   The **ama-metrics-mtls-secret** secret is mounted on to the ama-metrics containers at path - **/etc/prometheus/certs/**  and is made available to the process that is scraping prometheus metrics. The key( ex - certfile) in the above example will be the file name and the value is base64 decoded and added to the contents of the file within the container and    the prometheus scraper uses the contents of this file to get the value that is used as the password used to scrape the endpoint.
+
 
 2. Below are the details about how to provide the TLS config settings through a configmap or CRD.
    
 ### [Scrape Config using Config File](#tab/ConfigFileScrapeConfigTLSAuth)
 
-- To provide the TLS config setting in a configmap, please follow the below example.
-
-```yaml
-tls_config:
-    ca_file: /etc/prometheus/certs/<certfile> # since it is self-signed
-    cert_file: /etc/prometheus/certs/<certfile>
-    key_file: /etc/prometheus/certs/<keyfile>
-    insecure_skip_verify: false
-```
+   - To provide the TLS config setting in a configmap, please follow the below example.
+   
+   ```yaml
+   tls_config:
+       ca_file: /etc/prometheus/certs/<certfile> # since it is self-signed
+       cert_file: /etc/prometheus/certs/<certfile>
+       key_file: /etc/prometheus/certs/<keyfile>
+       insecure_skip_verify: false
+   ```
 ### [Scrape Config using CRD(Pod/Service Monitor)](#tab/CRDScrapeConfigTLSAuth)
 
-- To provide the TLS config setting in a CRD(Pod/Service Monitor), please follow the below example.
-
-```yaml
-tlsConfig:
-    ca:
-        secret:
-        key: "<certfile>" # since it is self-signed
-        name: "ama-metrics-mtls-secret"
-    cert:
-        secret:
-        key: "<certfile>"
-        name: "ama-metrics-mtls-secret"
-    keySecret:
-        key: "<keyfile>"
-        name: "ama-metrics-mtls-secret"
-    insecureSkipVerify: false
-```
+   - To provide the TLS config setting in a CRD(Pod/Service Monitor), please follow the below example.
+   
+   ```yaml
+   tlsConfig:
+       ca:
+           secret:
+           key: "<certfile>" # since it is self-signed
+           name: "ama-metrics-mtls-secret"
+       cert:
+           secret:
+           key: "<certfile>"
+           name: "ama-metrics-mtls-secret"
+       keySecret:
+           key: "<keyfile>"
+           name: "ama-metrics-mtls-secret"
+       insecureSkipVerify: false
+   ```
 
 ---
 > [!NOTE]
@@ -575,23 +598,6 @@ tlsConfig:
 > The base64 encoded value is automatically decoded by the agent pods when the secret is mounted as file.
 >
 > Make sure the secret name is **ama-metrics-mtls-secret** and it is in **kube-system** namespace.
->
-> If you want to use both basic and Tls authentication settings in your configmap/CRD, just make sure that the secret **ama-metrics-mtls-secret** includes all the files(keys) under the data section with their corresponding base 64 encoded values, as shown below.
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: ama-metrics-mtls-secret
-  namespace: kube-system
-type: Opaque
-data:
-  certfile: base64_cert_content    # used for Tls
-  keyfile: base64_key_content      # used for Tls
-  password1: base64-encoded-string # used for basic auth
-  password2: base64-encoded-string # used for basic auth
-```yaml
-
 > 
 > The secret should be created and then the configmap/CRD should be created in kube-system namespace. The order of secret creation matters. When there's no secret but a valid CRD/config map, you will find errors in collector log -> `no file found for cert....`
 > 
