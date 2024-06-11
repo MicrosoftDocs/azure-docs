@@ -148,7 +148,7 @@ Azure Spring Apps supports Azure DevOps Server, GitHub, GitLab, and Bitbucket fo
 Some configurable properties are available only for certain types. The following sections describe the properties for each repository type.
 
 > [!NOTE]
-> Config Server takes `master` (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from `master` to `main`. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly-created repositories.
+> Config Server takes `master` (on Git) as the default label if you don't specify one. However, GitHub has recently changed the default branch from `master` to `main`. To avoid Azure Spring Apps Config Server failure, be sure to pay attention to the default label when setting up Config Server with GitHub, especially for newly created repositories.
 >
 > Using a hyphen (-) to separate words is the only property naming convention currently supported. For example, you can use `default-label`, but not `defaultLabel`.
 
