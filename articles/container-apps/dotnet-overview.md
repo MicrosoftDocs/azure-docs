@@ -113,7 +113,7 @@ By default, Azure Container Apps automatically scales your ASP.NET Core apps bas
 
 Auto-scaling changes the number of replicas of your app based on the rules you define. By default, Container Apps randomly routes incoming traffic to the replicas of your ASP.NET Core app. This means that your app should be stateless, so that clients don't experience any issues when their requests are routed to different replicas.
 
-There are ASP.NET Core features that require additional configuration to work correctly when scaled to multiple replicas: data protection, SignalR, and Blazor Server.
+Features such as anti-forgery, authentication, and Razor Pages depend on data protection and will require additional configuration to work correctly when scaling to multiple replicas. 
 
 #### Configure data protection
 
