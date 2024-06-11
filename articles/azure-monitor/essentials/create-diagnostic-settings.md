@@ -97,9 +97,9 @@ $metric = @()
 $log = @()
 $metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics
 # For all available logs, use:
-$log = New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs  
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs  
 # or, for audit logs, use:
-$log = New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup audit    
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup audit    
 New-AzDiagnosticSetting -Name 'KeyVault-Diagnostics' -ResourceId $KV.ResourceId -WorkspaceId $Law.ResourceId -Log $log -Metric $metric -Verbose
 ```
 
