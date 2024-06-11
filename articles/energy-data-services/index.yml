@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is Microsoft Azure Data Manager for Energy?
             url: overview-microsoft-energy-data-services.md
+          - text: OSDU:tm: Services Available on Azure Data Manager for Energy
+            url: osdu-services-on-adme.md
       - linkListType: quickstart
         links:
           - text: Create a Microsoft Azure Data Manager for Energy instance
