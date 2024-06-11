@@ -26,24 +26,20 @@ You can use following directions to update client root CA certificates for clien
 If necessary certificates are not present in the java key store on the client,as can be checked in output, you should proceed with following directions:
    
 1. Make a backup copy of your custom keystore.
-2. Download [certificates](../flexible-server/concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)
-3. Generate a combined CA certificate store with both Root CA certificates are included. Example below shows using DefaultJavaSSLFactory for PostgreSQL JDBC users.
+2. Download [certificates](../flexible-server/concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios) and save these locally where you can reference these. 
+3. Generate a combined CA certificate store with all needed Root CA certificates are included. Example below shows using DefaultJavaSSLFactory for PostgreSQL JDBC users.
 
-     * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona) 
+     
      ```powershell
  
  
          keytool -importcert -alias PostgreSQLServerCACert  -file D:\ DigiCertGlobalRootG2.crt.pem   -keystore truststore -storepass password -noprompt
 
          keytool -importcert -alias PostgreSQLServerCACert2  -file "D:\ Microsoft ECC Root Certificate Authority 2017.crt.pem" -keystore truststore -storepass password  -noprompt
-      ```
-     * For connectivity to servers deployed in Azure public regions worldwide
-    ```powershell
 
          keytool -importcert -alias PostgreSQLServerCACert  -file D:\ DigiCertGlobalRootCA.crt.pem   -keystore truststore -storepass password -noprompt
-
-         keytool -importcert -alias PostgreSQLServerCACert2  -file "D:\ Microsoft ECC Root Certificate Authority 2017.crt.pem" -keystore truststore -storepass password  -noprompt
-    ```
+      ```
+   
 
  5. Replace the original keystore file with the new generated one:
  
@@ -56,7 +52,7 @@ If necessary certificates are not present in the java key store on the client,as
 For more information on configuring client certificates with PostgreSQL JDBC driver, see this [documentation.](https://jdbc.postgresql.org/documentation/ssl/)
 
 > [!NOTE]
-> To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format. You ?..can use **[OpenSSL utility to do these file conversions](./concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)**.
+> To import certificates to client certificate stores you may have to convert certificate .crt files to .pem format. You can use **[OpenSSL utility to do these file conversions](./concepts-networking-ssl-tls.md#downloading-root-ca-certificates-and-updating-application-clients-in-certificate-pinning-scenarios)**.
 
 ## Get list of trusted certificates in Java Key Store programmatically
 
@@ -101,9 +97,7 @@ If you're trying to connect to the Azure Database for PostgreSQL using applicati
 
 ## Updating Root CA certificates for .NET (Npgsql) users on Windows with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
 
-For .NET (Npgsql) users on Windows, connecting to Azure Database for PostgreSQL - Flexible Servers deployed in Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona)  make sure **both** Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root G2 both exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
-
-For .NET (Npgsql) users on Windows, connecting to Azure Database for PostgreSQL - Flexible Servers deployed in Azure public regions worldwide  make sure **both** Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root CA **both** exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
+For .NET (Npgsql) users on Windows, connecting to Azure Database for PostgreSQL - Flexible Servers,  make sure **all three** Microsoft RSA Root Certificate Authority 2017 ,  DigiCert Global Root G2, as well as Digicert Global Root CA all exist in Windows Certificate Store, Trusted Root Certification Authorities. If any certificates don't exist, import the missing certificate.
 
 
 
