@@ -152,8 +152,6 @@
     href: security-overview.md
   - name: Onboarding
     href: security-onboarding.md
-  - name: Updates
-    href: security-updates.md
   - name: Networking security
     href: security-networking.md
   - name: Extensions security
@@ -162,14 +160,8 @@
     href: security-machine-configuration.md
   - name: Identify and authorization
     href: security-identity-authorization.md
-  - name: Remote access
-    href: security-remote-access.md
-  - name: Tier 0 security considerations
-    href: security-tier-zero.md
   - name: Data and privacy
     href: security-data-privacy.md
-  - name: Logging and auditing
-    href: security-logging-auditing.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-arc-enabled-servers-security-baseline?toc=/azure/azure-arc/servers/toc.json
   - name: Security controls by Azure Policy
