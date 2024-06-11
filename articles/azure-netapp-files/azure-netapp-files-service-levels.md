@@ -28,7 +28,7 @@ Azure NetApp Files supports three service levels: *Ultra*, *Premium*, and *Stand
     The Ultra service level provides up to 128 MiB/s of throughput per 1 TiB of capacity provisioned. 
 
 * <a name="Optimum"></a>Optimum storage:
-    The Optimum service level enables you to adjust throughput and size limits for independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Optimum service level supports throughput values between 128 and 2560 MiB/s per 1 TiB of capacity provisioned. 
+    The Optimum service level enables you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Optimum service level supports throughput values between 128 and 2560 MiB/s per 1 TiB of capacity provisioned. 
 
     Optimum storage capacity pools enforce single encryption. They do not support double encryption. 
 

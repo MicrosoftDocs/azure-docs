@@ -63,7 +63,7 @@ When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), y
 
 In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. For minimum and maximum throughput levels, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It's determined by the combination of the pool size and the service-level throughput.  For instance, a 4-TiB capacity pool with the Ultra service level has a total throughput capacity of 512 MiB/s (4 TiB x 128 MiB/s/TiB) available for the volumes.
 
-Manual QoS capacity pools also support the [**Optimum** service level](azure-netapp-files-service-levels.md#optimum), enabling you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Optimum service level supports throughput values between 128 and 2560 MiB/s per 1 TiB of capacity provisioned. 
+Manual QoS capacity pools also support the [**Optimum** service level](azure-netapp-files-service-levels.md#Optimum), enabling you to adjust throughput and size limits independently for capacity pools using manual QoS. This service level is designed for demanding applications such as Oracle or SAP HANA. The Optimum service level supports throughput values between 128 and 2560 MiB/s per 1 TiB of capacity provisioned. 
 
 ##### Example of using manual QoS
 
