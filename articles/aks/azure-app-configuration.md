@@ -82,16 +82,15 @@ Create a Bicep template using the following example.
 @description('The name of the Managed Cluster resource.')
 param clusterName string
 
-resource existingManagedClusters 'Microsoft.ContainerService/managedClusters@2023-05-02-preview' existing = {
+resource existingManagedCluster 'Microsoft.ContainerService/managedClusters@2024-02-01' existing = {
   name: clusterName
 }
 
 resource appConfigExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01' = {
   name: 'appconfigurationkubernetesprovider'
-  scope: existingManagedClusters
+  scope: existingManagedCluster
   properties: {
     autoUpgradeMinorVersion: true
-    configurationProtectedSettings: {}
     configurationSettings: {
       'global.clusterType': 'managedclusters'
     }
@@ -159,16 +158,15 @@ Create a Bicep template using the following example.
 @description('The name of the Managed Cluster resource.')
 param clusterName string
 
-resource existingManagedClusters 'Microsoft.ContainerService/managedClusters@2023-05-02-preview' existing = {
+resource existingManagedCluster 'Microsoft.ContainerService/managedClusters@2024-02-01' existing = {
   name: clusterName
 }
 
 resource appConfigExtension 'Microsoft.KubernetesConfiguration/extensions@2022-11-01' = {
   name: 'appconfigurationkubernetesprovider'
-  scope: existingManagedClusters
+  scope: existingManagedCluster
   properties: {
     autoUpgradeMinorVersion: false
-    configurationProtectedSettings: {}
     configurationSettings: {
       'global.clusterType': 'managedclusters'
     }
