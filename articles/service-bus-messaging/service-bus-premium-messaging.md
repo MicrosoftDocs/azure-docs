@@ -16,7 +16,7 @@ Some high-level differences are highlighted in the following table.
 
 | Criteria | Premium | Standard |
 |--- | --- | --- |
-| Throughout | High throughput |Variable throughput |
+| Throughput | High throughput |Variable throughput |
 | Performance | Predictable performance |Variable latency |
 | Pricing | Fixed pricing |Pay as you go variable pricing |
 | Scale | Ability to scale workload up and down |N/A |
