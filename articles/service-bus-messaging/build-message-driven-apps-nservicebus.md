@@ -25,7 +25,7 @@ The sample assumes you've [created an Azure Service Bus namespace](service-bus-q
 ## Download and prepare the solution
 1. Download the code from the [Particular Software Docs web site](https://docs.particular.net/samples/azure-service-bus-netstandard/send-receive-with-nservicebus/). The solution `SendReceiveWithNservicebus.sln` consists of three projects:
 
-   - **Sender**: a console application that sends messages
+    - **Sender**: a console application that sends messages
     - **Receiver**: a console application that receives messages from the sender and replies back
     - **Shared**: a class library containing the message contracts shared between the sender and receiver
     
@@ -266,7 +266,7 @@ Before we discuss how this policy works, let's see it in action. Before you test
 throw new Exception("BOOM");
 ```
 
-Now, when the Receiver handles a `Ping` message, it will fail. Launch the solution again and let's see what happens in the Receiver.
+Now, when the Receiver handles a `Ping` message, it will fail. Launch the solution again and let's see what happens in the Receiver. 
 
 With our less reliable `PingHandler`, all of our messages fail. You can see the retry policy kicking in for those messages. The first time a message fails, it's immediately retried up to three times:
 
