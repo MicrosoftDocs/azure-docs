@@ -31,7 +31,7 @@ Capabilities of the Azure Key Vault Secrets Provider extension include:
   - Elastic Kubernetes Service
   - Tanzu Kubernetes Grid
   - Azure Red Hat OpenShift
-- Connectivity to the following endpoints:
+- Outbound connectivity to the following endpoints:
   - `linuxgeneva-microsoft.azurecr.io`
   - `upstreamarc.azurecr.io`
   - `*.blob.core.windows.net`
