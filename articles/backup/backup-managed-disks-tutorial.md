@@ -20,9 +20,11 @@ Before you back up an Azure Managed Disk, ensure that you [create a Backup vault
 
 For information on the Azure Disk backup region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
 
-## Create Backup policy
+## Create a backup policy
 
-1. In the *DemoVault* **Backup vault** created in the previous step, go to **Backup policies** and select **Add**.
+To create a backup policy for disk backup, follow these steps:
+
+1. In the **Backup vault**, go to **Backup policies** and select **Add**.
 
    :::image type="content" source="./media/backup-managed-disks/backup-policies.png" alt-text="Screenshot shows how to add backup policy." lightbox="./media/backup-managed-disks/backup-policies.png":::
 
@@ -173,7 +175,9 @@ To configure disk backup, follow these steps:
 
 ## Run an on-demand backup
 
-1. In the *DemoVault* **Backup vault** created in the previous step, go to **Backup instances** and select a backup instance.
+To run an on-demand disk backup, follow these steps:
+
+1. In the **Backup vault**, go to **Backup instances** and select a backup instance.
 
    :::image type="content" source="./media/backup-managed-disks/select-backup-instance.png" alt-text="Screenshot shows how to select backup instance." lightbox="./media/backup-managed-disks/select-backup-instance.png":::
 
