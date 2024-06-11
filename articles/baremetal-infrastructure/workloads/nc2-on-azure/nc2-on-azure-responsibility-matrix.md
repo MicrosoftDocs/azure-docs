@@ -12,7 +12,12 @@ ms.date: 06/07/2024
 
 # NC2 on Azure responsibility matrix
 
-On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform. For NC2 on Azure Microsoft maintains the hardware for the customer. Let's look at what the customer manages versus what Microsoft & Nutanix manages.
+On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform. For NC2 on Azure Microsoft maintains the hardware for the customer. The following table identifies areas or management, where: 
+
+* Microsoft NC2 team = blue
+* Nutanix = purple 
+* Customer = grey
+* Microsoft Azure native = white
 
 :::image type="content" source="media/nc2-on-azure-responsibility-matrix.png" alt-text="A diagram showing the support responsibilities for Microsoft and partners.":::
 
