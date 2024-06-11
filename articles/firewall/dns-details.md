@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 06/11/2024
 ms.author: victorh
 ---
 
@@ -17,7 +17,7 @@ The following information describes some implementation details for Azure Firewa
 
 ## FQDNs with multiple A records
 
-Azure Firewall acts as a standard DNS client. If multiple A records are in the response, the firewall stores all the records in cache. If there’s one record per response, the firewall stores only single record. There's no way for a client to know ahead of time if it should expect one or multiple A records in responses.
+Azure Firewall acts as a standard DNS client. If multiple A records are in the response, the firewall stores all the records in cache and offers them to the client in the response. If there’s one record per response, the firewall stores only a single record. There's no way for a client to know ahead of time if it should expect one or multiple A records in responses.
 
 ## FQDN Time to Live (TTL)
 
