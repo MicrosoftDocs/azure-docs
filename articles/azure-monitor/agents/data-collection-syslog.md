@@ -20,6 +20,10 @@ When the Azure Monitor agent for Linux is installed, it configures the local Sys
 
 :::image type="content" source="media/azure-monitor-agent/linux-agent-syslog-communication.png" lightbox="media/azure-monitor-agent/linux-agent-syslog-communication.png" alt-text="Diagram that shows Syslog daemon and Azure Monitor Agent communication.":::
 
+>[!Note]
+> Azure Monitor Agent uses a TCP port to receive messages sent by rsyslog or syslog-ng, however, in case SELinux is enabled and we aren't able to use semanage to add rules for the TCP port, we will use Unix sockets.
+
+
 The following facilities are supported with the Syslog collector:
 * None
 * Kern
@@ -147,7 +151,24 @@ queue.dequeueBatchSize="2048"
 queue.saveonshutdown="on"
 target="127.0.0.1" Port="28330" Protocol="tcp")
 ```
- 
+
+The following configuration is used when you use SELinux and we decide to use Unix sockets.
+```
+$ cat /etc/rsyslog.d/10-azuremonitoragent.conf
+# Azure Monitor Agent configuration: forward logs to azuremonitoragent
+$OMUxSockSocket /run/azuremonitoragent/default_syslog.socket
+template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="<%PRI%>%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%") 
+$OMUxSockDefaultTemplate AMA_RSYSLOG_TraditionalForwardFormat
+# Forwarding all events through Unix Domain Socket
+*.* :omuxsock: 
+```
+
+```
+$ cat /etc/rsyslog.d/05-azuremonitoragent-loadomuxsock.conf
+# Azure Monitor Agent configuration: load rsyslog forwarding module. 
+$ModLoad omuxsock
+```
+
 On some legacy systems, such as CentOS 7.3, we've seen rsyslog log formatting issues when a traditional forwarding format is used to send Syslog events to Azure Monitor Agent. For these systems, Azure Monitor Agent automatically places a legacy forwarder template instead:
 
 `template(name="AMA_RSYSLOG_TraditionalForwardFormat" type="string" string="%TIMESTAMP% %HOSTNAME% %syslogtag%%msg:::sp-if-no-1st-sp%%msg%\n")`
@@ -176,6 +197,23 @@ log {
 	destination(d_azure_mdsd);
 	flags(flow-control);
 };
+```
+The following configuration is used when you use SELinux and we decide to use Unix sockets.
+```
+$ cat /etc/syslog-ng/conf.d/azuremonitoragent.conf 
+# Azure MDSD configuration: syslog forwarding config for mdsd agent options {}; 
+# during install time, we detect if s_src exist, if it does then we 
+# replace it by appropriate source name like in redhat 's_sys' 
+# Forwrding using unix domain socket 
+destination d_azure_mdsd { 
+	unix-dgram("/run/azuremonitoragent/default_syslog.socket" 
+	flags(no_multi_line) ); 
+};
+ 
+log {
+	source(s_src); # will be automatically parsed from /etc/syslog-ng/syslog-ng.conf 
+	destination(d_azure_mdsd);
+}; 
 ```
 
 >[!Note]

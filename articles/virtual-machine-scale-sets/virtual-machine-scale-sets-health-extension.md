@@ -154,6 +154,7 @@ The following JSON shows the schema for the Application Health extension. The ex
 {
   "extensionProfile" : {
      "extensions" : [
+      {
         "name": "HealthExtension",
         "properties": {
           "publisher": "Microsoft.ManagedServices",
@@ -168,7 +169,8 @@ The following JSON shows the schema for the Application Health extension. The ex
             "numberOfProbes": 1
           }
         }
-     ]
+      }
+    ]
   }
 } 
 ```
@@ -201,6 +203,7 @@ The following JSON shows the schema for the Rich Health States extension. The ex
 {
   "extensionProfile" : {
      "extensions" : [
+      {
         "name": "HealthExtension",
         "properties": {
           "publisher": "Microsoft.ManagedServices",
@@ -216,7 +219,8 @@ The following JSON shows the schema for the Rich Health States extension. The ex
             "gracePeriod": 600
           }
         }
-     ]
+      }
+    ]
   }
 } 
 ```

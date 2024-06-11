@@ -4,6 +4,7 @@ author: markingmyname
 ms.author: maghan
 ms.date: 03/19/2024
 ms.service: postgresql
+ms.custom: devx-track-azurecli
 ms.topic: include
 ---
 
@@ -77,7 +78,7 @@ We're going to migrate "ticketdb","inventorydb","salesdb" into Azure Database fo
 
 ## Cancel the migration using CLI
 
-You can cancel any ongoing migration attempts by using the `cancel` command. This command stops the particular migration attempt but doesn't drop or roll back any changes on your target server. Here's the CLI command to delete a migration:
+You can cancel any ongoing migration attempts by using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
 
 ```azurecli
 az postgres flexible-server migration update cancel [--subscription]
@@ -103,4 +104,3 @@ The command gives you the following output:
 :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
 
 ---
-

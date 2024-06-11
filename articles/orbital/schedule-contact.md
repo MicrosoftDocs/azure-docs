@@ -1,12 +1,12 @@
 ---
 title: Azure Orbital Ground Station - schedule a contact
 description: Learn how to schedule a contact.
-author: apoorvanori
+author: hrshelar
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
 ms.date: 12/06/2022
-ms.author: apoorvanori
+ms.author: hrshelar
 # Customer intent: As a satellite operator, I want to schedule a contact to ingest data from my satellite into Azure.
 ---
 

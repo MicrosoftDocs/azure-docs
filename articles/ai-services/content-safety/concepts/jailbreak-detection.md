@@ -71,14 +71,15 @@ Currently, the Prompt Shields API supports the English language. While our API d
 
 ### Text length limitations
 
-The maximum character limit for Prompt Shields is 10,000 characters per API call, between both the user prompts and documents combines. If your input (either user prompts or documents) exceeds these character limitations, you'll encounter an error.
+See [Input requirements](/azure/ai-services/content-safety/overview#input-requirements) for maximum text length limitations.
+
+### Regions
+
+To use this API, you must create your Azure AI Content Safety resource in the supported regions. See [Region availability](/azure/ai-services/content-safety/overview#region-availability).
 
 ### TPS limitations
 
-| Pricing Tier | Requests per 10 seconds |
-| :----------- | :---------------------------- |
-| F0           | 1000         |
-| S0           | 1000         |
+See [Query rates](/azure/ai-services/content-safety/overview#query-rates).
 
 If you need a higher rate, please [contact us](mailto:contentsafetysupport@microsoft.com) to request it.
 

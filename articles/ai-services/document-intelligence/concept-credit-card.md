@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 02/29/2024
-ms.author: bemabonsu
+ms.author: lajanuar
 monikerRange: '>=doc-intel-4.0.0'
 ---
 <!-- markdownlint-disable MD033 -->
