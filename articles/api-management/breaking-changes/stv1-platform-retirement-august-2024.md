@@ -36,8 +36,7 @@ If the value of the `platformVersion` property of your service is `stv1`, it's h
 Support for API Management instances hosted on the `stv1` platform will be retired by 31 August 2024.
 
 > [!WARNING]
-> * After 31 August 2024, any instance hosted on the `stv1` platform will be shut down, and the instance won't respond to API requests. 
-> * Data from a shut-down instance will be backed up by Azure. The owner may trigger restoration of the instance on the `stv2` platform, but the instance will remain shut down until then.
+> If your instance is currently hosted on the `stv1` platform, you must migrate to the `stv2` platform. Failure to migrate by the retirement date might result in loss of the environments running APIs and all configuration data.
 
 
 ## What do I need to do?

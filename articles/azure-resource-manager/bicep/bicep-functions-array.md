@@ -1,7 +1,7 @@
 ---
 title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 01/11/2024
 ---

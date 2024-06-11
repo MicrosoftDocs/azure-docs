@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge system requirements
 description: Learn about system requirements for Azure Arc resource bridge.
 ms.topic: conceptual
-ms.date: 02/09/2024
+ms.date: 05/22/2024
 ---
 
 # Azure Arc resource bridge system requirements
@@ -60,7 +60,7 @@ The machine used to run the commands to deploy and maintain Arc resource bridge 
 Management machine requirements:
 
 - [Azure CLI x64](/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed
-- Open communication to Control Plane IP 
+- Communication to Control Plane IP (SSH TCP port 22, Kubernetes API port 6443)
 
 - Communication to Appliance VM IPs (SSH TCP port 22, Kubernetes API port 6443)
 
@@ -68,7 +68,7 @@ Management machine requirements:
 
 - communication over port 443 to the private cloud management console (ex: VMware vCenter machine)
 
-- Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity) for deployment.
+- Internal and external DNS resolution. The DNS server must resolve internal names, such as the vCenter endpoint for vSphere or cloud agent service endpoint for Azure Stack HCI. The DNS server must also be able to resolve external addresses that are [required URLs](network-requirements.md#outbound-connectivity-requirements) for deployment.
 - Internet access
   
 ## Appliance VM IP address requirements
@@ -79,9 +79,9 @@ Appliance VM IP address requirements:
 
 - Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443)
 
-- Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
+- Communication with the private cloud management endpoint via Port 443 (such as VMware vCenter).
 
-- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
+- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity-requirements) enabled in proxy/firewall.
 - Static IP assigned and within the IP address prefix.
 
 - Internal and external DNS resolution.
@@ -95,9 +95,9 @@ Reserved appliance VM IP requirements:
 
 - Communication with the management machine (SSH TCP port 22, Kubernetes API port 6443)
 
-- Communcation with the private cloud management endpoint via Port 443 (such as VMware vCenter).
+- Communication with the private cloud management endpoint via Port 443 (such as VMware vCenter).
 
-- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity) enabled in proxy/firewall.
+- Internet connectivity to [required URLs](network-requirements.md#outbound-connectivity-requirements) enabled in proxy/firewall.
 
 - Static IP assigned and within the IP address prefix.
 
@@ -107,7 +107,7 @@ Reserved appliance VM IP requirements:
 
 ## Control plane IP requirements
 
-The appliance VM hosts a management Kubernetes cluster with a control plane that requires a single, static IP address. This IP is assigned from the `controlplaneendpoint` parameter in the `createconfig` command or equivalent configuration files creation command. 
+The appliance VM hosts a management Kubernetes cluster with a control plane that requires a single, static IP address. This IP is assigned from the `controlplaneendpoint` parameter in the `createconfig` command or equivalent configuration files creation command.
 
 Control plane IP requirements:
 
@@ -168,10 +168,8 @@ By default, these files are generated in the current CLI directory of where the 
 
 The appliance VM hosts a management Kubernetes cluster. The kubeconfig is a low-privilege Kubernetes configuration file that is used to maintain the appliance VM. By default, it's generated in the current CLI directory when the `deploy` command completes. The kubeconfig should be saved in a secure location on the management machine, because it's required for maintaining the appliance VM. If the kubeconfig is lost, it can be retrieved by running the `az arcappliance get-credentials` command.
 
-### HCI login configuration file (Azure Stack HCI only)
-
-Arc resource bridge uses a MOC login credential called KVA token (`kvatoken.tok`) to interact with Azure Stack HCI. The KVA token is generated with the appliance configuration files when deploying Arc resource bridge. This token is also used when collecting logs for Arc resource bridge, so it should be saved in a secure location with the rest of the appliance configuration files. This file is saved in the directory provided during configuration file creation or the default CLI directory.
-
+> [!IMPORTANT]
+> Once the Arc resource bridge VM is created, the configuration settings can't be modified or updated. Also, the appliance VM must stay in the location where it was initially deployed. Capabilities to allow appliance VM configuration and location changes post-deployment will be available in a future release. However, the Arc resource bridge VM name is a unique GUID that can't be renamed as it's an identifier used for cloud-managed upgrade.
 ## Next steps
 
 - Understand [network requirements for Azure Arc resource bridge](network-requirements.md).

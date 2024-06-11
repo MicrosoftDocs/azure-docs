@@ -78,6 +78,8 @@ Here's an example *info* file produced by converting a file called `buggy.gltf`:
     "outputStatistics": {
         "numMeshPartsCreated": 236,
         "numMeshPartsInstanced": 88,
+        "numMaterials": 149,
+        "numPrimitives": 308306,
         "recenteringOffset": [
             -24.1,
             -50.9,
@@ -139,9 +141,9 @@ The content of this section is different for triangular meshes and point clouds.
 # [Triangular meshes](#tab/TriangularMeshes)
 
 * `numMeshes`: The number of mesh parts, where each part can reference a single material.
-* `numFaces`: The total number of triangles in the whole model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
-* `numVertices`: The total number of vertices in the whole model.
-* `numMaterial`: The total number of materials in the whole model.
+* `numFaces`: The total number of triangles in the source model. For an accurate number of output primitives, refer to the `numPrimitives` entry in the [output section](#the-outputstatistics-section).
+* `numVertices`: The total number of vertices in the source model.
+* `numMaterial`: The total number of materials in the source model.
 * `numFacesSmallestMesh`: The number of triangles/points in the smallest mesh of the model.
 * `numFacesBiggestMesh`: The number of triangles/points in the biggest mesh of the model.
 * `numNodes`: The number of nodes in the model's scene graph.
@@ -152,7 +154,7 @@ The content of this section is different for triangular meshes and point clouds.
 
 For point cloud conversions, this section contains only a single entry:
 
-* `numPoints`: The total number of points in the input model.
+* `numPoints`: The total number of points in the input model. For an accurate number of output points, refer to the `numPoints` entry in the [output section](#the-outputstatistics-section).
 ---
 
 ### The *outputInfo* section
