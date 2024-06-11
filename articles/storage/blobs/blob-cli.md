@@ -7,7 +7,7 @@ author: StevenMatthew
 ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 06/11/2024
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
@@ -104,24 +104,24 @@ az storage blob upload-batch \
 
 By default, the `az storage blob list` command lists all blobs stored within a container. You can use various approaches to refine the scope of your search. There's no restriction on the number of containers or blobs a storage account can have. To potentially avoid retrieving thousands of blobs, it's a good idea to limit the amount of data returned.
 
-Use the `--prefix` parameter to select either a single known file or a range of files whose names begin with a defined string.
+Use the `--prefix` parameter to select either a single known file or a range of files whose names begin with a defined string. You can specify a virtual directory as part of the `--prefix` parameter.
 
-By default, only blobs are returned in a listing operation. In some scenarios, you might want to pass a value for the `--include` parameter to return additional types of objects such as soft-deleted blobs, snapshots, and versions. These values can be combined to return more than multiple object types.
+By default, only blobs are returned in a listing operation. In some scenarios, you might want to pass a value for the `--include` parameter to return additional types of objects such as soft-deleted blobs, snapshots, and versions. These values can be combined to return multiple object types.
 
-The `--num-results` parameter can be used to limit the number of unfiltered blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and that performance isn't impacted. If the number of blobs returned exceeds either the `--num-results` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve any number of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
+The `--num-results` parameter can be used to limit the number of blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and that performance isn't impacted. If the number of blobs returned exceeds either the `--num-results` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve any number of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
 
-The following example shows several approaches used to provide a list of blobs. The first approach lists a single blob within a specific container resource. The second approach uses the `--prefix` parameter to list all blobs in all containers with a prefix of *louis*. The search is restricted to five containers using the `--num-results` parameter. The third approach uses `--num-results` and `--marker` parameters to limit the retrieval of all blobs within a container.
+The following example shows several approaches used to provide a list of blobs. The first approach lists all blobs within a specified container. The second approach uses the `--prefix` parameter to list all blobs in the containers that begin with the specified prefix.The third approach uses the `--num-results` parameter to limit the results returned and the `--show-next-marker` parameter to include the continuation token in the results. When a continuation token is present in the results, it is passed to the subsequent call to `az storage blob list` to retrieve the next set of results.
 
 For more information, see the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) reference.
 
 ```azurecli-interactive
 #!/bin/bash
 storageAccount="<storage-account>"
-containerName="demo-container"
-blobPrefix="img-louis"
+containerName="<container-name>"
+blobPrefix="<prefix-string>"
 numResults=5
 
-#Approach 1: List all blobs in a container
+#Approach 1: List all blobs in a container by name.
 
 az storage blob list \
     --account-name $storageAccount \
@@ -130,7 +130,7 @@ az storage blob list \
     --auth-mode login \
     --output tsv
 
-#Approach 2: Use the --prefix parameter to list blobs starting with specified prefix
+#Approach 2: Use the --prefix parameter to list blobs starting with specified prefix.
 
 az storage blob list \
     --account-name $storageAccount \
@@ -140,22 +140,48 @@ az storage blob list \
     --auth-mode login \
     --output tsv
 
-#Approach 3: Use the continuation token to return the next set of blobs.
+#Approach 3: Use the continuation token to return the complete set of results.
 
-$resultSet=$(az storage blob list `
-    --account-name $storageAccount `
-    --container $containerName `
-    --prefix $blobPrefix `
-    --num-results $numResults `
-    --show-next-marker `
-    --query "[].{Name:name, Marker:nextMarker}" `
-    --auth-mode login `
-    --output tsv)
-
-$markerEntry=$resultSet[$numResults] | cut -f2
-$marker= echo $markerEntry | cut -f2
-
-
+get_blobs() {
+    if [ -z "$nextMarker" ]; then
+        az storage blob list --container-name $containerName --num-results $numResults --account-name $storageAccount --show-next-marker --only-show-errors --auth-mode login
+    else
+        az storage blob list --container-name $containerName --num-results $numResults --marker $nextMarker --account-name $storageAccount --show-next-marker --only-show-errors --auth-mode login
+    fi
+}
+ 
+total=0
+nextMarker=""
+while true; do
+    blobs=$(get_blobs $containerName $numResults $storageAccount $nextMarker) 
+    nextMarker=""
+    blobsLength=$(echo $blobs | jq length)
+    
+    if [ $blobsLength -le 0 ]; then
+        break
+    fi
+    
+    blobIndex=0
+    while read blob; do
+        if [ $blobIndex -eq $(($blobsLength-1)) ]; 
+        then
+            nextMarker="$(echo $blob | jq -r .nextMarker)"
+        else
+            blobName=$(echo $blob | jq .name)
+            echo "blobname: $blobName"
+        fi
+        ((blobIndex++))
+    done <<<$(echo $blobs | jq -c '.[]')
+ 
+    total=$(($total+$blobsLength-1))
+    echo "Processed $total blobs so far"
+    # echo "nextMarker: $nextMarker"
+    if [ "${nextMarker}" = "null" ]; then
+        echo -e "\nAccountName: $storageAccount, ContainerName: $containerName "
+        echo "Processed $total blobs in total."
+        break
+    fi
+done
 ```
 
 ## Download a blob
