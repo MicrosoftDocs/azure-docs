@@ -8,7 +8,7 @@ ms.date: 06/11/2024
 
 # Bicep modules
 
-Bicep enables you to organize deployments into modules. A module is a Bicep file (or an ARM JSON template) that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
+Bicep enables you to organize deployments into modules. A module is a Bicep file (or an Azure Resource Manager JSON template) that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
 To share modules with other people in your organization, create a [template spec](../bicep/template-specs.md), or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
 
@@ -19,7 +19,7 @@ To share modules with other people in your organization, create a [template spec
 > - Content in the Bicep module registry can only be deployed from another Bicep file. Template specs can be deployed directly from the API, Azure PowerShell, Azure CLI, and the Azure portal. You can even use [`UiFormDefinition`](../templates/template-specs-create-portal-forms.md) to customize the portal deployment experience.
 > - Bicep has some limited capabilities for embedding other project artifacts (including non-Bicep and non-ARM-template files. For example, PowerShell scripts, CLI scripts and other binaries) by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) and [`loadFileAsBase64`](./bicep-functions-files.md#loadfileasbase64) functions. Template specs can't package these artifacts.
 
-Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template). For more information about how Bicep resolves configuration files and how Bicep merge user-defined configuration file with the default configuration file, see [Configuration file resolution process](./bicep-config.md#understand-the-file-resolution-process) and [Configuration file merge process](./bicep-config.md#understand-the-merge-process).
+Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template). For more information about how Bicep resolves configuration files and how Bicep merges user-defined configuration file with the default configuration file, see [Configuration file resolution process](./bicep-config.md#understand-the-file-resolution-process) and [Configuration file merge process](./bicep-config.md#understand-the-merge-process).
 
 ### Training resources
 
@@ -81,7 +81,7 @@ Like resources, modules are deployed in parallel unless they depend on other mod
 
 ## Path to module
 
-The file for the module can be either a local file or an external file. The external file can be in template spec or a Bicep module registry. All of these options are shown below.
+The file for the module can be either a local file or an external file. The external file can be in template spec or a Bicep module registry. 
 
 ### Local file
 
@@ -98,9 +98,9 @@ For example, to deploy a file that is up one level in the directory from your ma
 > [!NOTE]
 > Non-AVM (Azure Verified Modules) modules are retired from the public module registry.
 
-[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) are pre-built, pre-tested, and pre-verified modules for deploying resources on Azure. These modules are created by Microsoft or trusted partners and are designed to simplify and accelerate the deployment process for common Azure resources and configurations.
+[Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) are prebuilt, pretested, and preverified modules for deploying resources on Azure. Created by Microsoft or trusted partners, these modules are designed to simplify and accelerate the deployment process for common Azure resources and configurations.
 
-Browse to the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) site, and select the highlighted numbers in the following screenshot to see the list of modules.
+Browse to the [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/) site.  To see the list of modules, select the highlighted numbers in the following screenshot.
 
 :::image type="content" source="./media/modules/bicep-azure-verified-modules-avm.png" alt-text="The screenshot of Azure Verified Modules(AVM).":::
 
