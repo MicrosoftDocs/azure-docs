@@ -6,7 +6,7 @@ ms.author: rakiasegev
 ms.service: trusted-signing
 ms.topic: how-to 
 ms.date: 06/03/2024 
-ms.custom: template-how-to-pattern 
+ms.custom: template-how-to-pattern, devx-track-azurepowershell
 ---
 
 # Sign a CI policy by using Trusted Signing
