@@ -311,9 +311,21 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
 ```
 ---
 
-### Set up a Teams meeting
+### Join a Teams meeting
 
-To set up a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
+You can join to a Teams meeting using two mechanisms:
+
+- Teams meeting URL or Teams meetiong short URL
+- Teams Meeting ID and Passcode
+
+The Teams meeting link can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+#### Join via Teams meeting URL
+
+To join a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -338,11 +350,25 @@ CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
         "DISPLAY_NAME");
 ```
 
-#### Get a Microsoft Teams meeting link
+---
 
-You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
+#### Join via Teams Meeting ID and Passcode
 
-The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+The `TeamsMeetingIdLocator` locates a meeting using a meeting ID and passcode. These can be found under a Teams meeting's join info.
+A Teams meeting ID will be 12 characters long and will consist of numeric digits grouped in threes (i.e. `000 000 000 000`).
+A passcode will consist of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+//  HELP
+```
+
+#### [Java](#tab/java)
+
+```java
+//  HELP
+```
 
 ---
 
