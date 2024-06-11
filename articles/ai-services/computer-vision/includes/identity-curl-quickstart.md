@@ -24,6 +24,8 @@ Get started with facial recognition using the Face REST API. The Face service pr
     * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
+* [cURL](https://curl.haxx.se/) installed.
+
 
 
 

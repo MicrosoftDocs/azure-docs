@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 06/05/2024
 ms.author: wgries
 ---
 
@@ -13,7 +13,7 @@ ms.author: wgries
 
 Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. While some users may opt to keep a full copy of their data locally, Azure File Sync additionally has the ability to transform Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-This article provides the release notes for Azure File Sync. It's important to note that major releases of Azure File Sync include service and agent improvements (for example, 15.0.0.0). Minor releases of Azure File Sync are typically for agent improvements (for example, 15.2.0.0).
+This article provides the release notes for Azure File Sync. It's important to note that major releases of Azure File Sync include service and agent improvements (for example, 17.0.0.0). Minor releases of Azure File Sync are typically for agent improvements (for example, 17.2.0.0).
 
 ## Supported versions
 

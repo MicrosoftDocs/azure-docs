@@ -601,6 +601,12 @@ To identify the Gatekeeper version that your Azure Policy Add-On is using, you c
 Finally, to identify the AKS cluster version that you are using, follow the linked AKS guidance for this.
 
 ### Add-On versions available per each AKS cluster version
+#### 1.4.0
+Enables mutation and external data by default. The additional mutating webhook and increased validating webhook timeout cap may add latency to calls in the worst case. Also introduces support for viewing policy definition and set definition version in compliance results.
+- Released May 2024
+- Kubernetes 1.25+
+- Gatekeeper 3.14.0
+
 #### 1.3.0
 Introduces error state for policies in error, enabling them to be distinguished from policies in noncompliant states. Adds support for v1 constraint templates and use of the excludedNamespaces parameter in mutation policies. Adds an error status check on constraint templates post-installation.
 - Released February 2024

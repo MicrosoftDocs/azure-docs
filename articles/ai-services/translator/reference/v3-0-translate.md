@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 02/12/2024
+ms.date: 06/06/2024
 ms.author: lajanuar
 ---
 
@@ -59,7 +59,7 @@ Request headers include:
 | --- | --- |
 | Authentication headers | _Required request header_.  <br>See [available options for authentication](./v3-0-reference.md#authentication). |
 | Content-Type | _Required request header_.  <br>Specifies the content type of the payload.  <br>Accepted value is `application/json; charset=UTF-8`. |
-| Content-Length | _Required request header_.  <br>The length of the request body. |
+| Content-Length | _Optional_.  <br>The length of the request body. |
 | X-ClientTraceId | _Optional_.  <br>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`. |
 
 ## Request body

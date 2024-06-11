@@ -5,6 +5,7 @@ description: Learn how to use a Bicep templates to create a new Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: devx-track-arm-template, devx-track-bicep
 ms.topic: how-to
 ms.author: deeikele
 author: deeikele

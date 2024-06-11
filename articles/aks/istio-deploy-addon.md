@@ -3,6 +3,7 @@ title: Deploy Istio-based service mesh add-on for Azure Kubernetes Service
 description: Deploy Istio-based service mesh add-on for Azure Kubernetes Service
 ms.topic: article
 ms.custom: devx-track-azurecli
+ms.service: azure-kubernetes-service
 ms.date: 03/28/2024
 ms.author: shasb
 author: shashankbarsin
@@ -52,9 +53,10 @@ To install the Istio add-on when creating the cluster, use the `--enable-azure-s
 az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
 
 az aks create \
---resource-group ${RESOURCE_GROUP} \
---name ${CLUSTER} \
---enable-asm
+    --resource-group ${RESOURCE_GROUP} \
+    --name ${CLUSTER} \
+    --enable-asm \
+    --generate-ssh-keys    
 ```
 
 ### Install mesh for existing cluster
