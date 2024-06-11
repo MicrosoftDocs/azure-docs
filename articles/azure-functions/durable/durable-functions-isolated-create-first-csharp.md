@@ -62,7 +62,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
      | Select a .NET runtime | .NET 8.0 isolated | Creates a function project that supports .NET 8 running in isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).  |
     | Select a template for your project's first function | Durable Functions Orchestration | Create a Durable Functions orchestration |
-    | Chooose a durable storage type | Azure Storage | The default storage provider for Durable Functions. See [Durable Functions storage providers](./durable-functions-storage-providers.md) for more details. | 
+    | Choose a durable storage type | Azure Storage | The default storage provider for Durable Functions. See [Durable Functions storage providers](./durable-functions-storage-providers.md) for more details. | 
     | Provide a function name | HelloOrchestration | Name of the orchestration function |
     | Provide a namespace | Company.Function | Namespace for the generated class |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
@@ -103,11 +103,11 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
 
 1. To test your function, set a breakpoint in the `SayHello` activity function code and press <kbd>F5</kbd> to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-> [!NOTE]
-> For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
+   > [!NOTE]
+   > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
-> [!NOTE]
-> If you encounter a "No job functions found" error, please [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Older versions of core tools do not support .NET isolated.
+   > [!NOTE]
+   > If you encounter a "No job functions found" error, please [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Older versions of core tools do not support .NET isolated.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
@@ -136,8 +136,8 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
     }
     ```
     
-> [!NOTE]
-> You can observe the [replay behavior](./durable-functions-orchestrations.md#reliability) of Durable Functions through breakpoints. Because this is an important concept to understand, it's highly recommended that you read the linked article. 
+   > [!NOTE]
+   > You can observe the [replay behavior](./durable-functions-orchestrations.md#reliability) of Durable Functions through breakpoints. Because this is an important concept to understand, it's highly recommended that you read the linked article. 
 
 1. To stop debugging, press <kbd>Shift + F5</kbd> in Visual Studio Code.
 
@@ -209,7 +209,7 @@ The Azure Functions template creates a project that can be published to a functi
 > [!NOTE]
 > There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
 
-In your function app, you'll see a file called *Function1.cs* containing three functions, wihch are the basic building blocks of a Durable Functions:
+In your function app, you'll see a file called *Function1.cs* containing three functions, which are the basic building blocks of a Durable Functions:
 
 | Method | Description |
 | -----  | ----------- |
