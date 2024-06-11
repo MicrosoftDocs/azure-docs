@@ -13,7 +13,8 @@ The Open Targets Platform is a data resource to facilitate the systematic identi
 The Open Targets Genetics highlights variant-centric statistical evidence to allow both prioritization of candidate causal variants at trait-associated loci and identification of potential drug targets. It collects and combines genetic associations gathered from published literature as well as newly derived data from sources like UK Biobank and FinnGen. Additionally, it includes functional genomics information such as chromatin conformation and interactions, along with quantitative trait loci (eQTLs, pQTLs, and sQTLs). Large-scale pipelines apply statistical fine-mapping across thousands of trait-associated loci to resolve association signals and link each variant to its proximal and distal target genes using a 'Locus2Gene' assessment. Integrated cross-trait colocalisation analyses and linking to detailed pharmaceutical compounds extend the capacity of Open Targets Genetics to explore drug repositioning opportunities and shared genetic architecture.
 To read further about Open Targets Platform visit - [Open Targets Platform](https://platform.opentargets.org)
 To read further about Open Targets Genetics visit - [Open Targets Genetics](https://genetics.opentargets.org)
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+
+INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)
 
 ## Data source
 
