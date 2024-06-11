@@ -260,6 +260,7 @@ If your model data comes from a job output, you have two options for specifying 
   ```
 
 ---
+
 - **azureml://jobs URI format**
 
   The `azureml://jobs` reference URI option lets you register a model from artifacts in any of the job's output paths. This format aligns with the `azureml://datastores` reference URI format, and also supports referencing artifacts from named outputs other than the default artifact location.
