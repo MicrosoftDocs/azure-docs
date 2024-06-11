@@ -61,21 +61,23 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Select a language for your function app project | C# | Create a local C# Functions project. |
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
      | Select a .NET runtime | .NET 8.0 isolated | Creates a function project that supports .NET 8 running in isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).  |
-    | Select a template for your project's first function | Duralbe Functions Orchestration | Create a Durable Functions orchestration |
-    | Chooose a durable storage type | Azure Storage | The default storage provider for Durable Functions. See [Duralbe Functions storage providers](./durable-functions-storage-providers.md) for more details | 
+    | Select a template for your project's first function | Durable Functions Orchestration | Create a Durable Functions orchestration |
+    | Chooose a durable storage type | Azure Storage | The default storage provider for Durable Functions. See [Durable Functions storage providers](./durable-functions-storage-providers.md) for more details. | 
     | Provide a function name | HelloOrchestration | Name of the orchestration function |
     | Provide a namespace | Company.Function | Namespace for the generated class |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
+Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files. 
 
-In the *HelloOrchestration.cs* file, you'll see the following three functions, which are the basic building blocks of a Durable Functions. See [Durable Functions types and features](./durable-functions-types-features-overview.md).
+There's also a file called *HelloOrchestration.cs*, which contains the basic building blocks of a Durable Functions:
 
 | Method | Description |
 | -----  | ----------- |
 | **`HelloOrchestration`** | Defines the durable orchestration. In this case, the orchestration starts, creates a list, and adds the result of three functions calls to the list. When the three function calls are complete, it returns the list. |
 | **`SayHello`** | Simple function returning hello. It's the function containing the business logic that is being orchestrated. |
 | **`HelloOrchestration_HttpStart`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
+
+You can find more details about these functions in [Durable Functions types and features](./durable-functions-types-features-overview.md). 
 
 ## Configure storage
 
@@ -135,7 +137,7 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
     ```
     
 > [!NOTE]
-> If you set a breakpoint in the orchestrator function, you'll see Durable Functions' replay behavior when stepping through the code where after finishing one activity function call, the orchestrator function will not move to the next activity call. Instead, it'll restart from the beginning to rebuild the local state. This is because orchestrator functions uses the event sourcing pattern to [reliably maintain execution state](./durable-functions-orchestrations.md#reliability). 
+> If you set a breakpoint in the orchestrator function, you'll see Durable Functions' replay behavior when stepping through the code where after finishing one activity function call, the orchestrator function will not move to the next activity call. Instead, it'll restart from the beginning to rebuild the local state. This is because orchestrator functions use the event sourcing pattern to [reliably maintain execution state](./durable-functions-orchestrations.md#reliability). 
 
 1. To stop debugging, press <kbd>Shift + F5</kbd> in Visual Studio Code.
 
@@ -207,7 +209,7 @@ The Azure Functions template creates a project that can be published to a functi
 > [!NOTE]
 > There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
 
-In your function app, you'll see a file called *Function1.cs* containing three functions, wihch are the basic building blocks of a Durable Functions. See [Durable Functions types and features](./durable-functions-types-features-overview.md). The 
+In your function app, you'll see a file called *Function1.cs* containing three functions, wihch are the basic building blocks of a Durable Functions:
 
 | Method | Description |
 | -----  | ----------- |
@@ -215,6 +217,7 @@ In your function app, you'll see a file called *Function1.cs* containing three f
 | **`SayHello`** | The function returns a hello. It's the function that contains the business logic that is being orchestrated. |
 | **`HttpStart`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
 
+You can find more details about these functions in [Durable Functions types and features](./durable-functions-types-features-overview.md). 
 
 ## Test the function locally
 
