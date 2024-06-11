@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 06/07/2024
+ms.date: 06/11/2024
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -36,7 +36,7 @@ Data connectors are available as part of the following offerings:
 
 ## Syslog and Common Event Format (CEF) connectors
 
-Some Microsoft Sentinel solutions are supported by the data connectors **Syslog via AMA** or **Common Event Format (CEF) via AMA** in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing the provider's solution from the **Content hub** in Microsoft Sentinel. Then, configure either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector that's installed with the solution. Complete the setup by configuring the security device or appliance. Find instructions to configure security devices and appliances in the following articles:
+Log collection from many security appliances and devices  are supported by the data connectors **Syslog via AMA** or **Common Event Format (CEF) via AMA** in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing the Microsoft Sentinel solution for a security appliance or device from the **Content hub** in Microsoft Sentinel. Then, configure either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector that's installed with the solution. Complete the setup by configuring the security device or appliance. Find instructions to configure your security device or appliance in one of the following articles:
 
 - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
 - [Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)

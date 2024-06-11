@@ -10,11 +10,11 @@ ms.date: 06/07/2024
 
 # Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion
 
-Some Microsoft Sentinel solutions are supported by the **Syslog via AMA** data connector in Microsoft Sentinel. This article lists solution provider supplied installation instructions for specific security appliances and devices that use this data connector. For updates to these instructions or more information, contact the solution provider.
+Log collection from many security appliances and devices  are supported by the **Syslog via AMA** data connector in Microsoft Sentinel. This article lists provider supplied installation instructions for specific security appliances and devices that use this data connector. Contact the provider for updates, more information, or where information is unavailable for your security appliance or device.
 
 To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). As you complete those steps, install the **Syslog via AMA** data connector in Microsoft Sentinel. Then, use the appropriate provider's instructions in this article to complete the setup.
 
-For more information about the related Microsoft solution for each of these appliances or devices, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
+For more information about the related Microsoft Sentinel solution for each of these appliances or devices, search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for the **Product Type** > **Solution Templates** or review the solution from the **Content hub** in Microsoft Sentinel.
 
 ## Barracuda CloudGen Firewall
 
