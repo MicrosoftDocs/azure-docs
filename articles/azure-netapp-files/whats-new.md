@@ -14,8 +14,7 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-
-* [Standard storage with cool access](cool-access-introduction.md) is now generally available (GA)
+* [Azure NetApp Files storage with cool access](cool-access-introduction.md) is now generally available (GA) and supported with the Standard, Premium, and Ultra service levels. 
 
 ## May 2024
 
