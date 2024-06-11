@@ -172,7 +172,7 @@ For more information about querying logs and configuring alerts in Azure Monitor
 
 For information about monitoring container instance CPU and memory resources, see:
 
-* [Monitor Azure Container Instances](cmonitor-azure-container-instances.md).
+* [Monitor Azure Container Instances](monitor-azure-container-instances.md).
 
 <!-- IMAGES -->
 [log-search-01]: ./media/container-instances-log-analytics/portal-query-01.png
