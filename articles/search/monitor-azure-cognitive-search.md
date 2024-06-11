@@ -25,6 +25,8 @@ For more information about the resource types for Azure AI Search, see [Azure AI
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 In Azure AI Search, platform metrics measure query performance, indexing volume, and skillset invocation. For a list of available metrics for Azure AI Search, see [Azure AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#metrics).
 
+To learn how to analyze query and index performance, see [Analyze performance in Azure AI Search](search-performance-analysis.md).
+
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure AI Search, see [Azure AI Search monitoring data reference](monitor-azure-cognitive-search-data-reference.md#resource-logs).
