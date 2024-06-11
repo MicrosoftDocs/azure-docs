@@ -17,7 +17,7 @@ ms.date: 06/11/2024
 # Configure a search service to connect using a managed identity in Azure AI Search
 
 > [!IMPORTANT]
-> User-assigned managed identity is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management 2024-03-01-Preview REST API](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) provides user-assigned managed identities for Azure AI Search. Support for a system-assigned managed identity is generally available.
+> User-assigned managed identity assignment is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management preview REST API](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) provides user-assigned managed identity assignment for Azure AI Search. Support for a system-assigned managed identity is generally available.
 
 You can use Microsoft Entra ID and role assignments for outbound connections from Azure AI Search to resources providing data, applied AI, or vectorization during indexing or queries. 
 
