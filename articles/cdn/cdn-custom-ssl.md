@@ -112,7 +112,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 ### Set up managed identity for Azure CDN
 
-Follow the steps in [Configure managed identity for Azure CDN](./cdn-managed-identity.md) to allow Azure CDN to access your Azure Key Vault account.
+Follow the steps in [Configure managed identity for Azure CDN](managed-identity.md) to allow Azure CDN to access your Azure Key Vault account.
 
 ### Select the certificate for Azure CDN to deploy
 
