@@ -22,6 +22,9 @@ For more information, see [Detailed steps: Create and manage SSH keys for authen
 
 For more information on how to create and use SSH keys with Linux VMs, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
+> [!Note]
+> ED25519 SSH key support for Linux VMs is now in preview in all regions including sovereign clouds.
+
 ## Generate new keys
 
 1. After you sign in, use the [az sshkey create](/cli/azure/sshkey#az-sshkey-create) command to create the new SSH key:

@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 01/25/2022
+ms.date: 06/10/2024
 author: PatAltimore
 ms.author: patricka
 ms.service: iot-edge
@@ -57,7 +57,7 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
    >
    >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters. This is required to deploy EFLOW on a device with the minimum hardware requirements.
    >
-   >For example, the command below creates a virtual machine with 1 vCPU core, 1 GB of RAM (represented in MB), and 2 GB of disk space:
+   >For example, the following command creates a virtual machine with 1 vCPU core, 1 GB of RAM (represented in MB), and 2 GB of disk space:
    >
    >   ```powershell
    >   Deploy-Eflow -cpuCount 1 -memoryInMB 1024 -vmDataSize 2
@@ -68,7 +68,7 @@ Deploy Azure IoT Edge for Linux on Windows on your target device.
    >[!WARNING]
    >By default, the EFLOW Linux virtual machine has no DNS configuration. Deployments using DHCP will try to obtain the DNS configuration propagated by the DHCP server. Please check your DNS configuration to ensure internet connectivity. For more information, see [AzEFLOW-DNS](https://aka.ms/AzEFLOW-DNS).
 
-   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/azure/iot-edge/gpu-acceleration).
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/azure/iot-edge/gpu-acceleration).
 
    To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/azure/iot-edge/reference-iot-edge-for-linux-on-windows-functions#deploy-eflow).
 

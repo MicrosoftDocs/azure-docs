@@ -21,7 +21,7 @@ The article shows how to manage CA certificates of an Azure API Management servi
 
 CA certificates uploaded to API Management can only be used for certificate validation by the managed API Management gateway. If you use the [self-hosted gateway](self-hosted-gateway-overview.md), learn how to [create a custom CA for self-hosted gateway](#create-custom-ca-for-self-hosted-gateway), later in this article.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 
 ## <a name="step1"> </a>Upload a CA certificate

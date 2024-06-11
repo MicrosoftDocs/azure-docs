@@ -8,13 +8,12 @@ ms.date: 05/02/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.custom:
-  - ignite-2023
+
 ---
 
 # Secure connectivity with TLS and SSL in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server enforces connecting your client applications to Azure Database for PostgreSQL flexible server by using Transport Layer Security (TLS). TLS is an industry-standard protocol that ensures encrypted network connections between your database server and client applications. TLS is an updated protocol of Secure Sockets Layer (SSL).
 
@@ -47,6 +46,8 @@ There are several government entities worldwide that maintain guidelines for TLS
 Azure Database for PostgreSQL supports TLS version 1.2 and later. In [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/), the Internet Engineering Task Force (IETF) explicitly states that TLS 1.0 and TLS 1.1 must not be used. Both protocols were deprecated by the end of 2019.
 
 All incoming connections that use earlier versions of the TLS protocol, such as TLS 1.0 and TLS 1.1, are denied by default.
+
+The Internet Engineering Task Force (IETF) released the TLS 1.3 specification in RFC 8446 in August of 2018 and is now the most common and recommended TLS version in use. TLS 1.3 is significantly faster and more secure than TLS 1.2. 
 
 > [!NOTE]  
 > SSL and TLS certificates certify that your connection is secured with state-of-the-art encryption protocols. By encrypting your  connection on the wire, you prevent unauthorized access to your data while in transit. This is why we strongly recommend using latest versions of TLS to encrypt your connections to Azure Database for PostgreSQL flexible server.  
@@ -108,20 +109,17 @@ The default **sslmode** mode used is different between libpq-based clients (such
 For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CLIENT-CERTIFICATES).
 
 > [!NOTE]
->  For clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, they have to accept **both** root CA certificates:
-> * For connectivity to servers deployed to Azure government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona):  [DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) root CA certificates, as services are migrating from Digicert to Microsoft CA. 
-> * For connectivity to servers deployed to Azure public cloud regions worldwide : [Digicert Global Root CA](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm), as services are migrating from Digicert to Microsoft CA.
+> For clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, they have to deploy **three** root CA certificates to the client certificate stores:
+> **[DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm)** and **[Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm)** root CA certificates, as services are migrating from Digicert to Microsoft CA. For legacy compatibility **[Digicert Global Root CA](https://www.digicert.com/kb/digicert-root-certificates.htm)**.
+
 
 ### Downloading Root CA certificates and updating application clients in certificate pinning scenarios
 
 To update client applications in certificate pinning scenarios, you can download certificates from following URIs:
-* For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona) download Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root G2 certificates from following URIs:
- Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt, 
- DigiCert Global Root G2  https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem.
-* For connectivity to servers deployed in Azure public regions worldwide download Microsoft RSA Root Certificate Authority 2017 and DigiCert Global Root CA certificates from following URIs:
-Microsoft RSA Root Certificate Authority 2017  https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt, Digicert Global Root CA https://cacerts.digicert.com/DigiCertGlobalRootCA.crt
-* Optionally, to prevent future disruption, it's also recommended to add the following roots to the trusted store:
-  Microsoft ECC Root Certificate Authority 2017 - https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt
+ * **Microsoft RSA Root Certificate Authority 2017**  https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt
+ * **DigiCert Global Root G2**  https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
+ * **Digicert Global Root CA** https://cacerts.digicert.com/DigiCertGlobalRootCA.crt
+
 
 To import certificates to client certificate stores you may have to **convert certificate .crt files to .pem format**, after downloading certificate files from URIs above. You can use OpenSSL utility to do these file conversions, as shown in example below:
 
@@ -133,15 +131,16 @@ openssl x509 -in certificate.crt -out certificate.pem -outform PEM
 
 
 > [!IMPORTANT]
-> Some of the Postgres client libraries, while using **sslmode=verify-full** setting, may experience connection failures with Root CA certificates that are cross-signed with intermediate certificates, resulting in alternate trust paths. In this case, its recommended explicitly specify **sslrootcert** parameter, explained above, or set the PGSSLROOTCERT environment variable to local path where Microsoft RSA Root Certificate Authority 2017 Root CA certificate is placed, from default value of *%APPDATA%\postgresql\root.crt*. 
+> Some of the Postgres client libraries, while using **sslmode=verify-full** setting, may experience connection failures with Root CA certificates that are cross-signed with intermediate certificates, resulting in alternate trust paths. In this case, its recommended to explicitly specify **sslrootcert** parameter, explained above, or set the PGSSLROOTCERT environment variable to local path where Microsoft RSA Root Certificate Authority 2017 Root CA certificate is placed, from default value of *%APPDATA%\postgresql\root.crt*. 
 
 
 ### Read Replicas with certificate pinning scenarios
 
 With Root CA migration to [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) it's feasible for newly created replicas to be on a newer Root CA certificate than primary server created earlier. 
-Therefore, for clients that use **verify-ca** and **verify-full** sslmode configuration settings, that is, certificate pinning, is imperative for interrupted connectivity to accept **both** root CA certificates:
-  * For connectivity to servers deployed to Azure Government cloud regions (US Gov Virginia, US Gov Texas, US Gov Arizona):  [DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm) root CA certificates, as services are migrating from Digicert to Microsoft CA. 
-  * For connectivity to servers deployed to Azure public cloud regions worldwide: [Digicert Global Root CA](https://www.digicert.com/kb/digicert-root-certificates.htm) and [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm), as services are migrating from Digicert to Microsoft CA.
+Therefore, for clients that use **verify-ca** and **verify-full** sslmode configuration settings, that is, certificate pinning, is imperative for interrupted connectivity to accept **three** root CA certificates:
+ * **Microsoft RSA Root Certificate Authority 2017**  https://www.microsoft.com/pkiops/certs/Microsoft%20RSA%20Root%20Certificate%20Authority%202017.crt
+ * **DigiCert Global Root G2**  https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
+ * **Digicert Global Root CA** https://cacerts.digicert.com/DigiCertGlobalRootCA.crt
 
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible server doesn't support [certificate based authentication](https://www.postgresql.org/docs/current/auth-cert.html) at this time.

@@ -437,7 +437,7 @@ Create a virtual machine that you use to connect via remote access to the public
 1. For **Boot diagnostics**, select **Disable**.
 1. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Test the firewall
 

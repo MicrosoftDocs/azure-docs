@@ -4,6 +4,7 @@ description: Learn about specific configuration steps for Microsoft Sentinel dat
 author: cwatson-cat
 ms.topic: reference
 ms.date: 06/11/2024
+ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal

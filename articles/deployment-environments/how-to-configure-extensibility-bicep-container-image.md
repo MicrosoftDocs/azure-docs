@@ -3,11 +3,11 @@ title: ADE extensibility model for custom ARM and Bicep images
 titleSuffix: Azure Deployment Environments
 description: Learn how to use the ADE extensibility model to build and utilize custom ARM and Bicep images within your environment definitions for deployment environments.
 ms.service: deployment-environments
+ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 05/28/2024
 ms.topic: how-to
-
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
 
