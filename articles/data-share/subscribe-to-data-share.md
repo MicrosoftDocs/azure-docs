@@ -181,7 +181,7 @@ az datashare share-subscription create --resource-group share-rg \
 Use the [New-AzDataShareSubscription](/powershell/module/az.datashare/new-azdatasharesubscription) command to create the Data Share. The InvitationId will be the ID you gathered from the previous step.
 
 ```azurepowershell
-New-AzDataShareSubscription -ResourceGroupName share-rg -AccountName FabrikamDataShareAccount -Name "fabrikamsolutions" -InvitationId 89abcdef-0123-4567-89ab-cdef01234567
+New-AzDataShareSubscription -ResourceGroupName share-rg -AccountName FabrikamDataShareAccount -Name "Fabrikam Solutions" -InvitationId 89abcdef-0123-4567-89ab-cdef01234567
 ```
 
 ---
@@ -294,7 +294,7 @@ Use these commands to configure where you want to receive data.
 1. Run the [Get-AzDataShareSourceDataSet](/powershell/module/az.datashare/get-azdatasharesourcedataset) command to get the data set ID:
 
    ```azurepowershell
-   Get-AzDataShareSourceDataSet -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "Fabrikam Solutions"
+   Get-AzDataShareSourceDataSet -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions"
    ```
 
 1. If you don't already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you can skip to the next steps.
