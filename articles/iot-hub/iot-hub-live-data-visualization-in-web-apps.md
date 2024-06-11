@@ -26,7 +26,7 @@ The web application sample for this tutorial is written in Node.js. The steps in
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps to create an IoT hub using the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* A device registered in your IoT hub. If you haven't registered a device yet, register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
 * A simulated device that sends telemetry messages to your IoT hub. Use the [Raspberry Pi online simulator](raspberry-pi-get-started.md) to get a simulated device that sends temperature data to IoT Hub.
 

@@ -511,8 +511,6 @@ Perform the following steps to:
 
 ## Next steps
 
-You can register your device with your IoT hub for testing the client certificate that you've created for that device. For more information about registering a device, see the [Register a new device in the IoT hub](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub) section in [Create an IoT hub using the Azure portal](iot-hub-create-through-portal.md).
+You can register your device with your IoT hub for testing the client certificate that you've created for that device. For more information about registering a device, see [Create and manage device identities](iot-hub-create-through-portal.md).
 
 If you have multiple related devices to test, you can use the Azure IoT Hub Device Provisioning Service to provision multiple devices in an enrollment group. For more information about using enrollment groups in the Device Provisioning Service, see [Tutorial: Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
-
-For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).

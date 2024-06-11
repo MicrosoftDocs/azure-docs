@@ -63,7 +63,7 @@ You can disable devices by updating the **status** property of an identity in th
 
 This feature isn't available for modules.
 
-For more information, see [Disable or delete a device in an IoT hub](./iot-hub-create-through-portal.md#disable-or-delete-a-device-in-an-iot-hub).
+For more information, see [Disable or delete a device in an IoT hub](./create-connect-device.md#disable-or-delete-a-device).
 
 ## Import and export device identities
 
