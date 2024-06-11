@@ -118,11 +118,11 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
 
 1. On the Azure Marketplace menu, select **Integration** > **Logic App**.
 
-   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
+   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](~/reusable-content/ce-skilling/azure/media/logic-apps/create-new-logic-app-resource.png)
 
 1. On the **Create Logic App** pane, on the **Basics** tab, provide the following information about your logic app resource.
 
-   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](~/reusable-content/ce-skilling/azure/media/logic-apps/create-logic-app-settings.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -157,7 +157,7 @@ We will be using cloud URIs provided by Event Grid to indicate the input data to
 
 1. Scroll down past the video and common triggers sections to the **Templates** section, and select **Blank Logic App**.
 
-   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](../logic-apps/media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
+   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](~/reusable-content/ce-skilling/azure/media/logic-apps/select-logic-app-template.png)
 
 
 ## Configure the workflow parameters

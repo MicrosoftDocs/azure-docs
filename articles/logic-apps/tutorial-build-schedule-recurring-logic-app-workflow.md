@@ -54,11 +54,11 @@ When you're done, your workflow looks similar to the following high level exampl
 
 1. On the Azure Marketplace menu, select **Integration** > **Logic App**.
 
-   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-new-logic-app-resource.png)
+   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](~/reusable-content/ce-skilling/azure/media/logic-apps/create-new-logic-app-resource.png)
 
 1. On the **Create Logic App** pane, on the **Basics** tab, provide the following information about your logic app resource.
 
-   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
+   ![Screenshot showing Azure portal, logic app creation pane, and info for new logic app resource.](~/reusable-content/ce-skilling/azure/media/logic-apps/create-logic-app-settings.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
@@ -90,7 +90,7 @@ When you're done, your workflow looks similar to the following high level exampl
 
 1. Scroll down past the video and common triggers sections to the **Templates** section, and select **Blank Logic App**.
 
-   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-logic-app-template.png)
+   ![Screenshot that shows the workflow template selection pane with "Blank Logic App" selected.](~/reusable-content/ce-skilling/azure/media/logic-apps/select-logic-app-template.png)
 
 Next, add the Recurrence [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which runs the workflow based on a specified schedule. Every workflow must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
