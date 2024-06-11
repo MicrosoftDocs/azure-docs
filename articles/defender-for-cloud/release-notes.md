@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/03/2024
+ms.date: 06/10/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,6 +20,20 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## June 2024
+
+|Date | Update |
+|--|--|
+| June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+
+### Copilot for Security in Defender for Cloud (Preview)
+
+June 10, 2024
+
+We're announcing the integration of Microsoft Copilot for Security into Defender for Cloud in public preview. Copilot's embedded experience in Defender for Cloud provides users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the effect of implementing a recommendation, the steps needed to take to implement a recommendation, assist with the delegation of recommendations, and assist with the remediation of misconfigurations in code.
+
+Learn more about [Copilot for Security in Defender for Cloud](copilot-security-in-defender-for-cloud.md).
+
 ## May 2024
 
 |Date | Update |
@@ -29,6 +43,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | May 28 | [Remediate security baseline recommendation](#remediate-security-baseline-recommendation) |
 | May 22 | [Configure email notifications for attack paths](#configure-email-notifications-for-attack-paths) |
 | May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
+| May 6 | [AI multicloud security posture management is available for Azure and AWS (Preview)](#ai-multicloud-security-posture-management-is-available-for-azure-and-aws-preview) |
 | May 2 | [Updated security policy management is now generally available](#updated-security-policy-management-is-now-generally-available) |
 | May 1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
 
@@ -96,11 +111,11 @@ May 7, 2024
 
 We're announcing the general availability (GA) of [permissions management](permissions-management.md) in Defender for Cloud.
 
-### AI multicloud security posture management is publicly available for Azure and AWS
+### AI multicloud security posture management is available for Azure and AWS (Preview)
 
 May 6, 2024
 
-We're announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
+We're announcing the inclusion of AI security posture management in Defender for Cloud in public preview. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
 
 Learn more about [AI security posture management](ai-security-posture.md).
 

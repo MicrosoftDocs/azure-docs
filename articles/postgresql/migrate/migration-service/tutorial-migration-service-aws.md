@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 03/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 #customer intent: As a developer, I want to learn how to migrate from AWS RDS to Azure Database for PostgreSQL using the migration service, so that I can simplify the transition and ensure data integrity.
 ---

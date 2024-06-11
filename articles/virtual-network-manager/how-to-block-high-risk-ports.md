@@ -14,8 +14,6 @@ In this article, you learn to block high risk network ports using [Azure Virtual
 
 While this article focuses on a single port, SSH, you can protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Prerequisites
 
 - You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
