@@ -25,7 +25,7 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Dependencies
 
-The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. (The list of supported operating systems is a subset of those supported for virtual machines created in these sizes.) Depending on how you create your Batch pool, you might need to install or configure additional driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
+The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. (The list of supported operating systems is a subset of those supported for virtual machines created in these sizes.) Depending on how you create your Batch pool, you might need to install or configure extra driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
 
 ### Linux pools - Virtual machine configuration
 
@@ -75,9 +75,9 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-* Create a [custom Windows or Linux VM image](batch-sig-images.md) on which you have installed drivers, software, or other settings required for the VM size.
+* Create a [custom Windows or Linux VM image](batch-sig-images.md) with installed drivers, software, or other settings required for the VM size.
 
-* Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer, and configure Batch to deploy the package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](jobs-and-tasks.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
+* Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer. Then, configure Batch to deploy this package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](jobs-and-tasks.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
 
   > [!NOTE]
   > The start task must run with elevated (admin) permissions, and it must wait for success. Long-running tasks will increase the time to provision a Batch pool.
