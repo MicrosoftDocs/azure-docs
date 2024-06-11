@@ -1,6 +1,6 @@
 ---
 title: Open Targets
-description: Learn how to use the 1,000 Genomes dataset in Azure Open Datasets.
+description: Learn how to use the Open Targets dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
@@ -27,14 +27,14 @@ This dataset contains approximately 350 GB of data and is updated daily.
 
 This dataset is stored in the West US 2 Azure region. Allocating compute resources in West US 2 is recommended for affinity.
 
-## Data Access
+## Data access
 
 West US 2: 'https://datasetopentargets.blob.core.windows.net/dataset'
 
 [SAS Token](../storage/common/storage-sas-overview.md): sv=2019-10-10&si=prod&sr=c&sig=9nzcxaQn0NprMPlSh4RhFQHcXedLQIcFgbERiooHEqM%3D
 
 
-## Use Terms
+## Use terms
 
 Please refer to the data use terms as described [here.](https://platform-docs.opentargets.org/licence)
 ## Contact
