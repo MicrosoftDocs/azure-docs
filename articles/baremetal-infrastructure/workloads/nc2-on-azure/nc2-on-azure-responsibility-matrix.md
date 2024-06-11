@@ -25,6 +25,7 @@ table, th, td {
     <thead>
         <tr>
             <th>Areas</th>
+            <th>Deployment</th>
             <th>Life-cycle</th>
             <th>Configuration</th>
         </tr>
