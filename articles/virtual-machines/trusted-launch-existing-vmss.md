@@ -19,10 +19,11 @@ Azure Virtual machine Scale sets supports enabling Trusted launch on existing [U
 
 [Trusted launch](trusted-launch.md) is a way to enable foundational compute security on [Azure Generation 2](generation-2.md). Trusted launch protects your Scale sets and Virtual machines against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, vTPM, and Boot Integrity Monitoring on your Scale set.
 
-> [!IMPORTANT]
->
-> - Enabling Trusted launch on existing [virtual machine Scale sets Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) is currently not supported.
-> - Enabling Trusted launch on existing [Service fabric clusters](../service-fabric/service-fabric-overview.md) and [Service fabric managed clusters](../service-fabric/overview-managed-cluster.md) is currently not supported.
+## Limitations
+
+- Enabling Trusted launch on existing [virtual machine Scale sets Uniform](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) with **data disks attached** is currently not supported.
+- Enabling Trusted launch on existing [virtual machine Scale sets Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) is currently not supported.
+- Enabling Trusted launch on existing [Service fabric clusters](../service-fabric/service-fabric-overview.md) and [Service fabric managed clusters](../service-fabric/overview-managed-cluster.md) is currently not supported.
 
 ## Prerequisites
 
@@ -36,11 +37,6 @@ Azure Virtual machine Scale sets supports enabling Trusted launch on existing [U
 - Scale set should be configured with [Trusted launch supported OS Image](trusted-launch.md#operating-systems-supported). For [Azure compute gallery OS image](azure-compute-gallery.md), ensure image definition is marked as [TrustedLaunchSupported](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image)
 
 ## Enable Trusted launch on existing Scale set Uniform
-
-> [!NOTE]
->
-> - **vTPM** is enabled by default.
-> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 ### [Template](#tab/template)
 
@@ -583,7 +579,9 @@ Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli
 
 > [!NOTE]
 >
-> Azure CLI currently does not supports roll-back of Scale set Uniform from Trusted launch to Standard. As workaround, use Azure PowerShell or ARM template to execute roll-back.
+> - Azure CLI currently does not supports roll-back of Scale set Uniform from Trusted launch to Standard. As workaround, use Azure PowerShell or ARM template to execute roll-back.
+> - **vTPM** is enabled by default.
+> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 1. Log in to Azure Subscription
 
@@ -637,6 +635,11 @@ Make sure that you've installed the latest [Azure CLI](/cli/azure/install-az-cli
 This section steps through using the Azure PowerShell to enable Trusted launch on existing Azure Virtual machine Scale set Uniform.
 
 Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/install-azps-windows) and are logged in to an Azure account with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+
+> [!NOTE]
+>
+> - **vTPM** is enabled by default.
+> - **Secure Boot** is recommended to be enabled (not enabled by default) if you are not using custom unsigned kernel or drivers. Secure Boot preserves boot integrity and enables foundational security for VM.
 
 1. Log in to Azure Subscription
 
