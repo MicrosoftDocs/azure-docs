@@ -229,7 +229,7 @@ If your model data comes from a job output, you have two options for specifying 
 >[!NOTE]
 >The *artifacts* reserved keyword represents output from the default artifact location.
 
-- **MLflow runs:** URI format
+- **MLflow runs: URI format**
 
   This option is optimized for MLflow users, who are probably already familiar with the MLflow `runs:` URI format. This option creates a model from artifacts in the default artifact location, where all MLflow-logged models and artifacts are located. This option also establishes a lineage between a registered model and the run the model came from.
 
@@ -260,7 +260,7 @@ If your model data comes from a job output, you have two options for specifying 
   ```
 
 ---
-- **azureml://jobs** URI format
+- **azureml://jobs URI format**
 
   The `azureml://jobs` reference URI option lets you register a model from artifacts in any of the job's output paths. This format aligns with the `azureml://datastores` reference URI format, and also supports referencing artifacts from named outputs other than the default artifact location.
 
