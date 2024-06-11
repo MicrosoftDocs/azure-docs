@@ -67,14 +67,14 @@ When you're done, your workflow looks similar to the following high level exampl
    | **Resource Group** | Yes | **LA-TravelTime-RG** | The [Azure resource group](../azure-resource-manager/management/overview.md) where you create your logic app resource and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
    | **Name** | Yes | **LA-TravelTime** | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). |
 
-1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** to show only the settings for a Consumption logic app workflow, which runs in multienant Azure Logic Apps.
+1. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** to show only the settings for a Consumption logic app workflow, which runs in multitenant Azure Logic Apps.
 
    The **Plan type** property also specifies the billing model to use.
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing plan](logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type runs in global, multitenant Azure Logic Apps and uses the [Consumption billing plan](logic-apps-pricing.md#consumption-pricing). |
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard pricing model](logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type runs in global, multitenant Azure Logic Apps and uses the [Consumption pricing model](logic-apps-pricing.md#consumption-pricing). |
 
 1. Now continue with the following selections:
 
@@ -246,7 +246,7 @@ Next, add the action to run when the travel time exceeds your limit.
 
 Now, add an action that sends email when the travel time exceeds your limit. This email includes the current travel time and the extra time necessary to travel the specified route.
 
-1. In the condition's **True** branch, the plus sign (**+**), and then select **Add an action**.
+1. In the condition's **True** branch, select the plus sign (**+**), and then select **Add an action**.
 
 1. [Follow these general steps to add an **Office 365 Outlook** action named **Send an email**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
