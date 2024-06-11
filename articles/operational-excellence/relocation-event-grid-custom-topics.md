@@ -78,7 +78,7 @@ Deploy the template to create a custom topic in the target region.
     1. For the **topic name**, enter a new name for the topic. 
     1. Select **Review + create** at the bottom of the page. 
     
-        :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/deploy-template.png" alt-text="Custom deployment":::
+        :::image type="content" source="media/relocation/event-grid/move-custom-topics-across-regions/deploy-template.png" alt-text="Screenshot of custom deployment page.":::
     1. On the **Review + create** page, review settings, and select **Create**. 
 
 ## Verify
