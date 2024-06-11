@@ -90,7 +90,7 @@ Enable tracing by the following steps using calls to the API Management REST API
     {
         "credentialsExpireAfter": PT1H,
         "apiId": "<API resource ID>",
-        "purposes: ["tracing"]
+        "purposes": ["tracing"]
     }
     ```
         
