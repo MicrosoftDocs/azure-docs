@@ -11,24 +11,24 @@ ms.custom: references_regions
 
 # What is a Connected Registry? 
 
-In this article, you learn about the *Connected registry* feature of [Azure Container Registry](container-registry-intro.md). A Connected registry is an on-premises or remote replica that synchronizes container images and other OCI artifacts with your cloud-based Azure container registry. Use a Connected registry to help speed up access to registry artifacts on-premises and to build advanced scenarios, for example using [nested IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
+In this article, you learn about the *Connected registry* feature of [Azure Container Registry](container-registry-intro.md). A Connected registry is an on-premises or remote replica that synchronizes container images with your cloud-based Azure container registry. Use a Connected registry to help speed-up access to registry artifacts on-premises or remote.
 
 ## Billing and Support
 
 The Connected registry is a preview feature of the **Premium** container registry service tier, and subject to [limitations](#limitations). For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 >[!IMPORTANT]
-> Please note that there are **important upcoming changes** to the Connected registry Deployment Model Support and Billing starting from September 30th, 2024. For any inquiries or assistance with the transition, please reach out to the customer support team.
+> Please note that there are **Important upcoming changes** to the Connected registry Deployment Model Support and Billing starting from September 30th, 2024. For any inquiries or assistance with the transition, please reach out to the customer support team.
 
 ### Billing
-- The Connected registry will incur no charges until it reaches general availability (GA).
+- The Connected registry incurs no charges until it reaches general availability (GA).
 - Post-GA, a monthly fee of $10 will apply for each Connected registry deployed.
 - This fee represents Microsoft's commitment to deliver high-quality services and product support.
-- The fee will be applied to the Azure subscription associated with the parent registry.
+- The fee is applied to the Azure subscription associated with the parent registry.
 
 ### Support
-- Microsoft will end support for the Connected registry deployment on IoT Edge devices on September 30th, 2024.
-- After September 30th, 2024, Connected registry will solely support Arc-enabled Kubernetes clusters as the deployment model.
+- Microsoft will end support for the Connected registry deployment on IoT Edge devices on September 30, 2024.
+- After September 30, 2024, Connected registry will solely support Arc-enabled Kubernetes clusters as the deployment model.
 - Microsoft advises users to begin planning their transition to Arc-enabled Kubernetes clusters as the deployment model.
 
 ## Available regions
@@ -84,15 +84,15 @@ The following image shows a typical deployment model for the Connected registry 
 
 ### Deployment
 
-Each Connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the Connected registry hierarchy is an Azure container registry in an Azure cloud.
+Each Connected registry is a resource you manage to use a cloud-based Azure container registry. The top parent in the Connected registry hierarchy is an Azure container registry in an Azure cloud.
 
 Use Azure tools to install the Connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md). 
 
-Enable Connected registry-Arc extension to the Arc-enabled k8s cluster, and securing the connection with TLS with default configurations for Read only and continuous sync window. The Connected registry can be deployed on the Arc-enabled k8s cluster and synchronize the images from ACR to Connected registry on-perm can be used to pull images from Connected registry.
+Enable Connected registry-Arc extension to the Arc-enabled K8s cluster, and securing the connection with TLS with default configurations for Read only and continuous sync window. The Connected registry can be deployed on the Arc-enabled K8s cluster and synchronize the images from ACR to Connected registry on-perm can be used to pull images from Connected registry.
 
 The Connected registry's *activation status* indicates whether it's deployed on-premises.
 
-* **Active** - The Connected registry is currently deployed on-premises. It can't be deployed again until it is deactivated. 
+* **Active** - The Connected registry is currently deployed on-premises. It can't be deployed again until it's deactivated. 
 * **Inactive** - The Connected registry is not deployed on-premises. It can be deployed at this time.  
  
 ### Content synchronization
@@ -130,18 +130,18 @@ For more information, see [Manage access to a connected registry][overview-conne
 - Number of tokens and scope maps is [limited](container-registry-skus.md) to 20,000 each for a single container registry. This indirectly limits the number of connected registries for a cloud registry, because every Connected registry needs a sync and client token.
 - Number of repository permissions in a scope map is limited to 500.
 - Number of clients for the Connected registry is currently limited to 20.
-- [Image locking](container-registry-image-lock.md) through repository/manifest/tag metadata is not currently supported for connected registries.
-- [Repository delete](container-registry-delete.md) is not supported on the Connected registry using ReadOnly mode.
+- [Image locking](container-registry-image-lock.md) through repository/manifest/tag metadata isn't currently supported for connected registries.
+- [Repository delete](container-registry-delete.md) isn't supported on the Connected registry using ReadOnly mode.
 - [Resource logs](monitor-service-reference.md#resource-logs) for connected registries are currently not supported.
-- Connected registry is coupled with the registry's home region data endpoint. Automatic migration for [geo-replication](container-registry-geo-replication.md) is not supported.
-- Deletion of a Connected registry needs manual removal of the containers on-premises as well as removal of the respective scope map or tokens in the cloud.
+- Connected registry is coupled with the registry's home region data endpoint. Automatic migration for [geo-replication](container-registry-geo-replication.md) isn't supported.
+- Deletion of a Connected registry needs manual removal of the containers on-premises and removal of the respective scope map or tokens in the cloud.
 - Connected registry sync limitations are as follows:
   - For continuous sync:
-    - `minMessageTtl` is 1 day
+    - `minMessageTtl` is one day
     - `maxMessageTtl` is 90 days
   - For occasionally connected scenarios, where you want to specify sync window:
     - `minSyncWindow` is 1 hr
-    - `maxSyncWindow` is 7 days
+    - `maxSyncWindow` is seven days
 
 ## Conclusion
 
