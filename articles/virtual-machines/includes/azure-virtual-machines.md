@@ -102,7 +102,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ### Count virtual machines by OS type
 
-Building on the previous query, we're still limiting by Azure resources of type `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned. Instead, we used `summarize` and `count()` to define how to group and aggregate the values by property, which in this example is `properties.storageProfile.osDisk.osType`. For an example of how this string looks in the full object, see [explore resources - virtual machine discovery](../../../../articles/governance/resource-graph/concepts/explore-resources.md#virtual-machine-discovery).
+Building on the previous query, we're still limiting by Azure resources of type `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned. Instead, we used `summarize` and `count()` to define how to group and aggregate the values by property, which in this example is `properties.storageProfile.osDisk.osType`. For an example of how this string looks in the full object, see [explore resources - virtual machine discovery](../../governance/resource-graph/concepts/explore-resources.md#virtual-machine-discovery).
 
 ```kusto
 Resources
@@ -581,7 +581,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
+This query uses the [extended properties](../../governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
 
 ```kusto
 Resources
