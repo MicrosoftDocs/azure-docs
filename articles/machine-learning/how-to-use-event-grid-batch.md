@@ -198,6 +198,8 @@ This logic app workflow uses parameters to store specific pieces of information 
 
    :::image type="content" source="./media/how-to-use-event-grid-batch/parameter.png" alt-text="Screenshot shows how to add one parameter in designer.":::
 
+   For more information, see [Create cross-environment parameters for workflow inputs in Azure Logic Apps](../logic-apps/create-parameters-workflows.md).
+
 ## Add the trigger
 
 We want to trigger the logic app workflow each time a new file is created in a specific folder (data asset) of a storage account. The logic app uses the information from the event to invoke the batch endpoint and pass the specific file to process.
