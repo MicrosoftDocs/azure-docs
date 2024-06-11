@@ -1,10 +1,9 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: azure-monitor
 ms.topic: include
 ms.date: 08/04/2022
-ms.author: davidsmatlak
-ms.custom: generated
+author: bwren
+ms.author: bwren
 ---
 
 ### View recent Azure Monitor alerts
@@ -144,11 +143,11 @@ Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster th
 Resources
 | where type =~ 'Microsoft.Kubernetes/connectedClusters' | extend connectedClusterId = tolower(id) | project connectedClusterId
 | join kind = leftouter
-	(KubernetesConfigurationResources
-	| where type == 'microsoft.kubernetesconfiguration/extensions'
-	| where properties.ExtensionType  == 'microsoft.azuremonitor.containers'
-	| parse tolower(id) with connectedClusterId '/providers/microsoft.kubernetesconfiguration/extensions' *
-	| project connectedClusterId
+  (KubernetesConfigurationResources
+  | where type == 'microsoft.kubernetesconfiguration/extensions'
+  | where properties.ExtensionType  == 'microsoft.azuremonitor.containers'
+  | parse tolower(id) with connectedClusterId '/providers/microsoft.kubernetesconfiguration/extensions' *
+  | project connectedClusterId
 )  on connectedClusterId
 | where connectedClusterId1 == ''
 | project connectedClusterId
