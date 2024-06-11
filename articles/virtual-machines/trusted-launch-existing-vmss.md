@@ -714,4 +714,4 @@ Make sure that you've installed the latest [Azure PowerShell](/powershell/azure/
 
 **(Recommended)** Post-Upgrades enable [Boot integrity monitoring](trusted-launch.md#microsoft-defender-for-cloud-integration) to monitor the health of the VM using Microsoft Defender for Cloud.
 
-Learn more about [Trusted launch](trusted-launch.md) and review [frequently asked questions](trusted-launch-faq.md)
+Learn more about [Trusted launch](trusted-launch.md) and review [frequently asked questions](trusted-launch-faq.md).
