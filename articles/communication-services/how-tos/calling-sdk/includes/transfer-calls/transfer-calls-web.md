@@ -100,7 +100,7 @@ transfer.on('stateChanged', () => {
 ### Transfer to voicemail:
 
 1. There's already a connected call between the *transferor* and the *transferee*. 
-2. The voicemail id of the *transfer target* is known.
+2. The Teams User Identifier of the *target participant voicemail* is known.
 3. The *transferor* decides to transfer the call with the *transferee* to the voicemail with *voicemail id*.
 4. The *transferor* calls the `transfer` API.
 6. The *transferee* receives the transfer request.
@@ -109,12 +109,12 @@ To transfer a current call, you can use the `transfer` API.
 
 ```js
 // transfer to the target call specifying the call id
-const id = { voicemailId: <VOICEMAIL_ID> };
+const id = { targetParticipantVoicemail: <TEAMS_USER_ID> };
 ```
 
 ```js
 // call transfer API
-const transfer = callTransferApi.transfer({ voicemailId: <VOICEMAIL_ID> });
+const transfer = callTransferApi.transfer({ target: id });
 ```
 
 The `transfer` API allows you to subscribe to `stateChanged`. It also comes with a  transfer `state` and `error` properties
@@ -128,7 +128,7 @@ const transferError = transfer.error; // transfer error code that describes the 
 ```
 
 The *transferee* can listen to a `transferAccepted` event. The listener for this event has a `TransferEventArgs` which contains the call object of the new transfer call
-between the  *transferee* and the voicemail *transfer target*. 
+between the  *transferee* and the *target participant voicemail*. 
 
 ```js
 // Transferee can subscribe to the transferAccepted event
@@ -137,7 +137,7 @@ callTransferApi.on('transferAccepted', args => {
 });
 ```
 
-The *transferor* can subscribe to events for change of the state of the transfer. If the call to the *transferee* was successfully connected with voicemail *transfer target*, *transferor* can hang up the original call with *transferee*.
+The *transferor* can subscribe to events for change of the state of the transfer. If the call to the *transferee* was successfully connected with *target participant voicemail*, *transferor* can hang up the original call with *transferee*.
 
 ```js
 transfer.on('stateChanged', () => {
