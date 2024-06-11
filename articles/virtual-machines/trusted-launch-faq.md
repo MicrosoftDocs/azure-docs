@@ -364,7 +364,7 @@ Architecture      : x64
 
 Adding COM ports requires disabling Secure Boot. Hence, COM ports are disabled by default in Trusted Launch VMs.
 
-## Power states
+## Boot types and issues
 
 Feature specific states, boot types, and common boot issues.
 
@@ -376,7 +376,7 @@ VM Guest State (VMGS) is specific to Trusted Launch VM. It's a blob managed by A
 
 In secure boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature doesn't match, and the VM doesn't boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot). Measured boot doesn't halt the boot process, it measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers (PCRs) on the vTPM. Measured boot records are used for boot integrity monitoring.
 
-### Why is Trusted Launch Virtual Machine not booting correctly? 
+### Why is Trusted Launch Virtual Machine not booting correctly?
 
 If unsigned components are detected from the UEFI (guest firmware), bootloader, operating system, or boot drivers, a Trusted Launch Virtual Machine won't boot. The [secure boot](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#secure-boot-setting-in-hyper-v-manager) setting in the Trusted Launch virtual machine fails to boot if unsigned or untrusted boot components are encountered during the boot process and will report as a secure boot failure.
 
@@ -385,7 +385,8 @@ If unsigned components are detected from the UEFI (guest firmware), bootloader, 
 > [!NOTE]
 > Trusted Launch Virtual machines that are created directly from an Azure Marketplace image should not encounter Secure Boot failures. Azure Compute Gallery images with an original image source of Marketplace, and snapshots created from Trusted Launch VMs should also not encounter these errors. 
 
-### How would I verify a no-boot scenario in the Azure portal? 
+### How would I verify a no-boot scenario in the Azure portal?
+
 When a virtual machine becomes unavailable from a Secure Boot failure, 'no-boot' means that virtual machine has an operating system component that is signed by a trusted authority, which blocks booting a Trusted Launch VM. On VM deployment, customers may see information from resource health within the Azure portal stating that there's a validation error in secure boot.
 
 To access resource health from the virtual machine configuration page, navigate to Resource Health under the 'Help' panel.
@@ -395,18 +396,20 @@ To access resource health from the virtual machine configuration page, navigate 
 Follow the 'Recommended Steps' outlined in the resource health screen. Instructions include a screenshot and downloadable serial log from the boot diagnostics of the virtual machine.
 
 If you verified the no-boot was caused by a secure boot failure:
+
 1. The image you're using is an older version that may have one or more untrusted boot components and is on a deprecation path. To remedy an outdated image, update to a supported newer image version.
-1. The image you're using may have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify if your image has unsigned or untrusted boot components, refer to 'Verifying secure boot failures'.
-1. If the above two scenarios don't apply, the virtual machine is potentially infected with malware (bootkit/rootkit). Consider deleting the virtual machine and re-creating a new VM from the same source image while evaluating all software being installed.
+2. The image you're using may have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify if your image has unsigned or untrusted boot components, refer to 'Verifying secure boot failures'.
+3. If the above two scenarios don't apply, the virtual machine is potentially infected with malware (bootkit/rootkit). Consider deleting the virtual machine and re-creating a new VM from the same source image while evaluating all software being installed.
 
 ## Verifying secure boot failures
 
-### Linux Virtual Machines 
+### Linux Virtual Machines
+
 To verify which boot components are responsible for Secure Boot failures within an Azure Linux Virtual Machine, end-users can use the SBInfo tool from the Linux Security Package.
 
 1. Turn off secure boot
-1. Connect to your Azure Linux Trusted Launch virtual machine.
-2. Install the SBInfo tool for the distro your virtual machine is running. It resides within the Linux Security Package
+2. Connect to your Azure Linux Trusted Launch virtual machine.
+3. Install the SBInfo tool for the distro your virtual machine is running. It resides within the Linux Security Package
 
 #### [Debian-based distros](#tab/debianbased)
 
