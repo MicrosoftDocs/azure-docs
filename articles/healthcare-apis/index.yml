@@ -129,11 +129,11 @@ conceptualContent:
               text: Troubleshoot events
                      
         # Card
-        - title: De-identification service
+        - title: De-identification
           links:
             - url: ./deidentification/overview.md
               itemType: overview
-              text: De-ID ./deidentification/overview.md
+              text: De-ID
             - url: ./deidentification/quickstart.md
               itemType: how-to-guide
               text: De-ID quickstart
