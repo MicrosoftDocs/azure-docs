@@ -30,7 +30,7 @@ You can delete messages by calling [DeleteMessagesAsync](/dotnet/api/azure.messa
 - messageCount : The desired number of messages to delete.The service may delete fewer messages than this limit.
 - beforeEnqueueTime : An optional DateTimeOffset, in UTC, representing the cutoff time for deletion. Only messages that were enqueued before this time will be deleted. 
 
-Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deletemessagesasync?view=azure-dotnet-preview) to purge all messages from entity. 
+Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.purgemessagesasync?view=azure-dotnet-preview) to purge all messages from entity. 
 
 When using Azure SDKs to perform these operations, the beforeEnqueueTime parameter defaults to the current UTC time (DateTime.UtcNow()). It’s important to ensure you provide the correct values to prevent unintended message deletion.
 
