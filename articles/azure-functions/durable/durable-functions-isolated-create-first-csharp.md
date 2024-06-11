@@ -137,7 +137,7 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
     ```
     
 > [!NOTE]
-> If you set a breakpoint in the orchestrator function, you'll see Durable Functions' replay behavior when stepping through the code where after finishing one activity function call, the orchestrator function will not move to the next activity call. Instead, it'll restart from the beginning to rebuild the local state. This is because orchestrator functions use the event sourcing pattern to [reliably maintain execution state](./durable-functions-orchestrations.md#reliability). 
+> You can observe the [replay behavior](./durable-functions-orchestrations.md#reliability) of Durable Functions through breakpoints. Because this is an important concept to understand, it's highly recommended that you read the linked article. 
 
 1. To stop debugging, press <kbd>Shift + F5</kbd> in Visual Studio Code.
 
@@ -258,7 +258,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
     ```
 
 > [!NOTE]
-> If you set a breakpoint in the orchestrator function, you'll see Durable Functions' replay behavior when stepping through the code. This means after finishing one activity function call, the orchestrator function will not move to the next activity call, instead, it'll restart from the beginning to rebuild the local state. This is because orchestrator functions use the event sourcing pattern to [reliably maintain execution state](./durable-functions-orchestrations.md#reliability). 
+> You can observe the [replay behavior](./durable-functions-orchestrations.md#reliability) of Durable Functions through breakpoints. Because this is an important concept to understand, it's highly recommended that you read the linked article. 
 
 5. To stop debugging, press <kbd>Shift + F5</kbd>.
 
