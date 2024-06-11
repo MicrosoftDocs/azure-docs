@@ -181,7 +181,7 @@ az datashare share-subscription create --resource-group share-rg \
 Use the [New-AzDataShareSubscription](/powershell/module/az.datashare/new-azdatasharesubscription) command to create the Data Share. The InvitationId will be the ID you gathered from the previous step.
 
 ```azurepowershell
-New-AzDataShareSubscription -ResourceGroupName share-rg -AccountName FabrikamDataShareAccount -Name "Fabrikam Solutions" -InvitationId 89abcdef-0123-4567-89ab-cdef01234567
+New-AzDataShareSubscription -ResourceGroupName share-rg -AccountName FabrikamDataShareAccount -Name "Fabrikam Solutions" -InvitationId "89abcdef-0123-4567-89ab-cdef01234567"
 ```
 
 ---
@@ -332,7 +332,7 @@ Use these commands to configure where you want to receive data.
 1. Use the data set ID from the first step, then run the [New-AzDataShareDataSetMapping](/powershell/module/az.datashare/new-azdatasharedatasetmapping) command to create the dataset mapping:
 
    ```azurepowershell
-   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId 6789abcd-ef01-2345-6789-abcdef012345  -DataSetId 0123abcd-ef01-2345-6789-abcdef012345  -Container "StorageContainer"
+   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId "6789abcd-ef01-2345-6789-abcdef012345"  -DataSetId "0123abcd-ef01-2345-6789-abcdef012345"  -Container "StorageContainer"
    ```
 
 1. Run the [Start-AzDataShareSubscriptionSynchronization](/powershell/module/az.datashare/start-azdatasharesubscriptionsynchronization) command to start dataset synchronization.
