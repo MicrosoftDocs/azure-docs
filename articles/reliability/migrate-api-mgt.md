@@ -44,7 +44,7 @@ There are no downtime requirements for any of the migration options.
 
 * If you configured autoscaling for your API Management instance in the primary location, you might need to adjust your autoscale settings after enabling zone redundancy. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones.
 
-## Migrate an existing location of an API Management instance that's not injected in a virtual network
+## Existing gateway location not injected in a virtual network
 
 To migrate an existing location of your API Management instance to availability zones when the instance is not injected in a virtual network:
 
@@ -62,7 +62,7 @@ To migrate an existing location of your API Management instance to availability 
 
 :::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of API Management instance that's not injected in a virtual network." source ="media/migrate-api-mgt/option-one-not-injected-in-vnet.png":::
 
-## Migrate an existing location of an API Management instance (stv1 platform) that's injected in a virtual network
+## Existing gateway location (stv1 platform) injected in a virtual network
 
 To migrate an existing location of your API Management instance to availability zones when the instance is currently injected in a virtual network and is currently hosted on the `stv1` platform, use the following steps. Migrating to availability zones also migrates the instance to the `stv2` platform.
 
@@ -84,7 +84,7 @@ To migrate an existing location of your API Management instance to availability 
 
 :::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of an API Management instance that's injected in a virtual network." source ="media/migrate-api-mgt/option-two-injected-in-vnet.png":::
 
-## Migrate an existing location of an API Management instance (stv2 platform) that's injected in a virtual network
+## Existing gateway location (stv2 platform) injected in a virtual network
 
 To migrate an existing location of your API Management instance to availability zones when the instance is currently injected in a virtual network and is already hosted on the `stv2` platform:
 
@@ -106,7 +106,7 @@ To migrate an existing location of your API Management instance to availability 
 
 :::image type="content" alt-text="Screenshot that shows selections for migrating an existing location of an API Management instance (stv2 platform) that's injected in a virtual network." source ="media/migrate-api-mgt/option-three-stv2-injected-in-vnet.png":::
 
-## Add a new location for an API Management instance (with or without a virtual network) with availability zones
+## New gateway location
 
 To add a new location to your API Management instance and enable availability zones in that location:
 
