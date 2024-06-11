@@ -1,6 +1,6 @@
 ---
 title: Use passwordless connections with Azure AI Search
-description: Use passwordless connections for authentication and authorization to Azure AI Search.
+description: Use passwordless connections with Azure Identity for authentication and authorization with Azure AI Search.
 ms.topic: how-to
 ms.date: 06/05/2024
 author: HeidiSteen
@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-trac
 
 # Use Azure AI Search without keys 
 
-Application requests to most Azure services must be authenticated with keys or [passwordless connections](https://aka.ms/delete-passwords). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Passwordless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
+In your application code, you can set up a passwordless connection to Azure AI Search that uses roles and Microsoft Entra ID for authentication and authorization. Application requests to most Azure services must be authenticated with keys or [passwordless connections](https://aka.ms/delete-passwords). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Passwordless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
 
 Passwordless connections are enabled with the following steps: 
 
@@ -104,9 +104,9 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
     ### [Bicep](#tab/bicep)
 
-    When using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli), the identity of the person or service running the deployment is set to the `principalId` parameter. 
+    When using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli), the identity of the person or service running the deployment uses a _special_ AZD environment variable `AZURE_PRINCIPAL_ID`. 
 
-    The following `main.parameters.json` variable is set to the identity running the process. 
+    To use the special AZD environment variable, set the environment variable to a Bicep variable, such as `principalId` as a possible example. 
 
     ```json
     "principalId": {
@@ -114,7 +114,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
       },
     ```
 
-    For use in Azure, specify a user-assigned managed identity as part of the Bicep deployment process. Create a user-assigned managed identity separate from the identity running the process.
+    In Azure, as part of the Bicep deployment process, you should specify a user-assigned managed identity. This identity should be distinct from the one that runs the process. Assign the userAssignedManagedIdentity to the host application, which could be Azure App Service or Azure Container Apps.
 
     ```bicep
     resource userAssignedManagedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
@@ -159,24 +159,23 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
     param environment string = 'production'
     param roleGuid string = ''
 
-    // USER ROLES
     module aiSearchRoleUser 'core/security/role.bicep' = {
         scope: aiSearchResourceGroup
         name: 'aiSearch-role-user'
         params: {
-            principalId: (environment == 'development') ? principalId : userAssignedManagedIdentity 
+            principalId: (environment == 'development') ? principalId : userAssignedManagedIdentity.properties.principalId 
             principalType: (environment == 'development') ? 'User' : 'ServicePrincipal'
             roleDefinitionId: roleGuid
         }
     }
     ```
 
-    The following generic Bicep is called from the `main.bicep` to create any role. 
+    The `main.bicep` file calls the following generic Bicep code to create any role. You have the option to create multiple RBAC roles, such as one for the user and another for production. This allows you to enable both development and production environments within the same Bicep deployment.
 
     ```bicep
     // core/security/role.bicep
     metadata description = 'Creates a role assignment for an identity.'
-    param principalId string // passed in from main.bicep identityId
+    param principalId string // passed in from main.bicep
 
     @allowed([
         'Device'
@@ -211,7 +210,7 @@ Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azur
 
 To connect to Azure AI Search, your code needs to know your resource endpoint, and _may_ need additional environment variables. 
 
-1. Create an environment variable for your Azure AI Search endpoint. 
+1. Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
 
     * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
     
@@ -373,10 +372,13 @@ For more information on `DefaultAzureCredential` for Python, see [Azure Identity
 from azure.search.documents import SearchClient
 from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
 
+# Azure Public Cloud
+audience = "https://search.windows.net"
+authority = AzureAuthorityHosts.AZURE_PUBLIC_CLOUD
+
 service_endpoint = os.environ["AZURE_SEARCH_ENDPOINT"]
 index_name = os.environ["AZURE_SEARCH_INDEX_NAME"]
-credential = DefaultAzureCredential(authority=AzureAuthorityHosts.AZURE_CHINA)
-audience = "https://search.azure.cn"
+credential = DefaultAzureCredential(authority=authority)
 
 search_client = SearchClient(
     endpoint=service_endpoint, 
