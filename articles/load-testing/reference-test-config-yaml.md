@@ -332,7 +332,7 @@ The requests JSON file uses the following properties for defining the load confi
 
 ### Regional load test configuration
 
-You can distribute laod across regions to better simulate real life traffic patterns. You can specify the regions that you want to generate the load from and the amount of load that you want to simulate from each region. You can do that by specifying the region name and the number of engine instances that you want in that region. Learn more about [generating load from multiple regions](./how-to-generate-load-from-multiple-regions.md).
+You can distribute load across regions to better simulate real life traffic patterns. You can specify the regions that you want to generate the load from and the amount of load that you want to simulate from each region. You can do that by specifying the region name and the number of engine instances that you want in that region. Learn more about [generating load from multiple regions](./how-to-generate-load-from-multiple-regions.md).
 
 | Key | Type | Default value | Description | 
 | ----- | ----- | ----- | ---- |
