@@ -21,6 +21,8 @@ Customers can scale an Azure API Management instance in a dedicated service tier
 > * In the **Basic**, **Standard**, and **Premium** tiers of the API Management service, you can configure an instance to [scale automatically](api-management-howto-autoscale.md) based on a set of rules.
 > * API Management instances in the **Consumption** tier scale automatically based on the traffic. Currently, you cannot upgrade from or downgrade to the Consumption tier.
 
+[!INCLUDE [api-management-workspace-scaling](../../includes/api-management-workspace-scaling.md)]
+
 The throughput and price of each unit depend on the [service tier](api-management-features.md) in which the unit exists. If you need to increase capacity for a service within a tier, you should add a unit. If the tier that is currently selected in your API Management instance doesn't allow adding more units, you need to upgrade to a higher-level tier.
 
 > [!NOTE]
