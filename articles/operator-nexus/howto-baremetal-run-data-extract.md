@@ -15,12 +15,21 @@ There may be situations where a user needs to investigate and resolve issues wit
 
 The command produces an output file containing the results of the data extract located in the Cluster Manager's Azure Storage Account.
 
-## Before you begin
+## Prerequisites
 
 - This article assumes that you've installed the Azure command line interface and the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
 - The target bare metal machine is on and has readyState set to True.
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 - Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
+
+## Verify Storage Account access
+
+Verify you have access to the Cluster Manager's storage account
+  1. From Azure portal, navigate to Cluster Manager's Storage account.
+  1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+  1. In the Storage browser details, select on **Blob containers**.
+  1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+  1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Executing a run command
 
@@ -301,3 +310,5 @@ __Example JSON Collected__
 ## Viewing the Output
 
 Note the provided link to the tar.gz zipped file from the command execution. The tar.gz file name identifies the file in the Storage Account of the Cluster Manager resource group. You can also use the link to directly access the output zip file. The tar.gz file also contains the zipped extract command file outputs. Download the output file from the storage blob to a local directory by specifying the directory path in the optional argument `--output-directory`.
+Note: Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer [Verify Storage Account access](#verify-storage-account-access) for procedure to verify/request access. 
+
