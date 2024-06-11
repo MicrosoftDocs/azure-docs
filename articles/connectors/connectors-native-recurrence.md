@@ -230,7 +230,7 @@ To run your workflow only at one time in the future, you can apply the **Schedul
 
 1. From the **Category** list, select **Schedule**, and then select the following template:
 
-   :::image type="content" source="media/connectors-native-recurrence/choose-run-once-template.png" alt-text="Select the Scheduler Run once jobs template." lightbox="media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png":::
+   :::image type="content" source="media/connectors-native-recurrence/choose-run-once-template.png" alt-text="Screenshot shows the selected template named Scheduler Run once jobs." lightbox="media/connectors-native-recurrence/choose-run-once-template.png":::
 
 1. On the designer toolbar, select **Generally Available Designer**.
 
