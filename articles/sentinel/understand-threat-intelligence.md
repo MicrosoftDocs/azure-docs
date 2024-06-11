@@ -99,7 +99,9 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 ## View and manage your threat indicators
 
-View and manage your indicators in the **Threat Intelligence** page. Sort, filter, and search your imported threat indicators without even writing a Log Analytics query. This feature also allows you to create threat indicators directly within the Microsoft Sentinel interface, as well as perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
+View and manage your indicators in the **Threat Intelligence** page. Sort, filter, and search your imported threat indicators without even writing a Log Analytics query. 
+
+Perform two of the most common threat intelligence tasks: indicator tagging and creating new indicators related to security investigations. Create or edit the threat indicators directly within the Threat Intelligence page when the you only need to manage a few quickly.
 
 Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply a tag to indicators related to a particular incident, or to those representing threats from a particular known actor or well-known attack campaign. Tag threat indicators individually, or multi-select indicators and tag them all at once. Here is an example screenshot of tagging multiple indicators with an incident ID. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags. Indicators allow applying multiple tags.
 
