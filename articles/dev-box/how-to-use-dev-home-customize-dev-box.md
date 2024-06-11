@@ -41,19 +41,6 @@ To add an extension:
 1. Open Dev Home.
 1. From the left menu, select **Extensions**, then in the list of extensions **Available in the Microsoft Store**, on the **Dev Home Azure Extension (Preview)**, select **Get**.
 
-## Enable experimental features
-
-To use the Dev Box features in Dev Home Preview, you need to enable the experimental features in Dev Home.
-
-1. Open Dev Home.
-1. Select **Settings**.
-1. Select **Experimental features**.
-1. In the **Experimental features** section, turn on the following features:
-    - **Environments Creation**
-    - **Environments Management**
-    - **Environments Configuration**
-
-
 ## Create a dev box
 
 Dev Home provides a guided way for you to create a new dev box. 
