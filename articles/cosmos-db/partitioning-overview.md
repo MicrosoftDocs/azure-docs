@@ -52,10 +52,6 @@ There's no limit to the total number of physical partitions in your container. A
 
 Throughput provisioned for a container is divided evenly among physical partitions. A partition key design that doesn't distribute requests evenly might result in too many requests directed to a small subset of partitions that become "hot." Hot partitions lead to inefficient use of provisioned throughput, which might result in rate-limiting and higher costs.
 
-You can see your container's physical partitions in the **Storage** section of the **Metrics blade** of the Azure portal:
-
-:::image type="content" source="./media/partitioning-overview/view-partitions.png" alt-text="Screenshot of Azure Cosmos DB classic metrics displaying the number of physical partitions." :::
-
 For example, consider a container with the path `/foodGroup` specified as the partition key. The container could have any number of physical partitions, but in this example we assume it has three. A single physical partition could contain multiple partition keys. As an example, the largest physical partition could contain the top three most significant size logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
 
 If you assign a throughput of 18,000 request units per second (RU/s), then each of the three physical partitions can utilize 1/3 of the total provisioned throughput. Within the selected physical partition, the logical partition keys `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies` can, collectively, utilize the physical partition's 6,000 provisioned RU/s. Because provisioned throughput is evenly divided across your container's physical partitions, it's important to choose a partition key that evenly distributes throughput consumption. For more information, see [choosing the right logical partition key](#choose-partitionkey).

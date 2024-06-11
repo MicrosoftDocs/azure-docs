@@ -17,7 +17,7 @@ This script exports a managed snapshot to a storage account in different region.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
  
 
