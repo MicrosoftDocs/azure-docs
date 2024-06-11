@@ -39,7 +39,7 @@ Generic RBAC roles in Azure also apply to Azure Arc-enabled servers, including R
 
 [Azure role-based access control](../../role-based-access-control/overview.md) is used to control which accounts can see and manage your Azure Arc-enabled server. From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.yml) page in the Azure portal, you can verify who has access to your Azure Arc-enabled server.
 
-:::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc-enabled server access control" border="false" lightbox="./media/security-overview/access-control-page.png":::
+:::image type="content" source="./media/security-identity-authorization/access-control-page.png" alt-text="Azure Arc-enabled server access control" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
 Users and applications granted [contributor](../../role-based-access-control/built-in-roles.md#contributor) or administrator role access to the resource can make changes to the resource, including deploying or deleting [extensions](manage-vm-extensions.md) on the machine. Extensions can include arbitrary scripts that run in a privileged context, so consider any contributor on the Azure resource to be an indirect administrator of the server.
 
