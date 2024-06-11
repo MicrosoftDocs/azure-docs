@@ -33,7 +33,7 @@ The following is a sample workflow for creating and using a workspace.
 
 1. The central API platform team manages the infrastructure of the service, such as monitoring, resiliency, and enforcement of all-APIs policies. 
 
-## Workspace features
+## API management in a workspace
 
 The following resources can be managed in workspaces.
  
@@ -65,7 +65,7 @@ The following resources can be managed in workspaces.
 
 * Manage administrative email notifications related to resources in the workspace. 
 
-## Workspace gateway
+## Runtime isolation with a workspace gateway
 
 A dedicated gateway is created for each workspace, managed by the workspace collaborators and separate from the service gateway and other workspace gateways. The gateway is used to route API traffic to the backend services for the workspace APIs.
 
@@ -87,7 +87,7 @@ A dedicated gateway is created for each workspace, managed by the workspace coll
 * Workspace gateways don't support credential manager
 * Workspace gateways support only internal cache; external cache isn't supported 
 
-## RBAC roles 
+## RBAC roles for workspaces
 
 Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
