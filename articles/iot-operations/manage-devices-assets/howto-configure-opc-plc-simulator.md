@@ -1,28 +1,28 @@
 ---
 title: Configure an OPC PLC simulator
-description: How to configure an OPC PLC simulator to work with Azure IoT OPC UA Broker.
+description: How to configure the OPC PLC simulator to work with Azure IoT OPC UA Broker. The simulator generates sample data for testing and development purposes.
 author: dominicbetts
 ms.author: dobett
 ms.subservice: opcua-broker
 ms.topic: how-to
-ms.date: 03/01/2024
+ms.date: 05/16/2024
 
 # CustomerIntent: As a developer, I want to configure an OPC PLC simulator in my industrial edge environment to test the process of managing OPC UA assets connected to the simulator.
 ---
 
-# Configure an OPC PLC simulator to work with Azure IoT OPC UA Broker Preview
+# Configure the OPC PLC simulator to work with Azure IoT OPC UA Broker Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-In this article, you learn how to configure and connect to an OPC UA server simulator with different nodes that generate random data, anomalies, and configuration of user defined nodes. For developers, an OPC UA simulator enables you to test the process of managing OPC UA assets that are connected to the simulator.
+In this article, you learn how to configure and connect the OPC PLC simulator. The simulator simulates an OPC UA server with multiple nodes that generate random data and anomalies. You can configure user defined nodes. The OPC UA simulator lets you test the process of managing OPC UA assets with the [Azure IoT Operations (preview) portal](howto-manage-assets-remotely.md) or [Azure IoT Akri Preview](overview-akri.md).
 
 ## Prerequisites
 
-Azure IoT Operations installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the process installs an OPC PLC simulator.
+A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md). If you deploy Azure IoT Operations as described, the installation includes the OPC PLC simulator.
 
 ## Deploy the OPC PLC simulator
 
-This section shows how to deploy the OPC PLC simulator.
+This section shows how to deploy the OPC PLC simulator if you didn't include it when you first deployed Azure IoT Operations.
 
 The following step lowers the security level for the OPC PLC so that it accepts connections from Azure Iot OPC UA Broker or any client without an explicit peer certificate trust operation.
 
@@ -44,13 +44,17 @@ az k8s-extension update \
     --config opcPlcSimulation.autoAcceptUntrustedCertificates=true
 ```
 
-The OPC PLC OPC UA server should run in the same deployment as a separate pod.
+The OPC PLC simulator runs as a separate pod in the `azure-iot-operations` namespace. The pod name looks like `opcplc-000000-7b6447f99c-mqwdq`.
 
-## Configure OPC UA mutual trust between Azure Iot OPC UA Broker Preview and the OPC PLC
+## Configure mutual trust between Azure Iot OPC UA Broker and the OPC PLC
 
-The application instance certificate of the OPC PLC is a self-signed certificate managed by cert-manager and stored in the `secret aio-opc-ua-opcplc-default-application-cert-000000` kubernetes secret.
+To learn more about mutual trust in OPC UA, see [OPC UA certificates infrastructure for Azure IoT OPC UA Broker](overview-opcua-broker-certificates-management.md).
 
-1. Get the certificate, run the following commands on your cluster, and push it to Azure Key Vault.
+The application instance certificate of the OPC PLC simulator is a self-signed certificate managed by [cert-manager](https://cert-manager.io/) and stored in the `aio-opc-ua-opcplc-default-application-cert-000000` Kubernetes secret.
+
+To configure mutual trust between Azure Iot OPC UA Broker and the OPC PLC simulator:
+
+1. Get the certificate and push it to Azure Key Vault:
 
     ```bash
     kubectl -n azure-iot-operations get secret aio-opc-ua-opcplc-default-application-cert-000000 -o jsonpath='{.data.tls\.crt}' | \
@@ -58,12 +62,14 @@ The application instance certificate of the OPC PLC is a self-signed certificate
     xargs -0 -I {} \
     az keyvault secret set \
         --name "opcplc-crt" \
-        --vault-name <azure-key-vault-name> \
+        --vault-name <your-azure-key-vault-name> \
         --value {} \
         --content-type application/x-pem-file
     ```
 
-2. Configure the secret provider class (SPC) `aio-opc-ua-broker-trust-list` custom resource (CR) in the connected cluster. Use a K8s client such as kubectl to configure the secret `opcplc.crt`  in the SPC object array in the connected cluster.
+1. Add the certificate to the `aio-opc-ua-broker-trust-list` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the `opcplc.crt` secret in the `SecretProviderClass` object array in the cluster.
+
+    The following example shows a complete `SecretProviderClass` custom resource that contains the simulator certificate in a PEM encoded file with the .crt extension:
 
     ```yml
     apiVersion: secrets-store.csi.x-k8s.io/v1
@@ -75,8 +81,8 @@ The application instance certificate of the OPC PLC is a self-signed certificate
       provider: azure
       parameters:
         usePodIdentity: 'false'
-        keyvaultName: <azure-key-vault-name>
-        tenantId: <azure-tenant-id>
+        keyvaultName: <your-azure-key-vault-name>
+        tenantId: <your-azure-tenant-id>
         objects: |
           array:
             - |
@@ -85,18 +91,19 @@ The application instance certificate of the OPC PLC is a self-signed certificate
               objectAlias: opcplc.crt
     ```
 
-The projection of the Azure Key Vault secrets and certificates into the cluster takes some time depending on the configured polling interval.
+    > [!NOTE]
+    > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
-Now, the Azure IoT OPC UA Broker the trust relationship with OPC PLC should be established and you can proceed to create an `AssetEndpointProfile` to connect to your OPC PLC simulation server.
+The Azure IoT OPC UA Broker trust relationship with OPC PLC simulator is now established and you can create an `AssetEndpointProfile` to connect to your OPC PLC simulator.
 
 ## Optionally configure your `AssetEndpointProfile` without mutual trust established
 
-You can optionally configure an asset endpoint profile for the OPC PLC to run without mutual trust established. If you understand the risks, you can turn off authentication for testing purposes.
+Optionally, you can configure an asset endpoint profile without establishing mutual trust between OPC UA Broker and the OPC PLC simulator. If you understand the risks, you can turn off authentication for testing purposes.
 
 > [!CAUTION]
-> Don't configure for no authentication in production or pre-production. Exposing your cluster to the internet without authentication can lead to unauthorized access and even DDOS attacks.
+> Don't configure for no authentication in production or pre-production environments. Exposing your cluster to the internet without authentication can lead to unauthorized access and even DDOS attacks.
 
-To allow your asset endpoint profile to connect to any OPC PLC server without establishing mutual trust, use the `additionalConfiguration` setting to change the `AssetEndpointProfile` for OPC UA.
+To allow your asset endpoint profile to connect to an OPC PLC server without establishing mutual trust, use the `additionalConfiguration` setting to modify the `AssetEndpointProfile` configuration.
 
 Patch the asset endpoint with `autoAcceptUntrustedServerCertificates=true`:
 
@@ -108,9 +115,7 @@ kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
 -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
 ```
 
-> [!WARNING]
-> Don't use untrusted certificates in production environments.
-
 ## Related content
 
+- [OPC UA certificates infrastructure for Azure IoT OPC UA Broker Preview](overview-opcua-broker-certificates-management.md)
 - [Autodetect assets using Azure IoT Akri Preview](howto-autodetect-opcua-assets-using-akri.md)

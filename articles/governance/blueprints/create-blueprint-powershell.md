@@ -20,7 +20,7 @@ In this tutorial, you learn to use Azure Blueprints to do some of the common tas
 - If you've not used Azure Blueprints before, register the resource provider through Azure
   PowerShell with `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create a blueprint
 

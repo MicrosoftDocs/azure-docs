@@ -93,7 +93,7 @@ Azure SQL Database provides [transparent data encryption](/azure/azure-sql/datab
 
 Microsoft enables you to protect your data throughout its entire lifecycle: at rest, in transit, and in use. **Azure confidential computing** is a set of data security capabilities that offers encryption of data while in use. With this approach, when data is in the clear, which is needed for efficient data processing in memory, the data is protected inside a hardware-based trusted execution environment (TEE), also known as an enclave.
 
-Technologies like [Intel Software Guard Extensions](https://software.intel.com/sgx) (Intel SGX), or [AMD Secure Encrypted Virtualization](https://www.amd.com/en/processors/amd-secure-encrypted-virtualization) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation. For more information, see [Azure confidential computing](../confidential-computing/index.yml) documentation.
+Technologies like [Intel Software Guard Extensions](https://software.intel.com/sgx) (Intel SGX), or [AMD Secure Encrypted Virtualization](https://www.amd.com/en/developer/sev.html) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation. For more information, see [Azure confidential computing](../confidential-computing/index.yml) documentation.
 
 ## Multi-factor authentication (MFA)
 

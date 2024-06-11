@@ -19,7 +19,7 @@ This tutorial helps you create and manage a virtual network gateway (VPN gateway
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
-If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about Azure VPN Gateway, see [What is Azure VPN Gateway?](vpn-gateway-about-vpngateways.md).
+If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about Azure VPN Gateway, see [What is Azure VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 In this tutorial, you learn how to:
 
@@ -78,7 +78,7 @@ For this exercise, you won't select a zone-redundant SKU. If you want to learn a
 
 A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
-[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [NSG warning](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="view"></a>View the public IP address
 

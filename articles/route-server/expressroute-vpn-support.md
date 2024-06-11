@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: route-server
 ms.topic: concept-article
-ms.date: 02/16/2024
+ms.date: 05/14/2024
 
 #CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server with ExpressRoute and Azure VPN so that routes can be exchanged between the two on-premises networks.
 ---

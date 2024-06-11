@@ -1,18 +1,18 @@
 ---
 title: Add user consent to the personal voice project - Speech service
 titleSuffix: Azure AI services
-description: Learn about how to add user consent to the personal voice project. 
+description: Learn about how to add user consent to the personal voice project.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.topic: how-to
 ms.date: 2/7/2024
 ms.author: eur
 ---
 
-# Add user consent to the personal voice (preview) project
-
-[!INCLUDE [Personal voice preview](./includes/previews/preview-personal-voice.md)]
+# Add user consent to the personal voice project
 
 With the personal voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
 

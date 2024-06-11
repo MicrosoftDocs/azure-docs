@@ -22,7 +22,7 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
 > [!TIP]
 > The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../how-to/call-analyze-image.md) for examples that showcase all of the available features.
 
-[Reference documentation](/javascript/api/@azure/cognitiveservices-computervision/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Samples](/samples/browse/?products=azure&terms=computer-vision)
+[Reference documentation](/javascript/api/@azure/cognitiveservices-computervision/) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [Samples](/samples/browse/?products=azure&terms=computer-vision)
 
 ## Prerequisites
 

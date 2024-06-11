@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
 ms.reviewer: chugugrace
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Use the diagnose connectivity feature in the SSIS integration runtime

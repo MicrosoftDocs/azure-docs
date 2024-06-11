@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 You can use the [IoT Hub Resource](/rest/api/iothub/iothubresource) REST API to create and manage Azure IoT hubs programmatically. This article shows you how to use the IoT Hub Resource to create an IoT hub using **Postman**. Alternatively, you can use **cURL**. If any of these REST commands fail, find help with the [IoT Hub API common error codes](/rest/api/iothub/common-error-codes). 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

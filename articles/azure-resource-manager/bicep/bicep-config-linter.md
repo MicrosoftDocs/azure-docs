@@ -121,6 +121,9 @@ The following example shows the rules that are available for configuration.
         "use-resource-symbol-reference": {
           "level": "warning"
         },
+        "use-secure-value-for-secure-inputs": {
+          "level": "error"
+        },
         "use-stable-resource-identifiers": {
           "level": "warning"
         },

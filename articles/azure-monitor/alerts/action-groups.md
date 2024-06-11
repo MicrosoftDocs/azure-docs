@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-arm-template, has-azure-ad-ps-ref, azu
 ---
 # Action groups
 
-When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Alerts can contain action groups, which are a collection of notification preferences and actions which are performed when alert is triggered. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
+When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. You can use an action group to send a notification such as a voice call, SMS or email when the alert is triggered in addition to the alert itself. Action groups are a collection of notification preferences and actions. Azure Monitor, Azure Service Health, and Azure Advisor use action groups to notify users about the alert and take an action.
 This article shows you how to create and manage action groups. 
 
 Each action is made up of:
@@ -23,6 +23,7 @@ Global requests from clients can be processed by action group services in any re
 - You can add up to five action groups to an alert rule.
 - Action groups are executed concurrently, in no specific order.
 - Multiple alert rules can use the same action group.
+- Action Groups are defined by the unique set of actions and the users to be notified. For example, if you want to notify User1, User2 and User3 by email for two different alert rules, you only need to create one action group which you can apply to both alert rules.
 
 ## Create an action group in the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com/).
@@ -63,7 +64,7 @@ Global requests from clients can be processed by action group services in any re
 
       |Notification type|Description  |Fields|
       |---------|---------|---------|
-      |Email Azure Resource Manager role|Send an email to the subscription members, based on their role.<br>A notification email is sent only to the primary email address configured for the Microsoft Entra user.<br>The email is only sent to Microsoft Entra ID **user** members of the selected role, not to Microsoft Entra groups or service principals.<br> See [Email](#email-azure-resource-manager).|Enter the primary email address configured for the Microsoft Entra user. See [Email](#email-azure-resource-manager).|
+      |Email Azure Resource Manager role|Send an email to the subscription members, based on their role.<br> See [Email](#email-azure-resource-manager).|Enter the primary email address configured for the Microsoft Entra user. See [Email](#email-azure-resource-manager).|
       |Email| Ensure that your email filtering and any malware/spam prevention services are configured appropriately. Emails are sent from the following email addresses:<br> * azure-noreply@microsoft.com<br> * azureemail-noreply@microsoft.com<br> * alerts-noreply@mail.windowsazure.com|Enter the email where the notification should be sent.|
       |SMS|SMS notifications support bi-directional communication. The SMS contains the following information:<br> * Shortname of the action group this alert was sent to<br> * The title of the alert.<br> A user can respond to an SMS to:<br> * Unsubscribe from all SMS alerts for all action groups or a single action group.<br> * Resubscribe to alerts<br> * Request help.<br> For more information about supported SMS replies, see [SMS replies](#sms-replies).|Enter the **Country code** and the **Phone number** for the SMS recipient. If you can't select your country/region code in the Azure portal, SMS isn't supported for your country/region. If your country/region code isn't available, you can vote to have your country/region added at [Share your ideas](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). As a workaround until your country is supported, configure the action group to call a webhook to a third-party SMS provider that supports your country/region.|
       |Azure app Push notifications|Send notifications to the Azure mobile app. To enable push notifications to the Azure mobile app, provide the For more information about the Azure mobile app, see [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).|In the **Azure account email** field, enter the email address that you use as your account ID when you configure the Azure mobile app. |
@@ -71,7 +72,7 @@ Global requests from clients can be processed by action group services in any re
 
     1. Select if you want to enable the **Common alert schema**. The common alert schema is a single extensible and unified alert payload that can be used across all the alert services in Azure Monitor. For more information about the common schema, see [Common alert schema](./alerts-common-schema.md).
 
-       :::image type="content" source="./media/action-groups/action-group-2-notifications.png" alt-text="Screenshot that shows the Notifications tab of the Create action group dialog. Configuration information for an email notification is visible.":::
+       :::image type="content" source="~/reusable-content/ce-skilling/azure/media/azure-monitor/action-group-2-notifications.png" alt-text="Screenshot that shows the Notifications tab of the Create action group dialog. Configuration information for an email notification is visible.":::
 
     1. Select **OK**.
 
@@ -81,7 +82,7 @@ Global requests from clients can be processed by action group services in any re
 
    |Action type|Details  |
    |---------|---------|
-   |Automation Runbook|For information about limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). |
+   |Automation Runbook|Use Automation Runbook to automate tasks based on metrics. For example, shut down resources when a certain threshold in the associated budget is met. For information about limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). |
    |Event hubs |An Event Hubs action publishes notifications to Event Hubs. For more information about Event Hubs, see [Azure Event Hubs—A big data streaming platform and event ingestion service](../../event-hubs/event-hubs-about.md). You can subscribe to the alert notification stream from your event receiver.         |
    |Functions |Calls an existing HTTP trigger endpoint in functions. For more information, see [Azure Functions](../../azure-functions/functions-get-started.md).<br>When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you must remove and re-create the function action in the action group.<br>Your endpoint must support the HTTP POST method.<br>The function must have access to the storage account. If it doesn't have access, keys aren't available and the function URI isn't accessible.<br>[Learn about restoring access to the storage account](../../azure-functions/functions-recover-storage-account.md).|
    |ITSM  |An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md). |
@@ -109,7 +110,7 @@ When you create or update an action group in the Azure portal, you can test the 
 1. [Create an action group in the Azure portal](#create-an-action-group-in-the-azure-portal). 
 
    > [!NOTE]
-   > If you're editing an existing action group, save the changes to the action group before testing.
+   > The action group must be created and saved before testing. If you're editing an existing action group, save the changes to the action group before testing.
 
 1. On the action group page, select **Test action group**.
 
@@ -347,9 +348,10 @@ When an email address is rate limited, a notification is sent to communicate tha
 
 ## Email Azure Resource Manager
 
-When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is only sent to Microsoft Entra ID **user** members of the role. Email isn't sent to Microsoft Entra groups or service principals.
+When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is sent to Microsoft Entra ID **user** or **group** members of the role. This includes support for roles assigned through Azure Lighthouse.
 
-A notification email is sent only to the primary email address.
+> [!NOTE]
+> Action Groups only supports emailing the following roles: Owner, Contirbutor, Reader, Monitoring Contributor, Monitoring Reader.
 
 If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 
@@ -371,7 +373,7 @@ You may have a limited number of email actions per action group. To check which 
 
 When you set up the Resource Manager role:
 
-1. Assign an entity of type **User** to the role.
+1. Assign an entity of type **User** or **Group** to the role.
 1. Make the assignment at the **subscription** level.
 1. Make sure an email address is configured for the user in their **Microsoft Entra profile**.
 > - If a user is not a member of the above Role Memberships with the correct permissions to generate this notification, the minimum permission required to test an action group is "**Microsoft.Insights/createNotifications/***"

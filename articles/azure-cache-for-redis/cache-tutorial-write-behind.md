@@ -198,7 +198,7 @@ You need to update the _local.settings.json_ file to include the connection stri
 }
 ```
 
-To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. The string is in the **Access Keys** area of **Settings**.
+To find the Redis connection string, go to the resource menu in the Azure Cache for Redis resource. Locate the string is in the **Access Keys** area on the Resource menu.
 
 To find the SQL database connection string, go to the resource menu in the SQL database resource. Under **Settings**, select **Connection strings**, and then select the **ADO.NET** tab.
 The string is in the **ADO.NET (SQL authentication)** area.

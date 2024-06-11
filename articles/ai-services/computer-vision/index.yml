@@ -49,7 +49,7 @@ conceptualContent:
           url: /training/modules/read-text-images-documents-with-computer-vision-service/
         - itemType: reference
           text: OCR API reference
-          url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+          url: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2
 
     - title: Image Analysis
       links:
@@ -166,7 +166,7 @@ additionalContent:
       - title: REST APIs
         links:
         - text: Optical character recognition (OCR)
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+          url: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2
         - text: Image Analysis
           url: https://aka.ms/vision-4-0-ref
         - text: Face

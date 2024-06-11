@@ -36,7 +36,7 @@ sudo python3 -V
 Multiple versions of Python can be installed and aliased – if multiple versions are installed, use:
 
 ```Bash
-ls -ls /usr/bing/python*
+ls -ls /usr/bin/python*
 ```
 
 :::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="Screenshot of command to check multiple versions of Python for Linux." lightbox="media/agent-linux/python-multiple-version-check.png":::

@@ -121,7 +121,7 @@ To manually install drivers for the Medium GPU *(visualization)* size, follow th
 
 1. Install the GRID drivers that are provided by Microsoft on the template VM by following the instructions for your operating system:
 
-   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-gridvgpu-drivers)
    - [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.
