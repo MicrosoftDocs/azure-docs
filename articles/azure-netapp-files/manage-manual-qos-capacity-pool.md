@@ -40,7 +40,7 @@ You can change a capacity pool that currently uses the auto QoS type to use the 
 
 ## Monitor the throughput of a manual QoS capacity pool  
 
-Metrics are available to help you monitor the read and write throughput of a volume.  See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
+Metrics are available to help you monitor the read and write throughput of a volume. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
 
 ## Modify the allotted throughput of a manual QoS volume 
 
@@ -51,6 +51,18 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 2. Select **Change throughput**. Specify the **Throughput (MiB/S)** that you want. Select **OK**. 
 
     ![Change QoS throughput](./media/manage-manual-qos-capacity-pool/change-qos-throughput.png)
+
+## Modify the throughput of an Optimum service level capacity pool 
+
+With the Optimum service level, you can adjust the throughput of the capacity pool pool as needed. 
+
+1. From your NetApp account, select **Capacity pools** to display existing capacity pools.   
+ 
+1. Right-click the capacity pool whose throughput you want to modify then select **Change throughput**.
+
+1. Enter a value between 128 and 2560 MiB/s. 
+
+1. Select **OK**. 
 
 ## Next steps  
 

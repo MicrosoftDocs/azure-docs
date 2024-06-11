@@ -32,7 +32,25 @@ Creating a capacity pool enables you to create volumes within it.
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     >[!IMPORTANT]
-    >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`. 
+    >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`.
+* If you're using the Optimum service level:
+    * Cool access is not currently supported.
+    * Only single encryption is currently supported for Optimum service level capacity poools. Double encryption is not currently supported. 
+    * The Optimum service level is only available for manual QoS capacity pools. 
+* To use the **Optimum** service level, you must first register the feature:  
+
+    1. Register the feature: 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOptimumServiceLevel
+        ```
+    2. Check the status of the feature registration: 
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFOptimumServiceLevel
+        ```
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
     
 ## Steps 
 
@@ -50,7 +68,10 @@ Creating a capacity pool enables you to create volumes within it.
 
    * **Service level**   
      This field shows the target performance for the capacity pool.  
-     Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), or [**Standard**](azure-netapp-files-service-levels.md#Standard).
+     Specify the service level for the capacity pool: [**Ultra**](azure-netapp-files-service-levels.md#Ultra), [**Premium**](azure-netapp-files-service-levels.md#Premium), [**Standard**],(azure-netapp-files-service-levels.md#Standard) or [**Optimum**](azure-netapp-files-service-levels.md#Optimum).
+
+    >[!NOTE]
+    >The **Optimum** service level is only supported for manual QoS capacity pools.
 
     * **Size**     
      Specify the size of the capacity pool that you're purchasing.        
@@ -58,6 +79,9 @@ Creating a capacity pool enables you to create volumes within it.
     
     >[!NOTE]
     >[!INCLUDE [Limitations for capacity pool minimum of 1 TiB](includes/2-tib-capacity-pool.md)]
+
+    * **Throughput** 
+        This option is only available for Optimum service level capacity pools. Specify a value between 128 and 2,560 MiB/s. 
 
     * **Enable cool access**  *(for Standard service level only)*   
         This option specifies whether volumes in the capacity pool support cool access. This option is currently supported for the Standard service level only. For details about using this option, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
