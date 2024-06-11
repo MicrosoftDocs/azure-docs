@@ -225,8 +225,8 @@ This article assumes that you already installed a CentOS (or similar derivative)
     sudo export HISTSIZE=0
     ```
 
-> [!NOTE]
-> If you're migrating a specific VM and don't want to create a generalized image, skip the deprovision step.
+   > [!NOTE]
+   > If you're migrating a specific VM and don't want to create a generalized image, skip the deprovision step.
 
 1. Select **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [uploaded to Azure](./upload-vhd.md#option-1-upload-a-vhd).
 
@@ -241,7 +241,7 @@ Preparing a CentOS 7 VM for Azure is similar to CentOS 6. Several significant di
 * The `NetworkManager` package no longer conflicts with the Azure Linux agent. This package is installed by default and we recommend that you don't remove it.
 * GRUB2 is now used as the default bootloader, so the procedure for editing kernel parameters has changed. (See the "Configuration steps" section.)
 * XFS is now the default file system. The ext4 file system can still be used if you want.
-* Since CentOS 8 Stream and newer no longer include `network.service` by default, you need to install it manually:
+* Because CentOS 8 Stream and newer no longer include `network.service` by default, you need to install it manually:
 
     ```bash
     sudo yum install network-scripts
@@ -362,21 +362,21 @@ Preparing a CentOS 7 VM for Azure is similar to CentOS 6. Several significant di
 > [!NOTE]
 > If you're uploading a UEFI-enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg`. Also, the vfat kernel module must be enabled in the kernel. Otherwise, provisioning fails.
 >
-> Make sure the udf module is enabled. Removing or disabling it will cause a provisioning or boot failure. *(_Cloud-init >= 21.2 removes the udf requirement. For more information, read the top of document.)*
+> Make sure the udf module is enabled. Removing or disabling it will cause a provisioning or boot failure. *(_Cloud-init >= 21.2 removes the udf requirement. For more information, read the top of the document.)*
 
-1. If you're building the image from VMware, VirtualBox, or KVM: Ensure that the Hyper-V drivers are included in the initramfs:
+1. If you're building the image from VMware, VirtualBox, or KVM, ensure that the Hyper-V drivers are included in the initramfs:
 
-    Edit `/etc/dracut.conf`, add content:
+    1. Edit `/etc/dracut.conf` and add content:
 
-    ```config
-    add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
-    ```
+        ```config
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
+        ```
 
-    Rebuild the initramfs:
+    1. Rebuild the initramfs:
 
-    ```bash
-    sudo dracut -f -v
-    ```
+        ```bash
+        sudo dracut -f -v
+        ```
 
 1. Install the Azure Linux agent and dependencies for Azure VM extensions:
 
@@ -390,7 +390,7 @@ Preparing a CentOS 7 VM for Azure is similar to CentOS 6. Several significant di
     ```bash
     sudo yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
     ```
-    
+
     1. Configure `waagent` for cloud-init:
 
     ```bash
@@ -398,6 +398,7 @@ Preparing a CentOS 7 VM for Azure is similar to CentOS 6. Several significant di
     sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
     ```
+
     ```bash
     sudo echo "Adding mounts and disk_setup to init stage"
     sudo sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
@@ -405,6 +406,7 @@ Preparing a CentOS 7 VM for Azure is similar to CentOS 6. Several significant di
     sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
     sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
     ```
+
     ```bash
     sudo echo "Allow only Azure datasource, disable fetching network setting via IMDS"
     sudo cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
@@ -430,42 +432,42 @@ Preparing a CentOS 7 VM for Azure is similar to CentOS 6. Several significant di
     EOF
     ```
 
-1. Swap configuration.
+1. Swap configuration:
 
-    Don't create swap space on the OS disk.
+    1. Don't create swap space on the OS disk.
 
-    Previously, the Azure Linux agent was used to automatically configure swap space by using the local resource disk that's attached to the VM after the VM is provisioned on Azure. However, cloud-init now handles this step. You *must not* use the Linux agent to format the resource disk to create the swap file. Modify the following parameters in `/etc/waagent.conf` appropriately:
-
-    ```bash
-    sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-    ```
-
-    If you want to mount, format, and create the swap file, you can either:
-
-    * Pass this command in as a cloud-init config every time you create a VM.
-    * Use a cloud-init directive baked into the image to do this step every time the VM is created:
+       Previously, the Azure Linux agent was used to automatically configure swap space by using the local resource disk that's attached to the VM after the VM is provisioned on Azure. However, cloud-init now handles this step. You *must not* use the Linux agent to format the resource disk to create the swap file. Modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ```bash
-        sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
-        sudo cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
-        #cloud-config
-        # Generated by Azure cloud image build
-        disk_setup:
-          ephemeral0:
-            table_type: mbr
-            layout: [66, [33, 82]]
-            overwrite: True
-        fs_setup:
-          - device: ephemeral0.1
-            filesystem: ext4
-          - device: ephemeral0.2
-            filesystem: swap
-        mounts:
-          - ["ephemeral0.1", "/mnt"]
-          - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
-        EOF
+        sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+        sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
         ```
+
+    1. If you want to mount, format, and create the swap file, you can either:
+
+       * Pass this command in as a cloud-init config every time you create a VM.
+       * Use a cloud-init directive baked into the image to do this step every time the VM is created:
+
+            ```bash
+            sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
+            sudo cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+            #cloud-config
+            # Generated by Azure cloud image build
+            disk_setup:
+              ephemeral0:
+                table_type: mbr
+                layout: [66, [33, 82]]
+                overwrite: True
+            fs_setup:
+              - device: ephemeral0.1
+                filesystem: ext4
+              - device: ephemeral0.2
+                filesystem: swap
+            mounts:
+              - ["ephemeral0.1", "/mnt"]
+              - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
+            EOF
+            ```
 
 1. Run the following commands to deprovision the VM and prepare it for provisioning on Azure.
 
