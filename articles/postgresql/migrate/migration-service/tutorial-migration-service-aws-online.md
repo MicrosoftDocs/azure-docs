@@ -4,7 +4,7 @@ description: "Learn to migrate online seamlessly from AWS RDS to Azure Database 
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/20/2024
+ms.date: 06/12/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
@@ -65,11 +65,11 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. Select the **Create** button to migrate from AWS RDS to Azure Database for PostgreSQL - Flexible Server. If this is your first time using the migration service, an empty grid appears with a prompt to begin your first migration.
 
-    :::image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of creating a migration." lightbox="media/tutorial-migration-service-aws-online/portal-online-create-migration.png"::: image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of creating a migration."
+    :::image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of creating a migration." lightbox="media/tutorial-migration-service-aws-online/portal-online-create-migration.png":::
 
-  If you've already created migrations to your Azure Database for PostgreSQL - Flexible Server target, the grid contains information about attempted migrations.
+If you've already created migrations to your Azure Database for PostgreSQL target, the grid contains information about attempted migrations.
 
-1. Select the ** Create ** button. You'll then go through a wizard-based series of tabs to create a migration into this Azure Database for PostgreSQL—Flexible Server target from the PostgreSQL source instance.
+1. Select the **Create** button. You then go through a wizard-based series of tabs to create a migration into this Azure Database for PostgreSQL target from the PostgreSQL source instance.
 
 #### Setup
 
@@ -116,11 +116,11 @@ The **Connect to Source** tab prompts you to provide details related to the Sour
 
 After the successful test connection, select the **Next: Select Migration target**
 
-#### Select migration targett
+#### Select migration target
 
 The **select migration target** tab displays metadata for the Flexible Server target, such as the subscription name, resource group, server name, location, and PostgreSQL version.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-connect-target.png" alt-text="Screenshot of Connecttargetmigration.":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-connect-target.png" alt-text="Screenshot of the connect target migration screen.":::
 
 - **Admin username** - Admin username of the target PostgreSQL server
 - **Password** - Password of the target PostgreSQL server
@@ -148,7 +148,7 @@ After you select the start button, a notification appears in a few seconds sayin
 
 :::image type="content" source="media/tutorial-migration-service-aws-online/aws-monitor.png" alt-text="Screenshot of Monitor migration." lightbox="media/tutorial-migration-service-aws-online/aws-monitor.png":::
 
-The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration, and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry at the top. You can use the refresh button to refresh the status of the validation or migration.
+The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration**, and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry at the top. You can use the refresh button to refresh the status of the validation or migration.
 Select the migration name in the grid to see the associated details.
 
 As soon as the validation or migration is created, it moves to the **InProgress** state and **PerformingPreRequisiteSteps** substrate. The workflow takes 2-3 minutes to set up the migration infrastructure and network connections.
@@ -249,7 +249,7 @@ For more information about this command, use the `help` parameter.
 
 #### Create target Azure Database for PostgreSQL
 
-We used the [Create an Azure Database for PostgreSQL Flexible Server instance](../../flexible-server/quickstart-create-server-portal.md) to create a corresponding PostgreSQL target flexible server. Below is the target server screenshot once created –
+We used the [Create an Azure Database for PostgreSQL Flexible Server instance](../../flexible-server/quickstart-create-server-portal.md) to create a corresponding PostgreSQL target flexible server.
 
 ### Migrate using Azure CLI
 
@@ -309,8 +309,8 @@ az postgres flexible-server migration update --subscription <<subscription ID>> 
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
-Canceling a validation stops any further validation activity and the validation moves to a **Can be celled** state.
-Canceling a migration stops further migration activity on your target server and moves to a **Can be celled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
+Cancelling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
+Cancelling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
 
 ### Check the migration when completed
 

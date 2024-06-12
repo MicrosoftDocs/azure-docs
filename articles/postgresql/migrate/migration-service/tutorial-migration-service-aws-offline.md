@@ -53,7 +53,7 @@ You can perform the migration by using the Azure portal or the Azure CLI.
 
 The Azure portal provides a simple and intuitive wizard-based experience that guides you through migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure Database for PostgreSQL - Flexible Server and take advantage of its powerful features and scalability.
 
-To migrate with the Azure portal, you'll first configure the migration task, connect to the source and target, and then perform the migration.
+To migrate with the Azure portal, you first configure the migration task, connect to the source and target, and then perform the migration.
 
 ### Configure the migration task
 
@@ -140,7 +140,7 @@ The **select migration target** tab displays metadata for the Flexible Server ta
 
 After the successful test connection, select the **Next: Select Database(s) for Migration**
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-connect-target-migration-aws.png" alt-text="Screenshot of the connect target migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-connect-target-migration.png" alt-text="Screenshot of the connect target migration page.":::
 
 #### Select databases for migration
 
@@ -227,7 +227,6 @@ Copy other server settings, such as tags, alerts, and firewall rules (if applica
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration that's in the **Succeeded** or **Failed** state.
 
-- Canceling a validation stops further validation activity, and the validation moves to a **Cancelled** state.
 - Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action rolls back all changes made by the migration service on your target server.
 
 #### [CLI](#tab/cli)

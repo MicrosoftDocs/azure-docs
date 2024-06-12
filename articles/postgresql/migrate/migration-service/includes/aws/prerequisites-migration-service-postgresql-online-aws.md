@@ -4,7 +4,7 @@ description: Providing the online prerequisites for the migration service in Azu
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/07/2024
+ms.date: 06/12/2024
 ms.service: postgresql
 ms.topic: include
 ---
@@ -40,7 +40,7 @@ If the source PostgreSQL version is less than 9.5, upgrade it to 9.5 or higher b
 
 ### Enable CDC as a source
 
-- test_decoding logical decoding plugin captures the changed records from the source.
+- `test_decoding` logical decoding plugin captures the changed records from the source.
 - In the source, PostgreSQL instance, modify the following parameters by creating a new parameter group:
     - Set `rds.logical_replication = 1`
     - Set `max_replication_slots` to a value greater than one; the value should be greater than the number of databases selected for migration.
@@ -60,7 +60,7 @@ For more information on network setup, visit [Network guide for migration servic
 - Use the select command in the source to list all the extensions that are being used - `select extname, extversion from pg_extension;`
 - Search for azure.extensions server parameter on the Server parameter page on your Azure Database for PostgreSQL – Flexible server. Enable the extensions found in the source within the PostgreSQL flexible server.
 
-:::image type="content" source="../../media/tutorial-migration-service-aws-online/az-flexible-server-enable-extensions.png" alt-text="Screenshot of enable extensions":::
+:::image type="content" source="../../media/tutorial-migration-service-aws-online/az-flexible-server-enable-extensions.png" alt-text="Screenshot of enable extensions." lightbox="../../media/tutorial-migration-service-aws-online/az-flexible-server-enable-extensions.png":::
 
 - Check if the list contains any of the following extensions:
     - PG_CRON
@@ -82,5 +82,3 @@ If yes, search the server parameters page for the shared_preload_libraries param
 
 - The users and different roles must be migrated manually to the Azure Database for PostgreSQL – Flexible server. For migrating users and roles, you can use `pg_dumpall --globals-only -U <<username> -f <<filename>>.sql`.
 - Azure Database for PostgreSQL – The flexible server doesn't support any superuser; users having roles of superuser need to be removed before migration.
-
-

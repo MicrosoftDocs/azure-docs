@@ -4,7 +4,7 @@ description: Providing the offline prerequisites for the migration service in Az
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/07/2024
+ms.date: 06/20/2024
 ms.service: postgresql
 ms.topic: include
 ---
@@ -37,9 +37,9 @@ Proper networking setup is essential to ensure successful migration connectivity
 
 - **Networking requirements for migration:**
 
-- **ExpressRoute/IPsec VPN/VPN tunneling**: When connecting your on-premises/AWS source to Azure, you might need to set up an ExpressRoute, IPsec VPN, or VPN tunneling to facilitate secure data transfer.
+  - **ExpressRoute/IPsec VPN/VPN tunneling**: When connecting your on-premises/AWS source to Azure, you might need to set up an ExpressRoute, IPsec VPN, or VPN tunneling to facilitate secure data transfer.
 
-- **VNET peering**: Establish virtual network peering between the two distinct VNets to enable direct network connectivity, a prerequisite for migration between the Azure VM and the Azure Database for PostgreSQL.
+  - **VNET peering**: Establish virtual network peering between the two distinct VNets to enable direct network connectivity, a prerequisite for migration between the Azure VM and the Azure Database for PostgreSQL.
 
 - **Connectivity Scenarios:**
 
@@ -51,7 +51,7 @@ The following table can help set up the network between the source and target.
 | Private | Public | This configuration isn't supported; use pg_dump/pg_restore for data transfer. |
 | Public | Private | No other action is required if the source is whitelisted in the target's firewall rules. |
 | Private | Private | Establish an ExpressRoute, IPsec VPN, VPN Tunneling, or virtual network Peering between the source and target. |
-| Private | Private Endpoint | This configuration isn't supported; contact [Microsoft support](https://support.microsoft.com/). |
+| Private | Private Endpoint | This configuration isn't supported; contact [Microsoft support](https://support.microsoft.com/en-US). |
 
 - **Additional networking considerations:**
 
@@ -72,7 +72,7 @@ Search for the Azure.extensions server parameter on the Server parameter page on
 
 - Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
 
-:::image type="content" source="../../media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png" alt-text="Screenshot of Screenshot of extensions in the Azure portal.":::
+:::image type="content" source="../../media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png" alt-text="Screenshot of extensions in the Azure portal." lightbox="../../media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png":::
 
 - Check if the list contains any of the following extensions:
     - PG_CRON
