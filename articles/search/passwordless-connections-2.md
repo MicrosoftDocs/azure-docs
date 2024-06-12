@@ -219,69 +219,69 @@ TBD - Heidi and Matt to provide
 
 1. Find your personal identity. Use the identity as the `<identity-id>` in the next section.
 
-    #### [Azure CLI](#tab/azure-cli)
-    
-    1. Sign in to Azure CLI.
-    
-        ```azurecli
-        azure login
-        ```
-    
-    2. Get your personal identity.
-    
-        ```azurecli
-        az ad signed-in-user show \
-            --query id -o tsv
-        ```
-    
-    #### [Azure PowerShell](#tab/azure-powershell)
-    
-    1. Sign in with PowerShell.
-    
-        ```azurepowershell
-        Connect-AzAccount
-        ```
-    
-    2. Get your personal identity.
-    
-        ```azurepowershell
-        (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
-        ```
-    
-    #### [Azure portal](#tab/portal)
-    
-    Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
-    
-    ---
+#### [Azure CLI](#tab/azure-cli)
+
+1. Sign in to Azure CLI.
+
+    ```azurecli
+    azure login
+    ```
+
+2. Get your personal identity.
+
+    ```azurecli
+    az ad signed-in-user show \
+        --query id -o tsv
+    ```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Sign in with PowerShell.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+2. Get your personal identity.
+
+    ```azurepowershell
+    (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
+    ```
+
+#### [Azure portal](#tab/portal)
+
+Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
+
+---
 
 1. Assign the role-based access control (RBAC) role to the identity for the resource group.  
 
-    ### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-    To grant your identity permissions to your resource through RBAC, assign a role using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
+To grant your identity permissions to your resource through RBAC, assign a role using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
-    ```azurecli
-    az role assignment create \
-        --role "<role-name>" \
-        --assignee "<identity-id>" \
-        --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
-    ```
+```azurecli
+az role assignment create \
+    --role "<role-name>" \
+    --assignee "<identity-id>" \
+    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
+```
 
-    ### [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
-    To grant your application permissions to your Azure AI Search resource through RBAC, assign a role using the Azure PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+To grant your application permissions to your Azure AI Search resource through RBAC, assign a role using the Azure PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
-    ```azurepowershell
-    New-AzRoleAssignment -ObjectId "<identity-id>" -RoleDefinitionName "<role-name>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
-    ```
+```azurepowershell
+New-AzRoleAssignment -ObjectId "<identity-id>" -RoleDefinitionName "<role-name>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
+```
 
-    ### [Azure portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
-    Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
+Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
+
+---
     
-    ---
-    
-    Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-group-name>` with your actual values. 
+Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-group-name>` with your actual values. 
 
 
 ### Authentication for local development
