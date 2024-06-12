@@ -198,6 +198,9 @@ Note the following considerations to keep in mind with this release:
 - In your promotion planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the promotion.
 - Promoting a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
 
+## Pricing
+The Premium tier for Service Bus is priced per Messaging Unit. With Geo-Replication, secondary regions run on the same number of MUs as the primary region, and the pricing is calculated over the total number of MUs. Additionally, there is a charge for Geo-Replication based on the published bandwidth times the number of secondary regions. During the early public preview, the Geo-Replication charge is waived.
+
 ## Next steps
 
 - See the Geo-Replication [REST API reference here](/rest/api/servicebus/controlplane-stable/disaster-recovery-configs).
