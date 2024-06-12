@@ -107,7 +107,7 @@ Then, you need to update the dependency array in the `package.json` to include s
 "@fluentui/react-icons": "~2.0.203",
 "@fluentui/react": "~8.98.3",
 ```
-To install the needed packages run the following Node Package Manager command.
+To install the needed packages, run the following Node Package Manager command.
 
 ```bash
 npm install
@@ -538,7 +538,7 @@ export const CallingWidgetComponent = (
   );
 };
 ```
-In the `CallAdapterOptions` we see some sound files referenced, these are to use the Calling Sounds feature in the `CallComposite`. If you are interested in using the sounds please see the completed code to [download the sound files](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call/public/sounds).
+In the `CallAdapterOptions`, we see some sound files referenced, these files are to use the Calling Sounds feature in the `CallComposite`. If you are interested in using the sounds, see the completed code to [download the sound files](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call/public/sounds).
 
 #### 5. Style the widget
 
