@@ -32,11 +32,11 @@ Connect-AzAccount
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-kv-creation.md)]
+[!INCLUDE [Create a key vault](../includes/key-vault-powershell-kv-creation.md)]
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac-powershell.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac-powershell.md)]
 
 ## Add a certificate to Key Vault
 

@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 04/04/2024
+ms.date: 06/12/2024
 ms.author: msmbaldwin
 
 # Used by Key Vault CLI quickstarts
@@ -20,12 +20,10 @@ Use the Azure CLI [az keyvault create](/cli/azure/keyvault#az-keyvault-create) c
 - The location: **EastUS**.
 
 ```azurecli
-az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup"
+az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --enable-rbac-authorization
 ```
 
 The output of this command shows properties of the newly created key vault. Take note of these two properties:
 
 - **Vault Name**: The name you provided to the `--name` parameter.
 - **Vault URI**: In this example, the Vault URI is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
-
-At this point, your Azure account is the only one authorized to perform any operations on this new vault.

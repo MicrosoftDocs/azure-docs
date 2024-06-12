@@ -28,7 +28,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
+[!INCLUDE [Create a key vault](../includes/key-vault-cli-kv-creation.md)]
 
 ## Clean up resources
 

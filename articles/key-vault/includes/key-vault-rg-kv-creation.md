@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 07/20/2020
+ms.date: 06/12/2024
 ms.author: msmbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -11,9 +11,9 @@ ms.devlang: azurecli
 
 ---
 
-This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](../articles/key-vault/general/quick-create-cli.md), [Azure PowerShell quickstart](../articles/key-vault/general/quick-create-powershell.md), or [Azure portal quickstart](../articles/key-vault/general/quick-create-portal.md). 
+This quickstart uses a precreated Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](../articles/key-vault/general/quick-create-cli.md), [Azure PowerShell quickstart](../articles/key-vault/general/quick-create-powershell.md), or [Azure portal quickstart](../articles/key-vault/general/quick-create-portal.md). 
 
-Alternatively, you can simply run the Azure CLI or Azure PowerShell commands below.
+Alternatively, you can run these Azure CLI or Azure PowerShell commands.
 
 > [!Important]
 > Each key vault must have a unique name. Replace \<your-unique-keyvault-name\> with the name of your key vault in the following examples.
@@ -22,7 +22,7 @@ Alternatively, you can simply run the Azure CLI or Azure PowerShell commands bel
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
 
-az keyvault create --name "<your-unique-keyvault-name>" -g "myResourceGroup"
+az keyvault create --name "<your-unique-keyvault-name>" -g "myResourceGroup" --enable-rbac-authorization
 ```
 # [Azure PowerShell](#tab/azurepowershell)
 
