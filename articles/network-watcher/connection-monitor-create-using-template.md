@@ -347,9 +347,9 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * SUB - Subscription ID of the subscription where you want to create connection monitor
 
-* NW  - Network Watcher resource ID in which CM will be created 
+* NW  - Network Watcher resource ID in which CM is created 
 
-* location - Region in which connection monitor will be created
+* location - Region in which connection monitor is created
 
 * Endpoints
 	* name – Unique name for each endpoint
@@ -369,7 +369,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Test Configurations
 	* name - Name of the test configuration.
 	* testFrequencySec - Specify how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in a 30-second period.
-	* protocol - You can choose TCP, ICMP, HTTP or HTTPS. Depending on the protocol, you can do some protocol specific configs
+	* protocol - You can choose TCP, ICMP, HTTP, or HTTPS. Depending on the protocol, you can do some protocol specific configs
 	
 		* preferHTTPS - Specify whether to use HTTPS over HTTP, when port used is neither 80 nor 443
 		* port - Specify the destination port of your choice.
