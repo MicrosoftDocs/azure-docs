@@ -430,6 +430,8 @@
         href: search-security-rbac.md
       - name: Code without keys
         href: passwordless-connections.md
+      - name: Code without keys 2
+        href: passwordless-connections-2.md        
       - name: Configure apps for Microsoft Entra ID
         href: search-howto-aad.md
       - name: Configure an IP firewall
