@@ -92,7 +92,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 
 ## Service limits
 
-[!INCLUDE [functions-limits](../../includes/functions-limits.md)]
+[!INCLUDE [functions-limits](~/reusable-content/ce-skilling/azure/includes/functions-limits.md)]
 
 ## Networking features
 

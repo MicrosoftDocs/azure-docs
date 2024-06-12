@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Deploy a sample application by using AGIC for ingress on the AKS cluster.
 > * Check that the application is reachable through application gateway.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

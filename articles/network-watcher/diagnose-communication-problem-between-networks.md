@@ -85,7 +85,7 @@ In this section, you create a storage account, then you create a container in it
 
 If you have a storage account that you want to use, you can skip the following steps and go to [Create VPN gateways](#create-vpn-gateways).
 
-1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** from the search results.
 
 1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 

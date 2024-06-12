@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 04/03/2024
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -62,10 +62,22 @@ Periodic assessment isn't getting set correctly during create for specialized, m
 Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 
+## The prerequisite for scheduled patching isn't set correctly and schedules aren't attached when utilizing specific policies during create for specialized, generalized, migrated and restored VMs
+
+
+### Cause
+
+The prerequisite for scheduled patching and attaching schedules isn't being set correctly when utilizing the **Schedule recurring updates using Azure Update Manager** and **Set prerequisite for Scheduling recurring updates on Azure virtual machines** policies during create for specialized, generalized, migrated, and restored VMs because of the way the current *Deploy If Not Exists policy* is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
+
+### Resolution
+
+Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
+
+
 ## Policy remediation tasks are failing for gallery images and for images with encrypted disks
 
 ### Issue
-There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it is currently not part of the Virtual Machine Contributor role.
+There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it's currently not part of the Virtual Machine Contributor role.
 
   :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/troubleshoot/policy-remediation-failure-error.png":::
 
@@ -74,7 +86,7 @@ The Virtual Machine Contributor role doesn’t have enough permissions.
 
 ### Resolution
 -	For all the new assignments, a recent change is introduced to provide **Contributor** role to the managed identity created during policy assignment for remediation.  Going forward, this will be assigned for any new assignments.
--	For any previous assignments if you are experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
+-	For any previous assignments if you're experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
 -	Also, in scenarios where the Contributor role doesn’t work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
 
@@ -95,7 +107,7 @@ When a VM is moved to another subscription or resource group, the scheduled main
 
 #### Resolution
 
-The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a pre requisite, first remove the assignment before following the steps.** 
+The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a prerequisite, first remove the assignment before following the steps.** 
 
 If you're using a `static` scope:
 

@@ -77,7 +77,7 @@ To create a custom image using the Azure portal:
 
    Once you've completed this tab, select **Next**.
 
-1. On the **Source image** tab, for **Source type** select the source of your template from one of the options, then complete the other fields for that source type:
+1. On the **Source image** tab, for **Source type** select the source of your template from one of the options, then complete the other fields for that source type. Confidential VM and Trusted Launch support is inherited from Azure VM Image Builder. For more information, see [Confidential VM and Trusted Launch support](../virtual-machines/image-builder-overview.md#confidential-vm-and-trusted-launch-support).
 
    - **Platform image (marketplace)** provides a list of the available images in the Azure Marketplace for Azure Virtual Desktop.
 
@@ -165,7 +165,9 @@ To create a custom image using the Azure portal:
 1. On the **Review and create** tab, review the information that is used during deployment, then select **Create**.
 
 > [!TIP]
-> The new template may take about 20 seconds to appear. From **Custom images templates**, select **Refresh** to check the status.
+> - The new template may take about 20 seconds to appear. From **Custom images templates**, select **Refresh** to check the status.
+>
+> - Removing or uninstalling the Microsoft Store app isn't supported. Learn how to [Configure access to the Microsoft Store](/windows/configuration/stop-employees-from-using-microsoft-store).
 
 ### Build the image
 
