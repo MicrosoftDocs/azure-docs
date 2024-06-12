@@ -66,7 +66,6 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     
     feature_manager = FeatureManager(config, feature_filters=[RandomFilter()])
     
-    # Is always false
     print("Beta is ", feature_manager.is_enabled("Beta"))
     ```
 
