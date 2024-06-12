@@ -69,15 +69,15 @@ If using Azure PowerShell, this tutorial requires Azure PowerShell version 5.9.0
 
     ```azurepowershell-interactive
     Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster |
-      Select-Object -Property Name, KubernetesVersion, Location
+      Select-Object -Property Name, CurrentKubernetesVersion, Location
     ```
 
-    The following example output shows the current version as *1.26.6* and the location as *eastus*:
+    The following example output shows the current version as *1.28.9* and the location as *eastus*:
 
     ```output
-    Name            KubernetesVersion       Location
-    ----            -----------------       --------
-    myAKSCluster    1.26.6                  eastus
+    Name              CurrentKubernetesVersion      Location
+    ----              ------------------------      --------
+    myAKSCluster      1.28.9                        eastus
     ```
 
 2. Check which Kubernetes upgrade releases are available in the region where your cluster resides using the [`Get-AzAksVersion`][get-azaksversion] cmdlet.
@@ -91,8 +91,11 @@ If using Azure PowerShell, this tutorial requires Azure PowerShell version 5.9.0
     ```output
     Default     IsPreview     OrchestratorType     OrchestratorVersion
     -------     ---------     ----------------     -------------------
-                              Kubernetes           1.27.1
-                              Kubernetes           1.27.3
+                              Kubernetes               1.29.4
+                              Kubernetes               1.29.2
+    True                      Kubernetes               1.28.9
+                              Kubernetes               1.28.5
+    ...
     ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -193,15 +196,17 @@ You can either [manually upgrade your cluster](#manually-upgrade-cluster) or [co
     The following example output shows the result of upgrading to *1.29.2*. Notice the `KubernetesVersion` now shows *1.29.2*:
 
     ```output
-    ProvisioningState       : Succeeded
-    MaxAgentPools           : 100
-    KubernetesVersion       : 1.29.2
-    PrivateFQDN             :
-    AgentPoolProfiles       : {default}
-    Name                    : myAKSCluster
-    Type                    : Microsoft.ContainerService/ManagedClusters
-    Location                : eastus
-    Tags                    : {}
+    ...
+    ProvisioningState        : Succeeded
+    MaxAgentPools            : 100
+    KubernetesVersion        : 1.29.2
+    CurrentKubernetesVersion : 1.29.2
+    ...
+    ResourceGroupName        : myResourceGroup
+    Name                     : myAKSCluster
+    Type                     : Microsoft.ContainerService/ManagedClusters
+    Location                 : eastus
+    Tags                     :
     ```
 
 #### [Azure portal](#tab/azure-portal)
@@ -311,9 +316,9 @@ AKS regularly provides new node images. Linux node images are updated weekly, an
     The following example output shows the AKS cluster runs *KubernetesVersion 1.27.3*:
 
     ```output
-    Name         Location   KubernetesVersion   ProvisioningState
-    ----         --------   -----------------   -----------------
-    myAKSCluster eastus     1.27.3              Succeeded
+    Name             Location     KubernetesVersion     ProvisioningState
+    ----             --------     -----------------     -----------------
+    myAKSCluster     eastus       1.29.2                Succeeded
     ```
 
 ### [Azure portal](#tab/azure-portal)
