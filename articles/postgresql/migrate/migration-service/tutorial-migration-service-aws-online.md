@@ -115,7 +115,7 @@ The **Connect to Source** tab prompts you to provide details related to the Sour
 
 After the successful test connection, select the **Next: Select Migration target**
 
-#### Connect to target
+#### Select migration targett
 
 The **select migration target** tab displays metadata for the Flexible Server target, such as the subscription name, resource group, server name, location, and PostgreSQL version.
 
@@ -240,10 +240,6 @@ If the cutover is unsuccessful, the migration moves to `Failed` state.
 
 For more information about this command, use the `help` parameter.
 
-### End-to-end flow tutorial
-
-In this tutorial, we'll migrate a PostgreSQL database residing in an Azure VM with public access to an Azure Database for PostgreSQL Flexible server using Azure CLI.
-
 #### Connect to source
 
 - In this tutorial, source AWS RDS for the PostgreSQL version used is 14.8
@@ -254,17 +250,7 @@ In this tutorial, we'll migrate a PostgreSQL database residing in an Azure VM wi
 
 We used the [Create an Azure Database for PostgreSQL Flexible Server instance](../../flexible-server/quickstart-create-server-portal.md) to create a corresponding PostgreSQL target flexible server. Below is the target server screenshot once created –
 
-#### Verify prerequisites for migration
-
-Ensure that all the prerequisites are completed before the start of migration.
-
-- Networking establishment between source and target.
-- Azure CLI environment and all the appropriate defaults are set up.
-- Extensions are allowed, listed, and included in shared-load libraries.
-- Users and roles are migrated.
-- Server parameters are configured appropriately.
-
-### Migrate using Azure CL
+### Migrate using Azure CLI
 
 - Open the command prompt and login into the Azure using `az login` command
 
