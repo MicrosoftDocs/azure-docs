@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/31/2024
+ms.date: 06/11/2024
 recommendations: false
 ---
 
@@ -19,6 +19,14 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## June 2024
+
+### GPT-4o released in new regions
+
+* GPT-4o is now also available in:
+    -  Sweden Central for standard regional deployment.
+    -  Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
+
+For the latest information on model availability, see the [models page](./concepts/models.md).
 
 ### Customer-managed key (CMK) support for Assistants
 
