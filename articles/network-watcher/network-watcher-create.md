@@ -60,13 +60,13 @@ If you choose to [opt out of Network Watcher automatic enablement](#opt-out-of-n
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
     :::image type="content" source="./media/network-watcher-create/portal-search.png" alt-text="Screenshot shows how to search for Network Watcher in the Azure portal." lightbox="./media/network-watcher-create/portal-search.png":::
 
-1. In the **Overview** page, select **+ Add**.
+1. On the **Overview** page, select **+ Create**.
 
-1. In **Add network watcher**, select your Azure subscription, then select the region that you want to enable Azure Network Watcher for.
+1. On **Add network watcher**, select your Azure subscription, then select the region that you want to enable Azure Network Watcher for.
 
 1. Select **Add**.
 
@@ -124,9 +124,9 @@ You can disable Network Watcher for a region by deleting the Network Watcher ins
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
-1. In the **Overview** page, select the Network Watcher instances that you want to delete, then select **Disable**.
+1. On the **Overview** page, select the Network Watcher instances that you want to delete, then select **Disable**.
 
     :::image type="content" source="./media/network-watcher-create/delete-network-watcher.png" alt-text="Screenshot shows how to delete a Network Watcher instance in the Azure portal." lightbox="./media/network-watcher-create/delete-network-watcher.png":::
 
@@ -200,9 +200,9 @@ You can view all regions where Network Watcher is enabled in your subscription b
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
-1. In the **Overview** page, you can see all Network Watcher instances in your subscription.
+1. On the **Overview** page, you can see all Network Watcher instances in your subscription.
 
     :::image type="content" source="./media/network-watcher-create/list-network-watcher.png" alt-text="Screenshot shows how to list all Network Watcher instances in your subscription in the Azure portal." lightbox="./media/network-watcher-create/list-network-watcher.png":::
 
