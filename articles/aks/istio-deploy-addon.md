@@ -34,7 +34,7 @@ export LOCATION=<location>
 
 ## Install Istio add-on
 
-This section includes steps to install the Istio add-on during cluster creation or enable for an existing cluster using the Azure CLI. If you want to install the add-on using Bicep, see [install an AKS cluster with the Istio service mesh add-on using Bicep][install-aks-cluster-istio-bicep]. To learn more about the Bicep resource definition for an AKS cluster, see [Bicep managedCluster reference][bicep-aks-resource-definition].
+This section includes steps to install the Istio add-on during cluster creation or enable for an existing cluster using the Azure CLI. If you want to install the add-on using Bicep, see the [install an AKS cluster with the Istio service mesh add-on using Bicep][install-aks-cluster-istio-bicep] guide. To learn more about the Bicep resource definition for an AKS cluster, see [Bicep managedCluster reference][bicep-aks-resource-definition].
 
 ### Revision selection
 
@@ -104,7 +104,7 @@ istiod-asm-1-18-74f7f7c46c-4nt2v   2/2     Running   0          2m
 
 ## Enable sidecar injection
 
-To automatically install sidecar to any new pods, you will need to annotate your namespaces with the revision label corresponding to the control plane revision currently installed.
+To automatically install sidecar to any new pods, you need to annotate your namespaces with the revision label corresponding to the control plane revision currently installed.
 
 If you're unsure which revision is installed, use:
 
@@ -205,7 +205,7 @@ reviews-v2-7d79d5bd5d-8zzqd       2/2     Running   0          2m41s
 reviews-v3-7dbcdcbc56-m8dph       2/2     Running   0          2m41s
 ```
 
-Confirm that all the pods have status of `Running` with 2 containers in the `READY` column. The second container (`istio-proxy`) added to each pod is the Envoy sidecar injected by Istio, and the other is the application container.
+Confirm that all the pods have status of `Running` with two containers in the `READY` column. The second container (`istio-proxy`) added to each pod is the Envoy sidecar injected by Istio, and the other is the application container.
 
 To test this sample application against ingress, check out [next-steps](#next-steps).
 
