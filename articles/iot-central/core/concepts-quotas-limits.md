@@ -53,7 +53,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Maximum data retention in days | 30 | If you need to keep data for longer, use data export to export it to external storage. |
+| Maximum data retention in days | 7 | If you need to keep data for longer, use data export to export it to external storage. |
 
 ## Data export
 

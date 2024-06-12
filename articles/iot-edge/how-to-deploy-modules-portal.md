@@ -4,8 +4,8 @@ description: Use your IoT Hub in the Azure portal to push an IoT Edge module fro
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 9/22/2022
-ms.topic: conceptual
+ms.date: 06/11/2024
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -13,6 +13,14 @@ services: iot-edge
 # Deploy Azure IoT Edge modules from the Azure portal
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
+
+> [!IMPORTANT]
+> Starting August 28th 2024, Azure Marketplace is updating the distribution model for IoT Edge modules. Partners (module publishers) will begin [hosting their IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&filters=partners&page=1) on publisher-owned container registries. IoT Edge module images won't be available for download from the Azure Marketplace container registry.
+>
+> Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
+>
+>
+> IoT Edge devices that don't use [partner modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1&subcategories=iot-edge-modules) acquired from Azure Marketplace aren't affected and no action is required.
 
 Once you create IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once and declare the routing rules that connect them.
 
@@ -72,7 +80,7 @@ For example to add the Microsoft simulated temperature sensor module:
 
 For more information about the available module settings, see [Module configuration and management](module-composition.md#module-configuration-and-management).
 
-For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+   For more information about the module twin, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
 #### Azure Stream Analytics Module
 
@@ -107,4 +115,4 @@ Select **Next: Routes** and continue with deployment as described by [Specify ro
 
 ## Next steps
 
-Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md)
+Learn how to [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).

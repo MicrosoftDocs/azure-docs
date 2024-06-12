@@ -6,7 +6,7 @@ ms.author: rosouz
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/18/2023
+ms.date: 05/08/2024
 ms.custom: devx-track-azurecli
 ---
 
@@ -576,7 +576,8 @@ Although analytical store has built-in protection against physical failures, bac
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
 * Periodic backup mode is fully compatible with Synapse Link and these 2 features can be used in the same database account.
-* Continuous backup mode and Synapse Link are supported in the same database account. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup.
+* Synapse Link for database accounts using continuous backup mode is GA.
+* Continuous backup mode for Synapse Link enabled accounts is in public preview. Currently, customers that disabled Synapse Link from containers can't migrate to continuous backup.
 
 ### Backup policies
 

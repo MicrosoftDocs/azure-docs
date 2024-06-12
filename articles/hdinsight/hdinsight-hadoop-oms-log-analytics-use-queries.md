@@ -14,7 +14,7 @@ Learn some basic scenarios on how to use Azure Monitor logs to monitor Azure HDI
 * [Analyze HDInsight cluster metrics](#analyze-hdinsight-cluster-metrics)
 * [Create event alerts](#create-alerts-for-tracking-events)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 

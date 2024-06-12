@@ -4,7 +4,7 @@ description: How to configure downstream devices to connect to Azure IoT Edge ga
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 01/09/2023
+ms.date: 06/10/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge

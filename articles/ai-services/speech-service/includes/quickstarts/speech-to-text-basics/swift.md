@@ -1,6 +1,8 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom:
+  - build-2024
 ms.topic: include
 ms.date: 01/30/2024
 ms.author: eur
@@ -137,6 +139,10 @@ After you select the button in the app and say a few words, you should see the t
 ## Remarks
 
 This example uses the `recognizeOnce` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/ai-services/speech-service/how-to-recognize-speech.md).
+
+## Objective-C
+
+The Speech SDK for Objective-C shares client libraries and reference documentation with the Speech SDK for Swift. For Objective-C code examples, see the [recognize speech from a microphone in Objective-C on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone) sample project in GitHub.
 
 ## Clean up resources
 

@@ -1,11 +1,11 @@
 ---
-title: What is Azure IoT Edge | Microsoft Docs
-description: Overview of the Azure IoT Edge service
+title: What is Azure IoT Edge
+description: Overview of the Azure IoT Edge service and its components. Learn how to deploy, run, and monitor containerized Linux workloads at the edge.
 author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 1/31/2023
+ms.date: 06/05/2024
 ms.author: patricka
 ms.custom: mvc
 ---

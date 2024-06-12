@@ -17,7 +17,7 @@ A managed identity from Microsoft Entra ID allows your container app to access o
 Your container app can be granted two types of identities:
 
 - A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource that can be assigned to your container app and other resources. A container app can have multiple user-assigned identities. The identity exists until you delete them.
+- A **user-assigned identity** is a standalone Azure resource that you can assign to your container app and other resources. A container app can have multiple user-assigned identities. User-assigned identities exist until you delete them.
 
 ## Why use a managed identity?
 
@@ -28,9 +28,9 @@ With managed identities:
 - Your app connects to resources with the managed identity. You don't need to manage credentials in your container app.
 - You can use role-based access control to grant specific permissions to a managed identity.
 - System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
-- You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's life cycle.
-- You can use managed identity to [authenticate with a private Azure Container Registry](./managed-identity-image-pull.md) without a username and password to pull containers for your Container App.
-- You can use [managed identity to create connections for Dapr-enabled applications via Dapr components](./dapr-overview.md)
+- You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's lifecycle.
+- You can use managed identity to [authenticate with a private Azure Container Registry](./managed-identity-image-pull.md) without a username and password to pull containers for your container app.
+- You can use a [managed identity to create connections for Dapr-enabled applications via Dapr components](./dapr-overview.md)
 
 ### Common use cases
 
@@ -46,9 +46,8 @@ User-assigned identities are ideal for workloads that:
 
 ## Limitations
 
-Using managed identities in scale rules isn't supported. You'll still need to include the connection string or key in the `secretRef` of the scaling rule.
-
-[Init containers](containers.md#init-containers) can't access managed identities.
+- Managed identities in scale rules isn't supported. You need to include connection strings or keys in the `secretRef` of the scaling rule.
+- [Init containers](containers.md#init-containers) can't access managed identities.
 
 ## Configure managed identities
 
@@ -67,11 +66,13 @@ When a managed identity is added, deleted, or modified on a running container ap
 
 # [Azure portal](#tab/portal)
 
-1. In the left navigation of your container app's page, scroll down to the **Settings** group.
+1. Go to your container app in the Azure portal.
 
-1. Select **Identity**.
+1. From the *Settings* group, select **Identity**.
 
-1. Within the **System assigned** tab, switch **Status** to **On**. Select **Save**.
+1. Within the *System assigned* tab, switch *Status* to **On**.
+
+1. Select **Save**.
 
 :::image type="content" source="media/managed-identity/screenshot-system-assigned-identity.png" alt-text="Screenshot of system-assigned identities.":::
 
@@ -118,13 +119,15 @@ First, you'll need to create a user-assigned identity resource.
 
 1. Create a user-assigned managed identity resource according to the steps found in [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-1. In the left navigation for your container app's page, scroll down to the **Settings** group.
+1. Go to your container app in the Azure portal.
 
-1. Select **Identity**.
+1. From the *Settings* group, select **Identity**.
 
-1. Within the **User assigned** tab, select **Add**.
+1. Within the *User assigned* tab, select **Add**.
 
-1. Search for the identity you created earlier and select it. Select **Add**.
+1. Search for and select the identity you created earlier.
+
+1. Select **Add**.
 
 :::image type="content" source="media/managed-identity/screenshot-user-assigned-identity.png" alt-text="Screenshot of user-assigned identities.":::
 
@@ -166,7 +169,7 @@ Specify each user-assigned identity by adding an item to the `userAssignedIdenti
 For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
 
 > [!NOTE]
-> An application can have both system-assigned and user-assigned identities at the same time. In this case, the type property would be `SystemAssigned,UserAssigned`.
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the value for the `type` property would be `SystemAssigned,UserAssigned`.
 
 # [YAML](#tab/yaml)
 
@@ -191,64 +194,64 @@ For a complete YAML template example, see [ARM API Specification](azure-resource
 
 ## Configure a target resource
 
-For some resources, you'll need to configure role assignments for your app's managed identity to grant access. Otherwise, calls from your app to services, such as Azure Key Vault and Azure SQL Database, will be rejected even if you use a valid token for that identity. To learn more about Azure role-based access control (Azure RBAC), see [What is RBAC?](../role-based-access-control/overview.md). To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+For some resources, you need to configure role assignments for your app's managed identity to grant access. Otherwise, calls from your app to services, such as Azure Key Vault and Azure SQL Database, are rejected even when you use a valid token for that identity. To learn more about Azure role-based access control (Azure RBAC), see [What is RBAC?](../role-based-access-control/overview.md). To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 > [!IMPORTANT]
-> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. There's currently no way to force a token refresh.
+> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. Forcing a token refresh isn't supported.
 
 ## Connect to Azure services in app code
 
 With managed identities, an app can obtain tokens to access Azure resources that use Microsoft Entra ID, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application.
 
-Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint can be accessed from within the app with a standard HTTP GET, which can be implemented with a generic HTTP client in every language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. Connecting to other Azure services is as simple as adding a credential object to the service-specific client.
+Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint is available from within the app with a standard HTTP `GET` request, which you can send with a generic HTTP client in your preferred language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. You can connect to other Azure services by adding a credential object to the service-specific client.
 
 > [!NOTE]
-> When using Azure Identity client library, the user-assigned managed identity client id must be specified.
+> When using Azure Identity client library, you need to explicitly specify the user-assigned managed identity client id.
 
 # [.NET](#tab/dotnet)
 
 > [!NOTE]
-> When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider [using Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity.
+> When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider using [Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity.
 
-For .NET apps, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). See the respective documentation headings of the client library for information:
+For .NET apps, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). See the following resources for more information:
 
 - [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
 - [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
 - [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). It's useful for most the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
 # [JavaScript](#tab/javascript)
 
-For Node.js apps, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). See the respective documentation headings of the client library for information:
+For Node.js apps, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). See the following resources for more information:
 
 - [Add Azure Identity client library to your project](/javascript/api/overview/azure/identity-readme#install-the-package)
 - [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
 - [Access Azure service with a user-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). It's useful for most the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
 For more code examples of the Azure Identity client library for JavaScript, see [Azure Identity examples](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/identity_2.0.1/sdk/identity/identity/samples/AzureIdentityExamples.md).
 
 # [Python](#tab/python)
 
-For Python apps, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). See the respective documentation headings of the client library for information:
+For Python apps, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). See the following resources for more information:
 
 - [Add Azure Identity client library to your project](/python/api/overview/azure/identity-readme#getting-started)
 - [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
 - [Access Azure service with a user-assigned identity](/python/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme#defaultazurecredential). It's useful for most the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme#defaultazurecredential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
 # [Java](#tab/java)
 
-For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). See the respective documentation headings of the client library for information:
+For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). See the following resources for more information:
 
 - [Add Azure Identity client library to your project](/java/api/overview/azure/identity-readme#include-the-package)
 - [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
 - [Access Azure service with a user-assigned identity](/java/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
 
-The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). It's useful for most the scenarios because the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
 
 For more code examples of the Azure Identity client library for Java, see [Azure Identity Examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples).
 
@@ -265,7 +268,7 @@ $accessToken = $tokenResponse.access_token
 
 # [HTTP GET](#tab/http)
 
-A raw HTTP GET request looks like the following example.
+A raw HTTP `GET` request looks like the following example.
 
 Obtain the token endpoint URL from the `IDENTITY_ENDPOINT` environment variable. `x-identity-header` contains the GUID that is stored in the `IDENTITY_HEADER` environment variable.
 
@@ -290,16 +293,16 @@ Content-Type: application/json
 
 ```
 
-This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, you'll then add the value of `access_token` to a client connection with the vault.
+This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, add the value of `access_token` to a client connection with the vault.
 
 ### REST endpoint reference
 
 A container app with a managed identity exposes the identity endpoint by defining two environment variables:
 
-- `IDENTITY_ENDPOINT` - local URL from which your container app can request tokens.
-- `IDENTITY_HEADER` - a header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
+- `IDENTITY_ENDPOINT`: Local URL from which your container app can request tokens.
+- `IDENTITY_HEADER`: A header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
 
-To get a token for a resource, make an HTTP GET request to the endpoint, including the following parameters:
+To get a token for a resource, make an HTTP `GET` request to the endpoint, including the following parameters:
 
 | Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

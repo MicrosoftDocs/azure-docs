@@ -5,13 +5,13 @@ description: Deploy a Java application with Open Liberty or WebSphere Liberty on
 author: KarlErickson
 ms.author: edburns
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 05/29/2024
 ms.subservice: aks-developer
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java
 ---
 
-# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service cluster
+# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
 This article demonstrates how to:
 
@@ -33,7 +33,7 @@ If you prefer manual step-by-step guidance for running Liberty on AKS, see [Manu
 
 This article is intended to help you quickly get to deployment. Before you go to production, you should explore the [IBM documentation about tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ This article is intended to help you quickly get to deployment. Before you go to
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
-* Install a Java SE implementation, version 17 or later. (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+* Install a Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
 * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
 * Ensure [Git](https://git-scm.com) is installed.
@@ -145,7 +145,7 @@ If you moved away from the **Deployment is in progress** pane, the following ste
 
     ---
 
-You'll use these values later in this article. Note that the outputs list several other useful commands.
+You use these values later in this article. The outputs list several other useful commands.
 
 ## Create an Azure SQL Database instance
 
@@ -167,7 +167,7 @@ $Env:DB_RESOURCE_GROUP_NAME="<db-resource-group>"
 
 ---
 
-Now that you've created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
+Now that you created the database and AKS cluster, you can proceed to preparing AKS to host your Open Liberty application.
 
 ## Configure and deploy the sample application
 

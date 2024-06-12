@@ -1,5 +1,5 @@
 ---
-title: Long-term support for Azure Kubernetes Service (AKS)
+title: Long-term support for Azure Kubernetes Service (AKS) versions
 description: Learn about Azure Kubernetes Service (AKS) long-term support for Kubernetes
 ms.topic: article
 ms.custom: devx-track-azurecli
@@ -9,7 +9,7 @@ author: justindavies
 #Customer intent: As a cluster operator or developer, I want to understand how long-term support for Kubernetes on AKS works.
 ---
 
-# Long-term support
+# Long-term support for Azure Kubernetes Service (AKS) versions
 
 The Kubernetes community releases a new minor version approximately every four months, with a support window for each version for one year. In Azure Kubernetes Service (AKS), this support window is called "Community support."
 
@@ -40,7 +40,13 @@ Enabling and disabling long-term support is a combination of moving your cluster
 ### Create a cluster with LTS enabled
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport --kubernetes-version 1.27
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier premium \
+    --k8s-support-plan AKSLongTermSupport \
+    --kubernetes-version 1.27 \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]

@@ -16,8 +16,6 @@ In this article, you'll learn how to create [cross-tenant connections](concept-c
 
 First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants to your network group and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from a single network manager.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## Prerequisites
 
 - Two Azure tenants with virtual networks that you want to manage through Azure Virtual Network Manager. This article refers to the tenants as follows:
@@ -37,7 +35,7 @@ Creation of the scope connection begins on the central management tenant with a 
 In this task, you set up a scope connection to add a subscription from a target tenant:
 
 1. Log in to the Azure portal on the central management tenant.
-1. Search for **Virtual network managers" and select your network manager from the list.
+1. Search for **Virtual network managers** and select your network manager from the list.
 1. Under **Settings**, select **Cross-tenant connections**, and then select **Create cross-tenant connection**.
 
    :::image type="content" source="media/how-to-configure-cross-tenant-portal/create-cross-tenant-connection.png" alt-text="Screenshot of cross-tenant connections in a network manager.":::

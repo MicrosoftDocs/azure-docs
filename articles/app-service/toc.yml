@@ -251,7 +251,7 @@
         
     - name: Configure identity providers
       items:
-        - name: Use Microsoft Entra ID
+        - name: Use Microsoft Entra
           href: configure-authentication-provider-aad.md
         - name: Use Facebook
           href: configure-authentication-provider-facebook.md
@@ -306,7 +306,7 @@
       items:
         - name: Networking features overview
           href: networking-features.md
-        - name: Find inbound and outbound IPs
+        - name: Inbound and outbound IPs
           href: overview-inbound-outbound-ips.md
         - name: Access restriction
           items:
@@ -379,6 +379,8 @@
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions
           href: app-service-sql-github-actions.md
+        - name: Deploy with Azure Pipelines
+          href: deploy-container-azure-pipelines.md
         - name: Deploy a multi-container WordPress app
           href: tutorial-multi-container-app.md
 - name: Reliability
