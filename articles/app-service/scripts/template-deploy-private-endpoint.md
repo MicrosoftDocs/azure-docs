@@ -14,7 +14,7 @@ ms.custom: devx-track-arm-template
 
 In this quickstart, you use an Azure Resource Manager (ARM) template to create a web app and expose it with a private endpoint.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisite
 

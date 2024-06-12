@@ -602,7 +602,7 @@ Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkut
 ### Conclusion 
 
 * If disabled, always run **published** version. 
-* If enabled, priority is: edited / new > committed > published. 
+* If enabled, the reference run will always adopt the current version of notebook you can see from the notebook UX.
 
 
 ## Active session management 

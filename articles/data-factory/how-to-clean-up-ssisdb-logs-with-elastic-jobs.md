@@ -4,7 +4,7 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---
@@ -151,7 +151,7 @@ The following sections describe how to invoke the relevant SSISDB stored procedu
 
 ### Configure Elastic Database Jobs using Azure PowerShell
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
 
 The following Azure PowerShell scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](/azure/azure-sql/database/elastic-jobs-powershell-create).
 

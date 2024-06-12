@@ -4,7 +4,7 @@ description: This article describes the storage options in Azure Database for Po
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 05/13/2024
+ms.date: 05/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Storage options in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 You can create an Azure Database for PostgreSQL flexible server instance using Azure managed disks which are are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest.The available types of disks with flexible server are premium solid-state drives (SSD) and Premium SSD v2 and the pricing is calculated based on the compute, memory, and storage tier you provision.
 
@@ -132,7 +132,7 @@ Remember that storage can only be scaled up, not down.
 > [!NOTE]  
 > Storage auto-grow never triggers an offline increase.
 
-## IOPS
+## IOPS scaling
 
 Azure Database for PostgreSQL flexible server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time.
 

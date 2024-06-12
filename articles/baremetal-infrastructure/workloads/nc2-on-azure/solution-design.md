@@ -6,7 +6,7 @@ description: Learn about topologies and constraints for NC2 on Azure.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # Solution design
@@ -46,7 +46,7 @@ The following table describes what’s supported for each network features confi
 | :------------------- | -------------------: |
 |Delegated subnet per VNet |1|
 |[Network Security Groups](../../../virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
-|[User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets with VWAN|Yes|
+|VWAN enables traffic inspection via NVA (Virtual WAN Hub routing intent)|Yes|
 [User-defined routes (UDRs)](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets without VWAN| No|
 |Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in the same Vnet on Azure-delegated subnets|No|
 |Connectivity from BareMetal to [private endpoints](../../../private-link/private-endpoint-overview.md) in a different spoke Vnet connected to vWAN|Yes|
