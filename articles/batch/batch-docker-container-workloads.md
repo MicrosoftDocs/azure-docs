@@ -2,15 +2,12 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 06/10/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, linux-related-content
 ---
 
 # Use Azure Batch to run container workloads
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool.
 
@@ -86,8 +83,6 @@ without the need for a custom image.
 Currently there are other images published by `microsoft-azure-batch` that support container workloads:
 
 - Publisher: `microsoft-azure-batch`
-  - Offer: `centos-container`
-  - Offer: `centos-container-rdma` (For use exclusively on VM SKUs with Infiniband)
   - Offer: `ubuntu-server-container`
   - Offer: `ubuntu-server-container-rdma` (For use exclusively on VM SKUs with Infiniband)
 
@@ -97,7 +92,6 @@ Currently there are other images published by `microsoft-azure-batch` that suppo
 
 #### Notes
   The docker data root of the above images lies in different places:
-  - For the Azure Batch published `microsoft-azure-batch` images (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is located on the temporary disk.
   - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default, which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are located on the OS disk.
 
   For non-Batch published images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.

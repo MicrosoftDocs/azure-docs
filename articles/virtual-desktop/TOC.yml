@@ -128,12 +128,12 @@
     - name: Host pool load balancing methods
       href: host-pool-load-balancing.md
       displayName: load-balancing, lb
-    - name: FSLogix Profile Container
+    - name: User profile management
       items:
-      - name: FSLogix Profile Container and Azure Files
+      - name: FSLogix profile container
         displayName: user profiles
-        href: fslogix-containers-azure-files.md
-      - name: Storage options for FSLogix Profile Container
+        href: fslogix-profile-containers.md
+      - name: Storage options for FSLogix profile container
         displayName: user profiles
         href: store-fslogix-profile.md
     - name: Applications
