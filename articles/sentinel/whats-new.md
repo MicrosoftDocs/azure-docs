@@ -18,6 +18,16 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## June 2024
+
+- [Advanced threat indicator search capability available](#advanced-threat-indicator-search-capability-available)
+
+### Advanced threat indicator search capability available
+
+Threat intelligence search and filtering capabilities have been enhanced, and the experience now has parity across the Microsoft Sentinel and Microsoft Defender portals. Search supports a maximum of 10 conditions with each containing up to 3 sub-clauses.
+
+For more information, see the updated screenshots in [View and manage your threat indicators](understand-threat-intelligence.md).
+
 ## May 2024
 
 - [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
