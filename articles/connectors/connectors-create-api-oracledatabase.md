@@ -43,7 +43,7 @@ For example, you can perform the following tasks with the connector:
 
 * For the **Get row** action used in this example, you need to know the identifier for the table to access.
 
-  If you don't know this information, contact your Oracle DB administrator, or get the output from the following statement: **`select * from <table-name>`**.
+  If you don't know this information, contact your Oracle Database administrator, or get the output from the following statement: **`select * from <table-name>`**.
 
 ## Known issues and limitations
 
