@@ -31,7 +31,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
-## Configure the alert rule conditions
+## Configure alert rule conditions
 
 1. On the **Condition** tab, when you select the **Signal name** field, select **Custom log search**. Or select **See all signals** if you want to choose a different signal for the condition.
 
@@ -112,7 +112,6 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-dimensions.png" alt-text="Screenshot that shows the section for splitting by dimensions in a new log search alert rule.":::
 
-
 1. In the **Alert logic** section, select values for these fields:
 
     |Field  |Description  |
@@ -158,7 +157,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-actions](../includes/alerts-wizard-actions.md)]
 
-## Configure the alert rule details
+## Configure alert rule details
 
 1. On the **Details** tab, under **Project details**, select the **Subscription** and **Resource group** values.
 

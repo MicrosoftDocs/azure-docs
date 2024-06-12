@@ -31,7 +31,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-scope](../includes/alerts-wizard-scope.md)]
 
-## Configure the alert rule conditions
+## Configure alert rule conditions
 
 1. On the **Condition** tab, select **Activity log**, **Resource health**, or **Service health**. Or select **See all signals** if you want to choose a different signal for the condition.
 
@@ -91,7 +91,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 [!INCLUDE [alerts-wizard-actions](../includes/alerts-wizard-actions.md)]
 
-## Configure the alert rule details
+## Configure alert rule details
 
 1. On the **Details** tab, enter values for **Alert rule name** and **Alert rule description**.
 1. Select **Enable alert rule upon creation** for the alert rule to start running as soon as you finish creating it.
