@@ -37,7 +37,7 @@ Here's example SSML in a request for text to speech with the voice name and the 
     <voice name='DragonLatestNeural'> 
         <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
             I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 
-            <lang xml:lang='zh-CN'>我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。</lang>
+            <lang xml:lang='zh-HK'>我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。</lang>
         </mstts:ttsembedding> 
     </voice> 
 </speak>
