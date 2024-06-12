@@ -18,20 +18,80 @@ This article describes reliability support in [Azure Event Hubs](../event-hubs/e
 
 ## Availability zone support
 
-[!INCLUDE [Reliability recommendations](includes/reliability-recommendations-include.md)]
+[!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
+
+Event Hubs supports [availability zones](../availability-zones/az-overview.md) with [zone redundancy](./availability-zones-overview.md#zonal-and-zone-redundant-services), providing fault-isolated locations within an Azure region. Both metadata and data (events) are replicated across data centers in each availability zone. 
+
+### Prerequisites
+
+Availability zone support is only available in [Azure regions with availability zones](./availability-zones-service-support.md). 
 
 
-Event Hubs supports [availability zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. The Availability Zones support is only available in [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Both metadata and data (events) are replicated across data centers in the availability zone. 
+### Create a resource with availability zones enabled
 
-When creating a namespace, you see the following highlighted message when you select a region that has availability zones. 
+When you use the Azure portal, zone redundancy is automatically enabled. When you create a namespace, you see the following highlighted message when you select a region that supports availability zones. 
 
 :::image type="content" source="../event-hubs/media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
 
-> [!NOTE]
-> When you use the Azure portal, zone redundancy via support for availability zones is automatically enabled. You can't disable it in the portal. You can use the Azure CLI command [`az eventhubs namespace`](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` or use the PowerShell command [`New-AzEventHubNamespace`](/powershell/module/az.eventhub/new-azeventhubnamespace) with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
+
+### Disable availability zones
+
+The Azure portal doesn't support disabling availability zones. To disable availability zones, use one of the following methods:
+
+- Azure CLI command [`az eventhubs namespace`](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` 
+
+- PowerShell command [`New-AzEventHubNamespace`](/powershell/module/az.eventhub/new-azeventhubnamespace) with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
+
+### Availability zone migration
+
+Need Info. What is the process for migrating service from non-availability zone to availability zone?
+
+### Fault tolerance
+Need Info. Are there any recommendations for fault tolerance? 
+
+### Zone down experience
+
+When a client application sends events to an event hub without specifying a partition, events are automatically distributed among partitions in your event hub. If a partition isn't available for some reason, events are distributed among the remaining partitions. This behavior allows for the greatest amount of up time. For use cases that require the maximum up time, this model is preferred instead of sending events to a specific partition.
+
+### Pricing
+Need Info. Any pricing considerations when using availability zones?
+
+
+## Cross-region disaster recovery and business continuity
+
+[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
+
+The all-active Azure Event Hubs cluster model with availability zone support provides resiliency against  hardware and datacenter outages. However, in the case of a disaster where an entire region and all its zones are unavailable for a period of time, you can use Geo-disaster recovery to recover your workload and application configuration. 
+
+Geo-Disaster recovery ensures that the entire configuration of a namespace (Event Hubs, Consumer Groups, and settings) is continuously replicated from a primary namespace to a secondary namespace when paired. 
+
+The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages.For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+
+With Geo-Disaster recovery, you can initiate a once-only failover move from the primary to the secondary at any time. The failover move re-points the chosen alias name for the namespace to the secondary namespace. After the move, the pairing is then removed. The failover is nearly instantaneous once initiated. 
+
+> [!IMPORTANT]
+> - Geo-Disaster recovery **does not replicate the event data**. In learn how to recover event data from the primary Event Hub after the downed region is restored, see [replication guidance](../event-hubs/event-hubs-federation-overview.md) 
+> - Microsoft Entra role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. You'll need to create role assignments manually in the secondary namespace to secure access to them. 
+
+
+## Basic concepts and terms
+
+Geo-Disaster recovery implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. 
+
+The Geo-disaster recovery feature is available for the [standard, premium, and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You don't need to make any connection string changes, as the connection is made via an alias.
+
+The following terms are used in this article:
+
+-  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. 
+
+-  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (can be an existing or new namespace). The secondary namespace is "passive" and doesn't receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias.
+-  *Metadata*: Entities such as event hubs and consumer groups; and their properties of the service that are associated with the namespace. Only entities and their settings are replicated automatically. Messages and events aren't replicated. 
+-  *Failover*: The process of activating the secondary namespace.
 
 ## Private endpoints
-This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).
+This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](../event-hubs/private-link-service.md).
+
+
 
 ### New pairings
 If you try to create a pairing between a primary namespace with a private endpoint and a secondary namespace without a private endpoint, the pairing will fail. The pairing will succeed only if both primary and secondary namespaces have private endpoints. We recommend that you use same configurations on the primary and secondary namespaces and on virtual networks in which private endpoints are created.  
@@ -66,41 +126,9 @@ Advantage of this approach is that failover can happen at the application layer 
 > [!NOTE]
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
 
+
 ## Role-based access control
 Microsoft Entra role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them.
- 
-
-
-## Cross-region disaster recovery and business continuity
-
-[!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
-
-The all-active Azure Event Hubs cluster model with availability zone support provides resiliency against  hardware and datacenter outages. However, in the case of a disaster where an entire region and all its zones are unavailable for a period of time, you can use Geo-disaster recovery to recover your workload and application configuration. 
-
-Geo-Disaster recovery ensures that the entire configuration of a namespace (Event Hubs, Consumer Groups, and settings) is continuously replicated from a primary namespace to a secondary namespace when paired. 
-
-The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery solution. The concepts and workflow described in this article apply to disaster scenarios, and not to transient, or temporary outages.For a detailed discussion of disaster recovery in Microsoft Azure, see [this article](/azure/architecture/resiliency/disaster-recovery-azure-applications).
-
-With Geo-Disaster recovery, you can initiate a once-only failover move from the primary to the secondary at any time. The failover move re-points the chosen alias name for the namespace to the secondary namespace. After the move, the pairing is then removed. The failover is nearly instantaneous once initiated. 
-
-> [!IMPORTANT]
-> - Geo-Disaster recovery **does not replicate the event data**. In learn how to recover event data from the primary Event Hub after the downed region is restored, see [replication guidance](../event-hubs/event-hubs-federation-overview.md) 
-> - Microsoft Entra role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. You'll need to create role assignments manually in the secondary namespace to secure access to them. 
-
-
-## Basic concepts and terms
-
-Geo-Disaster recovery implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. 
-
-The Geo-disaster recovery feature is available for the [standard, premium, and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You don't need to make any connection string changes, as the connection is made via an alias.
-
-The following terms are used in this article:
-
--  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. 
-
--  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (can be an existing or new namespace). The secondary namespace is "passive" and doesn't receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias.
--  *Metadata*: Entities such as event hubs and consumer groups; and their properties of the service that are associated with the namespace. Only entities and their settings are replicated automatically. Messages and events aren't replicated. 
--  *Failover*: The process of activating the secondary namespace.
 
 ## Supported namespace pairs
 The following combinations of primary and secondary namespaces are supported:  
