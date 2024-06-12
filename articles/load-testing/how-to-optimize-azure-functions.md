@@ -6,7 +6,6 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-author: ninallam
 ms.date: 06/12/2024
 ms.topic: how-to
 ---
@@ -26,7 +25,7 @@ Performance optimizer enables the following
 ## Prerequisites
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A function app in the Flex Consumption plan with at least one function with an HTTP trigger. If you need to create a function app, see [Create and manage function apps in the Flex Consumption plan](https://learn.microsoft.com/azure/azure-functions/flex-consumption-how-to).
+* A function app in the Flex Consumption plan with at least one function with an HTTP trigger. If you need to create a function app, see [Create and manage function apps in the Flex Consumption plan](./azure/azure-functions/flex-consumption-how-to.md).
 
 
 ## Running Performance Optimizer on your Azure Functions
@@ -104,7 +103,7 @@ A test profile describes your function app configuration, request details and lo
 The Function App is reverted to the original configuration after the test profile run completes.
 
 
-# View results
+## View results
 
 After the test profile run completes, you can view the results in the Azure portal. The test profile run contains the load test runs for each function app configuration. The results include performance metrics such as response time, throughput, and error rate for each function app configuration. You can compare the performance metrics across different configurations and choose the right configuration for your app. Once you’ve decided the optimal configuration, click on Apply to apply the scale and concurrency settings to your Function App.
 
