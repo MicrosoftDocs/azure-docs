@@ -8,7 +8,7 @@ author: balapv
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/27/2023
+ms.date: 06/10/2024
 ms.topic: conceptual
 ms.custom:
   - prompt-flow
