@@ -9,21 +9,15 @@ ms.reviewer: glinuxagent
 
 # Collect Syslog events with Azure Monitor Agent
 
-Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built into Linux devices and appliances to collect local events of the types you specify. Applications send messages that might be stored on the local machine or delivered to a Syslog collector.
-
-To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using [Azure Monitor Agent](azure-monitor-agent-overview.md), [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. The data collection rule defines which data Azure Monitor Agent collects from which machines, and where you want to store the collected data. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.   
-
-When you create a data collection rule for Linux Syslog, Azure Monitor Agent configures the local Syslog daemon to forward messages to the agent. Azure Monitor Agent then sends the data to an Azure Monitor or Log Analytics workspace where a corresponding Syslog record is created in the [Syslog table](/azure/azure-monitor/reference/tables/syslog).
+Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built into Linux devices and appliances to collect local events of the types you specify. Applications send messages that might be stored on the local machine or delivered to a Syslog collector. When you create a data collection rule for Linux Syslog, Azure Monitor Agent configures the local Syslog daemon to forward messages to the agent.
 
 > [!TIP]
 > To collect data from devices that don't allow local installation of Azure Monitor Agent, [configure a dedicated Linux-based log forwarder](../../sentinel/forward-syslog-monitor-agent.md).
  
 ## Prerequisites
-You need:
 
-- A Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- A [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-- [Permissions to create DCR objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
+See the prerequisites in [Collect logs and performance data with Azure Monitor Agent](./data-collection-portal.md#prerequisites).
+
 
 ## Configure collection of Syslog data
 

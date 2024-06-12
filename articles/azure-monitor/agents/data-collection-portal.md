@@ -9,29 +9,71 @@ ms.reviewer: jeffwo
 
 ---
 
-# Collect Windows events with Azure Monitor Agent
+# Collect logs and performance data with Azure Monitor Agent
 
-To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using [Azure Monitor Agent](azure-monitor-agent-overview.md), [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. The data collection rule defines which data Azure Monitor Agent collects from which machines, and where you want to store the collected data. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.         
+[Azure Monitor agent (AMA)](azure-monitor-agent-overview.md) is used to collect data from Azure virtual machines, Virtual Machine scale sets, and Arc-enabled servers. [Data collection rules (DCR)](../essentials/data-collection-rule-overview.md) define the data to collect from the agent and where that data should be sent.  This article describes how to use the Azure portal to install AMA on virtual machines in your environment and configure data collection of the most common types of client data.
 
-This article explains how to configure data collection of events and performance counters from virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
+If you're new to Azure Monitor or have basic data collection requirements, then you may be able to meet all of your requirements using the Azure portal and the guidance in this article. If you want to take advantage of additional DCR features such as [transformations](../essentials/data-collection-transformations.md), then you may need to create or edit a DCR after creating it in the portal. You can also use different methods to manage DCRs and create associations if you want to deploy using CLI, PowerShell, ARM templates, or Azure Policy.
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
+## Types of data
+The following table lists the types of data that you can collect using the Azure portal. There may be additional data types or additional features that may require you to create your own DCR or edit one after creating it in the portal.
+
+| Data | Client operating system |
+|:---|:---|
+| Windows events | Windows |
+| Syslog events | Linux |
+| Performance counters | Windows and Linux |
+| Text logs | Windows and Linux |
+| JSON logs | Windows and Linux |
+| IIS logs | Windows |
+
+A DCR can contain multiple different data sources up to a limit of 10 data sources in a single DCR. You can combine different data sources in the same DCR, but you will typically want to create different DCRs for different data collection scenarios. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
+
+
 ## Prerequisites
-To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 
-## Configure collection of performance counters and events 
+## Create data collection rule
 
-You can send performance counters to both Azure Monitor Metrics and Azure Monitor Logs. 
+Select **Data Collection Rules** in the **Monitor** menu ion the Azure portal and then click **Create**.
 
-1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
+:::image type="content" source="media/data-collection-portal/create-data-collection-rule.png" lightbox="media/data-collection-portal/create-data-collection-rule.png" alt-text="Screenshot that shows Create button for a new data collection rule.":::
+
+The **Basic** page includes basic information about the DCR.
+
+:::image type="content" source="media/data-collection-portal/basics-tab.png" lightbox="media/data-collection-portal/basics-tab.png" alt-text="Screenshot that shows the Basic tab for a new data collection rule.":::
+
+| Setting | Description |
+|:---|:---|
+| Rule Name | Name for the DCR. This should be something descriptive that helps you identify the rule. |
+| Subscription | Subscription to store the DCR. This does not need to be the same subscription as the virtual machines. |
+| Resource group | Resource group to store the DCR. This does not need to be the same resource group as the virtual machines. |
+| Region | Region to store the DCR. The virtual machines and their associations must be in the same region. |
+| Platform Type | Specifies the type of data sources that will be available for the DCR. The Custom option allows for both Windows and Linux types. |
+| Data Collection Endpoint | Specifies the data collection endpoint used to collect data if one is required for any of the data sources in this DCR. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](data-collection-endpoints.md). |
+
+
+## Add resources
+The **Resources** page allows you to add resources that will be associated with the DCR. Click **+ Add resources** to select resources. The Azure Monitor agent will automatically be installed on any resources that don't already have it. You can include different types of resources in the same DCR, but you will typically want to create different DCRs for different data collection scenarios.
+
+[!IMPORTANT] The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
+
+:::image type="content" source="media/data-collection-portal/resources-tab.png" lightbox="media/data-collection-portal/basics-tab.png" alt-text="Screenshot that shows the Resources tab for a new data collection rule.":::
+
+Select **Enable Data Collection Endpoints** to display a dropdown for selected resource. This data collection endpoint sends configuration files to the resource and must be in the same region as the resource. The DCE on the **Basics** page is the one that is used to receive data for all agents associated with the DCR. See How to set up data collection endpoints based on your deployment.
+
+
+## Add data sources
+The **Collect and deliver** allows you to 
+
 1. In the **Collect and deliver** step, select **Performance Counters** or **Windows Event Logs** from the **Data source type** dropdown. 
 1. For performance counters, select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels.
-    <!-- convertborder later -->
+    
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule." border="false":::
 
 1. Select **Custom** to collect logs and performance counters that aren't [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to [filter events by using XPath queries](#filter-events-using-xpath-queries). You can then specify an [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values.
@@ -40,7 +82,6 @@ You can send performance counters to both Azure Monitor Metrics and Azure Monito
    
     For examples of DCRs, see [Sample data collection rules (DCRs) in Azure Monitor](data-collection-rule-sample-agent.md).
    
-    <!-- convertborder later -->
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png" alt-text="Screenshot that shows the Azure portal form to select custom performance counters in a data collection rule." border="false":::
 
 > [!NOTE] 

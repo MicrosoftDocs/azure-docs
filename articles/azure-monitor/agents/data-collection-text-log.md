@@ -10,8 +10,6 @@ ms.reviewer: jeffwo
 
 # Collect logs from a text or JSON file with Azure Monitor Agent 
 
-To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using [Azure Monitor Agent](azure-monitor-agent-overview.md), [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. The data collection rule defines which data Azure Monitor Agent collects from which machines, and where you want to store the collected data. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.         
-
 This article explains how to configure data collection from applications that log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. 
 
 > [!Note]
