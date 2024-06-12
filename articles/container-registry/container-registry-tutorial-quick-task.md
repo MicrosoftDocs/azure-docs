@@ -313,5 +313,5 @@ Now that you've tested your inner loop with a quick task, configure a **build ta
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->
-[quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png
+[quick-build-01-fork]: ~/reusable-content/ce-skilling/azure/media/container-registry/quick-build-01-fork.png
 [quick-build-02-browser]: ./media/container-registry-tutorial-quick-build/quick-build-02-browser.png
