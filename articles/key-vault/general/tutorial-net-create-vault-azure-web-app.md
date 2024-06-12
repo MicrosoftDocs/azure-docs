@@ -35,7 +35,7 @@ To complete this tutorial, you need:
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
 * A Key Vault [secret](../secrets/about-secrets.md). You can create a secret by using the [Azure portal](../secrets/quick-create-portal.md), [PowerShell](../secrets/quick-create-powershell.md), or the [Azure CLI](../secrets/quick-create-cli.md).
 
-If you already have your web application deployed in Azure App Service, you can skip to [configure web app access to a key vault](#create-and-assign-a-managed-identity) and [modify web application code](#modify-the-app-to-access-your-key-vault) sections.
+If you already have your web application deployed in Azure App Service, you can skip to [configure web app access to a key vault](#configure-the-web-app-to-connect-to-key-vault) and [modify web application code](#modify-the-app-to-access-your-key-vault) sections.
 
 ## Create a .NET Core app
 In this step, you'll set up the local .NET Core project.
