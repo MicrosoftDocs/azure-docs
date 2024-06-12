@@ -65,7 +65,7 @@ text
 Use the following Command Line Interface commands to [create and configure](cli/azure/network/front-door/waf-policy) Log Scrubbing rules for Sensitive Data Protection:
 
 ```CLI
-text
+az network front-door waf-policy update -g <MyResourceGroup> -n <MyPolicyName> --log-scrubbing "{scrubbing-rules:[{match-variable:<MatchVariable>,selector-match-operator:<Operator>}],state:<Enabled/Disabled>}"
 ```
 
 ## Verify Sensitive Data Protection
