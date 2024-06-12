@@ -20,10 +20,12 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A GitHub account. [Create an account for free](https://github.com/join).
-- [Node.js](https://nodejs.org) installed.
-- [Next.js CLI](https://nextjs.org/docs/getting-started) installed. Refer to the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started) for details.
+| Resource | Description |
+|---|---|
+| [Azure account](https://azure.microsoft.com/free/) | If you don't have an Azure account with an active subscription, you can [create one for free](https://azure.microsoft.com/free/). |
+| [GitHub account](https://github.com/join) | If you don't have a GitHub account, you can [create an account for free](https://github.com/join). |
+| [Node.js](https://nodejs.org) | Install the latest version of Node.js. |
+| [Next.js CLI](https://nextjs.org/docs/getting-started) | Install the latest version of the Next.js CLI. See the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started) for details. |
 
 [!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
 
