@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-On October 12, 2022  [Spot Priority Mix](../../virtual-machine-scale-sets/spot-priority-mix.md) was introduced for scale sets using Flexible orchestration.
+On October 12, 2022  [Spot Priority Mix](../spot-priority-mix.md) was introduced for scale sets using Flexible orchestration.
 
 Spot Priority Mix provides the flexibility of running a mix of regular on-demand VMs and Spot VMs for Virtual Machine Scale Set deployments. Easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements.
 
