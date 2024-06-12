@@ -27,7 +27,7 @@ For example, you can perform the following tasks with the connector:
 
 ## Prerequisites
 
-* [Download and install the on-premises data gateway](https://learn.microsoft.com/data-integration/gateway/service-gateway-install).
+* [Download and install the on-premises data gateway](/data-integration/gateway/service-gateway-install).
 
   This gateway acts as a bridge and provides a secure data transfer between on-premises data and your app or client. You can use the same gateway installation with multiple services and data sources, which means you might only need to install the gateway once.
 
