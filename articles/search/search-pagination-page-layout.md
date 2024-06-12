@@ -68,7 +68,7 @@ Count won't be affected by routine maintenance or other workloads on the search 
 
 By default, the search engine returns up to the first 50 matches. The top 50 are determined by search score, assuming the query is full text search or semantic. Otherwise, the top 50 are an arbitrary order for exact match queries (where uniform "@searchScore=1.0" indicates arbitrary ranking).
 
-The upper limit is 1,000 documents returned per page of search results, so you can set top to return up to 1000 document in the first result. In newer preview APIs, if you're using a hybrid query, you can [specify maxTextRecallSize](hybrid-search-how-to-query.md#relevance-tuning-through-maxtextrecallsize-and-countandfacetmode-preview) to return up to 10,000 documents.
+The upper limit is 1,000 documents returned per page of search results, so you can set top to return up to 1000 document in the first result. In newer preview APIs, if you're using a hybrid query, you can [specify maxTextRecallSize](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview) to return up to 10,000 documents.
 
 To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the GET query request, or `top` and `skip` to the POST query request. The following list explains the logic.
 

@@ -18,7 +18,7 @@ ms.date: 06/12/2024
 
 In most cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries with semantic ranking return the most relevant results.
 
-New parameters [maxTextRecallSize and countAndFacetMode(preview)](#relevance-tuning-through-maxtextrecallsize-and-countandfacetmode-preview) give you more control over inputs into a hybrid query. You can also use [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) on the vector side of a hybrid query to specify the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
+New parameters [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over inputs into a hybrid query. You can also use [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) on the vector side of a hybrid query to specify the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
 
 ## Prerequisites
 
@@ -233,21 +233,21 @@ api-key: {{admin-api-key}}
 
 + Postfilter is applied after query execution. If k=50 returns 50 matches on the vector query side, then the post-filter is applied to the 50 matches, reducing results that meet filter criteria, leaving you with fewer than 50 documents to pass to semantic ranker.
 
-## Relevance tuning through maxTextRecallSize and countAndFacetMode (preview)
+## Set maxTextRecallSize and countAndFacetMode (preview)
 
 In a `hybridSearch` query parameter object, specify the maximum number of documents recalled through the text portion of a hybrid (text and vector) query. You can also set `countAndFacetMode` property to report the counts for the text query (and for facets if you're using them) to the document limits set by `maxTextRecallSize`.
 
 The default maximum is `1000` documents. 
 
-With `maxTextRecallSize`, you can increase or decrease the number of BM25-ranked results returned in hybrid queries. The default is 1,000. The maximum is 10,000.
+With `maxTextRecallSize`, you can increase or decrease the number of BM25-ranked results returned in hybrid queries. The default is `1000`. The maximum is `10000`.
 
-+ Reducing the number of text documents retrieved can significantly improve performance, assuming vector similarity search is generally performing better. You can also consider [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) as an alternate approach for increasing the importance of vector queries.
++ Reducing `maxTextRecallSize` below the default an significantly improve performance, assuming vector similarity search is generally performing better. You can also consider [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) as an alternate approach for increasing the importance of vector queries.
 
-+ Increasing the number of text documents is useful if you have a large index, and the `1000` document default is not capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
++ Increasing `maxTextRecallSize` is useful if you have a large index, and the default isn't capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
 
 Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in `2024-05-01-Preview` to specify these parameters.
 
-The following example sets `maxTextRecallSize` to 100, which limits the results from the text side of the hybrid query to just 100 documents instead of all matches (up to 1,000 document default). It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
+The first example lowers `maxTextRecallSize` to 100, limiting the text side of the hybrid query to just 100 document. It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
@@ -269,7 +269,7 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
     } 
 ```
 
-The next example sets `maxTextRecallSize` to 5,000. It also uses top, skip, and next to pull results from large result sets. In this case, the request pulls 500 matches starting at position 1,500 through 2,000.
+The second example raises `maxTextRecallSize` to 5,000. It also uses top, skip, and next to pull results from large result sets. In this case, the request pulls in BM25-ranked results starting at position 1,500 through 2,000 as the text query contribution to the RRF composite result set.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
