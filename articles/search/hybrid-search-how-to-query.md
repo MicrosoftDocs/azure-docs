@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 06/12/2024
 ---
 
 # Create a hybrid query in Azure AI Search
@@ -18,7 +18,7 @@ ms.date: 04/23/2024
 
 In most cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries with semantic ranking return the most relevant results.
 
-To define a hybrid query, use REST API [**2023-11-01**](/rest/api/searchservice/documents/search-post), [**2023-10-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), [**2024-03-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true), Search Explorer in the Azure portal, or newer versions of the Azure SDKs. 
+New parameters [maxTextRecallSize and countAndFacetMode(preview)](#relevance-tuning-through-maxtextrecallsize-and-countandfacetmode-preview) give you more control over inputs into a hybrid query. You can also use [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) on the vector side of a hybrid query to specify the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
 
 ## Prerequisites
 
@@ -27,6 +27,15 @@ To define a hybrid query, use REST API [**2023-11-01**](/rest/api/searchservice/
 + (Optional) If you want [semantic ranking](semantic-how-to-configure.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
 + (Optional) If you want text-to-vector conversion of a query string (currently in preview), [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
+
+## Choose an API or tool
+
++ [**2023-11-01**](/rest/api/searchservice/documents/search-post) stable version
++ [**2023-10-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), adds integrated vectorization to the vector side of a hybrid query
++ [**2024-03-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true), adds narrow data types and scalar quantization to the vector side of a hybrid query
++ [**2024-05-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) adds `maxTextRecallSize` and `countAndFacetMode` specifially for hybrid search
++ Search Explorer in the Azure portal (targets 2024-05-01-preview behaviors)
++ Newer stable or beta packages of the Azure SDKs (see change logs for SDK feature support)
 
 ## Run a hybrid query in Search Explorer
 
@@ -222,7 +231,37 @@ api-key: {{admin-api-key}}
 
 + Prefiltering is applied before query execution. If prefilter reduces the search area to 100 documents, the vector query executes over the "DescriptionVector" field for those 100 documents, returning the k=50 best matches. Those 50 matching documents then pass to RRF for merged results, and then to semantic ranker.
 
-+ Postfilter is applied after query execution. If k=50 returns 50 matches on the vector query side, then the post-filter is applied to the 50 matches, reducing results that meet filter criteria, leaving you with fewer than 50 documents to pass to semantic ranker
++ Postfilter is applied after query execution. If k=50 returns 50 matches on the vector query side, then the post-filter is applied to the 50 matches, reducing results that meet filter criteria, leaving you with fewer than 50 documents to pass to semantic ranker.
+
+## Relevance tuning through maxTextRecallSize and countAndFacetMode (preview)
+
+In a `hybridSearch` query parameter object, specify the maximum number of documents recalled through the text portion of a hybrid (text and vector) query. The default is `1000` documents. With this parameter, you can increase or decrease the number of results returned in hybrid queries. Reducing the number of text documents retrieved can significantly improve performance. 
+
+You can set `countAndFacetMode` property to report the counts for the text query (and for facets if you're using them) to the document limits set by `maxTextRecallSize`.
+
+Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in `2024-05-01-Preview` to specify these parameters.
+
+The following example sets `maxTextRecallSize` to 100, which limits the results from the text side of the hybrid query to just 100 documents instead of all matches (up to 1,000 document default). It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
+
+```http
+POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
+
+    { 
+      "vectorQueries": [ 
+        { 
+          "kind": "vector", 
+          "vector": [1.0, 2.0, 3.0], 
+          "fields": "my_vector_field", 
+          "k": 10 
+        } 
+      ], 
+      "search": "hello world", 
+      "hybridSearch": { 
+        "maxTextRecallSize": 100, 
+        "countAndFacetMode": "countRetrievableResults" 
+      } 
+    } 
+```
 
 ## Configure a query response
 

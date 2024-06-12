@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/01/2023
+ms.date: 06/12/2024
 ---
 
 # Relevance scoring in hybrid search using Reciprocal Rank Fusion (RRF)
