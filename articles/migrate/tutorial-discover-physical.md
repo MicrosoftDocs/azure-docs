@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 06/12/2024
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24, linux-related-content
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
@@ -116,17 +116,24 @@ For Linux servers, you can create a user account in one of two ways:
 > [!Note]
 > If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, it recommended to use Option 1.
 
-### Option 2
-- If you can't provide user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry on the appliance server and provide a non-root account with the required capabilities using the following commands:
+### Option 2: Discover using non-sudo user account  
+- If you can't provide user account with sudo access, then you can set 'isSudo' registry key to value '0' in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance registry on the appliance server.
+-  Provide a non-sudo user account with the required capabilities.
+    - Sign in as root user. Create a non-sudo user account by running the `sudo useradd <account-name>` command. Set a password for the non-sudo user account using the `sudo passwd <account-name>` command.
+    - Add the non-sudo user account to the wheel group using this command: `sudo usermod –aG wheel <account-name>`. Users in this group have permissions to run setcap commands as detailed below.  
+    - Sign in to the non-sudo user account that was created and run the following commands:  
 
     **Command** | **Purpose**
     --- | --- |
-    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data
-    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br> cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data
-    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number
-    chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | To collect disk configuration data.
+    setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br> cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | To collect disk performance data.
+    setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | To collect BIOS serial number.
+    chmod a+r /sys/class/dmi/id/product_uuid | To collect BIOS GUID.
+    sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat | To perform agentless dependency analysis on the server, set the required permissions on /bin/netstat and /bin/ls files.
 
-- To perform agentless dependency analysis on the server, ensure that you also set the required permissions on /bin/netstat and /bin/ls files by using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+- Running all the above commands will prompt for a password. Enter the password of the non-sudo user account for each prompt.  
+- Add the credentials of the non-sudo user account to the Azure Migrate appliance.  
+- The non-sudo user account will execute the commands listed [here](discovered-metadata.md#linux-server-metadata) periodically.   
 
 ### Create an account to access servers
 
