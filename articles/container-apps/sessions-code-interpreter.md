@@ -77,7 +77,7 @@ You can define the following settings when you create a session pool:
 
 To use code interpreter sessions with LLM framework integrations or by calling the management API endpoints directly, you need the pool's management API endpoint. The endpoint is in the format `https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>`.
 
-To retrieve the management API endpoint for a session pool, use the `az containerapps sessionpool show` command. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.
+To retrieve the management API endpoint for a session pool, use the `az containerapp sessionpool show` command. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.
 
 ```bash
 az containerapp sessionpool show \
