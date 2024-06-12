@@ -407,7 +407,7 @@ This pipeline performs two steps:
             "activities":[
                 { 
                     "name": "LookupTableList",
-                    "description": "Retrieve the table list from Azure SQL dataabse",
+                    "description": "Retrieve the table list from Azure SQL database",
                     "type": "Lookup",
                     "typeProperties": {
                         "source": {
