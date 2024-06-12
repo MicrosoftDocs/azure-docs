@@ -18,7 +18,7 @@ The latest ImmuneCODE datasets available contains: Release 002.
 - The high-confidence SARS-CoV-2-specific (Over 160,000): ImmuneCODE-MIRA-Release 002.1.
 - The sample metadata: ImmuneCODE-Repertoire-Tags-002.2.xlsx (352 KB) Release 002.2.
 
-[!INCLUDE [open-datasets-usage-note](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [open-datasets-usage-note](../includes/open-datasets-usage-note.md)]
 
 ## Data source
 
