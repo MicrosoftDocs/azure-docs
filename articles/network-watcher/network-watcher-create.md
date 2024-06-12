@@ -1,13 +1,14 @@
 ---
 title: Enable or disable Azure Network Watcher
-description: Learn how to enable or disable Azure Network Watcher in your region by creating a Network Watcher instance using the Azure portal, PowerShell, the Azure CLI or REST API.
-services: network-watcher
+description: Learn how to enable or disable Azure Network Watcher in your region by creating a Network Watcher instance using the Azure portal, PowerShell, the Azure CLI, REST API, or ARM template.
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 06/02/2023
-ms.author: halkazwini
-ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.date: 06/12/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+
+#CustomerIntent: As an Azure administrator, I want to manage Network Watcher instance in Azure regions based on my team's needs to Network Watcher capabilities in those regions.
 ---
 
 # Enable or disable Azure Network Watcher
@@ -18,8 +19,8 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
 > [!NOTE]
 > - By default, Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be automatically enabled in your Virtual Network's region.
-> - You must manually enable Network Watcher if you opted out Network Watcher automatic enablement. 
 > - Automatically enabling Network Watcher doesn't affect your resources or associated charge.
+> - If you previously chose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually [enable Network Watcher](#enable-network-watcher-for-your-region) in each region where you want to use Network Watcher capabilities.
 > - Network Watcher can be enabled for these [Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=network-watcher&regions=all).
 
 ## Prerequisites
@@ -38,7 +39,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-  You can also install Azure PowerShell locally to run the cmdlets. This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-InstalledModule -Name Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+    You can also [install PowerShell locally](/powershell/scripting/install/installing-powershell) to run the cmdlets. This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run [Get-Module -ListAvailable Az](/powershell/module/microsoft.powershell.core/get-module) cmdlet. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 # [**Azure CLI**](#tab/cli)
 
@@ -48,14 +49,13 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
     
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
     
-    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. To find the installed version, run [az version](/cli/azure/reference-index#az-version) command. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
 ---
 
 ## Enable Network Watcher for your region
 
-If you choose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually enable Network Watcher in each region where you want to use Network Watcher capabilities. To enable Network Watcher in a region, create a Network Watcher instance in that region using the [Azure portal](?tabs=portal#enable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#enable-network-watcher-for-your-region), [REST API](/rest/api/network-watcher/network-watchers/create-or-update), or an Azure Resource Manager (ARM) template.
-
+If you choose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually enable Network Watcher in each region where you want to use Network Watcher capabilities. To enable Network Watcher in a region, create a Network Watcher instance in that region using the [Azure portal](?tabs=portal#enable-network-watcher-for-your-region), [PowerShell](?tabs=powershell#enable-network-watcher-for-your-region), the [Azure CLI](?tabs=cli#enable-network-watcher-for-your-region), [REST API](/rest/api/network-watcher/network-watchers/create-or-update), or an [Azure Resource Manager template (ARM template)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/networkwatcher-create).
 
 
 # [**Portal**](#tab/portal)
@@ -226,10 +226,10 @@ az network watcher list --out table
 
 ---
 
-## Next steps
+## Related content
 
-To learn more about Network Watcher features, see:
+To get started with Network Watcher, see:
 
-- [NSG flow logs](nsg-flow-logs-overview.md)
+- [Virtual network flow logs](vnet-flow-logs-overview.md)
 - [Connection monitor](connection-monitor-overview.md)
 - [Connection troubleshoot](connection-troubleshoot-overview.md)
