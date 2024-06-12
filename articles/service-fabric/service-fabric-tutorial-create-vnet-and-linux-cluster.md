@@ -201,7 +201,7 @@ sfctl cluster health
 
 ## Clean up resources
 
-If you're not immediately moving on to the next article, you might want to [delete the cluster](./service-fabric-tutorial-delete-cluster.md) to avoid incurring charges.
+If you're not immediately moving on to the next article, you might want to [delete the cluster](./service-fabric-delete-cluster.md) to avoid incurring charges.
 
 ## Next steps
 

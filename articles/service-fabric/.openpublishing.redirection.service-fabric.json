@@ -202,7 +202,7 @@
         },
         {
             "source_path_from_root": "/articles/service-fabric/service-fabric-cluster-delete.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-delete-cluster",
+            "redirect_url": "/azure/service-fabric/service-fabric-delete-cluster",
             "redirect_document_id": false
         },
         {

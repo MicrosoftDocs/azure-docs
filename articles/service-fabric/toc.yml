@@ -98,7 +98,7 @@
     - name: 4- Upgrade the cluster runtime
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 5- Delete a cluster
-      href: service-fabric-tutorial-delete-cluster.md
+      href: service-fabric-delete-cluster.md
   - name: Create a standalone cluster
     items:
     - name: 1- Create the infrastructure

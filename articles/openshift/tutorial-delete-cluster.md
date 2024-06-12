@@ -31,7 +31,7 @@ If you have access to multiple subscriptions, run `az account set -s {subscripti
 
 ## Delete the cluster
 
-In previous articles for [creating](tutorial-create-cluster.md) and [connecting](tutorial-connect-cluster.md) a cluster, the following variable was set:
+In previous articles for [creating](create-cluster.md) and [connecting](connect-cluster.md) a cluster, the following variable was set:
 
 ```bash
 RESOURCEGROUP=yourresourcegroup

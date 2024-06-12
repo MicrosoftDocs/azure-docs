@@ -4088,9 +4088,26 @@
             "redirect_url": "/azure",
             "redirect_document_id": false
         }
+        {
+            "source_path_from_root": "/articles/openshift/tutorial-create-cluster.md",
+            "redirect_url": "/azure/openshift/create-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/tutorial-connect-cluster.md",
+            "redirect_url": "/azure/openshift/connect-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/tutorial-delete-cluster.md",
+            "redirect_url": "/azure/openshift/delete-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/quickstart-portal.md",
+            "redirect_url": "/azure/openshift/create-cluster",
+            "redirect_document_id": false
+        },
 
-
-
-        
     ]
 }

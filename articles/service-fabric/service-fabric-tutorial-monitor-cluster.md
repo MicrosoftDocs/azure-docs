@@ -27,7 +27,7 @@ In this tutorial series you learn how to:
 > * Monitor a cluster
 > * [Scale a cluster in or out](service-fabric-tutorial-scale-cluster.md)
 > * [Upgrade the runtime of a cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Delete a cluster](service-fabric-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]

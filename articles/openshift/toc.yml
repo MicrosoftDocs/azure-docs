@@ -17,11 +17,11 @@
   expanded: true
   items:
     - name: Create an Azure Red Hat OpenShift cluster
-      href: tutorial-create-cluster.md
+      href: create-cluster.md
     - name: Connect to an Azure Red Hat OpenShift cluster
-      href: tutorial-connect-cluster.md
+      href: connect-cluster.md
     - name: Delete an Azure Red Hat OpenShift cluster
-      href: tutorial-delete-cluster.md
+      href: delete-cluster.md
     - name: Deploy an Azure Red Hat OpenShift cluster with Azure portal 
       href: quickstart-portal.md
 - name: How-to guides

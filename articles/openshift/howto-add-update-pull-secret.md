@@ -14,7 +14,7 @@ keywords: pull secret, aro, openshift, red hat
 
 This guide covers adding or updating your Red Hat pull secret for an existing Azure Red Hat OpenShift (ARO) 4.x cluster.
 
-If you're creating a cluster for the first time, you can add your pull secret when you create your cluster. For more information about creating an ARO cluster with a Red Hat pull secret, see [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
+If you're creating a cluster for the first time, you can add your pull secret when you create your cluster. For more information about creating an ARO cluster with a Red Hat pull secret, see [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md#get-a-red-hat-pull-secret-optional).
 
 ## Before you begin
 

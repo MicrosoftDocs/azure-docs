@@ -450,7 +450,7 @@ export LOCATION=<the Azure region you want to use here>
     
 ## Create the ARO cluster
 
-Follow the [instructions to create a new ARO cluster](tutorial-create-cluster.md). Be sure to pass the parameter `--cluster-resource-group $MANAGED_RESOURCE_GROUP` to the `az aro create` command when creating the cluster.
+Follow the [instructions to create a new ARO cluster](create-cluster.md). Be sure to pass the parameter `--cluster-resource-group $MANAGED_RESOURCE_GROUP` to the `az aro create` command when creating the cluster.
 
 > [!NOTE]
 > The Policy does not apply any tags to the user-supplied virtual network.
