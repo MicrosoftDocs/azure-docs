@@ -3,7 +3,7 @@ title: Microsoft Defender XDR integration with Microsoft Sentinel
 description: Learn how using Microsoft Defender XDR together with Microsoft Sentinel lets you use Microsoft Sentinel as your universal incidents queue.
 author: yelevin
 ms.author: yelevin
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/11/2024
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
@@ -39,7 +39,7 @@ In addition to collecting alerts from these components and other services, Defen
 
 Consider integrating Defender XDR with Microsoft Sentinel for the following use cases and scenarios: 
 
-- Onboard Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, of which enabling the Defender XDR integration is a prerequisite. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard?view=o365-worldwide).
+- Onboard Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, of which enabling the Defender XDR integration is a prerequisite. For more information, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).
 
 - One-click connect of Defender XDR incidents, including all alerts and entities from Defender XDR components, into Microsoft Sentinel.
 
@@ -102,7 +102,7 @@ The Defender XDR connector also lets you stream **advanced hunting** events - a 
 
 In this document, you learned the benefit of using Defender XDR together with Microsoft Sentinel, by enabling the Defender XDR connector in Microsoft Sentinel.
 
-- [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender)
+- [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md)
 - To use the unified security operations platform in the Defender portal, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
 - Check [availability of different Microsoft Defender XDR data types](microsoft-365-defender-cloud-support.md) in the different Microsoft 365 and Azure clouds.
 - Create [custom alerts](detect-threats-custom.md) and [investigate incidents](investigate-incidents.md).

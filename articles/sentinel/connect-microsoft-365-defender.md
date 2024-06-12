@@ -29,7 +29,7 @@ Before you begin, you must have the appropriate licensing, access, and configure
 - To make any changes to the connector settings, your user must be a member of the same Microsoft Entra tenant with which your Microsoft Sentinel workspace is associated.
 - Install the solution for **Microsoft Defender XDR** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
-For Microsoft Entra ID sync via Microsoft Defender for Identity:
+For on-premises Active Directory sync via Microsoft Defender for Identity:
 
 - Your tenant must be onboarded to Microsoft Defender for Identity.
 
@@ -68,8 +68,6 @@ When you enable the Microsoft Defender XDR connector, all of the Microsoft Defen
 ### Connect entities
 
 Use Microsoft Defender for Identity to sync user entities from your on-premises Active Directory to Microsoft Sentinel.
-
-Verify that you satisfied the [prerequisites](#prerequisites-for-active-directory-sync-via-mdi) for syncing on-premises Active Directory users through Microsoft Defender for Identity (MDI).
 
 1. Select the **Go the UEBA configuration page** link.
 
