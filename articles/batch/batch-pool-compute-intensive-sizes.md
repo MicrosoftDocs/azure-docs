@@ -10,7 +10,7 @@ ms.date: 06/07/2024
 
 To run certain Batch jobs, you can take advantage of Azure VM sizes designed for large-scale computation. For example:
 
-* To run multi-instance [MPI workloads](batch-mpi.md), choose HB-series or other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications.
+* To run multi-instance [MPI workloads](batch-mpi.md), choose HB, HC, NC, or ND series or other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications.
 
 * For CUDA applications, choose N-series sizes that include NVIDIA Tesla graphics processing unit (GPU) cards.
 
@@ -25,15 +25,15 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Dependencies
 
-The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. (The supported operating systems for these VM sizes include only a subset of those available for virtual machine creation.) Depending on how you create your Batch pool, you might need to install or configure extra driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
+The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. The supported operating systems for these VM sizes include only a subset of those available for virtual machine creation. Depending on how you create your Batch pool, you might need to install or configure extra driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
 
 ### Linux pools - Virtual machine configuration
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS  <br/> (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
-| [NV, NVv2, NVv4 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [NCv3, NDv2, NDv4, NDv5 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS  <br/> (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
+| [NVv3, NVv4, NVv5 series](../virtual-machines/linux/n-series-driver-setup.md) | Accelerated Visualization GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers (if required) | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
