@@ -9,7 +9,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ---
 
-# Migration Runtime Server with the Migration Service in Azure Database for PostgreSQL Preview
+# Migration Runtime Server with the migration service in Azure Database for PostgreSQL Preview
 
 The Migration Runtime Server is a specialized feature within the [migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md), designed to act as an intermediary server during migration. It's a separate Azure Database for PostgreSQL - Flexible Server instance that isn't the target server but is used to facilitate the migration of databases from a source environment that is only accessible via a private network.
 
