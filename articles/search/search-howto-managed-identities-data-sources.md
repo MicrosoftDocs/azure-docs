@@ -17,7 +17,7 @@ ms.date: 06/11/2024
 # Configure a search service to connect using a managed identity in Azure AI Search
 
 > [!IMPORTANT]
-> User-assigned managed identity is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management 2024-03-01-Preview REST API](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) provides user-assigned managed identities for Azure AI Search. Support for a system-assigned managed identity is generally available.
+> User-assigned managed identity assignment is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management preview REST API](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity) provides user-assigned managed identity assignment for Azure AI Search. Support for a system-assigned managed identity is generally available.
 
 You can use Microsoft Entra ID and role assignments for outbound connections from Azure AI Search to resources providing data, applied AI, or vectorization during indexing or queries. 
 
@@ -138,9 +138,9 @@ A user-assigned managed identity is a resource on Azure. You can create multiple
 Steps are:
 
 + In your Azure subscription, create a user-assigned managed identity.
-+ On your search service, update a search service to use the user-assigned managed identity (this step is in preview).
-+ On other Azure services you want to connect to, create a role assignment.
-+ In data source connections on Azure AI Search, such as an indexer data source, specify a connection that references the user-managed identity (this step is generally available if support for the feature is generally available).
++ On your search service, update the service definition to enable the user-assigned managed identity (this step is in preview).
++ On other Azure services you want to connect to, create a role assignment for the identity.
++ In data source connections on Azure AI Search, such as an indexer data source, reference the user-managed identity in the connection details (this step is generally available if support for the feature is generally available).
 
 A user-assigned managed identity can be scoped to subscriptions, resource groups, or resource types. 
 
