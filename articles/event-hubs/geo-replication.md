@@ -122,3 +122,6 @@ Offset are committed to Event Hubs directly and offsets are replicated across re
 
 Clients that use the Event Hubs SDK need to upgrade to the April 2024 version of the SDK. The latest version of the Event Hubs SDK supports failover with an update to the checkpoint. The checkpoint is managed by users with a checkpoint store such as Azure Blob storage, or a custom storage solution. If there's a failover, the checkpoint store must be available from the secondary region so that clients can retrieve checkpoint data and avoid loss of messages.
 
+## Pricing
+Event Hubs dedicated clusters are priced independently of geo-replication. Use of geo-replication with Event Hubs dedicated requires you to have at least two dedicated clusters in separate regions. The dedicated clusters used as secondary instances for geo-replication can be used for other workloads.
+There is a charge for geo-replication based on the published bandwidth times the number of secondary regions. The geo-replication charge is waived in early public preview. 
