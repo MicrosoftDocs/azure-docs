@@ -23,7 +23,7 @@ This article provides information on Extended Life Cycle Support for the Red Hat
 
 ## Red Hat Enterprise Linux Extended Update Support
 
-Microsoft Azure follows the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata/#:~:text=Red%20Hat%20Enterprise%20Linux%20Version%208%20and%209,Support%20Phases%20followed%20by%20an%20Extended%20Life%20Phase.). If you have valid Extended Update Support agreement from Red Hat or a Red Hat Partner you continue to receive support on Azure, including our integrated customer support  (subject to our [support terms](/troubleshoot/azure/cloud-services/support-linux-open-source-technology)).
+Microsoft Azure follows the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata/#:~:text=Red%20Hat%20Enterprise%20Linux%20Version%208%20and%209,Support%20Phases%20followed%20by%20an%20Extended%20Life%20Phase.). If you have a valid Extended Update Support agreement from Red Hat or a Red Hat Partner you continue to receive support on Azure, including our integrated customer support  (subject to our [support terms](/troubleshoot/azure/cloud-services/support-linux-open-source-technology)).
 
 ## Red Hat Enterprise Linux 6 Life Cycle
 Red Hat Enterprise Linux 6 will reach permanent end of maintenance (including extended support) on June 30, 2024. Upgrading to Red Hat Enterprise Linux 7 with Extended Life Cycle Support (ELS), 8 or 9. Check [FAQ: Red Hat Enterprise Linux 6 reaches End of Maintenance Phase and transitions to Extended Life Phase](https://access.redhat.com/articles/4665701) for more details on RHEL6 ELS.
