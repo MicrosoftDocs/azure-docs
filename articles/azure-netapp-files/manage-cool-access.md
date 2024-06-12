@@ -113,7 +113,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ### Configure the capacity pool for cool access
 
-Before creating or enabling a cool-access volume, you need to configure a Standard service-level capacity pool with cool access. You can do so in one of the following ways: 
+Before creating or enabling a cool-access volume, you need to configure a capacity pool with cool access. You can do so in one of the following ways: 
 
 * [Create a new capacity pool with cool access.](#enable-cool-access-new-pool) 
 * [Modify an existing capacity pool to support cool-access volumes.](#enable-cool-access-existing-pool) 
@@ -124,7 +124,7 @@ Before creating or enabling a cool-access volume, you need to configure a Standa
 
 #### <a name="enable-cool-access-existing-pool"></a> Enable cool access on an existing capacity pool  
 
-You can enable cool access support on an existing Standard service-level capacity pool. This action allows you to add or modify volumes in the pool to use cool access.  
+You can enable cool access support on an existing capacity pool. This action allows you to add or modify volumes in the pool to use cool access.  
 
 1. Right-click the capacity pool for which you want to enable cool access.   
 

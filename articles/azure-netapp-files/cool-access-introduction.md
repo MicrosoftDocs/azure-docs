@@ -168,14 +168,14 @@ Cool access offers [performance metrics](azure-netapp-files-metrics.md#cool-acce
 
 ## Billing 
 
-You can enable tiering at the volume level for a newly created capacity pool that uses the Standard service level. How you're billed is based on the following factors: 
+You can enable tiering at the volume level for a newly created capacity pool. How you're billed is based on the following factors: 
 
-* The capacity in the Standard service level
+* The capacity and the service level
 * Unallocated capacity within the capacity pool
-* The capacity in the cool tier (by enabling tiering for volumes in a Standard capacity pool)
+* The capacity in the cool tier
 * Network transfer between the hot tier and the cool tier at the rate that is determined by the markup on top of the transaction cost (`GET` and `PUT` requests) on blob storage and private link transfer in either direction between the hot tiers.
 
-Billing calculation for a Standard capacity pool is at the hot-tier rate for the data that isn't tiered to the cool tier; this includes unallocated capacity within the capacity pool.  When you enable tiering for volumes, the capacity in the cool tier will be at the rate of the cool tier, and the remaining capacity will be at the rate of the hot tier. The rate of the cool tier is lower than the hot tier's rate. 
+Billing calculation for a capacity pool is at the hot-tier rate for the data that isn't tiered to the cool tier; this includes unallocated capacity within the capacity pool.  When you enable tiering for volumes, the capacity in the cool tier will be at the rate of the cool tier, and the remaining capacity will be at the rate of the hot tier. The rate of the cool tier is lower than the hot tier's rate. 
 
 ### Examples of billing structure
 
