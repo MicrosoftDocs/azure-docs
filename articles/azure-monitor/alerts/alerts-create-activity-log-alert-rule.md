@@ -41,7 +41,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     - **Signal type**: The [type of alert rule](alerts-overview.md#types-of-alerts) that you're creating.
     - **Signal source**: The service that sends the signal.
 
-    This table describes the services available for activity log alert rules:
+    This table describes the available services for activity log alert rules:
 
     | Signal source            | Description                                                     |
     |--------------------------|-----------------------------------------------------------------|
@@ -57,7 +57,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     1. On the **Conditions** pane, select the **Chart period** value.
 
-       The **Preview** chart shows you the results of your selection.
+       The **Preview** chart shows the results of your selection.
     1. In the **Alert logic** section, select values for each of these fields:
 
         |Field |Description |
@@ -68,7 +68,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     #### [Resource health alert](#tab/resource-health)
 
-    1. On the **Conditions** pane, select values for each of these fields:
+    - On the **Conditions** pane, select values for each of these fields:
 
        |Field |Description |
        |---------|---------|
@@ -79,7 +79,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
   
     #### [Service health alert](#tab/service-health)
 
-    1. On the **Conditions** pane, select values for each of these fields:
+    - On the **Conditions** pane, select values for each of these fields:
 
       |Field |Description |
       |---------|---------|

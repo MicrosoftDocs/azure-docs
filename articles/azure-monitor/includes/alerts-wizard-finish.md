@@ -8,9 +8,9 @@ author: AbbyMSFT
 
 ## Configure alert rule tags
 
-1. On the **Tags** tab, set any required tags on the alert rule resource.
+On the **Tags** tab, set any required tags on the alert rule resource.
 
-    :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot that shows the Tags tab for creating a new alert rule.":::
+:::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot that shows the Tags tab for creating a new alert rule.":::
 
 ## Review and create the alert rule
 
