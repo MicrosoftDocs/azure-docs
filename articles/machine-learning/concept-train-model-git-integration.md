@@ -28,19 +28,19 @@ When you submit an Azure Machine Learning training job that has source files fro
 <a name="#clone-git-repositories-into-your-workspace-file-system"></a>
 ## Git repositories in a workspace file system
 
-Azure Machine Learning provides a shared file system for all users in a workspace. The best way to clone a Git repository into this file share is to create a compute instance and [open a terminal](./how-to-access-terminal.md). In the terminal, you have access to a full Git client and can clone and work with Git by using the Git CLI. For more information about the Git CLI, see [Git CLI](https://git-scm.com/docs/gitcli).
+Azure Machine Learning provides a shared file system for all users in a workspace. The best way to clone a Git repository into this file share is to create a compute instance and [open a terminal](./how-to-access-terminal.md). In the terminal, you have access to a full Git client and can clone and work with Git by using the Git CLI. For more information, see [Git CLI](https://git-scm.com/docs/gitcli).
 
-You can clone any Git repository you can authenticate to, such as GitHub, Azure Repos, or BitBucket repos. It's best to clone the repository into your user directory, so that other users don't collide directly on your working branch.
+You can clone any Git repository you can authenticate to, such as a GitHub, Azure Repos, or BitBucket repo. It's best to clone the repository into your user directory, so that other users don't collide directly on your working branch.
 
-There are some differences between cloning to the local file system of the compute instance or cloning to the shared file system, mounted as the *~/cloudfiles/code/* directory. In general, cloning to the local file system provides better performance than cloning to the mounted file system. However, if you delete and recreate the compute instance, the local file system is lost, while the mounted shared file system remains.
+There are some differences between cloning to the local file system of the compute instance or cloning to the shared file system, mounted as the *~/cloudfiles/code/* directory. In general, cloning to the local file system provides better performance than cloning to the mounted file system. However, if you delete and recreate the compute instance, the local file system is lost, while the mounted shared file system is kept.
 
 ## Clone a Git repository with SSH
 
-You can clone a repo by using Secure Shell (SSH) protocol. The following sections describe how to clone a repo by using SSH. To use SSH, you need to authenticate your Git account with SSH by using an SSH key.
+You can clone a repo by using Secure Shell (SSH) protocol. To use SSH, you need to authenticate your Git account with SSH by using an SSH key.
 
 ### Generate and save a new SSH key
 
-In the Azure Machine Learning studio **Notebook** page, open a terminal window and run the following command, substituting your email address.
+To generate a new SSH key, go to the Azure Machine Learning studio **Notebook** page, open a terminal, and run the following command, substituting your email address.
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -75,7 +75,7 @@ cat ~/.ssh/id_ed25519.pub
 Copy the output.
 
 > [!TIP]
-> To copy and paste in the terminal window, use these keyboard shortcuts depending on your operating system:
+> To copy and paste in the terminal window, use these keyboard shortcuts, depending on your operating system:
 > 
 > - Windows: Ctrl+C or Ctrl+Insert to copy, Ctrl+V or Ctrl+Shift+V to paste.
 > - MacOS: Cmd+C to copy and Cmd+V to paste.
@@ -91,37 +91,36 @@ Add the SSH key to your Git account by using the following instructions, dependi
 
 ### Clone the Git repository with SSH
 
-1. Copy the SSH Git clone URL from the Git repo you want to clone.
+To clone a Git repo, copy the SSH Git clone URL from the repo. In your terminal, run the `git clone` command using the SSH Git clone URL. For example:
 
-1. Run the following `git clone` command, using your SSH Git clone URL. For example:
+```bash
+git clone git@example.com:GitUser/azureml-example.git
+```
 
-   ```bash
-   git clone git@example.com:GitUser/azureml-example.git
-   ```
+SSH might display the server's SSH fingerprint and ask you to verify it, as in the following example.
 
-1. SSH might display the server's SSH fingerprint and ask you to verify it, as in the following example.
+```bash
+The authenticity of host 'github.com (000.00.000.0)' can't be established.
+ECDSA key fingerprint is SHA256:0000000000000000000/00000000/00000000.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
 
-   ```bash
-   The authenticity of host 'github.com (000.00.000.0)' can't be established.
-   ECDSA key fingerprint is SHA256:0000000000000000000/00000000/00000000.
-   Are you sure you want to continue connecting (yes/no/[fingerprint])?
-   ```
+SSH displays this fingerprint when it connects to an unknown host to protect you from [man-in-the-middle attacks](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)#man-in-the-middle-attack). You should verify that the fingerprint matches one of the fingerprints in the SSH public keys page. Once you accept the host's fingerprint, SSH doesn't prompt you again unless the fingerprint changes.
 
-   SSH displays this fingerprint when it connects to an unknown host to protect you from [man-in-the-middle attacks](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)#man-in-the-middle-attack). You should verify that the displayed fingerprint matches one of the fingerprints in the SSH public keys page, and then respond *yes*.
-
-1. SSH displays a response like the following example:
+SSH displays a response like the following example:
 
    ```bash
-   Warning: Permanently added 'github.com,000.00.000.0' (ECDSA) to the list of known hosts.
-   Enter passphrase for key '/home/azureuser/.ssh/id_ed25519': 
+Cloning into 'azureml-example'...
+Warning: Permanently added 'github.com,000.00.000.0' (ECDSA) to the list of known hosts.
+Enter passphrase for key '/home/azureuser/.ssh/id_ed25519': 
    ```
-1. Enter your passphrase. Git clones the repo and sets up the origin remote to connect with SSH for future Git commands. Once you accept the host's fingerprint, SSH doesn't prompt you again unless the fingerprint changes.
+After you enter your passphrase, Git clones the repo and sets up the origin remote to connect with SSH for future Git commands.
 
 ## Track code that comes from Git repositories
 
-When you submit a training job from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process checks if the source files are stored in a Git repository, and if so, uploads any Git repository information as part of the training job.
+When you submit a training job from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process checks if the source files are stored in a Git repository.
 
-The following information is sent for jobs that use an estimator, machine learning pipeline, or script run. The information is stored in the following training job properties:
+If so, the process uploads Git repository, branch, and current commit information as part of the training job. The information is stored in the following training job properties for jobs that use an estimator, machine learning pipeline, or script run.
 
 | Property | Git command used to get the value | Description |
 | ----- | ----- | ----- |
@@ -137,20 +136,7 @@ If the `git` command isn't available on your development environment, or your tr
 
 ## View Git information
 
-The Git information is stored in the properties for a training job. You can view this information by using the Azure portal, Python SDK, or Azure CLI.
-
-### Azure portal
-
-In your Azure Machine Learning workspace in Azure Machine Learning studio:
-
-1. Select the **Jobs** page.
-1. Select an experiment.
-1. Select a job from the **Display name** column.
-1. Select **Outputs + logs** from the top menu.
-1. Expand **logs** > **azureml**.
-1. Select the link that begins with **###_azure**.
-
-The logged information contains JSON code similar to the following example:
+The Git information is stored in the properties for a training job. The logged information contains JSON code similar to the following example:
 
 ```json
 "properties": {
@@ -168,6 +154,19 @@ The logged information contains JSON code similar to the following example:
     "ProcessStatusFile": "azureml-logs/process_status.json"
 }
 ```
+
+You can view this information by using the Azure portal, Python SDK, or Azure CLI.
+
+### Azure portal
+
+In your Azure Machine Learning workspace in Azure Machine Learning studio:
+
+1. Select the **Jobs** page.
+1. Select an experiment.
+1. Select a job from the **Display name** column.
+1. Select **Outputs + logs** from the top menu.
+1. Expand **logs** > **azureml**.
+1. Select the link that begins with **###_azure**.
 
 ### Python SDK V2
 
