@@ -17,7 +17,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-To facilitate better business to customer communications the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--page) provides JavaScript bundles to try out cross platform solutions for using the UI Library. This tutorial is the fastest way from getting into a call using the UI library and Teams.
+To facilitate better business to customer communications the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--page) provides JavaScript bundles to try out cross-platform solutions for using the UI Library. This tutorial is the fastest way from getting into a call using the UI library and Teams.
 
 Following this tutorial will:
 
@@ -204,7 +204,7 @@ Note, if you try to go to the page not using local host, your calling experience
 Click the `start call` button seen in the [UI Library `CallComposite`](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) to initiate a call to your Teams voice app.
 
 ## Taking to Production
-Currently this tutorial and the JS bundles are in public preview. If you are excited about Click to Call and wanting to see how you can use the `CallComposite` to create Click to Call experiences for you product today, we have a discussion post in our [Github repo](https://github.com/Azure/communication-ui-library) that will show you how to integrate the UI library on other Node Frameworks. The steps of the tutorial you just did directly translate to what is outlined in this show and tell on [loading the UI library composites in other frameworks than React](https://github.com/Azure/communication-ui-library/discussions/4723).
+Currently this tutorial and the JS bundles are in public preview. If you are excited about Click to Call and wanting to see how you can use the `CallComposite` to create Click to Call experiences for your product today, we have a discussion post in our [GitHub repo](https://github.com/Azure/communication-ui-library) that will show you how to integrate the UI library on other Node Frameworks. The steps of the tutorial you just did directly translate to what is outlined in this show and tell on [loading the UI library composites in other frameworks than React](https://github.com/Azure/communication-ui-library/discussions/4723).
 
 ## Next steps
 

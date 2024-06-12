@@ -35,7 +35,7 @@ A complete start to finish tutorial built using [React](https://react.dev/) that
 
 ![Screenshot of Calling Widget sample app home page](../media/calling-widget/sample-app-splash-widget-open.png)
 
-#### Build it - Crossplatform: JavaScript
+#### Build it - Cross-platform: JavaScript
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
