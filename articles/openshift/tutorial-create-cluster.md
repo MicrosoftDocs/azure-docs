@@ -1,26 +1,24 @@
 ---
-title: Tutorial - Create an Azure Red Hat OpenShift 4 cluster
+title: Create an Azure Red Hat OpenShift 4 cluster
 description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
-author: joharder
-ms.author: joharder
-ms.topic: tutorial
+author: johnmarco
+ms.author: johnmarc
+ms.topic: article
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
-ms.date: 02/23/2022
+ms.date: 06/12/2024
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
-# Tutorial: Create an Azure Red Hat OpenShift 4 cluster
+# Create an Azure Red Hat OpenShift 4 cluster
 
-In this tutorial, part one of three, you prepare your environment to create an Azure Red Hat OpenShift cluster running OpenShift 4, and create a cluster. You learn how to:
-> [!div class="checklist"]
-> * Setup the prerequisites 
-> * Create the required virtual network and subnets
-> * Deploy a cluster
+Azure Red Hat OpenShift is a managed OpenShift service that lets you quickly deploy and manage clusters. This article shows you how to deploy an Azure Red Hat OpenShift cluster using either Azure CLI or the Azure portal.           
+
+#### [Azure CLI](#tab/azure-cli)
 
 ## Before you begin
 
-If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you'll need to run Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription doesn't meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
 
@@ -35,7 +33,7 @@ Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an Open
 
 ### Verify your permissions
 
-During this tutorial, you'll create a resource group, which contains the virtual network for the cluster. To do this, you'll need Contributor and User Access Administrator permissions or Owner permissions, either directly on the virtual network or on the resource group or subscription containing it.
+In this article, you'll create a resource group which contains the virtual network for the cluster. To do this, you'll need Contributor and User Access Administrator permissions or Owner permissions, either directly on the virtual network or on the resource group or subscription containing it.
 
 You'll also need sufficient Microsoft Entra permissions (either a member user of the tenant, or a guest assigned with role **Application administrator**) for the tooling to create an application and service principal on your behalf for the cluster. See [Member and guests](../active-directory/fundamentals/users-default-permissions.md#member-and-guest-users) and [Assign administrator and non-administrator roles to users with Microsoft Entra ID](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) for more details.
 
@@ -242,13 +240,71 @@ az aro create \
   --version <x.y.z>
 ```
 
+#### [Azure portal](#tab/azure-portal)
+
+## Prerequisites
+Sign in to the [Azure portal](https://portal.azure.com). 
+
+Create a service principal, as explained in [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the client ID and the appID.** 
+
+Register the `Microsoft.RedHatOpenShift` resource provider. For instructions on registering resource providers using Azure portal, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+## Create an Azure Red Hat OpenShift cluster
+1.	On the Azure portal menu or from the **Home** page, select **All Services** under three horizontal bars on the top left hand page.
+2.	Search for and select **Azure Red Hat OpenShift clusters**.
+3.  Select **Create**.
+4.	On the **Basics** tab, configure the following options:
+    * **Project details**:
+        *	Select an Azure **Subscription**.
+        *	Select or create an Azure **Resource group**, such as *myResourceGroup*.
+    * **Instance details**:
+        * Select a **Region** for the Azure Red Hat OpenShift cluster.
+        *	Enter an **OpenShift cluster name**, such as *myAROCluster*.
+        *	Enter a **Domain name**.
+        *	Select **Master VM Size** and **Worker VM Size**.
+        *   Select **Worker node count** (i.e., the number of worker nodes to create). 
+
+     > [!div class="mx-imgBorder"]
+     > [ ![**Basics** tab on Azure portal](./media/Basics.png) ](./media/Basics.png#lightbox)
+    
+    > [!NOTE]
+    > The **Domain name** field is pre-populated with a random string. You can either specify a domain name (e.g., *example.com*) or a string/prefix (e.g., *abc*) that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs if a resource group name is not specified.
+
+5. On the **Authentication** tab, complete the following sections.
+
+    Under **Service principal information**, select either **Create new** or **Existing**. If you choose to use an existing service principal, enter the following information:
+
+   - **Service principal client ID** is your appId. 
+   - **Service principal client secret** is the service principal's decrypted Secret value.
+
+    > [!NOTE]
+    > If you need to create a service principal, see  [Creating and using a service principal with an Azure Red Hat OpenShift cluster](howto-create-service-principal.md).
+    
+   Under **Pull secret**, enter the **Red Hat pull secret** (i.e., your cluster's pull secret's decrypted value). If you don't have a pull secret, leave this field blank.
+
+   :::image type="content" source="./media/openshift-service-principal-portal.png" alt-text="Screenshot that shows how to use the Authentication tab with Azure portal to create a service principal." lightbox="./media/openshift-service-principal-portal.png":::
+
+6.	On the **Networking** tab, configure the required options.
+
+       **Note**: Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets: one for the control plane and one for worker nodes.
+
+> [!div class="mx-imgBorder"]
+> [ ![**Networking** tab on Azure portal](./media/Networking.png) ](./media/Networking.png#lightbox)
+
+7.	On the **Tags** tab, add tags to organize your resources.
+
+> [!div class="mx-imgBorder"]
+> [ ![**Tags** tab on Azure portal](./media/Tags.png) ](./media/Tags.png#lightbox)
+ 
+8.	Check **Review + create** and then **Create** when validation completes.   
+
+![**Review + create** tab on Azure portal](./media/Review+Create.png)
+ 
+9.	It takes approximately 35 to 45 minutes to create the Azure Red Hat OpenShift cluster. When your deployment is complete, navigate to your resource by either:
+    *	Clicking **Go to resource**, or
+    *	Browsing to the Azure Red Hat OpenShift cluster resource group and selecting the Azure Red Hat OpenShift resource.
+        *	Per example cluster dashboard below: browsing for *myResourceGroup* and selecting *myAROCluster* resource.
+
 ## Next steps
 
-In this part of the tutorial, you learned how to:
-> [!div class="checklist"]
-> * Set up the prerequisites and create the required virtual network and subnets
-> * Deploy a cluster
-
-Advance to the next tutorial:
-> [!div class="nextstepaction"]
-> [Connect to an Azure Red Hat OpenShift cluster](tutorial-connect-cluster.md)
+Learn how to [connect to an Azure Red Hat OpenShift cluster](tutorial-connect-cluster.md).

@@ -1,17 +1,17 @@
 ---
-title: Tutorial - Connect to an Azure Red Hat OpenShift 4 cluster
+title: Connect to an Azure Red Hat OpenShift 4 cluster
 description: Learn how to connect a Microsoft Azure Red Hat OpenShift cluster
 author: johnmarco
 ms.author: johnmarc
-ms.topic: tutorial
+ms.topic: article
 ms.service: azure-redhat-openshift
-ms.date: 04/24/2020
+ms.date: 06/12/2024
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
-# Tutorial: Connect to an Azure Red Hat OpenShift 4 cluster
+# Connect to an Azure Red Hat OpenShift 4 cluster
 
-In this tutorial, part two of three, you will connect to an Azure Red Hat OpenShift cluster running OpenShift 4 as the kubeadmin user through the OpenShift web console. You learn how to:
+In article, you'll learn how to connect to an Azure Red Hat OpenShift cluster running OpenShift 4 as the kubeadmin user through the OpenShift web console. You learn how to:
 > [!div class="checklist"]
 > * Obtain `kubeadmin` credentials for your cluster
 > * Install the OpenShift CLI
@@ -19,9 +19,7 @@ In this tutorial, part two of three, you will connect to an Azure Red Hat OpenSh
 
 ## Before you begin
 
-In previous tutorials, an Azure Red Hat OpenShift cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat OpenShift 4 Cluster.](tutorial-create-cluster.md)
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+The steps in this article requires Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the cluster
 
@@ -90,12 +88,4 @@ oc login $apiServer -u kubeadmin -p <kubeadmin password>
 
 ## Next steps
 
-In this part of the tutorial, you learned how to:
-> [!div class="checklist"]
-> * Obtain `kubeadmin` credentials for your cluster
-> * Install the OpenShift CLI
-> * Connect to an Azure Red Hat OpenShift cluster using the OpenShift CLI
-
-Advance to the next tutorial:
-> [!div class="nextstepaction"]
-> [Delete an Azure Red Hat OpenShift cluster](tutorial-delete-cluster.md)
+Learn how to [delete an Azure Red Hat OpenShift cluster](tutorial-delete-cluster.md).
