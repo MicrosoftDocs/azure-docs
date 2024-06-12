@@ -39,7 +39,7 @@ In this section, you create an Azure DDoS protection plan to associate with the 
 
 3. Select **+ Create**.
 
-4. In the **Basics** tab of **Create a DDoS protection plan**, enter or select the following information:
+4. On the **Basics** tab of **Create a DDoS protection plan**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -62,7 +62,7 @@ In this section, you create an Azure Route Server. The virtual network and publi
 
 2. Select **+ Create**.
 
-3. In the **Basics** tab of **Create a Route Server**, enter or select the following information:
+3. On the **Basics** tab of **Create a Route Server**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -134,7 +134,7 @@ You need the Azure Route Server's peer IPs and ASN to complete the configuration
 
 2. Select **myRouteServer**.
 
-3. In the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer IPs**.
+3. On the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer IPs**.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
