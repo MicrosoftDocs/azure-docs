@@ -67,23 +67,12 @@ ms.custom: "include file"
 
 **Summary rules**
 
-| Category | Limit | Comments |
-|:---|:---|:---|
-| Maximum columns for active rules in a workspace | 10 | |
-| Maximum number of results per bin | 500,000 | |
-| Maximum results set volume | 100 MB | |
-| Query time-out for bin processing | 10 minutes | |
-
-- The Summary rule processes incoming data and can't be configured on a historical time range. 
-- When bin execution exhausts and fails, bin is skipped and can't be re-executed.
-- Querying a workspace in another tenant by using Lighthouse isn't supported.
-- The Kusto Query Language (KQL) language limits depend on the table tier used in the query. The following KQL limits apply:
-
-   <!-- Docs Criteria doesn't allow merge of Private Preview content into azure-docs-pr repo -->
-
-   - Analytics: Supports all KQL commands, except for data reshaping plugins, including [bag unpack](/azure/data-explorer/kusto/query/bag-unpack-plugin), [narrow](/azure/data-explorer/kusto/query/narrow-plugin), and [pivot](/azure/data-explorer/kusto/query/pivot-plugin). Cross-resource, including [workspaces()](/azure/azure-monitor/logs/cross-workspace-query#query-across-log-analytics-workspaces-using-workspace), [app()](/azure/azure-monitor/logs/cross-workspace-query#query-across-classic-application-insights-applications-using-app), [resource()](/azure/azure-monitor/logs/cross-workspace-query#correlate-data-between-resources-using-resource), [ADX()](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy), and [arg()](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy) aren't supported in the Private Preview.
-   - Basic and Auxiliary: Supports all KQL commands on a single Basic or Auxiliary table. Because `summarize` and `join` aren't supported, use lookup for up to five Analytics tables.
-   - Functions: User-defined functions aren't supported. System functions provided by Microsoft are supported. 
+| Category | Limit |
+|:---|:---|
+| Maximum number of active rules in a workspace | 30 |
+| Maximum number of results per bin | 500,000 |
+| Maximum results set volume | 100 MB |
+| Query time-out for bin processing | 10 minutes |
 
 **General workspace limits**
 
