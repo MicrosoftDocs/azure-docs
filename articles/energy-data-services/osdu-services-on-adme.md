@@ -1,3 +1,15 @@
+---
+title: OSDU Overview - Available and Exclusive Services
+description: This article provides an overview of the OSDU services available on Azure Data Manager for Energy as well as the OSDU services that are exclusively available in the community version.
+author: bananibrahim
+ms.service: energy-data-services
+ms.author: bananibrahim
+
+ms.topic: overview
+ms.date: 06/12/2024
+ms.custom: template-overview
+---
+
 # OSDU&reg; Overview: Available and Exclusive Services
 
 ## OSDU&reg; M18 Services Available on ADME 
