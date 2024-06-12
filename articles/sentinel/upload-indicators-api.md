@@ -81,7 +81,7 @@ There are two versions of the upload indicators API. Depending on the endpoint, 
    - Array of indicators name: `indicators`
     ```json
     {
-       "sourcesystem":"TIsource-example"
+       "sourcesystem":"TIsource-example",
        "indicators":[]
     }
     ```
