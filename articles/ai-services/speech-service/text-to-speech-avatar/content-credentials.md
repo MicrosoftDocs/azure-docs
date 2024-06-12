@@ -6,7 +6,7 @@ author: sally-baolian
 ms.author: v-baolianzou
 ms.service: azure-ai-speech
 ms.topic: conceptual 
-ms.date: 11/06/2024
+ms.date: 6/11/2024
 manager: nitinme
 ---
 
