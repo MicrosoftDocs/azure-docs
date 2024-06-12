@@ -4,7 +4,7 @@ description: This article answers common questions about Azure virtual machine d
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 04/18/2024
+ms.date: 06/12/2024
 ms.topic: conceptual
 ms.service: site-recovery
 
@@ -235,6 +235,13 @@ Multi-VM consistency is CPU intensive, and enabling it can affect workload perfo
 ### Can I add a replicating virtual machine to a replication group?
 
 When you enable replication for a virtual machine, you can add it to a new replication group, or to an existing group. You can't add a virtual machine that's already replicating to a group.
+
+### What conditions must be met to create a recovery plan for multi-VM consistency?
+
+Creating a recovery plan for multi-VM consistency virtual machine works only if the following conditions are met:
+
+- Virtual machine must be in the same subscription and region.
+- Virtual machine must communicate over the network using host names.
 
 ## Failover
 
