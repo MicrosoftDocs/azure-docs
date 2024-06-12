@@ -234,6 +234,15 @@ TBD - Heidi and Matt to provide
         --query id -o tsv
     ```
 
+3. Assign the role-based access control (RBAC) role to the identity for the resource group.  
+
+    ```azurecli
+    az role assignment create \
+        --role "<role-name>" \
+        --assignee "<identity-id>" \
+        --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
+    ```
+    
 #### [Azure PowerShell](#tab/azure-powershell)
 
 1. Sign in with PowerShell.
@@ -248,37 +257,18 @@ TBD - Heidi and Matt to provide
     (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
     ```
 
+3. Assign the role-based access control (RBAC) role to the identity for the resource group.  
+
+    ```azurepowershell
+    New-AzRoleAssignment -ObjectId "<identity-id>" -RoleDefinitionName "<role-name>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
+    ```
+
 #### [Azure portal](#tab/portal)
 
-Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
-
----
-
-1. Assign the role-based access control (RBAC) role to the identity for the resource group.  
-
-### [Azure CLI](#tab/azure-cli)
-
-To grant your identity permissions to your resource through RBAC, assign a role using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
-
-```azurecli
-az role assignment create \
-    --role "<role-name>" \
-    --assignee "<identity-id>" \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-To grant your application permissions to your Azure AI Search resource through RBAC, assign a role using the Azure PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
-
-```azurepowershell
-New-AzRoleAssignment -ObjectId "<identity-id>" -RoleDefinitionName "<role-name>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
-```
-
-### [Azure portal](#tab/portal)
-
-Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
-
+1. Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
+    
+2. Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
+    
 ---
     
 Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-group-name>` with your actual values. 
