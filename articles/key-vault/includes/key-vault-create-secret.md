@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 07/20/2020
+ms.date: 06/12/2024
 ms.author: msmbaldwin
 # Used by articles that register native client applications in the B2C tenant.
 ---
