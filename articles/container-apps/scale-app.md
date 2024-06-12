@@ -248,7 +248,7 @@ The following example demonstrates how to create a custom scale rule.
 
 This example shows how to convert an [Azure Service Bus scaler](https://keda.sh/docs/latest/scalers/azure-service-bus/) to a Container Apps scale rule, but you use the same process for any other [ScaledObject](https://keda.sh/docs/latest/concepts/scaling-deployments/)-based [KEDA scaler](https://keda.sh/docs/latest/scalers/) specification.
 
-For authentication, KEDA scaler authentication parameters take [Container Apps secrets](manage-secrets.md) or managed identity.
+For authentication, KEDA scaler authentication parameters take [Container Apps secrets](manage-secrets.md) or [managed identity](managed-identity.md#scale-rules).
 
 ::: zone pivot="azure-resource-manager"
 
@@ -322,9 +322,11 @@ First, you define the type and metadata of the scale rule.
 
 A KEDA scaler supports authentication through either secrets or managed identity. We recommend managed identity whenever possible to avoid storing secrets within the app. 
 
-Secrets-based authentication supports all scalers. Authentication with managed identity supports all Azure scalers, including Azure Application Insights, Azure Blob Storage, Azure Monitor, and many more.
+Secrets-based authentication supports all scalers. Authentication with managed identity supports all Azure scalers, including Azure Queue Storage, Azure Service Bus, and Azure Event Hubs.
 
 #### Using secrets
+
+To use secrets for authentication, you need to create a secret in the container app's `secrets` array. The secret value is used in the `auth` array of the scale rule.
 
 KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/latest/concepts/authentication/) that is referenced by the `authenticationRef` property. You can map the TriggerAuthentication object to the Container Apps scale rule.
 
@@ -350,27 +352,30 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
 #### Using managed identity
 
-KEDA scalers can use managed identity. The following ARM template passes in system-based managed identity to authenticate for an Azure Queue scaler.
+KEDA scalers can use managed identity to authenticate with Azure services. The following ARM template passes in system-based managed identity to authenticate for an Azure Queue scaler.
 
-``` "scale": {
-                "minReplicas": 0,
-                "maxReplicas": 4,
-                "rules": [
-                    {
-                        "name": "azure-queue",
-                        "custom": {
-                            "type": "azure-queue",
-                            "metadata": {
-                                "accountName": "apptest123",
-                                "queueName": "queue1",
-                                "queueLength": "1"
-                            },
-                            "identity": "system"
-                        }
-                    }
-                ]
-            }
 ```
+"scale": {
+  "minReplicas": 0,
+  "maxReplicas": 4,
+  "rules": [
+    {
+      "name": "azure-queue",
+      "custom": {
+        "type": "azure-queue",
+        "metadata": {
+          "accountName": "apptest123",
+          "queueName": "queue1",
+          "queueLength": "1"
+        },
+        "identity": "system"
+      }
+    }
+  ]
+}
+```
+
+To learn more about using managed identity with scale rules, see [Managed identity](managed-identity.md#scale-rules).
 
 ::: zone-end
 
