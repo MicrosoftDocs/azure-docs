@@ -78,12 +78,12 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 - Kubernetes version: 1.28.5
 - Two proxy workers
 - 1-KB payload
-- 1000 Queries per second (QPS) at varying client connections
+- 1,000 Queries per second (QPS) at varying client connections
 - `http/1.1` protocol and mutual TLS enabled
 - 26 data points collected
 
 #### CPU and memory
-The memory and CPU usage for both the client and server proxy for 16 client connections and 1000 QPS across all network plugin scenarios is roughly 0.4 vCPU and 72 MB. 
+The memory and CPU usage for both the client and server proxy for 16 client connections and 1,000 QPS across all network plugin scenarios is roughly 0.4 vCPU and 72 MB. 
 
 #### Latency
 The sidecar Envoy proxy collects raw telemetry data after responding to a client, which doesn't directly affect the request's total processing time. However, this process delays the start of handling the next request, contributing to queue wait times and influencing average and tail latencies. Depending on the traffic pattern, the actual tail latency varies. 
