@@ -148,6 +148,8 @@
           href: concepts-network-ip-address-planning.md
         - name: Services
           href: concepts-network-services.md
+        - name: Ingress
+          href: concepts-network-ingress.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -357,11 +359,14 @@
         - name: Node autoprovision
           href: node-autoprovision.md
         - name: Availability zones
+          href: availability-zones.md
           items:
             - name: Availability zones overview
               href: availability-zones-overview.md
             - name: Create a cluster with availability zones
               href: availability-zones.md
+        - name: Zone resiliency
+          href: aks-zone-resiliency.md
         - name: Propagate Kubernetes resources across multiple clusters
           href: ../kubernetes-fleet/resource-propagation.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
     - name: Cluster management
@@ -400,10 +405,10 @@
           items:
             - name: Azure kubelogin
               href: kubelogin-authentication.md
-            - name: Create service principal
-              href: kubernetes-service-principal.md
             - name: Use managed identities
               href: use-managed-identity.md
+            - name: Create a service principal
+              href: kubernetes-service-principal.md
             - name: Enable access to AKS clusters using Trusted Access
               href: trusted-access-feature.md
             - name: Limit access to cluster configuration file
@@ -576,6 +581,8 @@
               href: api-server-vnet-integration.md
             - name: Private Endpoint
               href: private-clusters.md#use-a-private-endpoint-connection
+            - name: Diagnose and solve UDP packet drops
+              href: troubleshoot-udp-packet-drops.md
     - name: Storage
       items:
         - name: CSI storage drivers

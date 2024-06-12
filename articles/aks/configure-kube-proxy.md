@@ -23,7 +23,7 @@ For more information, see the [Kubernetes documentation on kube-proxy](https://k
 > [!NOTE]
 > If you want, you can disable the AKS-managed `kube-proxy` DaemonSet to support [bring-your-own CNI][aks-byo-cni].
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Before you begin
 

@@ -72,7 +72,7 @@ Query string parameters:
 
 |Name |Description|Content Type|Condition|
 |---|---|---|---|
-|**document**| Source document to be translated.|Any one of the [supported document formats](../../language-support.md).|***Required***|
+|**document**| Source document to be translated.|Any one of the [supported document formats](../overview.md#synchronous-supported-document-formats).|***Required***|
 |**glossary**|Document containing a list of terms with definitions to use during the translation process.|Any one of the supported [glossary formats](get-supported-glossary-formats.md).|***Optional***|
 
 ## Next steps
