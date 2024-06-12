@@ -379,6 +379,8 @@
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions
           href: app-service-sql-github-actions.md
+        - name: Deploy with Azure Pipelines
+          href: deploy-container-azure-pipelines.md
         - name: Deploy a multi-container WordPress app
           href: tutorial-multi-container-app.md
 - name: Reliability

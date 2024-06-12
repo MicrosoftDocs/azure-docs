@@ -1261,6 +1261,8 @@
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: migration-classic-resource-manager-faq.yml
+  - name: Estimated VM cost card in Portal (Preview) 
+    href: estimated-vm-create-cost-card.md
 - name: Availability and scale
   items:
   - name: Overview
