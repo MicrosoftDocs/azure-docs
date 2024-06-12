@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Tutorial: Back up Azure Managed Disks using Auzre Backup
+# Tutorial: Back up Azure Managed Disks using Azure Backup
 
 This tutorial describes how to back up [Azure Managed Disk](../virtual-machines/managed-disks-overview.md) from the Azure portal.
 
@@ -26,18 +26,18 @@ To create a backup policy for disk backup, follow these steps:
 
 1. In the **Backup vault**, go to **Backup policies** and select **Add**.
 
-   :::image type="content" source="./media/backup-managed-disks/backup-policies.png" alt-text="Screenshot shows how to add backup policy." lightbox="./media/backup-managed-disks/backup-policies.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/backup-policies.png" alt-text="Screenshot shows how to add backup policy." lightbox="./media/back-up-managed-disks-tutorial/backup-policies.png":::
 
 1. In the **Basics** tab, provide policy name, select **Datasource type** as **Azure Disk**. The vault is already prepopulated and the selected vault properties are presented.
 
    >[!NOTE]
    > Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
 
-   :::image type="content" source="./media/backup-managed-disks/datasource-type.png" alt-text="Screenshot shows how to select datasource type." lightbox="./media/backup-managed-disks/datasource-type.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/datasource-type.png" alt-text="Screenshot shows how to select datasource type." lightbox="./media/back-up-managed-disks-tutorial/datasource-type.png":::
 
 1. In the **Backup policy** tab, select the backup schedule frequency.
 
-   :::image type="content" source="./media/backup-managed-disks/backup-schedule-frequency.png" alt-text="Screenshot shows how to select backup schedule frequency." lightbox="./media/backup-managed-disks/backup-schedule-frequency.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/backup-schedule-frequency.png" alt-text="Screenshot shows how to select backup schedule frequency." lightbox="./media/back-up-managed-disks-tutorial/backup-schedule-frequency.png":::
 
    Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every *1*, *2*, *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once a day backup is sufficient, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
 
@@ -45,11 +45,11 @@ To create a backup policy for disk backup, follow these steps:
 
    The default retention rule applies if no other retention rule is specified. The default retention rule can be modified to change the retention duration, but it cannot be deleted. You can add a new retention rule by selecting **Add retention rule**.
 
-   :::image type="content" source="./media/backup-managed-disks/add-retention-rule.png" alt-text="Screenshot shows how to add a retention rule." lightbox="./media/backup-managed-disks/add-retention-rule.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/add-retention-rule.png" alt-text="Screenshot shows how to add a retention rule." lightbox="./media/back-up-managed-disks-tutorial/add-retention-rule.png":::
 
    You can pick **first successful backup** taken daily or weekly, and provide the retention duration that the specific backups are to be retained before they're deleted. This option is useful to retain specific backups of the day or week for a longer duration of time. All other frequent backups can be retained for a shorter duration.
 
-   :::image type="content" source="./media/backup-managed-disks/retention-settings.png" alt-text="Screenshot shows the retention settings." lightbox="./media/backup-managed-disks/retention-settings.png"::: 
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/retention-settings.png" alt-text="Screenshot shows the retention settings." lightbox="./media/back-up-managed-disks-tutorial/retention-settings.png"::: 
 
    >[!NOTE]
    >Azure Backup for Managed Disks uses incremental snapshots which are limited to 500 snapshots per disk. At a point in time you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk.
@@ -74,11 +74,11 @@ To configure disk backup, follow these steps:
 
 1. Go to **Backup center** -> **Overview** and click **+ Backup** to start configuring backup of the disk.
 
-   :::image type="content" source="./media/backup-managed-disks/start-configuring-backup-of-disk-inline.png" alt-text="Screenshot showing the option to start Azure Disk backup." lightbox="./media/backup-managed-disks/start-configuring-backup-of-disk-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/start-configuring-backup-of-disk-inline.png" alt-text="Screenshot showing the option to start Azure Disk backup." lightbox="./media/back-up-managed-disks-tutorial/start-configuring-backup-of-disk-expanded.png":::
 
 1. Select **Azure Disks** in the **Datasource type** drop-down list, and then click **Continue**.
 
-   :::image type="content" source="./media/backup-managed-disks/select-azure-disks-as-datasource-type-inline.png" alt-text="Screenshot showing the process to select Azure Disks as Data protection type." lightbox="./media/backup-managed-disks/select-azure-disks-as-datasource-type-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/select-azure-disks-as-datasource-type-inline.png" alt-text="Screenshot showing the process to select Azure Disks as Data protection type." lightbox="./media/back-up-managed-disks-tutorial/select-azure-disks-as-datasource-type-expanded.png":::
 
 1. Select a Backup vault and click **Next** to proceed.
 
@@ -86,15 +86,15 @@ To configure disk backup, follow these steps:
    >- Ensure that both the backup vault and the disk to be backed up are in same location.
    >- Azure Backup uses [_incremental snapshots_](../virtual-machines/disks-incremental-snapshots.md#restrictions) of managed disks, which store only the delta changes to the disk as the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For additional reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in the ZRS supported regions. Currently, Azure Disk Backup supports operational backup of managed disks that doesn't copy backups to the Backup vault storage. So, the backup storage redundancy setting of the Backup vault doesn’t apply to the recovery points.
 
-   :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="Screenshot showing the process to select a Backup vault." lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/select-backup-vault-inline.png" alt-text="Screenshot showing the process to select a Backup vault." lightbox="./media/back-up-managed-disks-tutorial/select-backup-vault-expanded.png":::
 
 1. On the **Backup Policy** tab, choose a Backup policy.
 
-   :::image type="content" source="./media/backup-managed-disks/choose-backup-policy-inline.png" alt-text="Screenshot showing the process to choose a Backup policy." lightbox="./media/backup-managed-disks/choose-backup-policy-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/choose-backup-policy-inline.png" alt-text="Screenshot showing the process to choose a Backup policy." lightbox="./media/back-up-managed-disks-tutorial/choose-backup-policy-expanded.png":::
 
 1. On the **Datasources** tab, click **+ Add/Edit** to choose one or more Azure Managed Disks for which you want to configure backup.
 
-   :::image type="content" source="./media/backup-managed-disks/choose-azure-managed-disks-inline.png" alt-text="Screenshot showing the process to choose Azure Managed Disks." lightbox="./media/backup-managed-disks/choose-azure-managed-disks-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/choose-azure-managed-disks-inline.png" alt-text="Screenshot showing the process to choose Azure Managed Disks." lightbox="./media/back-up-managed-disks-tutorial/choose-azure-managed-disks-expanded.png":::
 
    >[!Note]
    >While the portal allows you to select multiple disks and configure backup, each disk is an individual backup instance. Currently, Azure Disk Backup only supports backup of individual disks. Point-in-time backup of multiple disks attached to a virtual machine isn't supported.
@@ -117,7 +117,7 @@ To configure disk backup, follow these steps:
 
    - Once you configure the backup of a disk, you can’t change the Snapshot Resource Group that’s assigned to a backup instance.   
 
-   :::image type="content" source="./media/backup-managed-disks/validate-snapshot-resource-group-inline.png" alt-text="Screenshot showing the process to initiate prerequisites checks." lightbox="./media/backup-managed-disks/validate-snapshot-resource-group-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/validate-snapshot-resource-group-inline.png" alt-text="Screenshot showing the process to initiate prerequisites checks." lightbox="./media/back-up-managed-disks-tutorial/validate-snapshot-resource-group-expanded.png":::
 
 1. Once the validation is complete, check if there are any errors reported in the Backup readiness column.
 
@@ -129,7 +129,7 @@ To configure disk backup, follow these steps:
 
    If the _Role assignment not done_ error message displays in the **Backup readiness** column, the Backup vault managed identity needs role permissions on the selected disk(s) and/or   on the Snapshot resource group. 
 
-   :::image type="content" source="./media/backup-managed-disks/role-assignment-not-done-error-inline.png" alt-text="Screenshot showing the Role assignment not done error message." lightbox="./media/backup-managed-disks/role-assignment-not-done-error-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/role-assignment-not-done-error-inline.png" alt-text="Screenshot showing the Role assignment not done error message." lightbox="./media/back-up-managed-disks-tutorial/role-assignment-not-done-error-expanded.png":::
 
    To configure backup of managed disks, the following prerequisites are required:
 
@@ -146,32 +146,32 @@ To configure disk backup, follow these steps:
 
 1. Select the checkbox next to each row with the _Role assignment not done_ error message status in the Backup readiness column and click **Add missing roles** to automatically grant required role permissions for the Backup vault managed identity on selected resources.
 
-   :::image type="content" source="./media/backup-managed-disks/add-missing-roles-inline.png" alt-text="Screenshot showing the process to add missing roles." lightbox="./media/backup-managed-disks/add-missing-roles-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/add-missing-roles-inline.png" alt-text="Screenshot showing the process to add missing roles." lightbox="./media/back-up-managed-disks-tutorial/add-missing-roles-expanded.png":::
 
 1. Click **Confirm** to provide consent. Azure Backup will automatically propagate role assignment changes on your behalf and try to revalidate.
 
    If you want to grand permission for the Backup vault managed identity to the selected disk(s) and snapshot resource group, select **Resource** in the **Scope** drop-down list. 
 
-   :::image type="content" source="./media/backup-managed-disks/confirm-role-propagation-inline.png" alt-text="Screenshot showing the option to provide consent to Azure Backup for automatic role assignment." lightbox="./media/backup-managed-disks/confirm-role-propagation-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/confirm-role-propagation-inline.png" alt-text="Screenshot showing the option to provide consent to Azure Backup for automatic role assignment." lightbox="./media/back-up-managed-disks-tutorial/confirm-role-propagation-expanded.png":::
 
    >[!Tip]
    >If you plan to configure backup for other disks in the same resource group/subscription in future, you can choose to provide permission at the scope of resource group or subscription.
 
-   :::image type="content" source="./media/backup-managed-disks/permission-deployment-in-progress-inline.png" alt-text="Screenshot showing the permission deployment." lightbox="./media/backup-managed-disks/permission-deployment-in-progress-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/permission-deployment-in-progress-inline.png" alt-text="Screenshot showing the permission deployment." lightbox="./media/back-up-managed-disks-tutorial/permission-deployment-in-progress-expanded.png":::
 
-   :::image type="content" source="./media/backup-managed-disks/permission-waiting-to-propagate-inline.png" alt-text="Screenshot showing the permission waiting to propagate to the resource group." lightbox="./media/backup-managed-disks/permission-waiting-to-propagate-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/permission-waiting-to-propagate-inline.png" alt-text="Screenshot showing the permission waiting to propagate to the resource group." lightbox="./media/back-up-managed-disks-tutorial/permission-waiting-to-propagate-expanded.png":::
 
-   :::image type="content" source="./media/backup-managed-disks/revalidating-permission-propagation-inline.png" alt-text="Screenshot showing the attempts to revalidate permission propagate for failed scenarios." lightbox="./media/backup-managed-disks/revalidating-permission-propagation-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/revalidating-permission-propagation-inline.png" alt-text="Screenshot showing the attempts to revalidate permission propagate for failed scenarios." lightbox="./media/back-up-managed-disks-tutorial/revalidating-permission-propagation-expanded.png":::
 
    >[!Note]
    >- In some cases, it can take up to 30 minutes for the role assignments to propagate, causing revalidation failure. In this scenario, retry after some time.
    >- If the **Add missing roles** action fails  to assign permissions with the error ‘Insufficient permission for role assignment’ in Backup readiness column, it indicates that you don’t have the privilege to assign role permissions. Choose Download role assignment template to download role assignments as scripts and seek support from your IT Administrator to run the scripts to complete the prerequisites. 
 
-   :::image type="content" source="./media/backup-managed-disks/permission-propagation-taking-long-time-inline.png" alt-text="Screenshot showing the permission propagate instances taking longer time, upto 30 seconds." lightbox="./media/backup-managed-disks/permission-propagation-taking-long-time-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/permission-propagation-taking-long-time-inline.png" alt-text="Screenshot showing the permission propagate instances taking longer time, upto 30 seconds." lightbox="./media/back-up-managed-disks-tutorial/permission-propagation-taking-long-time-expanded.png":::
 
 1. After a successful validation, click **Next** to move to the **Review and configure** tab, and then click **Configure backup** to configure backup of selected disks.
 
-   :::image type="content" source="./media/backup-managed-disks/configure-backup-of-selected-disks-inline.png" alt-text="Screenshot showing the process to configure backup of selected disks." lightbox="./media/backup-managed-disks/configure-backup-of-selected-disks-expanded.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/configure-backup-of-selected-disks-inline.png" alt-text="Screenshot showing the process to configure backup of selected disks." lightbox="./media/back-up-managed-disks-tutorial/configure-backup-of-selected-disks-expanded.png":::
 
 ## Run an on-demand backup
 
@@ -179,7 +179,7 @@ To run an on-demand disk backup, follow these steps:
 
 1. In the **Backup vault**, go to **Backup instances** and select a backup instance.
 
-   :::image type="content" source="./media/backup-managed-disks/select-backup-instance.png" alt-text="Screenshot shows how to select backup instance." lightbox="./media/backup-managed-disks/select-backup-instance.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/select-backup-instance.png" alt-text="Screenshot shows how to select backup instance." lightbox="./media/back-up-managed-disks-tutorial/select-backup-instance.png":::
 
 1. In the **Backup instances** screen, you'll find:
 
@@ -189,11 +189,11 @@ To run an on-demand disk backup, follow these steps:
 
 1. Select **Backup** to initiate an on-demand backup.
 
-   :::image type="content" source="./media/backup-managed-disks/backup-now.png" alt-text="Screenshot shows how to select Backup Now." lightbox="./media/backup-managed-disks/backup-now.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/backup-now.png" alt-text="Screenshot shows how to select Backup Now." lightbox="./media/back-up-managed-disks-tutorial/backup-now.png":::
 
 1. Select one of the retention rules associated with the backup policy. This retention rule will determine the retention duration of this on-demand  backup. Select **Backup now** to start the backup.
 
-   :::image type="content" source="./media/backup-managed-disks/initiate-backup.png" alt-text="Screenshot shows how to initiate the backup operation." lightbox="./media/backup-managed-disks/initiate-backup.png":::
+   :::image type="content" source="./media/back-up-managed-disks-tutorial/initiate-backup.png" alt-text="Screenshot shows how to initiate the backup operation." lightbox="./media/back-up-managed-disks-tutorial/initiate-backup.png":::
 
 ## Next step
 
