@@ -10,13 +10,15 @@ ms.date: 11/09/2023
 
 The ImmuneCODE™ database, which includes hundreds of millions of T-cell Receptor (TCR) sequences from over 1,400 subjects exposed to or infected with the SARS-CoV-2 virus, and over 160,000 high-confidence SARS-CoV-2-specific TCRs. 
 The database is accessible at no cost. Its data can be analyzed to aid global initiatives aimed at comprehending the immune response to the SARS-CoV-2 virus and crafting novel interventions. To learn more about the dataset refer the associated [publication.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/)
+
 The latest ImmuneCODE datasets available contains: Release 002.
+
 - The 1,486 subjects exposed to or infected with the SARSCoV-2 virus: ImmuneCODE-Repertoires-002.2.
 - The sample metadata: ImmuneCODE-Repertoire-Tags-002.2.tsv (572 KB) Release 002.2.
 - The high-confidence SARS-CoV-2-specific (Over 160,000): ImmuneCODE-MIRA-Release 002.1.
 - The sample metadata: ImmuneCODE-Repertoire-Tags-002.2.xlsx (352 KB) Release 002.2.
 
-[INCLUDE [Open Dataset usage notice]../../includes/open-datasets-usage-note.md]
+[!INCLUDE [open-datasets-usage-note](../../includes/open-datasets-usage-note.md)]
 
 ## Data source
 
@@ -40,7 +42,8 @@ West Central US: 'https://dataset1000genomes-secondary.blob.core.windows.net/dat
 
 ## Use terms
 
-To learn more about the data use terms refer the [publication] (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/) and [Terms of Use.] (https://clients.adaptivebiotech.com/terms-of-use)
+To learn more about the data use terms refer the [publication](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/) and [Terms of Use](https://clients.adaptivebiotech.com/terms-of-use).
+
 ## Contact
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7418738/
