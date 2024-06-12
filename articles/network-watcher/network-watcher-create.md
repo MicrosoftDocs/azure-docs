@@ -18,6 +18,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
 > [!NOTE]
 > - By default, Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be automatically enabled in your Virtual Network's region.
+> - You must manually enable Network Watcher if you opted out Network Watcher automatic enablement. 
 > - Automatically enabling Network Watcher doesn't affect your resources or associated charge.
 > - Network Watcher can be enabled for these [Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=network-watcher&regions=all).
 
