@@ -239,13 +239,11 @@ In a `hybridSearch` query parameter object, specify the maximum number of docume
 
 The default maximum is `1000` documents. 
 
-With `maxTextRecallSize`, you can increase or decrease the number of BM25-ranked results returned in hybrid queries. 
+With `maxTextRecallSize`, you can increase or decrease the number of BM25-ranked results returned in hybrid queries. The default is 1,000. The maximum is 10,000.
 
 + Reducing the number of text documents retrieved can significantly improve performance, assuming vector similarity search is generally performing better. You can also consider [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) as an alternate approach for increasing the importance of vector queries.
 
 + Increasing the number of text documents is useful if you have a large index, and the `1000` document default is not capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
-
-
 
 Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in `2024-05-01-Preview` to specify these parameters.
 
@@ -271,7 +269,7 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
     } 
 ```
 
-The next example sets `maxTextRecallSize` to 2,000. It also sets `countAndFacetMode` to scope acounts to just those results from `maxTextRecallSize`. It also uses top to return 200 in the initial results.
+The next example sets `maxTextRecallSize` to 5,000. It also uses top, skip, and next to pull results from large result sets. In this case, the request pulls 500 matches starting at position 1,500 through 2,000.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
@@ -286,10 +284,11 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
         } 
       ], 
       "search": "hello world",
-      "top": 200,
-      "skip": 0,
+      "top": 500,
+      "skip": 1500,
+      "next": 500,
       "hybridSearch": { 
-        "maxTextRecallSize": 2000, 
+        "maxTextRecallSize": 5000, 
         "countAndFacetMode": "countRetrievableResults" 
       } 
     } 
