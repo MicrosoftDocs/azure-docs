@@ -229,7 +229,7 @@ The following classes and interfaces handle some key features of the Azure Commu
 | [CallComposite](#create-callcomposite)                               | Composite component that renders a call experience with participant gallery and controls   |
 | [CallCompositeBuilder](#create-callcomposite)                        | Builder that builds `CallComposite` with options                                                |
 | [CallCompositeJoinMeetingLocator](#set-up-a-group-call)                        | Passed-in `CallComposite` launch to start a group call                                         |
-| [CallCompositeTeamsMeetingLinkLocator](#set-up-a-teams-meeting)                | Passed to `CallComposite` launch to join a Microsoft Teams meeting                                     |
+| [CallCompositeTeamsMeetingLinkLocator](#join-a-teams-meeting)                | Passed to `CallComposite` launch to join a Microsoft Teams meeting                                     |
 | [CallCompositeLocalizationOptions](#apply-a-localization-configuration) | Injected as optional in `CallCompositeBuilder` to set the language of the composite      |
 
 ## UI Library functionality

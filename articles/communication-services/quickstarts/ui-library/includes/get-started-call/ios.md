@@ -151,7 +151,7 @@ The following classes and interfaces handle some key features of the Azure Commu
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-callcomposite) | Component that renders a call experience that has a participant gallery and controls |
 | [CallCompositeOptions](#create-callcomposite) | Settings for options like themes and event handling |
-| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#set-up-a-teams-meeting). |
+| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#join-a-teams-meeting). |
 | [ThemeOptions](#apply-theme-options) | Customization options for the composite theme |
 | [LocalizationOptions](#apply-localization-options) | Language options for the composite |
 
