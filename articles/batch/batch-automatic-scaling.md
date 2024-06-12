@@ -2,7 +2,7 @@
 title: Autoscale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on an Azure Batch cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 06/11/2024
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
 ---
 
@@ -44,6 +44,22 @@ The target number of nodes might be higher, lower, or the same as the current nu
 
 The following examples show two autoscale formulas, which can be adjusted to work for most scenarios. The variables `startingNumberOfVMs` and `maxNumberofVMs` in the example formulas can be adjusted to your needs.
 
+#### Pending tasks
+
+With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free and the autoscaling formula shrinks the pool.
+
+This formula scales dedicated nodes, but can be modified to apply to scale Spot nodes as well.
+
+```
+startingNumberOfVMs = 1;
+maxNumberofVMs = 25;
+pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+$TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
+```
+> [!IMPORTANT]
+> Currently, Batch Service has limitations with the resolution of the pending tasks. When a task is added to the job, it's also added into a internal queue used by Batch service for scheduling. If the task is deleted before it can be scheduled, the task might persist within the queue, causing it to still be counted in `$PendingTasks`. This deleted task will eventually be cleared from the queue when Batch gets chance to pull tasks from the queue to schedule with idle nodes in the Batch pool.
 
 #### Preempted nodes
 
@@ -51,6 +67,7 @@ This example creates a pool that starts with 25 Spot nodes. Every time a Spot no
 
 ```
 maxNumberofVMs = 25;
+$TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
 $NodeDeallocationOption = taskcompletion;
 ```
@@ -59,9 +76,61 @@ You'll learn more about [how to create autoscale formulas](#write-an-autoscale-f
 
 ## Variables
 
-You can use *user-defined* variables in your autoscale formulas.
+You can use both *service-defined* and *user-defined* variables in your autoscale formulas.
 
-User-defined variables are variables that you define. In the example, `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables. For user-defined variables, the dollar sign is optional.
+The service-defined variables are built in to the Batch service. Some service-defined variables are read-write, and some are read-only.
+
+User-defined variables are variables that you define. In the previous example, `$TargetDedicatedNodes` and `$PendingTasks` are service-defined variables, while `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
+
+> [!NOTE]
+> Service-defined variables are always preceded by a dollar sign ($). For user-defined variables, the dollar sign is optional.
+
+The following tables show the read-write and read-only variables defined by the Batch service.
+
+### Read-write service-defined variables
+
+You can get and set the values of these service-defined variables to manage the number of compute nodes in a pool.
+
+| Variable | Description |
+| --- | --- |
+| $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. Specified as a target because a pool might not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by an autoscale evaluation before the pool has reached the initial target, the pool might not reach the target. <br><br> A pool in an account created in Batch service mode might not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created in user subscription mode might not achieve its target if the target exceeds the shared core quota for the subscription.|
+| $TargetLowPriorityNodes |The target number of Spot compute nodes for the pool. Specified as a target because a pool might not always achieve the desired number of nodes. For example, if the target number of Spot nodes is modified by an autoscale evaluation before the pool has reached the initial target, the pool might not reach the target. A pool might also not achieve its target if the target exceeds a Batch account node or core quota. <br><br> For more information on Spot compute nodes, see [Use Spot VMs with Batch](batch-spot-vms.md). |
+| $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<br>- **requeue**: The default value. Ends tasks immediately and puts them back on the job queue so that they're rescheduled. This action ensures the target number of nodes is reached as quickly as possible. However, it might be less efficient, because any running tasks are interrupted and then must be restarted. <br>- **terminate**: Ends tasks immediately and removes them from the job queue.<br>- **taskcompletion**: Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks being interrupted and requeued, wasting any work the task has done.<br>- **retaineddata**: Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool. |
+
+> [!NOTE]
+> The `$TargetDedicatedNodes` variable can also be specified using the alias `$TargetDedicated`. Similarly, the `$TargetLowPriorityNodes` variable can be specified using the alias `$TargetLowPriority`. If both the fully named variable and its alias are set by the formula, the value assigned to the fully named variable takes precedence.
+
+### Read-only service-defined variables
+
+You can get the value of these service-defined variables to make adjustments that are based on metrics from the Batch service.
+
+> [!IMPORTANT]
+> Job release tasks aren't currently included in variables that provide task counts, such as `$ActiveTasks` and `$PendingTasks`. Depending on your autoscale formula, this can result in nodes being removed with no nodes available to run job release tasks.
+
+> [!TIP]
+> These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
+
+| Variable | Description |
+| --- | --- |
+| $CPUPercent |The average percentage of CPU usage. |
+| $ActiveTasks |The number of tasks that are ready to execute but aren't yet executing. This includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies haven't been satisfied are excluded from the `$ActiveTasks` count. For a multi-instance task, `$ActiveTasks` includes the number of instances set on the task.|
+| $RunningTasks |The number of tasks in a running state. |
+| $PendingTasks |The sum of `$ActiveTasks` and `$RunningTasks`. |
+| $SucceededTasks |The number of tasks that finished successfully. |
+| $FailedTasks |The number of tasks that failed. |
+| $TaskSlotsPerNode |The number of task slots that can be used to run concurrent tasks on a single compute node in the pool. |
+| $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
+| $CurrentLowPriorityNodes |The current number of Spot compute nodes, including any nodes that have been preempted. |
+| $UsableNodeCount | The number of usable compute nodes. |
+| $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
+
+> [!WARNING]
+> Select service-defined variables will be retired after **31 March 2024** as noted in the table above. After the retirement
+> date, these service-defined variables will no longer be populated with sample data. Please discontinue use of these variables
+> before this date.
+
+> [!NOTE]
+> Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.
 
 ## Types
 
@@ -160,7 +229,7 @@ You can use both resource and task metrics when you define a formula. You adjust
 
 | Metric   | Description  |
 |----------|--------------|
-| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $UsableNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent <br>- $WallClockSeconds <br>- $MemoryBytes <br>- $DiskBytes <br>- $DiskReadBytes <br>- $DiskWriteBytes <br>- $DiskReadOps <br>- $DiskWriteOps <br>- $NetworkInBytes <br>- $NetworkOutBytes |
+| Resource | Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.<br><br>These service-defined variables are useful for making adjustments based on node count:<br>- $TargetDedicatedNodes <br>- $TargetLowPriorityNodes <br>- $CurrentDedicatedNodes <br>- $CurrentLowPriorityNodes <br>- $PreemptedNodeCount <br>- $UsableNodeCount <br><br>These service-defined variables are useful for making adjustments based on node resource usage: <br>- $CPUPercent |
 | Task     | Task metrics are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics: <br>- $ActiveTasks <br>- $RunningTasks <br>- $PendingTasks <br>- $SucceededTasks <br>- $FailedTasks |
 
 ## Obtain sample data
