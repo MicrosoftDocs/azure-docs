@@ -634,9 +634,11 @@ Add a `weight` query parameter to specify the relative weight of each vector inc
 
 The default is 1.0 and the value must be a positive number larger than zero.
 
-Weights are used when calculating the [reciprocal rank fusion](hybrid-search-ranking.md) scores of each document. The calculation is multiplier of the `weight` value against the rank score of the document within its respective result set.
+Weights are used when calculating the [reciprocal rank fusion](hybrid-search-ranking.md#weighted-scores) scores of each document. The calculation is multiplier of the `weight` value against the rank score of the document within its respective result set.
 
-The following example is a hybrid query with two vector query strings and one text string. Weights are assigned to the vector queries. The first query is 0.5 or half the weight, reducing its importance in the request. The second vectory query is twice as important. Text queries have no weight parameters, but you can increase or decrease their importance by setting [maxTextRecallSize](hybrid-search-how-to-query.md#ranking).
+The following example is a hybrid query with two vector query strings and one text string. Weights are assigned to the vector queries. The first query is 0.5 or half the weight, reducing its importance in the request. The second vectory query is twice as important. 
+
+Text queries have no weight parameters, but you can increase or decrease their importance by setting [maxTextRecallSize](hybrid-search-how-to-query.md#ranking).
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
