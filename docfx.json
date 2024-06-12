@@ -692,6 +692,8 @@
         "articles/ai-services/personalizer/**/*.*": "None",
         "articles/ai-services/qnamaker/**/*.*": "None",
         "articles/ai-services/LUIS/**/*.*": "None",
+        "articles/azure-monitor/**/*.*": "None",
+        "articles/advisor/**/*.*": "None",
       	"articles/azure-relay/**/*": "Standard",
       	"articles/cost-management-billing/**/*": "Standard",
       	"articles/data-catalog/**/*": "Standard",

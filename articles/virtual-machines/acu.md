@@ -14,6 +14,11 @@ ms.reviewer: davberg
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
+> [!CAUTION]
+> This page is no longer being maintained and is planned for archival on 12/16/2024.
+> 
+> Azure is no longer publishing ACUs since the metric has limited ability to inform users of the expected performance of a VM across the various VM attributes.  For the most accurate results on a specific virtual machine, Azure recommends users run their workload(s) on that VM to verify performance.
+
 The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark
 
 *ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.

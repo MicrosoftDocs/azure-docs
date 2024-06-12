@@ -28,6 +28,31 @@ This command provides you with a percentage that indicates how close the operati
   "status": "InProgress"
 ```
 
+There is also a cli command equivalent for the above that shows the status of the most recent operation in the cluster. 
+```azurecli-interactive
+az aks operation show-latest --resource-group myResourceGroup --name myCluster
+```
+The following is an example output -
+```azurecli-interactive
+{
+  "endTime": null,
+  "error": null,
+  "id": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourcegroups/testkaar/providers/Microsoft.ContainerService/managedClusters/contoso/operations/94e04d66-5b57-4c2b-bf3e-e026f1067dd1",
+  "name": "94e04d66-5b57-4c2b-bf3e-e026f1067dd1",
+  "operations": null,
+  "percentComplete": 1.0,
+  "resourceGroup": "testkaar",
+  "resourceId": null,
+  "startTime": "2024-06-12T18:16:21+00:00",
+  "status": "InProgress"
+}
+```
+You can also run this command using the operation-id available from the above output.  The `Id` parameter denotes the operation-id to use example:
+
+```azurecli-interactive
+az aks operation show --resource-group myResourceGroup --name myCluster --operation-id "94e04d66-5b57-4c2b-bf3e-e026f1067dd1"
+```
+
 While it's important to allow operations to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
 
 AKS support for aborting long running operations is now generally available. This feature allows you to take back control and run another operation seamlessly. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
