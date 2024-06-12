@@ -156,7 +156,7 @@
     href: security-networking.md
   - name: Extensions security
     href: security-extensions.md
-  - name: Machine configuration and remote access
+  - name: Configuration and remote access
     href: security-machine-configuration.md
   - name: Identity and authorization
     href: security-identity-authorization.md

@@ -1,11 +1,11 @@
 ---
-title: Machine configuration and remote access
-description: Machine configuration for Azure Arc-enabled servers.
+title: Configuration and remote access
+description: Configuration and remote access for Azure Arc-enabled servers.
 ms.topic: conceptual
 ms.date: 06/06/2024
 ---
 
-# Machine configuration and remote access
+# Configuration and remote access
 
 This article describes the basics of Azure Machine Configuration, a compliance reporting and configuration tool that can check and optionally remediate security and other settings on machines at scale. This article also describes the Azure Arc connectivity platform, used for communication between the Azure Connected Machine agent and Azure.
 
