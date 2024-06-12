@@ -127,9 +127,9 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
 
    - For a Microsoft Entra group account:
 
-  ```azurepowershell
-  $AAD_ENTITY_ID = (az ad signed-in-user show --query id -o tsv)
-  ```
+     ```azurepowershell
+     $AAD_ENTITY_ID = (az ad signed-in-user show --query id -o tsv)
+     ```
 
    - For a Microsoft Entra single user account:
 
