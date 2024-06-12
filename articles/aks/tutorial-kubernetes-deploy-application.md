@@ -86,13 +86,13 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
 1. Get your login server address using the [`Get-AzContainerRegistry`][get-azcontainerregistry] cmdlet and query for your login server. Make sure you replace `<acrName>` with the name of your ACR instance.
 
     ```azurepowershell-interactive
-    (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+    (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name $ACRNAME).LoginServer
     ```
 
 2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`.
 
     ```azurepowershell-interactive
-    vi aks-store-quickstart.yaml
+    notepad aks-store-quickstart.yaml
     ```
 
 3. Update the `image` property for the containers by replacing *ghcr.io/azure-samples* with your ACR login server name.
@@ -111,7 +111,7 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     ...
     ```
 
-4. Save and close the file. In `vi`, use `:wq`.
+4. Save and close the file.
 
 ### [Azure Developer CLI](#tab/azure-azd)
 
@@ -160,7 +160,8 @@ In these tutorials, your Azure Container Registry (ACR) instance stores the cont
     The following example output shows the resources successfully created in the AKS cluster:
 
     ```output
-    deployment.apps/rabbitmq created
+    statefulset.apps/rabbitmq created
+    configmap/rabbitmq-enabled-plugins created
     service/rabbitmq created
     deployment.apps/order-service created
     service/order-service created
