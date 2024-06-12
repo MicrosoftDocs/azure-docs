@@ -80,5 +80,6 @@ ResourceIdentifier communicationServiceResourceId = CommunicationServiceResource
 CommunicationServiceResource communicationServiceResource = client.GetCommunicationServiceResource(communicationServiceResourceId);
 
 CommunicationServiceResourcePatch patch = new CommunicationServiceResourcePatch();
+patch.LinkedDomains.Clear();
 CommunicationServiceResource result = await communicationServiceResource.UpdateAsync(patch);
 ```
