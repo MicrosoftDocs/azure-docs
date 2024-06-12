@@ -1,26 +1,25 @@
 ---
-author: davidsmatlak
-ms.service: resource-graph
+ms.service: azure-storage
 ms.topic: include
 ms.date: 07/07/2022
-ms.author: davidsmatlak
-ms.custom: generated
+author: akashdubey-ms
+ms.author: akashdubey
 ---
 
 ### Find storage accounts with a specific case-insensitive tag on the resource group
 
-Similar to the 'Find storage accounts with a specific case-sensitive tag on the resource group' query, but when it's necessary to look for a case insensitive tag name and tag value, use `mv-expand` with the **bagexpansion** parameter. This query uses more quota than the original query, so use `mv-expand` only if necessary.
+Similar to the 'Find storage accounts with a specific case-sensitive tag on the resource group' query, but when it's necessary to look for a case insensitive tag name and tag value, use `mv-expand` with the `bagexpansion` parameter. This query uses more quota than the original query, so use `mv-expand` only if necessary.
 
 ```kusto
 Resources
 | where type =~ 'microsoft.storage/storageaccounts'
 | join kind=inner (
-	ResourceContainers
-	| where type =~ 'microsoft.resources/subscriptions/resourcegroups'
-	| mv-expand bagexpansion=array tags
-	| where isnotempty(tags)
-	| where tags[0] =~ 'key1' and tags[1] =~ 'value1'
-	| project subscriptionId, resourceGroup)
+  ResourceContainers
+  | where type =~ 'microsoft.resources/subscriptions/resourcegroups'
+  | mv-expand bagexpansion=array tags
+  | where isnotempty(tags)
+  | where tags[0] =~ 'key1' and tags[1] =~ 'value1'
+  | project subscriptionId, resourceGroup)
 on subscriptionId, resourceGroup
 | project-away subscriptionId1, resourceGroup1
 ```
@@ -49,16 +48,16 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 ### Find storage accounts with a specific case-sensitive tag on the resource group
 
-The following query uses an **inner** `join` to connect storage accounts with resource groups that have a specified case-sensitive tag name and tag value.
+The following query uses an `inner` `join` to connect storage accounts with resource groups that have a specified case-sensitive tag name and tag value.
 
 ```kusto
 Resources
 | where type =~ 'microsoft.storage/storageaccounts'
 | join kind=inner (
-	ResourceContainers
-	| where type =~ 'microsoft.resources/subscriptions/resourcegroups'
-	| where tags['Key1'] =~ 'Value1'
-	| project subscriptionId, resourceGroup)
+  ResourceContainers
+  | where type =~ 'microsoft.resources/subscriptions/resourcegroups'
+  | where tags['Key1'] =~ 'Value1'
+  | project subscriptionId, resourceGroup)
 on subscriptionId, resourceGroup
 | project-away subscriptionId1, resourceGroup1
 ```
@@ -87,7 +86,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 ### List all storage accounts with specific tag value
 
-Combine the filter functionality of the previous example and filter Azure resource type by **type** property. This query also limits our search for specific types of Azure resources with a specific tag name and value.
+Combine the filter functionality of the previous example and filter Azure resource type by `type` property. This query also limits our search for specific types of Azure resources with a specific tag name and value.
 
 ```kusto
 Resources
@@ -119,7 +118,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 ### Show resources that contain storage
 
-Instead of explicitly defining the type to match, this example query will find any Azure resource that `contains` the word **storage**.
+Instead of explicitly defining the type to match, this example query finds any Azure resource that `contains` the word **storage**.
 
 ```kusto
 Resources
