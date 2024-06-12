@@ -148,8 +148,6 @@
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
                   href: how-to-credential-manager-key-vault.md
-                - name: Service Principal Rotation
-                  href: howto-service-principal-rotation.md
         - name: Network Fabric
           expanded: false
           items:
@@ -243,6 +241,12 @@
           href: howto-use-mde-runtime-protection.md
         - name: Configure Network Access Control Lists for SSH Access on Management VPN
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
+        - name: Service Principal Best Practices
+          href: howto-service-principal.md
+          expanded: false
+          items:
+            - name: Service Principal Rotation
+              href: howto-service-principal-rotation.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
