@@ -70,17 +70,17 @@ After you find the record to restore, use the `PUT` operation to recreate the re
 [!INCLUDE [Bundle details](../includes/rest-api-bundle-common.md)]
 
 ## History
-The history interaction retrieves the history of either a particular resource, all resources of a given type, or all resources supported by the system. History interaction are performed by HTTP GET command.
+The history interaction retrieves the history of either a particular resource, all resources of a given type, or all resources supported by the system. History interactions are performed by the HTTP GET command.
 
 For example: 
   `GET https://{{FHIR_URL}}/{resource type}/{resource id}/_history
    GET https://{{FHIR_URL}}/{resource type})/_history`
 
-The response is a Bundle with type set to history containing the specified version history, sorted with oldest versions last, and including deleted resources. 
+The response is a bundle with type set to the specified version history, sorted with oldest versions last, and including deleted resources. 
 
-To search with history, following interactions can be used
-* _count : defines number of resources returned on single page.
-* _since : includes resource versions that were created at or after the given instant in time.
+To search with history, use these interactions:```
+* _count : defines the number of resources returned on single page.
+* _since : includes resource versions created at or after the given instant in time.
 * _before : includes resource versions that were created before the given instant in time.
   
 ## Patch and conditional patch
