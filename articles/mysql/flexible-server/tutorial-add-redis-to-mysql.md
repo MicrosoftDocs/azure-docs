@@ -53,7 +53,7 @@ INSERT INTO tasks (id,title, completed) VALUES
 
 ## Create a Redis cache
 
-[!INCLUDE [redis-cache-create](../../azure-cache-for-redis/includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Use Redis with Python
 

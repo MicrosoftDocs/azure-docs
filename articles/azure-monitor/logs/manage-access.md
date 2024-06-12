@@ -161,6 +161,7 @@ Each workspace can have multiple accounts associated with it. Each account can h
 | Access all log types by using queries. | `Microsoft.OperationalInsights/workspaces/query/*/read` |
 | Access a specific log table - legacy method | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` |
 | Read the workspace keys to allow sending logs to this workspace. | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` |
+| Create or update a summary rule | `Microsoft.Operationalinsights/workspaces/summarylogs/write`|
 | Add and remove monitoring solutions. | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write`<br><br>These permissions need to be granted at resource group or subscription level. |
 | View data in the **Backup** and **Site Recovery** solution tiles. | Administrator/Co-administrator<br><br>Accesses resources deployed by using the classic deployment model. |
 | Run a search job. | `Microsoft.OperationalInsights/workspaces/tables/write` <br> `Microsoft.OperationalInsights/workspaces/searchJobs/write`|

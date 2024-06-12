@@ -103,6 +103,12 @@ NC2 on Azure requires manual escalation to request, approve, and deliver ESU key
 
 For any questions on Azure Hybrid Benefits, contact your Microsoft Account Executive.
 
+## Responsibility matrix
+
+On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform.
+For NC2 on Azure, Microsoft maintains the hardware for the customer.
+For more information, see [NC2 on Azure responsibility matrix](nc2-on-azure-responsibility-matrix.md).
+
 ## Support
 
 Nutanix (for software-related issues) and Microsoft (for infrastructure-related issues) will provide end-user support.
