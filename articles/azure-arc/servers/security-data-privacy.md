@@ -7,7 +7,7 @@ ms.date: 06/06/2024
 
 # Data and privacy for Arc-enabled servers
 
-This article explains the data collection process by the Azure Connected Machine agent for Azure Arc-enabled servers, detailing how system metadata is gathered and sent to Azure. It outlines the replication and disaster recovery mechanisms along with and automatic failover processes.
+This article explains the data collection process by the Azure Connected Machine agent for Azure Arc-enabled servers, detailing how system metadata is gathered and sent to Azure. This article also describes the logging mechanisms available for Azure Arc-enabled servers, including the Azure Activity log for tracking server actions.
 
 ## Information collected by Azure Arc
 

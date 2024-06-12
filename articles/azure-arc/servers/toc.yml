@@ -150,13 +150,13 @@
   items:
   - name: Security overview
     href: security-overview.md
-  - name: Onboarding
+  - name: Onboarding and updates
     href: security-onboarding.md
   - name: Networking security
     href: security-networking.md
   - name: Extensions security
     href: security-extensions.md
-  - name: Machine configuration
+  - name: Machine configuration and remote access
     href: security-machine-configuration.md
   - name: Identify and authorization
     href: security-identity-authorization.md
