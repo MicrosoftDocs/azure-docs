@@ -15,7 +15,7 @@ The Open Targets Genetics highlights variant-centric statistical evidence to all
 - To read further about Open Targets Platform visit - [Open Targets Platform](https://platform.opentargets.org)
 - To read further about Open Targets Genetics visit - [Open Targets Genetics](https://genetics.opentargets.org)
 
-[!INCLUDE [Open Dataset usage notice](../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 
