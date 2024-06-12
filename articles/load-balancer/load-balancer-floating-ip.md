@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 06/11/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -16,14 +16,12 @@ Load balancer provides several capabilities for both UDP and TCP applications.
 
 ## Floating IP
 
-Some application scenarios prefer or require the use of the same port by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. 
+Some application scenarios prefer or require the use of the same port by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption. If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition. Enabling Floating IP allows for more flexibility. 
 
 | Floating IP status | Outcome |
 | --- | --- | 
 | Floating IP enabled | Azure changes the IP address mapping to the Frontend IP address of the Load Balancer | 
 | Floating IP disabled |  Azure exposes the VM instances' IP address |
-
-If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition. Enabling Floating IP allows for more flexibility. 
 
 In the diagrams, you see how IP address mapping works before and after enabling Floating IP:
 :::image type="content" source="media/load-balancer-floating-ip/load-balancer-floating-ip-before.png" alt-text="This diagram shows network traffic through a load balancer before enabling Floating IP.":::
