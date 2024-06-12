@@ -120,6 +120,8 @@ If you navigated away from the **Deployment is in progress** page, the following
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/deployments.png" alt-text="Screenshot of Azure portal showing JBoss EAP on Azure Red Hat OpenShift deployments with the oldest deployment highlighted." lightbox="media/howto-deploy-java-enterprise-application-platform-app/deployments.png":::
 
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment, which includes some useful information like **cmdToGetKubeadminCredentials** and **consoleUrl**.
+   
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/deployment-outputs.png" alt-text="Screenshot of Azure portal showing JBoss EAP on Azure Red Hat OpenShift deployment outputs." lightbox="media/howto-deploy-java-enterprise-application-platform-app/deployment-outputs.png":::
 
 1. Open the Azure Cloud Shell, paste the value from the **cmdToGetKubeadminCredentials** field, and execute it. You see the admin account and credential for signing in to the OpenShift cluster console portal. The following example shows an admin account:
 
@@ -160,6 +162,8 @@ If you navigated away from the **Deployment is in progress** page, the following
 6. Change the **Content type** to **application/json**.
 7. Select **Just the push event** in the **Which events would you like to trigger this webhook?** section.
 8. Select **Add webhook**.
+   
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/github-webhook-settings.png" alt-text="Screenshot of how to configure GitHub Webhook settings." lightbox="media/howto-deploy-java-enterprise-application-platform-app/github-webhook-settings.png":::
 
 From now on, every time you push a change to the repository, the webhook triggers a new build in OpenShift.
 
