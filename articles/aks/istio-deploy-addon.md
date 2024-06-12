@@ -102,9 +102,6 @@ istiod-asm-1-18-74f7f7c46c-xfdtl   2/2     Running   0          2m
 istiod-asm-1-18-74f7f7c46c-4nt2v   2/2     Running   0          2m
 ```
 
-> [!NOTE]
-> For information on how to scale the `istiod` replica count, see the [appropriate section in our scaling and performance guide][istio-scaling-guide].
-
 ## Enable sidecar injection
 
 To automatically install sidecar to any new pods, you will need to annotate your namespaces with the revision label corresponding to the control plane revision currently installed.
@@ -244,6 +241,8 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 ## Next steps
 
 * [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress]
+* [Scale istiod and ingress gateway HPA][istio-scaling-guide]
+
 
 <!--- External Links --->
 [install-aks-cluster-istio-bicep]: https://github.com/Azure-Samples/aks-istio-addon-bicep

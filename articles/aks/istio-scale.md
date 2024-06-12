@@ -9,7 +9,7 @@ ms.author: shalierxia
 ---
 
 # Istio service mesh add-on performance and scaling
-The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This article presents the performance of both the control and data plane for revision asm-1-19, including resource consumption, sidecar capacity, and latency overhead. Additionally, it provides suggestions for addressing potential strain on resources during periods of heavy load, as well as how to customize scaling for the control plane and gateways. 
+The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This article presents the performance of both the control and data plane for revision asm-1-19, including resource consumption, sidecar capacity, and latency overhead. Additionally, it provides suggestions for addressing potential strain on resources during periods of heavy load. This article also covers how to customize scaling for the control plane and gateways. 
 
 ## Control plane performance
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. The scenarios tested were:
@@ -78,7 +78,7 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 - Kubernetes version: 1.28.5
 - Two proxy workers
 - 1-KB payload
-- 1000 QPS at varying client connections
+- 1000 Queries per second (QPS) at varying client connections
 - `http/1.1` protocol and mutual TLS enabled
 - 26 data points collected
 
@@ -96,7 +96,10 @@ The following evaluates the impact of adding sidecar proxies to the data path, s
 [ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png#lightbox)
 
 ## Scaling 
-The Istio add-on uses [horizontal pod autoscaling][hpa] to scale the `istiod` and ingress gateway pods. The default configuration for both are autoscale `minReplicas` and `maxReplicas` of `2` and `5` replicas, respectively, with a target average CPU utilization of 80 percent. The add-on supports configuration of the following hpa resources for `istiod` and the ingress gateways through patches and direct edits:
+The Istio add-on uses [horizontal pod autoscaling][hpa] to scale the `istiod` and ingress gateway pods. The default configurations for `istiod` and the gateways are autoscale `minReplicas` and `maxReplicas` of `2` and `5` replicas, respectively, with a target average CPU utilization of 80 percent. The add-on supports configuration of the following hpa resources for `istiod` and the ingress gateways through patches and direct edits:
+
+> [!NOTE]
+> To prevent conflicts with the `PodDisruptionBudget`, the add-on does not allow setting the `minReplicas` below `2`, and will revert such changes back to the original default `minReplicas` count of `2`. 
 
 ```console
 NAMESPACE           NAME                                         REFERENCE
@@ -112,8 +115,6 @@ Example:
 ```bash
 kubectl patch hpa aks-istio-ingressgateway-external-asm-1-19 -n aks-istio-ingress --type merge --patch '{"spec": {"minReplicas": 3, "maxReplicas": 6}}'
 ```
-> [!NOTE]
-> To prevent conflicts with the `PodDisruptionBudget`, the add-on does not allow setting the `minReplicas` below `2`, and will revert such changes back to the original default `minReplicas` count of `2`. 
 
 ## Service entry
 Istio's ServiceEntry custom resource definition enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
