@@ -96,15 +96,15 @@ On the existing Arc-enabled cluster, create the ClusterRoleBinding with either M
 
 - For a Microsoft Entra single user account:
 
-  ```azurecli
-  AAD_ENTITY_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
-  ```
+     ```azurecli
+     AAD_ENTITY_ID=$(az ad signed-in-user show --query userPrincipalName -o tsv)
+     ```
 
-- For a Microsoft Entra application:
+   - For a Microsoft Entra application:
 
-  ```azurecli
-  AAD_ENTITY_ID=$(az ad sp show --id <id> --query id -o tsv)
-  ```
+     ```azurecli
+     AAD_ENTITY_ID=$(az ad sp show --id <id> --query id -o tsv)
+     ```
 
 1. Authorize the entity with appropriate permissions.
 
