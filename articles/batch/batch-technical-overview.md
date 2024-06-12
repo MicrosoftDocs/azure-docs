@@ -5,6 +5,13 @@ ms.topic: overview
 ms.date: 12/13/2021
 ---
 
+---
+title: Azure Batch runs large parallel jobs in the cloud
+description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads.
+ms.topic: overview
+ms.date: 12/13/2021
+---
+
 # What is Azure Batch?
 
 Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. There's no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs.
