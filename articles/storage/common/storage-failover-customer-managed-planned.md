@@ -20,18 +20,28 @@ Current: 100 (1779/0)
 
 # How customer-managed planned failover (preview) works
 
-Customer-managed planned failover (preview) can be used to test your disaster recovery plan, or to mitigate the effects of a partial networking or compute outage in your primary region. These outages might occur, for example, when workloads in your primary region are disrupted but your storage service endpoints are available.
+There are many scenarios for which planned failover is ideal. These scenarios include: 
+
+- Disaster recovery (DR) planning and testing.
+- Recovery during an outage that doesn't affect your primary region's storage service endpoints, but prevents another Microsoft or 3rd party service from providing access to your workloads.
+- To proactively prepare for a large-scale disasters, such as a hurricane, that may impact a region.
 
 During the planned failover process, your storage account's  primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
 This article describes what happens during a customer-managed planned failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
 
 > [!IMPORTANT]
-> Customer-managed planned failover is currently in PREVIEW. This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
+>
+> |                   |                  |            |                |
+> |-------------------|------------------|------------|----------------|
+> | Australia East    | Central US       | East Asia  | East US 2      |
+> | France Central    | India Central    | India West | Southeast Asia |
+> | Switzerland North | Switzerland West | UK South   | West Europe    |
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name.
+> 
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name. The provider name for this preview feature is **Microsoft.Storage**.
 
 [!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
 
