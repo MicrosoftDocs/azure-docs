@@ -249,7 +249,7 @@ You can submit proposed script corrections for artifacts hosted in the DevTest L
 
 If you need more help, try one of the following support channels:
 
-- Search the [Microsoft Community](https://azure.microsoft.com/en-us/support/community/) website resources for information about Azure DevTest Labs and access posts on Stack Overflow.
+- Search the [Microsoft Community](https://azure.microsoft.com/support/community/) website resources for information about Azure DevTest Labs and access posts on Stack Overflow.
 
 - Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
