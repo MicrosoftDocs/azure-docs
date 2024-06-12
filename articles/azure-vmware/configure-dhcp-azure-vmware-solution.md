@@ -54,7 +54,10 @@ If you want to use NSX to host your DHCP server, create a DHCP server and a rela
 
 1. In NSX Manager, select **Networking** > **DHCP**, then select **Add DHCP Profile**.
 
-1. Select **Add DHCP Profile**, enter a name, and select **Save**. NOTE: An IP address isn't required so if none is entered, NSX Manager sets one.
+1. Select **Add DHCP Profile**, enter a name, and select **Save**.
+
+   > [!NOTE]
+   > An IP address isn't required so if none is entered, NSX Manager sets one.
 
    :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP Profile in NSX Manager." border="true":::
 
