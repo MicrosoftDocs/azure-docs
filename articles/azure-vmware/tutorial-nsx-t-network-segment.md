@@ -4,7 +4,7 @@ description: Learn how to add an NSX network segment to use for virtual machines
 ms.topic: tutorial
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/20/2023
+ms.date: 6/12/2024
 ---
 
 # Tutorial: Add an NSX network segment in Azure VMware Solution 
