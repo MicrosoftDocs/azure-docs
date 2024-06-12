@@ -660,10 +660,9 @@ In this example;
 - **DemoWebApp222** is running and is being monitored (Instrumented: true). Based on the user configuration, Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 was matched for this site.
 - **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Application Insights Agent detected the SDK and doesn't monitor this site.
 
+- The presence of `AppAlreadyInstrumented : true` signifies that the Application Insights agent identified a [conflicting dll](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-monitor/app-insights/agent/status-monitor-v2-troubleshoot#conflicting-dlls-in-an-apps-bin-directory) loaded in the web application, assumed that the web app is manually instrumented, and the agent has backed-off and is not instrumenting this process.
 
-- `AppAlreadyInstrumented : true` indicates that the web app running on that specific w3wp.exe process is already instrumented using a manual SDK in code and the instrumentation shipped by the on-premises agent is not in effect. 
-
-- `Instrumented : true` indicates that the web app running on that specific w3wp.exe process was successfully instrumented by the on-premises agent. 
+- `Instrumented : true` indicates that the Application Insights agent successfully instrumented the web app running in the specified w3wp.exe process.
 
 ##### Example: PowerShell module information
 
