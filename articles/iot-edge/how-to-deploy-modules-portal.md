@@ -4,7 +4,7 @@ description: Use your IoT Hub in the Azure portal to push an IoT Edge module fro
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/11/2024
+ms.date: 06/12/2024
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -59,7 +59,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 #### IoT Edge Module
 
-Use this option to add Microsoft modules, partner modules, or custom modules. You provide the module name and container image URI. The container image URI is the location of the module image in a container registry. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?search=iot%20edge&amp;type=partial). For partner modules, contact the IoT Edge module publisher to obtain the container image URI.
+Use this option to add Microsoft modules, partner modules, or custom modules. You provide the module name and container image URI. The container image URI is the location of the module image in a container registry. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name). For partner modules, contact the IoT Edge module publisher to obtain the container image URI.
 
 For example to add the Microsoft simulated temperature sensor module:
 

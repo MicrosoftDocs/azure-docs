@@ -5,7 +5,7 @@ description: Learn how to customize the API proxy module for IoT Edge gateway hi
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/06/2023
+ms.date: 06/12/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -29,7 +29,7 @@ Without the API proxy, each service module would have to bind to a separate port
 
 ## Deploy the proxy module
 
-The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:latest`. For a list of available versions, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azureiotedge-api-proxy/tags).
+The API proxy module is available from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azureiotedge-api-proxy/tags) and the image URI is `mcr.microsoft.com/azureiotedge-api-proxy:latest`. You can deploy the module using the [Azure portal](how-to-deploy-modules-portal.md) or [Azure CLI](how-to-deploy-modules-cli.md).
 
 ## Understand the proxy module
 
