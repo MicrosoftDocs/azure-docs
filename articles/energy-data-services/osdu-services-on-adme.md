@@ -1,6 +1,8 @@
-# OSDU&reg; M18 Services Available on ADME 
+# OSDU&reg; Overview: Available and Exclusive Services
+
+## OSDU&reg; M18 Services Available on ADME 
 Below you will find an overview of the OSDU&reg; services that are currently available on ADME. Please note that this page will be continuously updated as service versions and availablity evolve. 
-## Core and Helper Services
+### Core and Helper Services
 - **Indexer**: Provides an endpoint to create aliases for existing indices and features flag index extended properties.
 - **Indexer Queue**: Manages the queuing of indexing tasks and logs important identifiers.
 - **Schema**: Manages OSDU data definition deliverables, including new schemas and schema versions.
@@ -20,19 +22,19 @@ Below you will find an overview of the OSDU&reg; services that are currently ava
 - **CSV Parser**: Assists in parsing CSV files into a format for ingestion and processing. 
 - **Entitlements**: Enables authorization by allowing the creation and management of groups that define user permissions.
 
-## Ingestion Services
+### Ingestion Services
 - **Ingestion Workflow**: Manages the workflow for data ingestion, including user ID configuration.
 - **osdu-airflow-lib**: A library that enables user context ingestion within the Airflow workflows.
 - **osdu-ingestion-lib**: A library that supports user context ingestion and includes various fixes related to Python versioning and authority replacement.
 - **Segy to Zgy Conversion**: Converts SEGY file formats to ZGY.
 - **Segy to oVDS Conversion**: Converts SEGY files to oVDS format.
 
-## DDMS Services
+### DDMS Services
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
 - **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 
-# OSDU&reg; Services Exclusive to M18 Community Version
+## OSDU&reg; Services Exclusive to M18 Community Version
 NOTE: The following OSDU&reg; services are not currently available on ADME.
 - **WITSML Parser**
 - **Reservoir DDMS**
