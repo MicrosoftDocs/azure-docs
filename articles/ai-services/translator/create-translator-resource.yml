@@ -7,7 +7,7 @@ metadata:
   author: laujan
   ms.author: lajanuar
   manager: nitinme
-  ms.date: 05/17/2024
+  ms.date: 06/06/2024
   ms.service: azure-ai-translator
   ms.topic: how-to
   ms.custom:
@@ -53,7 +53,7 @@ procedureSection:
           * Each subscription has a free tier.
           * The free tier has the same features and functionality as the paid plans and doesn't expire.
           * Only one free tier resource is available per subscription.
-          * Document Translation is supported in paid tier only. The Language Studio only supports the S1 or D3 instance tiers. If you just want to try Document Translation, select the Standard S1 instance tier.
+          * Document Translation is supported in paid tier only. The Language Studio supports the S1 and D3 instance tiers. If you just want to try Document Translation, select the Standard S1 instance tier.
       - |
         If you create a multi-service resource, the links at the bottom of the **Basics** tab provide technical documentation regarding the appropriate operation of the service.
       - |

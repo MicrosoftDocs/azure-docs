@@ -4,6 +4,7 @@ author: markingmyname
 ms.author: maghan
 ms.date: 03/19/2024
 ms.service: postgresql
+ms.custom: devx-track-azurecli
 ms.topic: include
 ---
 
@@ -103,4 +104,3 @@ The command gives you the following output:
 :::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="../../media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
 
 ---
-
