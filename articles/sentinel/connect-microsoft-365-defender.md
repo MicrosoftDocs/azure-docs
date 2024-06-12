@@ -3,7 +3,7 @@ title: Connect Microsoft Defender XDR data to Microsoft Sentinel| Microsoft Docs
 description: Learn how to ingest incidents, alerts, and raw event data from Microsoft Defender XDR into Microsoft Sentinel.
 author: yelevin
 ms.author: yelevin
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/11/2023
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
