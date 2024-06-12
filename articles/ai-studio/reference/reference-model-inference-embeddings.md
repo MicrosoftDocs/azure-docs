@@ -184,7 +184,7 @@ Response from an embeddings request.
 
 ### Detail
 
-Details for the [UnprocessableContentError](#UnprocessableContentError) error.
+Details for the [UnprocessableContentError](#unprocessablecontenterror) error.
 
 | Name | Type | Description |
 | --- | --- | --- |
