@@ -8,7 +8,8 @@ ms.date: 06/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
 # customer intent: As a developer, I want to learn how to migrate from AWS RDS to Azure Database for PostgreSQL using the migration service, so that I can simplify the transition and ensure data integrity.
 ---
 
@@ -46,8 +47,8 @@ No further prerequisites are necessary if you're migrating with the Azure portal
 
 ## Perform the migration
 
-You can perform the migration by using the Azure portal or the Azure CLI. 
- 
+You can perform the migration by using the Azure portal or the Azure CLI.
+
 #### [Portal](#tab/portal)
 
 ### Configure the migration task
@@ -60,11 +61,11 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. In the Flexible Server's Overview tab, on the left menu, scroll down to Migration and select it.
 
-    :::image type="content" source="media/tutorial-migration-service-aws-online/migration-portal-select.png" alt-text="Screenshot of Screenshot of the Migration selection." lightbox="media/tutorial-migration-service-aws-online/migration-portal-select.png":::
+    :::image type="content" source="media/tutorial-migration-service-aws-online/migration-portal-select.png" alt-text="Screenshot of the Migration selection." lightbox="media/tutorial-migration-service-aws-online/migration-portal-select.png":::
 
 1. Select the **Create** button to migrate from AWS RDS to Azure Database for PostgreSQL - Flexible Server. If this is your first time using the migration service, an empty grid appears with a prompt to begin your first migration.
 
-    :::image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of Screenshot of creating a migration." lightbox="media/tutorial-migration-service-aws-online/portal-online-create-migration.png"::: image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of Screenshot of creating a migration."
+    :::image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of creating a migration." lightbox="media/tutorial-migration-service-aws-online/portal-online-create-migration.png"::: image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of creating a migration."
 
   If you've already created migrations to your Azure Database for PostgreSQL - Flexible Server target, the grid contains information about attempted migrations.
 
@@ -74,7 +75,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 The first tab is the setup tab, where the user needs to provide migration details like migration name source type to initiate the migrations
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-portal-setup.png" alt-text="Screenshot of Screenshot of Setup migration." lightbox="media/tutorial-migration-service-aws-online/aws-portal-setup.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-portal-setup.png" alt-text="Screenshot of Setup migration." lightbox="media/tutorial-migration-service-aws-online/aws-portal-setup.png":::
 
 - **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
@@ -104,7 +105,7 @@ For more information about the Runtime Server, visit the [Migration Runtime Serv
 
 The **Connect to Source** tab prompts you to provide details related to the Source selected in the **Setup Tab**, which is the Source of the databases.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-connect-source.png" alt-text="Screenshot of Screenshot of Connectsourcemigration." lightbox="media/tutorial-migration-service-aws-online/aws-connect-source.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-connect-source.png" alt-text="Screenshot of Connectsourcemigration." lightbox="media/tutorial-migration-service-aws-online/aws-connect-source.png":::
 
 - **Server Name** - Provide the Hostname or the IP address of the source PostgreSQL instance
 - **Port** - Port number of the Source server
@@ -119,7 +120,7 @@ After the successful test connection, select the **Next: Select Migration target
 
 The **select migration target** tab displays metadata for the Flexible Server target, such as the subscription name, resource group, server name, location, and PostgreSQL version.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-connect-target.png" alt-text="Screenshot of Screenshot of Connecttargetmigration.":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-connect-target.png" alt-text="Screenshot of Connecttargetmigration.":::
 
 - **Admin username** - Admin username of the target PostgreSQL server
 - **Password** - Password of the target PostgreSQL server
@@ -131,7 +132,7 @@ After the successful test connection, select the **Next: Select Database(s) for 
 
 Under this tab, a list of user databases is inside the source server selected in the setup tab. You can select and migrate up to eight databases in a single migration attempt. If there are more than eight user databases, the migration process is repeated between the source and target servers for the next set of databases.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-fetch-db.png" alt-text="Screenshot of Screenshot of FetchDBmigration.":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-fetch-db.png" alt-text="Screenshot of FetchDBmigration.":::
 
 After selecting the databases, select the **Next: Summary**
 
@@ -139,13 +140,13 @@ After selecting the databases, select the **Next: Summary**
 
 The **Summary** tab summarizes all the Source and target details for creating the validation or migration. Review the details and select the start button.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-summary.png" alt-text="Screenshot of Screenshot of Summary migration.":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-summary.png" alt-text="Screenshot of Summary migration.":::
 
 #### Monitor the migration
 
 After you select the start button, a notification appears in a few seconds saying that the validation or migration creation is successful. You're redirected automatically to the **Migration** page of Flexible Server, which has a new entry for the recently created validation or migration.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-monitor.png" alt-text="Screenshot of Screenshot of Monitor migration." lightbox="media/tutorial-migration-service-aws-online/aws-monitor.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-monitor.png" alt-text="Screenshot of Monitor migration." lightbox="media/tutorial-migration-service-aws-online/aws-monitor.png":::
 
 The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration, and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry at the top. You can use the refresh button to refresh the status of the validation or migration.
 Select the migration name in the grid to see the associated details.
@@ -161,7 +162,7 @@ In the Setup tab, we have selected the migration option as **Migrate and Validat
 
 You can see the results of validation and migration at the instance and database level.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-details-migration.png" alt-text="Screenshot of Screenshot of Details migration." lightbox="media/tutorial-migration-service-aws-online/aws-details-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/aws-details-migration.png" alt-text="Screenshot of Details migration." lightbox="media/tutorial-migration-service-aws-online/aws-details-migration.png":::
 
 Possible migration states include:
 
@@ -187,7 +188,7 @@ Before initiating cutover, it's important to ensure that:
 
 - Writes to the Source are stopped - `Latency` value is 0 or close to 0 The `Latency` information can be obtained from the migration details screen as shown below:
 
-    :::image type="content" source="media/tutorial-migration-service-aws-online/aws-cutover-migration.png" alt-text="Screenshot of Screenshot of Cutover migration." lightbox="media/tutorial-migration-service-aws-online/aws-cutover-migration.png":::
+    :::image type="content" source="media/tutorial-migration-service-aws-online/aws-cutover-migration.png" alt-text="Screenshot of Cutover migration." lightbox="media/tutorial-migration-service-aws-online/aws-cutover-migration.png":::
 
 - `latency` value decreases to 0 or close to 0
 
@@ -195,11 +196,11 @@ Before initiating cutover, it's important to ensure that:
 The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with nonzero `Latency,` the replication stops until that point in time. All the data on the Source until the cutover point is then applied on the target. Say a latency was 15 minutes at the cutover point, so all the changed data in the last 15 minutes are applied on the target.
 Time depends on the backlog of changes occurring in the last 15 minutes. Hence, it's recommended that the latency go to zero or near zero before triggering the cutover.
 
-    :::image type="content" source="media/tutorial-migration-service-aws-online/aws-confirm-cutover.png" alt-text="Screenshot of Screenshot of Confirmcutovermigration." lightbox="media/tutorial-migration-service-aws-online/aws-confirm-cutover.png":::
+    :::image type="content" source="media/tutorial-migration-service-aws-online/aws-confirm-cutover.png" alt-text="Screenshot of Confirmcutovermigration." lightbox="media/tutorial-migration-service-aws-online/aws-confirm-cutover.png":::
 
 - The migration moves to the `Succeeded` state when the `Migrating Data` substate or the cutover (in Online migration) finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
 
-    :::image type="content" source="media/tutorial-migration-service-aws-online/aws-success-migration.png" alt-text="Screenshot of Screenshot of Success migration." lightbox="media/tutorial-migration-service-aws-online/aws-success-migration.png":::
+    :::image type="content" source="media/tutorial-migration-service-aws-online/aws-success-migration.png" alt-text="Screenshot of Success migration." lightbox="media/tutorial-migration-service-aws-online/aws-success-migration.png":::
 
 #### [CLI](#tab/cli)
 
@@ -232,7 +233,7 @@ The time depends on the backlog of changes occurring in the last 15 minutes. Hen
 The `latency` information can be obtained using the migration show command.
 Here's a snapshot of the migration before initiating the cutover:
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/show-migration-cli.png" alt-text="Screenshot of Screenshot of a sample Azure CLI output.":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/show-migration-cli.png" alt-text="Screenshot of a sample Azure CLI output." lightbox="media/tutorial-migration-service-aws-online/show-migration-cli.png":::
 
 After the cutover is initiated, pending data captured during CDC is written to the target, and migration is now complete.
 

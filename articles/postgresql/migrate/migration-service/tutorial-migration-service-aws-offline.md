@@ -8,7 +8,8 @@ ms.date: 06/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
 # customer intent: As a developer, I want to learn how to migrate from AWS RDS to Azure Database for PostgreSQL using the migration service, so that I can simplify the transition and ensure data integrity.
 ---
 
@@ -46,13 +47,13 @@ No further prerequisites are necessary if you're migrating with the Azure portal
 
 ## Perform the migration
 
-You can perform the migration by using the Azure portal or the Azure CLI. 
+You can perform the migration by using the Azure portal or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
-The Azure portal provides a simple and intuitive wizard-based experience that guides you through migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure Database for PostgreSQL - Flexible Server and take advantage of its powerful features and scalability. 
+The Azure portal provides a simple and intuitive wizard-based experience that guides you through migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure Database for PostgreSQL - Flexible Server and take advantage of its powerful features and scalability.
 
-To migrate with the Azure portal, you'll first configure the migration task, connect to the source and target, and then perform the migration. 
+To migrate with the Azure portal, you'll first configure the migration task, connect to the source and target, and then perform the migration.
 
 ### Configure the migration task
 
@@ -64,7 +65,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. In the **Overview** tab of the flexible server, on the left menu, scroll down to **Migration** and select it.
 
-    :::image type="content" source="media\tutorial-migration-service-aws-offline\offline-portal-select-migration-pane.png" alt-text="Screenshot of the migration selection in the Azure portal.":::
+    :::image type="content" source="media/tutorial-migration-service-aws-offline/offline-portal-select-migration-pane.png" alt-text="Screenshot of the migration selection in the Azure portal." lightbox="media/tutorial-migration-service-aws-offline/offline-portal-select-migration-pane.png":::
 
 1. Select the **Create** button to migrate from AWS RDS to a flexible server.
 
@@ -75,7 +76,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. Select the **Create** button to go through a wizard-based series of tabs to perform a migration.
 
-    :::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-create-migration.png" alt-text="Screenshot of the create migration page.":::
+    :::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-create-migration.png" alt-text="Screenshot of the create migration page." lightbox="media/tutorial-migration-service-aws-offline/portal-offline-create-migration.png":::
 
 #### Setup
 
@@ -97,7 +98,7 @@ To learn more about the premigration validation, visit [premigration](concepts-p
 
 Select the **Next: Connect to source** button.
 
-:::image type="content" source="media\tutorial-migration-service-aws-offline\portal-offline-setup-migration-aws.png" alt-text="Screenshot of the Setup Migration page to get started.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-setup-migration-aws.png" alt-text="Screenshot of the Setup Migration page to get started.":::
 
 #### Runtime Server
 
@@ -125,7 +126,7 @@ The **Connect to Source** tab prompts you to give details related to the source 
 
 After the successful test connection, select the **Next: Select Migration target** button.
 
-:::image type="content" source="media\tutorial-migration-service-aws-offline\portal-offline-connect-source-migration-aws.png" alt-text="Screenshot of the connect to source page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-connect-source-migration-aws.png" alt-text="Screenshot of the connect to source page." lightbox="media/tutorial-migration-service-aws-offline/portal-offline-connect-source-migration-aws.png":::
 
 #### Select migration target
 
@@ -139,26 +140,26 @@ The **select migration target** tab displays metadata for the Flexible Server ta
 
 After the successful test connection, select the **Next: Select Database(s) for Migration**
 
-:::image type="content" source="media\tutorial-migration-service-aws-offline\portal-offline-connect-target-migration-aws.png" alt-text="Screenshot of the connect target migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-connect-target-migration-aws.png" alt-text="Screenshot of the connect target migration page.":::
 
 #### Select databases for migration
 
 Under the **Select database for migration** tab, you can choose a list of user databases to migrate from your source PostgreSQL server.  
 After selecting the databases, select the **Next:Summary**
 
-:::image type="content" source="media\tutorial-migration-service-aws-offline\portal-offline-select-database-migration-aws.png" alt-text="Screenshot of the fetchDB migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-select-database-migration-aws.png" alt-text="Screenshot of the fetchDB migration page.":::
 
 #### Summary
 
 The Summary tab summarizes all the source and target details for creating the validation or migration. Review the details and select the Start Validation and Migration button.
 
-:::image type="content" source="media\tutorial-migration-service-aws-offline\portal-offline-summary-migration-aws.png" alt-text="Screenshot of the summary migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-summary-migration-aws.png" alt-text="Screenshot of the summary migration page.":::
 
 ### Monitor the migration
 
 After you select the **Start Validation and Migration** button, a notification appears in a few seconds to say that the validation or migration creation is successful. You're redirected to the flexible server **Migration** page instance. The entry is in the **InProgress** state and **PerformingPreRequisiteSteps** substate. The workflow takes 2-3 minutes to set up the migration infrastructure and check network connections.
 
-:::image type="content" source="media\tutorial-migration-service-aws-offline\portal-offline-monitor-migration-aws.png" alt-text="Screenshot of the monitor migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-monitor-migration-aws.png" alt-text="Screenshot of the monitor migration page." lightbox="media/tutorial-migration-service-aws-offline/portal-offline-monitor-migration-aws.png":::
 
 The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration** and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry on the top. You can use the refresh button to refresh the status of the validation or migration run.
 
@@ -182,7 +183,7 @@ Validation details are available at the instance and database level.
 
 You can see the **validation** and the **migration** status under the migration details page.
 
-:::image type="content" source="media\tutorial-migration-service-aws-offline\portal-offline-details-migration-aws.png" alt-text="Screenshot of the details showing validation and migration.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-details-migration-aws.png" alt-text="Screenshot of the details showing validation and migration." lightbox="media/tutorial-migration-service-aws-offline/portal-offline-details-migration-aws.png":::
 
 Possible migration states include:
 
@@ -310,7 +311,7 @@ az postgres flexible-server migration update cancel -- help
 
 The command gives you the following output:
 
-:::image type="content" source="media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel.":::
+:::image type="content" source="media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
 
 ---
 
