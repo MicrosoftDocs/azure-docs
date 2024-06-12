@@ -22,7 +22,15 @@ Passwordless connections are enabled with the following steps:
 
 ## Prerequisites
 
+The following steps need to be completed for both local development and production workloads.
+
+### Create an AI Search resource
+
+Before continuing with this article, you need an Azure AI Search resource to work with. If you do't have a resource, [create your resource](search-create-service-portal.md) now.
+
 ### Install Azure Identity client library
+
+Before working locally without passwords, update your AI Search enabled code with the Azure Identity client library.
 
 #### [.NET](#tab/csharp)
 
@@ -197,13 +205,62 @@ search_index_client = SearchIndexClient(
 
 ## Local development
 
+Local development without passwords includes these steps:
+
+- Add RBAC roles on the resource for your personal identity
+- Sign in to Azure with a tool
+- Create environment variables for your resource
+
 ### Roles for local development
 
-The example for local dev would be all the roles for doing everything "Search Service Contributor, Search Index Data Contributor, Search Index Data Reader".
+As a local developer, your Azure identity needs full control of your service. This control is provided with RBAC roles. To manage your resource during development, these are the suggested roles:
+
+TBD - Heidi and Matt to provide
+
+Use the following steps to add these roles for your Azure identity to your resource. 
+
+Find your personal identity, use one of the following commands. Use the ID as the `<identity-id>` in the next step.
+
+    #### [Azure CLI](#tab/azure-cli)
+    
+    For local development, to get your own identity ID, use the following command. You need to sign in with `az login` before using this command.
+    
+    ```azurecli
+    az ad signed-in-user show \
+        --query id -o tsv
+    ```
+    
+    #### [Azure PowerShell](#tab/azure-powershell)
+    
+    
+    For local development, to get your own identity ID, use the following command. You need to sign in with `Connect-AzAccount` before using this command.
+    
+    ```azurepowershell
+    (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
+    ```
+    
+    #### [Azure portal](#tab/portal)
+    
+    Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
+    
+    ---
+
+1. Assign the role-based access control (RBAC) role to the identity for the resource group.  
+
+#### [Azure CLI](#tab/azure-cli)
+
+To grant your identity permissions to your resource through RBAC, assign a role using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
+
+```azurecli
+az role assignment create \
+    --role "<role-name>" \
+    --assignee "<identity-id>" \
+    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
+```
 
 ### Authentication for local development
 
-Use a tool in your local development environment to authentication to Azure. 
+Use a tool in your local development environment to authentication to Azure identity. Once you are authenticated, the AzureDefaultCredential in your source code finds and uses the authentication.  
 
 #### [.NET](#tab/csharp)
 
@@ -233,9 +290,22 @@ Create an environment variable for your Azure AI Search endpoint. This URL gener
 
 ## Production workloads
 
+Deploy production workloads includes these steps:
+
+- Select RBAC roles to follow least priviledge
+- Add RBAC roles on the resource for your production identity 
+- Create environment variables for your resource
+
 ### Roles for production workloads
 
-for production would be "Search Index Data Reader" for query-only workloads.
+To create your production resources, you need to create an identity then assign that identity to your resources with the correct roles. 
+
+Production workload [managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) include:
+
+* [User-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity): a standalone Azure resource. 
+* System-assigned managed identity: a hosting resource-based identity that is removed with the parent resource is removed. 
+
+TBD - Heidi and Matt to provide roles/role collections by scenario
 
 ### Authentication for production workloads
 
@@ -290,13 +360,8 @@ To connect to Azure AI Search, your code needs to know your resource endpoint, a
 
 1. Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
 
-    * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
-    
-2. Create managed identity environment variable:
-
-    | Identity| Description|
-    |--|--|
-    |User-assigned managed identity|Create an `AZURE_CLIENT_ID` environment variable containing the client ID of the user-assigned managed identity to authenticate as.|
+    - `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.   
+    - `AZURE_CLIENT_ID`: This is the identity to authenticate as.|
 
 ## Additional resources
 
