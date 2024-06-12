@@ -24,7 +24,7 @@ This article provides a summary of the latest releases and major documentation u
 
 * GPT-4o is now also available in:
     -  Sweden Central for standard regional deployment.
-    -  Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
+    -  Japan East, Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
 
 For the latest information on model availability, see the [models page](./concepts/models.md).
 
