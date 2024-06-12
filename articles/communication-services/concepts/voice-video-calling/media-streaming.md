@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services concept document
 description: Conceptual information about using Media Streaming APIs with Call Automation.
 author: Kunaal
 ms.service: azure-communication-services
-ms.topic: include
+ms.topic: overview
 ms.date: 10/25/2022
 ms.author: kpunjabi
 ms.custom: private_preview

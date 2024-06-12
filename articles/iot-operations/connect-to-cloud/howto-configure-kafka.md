@@ -1,13 +1,13 @@
 ---
-title: Send receive messages between Azure IoT MQ and Event Hubs or Kafka
-description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka.
+title: Send and receive messages between Azure IoT MQ and Event Hubs or Kafka
+description: Learn how to send and receive messages between Azure IoT MQ and Azure Event Hubs or Kafka using the Kafka connector.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 01/16/2024
+ms.date: 06/06/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure Azure IoT MQ to send and receive messages between Azure IoT MQ and Kafka.
 ---
@@ -115,7 +115,7 @@ az deployment group create \
 
 The *KafkaConnector* custom resource (CR) allows you to configure a Kafka connector that can communicate a Kafka host and Event Hubs. The Kafka connector can transfer data between MQTT topics and Kafka topics, using the Event Hubs as a Kafka-compatible endpoint.
 
-The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using IoT MQ's Azure identity, it assumes other MQ resources were installed using the quickstart:
+The following example shows a *KafkaConnector* CR that connects to an Event Hubs endpoint using different authentication types. It assumes other MQ resources were installed using the quickstart:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -127,7 +127,7 @@ spec:
   image:
     pullPolicy: IfNotPresent
     repository: mcr.microsoft.com/azureiotoperations/kafka
-    tag: 0.1.0-preview
+    tag: 0.4.0-preview
   instances: 2
   clientIdPrefix: my-prefix
   kafkaConnection:
@@ -141,7 +141,7 @@ spec:
       authType:
         systemAssignedManagedIdentity:
           # plugin in your Event Hubs namespace name
-          audience: "https://<EVENTHUBS_NAMESPACE>.servicebus.windows.net" 
+          audience: "https://<NAMESPACE>.servicebus.windows.net" 
   localBrokerConnection:
     endpoint: "aio-mq-dmqtt-frontend:8883"
     tls:
@@ -151,7 +151,10 @@ spec:
       kubernetes: {}
 ```
 
-The following table describes the fields in the KafkaConnector CR:
+---
+
+
+The following table describes the fields in the KafkaConnector custom resource:
 
 | Field | Description | Required |
 | ----- | ----------- | -------- |
@@ -194,7 +197,7 @@ The authentication field supports different types of authentication methods, suc
 | Field | Description | Required |
 | ----- | ----------- | -------- |
 | enabled | A boolean value that indicates whether authentication is enabled or not. | Yes |
-| authType | A field containing the authentication type used. See [Authentication Type](#authentication-type)
+| authType | A field containing the authentication type used. See [Authentication Type](#authentication-type) | Yes |
 
 ##### Authentication Type
 
@@ -206,9 +209,51 @@ The authentication field supports different types of authentication methods, suc
 
 To learn how to use Azure Key Vault and the `keyVault` to manage secrets for Azure IoT MQ instead of Kubernetes secrets, see [Manage secrets using Azure Key Vault or Kubernetes secrets](../manage-mqtt-connectivity/howto-manage-secrets.md).
 
-##### Authenticate to Event Hubs
+### Authenticate to Event Hubs
 
-To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. First create the Kubernetes secret:
+#### [Managed identity](#tab/managed-identity)
+
+To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: KafkaConnector
+metadata:
+  name: my-eh-connector
+  namespace: azure-iot-operations # same as one used for other MQ resources
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: mcr.microsoft.com/azureiotoperations/kafka
+    tag: 0.4.0-preview
+  instances: 2
+  clientIdPrefix: my-prefix
+  kafkaConnection:
+    # Port 9093 is Event Hubs' Kakfa endpoint
+    # Plug in your Event Hubs namespace name
+    endpoint: <NAMESPACE>.servicebus.windows.net:9093
+    tls:
+      tlsEnabled: true
+    authentication:
+      enabled: true
+      authType:
+        systemAssignedManagedIdentity:
+          # plugin in your Event Hubs namespace name
+          audience: "https://<NAMESPACE>.servicebus.windows.net" 
+  localBrokerConnection:
+    endpoint: "aio-mq-dmqtt-frontend:8883"
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
+```
+
+#### [SASL](#tab/sasl)
+
+To connect to Event Hubs using a connection string and Kubernetes secret, use `plain` SASL type and `$ConnectionString` as the username and the full connection string as the password. 
+
+First create the Kubernetes secret:
 
 ```bash
 kubectl create secret generic cs-secret -n azure-iot-operations \
@@ -219,16 +264,43 @@ kubectl create secret generic cs-secret -n azure-iot-operations \
 Then, reference the secret in the configuration:
 
 ```yaml
-authentication:
-  enabled: true
-  authType:
-    sasl:
-      saslType: plain
-      token:
-        secretName: cs-secret
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: KafkaConnector
+metadata:
+  name: my-eh-connector
+  namespace: azure-iot-operations # same as one used for other MQ resources
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: mcr.microsoft.com/azureiotoperations/kafka
+    tag: 0.4.0-preview
+  instances: 2
+  clientIdPrefix: my-prefix
+  kafkaConnection:
+    # Port 9093 is Event Hubs' Kakfa endpoint
+    # Plug in your Event Hubs namespace name
+    endpoint: <NAMESPACE>.servicebus.windows.net:9093
+    tls:
+      tlsEnabled: true
+    authentication:
+      enabled: true
+      authType:
+        sasl:
+          saslType: plain
+          token:
+            secretName: cs-secret
+  localBrokerConnection:
+    endpoint: "aio-mq-dmqtt-frontend:8883"
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
 ```
 
-To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration.
+To use Azure Key Vault instead of Kubernetes secrets, create an Azure Key Vault secret with the connection string `Endpoint=sb://..`, reference it with `vaultSecret`, and specify the username as `"$ConnectionString"` in the configuration. 
+
+Use the previous YAML example and change the authentication section to the following:
 
 ```yaml
 authentication:
@@ -249,17 +321,7 @@ authentication:
             # version: 939ecc2...
 ```
 
-To use managed identity, specify it as the only method under authentication. You also need to assign a role to the managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](/azure/event-hubs/authenticate-application#built-in-roles-for-azure-event-hubs).
-
-```yaml
-authentication:
-  enabled: true
-  authType:
-    systemAssignedManagedIdentity:
-      audience: https://<NAMESPACE>.servicebus.windows.net
-```
-
-##### X.509
+#### [X.509](#tab/x509)
 
 For X.509, use Kubernetes TLS secret containing the public certificate and private key.
 
@@ -272,14 +334,41 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
 Then specify the `secretName` in configuration.
 
 ```yaml
-authentication:
-  enabled: true
-  authType:
-    x509:
-      secretName: my-tls-secret
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: KafkaConnector
+metadata:
+  name: my-eh-connector
+  namespace: azure-iot-operations # same as one used for other MQ resources
+spec:
+  image:
+    pullPolicy: IfNotPresent
+    repository: mcr.microsoft.com/azureiotoperations/kafka
+    tag: 0.4.0-preview
+  instances: 2
+  clientIdPrefix: my-prefix
+  kafkaConnection:
+    # Port 9093 is Event Hubs' Kakfa endpoint
+    # Plug in your Event Hubs namespace name
+    endpoint: <NAMESPACE>.servicebus.windows.net:9093
+    tls:
+      tlsEnabled: true
+    authentication:
+      enabled: true
+      authType:
+        x509:
+          secretName: my-tls-secret
+  localBrokerConnection:
+    endpoint: "aio-mq-dmqtt-frontend:8883"
+    tls:
+      tlsEnabled: true
+      trustedCaCertificateConfigMap: "aio-ca-trust-bundle-test-only"
+    authentication:
+      kubernetes: {}
 ```
 
-To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`.
+To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`. 
+
+Use the previous YAML example and change the authentication section to the following:
 
 ```yaml
 authentication:
@@ -310,6 +399,8 @@ keyVault:
     # version: 939ecc2...
 ```
 
+---
+
 ### Manage local broker connection
 
 Like MQTT bridge, the Event Hubs connector acts as a client to the IoT MQ MQTT broker. If you've customized the listener port and/or authentication of your IoT MQ MQTT broker, override the local MQTT connection configuration for the Event Hubs connector as well. To learn more, see [MQTT bridge local broker connection](howto-configure-mqtt-bridge.md).
@@ -326,7 +417,7 @@ metadata:
   namespace: <SAME NAMESPACE AS BROKER> # For example "default"
 spec:
   kafkaConnectorRef: my-eh-connector
-  compression: snappy
+  compression: none
   batching:
     enabled: true
     latencyMs: 1000
@@ -369,14 +460,14 @@ The following table describes the fields in the KafkaConnectorTopicMap CR:
 
 ### Compression
 
-The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The supported compression types are listed in the following table.
+The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The compression types values and support are listed in the following table.
 
-| Value | Description |
-| ----- | ----------- |
-| none | No compression or batching is applied. *none* is the default value if no compression is specified. |
-| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. |
-| snappy | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
-| lz4 | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
+| Value | Description | Supported |
+| ----- | ----------- | --------- |
+| none | No compression or batching is applied. *none* is the default value if no compression is specified. | Yes |
+| gzip | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. | Yes. [Event Hubs Premium](../../event-hubs/event-hubs-premium-overview.md) pricing tier is required for GZIP compression. |
+| snappy | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. | Not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Use [Apache Kafka](https://kafka.apache.org). |
+| lz4 | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. | Not supported by [Azure Event Hubs](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Use [Apache Kafka](https://kafka.apache.org). |
 
 ### Batching
 
@@ -476,7 +567,7 @@ kafkaToMqtt:
   qos: 0
 ```
 
-In this example, messages from Kafka topic *sending-event-hub** are published to MQTT topic *heater-commands* with QoS level 0.
+In this example, messages from Kafka topic *sending-event-hub* are published to MQTT topic *heater-commands* with QoS level 0.
 
 ### Event hub name must match Kafka topic
 

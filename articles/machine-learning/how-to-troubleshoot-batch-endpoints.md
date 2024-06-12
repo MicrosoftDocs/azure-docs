@@ -17,7 +17,7 @@ ms.custom: devplatv2
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Learn how to troubleshoot and solve, or work around, common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring. In this article you'll learn:
+Learn how to troubleshoot and solve common errors you may come across when using [batch endpoints](how-to-use-batch-endpoint.md) for batch scoring. In this article you learn:
 
 > [!div class="checklist"]
 > * How [logs of a batch scoring job are organized](#understanding-logs-of-a-batch-scoring-job).
@@ -32,7 +32,7 @@ After you invoke a batch endpoint using the Azure CLI or REST, the batch scoring
 
 Option 1: Stream logs to local console
 
-You can run the following command to stream system-generated logs to your console. Only logs in the `azureml-logs` folder will be streamed.
+You can run the following command to stream system-generated logs to your console. Only logs in the `azureml-logs` folder are streamed.
 
 ```azurecli
 az ml job stream --name <job_name>
@@ -43,13 +43,13 @@ Option 2: View logs in studio
 To get the link to the run in studio, run: 
 
 ```azurecli
-az ml job show --name <job_name> --query interaction_endpoints.Studio.endpoint -o tsv
+az ml job show --name <job_name> --query services.Studio.endpoint -o tsv
 ```
 
 1. Open the job in studio using the value returned by the above command. 
 1. Choose __batchscoring__
 1. Open the __Outputs + logs__ tab 
-1. Choose the log(s) you wish to review
+1. Choose one or more logs you wish to review
 
 ### Understand log structure
 
@@ -154,9 +154,9 @@ __Reason__: The compute cluster where the deployment is running can't mount the 
 
 __Solutions__: Ensure the identity associated with the compute cluster where your deployment is running has at least has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
-### Data set node [code] references parameter dataset_param which doesn't have a specified value or a default value
+### Data set node [code] references parameter `dataset_param` which doesn't have a specified value or a default value
 
-__Message logged__: Data set node [code] references parameter dataset_param which doesn't have a specified value or a default value.
+__Message logged__: Data set node [code] references parameter `dataset_param` which doesn't have a specified value or a default value.
 
 __Reason__: The input data asset provided to the batch endpoint isn't supported.
 
@@ -176,13 +176,13 @@ __Message logged__: ValueError: No objects to concatenate.
 
 __Reason__: All the files in the generated mini-batch are either corrupted or unsupported file types. Remember that MLflow models support a subset of file types as documented at [Considerations when deploying to batch inference](how-to-mlflow-batch.md?#considerations-when-deploying-to-batch-inference).
 
-__Solution__: Go to the file `logs/usr/stdout/<process-number>/process000.stdout.txt` and look for entries like `ERROR:azureml:Error processing input file`. If the file type isn't supported, please review the list of supported files. You may need to change the file type of the input data or customize the deployment by providing a scoring script as indicated at [Using MLflow models with a scoring script](how-to-mlflow-batch.md?#customizing-mlflow-models-deployments-with-a-scoring-script).
+__Solution__: Go to the file `logs/usr/stdout/<process-number>/process000.stdout.txt` and look for entries like `ERROR:azureml:Error processing input file`. If the file type isn't supported, review the list of supported files. You may need to change the file type of the input data, or customize the deployment by providing a scoring script as indicated at [Using MLflow models with a scoring script](how-to-mlflow-batch.md?#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 ### There is no succeeded mini batch item returned from run()
 
 __Message logged__: There is no succeeded mini batch item returned from run(). Please check 'response: run()' in https://aka.ms/batch-inference-documentation.
 
-__Reason__: The batch endpoint failed to provide data in the expected format to the `run()` method. This may be due to corrupted files being read or incompatibility of the input data with the signature of the model (MLflow).
+__Reason__: The batch endpoint failed to provide data in the expected format to the `run()` method. It can be due to corrupted files being read or incompatibility of the input data with the signature of the model (MLflow).
 
 __Solution__: To understand what may be happening, go to __Outputs + Logs__ and open the file at `logs > user > stdout > 10.0.0.X > process000.stdout.txt`. Look for error entries like `Error processing input file`. You should find there details about why the input file can't be correctly read.
 
@@ -192,7 +192,7 @@ __Context__: When invoking a batch endpoint using its REST APIs.
 
 __Reason__: The access token used to invoke the REST API for the endpoint/deployment is indicating a token that is issued for a different audience/service. Microsoft Entra tokens are issued for specific actions.
 
-__Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Please notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you'll need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).
+__Solution__: When generating an authentication token to be used with the Batch Endpoint REST API, ensure the `resource` parameter is set to `https://ml.azure.com`. Notice that this resource is different from the resource you need to indicate to manage the endpoint using the REST API. All Azure resources (including batch endpoints) use the resource `https://management.azure.com` for managing them. Ensure you use the right resource URI on each case. Notice that if you want to use the management API and the job invocation API at the same time, you'll need two tokens. For details see: [Authentication on batch endpoints (REST)](how-to-authenticate-batch-endpoint.md?tabs=rest).
 
 ### No valid deployments to route to. Please check that the endpoint has at least one deployment with positive weight values or use a deployment specific header to route. 
 

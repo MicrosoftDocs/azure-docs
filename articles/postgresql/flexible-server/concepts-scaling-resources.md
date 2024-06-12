@@ -1,17 +1,18 @@
 ---
 title: Scaling resources
 description: This article describes the resource scaling in Azure Database for PostgreSQL flexible server.
-author:          varun-dhawan
-ms.author:       varundhawan
-ms.service:      postgresql
-ms.subservice:   flexible-server
-ms.topic:        conceptual
-ms.date:         2/6/2024
+author: varun-dhawan
+ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: postgresql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # Scaling resources in Azure Database for PostgreSQL flexible server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server supports both vertical and horizontal scaling options.
 

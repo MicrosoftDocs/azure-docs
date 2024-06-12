@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: Azure Arc
+    tocHref: /azure/azure-arc
+    topicHref: /azure/azure-arc
+    items:
+    - name: Multicloud connector
+      tocHref: /azure/azure-arc/multicloud-connector
+      topicHref: /azure/azure-arc/multicloud-connector

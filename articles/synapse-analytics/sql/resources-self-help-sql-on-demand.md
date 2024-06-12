@@ -740,6 +740,21 @@ If you get the error `CREATE DATABASE failed. User database limit has been alrea
 - If you need to separate the objects, use schemas within the databases.
 - If you need to reference Azure Data Lake storage, create lakehouse databases or Spark databases that will be synchronized in serverless SQL pool.
 
+### Creating or altering table failed because the minimum row size exceeds the maximum allowable table row size of 8060 bytes
+
+Any table can have up to 8KB size per row (not including off-row VARCHAR(MAX)/VARBINARY(MAX) data). If you create a table where the total size of cells in the row exceeds 8060 bytes, you will get the following error:
+
+```
+Msg 1701, Level 16, State 1, Line 3
+Creating or altering table '<table name>' failed because the minimum row size would be <???>,
+including <???> bytes of internal overhead.
+This exceeds the maximum allowable table row size of 8060 bytes.
+```
+
+This error also might happen in the Lake database if you create a Spark table with the column sizes that exceed 8060 bytes, and the serverless SQL pool cannot create a table that references the Spark table data.
+
+As a mitigation, avoid using the fixed size types like `CHAR(N)` and replace them with variable size `VARCHAR(N)` types, or decrease the size in `CHAR(N)`. See [8KB rows group limitation in SQL Server](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)).
+
 ### Create a master key in the database or open the master key in the session before performing this operation
 
 If your query fails with the error message `Please create a master key in the database or open the master key in the session before performing this operation.`, it means that your user database has no access to a master key at the moment.

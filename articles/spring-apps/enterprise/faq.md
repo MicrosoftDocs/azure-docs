@@ -4,7 +4,7 @@ description: This article answers frequently asked questions about Azure Spring 
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-dotnet
 zone_pivot_groups: programming-languages-spring-apps
@@ -41,11 +41,9 @@ Each service instance in Azure Spring Apps is backed by Azure Kubernetes Service
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with two or more instances on different nodes.
 
-### In which regions is the Azure Spring Apps Basic/Standard plan available?
+### In which regions is Azure Spring Apps available?
 
 See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps).
-
-### In which regions is the Azure Spring Apps Enterprise plan available?
 
 While the Azure Spring Apps Basic/Standard plan is available in regions of China, the Enterprise plan is not available in all regions on Azure China.
 

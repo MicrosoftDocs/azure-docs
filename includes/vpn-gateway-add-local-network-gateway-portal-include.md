@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 06/23/2023
+ ms.date: 04/16/2024
  ms.author: cherylmc
  ms.custom: include file
 ---

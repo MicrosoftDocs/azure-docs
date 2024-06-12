@@ -20,11 +20,11 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 ## Azure services reliability guides
 
-### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services 
+### ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational services
 
 | Product| Availability zone guide | Disaster recovery guide |
 |----------|----------|----------|
-|Azure Cosmos DB|[Achieve high availability](../cosmos-db/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Configure multi-region writes](../cosmos-db/nosql/how-to-multi-master.md?tabs=api-async&?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Cosmos DB for NoSQL|[Reliability in Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md)| [Reliability in Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md) |
 |Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure ExpressRoute| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Key Vault|[Azure Key Vault failover within a region](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-within-a-region)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-across-regions) |
@@ -34,7 +34,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Service Fabric| [Deploy an Azure Service Fabric cluster across Availability Zones](../service-fabric/service-fabric-cross-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Disaster recovery in Azure Service Fabric](../service-fabric/service-fabric-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Site Recovery|| [Set up disaster recovery for Azure VMs](../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure SQL|[Azure SQL - High availability](/azure/azure-sql/database/high-availability-sla?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [Azure SQL - Recovery using backup and restore](/azure/azure-sql/database/recovery-using-backups#geo-restore) |
-|Azure SQL-Managed Instance|| [Azure SQL-Managed Instance](/azure/azure-sql/database/auto-failover-group-sql-db?tabs=azure-powershell) |
+|Azure SQL-Managed Instance|| [Azure SQL-Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) |
 |Azure Storage-Disk Storage||[Create an incremental snapshot for managed disks](../virtual-machines/disks-incremental-snapshots.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Storage Mover| [Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)|[Reliability in Azure Storage Mover](reliability-azure-storage-mover.md)|
 |Azure Virtual Machine Scale Sets|[Azure Virtual Machine Scale Sets](reliability-virtual-machine-scale-sets.md)||
@@ -99,6 +99,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 
 | Product| Availability zone guide | Disaster recovery guide |
 |-------|-------|-------|
+|Azure API Center | [Reliability in Azure API Center](reliability-api-center.md) | [Reliability in Azure API Center](reliability-api-center.md)|
 |Azure Application Gateway for Containers | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md) | [Reliability in Azure Application Gateway for Containers](reliability-app-gateway-containers.md)|
 |Azure Chaos Studio | [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)| [Reliability in Azure Chaos Studio](reliability-chaos-studio.md)|
 |Azure Community Training|[Reliability in Community Training](reliability-community-training.md) |[Reliability in Community Training](reliability-community-training.md) |
@@ -109,6 +110,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Deployment Environments| [Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|[Reliability in Azure Deployment Environments](reliability-deployment-environments.md)|
 |Azure DevOps|| [Azure DevOps Data protection - data availability](/azure/devops/organizations/security/data-protection?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&preserve-view=true&#data-availability)|
 |Azure Elastic SAN|[Availability zone support](reliability-elastic-san.md#availability-zone-support)|[Disaster recovery and business continuity](reliability-elastic-san.md#disaster-recovery-and-business-continuity)|
+|Azure HDInsight on AKS |[Reliability in HDInsight on AKS](reliability-hdinsight-on-aks.md) | [Reliability in HDInsight on AKS](reliability-hdinsight-on-aks.md) |
 |Azure Health Data Services - Azure API for FHIR|| [Disaster recovery for Azure API for FHIR](../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
 |Azure Health Insights|[Reliability in Azure Health Insights](reliability-health-insights.md)|[Reliability in Azure Health Insights](reliability-health-insights.md)|
 |Azure IoT Hub| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [IoT Hub high availability and disaster recovery](../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |

@@ -43,7 +43,11 @@ items:
     href: tutorial-delete-private-cloud.md
 - name: Cost optimization
   items:
-  - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+  - name: ESUs for SQL Server and Windows Server in Azure VMware Solution VMs
+    href: extended-security-updates-windows-sql-server.md
+  - name: License SQL Server, Windows Server and Linux in Azure VMware Solution
+    href: license-sql-windows-in-avs.md
+  - name: Enable unlimited virtualization with Azure Hybrid Benefit for SQL Server in Azure VMware Solution
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
@@ -377,3 +381,5 @@ items:
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
     href: ./faq.yml
+  - name: Azure VMware Solution Master Diagrams File
+    href: https://github.com/Azure/azure-vmware-solution/blob/main/azure-vmware-master-diagrams

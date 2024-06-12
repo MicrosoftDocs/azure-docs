@@ -85,7 +85,7 @@ az signalr update \
 
 Make a note of the actual name generated for the new resource group. You'll use that resource group name when you want to delete all group resources.
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
 
 ## Compare pricing tiers
 
@@ -95,7 +95,7 @@ For a table of service limits, quotas, and constraints in each tier, see [Signal
 
 
 ## Enhanced Large Instance Support with Premium_P2 SKU
-The new Premium_P2 SKU (currently in Preview) is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single SignalR Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
+The new Premium_P2 SKU is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single SignalR Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
 
 You can scale up the SKU to Premium_P2 using Azure portal or Azure CLI.
 

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 02/28/2024
 ---
 
-# Import data from Azure Cosmos DB for MongoDB for queries in Azure AI Search
+# Index data from Azure Cosmos DB for MongoDB for queries in Azure AI Search
 
 > [!IMPORTANT] 
 > MongoDB API support is currently in public preview under [supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
@@ -161,7 +161,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 | GeoJSON objects such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
-## Configure and run the Azure Cosmos DB indexer
+## Configure and run the Azure Cosmos DB for MongoDB indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 

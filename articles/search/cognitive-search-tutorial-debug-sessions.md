@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 + [Visual Studio Code](https://code.visualstudio.com/download) with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
-+ [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-pdf-19).
++ [Sample PDFs (clinical trials)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/_ARCHIVE/clinical-trials/clinical-trials-pdf-19).
 
 + [Sample debug-sessions.rest file](https://github.com/Azure-Samples/azure-search-rest-samples/blob/main/Debug-sessions/debug-sessions.rest) used to create the enrichment pipeline.
 
@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This section creates the sample data set in Azure Blob Storage so that the indexer and skillset have content to work with.
 
-1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/clinical-trials/clinical-trials-pdf-19), consisting of 19 files.
+1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/_ARCHIVE/clinical-trials/clinical-trials-pdf-19), consisting of 19 files.
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
