@@ -27,7 +27,7 @@ Benefits of using metric alerts for logs over query-based [log search alerts](./
 - Metric alerts provide multiple dimensions. They allow filtering to specific values like computers and OS types without the need for defining a complex query in Log Analytics.
 
 > [!NOTE]
-> A specific metric or dimension appears only if data for it exists in the chosen period. These metrics are available for customers who have Azure Log Analytics workspaces.
+> A specific metric or dimension appears only if data for it exists in the chosen period. These metrics are available for customers who have Log Analytics workspaces.
 
 ## Supported metrics and dimensions for logs
 
@@ -68,13 +68,13 @@ For step-by-step details and samples, see [Create or edit a metric alert rule](.
 - When you're configuring signal logic, you can create a single alert to span multiple values of dimension (like computer).
 - When you're creating a metric alert for logs by using the Azure portal, a corresponding rule for converting log data into a metric via `scheduledQueryRules` is automatically created in the background, without the need for any user intervention or action.
 
-  If you're *not* using the Azure portal for creating a metric alert for a selected Log Analytics workspace, you must first manually create an explicit rule for converting log data into a metric by using `scheduledQueryRules`.
+  If you're *not* using the Azure portal to create a metric alert for a selected Log Analytics workspace, you must first manually create an explicit rule for converting log data into a metric by using `scheduledQueryRules`.
 
 ## Resource Manager templates
 
 To create a metric alert for logs, you can use the following sample Resource Manager templates.
 
-For metric alerts for logs created through means other than the Azure portal, you can use these sample templates to create a `scheduledQueryRules`-based log-to-metric conversion rule before metric alert creation. If you don't, there will be no data for the metric alert in the logs.
+For metric alerts for logs created through means other than the Azure portal, you can use these sample templates to create a `scheduledQueryRules`-based log-to-metric conversion rule before you create a metric alert. If you don't, there will be no data for the metric alert in the logs.
 
 ### Metric alert for logs with a static threshold
 

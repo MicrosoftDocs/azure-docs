@@ -77,7 +77,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
     |Field  |Description  |
     |---------|---------|
-    |**Measure**|Log search alerts can measure two things that you can use for various monitoring scenarios:<br> **Table rows**: You can use the number of rows returned to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: You can use calculations based on any numeric column to include any number of resources. An example is CPU percentage.      |
+    |**Measure**|Log search alerts can measure two things that you can use for various monitoring scenarios:<br> **Table rows**: You can use the number of returned rows to work with events such as Windows event logs, Syslog, and application exceptions. <br>**Calculation of a numeric column**: You can use calculations based on any numeric column to include any number of resources. An example is CPU percentage.      |
     |**Aggregation type**| The calculation performed on multiple records to aggregate them to one numeric value by using the aggregation granularity. Examples are **Total**, **Average**, **Minimum**, and **Maximum**.    |
     |**Aggregation granularity**| The interval for aggregating multiple records to one numeric value.|
 
@@ -123,7 +123,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the section for alert logic in a new log search alert rule.":::
 
     > [!NOTE]
-    > The frequency is not a specific time that the alert runs every day. It's how often the alert rule will run.
+    > The frequency is not a specific time that the alert runs every day. It's how often the alert rule runs.
     >
     > There are some limitations to using an alert rule frequency of <a name="frequency">one minute</a>. When you set the alert rule frequency to one minute, an internal manipulation is performed to optimize the query. This manipulation can cause the query to fail if it contains unsupported operations. The most common reasons why a query isn't supported are:
     >
@@ -142,7 +142,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
    |---------|---------|
    |**Number of violations**|The number of violations that trigger the alert.|
    |**Evaluation period**|The time period within which the number of violations occur. |
-   |**Override query time range**| If you want the alert evaluation period to be different from the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an `ago` command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains `ago(7d)`, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an `ago` command, it will change automatically to two days (48 hours).|
+   |**Override query time range**| If you want the alert evaluation period to be different from the query time range, enter a time range here.<br> The alert time range is limited to a maximum of two days. Even if the query contains an `ago` command with a time range of longer than two days, the two-day maximum time range is applied. For example, even if the query text contains `ago(7d)`, the query only scans up to two days of data. If the query requires more data than the alert evaluation, you can change the time range manually. If the query contains an `ago` command, it changes automatically to two days (48 hours).|
 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot that shows the section for advanced options in a new log search alert rule.":::
 
@@ -175,17 +175,17 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     Keep these points in mind when you're selecting an identity:
 
     - A managed identity is required if you're sending a query to Azure Data Explorer or Resource Graph.
-    - Use a managed identity if you want to be able to see or edit the permissions associated with the alert rule.
+    - Use a managed identity if you want to be able to view or edit the permissions associated with the alert rule.
     - If you don't use a managed identity, the alert rule permissions are based on the permissions of the last user to edit the rule, at the time that the rule was last edited.
     - Use a managed identity to help you avoid a case where the rule doesn't work as expected because the user who last edited the rule didn't have permissions for all the resources added to the scope of the rule.
 
     The identity associated with the rule must have these roles:
 
-    - If the query is accessing a Log Analytics workspace, the identity must be assigned a reader role for all workspaces that the query accesses. If you're creating resource-centric log search alerts, the alert rule might access multiple workspaces, and the identity must have a reader role on all of them.
-    - If you're querying an Azure Data Explorer or Resource Graph cluster, you must add the reader role for all data sources that the query accesses. For example, if the query is resource centric, it needs a reader role on that resource.
+    - If the query is accessing a Log Analytics workspace, the identity must be assigned a *reader* role for all workspaces that the query accesses. If you're creating resource-centric log search alerts, the alert rule might access multiple workspaces, and the identity must have a reader role on all of them.
+    - If you're querying an Azure Data Explorer or Resource Graph cluster, you must add the *reader* role for all data sources that the query accesses. For example, if the query is resource centric, it needs a reader role on that resource.
     - If the query is [accessing a remote Azure Data Explorer cluster](../logs/azure-monitor-data-explorer-proxy.md), the identity must be assigned:
-      - A reader role for all data sources that the query accesses. For example, if the query is calling a remote Azure Data Explorer cluster by using the `adx()` function, it needs a reader role on that Azure Data Explorer cluster.
-      - A database viewer role for all databases that the query accesses.
+      - A *reader* role for all data sources that the query accesses. For example, if the query is calling a remote Azure Data Explorer cluster by using the `adx()` function, it needs a reader role on that Azure Data Explorer cluster.
+      - A *database viewer* role for all databases that the query accesses.
 
     For detailed information on managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 

@@ -12,7 +12,7 @@ ms.date: 04/01/2024
 
 As part of [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md), you can use Prometheus alert rules to define alert conditions by using queries written in Prometheus Query Language (PromQL). The rule queries are applied on Prometheus metrics stored in an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md).
 
-Whenever the alert query results in one or more time series meeting the condition, the alert counts as pending for these metric and label sets. A pending alert becomes active after a user-defined period of time, during which all the consecutive query evaluations for the respective time series meet the alert condition. After an alert becomes active, it's fired and triggers your actions or notifications of choice, as defined in the Azure action groups configured in your alert rule.
+Whenever the alert query results in one or more time series meeting the condition, the alert counts as pending for these metric and label sets. A pending alert becomes active after a user-defined period of time during which all the consecutive query evaluations for the respective time series meet the alert condition. After an alert becomes active, it's fired and triggers your actions or notifications of choice, as defined in the Azure action groups configured in your alert rule.
 
 ## Create Prometheus alert rules
 

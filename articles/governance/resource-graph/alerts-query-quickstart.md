@@ -458,4 +458,4 @@ For more information about the query language or how to explore resources, go to
 - [Explore your Azure resources with Resource Graph](./concepts/explore-resources.md)
 - [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md)
 - [Collect events and performance counters from virtual machines with Azure Monitor Agent](../..//azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
-- [Role assignments for Azure Data Explorer clusters](../../azure-monitor/alerts/alerts-create-log-alert-rule.md#configure-the-alert-rule-details)
+- [Role assignments for Azure Data Explorer clusters](../../azure-monitor/alerts/alerts-create-log-alert-rule.md#configure-alert-rule-details)

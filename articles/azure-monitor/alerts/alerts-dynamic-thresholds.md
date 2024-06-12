@@ -15,7 +15,7 @@ Dynamic thresholds apply advanced machine learning and use a set of algorithms a
 - Learn the historical behavior of metrics.
 - Analyze metrics over time and identify patterns such as hourly, daily, or weekly patterns.
 - Recognize anomalies that indicate possible service issues.
-- Calculate the most appropriate threshold for the metric.
+- Calculate the most appropriate thresholds for metrics.
 
 When you use dynamic thresholds, you don't have to know the right threshold for each metric. Dynamic thresholds calculate the most appropriate thresholds for you.
 
@@ -54,7 +54,7 @@ The system automatically recognizes prolonged outages and removes them from the 
 
 ## Considerations for using dynamic thresholds
 
-- To ensure accurate threshold calculation, alert rules that use dynamic thresholds don't trigger an alert before collecting three days and at least 30 samples of metric data. New resources or resources that are missing metric data don't trigger an alert until enough data is available.
+- To help ensure accurate threshold calculation, alert rules that use dynamic thresholds don't trigger an alert before collecting three days and at least 30 samples of metric data. New resources or resources that are missing metric data don't trigger an alert until enough data is available.
 - Dynamic thresholds need at least three weeks of historical data to detect weekly seasonality. Some detailed patterns, such as bihourly or semiweekly patterns, might not be detected.
 - If the behavior of a metric changed recently, the changes aren't immediately reflected in the dynamic threshold's upper and lower bounds. The borders are calculated based on metric data from the last 10 days. When you view the dynamic threshold's borders for a particular metric, look at the metric trend in the last week and not only for recent hours or days.
 - Dynamic thresholds are good for detecting significant deviations, as opposed to slowly evolving issues. Slow behavior changes probably won't trigger an alert.
@@ -82,7 +82,7 @@ The system automatically recognizes prolonged outages and removes them from the 
 
 ## Configuration of dynamic thresholds
 
-To configure dynamic thresholds, follow the [procedure to create an alert rule](alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal) by using these settings on the **Condition** tab:
+To configure dynamic thresholds, follow the [procedure for creating an alert rule](alerts-create-new-alert-rule.md#create-or-edit-an-alert-rule-in-the-azure-portal). Use these settings on the **Condition** tab:
 
 - For **Threshold**, select **Dynamic**.
 - For **Aggregation type**, we recommend that you don't select **Maximum**.
@@ -106,15 +106,15 @@ Use the following information to interpret the chart:
 - **Blue line**: The metric measured over time.
 - **Blue shaded area**: The allowed range for the metric. If the metric values stay within this range, no alert is triggered.
 - **Blue dots**: Aggregated metric values. If you select part of the chart and then hover over the blue line, a blue dot appears under your cursor to indicate an individual aggregated metric value.
-- **Pop-up with blue dot**: The measured metric value (blue dot) and the upper and lower values of the allowed range.  
-- **Red dot with a black circle**: The first metric value out of the allowed range. This value fires a metric alert and puts it in an active state.
+- **Pop-up box with blue dot**: The measured metric value (blue dot) and the upper and lower values of the allowed range.  
+- **Red dot with a black circle**: The first metric value outside the allowed range. This value fires a metric alert and puts it in an active state.
 - **Red dots**: Other measured values outside the allowed range. They don't trigger more metric alerts, but the alert stays in the active state.
-- **Red area**: The time when the metric value was outside the allowed range. The alert remains in the active state as long as subsequent measured values are out of the allowed range, but no new alerts are fired.
+- **Red area**: The time when the metric value was outside the allowed range. The alert remains in the active state as long as subsequent measured values are outside the allowed range, but no new alerts are fired.
 - **End of red area**: A return to allowed values. When the blue line is back inside the allowed values, the red area stops and the measured value line turns blue. The status of the metric alert fired at the time of the red dot with a black circle is set to resolved.
 
 ## Metrics not supported by dynamic thresholds
 
-Dynamic thresholds are supported for most metrics, but the following metrics can't use dynamic thresholds:
+Dynamic thresholds support most metrics, but the following metrics can't use dynamic thresholds:
 
 | Resource type | Metric name |
 | --- | --- |
