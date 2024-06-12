@@ -256,8 +256,6 @@ if __name__ == "__main__":
 
 Visit the Azure samples repository on GitHub and view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/layout-model-output.md).
 
-Visit the Azure samples repository on GitHub and view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/how-to-guide/general-document-model-output.md).
-
 ## Use the W-2 tax model
 
 ```python
