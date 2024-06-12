@@ -4,25 +4,31 @@ description: Learn how using Microsoft Defender XDR together with Microsoft Sent
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/01/2023
+ms.date: 06/11/2024
 ---
 
 # Microsoft Defender XDR integration with Microsoft Sentinel
 
-Microsoft Sentinel's [Microsoft Defender XDR](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all Microsoft Defender XDR incidents into Microsoft Sentinel and keep them synchronized between both portals. Incidents from Microsoft Defender XDR include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Sentinel, incidents will remain bi-directionally synced with Microsoft Defender XDR, allowing you to take advantage of the benefits of both portals in your incident investigation.
+Microsoft Defender XDR incident integration with Microsoft Sentinel allows you to stream all Microsoft Defender XDR incidents into Microsoft Sentinel and keep them synchronized between both portals. Incidents from Microsoft Defender XDR include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Microsoft Sentinel. Once in Sentinel, incidents remain bi-directionally synced with Microsoft Defender XDR, allowing you to take advantage of the benefits of both portals in your incident investigation.
 
-This integration gives Microsoft 365 security incidents the visibility to be managed from within Microsoft Sentinel, as part of the primary incident queue across the entire organization, so you can see – and correlate – Microsoft 365 incidents together with those from all of your other cloud and on-premises systems. At the same time, it allows you to take advantage of the unique strengths and capabilities of Microsoft Defender XDR for in-depth investigations and a Microsoft 365-specific experience across the Microsoft 365 ecosystem. Microsoft Defender XDR enriches and groups alerts from multiple Microsoft 365 products, both reducing the size of the SOC’s incident queue and shortening the time to resolve. The component services that are part of the Microsoft Defender XDR stack are:
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
-- **Microsoft Defender for Endpoint**
-- **Microsoft Defender for Identity**
-- **Microsoft Defender for Office 365**
-- **Microsoft Defender for Cloud Apps**
-- **Microsoft Defender for Cloud**
+## Incident correlation and alerts
+
+The integration gives Microsoft 365 security incidents the visibility to be managed from within Microsoft Sentinel, as part of the primary incident queue across the entire organization, so you can see – and correlate – Microsoft 365 incidents together with those from all of your other cloud and on-premises systems. At the same time, it allows you to take advantage of the unique strengths and capabilities of Microsoft Defender XDR for in-depth investigations and a Microsoft 365-specific experience across the Microsoft 365 ecosystem. Microsoft Defender XDR enriches and groups alerts from multiple Microsoft 365 products, both reducing the size of the SOC’s incident queue and shortening the time to resolve. Alerts from the following Microsoft Defender products and services are also included in the integration of Defender XDR to Microsoft:
+
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Identity
+- Microsoft Defender for Office 365
+- Microsoft Defender for Cloud Apps
+- Microsoft Defender Vulnerability Management
 
 Other services whose alerts are collected by Microsoft Defender XDR include:
 
-- **Microsoft Purview Data Loss Prevention** ([Learn more](/microsoft-365/security/defender/investigate-dlp))
-- **Microsoft Entra ID Protection** ([Learn more](/defender-cloud-apps/aadip-integration))
+- Microsoft Purview Data Loss Prevention ([Learn more](/microsoft-365/security/defender/investigate-dlp))
+- Microsoft Entra ID Protection ([Learn more](/defender-cloud-apps/aadip-integration))
+
+The Microsoft Defender XDR connector also brings incidents from Microsoft Defender for Cloud. Although to synchronize alerts and entities from these incidents, you must enable the Microsoft Defender for Cloud connector. Otherwise, your Microsoft Defender for Cloud incidents appear empty. For more information, see [Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md).
 
 In addition to collecting alerts from these components and other services, Microsoft Defender XDR generates alerts of its own. It creates incidents from all of these alerts and sends them to Microsoft Sentinel.
 
@@ -40,9 +46,9 @@ In addition to collecting alerts from these components and other services, Micro
 
 ## Connecting to Microsoft Defender XDR <a name="microsoft-defender-xdr-incidents-and-microsoft-incident-creation-rules"></a>
 
-(*"Microsoft Defender XDR incidents and Microsoft incident creation rules"* redirects here.)
+Install the Microsoft Defender XDR solution for Microsoft Sentinel and enable the Microsoft Defender XDR data connector to collect incidents and alerts. For more information, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md). 
 
-Install the Microsoft Defender XDR solution for Microsoft Sentinel and enable the Microsoft Defender XDR data connector to [collect incidents and alerts](connect-microsoft-365-defender.md). Microsoft Defender XDR incidents appear in the Microsoft Sentinel incidents queue, with **Microsoft Defender XDR** (or one of the component services' names) in the **Alert product name** field, shortly after they are generated in Microsoft Defender XDR.
+Microsoft Defender XDR incidents appear in the Microsoft Sentinel incidents queue, with **Microsoft Defender XDR** (or one of the component services' names) in the **Alert product name** field, shortly after they are generated in Microsoft Defender XDR.
 
 - It can take up to 10 minutes from the time an incident is generated in Microsoft Defender XDR to the time it appears in Microsoft Sentinel.
 
@@ -73,7 +79,7 @@ In Microsoft Defender XDR, all alerts from one incident can be transferred to an
 
 ## Advanced hunting event collection
 
-The Microsoft Defender XDR connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft Defender XDR and its component services into Microsoft Sentinel. You can now *(as of April 2022)* collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from *all* Microsoft Defender XDR components, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Microsoft Defender Portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
+The Microsoft Defender XDR connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft Defender XDR and its component services into Microsoft Sentinel. Collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from all Microsoft Defender XDR components, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Microsoft Defender Portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
 
 - Easily copy your existing Microsoft Defender for Endpoint/Office 365/Identity/Cloud Apps advanced hunting queries into Microsoft Sentinel.
 
