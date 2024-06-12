@@ -107,7 +107,7 @@ For any questions on Azure Hybrid Benefits, contact your Microsoft Account Execu
 
 On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform.
 For NC2 on Azure, Microsoft maintains the hardware for the customer.
-For more information, see [Nc2 on Azure responsibility matrix](nc2-on-azure-responsibility-matrix.md).
+For more information, see [NC2 on Azure responsibility matrix](nc2-on-azure-responsibility-matrix.md).
 
 ## Support
 
