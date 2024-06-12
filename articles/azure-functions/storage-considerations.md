@@ -38,7 +38,7 @@ Storage accounts created as part of the function app create flow in the Azure po
 
 + The account type must support Blob, Queue, and Table storage. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage. To learn more about storage account types, see [Storage account overview](../storage/common/storage-account-overview.md).
 
-+ You can't use a storage account already secured by using a firewall or a virtual private network when you create your function app in the Azure portal. However, the portal doesn't currently filter out these secured storage accounts. To learn how to use a secured storage account with your function app, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
++ You can use a storage account already secured by using a firewall or a virtual private network when you create your function app in the Azure portal. see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
 + You can't use secured storage accounts with function apps hosted in the [Consumption plan](consumption-plan.md). 
 
