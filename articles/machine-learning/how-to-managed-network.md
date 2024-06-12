@@ -349,11 +349,11 @@ To configure a managed VNet that allows internet outbound communications, use th
     [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
-    1. Select __Networking__, then select __Private with Internet Outbound__.
+    1. Select __Networking__, __Workspace managed outbound access__, and then __Allow Internet Outbound__.
     
         :::image type="content" source="./media/how-to-managed-network/update-managed-network-internet-outbound.png" alt-text="Screenshot of updating a workspace to managed VNet with internet outbound." lightbox="./media/how-to-managed-network/update-managed-network-internet-outbound.png":::
 
-        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__ from the __Networking__ tab. From the __Workspace outbound rules__ sidebar, provide the same information as used when creating a workspace in the 'Create a new workspace' section.
+        * To _add_ an _outbound rule_, select __Add user-defined outbound rules__. From the __Workspace outbound rules__ sidebar, provide the same information as used when creating a workspace in the 'Create a new workspace' section.
 
             :::image type="content" source="./media/how-to-managed-network/outbound-rule-private-endpoint.png" alt-text="Screenshot of updating a managed VNet by adding a private endpoint." lightbox="./media/how-to-managed-network/outbound-rule-private-endpoint.png":::
 
@@ -671,7 +671,7 @@ To configure a managed VNet that allows only approved outbound communications, u
     [!INCLUDE [managed-vnet-update](~/reusable-content/ce-skilling/azure/includes/machine-learning/includes/managed-vnet-update.md)]
 
     1. Sign in to the [Azure portal](https://portal.azure.com), and select the Azure Machine Learning workspace that you want to enable managed VNet isolation for.
-    1. Select __Networking__, then select __Private with Approved Outbound__.
+    1. Select __Networking__, __Workspace managed outbound access__, and then select __Private with Approved Outbound__.
     
         :::image type="content" source="./media/how-to-managed-network/update-managed-network-approved-outbound.png" alt-text="Screenshot of updating a workspace to managed VNet with approved outbound." lightbox="./media/how-to-managed-network/update-managed-network-approved-outbound.png":::
 

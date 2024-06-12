@@ -53,6 +53,9 @@ Your organization can opt to disable local authentication and enforce Microsoft 
 
 * **Designating role assignments**. Document Intelligence Studio basic access requires the [`Cognitive Services User`](../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user) role. For more information, *see* [Document Intelligence role assignments](quickstarts/try-document-intelligence-studio.md#azure-role-assignments) and [Document Intelligence Studio Permission](faq.yml#what-permissions-do-i-need-to-access-document-intelligence-studio-).
 
+> [!IMPORTANT]
+> Make sure you have the Cognitive Services User role, and not the Cognitive Services Contributor role when setting up Entra authentication. In Azure concept, Contributor role can only perform actions to control and manage the resource itself, including listing the access keys. Any user accounts with "Contributor" role that is able to access the Document Intelligence service is calling with access keys. However, when setting up access with Entra ID, key-access will be disabled and Cognitive Service User role will be required for an account to use the resources.
+
 ## Authentication
 
 Navigate to the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/). If it's your first time logging in, a popup window appears prompting you to configure your service resource. In accordance with your organization's policy, you have one or two options:
