@@ -8,20 +8,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/03/2024
+ms.date: 06/10/2024
 
 ---
 
 # Enable or disable role-based access control in Azure AI Search
 
-Azure AI Search supports authentication and authorization through role assignments and Microsoft Entra ID, which is built into all Azure tenants.
+If you want to use Azure role-based access control for connections into Azure AI Search, this article explains how to enable it for your search service.
 
-Roles for service administration (control plane) are built in and can't be disabled. Roles for data plane operations are optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. However, if you want to use role-based authentication for data plane operations, you must enable role-based access on your service.
+Role-based access for data plane operations is optional, but recommended. The alternative is [key-based authentication](search-security-api-keys.md), which is the default. 
 
-In this article, learn how to configure your search service to recognize an **authorization** header on data plane requests that provide an OAuth2 access token.
+Roles for service administration (control plane) are built in and can't be enabled or disabled. 
 
 > [!NOTE]
-> *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries.
+> *Data plane* refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent Azure SDK client libraries.
 
 ## Prerequisites
 
@@ -31,9 +31,11 @@ In this article, learn how to configure your search service to recognize an **au
 
 ## Enable role-based access for data plane operations
 
-When you enable roles, the change is effective immediately, but wait a few seconds before assigning roles.
+When you enable roles for the data plane, the change is effective immediately, but wait a few seconds before assigning roles.
 
-The default failure mode is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`.
+The default failure mode is `http401WithBearerChallenge`. Alternatively, you can set the failure mode to `http403`. 
+
+Once role-based access is enabled, the search service recognizes an **authorization** header on data plane requests that provide an OAuth2 access token.
 
 ### [**Azure portal**](#tab/config-svc-portal)
 

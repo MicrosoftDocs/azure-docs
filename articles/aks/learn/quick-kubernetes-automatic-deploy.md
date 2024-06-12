@@ -2,12 +2,11 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) Automatic cluster (preview)'
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) Automatic (preview).
 ms.topic: quickstart
-ms.custom: build-2024
+ms.custom: build-2024, devx-track-azurecli, devx-track-bicep
 ms.date: 05/21/2024
 author: sabbour
 ms.author: asabbour
 zone_pivot_groups: bicep-azure-cli-portal
-
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) Automatic cluster (preview)
@@ -45,7 +44,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 ### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
