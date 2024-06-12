@@ -39,7 +39,7 @@ This article is intended to help you quickly get to deployment. Before going to 
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional) section of [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/create-cluster?WT.mc_id=Portal-fx). To get the pull secret for use, follow the steps in this section.
+The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](create-cluster.md#get-a-red-hat-pull-secret-optional) section of [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md). To get the pull secret for use, follow the steps in this section.
 
 Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You might need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
