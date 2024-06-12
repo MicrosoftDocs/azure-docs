@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.date: 10/19/2023
 ms.topic: how-to
 ms.custom: references_regions, security, build-2023

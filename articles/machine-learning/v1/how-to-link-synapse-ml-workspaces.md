@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.reviewer: franksolomon
 ms.date: 02/22/2024
 ms.custom: UpdateFrequency5, devx-track-python, data4ml, synapse-azureml, sdkv1
