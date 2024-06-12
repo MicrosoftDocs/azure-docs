@@ -158,7 +158,7 @@
     href: security-extensions.md
   - name: Machine configuration and remote access
     href: security-machine-configuration.md
-  - name: Identify and authorization
+  - name: Identity and authorization
     href: security-identity-authorization.md
   - name: Data and privacy
     href: security-data-privacy.md

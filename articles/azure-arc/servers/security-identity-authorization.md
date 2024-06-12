@@ -1,11 +1,11 @@
 ---
-title: Identify and authorization
-description: Identify and authorization for Azure Arc-enabled servers.
+title: Identity and authorization
+description: Identity and authorization for Azure Arc-enabled servers.
 ms.topic: conceptual
 ms.date: 06/06/2024
 ---
 
-# Identify and authorization
+# Identity and authorization
 
 This article describes the Microsoft Entra ID managed identity for Azure Arc-enabled servers, which is used for authentication when communicating with Azure and details two built-in RBAC roles.
 
