@@ -17,8 +17,7 @@ services: iot-edge
 > [!IMPORTANT]
 > Starting August 28th 2024, Azure Marketplace is updating the distribution model for IoT Edge modules. Partners (module publishers) will begin [hosting their IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&filters=partners&page=1) on publisher-owned container registries. IoT Edge module images won't be available for download from the Azure Marketplace container registry.
 >
-> Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge](how-to-update-iot-edge.md) device configurations with the new image URI provided by the publisher.
->
+> Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI and [update your IoT Edge device configurations](how-to-update-iot-edge.md#update-partner-module-uris) with the new image URI provided by the publisher.
 >
 > IoT Edge devices that don't use [partner modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1&subcategories=iot-edge-modules) acquired from Azure Marketplace aren't affected and no action is required.
 
@@ -28,7 +27,7 @@ This article shows how the Azure portal guides you through creating a deployment
 
 ## Prerequisites
 
-* An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+* An [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
 * An IoT Edge device.
 
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
@@ -46,7 +45,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 ### Select device and add modules
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
 1. On the left pane, select **Devices** under the **Device management** menu.
 1. Select the target IoT Edge device from the list.
 1. On the upper bar, select **Set Modules**.
@@ -89,11 +88,11 @@ Use this option for modules generated from an Azure Stream Analytics workload.
 1. Select your subscription and the Azure Stream Analytics Edge job that you created.
 1. Select **Save**.
 
-For more information about deploying Azure Stream Analytics an an IoT Edge module, see [Tutorial: Deploy Azure Stream Analytics as an IoT Edge module](tutorial-deploy-stream-analytics.md).
+For more information about deploying Azure Stream Analytics in an IoT Edge module, see [Tutorial: Deploy Azure Stream Analytics as an IoT Edge module](tutorial-deploy-stream-analytics.md).
 
 ### Specify routes
 
-On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default, the first deployment for a new device includes a route called **route** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default, the first deployment for a new device includes a route called **route** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT Hub.  
 
 The **Priority** and **Time to live** parameters are optional parameters that you can include in a route definition. The priority parameter allows you to choose which routes should have their messages processed first, or which routes should be processed last. Priority is determined by setting a number 0-9, where 0 is top priority. The time to live parameter allows you to declare how long messages in that route should be held until they're either processed or removed from the queue.
 

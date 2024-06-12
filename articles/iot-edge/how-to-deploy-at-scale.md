@@ -71,8 +71,6 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. Choose one of the types of modules from the drop-down menu:
 
    * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name).
-
-You can deploy an IoT Edge module from the Azure Marketplace and from your IoT Hub.
    * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
 1. If needed, repeat steps 2 and 3 to add additional modules to your deployment.
