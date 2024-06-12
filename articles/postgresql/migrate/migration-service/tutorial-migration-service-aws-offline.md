@@ -8,7 +8,6 @@ ms.date: 06/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
-zone_pivot_groups: azure-database-postgresql-portal-cli
 ms.custom: devx-track-azurecli
 # customer intent: As a developer, I want to learn how to migrate from AWS RDS to Azure Database for PostgreSQL using the migration service, so that I can simplify the transition and ensure data integrity.
 ---
@@ -35,13 +34,13 @@ To complete the migration, you need the following prerequisites:
 
 You need additional prerequisites if you use the Azure CLI to migrate.
 
-#### [Portal](#tab/portal)
-
-No further prerequisites are necessary if you're migrating with the Azure portal.
-
 #### [CLI](#tab/cli)
 
 [!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](includes/prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
+
+#### [Portal](#tab/portal)
+
+No further prerequisites are necessary if you're migrating with the Azure portal.
 
 ---
 

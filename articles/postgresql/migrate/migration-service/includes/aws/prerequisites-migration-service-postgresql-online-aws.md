@@ -13,12 +13,12 @@ Before starting the migration with the Azure Database for PostgreSQL migration s
 
 - [Verify the source version](#verify-the-source-version)
 - [Install test_decoding - Source Setup](#install-test_decoding---source-setup)
-- [Target setup](#target-setup)
+- [Configure target setup](#configure-target-setup)
 - [Enable CDC as a source](#enable-cdc-as-a-source)
-- [Network setup](#network-setup)
-- [Extensions](#extensions)
-- [Users and roles](#users-and-roles)
-- [Server parameters](#server-parameters)
+- [Configure network setup](#configure-network-setup)
+- [Enable extensions](#enable-extensions)
+- [Check server parameters](#check-server-parameters)
+- [Check users and roles](#check-users-and-roles)
 
 ### Verify the source version
 

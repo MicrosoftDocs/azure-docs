@@ -12,11 +12,11 @@ ms.topic: include
 Before starting the migration with the Azure Database for PostgreSQL migration service, it is important to fulfill the following prerequisites, specifically designed for offline migration scenarios.
 
 - [Verify the source version](#verify-the-source-version)
-- [Target setup](#target-setup)
-- [Network setup](#network-setup)
-- [Extensions](#extensions)
-- [Users and roles](#users-and-roles)
-- [Server parameters](#server-parameters)
+- [Configure target setup](#configure-target-setup)
+- [Configure network setup](#configure-network-setup)
+- [Enable extensions](#enable-extensions)
+- [Check server parameters](#check-server-parameters)
+- [Check users and roles](#check-users-and-roles)
 - [Disable high availability (reliability) and read replicas in the target](#disable-high-availability-reliability-and-read-replicas-in-the-target)
 
 ### Verify the source version

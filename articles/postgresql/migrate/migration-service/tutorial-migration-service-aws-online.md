@@ -34,13 +34,13 @@ To complete the migration, you need the following prerequisites:
 
 You need additional prerequisites if you use the Azure CLI to migrate.
 
-#### [Portal](#tab/portal)
-
-No further prerequisites are necessary if you're migrating with the Azure portal.
-
 #### [CLI](#tab/cli)
 
 [!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](includes/prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
+
+#### [Portal](#tab/portal)
+
+No further prerequisites are necessary if you're migrating with the Azure portal.
 
 ---
 
