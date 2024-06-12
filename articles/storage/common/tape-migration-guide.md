@@ -97,7 +97,7 @@ The main criterion for deciding the format is the way we plan to use the data. I
 ## Migration process
 
 Once we made decisions on migration execution, and preferred data format, we can start with the migration. Migration goes through several phases.
-![Picture showing tape migration phases.](./media/tape-migration-guide/tape-migration-steps.png)
+![Diagram showing tape migration phases.](./media/tape-migration-guide/tape-migration-steps.png)
 
 ### Information phase
 
