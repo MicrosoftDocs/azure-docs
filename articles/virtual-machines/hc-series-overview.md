@@ -51,11 +51,12 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
 | Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
-| OS Support for SRIOV RDMA   | RHEL 8.0+, Ubuntu 20.04+, SLES 15.4, WinServer 2016+  |
+| OS Support for SRIOV RDMA   | RHEL 7.6+, Ubuntu 20.04+, SLES 15.4, WinServer 2016+  |
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
 
 > [!IMPORTANT]
-> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
+> * This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
+> * There is no official kernel level support from AMD on CentOS, the support starts at RHEL.
 
 ## Next steps
 
