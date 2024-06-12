@@ -25,13 +25,13 @@ The source PostgreSQL server version must be 9.5 or later.
 
 If the source PostgreSQL version is less than 9.5, upgrade it to 9.5 or higher before you start the migration.
 
-### Target setup
+### Configure target setup
 
 Before you begin the migration, you must set up an [Azure Database for PostgreSQL](/azure/postgresql/flexible-server/) in Azure.
 
 The SKU chosen for the Azure Database for PostgreSQL should correspond with the specifications of the source database to ensure compatibility and adequate performance.
 
-### Network setup
+### Configure network setup
 
 Proper networking setup is essential to ensure successful migration connectivity between the source and target. Here's a guide to help you establish the network connection for different scenarios:
 
@@ -62,7 +62,7 @@ pg_hba.conf Configuration: To facilitate connectivity between the source and tar
 
 For more information about network setup, visit [Network guide for migration service](../../how-to-network-setup-migration-service.md).
 
-### Extensions
+### Enable extensions
 
 Extensions are extra features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL but must be enabled manually. To enable extensions, follow these steps:
 
@@ -86,7 +86,15 @@ Search for the Azure.extensions server parameter on the Server parameter page on
 
 If yes, search the server parameters page for the shared_preload_libraries parameter. This parameter indicates the set of extension libraries that are preloaded when the server restarts.
 
-### Users and roles
+### Check server parameters
+
+These parameters aren't automatically migrated to the target environment and must be manually configured.
+
+- Match server parameter values from the source PostgreSQL database to the Azure Database for PostgreSQL by accessing the "Server parameters" section in the Azure portal and manually updating the values accordingly.
+
+- Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
+
+### Check users and roles
 
 When migrating to Azure Database for PostgreSQL, it's essential to address the migration of users and roles separately, as they require manual intervention:
 
@@ -99,14 +107,6 @@ When migrating to Azure Database for PostgreSQL, it's essential to address the m
 - **Restriction on Superuser Roles**: Azure Database for PostgreSQL doesn't support superuser roles. Therefore, users with superuser privileges must have those privileges removed before migration. Ensure that you adjust the permissions and roles accordingly.
 
 By following these steps, you can ensure that user accounts and roles are correctly migrated to the Azure Database for PostgreSQL without encountering issues related to superuser restrictions.
-
-### Server parameters
-
-These parameters aren't automatically migrated to the target environment and must be manually configured.
-
-- Match server parameter values from the source PostgreSQL database to the Azure Database for PostgreSQL by accessing the "Server parameters" section in the Azure portal and manually updating the values accordingly.
-
-- Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
 
 ### Disable high availability (reliability) and read replicas in the target
 
