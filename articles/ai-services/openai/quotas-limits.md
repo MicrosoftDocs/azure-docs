@@ -101,7 +101,7 @@ If your Azure subscription is linked to certain [offer types](https://azure.micr
 |Azure for Students, Free Trials | 1 K (all models)|
 | Monthly credit card based accounts <sup>1</sup> | GPT 3.5 Turbo Series: 30 K <br> GPT-4 series: 8 K  <br> |
 
-<sup>1</sup>This currently applies to [offer type 0003P](https://azure.microsoft.com/support/legal/offer-details/)
+<sup>1</sup> This currently applies to [offer type 0003P](https://azure.microsoft.com/support/legal/offer-details/)
 
 In the Azure portal you can view what offer type is associated with your subscription by navigating to your subscription and checking the subscriptions overview pane. Offer type corresponds to the plan field in the subscription overview.
 
