@@ -146,7 +146,7 @@ For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installa
  
 You can follow these steps for both supported scenarios. 
  
-1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/installation.html).  
+1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://openjournalsystems.com/ojs-2-user-guide/installation/).  
 
 1. In your Azure VMware Solution private cloud, install JetStream DR using a Run command. From the [Azure portal](https://portal.azure.com),select **Run command** > **Packages** > **JSDR.Configuration**.  
     
