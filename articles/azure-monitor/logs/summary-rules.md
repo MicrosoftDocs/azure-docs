@@ -83,6 +83,7 @@ Instead of logging hundreds of similar entries within an hour, the destination t
 | Maximum results set volume | 100 MB |
 | Query time-out for bin processing | 10 minutes |
 
+- Summary rules are currently only available in the public cloud. 
 - The summary rule processes incoming data and can't be configured on a historical time range. 
 - When bin execution retries are exhausted, the bin is skipped and can't be re-executed.
 - Querying a Log Analytics workspace in another tenant by using Lighthouse isn't supported.
@@ -104,7 +105,7 @@ The cost you incur for summary rules consists of the cost of the query on the so
 | Analytics | No cost    | Analytics ingested GB | 
 | Basic     | Scanned GB | Analytics ingested GB | 
 
-For example, this is the cost calculation for an hourly rule that returns 100 records per bin:
+For example, the cost calculation for an hourly rule that returns 100 records per bin is:
 
 | Source table plan | Monthly price calculation
 | --- | --- |
