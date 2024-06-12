@@ -41,6 +41,17 @@ az arcappliance get-credentials -n <Arc resource bridge name> -g <resource group
 az arcappliance logs vmware --kubeconfig kubeconfig --out-dir <path to specified output directory>
    ```
 
+### Download/upload connectivity was not successful
+If your network speed is slow you may be unable to successfully download the Arc resource bridge VM image and this error may occur: `ErrorCode: ValidateKvaError, Error: Pre-deployment validation of your download/upload connectivity was not successful. Timeout error occurred during download and preparation of appliance image to the on-premises fabric storage. Common causes of this timeout error are slow network download/upload speeds, a proxy limiting the network speed or slow storage performance.`
+
+If the error is due to slow network speed impacting upload, a workaround is to create a VM directly on the on-premises private cloud and then run the Arc resource bridge deployment script from that VM. This workaround ensures a faster upload of the image to the datastore.
+
+
+### Context timed out during phase `WaitingForAPIServer`
+You may receive the following error while deploying Arc resource bridge: `Deployment of the Arc resource bridge appliance VM timed out. Please collect logs with _az arcappliance logs_ and create a support ticket for help. To troubleshoot the error, refer to aka.ms/arc-rb-error   { _errorCode_: _ContextError_, _errorResponse_: _{\n\_message\_: \_Context timed out during phase _WaitingForAPIServer_\_\n}_ }`
+
+This error typically occurs when trying to download a large Arc resource bridge image (~3 GB) over a network that is slow or experiencing intermittent connectivity problems. The download of the image is unable to complete which impacts the availability of the API server, leaving the deployment process in a waiting state for the API server. The deployment process times out while waiting for the API server. 
+
 ### Arc resource bridge is offline
 
 If the resource bridge is offline, this is typically due to a networking change in the infrastructure, environment or cluster that stops the appliance VM from being able to  communicate with its counterpart Azure resource. If you're unable to determine what changed, you can reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
