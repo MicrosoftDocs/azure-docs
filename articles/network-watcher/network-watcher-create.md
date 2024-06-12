@@ -196,7 +196,7 @@ az provider register --name 'Microsoft.Network'
 
 ## List Network Watcher instances
 
-You can view all regions where Network Watcher is enabled in your subscription by listing available Network Watcher instances in your subscription. Use the [Azure portal](?tabs=portal#list-network-watcher-instances), [PowerShell](?tabs=powershell#list-network-watcher-instances), the [Azure CLI](?tabs=cli#list-network-watcher-instances) or [REST API](/rest/api/network-watcher/network-watchers/list-all) to list Network Watcher instances in your subscription.
+You can view all regions where Network Watcher is enabled in your subscription by listing available Network Watcher instances in your subscription. Use the [Azure portal](?tabs=portal#list-network-watcher-instances), [PowerShell](?tabs=powershell#list-network-watcher-instances), the [Azure CLI](?tabs=cli#list-network-watcher-instances), or [REST API](/rest/api/network-watcher/network-watchers/list-all) to list Network Watcher instances in your subscription.
 
 # [**Portal**](#tab/portal)
 
