@@ -82,7 +82,9 @@ To search with history, use these interactions:```
 * _count : defines the number of resources returned on single page.
 * _since : includes resource versions created at or after the given instant in time.
 * _before : includes resource versions that were created before the given instant in time.
-  
+
+For more information on history and version management, please visit [FHIR versioning policy and history management](fhir-versioning-policy-and-history-management.md).
+
 ## Patch and conditional patch
 
 Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using patch allows you to specify the element that you want to update in the resource without having to update the entire record. FHIR defines three ways to patch resources: JSON Patch, XML Patch, and FHIRPath Patch. The FHIR service supports JSON Patch and FHIRPath Patch, along with Conditional JSON Patch and Conditional FHIRPath Patch (which allows you to patch a resource based on a search criteria instead of a resource ID). For some examples, refer to the [FHIRPath Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/FhirPatchRequests.http) and the [JSON Patch REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/JsonPatchRequests.http). For more information, see [HL7 documentation for patch operations with FHIR](https://www.hl7.org/fhir/http.html#patch).
