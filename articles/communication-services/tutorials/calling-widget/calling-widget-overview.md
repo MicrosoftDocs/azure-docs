@@ -33,7 +33,7 @@ If you want to try out the experience without following either of the tutorials,
 A complete start to finish tutorial built using [React](https://react.dev/) that teaches you to create a Calling widget using [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/) and the UI Library.
 - [Get started with Azure Communication Services UI library calling to Teams Call Queue and Auto Attendant](./calling-widget-tutorial.md)
 
-![Home page of Calling Widget sample app](../media/calling-widget/sample-app-splash-widget-open.png)
+![Screenshot of Calling Widget sample app home page](../media/calling-widget/sample-app-splash-widget-open.png)
 
 #### Build it - Crossplatform: JavaScript
 

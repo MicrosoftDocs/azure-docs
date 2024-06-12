@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Communication Services UI library JavaScript bundles calling to Teams Call Queue and Auto Attendant
+title: Using ACS UI library JavaScript bundles with Teams Call Queues and Auto Attendants
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a Calling experience with the Azure Communication Services CallComposite JavaScript bundle to facilitate calling a Teams Call Queue or Auto Attendant.
 author: dmceachern
@@ -156,7 +156,9 @@ Next you want to open `index.html` in VS Code and add the following snippet.
   </script>
 </body>
 ```
-It's important here to note that this file `index.html` and the JavaScript bundle `outboundCallComposite.js` **need** to be in the same folder if you wish to not edit any of the importing in this file.
+
+[!IMPORTANT]
+It's important here to note that this file `index.html` and the JavaScript bundle `outboundCallComposite.js` need to be in the same folder if you wish to not edit any of the importing in this file.
 
 #### 3. Setting up Azure Communication Services and your Teams Voice Application
 
@@ -192,9 +194,12 @@ Open a terminal or  command prompt window in that directory and run the followin
 ```bash
 npx http-server@latest -p 3000
 ```
-This script using Node starts an HTTP server and hosts the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button, and when you click it you should see the following screen. **Note**, if you try to go to the page not using local host, your calling experience won't work due to security reasons.
+This script using Node starts an HTTP server and hosts the `index.html` file and JavaScript bundle. In a browser open http://localhost:3000. You should see a white page with a button, and when you click it you should see the following screen.
 
-![Home page of js bundle sample app](../media/calling-widget/js-bundle-splash.png)
+[!IMPORTANT]
+Note, if you try to go to the page not using local host, your calling experience won't work due to security reasons.
+
+![Screenshot of js bundle sample app homescreen](../media/calling-widget/js-bundle-splash.png)
 
 Click the `start call` button seen in the [UI Library `CallComposite`](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-basicexample--basic-example) to initiate a call to your Teams voice app.
 
