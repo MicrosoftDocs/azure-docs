@@ -26,7 +26,7 @@ The following steps need to be completed for both local development and producti
 
 ### Create an AI Search resource
 
-Before continuing with this article, you need an Azure AI Search resource to work with. If you do't have a resource, [create your resource](search-create-service-portal.md) now.
+Before continuing with this article, you need an Azure AI Search resource to work with. If you don't have a resource, [create your resource](search-create-service-portal.md) now.
 
 ### Install Azure Identity client library
 
@@ -207,9 +207,9 @@ search_index_client = SearchIndexClient(
 
 Local development without passwords includes these steps:
 
-- Add RBAC roles on the resource for your personal identity
-- Sign in to Azure with a tool
-- Create environment variables for your resource
+- Assign your personal identity with RBAC roles on the specific resource.
+- Use a tool to authenticate with Azure.
+- Establish environment variables for your resource.
 
 ### Roles for local development
 
@@ -260,7 +260,7 @@ az role assignment create \
 
 ### Authentication for local development
 
-Use a tool in your local development environment to authentication to Azure identity. Once you are authenticated, the AzureDefaultCredential in your source code finds and uses the authentication.  
+Use a tool in your local development environment to authentication to Azure identity. Once you're authenticated, the AzureDefaultCredential in your source code finds and uses the authentication.  
 
 #### [.NET](#tab/csharp)
 
@@ -292,9 +292,9 @@ Create an environment variable for your Azure AI Search endpoint. This URL gener
 
 Deploy production workloads includes these steps:
 
-- Select RBAC roles to follow least priviledge
-- Add RBAC roles on the resource for your production identity 
-- Create environment variables for your resource
+- Choose RBAC roles that adhere to the principle of least privilege.
+- Assign RBAC roles to your production identity on the specific resource.
+- Set up environment variables for your resource.
 
 ### Roles for production workloads
 
