@@ -15,6 +15,9 @@ This article shows you how to deploy external or internal ingresses for Istio se
 > [!NOTE]
 > When performing a [minor revision upgrade](./istio-upgrade.md#minor-revision-upgrades-with-the-ingress-gateway) of the Istio add-on, another deployment for the external / internal gateways will be created for the new control plane revision.
 
+> [!NOTE]
+> For information on how to scale the Istio add-on ingress gateway replica count, see the [appropriate section in our scaling and performance guide][istio-scaling-guide].
+
 ## Prerequisites
 
 This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster, deploy a sample application and set environment variables.
@@ -242,4 +245,4 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 
 [istio-deploy-addon]: istio-deploy-addon.md
 [istio-secure-gateway]: istio-secure-gateway.md
-
+[istio-scaling-guide]: istio-scale.md#scaling

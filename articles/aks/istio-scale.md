@@ -1,6 +1,6 @@
 ---
-title: Istio service mesh AKS add-on performance
-description: Istio service mesh AKS add-on performance
+title: Istio service mesh AKS add-on performance and scaling
+description: Istio service mesh AKS add-on performance and scaling
 ms.topic: article
 ms.custom:
 ms.service: azure-kubernetes-service
@@ -8,8 +8,8 @@ ms.date: 03/19/2024
 ms.author: shalierxia
 ---
 
-# Istio service mesh add-on performance
-The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This article presents the performance of both the control and data plane for revision asm-1-19, including resource consumption, sidecar capacity, and latency overhead. Additionally, it provides suggestions for addressing potential strain on resources during periods of heavy load. 
+# Istio service mesh add-on performance and scaling
+The Istio-based service mesh add-on is logically split into a control plane (`istiod`) and a data plane. The data plane is composed of Envoy sidecar proxies inside workload pods. Istiod manages and configures these Envoy proxies. This article presents the performance of both the control and data plane for revision asm-1-19, including resource consumption, sidecar capacity, and latency overhead. Additionally, it provides suggestions for addressing potential strain on resources during periods of heavy load, as well as how to customize scaling for the control plane and gateways. 
 
 ## Control plane performance
 [Istiod’s CPU and memory requirements][control-plane-performance] correlate with the rate of deployment and configuration changes and the number of proxies connected. The scenarios tested were:
@@ -95,13 +95,32 @@ The following evaluates the impact of adding sidecar proxies to the data path, s
 [ ![Diagram that compares P99 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure-p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure-p99.png#lightbox) |  [ ![Diagram that compares P99 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p99.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p99.png#lightbox)
 [ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png#lightbox)
 
+## Scaling 
+The Istio add-on uses [horizontal pod autoscaling][hpa] to scale the `istiod` and ingress gateway pods. The default configuration for both are autoscale `minReplicas` and `maxReplicas` of `2` and `5` replicas, respectively, with a target average CPU utilization of 80 percent. The add-on supports configuration of the following hpa resources for `istiod` and the ingress gateways through patches and direct edits:
+
+```console
+NAMESPACE           NAME                                         REFERENCE
+aks-istio-ingress   aks-istio-ingressgateway-external-asm-1-19   Deployment/aks-istio-ingressgateway-external-asm-1-19
+
+aks-istio-ingress   aks-istio-ingressgateway-internal-asm-1-19   Deployment/aks-istio-ingressgateway-internal-asm-1-19
+
+aks-istio-system    istiod-asm-1-19                              Deployment/istiod-asm-1-19
+```
+
+Example:
+
+```bash
+kubectl patch hpa aks-istio-ingressgateway-external-asm-1-19 -n aks-istio-ingress --type merge --patch '{"spec": {"minReplicas": 3, "maxReplicas": 6}}'
+```
+> [!NOTE]
+> To prevent conflicts with the `PodDisruptionBudget`, the add-on does not allow setting the `minReplicas` below `2`, and will revert such changes back to the original default `minReplicas` count of `2`. 
+
 ## Service entry
 Istio's ServiceEntry custom resource definition enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
 
 - Switch to `resolution: NONE` to avoid proxy DNS lookups entirely. Suitable for most use cases.
 - Increase TTL (Time To Live) if you control the domains being resolved.
 - Limit the ServiceEntry scope with `exportTo`.
-
 
 [control-plane-performance]: https://istio.io/latest/docs/ops/deployment/performance-and-scalability/#control-plane-performance
 [data-plane-performance]: https://istio.io/latest/docs/ops/deployment/performance-and-scalability/#data-plane-performance
@@ -110,3 +129,4 @@ Istio's ServiceEntry custom resource definition enables adding other services in
 [istio-benchmark]: https://github.com/istio/tools/tree/master/perf/benchmark#istio-performance-benchmarking
 [serviceentry]: https://istio.io/latest/docs/reference/config/networking/service-entry/
 [understanding-dns]: https://preliminary.istio.io/latest/docs/ops/configuration/traffic-management/dns/#proxy-dns-resolution
+[hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/

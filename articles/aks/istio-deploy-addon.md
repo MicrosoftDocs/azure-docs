@@ -98,8 +98,12 @@ Confirm the `istiod` pod has a status of `Running`. For example:
 
 ```
 NAME                               READY   STATUS    RESTARTS   AGE
-istiod-asm-1-18-74f7f7c46c-xfdtl   1/1     Running   0          2m
+istiod-asm-1-18-74f7f7c46c-xfdtl   2/2     Running   0          2m
+istiod-asm-1-18-74f7f7c46c-4nt2v   2/2     Running   0          2m
 ```
+
+> [!NOTE]
+> For information on how to scale the `istiod` replica count, see the [appropriate section in our scaling and performance guide][istio-scaling-guide].
 
 ## Enable sidecar injection
 
@@ -255,4 +259,4 @@ az group delete --name ${RESOURCE_GROUP} --yes --no-wait
 [istio-deploy-ingress]: istio-deploy-ingress.md
 [az-aks-mesh-get-revisions]: /cli/azure/aks/mesh#az-aks-mesh-get-revisions(aks-preview)
 [bicep-aks-resource-definition]: /azure/templates/microsoft.containerservice/managedclusters
-
+[istio-scaling-guide]: istio-scale.md#scaling
