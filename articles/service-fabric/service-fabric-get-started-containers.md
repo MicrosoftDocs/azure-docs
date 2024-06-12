@@ -337,7 +337,7 @@ Open a browser and navigate to `http://containercluster.westus2.cloudapp.azure.c
 
 ## Clean up
 
-You continue to incur charges while the cluster is running, consider [deleting your cluster](./service-fabric-delete-cluster.md).
+You continue to incur charges while the cluster is running, consider [deleting your cluster](./service-fabric-tutorial-delete-cluster.md).
 
 After you push the image to the container registry, you can delete the local image from your development computer:
 

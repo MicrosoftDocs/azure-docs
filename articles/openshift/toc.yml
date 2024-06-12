@@ -22,8 +22,6 @@
       href: connect-cluster.md
     - name: Delete an Azure Red Hat OpenShift cluster
       href: delete-cluster.md
-    - name: Deploy an Azure Red Hat OpenShift cluster with Azure portal 
-      href: quickstart-portal.md
 - name: How-to guides
   items:
     - name: Frequently asked questions

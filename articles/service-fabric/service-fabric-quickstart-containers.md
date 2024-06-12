@@ -147,7 +147,7 @@ Open a browser and navigate to the address that you put into the **Connection En
 
 ## Clean up
 
-You continue to incur charges while the cluster is running. Consider [deleting your cluster](./service-fabric-delete-cluster.md).
+You continue to incur charges while the cluster is running. Consider [deleting your cluster](./service-fabric-tutorial-delete-cluster.md).
 
 ## Next steps
 
