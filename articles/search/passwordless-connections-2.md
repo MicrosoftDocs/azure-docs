@@ -221,29 +221,29 @@ Use the following steps to add these roles for your Azure identity to your resou
 
 Find your personal identity, use one of the following commands. Use the ID as the `<identity-id>` in the next step.
 
-    #### [Azure CLI](#tab/azure-cli)
-    
-    For local development, to get your own identity ID, use the following command. You need to sign in with `az login` before using this command.
-    
-    ```azurecli
-    az ad signed-in-user show \
-        --query id -o tsv
-    ```
-    
-    #### [Azure PowerShell](#tab/azure-powershell)
-    
-    
-    For local development, to get your own identity ID, use the following command. You need to sign in with `Connect-AzAccount` before using this command.
-    
-    ```azurepowershell
-    (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
-    ```
-    
-    #### [Azure portal](#tab/portal)
-    
-    Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
-    
-    ---
+#### [Azure CLI](#tab/azure-cli)
+
+For local development, to get your own identity ID, use the following command. You need to sign in with `az login` before using this command.
+
+```azurecli
+az ad signed-in-user show \
+    --query id -o tsv
+```
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+
+For local development, to get your own identity ID, use the following command. You need to sign in with `Connect-AzAccount` before using this command.
+
+```azurepowershell
+(Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
+```
+
+#### [Azure portal](#tab/portal)
+
+Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
+
+---
 
 1. Assign the role-based access control (RBAC) role to the identity for the resource group.  
 
