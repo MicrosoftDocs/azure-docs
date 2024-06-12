@@ -62,7 +62,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 Provision a virtual network with two separate subnets: one for the cluster and one for the firewall. Optionally, you can create one for internal service ingress.
 
-![Empty network topology](media/limit-egress-traffic/empty-network.png)
+![Empty network topology](~/reusable-content/ce-skilling/azure/media/aks/empty-network.png)
 
 1. Create a resource group using the [`az group create`][az-group-create] command.
 
@@ -100,12 +100,12 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 >
 > For more information on how to create an Azure Firewall with multiple IPs, see [Create an Azure Firewall with multiple public IP addresses using Bicep](../firewall/quick-create-multiple-ip-bicep.md).
 
-![Firewall and UDR](media/limit-egress-traffic/firewall-udr.png)
+![Firewall and UDR](~/reusable-content/ce-skilling/azure/media/aks/firewall-udr.png)
 
 1. Create a standard SKU public IP resource using the [`az network public-ip create`][az-network-public-ip-create] command. This resource will be used as the Azure Firewall frontend address.
 
     ```azurecli-interactive
-    az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
+    az network public-ip create --resource-group $RG -n $FWPUBLICIP_NAME --location $LOC --sku "Standard"
     ```
 
 2. Register the [Azure Firewall CLI extension](https://github.com/Azure/azure-cli-extensions/tree/main/src/azure-firewall) to create an Azure Firewall using the [`az extension add`][az-extension-add] command.
@@ -117,7 +117,7 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 3. Create an Azure Firewall and enable DNS proxy using the [`az network firewall create`][az-network-firewall-create] command and setting the `--enable-dns-proxy` to `true`.
 
     ```azurecli-interactive
-    az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
+    az network firewall create --resource-group $RG --name $FWNAME --location $LOC --enable-dns-proxy true
     ```
 
   Setting up the public IP address to the Azure Firewall may take a few minutes. Once it's ready, the IP address created earlier can be assigned to the firewall front end.
@@ -129,14 +129,14 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
 4. Create an Azure Firewall IP configuration using the [`az network firewall ip-config create`][az-network-firewall-ip-config-create] command.
 
     ```azurecli-interactive
-    az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
+    az network firewall ip-config create --resource-group $RG --firewall-name $FWNAME --name $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
     ```
 
 5. Once the previous command succeeds, save the firewall frontend IP address for configuration later.
 
     ```azurecli-interactive
-    FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
-    FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIPAddress" -o tsv)
+    FWPUBLIC_IP=$(az network public-ip show --resource-group $RG --name $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
+    FWPRIVATE_IP=$(az network firewall show --resource-group $RG --name $FWNAME --query "ipConfigurations[0].privateIPAddress" -o tsv)
     ```
 
   > [!NOTE]
@@ -156,15 +156,15 @@ Azure automatically routes traffic between Azure subnets, virtual networks, and 
 1. Create an empty route table to be associated with a given subnet using the [`az network route-table create`][az-network-route-table-create] command. The route table will define the next hop as the Azure Firewall created above. Each subnet can have zero or one route table associated to it.
 
     ```azurecli-interactive
-    az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
+    az network route-table create --resource-group $RG --location $LOC --name $FWROUTE_TABLE_NAME
     ```
 
 2. Create routes in the route table for the subnets using the [`az network route-table route create`][az-network-route-table-route-create] command.
 
     ```azurecli-interactive
-    az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
+    az network route-table route create --resource-group $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
 
-    az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
+    az network route-table route create --resource-group $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
     ```
 
 For information on how to override Azure's default system routes or add additional routes to a subnet's route table, see the [virtual network route table documentation](../virtual-network/virtual-networks-udr-overview.md#user-defined).
@@ -185,21 +185,21 @@ This section covers three network rules and an application rule you can use to c
 1. Create the network rules using the [`az network firewall network-rule create`][az-network-firewall-network-rule-create] command.
 
     ```azurecli-interactive
-    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
+    az network firewall network-rule create --resource-group $RG --firewall-name $FWNAME --collection-name 'aksfwnr' --name 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 1194 --action allow --priority 100
 
-    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
+    az network firewall network-rule create --resource-group $RG --firewall-name $FWNAME --collection-name 'aksfwnr' --name 'apitcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud.$LOC" --destination-ports 9000
 
-    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
+    az network firewall network-rule create --resource-group $RG --firewall-name $FWNAME --collection-name 'aksfwnr' --name 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
 
-    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'ghcr' --protocols 'TCP' --source-addresses '*' --destination-fqdns ghcr.io pkg-containers.githubusercontent.com --destination-ports '443'
+    az network firewall network-rule create --resource-group $RG --firewall-name $FWNAME --collection-name 'aksfwnr' --name 'ghcr' --protocols 'TCP' --source-addresses '*' --destination-fqdns ghcr.io pkg-containers.githubusercontent.com --destination-ports '443'
 
-    az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'docker' --protocols 'TCP' --source-addresses '*' --destination-fqdns docker.io registry-1.docker.io production.cloudflare.docker.com --destination-ports '443'
+    az network firewall network-rule create --resource-group $RG --firewall-name $FWNAME --collection-name 'aksfwnr' --name 'docker' --protocols 'TCP' --source-addresses '*' --destination-fqdns docker.io registry-1.docker.io production.cloudflare.docker.com --destination-ports '443'
     ```
 
 2. Create the application rule using the [`az network firewall application-rule create`][az-network-firewall-application-rule-create] command.
 
     ```azurecli-interactive
-    az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
+    az network firewall application-rule create --resource-group $RG --firewall-name $FWNAME --collection-name 'aksfwar' --name 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
     ```
 
 To learn more about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md).
@@ -209,19 +209,19 @@ To learn more about Azure Firewall, see the [Azure Firewall documentation](../fi
 To associate the cluster with the firewall, the dedicated subnet for the cluster's subnet must reference the route table created above. Use the [`az network vnet subnet update`][az-network-vnet-subnet-update] command to associate the route table to AKS.
 
 ```azurecli-interactive
-az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
+az network vnet subnet update --resource-group $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
 ```
 
 ## Deploy an AKS cluster that follows your outbound rules
 
 Now, you can deploy an AKS cluster into the existing virtual network. You will use the [`userDefinedRouting` outbound type](egress-outboundtype.md), which ensures that any outbound traffic is forced through the firewall and no other egress paths will exist. The [`loadBalancer` outbound type](egress-outboundtype.md#outbound-type-of-loadbalancer) can also be used.
 
-![aks-deploy](media/limit-egress-traffic/aks-udr-fw.png)
+![aks-deploy](~/reusable-content/ce-skilling/azure/media/aks/aks-udr-fw.png)
 
 The target subnet to be deployed into is defined with the environment variable, `$SUBNETID`. Set the value for the subnet ID using the following command:
 
 ```azurecli-interactive
-SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --query id -o tsv)
+SUBNETID=$(az network vnet subnet show --resource-group $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --query id -o tsv)
 ```
 
 You'll define the outbound type to use the UDR that already exists on the subnet. This configuration will enable AKS to skip the setup and IP provisioning for the load balancer.
@@ -243,12 +243,13 @@ You'll define the outbound type to use the UDR that already exists on the subnet
 Create an AKS cluster using a system-assigned managed identity with the CNI network plugin using the [`az aks create`][az-aks-create] command.
 
 ```azurecli-interactive
-az aks create -g $RG -n $AKSNAME -l $LOC \
-  --node-count 3 \
-  --network-plugin azure \
-  --outbound-type userDefinedRouting \
-  --vnet-subnet-id $SUBNETID \
-  --api-server-authorized-ip-ranges $FWPUBLIC_IP
+az aks create --resource-group $RG --name $AKSNAME --location $LOC \
+    --node-count 3 \
+    --network-plugin azure \
+    --outbound-type userDefinedRouting \
+    --vnet-subnet-id $SUBNETID \
+    --api-server-authorized-ip-ranges $FWPUBLIC_IP \
+    --generate-ssh-keys
 ```
 
 ### [Create an AKS cluster with user-assigned identities](#tab/aks-with-user-assigned-identities)
@@ -304,22 +305,25 @@ If you don't have user-assigned identities, follow the steps in this section. If
     ```
 
   > [!NOTE]
-  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
+  > If you create your own VNet and route table where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you're using an ARM template or other method, you need to use the principal ID of the cluster managed identity to perform a [role assignment][add role to identity].
 
 #### Create an AKS cluster with your existing identities
 
-Create an AKS cluster with your existing identities in the subnet using the [`az aks create`][az-aks-create] command, provide the resource ID of the managed identity for the control plane by including the `assign-kubelet-identity` argument.
+Create an AKS cluster with your existing user-assigned managed identities in the subnet using the [`az aks create`][az-aks-create] command. Provide the resource ID of the managed identity for the control plane and the resource ID of the kubelet identity.
 
 ```azurecli-interactive
-az aks create -g $RG -n $AKSNAME -l $LOC \
-  --node-count 3 \
-  --network-plugin kubenet \
-  --outbound-type userDefinedRouting \
-  --vnet-subnet-id $SUBNETID \
-  --api-server-authorized-ip-ranges $FWPUBLIC_IP
-  --enable-managed-identity \
-  --assign-identity <identity-resource-id> \
-  --assign-kubelet-identity <kubelet-identity-resource-id>
+az aks create \
+    --resource-group $RG \
+    --name $AKSNAME \
+    --location $LOC \
+    --node-count 3 \
+    --network-plugin kubenet \
+    --outbound-type userDefinedRouting \
+    --vnet-subnet-id $SUBNETID \
+    --api-server-authorized-ip-ranges $FWPUBLIC_IP
+    --assign-identity <identity-resource-id> \
+    --assign-kubelet-identity <kubelet-identity-resource-id> \
+    --generate-ssh-keys    
 ```
 
 ---
@@ -337,20 +341,20 @@ If you used authorized IP ranges for your cluster in the previous step, you need
 2. Add the IP address to the approved ranges using the [`az aks update`][az-aks-update] command.
 
     ```azurecli-interactive
-    az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+    az aks update --resource-group $RG --name $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
     ```
 
 3. Configure `kubectl` to connect to your AKS cluster using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
     ```azurecli-interactive
-    az aks get-credentials -g $RG -n $AKSNAME
+    az aks get-credentials --resource-group $RG --name $AKSNAME
     ```
 
 ## Deploy a public service on AKS
 
 You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you also might want to expose an internal service using an [internal load balancer](internal-lb.md).
 
-![Public Service DNAT](media/limit-egress-traffic/aks-create-svc.png)
+![Public Service DNAT](~/reusable-content/ce-skilling/azure/media/aks/aks-create-svc.png)
 
 1. Review the [AKS Store Demo quickstart](https://github.com/Azure-Samples/aks-store-demo/blob/main/aks-store-quickstart.yaml) manifest to see all the resources that will be created.
 
@@ -412,7 +416,7 @@ On this page, you can view products, add them to your cart, and then place an or
 To clean up Azure resources, delete the AKS resource group using the [`az group delete`][az-group-delete] command.
 
 ```azurecli-interactive
-az group delete -g $RG
+az group delete --name $RG
 ```
 
 ## Next steps
@@ -438,8 +442,7 @@ In this article, you learned how to secure your outbound traffic using Azure Fir
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [az-network-firewall-nat-rule-create]: /cli/azure/network/firewall/nat-rule#az-network-firewall-nat-rule-create
 [az-group-delete]: /cli/azure/group#az_group_delete
-[add role to identity]: use-managed-identity.md#add-role-assignment-for-managed-identity
+[add role to identity]: use-managed-identity.md#add-a-role-assignment-for-a-system-assigned-managed-identity
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-

@@ -51,6 +51,8 @@ landingContent:
           - text: Using the REST API or client SDKs
             url: quickstart-image.md?pivots=programming-language-rest
 
+
+
   - title: Text moderation
     linkLists:
       - linkListType: concept

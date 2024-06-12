@@ -1,10 +1,10 @@
 ---
-title: Configure a point-to-site (P2S) VPN on Windows for use with Azure Files
-description: How to configure a point-to-site (P2S) VPN on Windows for use with SMB Azure file shares
+title: Configure a point-to-site VPN on Windows for Azure Files
+description: How to configure a point-to-site (P2S) VPN on Windows for use with SMB Azure file shares to mount your Azure file shares over SMB from outside of Azure without opening up port 445.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -376,7 +376,7 @@ You'll configure the VPN connection using the [Always On VPN](/windows-server/re
 
 To install the client certificate required for authentication against the virtual network gateway, follow these steps on the client computer.
 
-[!INCLUDE [Install on Windows](../../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## Install the VPN client
 

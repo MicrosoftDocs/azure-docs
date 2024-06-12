@@ -87,6 +87,9 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-new-linked-service.png" alt-text="Screenshot that shows how to enter the server and database details to create a new linked service.":::
 
+   > [!NOTE]
+   > Only the Linked Service in Legacy version is supported.
+
 1. Select **Test connection** to ensure that the firewall rules are properly configured and the workspace can successfully connect to the source Azure SQL database.
 
 1. Select **Create**.

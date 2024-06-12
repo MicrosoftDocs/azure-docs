@@ -19,7 +19,7 @@ You can configure a Site-to-Site VPN to a virtual network gateway over an Expres
 
 * It's possible to deploy Site-to-Site VPN connections over ExpressRoute private peering at the same time as Site-to-Site VPN connections via the Internet on the same VPN gateway.
 
-This feature is available for all VPN SKUs except for Basic SKU. 
+This feature is only available for standard-IP based gateways.
 
 ## Prerequisites
 

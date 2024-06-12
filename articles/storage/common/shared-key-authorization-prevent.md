@@ -10,7 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 04/16/2024
 ms.reviewer: nachakra
-ms.custom: devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -318,16 +318,6 @@ az storage account show \
 ```
 
 The command returns **false** if Shared Key authorization is disallowed for the storage account.
-
-You can further verify by attempting to call a data operation with the account access key. The following example attempts to create a container using the access key. This call will fail when Shared Key authorization is disallowed for the storage account. Replace the placeholder values in brackets with your own values:
-
-```azurecli-interactive
-az storage container create \
-    --account-name <storage-account-name> \
-    --name sample-container \
-    --account-key <key> \
-    --auth-mode key
-```
 
 > [!NOTE]
 > Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous read access. For more information, see [Configure anonymous read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
