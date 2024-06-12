@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: event-hub
+ms.service: event-hubs
 ms.date: 06/12/2024
 ---
 
@@ -25,7 +25,7 @@ Event Hubs supports [availability zones](../availability-zones/az-overview.md), 
 
 When creating a namespace, you see the following highlighted message when you select a region that has availability zones. 
 
-:::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
+:::image type="content" source="../event-hubs/media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
 
 > [!NOTE]
 > When you use the Azure portal, zone redundancy via support for availability zones is automatically enabled. You can't disable it in the portal. You can use the Azure CLI command [`az eventhubs namespace`](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` or use the PowerShell command [`New-AzEventHubNamespace`](/powershell/module/az.eventhub/new-azeventhubnamespace) with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
@@ -55,7 +55,7 @@ Let's say you have two virtual networks: VNET-1, VNET-2 and these primary and se
 - On EventHubs-Namespace1-Primary, create two private endpoints that use subnets from VNET-1 and VNET-2
 - On EventHubs-Namespace2-Secondary, create two private endpoints that use the same subnets from VNET-1 and VNET-2 
 
-![Private endpoints and virtual networks](./media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
+![Private endpoints and virtual networks](../event-hubs/media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
 
 Advantage of this approach is that failover can happen at the application layer independent of Event Hubs namespace. Consider the following scenarios: 
 
@@ -130,16 +130,16 @@ You first create or use an existing primary namespace, and a new secondary names
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
 
-    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
+    :::image type="content" source="../event-hubs/media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
 1. On the **Initiate pairing** page, follow these steps:
     1. Select an existing secondary namespace or create one in a different region. In this example, an existing namespace is selected.  
     1. For **Alias**, enter an alias for the geo-dr pairing. 
     1. Then, select **Create**. 
 
-    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Select the secondary namespace":::        
+    :::image type="content" source="../event-hubs/media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Select the secondary namespace":::        
 1. You should see the **Geo-DR Alias** page. You can also navigate to this page from the primary namespace by selecting **Geo-recovery** on the left menu.
 
-    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Geo-DR alias page":::    
+    :::image type="content" source="../event-hubs/media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Geo-DR alias page":::    
 1. On the **Geo-DR Alias** page, select **Shared access policies** on the left menu to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. 
 1. On this **Overview** page, you can do the following actions: 
     1. Break the pairing between primary and secondary namespaces. Select **Break pairing** on the toolbar. 
@@ -167,7 +167,7 @@ If you initiate the failover, two steps are required:
 > [!NOTE]
 > Only fail forward semantics are supported. In this scenario, you fail over and then re-pair with a new namespace. Failing back is not supported; for example, in a SQL cluster. 
 
-:::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow":::
+:::image type="content" source="../event-hubs/media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow":::
 
 ## Manual failover
 This section shows how to manually fail over using Azure portal, CLI, PowerShell, C#, etc.
@@ -234,4 +234,4 @@ Review the following samples or reference documentation.
 - [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)
 - [REST API reference](/rest/api/eventhub/)
 
-[2]: ./media/event-hubs-geo-dr/geo2.png
+[2]: ../event-hubs/media/event-hubs-geo-dr/geo2.png
