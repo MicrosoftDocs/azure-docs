@@ -4,12 +4,12 @@ description: Learn about adding Red Hat Enterprise Extended Life Cycle Support A
 author: arukum
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: linux-related-content
+ms.custom: linux-related-content, references_regions
 ms.collection: linux
 ms.topic: article
-ms.date: 06/11/2024
+ms.date: 06/12/2024
 ms.author: arukum
-ms.custom: references_regions
+
 ---
 
 # Red Hat Enterprise Linux (RHEL) Extended Life Cycle Support
