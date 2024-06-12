@@ -9,8 +9,6 @@ ms.service: postgresql
 ms.topic: include
 ---
 
-## Prerequisites
-
 Before starting the migration with the Azure Database for PostgreSQL migration service, it is important to fulfill the following prerequisites, specifically designed for offline migration scenarios.
 
 - [Verify the source version](#verify-the-source-version)
@@ -25,7 +23,7 @@ Before starting the migration with the Azure Database for PostgreSQL migration s
 
 The source PostgreSQL server version must be 9.5 or later.
 
-If the source PostgreSQL version is less than `9.5`, upgrade it to `9.5` or higher before you start the migration.
+If the source PostgreSQL version is less than 9.5, upgrade it to 9.5 or higher before you start the migration.
 
 ### Target setup
 
@@ -62,7 +60,7 @@ pg_hba.conf Configuration: To facilitate connectivity between the source and tar
 > [!NOTE]  
 > The pg_hba.conf file is located in the data directory of the PostgreSQL installation. This file should be checked and configured if the source database is an on-premises PostgreSQL server or a PostgreSQL server hosted on an Azure VM. For PostgreSQL instances on AWS RDS or similar managed services, the pg_hba.conf file is not directly accessible or applicable. Instead, access is controlled through the service's security and network access configurations.
 
-For more information about network setup, visit [Network guide for migration service](how-to-network-setup-migration-service.md).
+For more information about network setup, visit [Network guide for migration service](../../how-to-network-setup-migration-service.md).
 
 ### Extensions
 
