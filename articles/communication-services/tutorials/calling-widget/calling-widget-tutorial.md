@@ -183,7 +183,6 @@ function App() {
           ariaLive="assertive"
           labelPosition="top"
         />
-        ;
       </Stack>
     );
   }
@@ -539,6 +538,7 @@ export const CallingWidgetComponent = (
   );
 };
 ```
+In the `CallAdapterOptions` we see some sound files referenced, these are to use the Calling Sounds feature in the `CallComposite`. If you are interested in using the sounds please see the completed code to [download the sound files](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-click-to-call/public/sounds).
 
 #### 5. Style the widget
 
