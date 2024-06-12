@@ -30,6 +30,8 @@ The Genomics Data Lake is hosted in the West US 2 and West Central US Azure regi
 | [GATK Resource Bundle](dataset-gatk-resource-bundle.md) | GATK Resource bundle |
 | [TCGA Open Data](dataset-the-cancer-genome-atlas.md) | TCGA Open Data |
 | [Pan UK-Biobank](dataset-panancestry-uk-bio-bank.md) | Pan UK-Biobank |
+| [Open targets Dataset](dataset-open-targets.md) | Open targets Dataset |
+| [Adaptive Biotechnologies'ImmuneCode Data](dataset-immunecode.md) | Adaptive Biotechnologies'ImmuneCode Data |
 
 ## Next steps
 
