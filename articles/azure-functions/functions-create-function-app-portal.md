@@ -3,7 +3,7 @@ title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
 ms.date: 01/31/2024
-ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, build-2024
+ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, build-2024, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -68,7 +68,7 @@ Please review the [known issues](./recover-python-functions.md#development-issue
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sign in to Azure
 

@@ -19,6 +19,27 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Known issues
 - Bug fixes
 
+## Version 1.37 - December 2023
+
+Download for [Windows](https://download.microsoft.com/download/f/6/4/f64c574f-d3d5-4128-8308-ed6a7097a93d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Rocky Linux 9 is now a [supported operating system](prerequisites.md#supported-environments)
+- Added Oracle Cloud Infrastructure display name as a [detected property](agent-overview.md#instance-metadata)
+
+### Fixed
+
+- Restored access to servers with Windows Admin Center in Azure
+- Improved detection logic for Microsoft SQL Server
+- Agents connected to sovereign clouds should now see the correct cloud and portal URL in [azcmagent show](azcmagent-show.md)
+- The installation script for Linux now automatically approves the request to import the packages.microsoft.com signing key to ensure a silent installation experience
+- Agent installation and upgrades apply more restrictive permissions to the agent's data directories on Windows
+- Improved reliability when detecting Azure Stack HCI as a cloud provider
+- Removed the log zipping feature introduced in version 1.37 for extension manager and machine configuration agent logs. Log files are still rotated automatically.
+- Removed the scheduled tasks for automatic agent upgrades (introduced in agent version 1.30). We'll reintroduce this functionality when the automatic upgrade mechanism is available.
+- Resolved [Azure Connected Machine Agent Elevation of Privilege Vulnerability](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35624)
+
 ## Version 1.36 - November 2023
 
 Download for [Windows](https://download.microsoft.com/download/5/e/9/5e9081ed-2ee2-4b3a-afca-a8d81425bcce/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)

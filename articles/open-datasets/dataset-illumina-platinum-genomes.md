@@ -12,7 +12,7 @@ Whole-genome sequencing is enabling researchers worldwide to characterize the hu
 
 For more information on the data, see the official [Illumina site](https://www.illumina.com/platinumgenomes.html).
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

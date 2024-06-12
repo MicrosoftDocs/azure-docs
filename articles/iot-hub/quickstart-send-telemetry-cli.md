@@ -62,7 +62,7 @@ Azure CLI requires you to be logged into your Azure account. All communication b
 
    After you install the Azure IOT extension, you don't need to install it again in any Cloud Shell session.
 
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+   [!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
 
 - Open the second CLI session.  If you're using the Cloud Shell in a browser, use the **Open new session** button. If using the CLI locally, open a second CLI instance.
 

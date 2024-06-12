@@ -46,7 +46,7 @@ sections:
         answer: |
           Customers can choose when to update the containers that they've deployed. Containers are marked with standard [Docker tags](https://docs.docker.com/engine/reference/commandline/tag/) such as `latest` to indicate the most recent version. We encourage customers to pull the latest versions of containers as they're released. For details on how to get notified when an image is updated, see [Azure Container Registry webhooks](../../container-registry/container-registry-webhook.md).
 
-           [!INCLUDE [Container license update](../../../includes/cognitive-services-containers-license-update.md)]
+           [!INCLUDE [Container license update](../includes/cognitive-services-containers-license-update.md)]
       - question: What versions are supported?
         answer: |
           Generally, only the current version of the container is supported. We encourage customers to stay current to get the latest patches and technology.
