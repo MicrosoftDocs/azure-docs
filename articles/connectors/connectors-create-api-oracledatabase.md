@@ -85,21 +85,21 @@ For available connector operations, see the [connector's reference documentation
 
 #### **Error**: Cannot reach the Gateway
 
-**Cause**: The on-premises data gateway is not able to connect to the cloud. 
+**Cause**: The on-premises data gateway can't connect to the cloud.
 
-**Mitigation**: Make sure your gateway is running on the on-premises machine where you installed it, and that it can connect to the internet.  We recommend not installing the gateway on a computer that may be turned off or sleep. You can also restart the on-premises data gateway service (PBIEgwService).
+**Mitigation**: Make sure your gateway is running on the on-premises computer where you installed the gateway and has internet connectivity. Avoid installing the gateway on a computer that might be turned off or go to sleep. You can also try restarting the on-premises data gateway service (PBIEgwService).
 
 #### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. See [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) to install the official provider.
 
-**Cause**: The Oracle client SDK is not installed on the machine where the on-premises data gateway is running. 
+**Cause**: The Oracle client SDK isn't installed on the computer where the on-premises data gateway is running.
 
 **Resolution**: Download and install the Oracle client SDK on the same computer as the on-premises data gateway.
 
 #### **Error**: Table '[Tablename]' does not define any key columns
 
-**Cause**: The table does not have any primary key. 
+**Cause**: The table doesn't have a primary key.
 
-**Resolution**: The Oracle Database connector requires that a table with a primary key column be used.
+**Resolution**: The Oracle Database connector requires that you use a table with a primary key column.
 
 ## Related content
 
