@@ -11,13 +11,10 @@ ms.author: jasteppe
 
 # Logging for Azure Health Data Services
 
-In this article, you learn about how logging works for the Azure Health Data Services. Also, the Azure platform provides three types of logs, activity logs, resource logs, and Microsoft Entra logs. For more information, see [activity logs](../azure-monitor/essentials/platform-logs-overview.md). 
-
-## AuditLogs
-While activity logs are available for each Azure resource from the Azure portal, Azure Health Data Services emits resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
+While activity logs are available for each Azure resource from the Azure portal, Azure Health Data Services emits resource logs, which include two categories of logs: AuditLogs and DiagnosticLogs.
 
 - AuditLogs provide audit trails for healthcare services. For example, a caller's IP address and resource URL are logged when a user or application accesses the FHIR service. Each service emits required properties and optionally implements other properties.
-- DiagnosticLogs provides insight into the operation of the service, for example, log level (information, warning or error), and log message.
+- DiagnosticLogs provide insight into the operation of the service, for example, log level (information, warning, or error), and log message.
 
 Here's an example of the AuditLog:
 
@@ -49,10 +46,10 @@ Here's an example of the AuditLog:
 
 ## Next steps
 
-[Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
-
 [Enable diagnostic logging in the DICOM service](./dicom/enable-diagnostic-logging.md)
 
-[How to enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
+[Enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
 
+[Use Azure Monitor logs](../azure-monitor/essentials/platform-logs-overview.md).
 
+[Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md)
