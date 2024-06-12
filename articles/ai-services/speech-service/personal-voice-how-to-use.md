@@ -30,14 +30,14 @@ You need to use [speech synthesis markup language (SSML)](./speech-synthesis-mar
 
 - For personal voice, you can use the `<lang xml:lang>` element to adjust the speaking language. It's the same as with multilingual voices. See [how to use the lang element to speak different languages](speech-synthesis-markup-voice.md#lang-examples).
   
-Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. The sample also demonstrates how to switch languages from `en-US` to `zh-CN` using the `<lang xml:lang>` element.
+Here's example SSML in a request for text to speech with the voice name and the speaker profile ID. The sample also demonstrates how to switch languages from `en-US` to `zh-HK` using the `<lang xml:lang>` element.
 
 ```xml
 <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
     <voice name='DragonLatestNeural'> 
         <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
             I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 
-            <lang xml:lang='zh-HK'>我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。</lang>
+            <lang xml:lang='zh-HK'>我很高興聽到你覺得我很了不起，我讓你的旅行計劃更輕鬆、更有趣。</lang>
         </mstts:ttsembedding> 
     </voice> 
 </speak>
