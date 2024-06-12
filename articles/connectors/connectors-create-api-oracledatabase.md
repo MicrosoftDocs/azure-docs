@@ -35,7 +35,7 @@ For example, you can perform the following tasks with the connector:
 
 * [Create an Azure gateway resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md).
 
-* The logic app workflow where you want to connect to your Oracle database. This connector provides only actions, no triggers, so use any trigger that you want to start your workflow. To create the logic app and add a trigger, see the following documentation:
+* The logic app workflow where you want to connect to your Oracle database. This connector provides only actions, not triggers. You can use any trigger that you want to start your workflow. To create the logic app and add a trigger, see the following documentation:
 
   * [Create an example Consumption workflow in multitenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
   * [Create an example Standard workflow in single tenant Azure Logic apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
@@ -51,7 +51,7 @@ This connector doesn't support the following items:
 
 * Any table with composite keys
 * Nested object types in tables
-* Database functions with non-scalar values
+* Database functions with nonscalar values
 
 For more information, see the [connector's reference documentation](/connectors/oracle/).
 
@@ -89,7 +89,7 @@ For available connector operations, see the [connector's reference documentation
 
 **Mitigation**: Make sure your gateway is running on the on-premises computer where you installed the gateway and has internet connectivity. Avoid installing the gateway on a computer that might be turned off or go to sleep. You can also try restarting the on-premises data gateway service (PBIEgwService).
 
-#### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.'. See [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database) to install the official provider.
+#### **Error**: The provider being used is deprecated: 'System.Data.OracleClient requires Oracle client software version 8.1.7 or greater.' To install the official provider, see [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database).
 
 **Cause**: The Oracle client SDK isn't installed on the computer where the on-premises data gateway is running.
 
