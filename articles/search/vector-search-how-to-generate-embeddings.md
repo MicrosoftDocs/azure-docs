@@ -53,7 +53,7 @@ import openai
 openai.api_type = "azure"
 openai.api_key = "YOUR-API-KEY"
 openai.api_base = "https://YOUR-OPENAI-RESOURCE.openai.azure.com"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 
 response = openai.Embedding.create(
     input="How do I use Python in VSCode?",
