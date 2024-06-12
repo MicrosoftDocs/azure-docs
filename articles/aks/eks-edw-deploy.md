@@ -153,11 +153,51 @@ chmod +x ./deployment/keda/deploy-keda-app-workload-id.sh
 ./deployment/keda/deploy-keda-app-workload-id.sh
 ```
 
-The deployment script (`deploy-keda-app-workload-id.sh` in the `deployment` directory in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws))performs templating on the application manifest YAML specification to pass environment variables to the pod.
+The deployment script (`deploy-keda-app-workload-id.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws) performs templating on the application manifest YAML specification to pass environment variables to the pod. The following is an exceprt from the script:
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $AQS_TARGET_DEPLOYMENT
+  namespace: $AQS_TARGET_NAMESPACE
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aqs-reader
+  template:
+    metadata:
+      labels:
+        app: aqs-reader
+        azure.workload.identity/use: "true"
+    spec:
+      serviceAccountName: $SERVICE_ACCOUNT
+      containers:
+      - name: keda-queue-reader
+        image: ${AZURE_CONTAINER_REGISTRY_NAME}.azurecr.io/aws2azure/aqs-consumer
+        imagePullPolicy: Always
+        env:
+        - name: AZURE_QUEUE_NAME
+          value: $AZURE_QUEUE_NAME
+        - name: AZURE_STORAGE_ACCOUNT_NAME
+          value: $AZURE_STORAGE_ACCOUNT_NAME
+        - name: AZURE_TABLE_NAME
+          value: $AZURE_TABLE_NAME
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+EOF
+```
 
 Notice the label `azure.workload.identity/use` in the `spec/template` section, which is the pod template for the deployment. Setting the label to `true` specifies that we are using workload identity. The `serviceAccountName` in the pod specification specifies the Kubernetes service account to associate with the workload identity.
 
-Even though the pod specification contains a reference for an image in a private repository, there is no `imagePullSecret` specified.
+Also notice that even though the pod specification contains a reference for an image in a private repository, there is no `imagePullSecret` specified.
 
 To verify that the script has run successfully, use the following kubectl command:
 
@@ -171,26 +211,67 @@ You should see a single pod.
 
 You can use a variety tools to verify the operation of apps deployed to AKS, including the Azure portal.
 
-K9s is an open source tool that can be used to look at the operation of a Kubernetes cluster. After installing the consumer onto the AKS cluster, if you create two windows, and start k9s in each one, with one having a view of the pods and the other a view of the nodes in the namespace you specified in the `AQS_TARGET_NAMESPACE` environment variable (default value is `aqs-demo`) you should see something like this:
+[K9s](https://k9scli.io/) is an open source tool that can be used to look at the operation of a Kubernetes cluster. After installing the consumer onto the AKS cluster, if you create two windows, and start k9s in each one, with one having a view of the pods and the other a view of the nodes in the namespace you specified in the `AQS_TARGET_NAMESPACE` environment variable (default value is `aqs-demo`) you should see something like this:
 
-:::image type="content" source="media/eks-edw-deploy/sample-k9s-view.png" alt-text="Screenshot showing an example of the K9s view across two windows.":::
+:::image type="content" source="media/eks-edw-deploy/sample-k9s-view.png" lightbox="media/eks-edw-deploy/sample-k9s-view.png" alt-text="Screenshot showing an example of the K9s view across two windows.":::
 
-After you confirm that the consumer app container is installed and running on the AKS cluster, install the `ScaledObject` and trigger authentication used by KEDA for pod autoscaling by running the scaled object installation script (`keda-scaleobject-workload-id.sh` in the `deployment` directory in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws)). Remember to use chmod the first time you run the script. Use these commands:
+After you confirm that the consumer app container is installed and running on the AKS cluster, install the `ScaledObject` and trigger authentication used by KEDA for pod autoscaling by running the scaled object installation script (`keda-scaleobject-workload-id.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws)). Remember to use chmod the first time you run the script. Use these commands:
 
 ```bash
 chmod +x ./deployment/keda/keda-scaleobject-workload-id.sh
 ./deployment/keda/keda-scaleobject-workload-id.sh
 ```
 
-This script also performs templating to inject environment variables where needed. The `TriggerAuthentication` object specifies to KEDA that this `ScaledObject` using pod identity for authentication with the managed identity created for use as the workload identity specified.
+The script also performs templating to inject environment variables where needed. The portion of the script that is the manifest for the scaled object is shown here:
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: aws2az-queue-scaleobj
+  namespace: ${AQS_TARGET_NAMESPACE}
+spec:
+  scaleTargetRef:
+    name: ${AQS_TARGET_DEPLOYMENT}     #K8s deployement to target
+  minReplicaCount: 0  # We don't want pods if the queue is empty nginx-deployment
+  maxReplicaCount: 15 # We don't want to have more than 15 replicas
+  pollingInterval: 30 # How frequently we should go for metrics (in seconds)
+  cooldownPeriod:  10 # How many seconds should we wait for downscale  
+  triggers:
+  - type: azure-queue
+    authenticationRef:
+      name: keda-az-credentials
+    metadata:
+      queueName: ${AZURE_QUEUE_NAME}
+      accountName: ${AZURE_STORAGE_ACCOUNT_NAME}
+      queueLength: '5'
+      activationQueueLength: '20' # threshold for when the scaler is active
+      cloud: AzurePublicCloud
+---
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: keda-az-credentials
+  namespace: $AQS_TARGET_NAMESPACE
+spec:
+  podIdentity:
+    provider: azure-workload
+    identityId: '${workloadManagedIdentityClientId}'
+EOF
+```
+
+The `TriggerAuthentication` object specifies to KEDA that the scaled object using pod identity for authentication with the managed identity created for use has the workload identity specified.
 
 When the scaled object is correctly installed and KEDA detects the scaling threshold is exceeded, it begins scheduling pods. If you are using k9s, you should see something like this:
 
-:::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-view.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
+:::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
 
-Finally, if you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes. Using k9s, you should see something like this:
+Finally, if you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes.
 
-In the two images, notice how the number of nodes whose name contains aks-default node pool has increased from one to three nodes. If you stop the producer app from putting messages on the queue, eventually the consumers will reduce the queue depth below the threshold and both KEDA and Karpenter will scale in. Using k9s, you should see something like this:
+In these images, notice how the number of nodes whose name contains `aks-default` node pool has increased from one to three nodes. If you stop the producer app from putting messages on the queue, eventually the consumers will reduce the queue depth below the threshold and both KEDA and Karpenter will scale in. Using k9s, you should see something like this:
+
+:::image type="content" source="media/eks-edw-deploy/sample-k9s-reduce.png" alt-text="Screenshot showing an example of the K9s view with reduced queue depth.":::
 
 ## Clean up resources
 

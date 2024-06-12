@@ -35,7 +35,6 @@ The following snippets show the differences in the YAML manifest between AWS and
           value: <table name>
         - name: AWS_REGION
           value: <region>
-        resources:
 ```
 
 ### Azure workload deployment manifest example
@@ -45,70 +44,36 @@ The following snippets show the differences in the YAML manifest between AWS and
       serviceAccountName: $SERVICE_ACCOUNT
       containers:
       - name: keda-queue-reader
-        image: <ACR name>.azurecr.io/<project>/keda-aqs-reader
+        image: ${AZURE_CONTAINER_REGISTRY_NAME}.azurecr.io/aws2azure/aqs-consumer
         imagePullPolicy: Always
         env:
         - name: AZURE_QUEUE_NAME
           value: $AZURE_QUEUE_NAME
         - name: AZURE_STORAGE_ACCOUNT_NAME
           value: $AZURE_STORAGE_ACCOUNT_NAME
-        - name: AZURE_COSMOSDB_TABLE
-          value: $AZURE_COSMOSDB_TABLE
-        - name: AZURE_COSMOSDB_ACCOUNT_NAME
-          value: $AZURE_COSMOSDB_ACCOUNT_NAME
-        resources:
-        <omitted>
+        - name: AZURE_TABLE_NAME
+          value: $AZURE_TABLE_NAME
 ```
 
 ## Set environment variables
 
-Before executing any of the deployment steps, you need to set some configuration information using environment variables. In our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws), there is a Bash script, `enviromentVariables.sh`, located in the `deployment` directory. These environment variables have defaults set in the `./deployment/environmentVariables.sh` file, so you don't need to update the file unless you want to change the defaults.
+Before executing any of the deployment steps, you need to set some configuration information using environment variables. In our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws), there is a Bash script, `enviromentVariables.sh`, located in the `deployment` directory, which includes the following environment variables:
 
-**TODO: update this section after discussion**
-
-- 'K8sversion`: The version of Kubenetes deployed on the AKS cluster
+- 'K8sversion`: The version of Kubernetes deployed on the AKS cluster
 - 'KARPENTER_VERSION`: The version of Karpenter deployed on the AKS cluster
 - 'SERVICE_ACCOUNT`: The name of the service account associated with the managed identity
-- 'AQS_TARGET_DEPLOYMENT`: Name of the consumer app container deployment 
+- 'AQS_TARGET_DEPLOYMENT`: Name of the consumer app container deployment
 - 'AQS_TARGET_NAMESPACE`: The namespace into which the consumer app is to be deployed
 - 'AZURE_QUEUE_NAME`: Name of the Azure Storage Queue
-- 'AZURE_COSMOSDB_TABLE`: Name of the Table where the processed messages are stored
-- 'LOCAL_NAME`: A simple root for resource names constructed in the deployment scripts. 
-- 'LOCATION`: The Azure Region where the deployment is to be located
-- 'TAGS`: Any user defined tags along with their associated value.
+- 'AZURE_TABLE_NAME`: Name of the Table where the processed messages are stored
+- 'LOCAL_NAME`: A simple root for resource names constructed in the deployment scripts
+- 'LOCATION`: The Azure region where the deployment is to be located
+- 'TAGS`: Any user-defined tags along with their associated value
 - 'STORAGE_ACCOUNT_SKU`: Azure Storage Account SKU
-- 'ACR_SKU`: Azure Container Registry SKU.
-- 'AKS_NODE_COUNT`:Number of nodes
+- 'ACR_SKU`: Azure Container Registry SKU
+- 'AKS_NODE_COUNT`: Number of nodes
 
-
-- `CLUSTER_NAME`: The name of the AKS cluster
-- `K8sversion`: The version of Kubernetes to use
-- `KARPENTER_VERSION`: The version of Karpenter to use
-- `SERVICE_ACCOUNT`: The name of the Kubernetes service account you are going to associate with the workload identity
-- `SQS_TARGET_DEPLOYMENT`: The name of the deployment that will be used to deploy the queue reader app
-- `SQS_TARGET_NAMESPACE`:The Kubernetes namepsace where the queue reader app will be deployed
-- `AZURE_STORAGE_ACCOUNT_NAME`: The name of the Azure Storage account where the queue resides
-- `AZURE_QUEUE_NAME`: The name of the Azure Storage queue from which the app code reads the messages
-- `AZURE_COSMOSDB_TABLE`: The name of the Azure CosmosDB to which table the app code writes the processed messages
-- `RESOURCE_GROUP_NAME`: Name of the resource group for the solution
-- `RESOURCE_GROUP_LOCATION`: Location of the resource group
-- `STORAGE_ACCOUNT_NAME`: Name of the storage account
-- `STORAGE_ACCOUNT_SKU`: SKU of the storage account
-- `STORAGE_ACCOUNT_KIND`: Kind of the storage account
-- `ACR_NAME`: Name of the Azure Container Registry
-- `ACR_SKU`: SKU of the Azure Container Registry
-- `AKS_MANAGED_IDENTITY_NAME`: Name of the user assigned managed identity
-- `AKS_CLUSTER_NAME`: Name of the AKS cluster
-- `AKS_NODE_COUNT`: Number of nodes in the AKS cluster
-- `SUBSCRIPTION_ID`: ID of the Azure subscription
-- `TAGS`: Tags to be applied to the resources
-- `WORKLOAD_MANAGED_IDENTITY_NAME`: Name of the workload identity
-- `SERVICE_ACCOUNT_NAME`: Name of the service account
-- `SERVICE_ACCOUNT_NAMESPACE`: Namespace of the service account
-- `FEDERATED_IDENTITY_CREDENTIAL_NAME`: Name of the federated identity credential
-- `COSMOSDB_ACCOUNT_NAME`: The name of the Azure Cosmos DB account
-- `COSMOSDB_DATABASE_NAME`: The name of the Azure Cosmos DB database
-- `COSMOSDB_CONTAINER_NAME`: The name of the Azure Cosmos DB container
+These environment variables have defaults set in the `./deployment/environmentVariables.sh` file, so you don't need to update the file unless you want to change the defaults. The names of the Azure resources created in the `deploy.sh` script are created on the fly and saved in the `deploy.state` file. You can use the `deploy.state` file to create environment variables for Azure resource names, as you'll see later in this workflow.
 
 ## Next steps
 
