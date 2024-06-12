@@ -141,7 +141,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm  -VirtualMachineScaleS
 - The VM can't be in an Azure Dedicated Host. 
 - The VM must have a managed disk. 
 - The scale set must have `singlePlacementGroup` set to `False`. 
-- Scale sets created without a scaling profile default to `singlePlacementGroup` set to `null`. To attach VMs to a scale set without a scaling profile, `singlePlacementGroup` needs to be set to `False`. 
+- Scale sets created without a scaling profile default to `singlePlacementGroup` set to `null`. To attach VMs to a scale set without a scaling profile, `singlePlacementGroup` needs to be set to `False` at the time of the scale set's creation. 
 - The VM can't be an RDMA capable HB-series or N-series VM.
 
 ## Detaching a VM from a Virtual Machine Scale Set (Preview)
