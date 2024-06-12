@@ -11,7 +11,7 @@ ms.topic: include
 
 ## Prerequisites
 
-Fulfilling the following prerequisites, which apply to offline migration scenarios, is essential before you start your migration with the migration service in Azure Database for PostgreSQL.
+Before starting the migration with the Azure Database for PostgreSQL migration service, it is important to fulfill the following prerequisites, specifically designed for offline migration scenarios.
 
 - [Verify the source version](#verify-the-source-version)
 - [Target setup](#target-setup)
@@ -74,7 +74,7 @@ Search for the Azure.extensions server parameter on the Server parameter page on
 
 - Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
 
-  :::image type="content" source="media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png" alt-text="Screenshot of extensions in the Azure portal." lightbox="../../media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png":::
+:::image type="content" source="../../media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png" alt-text="Screenshot of Screenshot of extensions in the Azure portal.":::
 
 - Check if the list contains any of the following extensions:
     - PG_CRON
