@@ -103,11 +103,9 @@ View and manage your indicators in the **Threat Intelligence** page. Sort, filte
 
 :::image type="content" source="media/understand-threat-intelligence/advanced-search.png" alt-text="Screenshot of advanced search interface with source and pattern conditions selected." lightbox="media/understand-threat-intelligence/advanced-search.png":::
 
-Perform two of the most common threat intelligence tasks: indicator tagging and creating new indicators related to security investigations. Create or edit the threat indicators directly within the Threat Intelligence page when the you only need to manage a few quickly.
+Perform two of the most common threat intelligence tasks: indicator tagging and creating new indicators related to security investigations. Create or edit the threat indicators directly within the Threat Intelligence page when you only need to quickly manage a few.
 
-Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply a tag to indicators related to a particular incident, or to those representing threats from a particular known actor or well-known attack campaign. Tag threat indicators individually, or multi-select indicators and tag them all at once. Here is an example screenshot of tagging multiple indicators with an incident ID. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags. Indicators allow applying multiple tags.
-
-:::image type="content" source="media/understand-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/understand-threat-intelligence/threat-intel-tagging-indicators.png":::
+Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply tags to an indicator related to a particular incident, or representing threats from a particular known actor or well-known attack campaign. Once you search for the indicators you want to work with, tag them individually, or multi-select indicators and tag them all at once with one or more tags. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags.
 
 Validate your indicators and view your successfully imported threat indicators from the Microsoft Sentinel enabled log analytics workspace. The **ThreatIntelligenceIndicator** table under the **Microsoft Sentinel** schema is where all your Microsoft Sentinel threat indicators are stored. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features such as **Analytics** and **Workbooks**.
 
