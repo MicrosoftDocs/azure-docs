@@ -140,7 +140,9 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm  -VirtualMachineScaleS
 - The VM can't be in a `ProximityPlacementGroup`. 
 - The VM can't be in an Azure Dedicated Host. 
 - The VM must have a managed disk. 
-- The scale set must have `properties.singlePlacementGroup` set to `False`.
+- The scale set must have `SinglePlacementGroup` set to `False`. 
+- Scale sets created without a scaling profile automatically have `SinglePlacementGroup` set to `null`. VMs can only be attached to scale sets with `SinglePlacementGroup` set to `False`.
+- The VM cannot be an RDMA capable HB-series or N-series VM.
 
 ## Detaching a VM from a Virtual Machine Scale Set (Preview)
 Should you need to detach a VM from a scale set, you can follow the below steps to remove the VM from the scale set.
@@ -182,6 +184,8 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachin
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of **1**.
 - VMs created by the scale set must be `Stopped` prior to being detached.
+- Scale sets created without a scaling profile automatically have `SinglePlacementGroup` set to `null` and cannot detach VMs.  
+- The VM cannot be an RDMA capable HB-series or N-series VM.
 
 ## Moving VMs between scale sets (Preview)
 
