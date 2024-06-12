@@ -11,7 +11,7 @@ ms.author: danlep
 
 # Samples, labs, and templates for Azure API Center
 
-This article links to open-source code resources for Azure API Center solutions. Deploy Azure API Center reference implementations and automate processes to inventory, govern, discover, and consume APIs in your organization.
+This article links to open-source code resources for Azure API Center solutions. Deploy reference implementations and automate tasks for API inventory, governance, discovery, and consumption in your organization.
 
 ## Azure Developer CLI (`azd`) samples
 
@@ -25,7 +25,7 @@ This article links to open-source code resources for Azure API Center solutions.
 
 ## Labs
 
-* [Universal API Center labs](https://github.com/Azure-Samples/universal-api-center) - Labs structured as Jupyter notebooks for importing APIs to an API center from diverse API management gateway solutions and sources.
+* [Universal API Center labs](https://github.com/Azure-Samples/universal-api-center) - Jupyter notebooks with scripts to import APIs to an API center from diverse API management gateway solutions and sources.
 
 ## Quickstart templates
 
