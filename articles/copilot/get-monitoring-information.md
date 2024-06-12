@@ -65,6 +65,19 @@ Here are a few examples of the kinds of prompts you can use to get information a
 - "List all the alerts for the subscription"
 - "Show me all alerts triggered during the last 24 hours"
 
+## Answer questions about Azure Monitor Investigator (preview)
+Use Microsoft Copilot for Azure (preview) to ask questions about your resources and to run Azure Monitor Investigator. You can ask to run an investigation on a resource to learn what happened, possible causes and how to start to troubleshoot the issue.
+
+### Sample prompts
+Here are a few examples of the kinds of prompts you can use to get information about Azure Monitor Investigator. Modify these prompts based on your real-life scenarios, or try additional prompts to get different kinds of information.
+
+- "Why is this resource not working properly?"
+- "Is there any anomaly in my AKS resource?"  
+- "Run investigation on my resource"
+- "What is causing the issue in this resource?"
+- "Had an alert in my HCI at 8 am this morning, run an anomaly investigation for me" 
+- "Run anomaly detection at 10/27/2023, 8:48:53 PM"
+
 
 ## Next steps
 

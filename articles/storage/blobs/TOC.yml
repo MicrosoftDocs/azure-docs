@@ -212,6 +212,11 @@ items:
       items:
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
+    - name: Lifecycle management policies
+      href: lifecycle-management-overview.md
+      items:
+      - name: Configure lifecycle management policies
+        href: lifecycle-management-policy-configure.md
     - name: Full text search
       href: ../../search/search-blob-storage-integration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Static websites
@@ -502,11 +507,6 @@ items:
         href: access-tiers-best-practices.md
       - name: Change a blob's access tier
         href: access-tiers-online-manage.md
-      - name: Lifecycle management policies
-        href: lifecycle-management-overview.md
-        items:
-        - name: Configure lifecycle management policies
-          href: lifecycle-management-policy-configure.md
       - name: Archive and rehydrate
         items:
         - name: Blob rehydration overview
@@ -1030,7 +1030,17 @@ items:
     - name: Other languages
       href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure PowerShell
-      href: storage-samples-blobs-powershell.md
+      items: 
+      - name: Overview
+        href: storage-samples-blobs-powershell.md
+      - name: Calculate the total billing size of a blob container
+        href: ../scripts/storage-blobs-container-calculate-billing-size-powershell.md
+      - name: Calculate the size of blob containers with PowerShell
+        href: ../scripts/storage-blobs-container-calculate-size-powershell.md
+      - name: Delete containers with a specific prefix
+        href: ../scripts/storage-blobs-container-delete-by-prefix-powershell.md
+      - name: Retrieve and rotate the access keys
+        href: ../scripts/storage-common-rotate-account-keys-powershell.md
     - name: Azure CLI
       items:
       - name: Overview
