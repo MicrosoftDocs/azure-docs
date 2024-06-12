@@ -1,15 +1,15 @@
 ---
-title: Azure Virtual Desktop FSLogix profile containers files - Azure
-description: This article describes FSLogix profile containers within Azure Virtual Desktop and Azure Files.
+title: User profile management for Azure Virtual Desktop with FSLogix profile containers
+description: Learn about using User profile management for Azure Virtual Desktop with FSLogix profile containers to manage user profiles and personalization.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 ---
 
-# FSLogix profile containers and Azure files
+# User profile management for Azure Virtual Desktop with FSLogix profile containers
 
-The Azure Virtual Desktop service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Azure Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers used with Azure Files function in Azure Virtual Desktop.
+We recommend using [FSLogix profile containers](/fslogix/concepts-container-types#profile-container) with Azure Virtual Desktop to manage user profiles and personalization. FSLogix is designed to roam profiles in remote computing environments, such as Azure Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers work with Azure Virtual Desktop.
 
 > [!NOTE]
 > If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
@@ -75,14 +75,14 @@ Azure Virtual Desktop offers full control over size, type, and count of VMs that
 
 To ensure your Azure Virtual Desktop environment follows best practices:
 
-- Azure Files storage account must be in the same region as the session host VMs.
-- Azure Files permissions should match permissions described in [Requirements - Profile Containers](/fslogix/fslogix-storage-config-ht).
+- If you use Azure Files:
+   - The storage account must be in the same region as the session host VMs.
+   - Azure Files permissions should match permissions described in [Configure SMB Storage Permissions for FSLogix](/fslogix/fslogix-storage-config-ht).
+   - Azure Files has limits on the number of open handles per root directory, directory, and file. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
 - Each host pool VM must be built of the same type and size VM based on the same master image.
 - Each host pool VM must be in the same resource group to aid management, scaling and updating.
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data center location.
 - The storage account containing the master image must be in the same region and subscription where the VMs are being provisioned.
-
-Azure Files has limits on the number of open handles per root directory, directory, and file. For more information on the limits and sizing guidance, see [Azure Files scalability and performance targets](../storage/files/storage-files-scale-targets.md#file-scale-targets) and [Azure Files sizing guidance for Azure Virtual Desktop](../storage/files/storage-files-scale-targets.md#azure-files-sizing-guidance-for-azure-virtual-desktop).
 
 ## Next steps
 

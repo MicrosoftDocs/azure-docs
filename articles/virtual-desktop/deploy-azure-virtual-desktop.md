@@ -763,7 +763,7 @@ Once you've deployed Azure Virtual Desktop, your users can connect. There are se
 
 Here are some extra tasks you might want to do:
 
-- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+- Configure profile management with FSLogix. To learn more, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
@@ -775,7 +775,7 @@ Once you've deployed a host pool, workspace, and application group, you'll need 
 
 Here are some extra tasks you might want to do:
 
-- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+- Configure profile management with FSLogix. To learn more, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
 
@@ -785,6 +785,6 @@ Once you've deployed a host pool, workspace, and application group, you'll need 
 
 Here are some extra tasks you might want to do:
 
-- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+- Configure profile management with FSLogix. To learn more, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
