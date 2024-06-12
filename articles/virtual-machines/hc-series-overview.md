@@ -55,8 +55,8 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)  |
 
 > [!IMPORTANT]
-> * This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
-> * There is no official kernel level support from AMD on CentOS, the support starts at RHEL.
+> * This document references a release version of Linux that is nearing or at End of Life (EOL). Please consider updating to a more current version.
+> * There is no official kernel level support from AMD on CentOS. The support starts at RHEL.
 
 ## Next steps
 
