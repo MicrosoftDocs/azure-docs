@@ -14,6 +14,7 @@ ms.author: eur
 |Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
 |Chinese (Mandarin, Simplified)|`zh-CN`|
 |Chinese (Taiwanese Mandarin, Traditional)|`zh-TW`<sup>1</sup>|
+|Danish (Denmark)|`da-DK`<sup>1</sup>|
 |Dutch (Netherlands)|`nl-NL`|
 |English (Australia)|`en-AU`|
 |English (Canada)|`en-CA` |
@@ -32,7 +33,7 @@ ms.author: eur
 |Norwegian Bokmål (Norway)|`nb-NO`|
 |Polish (Poland)|`pl-PL`<sup>1</sup>|
 |Portuguese (Brazil)|`pt-BR`|
-|Portuguese (Portugal)|`pt-PT`<sup>1</sup>|
+|Portuguese (Portugal)|`pt-PT`|
 |Russian (Russia)|`ru-RU`|
 |Spanish (Mexico)|`es-MX` | 
 |Spanish (Spain)|`es-ES` | 
