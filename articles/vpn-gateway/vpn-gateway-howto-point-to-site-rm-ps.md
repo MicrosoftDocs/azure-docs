@@ -36,7 +36,7 @@ You can either use Azure Cloud Shell, or you can run PowerShell locally. For mor
 
 ## <a name="signin"></a>Sign in
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="ConfigureVNet"></a>Create a VNet
 
@@ -103,7 +103,7 @@ In this step, you configure and create the virtual network gateway for your VNet
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
 * The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP**, and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP can't be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and macOS will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
 * The virtual network gateway 'Basic' SKU doesn't support IKEv2, OpenVPN, or RADIUS authentication. If you're planning on having Mac clients connect to your virtual network, don't use the Basic SKU.
-* A VPN gateway can take 45 minutes or more to build, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select.
+* A VPN gateway can take 45 minutes or more to build, depending on the [Gateway SKU](about-gateway-skus.md) you select.
 
 1. Create the virtual network gateway with the gateway type "Vpn" using [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway).
 
@@ -198,7 +198,7 @@ Verify that your VPN gateway has finished creating. Once it has completed, you c
 
 The following steps help you install on a Windows client. For additional clients and more information, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-[!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 Make sure the client certificate was exported as a .pfx along with the entire certificate chain (which is the default). Otherwise, the root certificate information isn't present on the client computer and the client won't be able to authenticate properly.
 

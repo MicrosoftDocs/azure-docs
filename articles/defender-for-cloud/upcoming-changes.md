@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan.
 ms.topic: overview
-ms.date: 04/03/2024
+ms.date: 06/10/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 10, 2024 | July 10, 2024 |
+| [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
 | [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
 | [Deprecation of system update recommendations](#deprecation-of-system-update-recommendations) | May 1, 2024 | May 2024 |
 | [Deprecation of MMA related recommendations](#deprecation-of-mma-related-recommendations) | May 1, 2024 | May 2024 |
@@ -45,6 +47,50 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers
+
+**Announcement date: June 10, 2024**
+
+**Estimated date for change: July 10, 2024**
+
+Originally, SQL Vulnerability Assessment (VA) with Express Configuration was only automatically enabled on servers where Microsoft Defender for SQL was activated after the introduction of Express Configuration in December 2022. 
+
+We will be updating all Azure SQL Servers that had Microsoft Defender for SQL activated before December 2022 and had no existing SQL VA policy in place, to have SQL Vulnerability Assessment (SQL VA) automatically enabled with Express Configuration.
+
+The implementation of this change will be gradual, spanning several weeks, and does not require any action on the user’s part.
+
+> [!NOTE]
+> This change applies to Azure SQL Servers where Microsoft Defender for SQL was activated either at the Azure subscription level or at the individual server level.
+>
+> Servers with an existing classic configuration (whether valid or invalid) will not be affected by this change.
+>
+> Upon activation, the recommendation ‘SQL databases should have vulnerability findings resolved’ may appear and could potentially impact your secure score.
+
+## Changes to identity recommendations
+
+**Announcement date: June 3, 2024**
+
+**Estimated date for change: July 2024**
+
+These changes:
+
+- The assessed resource will become the identity instead of the subscription
+- The recommendations won't have 'sub-recommendations' anymore
+- The value of the 'assessmentKey' field in the API will be changed for those recommendations
+
+Will be applied to the following recommendations: 
+
+- Accounts with owner permissions on Azure resources should be MFA enabled
+- Accounts with write permissions on Azure resources should be MFA enabled
+- Accounts with read permissions on Azure resources should be MFA enabled
+- Guest accounts with owner permissions on Azure resources should be removed
+- Guest accounts with write permissions on Azure resources should be removed
+- Guest accounts with read permissions on Azure resources should be removed
+- Blocked accounts with owner permissions on Azure resources should be removed
+- Blocked accounts with read and write permissions on Azure resources should be removed
+- A maximum of 3 owners should be designated for your subscription
+- There should be more than one owner assigned to your subscription
 
 ## Removal of FIM over AMA and release of new version over Defender for Endpoint
 

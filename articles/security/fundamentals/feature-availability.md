@@ -121,7 +121,7 @@ For more information, see the [Azure Information Protection product documentatio
 |- Custom templates, including departmental templates     |     GA       |    GA     |   GA         |
 |- Manual, default, and mandatory document classification     |       GA       |    GA     |   GA       |
 |- Configure conditions for automatic and recommended classification      GA       |    GA     |   GA        |
-|- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/purview/information-protection-client#supported-file-types)     |        GA       |    GA     |   GA       |
 |     |         |         |         |
 
 <sup><a name="aipnote3"></a>3</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.

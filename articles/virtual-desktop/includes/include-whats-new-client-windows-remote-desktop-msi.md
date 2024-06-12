@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 05/29/2024
+ms.date: 06/11/2024
 ---
 
 ## Supported client versions
@@ -12,21 +12,44 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5405 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5452 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.5454 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
 
-## Updates for version 1.2.5452 (Insider) 
+## Updates for version 1.2.5454 (Insider)  
+*Date published: June 11, 2024* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when a session is disconnected. 
+
+>[!NOTE]
+>This Insider release was originally version 1.2.5453, but we made a change to fix an issue with the client crashing when a session is disconnected and re-released as version 1.2.5454. This version contains all the changes made in 1.2.5450, 1.2.5452, and 1.2.5453. 
+
+## Updates for version 1.2.5453  
+*Date published: June 4, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when responding to an incoming Teams call.  
+
+>[!NOTE]
+>This Insider release was originally version 1.2.5452, but we made a change to improve graphics and re-released as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
+
+
+## Updates for version 1.2.5452
+
 *Date published: May 29, 2024* 
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 In this release, we made the following changes:
 
-- Improve graphics presentation latency  
+- Improved the graphics presentation latency.
 
->[!NOTE]
->This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
-
+> [!NOTE]
+> This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released it as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
 
 ## Updates for version 1.2.5450  
 
@@ -47,7 +70,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 In this release, we made the following changes:
 
-- Fixed an issue that made the multi-factor authentication (MFA) prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
 - Fixed an issue that caused an extra string to appear next to a user's tenant URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
@@ -639,7 +662,7 @@ In this release, we've made the following changes:
 - Added updates to Teams on Azure Virtual Desktop, including:
   - Fixed an issue that caused the screen to turn black when Direct X wasn't available for hardware decoding.
   - Fixed a software decoding and camera preview issue that happened when falling back to software decode.
-- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now in public preview.
+- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now in preview.
 
 ## Updates for version 1.2.2223
 

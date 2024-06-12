@@ -97,6 +97,8 @@ items:
     href: how-to-hibernate-your-dev-box.md  
   - name: Configure an auto-stop schedule
     href: how-to-configure-stop-schedule.md
+  - name: Configure stop on disconnect
+    href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
 - name: Reference

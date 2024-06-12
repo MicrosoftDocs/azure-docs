@@ -128,16 +128,19 @@
     - name: Host pool load balancing methods
       href: host-pool-load-balancing.md
       displayName: load-balancing, lb
-    - name: FSLogix Profile Container
+    - name: User profile management
       items:
-      - name: FSLogix Profile Container and Azure Files
+      - name: FSLogix profile container
         displayName: user profiles
-        href: fslogix-containers-azure-files.md
-      - name: Storage options for FSLogix Profile Container
+        href: fslogix-profile-containers.md
+      - name: Storage options for FSLogix profile container
         displayName: user profiles
         href: store-fslogix-profile.md
     - name: Applications
       items:
+      - name: Preferred application group type
+        displayName: applications, apps
+        href: preferred-application-group-type.md
       - name: App attach
         displayName: applications, apps, msix app attach, app attach, app packages, appx packages
         href: app-attach-overview.md
@@ -306,6 +309,9 @@
           - name: MSIXMGR tool parameters
             displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
+        - name: Set preferred application group type
+          displayName: applications, apps, host pool properties
+          href: set-preferred-application-group-type.md
         - name: Specific applications
           items:
           - name: Use Microsoft Teams
@@ -440,7 +446,7 @@
         href: configure-automatic-updates.md
       - name: Start VM on Connect
         items:
-        - name: Set up Start VM on Connect
+        - name: Configure Start VM on Connect
           displayName: svmonc
           href: start-virtual-machine-connect.md
         - name: Start VM on Connect FAQ
@@ -681,8 +687,6 @@
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Microsoft Tech Community
     href: https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum
-  - name: Azure Virtual Desktop roadmap
-    href: https://aka.ms/avdroadmap
   - name: Azure Resource Manager templates
     displayName: arm
     href: https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates

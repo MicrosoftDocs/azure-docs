@@ -18,7 +18,7 @@ You can use these same steps to set up and run an experiment for any service-dir
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An Azure Cosmos DB account. If you don't have an Azure Cosmos DB account, follow these steps to [create one](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
 - At least one read and one write region setup for your Azure Cosmos DB account.
 

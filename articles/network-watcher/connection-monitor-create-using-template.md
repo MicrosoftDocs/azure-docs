@@ -2,23 +2,20 @@
 title: Create connection monitor - ARMClient
 titleSuffix: Azure Network Watcher
 description: Learn how to create Azure Network Watcher connection monitor using the ARMClient.
-services: network-watcher
 author: halkazwini
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 02/08/2021
-ms.custom: engagement-fy23
-ms.author: halkazwini
-#Customer intent: I need to create a connection monitor to monitor communication between one VM and another.
+
+#CustomerIntent: I need to create a connection monitor to monitor communication between one VM and another.
 ---
 
 # Create a connection monitor using the ARMClient
 
-> [!IMPORTANT]
-> Starting 1 July 2021, you'll not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You'll also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
+[!INCLUDE [Migrate connection monitor (classic)](../../includes/network-watcher-connection-monitor-classic.md)]
 
 Learn how to create Connection Monitor to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
-
 
 ## Before you begin 
 
@@ -350,9 +347,9 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * SUB - Subscription ID of the subscription where you want to create connection monitor
 
-* NW  - Network Watcher resource ID in which CM will be created 
+* NW  - Network Watcher resource ID in which CM is created 
 
-* location - Region in which connection monitor will be created
+* location - Region in which connection monitor is created
 
 * Endpoints
 	* name – Unique name for each endpoint
@@ -372,7 +369,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 * Test Configurations
 	* name - Name of the test configuration.
 	* testFrequencySec - Specify how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in a 30-second period.
-	* protocol - You can choose TCP, ICMP, HTTP or HTTPS. Depending on the protocol, you can do some protocol specific configs
+	* protocol - You can choose TCP, ICMP, HTTP, or HTTPS. Depending on the protocol, you can do some protocol specific configs
 	
 		* preferHTTPS - Specify whether to use HTTPS over HTTP, when port used is neither 80 nor 443
 		* port - Specify the destination port of your choice.
