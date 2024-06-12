@@ -26,7 +26,7 @@ The listed features were released in the last three months. For information abou
 
 Threat intelligence search and filtering capabilities have been enhanced, and the experience now has parity across the Microsoft Sentinel and Microsoft Defender portals. Search supports a maximum of 10 conditions with each containing up to 3 sub-clauses.
 
-For more information, see the updated screenshots in [View and manage your threat indicators](understand-threat-intelligence.md).
+For more information, see the updated screenshot in [View and manage your threat indicators](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
 
 ## May 2024
 
