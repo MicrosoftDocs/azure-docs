@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 05/09/2024
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
@@ -28,7 +28,7 @@ Turning on firewall rules for your storage account blocks incoming requests for 
 
 You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes. To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Scenarios
 
@@ -115,7 +115,7 @@ By default, storage accounts accept connections from clients on any network. You
 
 You must set the default rule to **deny**, or network rules have no effect. However, changing this setting can affect your application's ability to connect to Azure Storage. Be sure to grant access to any allowed networks or set up access through a private endpoint before you change this setting.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### [Portal](#tab/azure-portal)
 
@@ -578,9 +578,9 @@ You can grant access to trusted Azure services by creating a network rule except
 
 <a id="trusted-access-resources-in-subscription"></a>
 
-### Trusted access for resources registered in your subscription
+### Trusted access for resources registered in your Microsoft Entra tenant
 
-Resources of some services that are registered in your subscription can access your storage account *in the same subscription* for selected operations, such as writing logs or running backups.  The following table describes each service and the allowed operations.
+Resources of some services can access your storage account for selected operations, such as writing logs or running backups. Those services must be registered in a subscription that is located in the same Microsoft Entra tenant as your storage account. The following table describes each service and the allowed operations.
 
 | Service                  | Resource provider name     | Allowed operations                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |

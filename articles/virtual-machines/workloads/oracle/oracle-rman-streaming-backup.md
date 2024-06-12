@@ -92,7 +92,7 @@ Each of these options has advantages or disadvantages in the areas of capacity, 
 
 <sup>10</sup> I/O throughput of 128 MiB/s per TiB allocated.
 
-<sup>11</sup> [ANF calculator](https://anftechteam.github.io/calc/) is useful for quick pricing calculations.
+<sup>11</sup> [Azure NetApp Files Performance Calculator](https://aka.ms/anfcalc) is useful for quick pricing calculations.
 
 ## Next steps
 [Oracle performance best practices for Azure VMs](oracle-performance-best-practice.md)

@@ -3,8 +3,7 @@ title: ADE extensibility model for custom Pulumi images
 titleSuffix: Azure Deployment Environments
 description: Learn how to use the ADE extensibility model to build and utilize custom Pulumi images with your environment definitions for deployment environments.
 ms.service: deployment-environments
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-azurecli
 author: MikhailShilkov
 ms.date: 05/10/2024
 ms.topic: how-to
@@ -23,7 +22,7 @@ An environment definition comprises at least two files: a Pulumi project file, *
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Deployment Environments set up in your Azure subscription. 
-  - To set up ADE, follow the [Quickstart: Create and configure a dev center for Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
+  - To set up ADE, follow the [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
 ## Use a standard Docker image provided by Pulumi
 

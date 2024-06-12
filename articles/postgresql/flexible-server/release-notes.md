@@ -7,20 +7,25 @@ ms.reviewer: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 5/21/2024
+ms.date: 6/5/2024
 #customer intent: As a reader, I want the title and description to meet the required length and include the relevant information about the release notes for Azure DB for PostgreSQL - Flexible Server.
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
 
-## Release: May 2024
-* Support for [extensions](./concepts-extensions.md#extension-versions) TimescaleDB (ver 2.13.0) for PG16, login_hook, session_variable.
-* Public preview of [Upgrading PostgreSQL extensions](./concepts-extensions.md#upgrading-postgresql-extensions) on Azure Database for PostgreSQL flexible server.
+## Release: June 2024
+* General availability of [IOPS scaling](./concepts-storage.md#iops-scaling) on Azure Database for PostgreSQL flexible server.
 
+## Release: May 2024
+* General availability of Postgres [azure_ai](generative-ai-azure-overview.md) extension.
+* Public preview of [azure_local_ai](./azure-local-ai.md) extension.
+* Public preview of [index tuning](./concepts-index-tuning.md) on Azure Database for PostgreSQL flexible server.
+* Public preview of [Upgrading PostgreSQL extensions](./concepts-extensions.md#upgrading-postgresql-extensions) on Azure Database for PostgreSQL flexible server.
+* Support for [extensions](./concepts-extensions.md#extension-versions) TimescaleDB (ver 2.13.0) for PG16, login_hook, session_variable.
 
 ## Release: April 2024
 * General availability of [virtual endpoints](concepts-read-replicas-virtual-endpoints.md) and [promote to primary server](concepts-read-replicas-promote.md) operation for [read replicas](concepts-read-replicas.md).

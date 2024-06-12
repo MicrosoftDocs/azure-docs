@@ -2,22 +2,25 @@
 title: Optimize Microsoft Defender for Cloud costs with a prepurchase plan
 description: Learn how you can optimize Microsoft Defender for Cloud costs with a prepurchase plan.
 ms.topic: how-to
+ms.reviewer: liuyizhu
+ms.service: cost-management-billing
+ms.subservice: reservations
 ms.date: 05/15/2024
 ---
 
 # Optimize Microsoft Defender for Cloud costs with a prepurchase plan
 
-You can save on your Microsoft Defender for Cloud costs when you prepurchase Microsoft Defender for Cloud commit units (MCU) for one year. You can use the prepurchased MCUs at any time during the purchase term. Unlike VMs, the prepurchased units don't expire on an hourly basis and you can use them at any time during the term of the purchase.
+You can save on your Microsoft Defender for Cloud costs when you prepurchase Microsoft Defender for Cloud commit units (DCU) for one year. You can use the prepurchased DCUs at any time during the purchase term. Unlike VMs, the prepurchased units don't expire on an hourly basis and you can use them at any time during the term of the purchase.
 
-Any eligible Microsoft Defender for Cloud usage deducts from the prepurchased MCUs automatically. You don't need to redeploy or assign a prepurchased plan to your Microsoft Defender for Cloud workspaces for the MCU usage to get the prepurchase discounts.
+Any eligible Microsoft Defender for Cloud usage deducts from the prepurchased DCUs automatically. You don't need to redeploy or assign a prepurchased plan to your Microsoft Defender for Cloud workspaces for the DCU usage to get the prepurchase discounts.
 
 ## Determine the right size to buy
 
 A Defender for Cloud prepurchase applies to all Defender for Cloud plans. You can think of the prepurchase as a pool of prepaid Defender for Cloud commit units. Usage is deducted from the pool, regardless of the workload.
 
-There’s no ratio on which the MCUs are applied. MCUs are equivalent to the purchase currency value and are deducted at retail prices. Like other reservations, the benefit of a prepurchase plan is discounted pricing by committing to a purchase term. The more you buy, the larger the discount you receive.
+There’s no ratio on which the DCUs are applied. DCUs are equivalent to the purchase currency value and are deducted at retail prices. Like other reservations, the benefit of a prepurchase plan is discounted pricing by committing to a purchase term. The more you buy, the larger the discount you receive.
 
-For example, if you purchase 5,000 Commit Units for a one year term, you get a 20% discount on Defender for Cloud products at this tier, so you pay only 4,000 USD. You can use these units with Defender for Servers P2 and Defender CSPM plans on 20 Virtual machines (Azure VMs) for one year, which uses up 4800 Commit units. In this example, we use $15/$5 monthly retail price and 1 MCU = $1.
+For example, if you purchase 5,000 Commit Units for a one year term, you get a 20% discount on Defender for Cloud products at this tier, so you pay only 4,000 USD. You can use these units with Defender for Servers P2 and Defender CSPM plans on 20 Virtual machines (Azure VMs) for one year, which uses up 4800 Commit units. In this example, we use $15/$5 monthly retail price and 1 DCU = $1.
 
 > [!NOTE]
 > The mentioned prices are for example purposes only. They aren't intended to represent actual costs.
@@ -38,7 +41,7 @@ The Microsoft Defender for Cloud prepurchase discount applies to usage from the 
 - Microsoft Defender CSPM
 - Microsoft Defender for APIs
 
-For more information about available MCU tiers and pricing discounts, see the reservation purchase experience in the following section.
+For more information about available DCU tiers and pricing discounts, see the reservation purchase experience in the following section.
 
 ## Purchase Defender for Cloud commit units
 

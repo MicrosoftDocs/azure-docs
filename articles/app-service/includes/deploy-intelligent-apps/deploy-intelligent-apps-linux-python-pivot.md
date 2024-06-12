@@ -2,6 +2,7 @@
 author: jefmarti
 ms.service: app-service
 ms.devlang: python
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 04/10/2024
 ms.author: jefmarti
@@ -118,7 +119,7 @@ For OpenAI, use the following:
 |-|-|-|
 | `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
-Once your app settings are saved, you can [access the app settings](https://www.notion.so/Creating-Intelligent-App-on-App-Service-Python-757641ec4eda4dde88c9cad02d542170?pvs=21) in your code by referencing them in your application. Add the following to the *[app.py](http://app.py) file:*
+Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following to the *app.py `http://app.py` file:*
 
 For Azure OpenAI:
 ```python
@@ -147,7 +148,7 @@ To install LangChain, navigate to your application using Command Line or PowerSh
 pip install langchain-openai
 ```
 
-Once the package is installed, you can import and use LangChain. Update the *[app.py](http://app.py)* file with the following code:
+Once the package is installed, you can import and use LangChain. Update the * app.py `http://app.py`* file with the following code:
 
 ```python
 import os
@@ -160,7 +161,7 @@ from langchain_openai import AzureOpenAI~~
 
 ```
 
-After LangChain is imported into our file, you can add the code that will call to OpenAI with the LangChain invoke chat method. Update *[app.py](http://app.py)* to include the following code:
+After LangChain is imported into our file, you can add the code that will call to OpenAI with the LangChain invoke chat method. Update *app.py `http://app.py`* to include the following code:
 
 For Azure OpenAI, use the following code:
 

@@ -125,7 +125,7 @@ On Azure AI Search, remember there are [service limits](search-limits-quotas-cap
 
 Finally, the following features aren't currently supported: 
 
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md)
++ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) are not supported for vectorizer configuration.
 + Currently, there's no batching for integrated data chunking and vectorization
 
 ## Benefits of integrated vectorization 

@@ -34,17 +34,13 @@ This article helps you understand Operator Nexus observability framework that co
 
 ## Platform Monitoring
 
- Operator Nexus gives you visibility into the performance of your deployments
-that consist of [infrastructure resources](./concepts-resource-types.md#platform-components).
-You need the logs and metrics to be collected and analyzed from these platform resources.
-You gain valuable insights from the centralized collection and aggregation of data from all sources, compared with from dis-aggregated data.
+Operator Nexus gives you visibility into the performance of your deployments that consist of [infrastructure resources](./concepts-resource-types.md#platform-components). You need the logs and metrics to be collected and analyzed from these platform resources. You gain valuable insights from the centralized collection and aggregation of data from all sources, compared with from dis-aggregated data.
 
 These logs and metrics are used to observe the state of the platform. You can see the performance and analyze what's wrong. You can analyze what caused the situation. Visualization helps you configure the required alerts and under what conditions. For example, you can configure the alerts to be generated when resources are behaving abnormally, or when thresholds have been reached. You can use the collected logs and analytics to debug any problems in the environment.
 
 ### Monitoring Data
 
-Operator Nexus observability allows you to collect the same kind of data as other Azure
-resources. The data collected from each of your instances can be viewed in your LAW.
+Operator Nexus observability allows you to collect the same kind of data as other Azure resources. The data collected from each of your instances can be viewed in your LAW.
 
  You can learn about monitoring Azure resources [here](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
@@ -57,11 +53,9 @@ The set of infrastructure components includes:
 * Compute that includes Bare Metal Servers.
 * Undercloud Control Plane (Kubernetes cluster responsible for deployment and managing lifecycle of overall Platform).
 
-Collection of log data from these layers is enabled by default during the creation of your Operator Nexus
-instance. These collected logs are routed to your Azure Monitor LAW.
+Collection of log data from these layers is enabled by default during the creation of your Operator Nexus instance. These collected logs are routed to your Azure Monitor LAW.
 
-You can also collect data from the tenant layers
-created for running Containerized and Virtualized Network Functions. The log data that can be collected includes:
+You can also collect data from the tenant layers created for running Containerized and Virtualized Network Functions. The log data that can be collected includes:
 
 * Collection of syslog from Virtual Machines (used for either VNFs or CNF workloads).
 * Collection of logs from Kubernetes clusters and the applications deployed on top.
@@ -71,8 +65,7 @@ You should follow the steps to deploy the [Azure monitoring agents](../azure-mon
 
 ### Operator Nexus Logs storage
 
-Data in Azure Monitor Logs is stored in tables where each table has its own set
-of unique properties.
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields; see the [common schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
@@ -114,9 +107,6 @@ You can use the sample Azure Resource Manager alarm templates for [Operator Nexu
 
 ## Log Analytic Workspace
 
-A [Log Analytics Workspace (LAW)](../azure-monitor/logs/log-analytics-workspace-overview.md)
-is a unique environment to log data from Azure Monitor and
-other Azure services. Each workspace has its own data repository and configuration but may
-combine data from multiple services. Each workspace consists of multiple data tables.
+A [Log Analytics Workspace (LAW)](../azure-monitor/logs/log-analytics-workspace-overview.md) is a unique environment to log data from Azure Monitor and other Azure services. Each workspace has its own data repository and configuration but may combine data from multiple services. Each workspace consists of multiple data tables.
 
 A single LAW can be created to collect all relevant data or multiple workspaces based on operator requirements.

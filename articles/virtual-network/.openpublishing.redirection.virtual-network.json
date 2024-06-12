@@ -296,11 +296,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/networking/virtual-network-test-latency.md",
-            "redirect_url": "/azure/virtual-network/virtual-network-test-latency",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-nsg.md",
             "redirect_url": "/azure/virtual-network/virtual-network-vnet-plan-design-arm",
             "redirect_document_id": false
@@ -936,28 +931,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
-            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-powershell",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-filter-network-traffic.md",
-            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/networking/scripts/virtual-network-filter-network-traffic.md",
-            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-filter-network-traffic.md",
             "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/networking/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md",
-            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
             "redirect_document_id": false
         },
         {
@@ -976,11 +951,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
-            "redirect_url": "/azure/virtual-network/tutorial-connect-virtual-networks-cli",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-ipv6-dual-stack-standard-load-balancer.md",
             "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
             "redirect_document_id": false
@@ -988,11 +958,6 @@
         {
             "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md",
             "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
-            "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
             "redirect_document_id": false
         },
         {
@@ -1099,6 +1064,21 @@
             "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
             "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md",
+            "redirect_url": "/azure/virtual-machines/windows/multiple-nics",
+            "redirect_document_id": false
         }
     ]
 }

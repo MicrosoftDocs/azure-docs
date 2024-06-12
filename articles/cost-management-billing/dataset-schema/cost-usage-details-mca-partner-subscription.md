@@ -46,7 +46,7 @@ This article applies to cost and usage details file schema for a Microsoft Partn
 |26|publisherType|Supported values: Microsoft, Azure, AWS, Marketplace. Values are microsoft for MCA accounts and Azure for EA and pay-as-you-go accounts.|
 |27|publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 |28|publisherName|Publisher for Marketplace services.|
-|29|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or` Not applicable`.|
+|29|resourceGroupName|Name of the resource group the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
 |30|ResourceId|Unique identifier of the Azure Resource Manager resource.|
 |31|resourceLocation|Datacenter location where the resource is running. See `Location`.|
 |32|location|Normalized location of the resource, if different resource locations are configured for the same regions.|

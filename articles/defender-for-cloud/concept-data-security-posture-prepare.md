@@ -1,6 +1,6 @@
 ---
-title: Support and prerequisites for data-aware security posture
-description: Learn about the requirements for data-aware security posture in Microsoft Defender for Cloud.
+title: Support and prerequisites for data security posture management
+description: Learn about the requirements for data security posture management in Microsoft Defender for Cloud.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
@@ -9,9 +9,9 @@ ms.date: 03/04/2024
 ms.custom: references_regions
 ---
 
-# Support and prerequisites for data-aware security posture
+# Support and prerequisites for data security posture management
 
-Review the requirements on this page before setting up [data-aware security posture](concept-data-security-posture.md) in Microsoft Defender for Cloud.
+Review the requirements on this page before setting up [data security posture management](concept-data-security-posture.md) in Microsoft Defender for Cloud.
 
 ## Enabling sensitive data discovery
 
@@ -30,7 +30,7 @@ The table summarizes availability and supported scenarios for sensitive data dis
 
 |**Support** | **Details**|
 |--- | ---|
-|What Azure data resources can I discover? | **Object storage:**<br /><br />[Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage accounts encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).<br /><br /><br />**Databases**<br /><br />Azure SQL Databases |
+|What Azure data resources can I discover? | **Object storage:**<br /><br />[Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage accounts encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).<br /><br /><br />**Databases**<br /><br />Azure SQL Databases </br> <br> Azure SQL Database encrypted with [Transparent data encryption](/azure/azure-sql/database/secure-database-tutorial#transparent-data-encryption)  |
 |What AWS data resources can I discover? | **Object storage:**<br /><br />AWS S3 buckets<br/><br/> Defender for Cloud can discover KMS-encrypted data, but not data encrypted with a customer-managed key.<br /><br />**Databases**<br /><br />- Amazon Aurora<br />- Amazon RDS for PostgreSQL<br />- Amazon RDS for MySQL<br />- Amazon RDS for MariaDB<br />- Amazon RDS for SQL Server (noncustom)<br />- Amazon RDS for Oracle Database (noncustom, SE2 Edition only) <br /><br />Prerequisites and limitations: <br />- Automated backups need to be enabled. <br />- The IAM role created for the scanning purposes (DefenderForCloud-DataSecurityPostureDB by default) needs to have permissions to the KMS key used for the encryption of the RDS instance. <br />- You can't share a DB snapshot that uses an option group with permanent or persistent options, except for Oracle DB instances that have the **Timezone** or **OLS** option (or both). [Learn more](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html) |
 |What GCP data resources can I discover? | GCP storage buckets<br/> Standard Class<br/> Geo: region, dual region, multi region |
 |What permissions do I need for discovery? | Storage account: Subscription Owner<br/> **or**<br/> `Microsoft.Authorization/roleAssignments/*` (read, write, delete) **and** `Microsoft.Security/pricings/*` (read, write, delete) **and** `Microsoft.Security/pricings/SecurityOperators` (read, write)<br/><br/> Amazon S3 buckets  and RDS instances: AWS account permission to run Cloud Formation (to create a role). <br/><br/>GCP storage buckets: Google account permission to run script (to create a role). |
@@ -140,4 +140,4 @@ AWS:
 
 ## Next step
 
-[Enable](data-security-posture-enable.md) data-aware security posture.
+[Enable](data-security-posture-enable.md) data security posture management.

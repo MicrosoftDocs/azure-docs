@@ -11,9 +11,7 @@ ms.reviewer: mopeakande
 reviewer: msakande
 ms.author: fasantia
 author: santiagxf
-ms.custom: 
- - build-2024
- - serverless
+ms.custom: build-2024, serverless, devx-track-azurecli
 ---
 
 # Deploy models as serverless API endpoints

@@ -12,7 +12,9 @@ ms.topic: how-to
 
 # Run load test in debug mode
 
-In this article, learn how you can run load tests in debug mode in Azure Load Testing. Debug mode enables you to run a load test with a single engine and upto 10 minutes of duration to validate the test configuration and application behavior. You can use debug mode to troubleshoot issues with your test plan configuration. Test runs in debug mode have debug logs enabled, which can help you identify issues with your test script. It also has request and response data for every failed request during the test run. This enables you to identify the root cause of the issue and make necessary changes to your test script or application.
+Learn how to run load tests in debug mode in Azure Load Testing. With debug mode in Azure Load Testing, you can validate your test configuration and application behavior by running a load test with a single engine for up to 10 minutes.
+
+You can use debug mode to troubleshoot issues with your test plan configuration. Test runs in debug mode have debug logs enabled, which can help you identify issues with your test script. Debug mode also includes request and response data for every failed request during the test run. With this information, you can identify the root cause of any issues and make necessary changes to your test script or application.
 
 
 ## Prerequisites
@@ -23,9 +25,9 @@ In this article, learn how you can run load tests in debug mode in Azure Load Te
 
 ## Debug mode
 
-A test can be run in a debug mode to validate the test plan configuration and application behavior. The characteristics of a test run in debug mode are as follows:
+A test can be run in a debug mode to validate the test plan configuration and application behavior. The characteristics of a test run in debug mode are:
 
-- The test run is executed with a single engine, irrespective of number of engines specified in the test configuration.
+- The test run is executed with a single engine, irrespective of number of engines specified in the test configuration. For a test with load distributed in multiple regions, the engine will be in the parent region.
 
 - The test run is limited to a maximum duration of 10 minutes, irrespective of the duration mention in the test plan.
 
@@ -33,16 +35,16 @@ A test can be run in a debug mode to validate the test plan configuration and ap
 
 - The test run has request and response data for every failed request during the test run.
 
-- This is applicable only for URL based and JMeter based tests. Locust tests do not support debug mode.
+- This is applicable only for URL based and JMeter based tests. Locust tests don't support debug mode.
 
-- A test run in debug mode cannot be marked as baseline test run.
+- A test run in debug mode can't be marked as baseline test run.
 
-- A test run in debug mode is not inclided in the metrics trends.
+- A test run in debug mode isn't included in the metrics trends.
 
 
 ## Run tests in debug mode
 
-You can enable debug mode for the first test while creating of a new test. You can also enable debug mode when running a test or rerunning a test run.
+You can enable debug mode for the first test run while creating a new test. You can also enable debug mode when running a test or rerunning a test run.
 
 To enable debug mode for your first test run, follow these steps while creating a test:
 
@@ -78,7 +80,7 @@ The test run is now created in debug mode. Similarly, you can rerun a test run i
 
 ## View results of a test run in debug mode
 
-You can view the results of a test run in debug mode in the same way as you view the results of a regular test run. The results of a test run in debug mode also include the debug logs and request and response data for every failed request during the test run. The files are available in the storage account container. Follow the steps mentioned [here](./how-to-export-test-results#copy-test-artifacts-from-a-storage-account-container) to export the files.
+You can view the results of a test run in debug mode in the same way as you view the results of a regular test run. The results of a test run in debug mode also include the debug logs and request and response data for every failed request during the test run. The files are available in the storage account container. Follow the steps mentioned [here](./how-to-export-test-results.md#copy-test-artifacts-from-a-storage-account-container) to export the files.
 
 
 ## Related content

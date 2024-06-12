@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 05/21/2024
+ms.date: 05/29/2024 
 ---
 
 ## Supported client versions
@@ -12,9 +12,30 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5405  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5450 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Insider | 1.2.5453  | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5450 (Insider) 
+
+## Updates for version 1.2.5453 (Insider)  
+*Date published: June 4, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when responding to an incoming Teams call.  
+
+>[!NOTE]
+>This Insider release was originally version 1.2.5452, but we made a change to improve graphics and re-released as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
+
+## Updates for version 1.2.5452 
+*Date published: May 29, 2024* 
+
+In this release, we made the following changes:
+
+- Improve graphics presentation latency  
+
+>[!NOTE]
+>This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
+
+## Updates for version 1.2.5450 
 
 *Date published: May 21, 2024* 
 
@@ -32,7 +53,7 @@ In this release, we made the following changes:
 
 In this release, we made the following changes:
 
-- Fixed an issue that made the multi-factor authentication (MFA) prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
 - Fixed an issue that caused an extra string to appear next to a user's tenant URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 

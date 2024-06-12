@@ -24,7 +24,7 @@ In the source stage, you define:
 
 ## Prerequisites
 
-- A functioning instance of Data Processor is deployed.
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - An InfluxDB database with all necessary raw data is operational and reachable.
 
 ## Prepare the Influx database
