@@ -170,17 +170,17 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 
 ![Enable admin user UI in the Azure portal][auth-portal-01]
 
-## Login with alternative container tool instead of docker
-In some scenarios, you need to use alternative container tools like `podman` instead of the common container tool `docker`. For example: [docker is no longer available in RHEL 8 and 9][docker-deprecated-redhat-8-9], and hence you will have to switch your container tool.  
+## Log in with an alternative container tool instead of Docker
+In some scenarios, you need to use alternative container tools like `podman` instead of the common container tool `docker`. For example: [Docker is no longer available in RHEL 8 and 9][docker-deprecated-redhat-8-9], so you have to switch your container tool.  
 
-The default container tool is being set to `docker` for `az acr login` commands. If you do not set the default container tool and the `docker` command is missing in your environment, the following error will be popped:
+The default container tool is set to `docker` for `az acr login` commands. If you don't set the default container tool and the `docker` command is missing in your environment, the following error will be popped:
 ```bash
 az acr login --name <acrName>
 2024-03-29 07:30:10.014426 An error occurred: DOCKER_COMMAND_ERROR
 Please verify if Docker client is installed and running.
 ```
 
-To change the default container tool used by `az acr login` command, you can set the environment variable `DOCKER_COMMAND`. For example: 
+To change the default container tool that the `az acr login` command uses, you can set the environment variable `DOCKER_COMMAND`. For example: 
 ```azurecli
 DOCKER_COMMAND=podman \
 az acr login --name <acrName>
