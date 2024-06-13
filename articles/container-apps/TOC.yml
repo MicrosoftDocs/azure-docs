@@ -178,6 +178,7 @@
   items:
     - name: Overview
       href: scale-app.md
+      displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
 - name: Domains & certificates
