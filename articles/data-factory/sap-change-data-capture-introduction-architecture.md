@@ -39,7 +39,7 @@ This article provides a high-level architecture of the SAP CDC capabilities in A
 
 ## How to use the SAP CDC capabilities
 
-The SAP CDC connector is the core of the SAP CDC capabilities. It can connect to all SAP systems that support ODP, which includes SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation (SLT) Replication Server (SLT) as a proxy. It doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC connector extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
+The SAP CDC connector is the core of the SAP CDC capabilities. It can connect to all SAP systems that support ODP, which includes SAP ECC, SAP S/4HANA, SAP BW, and SAP BW/4HANA. The solution works either directly at the application layer or indirectly via an SAP Landscape Transformation Replication Server (SLT) as a proxy. It doesn't rely on watermarking to extract SAP data either fully or incrementally. The data the SAP CDC connector extracts includes not only physical tables but also logical objects that are created by using the tables. An example of a table-based object is an SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) view.
 
 Use the SAP CDC connector with Data Factory features like mapping data flow activities, and tumbling window triggers for a low-latency SAP CDC replication solution in a self-managed pipeline.
 
