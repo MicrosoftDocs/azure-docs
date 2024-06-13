@@ -427,8 +427,8 @@ Container Apps scale rules can use managed identity to authenticate with Azure s
 
 ```bash
 az containerapp create \
-  -g <RESOURCE_GROUP> \
-  -n <APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --name <APP_NAME> \
   --environment <ENVIRONMENT_ID> \
   --user-assigned <USER_ASSIGNED_IDENTITY_ID> \
   --scale-rule-name azure-queue \
