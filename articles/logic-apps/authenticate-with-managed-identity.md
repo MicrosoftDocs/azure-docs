@@ -1251,7 +1251,7 @@ This example shows the underlying connection resource definition for a connector
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
     "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
-    "kind": "V1",
+    "kind": "V2",
     "properties": {
         "alternativeParameterValues":{},
         "api": {
