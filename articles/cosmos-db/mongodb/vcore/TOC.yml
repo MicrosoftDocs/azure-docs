@@ -36,6 +36,8 @@
           href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
+    - name: High availability (HA)
+      href: ha.md
     - name: Cross-region replication
       href: cross-region-replication.md
     - name: Reliability
