@@ -93,7 +93,7 @@ Each feature flag declaration has three main parts: a name, enabled, and a set o
 
 By default, when a feature flag has multiple filters, the filter set is traversed in order until one of the filters determines the feature should be enabled. At that point, the feature flag is *on*, and any remaining filter results are skipped. If no filter indicates the feature should be enabled, the feature flag is *off*.
 
-This default behavior can be changed by setting the `requirement_type` property of the feature flag to `All`. When `requirement_type` is set to `All`, all filters must indicate that the feature should be enabled for the feature flag to be *on*.
+This default behavior can be changed by setting the `requirement_type` property of the feature flag to `All`. When `requirement_type` is set to `All`, all filters must indicate that the feature should be enabled. For more information on `requirement_type`, see [RequirementType](#requirementtype).
 
 The following example shows how to set up feature flags in a JSON file:
 
@@ -103,20 +103,20 @@ The following example shows how to set up feature flags in a JSON file:
         "feature_flags": [
             {
                 "id": "FeatureA",
-                "description": "A feature flag that returns true.",
+                "description": "A feature flag that is always on.",
                 "enabled": true
             },
             {
                 "id": "FeatureB",
-                "description": "A feature flag that returns false.",
+                "description": "A feature flag that is always off.",
                 "enabled": false
             },
             {
                 "id": "FeatureC",
-                "description": "A feature flag that returns true 50% of the time.",
+                "description": "A feature flag that is on 50% of the time when inside the time window, otherwise it is off.",
                 "conditions": {
                     "requirement_type": "All",
-                    "enabled_for": [
+                    "client_filters": [
                         {
                             "name": "Percentage",
                             "parameters": {
@@ -142,7 +142,7 @@ By convention, the `feature_management` section of this JSON document is used fo
 
 * `FeatureA` is *on*.
 * `FeatureB` is *off*.
-* `FeatureC` specifies a filter named `Percentage` with a `Parameters` property. `Percentage` is a configurable filter. In this example, `Percentage` specifies a 50-percent probability for the `FeatureC` flag to be *on*. For a how-to guide on using feature filters, see [Use feature filters to enable conditional feature flags](./howto-feature-filters-python.md).
+* `FeatureC` specifies a filter named `Percentage` with a `parameters` property. `Percentage` is a configurable filter. Then a second filter named `TimeWindow` which has the `parameters` `Start` and `End` which specifies durring which times the flag can be on. In this example, `Percentage` specifies a 50-percent probability for the `FeatureC` flag to be *on*, but because `requirement_type` is set to `All` it will only be enabled between the specifed dates. For a how-to guide on using feature filters, see [Use feature filters to enable conditional feature flags](./howto-feature-filters-python.md).
 
 ## Feature flag checks
 
@@ -152,6 +152,43 @@ A common pattern of feature management is to check if a feature flag is set to *
 if feature_manager.is_enabled("FeatureA"):
     // Run the following code
 ```
+
+## Requirement Type
+
+The `requirement_type` property of a feature flag is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If RequirementType isn't specified, the default value is `Any`.
+
+* `Any` means only one filter needs to evaluate to true for the feature to be enabled.
+* `All` means every filter needs to evaluate to true for the feature to be enabled.
+
+A `requirement_type` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
+
+
+```json
+{
+    "id": "FeatureC",
+    "conditions": {
+        "requirement_type": "All",
+        "enabled_for": [
+            {
+                "name": "Percentage",
+                "parameters": {
+                    "Value": 50
+                }
+            },
+            {
+                "name": "TimeWindow",
+                "parameters": {
+                    "Start": "2021-01-01T00:00:00Z",
+                    "End": "2021-12-31T23:59:59Z"
+                }
+            }
+        ]
+    }
+}
+```
+
+In the above example, `FeatureC` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
+
 
 ## Next steps
 
