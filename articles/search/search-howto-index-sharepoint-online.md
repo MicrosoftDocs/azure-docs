@@ -19,7 +19,6 @@ ms.date: 06/11/2024
 >
 > Be sure to visit the [known limitations](#limitations-and-considerations) section before you start.
 >
->To use this preview, [fill out this form](https://aka.ms/azure-cognitive-search/indexer-preview). You won't be receiving any approval notification right after since any access request is automatically accepted after submission. After access is enabled, use a [preview REST API (2023-10-01-Preview or later)](search-api-preview.md) to index your content. 
 
 This article explains how to configure a [search indexer](search-indexer-overview.md) to index documents stored in SharePoint document libraries for full text search in Azure AI Search. Configuration steps are first, followed by behaviors and scenarios
 
