@@ -597,36 +597,12 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
 
 Filtering occurs before [fusing results](hybrid-search-ranking.md) from different recall sets. 
 
- <!-- This section should be in hybrid search only, but keeping a copy here to avoid broken links in a blog post. -->
+ <!-- Keep H2 as-is. Direct link from a blog post. Bulk of maxtextsizerecall has moved to hybrid query doc-->
 ## MaxTextSizeRecall for hybrid search (preview)
 
-In a `hybridSearch` query parameter object, specify the maximum number of documents recalled through the text portion of a hybrid (text and vector) query. The default is `1000` documents. With this parameter, you can increase or decrease the number of results returned in hybrid queries. Reducing the number of text documents retrieved can significantly improve performance. 
+Vector queries are often used in hybrid constructs that include nonvector fields. If you discover that BM25-ranked results are over or under represented in a hybrid query results, you can [set `maxTextRecallSize`](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview) to increase or decrease the BM25-ranked results provided for hybrid ranking.
 
-You can set `countAndFacetMode` property to report the counts for the text query (and for facets if you're using them) to the document limits set by `maxTextRecallSize`.
-
-Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in `2024-05-01-Preview` to specify these parameters.
-
-The following example sets `maxTextRecallSize` to 100, which limits the results from the text side of the hybrid query to just 100 documents instead of all matches (up to 1,000 document default). It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
-
-```http
-POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
-
-    { 
-      "vectorQueries": [ 
-        { 
-          "kind": "vector", 
-          "vector": [1.0, 2.0, 3.0], 
-          "fields": "my_vector_field", 
-          "k": 10 
-        } 
-      ], 
-      "search": "hello world", 
-      "hybridSearch": { 
-        "maxTextRecallSize": 100, 
-        "countAndFacetMode": "countRetrievableResults" 
-      } 
-    } 
-```
+You can only set this property in hybrid requests that include both "search" and "vectorQueries" components.
 
 ## Vector weighting (preview)
 

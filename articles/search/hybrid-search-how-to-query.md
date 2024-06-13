@@ -14,11 +14,14 @@ ms.date: 06/12/2024
 
 # Create a hybrid query in Azure AI Search
 
-[Hybrid search](hybrid-search-overview.md) combines one or more keyword queries with one or more vector queries in a single search request. The queries execute in parallel. The results are merged and reordered by new search scores, using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a single ranked result set.
+[Hybrid search](hybrid-search-overview.md) combines one or more text (keyword) queries with one or more vector queries in a single search request. The queries execute in parallel. The results are merged and reordered by new search scores, using [Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md) to return a unified result set.
 
-In most cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries with semantic ranking return the most relevant results.
+In many cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/azure-ai-search-outperforming-vector-search-with-hybrid/ba-p/3929167), hybrid queries with semantic ranking return the most relevant results.
 
-New parameters [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over inputs into a hybrid query. You can also use [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) on the vector side of a hybrid query to specify the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
+To improve relevance:
+
++ New parameters [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over text inputs into a hybrid query. 
++ New [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) lets you set the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
 
 ## Prerequisites
 
@@ -235,19 +238,21 @@ api-key: {{admin-api-key}}
 
 ## Set maxTextRecallSize and countAndFacetMode (preview)
 
-In a `hybridSearch` query parameter object, specify the maximum number of documents recalled through the text portion of a hybrid (text and vector) query. You can also set `countAndFacetMode` property to report the counts for the text query (and for facets if you're using them) to the document limits set by `maxTextRecallSize`.
+This section explains how to adjust the inputs to a hybrid query by controlling the amount BM25-ranked results contributed to the query. Adjustments on the BM25-ranked results can improve hybrid query performance. Another option to consider is a supplemental or replacement technique, is [vector weighting](vector-search-how-to-query.md#vector-weighting-preview), which increases the importance of vector queries in the request.
 
-The default maximum is `1000` documents. 
+1. Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in `2024-05-01-Preview` to specify these parameters.
 
-With `maxTextRecallSize`, you can increase or decrease the number of BM25-ranked results returned in hybrid queries. The default is `1000`. The maximum is `10000`.
+1. Add a `hybridSearch` query parameter object to set the maximum number of documents recalled through the BM25-ranked results of a hybrid query. It has two properties:
 
-+ Reducing `maxTextRecallSize` below the default an significantly improve performance, assuming vector similarity search is generally performing better. You can also consider [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) as an alternate approach for increasing the importance of vector queries.
+   + `maxTextRecallSize` specifies the number of BM25-ranked results to provide to the Reciprocal Rank Fusion (RRF) ranker used in hybrid queries. The default is 1,000. The maximum is 10,000.
 
-+ Increasing `maxTextRecallSize` is useful if you have a large index, and the default isn't capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
+   + `countAndFacetMode` reports the counts for the BM25-ranked results (and for facets if you're using them). The default is all documents that match the query. Optionally, you can scope "count" to the `maxTextRecallSize`.
 
-Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in `2024-05-01-Preview` to specify these parameters.
+1. Lower `maxTextRecallSize` below the default to improve performance, assuming vector similarity search is generally outperforming the text-side of the the hybrid query.
 
-The first example lowers `maxTextRecallSize` to 100, limiting the text side of the hybrid query to just 100 document. It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
+1. Raise `maxTextRecallSize` if you have a large index, and the default isn't capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
+
+The following REST examples show two use-cases for setting `maxTextRecallSize`. The first example lowers `maxTextRecallSize` to 100, limiting the text side of the hybrid query to just 100 document. It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
