@@ -17,7 +17,7 @@ Find the finalized code for this quickstart on GitHub for [UWP](https://github.c
 
 - A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-- The Minimum Version supported for Teams meeting Id and passcode join API : 1.7.0
+- The Minimum Version supported for Teams meeting ID and passcode join API: 1.7.0
 - An [access token](../../../identity/access-tokens.md).
 
 ## Add the Teams UI controls and Enable the Teams UI controls

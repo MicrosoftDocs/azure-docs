@@ -17,7 +17,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling Android app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-- The Minimum Version supported for Teams meeting Id and passcode join API : 2.9.0
+- The Minimum Version supported for Teams meeting ID and passcode join API: 2.9.0
 - An [access token](../../../identity/access-tokens.md).
 
 
