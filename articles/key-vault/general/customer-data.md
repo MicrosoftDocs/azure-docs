@@ -3,11 +3,11 @@ title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
 description: Learn about customer data, which Azure Key Vault receives during creation or update of vaults, keys, secrets, certificates, and managed storage accounts.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
+ms.subservice: general
 ms.topic: reference
-ms.date: 01/07/2019
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
@@ -17,7 +17,7 @@ Azure Key Vault receives customer data during creation or update of vaults, mana
 
 System access logs are generated when a user or application accesses Key Vault. Detailed access logs are available to customers using Azure Insights.
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Identifying customer data
 
@@ -35,7 +35,7 @@ The following information identifies customer data within Azure Key Vault:
 
 The same REST APIs, Portal experience, and SDKs used to create vaults, keys, secrets, certificates, and managed storage accounts, are also able to update and delete these objects.
 
-Soft-delete allows you to recover deleted data for 90 days after deletion. When using soft-delete, the data may be permanently deleted prior to the 90 days retention period expires by performing a purge operation. If the vault or subscription has been configured to block purge operations, it is not possible to permanently delete data until the scheduled retention period has passed.
+Soft-delete allows you to recover deleted data for 90 days after deletion. When using soft-delete, the data may be permanently deleted prior to the 90 days retention period expires by performing a purge operation. If the vault or subscription has been configured to block purge operations, it isn't possible to permanently delete data until the scheduled retention period has passed.
 
 ## Exporting customer data
 

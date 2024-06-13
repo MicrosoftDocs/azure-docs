@@ -1,0 +1,82 @@
+### YamlMime:Landing 
+
+title: Azure API Center documentation 
+summary: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. Azure API Center enables API discovery, reuse, and governance at scale.
+
+metadata: 
+  title: Azure API Center documentation | Microsoft Docs
+  description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
+  ms.service: api-center
+  ms.topic: landing-page
+  author: dlepow
+  ms.author: danlep
+  ms.date: 05/24/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure API Center
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is Azure API Center?
+            url: overview.md
+          - text: Key concepts
+            url: key-concepts.md
+          - text: Frequently asked questions
+            url: frequently-asked-questions.yml
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure API Center
+            url: /training/modules/introduction-to-azure-api-center/
+ # Card
+  - title: Manage your API inventory
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create your API center
+            url: set-up-api-center.md
+      - linkListType: tutorial
+        links:
+          - text: 1 - Customize metadata properties
+            url: add-metadata-properties.md
+          - text: 2 - Add APIs to the inventory
+            url: register-apis.md
+          - text: 3 - Add environments and deployments
+            url: configure-environments-deployments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage inventory - Azure CLI
+            url: manage-apis-azure-cli.md
+          - text: Import APIs from API Management
+            url: import-api-management-apis.md
+          - text: Build and register APIs - VS Code extension
+            url: use-vscode-extension.md
+ # Card
+  - title: Govern APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze APIs using linting rules
+            url: enable-api-analysis-linting.md
+      - linkListType: concept
+        links:
+          - text: Use metadata for governance
+            url: metadata.md
+  # Card
+  - title: Discover APIs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Self-host Azure API Center portal
+            url: enable-api-center-portal.md
+  # Card
+  - title: Related service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure API Management
+            url: ../api-management/api-management-key-concepts.md

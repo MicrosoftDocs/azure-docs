@@ -93,7 +93,7 @@ You've granted your function app access to the service bus namespace using manag
 
     | Name      | Value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **ServiceBusConnection__fullyQualifiedNamespace** | <SERVICE_BUS_NAMESPACE>.servicebus.windows.net | This setting connections your function app to the Service Bus use identity-based connections instead of secrets. |
+    | **ServiceBusConnection__fullyQualifiedNamespace** | <SERVICE_BUS_NAMESPACE>.servicebus.windows.net | This setting connects your function app to the Service Bus using an identity-based connection instead of secrets. |
 
 1. After you create the two settings, select **Save** > **Confirm**.
 
@@ -198,7 +198,7 @@ Now that you have updated the function app with the new trigger, you can verify 
 
 Congratulations! You have successfully set up your Service Bus queue trigger with a managed identity!
 
-[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+[!INCLUDE [clean-up-section-portal](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
 
 ## Next steps
 

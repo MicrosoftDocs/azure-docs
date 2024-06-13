@@ -5,7 +5,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 02/25/2022
+ms.date: 01/05/2024
 ms.author: yexu
 ---
 # Build large-scale data copy pipelines with metadata-driven approach in copy data tool
@@ -108,7 +108,7 @@ Each row in control table contains the metadata for one object (for example, one
 
 | Column name | Description | 
 |:--- |:--- |
-| Id | Unique ID of the object to be copied. |
+| ID | Unique ID of the object to be copied. |
 | SourceObjectSettings | Metadata of source dataset. It can be schema name, table name etc. Here is an [example](connector-azure-sql-database.md#dataset-properties). |
 | SourceConnectionSettingsName | The name of the source connection setting in connection control table. It is optional. |
 | CopySourceSettings | Metadata of source property in copy activity. It can be query, partitions etc. Here is an [example](connector-azure-sql-database.md#azure-sql-database-as-the-source). |
@@ -201,9 +201,9 @@ This pipeline will copy objects from one group. The objects belonging to this gr
 - OPENJSON is used in generated SQL scripts by copy data tool. If you are using SQL Server to host control table, it must be SQL Server 2016 (13.x) and later in order to support OPENJSON function.
 
 
-## Next steps
+## Related content
 Try these tutorials that use the Copy Data tool:
 
-- [Quickstart: create a data factory using the Copy Data tool](quickstart-create-data-factory-copy-data-tool.md)
-- [Tutorial: copy data in Azure using the Copy Data tool](tutorial-copy-data-tool.md) 
-- [Tutorial: copy on-premises data to Azure using the Copy Data tool](tutorial-hybrid-copy-data-tool.md)
+- [Quickstart: Create a data factory using the Copy Data tool](quickstart-hello-world-copy-data-tool.md)
+- [Tutorial: Copy data in Azure using the Copy Data tool](tutorial-copy-data-tool.md) 
+- [Tutorial: Copy on-premises data to Azure using the Copy Data tool](tutorial-hybrid-copy-data-tool.md)

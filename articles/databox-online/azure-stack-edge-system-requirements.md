@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/26/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro FPGA system requirements
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes the important system requirements for your Microsoft Azure Stack Edge Pro FPGA solution and for the clients connecting to Azure Stack Edge Pro FPGA. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro FPGA. You can refer back to this information as necessary during the deployment and subsequent operation.
 
@@ -21,23 +23,23 @@ The system requirements for the Azure Stack Edge Pro FPGA include:
 
 ## Supported OS for clients connected to device
 
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
+[!INCLUDE [Supported OS for clients connected to device](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-client-os.md)]
 
 ## Supported protocols for clients accessing device
 
-[!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
+[!INCLUDE [Supported protocols for clients accessing device](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-client-protocols.md)]
 
 ## Supported storage accounts
 
-[!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
+[!INCLUDE [Supported storage accounts](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
 ## Supported storage types
 
-[!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
+[!INCLUDE [Supported storage types](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-storage-types.md)]
 
 ## Supported browsers for local web UI
 
-[!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
+[!INCLUDE [Supported browsers for local web UI](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-supported-browsers.md)]
 
 ## Networking port requirements
 
@@ -45,7 +47,7 @@ The system requirements for the Azure Stack Edge Pro FPGA include:
 
 The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Azure Stack Edge Pro FPGA device sends data externally, beyond the deployment, for example, outbound to the internet.
 
-[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
+[!INCLUDE [Port configuration for device](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-port-config.md)]
 
 ### Port requirements for IoT Edge
 
@@ -61,7 +63,7 @@ For complete information, go to [Firewall and port configuration rules for IoT E
 
 ## URL patterns for firewall rules
 
-Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro FPGA device and the service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro FPGA as and when needed.
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro FPGA device and the service depend on other Microsoft applications such as Azure Service Bus, Microsoft Entra Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro FPGA as and when needed.
 
 We recommend that you set your firewall rules for outbound traffic, based on Azure Stack Edge Pro FPGA fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 
@@ -71,7 +73,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 ### URL patterns for gateway feature
 
-[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
+[!INCLUDE [URL patterns for firewall](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### URL patterns for compute feature
 
@@ -83,7 +85,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 ### URL patterns for gateway for Azure Government
 
-[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+[!INCLUDE [Azure Government URL patterns for firewall](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
 ### URL patterns for compute for Azure Government
 
@@ -95,7 +97,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 ## Internet bandwidth
 
-[!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+[!INCLUDE [Internet bandwidth](~/reusable-content/ce-skilling/azure/includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## Compute sizing considerations
 

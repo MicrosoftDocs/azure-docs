@@ -1,10 +1,8 @@
 ---
 title: Convert portal template to template spec
 description: Describes how to convert an existing template in the Azure portal gallery to a template specs.
-ms.topic: conceptual
-ms.date: 05/25/2022
-ms.author: tomfitz
-author: tfitzmac
+ms.topic: how-to
+ms.date: 06/22/2023
 ---
 # Convert template gallery in portal to template specs
 

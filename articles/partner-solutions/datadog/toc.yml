@@ -1,8 +1,9 @@
-- name: Datadog Azure Integration Documentation
+items:
+- name: Datadog - An Azure Native ISV Service
   href: index.yml
 - name: Overview
   items:
-  - name: What is Datadog?
+  - name: What is Datadog - An Azure Native ISV Service?
     href: overview.md
     displayName: Datadog, Monitoring
 - name: Quickstarts

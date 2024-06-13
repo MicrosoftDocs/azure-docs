@@ -2,9 +2,10 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.custom: seodec18
-ms.devlang: csharp, java, python
+ms.date: 05/16/2023
+ms.custom:
+ms.devlang: csharp
+# ms.devlang: csharp, java, python
 ---
 # Run tasks under user accounts in Batch
 
@@ -128,7 +129,7 @@ A named user account exists on all nodes in the pool and is available to all tas
 
 A named user account is useful when you want to run all tasks in a job under the same user account, but isolate them from tasks running in other jobs at the same time. For example, you can create a named user for each job, and run each job's tasks under that named user account. Each job can then share a secret with its own tasks, but not with tasks running in other jobs.
 
-You can also use a named user account to run a task that sets permissions on external resources such as file shares. With a named user account, you control the user identity and can use that user identity to set permissions.  
+You can also use a named user account to run a task that sets permissions on external resources such as file shares. With a named user account, you control the user identity and can use that user identity to set permissions.
 
 Named user accounts enable password-less SSH between Linux nodes. You can use a named user account with Linux nodes that need to run multi-instance tasks. Each node in the pool can run tasks under a user account defined on the whole pool. For more information about multi-instance tasks, see [Use multi\-instance tasks to run MPI applications](batch-mpi.md).
 
@@ -176,19 +177,19 @@ List<NodeAgentSku> nodeAgentSkus =
     batchClient.PoolOperations.ListNodeAgentSkus().ToList();
 
 // Define a delegate specifying properties of the VM image to use.
-Func<ImageReference, bool> isUbuntu1404 = imageRef =>
+Func<ImageReference, bool> isUbuntu1804 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.Sku.Contains("14.04");
+    imageRef.Sku.Contains("20.04-LTS");
 
 // Obtain the first node agent SKU in the collection that matches
-// Ubuntu Server 14.04. 
+// Ubuntu Server 20.04.
 NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu1404));
+    sku.VerifiedImageReferences.Any(isUbuntu2004));
 
 // Select an ImageReference from those available for node agent.
 ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu2004);
 
 // Create the virtual machine configuration to use to create the pool.
 VirtualMachineConfiguration virtualMachineConfiguration =

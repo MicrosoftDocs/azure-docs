@@ -3,6 +3,7 @@ title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
 ms.date: 08/17/2021
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Programmatically create policies
 
@@ -20,7 +21,7 @@ Before you begin, make sure that the following prerequisites are met:
    tool that sends HTTP requests to Azure Resource Manager-based APIs.
 
 1. Update your Azure PowerShell module to the latest version. See
-   [Install Azure PowerShell module](/powershell/azure/install-az-ps) for detailed information. For
+   [Install Azure PowerShell module](/powershell/azure/install-azure-powershell) for detailed information. For
    more information about the latest version, see
    [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 

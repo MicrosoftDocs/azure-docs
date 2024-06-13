@@ -2,13 +2,13 @@
 title: How to configure Azure Key Vault networking configuration 
 description: Step-by-step instructions to configure Key Vault firewalls and virtual networks
 services: key-vault
-author: sebansal
+author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 5/11/2021
+ms.date: 02/20/2024
 ms.author: mbaldwin 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Configure Azure Key Vault networking settings
 
@@ -69,11 +69,11 @@ Here's how to configure Key Vault firewalls and virtual networks by using the Az
 
 # [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Here's how to configure Key Vault firewalls and virtual networks by using PowerShell:
 
-1. Install the latest [Azure PowerShell](/powershell/azure/install-az-ps), and [sign in](/powershell/azure/authenticate-azureps).
+1. Install the latest [Azure PowerShell](/powershell/azure/install-azure-powershell), and [sign in](/powershell/azure/authenticate-azureps).
 
 2. List available virtual network rules. If you have not set any rules for this key vault, the list will be empty.
    ```powershell

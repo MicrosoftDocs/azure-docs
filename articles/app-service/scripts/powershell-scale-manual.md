@@ -6,9 +6,9 @@ tags: azure-service-management
 
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.topic: sample
-ms.date: 03/20/2017
+ms.date: 12/06/2022
 ms.author: msangapu
-ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Scale a web app manually using PowerShell
@@ -19,7 +19,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/scale-manual/scale-manual.ps1 "Scale a web app manually")]
 

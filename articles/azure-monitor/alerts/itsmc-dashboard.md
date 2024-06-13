@@ -1,12 +1,10 @@
 ---
 title: Investigate errors by using the ITSMC dashboard
 description: Learn how to use the IT Service Management Connector dashboard to investigate errors.  
+ms.author: abbyweisberg
 ms.topic: conceptual
-author: nolavime
-ms.author: nolavime
-ms.date: 2/23/2022
+ms.date: 07/09/2023
 ms.reviewer: nolavime
-
 ---
 
 # Investigate errors by using the ITSMC dashboard
@@ -17,25 +15,19 @@ This article contains information about the IT Service Management Connector (ITS
 
 To view errors in the dashboard:
 
-1. Select **All resources**, and then find **ServiceDesk(*your workspace name*)**.
+1. In the Azure portal, select **All resources**, then find and select your Service Desk.
 
-   ![Screenshot that shows the resources in Azure services.](media/itsmc-definition/create-new-connection-from-resource.png)
+   :::image type="content" source="media/itsmc-dashboard/select-service-desk.png" lightbox="media/itsmc-dashboard/select-service-desk.png" alt-text="Screenshot of the All resources page in the Azure portal. Only resources whose name includes the ServiceDes filter criteria are listed.":::
 
-2. Under **Workspace Data Sources** on the left pane, select **ITSM Connections**:
+1. In the Service Desk window, select **View Summary**.
 
-   ![Screenshot that shows selecting ITSM Connections under Workplace Data Sources.](media/itsmc-overview/add-new-itsm-connection.png)
+   :::image type="content" source="media/itsmc-dashboard/view-summary.png" lightbox="media/itsmc-dashboard/view-summary.png" alt-text="Screenshot of a Solution resource in the Azure portal. The View Summary button is highlighted.":::
 
-3. Under **Summary**, in the **IT Service Management Connector** area, select **View Summary**:
+1. Select the graph that appears in the **IT Service Management Connector** section.
 
-   ![Screenshot that shows the View Summary button.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+1. The IT Service Management Connector Dashboard opens with information about status and errors.
 
-4. When a graph appears in the **IT Service Management Connector** area, select it:
-
-   ![Screenshot that shows selection of a graph.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
-
-5. The dashboard appears. Use it to review the status and the errors in your connector.
-   
-   ![Screenshot that shows connector status on the dashboard.](media/itsmc-resync-servicenow/connector-dashboard.png)
+   :::image type="content" source="media/itsmc-resync-servicenow/connector-dashboard.png" lightbox="media/itsmc-resync-servicenow/connector-dashboard.png" alt-text="Screenshot that shows connector status on the dashboard.":::
 
 ## Understand dashboard elements
 
@@ -45,7 +37,7 @@ The dashboard contains information on the alerts that were sent to the ITSM tool
 
 In the **WORK ITEMS CREATED** area, the graph and the table below it contain the count of the work items per type. If you select the graph or the table, you can see more details about the work items.
 
-![Screenshot that shows a created work item.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-workitems.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-workitems.png" alt-text="Screenshot that shows a created work item.":::
 
 ### Affected computers 
 
@@ -53,7 +45,7 @@ In the **IMPACTED COMPUTERS** area, the table lists computers and their associat
 
 The table contains a limited number of rows. If you want to see all the rows, select **See all**.
 
-![Screenshot that shows affected computers.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png" alt-text="Screenshot that shows affected computers.":::
 
 ### Connector status 
 
@@ -63,7 +55,7 @@ The table contains a limited number of rows. If you want to see all the rows, se
 
 To learn more about the messages in the table, see [this article](itsmc-dashboard-errors.md).
 
-![Screenshot that shows connector status.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png" alt-text="Screenshot that shows connector status.":::
 
 ### Alert rules 
 
@@ -71,4 +63,4 @@ In the **ALERT RULES** area, the table contains information on the number of ale
     
 The table contains a limited number of rows. If you want to see all the rows, select **See all**.
 
-![Screenshot that shows alert rules.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
+:::image type="content" source="media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png" lightbox="media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png" alt-text="Screenshot that shows alert rules.":::

@@ -3,8 +3,8 @@ title: Install Jupyter locally and connect to Spark in Azure HDInsight
 description: Learn how to install Jupyter Notebook locally on your computer and connect it to an Apache Spark cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020, devx-track-python
-ms.date: 05/06/2022
+ms.custom: hdinsightactive
+ms.date: 06/23/2023
 ---
 
 # Install Jupyter Notebook on your computer and connect to Apache Spark on HDInsight
@@ -137,7 +137,7 @@ In this section, you configure the Spark magic that you installed earlier to con
 
     a. Create a new notebook. From the right-hand corner, select **New**. You should see the default kernel **Python 2** or **Python 3** and the kernels you installed. The actual values may vary depending on your installation choices.  Select **PySpark**.
 
-    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Available kernels in Jupyter Notebook" border="true":::
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Available kernels in Jupyter Notebook." border="true":::
 
     > [!IMPORTANT]  
     > After selecting **New** review your shell for any errors.  If you see the error `TypeError: __init__() got an unexpected keyword argument 'io_loop'` you may be experiencing a known issue with certain versions of Tornado.  If so, stop the kernel and then downgrade your Tornado installation with the following command: `pip install tornado==4.5.3`.

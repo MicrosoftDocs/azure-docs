@@ -4,6 +4,7 @@ description: View logs and metrics using Kibana and Grafana
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
@@ -15,11 +16,11 @@ ms.topic: how-to
 
 Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services. To access Kibana and Grafana web dashboards view service endpoints check [Azure Data Studio dashboards](./azure-data-studio-dashboards.md) documentation. 
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Monitor Azure SQL managed instances on Azure Arc
 
-To access the logs and monitoring dashboards for Azure Arc-enabled SQL Managed Instance, run the following `azdata` CLI command
+To access the logs and monitoring dashboards for SQL Managed Instance enabled by Azure Arc, run the following `azdata` CLI command
 
 ```azurecli
 az sql mi-arc endpoint list -n <name of SQL instance> --use-k8s
@@ -39,12 +40,12 @@ The relevant Grafana dashboards are:
 >  You will be prompted with a certificate warning because the certificates are self-signed certificates.
 
 
-## Monitor Azure Database for PostgreSQL Hyperscale on Azure Arc
+## Monitor Azure Arc-enabled PostgreSQL server
 
-To access the logs and monitoring dashboards for PostgreSQL Hyperscale, run the following `azdata` CLI command
+To access the logs and monitoring dashboards for an Azure Arc-enabled PostgreSQL server, run the following `azdata` CLI command
 
 ```azurecli
-az postgres arc-server endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
+az postgres server-arc endpoint list -n <name of postgreSQL instance> --k8s-namespace <namespace> --use-k8s
 ```
 
 The relevant postgreSQL dashboards are:
@@ -78,7 +79,7 @@ az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 60
 ```
 
 
-## Next steps
+## Related content
 - Try [Upload metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md)
 - Read about Grafana:
    - [Getting started](https://grafana.com/docs/grafana/latest/getting-started/getting-started)

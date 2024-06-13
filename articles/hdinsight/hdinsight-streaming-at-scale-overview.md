@@ -4,7 +4,7 @@ description: How to use data streaming with scalable Apache clusters in Azure HD
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 08/05/2022
+ms.date: 06/08/2023
 ---
 
 # Streaming at scale in HDInsight
@@ -13,7 +13,7 @@ Real-time big data solutions  act on data that is in motion. Typically, this dat
 
 In a streaming application, one or more data sources are generating events (sometimes in the millions per second) that need to be ingested  quickly  without dropping any useful information. The incoming events are handled with *stream buffering*, also called *event queuing*, by a service such as [Apache Kafka](kafka/apache-kafka-introduction.md) or [Event Hubs](https://azure.microsoft.com/services/event-hubs/). After you collect the events, you can then analyze the data using a real-time analytics system within the *stream processing* layer. The processed data can be stored in long-term storage systems, like [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and displayed in real time on a business intelligence dashboard, such as [Power BI](https://powerbi.microsoft.com), Tableau, or a custom web page.
 
-:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png" alt-text="Azure HDInsight Streaming Patterns":::
+:::image type="content" source="./media/hdinsight-streaming-at-scale-overview/hdinsight-streaming-patterns.png" alt-text=" Screenshot showing Azure HDInsight streaming patterns.":::
 
 ## Apache Kafka
 
@@ -23,7 +23,7 @@ For more information, see [Introducing Apache Kafka on HDInsight](kafka/apache-k
 
 ## Spark Streaming
 
-Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Spark Streaming provides stateful exactly once processing semantics. When used in combination with the [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data is received by Spark Streaming exactly once, it's possible to achieve end-to-end exactly once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
+Spark Streaming  is an extension to Spark, which allows you to reuse the same code that you use for batch processing. You can  combine both batch and interactive queries in the same application. Unlike Spark, Streaming provides stateful exactly once processing semantics. When used in combination with the [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), which ensures that all Kafka data received on Spark Streaming exactly once, it's possible to achieve end-to-end exactly once guarantees. One of Spark Streaming's strengths is its fault-tolerant capabilities, recovering faulted nodes rapidly when multiple nodes are being used within the cluster.
 
 For more information, see [What is Apache Spark Streaming?](./spark/apache-spark-streaming-overview.md).
 

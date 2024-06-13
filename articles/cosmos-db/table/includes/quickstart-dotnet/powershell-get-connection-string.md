@@ -1,7 +1,7 @@
 ---
 author: alexwolfmsft
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.topic: include
 ms.date: 07/08/2022
 ms.author: alexwolf

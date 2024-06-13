@@ -1,19 +1,19 @@
 ---
 title: Resource model for the Azure Cosmos DB point-in-time restore feature.
-description: This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmos DB API for SQL and MongoDB accounts.
+description: This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored in Azure Cosmso DB for SQL and MongoDB accounts.
 author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 03/21/2024
 ms.reviewer: mjbrown
 ---
 
 # Resource model for the Azure Cosmos DB point-in-time restore feature
 
-[!INCLUDE[appliesto-all-apis-except-cassandra](includes/appliesto-all-apis-except-cassandra.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin, Table](includes/appliesto-nosql-mongodb-gremlin-table.md)]
 
-This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored. This feature is supported in Azure Cosmos DB API for SQL and the Cosmos DB API for MongoDB. Currently, this feature is in preview for Azure Cosmos DB Gremlin API and Table API accounts.
+This article explains the resource model for the Azure Cosmos DB point-in-time restore feature. It explains the parameters that support the continuous backup and resources that can be restored. This feature is supported in Azure Cosmos DB API for SQL, Azure Cosmos DB API for Gremlin, Table API and the Azure Cosmos DB API for MongoDB.  
 
 ## Database account's resource model
 
@@ -24,11 +24,14 @@ The database account's resource model is updated with a few extra properties to 
 A new property in the account level backup policy named ``Type`` under the ``backuppolicy`` parameter enables continuous backup and point-in-time restore. This mode is referred to as **continuous backup**. You can set this mode when creating the account or while [migrating an account from periodic to continuous mode](migrate-continuous-backup.md). After continuous mode is enabled, all the containers and databases created within this account will have point-in-time restore and continuous backup enabled by default. The continuous backup tier can be set to ``Continuous7Days`` or ``Continuous30Days``. By default, if no tier is provided, ``Continuous30Days`` is applied on the account.
 
 > [!NOTE]
-> Currently the point-in-time restore feature is available for Azure Cosmos DB API for MongoDB and SQL API accounts. It is also available for Table API and Gremlin API in preview. After you create an account with continuous mode you can't switch it to a periodic mode. The ``Continuous7Days`` tier is in preview.
+> Currently the point-in-time restore feature is available for Azure Cosmos DB for NoSQL, API for MongoDB, Table and Gremlin accounts. After you create an account with continuous mode you can't switch it to a periodic mode. The ``Continuous7Days`` tier is in preview.
 
 ### CreateMode
 
 This property indicates how the account was created. The possible values are *Default* and *Restore*. To perform a restore, set this value to *Restore* and provide the appropriate values in the `RestoreParameters` property.
+
+### publicNetworkAccess
+This property needs to be set to 'Disabled' to restore account without public network access. If this property is not provided, restore of the account will proceed with publicNetworkAccess as `Enabled`. 
 
 ### RestoreParameters
 
@@ -41,6 +44,7 @@ The `RestoreParameters` resource contains the restore operation details includin
 | ``restoreTimestampInUtc`` | Point in time in UTC to restore the account. |
 | ``databasesToRestore`` | List of `DatabaseRestoreResource` objects to specify which databases and containers should be restored. Each resource represents a single database and all the collections under that database. For more information, see [restorable SQL resources](#restorable-sql-resources). If this value is empty, then the entire account is restored. |
 | ``gremlinDatabasesToRestore`` | List of `GremlinDatabaseRestoreResource` objects to specify which databases and graphs should be restored. Each resource represents a single database and all the graphs under that database. For more information, see [restorable Gremlin resources](#restorable-graph-resources). If this value is empty, then the entire account is restored. |
+| ``restoreWithTtlDisabled`` |  boolean flag values (true/false) to disable Time-To-Live in the restored account upon completion of the restore. (preview)  | 
 | ``tablesToRestore`` | List of `TableRestoreResource` objects to specify which tables should be restored. Each resource represents a table under that database. For more information, see [restorable Table resources](#restorable-table-resources). If this value is empty, then the entire account is restored. |
 
 ### Sample resource
@@ -60,8 +64,10 @@ The following JSON is a sample database account resource with continuous backup 
       }
     ],
     "createMode": "Restore",
+    "publicNetworkAccess":"Disabled",
     "restoreParameters": {
       "restoreMode": "PointInTime",
+      "restoreWithTtlDisabled" : "true",
       "restoreSource": "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
       "restoreTimestampInUtc": "2020-06-11T22:05:09Z",
       "databasesToRestore": [
@@ -83,7 +89,7 @@ The following JSON is a sample database account resource with continuous backup 
     },
     "backupPolicy": {
       "type": "Continuous"
-      ....
+      ...
     }
   }
 }
@@ -145,7 +151,7 @@ Each resource contains information of a mutation event such as creation and dele
 > * ``SystemOperation``: database modification event triggered by the system. This event isn't initiated by the user
 >
 
-To get a list of all database mutations, see [Restorable Sql Databases - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-databases/list) article.
+To get a list of all database mutations, see [Restorable NoSQL Databases - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-databases/list) article.
 
 ### Restorable SQL container
 
@@ -168,7 +174,7 @@ Each resource contains information of a mutation event such as creation and dele
 > * ``SystemOperation``: container modification event triggered by the system. This event isn't initiated by the user
 >
 
-To get a list of all container mutations under the same database, see [Restorable Sql Containers - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-containers/list) article.
+To get a list of all container mutations under the same database, see [Restorable NoSQL Containers - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-containers/list) article.
 
 ### Restorable SQL resources
 
@@ -179,7 +185,7 @@ Each resource represents a single database and all the containers under that dat
 | ``databaseName`` | The name of the SQL database.
 | ``collectionNames`` | The list of SQL containers under this database.|
 
-To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable Sql Resources - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-resources/list) article.
+To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable NoSQL Resources - List](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/restorable-sql-resources/list) article.
 
 ### Restorable MongoDB database
 
@@ -293,7 +299,7 @@ To get a list of all container mutations under the same database, see graph [Res
 
 ### Restorable Table resources
 
-Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Note the Table API doesn't specify an explicit database.
+Lists all the restorable Azure Cosmos DB Tables available for a specific database account at a given time and location. Note the API for Table doesn't specify an explicit database.
 
 | Property Name | Description  |
 | --- | --- |

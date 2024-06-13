@@ -2,14 +2,11 @@
 title: 'Overview: What is Azure Time Series Insights Gen2? - Azure Time Series Insights Gen2'
 description: Learn about changes, improvements, and features in Azure Time Series Insights Gen2.
 ms.service: time-series-insights
-services: time-series-insights
 author: shreyasharmamsft
 ms.author: shresha
 manager: dpalled
-ms.workload: big-data
 ms.topic: overview
 ms.date: 12/16/2020
-ms.custom: seodec18
 ---
 
 # What is Azure Time Series Insights Gen2
@@ -26,7 +23,7 @@ Azure Time Series Insights Gen2 is designed for ad hoc data exploration and oper
 
 Learn more about Azure Time Series Insights Gen2.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Internet-of-Things-Show/Using-Azure-Time-Series-Insights-to-create-an-Industrial-IoT-analytics-platform/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Internet-of-Things-Show/Using-Azure-Time-Series-Insights-to-create-an-Industrial-IoT-analytics-platform/player]
 
 ## Definition of IoT data
 

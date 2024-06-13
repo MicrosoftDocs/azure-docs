@@ -27,7 +27,7 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
 1. Select **DNS zones**.
 
-1. Select the **Create** button.
+1. Select **Create**.
 
 1. In the *Basics* tab, enter the following values.
 

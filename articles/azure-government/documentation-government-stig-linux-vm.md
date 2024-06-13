@@ -1,13 +1,13 @@
 ---
 title: Deploy STIG-compliant Linux Virtual Machines (Preview)
 description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from the Azure portal or Azure Government portal.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: quickstart
-ms.custom: mode-other, kr2b-contr-experiment
+ms.custom: mode-other, kr2b-contr-experiment, linux-related-content
 recommendations: false
-ms.date: 08/25/2022
+ms.date: 06/06/2024
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -93,7 +93,7 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 
     b. Enter Log Analytics workspace (optional, required to store log analytics).
 
-    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8, CentOS 7.7/7.8/7.9, and Ubuntu 18.04).
+    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8 and Ubuntu 18.04).
 
     :::image type="content" source="./media/stig-linux-diagnostic-settings.png" alt-text="Management section showing where you select the diagnostic settings for the virtual machine" border="false":::
 
@@ -115,22 +115,22 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 1. The deployed virtual machine can be found in the resource group used for the deployment. Since inbound RDP is disallowed, Azure Bastion must be used to connect to the VM.
 
 ## High availability and resiliency
- 
+
 Our solution template creates a single instance virtual machine using premium or standard operating system disk, which supports [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/).
- 
+
 We recommend you deploy multiple instances of virtual machines configured behind Azure Load Balancer and/or Azure Traffic Manager for higher availability and resiliency.
- 
+
 ## Business continuity and disaster recovery (BCDR)
- 
+
 As an organization you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
- 
+
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery replicates workloads running on physical and virtual machines from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
- 
+
 Site Recovery can manage replication for:
- 
+
 - Azure VMs replicating between Azure regions.
 - On-premises VMs, Azure Stack VMs, and physical servers.
- 
+
 To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](../virtual-machines/backup-recovery.md).
 
 ## Clean up resources
@@ -146,6 +146,17 @@ Contact Azure support to get assistance with issues related to STIG solution tem
 Azure -> Virtual Machine running Linux -> Cannot create a VM -> Troubleshoot my ARM template error
 
 :::image type="content" source="./media/stig-linux-support.png" alt-text="New support request for Linux STIG solution template":::
+
+## Frequently asked questions
+
+**When will STIG-compliant VMs reach general availability (GA)?** </br>
+The Azure STIG-compliant VM offering is expected to remain in Preview instead of reaching GA because of the release cadence for DISA STIGs. Every quarter, the offering is upgraded with latest guidance, and this process is expected to continue in the future. See previous section for support options that most customers require for production workloads, including creating support tickets.
+
+**Can Azure Update Management be used with STIG images?** </br>
+Yes, [Update Management](../automation/update-management/overview.md) in Azure Automation supports STIG images.
+
+**What STIG settings are being applied by the template?** </br>
+For more information, see [Deploy Azure Virtual Machine (Linux) and apply STIG](https://github.com/Azure/ato-toolkit/tree/master/stig/linux).
 
 ## Next steps
 
@@ -171,3 +182,4 @@ For more information about Azure Government, see the following resources:
 - [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
 - [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
 - [Secure Azure Computing Architecture](./compliance/secure-azure-computing-architecture.md)
+- [Security Technical Implementation Guides (STIGs)](https://public.cyber.mil/stigs/)

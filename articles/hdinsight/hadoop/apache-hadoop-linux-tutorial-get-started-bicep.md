@@ -5,8 +5,8 @@ author: reachnijel
 ms.author: nijelsf 
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 07/18/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep, linux-related-content
+ms.date: 12/05/2023
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Bicep
 ---
 
@@ -14,7 +14,7 @@ ms.date: 07/18/2022
 
 In this quickstart, you use Bicep to create an [Apache Hadoop](./apache-hadoop-introduction.md) cluster in Azure HDInsight. Hadoop was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop ecosystem includes related software and utilities, including Apache Hive, Apache HBase, Spark, Kafka, and many others.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
   
 Currently HDInsight comes with [seven different cluster types](../hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -57,11 +57,11 @@ Two Azure resources are defined in the Bicep file:
     You need to provide values for the parameters:
 
     * Replace **\<cluster-name\>** with the name of the HDInsight cluster to create.
-    * Replace **\<cluster-type\>** with the type of the HDInsight cluster to create. Allowed strings include: `hadoop`, `interactivehive`, `hbase`, `storm`, and `spark`.
+    * Replace **\<cluster-type\>** with the type of the HDInsight cluster to create. Allowed strings include: `hadoop`, `interactivehive`, `hbase`, and `spark`.
     * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards.
     * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username cannot be admin.
 
-    You'll also be prompted to enter the following:
+    You'll also be prompted to enter the following parameter:
 
     * **clusterLoginPassword**, which must be at least 10 characters long and contain one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username or SSH username.
     * **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.

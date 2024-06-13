@@ -1,10 +1,10 @@
 ---
-title: Use Apache Spark to read and write data to Azure SQL Database 
-description: Learn how to set up a connection between HDInsight Spark cluster and Azure SQL Database. To read data, write data, and stream data into a SQL database
+title: Use Apache Spark to read and write data to Azure SQL Database
+description: Learn how to set up a connection between HDInsight Spark cluster and Azure SQL Database. To read data, write data, and stream data into an SQL database
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/08/2022
+ms.custom: hdinsightactive
+ms.date: 05/09/2024
 ---
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL Database
@@ -30,7 +30,7 @@ Start by creating a Jupyter Notebook associated with the Spark cluster. You use 
 1. From the [Azure portal](https://portal.azure.com/), open your cluster.
 1. Select **Jupyter Notebook** underneath **Cluster dashboards** on the right side.  If you don't see **Cluster dashboards**, select **Overview** from the left menu. If prompted, enter the admin credentials for the cluster.
 
-:::image type="content" source="./media/apache-spark-connect-to-sql-database/new-hdinsight-spark-cluster-dashboard-jupyter-notebook.png " alt-text="Jupyter Notebook on Apache Spark" border="true":::
+:::image type="content" source="./media/apache-spark-connect-to-sql-database/new-hdinsight-spark-cluster-dashboard-jupyter-notebook.png " alt-text="Jupyter Notebook on Apache Spark." border="true":::
 
    > [!NOTE]
    > You can also access the Jupyter Notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
@@ -38,7 +38,7 @@ Start by creating a Jupyter Notebook associated with the Spark cluster. You use 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 1. In the Jupyter Notebook, from the top-right corner, click **New**, and then click **Spark** to create a Scala notebook. Jupyter Notebooks on HDInsight Spark cluster also provide the **PySpark** kernel for Python2 applications, and the **PySpark3** kernel for Python3 applications. For this article, we create a Scala notebook.
 
-:::image type="content" source="./media/apache-spark-connect-to-sql-database/new-kernel-jupyter-notebook-on-spark.png " alt-text="Kernels for Jupyter Notebook on Spark" border="true":::
+:::image type="content" source="./media/apache-spark-connect-to-sql-database/new-kernel-jupyter-notebook-on-spark.png " alt-text="Kernels for Jupyter Notebook on Spark." border="true":::
 
 For more information about the kernels, see [Use Jupyter Notebook kernels with Apache Spark clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
@@ -47,7 +47,7 @@ For more information about the kernels, see [Use Jupyter Notebook kernels with A
 
 1. A new notebook opens with a default name, **Untitled**. Click the notebook name and enter a name of your choice.
 
-   :::image type="content" source="./media/apache-spark-connect-to-sql-database/new-hdinsight-spark-jupyter-notebook-name.png " alt-text="Provide a name for the notebook" border="true":::
+   :::image type="content" source="./media/apache-spark-connect-to-sql-database/new-hdinsight-spark-jupyter-notebook-name.png " alt-text="Provide a name for the notebook." border="true":::
 
       You can now start creating your application.
 
@@ -68,7 +68,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
    ```
 
     Press **SHIFT + ENTER** to run the code cell.  
-1. Use the snippet below to build a JDBC URL that you can pass to the Spark dataframe APIs. The code creates a `Properties` object to hold the parameters. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
+1. Use the following snippet to build a JDBC URL that you can pass to the Spark dataframe APIs. The code creates a `Properties` object to hold the parameters. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
    ```scala
    import java.util.Properties
@@ -79,7 +79,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
    connectionProperties.put("password", s"${jdbcPassword}")
    ```
 
-1. Use the snippet below to create a dataframe with the data from a table in your database. In this snippet, we use a `SalesLT.Address` table that is available as part of the **AdventureWorksLT** database. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
+1. Use the following snippet to create a dataframe with the data from a table in your database. In this snippet, we use a `SalesLT.Address` table that is available as part of the **AdventureWorksLT** database. Paste the snippet in a code cell and press **SHIFT + ENTER** to run.
 
    ```scala
    val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
@@ -93,7 +93,7 @@ In this section, you read data from a table (for example, **SalesLT.Address**) t
 
     You see an output similar to the following image:
 
-    :::image type="content" source="./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png " alt-text="schema output" border="true":::
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/read-from-sql-schema-output.png " alt-text="schema output." border="true":::
 
 1. You can also do operations like, retrieve the top 10 rows.
 
@@ -157,13 +157,13 @@ In this section, we use a sample CSV file available on the cluster to create a t
 
 1. Connect to the Azure SQL Database using SSMS and verify that you see a `dbo.hvactable` there.
 
-    a. Start SSMS and connect to the Azure SQL Database by providing connection details as shown in the screenshot below.
+    a. Start SSMS and connect to the Azure SQL Database by providing connection details as shown in the following screenshot.
 
-    :::image type="content" source="./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png " alt-text="Connect to SQL Database using SSMS1" border="true":::
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png " alt-text="Connect to SQL Database using SSMS1." border="true":::
 
     b. From **Object Explorer**, expand the database and the table node to see the **dbo.hvactable** created.
 
-    :::image type="content" source="./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png " alt-text="Connect to SQL Database using SSMS2" border="true":::
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png " alt-text="Connect to SQL Database using SSMS2." border="true":::
 
 1. Run a query in SSMS to see the columns in the table.
 
@@ -200,7 +200,7 @@ In this section, we stream data into the `hvactable` that you created in the pre
 
 1. The output shows the schema of **HVAC.csv**. The `hvactable` has the same schema as well. The output lists the columns in the table.
 
-    :::image type="content" source="./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png " alt-text="`hdinsight Apache Spark schema table`" border="true":::
+    :::image type="content" source="./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png " alt-text="`hdinsight Apache Spark schema table`." border="true":::
 
 1. Finally, use the following snippet to read data from the HVAC.csv and stream it into the `hvactable` in your database. Paste the snippet in a code cell, replace the placeholder values with the values for your database, and then press **SHIFT + ENTER** to run.
 

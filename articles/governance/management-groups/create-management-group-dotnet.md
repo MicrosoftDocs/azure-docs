@@ -3,7 +3,7 @@ title: "Quickstart: Create a management group with .NET Core"
 description: In this quickstart, you use .NET Core to create a management group to organize your resources into a resource hierarchy.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 # Quickstart: Create a management group with .NET Core
 
@@ -39,7 +39,7 @@ directory. You receive a notification when the process is complete. For more inf
   start using management groups, we allow the creation of the initial management groups at the root
   level.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Application setup
 

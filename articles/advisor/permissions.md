@@ -1,11 +1,11 @@
 ---
-title: Permissions in Azure Advisor 
+title: Roles and permissions 
 description: Advisor permissions and how they may block your ability to configure subscriptions or postpone or dismiss recommendations.
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/03/2024
 ---
 
-# Permissions in Azure Advisor
+# Roles and permissions
 
 Azure Advisor provides recommendations based on the usage and configuration of your Azure resources and subscriptions. Advisor uses the [built-in roles](../role-based-access-control/built-in-roles.md) provided by [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to manage your access to recommendations and Advisor features. 
 
@@ -38,7 +38,7 @@ When you attempt to configure subscriptions or resource groups in Advisor, you m
 
 ### Unable to postpone or dismiss a recommendation
 
-If you receive an error when trying to postpone or dismiss a recommendation, you may not have sufficient permissions. Make sure that you have at least contributor access to the impacted resource of the recommendation you are postponing or dismissing. To resolve this issue, learn how to [grant a user access](../role-based-access-control/quickstart-assign-role-user-portal.md).
+If you receive an error when trying to postpone or dismiss a recommendation, you might not have sufficient permissions. Dismissing a recommendation means you can't see it again unless manually reactivated, so you might potentially overlook important advice for optimizing Azure deployments. Therefore, it’s crucial that only users with sufficient permissions can dismiss recommendations. Make sure that you have at least contributor access to the impacted resource of the recommendation you're postponing or dismissing. To resolve this issue, learn how to [grant a user access](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 ## Next steps
 

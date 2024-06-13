@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 04/15/2021
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---

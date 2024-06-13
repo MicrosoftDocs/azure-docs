@@ -3,7 +3,7 @@ title: Troubleshoot migration of Hive from 3.6 to 4.0 - Azure HDInsight
 description: Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to 4.0
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 07/12/2021
+ms.date: 05/10/2024
 ---
 
 # Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to HDInsight 4.0
@@ -79,7 +79,7 @@ It's caused by the difference of WebHCat(Templeton) between HDInsight 3.6 and HD
 
 3. DbNotificationListener is needed only if you use REPL commands and if not, it's safe to remove it.
 
-    :::image type="content" source="./media/apache-hive-40-migration-guide/hive-reduce-internal-table-creation-latency.png" alt-text="Reduce internal table latency in HDInsight 4.0" border="true":::
+    :::image type="content" source="./media/apache-hive-40-migration-guide/hive-reduce-internal-table-creation-latency.png" alt-text="Reduce internal table latency in HDInsight 4.0." border="true":::
 
 ## Change Hive default table location
 
@@ -104,7 +104,11 @@ Steps to disable ACID on HDInsight 4.0:
     hive.create.as.insert.only=false;
     metastore.create.as.acid=false;
     ```
-
+> [!Note]
+> If hive.strict.managed.tables is set to true \<Default value\>, Creating Managed and non-transaction table will fail with the following error:
+```
+java.lang.Exception: java.sql.SQLException: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. Table <Table name> failed strict managed table checks due to the following reason: Table is marked as a managed table but is not transactional.
+```
 2. Restart hive service.
 
 > [!IMPORTANT]
@@ -144,7 +148,7 @@ MetaStoreAuthzAPIAuthorizerEmbedOnly effectively disables security checks becaus
 
   `org.apache.hadoop.hive.ql.security.authorization.MetaStoreAuthzAPIAuthorizerEmbedOnly`
 
-  :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="Set authorization to MetaStoreAuthzAPIAuthorizerEmbedOnly" border="true":::
+  :::image type="content" source="./media/apache-hive-40-migration-guide/hive-job-permission-errors.png" alt-text="Set authorization to MetaStoreAuthzAPIAuthorizerEmbedOnly." border="true":::
 
 ## Unable to query table with OpenCSVSerde
 

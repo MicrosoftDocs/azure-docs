@@ -7,15 +7,13 @@ ms.subservice: azure-arc-data-sqlmi
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: dinethi
-ms.date: 05/24/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
 # Tutorial – Deploy Active Directory connector using Azure portal
 
-Active Directory (AD) connector is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instances.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+Active Directory (AD) connector is a key component to enable Active Directory authentication on SQL Managed Instance enabled by Azure Arc.
 
 This article explains how to deploy, manage, and delete an Active Directory (AD) connector in directly connected mode from the Azure portal. 
 
@@ -109,7 +107,7 @@ To delete multiple AD connectors at one time:
 
 1. Click **Delete** in the management bar to delete the AD connectors that you selected. 
 
-## Next steps
+## Related content
 * [Tutorial – Deploy Active Directory connector using Azure CLI](deploy-active-directory-connector-cli.md)
 * [Tutorial – Deploy AD connector in customer-managed keytab mode](deploy-customer-managed-keytab-active-directory-connector.md)
 * [Tutorial – Deploy Active Directory connector in system-managed keytab mode](deploy-system-managed-keytab-active-directory-connector.md)

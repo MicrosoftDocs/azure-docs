@@ -3,15 +3,16 @@ title: OS and runtime patching cadence
 description: Learn how Azure App Service updates the OS and runtimes, what runtimes and patch level your apps has, and how you can get update announcements.
 ms.topic: article
 ms.date: 01/21/2021
-ms.custom: seodec18, devx-track-azurecli
-
+ms.custom: UpdateFrequency3, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
 ---
 
 # OS and runtime patching in Azure App Service
 
 This article shows you how to get certain version information regarding the OS or software in [App Service](overview.md). 
 
-App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available you in [Azure Virtual Machines](../virtual-machines/index.yml). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
+App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available for you in [Azure Virtual Machines](../virtual-machines/index.yml). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
 
 -	How and when are OS updates applied?
 -	How is App Service patched against significant vulnerabilities (such as zero-day)?

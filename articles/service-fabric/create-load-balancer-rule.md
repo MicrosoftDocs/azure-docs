@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-azurecli
 services: service-fabric
 ms.date: 07/11/2022
 ---
@@ -16,7 +17,7 @@ The load balancer deployed with your Azure Service Fabric cluster directs traffi
 When you deployed your Service Fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Configure service fabric
 

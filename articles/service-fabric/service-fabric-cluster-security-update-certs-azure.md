@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -22,7 +23,7 @@ Service fabric lets you specify two cluster certificates, a primary and a second
 > 
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Add a secondary cluster certificate using the portal
 Secondary cluster certificate cannot be added through the Azure portal; use [Azure Resource Manager](#add-a-secondary-certificate-using-azure-resource-manager).
@@ -293,5 +294,3 @@ Read these articles for more information on cluster management:
 [Json_Pub_Setting3]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_16.PNG
 [Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
 [Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
-
-

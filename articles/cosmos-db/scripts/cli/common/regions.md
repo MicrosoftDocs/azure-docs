@@ -1,38 +1,39 @@
 ---
-title: Add regions, change failover priority, trigger failover for an Azure Cosmos account
-description: Add regions, change failover priority, trigger failover for an Azure Cosmos account
+title: Add regions, change failover priority, trigger failover for an Azure Cosmos DB account
+description: Add regions, change failover priority, trigger failover for an Azure Cosmos DB account
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
+ms.custom: devx-track-azurecli
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Add regions, change failover priority, trigger failover for an Azure Cosmos account using Azure CLI
+# Add regions, change failover priority, trigger failover for an Azure Cosmos DB account using Azure CLI
 
-[!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../../../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 The script in this article demonstrates three operations.
 
-- Add a region to an existing Azure Cosmos account.
+- Add a region to an existing Azure Cosmos DB account.
 - Change regional failover priority (applies to accounts using service-managed failover)
 - Trigger a manual failover from primary to secondary regions (applies to accounts with manual failover)
 
-This script uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.
+This script uses a API for NoSQL account, but these operations are identical across all database APIs in Azure Cosmos DB.
 
 > [!IMPORTANT]
-> Add and remove region operations on a Cosmos account cannot be done while changing other properties.
+> Add and remove region operations on an Azure Cosmos DB account cannot be done while changing other properties.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -40,7 +41,7 @@ This script uses a SQL (Core) API account, but these operations are identical ac
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup
@@ -66,6 +67,6 @@ For Azure CLI samples for specific APIs see:
 
 - [CLI Samples for Cassandra](../../../cassandra/cli-samples.md)
 - [CLI Samples for Gremlin](../../../graph/cli-samples.md)
-- [CLI Samples for MongoDB API](../../../mongodb/cli-samples.md)
+- [CLI Samples for API for MongoDB](../../../mongodb/cli-samples.md)
 - [CLI Samples for SQL](../../../sql/cli-samples.md)
 - [CLI Samples for Table](../../../table/cli-samples.md)

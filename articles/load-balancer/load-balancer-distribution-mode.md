@@ -3,14 +3,11 @@ title: Configure Azure Load Balancer distribution mode
 titleSuffix: Azure Load Balancer
 description: In this article, get started configuring the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/04/2021
+ms.custom: template-how-to, devx-track-azurecli
+ms.date: 01/22/2024
 ms.author: mbender
 ---
 
@@ -20,6 +17,8 @@ Azure Load Balancer supports two distribution modes for distributing traffic to 
 
 * Hash-based
 * Source IP affinity
+
+To learn more about the different distribution modes supported by Azure Load Balancer, see [Azure Load Balancer distribution modes](distribution-mode-concepts.md).
 
 In this article, you learn how to configure the distribution mode for your Azure Load Balancer.
 
@@ -39,18 +38,18 @@ You can change the configuration of the distribution mode by modifying the load-
 
 The following options are available: 
 
-* **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
-* **Client IP (source IP affinity two-tuple)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
-* **Client IP and protocol (source IP affinity three-tuple)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+* **None (hash-based)** - Specifies that successive requests from the same client can be handled by any virtual machine.
+* **Client IP (two-tuple: source IP and destination IP)** - Specifies that successive requests from the same client IP address are handled by the same virtual machine.
+* **Client IP and protocol (three-tuple: source IP, destination IP, and protocol type)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same virtual machine.
 
 5. Choose the distribution mode and then select **Save**.
 
-:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true":::
+:::image type="content" source="./media/load-balancer-distribution-mode/session-persistence.png" alt-text="Change session persistence on load balancer rule." border="true" lightbox="./media/load-balancer-distribution-mode/session-persistence.png":::
 
 
 # [**PowerShell**](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Use PowerShell to change the load-balancer distribution settings on an existing load-balancing rule. The following command updates the distribution mode: 
 
@@ -70,7 +69,7 @@ Set the value of the `LoadDistribution` element for the type of load balancing r
 
 # [**CLI**](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule.  The following command updates the distribution mode:
 

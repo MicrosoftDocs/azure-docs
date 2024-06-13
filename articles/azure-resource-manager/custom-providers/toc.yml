@@ -1,8 +1,8 @@
-- name: Azure Custom Providers Documentation
+- name: Azure Custom Resource Providers Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure Custom Providers?
+  - name: What are Azure Custom Resource Providers?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -13,13 +13,13 @@
     href: create-custom-provider-quickstart-powershell.md
 - name: Tutorials
   items:
-  - name: Get started with custom providers
+  - name: Get started with custom resource providers
     href: tutorial-get-started-with-custom-providers.md
   - name: Set up Azure Functions
     href: tutorial-custom-providers-function-setup.md
   - name: Author a RESTful endpoint
     href: tutorial-custom-providers-function-authoring.md
-  - name: Create and utilize custom providers
+  - name: Create and utilize custom resource providers
     href: tutorial-custom-providers-create.md
   - name: Extend resources
     href: tutorial-resource-onboarding.md
@@ -41,7 +41,7 @@
     href: proxy-resource-endpoint-reference.md
   - name: Custom resource cache reference
     href: proxy-cache-resource-endpoint-reference.md
-  - name: Custom provider RESTful endpoint reference
+  - name: Custom resource provider RESTful endpoint reference
     href: reference-custom-providers-csharp-endpoint.md
   - name: REST
     href: /rest/api/customproviders/

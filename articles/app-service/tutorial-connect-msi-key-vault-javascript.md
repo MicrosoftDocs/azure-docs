@@ -1,12 +1,15 @@
 ---
 title: 'Tutorial: JavaScript connect to Azure services securely with Key Vault'
 description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively from a JavaScript web app
-ms.devlang: javascript, azurecli
+ms.devlang: javascript
+# ms.devlang: javascript, azurecli
 ms.topic: tutorial
 ms.date: 10/26/2021
+author: cephalin
+ms.author: cephalin
 
 ms.reviewer: madsd 
-ms.custom: devx-track-azurecli, devx-track-js
+ms.custom: devx-track-azurecli, devx-track-js, AppServiceConnectivity
 ---
 
 # Tutorial: Secure Cognitive Service connection from JavaScript App Service using Key Vault

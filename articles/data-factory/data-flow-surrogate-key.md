@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Surrogate key transformation in mapping data flow 
@@ -79,6 +79,6 @@ AggregateDayStats
     ) ~> SurrogateKey1
 ```
 
-## Next steps
+## Related content
 
 These examples use the [Join](data-flow-join.md) and [Derived Column](data-flow-derived-column.md) transformations.

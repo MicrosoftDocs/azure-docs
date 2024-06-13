@@ -1,71 +1,85 @@
 ---
 title: Connect to Azure Storage
-titleSuffix: Azure Cognitive Search
-description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity
-
+titleSuffix: Azure AI Search
+description: Learn how to set up an indexer connection to an Azure Storage account using a managed identity.
 author: gmndrg
 ms.author: gimondra
 manager: nitinme
 
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 03/30/2022
-ms.custom: subject-rbac-steps
+ms.topic: how-to
+ms.date: 06/03/2024
+ms.custom:
+  - subject-rbac-steps
+  - ignite-2023
 ---
 
-# Set up a connection to an Azure Storage account using a managed identity
+# Connect to Azure Storage using a managed identity (Azure AI Search)
 
-This article describes how to set up an Azure Cognitive Search indexer connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
+This article explains how to configure a search service connection to an Azure Storage account using a managed identity instead of providing credentials in the connection string.
 
-You can use a system-assigned managed identity or a user-assigned managed identity (preview). Managed identities are Azure AD logins and require Azure role assignments to access data in Azure Storage. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+You can use a system-assigned managed identity or a user-assigned managed identity. Managed identities are Microsoft Entra logins and require role assignments for access to Azure Storage. 
 
-This article assumes familiarity with indexer concepts and configuration. If you're new to indexers, start with these links:
+## Prerequisites
 
-* [Indexer overview](search-indexer-overview.md)
-* [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
-* [Azure Data Lake Storage (ADLS) Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-* [Azure Table indexer](search-howto-indexing-azure-tables.md)
-* [Azure Files indexer (preview)](search-file-storage-integration.md)
-
-For a code example in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
++ Azure AI Search, Basic tier or higher, with a [managed identity](search-howto-managed-identities-data-sources.md).
 
 > [!NOTE]
 > If storage is network-protected and in the same region as your search service, you must use a system-assigned managed identity and either one of the following network options: [connect as a trusted service](search-indexer-howto-access-trusted-service-exception.md), or [connect using the resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances). 
 
-## Prerequisites
+## Create a role assignment in Azure Storage
 
-* [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
+1. Sign in to Azure portal and find your storage account.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role): 
+1. Select **Access control (IAM)**.
 
-  * **Storage Blob Data Reader** for data read access in Blob Storage and ADLS Gen2. 
+1. Select **Add** and then select **Role assignment**.
 
-  * **Reader and Data** for data read access in Table Storage and File Storage.
+1. From the list of job function roles, select the roles needed for your search service:
 
-The easiest way to test the connection is using the [Import data wizard](search-import-data-portal.md). The wizard supports data source connections for both system and user managed identities.
+   | Task | Role assignment |
+   |------|-----------------|
+   | Blob indexing using an indexer | Add **Storage Blob Data Reader** |
+   | ADLS Gen2 indexing using an indexer | Add **Storage Blob Data Reader** |
+   | Table indexing using an indexer | Add **Reader and Data Access** |
+   | File indexing using an indexer | Add **Reader and Data Access** |
+   | Write to a knowledge store | Add **Storage Blob DataContributor** for object and file projections, and **Reader and Data Access** for table projections. |
+   | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
+   | Save debug session state | Add **Storage Blob Data Contributor**  |
 
-## Create the data source
+1. Select **Next**.
 
-Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview). 
+1. Select **Managed identity** and then select **Members**.
+
+1. Filter by system-assigned managed identities or user-assigned managed identities. You should see the managed identity that you previously created for your search service. If you don't have one, see [Configure search to use a managed identity](search-howto-managed-identities-data-sources.md). If you already set one up but it's not available, give it a few minutes.
+
+1. Select the identity and save the role assignment.
+
+## Specify a managed identity in a connection string
+
+Once you have a role assignment, you can set up a connection to Azure Storage that operates under that role.
+
+Indexers use a data source object for connections to an external data source. This section explains how to specify a system-assigned managed identity or a user-assigned managed identity on a data source connection string. You can find more [connection string examples](search-howto-managed-identities-data-sources.md#connection-string-examples) in the managed identity article.
+
+> [!TIP]
+> You can create a data source connection to Azure Storage in the Azure portal, specifying either a system or user-assigned managed identity, and then view the JSON definition to see how the connection string is formulated.
 
 ### System-assigned managed identity
 
-The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) support using a system-assigned managed identity.
+You must have a [system-assigned managed identity already configured](search-howto-managed-identities-data-sources.md), and it must have a role-assignment on Azure Storage. 
 
-When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
+For connections made using a system-assigned managed identity, the only change to the [data source definition](/rest/api/searchservice/create-data-source) is the format of the `credentials` property. 
 
-Here is an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+Provide a `ResourceId` that has no account key or password. The `ResourceId` must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
+POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
 
 {
     "name" : "blob-datasource",
     "type" : "azureblob",
     "credentials" : { 
-        "connectionString" : "ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Storage/storageAccounts/[storage account name]/;" 
+        "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/MY-DEMO-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/MY-DEMO-STORAGE-ACCOUNT/;" 
     },
     "container" : { 
         "name" : "my-container", "query" : "<optional-virtual-directory-name>" 
@@ -73,74 +87,36 @@ api-key: [admin key]
 }   
 ```
 
-### User-assigned managed identity (preview)
+### User-assigned managed identity
 
-The 2021-04-30-preview REST API supports connections based on a user-assigned managed identity. When you're connecting with a user-assigned managed identity, there are two changes to the data source definition:
+You must have a [user-assigned managed identity already configured](search-howto-managed-identities-data-sources.md) and associated with your search service, and the identity must have a role-assignment on Azure Storage. 
 
-* First, the format of the "credentials" property is a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name. This is the same format as the system-assigned managed identity.
+Connections made through user-assigned managed identities use the same credentials as a system-assigned managed identity, plus an extra identity property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set `userAssignedIdentity` to the user-assigned managed identity.
 
-* Second, you'll add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
+Provide a `ResourceId` that has no account key or password. The `ResourceId` must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
 
-Here is an example of how to create an indexer data source object using the [preview Create or Update Data Source](/rest/api/searchservice/preview-api/create-or-update-data-source) REST API:
+Provide an `identity` using the syntax shown in the following example.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview
-Content-Type: application/json
-api-key: [admin key]
+POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
 
 {
     "name" : "blob-datasource",
     "type" : "azureblob",
     "credentials" : { 
-        "connectionString" : "ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Storage/storageAccounts/[storage account name]/;" 
+        "connectionString" : "ResourceId=/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/MY-DEMO-RESOURCE-GROUP/providers/Microsoft.Storage/storageAccounts/MY-DEMO-STORAGE-ACCOUNT/;" 
     },
     "container" : { 
         "name" : "my-container", "query" : "<optional-virtual-directory-name>" 
     },
     "identity" : { 
         "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
-        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]" 
+        "userAssignedIdentity" : "/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MY-DEMO-RESOURCE-GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MY-DEMO-USER-MANAGED-IDENTITY" 
     }
 }   
 ```
 
-## Create the index
-
-The index specifies the fields in a document, attributes, and other constructs that shape the search experience.
-
-Here's a [Create Index](/rest/api/searchservice/create-index) REST API call with a searchable `content` field to store the text extracted from blobs:   
-
-```http
-POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-        "name" : "my-target-index",
-        "fields": [
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-        { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
-        ]
-}
-```
-
-## Create the indexer
-
-An indexer connects a data source with a target search index, and provides a schedule to automate the data refresh. Once the index and data source have been created, you're ready to create and run the indexer.
-
-Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call with a blob indexer definition. The indexer will run when you submit the request.
-
-```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin key]
-
-{
-    "name" : "blob-indexer",
-    "dataSourceName" : "blob-datasource",
-    "targetIndexName" : "my-target-index"
-}
-```
+Connection information and permissions on the remote service are validated at run time during indexer execution. If the indexer is successful, the connection syntax and role assignments are valid. For more information, see [Run or reset indexers, skills, or documents](search-howto-run-reset-indexers.md).
 
 ## Accessing network secured data in storage accounts
 
@@ -148,7 +124,7 @@ Azure storage accounts can be further secured using firewalls and virtual networ
 
 ## See also
 
-* [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
-* [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-* [Azure Table indexer](search-howto-indexing-azure-tables.md)
-* [C# Example: Index Data Lake Gen2 using Azure AD (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)
++ [Azure blob indexer](search-howto-indexing-azure-blob-storage.md)
++ [ADLS Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
++ [Azure table indexer](search-howto-indexing-azure-tables.md)
++ [C# Example: Index Data Lake Gen2 using Microsoft Entra ID (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/data-lake-gen2-acl-indexing/README.md)

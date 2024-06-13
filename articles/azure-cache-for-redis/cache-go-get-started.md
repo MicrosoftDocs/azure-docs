@@ -7,8 +7,7 @@ ms.service: cache
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.custom: mode-api
-
+ms.custom: mode-api, devx-track-go
 ---
 
 # Quickstart: Use Azure Cache for Redis with Go
@@ -28,7 +27,7 @@ If you want to skip straight to the code, see the [Go quickstart](https://github
 
 ## Create an Azure Cache for Redis instance
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 

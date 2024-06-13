@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Service Bus. 
 ms.topic: conceptual
 ms.custom: subject-monitoring
-ms.date: 02/10/2022
+ms.date: 06/26/2023
 ---
 
 # Monitor Azure Service Bus
@@ -23,7 +23,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 The following sections build on this article by describing the specific data gathered for Azure Service Bus. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Usage and estimated costs](../azure-monitor//usage-estimated-costs.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
 
 ## Monitoring data from Azure Service Bus
 Azure Service Bus collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
@@ -96,7 +96,7 @@ The diagnostic logging information is stored in tables named **AzureDiagnostics*
 The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
-You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
+You can analyze metrics for Azure Service Bus, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Service Bus data reference metrics](monitor-service-bus-reference.md#metrics).
 
 ![Metrics Explorer with Service Bus namespace selected](./media/monitor-service-bus/metrics.png)
 
@@ -109,24 +109,20 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of a queue or a topic. You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
 
 ## Analyzing logs
-Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Service Bus stores data in the following tables: **AzureDiagnostics** and **AzureMetrics**.
+Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties.Azure Service Bus has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or Resource specific tables in Log Analytics. For a detailed reference of the logs and metrics, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md).
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
-
-For a detailed reference of the logs and metrics, see [Azure Service Bus monitoring data reference](monitor-service-bus-reference.md).
-
-### Sample Kusto queries
-
-> [!IMPORTANT]
-> When you select **Logs** from the Azure Service Bus menu, Log Analytics is opened with the query scope set to the current Azure Service Bus namespace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other workspaces or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+### Additional Kusto queries
 
 Following are sample queries that you can use to help you monitor your Azure Service Bus resources: 
 
+### [AzureDiagnostics](#tab/AzureDiagnostics)
+
 + Get management operations in the last 7 days. 
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(7d)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
@@ -135,17 +131,15 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     ```
 + Get runtime audit logs generated in the last one hour. 
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(1h)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
     | where Category == "RuntimeAuditLogs"    
     ```
-
-
 + Get access attempts to a key vault that resulted in "key not found" error.
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where ResourceProvider == "MICROSOFT.SERVICEBUS" 
     | where Category == "Error" and OperationName == "wrapkey"
@@ -154,7 +148,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
 
 + Get errors from the past 7 days
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where TimeGenerated > ago(7d)
     | where ResourceProvider =="MICROSOFT.SERVICEBUS"
@@ -164,7 +158,7 @@ Following are sample queries that you can use to help you monitor your Azure Ser
 
 + Get operations performed with a key vault to disable or restore the key.
 
-    ```Kusto
+    ```kusto
     AzureDiagnostics
     | where ResourceProvider == "MICROSOFT.SERVICEBUS"
     | where (Category == "info" and (OperationName == "disable" or OperationName == "restore"))
@@ -180,7 +174,51 @@ Following are sample queries that you can use to help you monitor your Azure Ser
     | where EventName_s startswith "AutoDelete"
     | summarize count() by EventName_s, _ResourceId    
     ```
-    
+ ### [Resource Specific Table](#tab/Resourcespecifictable)
+
++ Get deny connection events for namespace
+
+  ```kusto
+   AZMSVNetConnectionEvents
+   | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
+   | where Provider =~ "ServiceBus"
+   | where Action == "Deny Connection"
+   | project Action, SubscriptionId, NamespaceName, AddressIp, Reason, Count
+   | summarize by Action, NamespaceName 
+    ```
+
++ Get failed operation logs  for namespace
+
+  ```kusto
+   AZMSOperationalLogs
+   | extend NamespaceName = tostring(split(_ResourceId, "/")[8])
+   | where Provider =~ "ServiceBus"
+   | where isnotnull(NamespaceName) and Status != "Succeeded"
+   | project NamespaceName, ResourceId, EventName, Status, Caller, SubscriptionId
+   | summarize by NamespaceName, EventName
+    ```
+
++ Get Send message events for namespace
+
+  ```kusto
+  AZMSRunTimeAuditLogs
+  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+  | where Provider =~ "ServiceBus"
+  | where isnotnull(NamespaceInfo) and ActivityName = "SendMessage"
+  | project NamespaceInfo, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+  | summarize by NamespaceInfo, ActivityName
+    ```
++ Get Failed authorization results for AAD
+
+  ```kusto
+  AZMSRunTimeAuditLogs
+  | extend NamespaceInfo = tostring(split(_ResourceId, "/")[8])
+  | where Provider =~ "ServiceBus"
+  | where isnotnull(NamespaceInfo) and isnotnull(AuthKey) and AuthType == "AAD" and Status != "Success" 
+  | project NamespaceInfo, AuthKey, ActivityName, Protocol, NetworkType, ClientIp, ResourceId
+  | summarize by NamespaceInfo, AuthKey, ActivityName
+   ```
+
 ## Alerts
 You can access alerts for Azure Service Bus by selecting **Alerts** from the **Azure Monitor** section on the home page for your Service Bus namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 

@@ -1,11 +1,11 @@
 ---
-title: Micro agent configurations (Preview)
+title: Micro agent configurations
 description: The collector sends all current data immediately after any configuration change is made. The configuration changes are then applied.
 ms.date: 05/03/2022
 ms.topic: conceptual
 ---
 
-# Micro agent configurations (Preview)
+# Micro agent configurations
 
 This article describes the different types of configurations that the micro agent supports. Customers can configure the micro agent to fit the needs of their devices, and network environments.  
 
@@ -35,6 +35,7 @@ For example:
 
 `"CollectorsCore_PriorityIntervals"` : `"30,120,1440"`
 
+
 ## Collector types and properties
 
 Configure the micro agent using the following collector-specific properties and settings:
@@ -54,6 +55,11 @@ Configure the micro agent using the following collector-specific properties and 
 |--|--|--|--|
 | **SystemInformation_Disabled** | `True`/`False` | Disables the System Information collector. | `False` |
 | **SystemInformation_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send System Information events. | `Low` |
+| **SystemInformation_HardwareVendor** | string | Set hardware vendor information. | `None` |
+| **SystemInformation_HardwareModel** | string | Set hardware model information. | `None` |
+| **SystemInformation_HardwareSerialNumber** | string | Set hardware serial number information. | `None` |
+| **SystemInformation_FirmwareVendor** | string | Set firmware vendor information. | `None` |
+| **SystemInformation_FirmwareVersion** | string | Set firmware version information. | `None` |
 
 ### SBoM collector-specific settings
 
@@ -91,6 +97,7 @@ Configure the micro agent using the following collector-specific properties and 
 | **NetworkActivity_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send Network Activity events. | `Medium` |
 | **NetworkActivity_Devices** | A list of the network devices separated by a comma. <br><br>For example `eth0,eth1` | Defines the list of network devices (interfaces) that the agent will use to monitor the traffic. <br><br>If a network device isn't listed, the network raw events won't be recorded for the missing device.| `eth0` |
 | **NetworkActivity_CacheSize** | Positive integer | The number of Network Activity events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost).| `256` |
+| **NetworkActivity_PacketBufferSize** | Positive integer | Configure the buffer size (in bytes) that will be used to capture packets for a single device per direction (incoming or outcoming traffic). | `2097152 (=2MB)` |
 
 ### Process collector-specific settings
 
@@ -109,8 +116,36 @@ Configure the micro agent using the following collector-specific properties and 
 | **LogCollector_Disabled** | `True`/`False` | Disables the Logs collector. | `False` |
 | **LogCollector_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send Log events. | `Low` |
 
+### File system collector-specific settings
+
+| Setting Name | Setting options | Description | Default |
+|--|--|--|--|
+| **FileSystem_Disabled** | `True`/`False` | Disables the file system collector. | `False` |
+| **FileSystem_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send file system events. | `Low` |
+| **FileSystem_Recursive** | `True`/`False` | If set to true, monitors all directories under the given path. | `True` |
+| **FileSystem_Paths** | Paths to monitor. <br><br> For example: `/path/to/monitor`, `/another/path/to/monitor`| Defines which paths to monitor, more than one path can be monitored. | `Null` |
+| **FileSystem_CacheSize** | Positive integer | The number of File system events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
+
+### Peripheral collector-specific settings
+
+| Setting Name | Setting options | Description | Default |
+|--|--|--|--|
+| **Peripheral_Disabled** | `True`/`False` | Disables the peripheral collector. | `False` |
+| **Peripheral_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send peripheral events. | `Low` |
+| **Peripheral_CacheSize** | Positive integer | The number of peripheral events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
+
+### Statistics collector-specific settings
+
+| Setting Name | Setting options | Description | Default |
+|--|--|--|--|
+| **Statistics_Disabled** | `True`/`False` | Disables the statistics collector. | `False` |
+| **Statistics_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send statistics events. | `Low` |
+| **Statistics_CacheSize** | Positive integer | The number of statistics events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
+
 ## Next steps
 
 For more information, see:
+
 - [Configure a micro agent twin](how-to-configure-micro-agent-twin.md).
-- [Micro agent event collection (Preview)](concept-event-aggregation.md)
+
+- [Micro agent event collection](concept-event-aggregation.md)

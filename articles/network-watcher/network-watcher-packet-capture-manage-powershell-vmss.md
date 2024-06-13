@@ -1,24 +1,20 @@
 ---
-title: Manage packet captures in Virtual machine scale sets - Azure PowerShell
+title: Manage packet captures in virtual machine scale sets - Azure PowerShell
 titleSuffix: Azure Network Watcher
-description: This page explains how to manage the packet capture feature of Network Watcher in virtual machine scale set using PowerShell
+description: Learn how to manage packet captures in virtual machine scale sets with the packet capture feature of Network Watcher using PowerShell.
 services: network-watcher
-documentationcenter: na
-author: shijaiswal
+author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: shijaiswal 
-ms.custom: devx-track-azurepowershell
+ms.date: 06/07/2022
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Manage packet captures in Virtual machine scale set with Azure Network Watcher using PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-packet-capture-manage-portal-vmss.md)
-> - [Azure REST API](network-watcher-packet-capture-manage-rest-vmss.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell-vmss.md)
 
 
@@ -30,9 +26,6 @@ This article takes you through the different management tasks that are currently
 - [**Stop a packet capture**](#stop-a-packet-capture)
 - [**Delete a packet capture**](#delete-a-packet-capture)
 - [**Download a packet capture**](#download-a-packet-capture)
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 

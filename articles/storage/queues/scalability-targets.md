@@ -2,13 +2,12 @@
 title: Scalability and performance targets for Queue Storage
 titleSuffix: Azure Storage
 description: Learn about scalability and performance targets for Queue Storage.
-author: jimmart-dev
+author: akashdubey-ms
 services: storage
-ms.author: jammart
+ms.author: akashdubey
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: queues
+ms.service: azure-queue-storage
 ---
 
 # Scalability and performance targets for Queue Storage
@@ -17,7 +16,7 @@ ms.subservice: queues
 
 ## Scale targets for Queue Storage
 
-[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+[!INCLUDE [storage-queues-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-queues-scale-targets.md)]
 
 ## See also
 

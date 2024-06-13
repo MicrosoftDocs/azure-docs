@@ -5,3 +5,6 @@
   - name: Microsoft Defender for IoT
     tocHref: /azure/sentinel/
     topicHref: /azure/defender-for-iot/index
+  - name: Microsoft Defender for IoT
+    tocHref: /legal/defender-for-iot/index
+    topicHref: /azure/defender-for-iot/organizations/index

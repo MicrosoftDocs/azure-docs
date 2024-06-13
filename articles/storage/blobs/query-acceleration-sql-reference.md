@@ -2,13 +2,12 @@
 title: Query acceleration SQL language reference
 titleSuffix: Azure Storage
 description: Learn how to use query acceleration sql syntax.
-services: storage
 author: normesta
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: normesta
-ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ---
 

@@ -6,9 +6,9 @@ tags: azure-service-management
 
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
 ms.topic: sample
-ms.date: 11/21/2018
+ms.date: 12/06/2022
 ms.author: msangapu
-ms.custom: mvc, seodec18, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Restore a web app from a backup using Azure PowerShell
@@ -19,7 +19,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-restore/backup-restore.ps1?highlight=1-2 "Restore a web app from a backup")]
 
@@ -38,6 +38,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Gets a list of backups for a web app. |
+| [Get-AzWebAppBackup](/powershell/module/az.websites/get-azwebappbackup) | Gets a backup for a web app using the backup ID. |
+| [Get-AzWebAppBackupConfiguration](/powershell/module/az.websites/get-azwebappbackupconfiguration) | Gets the backup configuration for a web app. |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restores a web app from a previously completed backup. |
 
 ## Next steps

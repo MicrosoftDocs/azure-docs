@@ -4,8 +4,9 @@ description: Describes how to create an AVS assessment with Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/06/2022
+ms.date: 05/09/2024
 ---
 
 
@@ -21,18 +22,18 @@ This article describes how to create an Azure VMware Solution assessment for on-
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project.
 - If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Discovery and assessment tool.
 - To create an assessment, you need to set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
-- You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format.
+- You could also [import the server metadata](./tutorial-discover-import.md) in comma-separated values (CSV) format or [import your RVTools XLSX file](./tutorial-import-vmware-using-rvtools-xlsx.md).
 
 
 ## Azure VMware Solution (AVS) Assessment overview
 
-There are three types of assessments you can create using Azure Migrate: Discovery and assessment.
+There are four types of assessments you can create using Azure Migrate: Discovery and assessment.
 
-***Assessment Type** | **Details**
+**Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises VMs in [VMware vSphere](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, from your VMware vSphere environment to Azure App Service.
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET/Java web apps, running on IIS web servers, from your VMware vSphere environment to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises VMs in [VMware vSphere environment](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
@@ -43,7 +44,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 
 **Assessment** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments based on collected performance data of on-premises servers. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
+**Performance-based** | For RVTools & CSV file-based assessments and performance-based assessment will consider the "In Use MiB" & "Storage In Use" respectively for storage configuration of each VM. For appliance-based assessments and performance-based assessments will consider the collected CPU & memory performance data of on-premises servers. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and FTT setting that you select for the assessment.
 **As on-premises** | Assessments based on on-premises sizing. | **Recommended Node size**: Based on the on-premises server size along with the node type, storage type, and FTT setting that you select for the assessment.
 
 
@@ -58,7 +59,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Discovery source**:
 
     - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
-    - If you discovered servers using an imported CSV file, select **Imported servers**. 
+    - If you discovered servers using an imported CSV or RVTools file, select **Imported servers**. 
     
 1. Click **Edit** to review the assessment properties.
 
@@ -74,7 +75,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - If you select to use a reserved instance, you can't specify '**Discount (%)**
     - [Learn more](../azure-vmware/reserved-instance.md)
 1. In **VM Size**:
-    - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the node of nodes needed to migrate the servers to Azure VMware Solution.
+    - The **Node type** is defaulted to **AV36**. Azure Migrate recommends the number of nodes needed to migrate the servers to Azure VMware Solution.
     - In **FTT setting, RAID level**, select the Failure to Tolerate and RAID combination.  The selected FTT option, combined with the on-premises server disk requirement, determines the total vSAN storage required in AVS.
     - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
     - In **Memory overcommit factor**, specify the ratio of memory over commit on the cluster. A value of 1 represents 100% memory use, 0.5 for example is 50%, and 2 would be using 200% of available memory. You can only add values from 0.5 to 10 up to one decimal place.
@@ -132,7 +133,7 @@ You can click on  **Sizing assumptions** to understand the assumptions that went
 
 ### View an assessment
 
-1. In **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment**, click the number next to ** Azure VMware Solution**.
+1. In **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment**, click the number next to **Azure VMware Solution**.
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
@@ -152,7 +153,7 @@ You can click on  **Sizing assumptions** to understand the assumptions that went
 
 3. Review the Suggested tool:
     - **VMware HCX Advanced or Enterprise**: For VMware vSphere VMs, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/configure-vmware-hcx.md).
-    - **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware vSphere VMs, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
+    - **Unknown**: For servers imported via a CSV or RVTools file, the default migration tool is unknown. Though for VMware vSphere VMs, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
 
 4. Click on an **AVS readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.
 

@@ -2,16 +2,18 @@
 title: Prepare VMware VMs for reprotection and failback with Azure Site Recovery
 description: Prepare for fail back of VMware VMs after failover with Azure Site Recovery
 ms.topic: conceptual
-ms.date: 12/24/2019
+ms.service: site-recovery
+ms.date: 09/18/2023
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 ---
 
 # Prepare for reprotection and failback of VMware VMs
 
 After [failover](site-recovery-failover.md) of on-premises VMware VMs or physical servers to Azure, you reprotect the Azure VMs created after failover, so that they replicate back to the on-premises site. With replication from Azure to on-premises in place, you can then fail back by running a failover from Azure to on-premises when you're ready.
 
-Before you continue, get a quick overview with this video about how to fail back from Azure to an on-premises site.<br /><br />
-
-## Reprotection/failback components
+## Reprotection or failback components
 
 You need a number of components and settings in place before you can reprotect and fail back from Azure.
 
@@ -19,7 +21,7 @@ You need a number of components and settings in place before you can reprotect a
 | --- | --- |
 | **On-premises configuration server** | The on-premises configuration server must be running and connected to Azure.<br/><br/> The VM you're failing back to must exist in the configuration server database. If disaster affects the configuration server, restore it with the same IP address to ensure that failback works.<br/><br/>  If IP addresses of replicated machines were retained on failover, site-to-site connectivity (or ExpressRoute connectivity) should be established between Azure VMs machines and the failback NIC of the configuration server. For retained IP addresses the configuration server needs two NICs - one for source machine connectivity, and one for Azure failback connectivity. This avoids overlap of subnet address ranges for the source and failed over VMs. |
 | **Process server in Azure** | You need a process server in Azure before you can fail back to your on-premises site.<br/><br/> The process server receives data from the protected Azure VM, and sends it to the on-premises site.<br/><br/> You need a low-latency network between the process server and the protected VM, so we recommend that you deploy the process server in Azure for higher replication performance.<br/><br/> For proof-of-concept, you can use the on-premises process server, and ExpressRoute with private peering.<br/><br/> The process server should be in the Azure network in which the failed over VM is located. The process server must also be able to communicate with the on-premises configuration server and master target server. |
-| **Separate master target server** | The master target server receives failback data, and by default a Windows master target server runs on the on-premises configuration server.<br/><br/> A master target server can have up to 60 disks attached to it. VMs being failed back have more than a collective total of 60 disks, or if you're failing back large volumes of traffic, create a separate master target server for failback.<br/><br/> If machines are gathered into a replication group for multi-VM consistency, the VMs must all be Windows, or must all be Linux. Why? Because all VMs in a replication group must use the same master target server, and the master target server must have same operating system (With the same or a higher version) than those of the replicated machines.<br/><br/> The master target server shouldn't have any snapshots on its disks, otherwise reprotection and failback won't work.<br/><br/> The master target can't have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails. |
+| **Separate master target server** | The master target server receives failback data, and by default a Windows master target server runs on the on-premises configuration server.<br/><br/> A master target server can have up to 60 disks attached to it. If the VMs being failed back have more than a collective total of 60 disks, or if you're failing back large volumes of traffic, create a separate master target server for failback.<br/><br/> If machines are gathered into a replication group for multi-VM consistency, the VMs must all be Windows, or must all be Linux. Why? Because all VMs in a replication group must use the same master target server, and the master target server must have same operating system (With the same or a higher version) than those of the replicated machines.<br/><br/> The master target server shouldn't have any snapshots on its disks, otherwise reprotection and failback won't work.<br/><br/> The master target can't have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails. |
 | **Failback replication policy** | To replicate back to on-premises site, you need a failback policy. This policy is automatically created when you create a replication policy to Azure.<br/><br/> The policy is automatically associated with the configuration server. It's set to an RPO threshold of 15 minutes, recovery point retention of 24 hours, and app-consistent snapshot frequency is 60 minutes. The policy can't be edited. |
 | **Site-to-site VPN/ExpressRoute private peering** | Reprotection and failback needs a site-to-site VPN connection, or ExpressRoute private peering to replicate data. |
 
@@ -39,7 +41,7 @@ A number of ports must be open for reprotection/failback. The following graphic 
 
 ## Deploy a separate master target server
 
-1. Note the master target server [requirements and limitations](#reprotectionfailback-components).
+1. Note the master target server [requirements and limitations](#reprotection-or-failback-components).
 2. Create a [Windows](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers) or [Linux](vmware-azure-install-linux-master-target.md) master target server, to match the operating system of the VMs you want to reprotect and fail back.
 3. Make sure you don't use Storage vMotion for the master target server, or failback can fail. The VM machine can't start because the disks aren't available to it.
     - To prevent this, exclude the master target server from your vMotion list.
@@ -66,4 +68,4 @@ A number of ports must be open for reprotection/failback. The following graphic 
 
 ## Next steps
 
-[Reprotect](vmware-azure-reprotect.md) a VM.
+Learn how to [reprotect](vmware-azure-reprotect.md) a VM.

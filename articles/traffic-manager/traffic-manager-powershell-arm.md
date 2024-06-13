@@ -2,22 +2,19 @@
 title: Using PowerShell to manage Traffic Manager in Azure
 description: With this learning path, get started using Azure PowerShell for Traffic Manager.
 services: traffic-manager
-documentationcenter: na
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: greglin 
-ms.custom: devx-track-azurepowershell
+ms.author: greglin
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Using PowerShell to manage Traffic Manager
 
 Azure Resource Manager is the preferred management interface for services in Azure. Azure Traffic Manager profiles can be managed using Azure Resource Manager-based APIs and tools.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Resource model
 
@@ -29,7 +26,7 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 ## Setting up Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 

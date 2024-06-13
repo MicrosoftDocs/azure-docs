@@ -33,7 +33,7 @@
     href: ./tutorials/protect-new-resources.md
   - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
     displayName: governance, module
-    href: /learn/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
+    href: /training/modules/build-cloud-governance-strategy-azure/8-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index
@@ -85,10 +85,7 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
-  - name: New Zealand ISM Restricted
-    displayName: standards, NZISM
-    href: ./samples/new-zealand-ism.md
-  - name: SWIFT CSP v2020   
+  - name: SWIFT CSP v2020
     items:
     - name: Overview
       displayName: standards, SWIFT CSP-CSCF v2020
@@ -160,7 +157,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
-    href: /dotnet/api/overview/azure/blueprints/management
+    href: /dotnet/api/microsoft.azure.management.blueprint
   - name: REST
     href: /rest/api/blueprints/
   - name: PSGallery (Az.Blueprint module)

@@ -2,17 +2,20 @@
 title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 06/27/2022
-ms.custom: project-no-code
+ms.date: 02/24/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to understand the available features and their availability, so that I can make informed decisions about which features to use in my application development.
+
 ---
 
 # Developer notes for Azure Active Directory B2C
@@ -22,20 +25,23 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 ## Terms for features in public preview
 
 - We encourage you to use public preview features for evaluation purposes only.
+
 - [Service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/active-directory-b2c) don't apply to public preview features.
+
 - Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows
-
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA| |
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password.| GA | GA | |
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
-| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
-| [Force password reset](force-password-reset.md) | GA | NA | |
-| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
-| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
+| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| Available in China cloud, but only for custom policies. |
+| [Force password reset](force-password-reset.md) | GA | GA | Available in China cloud, but only for custom policies. |
+| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | Available in China cloud, but only for custom policies. |
+| [Smart lockout](threat-management.md) | GA | GA | |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications. Limited CA features are available in China cloud. Identity Protection is not available in China cloud. |
+| [CAPTCHA](add-captcha.md) | Preview | Preview | You can enable it during sign-up or sign-in for Local accounts. |
 
 ## OAuth 2.0 application authorization flows
 
@@ -79,15 +85,15 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-| [Multi-language support](localization.md)| GA | GA | |
-| [Custom domains](custom-domain.md)| GA | GA | |
+| [Multi-language support](localization.md)| GA | GA | Available in China cloud, but only for custom policies. |
+| [Custom domains](custom-domain.md)| GA | GA | Available in China cloud, but only for custom policies. |
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
-| [Page layout version](page-layout.md) | GA | GA | |
-| [JavaScript](javascript-and-page-layout.md) | GA | GA | |
+| [Page layout version](page-layout.md) | GA | GA | Available in China cloud, but only for custom policies. |
+| [JavaScript](javascript-and-page-layout.md) | GA | GA | Available in China cloud, but only for custom policies. |
 | [Embedded sign-in experience](embedded-login.md) | NA |  Preview| By using the inline frame element `<iframe>`. |
-| [Password complexity](password-complexity.md) | GA | GA | |
+| [Password complexity](password-complexity.md) | GA | GA | Available in China cloud, but only for custom policies. |
 | [Disable email verification](disable-email-verification.md) | GA|  GA| Not recommended for production environments. Disabling email verification in the sign-up process may lead to spam. |
 
 
@@ -99,9 +105,9 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | NA | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | GA | GA | |
-|[Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
-|[Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | Available in China cloud, but only for custom policies. |
+|[Microsoft Entra ID (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
+|[Microsoft Entra ID (multitenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | NA | Preview | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
@@ -114,7 +120,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[Salesforce](identity-provider-salesforce.md) | GA | GA | |
 |[Salesforce (SAML protocol)](identity-provider-salesforce-saml.md) | NA | GA | |
 |[Twitter](identity-provider-twitter.md) | GA | GA | |
-|[WeChat](identity-provider-wechat.md) | Preview | GA | |
+|[WeChat](identity-provider-wechat.md) | Preview | GA | Available in China cloud, but only for custom policies. |
 |[Weibo](identity-provider-weibo.md) | Preview | GA | |
 
 ## Generic identity providers
@@ -123,7 +129,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |---------|:---------:|:---------:|---------|
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
 |[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
-|[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Azure AD](identity-provider-azure-ad-single-tenant.md).  |
+|[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Microsoft Entra ID](identity-provider-azure-ad-single-tenant.md).  |
 |[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |
 
@@ -131,9 +137,11 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-|[API connectors](api-connectors-overview.md) | Preview | GA | |
-|[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | Preview | GA | |
-|[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | Preview | GA | |
+|[After federating with an identity provider during sign-up](api-connectors-overview.md?pivots=b2c-user-flow#after-federating-with-an-identity-provider-during-sign-up) | GA | GA | |
+|[Before creating the user](api-connectors-overview.md?pivots=b2c-user-flow#before-creating-the-user) | GA | GA | |
+|[Before including application claims in token](api-connectors-overview.md?pivots=b2c-user-flow#before-sending-the-token-preview)| Preview | GA | |
+|[Secure with basic authentication](secure-rest-api.md#http-basic-authentication) | GA | GA | |
+|[Secure with client certificate authentication](secure-rest-api.md#https-client-certificate-authentication) | GA | GA | |
 |[Secure with OAuth2 bearer authentication](secure-rest-api.md#oauth2-bearer-authentication) | NA | GA | |
 |[Secure API key authentication](secure-rest-api.md#api-key-authentication) | NA | GA | |
 
@@ -144,10 +152,10 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 | Feature |  Custom policy | Notes |
 | ------- | :--: | ----- |
-| [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) | GA |  |
-| [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
-| [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
-| [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
+| [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) | GA | Available in China cloud, but only for custom policies. |
+| [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA | Available in China cloud, but only for custom policies. |
+| [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA | Available in China cloud, but only for custom policies. |
+| [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA| Available in China cloud, but only for custom policies. |
 
 
 ### Components
@@ -155,10 +163,10 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
 | [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | GA |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
-| [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
-| [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
+| [Phone factor authentication](phone-factor-technical-profile.md) | GA |  Available in China cloud, but only for custom policies.  |
+| [Microsoft Entra multifactor authentication authentication](multi-factor-auth-technical-profile.md) | GA |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |
-| [Azure Active Directory](active-directory-technical-profile.md) as local directory | GA |  |
+| [Microsoft Entra ID](active-directory-technical-profile.md) as local directory | GA |  |
 | [Predicate validations](predicates.md) | GA | For example, password complexity. |
 | [Display controls](display-controls.md) | GA |  |
 | [Sub journeys](subjourneys.md) | GA | |
@@ -169,7 +177,13 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | ------- | :--: | ----- |
 | Azure portal | GA |   |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) | Preview | Used for troubleshooting during development.  |
-| [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows in production. |
+| [Application Insights event logs](analytics-with-application-insights.md) | Preview | Used to monitor user flows and custom policies in production. |
+
+## Other features 
+
+| Feature | Status | Notes |
+| ------- | :--: | ----- |
+| [Go-Local add-on](data-residency.md#go-local-add-on) | GA | Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country/region you choose when you [create your Azure AD B2C](tutorial-create-tenant.md).  |
 
 ## Responsibilities of custom policy feature-set developers
 

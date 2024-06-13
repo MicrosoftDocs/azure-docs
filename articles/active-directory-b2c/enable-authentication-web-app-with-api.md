@@ -1,16 +1,20 @@
 ---
 title: Enable authentication in web apps that call a web API by using Azure Active Directory B2C building blocks
 description: This article discusses the building blocks of an ASP.NET web app that calls a web API by using Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 11/10/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web developer, I want to enable Azure AD B2C authentication in my ASP.NET web application that calls a web API, so that I can secure access to my application and protect user data.
+
 ---
 
 # Enable authentication in web apps that call a web API by using Azure AD B2C
@@ -84,7 +88,7 @@ public void ConfigureServices(IServiceCollection services)
         // This lambda determines whether user consent for non-essential cookies is needed for a given request.
         options.CheckConsentNeeded = context => true;
         options.MinimumSameSitePolicy = SameSiteMode.Unspecified;
-        // Handling SameSite cookie according to https://docs.microsoft.com/en-us/aspnet/core/security/samesite?view=aspnetcore-3.1
+        // Handling SameSite cookie according to https://learn.microsoft.com/aspnet/core/security/samesite?view=aspnetcore-3.1
         options.HandleSameSiteCookieCompatibility();
     });
 

@@ -1,8 +1,9 @@
 ---
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
-ms.topic: conceptual
-ms.date: 04/01/2022
+ms.topic: how-to
+ms.custom: devx-track-bicep
+ms.date: 05/10/2024
 ---
 
 # Create private registry for Bicep modules
@@ -13,7 +14,7 @@ To work with module registries, you must have [Bicep CLI](./install.md) version 
 
 ### Training resources
 
-If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/learn/modules/share-bicep-modules-using-private-registries).
+If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/training/modules/share-bicep-modules-using-private-registries).
 
 ## Configure private registry
 
@@ -45,19 +46,21 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
-1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-publishingrestoring-modules).
+1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#configure-profiles-and-credentials).
 
 > [!IMPORTANT]
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).
+> 
+> The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` is set to `disabled`, you'll get a 401 (Unauthorized) error message when publishing modules. See [Azure Container Registry introduces the Conditional Access policy](../../container-registry/container-registry-configure-conditional-access.md).
 
 ## Publish files to registry
 
-After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry.
+After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry. The publish command will create an ARM template which will be stored in the registry. This means if publishing a Bicep file that references other local modules, these modules will be fully expanded as one JSON file and published to the registry.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -65,10 +68,34 @@ Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azure
 To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
-az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html
 ```
 
 ---
+
+With Bicep CLI version 0.27.1 or newer, you can publish a module with the Bicep source code in addition to the compiled JSON template. If a module is published with the Bicep source code to a registry, you can press `F12` ([Go to Definition](./visual-studio-code.md#go-to-definition)) from Visual Studio Code to see the Bicep Code. The Bicep extension version 0.27 or new is required to see the Bicep file.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 -DocumentationUri https://www.contoso.com/exampleregistry.html -WithSource
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
+```azurecli
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1 --documentationUri https://www.contoso.com/exampleregistry.html --with-source
+```
+
+---
+
+With the with source switch, you see an additional layer in the manifest:
+
+:::image type="content" source="./media/private-module-registry/bicep-module-with-source-manifest.png" lightbox="./media/private-module-registry/bicep-module-with-source-manifest.png" alt-text="Screenshot of bicep module registry with source.":::
+
+Note that if the Bicep module references a module in a Private Registry, the ACR endpoint will be visible. To hide the full endpoint, you can configure an alias for the private registry.
 
 ## View files in registry
 
@@ -77,7 +104,7 @@ To see the published module in the portal:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **container registries**.
 1. Select your registry.
-1. Select **Repositories** from the left menu.
+1. Select **Services** -> **Repositories** from the left menu.
 1. Select the module path (repository).  In the preceding example, the module path name is **bicep/modules/storage**.
 1. Select the tag. In the preceding example, the tag is **v1**.
 1. The **Artifact reference** matches the reference you'll use in the Bicep file.
@@ -85,6 +112,40 @@ To see the published module in the portal:
    ![Bicep module registry artifact reference](./media/private-module-registry/bicep-module-registry-artifact-reference.png)
 
 You're now ready to reference the file in the registry from a Bicep file. For examples of the syntax to use for referencing an external module, see [Bicep modules](modules.md).
+
+---
+## Working with Bicep registry files
+
+When leveraging bicep files that are hosted in a remote registry, it's important to understand how your local machine will interact with the registry. When you first declare the reference to the registry, your local editor will try to communicate with the Azure Container Registry and download a copy of the registry to your local cache.
+
+The local cache is found in:
+
+- On Windows
+
+    ```path
+    %USERPROFILE%\.bicep\br\<registry-name>.azurecr.io\<module-path\<tag>
+    ```
+
+- On Linux
+
+    ```path
+    /home/<username>/.bicep
+    ```
+
+- On Mac
+
+    ```path
+    ~/.bicep
+    ```
+
+Any changes made to the remote registry will not be recognized by your local machine until a `restore` has been ran with the specified file that includes the registry reference.
+
+```azurecli
+az bicep restore --file <bicep-file> [--force]
+```
+
+For more information refer to the [`restore` command.](bicep-cli.md#restore)
+
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Join transformation in mapping data flow
@@ -157,6 +157,6 @@ LeftStream, RightStream
     )~> JoiningColumns
 ```
 
-## Next steps
+## Related content
 
 After joining data, create a [derived column](data-flow-derived-column.md) and [sink](data-flow-sink.md) your data to a destination data store.

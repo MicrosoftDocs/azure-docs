@@ -1,184 +1,360 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
 title: Azure Spring Apps documentation # < 60 chars
-summary: "Azure Spring Apps is a managed service for hosting Spring apps, with Basic, Standard, and Enterprise tiers, each one adding features to the previous tier." #< 160 chars
+summary: Azure Spring Apps is a managed service for hosting Spring apps, with Enterprise, Basic, Standard, and Standard consumption + dedicated plans. #< 160 chars
+brand: azure
 
 metadata:
-  title: Azure Spring Apps # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure. # Required; article description that is displayed in search results. < 160 chars.
-  services: spring-cloud
-  ms.service: spring-apps #Required; service per approved list. service slug assigned to your service.
-  ms.custom: event-tier1-build-2022
-  ms.topic: landing-page # Required
-  ms.collection: collection
-  author: karlerickson #Required; your GitHub user alias, with correct capitalization.
-  ms.author: karler  #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/26/2019 #Required; mm/dd/yyyy format.
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  title: Azure Spring Apps
+  description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
+  ms.service: spring-apps
+  ms.topic: hub-page
+  author: KarlErickson
+  ms.author: karler
+  ms.date: 12/14/2023
 
-landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card (optional)
-  - title: About Azure Spring Apps
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Spring Apps?
-            url: overview.md
+# highlightedContent section (Optional; Remove if not applicable.)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure Spring Apps?
+      itemType: overview
+      url: enterprise/overview.md
+    # Card
+    - title: Enterprise plan
+      itemType: overview
+      url: enterprise/index.yml
+    # Card
+    - title: Basic/Standard plan
+      itemType: overview
+      url: basic-standard/index.yml
+    # Card
+    - title: Version support for Java, Spring Boot, and more
+      itemType: reference
+      url: enterprise/concept-app-customer-responsibilities.md
+    # Card
+    - title: What's new in Azure Spring Apps?
+      itemType: reference
+      url: enterprise/whats-new.md
+    # Card
+    - title: Manage costs
+      itemType: concept
+      url: enterprise/cost-management.md
+    # Card
+    - title: Compare Java hosting options
+      itemType: concept
+      url: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
+    # Card
+    - title: Landing zone accelerator
+      itemType: architecture
+      url: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json
 
-  # Card (optional)
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Quickstart - Deploy your first application in Azure Spring Apps
-            url: quickstart.md
+# conceptualContent section (Optional; Remove if not applicable.)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    - title: Enterprise plan # < 60 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: Get started
+          links:
+            - text: Launch your first app
+              url: enterprise/quickstart.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first web app
+              url: enterprise/quickstart-deploy-web-app.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first RESTful API app
+              url: enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first Spring Batch app
+              url: enterprise/quickstart-deploy-spring-batch-app.md
+              itemType: quickstart
+            - text: Launch your first microservice apps
+              url: enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first event-driven app
+              url: enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-enterprise
+              itemType: quickstart
+            - text: Launch your first Java Native Image app
+              url: enterprise/quickstart-deploy-java-native-image-app.md
+              itemType: quickstart
+            - text: Run polyglot apps
+              url: enterprise/quickstart-sample-app-acme-fitness-store-introduction.md
+              itemType: tutorial
+            - text: VMware Tanzu components
+              url: enterprise/vmware-tanzu-components.md
+              itemType: concept
+            - text: Enterprise plan in Azure Marketplace
+              url: enterprise/how-to-enterprise-marketplace-offer.md
+              itemType: concept
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
+        # Card
+        - title: Develop and deploy apps
+          links:
+            - text: Deploy apps using IntelliJ
+              url: how-to-intellij-deploy-apps.md
+              itemType: how-to-guide
+            - text: Deploy apps using VS Code
+              url: https://code.visualstudio.com/docs/java/java-spring-apps
+              itemType: how-to-guide
+            - text: CI/CD with Azure DevOps
+              url: enterprise/how-to-cicd.md?pivots=programming-language-java
+              itemType: how-to-guide
+            - text: CI/CD with GitHub Actions
+              url: enterprise/how-to-github-actions.md?pivots=programming-language-java
+              itemType: how-to-guide
+            - text: Deploy in a virtual network
+              url: enterprise/how-to-deploy-in-azure-virtual-network.md
+              itemType: how-to-guide
+            - text: Blue-green deployment strategies
+              url: enterprise/concepts-blue-green-deployment-strategies.md
+              itemType: concept
+            - text: Deploy polyglot apps
+              url: enterprise/how-to-enterprise-deploy-polyglot-apps.md
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
+        # Card
+        - title: Manage and monitor apps
+          links:
+            - text: Start or stop a service
+              url: enterprise/how-to-start-stop-service.md
+              itemType: how-to-guide
+            - text: Start, stop, and delete an app
+              url: how-to-start-stop-delete.md
+              itemType: how-to-guide
+            - text: Use custom DNS names
+              url: enterprise/how-to-custom-domain.md
+              itemType: how-to-guide
+            - text: Java memory management
+              url: enterprise/concepts-for-java-memory-management.md
+              itemType: concept
+            - text: Use structured application logs
+              url: enterprise/structured-app-log.md
+              itemType: how-to-guide
+            - text: Analyze logs and metrics
+              url: enterprise/diagnostic-services.md
+              itemType: how-to-guide
+            - text: Configure planned maintenance
+              url: how-to-configure-planned-maintenance.md
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
+        # Card
+        - title: Secure apps
+          links:
+            - text: Deploy Spring app with passwordless connections
+              url: enterprise/how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise
+              itemType: how-to-guide
+            - text: Use passwordless connections to Azure SQL DB
+              url: enterprise/connect-managed-identity-to-azure-sql.md
+              itemType: how-to-guide
+            - text: Secure communications for Spring Boot apps
+              url: enterprise/access-app-virtual-network.md
+              itemType: how-to-guide
+            - text: Deploy in a virtual network
+              url: enterprise/how-to-deploy-in-azure-virtual-network.md
+              itemType: how-to-guide
+            - text: Set up SSO using Microsoft Entra ID for Spring Cloud Gateway and API Portal
+              url: enterprise/how-to-set-up-sso-with-azure-ad.md
+              itemType: how-to-guide
+            - text: Create roles and permissions
+              url: enterprise/how-to-permissions.md
+              itemType: how-to-guide
+            - text: Load application secrets using Key Vault
+              url: enterprise/quickstart-key-vault-enterprise.md
+              itemType: quickstart
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: enterprise/index.yml
 
-  # Card (optional)
-  - title: Use Enterprise tier
-    linkLists:
-    - linkListType: quickstart
-      links:
-      - text: Introduction to Fitness Store sample
-        url: quickstart-sample-app-acme-fitness-store-introduction.md
-      - text: Build and deploy applications
-        url: quickstart-deploy-apps-enterprise.md
-      - text: Configure Single Sign-On
-        url: quickstart-configure-single-sign-on-enterprise.md
-      - text: Monitor applications end-to-end
-        url: quickstart-monitor-end-to-end-enterprise.md
-    - linkListType: how-to-guide
-      links:
-      - text: Use Application Configuration Service
-        url: how-to-enterprise-application-configuration-service.md
-      - text: Use Build Service
-        url: how-to-enterprise-build-service.md
-      - text: Use Service Registry
-        url: how-to-enterprise-service-registry.md
-      - text: Use API portal
-        url: how-to-use-enterprise-api-portal.md
-      - text: Use Spring Cloud Gateway
-        url: how-to-use-enterprise-spring-cloud-gateway.md
-      - text: Deploy non-Java enterprise applications
-        url: how-to-enterprise-deploy-non-java-apps.md
-      - text: View Enterprise Tier offering
-        url: how-to-enterprise-marketplace-offer.md
-      - text: Application Insights using Java In-Process Agent
-        url: how-to-application-insights.md?pivots=sc-enterprise-tier
-      - text: Enable system-assigned managed identity
-        url: how-to-enable-system-assigned-managed-identity.md?pivots=sc-enterprise-tier
+    - title: Basic/Standard plan # < 60 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: Get started
+          links:
+            - text: Launch your first app
+              url: enterprise/quickstart.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Launch your first web app
+              url: enterprise/quickstart-deploy-web-app.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Launch your first RESTful API app
+              url: enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Launch your first microservice apps
+              url: enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Launch your first event-driven app
+              url: enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: quickstart
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: basic-standard/index.yml
+        # Card
+        - title: Develop and deploy apps
+          links:
+            - text: App and deployment
+              url: enterprise/concept-understand-app-and-deployment.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: concept
+            - text: CI/CD with Azure DevOps
+              url: enterprise/how-to-cicd.md?pivots=programming-language-java&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: CI/CD with GitHub Actions
+              url: enterprise/how-to-github-actions.md?pivots=programming-language-java&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: Deploy in a virtual network
+              url: enterprise/how-to-deploy-in-azure-virtual-network.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: Blue-green deployment strategies
+              url: enterprise/concepts-blue-green-deployment-strategies.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: concept
+            - text: Enable service registration
+              url: basic-standard/how-to-service-registration.md?pivots=programming-language-java&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: basic-standard/index.yml
+        # Card
+        - title: Manage and monitor apps
+          links:
+            - text: Start or stop a service
+              url: enterprise/how-to-start-stop-service.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: Use structured application logs
+              url: enterprise/structured-app-log.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: Analyze logs and metrics
+              url: enterprise/diagnostic-services.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: Application Insights using Java In-Process Agent
+              url: enterprise/how-to-application-insights.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: Elastic APM Java Agent
+              url: basic-standard/how-to-elastic-apm-java-agent-monitor.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: Use Circuit Breaker Dashboard
+              url: enterprise/tutorial-circuit-breaker.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: basic-standard/index.yml
+        # Card
+        - title: Migrate apps
+          links:
+            - text: Migrate Spring Boot to Azure Spring Apps
+              url: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: overview
+            - text: Migrate Spring Cloud to Azure Spring Apps
+              url: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+              itemType: overview
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: basic-standard/index.yml
 
-  # Card (optional)
-  - title: Develop and deploy apps
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Prepare Spring Boot app
-            url: how-to-prepare-app-deployment.md
-          - text: Set up Config Server
-            url: how-to-config-server.md
-          - text: Enable Service Registration
-            url: how-to-service-registration.md
-          - text: Deploy app using IntelliJ
-            url: how-to-intellij-deploy-apps.md
-          - text: Deploy app using VS Code
-            url: https://code.visualstudio.com/docs/java/java-spring-cloud
-
-  # Card (optional)
-  - title: Manage your app
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Start, stop, and delete an application in Azure Spring Apps
-            url: how-to-start-stop-delete.md
-          - text: Use custom persistent storage in Azure Spring Apps
-            url: how-to-custom-persistent-storage.md
-
-  # Card (optional)
-  - title: Scale your apps
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Manually scale your application
-            url: how-to-scale-manual.md
-          - text: Set up autoscale for applications
-            url: how-to-setup-autoscale.md
-
-  # Card (optional)
-  - title: Secure Spring Boot apps
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Isolate and enable on-premises connectivity
-            url: how-to-deploy-in-azure-virtual-network.md
-      - linkListType: how-to-guide
-        links:
-          - text: Secure communications
-            url: how-to-enable-ingress-to-app-tls.md
-          - text: Use roles and permissions for access
-            url: how-to-permissions.md
-
-  # Card (optional)
-  - title: Automate your application
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Provision using ARM Template
-            url: quickstart-deploy-infrastructure-vnet.md
-          - text: Provision using Terraform
-            url: quickstart-deploy-infrastructure-vnet-terraform.md
-
-  # Card (optional)
-  - title: Monitor end-to-end
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Enable Diagnostic Services on your Java Spring application
-            url: diagnostic-services.md
-      - linkListType: concept
-        links:
-          - text: Metrics for Azure Spring Apps
-            url: concept-metrics.md
-      - linkListType: how-to-guide
-        links:
-          - text: Stream app logs in real-time
-            url: how-to-log-streaming.md
-          - text: Monitor using Application Insights
-            url: how-to-application-insights.md
-          - text: Monitor using New Relic Java agent (Preview)
-            url: how-to-new-relic-monitor.md
-          - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
-            url: monitor-app-lifecycle-events.md
-          - text: Monitor using Elastic APM Java Agent
-            url: how-to-elastic-apm-java-agent-monitor.md
-          - text: Analyze logs with Elastic (ELK) using diagnostics settings
-            url: how-to-elastic-diagnostic-settings.md
-          - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
-            url: monitor-app-lifecycle-events.md
-          - text: How to use Logback to write logs to custom persistent storage
-            url: how-to-write-log-to-custom-persistent-storage.md
-
-  # Card (optional)
-  - title: Troubleshoot
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Troubleshooting guide
-            url: troubleshoot.md
-          - text: Capture heap and thread dumps
-            url: how-to-capture-dumps.md
-          - text: Capture heap and thread dumps on fatal exit
-            url: how-to-dump-jvm-options.md
-          - text: Diagnose and solve problems
-            url: how-to-self-diagnose-solve.md
-          - text: Diagnose and solve problems in VNET
-            url: how-to-self-diagnose-running-in-vnet.md
-
-  # Card (optional)
-  - title: API reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: REST API reference
-            url: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    - title: Standard consumption and dedicated plan # < 60 chars (Optional; Remove if not applicable.)
+      items:
+        # Card
+        - title: Get started
+          links:
+            - text: Launch your first app
+              url: enterprise/quickstart.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Launch your first web app
+              url: enterprise/quickstart-deploy-web-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Launch your first RESTful API app
+              url: enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Launch your first event-driven app
+              url: enterprise/quickstart-deploy-event-driven-app.md?pivots=sc-consumption-plan&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: quickstart
+            - text: Provision a service instance
+              url: consumption-dedicated/quickstart-provision-standard-consumption-service-instance.md
+              itemType: quickstart
+            - text: Provision in an Azure Container Apps environment with a virtual network
+              url: consumption-dedicated/quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
+              itemType: quickstart
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: consumption-dedicated/index.yml
+        # Card
+        - title: Develop and deploy apps
+          links:
+            - text: Set up autoscale
+              url: consumption-dedicated/quickstart-apps-autoscale-standard-consumption.md
+              itemType: quickstart
+            - text: Use custom persistent storage
+              url: consumption-dedicated/how-to-custom-persistent-storage-with-standard-consumption.md
+              itemType: how-to-guide
+            - text: Map a custom domain to Azure Spring Apps
+              url: consumption-dedicated/quickstart-standard-consumption-custom-domain.md
+              itemType: quickstart
+            - text: Enable and disable Spring Cloud Config Server
+              url: consumption-dedicated/quickstart-standard-consumption-config-server.md
+              itemType: quickstart
+            - text: Enable and disable Eureka Server
+              url: consumption-dedicated/quickstart-standard-consumption-eureka-server.md
+              itemType: quickstart
+            - text: Blue-green deployment strategies
+              url: enterprise/concepts-blue-green-deployment-strategies.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: concept
+            - text: Enable service registration
+              url: basic-standard/how-to-service-registration.md?pivots=programming-language-java&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: consumption-dedicated/index.yml
+        # Card
+        - title: Manage and monitor apps
+          links:
+            - text: Java memory management
+              url: enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: concept
+            - text: Analyze logs and metrics
+              url: consumption-dedicated/quickstart-analyze-logs-and-metrics-standard-consumption.md
+              itemType: quickstart
+            - text: Use Dynatrace Java OneAgent
+              url: basic-standard/how-to-dynatrace-one-agent-monitor.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: New Relic Java in-process agent
+              url: basic-standard/how-to-new-relic-monitor.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: how-to-guide
+            - text: AppDynamics in-process agent
+              url: basic-standard/how-to-appdynamics-java-agent-monitor.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+              itemType: how-to-guide
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: consumption-dedicated/index.yml
+        # Card
+        - title: Secure apps
+          links:
+            - text: Customer responsibilities in a virtual network
+              url: standard-consumption-customer-responsibilities.md
+              itemType: concept
+            - text: Access apps in a virtual network
+              url: quickstart-access-standard-consumption-within-virtual-network.md
+              itemType: quickstart
+          # footerLink (Optional; Remove if not applicable.)
+          footerLink:
+            text: See more
+            url: consumption-dedicated/index.yml

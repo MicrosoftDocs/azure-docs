@@ -1,7 +1,7 @@
 ---
 title: Configure TLS termination with Key Vault certificates - PowerShell
 titleSuffix: Azure Application Gateway
-description: Learn how how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
+description: Learn how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
@@ -19,7 +19,7 @@ For more information, see [TLS termination with Key Vault certificates](key-vaul
 
 This article shows you how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 
-This article requires Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this article, you also need to create a connection with Azure by running `Connect-AzAccount`.
+This article requires Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). To run the commands in this article, you also need to create a connection with Azure by running `Connect-AzAccount`.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -85,7 +85,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### Create pool and front-end ports
+### Create pool and frontend ports
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet

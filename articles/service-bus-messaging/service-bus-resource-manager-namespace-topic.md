@@ -1,13 +1,12 @@
 ---
 title: Create Azure Service Bus namespace topic using a template
 description: 'Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template'
-documentationcenter: .net
 author: spelluru
 ms.author: spelluru
 ms.date: 09/27/2021
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom: devx-track-azurepowershell, mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -129,7 +128,7 @@ For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.serv
 
 ## Commands to run deployment
 
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](~/reusable-content/ce-skilling/azure/includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 

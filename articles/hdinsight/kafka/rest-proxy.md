@@ -3,13 +3,13 @@ title: Apache Kafka REST proxy - Azure HDInsight
 description: Learn how to do Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: devx-track-python
-ms.date: 04/01/2022
+ms.custom:
+ms.date: 04/09/2024
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
 
-Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. This action means that your Kafka clients can be outside of your virtual network. Clients can make simple, secure HTTPS calls to the Kafka cluster, instead of relying on Kafka libraries. This article will show you how to create a REST proxy enabled Kafka cluster. Also provides a sample code that shows how to make calls to REST proxy.
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. This action means that your Kafka clients can be outside of your virtual network. Clients can make simple, secure HTTPS calls to the Kafka cluster, instead of relying on Kafka libraries. This article shows you how to create a REST proxy enabled Kafka cluster. Also provides a sample code that shows how to make calls to REST proxy.
 
 ## REST API reference
 
@@ -17,7 +17,7 @@ For operations supported by the Kafka REST API, see [HDInsight Kafka REST Proxy 
 
 ## Background
 
-:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Kafka REST proxy design" border="false":::
+:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Kafka REST proxy design." border="false":::
 
 For the full specification of operations supported by the API, see [Apache Kafka REST Proxy API](/rest/api/hdinsight-kafka-rest-proxy).
 
@@ -27,49 +27,49 @@ Creating an HDInsight Kafka cluster with REST proxy creates a new public endpoin
 
 ### Security
 
-Access to the Kafka REST proxy is managed with Azure Active Directory security groups. When creating the Kafka cluster, provide the Azure AD security group with REST endpoint access. Kafka clients that need access to the REST proxy should be registered to this group by the group owner. The group owner can register via the Portal or via PowerShell.
+Access to the Kafka REST proxy managed with Microsoft Entra security groups. When creating the Kafka cluster, provide the Microsoft Entra security group with REST endpoint access. Kafka clients that need access to the REST proxy should be registered to this group by the group owner. The group owner can register via the Portal or via PowerShell.
 
-For REST proxy endpoint requests, client applications should get an OAuth token. The token is used to verify security group membership. Find a [Client application sample](#client-application-sample) below that shows how to get an OAuth token. The client application passes the OAuth token in the HTTPS request to the REST proxy.
+For REST proxy endpoint requests, client applications should get an OAuth token. The token uses to verify security group membership. Find a [Client application sample](#client-application-sample) shows how to get an OAuth token. The client application passes the OAuth token in the HTTPS request to the REST proxy.
 
 > [!NOTE]
-> See [Manage app and resource access using Azure Active Directory groups](../../active-directory/fundamentals/active-directory-manage-groups.md), to learn more about AAD security groups. For more information on how OAuth tokens work, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md).
+> See [Manage app and resource access using Microsoft Entra groups](../../active-directory/fundamentals/active-directory-manage-groups.md), to learn more about Microsoft Entra security groups. For more information on how OAuth tokens work, see [Authorize access to Microsoft Entra web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ## Kafka REST proxy with Network Security Groups
-If you bring your own VNet and control network traffic with network security groups, allow **inbound** traffic on port **9400** in addition to port 443. This will ensure that Kafka REST proxy server is reachable.
+If you bring your own VNet and control network traffic with network security groups, allow **inbound** traffic on port **9400** in addition to port 443. This ensures that Kafka REST proxy server is reachable.
 
 ## Prerequisites
 
-1. Register an application with Azure AD. The client applications that you write to interact with the Kafka REST proxy will use this application's ID and secret to authenticate to Azure.
+1. Register an application with Microsoft Entra ID. The client applications that you write to interact with the Kafka REST proxy uses this application's ID and secret to authenticate to Azure.
 
-1. Create an Azure AD security group. Add the application that you've registered with Azure AD to the security group as a **member** of the group. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+1. Create a Microsoft Entra security group. Add the application that you've registered with Microsoft Entra ID to the security group as a **member** of the group. This security group will be used to control which applications allow to interact with the REST proxy. For more information on creating Microsoft Entra groups, see [Create a basic group and add members using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     Validate the group is of type **Security**.
-    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Security Group" border="true":::
+    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Security Group." border="true":::
 
     Validate that application is member of Group.
-    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Check Membership" border="true":::
+    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Check Membership." border="true":::
 
 ## Create a Kafka cluster with REST proxy enabled
 
-The steps below use the Azure portal. For an example using Azure CLI, see [Create Apache Kafka REST proxy cluster using Azure CLI](tutorial-cli-rest-proxy.md).
+The steps use the Azure portal. For an example using Azure CLI, see [Create Apache Kafka REST proxy cluster using Azure CLI](tutorial-cli-rest-proxy.md).
 
 1. During the Kafka cluster creation workflow, in the **Security + networking** tab, check the **Enable Kafka REST proxy** option.
 
-     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="Screenshot shows the Create H D Insight cluster page with Security + networking selected." border="true":::
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="Screenshot shows the Create HDInsight cluster page with Security + networking selected." border="true":::
 
 1. Click **Select Security Group**. From the list of security groups, select the security group that you want to have access to the REST proxy. You can use the search box to find the appropriate security group. Click the **Select** button at the bottom.
 
-     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="Screenshot shows the Create H D Insight cluster page with the option to select a security group." border="true":::
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="Screenshot shows the Create HDInsight cluster page with the option to select a security group." border="true":::
 
 1. Complete the remaining steps to create your cluster as described in [Create Apache Kafka cluster in Azure HDInsight using Azure portal](./apache-kafka-get-started.md).
 
 1. Once the cluster is created, go to the cluster properties to record the Kafka REST proxy URL.
 
-     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="view REST proxy URL" border="true":::
+     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="view REST proxy URL." border="true":::
 
 ## Client application sample
 
-You can use the Python code below to interact with the REST proxy on your Kafka cluster. To use the code sample, follow these steps:
+You can use the Python code to interact with the REST proxy on your Kafka cluster. To use the code sample, follow these steps:
 
 1. Save the sample code on a machine with Python installed.
 1. Install required Python dependencies by executing `pip3 install msal`.
@@ -86,10 +86,10 @@ You can use the Python code below to interact with the REST proxy on your Kafka 
 
 This code does the following action:
 
-1. Fetches an OAuth token from Azure AD.
+1. Fetches an OAuth token from Microsoft Entra ID.
 1. Shows how to make a request to Kafka REST proxy.
 
-For more information about getting OAuth tokens in Python, see [Python AuthenticationContext class](/python/api/adal/adal.authentication_context.authenticationcontext). You might see a delay while `topics` that aren't created or deleted through the Kafka REST proxy are reflected there. This delay is because of cache refresh. The **value** field of the Producer API has been enhanced. Now, it accepts JSON objects and any serialized form.
+For more information about getting OAuth tokens in Python, see [Python AuthenticationContext class](/python/api/adal/adal.authentication_context.authenticationcontext). You might see a delay while `topics` that isn't created or deleted through the Kafka REST proxy are reflected there. This delay is because of cache refresh. The **value** field of the Producer API has been enhanced. Now, it accepts JSON objects and any serialized form.
 
 ```python
 #Required Python packages
@@ -149,8 +149,8 @@ get_topic_api = 'metadata/topics'
 topic_api_format = 'topics/{topic_name}'
 producer_api_format = 'producer/topics/{topic_name}'
 consumer_api_format = 'consumer/topics/{topic_name}/partitions/{partition_id}/offsets/{offset}?count={count}'  # by default count = 1
-partitions_api_format = 'topics/{topic_name}/partitions'
-partition_api_format = 'topics/{topic_name}/partitions/{partition_id}'
+partitions_api_format = 'metadata/topics/{topic_name}/partitions'
+partition_api_format = 'metadata/topics/{topic_name}/partitions/{partition_id}'
 
 # Request header
 headers = {

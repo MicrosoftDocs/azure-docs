@@ -4,14 +4,16 @@ description: This article describes the Planned maintenance notification feature
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
 # Planned maintenance notification in Azure Database for MySQL - Single Server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Learn how to prepare for planned maintenance events on your Azure Database for MySQL.
 
@@ -63,7 +65,7 @@ For detailed steps on how to create **service health alerts**, refer to [Create 
 
 ## Can I cancel or postpone planned maintenance?
 
-Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be canceled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](../flexible-server/overview.md).
+Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be canceled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single Server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](../flexible-server/overview.md).
 
 ## Are all the Azure regions patched at the same time?
 
@@ -76,7 +78,6 @@ A transient error, also known as a transient fault, is an error that will resolv
 
 ## Next steps
 
-- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at AskAzureDBforMySQL@service.microsoft.com
 - See [How to set up alerts](how-to-alert-on-metric.md) for guidance on creating an alert on a metric.
 - [Troubleshoot connection issues to Azure Database for MySQL - Single Server](how-to-troubleshoot-common-connection-issues.md)
 - [Handle transient errors and connect efficiently to Azure Database for MySQL - Single Server](concepts-connectivity.md)

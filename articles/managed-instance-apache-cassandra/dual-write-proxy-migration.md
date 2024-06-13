@@ -6,7 +6,6 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
 ---
 
 # Live migration to Azure Managed Instance for Apache Cassandra by using a dual-write proxy
@@ -20,7 +19,7 @@ This tutorial describes how to migrate data to Azure Managed Instance for Apache
 
 The following image illustrates the approach.
 
-:::image type="content" source="./media/migration/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/managed-instance-apache-cassandra/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
 
 ## Prerequisites
 
@@ -34,7 +33,7 @@ The following image illustrates the approach.
 
 We recommend selecting Azure Databricks runtime version 7.5, which supports Spark 3.0.
 
-:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
 
 ## Add Spark dependencies
 
@@ -43,7 +42,7 @@ You need to add the Apache Spark Cassandra Connector library to your cluster to 
 > [!IMPORTANT]
 > If you have a requirement to preserve Apache Cassandra `writetime` for each row during the migration, we recommend using [this sample](https://github.com/Azure-Samples/cassandra-migrator). The dependency jar in this sample also contains the Spark connector, so you should install this instead of the connector assembly above. This sample is also useful if you want to perform a row comparison validation between source and target after historic data load is complete. See sections "[run the historical data load](dual-write-proxy-migration.md#run-the-historical-data-load)" and "[validate the source and target](dual-write-proxy-migration.md#validate-the-source-and-target)" below for more details. 
 
-:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
 
 Select **Install**, and then restart the cluster when installation is complete.
 
@@ -126,7 +125,7 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar <source-server> <destinati
 ```
 
 > [!WARNING]
-> Installing and running the proxy remotely on a separate machine (rather than running it on all nodes in your source Apache Cassandra cluster) will impact performance while the live migration occurs. While it will work functionally, the client driver won't be able to open connections to all nodes within the cluster, and will rely on the single co-ordinator node (where the proxy is installed) to make connections.
+> If you prefer to run the proxy remotely on a separate machine (rather than running it on all nodes in your source Apache Cassandra cluster), we recommend deploying the proxy to the same number of machines as you have nodes in your cluster, and setting up a substitution for their IP addresses in system.peers using configuration in the proxy mentioned [here](https://github.com/Azure-Samples/cassandra-proxy#ghost-proxy). If you do not do this, it may impact performance while the live migration occurs, as the client driver won't be able to open connections to all nodes within the cluster.
 
 ### Allow zero application code changes
 

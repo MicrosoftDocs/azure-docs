@@ -4,6 +4,7 @@ description: Specifications for the Lsv2-series VMs.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
+ms.custom:
 ms.topic: conceptual
 ms.date: 06/01/2022
 ms.author: sasham
@@ -13,14 +14,14 @@ ms.author: sasham
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-The Lsv2-series features high throughput, low latency, directly mapped local NVMe storage running on the [AMD EPYC<sup>TM</sup> 7551 processor](https://www.amd.com/en/products/epyc-7000-series) with an all core boost of 2.55GHz and a max boost of 3.0GHz. The Lsv2-series VMs come in sizes from 8 to 80 vCPU in a simultaneous multi-threading configuration.  There is 8 GiB of memory per vCPU, and one 1.92TB NVMe SSD M.2 device per 8 vCPUs, with up to 19.2TB (10x1.92TB) available on the L80s v2.
+The Lsv2-series features high throughput, low latency, directly mapped local NVMe storage running on the [AMD EPYC<sup>TM</sup> 7551 processor](https://www.amd.com/en/processors/epyc-server-cpu-family) with an all core boost of 2.55GHz and a max boost of 3.0GHz. The Lsv2-series VMs come in sizes from 8 to 80 vCPU in a simultaneous multi-threading configuration.  There is 8 GiB of memory per vCPU, and one 1.92TB NVMe SSD M.2 device per 8 vCPUs, with up to 19.2TB (10x1.92TB) available on the L80s v2.
 
 > [!NOTE]
 > The Lsv2-series VMs are optimized to use the local disk on the node attached directly to the VM rather than using durable data disks. This allows for greater IOPs / throughput for your workloads. The Lsv2 and Ls-series do not support the creation of a local cache to increase the IOPs achievable by durable data disks.
 >
 > The high throughput and IOPs of the local disk makes the Lsv2-series VMs ideal for NoSQL stores such as Apache Cassandra and MongoDB which replicate data across multiple VMs to achieve persistence in the event of the failure of a single VM.
 >
-> To learn more, see Optimize performance on the Lsv2-series virtual machines for [Windows](../virtual-machines/windows/storage-performance.md) or [Linux](../virtual-machines/linux/storage-performance.md).  
+> To learn more, see Optimize performance on the Lsv2-series virtual machines for [Windows](../virtual-machines/windows/storage-performance.md) or [Linux](../virtual-machines/linux/storage-performance.md).
 
 [ACU](acu.md): 150-175<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
@@ -51,19 +52,17 @@ Bursting: Supported<br>
 
 <sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.
 
-<sup>5</sup> Lsv2-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
+<sup>5</sup> Lsv2-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time.
 
 <sup>6</sup> VMs with more than 64 vCPUs require one of these supported guest operating systems:
 
 - Windows Server 2016 or later
-- Ubuntu 16.04 LTS or later, with Azure tuned kernel (4.15 kernel or later)
-- SLES 12 SP2 or later
-- RHEL or CentOS version 6.7 through 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
-- RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
-- RHEL or CentOS version 7.6 or later
+- Ubuntu 18.04 LTS or later
+- SLES 12 SP5 or later
+- RHEL 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
+- RHEL 7.9 or later
 - Oracle Linux with UEK4 or later
 - Debian 9 with the backports kernel, Debian 10 or later
-- CoreOS with a 4.14 kernel or later
 
 ## Size table definitions
 

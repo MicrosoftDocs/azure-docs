@@ -4,7 +4,8 @@ description: Learn how DevTest Labs makes it easy to create, manage, and monitor
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/03/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # What is Azure DevTest Labs?
@@ -37,7 +38,7 @@ DevTest Labs users can quickly and easily create [IaaS VMs](devtest-lab-add-vm.m
 Lab owners can take several measures to reduce waste and control lab costs.
 
 - [Set lab policies](devtest-lab-set-lab-policy.md) like allowed number or sizes of VMs per user or lab.
-- [Set auto-shutdown](devtest-lab-auto-shutdown.md) and [auto-startup](devtest-lab-auto-startup-vm.md) schedules to shut down and start up lab VMs at specific times of day.
+- [Set auto-shutdown](devtest-lab-auto-shutdown.md) and [auto-startup](devtest-lab-auto-startup-vm.yml) schedules to shut down and start up lab VMs at specific times of day.
 - [Monitor costs](devtest-lab-configure-cost-management.md) to track lab and resource usage and estimate trends.
 - [Set VM expiration dates](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date), or [delete labs or lab VMs](devtest-lab-delete-lab-vm.md) when no longer needed.
 
@@ -45,6 +46,5 @@ Lab owners can take several measures to reduce waste and control lab costs.
 
 - [DevTest Labs concepts](devtest-lab-concepts.md)
 - [Quickstart: Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md)
-- [DevTest Labs FAQ](devtest-lab-faq.yml)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

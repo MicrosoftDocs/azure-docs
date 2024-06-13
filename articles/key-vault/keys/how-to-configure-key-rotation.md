@@ -5,10 +5,11 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: 'rotation'
+ms.custom: devx-track-arm-template
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 10/17/2022
 ms.author: mbaldwin
 ---
 # Configure cryptographic key auto-rotation in Azure Key Vault
@@ -18,7 +19,7 @@ Automated cryptographic key rotation in [Key Vault](../general/overview.md) allo
 
 Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. 
 
-For more information about objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
+For more information about how objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
 
 ## Integration with Azure services
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
@@ -140,7 +141,7 @@ Invoke-AzKeyVaultKeyRotation -VaultName <vault-name> -Name <key-name>
 
 ## Configure key near expiry notification
 
-Configuration of expiry notification for Event Grid key near expiry event. You can configure notification with days, months and years before expiry to trigger near expiry event. 
+Configuration of expiry notification for Event Grid key near expiry event. In case when automated rotation cannot be used, like when a key is imported from local HSM, you can configure near expiry notification as a reminder for manual rotation or as a trigger to custom automated rotation through integration with Event Grid. You can configure notification with days, months and years before expiry to trigger near expiry event. 
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Configure Notification":::
 
@@ -235,6 +236,30 @@ Key rotation policy can also be configured using ARM templates.
 
 ```
 
+## Configure key rotation policy governance
+
+Using the Azure Policy service, you can govern the key lifecycle and ensure that all keys are configured to rotate within a specified number of days.
+
+### Create and assign policy definition
+
+1. Navigate to Policy resource
+1. Select **Assignments** under **Authoring** on the left side of the Azure Policy page.
+1. Select **Assign policy** at the top of the page. This button opens to the Policy assignment page.
+1. Enter the following information:
+    - Define the scope of the policy by choosing the subscription and resource group over which the policy will be enforced. Select by clicking the three-dot button at on **Scope** field.
+    - Select the name of the policy definition: "[Keys should have a rotation policy ensuring that their rotation is scheduled within the specified number of days after creation.
+](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd8cf8476-a2ec-4916-896e-992351803c44)"
+    - Go to the **Parameters** tab at the top of the page.
+        - Set **The maximum days to rotate** parameter to desired number of days for example, 730.
+        - Define the desired effect of the policy (Audit, or Disabled). 
+1. Fill out any additional fields. Navigate the tabs clicking on **Previous** and **Next** buttons at the bottom of the page.
+1. Select **Review + create**
+1. Select **Create**
+
+Once the built-in policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results like below.
+
+:::image type="content" source="../media/keys/key-rotation/key-rotation-policy.png" alt-text="Screenshot of key rotation policy compliance." lightbox="../media/keys/key-rotation/key-rotation-policy.png":::
+
 ## Resources
 
 - [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
@@ -242,3 +267,4 @@ Key rotation policy can also be configured using ARM templates.
 - [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
 - [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
 - [Azure Disk Encryption](../../virtual-machines/disk-encryption.md)
+- [Automatic key rotation for transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation#automatic-key-rotation)

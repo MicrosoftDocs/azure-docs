@@ -76,7 +76,7 @@ Failed to configure automation account for diagnostic logging
 
 #### Cause
 
-This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](../../azure-monitor//usage-estimated-costs.md).
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](../../azure-monitor/cost-usage.md#usage-and-estimated-costs).
 
 #### Resolution
 
@@ -146,7 +146,7 @@ After you remove the feature resources, you can unlink your workspace. It's impo
 
 ## <a name="mma-extension-failures"></a>Log Analytics for Windows extension failures
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+[!INCLUDE [log-analytics-agent-note](~/reusable-content/ce-skilling/azure/includes/log-analytics-agent-note.md)] 
 
 An installation of the Log Analytics agent for Windows extension can fail for a variety of reasons. The following section describes feature deployment issues that can cause failures during deployment of the Log Analytics agent for Windows extension.
 

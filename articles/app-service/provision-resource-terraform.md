@@ -4,9 +4,9 @@ description: Create your first app to Azure App Service in seconds using a Terra
 author: seligj95
 ms.author: msangapu
 ms.topic: article
-ms.date: 8/5/2022
+ms.date: 10/20/2022
 ms.tool: terraform
-ms.custom: subject-terraform
+ms.custom: subject-terraform, devx-track-terraform
 ---
 
 # Create App Service app using a Terraform template
@@ -30,7 +30,7 @@ The Azure Terraform Visual Studio Code extension enables you to work with Terraf
 
 ## Review the template
 
-The template used in this quickstart is shown below. It deploys an App Service plan and an App Service app on Windows and a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+The template used in this quickstart is shown below. It deploys an App Service plan and an App Service app on Linux and a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
 ```hcl
 # Configure the Azure provider
@@ -65,7 +65,7 @@ resource "azurerm_service_plan" "appserviceplan" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   os_type             = "Linux"
-  sku_name            = "F1"
+  sku_name            = "B1"
 }
 
 # Create the web app, pass in the App Service Plan ID

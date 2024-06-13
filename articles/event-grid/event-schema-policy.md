@@ -1,9 +1,9 @@
 ---
 title: Azure Policy as an Event Grid source
 description: This article describes how to use Azure Policy as an Event Grid event source. It provides the schema and links to tutorial and how-to articles.
-author: timwarner-msft
+author: spelluru
 ms.topic: conceptual
-ms.author: timwarner
+ms.author: spelluru
 ms.date: 07/19/2022
 ---
 
@@ -14,11 +14,11 @@ events. For an introduction to event schemas, see
 [Azure Event Grid event schema](./event-schema.md). It also gives you a list of quick starts and
 tutorials to use Azure Policy as an event source.
 
-[!INCLUDE [policy-events.md](../../includes/policy/policy-events.md)]
+[!INCLUDE [policy-events.md](../../articles/governance/includes/policy/policy-events.md)]
 
 ## Next steps
 
-- For a walkthrough routing Azure Policy state change events, see
+- For a walkthrough on routing Azure Policy state change events, see
   [Use Event Grid for policy state change notifications](../governance/policy/tutorials/route-state-change-events.md).
 - For an overview of integrating Azure Policy with Event Grid, see
   [React to Azure Policy events by using Event Grid](../governance/policy/concepts/event-overview.md).

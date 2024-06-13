@@ -2,7 +2,8 @@
 title: Parent resource errors
 description: Describes how to resolve errors when you deploy a resource that's dependent on a parent resource in a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 12/20/2021
+ms.custom: devx-track-bicep, devx-track-arm-template
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for parent resources
@@ -25,7 +26,7 @@ When one resource is a child to another resource, the parent resource must exist
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource sqlDatabase 'Microsoft.Sql/servers/databases@2021-05-01-preview' = {
+resource sqlDatabase 'Microsoft.Sql/servers/databases@2022-02-01-preview' = {
   name: '${sqlServerName}/${databaseName}'
   ...
 }
@@ -50,7 +51,7 @@ If you deploy the server and the database in the same template, but don't specif
 
 If the parent resource already exists and isn't deployed in the same template, you get the `ParentResourceNotFound` error when Resource Manager can't associate the child resource with a parent. This error might happen when the child resource isn't in the correct format. Or if the child resource is deployed to a resource group that's different than the resource group for parent resource.
 
-## Solution 1 - deployed in same template
+## Solution 1: Deployed in same template
 
 To resolve this error when parent and child resources are deployed in the same template, use a dependency.
 
@@ -59,7 +60,7 @@ To resolve this error when parent and child resources are deployed in the same t
 This example uses a nested child resource within the parent resource and that creates the dependency. The child gets the resource type and API version from the parent resource.
 
 ```bicep
-resource sqlServer 'Microsoft.Sql/servers@2021-05-01-preview' = {
+resource sqlServer 'Microsoft.Sql/servers@2022-02-01-preview' = {
   name: sqlServerName
   properties: {
     ...
@@ -87,7 +88,7 @@ For more information about `dependsOn`, see [Define the order for deploying reso
 
 ---
 
-## Solution 2 - deployed in different templates
+## Solution 2: Deployed in different templates
 
 To resolve this error when the parent resource was deployed in a different template, don't set a dependency. Instead, deploy the child to the same resource group and provide the name of the parent resource.
 
@@ -100,11 +101,11 @@ param location string = resourceGroup().location
 param sqlServerName string
 param databaseName string
 
-resource sqlServer 'Microsoft.Sql/servers@2021-05-01-preview' existing = {
+resource sqlServer 'Microsoft.Sql/servers@2022-02-01-preview' existing = {
   name: sqlServerName
 }
 
-resource sqlDatabase 'Microsoft.Sql/servers/databases@2021-05-01-preview' = {
+resource sqlDatabase 'Microsoft.Sql/servers/databases@2022-02-01-preview' = {
   parent: sqlServer
   name: databaseName
   location: location
@@ -130,7 +131,7 @@ The `name` element uses the names of the parent resource and child resources.
   "resources": [
     {
       "type": "Microsoft.Sql/servers/databases",
-      "apiVersion": "2021-05-01-preview",
+      "apiVersion": "2022-02-01-preview",
       "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
       "location": "[resourceGroup().location]",
       "properties": {

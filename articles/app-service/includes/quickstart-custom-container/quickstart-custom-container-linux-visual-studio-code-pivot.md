@@ -2,6 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
+ms.custom: linux-related-content
 ms.topic: quickstart
 ms.date: 06/30/2022
 ms.author: cephalin
@@ -28,7 +29,7 @@ This quickstart uses Azure Container Registry as the registry of choice. You're 
 Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](../../../container-registry/container-registry-get-started-portal.md).
 
 > [!IMPORTANT]
-> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry).
+> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#vi-configure-the-web-app).
 
 ## 2 - Sign in
 
@@ -69,7 +70,7 @@ ENV ASPNETCORE_URLS "http://*:${PORT}"
 ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
 ```
 
-In this Dockerfile, the parent image is one of the built-in .NET containers of App Service. You can find the source files for it [in the Azure-App-Service/ImageBuilder GitHub repository, under GenerateDockerFiles/dotnetcore](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/dotnetcore). Its [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/dotnetcore/debian-9/Dockerfile) copies a simple .NET app into `/defaulthome/hostingstart`. Your Dockerfile simply starts that app.
+In this Dockerfile, the parent image is one of the built-in .NET containers of App Service.
 
 # [Node.js](#tab/node)
 
@@ -84,7 +85,7 @@ EXPOSE 8080
 ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
 ```
 
-In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service. You can find the source files for it [in the Azure-App-Service/ImageBuilder GitHub repository, under GenerateDockerFiles/node/node-template](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/node/node-template). Its [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/node/node-template/Dockerfile) copies a simple Node.js app into `/opt/startup`. Your Dockerfile simply starts that app using PM2, which is already installed by the parent image.
+In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
 
 # [Python](#tab/python)
 
@@ -98,7 +99,7 @@ EXPOSE 8080
 ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
 ```
 
-In this Dockerfile, the parent image is one of the built-in Python containers of App Service. You can find the source files for it [in the Azure-App-Service/ImageBuilder GitHub repository, under GenerateDockerFiles/python/template-3.9](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/python/template-3.9). Its [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/python/template-3.9/Dockerfile) copies a simple Python app into `/opt/defaultsite`. Your Dockerfile simply starts that app using Gunicorn, which is already installed by the parent image.
+In this Dockerfile, the parent image is one of the built-in Python containers of App Service.
 
 # [Java](#tab/java)
 
@@ -153,7 +154,7 @@ The **Output** panel shows the status of the deployment operations. When the ope
 
 ## 8 - Clean up resources
 
-[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
+[!INCLUDE [Clean-up Portal web app resources](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal-no-h.md)]
 
 ## Next steps
 
@@ -162,17 +163,36 @@ Congratulations, you've successfully completed this quickstart.
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 
 > [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+
+> [!div class="nextstepaction"]
+> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+
+> [!div class="nextstepaction"]
+> [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
+
+> [!div class="nextstepaction"]
+> [Azure Monitor overview](/azure/azure-monitor/overview)
+
+> [!div class="nextstepaction"]
+> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+
+> [!div class="nextstepaction"]
+> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
+
+> [!div class="nextstepaction"]
 > [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Custom container tutorial](../../tutorial-custom-container.md)
+> [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)
 
-> [!div class="nextstepaction"]
-> [Multi-container app tutorial](../../tutorial-multi-container-app.md)
 
 Other Azure extensions:
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

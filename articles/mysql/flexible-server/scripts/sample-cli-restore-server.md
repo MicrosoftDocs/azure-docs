@@ -1,6 +1,6 @@
 ---
-title: CLI script - Restore an Azure Database for MySQL - Flexible Server
-description: This Azure CLI sample script shows how to restore a single Azure Database for MySQL - Flexible Server to a previous point in time.
+title: CLI script - Restore
+description: This Azure CLI sample script shows how to restore a single Azure Database for MySQL - Flexible Server instance to a previous point in time.
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
@@ -11,7 +11,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 02/10/2022
 ---
 
-# Restore an Azure Database for MySQL - Flexible Server using Azure CLI
+# Restore an Azure Database for MySQL - Flexible Server instance using Azure CLI
+
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
 
 Azure Database for MySQL - Flexible Server, automatically creates server backups and securely stores them in local redundant storage within the region.
 
@@ -21,11 +23,11 @@ The new Flexible Server is created with the original server's configuration and 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -33,7 +35,7 @@ The new Flexible Server is created with the original server's configuration and 
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

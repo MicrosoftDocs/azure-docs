@@ -1,19 +1,23 @@
 ---
 title: Create instance of DMS (Bicep)
 description: Learn how to create Database Migration Service by using Bicep.
-author: rothja
-ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.author: jroth
+author: abhims14
+ms.author: abhishekum
 ms.date: 03/21/2022
 ms.service: dms
+ms.topic: quickstart
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-bicep
+  - sql-migration-content
 ---
 
 # Quickstart: Create instance of Azure Database Migration Service using Bicep
 
 Use Bicep to deploy an instance of the Azure Database Migration Service.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

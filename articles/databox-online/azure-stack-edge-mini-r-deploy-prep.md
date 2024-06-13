@@ -6,10 +6,11 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 02/23/2022
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
 ---
 
 # Tutorial: Prepare to deploy Azure Stack Edge Mini R
@@ -90,7 +91,7 @@ When you place an order through the Azure Edge Hardware Center, you can order mu
 
 Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You will have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
 
-[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+[!INCLUDE [Create order in Azure Edge Hardware Center](~/reusable-content/ce-skilling/azure/includes/azure-edge-hardware-center-new-order.md)]
 
 #### Create a management resource for each device
 
@@ -104,7 +105,7 @@ After a device is delivered, a **Configure hardware** link is added to the order
 
 If necessary, prepare your environment for Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To create an Azure Stack Edge resource, run the following commands in Azure CLI.
 

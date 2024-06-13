@@ -1,10 +1,11 @@
 ---
 title: Manage your Azure subscriptions at scale with management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 08/02/2022
+ms.date: 12/01/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
+ms.custom: devx-track-azurepowershell
+ms.author: tomfitz
+author: tfitzmac
 ---
 # Manage your Azure subscriptions at scale with management groups
 
@@ -18,7 +19,7 @@ Management groups give you enterprise-grade management at a large scale no matte
 subscriptions you might have. To learn more about management groups, see
 [Organize your resources with Azure management groups](./overview.md).
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 > [!IMPORTANT]
 > Azure Resource Manager user tokens and management group cache lasts for 30 minutes before they are
@@ -220,7 +221,7 @@ az account management-group show --name 'Contoso' -e -r
 
 One reason to create a management group is to bundle subscriptions together. Only management groups
 and subscriptions can be made children of another management group. A subscription that moves to a
-management group inherits all user access and policies from the parent management group
+management group inherits all user access and policies from the parent management group. You can move subscriptions between management groups. Take note that a subscription can only have one parent management group.
 
 When moving a management group or subscription to be a child of another management group, three
 rules need to be evaluated as true.
@@ -229,7 +230,7 @@ If you're doing the move action, you need permission at each of the following la
 
 - Child subscription / management group
   - `Microsoft.management/managementgroups/write`
-  - `Microsoft.management/managementgroups/subscription/write` (only for Subscriptions)
+  - `Microsoft.management/managementgroups/subscriptions/write` (only for Subscriptions)
   - `Microsoft.Authorization/roleAssignments/write`
   - `Microsoft.Authorization/roleAssignments/delete`
   - `Microsoft.Management/register/action`
@@ -299,7 +300,7 @@ To move a subscription in PowerShell, you use the New-AzManagementGroupSubscript
 New-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
-To remove the link between and subscription and the management group use the
+To remove the link between the subscription and the management group use the
 Remove-AzManagementGroupSubscription command.
 
 ```azurepowershell-interactive

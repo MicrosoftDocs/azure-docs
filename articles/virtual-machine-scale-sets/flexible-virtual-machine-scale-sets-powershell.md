@@ -1,19 +1,18 @@
 ---
 title: Create virtual machines in a scale set using Azure PowerShell
-description: Learn how to create a virtual machine scale set in Flexible orchestration mode using PowerShell.
+description: Learn how to create a Virtual Machine Scale Set in Flexible orchestration mode using PowerShell.
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
-ms.service: virtual-machines
-ms.subservice: flexible-scale-sets
-ms.date: 08/05/2021
+ms.service: virtual-machine-scale-sets
+ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex
+ms.custom: mimckitt, vmss-flex, devx-track-azurepowershell
 ---
 
 # Create virtual machines in a scale set using PowerShell
 
-This article steps through using PowerShell to create a virtual machine scale set. 
+This article steps through using PowerShell to create a Virtual Machine Scale Set. 
 
 ## Launch Azure Cloud Shell
 
@@ -29,13 +28,16 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
 New-AzResourceGroup -Name 'myVMSSResourceGroup' -Location 'EastUS'
 ```
 
-## Create a virtual machine scale set
-Now create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set with an instance count of *2* running Windows Server 2019 Datacenter edition. 
+## Create a Virtual Machine Scale Set
+Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set with an instance count of *two* running Windows Server 2019 Datacenter edition. 
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 ```azurepowershell-interactive
 New-AzVmss `
     -ResourceGroup "myVMSSResourceGroup" `
-    -Name "myScaleSet" ` 
+    -Name "myScaleSet" `
     -OrchestrationMode "Flexible" `
     -Location "East US" `
     -InstanceCount "2" `
@@ -43,7 +45,7 @@ New-AzVmss `
 ```
 
 ## Clean up resources
-When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `-Force` parameter confirms that you wish to delete the resources without an additional prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
+When you delete a resource group, all resources contained within, such as the VM instances, virtual network, and disks, are also deleted. The `-Force` parameter confirms that you wish to delete the resources without another prompt to do so. The `-AsJob` parameter returns control to the prompt without waiting for the operation to complete.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob

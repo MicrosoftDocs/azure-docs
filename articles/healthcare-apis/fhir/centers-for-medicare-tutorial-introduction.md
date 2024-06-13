@@ -5,9 +5,8 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
+ms.author: kesheth
+author: expekesheth
 ms.date: 06/06/2022
 ---
 
@@ -39,7 +38,7 @@ The FHIR service has the following capabilities to help you configure your datab
 * [Support for RESTful interactions](fhir-features-supported.md)
 * [Storing and validating profiles](validation-against-profiles.md)
 * [Defining and indexing custom search parameters](how-to-do-custom-search.md)
-* [Converting data](../data-transformation/convert-data.md)
+* [Converting data](convert-data-overview.md)
 
 ## Patient Access API Implementation Guides
 

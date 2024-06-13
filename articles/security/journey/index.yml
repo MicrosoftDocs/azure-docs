@@ -6,7 +6,6 @@ summary: Whether you're considering a move to the cloud or have already migrated
 metadata:
   title: Azure security journey documentation
   description: Find guidance for each phase of the security journey in Azure.
-  services: security
   ms.service: security
   ms.subservice: journey
   ms.topic: landing-page
@@ -100,7 +99,7 @@ landingContent:
           - text: Security best practices
             url: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Security controls and baselines
-            url: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            url: /security/benchmark/azure/introduction?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - linkListType: concept
         links:
           - text: Identity management

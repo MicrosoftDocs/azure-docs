@@ -1,5 +1,5 @@
-﻿---
-title: Azure Active Directory REST API - Test by using Postman
+---
+title: Microsoft Entra REST API - Test by using Postman
 description: Use Postman to test the Azure App Configuration REST API
 author: maud-lv
 ms.author: malev

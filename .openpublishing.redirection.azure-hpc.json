@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/high-performance-compute/index.yml",
+      "redirect_url": "/azure/high-performance-computing",
+      "redirect_document_id": false
+    }
+  ]
+}

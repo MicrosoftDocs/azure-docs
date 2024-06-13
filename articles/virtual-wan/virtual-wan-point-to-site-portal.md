@@ -4,10 +4,9 @@ title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
 services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 08/24/2022
+ms.date: 08/09/2023
 ms.author: cherylmc
 
 ---
@@ -15,7 +14,7 @@ ms.author: cherylmc
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure. In this tutorial, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using the Azure portal. This type of connection requires the native VPN client to be configured on each connecting client computer.
 
-* This article applies to certificate and RADIUS authentication. For Azure AD authentication, see [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* This article applies to certificate and RADIUS authentication. For Microsoft Entra authentication, see [Configure a User VPN connection - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).
 * For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
 In this tutorial, you learn how to:
@@ -38,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## <a name="wan"></a>Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="p2sconfig"></a>Create a User VPN configuration
 
@@ -50,7 +49,7 @@ The instructions you follow depend on the authentication method you want to use.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure Active Directory authentication:** See [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* **Microsoft Entra authentication:** See [Configure a User VPN connection - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).
 
 ### Configuration steps
 
@@ -60,11 +59,13 @@ The instructions you follow depend on the authentication method you want to use.
 
 ### Basics page
 
-[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create hub basics page](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
 
 ### Point to site page
 
 [!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
+
+[!INCLUDE [Point to site page](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
 
 ## <a name="download"></a>Generate client configuration files
 
@@ -87,13 +88,14 @@ In this section, you create a connection between your virtual hub and your VNet.
 
 [!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
-## <a name="viewwan"></a>View a virtual WAN
+## <a name="viewwan"></a>Point to site sessions dashboard
 
-1. Navigate to your **virtual WAN**.
+1. To view your active point to site sessions, click on **Point-to-site Sessions**. This will show you all active point to site users that are connected to your User VPN gateway.
+  :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png" alt-text="Screenshot shows point to site blade in Virtual WAN." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png":::
 
-1. On the **Overview** page, each point on the map represents a hub.
+1. To disconnect users from the User VPN gateway, click the ... context menu and click "Disconnect".	
 
-1. In the **Hubs and connections** section, you can view hub status, site, region, VPN connection status, and bytes in and out.
+ :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-disconnect.png" alt-text="Screenshot shows point to site sessions dashboard." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-disconnect.png":::
 
 ## Modify settings
 

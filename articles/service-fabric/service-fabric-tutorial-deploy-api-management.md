@@ -16,7 +16,7 @@ Deploying Azure API Management with Service Fabric is an advanced scenario.  API
 This article shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Availability
 
@@ -28,7 +28,7 @@ This article shows you how to set up [Azure API Management](../api-management/ap
 Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in a network security group.
 * If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2019](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 
@@ -152,7 +152,7 @@ To add a front-end API operation, fill out the values:
 
 [Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) creates a backend policy, which ties everything together. This is where you configure the backend Service Fabric service to which requests are routed. You can apply this policy to any API operation.  For more information, see [Policies overview](../api-management/api-management-howto-policies.md).
 
-The [backend configuration for Service Fabric](../api-management/api-management-transformation-policies.md#SetBackendService) provides the following request routing controls:
+The [backend configuration for Service Fabric](../api-management/set-backend-service-policy.md) provides the following request routing controls:
 
 * Service instance selection by specifying a Service Fabric service instance name, either hardcoded (for example, `"fabric:/myapp/myservice"`) or generated from the HTTP request (for example, `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
 * Partition resolution by generating a partition key using any Service Fabric partitioning scheme.
@@ -179,7 +179,7 @@ The [backend configuration for Service Fabric](../api-management/api-management-
 </policies>
 ```
 
-For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](../api-management/api-management-transformation-policies.md#SetBackendService)
+For a full set of Service Fabric back-end policy attributes, refer to the [API Management back-end documentation](../api-management/set-backend-service-policy.md)
 
 ## Set parameters and deploy API Management
 
@@ -292,7 +292,7 @@ az group delete --name $ResourceGroupName
 
 Learn more about using [API Management](../api-management/import-and-publish.md).
 
-You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.md) to create and manage Service Fabric backends for API Management.
+You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.yml) to create and manage Service Fabric backends for API Management.
 
 [azure-powershell]: /powershell/azure/
 

@@ -4,15 +4,14 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
-ms.custom: devx-track-azurepowershell
 ---
 
 # How to clean up SSISDB logs automatically
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines, you can use it to run SSIS packages deployed into:
 
@@ -152,7 +151,7 @@ The following sections describe how to invoke the relevant SSISDB stored procedu
 
 ### Configure Elastic Database Jobs using Azure PowerShell
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
 
 The following Azure PowerShell scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](/azure/azure-sql/database/elastic-jobs-powershell-create).
 
@@ -387,7 +386,7 @@ SELECT * FROM jobs.job_executions WHERE is_active = 1
 ORDER BY start_time DESC
 ```
 
-## Next steps
+## Related content
 
 To manage and monitor your Azure-SSIS IR, see the following articles.
 

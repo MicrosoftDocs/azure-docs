@@ -21,7 +21,7 @@ The connection string for your database account should be stored in an applicati
 
 ### Identity-based connections
 
-If you are using [version 4.x or higher of the extension], instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the connection property in the trigger and binding configuration.
+If you are using [version 4.x or higher of the extension], instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the connection property in the trigger and binding configuration.
 
 In this mode, the extension requires the following properties:
 

@@ -277,9 +277,7 @@ Request parameters for this API include the default set mentioned previously as 
 
 | Field                   | Parameter type  | Description |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL             | The ID of the orchestration instance. |
 | **`showInput`**         | Query string    | Optional parameter. If set to `false`, the function input will not be included in the response payload.|
-| **`showHistory`**       | Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.|
 | **`showHistoryOutput`** | Query string    | Optional parameter. If set to `true`, the function outputs will be included in the orchestration execution history.|
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
@@ -565,7 +563,7 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 The responses for this API do not contain any content.
 
-## Suspend instance (preview)
+## Suspend instance
 
 Suspends a running orchestration instance.
 
@@ -594,7 +592,7 @@ Several possible status code values can be returned.
 
 The responses for this API do not contain any content.
 
-## Resume instance (preview)
+## Resume instance
 
 Resumes a suspended orchestration instance.
 

@@ -5,7 +5,7 @@ author: rayoef
 ms.author: rayoflores
 ms.date: 05/17/2022
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 # Quickstart: Create a shared query using Bicep
 
@@ -18,7 +18,7 @@ ms.custom: subject-armqs, mode-arm
 
 Resource Graph queries can be saved as a _private query_ or a _shared query_. A private query is saved to the individual's Azure portal profile and isn't visible to others. A shared query is a Resource Manager object that can be shared with others through permissions and role-based access. A shared query provides common and consistent execution of resource discovery. This quickstart uses Bicep to create a shared query.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the Bicep file
 
-In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](./samples/starter.md#count-os).
+In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type).
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 

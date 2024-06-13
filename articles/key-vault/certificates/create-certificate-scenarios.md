@@ -3,12 +3,11 @@ title: Monitor and manage certificate creation
 description: Scenarios demonstrating a range of options for creating, monitoring, and interacting with the certificate creation process with Key Vault.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
@@ -36,7 +35,7 @@ The scenarios / operations outlined in this article are:
 |------------|-----------------|
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|
 
-The following examples require an object named "mydigicert" to already be available in your key vault with the issuer provider as DigiCert. The certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
+The following examples require an object named "mydigicert" to already be available in your key vault with the issuer provider as DigiCert. The certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It's used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
 
 ### Request
 
@@ -179,7 +178,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 > The value of the *errorcode* can be "Certificate issuer error" or "Request rejected" based on issuer or user error respectively.
 
 ## Get pending request - pending request status is "deleted" or "overwritten"
-A pending object can be deleted or overwritten by a create/import operation when its status is not "inProgress."
+A pending object can be deleted or overwritten by a create/import operation when its status isn't `inProgress`.
 
 |Method|Request URI|
 |------------|-----------------|
@@ -252,7 +251,7 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 ```
 
 ## Merge when pending request is created with an issuer
-Merge is not allowed when a pending object is created with an issuer but is allowed when its state is "inProgress." 
+Merge isn't allowed when a pending object is created with an issuer but is allowed when its state is `inProgress`. 
 
 If the request to create the x509 certificate fails or cancels for some reason, and if an x509 certificate can be retrieved by out-of-band means, a merge operation can be done to complete the KV certificate.
 
@@ -283,7 +282,7 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 ```
 
 ## Request a cancellation while the pending request status is "inProgress"
-A cancellation can only be requested. A request may or may not be canceled. If a request is not "inProgress", an http status of 400 (Bad Request) is returned.
+A cancellation can only be requested. A request may or may not be canceled. If a request isn't "inProgress", an http status of 400 (Bad Request) is returned.
 
 |Method|Request URI|
 |------------|-----------------|
@@ -353,7 +352,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```
 
 ## Create a KV certificate manually
-You can create a certificate issued with a CA of your choice through a manual creation process. Set the name of the issuer to “Unknown” or do not specify the issuer field.
+You can create a certificate issued with a CA of your choice through a manual creation process. Set the name of the issuer to “Unknown” or don't specify the issuer field.
 
 |Method|Request URI|
 |------------|-----------------|

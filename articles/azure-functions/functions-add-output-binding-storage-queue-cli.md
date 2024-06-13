@@ -1,10 +1,11 @@
 ---
 title: Connect Azure Functions to Azure Storage using command line tools
 description: Learn how to connect Azure Functions to an Azure Storage queue by adding an output binding to your command line project.
-ms.date: 02/07/2020
+ms.date: 04/25/2024
 ms.topic: quickstart
-ms.devlang: csharp, java, javascript, powershell, python, typescript
-ms.custom: devx-track-python, mode-other
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python, typescript
+ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -18,7 +19,7 @@ In this article, you integrate an Azure Storage queue with the function and stor
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-node.md?pivot=nodejs-model-v3). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end   
 ::: zone pivot="programming-language-java"  
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-java.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
@@ -57,15 +58,16 @@ For more information on the details of bindings, see [Azure Functions triggers a
 With the queue binding defined, you can now update your function to receive the `msg` output parameter and write messages to the queue.
 
 ::: zone pivot="programming-language-python"     
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-storage-binding-python-v2.md)]
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript"  
-[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone pivot="programming-language-javascript" 
+
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
-[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts-v4.md)]
 ::: zone-end  
 
 ::: zone pivot="programming-language-powershell"  
@@ -155,14 +157,14 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
 
-+ [Azure Functions JavaScript developer guide](functions-reference-node.md)  
++ [Azure Functions JavaScript developer guide](functions-reference-node.md?tabs=javascript)  
 
 [previous-quickstart]: create-first-function-cli-javascript.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
-+ [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
++ [Azure Functions TypeScript developer guide](functions-reference-node.md?tabs=typescript)  
 
 [previous-quickstart]: create-first-function-cli-typescript.md
 ::: zone-end  

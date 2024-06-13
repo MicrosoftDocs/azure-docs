@@ -5,8 +5,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: jianleishen
 ms.author: jianleishen
-ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 05/15/2024
 ---
 
 # Discover and explore data in ADF using Microsoft Purview

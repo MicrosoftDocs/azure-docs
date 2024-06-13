@@ -2,13 +2,11 @@
 title: How to use Notification Hubs with Python
 description: Learn how to use Azure Notification Hubs from a Python application.
 services: notification-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: femila
 
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article
@@ -89,7 +87,7 @@ class NotificationHub:
 
         for part in parts:
             if part.startswith('Endpoint'):
-                self.Endpoint = 'https' + part[11:]
+                self.Endpoint = 'https' + part[11:].lower()
             if part.startswith('SharedAccessKeyName'):
                 self.SasKeyName = part[20:]
             if part.startswith('SharedAccessKey'):

@@ -1,8 +1,8 @@
 ---
 author: tamram
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 10/26/2022
 ms.author: tamram
 ---
 If you possess a shared access signature (SAS) URL that grants you access to resources in a storage account, you can use the SAS in a connection string. Because the SAS contains the information required to authenticate the request, a connection string with a SAS provides the protocol, the service endpoint, and the necessary credentials to access the resource.
@@ -34,7 +34,7 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;
 SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
-And here's an example of the same connection string with encoding of special characters:
+And here's an example of the same connection string with URL encoding:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;

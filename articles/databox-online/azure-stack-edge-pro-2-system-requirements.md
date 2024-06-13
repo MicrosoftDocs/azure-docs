@@ -6,8 +6,9 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 02/09/2022
+ms.date: 06/02/2023
 ms.author: alkohli
 ---
 
@@ -88,13 +89,13 @@ For complete information, go to [Firewall and port configuration rules for IoT E
 |----------|-----------|------------|----------|----------|
 | TCP 31000 (HTTPS)| In       | LAN        | In some cases. <br> See notes.      |This port is required only if you are connecting to the Kubernetes dashboard to monitor your device. |
 | TCP 6443 (HTTPS)| In       | LAN        | In some cases. <br> See notes.       |This port is required by Kubernetes API server only if you are using `kubectl` to access your device. |
-
+| TCP 2379 (HTTPS)| In       | LAN        | In some cases. <br> See notes.       |This port is required by Kubernetes `etcd` on your device. |
 > [!IMPORTANT]
 > If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are in the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
 
 ## URL patterns for firewall rules
 
-Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro 2 device and the service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro 2 as and when needed.
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro 2 device and the service depend on other Microsoft applications such as Azure Service Bus, Microsoft Entra Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro 2 as and when needed.
 
 We recommend that you set your firewall rules for outbound traffic, based on Azure Stack Edge Pro 2 fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 

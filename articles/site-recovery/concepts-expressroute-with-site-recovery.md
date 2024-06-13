@@ -2,12 +2,12 @@
 title: About using ExpressRoute with Azure Site Recovery
 description: Describes how to use Azure ExpressRoute with the Azure Site Recovery service for disaster recovery and migration.
 services: site-recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: v-pgaddala
+ms.author: ankitadutta
 
 ---
 # Azure ExpressRoute with Azure Site Recovery
@@ -35,8 +35,8 @@ In case you use proxy at on-premises and wish to use ExpressRoute for replicatio
 - Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user context.
 - Open Internet Explorer in system user context by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
-- Add proxy settings in IE
-- In the bypass list, add the Azure storage URL *.blob.core.windows.net
+- Add proxy settings in Internet Explorer
+- In the bypass list, add the Azure storage URL `*.blob.core.windows.net`
 
 This will ensure that only replication traffic flows through ExpressRoute while the communication can go through proxy.
 
@@ -56,6 +56,7 @@ If you are already using ExpressRoute to connect from your on-premises datacente
 You can replicate Azure virtual machines to any Azure region within the same geographic cluster as detailed [here](../site-recovery/azure-to-azure-support-matrix.md#region-support). If the chosen target Azure region is not within the same geopolitical region as the source, you might need to enable ExpressRoute Premium. For more details, check [ExpressRoute locations](../expressroute/expressroute-locations.md) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## Next steps
+
 - Learn more about [ExpressRoute circuits](../expressroute/expressroute-circuit-peerings.md).
 - Learn more about [ExpressRoute routing domains](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Learn more about [ExpressRoute locations](../expressroute/expressroute-locations.md).

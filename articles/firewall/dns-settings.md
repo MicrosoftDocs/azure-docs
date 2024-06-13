@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 05/14/2024
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,7 +24,7 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 ### Configure custom DNS servers - Azure portal
 
 1. Under Azure Firewall **Settings**, select **DNS Settings**.
-2. Under **DNS servers**, you can type or add existing DNS servers that have been previously specified in your virtual network.
+2. Under **DNS servers**, you can type or add existing DNS servers that were previously specified in your virtual network.
 3. Select **Apply**.
 
 The firewall now directs DNS traffic to the specified DNS servers for name resolution.
@@ -65,8 +65,7 @@ If you want to enable FQDN (fully qualified domain name) filtering in network ru
 
 :::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="D N S proxy configuration using a custom D N S server.":::
 
-If you enable FQDN filtering in network rules, and you don't configure client virtual machines to use the firewall as a DNS proxy, then DNS requests from these clients might travel to a DNS server at a different time or return a different response compared to that of the firewall. DNS proxy puts Azure Firewall in the path of the client requests to avoid inconsistency.
-
+If you enable FQDN filtering in network rules, and you don't configure client virtual machines to use the firewall as a DNS proxy, then DNS requests from these clients might travel to a DNS server at a different time or return a different response compared to that of the firewall. It’s recommended to configure client virtual machines to use the Azure Firewall as their DNS proxy. This puts Azure Firewall in the path of the client requests to avoid inconsistency.
 
 When Azure Firewall is a DNS proxy, two caching function types are possible:
 
@@ -95,7 +94,7 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 
 ##### Configure virtual network DNS servers 
 
-1. Select the virtual network where the DNS traffic will be routed through the Azure Firewall instance.
+1. Select the virtual network where the DNS traffic is routed through the Azure Firewall instance.
 2. Under **Settings**, select **DNS servers**.
 3. Under **DNS servers**, select **Custom**.
 4. Enter the firewall's private IP address.

@@ -3,15 +3,15 @@ title: Require secure transfer to ensure secure connections
 titleSuffix: Azure Storage
 description: Learn how to require secure transfer for requests to Azure Storage. When you require secure transfer for a storage account, any requests originating from an insecure connection are rejected.
 services: storage
-author: jimmart-dev
+author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: jammart
+ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -63,9 +63,9 @@ To require secure transfer programmatically, set the *enableHttpsTrafficOnly* pr
 
 ## Require secure transfer with PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-This sample requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+This sample requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 Run `Connect-AzAccount` to create a connection with Azure.
 
@@ -93,9 +93,9 @@ EnableHttpsTrafficOnly : True
 
 ## Require secure transfer with Azure CLI
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](~/reusable-content/ce-skilling/azure/includes/sample-cli-install.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
  Use the following command to check the setting:
 

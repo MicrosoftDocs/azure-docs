@@ -7,7 +7,6 @@ ms.service: network-function-manager
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: tobiaw
-ms.custom: ignite-fall-2021
 ---
 
 # How to register resources and create user-assigned managed identities

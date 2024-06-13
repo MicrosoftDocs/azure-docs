@@ -27,7 +27,7 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 Next, you create the cache for the app.
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
@@ -68,7 +68,7 @@ Because the file *CacheSecrets.config* isn't deployed to Azure with your applica
 
      :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Web.config":::
 
-1. In the *web.config* file, you can how to set the `<appSetting>` element for running the application locally.
+1. In the *web.config* file, you can set the `<appSettings>` element for running the application locally.
 
     `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 

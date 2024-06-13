@@ -2,13 +2,13 @@
 title: Manage Azure Data Box, Azure Data Box Heavy via Azure portal | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/23/2021
-ms.author: alkohli
+ms.date: 02/22/2023
+ms.author: shaas
 ---
 
 # Use the Azure portal to administer your Azure Data Box and Azure Data Box Heavy
@@ -45,7 +45,7 @@ Perform the following steps to clone an import order.
 
     ![Clone command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-clone-command.png)
 
-2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.
+2.	All the details of the order stay the same, except for the contact person and work phone. The contact person and work phone are removed from completed or canceled orders, and won't be cloned. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you've reviewed the privacy information. Select **Create**.
 
 The clone is created in a few minutes and the portal updates to show the new order.
 
@@ -58,7 +58,7 @@ You can only delete orders that are completed or canceled. Perform the following
 
 1. Go to **All resources**. Search for your order.
 
-2. Click the order you want to delete and go to **Overview**. From the command bar, click **Delete**.
+2. Select the order you want to delete and go to **Overview**. From the command bar, click **Delete**.
 
     ![Delete command on the Overview tab for an order](media/data-box-portal-admin/portal-admin-delete-command.png)
 
@@ -124,7 +124,7 @@ Perform the following steps to download the order history.
    - **BOM files in import order** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
    - **Verbose logs in export order** - have the list of files with file names, file sizes, and checksum computation when the data was copied from the Azure Storage accounts to the Data Box.
 
-   Here is a sample of an order history from an import order.
+   Here's a sample of an order history from an import order.
 
     ```output
     -------------------------------
@@ -204,7 +204,7 @@ Here are the statuses for an import order.
 
 |Order status |Description |
 |---------|---------|
-|Ordered     | Successfully placed an order. <br>If the device is available, Microsoft identifies a device for shipment and prepares the device. <br> If the device isn't available immediately, the order will be processed when the device becomes available. The order could take several days to a couple months to process. If the order cannot be fulfilled in 90 days, the order is canceled and you're notified.         |
+|Ordered     | Successfully placed an order. <br>If the device is available, Microsoft identifies a device for shipment and prepares the device. <br> If the device isn't available immediately, the order will be processed when the device becomes available. The order could take several days to a couple months to process. If the order can't be fulfilled in 90 days, the order is canceled and you're notified.         |
 |Processed     | Order processing is complete. As per your order, the device is prepared for shipment in the datacenter.         |
 |Dispatched     | Order has shipped. Use the tracking ID displayed in your order in the portal to track the shipment.        |
 |Delivered     | Shipment was delivered to the address specified in the order.        |
@@ -214,7 +214,7 @@ Here are the statuses for an import order.
 |Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
 |Completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs using the path provided in the Azure portal. See [examples of copy logs when upload completed with errors](./data-box-logs.md#upload-completed-with-errors).   |
 |Completed with warnings| Data copy was completed but your data was modified. The data had non-critical blob or file name errors that were fixed by changing the file or blob names. <br> Review the copy logs using the path provided in the Azure portal. Make a note to the modifications in your data. See [examples of copy logs when upload completed with warnings](./data-box-logs.md#upload-completed-with-warnings).   |
-|Canceled            |Order is canceled. <br> Either you canceled the order or the service canceled the order after an error occurred. If the order cannot be fulfilled in 90 days, the order is also canceled and you're notified.     |
+|Canceled            |Order is canceled. <br> Either you canceled the order or the service canceled the order after an error occurred. If the order can't be fulfilled in 90 days, the order is also canceled and you're notified.     |
 |Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order history is available for download in the Azure portal.|
 
 ### Statuses for export order
@@ -223,14 +223,14 @@ Here are the statuses for an export order.
 
 |Order status |Description |
 |---------|---------|
-|Ordered     | Successfully placed an export order. <br>If the device is available, Microsoft identifies a device for shipment and prepares the device. <br> If the device is not available immediately, order will be processed when the device becomes available. The order could take several days to a couple months to process. If the order cannot be fulfilled in 90 days, the order is canceled and you are notified.         |
-|Canceled            |Order is canceled. <br> Either you canceled the order (you can cancel only before the order is processed) or an error was encountered and the service canceled the order. If the order cannot be fulfilled in 90 days, the order is also canceled and you are notified.     |
+|Ordered     | Successfully placed an export order. <br>If the device is available, Microsoft identifies a device for shipment and prepares the device. <br> If the device isn't available immediately, order will be processed when the device becomes available. The order could take several days to a couple months to process. If the order can't be fulfilled in 90 days, the order is canceled and you're notified.         |
+|Canceled            |Order is canceled. <br> Either you canceled the order (you can cancel only before the order is processed) or an error was encountered and the service canceled the order. If the order can't be fulfilled in 90 days, the order is also canceled and you're notified.     |
 |Processed     | Order processing is complete. As per your order, the device is prepared for data copy in the datacenter. Device shares are created.         |
 |Data copy in progress     | Data copy from the specified Azure Storage accounts to the device is in progress. Track the copy progress for your order in Azure portal. <br> Wait until the data copy is complete. |
 |Copy completed     | Data copy from the specified Azure Storage accounts to the device is complete. A verbose log file (if the option was enabled in the order) and a copy log are created in your storage account. The verbose log contains the information on all the files (name, path, computation checksum) that are copied to the device. The copy log contains the summary of the copy process including a list of files that couldn't be copied because of any errors. <br> The storage account data stays as is. |
 |Copy completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download completed with errors](./data-box-logs.md#upload-completed-with-errors).   |
 |Copy completed with warnings| Data copy from Azure Storage account was completed but the data had non-critical errors. <br> Review the copy logs using the path provided in the Azure portal. Make a note of the non-critical errors. See [examples of copy logs when download completed with warnings](./data-box-logs.md#upload-completed-with-warnings).   |
-|Copy failed with errors| Data copy from Azure Storage account failed, and the order is terminated. A device will not be shipped. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download failed with errors](./data-box-logs.md#upload-completed-with-errors).   |
+|Copy failed with errors| Data copy from Azure Storage account failed, and the order is terminated. A device won't be shipped. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download failed with errors](./data-box-logs.md#upload-completed-with-errors).   |
 |Dispatched     |Order has shipped. Use the tracking ID displayed in your order in the portal to track the shipment.        |
 |Delivered     |Shipment was delivered to the address specified in the order.        |
 |Picked up     |Your return shipment was picked up and scanned by the carrier.         |
@@ -247,7 +247,7 @@ If you're using self-managed shipping, after the copy is complete and before you
 |Order status |Description |
 |---------|---------|
 |Ready for pickup at Azure datacenter      |The device is ready to be picked up at the Azure datacenter.        |
-|Picked up    |You have picked up the device.         |
+|Picked up    |You've picked up the device.         |
 |Ready to receive at Azure datacenter     |The device is ready to be received at the Azure datacenter.        |
 |Received     |The device has been received at the Azure datacenter.      |
 

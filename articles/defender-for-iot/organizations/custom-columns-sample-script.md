@@ -1,7 +1,7 @@
 ---
 title: Sample automation script for custom columns on on-premises management consoles - Microsoft Defender for IoT
-description: Learn how to view and manage OT devices (assets) from the Device inventory page on an on-premises management console.
-ms.topic: how-to
+description: Use a sample script when adding custom columns to your on-premises management console Device inventory page.
+ms.topic: sample
 ms.date: 07/12/2022
 
 ---
@@ -10,7 +10,7 @@ ms.date: 07/12/2022
 
 This article shows a sample script to use when adding custom columns to your on-premises management console **Device inventory** page.
 
-For more information, see [Add to and enhance device inventory data](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#add-to-and-enhance-device-inventory-data).
+For more information, see [Add to and enhance device inventory data](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#add-to-and-enhance-device-inventory-data).
 
 ## Sample script for custom columns
 
@@ -142,4 +142,4 @@ class Impl(CustomColumnCommand):
 
 ## Next steps
 
-For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).
+For more information, see [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md).

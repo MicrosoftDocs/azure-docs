@@ -7,7 +7,7 @@
         "relativeLinkPrefix": "/azure/active-directory-b2c"
     },
     "inclusionCriteria": {
-        "omitPullRequestTitles" : true,
+        "omitPullRequestTitles" : false,
         "minAdditionsToFile" : 10,
         "maxFilesChanged": 50,
         "labels": [

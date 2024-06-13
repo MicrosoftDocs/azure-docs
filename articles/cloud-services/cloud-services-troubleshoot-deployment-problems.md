@@ -3,11 +3,11 @@ title: Troubleshoot cloud service (classic) deployment problems | Microsoft Docs
 description: There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them.
 ms.topic: troubleshooting
 ms.service: cloud-services
-ms.date: 10/14/2020
+ms.date: 02/21/2023
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
-ms.custom: 
+ms.custom: compute-evergreen
 ---
 
 # Troubleshoot Azure Cloud Services (Classic) deployment problems
@@ -25,7 +25,7 @@ You can find the **Properties** pane as follows:
 >
 >
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Problem: I cannot access my website, but my deployment is started and all role instances are ready
 The website URL link shown in the portal does not include the port. The default port for websites is 80. If your application is configured to run in a different port, you must add the correct port number to the URL when accessing the website.

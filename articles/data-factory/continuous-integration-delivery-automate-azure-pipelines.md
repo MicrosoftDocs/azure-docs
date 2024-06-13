@@ -7,8 +7,8 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
-ms.custom: devx-track-azurepowershell
+ms.date: 10/20/2023 
+ms.custom:
 ---
 
 # Automate continuous integration using Azure Pipelines releases
@@ -19,7 +19,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 ## Requirements
 
--   An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that uses the [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+-   An Azure subscription linked to Azure DevOps Server (formerly Visual Studio Team Foundation Server) or Azure Repos that uses the [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   A data factory configured with Azure Repos Git integration.
 
@@ -122,7 +122,7 @@ The Azure Key Vault task might fail with an Access Denied error if the correct p
 
 ## Updating active triggers
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
@@ -152,7 +152,7 @@ The data factory team has provided a [sample pre- and post-deployment script](co
 >[!WARNING]
 >Make sure to use **PowerShell Core** in ADO task to run the script
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)

@@ -6,7 +6,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 09/27/2021
 ms.author: spelluru
-ms.custom:  devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -161,7 +161,7 @@ For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.serv
 
 ## Commands to run deployment
 
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](~/reusable-content/ce-skilling/azure/includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 

@@ -1,0 +1,92 @@
+### YamlMime:Landing
+
+title: Azure Operator Service Manager documentation
+summary: Azure Operator Service Manager aids telecom operators in managing network services across hybrid cloud sites, including Azure regions and Arc-connected areas. Simplify complex, multi-vendor app management.
+
+metadata:
+  title: Azure Operator Service Manager documentation
+  description: Azure Operator Service Manager aids telecom operators in managing network services across hybrid cloud sites, including Azure regions and Arc-connected areas. Simplify complex, multi-vendor app management.
+  ms.service: azure-operator-service-manager
+  ms.topic: landing-page
+  author: sherryg
+  ms.author: sherryg
+  ms.date: 05/31/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Operator Service Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator Service Manager?
+            url: azure-operator-service-manager-overview.md
+      - linkListType: concept
+        links:
+          - text: Helm requirements
+            url: helm-requirements.md
+          - text: Roles and interfaces
+            url: roles-interfaces.md
+          - text: Publisher Tenants, subscriptions, regions and preview management
+            url: publisher-resource-preview-management.md
+
+  # Card
+  - title: Get started with Azure Operator Service Manager
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Containerized Network Function (CNF)
+            url: quickstart-containerized-network-function-prerequisites.md
+          - text: Virtualized Network Function (VNF)
+            url: quickstart-virtualized-network-function-prerequisites.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a custom role
+            url: how-to-create-custom-role.md
+          - text: Assign a custom role
+            url: how-to-assign-custom-role.md
+          - text: Create a user assigned managed identity
+            url: how-to-create-user-assigned-managed-identity.md
+          - text: Create a site
+            url: how-to-create-site.md
+          - text: Delete operator resources
+            url: how-to-delete-operator-resources.md
+          - text: Create site network service
+            url: how-to-create-site-network-service.md
+
+  # Card
+  - title: Onboard with the Azure Operator Service Manager (AOSM) CLI
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About the CLI
+            url: concepts-about-azure-operator-service-manager-cli.md
+      - linkListType: concept
+        links:
+          - text: Parameter exposure with the AOSM CLI Extension
+            url: concepts-expose-parameters-configuration-group-schema.md
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard a Containerized Network Function
+            url: how-to-onboard-containerized-network-function-cli.md
+          - text: Onboard a Virtualized Network Function
+            url: how-to-onboard-virtualized-network-function-cli.md
+          - text: Onboard Azure Resource Manager (ARM) resources
+            url: how-to-onboard-azure-resource-manager-resources-cli.md
+          - text: Troubleshoot common CLI Issues
+            url: troubleshoot-cli-common-issues.md
+
+  # Card
+  - title: Additional Resources
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Best Practices onboard and deploy
+            url: best-practices-onboard-deploy.md
+      - linkListType: reference
+        links:
+          - text: Glossary
+            url: glossary.md

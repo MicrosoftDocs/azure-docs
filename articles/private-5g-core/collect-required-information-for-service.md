@@ -1,24 +1,24 @@
 ---
 title: Collect the required information for a service
-titleSuffix: Azure Private 5G Core Preview
-description: In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core Preview.
-author: djrmetaswitch
-ms.author: drichards
+titleSuffix: Azure Private 5G Core
+description: In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core.
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/16/2022
 ms.custom: template-how-to
 ---
 
-# Collect the required information for a service for Azure Private 5G Core Preview
+# Collect the required information for a service for Azure Private 5G Core
 
 A *service* is a set of quality of service (QoS) characteristics you want to offer SIMs. For example, you may want to configure a service that provides higher bandwidth limits for particular traffic. You can also use services to block particular traffic types or traffic from specific sources.
 
 Each service has a set of rules to identify the service data flows (SDFs) to which the QoS characteristics should be applied. For more information, see [Policy control](policy-control.md). 
 
-In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core Preview.
+In this how-to guide, you'll learn how to collect all the required information to configure a service for Azure Private 5G Core.
 
-- You can use this information to configure a service through the Azure portal. In this case, you'll enter each value you collect into its corresponding field (given in the **Azure portal field name** columns in the tables below) as part of the procedure in [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md).
+- You can use this information to configure a service through the Azure portal. In this case, you'll enter each value you collect into its corresponding field (given in the **Azure portal field name** columns in the tables below) as part of the procedure in [Configure a service for Azure Private 5G Core - Azure portal](configure-service-azure-portal.md).
 - Alternatively, you can use the information to create a simple service and SIM policy using the example Azure Resource Manager template (ARM template) given in [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md). The example template uses default values for all settings, but you can choose to replace a subset of the default settings with your own values. The **Included in example ARM template** columns in the tables below indicate which settings can be changed.
 
 ## Prerequisites
@@ -45,9 +45,9 @@ You can specify a QoS for this service, or inherit the parent SIM Policy's QoS. 
 | The maximum bit rate (MBR) for uplink traffic (traveling away from user equipment (UEs)) across all SDFs that match data flow policy rules configured on this service. The MBR must be given in the following form: `<Quantity>` `<Unit>` </br></br>`<Unit>` must be one of the following: </br></br>- *bps* </br>- *Kbps* </br>- *Mbps* </br>- *Gbps* </br>- *Tbps* </br></br>`<Quantity>` is the quantity of your chosen unit. </br></br>For example, `10 Mbps`. | **Maximum bit rate (MBR) - Uplink** | Yes|
 | The MBR for downlink traffic (traveling towards UEs) across all SDFs that match data flow policy rules configured on this service. The MBR must be given in the following form: `<Quantity>` `<Unit>` </br></br>`<Unit>` must be one of the following: </br></br>- *bps* </br>- *Kbps* </br>- *Mbps* </br>- *Gbps* </br>- *Tbps* </br></br>`<Quantity>` is the quantity of your chosen unit. </br></br>For example, `10 Mbps`. | **Maximum bit rate (MBR) - Downlink** | Yes|
 | The default Allocation and Retention Policy (ARP) priority level for this service. Flows with a higher ARP priority level preempt flows with a lower ARP priority level. The ARP priority level must be an integer between 1 (highest priority) and 15 (lowest priority). | **Allocation and Retention Priority level** |No. Defaults to 9.|
-| The default 5G QoS Indicator (5QI) or QoS class identifier (QCI) value for this service. The 5QI (for 5G networks) or QCI (for 4G networks) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. </br></br>We recommend you choose a 5QI or QCI value that corresponds to a non-GBR QoS flow or EPS bearer. These values are in the following ranges: 5-9; 69-70; 79-80. For more details, see 3GPP TS 23.501 for 5QI or 3GPP TS 23.203 for QCI.</br></br>You can also choose a non-standardized 5QI or QCI value.</p><p>Azure Private 5G Core doesn't support 5QI or QCI values corresponding to GBR or delay-critical GBR QoS flows or EPS bearers. Don't use a value in any of the following ranges: 1-4; 65-67; 71-76; 82-85. | **5QI/QCI** |No. Defaults to 9.|
+| The default 5G QoS Indicator (5QI) or QoS class identifier (QCI) value for this service. The 5QI (for 5G networks) or QCI (for 4G networks) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. </br></br>You can choose a standardized or a non-standardized 5QI or QCI value. For more details, see 3GPP TS 23.501 for 5QI or 3GPP TS 23.203 for QCI. | **5QI/QCI** |No. Defaults to 9.|
 | The default preemption capability for QoS flows or EPS bearers for this service. The preemption capability of a QoS flow or EPS bearer controls whether it can preempt another QoS flow or EPS bearer with a lower priority level. You can choose from the following values: </br></br>- **May not preempt** </br>- **May preempt** | **Preemption capability** |No. Defaults to **May not preempt**.|
-| The default preemption vulnerability for QoS flows or EPS bearers for this service. The preemption vulnerability of a QoS flow or EPS bearer controls whether it can be preempted by another QoS flow or EPS bearer with a higher priority level. You can choose from the following values: </br></br>- **Preemptable** </br>- **Not preemptable** | **Preemption vulnerability** |No. Defaults to **Preemptable**.|
+| The default preemption vulnerability for QoS flows or EPS bearers for this service. The preemption vulnerability of a QoS flow or EPS bearer controls whether it can be preempted by another QoS flow or EPS bearer with a higher priority level. You can choose from the following values: </br></br>- **Preemptible** </br>- **Not Preemptible** | **Preemption vulnerability** |No. Defaults to **Preemptible**.|
 
 ## Data flow policy rule(s)
 
@@ -87,5 +87,5 @@ Collect the following values for each data flow template you want to use for a p
 
 You can use this information to either create a service using the Azure portal, or use the example ARM template to create a simple service and SIM policy.
 
-- [Configure a service for Azure Private 5G Core Preview - Azure portal](configure-service-azure-portal.md)
+- [Configure a service for Azure Private 5G Core - Azure portal](configure-service-azure-portal.md)
 - [Configure a service and SIM policy using an ARM template](configure-service-sim-policy-arm-template.md)

@@ -1,0 +1,77 @@
+### YamlMime:Hub
+
+title: Azure Storage Mover documentation
+summary: Azure Storage Mover is a fully managed, hybrid migration service that can help move your on-premises file shares to Azure.
+brand: azure
+
+metadata:
+  title: Azure Storage Mover documentation
+  description: Azure Storage Mover documentation hub page. Points to service documentation for using the Azure Storage Mover hybrid service to migrate unstructured data to Azure. 
+  ms.service: azure-storage-mover
+  ms.topic: hub-page
+  author: stevenmatthew
+  ms.author: shaas
+  ms.date: 09/14/2022
+
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure Storage Mover?
+      itemType: concept
+      url: service-overview.md
+    - title: Understanding the Storage Mover resource hierarchy
+      itemType: concept
+      url: resource-hierarchy.md
+    - title: Download the Storage Mover agent
+      itemType: download
+      url: https://aka.ms/StorageMover/agent
+
+ 
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: Deploy
+      items:
+        # Card
+        - title: Service
+          links:
+          - url: deployment-planning.md
+            text: Planning for a storage mover deployment
+          - url: storage-mover-create.md
+            text: Deploying a storage mover resource
+        # Card
+        - title: Agent
+          links:
+          - url: https://aka.ms/StorageMover/agent
+            text: Download the latest migration agent image
+          - url: agent-deploy.md
+            text: Deploy a Storage Mover agent VM
+          - url: agent-register.md
+            text: Register an agent VM
+        # Card
+        - title: Authentication & Authorization
+          links:
+          - url: agent-register.md#authentication-and-authorization
+            text: Overview
+          - url: agent-register.md#just-in-time-authorization
+            text: Just-in-time agent authorization
+          - url: deployment-planning.md#permissions
+            text: Required admin permissions (RBAC)
+    - title: Manage
+      items:
+        # Card
+        - title: Structure a migration
+          links:
+          - url: migration-basics.md
+            text: Cloud migration basics
+          - url: project-manage.md
+            text: Manage a project
+        # Card
+        - title: Migration costs
+          links:
+          - url: billing.md
+            text: Understanding cost components

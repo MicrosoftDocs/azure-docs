@@ -1,20 +1,20 @@
 ---
-title: Quickstart for Azure App Configuration with .NET Framework | Microsoft Docs
+title: Quickstart for Azure App Configuration with .NET Framework
 description: In this article, create a .NET Framework app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
-documentationcenter: ''
 author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
-ms.date: 09/28/2020
+ms.date: 05/24/2024
 ms.author: malev
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a .NET Framework app with Azure App Configuration
 
 There are two ways to incorporate Azure App Configuration into a .NET Framework-based app.
+
 - The configuration builder for App Configuration enables data from App Configuration to be loaded to App Settings. Your app accesses configuration as it always does via `ConfigurationManager`. You don't need to make any code change other than updates to *app.config* or *web.config* files. This quickstart will walk you through this option.
 - As is designed by the .NET Framework, the App Settings can only refresh upon application restart. The App Configuration .NET provider is a .NET Standard library. It supports caching and refreshing configuration dynamically without application restart. If the dynamic configuration is essential to you and you are willing to make code changes, see tutorials on how you can implement dynamic configuration updates in a [.NET Framework console app](./enable-dynamic-configuration-dotnet.md) or an [ASP.NET web app](./enable-dynamic-configuration-aspnet-netfx.md).
 
@@ -22,21 +22,18 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-- [Visual Studio](https://visualstudio.microsoft.com/vs)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- [Visual Studio](https://visualstudio.microsoft.com/downloads)
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-7. Select **Configuration explorer** > **+ Create** > **Key-value** to add the following key-value:
-
-    | Key                        | Value                               |
-    |----------------------------|-------------------------------------|
-    | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
-
-    Leave **Label** and **Content Type** empty.
+| Key                        | Value                               |
+|----------------------------|-------------------------------------|
+| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
 ## Create a .NET Framework console app
 
@@ -90,19 +87,21 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
 
 ## Build and run the app
 
-1. Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation. 
+1. Set an environment variable named **ConnectionString** to the read-only key connection string obtained during your App Configuration store creation.
 
     If you use the Windows command prompt, run the following command:
+
     ```console
     setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
     If you use Windows PowerShell, run the following command:
+
     ```powershell
     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
-1. Restart Visual Studio to allow the change to take effect. 
+1. Restart Visual Studio to allow the change to take effect.
 
 1. Press Ctrl + F5 to build and run the console app. You should see the message from App Configuration outputs in the console.
 

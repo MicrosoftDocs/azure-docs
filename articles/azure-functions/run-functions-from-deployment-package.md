@@ -8,7 +8,7 @@ ms.date: 02/05/2022
 
 # Run your functions from a package file in Azure
 
-In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux) directory of your function app.
+In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux) directory of your function app.
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
 
@@ -30,7 +30,7 @@ To enable your function app to run from a package, add a `WEBSITE_RUN_FROM_PACKA
 
 | Value  | Description  |
 |---------|---------|
-| **`1`**  | Indicates that the function app runs from a local package file deployed in the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app.  |
+| **`1`**  | Indicates that the function app runs from a local package file deployed in the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder of your function app.  |
 |**`<URL>`**  | Sets a URL that is the remote location of the specific package file you want to run. Required for functions apps running on Linux in a Consumption plan.  |
 
 The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options for deployment to a specific operating system and hosting plan:
@@ -51,6 +51,9 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` options
 + You can't use local cache when running from a deployment package.
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. To learn more, see [Remote build](functions-deployment-technologies.md#remote-build).
 
+> [!NOTE]
+> WEBSITE_RUN_FROM_PACKAGE does not work with MSDeploy as described [here](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You will receive an error during deployment like `ARM-MSDeploy Deploy Failed`.  Change /MSDeploy to /ZipDeploy and this error will be resolved.
+
 ### Adding the WEBSITE_RUN_FROM_PACKAGE setting
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
@@ -63,13 +66,13 @@ This section provides information about how to run your function app from a loca
 
 + Using an on-site package is the recommended option for running from the deployment package, except on Linux hosted in a Consumption plan.
 + [Zip deployment](#integration-with-zip-deployment) is the recommended way to upload a deployment package to your site.
-+ When not using zip deployment, make sure the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running.
++ When not using zip deployment, make sure the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder has a file named `packagename.txt`. This file contains only the name, without any whitespace, of the package file in this folder that's currently running.
 
 ### Integration with zip deployment
 
-[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder.
+[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. The project is packaged as a .zip deployment file. The same APIs can be used to deploy your package to the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder.
 
-With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `d:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder instead of extracting the files to `d:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux). It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
+With the `WEBSITE_RUN_FROM_PACKAGE` app setting value of `1`, the zip deployment APIs copy your package to the `c:\home\data\SitePackages` (Windows) or `/home/data/SitePackages` (Linux) folder instead of extracting the files to `c:\home\site\wwwroot` (Windows) or `/home/site/wwwroot` (Linux). It also creates the `packagename.txt` file. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. For more information about zip deployment, see [Zip deployment for Azure Functions](deployment-zip-push.md).
 
 > [!NOTE]
 > When a deployment occurs, a restart of the function app is triggered. Function executions currently running during the deploy are terminated. Please review [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless) to learn how to write stateless and defensive functions.
@@ -85,7 +88,8 @@ This section provides information about how to run your function app from a pack
 + When running a function app on Windows, the app setting `WEBSITE_RUN_FROM_PACKAGE = <URL>` gives worse cold-start performance and isn't recommended.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
 + The Functions runtime must have permissions to access the package URL.
-+ You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
++ You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../storage/common/storage-sas-overview.md) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
++ You must maintain any SAS URLs used for deployment. When an SAS expires, the package can no longer be deployed. In this case, you must generate a new SAS and update the setting in your function app. You can eliminate this management burden by [using a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity).
 + When running on a Premium plan, make sure to [eliminate cold starts](functions-premium-plan.md#eliminate-cold-starts).
 + When running on a Dedicated plan, make sure you've enabled [Always On](dedicated-plan.md#always-on).
 + You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to blob containers in your storage account.
@@ -126,7 +130,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 ### Fetch a package from Azure Blob Storage using a managed identity
 
-[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
+[!INCLUDE [Run from package via Identity](~/reusable-content/ce-skilling/azure/includes/app-service-run-from-package-via-identity.md)]
 
 ## Next steps
 

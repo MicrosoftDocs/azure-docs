@@ -1,16 +1,20 @@
 ---
 title: Configure authentication in a sample web application that calls a web API by using Azure Active Directory B2C
 description:  This article discusses using Azure Active Directory B2C to sign in and sign up users in an ASP.NET web application that calls a web API.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a web application that calls a web API, I want to configure authentication using Azure AD B2C, so that I can securely sign users in to my application and call a secure web API.
+
 ---
 
 # Configure authentication in a sample web app that calls a web API by using Azure AD B2C
@@ -132,8 +136,8 @@ Under the project root folder, open the *appsettings.json* file. This file conta
 
 | Section | Key | Value |
 | --- | --- | --- |
-|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `https://contoso.b2clogin.com`.|
-|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`.|
+|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example, `https://contoso.b2clogin.com`.|
+|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`.|
 |AzureAdB2C|ClientId| The web API application ID from [step 2.1](#step-21-register-the-web-api-app).|
 |AzureAdB2C|SignUpSignInPolicyId|The user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 | | | |
@@ -179,8 +183,8 @@ Under the project root folder, open the `appsettings.json` file. This file conta
 
 | Section | Key | Value |
 | --- | --- | --- |
-| AzureAdB2C | Instance | The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+| AzureAdB2C | Instance | The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| The web application ID from [step 2.3](#step-23-register-the-web-app).|
 |AzureAdB2C | ClientSecret | The web application secret from [step 2.4](#step-24-create-a-web-app-client-secret). | 
 |AzureAdB2C|SignUpSignInPolicyId|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|

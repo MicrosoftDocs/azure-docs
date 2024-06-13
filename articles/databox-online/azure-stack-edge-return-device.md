@@ -7,13 +7,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 ---
 
 # Return your Azure Stack Edge device
 
 [!INCLUDE [applies-to-pro-fpga](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to wipe the data and then return your Azure Stack Edge device. After you've returned the device, you can also delete the resource associated with the device.
 
@@ -52,7 +54,7 @@ To begin the return process, take the following steps.
 
 If you used the Azure Edge Hardware Center to order your device, follow these steps to return the device:
 
-[!INCLUDE [Initiate device return from Edge Hardware Center order resource](../../includes/azure-stack-edge-initiate-device-return.md)]
+[!INCLUDE [Initiate device return from Edge Hardware Center order resource](~/reusable-content/ce-skilling/azure/includes/azure-stack-edge-initiate-device-return.md)]
 
 
 The next step is to package the device.

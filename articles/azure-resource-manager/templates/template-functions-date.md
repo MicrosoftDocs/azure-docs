@@ -1,8 +1,9 @@
 ---
 title: Template functions - date
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with dates.
-ms.topic: conceptual
-ms.date: 05/03/2022
+ms.topic: reference
+ms.custom: devx-track-arm-template
+ms.date: 01/17/2024
 ---
 
 # Date functions for ARM templates
@@ -31,6 +32,38 @@ In Bicep, use the [dateTimeAdd](../bicep/bicep-functions-date.md#datetimeadd) fu
 ### Return value
 
 The datetime value that results from adding the duration value to the base value.
+
+### Remarks
+
+The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as _P30D_. The following json shows some examples:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "addOneYearNonLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2023-01-01 00:00:00Z', 'P1Y')]"  //2024-01-01T00:00:00Z
+    },
+    "addOneYearLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2024-01-01 00:00:00Z', 'P1Y')]"  //2024-12-31T00:00:00Z
+    },
+    "addOneMonthNonLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2023-02-01 00:00:00Z', 'P1M')]"  //2023-03-03T00:00:00Z
+    },
+    "addOneMonthLeap": {
+      "type": "string",
+      "value": "[dateTimeAdd('2024-02-01 00:00:00Z', 'P1M')]"  //2024-03-02T00:00:00Z
+    }
+  }
+}
+```
+
+In the preceding example, considering 2023 as a non-leap year, the outcome of adding one year to the initial day of the year is _2024-01-01T00:00:00Z_. Conversely, adding one year to the starting day of 2024, a leap year, results in _2024-12-31T00:00:00Z_, not _2025-01-01T00:00:00Z_, given that a leap year comprises 366 days instead of 365 days. Furthermore, the distinction between leap and non-leap years becomes apparent when adding one month to the first day of February, leading to varying day-of-the-month results.
 
 ### Examples
 

@@ -2,20 +2,19 @@
 title: 'Quickstart: Set up high availability with Azure Front Door - Azure PowerShell'
 description: This quickstart will show you how to use Azure Front Door to create a high availability and high-performance global web application using Azure PowerShell.
 services: front-door
-documentationcenter: na
 author: duongau
 ms.author: duau
 manager: KumudD
 ms.date: 04/19/2021
 ms.topic: quickstart
 ms.service: frontdoor
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure PowerShell
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Get started with Azure Front Door by using Azure PowerShell to create a highly available and high-performance global web application.
 
@@ -28,9 +27,9 @@ The Front Door directs web traffic to specific resources in a backend pool. You 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create resource group
 

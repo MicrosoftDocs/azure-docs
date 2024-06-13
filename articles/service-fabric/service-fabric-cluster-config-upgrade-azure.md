@@ -18,7 +18,7 @@ This article describes how to customize the various fabric settings for your Ser
 > 
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Customize cluster settings using Resource Manager templates
 Azure clusters can be configured through the JSON Resource Manager template. To learn more about the different settings, see [Configuration settings for clusters](service-fabric-cluster-fabric-settings.md). As an example, the steps below show how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section using Azure Resource Explorer.
@@ -29,20 +29,20 @@ Azure clusters can be configured through the JSON Resource Manager template. To 
 4. Select **Edit** and update the `fabricSettings` JSON element and add a new element:
 
 ```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
+{
+  "name": "Diagnostics",
+  "parameters": [
+    {
+      "name": "MaxDiskQuotaInMB",
+      "value": "65536"
+    }
+  ]
+}
 ```
 
 You can also customize cluster settings in one of the following ways with Azure Resource Manager:
 
-- Use the [Azure portal](../azure-resource-manager/templates/export-template-portal.md) to export and update the Resource Manger template.
+- Use the [Azure portal](../azure-resource-manager/templates/export-template-portal.md) to export and update the Resource Manager template.
 - Use [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) to export and update the Resource Manager template.
 - Use the [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md) to export and update the Resource Manager template.
 - Use the Azure PowerShell [Set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) and [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) commands to modify the setting directly.

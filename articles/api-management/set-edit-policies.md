@@ -1,17 +1,18 @@
 ---
 title: How to set or edit Azure API Management policies | Microsoft Docs
-description: Learn how to use the Azure portal to set or edit policies in an Azure API Management instance. Policies are defined in XML documents that contain a sequence of statements that are run sequentially on the request or response of an API.
+description: Configure policies at different scopes in an Azure API Management instance using the policy editor in the Azure portal.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 10/18/2023
 ms.author: danlep
 ---
 
 # How to set or edit Azure API Management policies
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows you how to configure policies in your API Management instance by editing policy definitions in the Azure portal. Each policy definition is an XML document that describes a sequence of inbound and outbound statements that run sequentially on an API request and response.
 
@@ -21,7 +22,7 @@ More information about policies:
 
 * [Policy overview](api-management-howto-policies.md)
 * [Policy reference](api-management-policies.md) for a full list of policy statements and their settings
-* [Policy samples](./policies/index.md)
+* [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
 
 ## Prerequisites
 
@@ -122,7 +123,7 @@ API Management gives you flexibility to configure policy definitions at multiple
 > Not all policies can be applied at each scope or policy section. If the policy that you want to add isn't enabled, ensure that you are in a supported policy section and scope for that policy. To review the policy sections and scopes for a policy, check the **Usage** section in the [Policy reference](api-management-policies.md) topics.
 
 > [!NOTE]
-> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](api-management-advanced-policies.md#ForwardRequest) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
+> The **Backend** policy section can only contain one policy element. By default, API Management configures the [`forward-request`](forward-request-policy.md) policy in the **Backend** section at the global scope, and the `base` element at other scopes.
 
 ### Global scope
 
@@ -148,6 +149,8 @@ Product scope is configured for a selected product.
 1. In a policy section, select **+ Add policy** to use a form-based policy editor, or select the **</>** (code editor) icon to add and edit XML directly. 
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
+
+
 
 ### API scope
 
@@ -181,7 +184,7 @@ Operation scope is configured for a selected API operation.
 
 You can create reusable [policy fragments](policy-fragments.md) in your API Management instance. Policy fragments are XML elements containing your configurations of one or more policies. Policy fragments help you configure policies consistently and maintain policy definitions without needing to repeat or retype XML code. 
 
-Use the [`include-fragment`](api-management-advanced-policies.md#IncludeFragment) policy to insert a policy fragment in a policy definition.
+Use the [`include-fragment`](include-fragment-policy.md) policy to insert a policy fragment in a policy definition.
 
 ## Use `base` element to set policy evaluation order
 
@@ -221,11 +224,14 @@ To modify the policy evaluation order using the policy editor:
 
     A globally scoped policy has no parent scope, and using the `base` element in it has no effect.
 
-## Next steps
+[!INCLUDE [api-management-policies-azure-copilot](../../includes/api-management-policies-azure-copilot.md)]
+
+## Related content
 
 For more information about working with policies, see:
 
 + [Tutorial: Transform and protect APIs](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
++ [Author policies using Microsoft Copilot in Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

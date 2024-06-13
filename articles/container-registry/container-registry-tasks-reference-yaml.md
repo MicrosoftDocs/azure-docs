@@ -2,7 +2,11 @@
 title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
 ms.topic: reference
-ms.date: 07/08/2020
+ms.custom: devx-track-azurecli
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # ACR Tasks reference: YAML
@@ -134,7 +138,16 @@ steps:
     [property]: [value]
 ```
 
+Run the [az acr run][az-acr-run]command to get the docker version.
+
+```azurecli
+az acr run -r $ACR_NAME --cmd "docker version" /dev/null
+```
+
+Add environment variable `DOCKER_BUILDKIT=1` in yaml file to enable `buildkit` and use `secret` with `buildkit`.
+
 The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
+
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |
@@ -188,6 +201,29 @@ version: v1.1.0
 steps:
   - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
+
+### Dynamic variable passing in ACR Tasks
+
+When working with Azure container registry (ACR) tasks, you may find yourself needing to pass different values to your build process without changing the task definition by using the `--set` flag with the `az acr task run` command. 
+
+#### Example: Setting image tag at runtime
+
+Suppose you have an ACR task defined in a `acr-task.yml` file with a placeholder for the image tag:
+
+```yaml
+steps:
+  - build: -t $Registry/hello-world:{{.Values.tag}}
+```
+
+You can trigger the task and set the `tag` variable to `v2` at runtime using the following Azure CLI command:
+
+```azurecli
+az acr task run --registry myregistry --name mytask --set tag=v2
+```
+
+This command will start the ACR task named `mytask` and build the image using the `v2` tag, overriding the placeholder in the `acr-task.yml` file.
+
+This approach allows for customization in your CI/CD pipelines, enabling you to dynamically adjust parameters based on your current needs without altering the task definitions.
 
 ## push
 
@@ -371,6 +407,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
 [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)]
+
 
 ## Task step properties
 

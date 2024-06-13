@@ -1,17 +1,13 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium by using an Azure Resource Manager template (ARM template)'
-description: This quickstart describes how to create an Azure Front Door Standard/Premium by using Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an Azure Front Door Standard/Premium - ARM template'
+description: This quickstart describes how to create an Azure Front Door Standard/Premium using Azure Resource Manager template (ARM template).
 services: front-door
-documentationcenter: 
 author: duongau
 ms.author: duau
-editor: 
 ms.date: 07/12/2022
 ms.topic: quickstart
 ms.service: frontdoor
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -19,11 +15,11 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 
 This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an Azure Front Door Standard/Premium with a Web App as origin.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Ffront-door-standard-premium-app-service-public%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Ffront-door-standard-premium-app-service-public%2Fazuredeploy.json":::
 
 ## Prerequisites
 

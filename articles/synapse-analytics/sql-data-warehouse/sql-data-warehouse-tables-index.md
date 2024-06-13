@@ -1,15 +1,14 @@
 ---
 title: Indexing tables
 description: Recommendations and examples for indexing tables in dedicated SQL pool.
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/02/2021
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
-ms.custom: seo-lt-2019, azure-synapse
+ms.date: 11/02/2021
+ms.service: synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
 ---
 
 # Indexes on dedicated SQL pool tables in Azure Synapse Analytics
@@ -62,6 +61,9 @@ CREATE TABLE myTable
 WITH ( HEAP );
 ```
 
+> [!NOTE]
+> If you frequently perform `INSERT`, `UPDATE`, or `DELETE` operations on a heap table, it is advisable to include table rebuilding in your maintenance schedule by using `ALTER TABLE` command. For example, `ALTER TABLE [SchemaName].[TableName] REBUILD`. This practice contributes to reduced fragmentation, resulting in improved performance during read operations.
+
 ## Clustered and nonclustered indexes
 
 Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved. For queries where a single or very few row lookup is required to perform with extreme speed, consider a clustered index or nonclustered secondary index. The disadvantage to using a clustered index is that only queries that benefit are the ones that use a highly selective filter on the clustered index column. To improve filter on other columns, a nonclustered index can be added to other columns. However, each index that is added to a table adds both space and processing time to loads.
@@ -98,10 +100,10 @@ SELECT
 ,       DB_Name()                                                               AS [database_name]
 ,       s.name                                                                  AS [schema_name]
 ,       t.name                                                                  AS [table_name]
-,    COUNT(DISTINCT rg.[partition_number])                    AS [table_partition_count]
+,       MAX(p.partition_number)                                                 AS [table_partition_count]
 ,       SUM(rg.[total_rows])                                                    AS [row_count_total]
 ,       SUM(rg.[total_rows])/COUNT(DISTINCT rg.[distribution_id])               AS [row_count_per_distribution_MAX]
-,    CEILING    ((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
+,       CEILING((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN 1                   ELSE 0    END)    AS [INVISIBLE_rowgroup_count]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE 0    END)    AS [INVISIBLE_rowgroup_rows]
 ,       MIN(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE NULL END)    AS [INVISIBLE_rowgroup_rows_MIN]
@@ -124,13 +126,14 @@ SELECT
 ,       MAX(CASE WHEN rg.[State] = 3 THEN rg.[total_rows]     ELSE NULL END)    AS [COMPRESSED_rowgroup_rows_MAX]
 ,       AVG(CASE WHEN rg.[State] = 3 THEN rg.[total_rows]     ELSE NULL END)    AS [COMPRESSED_rowgroup_rows_AVG]
 ,       'ALTER INDEX ALL ON ' + s.name + '.' + t.NAME + ' REBUILD;'             AS [Rebuild_Index_SQL]
-FROM    sys.[pdw_nodes_column_store_row_groups] rg
+FROM    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg
 JOIN    sys.[pdw_nodes_tables] nt                   ON  rg.[object_id]          = nt.[object_id]
                                                     AND rg.[pdw_node_id]        = nt.[pdw_node_id]
                                                     AND rg.[distribution_id]    = nt.[distribution_id]
-JOIN    sys.[pdw_table_mappings] mp                 ON  nt.[name]               = mp.[physical_name]
-JOIN    sys.[tables] t                              ON  mp.[object_id]          = t.[object_id]
-JOIN    sys.[schemas] s                             ON t.[schema_id]            = s.[schema_id]
+JOIN    sys.[pdw_permanent_table_mappings] mp                 ON  nt.[name]               = mp.[physical_name]
+JOIN    sys.[tables] t                              ON  mp.[object_id]  = t.[object_id]
+JOIN    sys.[schemas] s                             ON t.[schema_id]    = s.[schema_id]
+JOIN    sys.[partitions] p                          ON P.object_id      = t.object_id
 GROUP BY
         s.[name]
 ,       t.[name];

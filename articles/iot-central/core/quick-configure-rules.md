@@ -1,26 +1,35 @@
 ---
-title: Quickstart - Configure rules and actions in Azure IoT Central
-description: This quickstart shows you how to configure telemetry-based rules and actions in your IoT Central application.
+title: Quickstart - Configure Azure IoT Central rules and actions
+description: In this quickstart, you learn how to configure telemetry-based rules and actions in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/10/2022
+ms.date: 01/03/2024
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, mode-other
+
+# Customer intent: As a new user of IoT Central, I want to learn how to use rules to notify me when a specific condition is detected on one of my device.
 ---
 
 # Quickstart: Configure rules and actions for your device in Azure IoT Central
 
-In this quickstart, you create an IoT Central rule that sends an email when someone turns your phone over.
+In this quickstart, you configure an IoT Central rule. IoT Central rules let you automate actions that occur in response to specific conditions. The example in this quickstart uses accelerometer telemetry from the phone to trigger a rule when the phone is turned over.
+
+In this quickstart, you:
+
+- Create a rule that detects when a telemetry value passes a threshold.
+- Configure the rule to notify you by email.
+- Use the smartphone app to test the rule.
 
 ## Prerequisites
 
-Before you begin, you should complete the previous quickstart [Connect your first device](./quick-deploy-iot-central.md). It shows you how to create an Azure IoT Central application and connect the **IoT Plug and Play** smartphone app to it.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Complete the first quickstart [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
 
 ## Create a telemetry-based rule
 
-The smartphone app sends telemetry that includes values from the accelerometer sensor. The sensor works slightly differently on Android and iOS devices:
+The smartphone app sends telemetry that includes values from the accelerometer sensor. The sensor works differently on Android and iOS devices:
 
 # [Android](#tab/android)
 
@@ -114,12 +123,9 @@ To trigger the rule, make sure the smartphone app is sending data and then place
 
 After your testing is complete, disable the rule to stop receiving the notification emails in your inbox.
 
-## Next steps
+## Next step
 
-In this quickstart, you learned how to:
-
-* Create a telemetry-based rule
-* Add an action
+In this quickstart, you learned how to create a telemetry-based rule and add an action to it.
 
 To learn more about integrating your IoT Central application with other services, see:
 

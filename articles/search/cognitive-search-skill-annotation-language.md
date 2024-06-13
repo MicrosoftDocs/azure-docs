@@ -1,11 +1,14 @@
 ---
 title: Skill context and input annotation reference language
-titleSuffix: Azure Cognitive Search
-description: Annotation syntax reference for annotation in the context, inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: Annotation syntax reference for annotation in the context, inputs, and outputs of a skillset in an AI enrichment pipeline in Azure AI Search.
 
 author: BertrandLeRoy
 ms.author: beleroy
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
+  - build-2024
 ms.topic: reference
 ms.date: 01/27/2022
 ---
@@ -13,7 +16,7 @@ ms.date: 01/27/2022
 
 This article is the reference documentation for skill context and input syntax. It's a full description of the expression language used to construct paths to nodes in an enriched document.
 
-Azure Cognitive Search skills can use and [enrich the data coming from the data source and from the output of other skills](cognitive-search-defining-skillset.md).
+Azure AI Search skills can use and [enrich the data coming from the data source and from the output of other skills](cognitive-search-defining-skillset.md).
 The data working set that represents the current state of the indexer work for the current document starts from the raw data coming from the data source and is
 progressively enriched with each skill iteration's output data.
 That data is internally organized in a tree-like structure that can be queried to be used as skill inputs or to be added to the index.
@@ -25,7 +28,7 @@ The enriched data structure can be [inspected from debug sessions](cognitive-sea
 Expressions querying the structure can also be [tested from debug sessions](cognitive-search-debug-session.md#expression-evaluator).
 
 Throughout the article, we'll use the following enriched data as an example.
-This data is typical of the kind of structure you would get when enriching a document using a skillset with [OCR](cognitive-search-skill-ocr.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [text translation](cognitive-search-skill-text-translation.md), [language detection](cognitive-search-skill-language-detection.md), [entity recognition](cognitive-search-skill-entity-recognition-v3.md) skills and a custom tokenizer skill.
+This data is typical of the kind of structure you would get when enriching a document using a skillset with [OCR](cognitive-search-skill-ocr.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [text translation](cognitive-search-skill-text-translation.md), [language detection](cognitive-search-skill-language-detection.md), and [entity recognition](cognitive-search-skill-entity-recognition-v3.md) skills, as well as a custom tokenizer skill.
 
 |Path|Value|
 |---|---|
@@ -132,7 +135,7 @@ The `'#'` token expresses that the array should be treated as a single value ins
 
 ### Enumerating arrays in context
 
-It is often useful to process each element of an array in isolation and have a different set of skill inputs and outputs for each.
+It's often useful to process each element of an array in isolation and have a different set of skill inputs and outputs for each.
 This can be done by setting the context of the skill to an enumeration instead of the default `"/document"`.
 
 In the following example, we use one of the input expressions we used before, but with a different context that changes the resulting value.
@@ -141,10 +144,10 @@ In the following example, we use one of the input expressions we used before, bu
 |---|---|---|
 |`/document/normalized_images/*`|`/document/normalized_images/*/text/words/*`|`["Study", "of", "BMN", "110" ...]`<br/>`["it", "is", "certainly" ...]`<br>...|
 
-For this combination of context and input, the skill will get executed once for each normalized image: once for `"/document/normalized_images/0"` and once for `"/document/normalized_images/1"`. The two input values corresponding to each skill execution are detailed in the values column.
+For this combination of context and input, the skill gets executed once for each normalized image: once for `"/document/normalized_images/0"` and once for `"/document/normalized_images/1"`. The two input values corresponding to each skill execution are detailed in the values column.
 
 When enumerating an array in context, any outputs the skill produces will also be added to the document as enrichments of the context.
-In the above example, an output named `"out"` will have its values for each execution added to the document respectively under `"/document/normalized_images/0/out"` and `"/document/normalized_images/1/out"`.
+In the above example, an output named `"out"` has its values for each execution added to the document respectively under `"/document/normalized_images/0/out"` and `"/document/normalized_images/1/out"`.
 
 ## Literal values
 
@@ -160,9 +163,25 @@ String values can be enclosed in single `'` or double `"` quotes.
 |`="unicod\u0065"`|`"unicode"`|
 |`=false`|`false`|
 
+### In line arrays
+
+If a certain skill input requires an array of data, but the data is represented as a single value currently or you need to combine multiple different single values into an array field, then you can create an array value inline as part of a skill input expression by wrapping a comma separated list of expressions in brackets (`[` and `]`). The array value can be a combination of expression paths or literal values as needed. You can also create nested arrays within arrays this way.
+
+|Expression|Value|
+|---|---|
+|`=['item']`|["item"]|
+|`=[$(/document/merged_content/entities/0/text), 'item']`|["BMN", "item"]|
+|`=[1, 3, 5]`|[1, 3, 5]|
+|`=[true, true, false]`|[true, true,  false]|
+|`=[[$(/document/merged_content/entities/0/text), 'item'],['item2', $(/document/merged_content/keyphrases/1)]]`|[["BMN", "item"], ["item2", "Syndrome"]]|
+
+If the skill has a context that explains to run the skill per an array input (that is, how `"context": "/document/pages/*"` means the skill runs once per "page" in `pages`) then passing that value as the expression as input to an in line array uses one of those values at a time. 
+
+For an example with our sample enriched data, if your skill's `context` is `/document/merged_content/keyphrases/*` and then you create an inline array of the following `=['key phrase', $(/document/merged_content/keyphrases/*)]` on an input of that skill, then the skill is executed three times, once with a value of ["key phrase", "Study of BMN"], another with a value of ["key phrase", "Syndrome"], and finally with a value of ["key phrase", "Pediatric Patients"]. The literal "key phrase" value stays the same each time, but the value of the expression path changes with each skill execution.
+
 ## Composite expressions
 
-It's possible to combine values together using unary, binary and ternary operators.
+It's possible to combine values together using unary, binary, and ternary operators.
 Operators can combine literal values and values resulting from path evaluation.
 When used inside an expression, paths should be enclosed between `"$("` and `")"`.
 
@@ -223,7 +242,7 @@ When used inside an expression, paths should be enclosed between `"$("` and `")"
 |`=15>4`|`true`|
 |`=1>=2`|`false`|
 
-### Equality and non-equality `'=='` `'!='`
+### Equality and nonequality `'=='` `'!='`
 
 |Expression|Value|
 |---|---|
@@ -246,7 +265,7 @@ When used inside an expression, paths should be enclosed between `"$("` and `")"
 
 ### Ternary operator `'?:'`
 
-It is possible to give an input different values based on the evaluation of a Boolean expression using the ternary operator.
+It's possible to give an input different values based on the evaluation of a Boolean expression using the ternary operator.
 
 |Expression|Value|
 |---|---|
@@ -266,5 +285,5 @@ Parentheses can be used to change or disambiguate evaluation order.
 |`=3*(2+5)`|`21`|
 
 ## See also
-+ [Create a skillset in Azure Cognitive Search](cognitive-search-defining-skillset.md)
-+ [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md)
++ [Create a skillset in Azure AI Search](cognitive-search-defining-skillset.md)
++ [Reference enrichments in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md)

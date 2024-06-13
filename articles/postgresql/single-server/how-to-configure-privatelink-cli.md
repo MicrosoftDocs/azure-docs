@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for PostgreSQL Single server with an Azure private endpoint.
 
 > [!NOTE]
@@ -26,7 +28,7 @@ To step through this how-to guide, you need:
 
 - An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
 
@@ -74,12 +76,14 @@ Note the public IP address of the VM. You will use this address to connect to 
 
 ## Create an Azure Database for PostgreSQL - Single server 
 
-Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value with your own unique values that you used above:
+Create an Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value with your own unique values that you used above:
 
 ```azurecli-interactive
 # Create a server in the resource group
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 
 az postgres server create \
@@ -128,6 +132,8 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
 # Copy the content for privateIPAddress and FQDN matching the Azure database for PostgreSQL name
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 
 #Create DNS records 
@@ -184,7 +190,7 @@ Connect to the VM *myVm* from the internet as follows:
    Address:  10.1.3.4
    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. The following example uses [Azure Data studio](/sql/azure-data-studio/download) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. The following example uses [Azure Data studio](/azure-data-studio/download-azure-data-studio) to do the operation.
 
 4. In **New connection**, enter or select this information:
 

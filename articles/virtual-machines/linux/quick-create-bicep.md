@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Use a Bicep file to create an Ubuntu Linux VM'
 description: In this quickstart, you learn how to use a Bicep file to create a Linux virtual machine
-author: carmonmills
+author: schaffererin
+ms.author: schaffererin
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.workload: infrastructure
 ms.date: 03/10/2022
-ms.author: carmonm
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep, linux-related-content
 tags: azure-resource-manager, bicep
 ---
 
@@ -18,7 +17,7 @@ tags: azure-resource-manager, bicep
 
 This quickstart shows you how to use a Bicep file to deploy an Ubuntu Linux virtual machine (VM) in Azure.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -67,6 +66,8 @@ Several resources are defined in the Bicep file:
     > Replace **\<admin-username\>** with a unique username. You'll also be prompted to enter adminPasswordOrKey.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+Cost information isn't presented during the virtual machine creation process for Bicep like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
 
 ## Review deployed resources
 

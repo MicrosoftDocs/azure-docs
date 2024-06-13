@@ -2,27 +2,30 @@
 title: "Quickstart: Set up sign in for a desktop app using Azure Active Directory B2C"
 titleSuffix: Azure AD B2C
 description: In this Quickstart, run a sample WPF desktop application that uses Azure Active Directory B2C to provide account sign in.
-services: active-directory-b2c
-author: kengaderdus
+
+author: garrodonnell
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: quickstart
 ms.custom: mvc, mode-other
-ms.date: 01/13/2022
-ms.author: kengaderdus
+ms.date: 01/24/2023
+ms.author: godonnell
 ms.subservice: B2C
+
+#Customer Intent: As a developer building a desktop app, I want to set up sign-in functionality using Azure Active Directory B2C, so that I can authenticate users with social and enterprise accounts and protect my application and customer data.
+
 ---
 
 # Quickstart: Set up sign in for a desktop app using Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts and enterprise accounts using open standard protocols. In this quickstart, you use a Windows Presentation Foundation (WPF) desktop application to sign in using a social identity provider and call an Azure AD B2C protected web API.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with the **ASP.NET and web development** workload.
 - A social account from either Facebook, Google, or Microsoft.
 - [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip) or clone the [Azure-Samples/active-directory-b2c-dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) repository from GitHub.
 
@@ -75,7 +78,7 @@ Select **Call API** to make a request to the protected resource.
 
 ![Call API](./media/quickstart-native-app-desktop/call-api-wpf.png)
 
-The application includes the Azure AD access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
+The application includes the Microsoft Entra access token in the request to the protected web API resource. The web API sends back the display name contained in the access token.
 
 You've successfully used your Azure AD B2C user account to make an authorized call an Azure AD B2C protected web API.
 

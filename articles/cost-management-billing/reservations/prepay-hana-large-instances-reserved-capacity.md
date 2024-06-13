@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 04/15/2024
 ms.author: banders
 ---
 
@@ -31,6 +31,8 @@ You can purchase reserved capacity in the Azure portal or by using the [REST API
 
 ## Buy a HANA Large Instance reservation
 
+To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription.
+
 Use the following information to buy an HLI reservation with the [Reservation Order REST APIs](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ### Get the reservation order and price
@@ -50,7 +52,7 @@ armclient post /providers/Microsoft.Capacity/calculatePrice?api-version=2019-04-
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
-        'billingplan': 'Monthly'
+        'billingplan': 'Monthly',
         'displayName': 'testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111'],
         'appliedScopeType': 'Single',
@@ -105,7 +107,7 @@ The following example response resembles what you get returned. Note the value y
 
 ### Make your purchase
 
-Make your purchase using the returned `quoteId` and the `reservationOrderId` that you got from the preceding [Get the reservation order and price](#get-the-reservation-order-and-price) section.
+Make your purchase using the returned `reservationOrderId` that you got from the preceding [Get the reservation order and price](#get-the-reservation-order-and-price) section.
 
 Here's an example request:
 
@@ -120,14 +122,13 @@ armclient put /providers/Microsoft.Capacity/reservationOrders/22222222-2222-2222
         'billingScopeId': '/subscriptions/11111111-1111-1111-111111111111',
         'term': 'P1Y',
         'quantity': '1',
-               'billingplan': 'Monthly'
+               'billingplan': 'Monthly',
 
         'displayName': ' testreservation_S224om',
         'appliedScopes': ['/subscriptions/11111111-1111-1111-111111111111/resourcegroups/123'],
         'appliedScopeType': 'Single',
        'instanceFlexibility': 'NotSupported',
-       'renew': true,
-       'quoteId': 'd0fd3a890795'
+       'renew': true       
     }
 }"
 ```

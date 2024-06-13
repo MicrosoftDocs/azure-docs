@@ -24,6 +24,6 @@ The following steps are for Windows. For macOS, see [IKEv2-macOS](../articles/vi
 
 In the User VPN configuration, if you specified the OpenVPN tunnel type, you can download and configure the Azure VPN client or, in some cases, you can use OpenVPN client software. For steps, use the link that corresponds to your configuration.
 
-* [Azure AD authentication - Azure VPN client - Windows](../articles/virtual-wan/openvpn-azure-ad-client.md)
-* [Azure AD authentication - Azure VPN client - macOS](../articles/virtual-wan/openvpn-azure-ad-client-mac.md)
+* [Microsoft Entra authentication - Azure VPN client - Windows](../articles/virtual-wan/openvpn-azure-ad-client.md)
+* [Microsoft Entra authentication - Azure VPN client - macOS](../articles/virtual-wan/openvpn-azure-ad-client-mac.md)
 * [Configure OpenVPN client software - Windows, macOS, iOS, Linux ](../articles/virtual-wan/howto-openvpn-clients.md)

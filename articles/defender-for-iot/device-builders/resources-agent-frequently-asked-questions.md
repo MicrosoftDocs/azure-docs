@@ -2,7 +2,7 @@
 title: Microsoft Defender for IoT for device builders frequently asked questions
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT agent.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ---
 
 # Microsoft Defender for IoT for device builders frequently asked questions

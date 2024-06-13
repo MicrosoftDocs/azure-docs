@@ -1,12 +1,12 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: v-pgaddala
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.author: ankitadutta
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/14/2020
-ms.custom: references_regions, subject-rbac-steps
+ms.topic: how-to
+ms.date: 04/23/2022
+ms.custom: references_regions, subject-rbac-steps, engagement-fy23
 ---
 # Replicate machines with private endpoints
 
@@ -39,10 +39,10 @@ Below is a reference architecture on how the replication workflow changes with p
   [private endpoints](https://azure.microsoft.com/pricing/details/private-link/).
 - When a private endpoint is created for a vault, the vault is locked down and **isn't accessible
   from networks other than those networks that have private endpoints**.
-- Azure Active Directory currently doesn't support private endpoints. As such, IPs and fully
-  qualified domain names required for Azure Active Directory to work in a region need to be allowed
+- Microsoft Entra ID currently doesn't support private endpoints. As such, IPs and fully
+  qualified domain names required for Microsoft Entra ID to work in a region need to be allowed
   outbound access from the secured network. You can also use network security group tag "Azure
-  Active Directory" and Azure Firewall tags for allowing access to Azure Active Directory, as
+  Active Directory" and Azure Firewall tags for allowing access to Microsoft Entra ID, as
   applicable.
 - **At least seven IP addresses are required** in the subnets of both your source machines and your
   recovery machines. When you create a private endpoint for the vault, Site Recovery creates five
@@ -142,7 +142,7 @@ endpoint in source network. Repeat the same guidance to create the second privat
       If your environment has a hub and spoke model, you need only one private endpoint and only one
       private DNS zone for the entire setup since all your virtual networks already have peering
       enabled between them. For more information, see
-      [Private endpoint DNS integration](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server).
+      [Private endpoint DNS integration](../private-link/private-endpoint-dns-integration.md#virtual-network-workloads-without-custom-dns-server).
 
       To manually create the private DNS zone, follow the steps in
       [Create private DNS zones and add DNS records manually](#create-private-dns-zones-and-add-dns-records-manually).
@@ -161,7 +161,7 @@ additional fully qualified domain names are added to the same private endpoint.
 
 The five domain names are formatted with the following pattern:
 
-`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
 ## Approve private endpoints for Site Recovery
 
@@ -220,15 +220,15 @@ following role permissions depending on the type of storage account:
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
-1. In the Azure portal, navigate to your Azure SQL Server page.
+1. In the Azure portal, navigate to the cache storage account you created.
 
 1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the beginning of this section.
 
@@ -318,7 +318,7 @@ domain names to private IPs.
       private DNS zone.
 
       These fully qualified domain names match the pattern:
-      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.privatelink.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
 

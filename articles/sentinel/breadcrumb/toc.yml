@@ -7,14 +7,37 @@
     topicHref: /azure/security/index
     items:
     - name: Microsoft Sentinel
-      tocHref: /security/zero-trust/
-      topicHref: /azure/sentinel/index
-    - name: Microsoft Sentinel
-      tocHref: /security/benchmark/
-      topicHref: /azure/sentinel/index
-    - name: Microsoft Sentinel
       tocHref: /azure/data-explorer/
       topicHref: /azure/sentinel/index
     - name: Microsoft Sentinel
       tocHref: /azure/data-explorer/kusto/
+      topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /azure/defender-for-iot/organizations/
+      topicHref: /azure/sentinel/index
+
+### Security baseline
+- name: Azure
+  tocHref: /security/benchmark/
+  topicHref: /azure/index
+  items: 
+  - name: Security
+    tocHref: /security/benchmark/azure/
+    topicHref: /azure/security/index
+    items:
+    - name: Microsoft Sentinel
+      tocHref: /security/benchmark/azure/baselines/
+      topicHref: /azure/sentinel/index
+
+### Microsoft 365
+- name: Azure
+  tocHref: /microsoft-365/
+  topicHref: /azure/index
+  items: 
+  - name: Security
+    tocHref: /microsoft-365/security/
+    topicHref: /azure/security/index
+    items:
+    - name: Microsoft Sentinel
+      tocHref: /microsoft-365/security/defender/
       topicHref: /azure/sentinel/index

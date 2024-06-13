@@ -1,13 +1,12 @@
 ---
 title: Time sync for Windows VMs in Azure
 description: Time sync for Windows virtual machines.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 # Time sync for Windows VMs in Azure
@@ -48,7 +47,7 @@ There are three options for configuring time sync for your Windows VMs hosted in
 
 - Host time and time.windows.com. This is the default configuration used in Azure Marketplace images.
 - Host-only.
-- Use another, external time server with or without using host time. For this option follow the [Configure Azure Windows VMs with External NTP Source](external-ntpsource-configuration.md) guide.
+- Use another, external time server with or without using host time. For this option follow the [Time mechanism for Active Directory Windows Virtual Machines in Azure](external-ntpsource-configuration.md) guide.
 
 
 ### Use the default

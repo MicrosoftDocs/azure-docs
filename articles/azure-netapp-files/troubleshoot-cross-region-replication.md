@@ -1,16 +1,9 @@
 ---
 title: Troubleshoot cross-region replication errors for Azure NetApp Files | Microsoft Docs
-description: Describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files. 
+description: Describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 08/02/2022
 ms.author: anfdocs
@@ -87,4 +80,4 @@ This article describes error messages and resolutions that can help you troubles
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
 * [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
-* [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
+* [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

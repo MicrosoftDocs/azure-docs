@@ -1,10 +1,10 @@
 ---
-title: Tips for using Hadoop on Linux-based HDInsight - Azure 
+title: Tips for using Hadoop on Linux-based HDInsight - Azure
 description: Get implementation tips for using Linux-based HDInsight (Hadoop) clusters on a familiar Linux environment running in the Azure cloud.
 ms.service: hdinsight
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive, linux-related-content
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 12/05/2023
 ---
 
 # Information about using HDInsight on Linux
@@ -111,7 +111,7 @@ In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake
 
 ### <a name="URI-and-scheme"></a>URI and scheme
 
-Some commands may require you to specify the scheme as part of the URI when accessing a file. For example, the Storm-HDFS component requires you to specify the scheme. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
+Some commands may require you to specify the scheme as part of the URI when accessing a file. When using non-default storage (storage added as "additional" storage to the cluster), you must always use the scheme as part of the URI.
 
 When using [**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md), use one of the following URI schemes:
 

@@ -4,10 +4,10 @@ description: Learn how to create a self-signed root certificate, export the publ
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 10/18/2022
 ms.author: cherylmc
-
 ---
 # Generate and export certificates - Linux (strongSwan)
 
@@ -24,14 +24,10 @@ The following steps help you install strongSwan.
 ## <a name="cli"></a>Linux CLI instructions (strongSwan)
 
 The following steps help you generate and export certificates using the Linux CLI (strongSwan).
+For more information, see [Additional instructions to install the Azure CLI](/cli/azure/install-azure-cli-apt). 
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
-## <a name="gui"></a>Linux GUI instructions (strongSwan)
-
-The following steps help you generate and export certificates using the Linux GUI (strongSwan).
-
-[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ## Next steps
 

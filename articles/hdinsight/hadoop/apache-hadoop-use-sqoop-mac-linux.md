@@ -1,10 +1,10 @@
 ---
-title: Apache Sqoop with Apache Hadoop - Azure HDInsight 
+title: Apache Sqoop with Apache Hadoop - Azure HDInsight
 description: Learn how to use Apache Sqoop to import and export between Apache Hadoop on HDInsight and Azure SQL Database.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 07/18/2022
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 08/21/2023
 ---
 
 # Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and Azure SQL Database
@@ -32,13 +32,13 @@ Learn how to use Apache Sqoop to import and export between an Apache Hadoop clus
 1. For ease of use, set variables. Replace `PASSWORD`, `MYSQLSERVER`, and `MYDATABASE` with the relevant values, and then enter the commands below:
 
     ```bash
-    export password='PASSWORD'
-    export sqlserver="MYSQLSERVER"
-    export database="MYDATABASE"
+    export PASSWORD='PASSWORD'
+    export SQL_SERVER="MYSQLSERVER"
+    export DATABASE="MYDATABASE"
 
 
-    export serverConnect="jdbc:sqlserver://$sqlserver.database.windows.net:1433;user=sqluser;password=$password"
-    export serverDbConnect="jdbc:sqlserver://$sqlserver.database.windows.net:1433;user=sqluser;password=$password;database=$database"
+    export SERVER_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD"
+    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DABATASE"
     ```
 
 ## Sqoop export
@@ -48,19 +48,19 @@ From Hive to SQL.
 1. To verify that Sqoop can see your database, enter the command below in your open SSH connection. This command returns a list of databases.
 
     ```bash
-    sqoop list-databases --connect $serverConnect
+    sqoop list-databases --connect $SERVER_CONNECT
     ```
 
 1. Enter the following command to see a list of tables for the specified database:
 
     ```bash
-    sqoop list-tables --connect $serverDbConnect
+    sqoop list-tables --connect $SERVER_DB_CONNECT
     ```
 
 1. To export data from the Hive `hivesampletable` table to the `mobiledata` table in your database, enter the command below in your open SSH connection:
 
     ```bash
-    sqoop export --connect $serverDbConnect \
+    sqoop export --connect $SERVER_DB_CONNECT \
     -table mobiledata \
     --hcatalog-table hivesampletable
     ```
@@ -68,11 +68,11 @@ From Hive to SQL.
 1. To verify that data was exported, use the following queries from your SSH connection to view the exported data:
 
     ```bash
-    sqoop eval --connect $serverDbConnect \
+    sqoop eval --connect $SERVER_DB_CONNECT \
     --query "SELECT COUNT(*) from dbo.mobiledata WITH (NOLOCK)"
 
 
-    sqoop eval --connect $serverDbConnect \
+    sqoop eval --connect $SERVER_DB_CONNECT \
     --query "SELECT TOP(10) * from dbo.mobiledata WITH (NOLOCK)"
     ```
 
@@ -83,7 +83,7 @@ From SQL to Azure storage.
 1. Enter the command below in your open SSH connection to import data from the `mobiledata` table in SQL, to the `wasbs:///tutorials/usesqoop/importeddata` directory on HDInsight. The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
 
     ```bash
-    sqoop import --connect $serverDbConnect \
+    sqoop import --connect $SERVER_DB_CONNECT \
     --table mobiledata \
     --target-dir 'wasb:///tutorials/usesqoop/importeddata' \
     --fields-terminated-by '\t' \
@@ -93,7 +93,7 @@ From SQL to Azure storage.
 1. Alternatively, you can also specify a Hive table:
 
     ```bash
-    sqoop import --connect $serverDbConnect \
+    sqoop import --connect $SERVER_DB_CONNECT \
     --table mobiledata \
     --target-dir 'wasb:///tutorials/usesqoop/importeddata2' \
     --fields-terminated-by '\t' \
@@ -144,7 +144,7 @@ From SQL to Azure storage.
 
 * SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) document.
 
-* You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) document.
+* You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](https://fleet-maintenance.com/public_downloads/How%20to%20Troubleshoot%20Connecting%20to%20the%20SQL%20Server%20Database%20Engine.pdf) document.
 
 ## Next steps
 

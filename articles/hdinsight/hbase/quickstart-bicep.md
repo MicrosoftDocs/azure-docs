@@ -3,8 +3,8 @@ title: 'Quickstart: Create Apache HBase cluster using Bicep - Azure HDInsight'
 description: This quickstart shows how to use Bicep to create an Apache HBase cluster in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 04/14/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 05/24/2023
 #Customer intent: As a developer new to Apache HBase on Azure, I need to see how to create an HBase cluster.
 ---
 
@@ -12,7 +12,7 @@ ms.date: 04/14/2022
 
 In this quickstart, you use Bicep to create an [Apache HBase](./apache-hbase-overview.md) cluster in Azure HDInsight. HBase is an open-source, NoSQL database that is built on Apache Hadoop and modeled after [Google BigTable](https://cloud.google.com/bigtable/).
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

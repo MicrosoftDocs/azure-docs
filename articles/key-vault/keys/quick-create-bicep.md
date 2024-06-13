@@ -2,30 +2,28 @@
 title: Azure Quickstart - Create an Azure key vault and a key by using Bicep | Microsoft Docs
 description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Bicep.
 services: key-vault
-tags: azure-resource-manager
+ms.custom: devx-track-bicep, devx-track-arm-template
 author: mumian
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: jgao
-ms.date: 06/29/2022
-
+ms.date: 01/30/2024
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
-
 ---
 
 # Quickstart: Create an Azure key vault and a key by using Bicep
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This quickstart focuses on the process of deploying a Bicep file to create a key vault and a key.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
 To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.md)
+- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.yml)
 
 ## Review the Bicep file
 
@@ -76,8 +74,9 @@ resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   location: location
   properties: {
     accessPolicies:[]
-    enableRbacAuthorization: false
-    enableSoftDelete: false
+    enableRbacAuthorization: true
+    enableSoftDelete: true
+    softDeleteRetentionInDays: 90
     enabledForDeployment: false
     enabledForDiskEncryption: false
     enabledForTemplateDeployment: false

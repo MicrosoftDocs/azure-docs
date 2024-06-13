@@ -1,31 +1,23 @@
 ---
-title: Configure security headers with Azure Front Door Standard/Premium (Preview) Rule Set
+title: Configure security headers with Azure Front Door Standard/Premium Rule Set
 description: This article provides guidance on how to use rule set to configure security headers. 
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 08/31/2023
 ms.author: yuajia
 ---
 
-# Configure security headers with Azure Front Door Standard/Premium (Preview) Rule Set
-
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+# Configure security headers with Azure Front Door Standard/Premium Rule Set
 
 This article shows how to implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, or X-Frame-Options. Security-based attributes can also be defined with cookies.
 
 The following example shows you how to add a Content-Security-Policy header to all incoming requests that matches the path in the Route. Here, we only allow scripts from our trusted site, **https://apiphany.portal.azure-api.net** to run on our application.
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Prerequisites
 
-* Before you can configure configure security headers, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](create-front-door-portal.md).
+* Before you can configure security headers, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](create-front-door-portal.md).
 * Review how to [Set up a Rule Set](how-to-configure-rule-set.md) if you haven't used the Rule Set feature before.
 
 ## Add a Content-Security-Policy header in Azure portal

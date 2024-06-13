@@ -10,6 +10,8 @@ ms.service: api-management
 
 # Troubleshooting client response timeouts and errors with API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 This article helps you troubleshoot intermittent connection errors and related latency issues in [Azure API Management](./api-management-key-concepts.md). Specifically, this article will provide information and troubleshooting for the exhaustion of source address network translation (SNAT) ports. If you require more help, contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/) or file a support request with [Azure Support](https://azure.microsoft.com/support/options/).
 
 ## Symptoms
@@ -39,7 +41,7 @@ General strategies for mitigating SNAT port exhaustion are discussed in [Trouble
 
 ### Scale your APIM instance
 
-Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. For more info, see [Scale your API Management service](upgrade-and-scale.md#scale-your-api-management-service)
+Each API Management instance is allocated a number of SNAT ports, based on APIM units. You can allocate additional SNAT ports by scaling your API Management instance with additional units. For more info, see [Scale your API Management service](upgrade-and-scale.md#scale-your-api-management-instance).
 
 > [!NOTE]
 > SNAT port usage is currently not available as a metric for autoscaling API Management units.
@@ -74,7 +76,7 @@ For more, see [Add caching to improve performance in Azure API Management](api-m
 
 If it makes sense for your business scenario, you can implement access restriction policies for your API Management product. For example, the `rate-limit-by-key` policy can be used to prevent API usage spikes on a per key basis by limiting the call rate per a specified time period.
 
-See [API Management access restriction policies](api-management-access-restriction-policies.md) for more info.
+See [Rate limiting and quota policies](api-management-policies.md#rate-limiting-and-quotas) for more info.
 
 ## See also
 

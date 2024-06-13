@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 02/27/2024
 ms.author: alkohli 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Manage access, power, and connectivity mode for your Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro FPGA. These operations are performed via the local web UI or the Azure portal.
 
@@ -65,7 +67,7 @@ When generating the activation key for the Azure Stack Edge Pro FPGA device, or 
 
 You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro FPGA device, creation of a user, configuration of Edge compute role, reset device password will all fail.
 
-For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](/graph/permissions-reference).
+For more information on how to provide access to users to Microsoft Graph API, see [Overview of Microsoft Graph permissions](/graph/permissions-overview).
 
 ### Register resource providers
 

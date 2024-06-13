@@ -8,7 +8,7 @@ ms.service: synapse-analytics
 ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 08/16/2022
-ms.custom: template-concept, ignite-fall-2021
+ms.custom: template-concept
 ---
 
 # Quickstart: Create a new lake database leveraging database templates
@@ -52,7 +52,7 @@ To ingest data to the lake database, you can execute [pipelines](../data-integra
 
 ```Spark
 %%sql
-INSERT INTO `retail_mil`.`customer` VALUES (1,'2021-02-18',1022,557,101,'Tailspin Toys (Head Office)','Waldemar Fisar',90410,466);
+INSERT INTO `retail_mil`.`customer` VALUES (1,date('2021-02-18'),1022,557,101,'Tailspin Toys (Head Office)','Waldemar Fisar',90410,466);
 ```
 
 ## Query the data

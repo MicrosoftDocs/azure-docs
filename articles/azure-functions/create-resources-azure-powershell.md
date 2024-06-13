@@ -2,7 +2,8 @@
 title: Create function app resources in Azure using PowerShell
 description: Azure PowerShell scripts that show you how to create the Azure resources required to host your functions code in Azure.
 ms.topic: sample
-ms.date: 07/18/2022
+ms.custom: devx-track-azurepowershell, devx-track-python
+ms.date: 05/02/2023
 ---
 # Create function app resources in Azure using PowerShell
 
@@ -27,13 +28,12 @@ This article contains the following examples:
 * [Create a function app in a Dedicated plan](#create-a-function-app-in-a-dedicated-plan)
 * [Create a function app with a named Storage connection](#create-a-function-app-with-a-named-storage-connection)
 * [Create a function app with an Azure Cosmos DB connection](#create-a-function-app-with-an-azure-cosmos-db-connection)
-* [Create a function app with an Azure Cosmos DB connection](#create-a-function-app-with-an-azure-cosmos-db-connection)
 * [Create a function app with continuous deployment](#create-a-function-app-with-continuous-deployment)
 * [Create a serverless Python function app and mount file share](#create-a-serverless-python-function-app-and-mount-file-share)
 
 [!INCLUDE [azure-powershell-requirements](../../includes/azure-powershell-requirements.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a serverless function app for C# 
 
@@ -85,7 +85,7 @@ The following script creates a Python function app on Linux and creates and moun
 
 Mounted file shares are only supported on Linux. For more information, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
-[!INCLUDE [powershell-samples-clean-up](../../includes/powershell-samples-clean-up.md)]
+[!INCLUDE [powershell-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/powershell-samples-clean-up.md)]
 
 ## Next steps
 

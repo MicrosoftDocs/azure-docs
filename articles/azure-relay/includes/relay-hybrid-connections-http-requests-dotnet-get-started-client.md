@@ -1,20 +1,15 @@
 ---
-title: include file
-description: include file
-services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 08/16/2018
-ms.author: clemensv
-ms.custom: include file
-
+ms.date: 01/04/2024
+ms.author: samurp
 ---
 
 
 ### Create a console application
 
-If you have disabled the "Requires Client Authorization" option when creating the Relay,
+If you disabled the "Requires Client Authorization" option when creating the Relay,
 you can send requests to the Hybrid Connections URL with any browser. For accessing
 protected endpoints, you need to create and pass a token in the `ServiceBusAuthorization`
 header, which is shown here.
@@ -26,7 +21,6 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
 1. Right-click the newly created project, and then select **Manage NuGet Packages**.
 2. Select **Include prerelease** option. 
 3. Select **Browse**, and then search for **Microsoft.Azure.Relay**. In the search results, select  **Microsoft Azure Relay**.
-4. For the version, select **2.0.0-preview1-20180523**. 
 5. Select **Install** to complete the installation. Close the dialog box.
 
 ### Write code to send requests
@@ -44,9 +38,16 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
 2. Add constants to the `Program` class for the hybrid connection details. Replace the placeholders in brackets with the values that you obtained when you created the hybrid connection. Be sure to use the fully qualified namespace name.
    
     ```csharp
+    // replace {RelayNamespace} with the name of your namespace
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
+
+    // replace {HybridConnectionName} with the name of your hybrid connection
     private const string ConnectionName = "{HybridConnectionName}";
+
+    // replace {SAKKeyName} with the name of your Shared Access Policies key, which is RootManageSharedAccessKey by default
     private const string KeyName = "{SASKeyName}";
+
+    // replace {SASKey} with the primary key of the namespace you saved earlier
     private const string Key = "{SASKey}";
     ```
 3. Add the following method to the `Program` class:

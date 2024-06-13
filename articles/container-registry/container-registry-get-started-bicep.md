@@ -4,17 +4,18 @@ description: Learn how to create an Azure container registry by using a Bicep fi
 services: azure-resource-manager
 author: mumian
 ms.author: jgao
-ms.date: 09/27/2021
+ms.date: 10/31/2023
 ms.topic: quickstart
-ms.service: azure-resource-manager
-ms.custom: mode-api
+ms.service: container-registry
+tags: azure-resource-manager, bicep
+ms.custom: mode-api, devx-track-bicep
 ---
 
 # Quickstart: Create a container registry by using a Bicep file
 
 This quickstart shows how to create an Azure Container Registry instance by using a Bicep file.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -22,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the Bicep file
 
-Use Visual studio code or your favorite editor to create a file with the following content and name it **main.bicep**:
+Use Visual Studio Code or your favorite editor to create a file with the following content and name it **main.bicep**:
 
 ```bicep
 @minLength(5)
@@ -36,7 +37,7 @@ param location string = resourceGroup().location
 @description('Provide a tier of your Azure Container Registry.')
 param acrSku string = 'Basic'
 
-resource acrResource 'Microsoft.ContainerRegistry/registries@2021-06-01-preview' = {
+resource acrResource 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' = {
   name: acrName
   location: location
   sku: {

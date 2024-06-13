@@ -3,13 +3,12 @@ title: Scalability and performance targets for Table storage
 titleSuffix: Azure Storage
 description: Learn about scalability and performance targets for Table storage.
 services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-table-storage
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.author: jammart
-ms.subservice: tables
+ms.author: akashdubey
 ---
 
 # Scalability and performance targets for Table storage
@@ -18,7 +17,7 @@ ms.subservice: tables
 
 ## Scale targets for Table storage
 
-[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
+[!INCLUDE [storage-table-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-tables-scale-targets.md)]
 
 ## See also
 

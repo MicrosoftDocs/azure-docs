@@ -1,11 +1,9 @@
 ---
 title: Deploy modules at scale using Azure CLI - Azure IoT Edge
 description: Use the IoT extension for the Azure CLI to create automatic deployments for groups of IoT Edge devices.
-keywords: 
 author: PatAltimore
-
 ms.author: patricka
-ms.date: 10/13/2020
+ms.date: 03/22/2024
 ms.topic: conceptual
 ms.service: iot-edge 
 ms.custom: devx-track-azurecli
@@ -13,7 +11,7 @@ services: iot-edge
 ---
 # Deploy and monitor IoT Edge modules at scale by using the Azure CLI
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Create an [Azure IoT Edge automatic deployment](module-deployment-monitoring.md) by using the Azure CLI to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [device management](../iot-hub/iot-hub-automatic-device-management.md) feature of Azure IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
@@ -56,7 +54,7 @@ Here's a basic deployment manifest with one module as an example:
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
                 "createOptions": "{}"
               }
             },
@@ -65,19 +63,19 @@ Here's a basic deployment manifest with one module as an example:
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.1",
+              "version": "1.5",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
                 "createOptions": "{}"
               }
             }
@@ -86,7 +84,7 @@ Here's a basic deployment manifest with one module as an example:
       },
       "$edgeHub": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "routes": {
             "upstream": "FROM /messages/* INTO $upstream"
           },
@@ -126,13 +124,13 @@ Here's a basic layered deployment manifest with one module as an example:
       "$edgeAgent": {
         "properties.desired.modules.SimulatedTemperatureSensor": {
           "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
               "createOptions": "{}"
           },
           "type": "docker",
           "status": "running",
           "restartPolicy": "always",
-          "version": "1.0"
+          "version": "1.5"
         }
       },
       "$edgeHub": {

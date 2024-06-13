@@ -6,14 +6,14 @@ ms.author: markl
 ms.date: 05/18/2022
 ms.topic: quickstart
 ms.service: signalr
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Use Bicep to deploy Azure SignalR Service
 
 This quickstart describes how to use Bicep to create an Azure SignalR Service using Azure CLI or PowerShell.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

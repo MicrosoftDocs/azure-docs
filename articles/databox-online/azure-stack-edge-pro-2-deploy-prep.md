@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 06/02/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro 2 so I can use it to transfer data to Azure. 
 ---
@@ -81,6 +81,7 @@ Before you begin, make sure that:
 
     - A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
     - A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
+    - A minimum of 100-Mbps is required for the internet connection on AP5GC networks.
 
 ## Create a new resource
 
@@ -94,12 +95,11 @@ When you place an order through the Azure Edge Hardware Center, you can order mu
 
 Ordering through Azure Edge Hardware Center will create an Azure resource that will contain all your order-related information. One resource each will be created for each of the units ordered. You’ll have to create an Azure Stack Edge resource after you receive the device to activate and manage it.
 
-[!INCLUDE [Create order in Azure Edge Hardware Center](../../includes/azure-edge-hardware-center-new-order.md)]
+[!INCLUDE [Create order in Azure Edge Hardware Center](~/reusable-content/ce-skilling/azure/includes/azure-edge-hardware-center-new-order.md)]
 
 #### Create a management resource for each device
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
-
 
 ## Get the activation key
 

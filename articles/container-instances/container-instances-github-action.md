@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: container-instances
 services: container-instances
-ms.date: 06/17/2022
+ms.date: 05/07/2024
 ms.custom: github-actions-azure, devx-track-azurecli
 ---
 
@@ -42,19 +42,19 @@ This article shows two ways to set up the workflow:
 
   This repo contains a Dockerfile and source files to create a container image of a small web app.
 
-  ![Screenshot of the Fork button (highlighted) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
+  ![Screenshot of the Fork button (highlighted) in GitHub](~/reusable-content/ce-skilling/azure/media/container-registry/quick-build-01-fork.png)
 
 * Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Allow all actions** is selected.
 
 ## Configure GitHub workflow
 
-### Create service principal for Azure authentication
+### Create credentials for Azure authentication
 
 In the GitHub workflow, you need to supply Azure credentials to authenticate to the Azure CLI. The following example creates a service principal with the Contributor role scoped to the resource group for your container registry.
 
 First, get the resource ID of your resource group. Substitute the name of your group in the following [az group show][az-group-show] command:
 
-```azurecli
+```azurecli-interactive
 groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
@@ -62,7 +62,7 @@ groupId=$(az group show \
 
 Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal:
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac \
   --scope $groupId \
   --role Contributor \
@@ -88,21 +88,22 @@ Output is similar to:
 
 Save the JSON output because it is used in a later step. Also, take note of the `clientId`, which you need to update the service principal in the next section.
 
-### Update service principal for registry authentication
+### Update for registry authentication
 
 Update the Azure service principal credentials to allow push and pull access to your container registry. This step enables the GitHub workflow to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md) and to push and pull a Docker image. 
 
 Get the resource ID of your container registry. Substitute the name of your registry in the following [az acr show][az-acr-show] command:
 
-```azurecli
+```azurecli-interactive
 registryId=$(az acr show \
   --name <registry-name> \
+  --resource-group <resource-group-name> \
   --query id --output tsv)
 ```
 
 Use [az role assignment create][az-role-assignment-create] to assign the AcrPush role, which gives push and pull access to the registry. Substitute the client ID of your service principal:
 
-```azurecli
+```azurecli-interactive
 az role assignment create \
   --assignee <ClientId> \
   --scope $registryId \
@@ -111,7 +112,7 @@ az role assignment create \
 
 ### Save credentials to GitHub repo
 
-1. In the GitHub UI, navigate to your forked repository and select **Settings** > **Secrets** > **Actions**. 
+1. In the GitHub UI, navigate to your forked repository and select **Security > Secrets and variables > Actions**.
 
 1. Select **New repository secret** to add the following secrets:
 
@@ -180,7 +181,7 @@ See [Viewing workflow run history](https://docs.github.com/en/actions/managing-w
 
 When the workflow completes successfully, get information about the container instance named *aci-sampleapp* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
 
-```azurecli
+```azurecli-interactive
 az container show \
   --resource-group <resource-group-name> \
   --name aci-sampleapp \
@@ -190,7 +191,7 @@ az container show \
 
 Output is similar to:
 
-```console
+```output
 FQDN                                   ProvisioningState
 ---------------------------------      -------------------
 aci-action01.westus.azurecontainer.io  Succeeded
@@ -212,7 +213,7 @@ In addition to the [prerequisites](#prerequisites) and [repo setup](#set-up-repo
 
 Run the [az extension add][az-extension-add] command to install the extension:
 
-```azurecli
+```azurecli-interactive
 az extension add \
   --name deploy-to-azure
 ```
@@ -228,7 +229,7 @@ To run the [az container app up][az-container-app-up] command, provide at minimu
 
 Sample command:
 
-```azurecli
+```azurecli-interactive
 az container app up \
   --acr myregistry \
   --repository https://github.com/myID/acr-build-helloworld-node
@@ -247,7 +248,7 @@ az container app up \
 
 Output is similar to:
 
-```console
+```output
 [...]
 Checking in file github/workflows/main.yml in the GitHub repository myid/acr-build-helloworld-node
 Creating workflow...
@@ -263,7 +264,7 @@ To view the workflow status and results of each step in the GitHub UI, see [View
 
 The workflow deploys an Azure container instance with the base name of your GitHub repo, in this case, *acr-build-helloworld-node*. When the workflow completes successfully, get information about the container instance named *acr-build-helloworld-node* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
 
-```azurecli
+```azurecli-interactive
 az container show \
   --resource-group <resource-group-name> \
   --name acr-build-helloworld-node \
@@ -273,7 +274,7 @@ az container show \
 
 Output is similar to:
 
-```console
+```output
 FQDN                                                   ProvisioningState
 ---------------------------------                      -------------------
 acr-build-helloworld-node.westus.azurecontainer.io     Succeeded
@@ -285,7 +286,7 @@ After the instance is provisioned, navigate to the container's FQDN in your brow
 
 Stop the container instance with the [az container delete][az-container-delete] command:
 
-```azurecli
+```azurecli-interactive
 az container delete \
   --name <instance-name>
   --resource-group <resource-group-name>
@@ -293,7 +294,7 @@ az container delete \
 
 To delete the resource group and all the resources in it, run the [az group delete][az-group-delete] command:
 
-```azurecli
+```azurecli-interactive
 az group delete \
   --name <resource-group-name>
 ```

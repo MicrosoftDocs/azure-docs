@@ -1,17 +1,16 @@
 ---
-title: 'Removing Azure Virtual Network Manager Preview components checklist'
+title: 'Removing Azure Virtual Network Manager components checklist'
 description: This article is a checklist for deleting components within Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 08/11/2022
-ms.custom: ignite-fall-2021
+ms.date: 03/15/2024
 ---
 
-# Remove and update Azure Virtual Network Manager Preview components checklist
+# Remove and update Azure Virtual Network Manager components checklist
 
-In this article, you'll see a checklist of steps you need to complete to remove or update a configuration component of Azure Virtual Network Manager Preview.
+In this article, you see a checklist of steps you need to complete to remove or update a configuration component of Azure Virtual Network Manager.
 
 ## <a name="remove"></a>Remove components checklist
 

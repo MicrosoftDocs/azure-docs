@@ -1,17 +1,15 @@
 ---
 title: Send classic Windows VM metrics to Azure Monitor metrics database
 description: Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
-author: anirudhcavale            
 services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: ancav
+ms.date: 05/31/2024
 ---
 
 # Send Guest OS metrics to the Azure Monitor metrics database for a Windows virtual machine (classic)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
@@ -29,21 +27,19 @@ The process that's outlined in this article only works on classic virtual machin
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
-- Your VM resource must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
-
 ## Create a classic virtual machine and storage account
 
 1. Create a classic VM by using the Azure portal.
-   ![Create Classic VM](./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png)
+   :::image type="content" source="./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png" lightbox="./media/collect-custom-metrics-guestos-vm-classic/create-classic-vm.png" alt-text="Create Classic VM":::
 
 1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
 
-1. In the Azure portal, go to the **Storage accounts** resource blade. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
-   ![Storage access keys](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
+1. In the Azure portal, go to the **Storage accounts** resource pane. Select **Keys**, and take note of the storage account name and storage account key. You need this information in later steps.
+   :::image type="content" source="./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png" lightbox="./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png" alt-text="Storage access keys":::
 
 ## Create a service principal
 
-Create a service principal in your Azure Active Directory tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
+Create a service principal in your Microsoft Entra tenant by using the instructions at [Create a service principal](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while going through this process: 
 - Create new client secret for this app.
 - Save the key and the client ID for use in later steps.
 
@@ -185,16 +181,16 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 1.	On the left menu, select **Monitor.**
 
-1.	On the **Monitor** blade, select **Metrics**.
+1.	On the **Monitor** pane on the left, select **Metrics**.
 
-    ![Navigate metrics](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
+    :::image type="content" source="./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png" lightbox="./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png" alt-text="Navigate metrics":::
 
 1. In the resources drop-down menu, select your classic VM.
 
 1. In the namespaces drop-down menu, select **azure.vm.windows.guest**.
 
 1. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**.
-   ![Plot metrics](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
+   :::image type="content" source="./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png" lightbox="./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png" alt-text="Plot metrics":::
 
 
 ## Next steps

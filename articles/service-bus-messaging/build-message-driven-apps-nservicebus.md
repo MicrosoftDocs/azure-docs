@@ -5,7 +5,7 @@ author: kbaley
 ms.author: spelluru                  
 ms.service: service-bus-messaging    
 ms.topic: how-to                     
-ms.date: 07/26/2021                  
+ms.date: 03/29/2023                 
 ms.custom: template-how-to           
 ---
 
@@ -17,7 +17,7 @@ NServiceBus is a commercial messaging framework provided by Particular Software.
 
 ## Prerequisites
 
-The sample assumes you've [created an Azure Service Bus namespace](service-bus-create-namespace-portal.md).
+The sample assumes you've [created an Azure Service Bus namespace](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal).
 
 > [!IMPORTANT]
 > NServiceBus requires at least the Standard tier. The Basic tier won't work.
@@ -241,7 +241,7 @@ Now that you have everything working, let's break it.
 
 Errors are a fact of life in software systems. It's inevitable that code will fail and it can do so for various reasons, such as network failures, database locks, changes in a third-party API, and plain old coding errors.
 
-NServiceBus has robust recoverability features for handling failures. When a message handler fails, messages are automatically retried based on a pre-defined policy. There are two types of retry policy: immediate retries and delayed retries. The best way to describe how they work is to see them in action. Let's add a retry policy to our Receiver endpoint:
+NServiceBus has robust recoverability features for handling failures. When a message handler fails, messages are automatically retried based on a predefined policy. There are two types of retry policy: immediate retries and delayed retries. The best way to describe how they work is to see them in action. Let's add a retry policy to our Receiver endpoint:
 
 1. Open `Program.cs` in the Sender project
 1. After the `.EnableInstallers` line, add the following code:

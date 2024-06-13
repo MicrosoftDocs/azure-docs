@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 12/07/2018
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Follow these steps to connect to the storage account and verify the connection.
@@ -23,3 +23,4 @@ Follow these steps to connect to the storage account and verify the connection.
 4. The account that you successfully added is displayed in the left pane of Storage Explorer with (External, Other) appended to its name. Click **Blob Containers** to view the container.
 
     ![Screenshot shows the Explorer menu with Blob Containers selected.](media/data-box-verify-connection/data-box-connect-via-rest-17.png)
+

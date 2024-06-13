@@ -3,9 +3,8 @@ title: Configure device redirection - Azure
 description: How to configure device redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 01/08/2024
 ms.author: helohr
-manager: femila
 ---
 # Configure device redirection
 
@@ -13,14 +12,14 @@ Configuring device redirection for your Azure Virtual Desktop environment allows
 
 ## Supported device redirection
 
-Each client supports different kinds of device redirections. Check out [Compare the clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) for the full list of supported device redirections for each client.
+Each client supports different kinds of device redirections. Check out [Compare the clients](compare-remote-desktop-clients.md) for the full list of supported device redirections for each client.
 
 >[!IMPORTANT]
->You can only enable redirections with binary settings that apply to both to and from the remote machine. The service doesn't currently support one-way blocking of redirections from only one side of the connection.
+>You can only enable redirections with binary settings that apply to both to and from the remote machine.
 
 ## Customizing RDP properties for a host pool
 
-To learn more about customizing RDP properties for a host pool using PowerShell or the Azure portal, check out [RDP properties](customize-rdp-properties.md). For the full list of supported RDP properties, see [Supported RDP file settings](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
+To learn more about customizing RDP properties for a host pool using PowerShell or the Azure portal, check out [RDP properties](customize-rdp-properties.md). For the full list of supported RDP properties, see [Supported RDP file settings](rdp-properties.md).
 
 ## Setup device redirection
 
@@ -69,19 +68,56 @@ Set the following RDP property to configure COM port redirection:
 ### USB redirection
 
 >[!IMPORTANT]
->To redirect a mass storage USB device connected to your local computer to the remote session host, you'll need to configure the **Drive/storage redirection** RDP property. Enabling the **USB redirection** RDP property by itself won't work. For more information, see [Local drive redirection](#local-drive-redirection).
+>To redirect a mass storage USB device connected to your local computer to a remote session host that uses a supported operating system for Azure Virtual Desktop, you'll need to configure the **Drive/storage redirection** RDP property. Enabling the **USB redirection** RDP property by itself won't work. For more information, see [Local drive redirection](#local-drive-redirection).
+  
+To configure the property, open the Azure portal and set the following RDP property to enable USB device redirection:
 
-First, set the following RDP property to enable USB device redirection:
-
-- `usbdevicestoredirect:s:*` enables USB device redirection.
+- `usbdevicestoredirect:s:*` enables USB device redirection for all supported devices on the client.
 - `usbdevicestoredirect:s:` disables USB device redirection.
 
-Second, set the following Group Policy on the user's local device:
+In order to use USB redirection, you'll need to enable Plug and Play device redirection on your session host first. To enable Plug and Play:
 
-- Navigate to **Computer Configuration** > **Policies**> **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client** > **RemoteFX USB Device Redirection**.
-- Select **Allows RDP redirection of other supported RemoteFX USB devices from this computer**.
-- Select the **Enabled** option, and then select the **Administrators and Users in RemoteFX USB Redirection Access Rights** box.
-- Select **OK**.
+1. Next, decide whether you want to configure Group Policy centrally from your domain or locally for each session host:
+
+   - To configure it from an Active Directory (AD) Domain, open the Group Policy Management Console (GPMC) and create or edit a policy that targets your session hosts.
+   - To configure it locally, open the Local Group Policy Editor on the session host.
+
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Device and resource redirection**.
+1. Select **Do not allow supported Plug and Play device redirection** and set it to **Disabled**.
+1. Restart your VM.
+
+After that, to enable USB redirection:
+
+1. For client devices, apply the following Group Policy setting. You can apply this policy centrally for devices joined to an Active Directory domain or [managed by Intune](/mem/intune/configuration/administrative-templates-windows), or locally on the device using the Local Group Policy editor:
+   
+    **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client** > **RemoteFX USB Device Redirection**.
+
+1. Select **Allows RDP redirection of other supported RemoteFX USB devices from this computer**.
+1. Select the **Enabled** option, and then select the **Administrators and Users in RemoteFX USB Redirection Access Rights** box.
+1. Select **OK**.
+1. Open an elevated Command Prompt and run the following command: 
+    
+    ```cmd
+    gpupdate /force
+    ```
+
+1. Restart the local device.
+
+>[!NOTE]
+>If the USB device you're looking for isn't appearing, check out our troubleshooting article at [Some USB devices are not available through RemoteFX USB redirection](/troubleshoot/windows-client/remote/usb-devices-unavailable-remotefx-usb-redirection).
+
+Next, make sure the USB device you're trying to connect to is compatible with Azure Virtual Desktop. To check compatibility:
+
+1. Connect the USB device to your local machine.
+1. Run **mstsc.exe** to open the Remote Desktop client.
+    
+    >[!NOTE]
+    >Although you can use mstc.exe to confirm the device supports redirection, you can't use the program to connect to Azure Virtual Desktop.
+
+1. Select **Show Options**.
+1. Select the **Local Resources** tab.
+1. Under **Local devices and resources**, select **More**.
+1. If your device is compatible, it should appear under **Other supported Remote FX USB devices**. You can only use USB redirection on USB devices that appear in this list.
 
 ### Plug and play device redirection
 
@@ -133,4 +169,52 @@ Set the following RDP property to configure WebAuthn redirection:
 - `redirectwebauthn:i:1` enables WebAuthn redirection.
 - `redirectwebauthn:i:0` disables WebAuthn redirection.
 
-When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication-preview).
+When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices like FIDO keys. For more information, see [In-session passwordless authentication](authentication.md#in-session-passwordless-authentication).
+
+## Disable redirection on the local device
+
+If you're connecting from personal resources to corporate ones using the Windows Desktop clients, you can disable drive, printer, and clipboard redirection on your local device for security purposes by overriding the configuration from your administrator.
+
+### Disable drive redirection
+
+To disable drive redirection:
+
+1. Open the **Registry Editor (regedit)**.
+
+1. Go to the following registry key and create or set the value:
+
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `DisableDriveRedirection`
+   - **Value data**: `1`
+
+### Disable printer redirection
+
+To disable printer redirection:
+
+1. Open the **Registry Editor (regedit)**.
+
+1. Go to the following registry key and create or set the value:
+
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `DisablePrinterRedirection`
+   - **Value data**: `1`
+
+### Disable clipboard redirection
+
+To disable clipboard redirection:
+
+1. Open the **Registry Editor (regedit)**.
+
+1. Go to the following registry key and create or set the value:
+
+   - **Key**: `HKLM\Software\Microsoft\Terminal Server Client`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `DisableClipboardRedirection`
+   - **Value data**: `1`
+
+## Next steps
+
+- For more information about how to configure RDP settings, see [Customize RDP properties](customize-rdp-properties.md).
+- For a list of RDP settings you can change, see [Supported RDP properties for Azure Virtual Desktop](rdp-properties.md).

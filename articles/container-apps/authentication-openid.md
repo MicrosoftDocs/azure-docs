@@ -4,7 +4,6 @@ description: Learn to use the built-in Custom OpenID Connect authentication prov
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 04/20/2022
 ms.author: cshoe
@@ -68,3 +67,6 @@ Use the following guides for details on working with authenticated users.
 
 > [!div class="nextstepaction"]
 > [Authentication and authorization overview](authentication.md)
+
+<!-- URLs. -->
+[Azure portal]: https://portal.azure.com/

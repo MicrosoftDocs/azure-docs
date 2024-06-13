@@ -119,7 +119,7 @@ Use this table to compare the main concepts of your legacy SIEM to Microsoft Sen
 
 After migration, explore Microsoft's Microsoft Sentinel resources to expand your skills and get the most out of Microsoft Sentinel. 
 
-Also consider increasing your threat protection by using Microsoft Sentinel alongside [Microsoft 365 Defender](./microsoft-365-defender-sentinel-integration.md) and [Microsoft Defender for Cloud](../security-center/azure-defender.md) for [integrated threat protection](https://www.microsoft.com/security/business/threat-protection). Benefit from the breadth of visibility that Microsoft Sentinel delivers, while diving deeper into detailed threat analysis.
+Also consider increasing your threat protection by using Microsoft Sentinel alongside [Microsoft Defender XDR](./microsoft-365-defender-sentinel-integration.md) and [Microsoft Defender for Cloud](../security-center/azure-defender.md) for [integrated threat protection](https://www.microsoft.com/security/business/threat-protection). Benefit from the breadth of visibility that Microsoft Sentinel delivers, while diving deeper into detailed threat analysis.
 
 For more information, see:
 
@@ -127,7 +127,7 @@ For more information, see:
 - [Webinar: Best Practices for Converting Detection Rules](https://www.youtube.com/watch?v=njXK1h9lfR4)
 - [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation.md)
 - [Manage your SOC better with incident metrics](manage-soc-with-incident-metrics.md)
-- [Microsoft Sentinel learning path](/learn/paths/security-ops-sentinel/)
-- [SC-200 Microsoft Security Operations Analyst certification](/learn/certifications/exams/sc-200)
+- [Microsoft Sentinel learning path](/training/paths/security-ops-sentinel/)
+- [SC-200 Microsoft Security Operations Analyst certification](/certifications/exams/sc-200)
 - [Microsoft Sentinel Ninja training](https://techcommunity.microsoft.com/t5/azure-sentinel/become-an-azure-sentinel-ninja-the-complete-level-400-training/ba-p/1246310)
 - [Investigate an attack on a hybrid environment with Microsoft Sentinel](https://mslearn.cloudguides.com/guides/Investigate%20an%20attack%20on%20a%20hybrid%20environment%20with%20Azure%20Sentinel)

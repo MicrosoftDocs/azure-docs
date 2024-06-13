@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a shared query with Azure PowerShell'
 description: In this quickstart, you follow the steps to create a Resource Graph shared query using Azure PowerShell.
-ms.date: 08/17/2021
+ms.date: 11/09/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, mode-api
 ---
@@ -15,14 +15,14 @@ This article describes how you can create an Azure Resource Graph shared query u
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
   > [!IMPORTANT]
   > While the **Az.ResourceGraph** PowerShell module is in preview, you must install it separately
   > using the `Install-Module` cmdlet.
 
   ```azurepowershell-interactive
-  Install-Module -Name Az.ResourceGraph
+  Install-Module -Name Az.ResourceGraph -Scope CurrentUser -Repository PSGallery -Force
   ```
 
 - If you have multiple Azure subscriptions, choose the appropriate subscription in which the

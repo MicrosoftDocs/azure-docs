@@ -3,6 +3,7 @@ title: Bring dependencies and third-party libraries to Azure Functions
 description: Learn how to bring files or third party library 
 ms.date: 4/6/2020
 ms.topic: article
+ms.custom: devx-track-extended-java, devx-track-python
 zone_pivot_groups: "bring-third-party-dependency-programming-functions"
 ---
 

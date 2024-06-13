@@ -5,8 +5,8 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 07/19/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 10/16/2023
 #Customer intent: As a developer new to Interactive Query on Azure, I need to see how to create an Interactive Query cluster.
 ---
 
@@ -14,7 +14,7 @@ ms.date: 07/19/2022
 
 In this quickstart, you use a Bicep to create an [Interactive Query](./apache-interactive-query-get-started.md) cluster in Azure HDInsight. Interactive Query (also called Apache Hive LLAP, or [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -56,9 +56,9 @@ Two Azure resources are defined in the Bicep file:
 
     * Replace **\<cluster-name\>** with the name of the HDInsight cluster to create.
     * Replace **\<cluster-username\>** with the credentials used to submit jobs to the cluster and to log in to cluster dashboards.
-    * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username cannot be admin.
+    * Replace **\<ssh-username\>** with the credentials used to remotely access the cluster. The username can not be admin username.
 
-    You'll also be prompted to enter the following:
+    You are prompted to enter the following password:
 
     * **clusterLoginPassword**, which must be at least 10 characters long and contain one digit, one uppercase letter, one lowercase letter, and one non-alphanumeric character except single-quote, double-quote, backslash, right-bracket, full-stop. It also must not contain three consecutive characters from the cluster username or SSH username.
     * **sshPassword**, which must be 6-72 characters long and must contain at least one digit, one uppercase letter, and one lowercase letter. It must not contain any three consecutive characters from the cluster login name.

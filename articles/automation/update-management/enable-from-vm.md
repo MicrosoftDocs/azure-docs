@@ -3,7 +3,7 @@ title: Enable Azure Automation Update Management for an Azure VM
 description: This article tells how to enable Update Management for an Azure VM.
 services: automation
 ms.subservice: update-management
-ms.date: 11/04/2020
+ms.date: 09/30/2023
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the [Azure portal](https://portal.azure.com), select **Virtual machines** or search for and select **Virtual machines** from the Home page.
 
-2. Select the VM for which you want to enable Update Management. VMs can exist in any region, no matter the location of your Automation account. You
+2. Select the VM for which you want to enable Update Management. VMs can exist in any region, no matter the location of your Automation account.
 
 3. On the VM page, under **Operations**, select **Guest + host updates**.
 

@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -26,7 +27,7 @@ The guide covers the following topics:
 
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

@@ -13,7 +13,7 @@ ms.custom: template-sizes
 
 # Dpsv5 and Dpdsv5-series
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Client VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The Dpsv5-series and Dpdsv5-series virtual machines are based on the Arm architecture, delivering outstanding price-performance for general-purpose workloads. These virtual machines feature the Ampere® Altra® Arm-based processor operating at 3.0 GHz, which provides an entire physical core for each virtual machine vCPU. These virtual machines offer a range of vCPU sizes, up to 4 GiB of memory per vCPU, and temporary storage options able to meet the requirements of scale-out and most enterprise workloads such as web and application servers, small to medium databases, caches, and more.
 
@@ -31,7 +31,7 @@ Dpsv5-series virtual machines feature the Ampere® Altra® Arm-based processor o
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|
 | Standard_D2ps_v5	| 2	| 8	| Remote Storage Only	| 4	| 3750/85	| 10000/1200 | 2 | 12500 |
 | Standard_D4ps_v5	| 4	| 16	| Remote Storage Only	| 8	| 6400/145	| 20000/1200 | 2 | 12500 |
 | Standard_D8ps_v5	| 8	| 32	| Remote Storage Only	| 16	| 12800/290	| 20000/1200 | 4 | 12500 |
@@ -57,7 +57,7 @@ Dpdsv5-series virtual machines feature the Ampere® Altra® Arm-based processor 
 - [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max NICs | Max network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
 | Standard_D2pds_v5    | 2  | 8  | 75   | 4  | 9375/125     | 3750/85  | 10000/1200 | 2 | 12500 |
 | Standard_D4pds_v5 | 4 | 16 | 150 | 8 | 19000/250 | 6400/145 | 20000/1200 | 2 | 12500 |
 | Standard_D8pds_v5 | 8 | 32 | 300 | 16 | 38000/500 | 12800/290 | 20000/1200 | 4 | 12500 |

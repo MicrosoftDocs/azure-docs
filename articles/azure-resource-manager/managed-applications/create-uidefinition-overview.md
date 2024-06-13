@@ -1,16 +1,13 @@
 ---
 title: CreateUiDefinition.json file for portal pane
 description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
-author: davidsmatlak
-
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2021
-ms.author: davidsmatlak
-
 ---
+
 # CreateUiDefinition.json for Azure managed application's create experience
 
-This document introduces the core concepts of the **createUiDefinition.json** file. The Azure portal uses this file to define the user interface when creating a managed application.
+This document introduces the core concepts of the _createUiDefinition.json_ file. The Azure portal uses this file to define the user interface when creating a managed application.
 
 The template is as follows
 
@@ -44,11 +41,11 @@ The schema of the parameters property depends on the combination of the specifie
 
 Including `$schema` is recommended, but optional. If specified, the value for `version` must match the version within the `$schema` URI.
 
-You can use a JSON editor to create your createUiDefinition then test it in the [createUiDefinition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
+You can use a JSON editor to create your createUiDefinition then test it in the [createUiDefinition Sandbox](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
 
 ## Config
 
-The `config` property is optional. Use it to either override the default behavior of the basics step, or to set your interface as a step-by-step wizard. If `config` is used, it's the first property in the **createUiDefinition.json** file's `parameters` section. The following example shows the available properties.
+The `config` property is optional. Use it to either override the default behavior of the basics step, or to set your interface as a step-by-step wizard. If `config` is used, it's the first property in the _createUiDefinition.json_ file's `parameters` section. The following example shows the available properties.
 
 ```json
 "config": {
@@ -119,13 +116,13 @@ The basics config lets you customize the basics step.
 
 For `description`, provide a markdown-enabled string that describes your resource. Multi-line format and links are supported.
 
-The `subscription` and `resourceGroup` elements enable you to specify more validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.  
+The `subscription` and `resourceGroup` elements enable you to specify more validations. The syntax for specifying validations is identical to the custom validation for [text box](microsoft-common-textbox.md). You can also specify `permission` validations on the subscription or resource group.
 
-The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.  
+The subscription control accepts a list of resource provider namespaces. For example, you can specify **Microsoft.Compute**. It shows an error message when the user selects a subscription that doesn't support the resource provider. The error occurs when the resource provider isn't registered on that subscription, and the user doesn't have permission to register the resource provider.
 
-The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.  
+The resource group control has an option for `allowExisting`. When `true`, the users can select resource groups that already have resources. This flag is most applicable to solution templates, where default behavior mandates users must select a new or empty resource group. In most other scenarios, specifying this property isn't necessary.
 
-For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown.  
+For `location`, specify the properties for the location control you wish to override. Any properties not overridden are set to their default values. `resourceTypes` accepts an array of strings containing fully qualified resource type names. The location options are restricted to only regions that support the resource types. `allowedValues` accepts an array of region strings. Only those regions appear in the dropdown. You can set both `allowedValues` and `resourceTypes`. The result is the intersection of both lists. Lastly, the `visible` property can be used to conditionally or completely disable the location dropdown. 
 
 ## Basics
 
@@ -195,7 +192,7 @@ To filter the available locations to only those locations that support the resou
         "resourceTypes": ["Microsoft.Compute/disks"],
         "basics": [
           ...
-```  
+```
 
 ## Functions
 
@@ -203,7 +200,7 @@ CreateUiDefinition provides [functions](create-uidefinition-functions.md) for wo
 
 ## Next steps
 
-The createUiDefinition.json file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:
+The _createUiDefinition.json_ file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:
 
 - [Elements](create-uidefinition-elements.md)
 - [Functions](create-uidefinition-functions.md)

@@ -1,25 +1,25 @@
 ---
-title: Default service and SIM policy
-titleSuffix: Azure Private 5G Core Preview
-description: Information on the default service and SIM policy that can be created as part of deploying a private mobile network.
-author: djrmetaswitch
-ms.author: drichards
+title: Default service and allow-all SIM policy
+titleSuffix: Azure Private 5G Core
+description: Information on the default service and allow-all SIM policy that can be created as part of deploying a private mobile network.
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 03/18/2022
 ms.custom: template-concept
 ---
 
-# Default service and SIM policy
+# Default service and allow-all SIM policy
 
-You're given the option of creating a default service and SIM policy when you first create a private mobile network using the instructions in [Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md). 
+You're given the option of creating a default service and allow-all SIM policy when you first create a private mobile network using the instructions in [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md). 
 
 - The default service allows all traffic in both directions. 
-- The default SIM policy is automatically assigned to all SIMs you provision as part of creating the private mobile network, and applies the default service to these SIMs. 
+- The allow-all SIM policy is automatically assigned to all SIMs you provision as part of creating the private mobile network, and applies the default service to these SIMs. 
 
 They're designed to allow you to quickly deploy a private mobile network and bring SIMs into service automatically, without the need to design your own policy control configuration. 
 
-The following sections provide the settings for the default service and SIM policy. You can use these to decide whether they're suitable for the initial deployment of your private mobile network. If you need more information on any of these settings, see [Collect the required information for a service](collect-required-information-for-service.md) and [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md).
+The following sections provide the settings for the default service and allow-all SIM policy. You can use these to decide whether they're suitable for the initial deployment of your private mobile network. If you need more information on any of these settings, see [Collect the required information for a service](collect-required-information-for-service.md) and [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md).
 
 ## Default service
 
@@ -51,13 +51,13 @@ The following tables provide the settings for the default service and its associ
 
 ## Default SIM policy
 
-The following tables provide the settings for the default SIM policy and its associated network scope.
+The following tables provide the settings for the allow-all SIM policy and its associated network scope.
 
 ### SIM policy settings
 
 |Setting  |Value  |
 |---------|---------|
-|The SIM policy name.     | *Default-policy*        |
+|The SIM policy name.     | *allow-all-policy*        |
 |The UE Aggregated Maximum Bit Rate (UE-AMBR) for uplink traffic (traveling away from SIMs) across all Non-GBR QoS Flows for a SIM to which this SIM policy is assigned.     | *2 Gbps*        |
 |The UE Aggregated Maximum Bit Rate (UE-AMBR) for downlink traffic (traveling towards SIMs) across all Non-GBR QoS Flows for a SIM to which this SIM policy is assigned.     | *2 Gbps*        |
 |The interval between UE registrations for SIMs to which this SIM policy is assigned, given in seconds.     | *3240*        |
@@ -66,17 +66,17 @@ The following tables provide the settings for the default SIM policy and its ass
 
 |Setting  |Value  |
 |---------|---------|
-|The names of the services permitted on this data network.      | *Allow-all-traffic*        |
+|The names of the services permitted on this data network.      | *Allow_all_traffic*        |
 |The maximum bitrate for uplink traffic (traveling away from SIMs) across all Non-GBR QoS Flows of a given PDU session on this data network.      | *2 Gbps*        |
 |The maximum bitrate for downlink traffic (traveling towards SIMs) across all Non-GBR QoS Flows of a given PDU session on this data network.     | *2 Gbps*        |
 |The default 5G QoS identifier (5QI) or QoS class identifier (QCI) value for this data network. The 5QI or QCI identifies a set of 5G or 4G QoS characteristics that control QoS forwarding treatment for QoS Flows, such as limits for Packet Error Rate.     | *9*        |
 |The default QoS Flow Allocation and Retention Policy (ARP) priority level for this data network. Flows with a higher ARP priority level preempt those with a lower ARP priority level.      | *1*        |
 |The default QoS Flow preemption capability for QoS Flows on this data network. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level.     | *May not preempt*        |
-|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptable*        |
+|The default QoS Flow preemption vulnerability for QoS Flows on this data network. The preemption vulnerability of a QoS Flow controls whether it can be preempted another QoS Flow with a higher priority level.     | *Preemptible*        |
 
 ## Next steps
 
-Once you've decided whether the default service and SIM policy are suitable, you can start deploying your private mobile network. 
+Once you've decided whether the default service and allow-all SIM policy are suitable, you can start deploying your private mobile network. 
 
 - [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md)
-- [Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)
+- [Deploy a private mobile network through Azure Private 5G Core - Azure portal](how-to-guide-deploy-a-private-mobile-network-azure-portal.md)

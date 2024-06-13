@@ -1,10 +1,8 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 05/12/2022
+ms.date: 10/03/2022
 ms.topic: conceptual
-ms.author: timwarner
-author: timwarner-msft
 ---
 # Azure Policy assignment structure
 
@@ -19,15 +17,17 @@ resource properties with different needs for compliance.
 
 You use JavaScript Object Notation (JSON) to create a policy assignment. The policy assignment contains elements for:
 
-- display name
-- description
-- metadata
-- enforcement mode
-- excluded scopes
-- policy definition
-- non-compliance messages
-- parameters
-- identity
+- [display name](#display-name-and-description)
+- [description](#display-name-and-description)
+- [metadata](#metadata)
+- [resource selectors](#resource-selectors)
+- [overrides](#overrides)
+- [enforcement mode](#enforcement-mode)
+- [excluded scopes](#excluded-scopes)
+- [policy definition](#policy-definition-id)
+- [non-compliance messages](#non-compliance-messages)
+- [parameters](#parameters)
+- [identity](#identity)
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
@@ -55,7 +55,12 @@ parameters:
             "suffix": {
                 "value": "-LC"
             }
-        }
+        },
+        "identity": {
+            "type": "SystemAssigned"
+        },
+        "resourceSelectors": [],
+        "overrides": []
     }
 }
 ```
@@ -72,7 +77,7 @@ characters and **description** a maximum length of _512_ characters.
 
 The optional `metadata` property stores information about the policy assignment. Customers can
 define any properties and values useful to their organization in `metadata`. However, there are some
-_common_ properties used by Azure Policy. Each `metadata` property has a limit of 1024 characters.
+_common_ properties used by Azure Policy. Each `metadata` property has a limit of 1,024 characters.
 
 ### Common metadata properties
 
@@ -87,7 +92,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   value. However, the scope isn't locked to the value and it can be changed to another scope.
 
   The following example of `parameterScopes` is for a _strongType_ parameter named
-  **backupPolicyId** that sets a scope for resource selection when the assignment is edited in the
+  `backupPolicyId` that sets a scope for resource selection when the assignment is edited in the
   Portal.
 
   ```json
@@ -102,12 +107,162 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   any.
 - `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
   any.
+- `evidenceStorages` (object): The recommended default storage account that should be used to hold evidence for attestations to policy assignments with a `manual` effect. The `displayName` property is the name of the storage account. The `evidenceStorageAccountID` property is the resource ID of the storage account. The  `evidenceBlobContainer` property is the blob container name in which you plan to store the evidence.
 
-## Enforcement Mode
+    ```json
+    {
+      "properties": {
+        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription.",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
+        "metadata": {
+          "evidenceStorages": [
+            {
+              "displayName": "Default evidence storage",
+              "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
+              "evidenceBlobContainer": "evidence-container"
+            }
+          ]
+        }
+      }
+    }
+    ```
+
+
+## Resource selectors
+
+The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling
+you to gradually roll out policy assignments based on factors like resource location, resource type,
+or whether a resource has a location. When resource selectors are used, Azure Policy will only
+evaluate resources that are applicable to the specifications made in the resource selectors.
+Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) in the same way.
+
+In the following example scenario, the new policy assignment is evaluated only if the resource's location is either **East US** or **West US**.
+
+```json
+{
+    "properties": {
+        "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyDefinitions/ResourceLimit",
+        "definitionVersion": "1.1",
+        "resourceSelectors": [
+            {
+                "name": "SDPRegions",
+                "selectors": [
+                    {
+                        "kind": "resourceLocation",
+                        "in": [ "eastus", "westus" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/ResourceLimit",
+    "type": "Microsoft.Authorization/policyAssignments",
+    "name": "ResourceLimit"
+}
+```
+
+When you're ready to expand the evaluation scope for your policy, you just have to modify the assignment. The following example shows our policy assignment with two more Azure regions added to the **SDPRegions** selector. Note, in this example, _SDP_ means to _Safe Deployment Practice_:
+
+```json
+{
+    "properties": {
+        "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyDefinitions/ResourceLimit",
+        "definitionVersion": "1.1",
+        "resourceSelectors": [
+            {
+                "name": "SDPRegions",
+                "selectors": [
+                    {
+                        "kind": "resourceLocation",
+                        "in": [ "eastus", "westus", "centralus", "southcentralus" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/ResourceLimit",
+    "type": "Microsoft.Authorization/policyAssignments",
+    "name": "ResourceLimit"
+}
+```
+
+Resource selectors have the following properties:
+- `name`: The name of the resource selector.
+
+- `selectors`: (Optional) The property used to determine which subset of resources applicable to the policy assignment should be evaluated for compliance.
+
+  - `kind`: The property of a selector that describes which characteristic narrows down the set of evaluated resources. Each kind can only be used once in a single resource selector. Allowed values are:
+
+    - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
+
+    - `resourceType`: This property is used to select resources based on their type.
+
+    - `resourceWithoutLocation`: This property is used to select resources at the subscription level that don't have a location. Currently only supports `subscriptionLevelResources`. Can't be used in the same resource selector as `resourceLocation`.
+
+  - `in`: The list of allowed values for the specified `kind`. Can't be used with `notIn`. Can contain up to 50 values.
+
+  - `notIn`: The list of not-allowed values for the specified `kind`. Can't be used with `in`. Can contain up to 50 values.
+
+A **resource selector** can contain multiple **selectors**. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, up to 10 **resource selectors** can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
+
+## Overrides
+
+The optional `overrides` property allows you to change the effect of a policy definition without modifying the underlying policy definition or using a parameterized effect in the policy definition.
+
+The most common use case for overrides is policy initiatives with a large number of associated policy definitions. In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time. Overrides can be used to simultaneously update the effects of multiple policy definitions within an initiative.
+
+Let's take a look at an example. Imagine you have a policy initiative named _CostManagement_ that includes a custom policy definition with `policyDefinitionReferenceId` _corpVMSizePolicy_ and a single effect of `audit`. Suppose you want to assign the _CostManagement_ initiative, but don't yet want to see compliance reported for this policy. This policy's 'audit' effect can be replaced by 'disabled' through an override on the initiative assignment, as shown in the following sample:
+
+```json
+{
+    "properties": {
+        "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+        "overrides": [
+            {
+                "kind": "policyEffect",
+                "value": "disabled",
+                "selectors": [
+                    {
+                        "kind": "policyDefinitionReferenceId",
+                        "in": [ "corpVMSizePolicy" ]
+                    }
+                ]
+            }
+        ]
+    },
+    "systemData": { ... },
+    "id": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+    "type": "Microsoft.Authorization/policyAssignments",
+    "name": "CostManagement"
+}
+```
+
+Overrides have the following properties:
+- `kind`: The property the assignment will override. The supported kind is `policyEffect`.
+
+- `value`: The new value that overrides the existing value. The supported values are [effects](effects.md).
+
+- `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
+
+  - `kind`: The property of a selector that describes what characteristic will narrow down the scope of the override. Allowed value for `kind: policyEffect` is:
+
+    - `policyDefinitionReferenceId`: This specifies which policy definitions within an initiative assignment should take on the effect override.
+
+  - `in`: The list of allowed values for the specified `kind`. Can't be used with `notIn`. Can contain up to 50 values.
+
+  - `notIn`: The list of not-allowed values for the specified `kind`. Can't be used with `in`. Can contain up to 50 values.
+
+Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they're specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list (in cases where the effect is [parameterized](./definition-structure-parameters.md)).
+
+## Enforcement mode
 
 The **enforcementMode** property provides customers the ability to test the outcome of a policy on
 existing resources without initiating the policy effect or triggering entries in the
-[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md). This scenario is
+[Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md).
+
+This scenario is
 commonly referred to as "What If" and aligns to safe deployment practices. **enforcementMode** is
 different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource
 evaluation from happening at all.
@@ -140,7 +295,7 @@ after creation of the initial assignment.
 
 This field must be the full path name of either a policy definition or an initiative definition.
 `policyDefinitionId` is a string and not an array. The latest content of the assigned policy
-definition or initiative will be retrieved each time the policy assignment is evaluated. It's
+definition or initiative is retrieved each time the policy assignment is evaluated. It's
 recommended that if multiple policies are often assigned together, to use an
 [initiative](./initiative-definition-structure.md) instead.
 
@@ -183,7 +338,7 @@ the initiative definition. For details, see
 ## Parameters
 
 This segment of the policy assignment provides the values for the parameters defined in the
-[policy definition or initiative definition](./definition-structure.md#parameters). This design
+[policy definition or initiative definition](./definition-structure-parameters.md). This design
 makes it possible to reuse a policy or initiative definition with different resources, but check for
 different business values or outcomes.
 
@@ -204,7 +359,8 @@ same policy definition is reusable with a different set of parameters for a diff
 reducing the duplication and complexity of policy definitions while providing flexibility.
 
 ## Identity
-For policy assignments with effect set to **deployIfNotExisit** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
+
+For policy assignments with effect set to **deployIfNotExist** or **modify**, it's required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment.
 
 > [!NOTE]
 > A single policy assignment can be associated with only one system- or user-assigned managed identity. However, that identity can be assigned more than one role if necessary.
@@ -231,4 +387,3 @@ For policy assignments with effect set to **deployIfNotExisit** or **modify**, i
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with
   [Organize your resources with Azure management groups](../../management-groups/overview.md).
-

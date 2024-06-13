@@ -3,12 +3,12 @@ title: Azure HDInsight virtual network architecture
 description: Learn the resources available when you create an HDInsight cluster in an Azure Virtual Network.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 12/05/2023
 ---
 
 # Azure HDInsight virtual network architecture
 
-This article explains the resources that are present when you deploy an HDInsight cluster into a custom Azure Virtual Network. This information will help you to connect on-premises resources to your HDInsight cluster in Azure. For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
+This article explains the resources that are present when you deploy an HDInsight cluster into a custom Azure Virtual Network. This information helps you to connect on-premises resources to your HDInsight cluster in Azure. For more information on Azure Virtual Networks, see [What is Azure Virtual Network?](../virtual-network/virtual-networks-overview.md).
 
 ## Resource types in Azure HDInsight clusters
 
@@ -16,12 +16,9 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 
 | Type | Description |
 | --- | --- |
-| Head node |  For all cluster types except Apache Storm, the head nodes host the processes that manage execution of the distributed application. The head node is also the node that you can SSH into and execute applications that are then coordinated to run across the cluster resources. The number of head nodes is fixed at two for all cluster types. |
 | ZooKeeper node | Zookeeper coordinates tasks between the nodes that are doing data processing. It also does leader election of the head node, and keeps track of which head node is running a specific master service. The number of ZooKeeper nodes is fixed at three. |
 | Worker node | Represents the nodes that support data processing functionality. Worker nodes can be added or removed from the cluster to scale computing capability and manage costs. |
 | Region node | For the HBase cluster type, the region node (also referred to as a Data Node) runs the Region Server. Region Servers serve and manage a portion of the data managed by HBase. Region nodes can be added or removed from the cluster to scale computing capability and manage costs.|
-| Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper, which coordinates the running of Storm topologies. |
-| Supervisor node | For the Storm cluster type, the supervisor node executes the instructions provided by the Nimbus node to do the processing. |
 
 ## Resource naming conventions
 
@@ -29,7 +26,7 @@ Use Fully Qualified Domain Names (FQDNs) when addressing nodes in your cluster. 
 
 These FQDNs will be of the form `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
 
-The `<node-type-prefix>` will be *hn* for headnodes, *wn* for worker nodes and *zn* for zookeeper nodes.
+The `<node-type-prefix>` will be `hn` for headnodes, `wn` for worker nodes and `zn` for zookeeper nodes.
 
 If you need just the host name, use only the first part of the FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
@@ -37,7 +34,7 @@ If you need just the host name, use only the first part of the FQDN: `<node-type
 
 The following diagram shows the placement of HDInsight nodes and network resources in Azure.
 
-:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom VNET" border="false":::
+:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom VNET." border="false":::
 
 The default resources in an Azure Virtual Network include the cluster node types mentioned in the previous table. And network devices that support communication between the virtual network and outside networks.
 
@@ -64,7 +61,7 @@ You can access your HDInsight cluster in three ways:
 
 - An HTTPS endpoint outside of the virtual network at `CLUSTERNAME.azurehdinsight.net`.
 - An SSH endpoint for directly connecting to the headnode at `CLUSTERNAME-ssh.azurehdinsight.net`.
-- An HTTPS endpoint within the virtual network `CLUSTERNAME-int.azurehdinsight.net`. Notice the "`-int`" in this URL. This endpoint will resolve to a private IP in that virtual network and isn't accessible from the public internet.
+- An HTTPS endpoint within the virtual network `CLUSTERNAME-int.azurehdinsight.net`. Notice the "`-int`" in this URL. This endpoint resolves to a private IP in that virtual network and isn't accessible from the public internet.
 
 These three endpoints are each assigned a load balancer.
 

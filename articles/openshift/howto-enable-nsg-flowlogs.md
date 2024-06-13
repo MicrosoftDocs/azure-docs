@@ -1,24 +1,31 @@
 ---
 title: Enabling Network Security Group flow logs for Azure Red Hat OpenShift
 description: In this article, learn how to enable flow logs to analyze traffic for Network Security Groups.
-author: johnmarc
+author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.author: johnmarc
-ms.date: 08/30/2022
+ms.date: 05/06/2024
 topic: how-to
 recommendations: true
 keywords: azure, openshift, aro, red hat, azure CLI
 #Customer intent: I need to create and use an Azure service principal to restrict permissions to my Azure Red Hat OpenShift cluster.
 ---
 
-# Enable Network Security Group flow logs
+# Enable Network Security Group flow logs (Preview)
 
 Flow logs allow you to analyze traffic for Network Security Groups in specific regions that have Azure Network Watcher configured.
+
+> [!IMPORTANT]
+> Currently, this feature is being offered in preview only. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and are excluded from the service-level agreements and limited warranty. Azure Red Hat OpenShift previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
+> 
 
 ## Prerequisites
 
 You must have an existing Azure Red Hat OpenShift cluster. Follow [this guide](tutorial-create-cluster.md) to create a private Azure Red Hat OpenShift cluster.
+
+> [!NOTE]
+> This feature doesn't work with the [ARO "bring your own" network security group feature](/azure/openshift/howto-bring-nsg). If you're using that feature and want to use flow logs with it, refer to [Flow logging for network security groups](/azure/network-watcher/nsg-flow-logs-overview) in the Azure Network Watcher documentation.
 
 ## Configure Azure Network Watcher
 
@@ -62,13 +69,13 @@ metadata:
   name: cluster
 spec:
   azEnvironment: "AzurePublicCloud"
-  resourceId: "subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openShiftClusters/{clusterID}"
+  resourceId: "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.RedHatOpenShift/openShiftClusters/{clusterID}"
   nsgFlowLogs:
     enabled: true
-    networkWatcherID: "subscriptions/{subscriptionID}/resourceGroups/{networkWatcherRG}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}"
+    networkWatcherID: "/subscriptions/{subscriptionID}/resourceGroups/{networkWatcherRG}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}"
     flowLogName: "{flowlogName}"
     retentionDays: {retentionDays}
-    storageAccountResourceId: "subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
+    storageAccountResourceId: "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
     version: {version}  
 ```
 See [Tutorial: Log network traffic to and from a virtual machine using the Azure portal](../network-watcher/network-watcher-nsg-flow-logging-portal.md) for possible values for `version` and `retentionDays`.

@@ -17,7 +17,7 @@ This document covers steps required to set up collection of performance counters
 > The WAD extension should be deployed on your cluster for these steps to work for you. If it is not set up, head over to [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Collect performance counters via the WadCfg
 
@@ -99,7 +99,7 @@ Here is an example of a configuration with the counter for the *Total Processor 
 
  You can also use variables in your ARM template to collect an array of performance counters, which can come in handy when you collect performance counters per process. In the below example, we are collecting processor time and garbage collector time per process and then 2 performance counters on the nodes themselves all using variables. 
 
- ```json
+```json
 "variables": {
   "copy": [
       {

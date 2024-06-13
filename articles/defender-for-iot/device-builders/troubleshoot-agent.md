@@ -2,6 +2,7 @@
 title: Troubleshoot security agent start-up (Linux)
 description: Troubleshoot working with Microsoft Defender for IoT security agents for Linux.
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 03/28/2022
 ---
 

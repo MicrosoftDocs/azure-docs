@@ -2,11 +2,11 @@
 title: Get started with your updated Azure billing account
 description: Get started with your updated Azure billing account to understand changes in the new billing and cost management experience
 author: bandersmsft
-ms.reviewer: amberbhargava
+ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -59,7 +59,7 @@ Your new experience includes the following cost management and billing capabilit
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  
-   ![Screenshot that shows search in the Azure portal for Cost Management + Billing.](./media/mosp-new-customer-experience/billing-search-cost-management-billing.png)
+   :::image type="content" border="true" source="./media/mosp-new-customer-experience/billing-search-cost-management-billing.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + Billing.":::
 3. Select **Azure subscriptions** from the left-side of the screen. 
 4. The table lists Azure subscriptions that you're paying for. In the billing profile column, you would find the billing profile that is billed for the subscription. The subscription charges are displayed on the invoice for the billing profile. To consolidate the charges for all your subscriptions on a single invoice, you need to link all your subscriptions to a single billing profile.  
     :::image type="content" source="./media/mosp-new-customer-experience/list-azure-subscriptions.png" alt-text="Screenshot that shows the list of Azure subscriptions." lightbox="./media/mosp-new-customer-experience/list-azure-subscriptions.png" :::
@@ -161,7 +161,7 @@ For example, if your billing period was November 24 to December 23 for your old 
 
 #### Budgets
 
-You can now create budgets for the billing account, allowing you to track costs across subscriptions. You can also stay on top of your purchase charges using budgets. For more information about budgets, see [Create and manage Azure budgets](../costs/tutorial-acm-create-budgets.md).
+You can now create budgets for the billing account, allowing you to track costs across subscriptions. You can also stay on top of your purchase charges using budgets. For more information about budgets, see [Create and manage budgets](../costs/tutorial-acm-create-budgets.md).
 
 #### Exports
 
@@ -204,25 +204,25 @@ After your Azure billing account is updated, you'll get an email from Microsoft 
 
     Some customers have two identities with the same email address - a work account and a Microsoft account. Typically, only one of their identities has permissions to perform billing administration. If they sign in with the identity that doesn't have permission, they would not be able to accept the terms. Verify that you're using the correct identity to sign in.
 
-- You have signed in to the incorrect Azure Active Directory (Azure AD) tenant. 
+- You have signed in to the incorrect Microsoft Entra tenant. 
 
-    Your billing account is associated with an Azure AD tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Azure AD tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
+    Your billing account is associated with a Microsoft Entra tenant. If you're signed in to an incorrect tenant, you won't be able to accept the terms. Verify that you're signed in to the correct Microsoft Entra tenant. If you aren't signed in to the correct tenant, use the following to switch the tenant in the Azure portal:
 
     1. Select your email from the top right of the page.
 
     2. Select **Switch directory**.
 
-        ![Screenshot that shows selecting switch directory in the portal](./media/mosp-new-customer-experience/select-switch-directory.png)
+        :::image type="content" border="true" source="./media/mosp-new-customer-experience/select-switch-directory.png" alt-text="Screenshot that shows selecting switch directory in the portal.":::
 
     3. Select **Switch** for a directory from the **All directories** section.
 
-        ![Screenshot that shows selecting a directory in the portal](./media/mosp-new-customer-experience/select-directory.png)
+        :::image type="content" border="true" source="./media/mosp-new-customer-experience/select-directory.png" alt-text="Screenshot that shows selecting a directory in the Azure portal.":::
 
 ## Need help? Contact support.
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 See the following articles to learn more about your billing account.
 

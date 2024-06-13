@@ -1,18 +1,24 @@
 ---
 title: Performance benchmarks
-titleSuffix: Azure Cognitive Search
-description: Learn about the performance of Azure Cognitive Search through various performance benchmarks
-author: dereklegenzoff
-
-ms.author: delegenz
+titleSuffix: Azure AI Search
+description: Learn about the performance of Azure AI Search through various performance benchmarks
+author: gmndrg
+ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 04/22/2024
 ---
 
-# Azure Cognitive Search performance benchmarks
+# Azure AI Search performance benchmarks
 
-Azure Cognitive Search's performance depends on a [variety of factors](search-performance-tips.md) including the size of your search service and the types of queries you're sending. To help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect.
+> [!IMPORTANT]
+> These benchmarks apply to search services created *before April 3, 2024* on deployments that run on older infrastructure. The benchmarks also apply to nonvector workloads only. Updates are pending for services and workloads on the new limits. 
+
+Performance benchmarks are useful for estimating potential performance under similar configurations. Actual performance depends on a [variety of factors](search-performance-tips.md), including the size of your search service and the types of queries you're sending. 
+
+To help you estimate the size of search service needed for your workload, we ran several benchmarks to document the performance for different search services and configurations. 
 
 To cover a range of different use cases, we ran benchmarks for two main scenarios:
 
@@ -23,7 +29,7 @@ While these scenarios reflect different use cases, every scenario is different s
 
 ## Testing methodology
 
-To benchmark Azure Cognitive Search's performance, we ran tests for two different scenarios at different tiers and replica/partition combinations.
+To benchmark Azure AI Search's performance, we ran tests for two different scenarios at different tiers and replica/partition combinations.
 
 To create these benchmarks, the following methodology was used:
 
@@ -31,28 +37,29 @@ To create these benchmarks, the following methodology was used:
 2. QPS then increased by `X` and ran for another 180 seconds
 3. Every 180 seconds, the test increased by `X` QPS until average latency increased above 1000 ms or less than 99% of queries succeeded.
 
-The graph below gives a visual example of what the test's query load looks like:
+The following graph gives a visual example of what the test's query load looks like:
 
 ![Example test](./media/performance-benchmarks/example-test.png)
 
 Each scenario used at least 10,000 unique queries to avoid tests being overly skewed by caching.
 
 > [!IMPORTANT]
-> These tests only include query workloads. If you expect to have a high volumne of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api.md).
+> These tests only include query workloads. If you expect to have a high volume of indexing operations, be sure to factor that into your estimation and performance testing. Sample code for simulating indexing can be found in this [tutorial](tutorial-optimize-indexing-push-api.md).
 
 ### Definitions
 
-- **Maximum QPS** -  the maximum QPS numbers below are based on the highest QPS achieved in a test where 99% of queries completed successfully without throttling and average latency stayed under 1000 ms.
+- **Maximum QPS** -  the maximum QPS numbers are based on the highest QPS achieved in a test where 99% of queries completed successfully without throttling and average latency stayed under 1000 ms.
 
 - **Percentage of max QPS** - A percentage of the maximum QPS achieved for a particular test. For example, if a given test reached a maximum of 100 QPS, 20% of max QPS would be 20 QPS.
 
-- **Latency** - The server's latency for a query; these numbers do not include [round trip delay (RTT)](https://en.wikipedia.org/wiki/Round-trip_delay). Values below are in milliseconds (ms).
+- **Latency** - The server's latency for a query; these numbers don't include [round trip delay (RTT)](https://en.wikipedia.org/wiki/Round-trip_delay). Values are in milliseconds (ms).
 
-### Disclaimer
+## Testing disclaimer
 
-The code we used to run these benchmarks is available [here](https://github.com/Azure-Samples/azure-search-performance-testing/tree/main/other_tools). It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks below. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
+The code we used to run these benchmarks is available on the [azure-search-performance-testing](https://github.com/Azure-Samples/azure-search-performance-testing/tree/main/other_tools) repository. It's worth noting that we observed slightly lower QPS levels with the [JMeter performance testing solution](https://github.com/Azure-Samples/azure-search-performance-testing) than in the benchmarks. The differences can be attributed to differences in the style of the tests. This speaks to the importance of making your performance tests as similar to your production workload as possible.
 
-These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect based on your scenario.
+> [!IMPORTANT]
+> These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the performance you can expect based on your scenario.
 
 If you have any questions or concerns, reach out to us at azuresearch_contact@microsoft.com.
 
@@ -63,7 +70,7 @@ If you have any questions or concerns, reach out to us at azuresearch_contact@mi
       ![CDON Logo](./media/performance-benchmarks/cdon-logo-160px2.png)
    :::column-end:::
    :::column span="3":::
-      This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway, and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers. You can learn more about CDON's use of Azure Cognitive Search in [this article](https://pulse.microsoft.com/transform/na/fa1-how-cdon-has-been-using-technology-to-become-the-leading-marketplace-in-the-nordics/).
+      This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway, and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers. You can learn more about CDON's use of Azure AI Search in [this article](https://pulse.microsoft.com/transform/na/fa1-how-cdon-has-been-using-technology-to-become-the-leading-marketplace-in-the-nordics/).
    :::column-end:::
 :::row-end:::
 
@@ -80,13 +87,13 @@ To run these tests, we used a snapshot of CDON's production search index and tho
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS ecommerce s1](./media/performance-benchmarks/s1-ecom-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
@@ -94,18 +101,17 @@ Query latency varies based on the load of the service and services under higher 
 | 50%  | 140 ms  | 47 ms  | 144 ms   | 241 ms | 400 ms | 1175 ms |
 | 80%  | 239 ms  | 77 ms  | 248 ms   | 466 ms | 763 ms | 1752 ms | 
 
-
 ### S2 Performance
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS ecommerce s2](./media/performance-benchmarks/s2-ecom-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
@@ -117,7 +123,7 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS ecommerce s3](./media/performance-benchmarks/s3-ecom-qps.png)
 
@@ -125,7 +131,7 @@ In this case, we see that adding a second partition significantly increases the 
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -146,13 +152,13 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS doc search s1](./media/performance-benchmarks/s1-docsearch-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -164,13 +170,13 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS doc search s2](./media/performance-benchmarks/s2-docsearch-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -182,13 +188,13 @@ Query latency varies based on the load of the service and services under higher 
 
 #### Queries per second
 
-The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+The following chart shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
 ![Highest maintainable QPS doc search s3](./media/performance-benchmarks/s3-docsearch-qps.png)
 
 #### Query latency
 
-Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+Query latency varies based on the load of the service and services under higher stress have a higher average query latency. The following table shows the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- |
@@ -198,21 +204,21 @@ Query latency varies based on the load of the service and services under higher 
 
 ## Takeaways
 
-Through these benchmarks, you can get an idea of the performance Azure Cognitive Search offers. You can also see difference between services at different tiers.
+Through these benchmarks, you can get an idea of the performance Azure AI Search offers. You can also see difference between services at different tiers.
 
 Some key take ways from these benchmarks are:
 
 * An S2 can typically handle at least four times the query volume as an S1
-* An S2 will typically have lower latency than an S1 at comparable query volumes
+* An S2 typically has lower latency than an S1 at comparable query volumes
 * As you add replicas, the QPS a service can handle typically scales linearly (for example, if one replica can handle 10 QPS then five replicas can usually handle 50 QPS)
-* The higher the load on the service, the higher the average latency will be
+* The higher the load on the service, the higher the average latency
 
 You can also see that performance can vary drastically between scenarios. If you're not getting the performance you expect, check out the [tips for better performance](search-performance-tips.md).
 
 ## Next steps
 
-Now that you've seen the performance benchmarks, you can learn more about how to analyze Cognitive Search's performance and key factors that influence performance.
+Now that you've seen the performance benchmarks, you can learn more about how to analyze Azure AI Search's performance and key factors that influence performance.
 
-> [!div class="nextstepaction"]
-> [Analyze performance](search-performance-analysis.md)
-> [Tips for better performance](search-performance-tips.md)
++ [Analyze performance](search-performance-analysis.md)
++ [Tips for better performance](search-performance-tips.md)
++ [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

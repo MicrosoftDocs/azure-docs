@@ -2,7 +2,7 @@
 title: Azure Service Bus Subscription Rule SQL Action syntax  | Microsoft Docs
 description: This article provides a reference for SQL rule action syntax. The actions are written in SQL-language-based syntax that is performed against a message.
 ms.topic: article
-ms.date: 09/28/2021
+ms.date: 12/05/2023
 ---
 
 # Subscription Rule SQL Action Syntax
@@ -50,12 +50,12 @@ A *SQL action* is used to manipulate message metadata after a message has been s
   
 -   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. 
     - The `sys` value indicates system scope where `<property_name>` is any of the properties on the Service Bus message as described in [Messages, payloads, and serialization](service-bus-messages-payloads.md).
-    - The `user` value indicates user scope where `<property_name>` is a key of the custom properties that you can set on the message when sending to Service  Bus.
+    - The `user` value indicates user scope where `<property_name>` is a key of the custom properties that you can set on the message when sending to Service Bus.
     - The `user` scope is the default scope if `<scope>` isn't specified.  
   
 ### Remarks  
 
-An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property isn't an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
+An attempt to access a nonexistent system property is an error, while an attempt to access a nonexistent user property isn't an error. Instead, a nonexistent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
   
 ## property_name  
   
@@ -76,7 +76,7 @@ An attempt to access a non-existent system property is an error, while an attemp
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
- This means any string that starts with a letter and is followed by one or more underscore/letter/digit.  
+ It means any string that starts with a letter and is followed by one or more underscore/letter/digit.  
   
  `[:IsLetter:]` means any Unicode character that is categorized as a Unicode letter. `System.Char.IsLetter(c)` returns `true` if `c` is a Unicode letter.  
   
@@ -92,13 +92,13 @@ An attempt to access a non-existent system property is an error, while an attemp
   
 ```  
   
- `<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It isn't recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. The following is an example of `<quoted_identifier>`:  
+ `<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It isn't recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. Here's an example of `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
 ```  
   
-## pattern  
+## Pattern  
   
 ```  
 <pattern> ::=  
@@ -107,10 +107,9 @@ An attempt to access a non-existent system property is an error, while an attemp
   
 ### Remarks
   
- `<pattern>` must be an expression that is evaluated as a string. It is used as a pattern for the LIKE operator.      It can contain the following wildcard characters:  
+ `<pattern>` must be an expression that is evaluated as a string. It's used as a pattern for the LIKE operator. It can contain the following wildcard characters:  
   
--   `%`:  Any string of zero or more characters.  
-  
+-   `%`:  Any string of zero or more characters.    
 -   `_`: Any single character.  
   
 ## escape_char  
@@ -122,11 +121,11 @@ An attempt to access a non-existent system property is an error, while an attemp
   
 ### Remarks
   
- `<escape_char>` must be an expression that is evaluated as a string of length 1. It is used as an escape character for the LIKE operator.  
+ `<escape_char>` must be an expression that is evaluated as a string of length 1. It's used as an escape character for the LIKE operator.  
   
  For example, `property LIKE 'ABC\%' ESCAPE '\'` matches `ABC%` rather than a string that starts with `ABC`.  
   
-## constant  
+## Constant  
   
 ```  
 <constant> ::=  
@@ -183,19 +182,20 @@ Boolean constants are represented by the keywords `TRUE` or `FALSE`. The values 
   
 String constants are enclosed in single quotation marks and include any valid Unicode characters. A single quotation mark embedded in a string constant is represented as two single quotation marks.  
   
-## function  
+## Function  
   
 ```  
 <function> :=  
       newid() |  
       property(name) | p(name)  
 ```  
+
+Currently, `newid()` and `property(name)` are the only functions supported. 
   
 ### Remarks  
 
-The `newid()` function returns a `System.Guid` generated by the `System.Guid.NewGuid()` method.  
-  
-The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
+- The `newid()` function returns a `System.Guid` generated by the `System.Guid.NewGuid()` method.  
+- The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
 
 ## Examples
 For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
@@ -203,17 +203,24 @@ For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 ## Considerations
 
 - SET is used to create a new property or update the value of an existing property.
-- REMOVE is used to remove a property.
+- REMOVE is used to remove a user property. Only user properties can be removed, not system properties.
 - SET performs implicit conversion if possible when the expression type and the existing property type are different.
-- Action fails if non-existent system properties were referenced.
-- Action doesn't fail if non-existent user properties were referenced.
-- A non-existent user property is evaluated as "Unknown" internally, following the same semantics as [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) when evaluating operators.
+- Action fails if nonexistent system properties were referenced.
+- Action doesn't fail if nonexistent user properties were referenced.
+- A nonexistent user property is evaluated as "Unknown" internally, following the same semantics as [SQLRuleFilter](/dotnet/api/azure.messaging.servicebus.administration.sqlrulefilter) when evaluating operators.
+
+## Important points
+Here are a few important points: 
+
+- Only properties on a message can be modified. 
+- All user properties can be modified. 
+- All publicly updatable system properties can also be modified, like `ReplyTo` and `CorreationId`, but we recommend that you don't alter system properties as part of a rule action. It's still allowed for backward compatibility reasons.
+- When setting properties, only numeric, Boolean, and string literals are allowed. A string literal in turn is converted to a type based on the property being modified. If the property being set doesn't already exist, there's no type conversion from string. If the property being modified already exists and its value is one of these types `Guid`, `DateTimeOffset`, `TimeSpan`, `Uri`, `DateTime`, then the string literal is converted to that type and set as the property value. To be more specific, the action tries to convert the string literal to the type of property. If it's successful, the property is set. Otherwise, the rule action evaluation throws an exception and the message is dead-lettered.
 
 ## Next steps
 
-- [SQLRuleAction class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLRuleAction class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
-- [SqlRuleAction class (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SQLRuleAction (.NET)](/dotnet/api/azure.messaging.servicebus.administration.sqlruleaction)
+- [SqlRuleAction (Java)](/java/api/com.azure.messaging.servicebus.administration.models.sqlruleaction)
 - [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
 - [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

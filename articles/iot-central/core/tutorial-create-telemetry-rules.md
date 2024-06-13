@@ -1,28 +1,28 @@
 ---
-title: Tutorial - Create and manage rules in your Azure IoT Central application
-description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
+title: Tutorial - Create and manage rules in Azure IoT Central
+description: This tutorial shows you how Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions when a rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2022
+ms.date: 04/17/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
+
+#customer intent: As a solution builder, I want add a rule and action so that I can be notified when a telemetry value reaches a threshold.
 ---
 
 # Tutorial: Create a rule and set up notifications in your Azure IoT Central application
 
-You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
+In this tutorial, you learn how to use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
 
 Devices use telemetry to send numerical data from the device. A  rule triggers when the selected telemetry crosses a specified threshold.
-
-In this tutorial, you create a rule to send an email when the temperature in a simulated sensor device exceeds 70&deg; F.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create a rule
-> * Add an email action
+> * Create a rule that fires when the device temperature reaches 70&deg; F.
+> * Add an email action to notify you when the rule fires.
 
 ## Prerequisites
 
@@ -32,44 +32,31 @@ To complete the steps in this tutorial, you need:
 
 ## Add and customize a device template
 
-Add a device template from the device catalog. This tutorial uses the **ESP32-Azure IoT Kit** device template:
+Add a device template from the device catalog. This tutorial uses the **Onset Hobo MX-100 Temp Sensor** device template:
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
 
-1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
+1. On the **Select type** page, scroll down until you find the **Onset Hobo MX-100 Temp Sensor** tile in the **Featured device templates** section.
 
-1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
+1. Select the **Onset Hobo MX-100 Temp Sensor** tile, and then select **Next: Review**.
 
 1. On the **Review** page, select **Create**.
 
-The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
+The name of the template you created is **Hobo MX-100**. The model includes components such as **Hobo MX-100** and **IotDevice**. Components define the capabilities of an ESP32 device. Capabilities can include the telemetry, properties, and commands.
 
-Add two cloud properties to the **Sensor Controller** device template:
+## Add a simulated device
 
-1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
+To test the rule you create in the next section, add a simulated device to your application:
 
-    | Display Name      | Semantic Type | Schema |
-    | ----------------- | ------------- | ------ |
-    | Last Service Date | None          | Date   |
-    | Customer Name     | None          | String |
+1. Select **Devices** in the left-navigation panel. Then select **Hobo MX-100**.
 
-1. Select **Save** to save your changes.
+1. Select **+ New**. In the **Create a new device** panel, leave the default device name and device ID values. Toggle **Simulate this device?** to **Yes**.
 
-Add a new form to the device template to manage the device:
-
-1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
-
-1. Change the form name to **Manage device**.
-
-1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Target Temperature** property. Then select **Add section**.
-
-1. Select **Save** to save your new form.
-
-Now publish the device template.
+1. Select **Create**.
 
 ## Create a rule
 
-To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Sensor Controller** device that sends temperature and humidity telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
+To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Hobo MX-100** device that sends temperature telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
 
 > [!NOTE]
 > There is a limit of 50 rules per application.
@@ -80,24 +67,26 @@ To create a telemetry rule, the device template must include at least one teleme
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
 
-1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template. To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button:
+1. Select the **Hobo MX-100** device template. By default, the rule automatically applies to all the devices assigned to the device template:
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition." lightbox="media/tutorial-create-telemetry-rules/device-filters.png":::
+
+    To filter for a subset of the devices, select **+ Filter** and use device properties to identify the devices. To disable the rule, toggle the **Enabled/Disabled** button.
 
 ### Configure the rule conditions
 
-Conditions define the criteria that the rule monitors. In this tutorial, you configure the rule to fire when the temperature exceeds  70&deg; F.
+Conditions define the criteria that the rule monitors. In this tutorial, you configure the rule to fire when the temperature exceeds 70&deg; F.
 
 1. Select **Temperature** in the **Telemetry** dropdown.
 
-1. Next, choose **Is greater than** as the **Operator** and enter _70_ as the **Value**.
+1. Next, choose **Is greater than** as the **Operator** and enter _70_ as the **Value**:
 
-1. Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
+    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out." lightbox="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png":::
+
+    Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 
     * Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if you configure the rule to trigger when temperature is above 70 then the rule triggers almost instantly when the device temperature exceeds this value.
     * With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition. For example, if you configure the rule to trigger when temperature is above 70 and with an average time aggregation of 10 minutes, then the rule triggers when the device reports an average temperature greater than 70, calculated over a 10-minute interval.
-
-    :::image type="content" source="media/tutorial-create-telemetry-rules/aggregate-condition-filled-out.png" alt-text="Screenshot that shows the aggregate condition filled out":::
 
 You can add multiple conditions to a rule by selecting **+ Condition**. When multiple conditions are added, you can specify if all the conditions must be met or any of the conditions must be met for the rule to trigger. If you're using time aggregation with multiple conditions, all the telemetry values must be aggregated.
 
@@ -112,7 +101,7 @@ After you define the condition, you set up the actions to take when the rule fir
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot that shows the email action for the rule":::
+    :::image type="content" source="media/tutorial-create-telemetry-rules/configure-action.png" alt-text="Screenshot that shows the email action for the rule." lightbox="media/tutorial-create-telemetry-rules/configure-action.png":::
 
 1. To save the action, choose **Done**. You can add multiple actions to a rule.
 
@@ -120,7 +109,7 @@ After you define the condition, you set up the actions to take when the rule fir
 
 After a while, you receive an email message when the rule fires:
 
-:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Screenshot that shows notification email":::
+:::image type="content" source="media/tutorial-create-telemetry-rules/email.png" alt-text="Screenshot that shows notification email." lightbox="media/tutorial-create-telemetry-rules/email.png":::
 
 ## Delete a rule
 
@@ -138,12 +127,7 @@ Choose the rule you want to customize. Use one or more filters in the **Target d
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
-## Next steps
-
-In this tutorial, you learned how to:
-
-* Create a telemetry-based rule
-* Add an action
+## Next step
 
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 

@@ -1,14 +1,14 @@
 ---
-title: Azure data transfer options for small datasets with low to moderate network bandwidth| Microsoft Docs
+title: Azure data transfer options for small datasets with low to moderate network bandwidth
 description: Learn how to choose an Azure solution for data transfer when you have low to moderate network bandwidth in your environment and you are planning to transfer small datasets.
 services: storage
-author: alkohli
+author: stevenmatthew
 
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Data transfer for small datasets with low to moderate network bandwidth
@@ -31,7 +31,8 @@ The options recommended in this scenario are:
 - **Graphical interface tools** such as Azure Storage Explorer and Azure Storage in Azure portal. These provide an easy way to view your data and quickly transfer a few files.
 
   - **Azure Storage Explorer** - This cross-platform tool lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob storage to manage blobs and folders, as well as upload and download blobs between your local file system and Blob storage, or between storage accounts.
-  - **Azure portal** - Azure Storage in Azure portal provides a web-based interface to explore files and upload new files one at a time. This is a good option if you do not want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
+  - **Azure portal**
+titleSuffix: Azure Storage in Azure portal provides a web-based interface to explore files and upload new files one at a time. This is a good option if you do not want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
 
 - **Scripting/programmatic tools** such as AzCopy/PowerShell/Azure CLI and Azure Storage REST APIs.
 

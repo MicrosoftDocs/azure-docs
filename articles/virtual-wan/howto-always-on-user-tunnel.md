@@ -7,13 +7,13 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---
 # Configure an Always On VPN user tunnel for Virtual WAN
 
-[!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
+[!INCLUDE [intro](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-always-on-intro.md)]
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ You must create a point-to-site configuration and edit the virtual hub assignmen
 
 ## Configure a user tunnel
 
-[!INCLUDE [user tunnel](../../includes/vpn-gateway-vwan-always-on-user.md)]
+[!INCLUDE [user tunnel](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-always-on-user.md)]
 
 ## To remove a profile
 

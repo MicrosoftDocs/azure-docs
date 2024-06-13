@@ -1,12 +1,13 @@
 ---
-title: Migrate devices from Azure IoT Central to Azure IoT Hub | Microsoft Docs
+title: Migrate devices from Azure IoT Central to Azure IoT Hub
 description: Describes how to use the migration tool to migrate devices that currently connect to an Azure IoT Central application to an Azure IoT hub.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/26/2022
+ms.date: 03/01/2024
 ms.topic: how-to
 ms.service: iot-central
 ---
+
 # Migrate devices to Azure IoT Hub
 
 If you decide to migrate from an IoT Central-based solution to an IoT Hub-based solution, you need to change the configuration of all the devices currently connected to your application. The **IoTC Migrator** tool automates this device migration process.
@@ -22,40 +23,113 @@ The tool requires your connected devices to implement a **DeviceMove** command t
 - Provision itself with DPS by using the new ID scope in the command payload.
 - Use the provisioning result to connect to the destination IoT hub and start sending telemetry again.
 
+> [!TIP]
+> You can also use the migrator tool to migrate devices between IoT Cental applications, or from an IoT hub to an IoT Central application.
+
+### Minimize disruption
+
+To minimize disruption, you can migrate your devices in phases. The migrator tool uses device groups to move devices from IoT Central to your IoT hub. Divide your device fleet into device groups such as devices in Texas, devices in New York, and devices in the rest of the US. Then migrate each device group independently.
+
+> [!WARNING]
+> You can't add unassigned devices to a device group. Therefore you can't currently use the migrator tool to migrate unassigned devices.
+
+Minimize business impact by following these steps:
+
+- Create the PaaS solution and run it in parallel with the IoT Central application.
+
+- Set up continuous data export in IoT Central application and appropriate routes to the PaaS solution IoT hub. Transform both data channels and store the data into the same data lake.
+
+- Migrate the devices in phases and verify at each phase. If something doesn't go as planned, fail the devices back to IoT Central.
+
+- When you've migrated all the devices to the PaaS solution and fully exported your data from IoT Central, you can remove the devices from the IoT Central solution.
+
+After the migration, devices aren't automatically deleted from the IoT Central application. These devices continue to be billed as IoT Central charges for all provisioned devices in the application. When you remove these devices from the IoT Central application, you're no longer billed for them. Eventually, remove the IoT Central application.
+
+### Move existing data out of IoT Central
+
+You can configure IoT Central to continuously export telemetry and property values. Export destinations are data stores such as Azure Data Lake, Event Hubs, and Webhooks. You can export device templates using either the IoT Central UI or the REST API. The REST API lets you export the users in an IoT Central application.
+
 ## Prerequisites
 
 You need the following prerequisites to complete the device migration steps:
 
 - The source IoT Central application where your devices currently connect.
 - The destination IoT hub where you want to move the devices to. This [IoT hub must be linked to a DPS instance](../../iot-dps/concepts-service.md#linked-iot-hubs).
-- The devices that you want to migrate must implement the **DeviceMove** command. The command payload contains the *ID scope* of the destination DPS instance.
 - [node.js and npm](https://nodejs.org/download/) installed on the local machine where you run the migrator tool.
 
-## Setup
+## Device requirements
+
+The devices that you want to migrate must implement the **DeviceMove** command in a component called **migration**. The command payload contains the *ID scope* of the destination DPS instance. The migrator tool repository includes an example [DTDL component model](https://raw.githubusercontent.com/Azure/iotc-migrator/main/assets/deviceMigrationComponent.json) that defines the **DeviceMove** command. You can add this component to your existing device templates.
+
+The tool assumes that the component name is `migration` and that the interface ID is `dtmi:azureiot:DeviceMigration;1`:
+
+:::image type="content" source="media/howto-migrate-to-iot-hub/component-name.png" alt-text="Screenshot that highlights the component name and interface ID.":::
+
+The tool repository also includes [sample code](https://github.com/Azure/iotc-migrator/tree/main/device_samples) that shows you how a device should implement the **DeviceMove** command.
+
+## Tool setup
 
 Complete the following setup tasks to prepare for the migration:
 
-### Azure Active Directory application
+<a name='azure-active-directory-application'></a>
 
-The migrator tool requires an Azure Active Directory application registration to enable it to authenticate with your Azure subscription:
+### Microsoft Entra application
 
-1. Navigate to [Azure portal > Azure Active Directory > App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+The migrator tool requires a Microsoft Entra application registration to enable it to authenticate with your Azure subscription:
+
+1. Navigate to [Azure portal > Microsoft Entra ID > App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 
 1. Select **New Registration**.
 
 1. Enter a name such as "IoTC Migrator app".
 
-1. Select **Accounts in this organizational directory only (iot-partners only - Single tenant)**.
+1. Select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**.
 
 1. Select **Single page application (SPA)**.
 
-1. Enter `http://localhost:3000` as the redirect URI.
+1. Enter `http://localhost:3000` as the redirect URI. You add this value to the migrator app configuration later.
 
 1. Select **Register**.
 
 1. Make a note of the **Application (client) ID** and **Directory (tenant) ID** values. You use these values later to configure the migrator app:
 
-    :::image type="content" source="media/howto-migrate-to-iot-hub/azure-active-directry-app.png" alt-text="Screenshot that shows the Azure Active Directory application in the Azure portal.":::
+    :::image type="content" source="media/howto-migrate-to-iot-hub/azure-active-directory-app.png" alt-text="Screenshot that shows the Microsoft Entra application in the Azure portal." lightbox="media/howto-migrate-to-iot-hub/azure-active-directory-app.png":::
+
+1. Navigate to the **Manifest** page in the registration and replace the contents of the `requiredResourceAccess` with the following configuration:
+
+    ```json
+    [
+      {
+        "resourceAppId": "9edfcdd9-0bc5-4bd4-b287-c3afc716aac7",
+        "resourceAccess": [
+          {
+            "id": "73792908-5709-46da-9a68-098589599db6",
+            "type": "Scope"
+          }
+        ]
+      },
+      {
+        "resourceAppId": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
+        "resourceAccess": [
+          {
+            "id": "41094075-9dad-400e-a0bd-54e686782033",
+            "type": "Scope"
+          }
+        ]
+      },
+      {
+        "resourceAppId": "00000003-0000-0000-c000-000000000000",
+        "resourceAccess": [
+          {
+            "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+            "type": "Scope"
+          }
+        ]
+      }
+    ]
+    ```
+
+1. Save the changes.
 
 ### Add the device keys to DPS
 
@@ -84,33 +158,30 @@ If your devices use X.509 certificates to authenticate to your IoT Central appli
 
 Download or clone a copy of the migrator tool to your local machine:
 
-```cmd/bash
+```cmd/sh
 git clone https://github.com/Azure/iotc-migrator.git
 ```
 
-Open the *config.ts* file in a text editor. Update the `AADClientID` and `AADDIrectoryID` with the values from the Azure Active Directory application registration you created previously. Update the `applicationHost` to match the URL of your IoT Central application. Then save the changes:
+In the root of the downloaded repository, create a *.env* file. Update the `REACT_APP_AAD_APP_CLIENT_ID`, `REACT_APP_AAD_APP_TENANT_ID`, and `REACT_APP_AAD_APP_REDIRECT_URI` values with the values from the Microsoft Entra application registration you created previously. Then save the changes:
 
-```typescript
-{
-    AADLoginServer: 'https://login.microsoftonline.com',
-    AADClientID: '<your-AAD-Application-(client)-ID>',
-    AADDirectoryID: '<your-AAD-Directory-(tenant)-ID>',
-    AADRedirectURI: 'http://localhost:3000',
-    applicationHost: '<your-iot-central-app>.azureiotcentral.com'
-}
+```txt
+PORT=3000
+REACT_APP_AAD_APP_CLIENT_ID=<your-AAD-Application-(client)-ID>
+REACT_APP_AAD_APP_TENANT_ID=<your-AAD-Directory-(tenant)-ID>
+REACT_APP_AAD_APP_REDIRECT_URI=http://localhost:3000
 ```
 
 > [!TIP]
-> Make sure the `AADRedirectURI` matches the redirect URI you used in your Azure Active Directory application registration.
+> Make sure the `REACT_APP_AAD_APP_REDIRECT_URI` matches the redirect URI you used in your Microsoft Entra application registration.
 
 In your command-line environment, navigate to the root of the `iotc-migrator` repository. Then run the following commands to install the required node.js packages and then run the tool:
 
-```cmd/bash
+```cmd/sh
 npm install
 npm start
 ```
 
-After the migrator app starts, navigate to `http://localhost:3000` to view the tool.
+After the migrator app starts, navigate to `http://localhost:3000` to view the tool. Sign in when you're prompted.
 
 ## Migrate devices
 
@@ -121,33 +192,29 @@ Use the tool to migrate your devices in batches. Enter the migration details on 
 1. Select a device template that includes the **DeviceMove** command definition.
 1. Select **Move to your own Azure IoT Hub**.
 1. Select the DPS instance linked to your target IoT hub.
-1. Select **Migrate**.
+1. Select **Migrate**. The tool prompts you to copy the keys from your IoT Central application to the DPS enrollment group. You previously completed this step in the [Add the device keys to DPS](#add-the-device-keys-to-dps) step.
 
-:::image type="content" source="media/howto-migrate-to-iot-hub/migrator-tool.png" alt-text="Screenshot of migration tool.":::
+:::image type="content" source="media/howto-migrate-to-iot-hub/migrator-tool.png" alt-text="Screenshot of migration tool that shows the migration definition." lightbox="media/howto-migrate-to-iot-hub/migrator-tool.png":::
 
 The tool now registers all the connected devices that matched the target device filter in the destination IoT hub. The tool then creates a job in your IoT Central application to call the **DeviceMove** method on all those devices. The command payload contains the ID scope of the destination DPS instance.
 
 ## Verify migration
 
-The **Migration status** page in the tool shows you when the migration is complete:
+Use the **Migration status** page in the migrator tool to monitor the progress:
 
-:::image type="content" source="media/howto-migrate-to-iot-hub/migration-complete.png" alt-text="Screenshot showing completed migration status in tool.":::
+:::image type="content" source="media/howto-migrate-to-iot-hub/migration-status.png" alt-text="Screenshot that shows the migration status page in the tool.":::
 
-Select a job on this page to view the [job status](howto-manage-devices-in-bulk.md#view-job-status) in your IoT Central application. Use this page to view the status of the individual devices in the job:
+Select a job on the **Migration status** page to view the [job status](howto-manage-devices-in-bulk.md#view-job-status) in your IoT Central application. Use this page to view the status of the individual devices in the job:
 
-:::image type="content" source="media/howto-migrate-to-iot-hub/job-status.png" alt-text="Screenshot showing completed migration status for IoT Central job.":::
+:::image type="content" source="media/howto-migrate-to-iot-hub/job-status.png" alt-text="Screenshot showing completed migration status for IoT Central job." lightbox="media/howto-migrate-to-iot-hub/job-status.png":::
 
 Devices that migrated successfully:
 
 - Show as **Disconnected** on the devices page in your IoT Central application.
 - Show as registered and provisioned in your IoT hub:
 
-    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-devices.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows the provisioned devices.":::
+    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-devices.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows the provisioned devices." lightbox="media/howto-migrate-to-iot-hub/destination-devices.png":::
 
 - Are now sending telemetry to your IoT hub
 
-    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-metrics.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows telemetry metrics for the migrated devices.":::
-
-## Next steps
-
-Now that know how to migrate devices from an IoT Central application to an IoT hub, a suggested next step is to learn how to [Monitor Azure IoT Hub](../../iot-hub/monitor-iot-hub.md).
+    :::image type="content" source="media/howto-migrate-to-iot-hub/destination-metrics.png" alt-text="Screenshot of IoT Hub in the Azure portal that shows telemetry metrics for the migrated devices." lightbox="media/howto-migrate-to-iot-hub/destination-metrics.png":::

@@ -1,17 +1,13 @@
 ---
 title: Send classic Cloud Services metrics to Azure Monitor metrics database
 description: Describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store. 
-author: anirudhcavale
-services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: ancav 
-ms.custom: devx-track-azurepowershell
+ms.date: 05/31/2024
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 With the Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
@@ -29,19 +25,17 @@ The process that's outlined in this article works only for performance counters 
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
-- Your Cloud Service must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
-
 ## Provision a cloud service and storage account 
 
 1. Create and deploy a classic cloud service. A sample classic Cloud Services application and deployment can be found at [Get started with Azure Cloud Services and ASP.NET](../../cloud-services/cloud-services-dotnet-get-started.md). 
 
-2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource blade, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
-
-   ![Storage account keys](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
+2. You can use an existing storage account or deploy a new storage account. It's best if the storage account is in the same region as the classic cloud service that you created. In the Azure portal, go to the **Storage accounts** resource pane, and then select **Keys**. Take note of the storage account name and the storage account key. You'll need this information in later steps.
+   <!-- convertborder later -->
+   :::image type="content" source="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png" lightbox="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png" alt-text="Storage account keys" border="false":::
 
 ## Create a service principal 
 
-Create a service principal in your Azure Active Directory tenant by using the instructions at [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while you're going through this process: 
+Create a service principal in your Microsoft Entra tenant by using the instructions at [Use portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). Note the following while you're going through this process: 
 
 - You can put in any URL for the sign-in URL.  
 - Create new client secret for this app.  
@@ -168,11 +162,11 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 1. Go to the Azure portal. 
 
-   ![Screenshot shows the Azure portal with Monitor, then Metrics selected.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   :::image type="content" source="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png" lightbox="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png" alt-text="Screenshot shows the Azure portal with Monitor, then Metrics selected.":::
 
 2. On the left menu, select **Monitor.**
 
-3. On the **Monitor** blade, select the **Metrics Preview** tab.
+3. On the **Monitor** pane, select the **Metrics Preview** tab.
 
 4. In the resources drop-down menu, select your classic cloud service.
 
@@ -181,8 +175,8 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 6. In the metrics drop-down menu, select **Memory\Committed Bytes in Use**. 
 
 You use the dimension filtering and splitting capabilities to view the total memory that's used by a specific role or role instance. 
-
- ![Screenshot shows Metrics data.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ <!-- convertborder later -->
+ :::image type="content" source="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png" lightbox="./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png" alt-text="Screenshot shows Metrics data." border="false":::
 
 ## Next steps
 

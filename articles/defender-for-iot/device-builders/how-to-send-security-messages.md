@@ -3,7 +3,6 @@ title: Send Defender for IoT device security messages
 description: Learn how to send your security messages using Defender for IoT.
 ms.topic: how-to
 ms.date: 03/28/2022
-ms.custom: devx-track-js
 ---
 
 # Send security messages SDK
@@ -76,7 +75,7 @@ Once set as a security message and sent, this message will be processed by Defen
 
 ## Send security messages
 
-Send security messages *without* using Defender for IoT agent, by using the [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), , [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python), or [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
+Send security messages *without* using Defender for IoT agent, by using the [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python), or [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
 To send the device data from your devices for processing by Defender for IoT, use one of the following APIs to mark messages for correct routing to Defender for IoT processing pipeline.
 

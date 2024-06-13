@@ -19,4 +19,4 @@ ms.date: 04/12/2021
  
    ![Configure the operating system of the VM](./media/azure-stack-edge-connect-to-hyperv-vm/connect-virtual-machine-03.png)<!--Reshot. How best to generalize client name?-->
 
-<!--Compare with the Hyper-V VM steps in https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/create-virtual-machine#complete-the-operating-system-deployment. Should licensing be raised as an issue in the Azure Stack Edge version?-->
+<!--Compare with the Hyper-V VM steps in https://learn.microsoft.com/virtualization/hyper-v-on-windows/quick-start/create-virtual-machine#complete-the-operating-system-deployment. Should licensing be raised as an issue in the Azure Stack Edge version?-->

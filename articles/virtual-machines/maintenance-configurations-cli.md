@@ -1,13 +1,13 @@
 ---
-title: Maintenance Configurations for Azure virtual machines using CLI 
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance configurations and CLI.
-author: cynthn
+title: Maintenance Configurations for Azure virtual machines using the Azure CLI
+description: Learn how to control when maintenance is applied to your Azure VMs by using Maintenance Configurations and the Azure CLI.
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
-ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 11/20/2020
-ms.author: cynthn
+ms.author: jushiman
 #pmcontact: shants
 ---
 
@@ -15,62 +15,90 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Maintenance Configurations lets you decide when to apply platform updates to various Azure resources. This topic covers the Azure CLI options for Dedicated Hosts and Isolated VMs. For more about benefits of using Maintenance Configurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
+You can use the Maintenance Configurations feature to control when to apply platform updates to various Azure resources. This article covers the Azure CLI options for using this feature. For more information about the benefits of using Maintenance Configurations, its limitations, and other management options, see [Managing platform updates with Maintenance Configurations](maintenance-configurations.md).
 
 > [!IMPORTANT]
-> There are different **scopes** which support certain machine types and schedules, so please ensure you are selecting the right scope for your virtual machine.
+> Specific *scopes* support certain machine types and schedules. Be sure to select the right scope for your virtual machine (VM).
 
 ## Create a maintenance configuration
 
-Use `az maintenance configuration create` to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+The first step in creating a maintenance configuration is creating a resource group as a container for your configuration. This example creates a resource group named *myMaintenanceRG* in *eastus*. If you already have a resource group that you want to use, you can skip this part and replace the resource group name with your own in the rest of the examples.
 
 ```azurecli-interactive
 az group create \
    --location eastus \
    --name myMaintenanceRG
-az maintenance configuration create \
-   -g myMaintenanceRG \
-   --resource-name myConfig \
-   --maintenance-scope host\
-   --location eastus
 ```
 
-Copy the configuration ID from the output to use later.
+After you create the resource group, use `az maintenance configuration create` to create a maintenance configuration.
 
-Using `--maintenance-scope host` ensures that the maintenance configuration is used for controlling updates to the host infrastructure.
+### Host
 
-If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your resource group.
-
-You can query for available maintenance configurations using `az maintenance configuration list`.
-
-```azurecli-interactive
-az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
-```
-
-### Create a maintenance configuration with scheduled window
-You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
+This example creates a maintenance configuration named *myConfig* scoped to host machines, with a scheduled window of 5 hours on the fourth Monday of every month:
 
 ```azurecli-interactive
 az maintenance configuration create \
-   -g myMaintenanceRG \
+   --resource-group myMaintenanceRG \
    --resource-name myConfig \
    --maintenance-scope host \
    --location eastus \
    --maintenance-window-duration "05:00" \
    --maintenance-window-recur-every "Month Fourth Monday" \
    --maintenance-window-start-date-time "2020-12-30 08:00" \
-   --maintenance-window-time-zone "Pacific Standard Time"
+   --maintenance-window-time-zone "Pacific Standard Time" 
 ```
 
-> [!IMPORTANT]
-> Maintenance **duration** must be *2 hours* or longer.
+Using `--maintenance-scope host` ensures that the maintenance configuration is used for controlling updates to the host infrastructure. If you try to create a configuration with the same name but in a different location, you'll get an error. Configuration names must be unique to your resource group.
 
+To check if you successfully created the maintenance configuration, you can query for available maintenance configurations by using `az maintenance configuration list`:
 
-Maintenance recurrence can be expressed as daily, weekly or monthly. Some examples are:
-- **daily**- maintenance-window-recur-every: "Day" **or** "3Days"
-- **weekly**- maintenance-window-recur-every: "3Weeks" **or** "Week Saturday,Sunday"
-- **monthly**- maintenance-window-recur-every: "Month day23,day24" **or** "Month Last Sunday" **or** "Month Fourth Monday"
+```azurecli-interactive
+az maintenance configuration list 
+   --query "[].{Name:name, ID:id}" 
+   --output table 
+```
 
+You can express maintenance recurrence as daily, weekly, or monthly. Here are some examples:
+
+- **Daily**: A `maintenance-window-recur-every` value of `"Day"` or `"3Days"`.
+- **Weekly**: A `maintenance-window-recur-every` value of `"3Weeks"` or `"Week Saturday,Sunday"`.
+- **Monthly**: A `maintenance-window-recur-every` value of `"Month day23,day24"` or `"Month Last Sunday"` or `Month Fourth Monday`.
+
+### Virtual machine scale sets
+
+This example creates a maintenance configuration named *myConfig* with the OS image scope for virtual machine scale sets, with a scheduled window of 5 hours on the fourth Monday of every month:
+
+```azurecli-interactive
+az maintenance configuration create \
+   --resource-group myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope osimage \
+   --location eastus \
+   --maintenance-window-duration "05:00" \
+   --maintenance-window-recur-every "Month Fourth Monday" \
+   --maintenance-window-start-date-time "2020-12-30 08:00" \
+   --maintenance-window-time-zone "Pacific Standard Time" 
+```
+
+### Guest VMs
+
+This example creates a maintenance configuration named *myConfig* scoped to guest machines (VMs and Azure Arc-enabled servers), with a scheduled window of 2 hours every 20 days. [Learn more about maintenance configurations on guest VMs](maintenance-configurations.md#guest).
+
+```azurecli-interactive
+az maintenance configuration create \
+   --resource-group myMaintenanceRG \
+   --resource-name myConfig \
+   --maintenance-scope InGuestPatch \
+   --location eastus \
+   --maintenance-window-duration "02:00" \
+   --maintenance-window-recur-every "20days" \
+   --maintenance-window-start-date-time "2022-12-30 07:00" \
+   --maintenance-window-time-zone "Pacific Standard Time" \
+   --install-patches-linux-parameters package-name-masks-to-exclude="ppt" package-name-masks-to-include="apt" classifications-to-include="Other" \
+   --install-patches-windows-parameters kb-numbers-to-exclude="KB123456" kb-numbers-to-include="KB123456" classifications-to-include="FeaturePack" \
+   --reboot-setting "IfRequired" \
+   --extension-properties InGuestPatchMode="User"
+```
 
 ## Assign the configuration
 
@@ -78,7 +106,7 @@ Use `az maintenance assignment create` to assign the configuration to your machi
 
 ### Isolated VM
 
-Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for to the VM in `--resource-group`, and the location of the VM for `--location`. 
+Apply the configuration to an isolated host VM by using the ID of the configuration. Specify `--resource-type virtualMachines`. Supply the name of the VM for `--resource-name`, the VM's resource group for `--resource-group`, and the location of the VM for `--location`.
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -88,31 +116,57 @@ az maintenance assignment create \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
    --configuration-assignment-name myConfig \
-   --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
+   --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
 ```
 
 ### Dedicated host
 
-To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
+To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`.
 
 The parameter `--resource-id` is the ID of the host. You can use [az-vm-host-get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
 
 ```azurecli-interactive
 az maintenance assignment create \
-   -g myDHResourceGroup \
+   --resource-group myDHResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
    --configuration-assignment-name myConfig \
-   --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myDhResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig" \
-   -l eastus \
+   --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myDhResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig" \
+   --location eastus \
    --resource-parent-name myHostGroup \
    --resource-parent-type hostGroups 
 ```
 
-## Check configuration
+### Virtual machine scale sets
 
-You can verify that the configuration was applied correctly, or check to see what configuration is currently applied using `az maintenance assignment list`.
+```azurecli-interactive
+az maintenance assignment create \
+   --resource-group myMaintenanceRG \
+   --location eastus \
+   --resource-name myVMSS \
+   --resource-type virtualMachineScaleSets \
+   --provider-name Microsoft.Compute \
+   --configuration-assignment-name myConfig \
+   --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
+```
+
+### Guest VMs
+
+```azurecli-interactive
+az maintenance assignment create \
+   --resource-group myMaintenanceRG \
+   --location eastus \
+   --resource-name myVM \
+   --resource-type virtualMachines \
+   --provider-name Microsoft.Compute \
+   --configuration-assignment-name myConfig \
+   --maintenance-configuration-id "/subscriptions/{subscription ID}/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig"
+```
+
+## Check the configuration
+
+You can verify that the configuration was applied correctly, or check to see what configuration is currently applied, by using `az maintenance assignment list`.
 
 ### Isolated VM
 
@@ -135,19 +189,42 @@ az maintenance assignment list \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
    --resource-parent-name myHostGroup \
-   --resource-parent-type hostGroups 
+   --resource-parent-type hostGroups \
    --query "[].{ResourceGroup:resourceGroup,configName:name}" \
-   -o table
+   --output table
 ```
 
+### Virtual machine scale sets
+
+```azurecli-interactive
+az maintenance assignment list \
+   --provider-name Microsoft.Compute \
+   --resource-group myMaintenanceRG \
+   --resource-name myVMSS \
+   --resource-type virtualMachines \
+   --query "[].{resource:resourceGroup, configName:name}" \
+   --output table
+```
+
+### Guest VMs
+
+```azurecli-interactive
+az maintenance assignment list \
+   --provider-name Microsoft.Compute \
+   --resource-group myMaintenanceRG \
+   --resource-name myVM \
+   --resource-type virtualMachines \
+   --query "[].{resource:resourceGroup, configName:name}" \
+   --output table
+```
 
 ## Check for pending updates
 
-Use `az maintenance update list` to see if there are pending updates. Update --subscription to be the ID for the subscription that contains the VM.
+Use `az maintenance update list` to see if there are pending updates. Update `--subscription` to be the ID for the subscription that contains the VM.
 
-If there are no updates, the command will return an error message, which will contain the text: `Resource not found...StatusCode: 404`.
+If there are no updates, the command returns an error message that contains the text `Resource not found...StatusCode: 404`.
 
-If there are updates, only one will be returned, even if there are multiple updates pending. The data for this update will be returned in an object:
+If there are updates, the command returns only one, even if multiple updates are pending. The data for this update is returned in an object:
 
 ```text
 [
@@ -164,58 +241,58 @@ If there are updates, only one will be returned, even if there are multiple upda
 
 ### Isolated VM
 
-Check for pending updates for an isolated VM. In this example, the output is formatted as a table for readability.
+Check for pending updates for an isolated VM. In this example, the output is formatted as a table for readability:
 
 ```azurecli-interactive
 az maintenance update list \
-   -g myMaintenanceRg \
+   --subscription {subscription ID} \
+   --resourcegroup myMaintenanceRg \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
-   -o table
+   --output table
 ```
 
 ### Dedicated host
 
-To check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. Replace the values for the resources with your own.
+Check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. Replace the values for the resources with your own.
 
 ```azurecli-interactive
 az maintenance update list \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myHostResourceGroup \
+   --subscription {subscription ID} \
+   --resourcegroup myHostResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
    --resource-parentname myHostGroup \
    --resource-parent-type hostGroups \
-   -o table
+   --output table
 ```
 
 ## Apply updates
 
-Use `az maintenance apply update` to apply pending updates. On success, this command will return JSON containing the details of the update. Apply update calls can take upto 2 hours to complete.
+Use `az maintenance apply update` to apply pending updates. On success, this command returns JSON that contains the details of the update. Calls to apply updates can take up to 2 hours to complete.
 
 ### Isolated VM
 
-Create a request to apply updates to an isolated VM.
+Create a request to apply updates to an isolated VM:
 
 ```azurecli-interactive
 az maintenance applyupdate create \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
+   --subscription {subscriptionID} \
    --resource-group myMaintenanceRG \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute
 ```
 
-
 ### Dedicated host
 
-Apply updates to a dedicated host.
+Apply updates to a dedicated host:
 
 ```azurecli-interactive
 az maintenance applyupdate create \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
+   --subscription {subscriptionID} \
    --resource-group myHostResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
@@ -224,11 +301,24 @@ az maintenance applyupdate create \
    --resource-parent-type hostGroups
 ```
 
-## Check the status of applying updates 
+### Virtual machine scale sets
 
-You can check on the progress of the updates using `az maintenance applyupdate get`. 
+Apply updates to a scale set:
 
-You can use `default` as the update name to see results for the last update, or replace `myUpdateName` with the name of the update that was returned when you ran `az maintenance applyupdate create`.
+```azurecli-interactive
+az maintenance applyupdate create \
+   --subscription {subscriptionID} \
+   --resource-group myMaintenanceRG \
+   --resource-name myVMSS \
+   --resource-type virtualMachineScaleSets \
+   --provider-name Microsoft.Compute
+```
+
+## Check the status of applying updates
+
+You can check on the progress of the updates by using `az maintenance applyupdate get`.
+
+To see results for the last update, use `default` as the update name. Or replace `myUpdateName` with the name of the update that was returned when you ran `az maintenance applyupdate create`.
 
 ```text
 Status         : Completed
@@ -240,24 +330,28 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime will be the time when the update got complete, either initiated by you or by the platform in case self-maintenance window was not used. If there has never been an update applied through maintenance control it will show default value.
+
+`LastUpdateTime` is the time when the update finished, whether you initiated the update or the platform initiated it because you didn't use the self-maintenance window. If an update was never applied through Maintenance Configurations, `LastUpdateTime` shows the default value.
 
 ### Isolated VM
 
 ```azurecli-interactive
 az maintenance applyupdate get \
+   --subscription {subscriptionID} \ 
    --resource-group myMaintenanceRG \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
-   --apply-update-name default 
+   --apply-update-name myUpdateName \
+   --query "{LastUpdate:lastUpdateTime, Name:name, ResourceGroup:resourceGroup, Status:status}" \
+   --output table
 ```
 
 ### Dedicated host
 
 ```azurecli-interactive
 az maintenance applyupdate get \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \ 
+   --subscription {subscriptionID} \ 
    --resource-group myMaintenanceRG \
    --resource-name myHost \
    --resource-type hosts \
@@ -269,17 +363,31 @@ az maintenance applyupdate get \
    --output table
 ```
 
+### Virtual machine scale sets
+
+```azurecli-interactive
+az maintenance applyupdate get \
+   --subscription {subscriptionID} \ 
+   --resource-group myMaintenanceRG \
+   --resource-name myVMSS \
+   --resource-type virtualMachineScaleSets \
+   --provider-name Microsoft.Compute \
+   --apply-update-name myUpdateName \
+   --query "{LastUpdate:lastUpdateTime, Name:name, ResourceGroup:resourceGroup, Status:status}" \
+   --output table
+```
 
 ## Delete a maintenance configuration
 
-Use `az maintenance configuration delete` to delete a maintenance configuration. Deleting the configuration removes the maintenance control from the associated resources.
+To delete a maintenance configuration, use `az maintenance configuration delete`. Deleting the configuration removes the maintenance control from the associated resources.
 
 ```azurecli-interactive
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myResourceGroup \
+   -resource-group myResourceGroup \
    --resource-name myConfig
 ```
 
 ## Next steps
-To learn more, see [Maintenance and updates](maintenance-and-updates.md).
+
+To learn more, see [Maintenance for virtual machines in Azure](maintenance-and-updates.md).

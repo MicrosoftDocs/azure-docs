@@ -2,7 +2,7 @@
 title: Quickstart - Enable managed identities for your Automation account using the Azure portal
 description: This quickstart helps you enable managed identities for your Automation account using the Azure portal
 services: automation
-ms.date: 09/07/2021
+ms.date: 09/30/2023
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mode-ui
@@ -17,7 +17,7 @@ This Quickstart shows you how to enable managed identities for an Azure Automati
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure Automation account. For instructions, see [Create an Automation account](create-account-portal.md).
+- An Azure Automation account. For instructions, see [Create an Automation account](./create-azure-automation-account-portal.md).
 
 - A user-assigned managed identity. For instructions, see [Create a user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). The user-assigned managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
 
@@ -31,7 +31,7 @@ This Quickstart shows you how to enable managed identities for an Azure Automati
 
 1. Set the system-assigned **Status** option to **On** and then press **Save**. When you're prompted to confirm, select **Yes**.
 
-   Your Automation account can now use the system-assigned identity, which is registered with Azure Active Directory (Azure AD) and is represented by an object ID.
+   Your Automation account can now use the system-assigned identity, that is registered with Microsoft Entra ID and is represented by an object ID.
 
    :::image type="content" source="media/enable-managed-identity/system-assigned-object-id.png" alt-text="Managed identity object ID.":::
 

@@ -2,16 +2,15 @@
 title: "Quickstart: Create an instance using the Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service.
-services: database-migration
-author: croblesm
-ms.author: roblescarlos
-manager: craigg
-ms.reviewer: craigg
-ms.service: dms
-ms.workload: data-services
-ms.custom: seo-lt-2019, mode-ui
-ms.topic: quickstart
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
 ms.date: 01/29/2021
+ms.service: dms
+ms.topic: quickstart
+ms.custom:
+  - mode-ui
+  - sql-migration-content
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
@@ -22,16 +21,16 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to the Azure portal
 
-Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal. The default view is your service dashboard.
+From a web browser, sign in to the [Azure portal](https://portal.azure.com). The default view is your service dashboard.
 
 > [!NOTE]
 > You can create up to 10 instances of DMS per subscription per region. If you require a greater number of instances, please create a support ticket.
 
 <!--- Register the resource provider -->
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
 <!--- Create an instance of the service -->
-[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]  
+[!INCLUDE [instance-create](./includes/database-migration-service-instance-create.md)]  
 
 ## Clean up resources
 

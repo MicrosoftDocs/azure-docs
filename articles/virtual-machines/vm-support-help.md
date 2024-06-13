@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 4/28/2021
+ms.date: 05/30/2024
 ms.custom: support-help-page
 ---
 
@@ -20,7 +20,7 @@ Here are suggestions for where you can get help when developing your Azure Virtu
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
 
-For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+For a full list of self help troubleshooting content, see [Azure Windows Virtual Machines troubleshooting documentation](/troubleshoot/azure/virtual-machines/windows/welcome-virtual-machines-windows) and [Azure Linux Virtual Machines troubleshooting documentation](/troubleshoot/azure/virtual-machines/linux/welcome-virtual-machines-linux).
 
 
 ## Post a question on Microsoft Q&A
@@ -38,13 +38,6 @@ If you can't find an answer to your problem using search, submit a new question 
 |-------|----------------------|
 | [Azure Virtual Machines](./linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
 | [Azure SQL Virtual Machines](/azure/azure-sql/virtual-machines/index) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
-| [Azure Virtual Machine backup](backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
-| [Azure Virtual Machine extension](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machines-extension.html)| 
-| [Azure Virtual Machine Images](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
-| [Azure Virtual Machine migration](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machines-migration.html) | 
-| [Azure Virtual Machine monitoring](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machines-monitoring.html) |
-| [Azure Virtual Machine networking](../virtual-network/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
-| [Azure Virtual Machine storage](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machines-storage.html) | 
 | [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 
 ## Create an Azure support request

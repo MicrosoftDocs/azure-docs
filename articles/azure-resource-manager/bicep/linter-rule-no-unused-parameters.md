@@ -1,8 +1,9 @@
 ---
 title: Linter rule - no unused parameters
 description: Linter rule - no unused parameters
-ms.topic: conceptual
-ms.date: 11/18/2021
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 03/20/2024
 ---
 
 # Linter rule - no unused parameters
@@ -18,6 +19,10 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 ## Solution
 
 To reduce confusion in your template, delete any parameters that are defined but not used. This test finds any parameters that aren't used anywhere in the template. Eliminating unused parameters also makes it easier to deploy your template because you don't have to provide unnecessary values.
+
+You can use **Quick Fix** to remove the unused parameters:
+
+:::image type="content" source="./media/linter-rule-no-unused-parameters/linter-rule-no-unused-parameters-quick-fix.png" alt-text="The screenshot of No unused parameters linter rule quick fix.":::
 
 ## Next steps
 

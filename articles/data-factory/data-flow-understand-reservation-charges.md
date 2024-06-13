@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ms.author: makromer
 ---
 
@@ -34,7 +34,7 @@ To understand and view the application of your Azure Reservations in billing usa
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following article:
 

@@ -8,6 +8,7 @@ ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.custom: devx-track-python
 ---
 
 # Create an Event Hub data connection for Azure Synapse Data Explorer by using Python (Preview)
@@ -73,7 +74,7 @@ location = "Central US"
 table_name = "StormEvents"
 mapping_rule_name = "StormEvents_CSV_Mapping"
 data_format = "csv"
-#Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller, check https://learn.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
                                         parameters=EventHubDataConnection(event_hub_resource_id=event_hub_resource_id, consumer_group=consumer_group, location=location,
                                                                             table_name=table_name, mapping_rule_name=mapping_rule_name, data_format=data_format))

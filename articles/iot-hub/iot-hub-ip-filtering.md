@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Hub IP filters | Microsoft Docs
+title: Azure IoT Hub IP filters
 description: How to use IP filtering to allow connections from specific IP addresses for to your Azure IoT hub.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 03/22/2021
+
 ms.author: kgremban 
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 03/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -28,7 +28,7 @@ By default, the **IP Filter** grid in the portal for an IoT hub is empty. This d
 
 ## Add or edit an IP filter rule
 
-To add an IP filter rule, select **+ Add IP Filter Rule**. To quickly add your computer's IP address, click the **Add your client IP address**.
+To add an IP filter rule, select **Add IP Filter Rule**. To quickly add your computer's IP address, select **Add your client IP address**.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Screenshot showing how to add an IP filter rule to an IoT hub.":::
 
@@ -54,9 +54,9 @@ To delete an IP filter rule, select the trash can icon on that row and then sele
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Screenshot showing how to delete an IoT Hub IP filter rule.":::
 
-## Apply IP filter rules to the built-in Event Hub compatible endpoint
+## Apply IP filter rules to the built-in Event Hubs compatible endpoint
 
-To apply the IP filter rules to the built-in Event Hub compatible endpoint, check the box next to **Apply IP filters to the built-in endpoint?**, then select **Save**.
+To apply the IP filter rules to the built-in Event Hubs compatible endpoint, check the box next to **Apply IP filters to the built-in endpoint?**, then select **Save**.
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-built-in-endpoint.png" alt-text="Screenshot showing the toggle for the built-in endpoint.":::
 
@@ -69,7 +69,7 @@ If you disable this option, the built-in endpoint is accessible to all IP addres
 
 ## How filter rules are applied
 
-The IP filter rules are applied at the IoT Hub service level. Therefore, the IP filter rules apply to all connections from devices and back-end apps using any supported protocol. Also, you can choose if the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) (not via the IoT Hub connection string) are bound to these rules.
+The IP filter rules are applied at the IoT Hub service level. Therefore, the IP filter rules apply to all connections from devices and back-end apps using any supported protocol. Also, you can choose if the [built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md) (not via the IoT Hub connection string) are bound to these rules.
 
 Any connection attempt from an IP address that isn't explicitly allowed receives an unauthorized 401 status code and description. The response message does not mention the IP rule. Rejecting IP addresses can prevent other Azure services such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in Azure portal from interacting with the IoT hub.
 
@@ -137,7 +137,7 @@ Here, `<ipFilterIndexToRemove>` must correspond to the ordering of IP filters in
 
 ## Retrieve and update IP filters using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/powershell/azure/).
 
@@ -163,12 +163,7 @@ $iothubResource | Set-AzResource -Force
 
 ## Update IP filter rules using REST
 
-
 You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](/rest/api/iothub/iothubresource/createorupdate).
-
-## IP filter (classic) retirement
-
-Classic IP filter has been retired. To learn more, see [IoT Hub classic IP filter and how to upgrade](iot-hub-ip-filter-classic.md).
 
 ## Next steps
 

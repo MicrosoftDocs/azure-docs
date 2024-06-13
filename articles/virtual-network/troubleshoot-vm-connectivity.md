@@ -1,13 +1,13 @@
 ---
 title:  Troubleshoot Azure VM connectivity problems
 description: Learn how to diagnose and resolve connectivity problems that affect Azure virtual machines (VMs).
-author: TobyTu
-ms.author: kaushika
+author: asudbring
+ms.author: allensu
 manager: dcscontentpm
 audience: ITPro
 ms.topic: troubleshooting
 ms.service: virtual-network
-localization_priority: Normal
+ms.localizationpriority: normal
 ms.date: 08/29/2019
 ---
 

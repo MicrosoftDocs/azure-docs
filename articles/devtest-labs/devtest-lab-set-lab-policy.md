@@ -4,7 +4,8 @@ description: Learn how to define lab policies such as VM sizes, maximum VMs per 
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/14/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Manage lab policies to control costs in Azure DevTest Labs
@@ -152,7 +153,7 @@ Autostart policy helps you minimize waste by specifying a specific time of day a
 > [!NOTE]
 > This policy isn't automatically applied to current VMs in the lab. To apply this setting to current VMs, open the VM's page and change its **Auto-start** setting.
 
-For more information and details about autostart policy, see [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.md).
+For more information and details about autostart policy, see [Start up lab virtual machines automatically](devtest-lab-auto-startup-vm.yml).
 
 ## Next steps
 
