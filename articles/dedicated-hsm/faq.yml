@@ -219,7 +219,7 @@ sections:
       - question: |
           Can I upgrade software/firmware on HSMs allocated to me?
         answer: |
-          The customer has full administrative control including upgrading software/firmware if specific features are required from different firmware versions. Before making changes please consult with Microsoft about your upgrade by contacting HSMRequest@microsoft.com  
+          The customer has full administrative control including upgrading software/firmware if specific features are required from different firmware versions. Before making changes please consult with Thales Support about your software/firmware upgrade scenario.
 
       - question: |
           How do I manage Dedicated HSM?

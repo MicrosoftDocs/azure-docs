@@ -59,7 +59,7 @@ The command should return a status of “Registered” (as shown below) before y
 
 ### Creating HSM resources
 
-An HSM device is provisioned into a customers’ virtual network. This implies the requirement for a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md), and finally a virtual machine is required to access the HSM device using the Thales client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files are available by contacting Microsoft directly at HSMrequest@Microsoft.com.
+An HSM device is provisioned into a customers' virtual network. This implies the requirement for a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md), and finally a virtual machine is required to access the HSM device using the Thales client software. 
 
 Once you have the files, you must edit the parameter file to insert your preferred names for resources. This means editing lines with “value”: “”.
 

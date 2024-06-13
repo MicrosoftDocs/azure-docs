@@ -18,11 +18,11 @@ The Azure Dedicated HSM service has two distinct facets. Firstly, the registrati
 
 ## HSM Registration
 
-Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use an allowlisting process via email using HSMrequest@microsoft.com. 
+Dedicated HSM is a valuable resource that delivers baremetal HSM capabilities in Azure, and is not freely available for use. To ensure proper utilization, we employ an allowlisting process to approve Azure subscriptions for onboarding and deployment. If you wish to proceed with onboarding to Dedicated HSM, please contact your Microsoft Account Manager for further guidance.
 
 ### Getting access to Dedicated HSM
 
-First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
+First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md). If then you believe only Dedicated HSM will fit your key storage requirements, then please contact your Microsoft Account Manager or Microsoft Customer Support for further guidance to request access. Please outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for.
 
 ## HSM Provisioning
 
