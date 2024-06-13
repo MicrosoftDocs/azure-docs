@@ -70,11 +70,23 @@ There were two versions of the legacy API. Depending on the endpoint, a differen
 
 1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
    - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators`
-   - array of indicators name: `value`
+   - Array of indicators name: `value`
+     ```json
+    {
+       "sourcesystem":"TIsource-example",
+       "value":[]
+    }
+    ```
 
 1. Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
    - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligenceindicators:upload`
-   - array of indicators name: `indicators`
+   - Array of indicators name: `indicators`
+    ```json
+    {
+       "sourcesystem":"TIsource-example",
+       "indicators":[]
+    }
+    ```
 
 #### Request URI 
 API versioning: `api-version=2022-12-01`<br>
