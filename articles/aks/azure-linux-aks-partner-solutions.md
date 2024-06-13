@@ -13,7 +13,7 @@ ms.date: 06/13/2024
 
 Microsoft collaborates with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Azure Linux Container Host on AKS.
 
-Our third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
+The third party partners featured in this article have introduction guides to help you start using their solutions with your applications running on Azure Linux Container Host on AKS.
 
 | Solutions          | Partners                                                                                       |
 |--------------------|------------------------------------------------------------------------------------------------|
