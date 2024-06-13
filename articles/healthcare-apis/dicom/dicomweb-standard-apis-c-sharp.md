@@ -309,7 +309,7 @@ _Details:_
 
 ```c#
 string query = $"/studies/{studyInstanceUid}/series/{seriesInstanceUid}/instances?SOPInstanceUID={sopInstanceUid}";
-DicomWebResponse response = await client.QueryStudyAsync(query);
+DicomWebResponse response = await client.QueryStudySeriesInstanceAsync(studyInstanceUid, seriesInstanceUid, query);
 ```
 
 Validates that the response includes one instance, and that the response code is OK.
