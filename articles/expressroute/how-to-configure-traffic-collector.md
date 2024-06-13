@@ -11,13 +11,13 @@ ms.author: duau
 #Customer intent: As a network engineer, I want to configure ExpressRoute Traffic Collector to import flow logs into a Log Analytics workspace.
 ---
 
-# Configure Traffic Collector for ExpressRoute Direct
+# Configure Traffic Collector for ExpressRoute
 
 This article helps you deploy an ExpressRoute Traffic Collector using the Azure portal. You learn how to add and remove an ExpressRoute Traffic Collector, associate it to an ExpressRoute circuit and Log Analytics workspace. Once the ExpressRoute Traffic Collector is deployed, sampled flow logs get imported into a Log Analytics workspace. For more information, see [About ExpressRoute Traffic Collector](traffic-collector.md).
 
 ## Prerequisites
 
-- An ExpressRoute circuit with bandwidth 1gbps or greater and Private or Microsoft peering configured.
+- An ExpressRoute circuit with bandwidth 1 Gbps or greater and Private or Microsoft peering configured.
 
 - A Log Analytics workspace (Create new or use existing workspace).
 ## Limitations
