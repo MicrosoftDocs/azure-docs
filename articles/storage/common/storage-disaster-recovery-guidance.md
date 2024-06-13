@@ -251,7 +251,7 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 >
 > During a disaster that affects the primary region, Microsoft will manage the failover for classic storage accounts. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
 
-#### Hierarchical namespace and SFTP
+#### Hierarchical namespace (HNS)
 
 [!INCLUDE [updated-for-az](../../../includes/storage-failover-unplanned-hns-preview-include.md)]
 
