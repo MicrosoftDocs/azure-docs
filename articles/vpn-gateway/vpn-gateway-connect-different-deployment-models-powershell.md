@@ -113,7 +113,7 @@ In this section, you configure your already existing classic VNet. If your VNet 
 
 In the **VirtualNetworkSites** element, add a gateway subnet to your VNet if one hasn't already been created. The gateway subnet MUST be named "GatewaySubnet" or Azure can't recognize and use it as a gateway subnet.
 
-[!INCLUDE [No NSG](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [No NSG](../../includes/vpn-gateway-no-nsg-include.md)]
 
 **Example:**
 

@@ -30,11 +30,11 @@ Before you create a connection, be aware of the following:
 
 ### Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="signin"></a>Sign in
 
-[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## Add a connection
 

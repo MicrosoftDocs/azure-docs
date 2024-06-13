@@ -164,13 +164,13 @@ If you're using Catalina, use these authentication settings steps:
 
 The following example uses **TunnelBlick**.
 
-[!INCLUDE [OpenVPN Mac](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-mac.md)]
+[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
 ## OpenVPN: iOS steps
 
 The following example uses **OpenVPN Connect** from the App store.
 
-[!INCLUDE [OpenVPN iOS](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 
 ## Next steps
 

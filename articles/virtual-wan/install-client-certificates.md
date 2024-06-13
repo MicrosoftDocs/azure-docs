@@ -17,11 +17,11 @@ If you want to generate a client certificate, see [Generate and export certifica
 
 ## <a name="installwin"></a>Windows
 
-[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## <a name="installmac"></a>macOS
 
-[!INCLUDE [Install on Mac](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
+[!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
 ## <a name="installlinux"></a>Linux
 
