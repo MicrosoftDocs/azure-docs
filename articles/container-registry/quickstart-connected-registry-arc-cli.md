@@ -27,19 +27,20 @@ The Connected registry is a pivotal tool for the edge customers for efficiently 
 
 * Set up the connection between the Kubernetes cluster and Azure Arc by following the [quickstart.][quickstart-connect-cluster]
 
-* [Install Azure CLI][Install Azure CLI] to connect to Azure and Kubernetes.
+* Set up the [Azure CLI][Install Azure CLI] to connect to Azure and Kubernetes.
 
 * Use the [k8s-extension][k8s-extension] command to manage Kubernetes extensions.
 
     ```azurecli
     az extension add --name k8s-extension
     ```
-* An Azure resource provider is a set of REST operations that enable functionality for a specific Azure service. Register the required [Azure resource providers][azure-resource-provider-requirements] in your subscription and use Azure Arc-enabled Kubernetes:
+* Register the required [Azure resource providers][azure-resource-provider-requirements] in your subscription and use Azure Arc-enabled Kubernetes:
 
     ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
     ```
+    An Azure resource provider is a set of REST operations that enable functionality for a specific Azure service. 
 
 ## Deploy the Connected registry arc extension with secure-by-default settings
 
@@ -238,8 +239,7 @@ Now, you can deploy the Connected registry extension with HTTPS (TLS encryption)
     --config-protected-file protected-settings-extension.json 
     ```
 
-### Deploy Connected registry extension using their own BYOC public certificate and private key pair management 
-
+### Deploy Connected registry extension using Bring Your Own Certificate (BYOC) for TLS encryption
 
 Follow the [Deploying the Connected registry extension,](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster) and add the public certificate and private key string variable + value pair. 
 
@@ -247,19 +247,19 @@ Follow the [Deploying the Connected registry extension,](#deploy-the-connected-r
 
 > [!NOTE]
 > The public certificate and private key pair must be encoded in base64 format and added to the protected settings file.
-
-    ```json
-    { 
     
-    # TLS settings 
-    
-    tls: 
-    
-    crt: "public-cert"
-          key: "private-key"
-    
-    } 
-    ```
+```json
+        { 
+        
+        # TLS settings 
+        
+        tls: 
+        
+        crt: "public-cert"
+              key: "private-key"
+        
+        } 
+```
 
 1. Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the public certificate and private key pair management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the public certificate and private key pair is used instead for encryption.  
 
