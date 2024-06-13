@@ -187,15 +187,7 @@ As an alternative, you can capture and review the network trace for when you cre
 
 #### On-premises data gateway resource definition
 
-If your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. To view the data gateway's resource definition, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com), find and view the Azure resource for your on-premises data gateway.
-
-1. On the resource menu, under **Automation**, select **Export template**.
-
-   After Azure generates the template, the gateway's resource definition appears in the code window.
-
-For more information, see [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
+If your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. To view the data gateway's resource definition, see [Automate deployment for Azure Logic Apps by using Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md#data-gateway-resource-definitions) and [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
 
 ### Release to Azure
 
