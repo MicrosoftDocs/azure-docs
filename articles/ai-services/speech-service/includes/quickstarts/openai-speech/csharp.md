@@ -224,6 +224,10 @@ Conversation ended.
 PS C:\dev\openai\csharp>
 ```
 
+## Reduce latency for text to speech output
+
+The text stream API enables real-time text processing for fast audio generation and minimizes latency, enhancing the fluidity and responsiveness of real-time audio outputs. This API is ideal for applications requiring dynamic text vocalization, such as reading outputs from AI models like Azure OpenAI in real-time. Refer to [how to use the text stream API](~/articles/ai-services/speech-service/how-to-lower-speech-synthesis-latency.md?pivots=programming-language-csharp#text-stream). 
+
 ## Remarks
 
 Here are some more considerations:
