@@ -4,7 +4,7 @@ description: Configure core Azure IoT MQ MQTT broker settings for high availabil
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
 ms.date: 04/22/2024
@@ -121,6 +121,10 @@ spec:
   brokerImage:
     pullPolicy: Always
     repository: mcr.microsoft.com/azureiotoperations/dmqtt-pod
+    tag: 0.4.0-preview
+  healthManagerImage:
+    pullPolicy: Always
+    repository: mcr.microsoft.com/azureiotoperations/dmqtt-operator
     tag: 0.4.0-preview
   memoryProfile: medium
   mode: distributed

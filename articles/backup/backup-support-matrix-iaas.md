@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 06/13/2024
 ms.custom: references_regions, linux-related-content
 ms.reviewer: sharrai
 ms.service: backup
@@ -181,6 +181,7 @@ Configure standalone Azure VMs in Windows Storage Spaces | Not supported.
 Restore with managed identities | Supported for managed Azure VMs. <br><br> Not supported for classic and unmanaged Azure VMs. <br><br> Cross-region restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions. <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 <a name="tvm-backup">Back up trusted launch VMs</a>    |  Backup is supported. <br><br> Backup of trusted launch VMs is supported through [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup through a [Recovery Services vault](./backup-azure-arm-vms-prepare.md), the [pane for managing a VM](./backup-during-vm-creation.md#start-a-backup-after-creating-the-vm), and the [pane for creating a VM](backup-during-vm-creation.md#create-a-vm-with-backup-configured).    <br><br>   **Feature details**   <br><br> - Backup is supported in all regions where trusted launch VMs are available. <br><br> - Configuration of backups, alerts, and monitoring for trusted launch VMs is supported through the backup center. <br><br> - Migration of an existing [Gen2 VM](../virtual-machines/generation-2.md) (protected with Azure Backup) to a trusted launch VM is currently not supported. [Learn how to create a trusted launch VM](../virtual-machines/trusted-launch-portal.md?tabs=portal#deploy-a-trusted-launch-vm).  <br><br> - Item-level restore is supported for the scenarios mentioned [here](backup-support-matrix-iaas.md#support-for-file-level-restore).      <br><br>     Note that if the trusted launch VM was created by converting a Standard VM, ensure that you remove all the recovery points created using Standard policy before enabling the backup operation for the VM. 
 [Back up confidential VMs](../confidential-computing/confidential-vm-overview.md) | Unsupported. <br><br>    Note that the following limited preview support scenarios are discontinued and currently not available: <br><br> - Backup of Confidential VMs with no confidential disk encryption.   <br> - Backup of Confidential VMs with confidential OS disk encryption through a platform-managed key (PMK).
+Backup of VMs with SSE and CMK encryption using HSM | Supported. <br><br> You must assign the permissions get, wrap, and uwrap key to the Key Vault to User-assgined managed identity.
 
 ## VM storage support
 
@@ -197,7 +198,7 @@ Backup and restore of deduplicated VMs or disks | Azure Backup doesn't support d
 Adding a disk to a protected VM | Supported.
 Resizing a disk on a protected VM | Supported.
 Shared storage| Backing up VMs by using Cluster Shared Volumes (CSV) or Scale-Out File Server isn't supported. CSV writers are likely to fail during backup. On restore, disks that contain CSV volumes might not come up.
-[Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
+[Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported. <br><br> You can exclude shared disk with Enhanced policy and backup the other supported disks in the VM.
 <a name="ultra-disk-backup">Ultra disks</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md).        <br><br>    [Supported regions](../virtual-machines/disks-types.md#ultra-disk-limitations).      <br><br>    - Configuration of Ultra disk protection is supported via Recovery Services vault and via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Ultra disks. <br><br> - GRS type vaults cannot be used for enabling backup. <br><br>    - File-level restore is currently not supported for machines using Ultra disks. 
 <a name="premium-ssd-v2-backup">Premium SSD v2</a> | Supported with [Enhanced policy](backup-azure-vms-enhanced-policy.md).       <br><br>    [Supported regions](../virtual-machines/disks-types.md#regional-availability).     <br><br>    - Configuration of Premium SSD v2 disk protection is supported via Recovery Services vault and via virtual machine blade.       <br><br>    - Cross-region restore is currently not supported for machines using Premium v2 disks and GRS type vaults cannot be used for enabling backup.  <br><br>    - File-level restore is currently not supported for machines using Premium SSD v2 disks. 
 [Temporary disks](../virtual-machines/managed-disks-overview.md#temporary-disk) | Azure Backup doesn't back up temporary disks.

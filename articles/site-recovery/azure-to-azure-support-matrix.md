@@ -137,6 +137,10 @@ Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-fo
 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
 
+> [!NOTE]
+> Enable replication through create virtual machine deployment workflow isn't supported for virtual machines with OS RHEL 9* and above. 
+
+
 **Release** | **Mobility service version** | **Red Hat kernel version** |
 --- | --- | --- |
 RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.61 | 5.14.0-70.93.2.el9_0.x86_64 <br> 5.14.0-284.54.1.el9_2.x86_64 <br>5.14.0-284.57.1.el9_2.x86_64 <br>5.14.0-284.59.1.el9_2.x86_64 <br>5.14.0-362.24.1.el9_3.x86_64 |
@@ -424,7 +428,7 @@ NSG on NIC | Supported | Associate the NSG with the NIC using an Azure Automatio
 NSG on subnet | Supported | Associate the NSG with the subnet using an Azure Automation script in a recovery plan.
 Reserved (static) IP address | Supported | If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the failed over VM.<br/><br/> If the target subnet doesn't have the same IP address available, one of the available IP addresses in the subnet is reserved for the VM.<br/><br/> You can also specify a fixed IP address and subnet in **Replicated items** > **Settings** > **Network** > **Network interfaces**.
 Dynamic IP address | Supported | If the NIC on the source has dynamic IP addressing, the NIC on the failed over VM is also dynamic by default.<br/><br/> You can modify this to a fixed IP address if required.
-Multiple IP addresses | Supported | When you fail over a VM that has a NIC with multiple IP addresses, only the primary IP address of the NIC in the source region is kept by default. To failover Secondary IP Configurations, go to the **Network** blade and configure them.
+Multiple IP addresses | Supported | When you fail over a VM that has a NIC with multiple IP addresses, only the primary IP address of the NIC in the source region is kept by default. To failover Secondary IP Configurations, go to the **Network** blade and configure them. <br> This is supported only for region replication, zone to zone replication isn't supported.
 Traffic Manager     | Supported | You can preconfigure Traffic Manager so that traffic is routed to the endpoint in the source region on a regular basis, and to the endpoint in the target region in case of failover.
 Azure DNS | Supported |
 Custom DNS    | Supported |

@@ -82,15 +82,15 @@ This quickstart uses the Azure Identity library with Azure CLI or Azure PowerShe
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-python-qs-rg-kv-creation.md)]
 
 ### Set the KEY_VAULT_NAME environmental variable
 
-[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../../../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../includes/key-vault-set-environmental-variables.md)]
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Create the sample code
 
