@@ -106,8 +106,8 @@ In the prior section, you registered your container app to authenticate users. I
 
 You can register native clients to request access your container app's APIs on behalf of a signed in user.
 
-1. In the [Azure portal], select **Active Directory** > **App registrations** > **New registration**.
-1. In the **Register an application** page, enter a **Name** for your app registration.
+1. In the [Azure portal], select **Microsoft Entra ID** > **Add** > **App registrations**.
+1. In the *Register an application* page, enter a **Name** for your app registration.
 1. In **Redirect URI**, select **Public client (mobile & desktop)** and type the URL `<app-url>/.auth/login/aad/callback`. For example, `https://<hostname>.azurecontainerapps.io/.auth/login/aad/callback`.
 
     > [!NOTE]
@@ -124,7 +124,7 @@ In this section, you configured a native client application that can request acc
 
 Your application can acquire a token to call a Web API hosted in your container app on behalf of itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 [client credentials](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) grant.
 
-1. In the [Azure portal], select **Active Directory** > **App registrations** > **New registration**.
+1. In the [Azure portal], select **Microsoft Entra ID** > **Add** > **App registrations**.
 1. In the **Register an application** page, enter a **Name** for your daemon app registration.
 1. For a daemon application, you don't need a Redirect URI so you can keep that empty.
 1. Select **Create**.
