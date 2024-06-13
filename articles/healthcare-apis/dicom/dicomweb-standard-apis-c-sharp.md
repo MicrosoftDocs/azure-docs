@@ -305,7 +305,7 @@ This request searches for one or more instances within a single study and single
 
 _Details:_
 
-* GET /studies/{study}/series/{series}instances?SOPInstanceUID={instance}
+* GET /studies/{study}/series/{series}/instances?SOPInstanceUID={instance}
 
 ```c#
 string query = $"/studies/{studyInstanceUid}/series/{seriesInstanceUid}/instances?SOPInstanceUID={sopInstanceUid}";
