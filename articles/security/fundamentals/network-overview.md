@@ -96,7 +96,7 @@ The ability to control routing behavior on your virtual networks is critical. If
 
 Azure networking supports the ability to customize the routing behavior for network traffic on your virtual networks. This enables you to alter the default routing table entries in your virtual network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your virtual network through a specific location.
 
-For example, you might have a virtual network security appliance on your virtual network. You want to make sure that all traffic to and from your virtual network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDRs) in Azure.
+For example, you might have a virtual network security appliance on your virtual network. You want to make sure that all traffic to and from your virtual network goes through that virtual security appliance. You can do this by configuring [User Defined Routes (UDRs)](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) in Azure.
 
 [Forced tunneling](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to requests from internet hosts, and so internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
 
