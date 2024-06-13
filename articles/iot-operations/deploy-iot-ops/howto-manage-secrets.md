@@ -125,7 +125,7 @@ When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy
 The following example shows how to prepare the cluster for Azure IoT Operations without fully deploying it by using `--no-deploy` flag. You can also run the command without this argument for a default Azure IoT Operations deployment.
 
 ```bash
-az iot ops init --name "<your unique key vault name>" --resource-group "<the name of the resource group>" \
+az iot ops init --cluster "<your cluster name>" --resource-group "<the name of the resource group>" \
     --kv-id <Key Vault Resource ID> \
     --sp-app-id <Application registration App ID (client ID) from Microsoft Entra ID> \
     --sp-object-id <Object ID copied from Enterprise Application in Microsoft Entra ID> \
