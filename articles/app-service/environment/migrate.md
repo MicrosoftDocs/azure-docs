@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 5/21/2024
+ms.date: 6/12/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -386,6 +386,10 @@ az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 In the [Azure portal](https://portal.azure.com), go to the **Migration** page for the App Service Environment that you're migrating. You can get to the **Migration** page by selecting the banner at the top of the **Overview** page for your App Service Environment, or by selecting the **Migration** item on the left menu.
 
 :::image type="content" source="./media/migration/portal-overview.png" alt-text="Screenshot that shows migration access points.":::
+
+Select the "In-place" migration option to start the in-place migration process. If you select the option for [side-by-side migration](side-by-side-migrate.md), you're taken to the documentation for that migration process. Don't select the side-by-side migration option if you want to use the in-place migration feature.
+
+:::image type="content" source="./media/migration/migration-selector-in-place.png" alt-text="Screenshot that shows the table with the migration options.":::
 
 On the **Migration** page, the platform validates if migration is supported for your App Service Environment. Select **Validate**, and then confirm that you want to proceed with the validation. The validation process takes a few seconds.
 

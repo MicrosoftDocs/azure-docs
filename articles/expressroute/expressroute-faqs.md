@@ -498,7 +498,7 @@ Yes, you can use Express Traffic Collector with ExpressRoute circuits used in a 
 
 ### Does ExpressRoute Traffic Collector support ExpressRoute provider ports?
 
-For supported ExpressRoute provider ports contact ErTCasks@microsoft.com.
+Yes. ExpressRoute Traffic Collector supports both ExpressRoute Provider and ExpressRoute Direct circuits with a bandwidth of 1Gbps or greater.
 
 ### What is the effect of maintenance on flow logging?
 
