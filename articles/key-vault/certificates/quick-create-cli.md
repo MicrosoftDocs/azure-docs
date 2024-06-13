@@ -26,7 +26,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
+[!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
 
 ## Add a certificate to Key Vault
 

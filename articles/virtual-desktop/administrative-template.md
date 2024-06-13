@@ -73,7 +73,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
 1. Copy and paste the **terminalserver-avd.admx** file to the Group Policy Central Store for your domain, for example `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions`, where *contoso.com* is your domain name. Then copy the **terminalserver-avd.adml** file to the `en-us` subfolder.
 
-1. Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+1. Open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
 
 1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop available for you to configure, as shown in the following screenshot:
 

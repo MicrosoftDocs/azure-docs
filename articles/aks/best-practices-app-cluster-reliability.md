@@ -435,7 +435,7 @@ Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/window
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking:
 
-:::image type="content" source="../virtual-network/media/create-vm-accelerated-networking/accelerated-networking.png" alt-text="Screenshot that shows communication between Azure VMs with and without Accelerated Networking.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-network/accelerated-networking.png" alt-text="Screenshot that shows communication between Azure VMs with and without Accelerated Networking.":::
 
 For more information, see [Accelerated Networking overview](../virtual-network/accelerated-networking-overview.md).
 
