@@ -34,7 +34,7 @@ export LOCATION=<location>
 
 ## Install Istio add-on
 
-This section includes steps to install the Istio add-on during cluster creation or enable for an existing cluster using the Azure CLI. If you want to install the add-on using Bicep, see the [install an AKS cluster with the Istio service mesh add-on using Bicep][install-aks-cluster-istio-bicep] guide. To learn more about the Bicep resource definition for an AKS cluster, see [Bicep managedCluster reference][bicep-aks-resource-definition].
+This section includes steps to install the Istio add-on during cluster creation or enable for an existing cluster using the Azure CLI. If you want to install the add-on using Bicep, see the guide for [installing an AKS cluster with the Istio service mesh add-on using Bicep][install-aks-cluster-istio-bicep]. To learn more about the Bicep resource definition for an AKS cluster, see [Bicep managedCluster reference][bicep-aks-resource-definition].
 
 ### Revision selection
 

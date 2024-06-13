@@ -96,10 +96,20 @@ The following results evaluate the impact of adding sidecar proxies to the data 
 [ ![Diagram that compares P90 latency for Azure CNI Overlay.](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-azure-p90.png#lightbox)  |  [ ![Diagram that compares P90 latency for Azure CNI Overlay with Cilium.](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png) ](./media/aks-istio-addon/latency-box-plot/overlay-cilium-p90.png#lightbox)
 
 ## Scaling 
-The Istio add-on uses [horizontal pod autoscaling][hpa] to scale the `istiod` and ingress gateway pods. The default configurations for `istiod` and the gateways are autoscale `minReplicas` and `maxReplicas` of `2` and `5` replicas, respectively, with a target average CPU utilization of 80 percent. The add-on supports configuration of the following hpa resources for `istiod` and the ingress gateways through patches and direct edits:
+
+### Horizontal Pod Autoscaling
+
+[Horizontal pod autoscaling][hpa] is enabled for the `istiod` and ingress gateway pods. The default configurations for `istiod` and the gateways are:
+
+Horizontal pod autoscaling is enabled for `istiod` and ingress gateway pods. The default configurations are:
+- Min Replicas: 2
+- Max Replicas: 5
+- CPU Utilization: 80%
+
+The HPA configuration can be modified through patches and direct edits:
 
 > [!NOTE]
-> To prevent conflicts with the `PodDisruptionBudget`, the add-on does not allow setting the `minReplicas` below `2`, and will revert such changes back to the original default `minReplicas` count of `2`. 
+> To prevent conflicts with the `PodDisruptionBudget`, the add-on does not allow setting the `minReplicas` below the initial default of `2`.
 
 ```console
 NAMESPACE           NAME                                         REFERENCE
