@@ -15,7 +15,7 @@ ms.author: rolyon
 > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Eligible Azure role assignments provide just-in-time access to a role for a limited period of time. Microsoft Entra Privileged Identity Management (PIM) role activation has been integrated into the Access control (IAM) page in the Azure portal. If you have been made eligible for an Azure role, you can activate that role using the Azure portal.
+Eligible Azure role assignments provide just-in-time access to a role for a limited period of time. Microsoft Entra Privileged Identity Management (PIM) role activation has been integrated into the Access control (IAM) page in the Azure portal. If you have been made eligible for an Azure role, you can activate that role using the Azure portal. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 
 ## Prerequisites
 

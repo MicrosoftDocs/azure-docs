@@ -173,7 +173,7 @@ procedureSection:
       > Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
       > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, an **Assignment type** tab will appear. Use eligible assignments to provide just-in-time access to a role. For more information, see [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview).
+      If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, an **Assignment type** tab will appear. Use eligible assignments to provide just-in-time access to a role. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different. For more information, see [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview).
     steps:
       - |
         On the **Assignment type** tab, select the **Assignment type**.
@@ -242,6 +242,8 @@ procedureSection:
         :::image type="content" source="./media/role-assignments-portal/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-edit.png":::
       - |
         When finished, click **Save**.
+
+        It takes a few moments for your updates to be processed.
 
 relatedContent:
   - text: Assign a user as an administrator of an Azure subscription
