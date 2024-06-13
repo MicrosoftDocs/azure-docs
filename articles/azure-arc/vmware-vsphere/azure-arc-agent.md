@@ -51,7 +51,7 @@ Installing the Connected Machine agent for Window applies the following system-w
     | %ProgramFiles%\AzureConnectedMachineAgent | azcmagent CLI and instance metadata service executables.|
     | %ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\GC | Extension service executables.|
     | %ProgramFiles%\AzureConnectedMachineAgent\GCArcService\GC | Guest configuration (policy) service executables.|
-    | %ProgramData%\AzureConnectedMachineAgent | Configuration, log and identity token files for azcmagent CLI and instance metadata service.|
+    | %ProgramData%\AzureConnectedMachineAgent | Configuration, log, and identity token files for azcmagent CLI and instance metadata service.|
     | %ProgramData%\GuestConfig | Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
     | %SYSTEMDRIVE%\packages | Extension package executables. |
 
@@ -198,7 +198,7 @@ Metadata information about a connected machine is collected after the Connected 
 * Cluster resource ID (for Azure Stack HCI nodes)
 * Hardware manufacturer
 * Hardware model
-* CPU family, socket, physical core and logical core counts
+* CPU family, socket, physical core, and logical core counts
 * Total physical memory
 * Serial number
 * SMBIOS asset tag

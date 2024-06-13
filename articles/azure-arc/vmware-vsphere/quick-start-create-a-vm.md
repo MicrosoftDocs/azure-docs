@@ -59,7 +59,7 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 10. (Optional) Add tags to the VM resource if necessary.
 
-11. Select **Create** after reviewing all the properties.  It should take a few minutes to create the VM.
+11. Select **Create** after reviewing all the properties. It should take a few minutes to create the VM.
 
 ## Next steps
 
