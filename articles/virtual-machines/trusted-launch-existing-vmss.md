@@ -135,7 +135,7 @@ Make the following modifications to your existing ARM template deployment code. 
 
 5. Review the changes made to template.
 
-    [!INCLUDE [json](./scripts/trusted-launch-vmss.json)]
+    [!INCLUDE [json](./scripts/enable-trusted-launch-vmss-arm-template.md)]
 
 6. Execute the ARM template deployment.
 
