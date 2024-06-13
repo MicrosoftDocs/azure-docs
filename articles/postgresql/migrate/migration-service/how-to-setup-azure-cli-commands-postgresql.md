@@ -1,18 +1,23 @@
 ---
-title: Set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
+title: How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
 author: markingmyname
 ms.author: maghan
-ms.date: 06/11/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.topic: include
-ms.custom:
-  - devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ---
+
+# How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
 
 To begin migrating using Azure CLI, you need to install the Azure CLI on your local machine.
 
-- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli), 2.56.0 at minimum.
+## Prerequisites
+
+Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli), 2.56.0 at minimum.
+
+## Migrate commands
 
 Migrating with the Azure CLI uses the following commands:
 
@@ -46,3 +51,13 @@ The **create** command requires a JSON file, which contains the following inform
 | `MigrationMode` | Mode of the migration. The supported value is "Offline" |
 | `sourceType` | Required parameter. Values can be - OnPremises, AWS, AzureVM, PostgreSQLSingleServer |
 | `sslMode` | SSL modes for migration. SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer/Require for other source types |
+
+## Related content
+
+- [Migration service in Azure Database for PostgreSQL](../../concepts-migration-service-postgresql.md)
+- [Migrate from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server using the migration service](../../tutorial-migration-service-single-to-flexible.md)
+- [Migrate offline from AWS RDS PostgreSQL](../../tutorial-migration-service-aws-offline.md)
+- [Migrate online from AWS RDS PostgreSQL](../../tutorial-migration-service-aws-online.md)
+- [Migrate offline from on-premises or an Azure VM hosted PostgreSQL](../../tutorial-migration-service-iaas-offline.md)
+- [Migrate online from on-premises or an Azure VM hosted PostgreSQL](../../tutorial-migration-service-iaas-online.md)
+ 
