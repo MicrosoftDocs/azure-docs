@@ -1,5 +1,5 @@
 ---
-title: "Prerequisites using the migration service from AWS RDS PostgreSQL (online)"
+title: "Prerequisites using the migration service from an Azure VM or an on-premises PostgreSQL server (online)"
 description: Providing the online prerequisites for the migration service in Azure Database for PostgreSQL.
 author: apduvuri
 ms.author: adityaduvuri
@@ -82,3 +82,4 @@ If yes, search the server parameters page for the shared_preload_libraries param
 
 - The users and different roles must be migrated manually to the Azure Database for PostgreSQL – Flexible server. For migrating users and roles, you can use `pg_dumpall --globals-only -U <<username> -f <<filename>>.sql`.
 - Azure Database for PostgreSQL – The flexible server doesn't support any superuser; users having roles of superuser need to be removed before migration.
+

@@ -55,6 +55,35 @@ The **create** command requires a JSON file, which contains the following inform
 | `sourceType` | Required parameter. Values can be - OnPremises, AWS, AzureVM, PostgreSQLSingleServer |
 | `sslMode` | SSL modes for migration. SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer/Require for other source types |
 
+## Cutover the migration
+
+After the base data migration is complete, the migration task moves to `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration name in the migration grid or through CLI using the command below.
+
+For example:
+
+```azurecli-interactive
+az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --cutover
+```
+
+Before initiating cutover it is important to ensure that:
+
+- Writes to the source are stopped
+- `latency` value decreases to 0 or close to 0
+- `latency` value indicates when the target last synced up with the source. At this point, writes to the source can be stopped and cutover initiated.In case there is heavy traffic at the source, it is recommended to stop writes first so that `Latency` can come close to 0 and then cutover is initiated.
+- The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with non-zero `Latency`, the replication will stop until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. 
+- Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it is recommended that the latency goes to zero or near zero, before triggering the cutover. 
+
+The `latency` information can be obtained using the migration show command.
+Here's a snapshot of the migration before initiating the cutover:
+
+![Show command screenshot](../media/online_cli_aws/show-cli-sample-screenshot.png)
+
+After cutover is initiated, pending data captured during CDC is written to the target and migration is now complete.
+
+If the cutover is not successful, the migration moves to `Failed` state.
+
+For more information about this command, use the `help` parameter.
+
 ## Related content
 
 - [Migration service in Azure Database for PostgreSQL](../../concepts-migration-service-postgresql.md)

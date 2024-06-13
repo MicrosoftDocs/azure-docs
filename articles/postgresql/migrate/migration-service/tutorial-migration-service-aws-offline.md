@@ -25,25 +25,12 @@ The migration service in Azure Database for PostgreSQL is a fully managed servic
 > - Configure the migration task
 > - Monitor the migration
 > - Check the migration when completed
-> - Cancel the migration
 
 ## Prerequisites
 
 To complete the migration, you need the following prerequisites:
 
 [!INCLUDE [prerequisites-migration-service-postgresql-offline-aws](includes/aws/prerequisites-migration-service-postgresql-offline-aws.md)]
-
-You need additional prerequisites if you use the Azure CLI to migrate.
-
-#### [CLI](#tab/cli)
-
-[!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](includes/prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
-
-#### [Portal](#tab/portal)
-
-No further prerequisites are necessary if you're migrating with the Azure portal.
-
----
 
 ## Perform the migration
 
@@ -185,43 +172,37 @@ You can see the **validation** and the **migration** status under the migration 
 
 :::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-details-migration-aws.png" alt-text="Screenshot of the details showing validation and migration." lightbox="media/tutorial-migration-service-aws-offline/portal-offline-details-migration-aws.png":::
 
-Possible migration states include:
+Some possible migration states:
 
-- **InProgress**: The migration infrastructure setup is underway, or the actual data migration is in progress.
-- **Canceled**: The migration is canceled or deleted.
-- **Failed**: The migration has failed.
-- **Validation Failed** : The validation has failed.
-- **Succeeded**: The migration has succeeded and is complete.
-- **WaitingForUserAction**: Applicable only for online migration. Waiting for user action to perform cutover.
+### Migration States
 
-Possible migration substates include:
+| State | Description |
+| --- | --- |
+| **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
+| **Cancelled** | The migration is canceled or deleted. |
+| **Failed** | The migration has failed. |
+| **Validation Failed** | The validation has failed. |
+| **Succeeded** | The migration has succeeded and is complete. |
+| **WaitingForUserAction** | Applicable only for online migration. Waiting for user action to perform cutover. |
 
-- **PerformingPreRequisiteSteps**: Infrastructure setup is underway for data migration.
-- **Validation in Progress**: Validation is in progress.
-- **MigratingData**: Data migration is in progress.
-- **CompletingMigration**: Migration is in the final stages of completion.
-- **Completed**: Migration has been completed.
-- **Failed**: Migration is failed.
+### Migration Substates
 
-Possible validation substates include:
+| Substate | Description |
+| --- | --- |
+| **PerformingPreRequisiteSteps** | Infrastructure setup is underway for data migration. |
+| **Validation in Progress** | Validation is in progress. |
+| **MigratingData** | Data migration is in progress. |
+| **CompletingMigration** | Migration is in the final stages of completion. |
+| **Completed** | Migration has been completed. |
+| **Failed** | Migration has failed. |
 
-- **Failed**: Validation is failed.
-- **Succeeded**: Validation is successful.
-- **Warning**: Validation is in Warning. Warnings are informative messages that you must remember while planning the migration.
+### Validation Substates
 
-### Check the migration when completed
-
-After completing the databases, you need to manually validate the data between source and target and verify that all the objects in the target database are successfully created.
-
-After migration, you can perform the following tasks:
-
-- Verify the data on your flexible server and ensure it's an exact copy of the source instance.
-- Post verification, enable the high availability option on your flexible server as needed.
-- Change the SKU of the flexible server to match the application needs. This change needs a database server restart.
-- If you change any server parameters from their default values in the source instance, copy those server parameter values in the flexible server.
-Copy other server settings, such as tags, alerts, and firewall rules (if applicable), from the source instance to the flexible server.
-- Make changes to your application to point the connection strings to a flexible server.
-- Monitor the database performance closely to see if it requires performance tuning.
+| Substate | Description |
+| --- | --- |
+| **Failed** | Validation has failed. |
+| **Succeeded** | Validation is successful. |
+| **Warning** | Validation is in warning. | 
 
 ### Cancel the migration
 
@@ -314,9 +295,19 @@ The command gives you the following output:
 
 ---
 
-## Migration best practices
+## Check the migration when complete
 
-For a successful end-to-end migration, follow the post-migration steps in [Best practices for seamless migration into Azure Database for PostgreSQL](best-practices-migration-service-postgresql.md). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
+After completing the databases, you need to manually validate the data between source and target and verify that all the objects in the target database are successfully created.
+
+After migration, you can perform the following tasks:
+
+- Verify the data on your flexible server and ensure it's an exact copy of the source instance.
+- Post verification, enable the high availability option on your flexible server as needed.
+- Change the SKU of the flexible server to match the application needs. This change needs a database server restart.
+- If you change any server parameters from their default values in the source instance, copy those server parameter values in the flexible server.
+Copy other server settings, such as tags, alerts, and firewall rules (if applicable), from the source instance to the flexible server.
+- Make changes to your application to point the connection strings to a flexible server.
+- Monitor the database performance closely to see if it requires performance tuning.
 
 ## Related content
 

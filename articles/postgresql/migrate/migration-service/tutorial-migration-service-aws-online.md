@@ -24,26 +24,13 @@ The migration service in Azure Database for PostgreSQL is a fully managed servic
 > - Configure your Azure Database for PostgreSQL Flexible Server
 > - Configure the migration task
 > - Monitor the migration
-> - Cancel the migration
-> - Post migration
+> - Check the migration when completed
 
 ## Prerequisites
 
 To complete the migration, you need the following prerequisites:
 
-[!INCLUDE [prerequisites-migration-service-postgresql-online-aws](includes/aws/prerequisites-migration-service-postgresql-online-aws.md)]
-
-You need additional prerequisites if you use the Azure CLI to migrate.
-
-#### [CLI](#tab/cli)
-
-[!INCLUDE [prerequisites-setup-azure-CLI-commands-postgresql](includes/prerequisites/prerequisites-setup-azure-cli-commands-postgresql.md)]
-
-#### [Portal](#tab/portal)
-
-No further prerequisites are necessary if you're migrating with the Azure portal.
-
----
+[!INCLUDE [prerequisites-migration-service-postgresql-online-iaas](includes/iaas/prerequisites-migration-service-postgresql-online-iaas.md)]
 
 ## Perform the migration
 
@@ -164,21 +151,37 @@ You can see the results of validation and migration at the instance and database
 
 :::image type="content" source="media/tutorial-migration-service-aws-online/aws-details-migration.png" alt-text="Screenshot of Details migration." lightbox="media/tutorial-migration-service-aws-online/aws-details-migration.png":::
 
-Possible migration states include:
+Some possible migration states:
 
-- **In progress**: The migration infrastructure setup is underway, or the actual data migration is in progress.
-- **Canceled**: The migration is canceled or deleted.
-- **Failed**: The migration has failed.
-- **Validation Failed** : The validation has failed.
-- **Succeeded**: The migration has succeeded and is complete.
+### Migration States
 
-Possible migration substates include:
+| State | Description |
+| --- | --- |
+| **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
+| **Cancelled** | The migration is canceled or deleted. |
+| **Failed** | The migration has failed. |
+| **Validation Failed** | The validation has failed. |
+| **Succeeded** | The migration has succeeded and is complete. |
+| **WaitingForUserAction** | Applicable only for online migration. Waiting for user action to perform cutover. |
 
-- **PerformingPreRequisiteSteps**: Infrastructure setup is underway for data migration.
-- **Validation in Progress**: Validation is in progress.
-- **MigratingData**: Data migration is in progress.
-- **CompletingMigration**: Migration is in final stages of completion.
-- **Completed**: Migration has been completed.
+### Migration Substates
+
+| Substate | Description |
+| --- | --- |
+| **PerformingPreRequisiteSteps** | Infrastructure setup is underway for data migration. |
+| **Validation in Progress** | Validation is in progress. |
+| **MigratingData** | Data migration is in progress. |
+| **CompletingMigration** | Migration is in the final stages of completion. |
+| **Completed** | Migration has been completed. |
+| **Failed** | Migration has failed. |
+
+### Validation Substates
+
+| Substate | Description |
+| --- | --- |
+| **Failed** | Validation has failed. |
+| **Succeeded** | Validation is successful. |
+| **Warning** | Validation is in warning. | 
 
 #### Cutover
 
@@ -212,34 +215,9 @@ Once the CLI is installed, open the command prompt and log into your Azure accou
 `az login`
 ```
 
-#### Cutover the migration
+### Configure the migration task
 
-After the base data migration is complete, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, users can trigger the cutover from the portal by selecting the migration name in the migration grid or through the CLI using the command below.
-
-For example:
-
-```azurecli-interactive
-az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --cutover
-```
-
-Before initiating cutover, it's important to ensure that:
-
-- Writes to the source are stopped
-- `latency` value decreases to 0 or close to 0
-- The `latency` value indicates when the target last synced with the source. At this point, writes to the source can be stopped and cutover initiated. In case there's heavy traffic at the source, it's recommended to stop writes first so that `Latency` can come close to 0, and then cutover is initiated.
-- The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with nonzero `Latency`, the replication stops until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the changed data in the last 15 minutes are applied on the target.
-The time depends on the backlog of changes occurring in the last 15 minutes. Hence, it's recommended that the latency go to zero or near zero before triggering the cutover.
-
-The `latency` information can be obtained using the migration show command.
-Here's a snapshot of the migration before initiating the cutover:
-
-:::image type="content" source="media/tutorial-migration-service-aws-online/show-migration-cli.png" alt-text="Screenshot of a sample Azure CLI output." lightbox="media/tutorial-migration-service-aws-online/show-migration-cli.png":::
-
-After the cutover is initiated, pending data captured during CDC is written to the target, and migration is now complete.
-
-If the cutover is unsuccessful, the migration moves to `Failed` state.
-
-For more information about this command, use the `help` parameter.
+The migration service comes with a simple, wizard-based experience on the Azure portal. Here's how to start:
 
 #### Connect to source
 
@@ -312,7 +290,9 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
 Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
 
-### Check the migration when completed
+---
+
+## Check the migration when completed
 
 After completing the databases, you need to manually validate the data between source and target and verify that all the objects in the target database are successfully created.
 
@@ -325,12 +305,6 @@ After migration, you can perform the following tasks:
 Copy other server settings, such as tags, alerts, and firewall rules (if applicable), from the source instance to the flexible server.
 - Make changes to your application to point the connection strings to a flexible server.
 - Monitor the database performance closely to see if it requires performance tuning.
-
----
-
-## Migration best practices
-
-For a successful end-to-end migration, follow the post-migration steps in [Best practices for seamless migration into Azure Database for PostgreSQL](best-practices-migration-service-postgresql.md). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.
 
 ## Related content
 
