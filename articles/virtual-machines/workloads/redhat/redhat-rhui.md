@@ -15,7 +15,7 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-[Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) allows cloud providers, such as Azure, to:
+[Red Hat Update Infrastructure (RHUI)](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers, such as Azure, to:
 
 - Mirror Red Hat-hosted repository content
 - Create custom repositories with Azure-specific content

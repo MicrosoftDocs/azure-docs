@@ -209,7 +209,7 @@ During your testing of APIs through Azure API Management, if you encounter error
 
 Instead of using internal virtual network mode alone, many organizations choose to [apply a secured reverse proxy](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) mechanism to expose the internal mode **Azure API Management** instance to external partners and customers. The internal mode instance stays fully isolated with a tightly controlled ingress that _must_ go through the proxy.
 
-**Azure App Gateway** is a common service to use as a reverse proxy. Azure App Gateway also has a **web application firewall** (WAF) capability, which actively detects potential attacks against vulnerabilities in your applications and APIs.
+**Azure App Gateway** is a common service to use as a reverse proxy. Azure App Gateway also has a **web application firewall (WAF)** capability, which actively detects potential attacks against vulnerabilities in your applications and APIs.
 
 ### Configuring Azure API Management with a custom domain
 
