@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 This quickstart describes how to use Terraform to create a Front Door profile to set up high availability for a web endpoint.
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 In this article, you learn how to:
 
