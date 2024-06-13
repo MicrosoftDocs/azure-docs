@@ -114,7 +114,7 @@ It's a best practice to grant minimum permissions. If your application only need
 
 1. Select **+ Add** > **Add role assignment**.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot of Access control (IAM) page with Add role assignment menu open." border="true":::
+   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot of Access control (IAM) page with Add role assignment menu open." border="true":::
 
 1. Select an applicable role:
 

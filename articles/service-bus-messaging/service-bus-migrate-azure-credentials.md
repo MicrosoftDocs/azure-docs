@@ -110,7 +110,7 @@ The following steps explain how to migrate an existing application to use passwo
 
 For local development, make sure you're authenticated with the same Microsoft Entra account you assigned the role to for the Service Bus namespace. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
-[!INCLUDE [default-azure-credential-sign-in](~/reusable-content/ce-skilling/azure/includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 Next, update your code to use passwordless connections.
 
@@ -422,7 +422,7 @@ If you connected your services using the Service Connector you don't need to com
 
 1. Choose **Add role assignment**.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role.png":::
+   :::image type="content" source="../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../includes/passwordless/media/migration-add-role.png":::
 
 1. In the **Role** search box, search for *Azure Service Bus Data Owner*, which is a common role used to manage data operations for blobs. You can assign whatever role is appropriate for your use case. Select the *Azure Service Bus Data Owner* from the list and choose **Next**.
 
@@ -430,7 +430,7 @@ If you connected your services using the Service Connector you don't need to com
 
 1. In the flyout, search for the managed identity you created by entering the name of your app service. Select the system assigned identity, and then choose **Select** to close the flyout menu.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity.png":::
+   :::image type="content" source="../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
