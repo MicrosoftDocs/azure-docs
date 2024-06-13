@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 01/04/2024
+ms.date: 06/12/2024
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -609,7 +609,9 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Connection resource definitions
 
-When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/managed.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
+When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/managed.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. Also, if your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. For more information, see [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
+
+To review connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ```json
 {
