@@ -79,11 +79,11 @@ App Service Environment v3 tends to be more expensive than the public multitenan
 ## Frequently asked questions
 
 - [How do I know which offering is right for me?](#how-do-i-know-which-offering-is-right-for-me)
-- [Can I use App Service Environment v3 and the public multitenant offering together?](#can-i-use-app-service-environment-v3-and-the-public-multi-tenant-offering-together)
-- [Can I migrate from the public multitenant offering to App Service Environment v3?](#can-i-migrate-from-the-public-multi-tenant-offering-to-app-service-environment-v3)
+- [Can I use App Service Environment v3 and the public multitenant offering together?](##can-i-use-app-service-environment-v3-and-the-public-multitenant-offering-together')
+- [Can I migrate from the public multitenant offering to App Service Environment v3?](#can-i-migrate-from-the-public-multitenant-offering-to-app-service-environment-v3)
 - [Can I use App Service Environment v3 for my development and testing environments?](#can-i-use-app-service-environment-v3-for-my-development-and-testing-environments)
 - [How do I get started with App Service Environment v3?](#how-do-i-get-started-with-app-service-environment-v3)
-- [How do I get started with the App Service public multitenant offering?](#how-do-i-get-started-with-the-app-service-public-multi-tenant-offering)
+- [How do I get started with the App Service public multitenant offering?](#how-do-i-get-started-with-the-app-service-public-multitenant-offering)
 
 #### How do I know which offering is right for me?
 
