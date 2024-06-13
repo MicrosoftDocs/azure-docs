@@ -261,15 +261,17 @@ spec:
 EOF
 ```
 
-The `TriggerAuthentication` object specifies to KEDA that the scaled object using pod identity for authentication with the managed identity created for use has the workload identity specified.
+The manifest describes two resources.  The `TriggerAuthentication` object specifies to KEDA that the scaled object is using pod identity for authentication. The `identityID` property refers to the managed identity that was to use as the workload identity.
 
 When the scaled object is correctly installed and KEDA detects the scaling threshold is exceeded, it begins scheduling pods. If you are using k9s, you should see something like this:
 
 :::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
 
-Finally, if you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes.
+Finally, if you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes. Using k9s, you should see something like this:
 
-In these images, notice how the number of nodes whose name contains `aks-default` node pool has increased from one to three nodes. If you stop the producer app from putting messages on the queue, eventually the consumers will reduce the queue depth below the threshold and both KEDA and Karpenter will scale in. Using k9s, you should see something like this:
+:::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
+
+In these two images, notice how the number of nodes whose name contains `aks-default` node pool has increased from one to three nodes. If you stop the producer app from putting messages on the queue, eventually the consumers will reduce the queue depth below the threshold and both KEDA and Karpenter will scale in. Using k9s, you should see something like this:
 
 :::image type="content" source="media/eks-edw-deploy/sample-k9s-reduce.png" alt-text="Screenshot showing an example of the K9s view with reduced queue depth.":::
 
