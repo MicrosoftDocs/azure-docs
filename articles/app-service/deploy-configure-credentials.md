@@ -13,7 +13,7 @@ ms.author: cephalin
 To secure app deployment from a local computer, [Azure App Service](./overview.md) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
 and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as your Azure subscription credentials.
 
-[!INCLUDE [app-service-deploy-credentials](~/reusable-content/ce-skilling/azure/includes/app-service-deploy-credentials.md)]
+[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 > [!NOTE]
 > When [basic authentication is disabled](configure-basic-auth-disable.md), you can't view or configure deployment credentials in the Deployment Center.

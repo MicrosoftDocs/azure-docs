@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Connect to Azure Database for MySQL
 > * Troubleshoot errors
 
-[!INCLUDE [Free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ cd multicontainerwordpress
 
 ## Create a resource group
 
-[!INCLUDE [resource group intro text](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
+[!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
 In Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group#az-group-create) command. The following example creates a resource group named *myResourceGroup* in the *South Central US* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice#az-appservice-list-locations) command.
 
@@ -503,7 +503,7 @@ You'll see output similar to the following example:
 
 You see a log for each container and an additional log for the parent process. Copy the respective `href` value into the browser to view the log.
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
 ## Next steps
 

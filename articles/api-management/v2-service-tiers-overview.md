@@ -105,13 +105,13 @@ The following API Management capabilities are currently unavailable in the v2 ti
 
 The following resource limits apply to the v2 tiers.
 
-[!INCLUDE [api-management-service-limits-v2](~/reusable-content/ce-skilling/azure/includes/api-management-service-limits-v2.md)]
+[!INCLUDE [api-management-service-limits-v2](../../includes/api-management-service-limits-v2.md)]
 
 ## Developer portal limits
 
 The following limits apply to the developer portal in the v2 tiers.
 
-[!INCLUDE [api-management-developer-portal-limits-v2](~/reusable-content/ce-skilling/azure/includes/api-management-developer-portal-limits-v2.md)]
+[!INCLUDE [api-management-developer-portal-limits-v2](../../includes/api-management-developer-portal-limits-v2.md)]
 
 ## Deployment
 

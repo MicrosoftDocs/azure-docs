@@ -22,7 +22,7 @@ This article shows you how to create a managed identity for App Service and Azur
 > [!NOTE]
 > Managed identities are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
 
-[!INCLUDE [app-service-managed-identities](~/reusable-content/ce-skilling/azure/includes/app-service-managed-identities.md)]
+[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, navigate to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
 
