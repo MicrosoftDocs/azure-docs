@@ -2,7 +2,7 @@
 title: Configure public network access with Azure Batch accounts
 description: Learn how to configure public network access with Azure Batch accounts, for example enable, disable, or manage network rules for public network access.
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 06/13/2024
 ---
 
 # Configure public network access with Azure Batch accounts
