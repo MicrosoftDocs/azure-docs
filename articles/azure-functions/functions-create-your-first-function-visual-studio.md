@@ -55,7 +55,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | Enable | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the [Azurite emulator](../storage/common/storage-use-azurite.md?tabs=visual-studio) is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
     
-     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/functions-vs-tools-create/functions-project-settings-v4-isolated.png" alt-text="Screenshot of Azure Functions project settings.":::
+     :::image type="content" source="../../includes/media/functions-vs-tools-create/functions-project-settings-v4-isolated.png" alt-text="Screenshot of Azure Functions project settings.":::
     
     Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](./functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint in Azure.
 
