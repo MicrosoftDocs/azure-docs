@@ -826,17 +826,17 @@ When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](f
 
 ### vnetContentShareEnabled
 
-The Functions Premium plan relies on a file share to store app content. The name of this content share is stored in the [WEBSITE\_CONTENTSHARE](#website_contentshare) app setting and its connection string is stored in [WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you'll need to set vnetContentShareEnabled to `true`. Enabling this site property is a requirement when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans.
+Apps running in a Premium plan use a file share to store content. The name of this content share is stored in the [`WEBSITE_CONTENTSHARE`](#website_contentshare) app setting and its connection string is stored in [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you must also set `vnetContentShareEnabled` to `true`. Enabling this site property is a requirement when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans.
 
-This site property replaces the legacy [WEBSITE\_CONTENTOVERVNET](#website_contentovervnet) setting.
+This site property replaces the legacy [`WEBSITE_CONTENTOVERVNET`](#website_contentovervnet) setting.
 
 ### vnetImagePullEnabled
 
-Azure Functions [supports function apps running in Linux containers](functions-how-to-custom-container.md). To connect and pull from a container registry inside a virtual network, you'll need to set vnetImagePullEnabled to `true`. This site property is supported in the Elastic Premium and Dedicated hosting plans. The Flex Consumption plan does not rely on site properties or app settings to configure Networking, see [Flex Consumption plan deprecations](#flex-consumption-plan-deprecations).
+Functions [supports function apps running in Linux containers](functions-how-to-custom-container.md). To connect and pull from a container registry inside a virtual network, you must set `vnetImagePullEnabled` to `true`. This site property is supported in the Elastic Premium and Dedicated hosting plans. The Flex Consumption plan doesn't rely on site properties or app settings to configure Networking. For more information, see [Flex Consumption plan deprecations](#flex-consumption-plan-deprecations).
 
 ### vnetRouteAllEnabled
 
-Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `true` indicates that all application traffic is routed through the virtual network. You'll need this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated hosting plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
+Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `true` indicates that all application traffic is routed through the virtual network. Use this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
 This site setting replaces the legacy [WEBSITE\_VNET\_ROUTE\_ALL](#website_vnet_route_all) setting.
 
