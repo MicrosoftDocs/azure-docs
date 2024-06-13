@@ -17,7 +17,7 @@ ms.custom: attributes
 Time Series Insights is a service that enables operational analytics and reporting on historical data. It offers data ingestion, storage, contextualization, analysis, and querying capabilities. As part of migrating to [Real-Time Intelligence](/fabric/real-time-intelligence/overview), all of these capabilities can be met and even improved by migrating to [Eventhouse](/fabric/real-time-intelligence/eventhouse), the time series database in Real-Time Intelligence.
 
 > [!NOTE]
-> [Eventhouse](/fabric/real-time-intelligence/eventhouse) the evolution of [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) (ADX), a service that is trusted by many customers. Eventhouse uses the strength of ADX and offers a SaaS version in Fabric Real-Time Intelligence. We recommend Eventhouse because we think it will fit your needs better. 
+> [Eventhouse](/fabric/real-time-intelligence/eventhouse) the evolution of [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) (ADX), a service that is trusted by many customers. Eventhouse uses the strength of ADX and offers a SaaS version in Fabric Real-Time Intelligence. We recommend Eventhouse because we think it will fit your needs better. However, migrating to ADX as is still a good choice as a second option. TSI to ADX migration guidance is available [here](https://aka.ms/tsi2rti) > see Readiness section > **TSI to ADX - Lessons**. The repo also contains tooling to help you migrate effective to either Fabric or ADX. 
 
 ## Migration steps
 
