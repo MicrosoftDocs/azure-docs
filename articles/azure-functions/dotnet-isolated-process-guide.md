@@ -433,6 +433,27 @@ To enable ASP.NET Core integration for HTTP:
     }
     ```
 
+1. Since version 1.?.? of the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/) package, it is also possible to work directly with the `HttpContext`:
+
+    ```csharp
+    [Function("HttpFunction")]
+    public async Task RunAsync(
+        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpContext httpContext)
+    {
+        static int WriteBody(PipeWriter writer)
+        {
+            ReadOnlySpan<byte> body = "Welcome to Azure Functions!"u8;
+            writer.Write(body);
+            return body.Length;
+        }
+        
+        var responseHeaders = httpContext.Response.GetTypedHeaders();
+        responseHeaders.ContentLength = WriteBody(httpContext.Response.BodyWriter);
+        responseHeaders.ContentType = new MediaTypeHeaderValue(MediaTypeNames.Text.Plain);
+        await httpContext.Response.BodyWriter.FlushAsync();
+    }
+    ```
+
 ### Built-in HTTP model
 
 In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but isn't directly connected to the underlying HTTP listener or the received message. 
