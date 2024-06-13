@@ -19,6 +19,10 @@ To use Azure DNS for your custom domain, you must first delegate your domain to 
 
 You can configure a vanity or custom domain for Azure Function Apps, Public IP addresses, App Service (Web Apps), Blob storage, and Azure CDN.
 
+> [!NOTE]  
+> `CNAME` record maps a domain name to another domain (or subdomain) whereas `A` record maps a domain name to an IP address. If the IP address changes, a `CNAME` entry is still valid, unlike `A` record.
+
+
 ## Azure Function App
 
 To configure a custom domain for Azure function apps, a CNAME record is created and configured on the function app itself.
