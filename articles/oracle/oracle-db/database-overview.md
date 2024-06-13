@@ -37,29 +37,14 @@ Billing and payment for the service is done through Azure. Payment for Oracle Da
 
 Oracle Database@Azure is available in the following locations. Oracle Database@Azure infrastructure resources must be provisioned in the Azure regions listed.
 
-### United States
+|Azure region|Oracle Exadata Database@Azure|Oracle Autonomous Database@Azure|
+|-------------------------|:-------------:|:--------------:|
+|East US (Virginia)|&check; | &check;|
+|Germany West Central (Frankfurt)| &check;| |
+|France Central (Paris)|&check; | |
+|UK South (London)|&check; | |
+|Australia East (Sydney)| &check;| |
 
-|Azure region|
-|------------|
-|East US (Virginia)|
-
-### Germany
-
-|Azure region|
-|------------|
-|Germany West Central (Frankfurt)|
-
-### France
-
-|Azure region|
-|------------|
-|France Central (Paris)|
-
-### United Kingdom
-
-|Azure region|
-|------------|
-|UK South (London)
 
 ## Azure Support scope and contact information
 
