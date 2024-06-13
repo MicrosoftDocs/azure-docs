@@ -222,7 +222,7 @@ Each field can have one of the following types of values:
 |A set of values (`,` operator)|<nobr>`"20,30,40 * * * *"`</nobr>|3 times per hour, at 20 minutes, 30 minutes, and 40 minutes past the hour|
 |An interval value (`/` operator)|<nobr>`"*/10 * * * *"`</nobr>|6 times per hour, at 10 minutes, 20 minutes, and so on, past the hour
 
-[!INCLUDE [functions-cron-expressions-months-days](~/reusable-content/ce-skilling/azure/includes/functions-cron-expressions-months-days.md)]
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### Cron examples
 

@@ -12,7 +12,7 @@ ms.date: 11/02/2023
 
 # Integrate 3270 screen-driven apps on IBM mainframes with Azure using Azure Logic Apps and IBM 3270 connector
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To access and run IBM mainframe apps, which you usually execute by navigating through 3270 emulator screens, from Consumption and Standard workflows in Azure Logic Apps, you can use the **IBM 3270** connector. That way, you can integrate your IBM mainframe apps with Azure, Microsoft, and other apps, services, and systems by creating automated workflows with Azure Logic Apps. The connector communicates with IBM mainframes by using the TN3270 protocol. The **IBM 3270** connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
