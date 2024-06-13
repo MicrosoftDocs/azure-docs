@@ -2,8 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 04/11/2023
-
+ms.date: 06/13/2024
 ---
 # Nodes and pools in Azure Batch
 
