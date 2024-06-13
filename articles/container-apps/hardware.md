@@ -15,7 +15,7 @@ Workload profiles in Azure Container Apps run on specialized hardware with speci
 
 ## Image size limit
 
-[!INCLUDE [container-apps-limits](~/reusable-content/ce-skilling/azure/includes/container-apps/container-apps-limits.md)]
+[!INCLUDE [container-apps-limits](../../includes/container-apps/container-apps-limits.md)]
 
 For more information on differences in hardware selection, see the [workload profiles overview](workload-profiles-overview.md).
 

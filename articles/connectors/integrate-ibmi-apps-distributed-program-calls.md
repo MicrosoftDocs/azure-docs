@@ -12,7 +12,7 @@ ms.date: 03/07/2024
 
 # Integrate COBOL and RPG programs on IBM midrange systems with Standard workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 To access and run COBOL and RPG programs on IBM midrange systems from Standard workflows in Azure Logic Apps, you can use the **IBM i Program Call** built-in, service provider-based connector. The IBM i operating system provides a Distributed Program Calls (DPC) server. The connector communicates with the IBM i DPC server to execute COBOL and RPG programs by using TCP/IP. The IBM i connector is available in all Azure Logic Apps regions except for Azure Government and Microsoft Azure operated by 21Vianet.
 
