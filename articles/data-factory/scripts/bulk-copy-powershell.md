@@ -14,9 +14,9 @@ ms.date: 01/05/2024
 
 This sample PowerShell script copies data from multiple tables in Azure SQL Database to Azure Synapse Analytics.
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 See [tutorial: bulk copy](../tutorial-bulk-copy.md#prerequisites) for the prerequisites for running this sample.
 

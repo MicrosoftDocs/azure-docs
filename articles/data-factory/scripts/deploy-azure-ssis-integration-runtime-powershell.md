@@ -14,9 +14,9 @@ ms.date: 10/20/2023
 
 This sample PowerShell script creates an Azure-SSIS integration runtime that can run your SSIS packages in Azure.  
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Sample script
 
