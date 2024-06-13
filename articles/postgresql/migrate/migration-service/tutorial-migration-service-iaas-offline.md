@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Migrate offline from an Azure VM or an on-premises PostgreSQL server to Azure Database for PostgreSQL, the migration service
 
-This article guides you in migrating an Azure virtual machine (VM) or an on-premises PostgreSQL server to Azure Database for PostgreSQL flexible server with the migration service using the Azure portal and Azure CLI.
+This article guides you in migrating an Azure virtual machine (VM) or an on-premises PostgreSQL server to an Azure Database for PostgreSQL flexible server with the migration service using the Azure portal and Azure CLI.
 
 The migration service in Azure Database for PostgreSQL is a fully managed service integrated into the Azure portal and Azure CLI. It's designed to simplify your migration journey to the Azure Database for PostgreSQL flexible server.
 
@@ -38,7 +38,7 @@ You can migrate by using the Azure portal or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
-This article guides you in using the Azure portal to migrate your PostgreSQL database from an Azure VM or an on-premises PostgreSQL server to an Azure Database for PostgreSQL. The Azure portal allows you to perform various tasks, including database migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
+This article guides you using the Azure portal to migrate your PostgreSQL database from an Azure VM or an on-premises PostgreSQL server to an Azure Database for PostgreSQL. The Azure portal allows you to perform various tasks, including database migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
 ### Configure the migration task
 
@@ -50,7 +50,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. In the **Overview** tab of the flexible server, on the left menu, scroll down to **Migration** and select it.
 
-    :::image type="content" source="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png" alt-text="Screenshot of the migration selection." lightbox="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png":::
+    :::image type="content" source="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png" alt-text="Screenshot of the migration selection in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png":::
 
 1. Select the **Create** button to migrate to a flexible server from on-premises or Azure VMs.
 
@@ -69,7 +69,7 @@ The user needs to provide multiple details related to the migration, like the mi
 
 - **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
-- **Source Server Type** - Depending on your PostgreSQL source, you can select Azure Database for PostgreSQL single server, on-premises, Azure VM.
+- **Source Server Type** - Depending on your PostgreSQL source, you can select Azure Database for PostgreSQL Single Server, Azure VM, or on-premises.
 
 - **Migration Option** - Allows you to perform validations before triggering a migration. You can pick any of the following options
     - **Validate** - Checks your server and database readiness for migration to the target.
@@ -84,17 +84,17 @@ To learn more about the premigration validation, visit [premigration](../../conc
 
 Select the **Next: Connect to source** button.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/01-portal-offline-setup-migration.png" alt-text="Screenshot of the setup migration page." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-setup-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/01-portal-offline-setup-migration.png" alt-text="Screenshot of the Setup migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-setup-migration.png":::
 
 #### Runtime Server
 
 The Migration Runtime Server is a specialized feature within the [migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md), designed to act as an intermediary server during migration. It's a separate Azure Database for PostgreSQL - Flexible Server instance that isn't the target server but is used to facilitate the migration of databases from a source environment that is only accessible via a private network.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/02-portal-offline-runtime-server-migration-iaas.png" alt-text="Screenshot of the Migration Runtime Server page.":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/02-portal-offline-runtime-server-migration-iaas.png" alt-text="Screenshot of the Migration Runtime Server page in the Azure portal.":::
 
 For more information about the Runtime Server, visit the [Migration Runtime Server](concepts-migration-service-runtime-server.md).
 
-#### Connect to the source
+#### Connect to source
 
 The **Connect to Source** tab prompts you to give details related to the source selected in the **Setup Tab**, which is the source of the databases.
 
@@ -112,7 +112,7 @@ The **Connect to Source** tab prompts you to give details related to the source 
 
 After the successful test connection, select the **Next: Select Migration target** button.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/03-portal-offline-connect-source-migration.png" alt-text="Screenshot of connect source migration page." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-connect-source-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/03-portal-offline-connect-source-migration.png" alt-text="Screenshot of connect source migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-connect-source-migration.png":::
 
 #### Select migration target
 
@@ -126,7 +126,7 @@ The **select migration target** tab displays metadata for the Flexible Server ta
 
 After the successful test connection, select the **Next: Select Database(s) for Migration**
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/04-portal-offline-select-migration-target.png" alt-text="Screenshot of the connect target migration page." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-connect-target-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/04-portal-offline-select-migration-target.png" alt-text="Screenshot of the connect target migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-connect-target-migration.png":::
 
 #### Select databases for migration
 
@@ -134,13 +134,13 @@ Under the **Select database for migration** tab, you can choose a list of user d
 
 After selecting the databases, select the **Next: Summary**.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/05-portal-offline-select-databases-for-migration.png" alt-text="Screenshot of the fetchDB migration page.":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/05-portal-offline-select-databases-for-migration.png" alt-text="Screenshot of the fetchDB migration page in the Azure portal.":::
 
 #### Summary
 
-The Summary tab summarizes all the source and target details for creating the validation or migration. Review the details and select the Start Validation and Migration button.
+The **Summary** tab summarizes all the source and target details for creating the validation or migration. Review the details and select the Start Validation and Migration button.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/06-portal-offline-summary-migration.png" alt-text="Screenshot of the summary migration page." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-summary-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/06-portal-offline-summary-migration.png" alt-text="Screenshot of the summary migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-summary-migration.png":::
 
 ### Monitor the migration
 
@@ -163,7 +163,7 @@ In the **Setup** tab, we have selected the migration option as **Validate and Mi
 Validation details are available at the instance and database level.
 
 - **Validation at Instance level**
-    - Contains validation related to the connectivity check, source version, that is, PostgreSQL version >= 9.5, server parameter check, if the extensions are enabled in the server parameters of the Azure Database for PostgreSQL - flexible server.
+    - Contains validation related to the connectivity check, source version, that is, PostgreSQL version >= 9.5, and server parameter check, whether the extensions are enabled in the server parameters of the Azure Database for PostgreSQL—flexible server.
 - **Validation at Database level**
     - It contains validation of the individual databases related to extensions and collations support in Azure Database for PostgreSQL, a flexible server.
 
@@ -207,15 +207,15 @@ Some possible migration states:
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
 - Canceling a validation stops further validation activity, and the validation moves to a **Cancelled** state.
-- Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action rolls back all changes made by the migration service on your target server.
+- Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action returns all changes made by the migration service on your target server.
 
 #### [CLI](#tab/cli)
 
-This article guides you using the Azure CLI to migrate your PostgreSQL database from an Azure VM or an on-premises PostgreSQL server to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
+This article guides you in using the Azure CLI to migrate your PostgreSQL database from an Azure VM or an on-premises PostgreSQL server to an Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
 To learn more about how to set up Azure CLI, see the [How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server](how-to-setup-azure-cli-commands-postgresql.md).
 
-### Connect to the source
+### Connect to source
 
 We're going to migrate "ticketdb," "inventorydb," and "salesdb" into the Azure Database for the PostgreSQL flexible server.
 

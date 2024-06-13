@@ -3,11 +3,12 @@ title: How to set up Azure CLI for migration service in Azure Database for Postg
 description: Learn how to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server and begin migrating your data.
 author: markingmyname
 ms.author: maghan
-ms.date: 06/19/2024
+ms.date: 06/13/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
@@ -52,12 +53,12 @@ The **create** command requires a JSON file, which contains the following inform
 | `dbsToMigrate` | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. Providing the list of DBs in array format. |
 | `OverwriteDBsInTarget` | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, the migration tool automatically overwrites the database |
 | `MigrationMode` | Mode of the migration. The supported value is "Offline" |
-| `sourceType` | Required parameter. Values can be - OnPremises, AWS, AzureVM, PostgreSQLSingleServer |
+| `sourceType` | Required parameter. Values can be - on-premises, AWS, AzureVM, PostgreSQLSingleServer |
 | `sslMode` | SSL modes for migration. SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer/Require for other source types |
 
 ## Cutover the migration
 
-After the base data migration is complete, the migration task moves to `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration name in the migration grid or through CLI using the command below.
+After the base data migration is complete, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, users can trigger the cutover from the portal by selecting the migration name in the migration grid or through the CLI using the command below.
 
 For example:
 
@@ -65,31 +66,29 @@ For example:
 az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name CLIMigrationExample --cutover
 ```
 
-Before initiating cutover it is important to ensure that:
+Before initiating cutover, it's important to ensure that:
 
 - Writes to the source are stopped
 - `latency` value decreases to 0 or close to 0
-- `latency` value indicates when the target last synced up with the source. At this point, writes to the source can be stopped and cutover initiated.In case there is heavy traffic at the source, it is recommended to stop writes first so that `Latency` can come close to 0 and then cutover is initiated.
-- The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with non-zero `Latency`, the replication will stop until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. 
-- Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it is recommended that the latency goes to zero or near zero, before triggering the cutover. 
+- `latency` value indicates when the target last synced with the source. At this point, writes to the source can be stopped and cutover initiated. In case there's heavy traffic at the source, it's recommended to stop writes first so that `Latency` can come close to 0, and then a cutover is initiated.
+- The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with nonzero `Latency`, the replication stops until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at the cutover point, so all the changed data in the last 15 minutes applies to the target.
+
+Time depends on the backlog of changes occurring in the last 15 minutes. Hence, it's recommended that the latency go to zero or near zero before triggering the cutover.
 
 The `latency` information can be obtained using the migration show command.
 Here's a snapshot of the migration before initiating the cutover:
 
-![Show command screenshot](../media/online_cli_aws/show-cli-sample-screenshot.png)
+After the cutover is initiated, pending data captured during CDC is written to the target, and migration is now complete.
 
-After cutover is initiated, pending data captured during CDC is written to the target and migration is now complete.
-
-If the cutover is not successful, the migration moves to `Failed` state.
+If the cutover isn't successful, the migration moves to the `Failed` state.
 
 For more information about this command, use the `help` parameter.
 
 ## Related content
 
 - [Migration service in Azure Database for PostgreSQL](../../concepts-migration-service-postgresql.md)
-- [Migrate from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server using the migration service](../../tutorial-migration-service-single-to-flexible.md)
+- [Migrate from Single Server to Flexible Server](../../tutorial-migration-service-single-to-flexible.md)
 - [Migrate offline from AWS RDS PostgreSQL](../../tutorial-migration-service-aws-offline.md)
 - [Migrate online from AWS RDS PostgreSQL](../../tutorial-migration-service-aws-online.md)
 - [Migrate offline from on-premises or an Azure VM hosted PostgreSQL](../../tutorial-migration-service-iaas-offline.md)
 - [Migrate online from on-premises or an Azure VM hosted PostgreSQL](../../tutorial-migration-service-iaas-online.md)
- 
