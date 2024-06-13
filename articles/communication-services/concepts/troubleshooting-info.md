@@ -17,9 +17,9 @@ This document helps you troubleshoot issues that you may experience within your 
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in getting help, we have a [dedicated support and help options page](../support.md) that lists your options for support. 
+We encourage developers to submit questions, suggest features, and report problems as issues. For more information, see the [dedicated support and help options page](../support.md). 
 
-To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
+To help you troubleshoot certain issues, you might need one or more of the following pieces of information:
 
 * **MS-CV ID**: This ID is used to troubleshoot calls and messages.
 * **Call ID**: This ID is used to identify Communication Services calls.
@@ -30,15 +30,15 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **Correlation ID**: This ID is used to identify requests made using Call Automation. 
 * **Call logs**: These logs contain detailed information can be used to troubleshoot calling and network issues.
 
-Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
+For more information about throttling and limitations, see [Service limits](service-limits.md).
 
 ## Access your MS-CV ID
 
-The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. Diagnostics can be configured for any of the Azure SDKs including Chat, Identity, and VoIP calling.
+You can access the MS-CV ID  by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. You can configure diagnostics for any Azure SDK including Chat, Identity, and VoIP calling.
 
 ### Client options example
 
-The following code snippets demonstrate diagnostics configuration. When the SDKs are used with diagnostics enabled, diagnostics details can be emitted to the configured event listener:
+The following code snippets demonstrate diagnostics configuration. When you enable diagnostics for SDKs, diagnostics details can be emitted to the configured event listener:
 
 # [C#](#tab/csharp)
 ```
@@ -79,19 +79,21 @@ chat_client = ChatClient(
 ---
 
 ## Access IDs required for Call Automation
-When troubleshooting issues with the Call Automation SDK, like call management or recording problems, you need to collect the IDs that help identify the failing call or operation. You can provide either of the two IDs mentioned here. 
+When troubleshooting issues with the Call Automation SDK, such as call management or recording problems, you need to collect the IDs that help identify the failing call or operation. You can provide either of the following two IDs.
+
 - From the header of API response, locate the field `X-Ms-Skype-Chain-Id`.
  
-    ![Screenshot of response header showing X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png) 
-- From the callback events your application receives after executing an action. For example `CallConnected` or `PlayFailed`, locate the correlationID.
+    ![Screenshot of response header showing X-Ms-Skype-Chain-Id.](media/troubleshooting/response-header.png)
+
+- From the callback events, your application receives after executing an action. For example `CallConnected` or `PlayFailed`, locate the correlationID.
 
     ![Screenshot of call disconnected event showing correlation ID.](media/troubleshooting/correlation-id-in-callback-event.png)
 
-In addition to one of these IDs, please provide the details on the failing use case and the timestamp for when the failure was observed. 
+In addition to one of these IDs, you need to provide details about the failing use case and the timestamp when the failure occurred. 
 
 ## Access your client call ID
 
-When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This value can be accessed via the `id` property of the `call` object:
+When troubleshooting voice or video calls, you might need to provide a `call ID`. This value can be accessed via the `id` property of the `call` object:
 
 # [JavaScript](#tab/javascript)
 ```javascript
@@ -135,20 +137,20 @@ console.log(result); // your message ID is in the result
 ```
 ---
 ## Access your short code program brief ID
-The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
+Find the program brief ID on the [Azure portal](https://portal.azure.com) in the Short Codes section. 
 
 :::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
 
 ---
 ## Access your toll-free verification campaign brief ID
-The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Regulatory Documents blade. 
+Find the program brief ID on the [Azure portal](https://portal.azure.com) in the Regulatory Documents section. 
 
 :::image type="content" source="./media/toll-free-troubleshooting.png" alt-text="Screenshot showing a toll free verification campaign brief ID.":::
 
 ---
 
 ## Access your email operation ID
-When troubleshooting send email or email message status requests, you may be asked to provide an `operation ID`. This value can be accessed in the response:
+When troubleshooting send email or email message status requests, you might need to provide an `operation ID`. You can access this value in the response:
 
 # [.NET](#tab/dotnet)
 ```csharp
@@ -166,14 +168,15 @@ Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 
 ## Accessing Support Files in the Calling SDK
 
-Calling SDK provides convenience methods to get access to the Log Files. These files can serve valuable to Microsoft support specialists and engineers. Pro-actively collecting these logs when issues are detected is recommended.
+Calling SDK provides convenient methods to access to the Log Files. These files can serve valuable to Microsoft support specialists and engineers. We recommend that you collect these logs any time you detect an issue.
 
 ## Enable and Access Call Logs
 
 ### [JavaScript]
 
 The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
-Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the CallClient constructor:
+
+Use the `setLogLevel` method from the `@azure/logger` package to configure the log output level. Create a logger and pass it into the `CallClient` constructor as follows:
 
 ```javascript
 import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
@@ -183,8 +186,9 @@ const callClient = new CallClient({ logger });
 ```
 
 You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
-You can log to the browser console, a file, buffer, send to our own service, etc. If you are going to send logs over
-the network to your own service, do not send a request per log line because this will affect browser performance. Instead, accumulate logs lines and send them in batches.
+
+You can log to the browser console, a file, buffer, send to our own service, and so on. If you're going to send logs over the network to your own service, don't send a request per log line because this adversely affects browser performance. Instead, accumulate logs lines and send them in batches.
+
 ```javascript
 // Redirect log output
 AzureLogger.log = (...args) => {
@@ -195,19 +199,19 @@ AzureLogger.log = (...args) => {
 
 ### Native SDK (Android/iOS)
 
-For Android, iOS and Windows the Azure Communication Services Calling SDK offers access to log files.
+For Android, iOS, and Windows, the Azure Communication Services Calling SDK offers access to log files.
 
-For Calling Native SDK's, refer to [the log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
+For Calling Native SDKs, see the [Log file access tutorials](../tutorials/log-file-retrieval-tutorial.md)
 
 ### UI Libraries (Android, iOS)
 
-If you are using the Azure Communication Services UI Libraries for Android or iOS, user feedback can be solicited through the built-in support form.
+If you're using the Azure Communication Services UI Libraries for Android or iOS, you can solicit user feedback through the built-in support form.
 
-For more information on how to use the support functionality of the Calling UI Support form, see the [Support Form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This document guides you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide is designed to guide you on your path towards an integration with the support services your organization uses.
+For more information about the support functions of the Calling UI Support form, see the [Support Form integration tutorial](../tutorials/collecting-user-feedback/collecting-user-feedback.md). This document guides you through adding the necessary event handler, and creating a basic client/server implementation for centralized storage of support information. This guide describes the path for integrating with the support services used by your organization.
 
 ## Building end to end Support Flows in your ACS Integrations
 
-Whether you are using Calling SDK or Calling UI SDK, providing support to end users is a key component of any robust integration. The following document highlights the key considerations at each point of the Support feedback loop, and provides jumping off points to learn more.
+Whether you're using Calling SDK or Calling UI SDK, providing support to your customers is a key component of any robust integration. The following document highlights the key considerations at each point of the Support feedback loop, and provides jumping off points to learn more.
 
 [Providing User Support](../concepts/voice-video-calling/retrieve-support-files.md)
 
@@ -295,7 +299,7 @@ You can find your current Teams license using [licenseDetails](/graph/api/resour
     ```
 1.  The **Response preview**  pane displays output as follows:
 
-    Note that the response object shown here might be shortened for readability.
+    The response object shown here might be shortened for readability.
     <!-- {
     "blockType": "response",
     "truncated": true,
@@ -321,8 +325,13 @@ You can find your current Teams license using [licenseDetails](/graph/api/resour
     ```
 1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
 
+## Error codes
 
-## Calling SDK error codes
+- [Calling SDK error codes](./troubleshooting-codes.md#calling-sdk-error-codes)
+- [Call Automation error codes](./troubleshooting-codes.md#call-automation-sdk-error-codes)
+- [PSTN call response codes](./troubleshooting-codes.md#pstn-call-response-codes-with-participantendreason)
+
+<!--## Calling SDK error codes
 
 The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
 
@@ -363,7 +372,7 @@ Consider the below tips when troubleshooting certain issues.
 - PlayAudio action does not play anything: Currently only Wave file (.wav) format is supported for audio files. The audio content in the wave file must be mono (single-channel), 16-bit samples with a 16,000 (16KHz) sampling rate.
 - Actions on PSTN endpoints aren't working: CreateCall, Transfer, AddParticipant and Redirect to phone numbers require you to set the  SourceCallerId in the action request. Unless you are using Direct Routing, the source caller ID should be a phone number owned by your Communication Services resource for the action to succeed. 
 
-Refer to [this article](./known-issues.md) to learn about any known issues being tracked by the product team. 
+Refer to [this article](./known-issues.md) to learn about any known issues being tracked by the product team.-->
 
 ## Chat SDK error codes
 
@@ -373,12 +382,12 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 | -------- | ---------------| ---------------|
 | 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
 | 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
-| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists, please file a support request. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists, file a support request. |
 | 503 | Service Unavailable | File a support request through the Azure portal. |
 
 ## SMS error codes
 
-The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the "DeliveryStatusDetails" field in the SMS delivery report. 
+The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the `DeliveryStatusDetails` field in the SMS delivery report. 
 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
@@ -392,16 +401,18 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 4006 | The Destination/To number isn't reachable| Try resending the message at a later time |
 | 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
 | 4008 | You've exceeded the maximum number of messages allowed for your profile| Ensure you aren't exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
-| 4009 | Message is rejected by Microsoft Entitlement System| Most often this happens if fraudulent activity is detected. Please contact support for more details |
+| 4009 | Message is rejected by Microsoft Entitlement System| Most often this happens if fraudulent activity is detected. Contact support for more details |
 | 4010 | Message was blocked due to the toll-free number not being verified | [Review unverified sending limits](./sms/sms-faq.md#toll-free-verification) and submit toll-free verification as soon as possible |
-| 5000 | Message failed to deliver. Please reach out Microsoft support team for more details| File a support request through the Azure portal |
+| 5000 | Message failed to deliver. Reach out Microsoft support team for more details| File a support request through the Azure portal |
 | 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
 | 5002 | Carrier does not support delivery report | Most often this happens if a carrier does not support delivery reports. No action required as message may have been delivered already. |
 | 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 
 
-## Related information
+## Related articles
+- [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md)
+- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](./troubleshooting-codes.md)
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - Log Filename APIs for Calling SDK
 - [Metrics](metrics.md)

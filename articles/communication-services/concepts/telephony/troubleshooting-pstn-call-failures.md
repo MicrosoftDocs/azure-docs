@@ -52,4 +52,8 @@ For all other `ParticipantEndSubReason` codes that don't start with **560**, the
 
 ## Detailed information on individual error codes
 
-For more information about common error codes and suggested actions, see [Troubleshooting PSTN call failures using ParticipantEndReason](./pstn-response-codes.md).
+For more information about common error codes and suggested actions, see [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](../../troubleshooting-codes.md).
+
+## Related articles
+
+For more information, see [Troubleshooting in Azure Communication Services](../../troubleshooting-info.md).
