@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create an Azure container registry
 > * Deploy a Service Fabric application to Azure
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

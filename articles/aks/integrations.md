@@ -36,7 +36,7 @@ AKS uses the following rules for applying updates to installed add-ons:
 | web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] | [GitHub][app-routing-repo] |
 | ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] | [GitHub][agic-repo] |
 | keda | Use event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda] | [GitHub][keda-repo] |
-| monitoring | Use Container Insights monitoring with your AKS cluster. | [Container insights overview][container-insights] | [GitHub][aks-repo] |
+| monitoring | Use Container Insights and Managed Prometheus monitoring with your AKS cluster. | [Container insights overview][container-insights]<br>[Managed Prometheus overview][managed-prometheus] | [GitHub][aks-repo]<br>[GitHub][managed-prometheus-repo] |
 | azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] | [GitHub][azure-policy-repo] |
 | azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] | [GitHub][keyvault-secret-provider-repo] |
 | virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] | [GitHub][virtual-nodes-oss-repo] |
@@ -128,4 +128,6 @@ For more information, see [Windows AKS partner solutions][windows-aks-partner-so
 [github-actions-aks]: kubernetes-action.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [windows-aks-partner-solutions]: windows-aks-partner-solutions.md
+[managed-prometheus]: ../azure-monitor/containers/container-insights-overview.md
+[managed-prometheus-repo]: https://github.com/Azure/prometheus-collector
 

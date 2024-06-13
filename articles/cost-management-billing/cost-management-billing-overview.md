@@ -94,7 +94,9 @@ Cost Management and Billing include several tools to help you understand, report
 - [**Exports and the Cost Details API**](./automate/usage-details-best-practices.md) enable you to integrate cost details into external systems or business processes.
 - The **Credits** page shows your available credit or prepaid commitment balance. They aren't included in cost analysis.
 - The **Invoices** page provides a list of all previously invoiced charges and their payment status for your billing account.
-- **Connectors for AWS** enable you to ingest your AWS cost details into Azure to facilitate managing Azure and AWS costs together. After configured, the connector also enables other capabilities, like budget and scheduled alerts.
+- **Connectors for AWS** enable you to ingest your AWS cost details into Azure to facilitate managing Azure and AWS costs together. After configured, the connector also enables other capabilities, like budget and scheduled alerts.  
+    > [!NOTE]
+    > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](./costs/retire-aws-connector.md).
 
 For more information, see [Get started with Cost Management and Billing reporting](./costs/reporting-get-started.md).
 

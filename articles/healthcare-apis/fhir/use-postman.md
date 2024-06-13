@@ -99,7 +99,7 @@ You can examine the access token using online tools such as [https://jwt.ms](htt
 
 :::image type="content" source="media/postman/postman-access-token-claims.png" alt-text="Screenshot showing access token claims." lightbox="media/postman/postman-access-token-claims.png":::
 
-## Use a user account with the client credential grant type
+## Use a user account with the authorization code grant type
 
 You can get the Microsoft Entra access token by using your Entra account credentials and following the listed steps.
 

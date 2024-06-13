@@ -29,7 +29,7 @@ You need:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- The Azure account must be assigned the following built-in role-based access control (RBAC) roles as a minimum on the subscription, or on a resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). If you want to assign the roles to a resource group, you need to create this first.
+- The Azure account must be assigned the following built-in role-based access control (RBAC) roles as a minimum on the subscription, or on a resource group. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). If you want to assign the roles to a resource group, you need to create this first.
 
    | Resource type | RBAC role |
    |--|--|
@@ -79,7 +79,7 @@ To create a personal host pool, workspace, application group, and session host V
    | Resource group | This automatically defaults to the resource group you chose your host pool to be in on the *Basics* tab. |
    | Name prefix | Enter a name for your session hosts, for example **hp01-sh**.<br /><br />This name prefix is used as the prefix for your session host VMs. Each session host has a suffix of a hyphen and then a sequential number added to the end, for example **hp01-sh-0**.<br /><br />The prefix can be a maximum of 11 characters and is used in the computer name in the operating system. The prefix and the suffix combined can be a maximum of 15 characters. Session host names must be unique. |
    | Virtual machine location | Select the Azure region where you want to deploy your session host VMs. It must be the same region that your virtual network is in. |
-   | Availability options | Select **No infrastructure dependency required**. This means that your session host VMs aren't deployed in an availability set or in availability zones. |
+   | Availability options | Select **No infrastructure redundancy required**. This means that your session host VMs aren't deployed in an availability set or in availability zones. |
    | Security type | Select **Trusted launch virtual machines**. Leave the subsequent defaults of **Enable secure boot** and **Enable vTPM** checked, and **Integrity monitoring** unchecked. For more information, see [Trusted launch](security-guide.md#trusted-launch). |
    | Image | Select **Windows 11 Enterprise, version 22H2**. |
    | Virtual machine size | Accept the default SKU. If you want to use a different SKU, select **Change size**, then select from the list. |
@@ -113,7 +113,7 @@ To create a personal host pool, workspace, application group, and session host V
 
 1. On the **Review + create** tab, ensure validation passes and review the information that is used during deployment. If validation doesn't pass, review the error message and check what you entered in each tab.
 
-1. Select **Create**. A host pool, workspace, application group, and session host is created. Once your deployment is complete, select **Go to resource** to go to the host pool overview.
+1. Select **Create**. A host pool, workspace, application group, and session host are created. Once your deployment is complete, select **Go to resource** to go to the host pool overview.
 
 1. Finally, from the host pool overview, select **Session hosts** and verify the status of the session hosts is **Available**.
 
@@ -207,7 +207,7 @@ Now that you've created and connected to a Windows 11 desktop with Azure Virtual
 
 - [Publish applications](manage-app-groups.md).
 
-- Manage user profiles using [FSLogix profile containers and Azure Files](create-profile-container-azure-ad.md).
+- [User profile management for Azure Virtual Desktop with FSLogix profile containers](create-profile-container-azure-ad.yml).
 
 - [Understand network connectivity](network-connectivity.md).
 

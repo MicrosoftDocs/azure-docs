@@ -39,7 +39,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 
@@ -52,7 +52,7 @@ Create a new virtual hub. Once a hub is created, you'll be charged for the hub, 
 
 #### Basics page
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
 
 #### ExpressRoute page
 
@@ -138,7 +138,7 @@ If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0
 
 ## To see your Virtual WAN connection from the ExpressRoute circuit blade
 
-Navigate to the **Connections** blade for your ExpressRoute circuit to see each ExpressRoute gateway that your ExpressRoute circuit is connected to. 
+Navigate to the **Connections** blade for your ExpressRoute circuit to see each ExpressRoute gateway that your ExpressRoute circuit is connected to. If the gateway is in a different subscription than the circuit, then the **Peer** field will be the circuit authorization key.
    :::image type="content" source="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png" alt-text="Screenshot shows the initial container page." lightbox="./media/virtual-wan-expressroute-portal/view-expressroute-connection.png":::
 
 ## Enable or disable VNet to Virtual WAN traffic over ExpressRoute

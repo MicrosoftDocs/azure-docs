@@ -305,6 +305,7 @@ You can use IP network rules to allow access to your workspace and endpoint from
 > [!WARNING]
 > * Enable your endpoint's [public network access flag](concept-secure-online-endpoint.md#secure-inbound-scoring-requests) if you want to allow access to your endpoint from specific public internet IP address ranges.
 > * When you enable this feature, this has an impact to all existing public endpoints associated with your workspace. This may limit access to new or existing endpoints. If you access any endpoints from a non-allowed IP, you get a 403 error.
+> * You can only use IPv4 addresses.
 > * To use this feature with Azure Machine Learning managed virtual network, see [Azure Machine Learning managed virtual network](how-to-managed-network.md#scenario-enable-access-from-selected-ip-addresses).
 
 # [Azure CLI](#tab/cli)

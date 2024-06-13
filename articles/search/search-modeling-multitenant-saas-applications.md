@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/18/2024
+ms.date: 04/23/2024
 ---
 
 # Design patterns for multitenant SaaS applications and Azure AI Search
@@ -39,15 +39,6 @@ Adding and removing partitions and replicas at will allow the capacity of the se
 ### Service and index limits in Azure AI Search
 
 There are a few different [pricing tiers](https://azure.microsoft.com/pricing/details/search/) in Azure AI Search, each of the tiers has different [limits and quotas](search-limits-quotas-capacity.md). Some of these limits are at the service-level, some are at the index-level, and some are at the partition-level.
-
-|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
-| --- | --- | --- | --- | --- | --- |
-| **Maximum Replicas per Service** |3 |12 |12 |12 |12 |
-| **Maximum Partitions per Service** |1 |12 |12 |12 |3 |
-| **Maximum Search Units (Replicas*Partitions) per Service** |3 |36 |36 |36 |36 (max 3 partitions) |
-| **Maximum Storage per Service** |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| **Maximum Storage per Partition** |2 GB |25 GB |100 GB |200 GB |200 GB |
-| **Maximum Indexes per Service** |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
 
 #### S3 High Density
 

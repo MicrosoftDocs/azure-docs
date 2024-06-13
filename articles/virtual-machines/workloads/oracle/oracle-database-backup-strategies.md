@@ -2,8 +2,7 @@
 title: Backup strategies for Oracle Database on an Azure Linux VM
 description:  Get options to back up Oracle Database instances in an Azure Linux VM environment.
 author: cro27
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
@@ -109,7 +108,7 @@ You can also help protect Azure file shares by using Azure Backup for a Recovery
 
 You can mount Azure file shares in Linux distributions by using the NFS v4.1 protocol. There are limitations to supported features. For more information, see [Support for Azure Storage features](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features).
 
-[!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
 
 #### Azure Files with SMB 3.0
 

@@ -6,7 +6,7 @@ ms.service: virtual-network
 author: asudbring
 ms.author: allensu
 ms.topic: overview
-ms.date: 04/15/2024
+ms.date: 05/06/2024
 ms.custom: template-overview, references_regions
 # Customer intent: As a network administrator, I want to learn about encryption in Azure Virtual Network so that I can secure my network traffic.
 
@@ -14,17 +14,17 @@ ms.custom: template-overview, references_regions
 
 #  What is Azure Virtual Network encryption?
 
-Azure Virtual Network encryption is a feature of Azure Virtual Networks. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines. 
+Azure Virtual Network encryption is a feature of Azure Virtual Networks. Virtual network encryption allows you to seamlessly encrypt and decrypt traffic between Azure Virtual Machines by creating a DTLS tunnel. 
 
-Whenever Azure customer traffic moves between datacenters, Microsoft applies a data-link layer encryption method using the IEEE 802.1AE MAC Security Standards (MACsec). This encryption is implemented to secure the traffic outside physical boundaries not controlled by Microsoft or on behalf of Microsoft. This method is applied from point-to-point across the underlying network hardware. Virtual network encryption enables you to encrypt traffic between Virtual Machines and Virtual Machines Scale Sets within the same virtual network. It also encrypts traffic between regionally and globally peered virtual networks. Virtual network encryption enhances existing encryption in transit capabilities in Azure.
+Virtual network encryption enables you to encrypt traffic between Virtual Machines and Virtual Machines Scale Sets within the same virtual network. Virtual network encryption encrypts traffic between regionally and globally peered virtual networks. For more information about virtual network peering, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
-For more information about encryption in Azure, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
+Virtual network encryption enhances existing encryption in transit capabilities in Azure. For more information about encryption in Azure, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview).
 
 ## Requirements
 
 Virtual network encryption has the following requirements:
 
-- Virtual Network encryption is supported on general-purpose and memory optimized VM instance sizes including:
+- Virtual Network encryption is supported on general-purpose and memory optimized virtual machine instance sizes including:
 
     | Type | VM Series | VM SKU |
     | --- | --- | --- |
@@ -51,7 +51,9 @@ Azure Virtual Network encryption has the following limitations:
 
 - In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
 
-- For Internal load balancer, all virtual machines behind the load balancer must be a supported virtual machine SKU. 
+- For Internal load balancer, all virtual machines behind the load balancer must be a supported virtual machine SKU.
+
+- **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 
 ## Next steps
 

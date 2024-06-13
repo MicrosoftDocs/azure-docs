@@ -235,6 +235,10 @@ This error occurs when the indexer is attempting to [project data into a knowled
 
 Skill execution failed because the call to Azure AI services was throttled. Typically, this class of failure occurs when too many skills are executing in parallel. If you're using the Microsoft.Search.Documents client library to run the indexer, you can use the [SearchIndexingBufferedSender](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md#searchindexingbufferedsender) to get automatic retry on failed steps. Otherwise, you can [reset and rerun the indexer](search-howto-run-reset-indexers.md).
 
+## `Error: Expected IndexAction metadata`
+
+An 'Expected IndexAction metadata' error means when the indexer attempted to read the document to identify what action should be taken, it did not find any corresponding metadata on the document. Typically, this error occurs when the indexer has an annotation cache added or removed without resetting the indexer. To address this, you should [reset and rerun the indexer](search-howto-run-reset-indexers.md).  
+
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
 ## `Warning: Skill input was invalid`

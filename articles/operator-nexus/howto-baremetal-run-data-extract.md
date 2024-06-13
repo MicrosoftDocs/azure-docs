@@ -20,6 +20,7 @@ The command produces an output file containing the results of the data extract l
 - This article assumes that you've installed the Azure command line interface and the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
 - The target bare metal machine is on and has readyState set to True.
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
+- Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
 
 ## Executing a run command
 
@@ -50,10 +51,10 @@ The command syntax is:
 
 ```azurecli-interactive
 az networkcloud baremetalmachine run-data-extract --name "<machine-name>"  \
-  --resource-group "<resource-group>" \
+  --resource-group "<cluster_MRG>" \
   --subscription "<subscription>" \
   --commands '[{"arguments":["<arg1>","<arg2>"],"command":"<command1>"}]'  \
-  --limit-time-seconds <timeout>
+  --limit-time-seconds "<timeout>"
 ```
 
 Specify multiple commands using json format in `--commands` option. Each `command` specifies command and arguments. For a command with multiple arguments, provide as a list to the `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
@@ -68,7 +69,7 @@ This example executes the `hardware-support-data-collection` command and get `Sy
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "cluster_MRG" \
   --subscription "subscription" \
   --commands '[{"arguments":["SysInfo", "TTYLog"],"command":"hardware-support-data-collection"}]' \
   --limit-time-seconds 600
@@ -136,7 +137,7 @@ This example executes the `mde-agent-information` command without arguments.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "cluster_MRG" \
   --subscription "subscription" \
   --commands '[{"command":"mde-agent-information"}]' \
   --limit-time-seconds 600
@@ -183,7 +184,7 @@ This example executes the `mde-support-diagnostics` command without arguments.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "cluster_MRG" \
   --subscription "subscription" \
   --commands '[{"command":"mde-support-diagnostics"}]' \
   --limit-time-seconds 600
@@ -241,7 +242,7 @@ This example executes the `hardware-rollup-status` command without arguments.
 
 ```azurecli
 az networkcloud baremetalmachine run-data-extract --name "bareMetalMachineName" \
-  --resource-group "resourceGroupName" \
+  --resource-group "clusete_MRG" \
   --subscription "subscription" \
   --commands '[{"command":"hardware-rollup-status"}]' \
   --limit-time-seconds 600

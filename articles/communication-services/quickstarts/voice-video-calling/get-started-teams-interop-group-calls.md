@@ -8,7 +8,7 @@ ms.date: 04/04/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other
 ---
 
 # Quickstart: Place interop group calls between Azure Communication Services and Microsoft Teams
@@ -127,7 +127,7 @@ placeInteropGroupCallButton.addEventListener("click", () => {
 
 ## Get the Teams user IDs
 
-The Teams user IDs can be retrieved using Graph APIs, which is detailed in [Graph documentation](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http).
+The Teams user IDs can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/user-get?tabs=http).
 
 ```console
 https://graph.microsoft.com/v1.0/me

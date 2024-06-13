@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 06/11/2024
 ---
 
 # Index data from SharePoint document libraries
@@ -42,7 +42,7 @@ An indexer in Azure AI Search is a crawler that extracts searchable data and met
 
 The SharePoint Online indexer can extract text from the following document formats:
 
-[!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-document-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Limitations and considerations
 
@@ -62,9 +62,11 @@ Here are the limitations of this feature:
 
 + Indexing user-encrypted files, Information Rights Management (IRM) protected files, ZIP files with passwords or similar encrypted content isn't supported. For encrypted content to be processed, the user with proper permissions to the specific file must remove the encryption so the item can be indexed accordingly when the indexer runs the next scheduled iteration.
 
++ Indexing sub-sites recursively from a specific site provided isn't supported.
+
 Here are the considerations when using this feature:
 
-+ If you need a SharePoint content indexing solution in a production environment, consider creating a custom connector with [SharePoint Webhooks](/sharepoint/dev/apis/webhooks/overview-sharepoint-webhooks), calling [Microsoft Graph API](/graph/use-the-api) to export the data to an Azure Blob container, and then use the [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md) for incremental indexing.
++ If you need a SharePoint content indexing solution in a production environment, consider creating a custom connector with [SharePoint Webhooks](/sharepoint/dev/apis/webhooks/overview-sharepoint-webhooks), calling [Microsoft Graph API](/graph/use-the-api) to export the data to an Azure Blob container, and then use the [Azure blob indexer](search-howto-indexing-azure-blob-storage.md) for incremental indexing.
 
 <!-- + There could be Microsoft 365 processes that update SharePoint file system-metadata (based on different configurations in SharePoint) and will cause the SharePoint Online indexer to trigger. Make sure that you test your setup and understand the document processing count prior to using any AI enrichment. Since this is a third-party connector to Azure (SharePoint is located in Microsoft 365), SharePoint configuration is not checked by the indexer. -->
 
