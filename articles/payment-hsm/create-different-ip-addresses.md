@@ -22,7 +22,7 @@ This tutorial describes how to use an Azure Resource Manager template (ARM templ
 - [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -356,7 +356,7 @@ First, save the "azuredeploy.json" and "azuredeploy.parameters.json" files local
 
 Next, create an Azure resource group.  
 
-[!INCLUDE [Create a resource group with the Azure CLI](~/reusable-content/ce-skilling/azure/includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure CLI](../../includes/cli-rg-create.md)]
 
 Finally, use the Azure CLI [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to deploy your ARM template.
 
@@ -389,7 +389,7 @@ First, save the "azuredeploy.json" and "azuredeploy.parameters.json" files local
 
 Next, create an Azure resource group.  
 
-[!INCLUDE [Create a resource group with Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group with Azure PowerShell](../../includes/powershell-rg-create.md)]
 
 Now, set the following variables for use in the deploy step:
 
