@@ -121,6 +121,8 @@ There are several design principles you can following when writing your function
 
 Because transient failures are common in cloud computing, you should use a [retry pattern](/azure/architecture/patterns/retry) when accessing cloud-based resources. Many triggers and bindings already implement retry. 
 
+Ensure to continuously test your functions and entire application through your DevOps pipelines and prioritize integration testing.
+
 ## Design for security
 
 Security is best considered during the planning phase and not after your functions are ready to go. To Learn how to securely develop and deploy functions, see [Securing Azure Functions](security-concepts.md).  
