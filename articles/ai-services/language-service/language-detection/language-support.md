@@ -132,7 +132,7 @@ If you have content expressed in a less frequently used language, you can try La
 | Tongan              | `to`          |
 | Turkish             | `tr`          |
 | Turkmen             | `tk`          |
-| Upper Sorbian       | `hsb`          |
+| Upper Sorbian       | `hsb`         |
 | Uyghur              | `ug`          |
 | Ukrainian           | `uk`          |
 | Urdu                | `ur`          |
@@ -164,23 +164,23 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Script detection
 
-| Language |Script code	| Scripts |
-| --- | ---	| --- |
-| Bengali (Bengali-Assamese) | `as` | `Latn`, `Beng` |
-| Bengali (Bangla) | `bn` | `Latn`, `Beng` |
-| Gujarati | `gu` | `Latn`, `Gujr` |
-| Hindi | `hi` | `Latn`, `Deva` |
-| Kannada | `kn` | `Latn`, `Knda` |
-| Malayalam | `ml` | `Latn`, `Mlym` |
-| Marathi	| `mr` | `Latn`, `Deva` |
-| Oriya | `or` | `Latn`, `Orya` |
-| Gurmukhi | `pa` | `Latn`, `Guru` |
-| Tamil | `ta` | `Latn`, `Taml` |
-| Telugu | `te` | `Latn`, `Telu` |
-| Arabic | `ur` | `Latn`, `Arab` |
-| Cyrillic | `tt` | `Latn`, `Cyrl` |
-| Serbian `sr` | `Latn`, `Cyrl` |
-| Unified Canadian Aboriginal Syllabics	| `iu` | `Latn`, `Cans` |
+| Language                              | Script code | Scripts        |
+| ------------------------------------- | ----------  | -------------- |
+| Bengali (Bengali-Assamese)            | `as`        | `Latn`, `Beng` |
+| Bengali (Bangla)                      | `bn`        | `Latn`, `Beng` |
+| Gujarati                              | `gu`        | `Latn`, `Gujr` |
+| Hindi                                 | `hi`        | `Latn`, `Deva` |
+| Kannada                               | `kn`        | `Latn`, `Knda` |
+| Malayalam                             | `ml`        | `Latn`, `Mlym` |
+| Marathi	                            | `mr`        | `Latn`, `Deva` |
+| Oriya                                 | `or`        | `Latn`, `Orya` |
+| Gurmukhi                              | `pa`        | `Latn`, `Guru` |
+| Tamil                                 | `ta`        | `Latn`, `Taml` |
+| Telugu                                | `te`        | `Latn`, `Telu` |
+| Arabic                                | `ar`        | `Latn`, `Arab` |
+| Cyrillic                              | `tt`        | `Latn`, `Cyrl` |
+| Serbian                               | `sr`        | `Latn`, `Cyrl` |
+| Unified Canadian Aboriginal Syllabics	| `iu`        | `Latn`, `Cans` |
 
 ## Next steps
 
