@@ -138,7 +138,6 @@ The virtual network has three subnets.
 
 :::image type="content" source="../media/use-your-data/virtual-network.png" alt-text="A diagram showing the virtual network architecture." lightbox="../media/use-your-data/virtual-network.png":::
 
-Note the Microsoft managed virtual network is created by Microsoft, and you cannot see it. The Microsoft managed virtual network is used by Azure OpenAI to securely access your Azure AI Search.
 
 ## Configure Azure OpenAI
 
