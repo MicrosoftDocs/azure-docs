@@ -226,7 +226,13 @@ The response for the above example query returns the following match as the top 
 
 For semantic ranking, you should expect a search service to support up to 10 concurrent queries per replica. 
 
-The service throttles semantic ranking requests if volumes are too high. Error messages that include `Error in search query: Operation returned an invalid status 'Partial Content'` with a code of `@search.semanticPartialResponseReason` and `CapacityOverloaded` indicate the service is at capacity for semantic ranking.
+The service throttles semantic ranking requests if volumes are too high. An error message that includes these phrases indicate the service is at capacity for semantic ranking:
+
+```json
+Error in search query: Operation returned an invalid status 'Partial Content'`
+@search.semanticPartialResponseReason`
+CapacityOverloaded
+```
 
 If you anticipate consistent throughput requirements near, at, or higher than this level, please file a support ticket so that we can provision for your workload.
 
