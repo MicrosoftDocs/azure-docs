@@ -185,7 +185,7 @@ Learn [how to identify and remediate attack paths](how-to-manage-attack-path.md)
 
 November 15, 2023
 
-The attack path's Azure Resource Graph (ARG) table scheme is updated. The `attackPathType` property is removed and other properties are added.
+The attack path's Azure Resource Graph table scheme is updated. The `attackPathType` property is removed and other properties are added.
 
 ### General Availability release of GCP support in Defender CSPM
 
@@ -3185,7 +3185,7 @@ Learn more in [Identify vulnerable container images in your CI/CD workflows](def
 
 ### More Resource Graph queries available for some recommendations
 
-All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](review-security-recommendations.md).
+All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer](review-security-recommendations.md).
 
 Security Center includes built-in vulnerability scanners to scan your VMs, SQL servers and their hosts, and container registries for security vulnerabilities. The findings are returned as recommendations with all the individual findings for each resource type gathered into a single view. The recommendations are:
 
@@ -3538,7 +3538,7 @@ The recommendation details pages now include the "Explore in ARG" toolbar button
 
 Azure Resource Graph (ARG) provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal.
 
-Learn more about [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml).
+Learn more about [Azure Resource Graph](../governance/resource-graph/index.yml).
 
 :::image type="content" source="media/release-notes/explore-in-resource-graph.png" alt-text="Explore recommendation data in Azure Resource Graph.":::
 
@@ -4164,7 +4164,7 @@ Updates in October include:
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
 - [Regulatory compliance dashboard now includes option to remove standards](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
-- [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+- [Microsoft.Security/securityStatuses table removed from Azure Resource Graph](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### Vulnerability assessment for on-premises and multicloud machines (preview)
 
@@ -4209,13 +4209,13 @@ The dashboard includes a default set of regulatory standards. If any of the supp
 
 Learn more in [Remove a standard from your dashboard](update-regulatory-compliance-packages.yml).
 
-### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
+### Microsoft.Security/securityStatuses table removed from Azure Resource Graph
 
 Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment.
 
 For Azure Security Center, you can use ARG and the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query a wide range of security posture data. For example:
 
-- Asset inventory utilizes (ARG)
+- Asset inventory utilizes ARG
 - We have documented a sample ARG query for how to [Identify accounts without multifactor authentication (MFA) enabled](multi-factor-authentication-enforcement.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
 Within ARG, there are tables of data for you to use in your queries.

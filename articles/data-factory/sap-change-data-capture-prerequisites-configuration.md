@@ -55,7 +55,7 @@ ODP offers various data extraction contexts or *source object types*. Although m
 
 ### Set up the SAP Landscape Transformation Replication Server (optional)
 
-SAP Landscape Transformation Replication Server (SLT) is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ).
+SAP Landscape Transformation (SLT) Replication Server is a database trigger-enabled CDC solution that can replicate SAP application tables and simple views in near real time. SLT replicates from SAP source systems to various targets, including the operational delta queue (ODQ).
 
 >[!NOTE]
    > SAP Landscape Transformation Replication Server (SLT) is only required if you want to replicate data from SAP tables with the SAP CDC connector. All other sources work out-of-the-box without SLT.
