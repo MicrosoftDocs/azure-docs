@@ -69,7 +69,7 @@ dotnet add package Microsoft.AspNetCore.OutputCaching.StackExchangeRedis
 
  If prompted, select **Yes I trust the author** to proceed.
 
-1. Open *Program.cs* file.
+1. Open _Program.cs_ file.
 
 1. Add the following function calls. `AddStackExchangeRedisOutputCache()`, `AddOutputCache()`, `UseOutputCache()`.
 
@@ -96,7 +96,7 @@ dotnet add package Microsoft.AspNetCore.OutputCaching.StackExchangeRedis
 
     ```
 
-1. Save the *Program.cs* file. Make sure the application builds with no error in the Command Prompt.
+1. Save the _Program.cs_ file. Make sure the application builds with no error in the Command Prompt.
 
     ```cmd
     dotnet build
@@ -113,7 +113,7 @@ dotnet add package Microsoft.AspNetCore.OutputCaching.StackExchangeRedis
     app.MapGet("/cached",()=> "Hello Redis Output Cache" + DateTime.Now).CacheOutput();
     ```
 
-1. Save the *Program.cs* file. Make sure the application builds with no error in the Command Prompt.
+1. Save the _program.cs_ file. Make sure the application builds with no error in the Command Prompt.
 
     ```cmd
     dotnet build
