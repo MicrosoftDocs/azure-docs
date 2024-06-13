@@ -35,7 +35,7 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by WLS on AKS, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 - Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
 - Accept the license terms for WLS.
@@ -554,7 +554,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
    | Variable               | Description                                | Example                                                                                       |
    |------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------------|
-   | `DB_CONNECTION_STRING` | The connection string of SQL server.       | `jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125` |
+   | `DB_CONNECTION_STRING` | The connection string of SQL server.       | `jdbc:sqlserver://server-name.database.windows.net:1433;database=wlsaksquickstart0125` |
    | `DB_USER`              | The username to sign in to the SQL server. | `welogic@sqlserverforwlsaks`                                                                  |
    | `DB_PASSWORD`          | The password to sign in to the sQL server. | `Secret123456`                                                                                |
 
@@ -577,7 +577,7 @@ In the previous steps, you created the auxiliary image including models and WDT.
    In the following commands, be sure to set the variables `DB_CONNECTION_STRING`, `DB_USER`, and `DB_PASSWORD` correctly by replacing the placeholder examples with the values described in the previous steps. Be sure to enclose the value of the `DB_` variables in single quotes to prevent the shell from interfering with the values.
 
    ```bash
-   export DB_CONNECTION_STRING='<example-jdbc:sqlserver://sqlserverforwlsaks.database.windows.net:1433;database=wlsaksquickstart0125>'
+   export DB_CONNECTION_STRING='<example-jdbc:sqlserver://server-name.database.windows.net:1433;database=wlsaksquickstart0125>'
    export DB_USER='<example-welogic@sqlserverforwlsaks>'
    export DB_PASSWORD='<example-Secret123456>'
    export WLS_DOMAIN_NS=sample-domain1-ns

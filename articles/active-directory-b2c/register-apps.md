@@ -45,7 +45,3 @@ You can register different app types in your Azure AD B2C Tenant. The how-to gui
 - [Microsoft Graph application](microsoft-graph-get-started.md)
 - [SAML application](saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy)
 - [Publish app in Microsoft Entra app gallery](publish-app-to-azure-ad-app-gallery.md)
-          
-    
-
-                      

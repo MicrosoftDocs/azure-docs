@@ -1,14 +1,11 @@
 ---
 title: Troubleshoot Azure Resource Graph Power BI connector
 description: Learn how to troubleshoot issues with Azure Resource Graph Power BI connector.
-ms.date: 02/28/2024
+ms.date: 05/08/2024
 ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Resource Graph Power BI connector
-
-> [!NOTE]
-> The Azure Resource Graph Power BI connector is in public preview.
 
 The following descriptions help you troubleshoot Azure Resource Graph (ARG) data connector in Power BI.
 

@@ -2,11 +2,7 @@
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
-ms.custom:
-  - devx-track-extended-java
-  - devx-track-js
-  - devx-track-python
-  - ignite-2023
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, devx-track-ts
 ms.date: 02/26/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -135,7 +131,11 @@ In Visual Studio, you select the runtime version when you create a project. Azur
 <AzureFunctionsVersion>v4</AzureFunctionsVersion>
 ```
 
-You can choose `net8.0`, `net7.0`, `net6.0`, or `net48` as the target framework if you are using the [isolated worker model](dotnet-isolated-process-guide.md). If you are using the [in-process model](./functions-dotnet-class-library.md), you can only choose `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.0.0`.
+You can choose `net8.0`, `net6.0`, or `net48` as the target framework if you are using the [isolated worker model](dotnet-isolated-process-guide.md). If you are using the [in-process model](./functions-dotnet-class-library.md), you can only choose `net6.0`, and you must include the `Microsoft.NET.Sdk.Functions` extension set to at least `4.0.0`.
+
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
+
+[dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 
 # [Version 1.x](#tab/v1)
 

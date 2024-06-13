@@ -1,8 +1,9 @@
 ---
 title: Scan for misconfigurations in Infrastructure as Code
-description: Learn how to use Microsoft Security DevOps scanning with Microsoft Defender for Cloud to find misconfigurations in Infrastructure as Code (IaC) in a connected GitHub repository or Azure DevOps project.
-ms.date: 01/24/2023
+description: Learn how to use Microsoft Security DevOps scanning with Microsoft Defender for Cloud to find misconfigurations in Infrastructure as Code (IaC).
+ms.date: 05/16/2024
 ms.topic: how-to
+#customer intent: As a developer, I want to learn how to use Microsoft Security DevOps scanning with Microsoft Defender for Cloud to find misconfigurations in Infrastructure as Code (IaC) in a connected GitHub repository or Azure DevOps project.
 ---
 
 # Scan your connected GitHub repository or Azure DevOps project

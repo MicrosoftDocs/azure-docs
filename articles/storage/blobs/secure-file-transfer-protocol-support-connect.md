@@ -3,10 +3,10 @@ title: Connect to Azure Blob Storage from an SFTP client
 titleSuffix: Azure Storage
 description: Learn how to connect to Azure Blob Storage by using an SSH File Transfer Protocol (SFTP) client.
 author: normesta
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 05/18/2024
 ms.author: normesta
 ---
 
@@ -51,6 +51,10 @@ If you want to connect to the blob service endpoint by using a private endpoint,
 
 > [!NOTE]
 > Ensure that you change the networking configuration to "Enabled from selected virtual networks and IP addresses", and then select your private endpoint. Otherwise, the blob service endpoint will still be publicly accessible.
+
+### Connect using internet routing
+
+If you want to connect to the blob service endpoint using internet routing, then the connection string is `myaccount.myuser@myaccount-internetrouting.blob.core.windows.net`. If the home directory isn't specified for the user, then it's `myaccount.mycontainer.myuser@myaccount-internetrouting.blob.core.windows.net`.
 
 ### Transfer data
 

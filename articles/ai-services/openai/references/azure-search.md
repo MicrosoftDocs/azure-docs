@@ -27,7 +27,7 @@ The configurable options of Azure AI Search when using Azure OpenAI On Your Data
 |--- | --- | --- | --- |
 | `endpoint` | string | True | The absolute endpoint path for the Azure Search resource to use.|
 | `index_name` | string | True | The name of the index to use in the referenced Azure Search resource.|
-| `authentication`| One of [ApiKeyAuthenticationOptions](#api-key-authentication-options), [SystemAssignedManagedIdentityAuthenticationOptions](#system-assigned-managed-identity-authentication-options), [UserAssignedManagedIdentityAuthenticationOptions](#user-assigned-managed-identity-authentication-options) | True | The authentication method to use when accessing the defined data source. |
+| `authentication`| One of [ApiKeyAuthenticationOptions](#api-key-authentication-options), [SystemAssignedManagedIdentityAuthenticationOptions](#system-assigned-managed-identity-authentication-options), [UserAssignedManagedIdentityAuthenticationOptions](#user-assigned-managed-identity-authentication-options), [onYourDataAccessTokenAuthenticationOptions](#access-token-authentication-options) | True | The authentication method to use when accessing the defined data source. |
 | `embedding_dependency` | One of [DeploymentNameVectorizationSource](#deployment-name-vectorization-source), [EndpointVectorizationSource](#endpoint-vectorization-source) | False | The embedding dependency for vector search. Required when `query_type` is `vector`, `vector_simple_hybrid`, or `vector_semantic_hybrid`.|
 | `fields_mapping` | [FieldsMappingOptions](#fields-mapping-options) | False | Customized field mapping behavior to use when interacting with the search index.|
 | `filter`| string | False | Search filter. |
@@ -37,6 +37,9 @@ The configurable options of Azure AI Search when using Azure OpenAI On Your Data
 | `semantic_configuration` | string | False | The semantic configuration for the query. Required when `query_type` is `semantic` or `vector_semantic_hybrid`.| 
 | `strictness` | integer | False | The configured strictness of the search relevance filtering. The higher of strictness, the higher of the precision but lower recall of the answer. Default is `3`.| 
 | `top_n_documents` | integer | False | The configured top number of documents to feature for the configured query. Default is `5`. |
+| `max_search_queries` | integer | False | The max number of rewritten queries should be send to search provider for one user message. If not specified, the system will decide the number of queries to send. |
+| `allow_partial_result` | integer | False | If specified as true, the system will allow partial search results to be used and the request fails if all the queries fail. If not specified, or specified as false, the request will fail if any search query fails. |
+| `include_contexts` | array | False | The included properties of the output context. If not specified, the default value is `citations` and `intent`. Values can be `citations`,`intent`, `all_retrieved_documents`.|
 
 ## API key authentication options
 
@@ -64,6 +67,15 @@ The authentication options for Azure OpenAI On Your Data when using a user-assig
 | `managed_identity_resource_id`|string|True|The resource ID of the user-assigned managed identity to use for authentication.|
 | `type`|string|True| Must be `user_assigned_managed_identity`.|
 
+## Access token authentication options
+
+The authentication options for Azure OpenAI On Your Data when using access token.
+
+|Name | Type | Required | Description |
+|--- | --- | --- | --- |
+| `access_token`|string|True|The access token to use for authentication.|
+| `type` | string | True | Must be `access_token`. |
+
 ## Deployment name vectorization source
 
 The details of the vectorization source, used by Azure OpenAI On Your Data when applying vector search. This vectorization source is based on an internal embeddings model deployment name in the same Azure OpenAI resource. This vectorization source enables you to use vector search without Azure OpenAI api-key and without Azure OpenAI public network access.
@@ -72,6 +84,7 @@ The details of the vectorization source, used by Azure OpenAI On Your Data when 
 |--- | --- | --- | --- |
 | `deployment_name`|string|True|The embedding model deployment name within the same Azure OpenAI resource. |
 | `type`|string|True| Must be `deployment_name`.|
+| `dimensions`|integer|False| The number of dimensions the embeddings should have. Only supported in `text-embedding-3` and later models. |
 
 ## Endpoint vectorization source
 
@@ -82,6 +95,8 @@ The details of the vectorization source, used by Azure OpenAI On Your Data when 
 | `endpoint`|string|True|Specifies the resource endpoint URL from which embeddings should be retrieved. It should be in the format of `https://{YOUR_RESOURCE_NAME}.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings`. The api-version query parameter isn't allowed.|
 | `authentication`| [ApiKeyAuthenticationOptions](#api-key-authentication-options)|True | Specifies the authentication options to use when retrieving embeddings from the specified endpoint.|
 | `type`|string|True| Must be `endpoint`.|
+| `dimensions`|integer|False| The number of dimensions the embeddings should have. Only supported in `text-embedding-3` and later models. |
+
 
 ## Fields mapping options
 

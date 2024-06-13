@@ -14,7 +14,7 @@ ms.reviewer: mjbrown
 ---
 
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Use Mongoose to connect to Azure Cosmos DB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This multi-part tutorial demonstrates how to create a Node.js app with Express and Angular, and connect it to it to your [Azure Cosmos DB account configured with Azure Cosmos DB's API for MongoDB](introduction.md). This article describes Part 5 of the tutorial and builds on [Part 4](tutorial-develop-nodejs-part-4.md).
 
