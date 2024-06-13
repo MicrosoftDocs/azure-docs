@@ -1,7 +1,7 @@
 ---
 title: Replace a drive on an Azure File Sync server
 description: How to replace a drive on an Azure File Sync server due to hardware decommissioning, optimization or end of support. 
-author: nasindam
+author: sindamnataraj
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 06/13/2024
