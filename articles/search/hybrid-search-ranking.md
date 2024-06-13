@@ -61,15 +61,19 @@ Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`)
 
 Starting in 2024-05-01-preview, you can [weight vector queries](vector-search-how-to-query.md#vector-weighting-preview) to increase or decrease their importance in a hybrid query.
 
-Recall that when computing RRF for a certain document, the search engine looks at the rank of that document for each result set where it shows up. Assume a document shows up three search result, where the results are from two vector queries and one text BM25-ranked query. The position of the document varies in each result:
+Recall that when computing RRF for a certain document, the search engine looks at the rank of that document for each result set where it shows up. Assume a document shows up in three separate search results, where the results are from two vector queries and one text BM25-ranked query. The position of the document varies in each result.
 
-+ vector results one, match is in position 1
-+ vector results two, match is in position 5
-+ BM25 results, match is in position 10
+| Match found | Position in results | @search.score | weight multiplier | @search.score (weighted) |
+|--|--|--|--|--|--|
+| vector results one | position 1 | 0.8383955 | 0.5 | 0.41919775 |
+| vector results two | position 5 | 0.81514114 | 2.0 | 1.63028228 |
+| BM25 results | position 10  | 0.8577363 | NA | 0.8577363 |
 
 The document's position in each result set corresponds to an initial score, which are added up to create the final RRF score for that document. 
 
-If you add vector weighting, the initial scores are subect to a weighting multipilier that increases or decreases the score. The default is 1.0, which means no weighting and the initial score is used as-is in RRF scoring. However, if you add a weight of 0.5, the score is reduced and that result becomes less important in the combined ranking. Conversely, if you add a weight of 2.0, the score becomes a larger factor in the overall RRF score.
+If you add vector weighting, the initial scores are subect to a weighting multiplier that increases or decreases the score. The default is 1.0, which means no weighting and the initial score is used as-is in RRF scoring. However, if you add a weight of 0.5, the score is reduced and that result becomes less important in the combined ranking. Conversely, if you add a weight of 2.0, the score becomes a larger factor in the overall RRF score.
+
+In this example, the @search.score (weighted) values are passed to the RRF ranking model.
 
 ## Number of ranked results in a hybrid query response
 

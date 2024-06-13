@@ -604,6 +604,8 @@ Vector queries are often used in hybrid constructs that include nonvector fields
 
 You can only set this property in hybrid requests that include both "search" and "vectorQueries" components.
 
+For more information, see [Set maxTextRecallSize - Create a hybrid query](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview).
+
 ## Vector weighting (preview)
 
 Add a `weight` query parameter to specify the relative weight of each vector included in search operations. This value is used when combining the results of multiple ranking lists produced by two or more vector queries in the same request, or from the vector portion of a hybrid query.

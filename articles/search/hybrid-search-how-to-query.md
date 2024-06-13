@@ -21,6 +21,7 @@ In many cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-a
 To improve relevance:
 
 + New parameters [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over text inputs into a hybrid query. 
+
 + New [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) lets you set the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
 
 ## Prerequisites
@@ -85,22 +86,37 @@ POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/d
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
-    "vectorQueries": [{
-        "vector": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "DescriptionVector",
-        "kind": "vector",
-        "exhaustive": true,
-        "k": 10
-    }],
+    "vectorQueries": [
+        {
+            "vector": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "DescriptionVector",
+            "kind": "vector",
+            "exhaustive": true,
+            "k": 10
+        },
+        {
+            "vector": [
+                -0.009154141,
+                0.018708462,
+                . . . 
+                -0.02178128,
+                -0.00086512347
+            ],
+            "fields": "DescriptionVector",
+            "kind": "vector",
+            "exhaustive": true,
+            "k": 10
+        }
+    ],
     "search": "historic hotel walk to restaurants and shopping",
     "select": "HotelName, Description, Address/City",
-    "top": "10"
+    "top": 10
 }
 ```
 
@@ -238,9 +254,12 @@ api-key: {{admin-api-key}}
 
 ## Set maxTextRecallSize and countAndFacetMode (preview)
 
-This section explains how to adjust the inputs to a hybrid query by controlling the amount BM25-ranked results contributed to the query. Adjustments on the BM25-ranked results can improve hybrid query performance. Another option to consider is a supplemental or replacement technique, is [vector weighting](vector-search-how-to-query.md#vector-weighting-preview), which increases the importance of vector queries in the request.
+This section explains how to adjust the inputs to a hybrid query by controlling the amount BM25-ranked results that flow to the hybrid ranking model. Controlling over the BM25-ranked input gives you more options for relevance tuning in hybrid scenarios. 
 
-1. Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in `2024-05-01-Preview` to specify these parameters.
+> [!TIP]
+> Another option to consider is a supplemental or replacement technique, is [vector weighting](vector-search-how-to-query.md#vector-weighting-preview), which increases the importance of vector queries in the request.
+
+1. Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in 2024-05-01-preview to specify these parameters.
 
 1. Add a `hybridSearch` query parameter object to set the maximum number of documents recalled through the BM25-ranked results of a hybrid query. It has two properties:
 
@@ -248,11 +267,13 @@ This section explains how to adjust the inputs to a hybrid query by controlling 
 
    + `countAndFacetMode` reports the counts for the BM25-ranked results (and for facets if you're using them). The default is all documents that match the query. Optionally, you can scope "count" to the `maxTextRecallSize`.
 
-1. Lower `maxTextRecallSize` below the default to improve performance, assuming vector similarity search is generally outperforming the text-side of the the hybrid query.
+1. Reduce `maxTextRecallSize` if vector similarity search is generally outperforming the text-side of the the hybrid query.
 
 1. Raise `maxTextRecallSize` if you have a large index, and the default isn't capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
 
-The following REST examples show two use-cases for setting `maxTextRecallSize`. The first example lowers `maxTextRecallSize` to 100, limiting the text side of the hybrid query to just 100 document. It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
+The following REST examples show two use-cases for setting `maxTextRecallSize`. 
+
+The first example reduces `maxTextRecallSize` to 100, limiting the text side of the hybrid query to just 100 document. It also sets `countAndFacetMode` to include only those results from `maxTextRecallSize`.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
