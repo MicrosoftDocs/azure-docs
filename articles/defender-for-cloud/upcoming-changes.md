@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Adaptive network hardening deprecation](#adaptive-network-hardening-deprecation) | June 13, 2024 | July 2024|
+| Adaptive network hardening deprecation | June 13, 2024 | July 2024|
 | [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 10, 2024 | July 10, 2024 |
 | [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
 | [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
@@ -58,8 +58,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 Defender for Server's adaptive network hardening is being deprecated. The feature will be removed from the Defender for Cloud portal and the API. 
 
 The feature deprecation includes the following experiences:
-- 
-- 
+- Recommendations
+- Alerts
 - 
 - 
 
