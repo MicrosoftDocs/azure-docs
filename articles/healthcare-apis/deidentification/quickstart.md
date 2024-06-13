@@ -1,9 +1,9 @@
 ---
 title: Quickstart for the deidentification service in Azure Health Data Services
-description: Get up and running quickly with dedentification service in Azure Health Data Services.
+description: Get up and running quickly with deidentification service in Azure Health Data Services.
 author: kimiamavon
 ms.service: azure-health-data-services
-ms.subservice: workspace
+ms.subservice: deidentification-service
 ms.topic: overview
 ms.date: 06/11/2024
 ms.author: kimiamavon
