@@ -33,7 +33,7 @@ The following table lists monitoring methods to use for different scenarios.
 |I want to monitor application performance and usage | (Azure Monitor) [Application Insights](monitor-app-service.md#application-insights)|
 |I want to monitor built-in logs for testing and development|[Log stream](troubleshoot-diagnostic-logs.md#stream-logs)|
 |I want to monitor resource limits and configure alerts|[Quotas and alerts](web-sites-monitor.md)|
-|I want to monitor web app resource events|[Activity Logs](get-resource-events.md#view-azure-activity-logs)|
+|I want to monitor web app resource events|[Activity logs](#activity-log)|
 |I want to monitor metrics visually|[Metrics](web-sites-monitor.md#metrics-granularity-and-retention-policy)|
 
 ## Diagnostic Settings (via Azure Monitor)
@@ -67,7 +67,20 @@ For the available resource log categories, their associated Log Analytics tables
 
 [!INCLUDE [audit log categories tip](../azure-monitor/includes/azure-monitor-log-category-groups-tip.md)]
 
+<a name="activity-log"></a>
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+### Azure activity logs for App Service
+
+Azure activity logs for App Service include details such as:
+
+- What operations were taken on the resources (ex: App Service Plans)
+- Who started the operation
+- When the operation occurred
+- Status of the operation
+- Property values to help you research the operation
+
+Azure activity logs can be queried using the Azure portal, PowerShell, REST API, or CLI.
 
 ### Ship activity logs to Event Grid
 
