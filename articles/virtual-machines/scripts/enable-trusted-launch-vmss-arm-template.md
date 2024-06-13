@@ -1,14 +1,16 @@
 ---
 title: Full Trusted launch Scale set ARM template.
 description: Include file for Full Trusted launch Scale set ARM template JSON.
-author: ajkundna
+author: AjKundnani
 ms.topic: include
 ms.service: virtual-machines
 ms.subservice: trusted-launch
-ms.date: 13/06/2024
-ms.author: ajkundna
+ms.date: 06/13/2024
+ms.author: AjKundnani
 ms.custom: include file
 ---
+
+# Enable Trusted launch on existing scale set using ARM template
 
 ```json
 {
