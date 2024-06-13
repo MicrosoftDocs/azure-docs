@@ -93,7 +93,7 @@ Each feature flag declaration has three main parts: a name, enabled, and a set o
 
 By default, when a feature flag has multiple filters, the filter set is traversed in order until one of the filters determines the feature should be enabled. At that point, the feature flag is *on*, and any remaining filter results are skipped. If no filter indicates the feature should be enabled, the feature flag is *off*.
 
-This default behavior can be changed by setting the `requirement_type` property of the feature flag to `All`. When `requirement_type` is set to `All`, all filters must indicate that the feature should be enabled. For more information on `requirement_type`, see [RequirementType](#requirementtype).
+This default behavior can be changed by setting the `requirement_type` property of the feature flag to `All`. When `requirement_type` is set to `All`, all filters must indicate that the feature should be enabled. For more information on `requirement_type`, see [Requirement Type](#requirement-type).
 
 The following example shows how to set up feature flags in a JSON file:
 
