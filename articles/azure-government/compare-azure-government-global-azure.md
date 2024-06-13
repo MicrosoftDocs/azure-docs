@@ -403,7 +403,7 @@ Azure Front Door (AFD) Standard and Premium tiers are available in general avail
 
 ### [Traffic Manager](../traffic-manager/index.yml)
 
-Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses in the JSON file](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses](/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ## Security
 

@@ -570,7 +570,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
-For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](/entra/identity/managed-identities-azure-resources/howto-assign-access-portal).
+For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource).
 
 <a name="azure-portal-access-policy"></a>
 
