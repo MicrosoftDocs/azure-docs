@@ -36,9 +36,9 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 ### PowerShell
 
-[!INCLUDE [cloudshell powershell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [cloudshell powershell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-[!INCLUDE [powershell locally](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-powershell-locally.md)]
+[!INCLUDE [powershell locally](../../includes/vpn-gateway-powershell-locally.md)]
 
 ### Example values
 
@@ -74,7 +74,7 @@ You can use the following example values when creating this configuration, or yo
 This section helps you create a virtual network, subnets, and deploy Azure Bastion using Azure PowerShell.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 >
 
 1. Create a resource group, a virtual network, and a front end subnet to which you deploy the VMs that you'll connect to via Bastion. If you're running PowerShell locally, open your PowerShell console with elevated privileges and connect to Azure using the `Connect-AzAccount` command.

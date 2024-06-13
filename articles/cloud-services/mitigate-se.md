@@ -18,4 +18,4 @@ ms.custom: compute-evergreen
 
 # Guidance to mitigate speculative execution side-channel vulnerabilities in Azure
 
-[!INCLUDE [virtual-machines-common-mitigate-se](~/reusable-content/ce-skilling/azure/includes/virtual-machines-common-mitigate-se.md)]
+[!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]
