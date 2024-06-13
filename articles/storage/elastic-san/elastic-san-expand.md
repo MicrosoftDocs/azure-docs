@@ -41,7 +41,7 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 
 ## Resize a volume
 
-Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume. To decrease the size of your SAN, make sure the extra size is unallocated, or decrease the size of your existing volumes first.
+Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume. You cannot decrease the size of your volumes.
 
 # [PowerShell](#tab/azure-powershell)
 
