@@ -1,5 +1,6 @@
 ---
 title: How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server
+description: Learn how to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server and begin migrating your data.
 author: markingmyname
 ms.author: maghan
 ms.date: 06/19/2024
@@ -15,7 +16,9 @@ To begin migrating using Azure CLI, you need to install the Azure CLI on your lo
 
 ## Prerequisites
 
-Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli), 2.56.0 at minimum.
+- [Choose the right command line tool](/CLI/azure/choose-the-right-azure-command-line-tool)
+- [Install Azure CLI](/cli/azure/install-azure-cli)
+- [Review the az postgresql commands](/cli/azure/postgres?view=azure-cli-latest)
 
 ## Migrate commands
 
