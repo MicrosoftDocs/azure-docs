@@ -163,7 +163,7 @@ In the JSON, look for the Git properties, for example:
         "mlflow.source.git.branch": "main",
         "mlflow.source.git.commit": "0000000000000000000000000000000000000000",
         "azureml.git.dirty": "False",
-    ...
+        ...
     },
 ```
 
@@ -177,7 +177,7 @@ job.properties["mlflow.source.git.commit"]
 
 ### Azure CLI V2
 
-You can run the `az ml job show` command with the `--query` argument to display the Git information. For example, the following query retrieves the `mlflow.source.git.commit` property:
+You can run the `az ml job show` command with the `--query` argument to display the Git information. For example, the following query retrieves the `mlflow.source.git.commit` property value:
 
 ```azurecli
 az ml job show --name my-job-id --query "{GitCommit:properties.azureml.git.commit} --resource-group my-resource-group --workspace-name my-workspace"
