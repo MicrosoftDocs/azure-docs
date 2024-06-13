@@ -10,7 +10,8 @@ ms.author: AjKundnani
 ms.custom: include file
 ---
 
-# Enable Trusted launch on existing scale set using ARM template
+<details>
+<summary> Enable Trusted launch on existing scale set using ARM template </summary>
 
 ```json
 {
@@ -416,3 +417,5 @@ ms.custom: include file
   ]
 }
 ```
+
+</details>
