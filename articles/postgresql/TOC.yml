@@ -548,8 +548,10 @@
       items:
       - name: Migrate from Single Server
         href: migrate/migration-service/tutorial-migration-service-single-to-flexible.md
-      - name: Migrate from on-premises or Azure VM
-        href: migrate/migration-service/tutorial-migration-service-iaas.md
+      - name: Migrate from an Azure VM or an on-premises PostgreSQL server offline
+        href: migrate/migration-service/tutorial-migration-service-iaas-offline.md
+      - name: Migrate from an Azure VM or an on-premises PostgreSQL server online
+        href: migrate/migration-service/tutorial-migration-service-iaas-online.md
       - name: Migrate from AWS RDS offline
         href: migrate/migration-service/tutorial-migration-service-aws-offline.md
       - name: Migrate from AWS RDS online
