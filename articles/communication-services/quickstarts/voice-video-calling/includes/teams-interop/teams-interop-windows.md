@@ -131,14 +131,14 @@ namespace CallingQuickstart
             var meetingId = CalleeMeetingId.Text.Trim();
             var passcode = CalleeMeetingPasscode.Text.Trim();
 
+            // join with meeting link
             if (!string.IsNullOrEmpty(callString))
             {
                 call = await JoinTeamsMeetingByLinkAsync(teamsMeetinglink);
             }
-            else if (!string.IsNullOrEmpty(meetingId) && !string.IsNullOrEmpty(passcode))
-            {
-                call = await JoinTeamsMeetingByMeetingIdAsync(meetingId, passcode);
-            }
+
+            // (or) to join with meetingId and passcode use the below code snippet.
+            // call = await JoinTeamsMeetingByMeetingIdAsync(meetingId, passcode);
 
             if (call != null)
             {
