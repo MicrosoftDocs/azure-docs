@@ -361,13 +361,26 @@ A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is ca
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-//  HELP
+val locator = CallCompositeTeamsMeetingIdLocator("TEAMS_MEETING_ID", "TEAMS_MEETING_PASSCODE")
+
+val remoteOptions = CallCompositeRemoteOptions(
+    locator,
+    communicationTokenCredential,            
+    "DISPLAY_NAME",
+)
+
 ```
 
 #### [Java](#tab/java)
 
 ```java
-//  HELP
+CallCompositeJoinLocator locator = new CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_ID", "TEAMS_MEETING_PASSCODE");
+
+CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
+        locator,
+        communicationTokenCredential,                
+        "DISPLAY_NAME");
+
 ```
 
 ---

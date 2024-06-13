@@ -224,8 +224,10 @@ A Teams meeting ID is 12 characters long and consists of numeric digits grouped 
 A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
 
 ```swift
+let remoteOptions = RemoteOptions(for: .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode:  "<TEAMS_MEETING_PASSCODE>" ),
+                                  credential: communicationTokenCredential,
+                                  displayName: "<DISPLAY_NAME>")
 
-//  HELP
 ```
 
 ### Set up a Rooms call
