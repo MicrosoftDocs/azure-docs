@@ -9,7 +9,9 @@ ms.topic: conceptual
 
 # Securing Azure Functions
 
-In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud hosted application. [Azure App Service](../app-service/index.yml) provides the hosting infrastructure for your function apps. This article provides security strategies for running your function code, and how App Service can help you secure your functions. 
+The [ OWASP Top 10: Serverless Interpretation](https://owasp.org/www-project-serverless-top-10/) describes the most common serverless application security vulnerabilities, and provides basic techniques to identify and protect against them. According to it, serverless applications are vulnerable to variations of traditional attacks, insecure code and serverless-designated attacks like Denial of Wallet. The risk and attack surface have changed for better or worse and attack prevention requires a shift in mindset.
+ 
+[Azure App Service](../app-service/index.yml) provides the hosting infrastructure for your function apps. This article provides security strategies for running your function code, and how App Service can help you secure your functions. 
 
 [!INCLUDE [app-service-security-intro](~/reusable-content/ce-skilling/azure/includes/app-service-security-intro.md)]
 
