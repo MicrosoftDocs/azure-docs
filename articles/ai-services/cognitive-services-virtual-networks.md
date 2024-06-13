@@ -575,7 +575,7 @@ You can grant a subset of trusted Azure services access to Azure OpenAI, while m
 
 You can grant networking access to trusted Azure services by creating a network rule exception using the REST API or Azure portal:
 
-## [Azure CLI](#tab/azure-cli)
+### Using the Azure CLI
 
 ```bash
 
@@ -610,7 +610,7 @@ To verify if the trusted service has been enabled from the Azure portal,
 
     :::image type="content" source="media/vnet/virtual-network-trusted-service.png" alt-text="A screenshot showing the trusted service is enabled." lightbox="media/vnet/virtual-network-trusted-service.png":::
 
-## [Azure portal](#tab/azure-portal)
+### Using the Azure portal
 
 1. Navigate to your Azure OpenAI resource, and select **Networking** from the navigation menu. 
 1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this cognitive services account.**
