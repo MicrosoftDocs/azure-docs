@@ -172,12 +172,12 @@ In your workspace in Azure Machine Learning studio:
 After you submit a training run, a [Job](/python/api/azure-ai-ml/azure.ai.ml.entities.job) object is returned. The `properties` attribute of this object contains the logged Git information. For example, you can run the following command to retrieve the commit hash:
 
 ```python
-job.properties["azureml.git.commit"]
+job.properties["mlflow.source.git.commit"]
 ```
 
 ### Azure CLI V2
 
-You can run the `az ml job show` command with the `--query` argument to display the Git information. For example, the following query retrieves the `azureml.git.commit` property:
+You can run the `az ml job show` command with the `--query` argument to display the Git information. For example, the following query retrieves the `mlflow.source.git.commit` property:
 
 ```azurecli
 az ml job show --name my-job-id --query "{GitCommit:properties.azureml.git.commit} --resource-group my-resource-group --workspace-name my-workspace"
