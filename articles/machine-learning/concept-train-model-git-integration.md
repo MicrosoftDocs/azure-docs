@@ -40,7 +40,7 @@ You can clone a repo by using Secure Shell (SSH) protocol. To use SSH, you need 
 
 ### Generate and save a new SSH key
 
-To generate a new SSH key, go to the Azure Machine Learning studio **Notebook** page, open a terminal, and run the following command, substituting your email address.
+To generate a new SSH key, you can go to the Azure Machine Learning studio **Notebook** page, open a terminal, and run the following command, substituting your email address.
 
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -66,13 +66,13 @@ When you press Enter, the `ssh-keygen` command generates a new SSH key with the 
 
 ### Add the public key to your Git account
 
-In your terminal window, run the following command to display the contents of your public key file. If you renamed the key, replace `id_ed25519.pub` with the public key file name.
+You need to add your public SSH key to your Git account. To get the key, run the following command in your terminal window. If your key file has a different name, replace `id_ed25519.pub` with your public key file name.
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Copy the output.
+The command displays the contents of your public key file. Copy the output.
 
 > [!TIP]
 > To copy and paste in the terminal window, use these keyboard shortcuts, depending on your operating system:
@@ -91,7 +91,7 @@ Add the SSH key to your Git account by using the following instructions, dependi
 
 ### Clone the Git repository with SSH
 
-To clone a Git repo, copy the SSH Git clone URL from the repo. In your terminal, run the `git clone` command using the SSH Git clone URL. For example:
+To clone a Git repo, copy the SSH Git clone URL from the repo. In your terminal, run `git clone` followed by the SSH Git clone URL. For example:
 
 ```bash
 git clone git@example.com:GitUser/azureml-example.git
@@ -122,9 +122,9 @@ When you submit a training job from the Python SDK or Machine Learning CLI, the 
 
 If so, the process uploads Git repository, branch, and current commit information as part of the training job. The information is stored in the following training job properties for jobs that use an estimator, machine learning pipeline, or script run.
 
-| Property | Git command used to get the value | Description |
+| Property | Git command to get the value | Description |
 | ----- | ----- | ----- |
-| `azureml.git.repository_uri` or `mlflow.source.git.repoURL` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
+| `azureml.git.repository_uri` or `mlflow.source.git.repoURL` | `git ls-remote --get-url` | The URI that THE repository was cloned from. |
 | `azureml.git.branch` or `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the job was submitted. |
 | `azureml.git.commit` or `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the job. |
 | `azureml.git.dirty` | `git status --porcelain .` | `True` if the branch or commit is dirty, otherwise `false`. |
@@ -159,14 +159,13 @@ You can view this information by using the Azure portal, Python SDK, or Azure CL
 
 ### Azure portal
 
-In your Azure Machine Learning workspace in Azure Machine Learning studio:
+In your workspace in Azure Machine Learning studio:
 
 1. Select the **Jobs** page.
 1. Select an experiment.
 1. Select a job from the **Display name** column.
 1. Select **Outputs + logs** from the top menu.
-1. Expand **logs** > **azureml**.
-1. Select the link that begins with **###_azure**.
+1. Expand **logs** > **azureml**, and then select the link that begins with **###_azure**.
 
 ### Python SDK V2
 
@@ -178,7 +177,7 @@ job.properties["azureml.git.commit"]
 
 ### Azure CLI V2
 
-Run the `az ml job show` command with the `--query` argument to display the Git information. For example, the following query retrieves the `GitCommit` property:
+You can run the `az ml job show` command with the `--query` argument to display the Git information. For example, the following query retrieves the `azureml.git.commit` property:
 
 ```azurecli
 az ml job show --name my-job-id --query "{GitCommit:properties.azureml.git.commit} --resource-group my-resource-group --workspace-name my-workspace"
