@@ -7,10 +7,10 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 06/05/2024
+ms.date: 06/13/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
-ms.custom: 
+ms.custom: references_regions
 ---
 
 <!--
@@ -24,7 +24,7 @@ There are many scenarios for which planned failover is ideal. These scenarios in
 
 - Disaster recovery (DR) planning and testing.
 - Recovery during an outage that doesn't affect your primary region's storage service endpoints, but prevents another Microsoft or 3rd party service from providing access to your workloads.
-- To proactively prepare for a large-scale disasters, such as a hurricane, that may impact a region.
+- To proactively prepare for large-scale disasters, such as a hurricane, that may impact a region.
 
 During the planned failover process, your storage account's  primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
@@ -32,12 +32,19 @@ This article describes what happens during a customer-managed planned failover a
 
 > [!IMPORTANT]
 > Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
->
-> |                   |                  |            |                |
-> |-------------------|------------------|------------|----------------|
-> | Australia East    | Central US       | East Asia  | East US 2      |
-> | France Central    | India Central    | India West | Southeast Asia |
-> | Switzerland North | Switzerland West | UK South   | West Europe    |
+> 
+> - Australia East 
+> - Central US 
+> - East Asia 
+> - East US 2 
+> - France Central 
+> - India Central 
+> - India West 
+> - Southeast Asia 
+> - Switzerland North 
+> - Switzerland West 
+> - UK South 
+> - West Europe
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > 

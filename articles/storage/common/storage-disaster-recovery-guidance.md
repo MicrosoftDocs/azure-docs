@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 06/12/2024
+ms.date: 06/13/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -65,9 +65,9 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 
 | Type                                   | Failover Scope  | Use case | Expected data loss | Hierarchical Namespace (HNS) supported |
 |----------------------------------------|-----------------|----------|--------------------|----------------------------------------|
-| Customer-managed planned failover (preview) | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another Microsoft or 3rd party service is preventing your workloads from functioning properly.<br><br>To proactively prepare for a large-scale disasters, such as a hurricane, that may impact a region. | [No](#anticipate-data-loss-and-inconsistencies)  | [Yes <br> *(In preview)*](#azure-data-lake-storage-gen2) |
-| Customer-managed (unplanned) failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes <br> *(In preview)*](#azure-data-lake-storage-gen2) |
-| Microsoft-managed                      | Entire region   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
+| Customer-managed planned failover (preview) | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but another Microsoft or 3rd party service is preventing your workloads from functioning properly.<br><br>To proactively prepare for large-scale disasters, such as a hurricane, that may impact a region. | [No](#anticipate-data-loss-and-inconsistencies)  | [Yes <br> *(In preview)*](#hierarchical-namespace-and-sftp) |
+| Customer-managed (unplanned) failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes <br> *(In preview)*](#hierarchical-namespace-and-sftp) |
+| Microsoft-managed                      | Entire region   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#hierarchical-namespace-and-sftp) |
 
 The following table compares a storage account's redundancy state after each type of failover:
 
@@ -97,18 +97,18 @@ The following table summarizes the resulting redundancy configuration at every s
 > [!IMPORTANT]
 > Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
 >
-> Australia East
-> Central US
-> East Asia
-> East US 2
-> France Central
-> India Central
-> India West
-> Southeast Asia
-> Switzerland North
-> Switzerland West
-> UK South
-> West Europe
+> - Australia East
+> - Central US
+> - East Asia
+> - East US 2
+> - France Central
+> - India Central
+> - India West
+> - Southeast Asia
+> - Switzerland North
+> - Switzerland West
+> - UK South
+> - West Europe
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 > 
@@ -120,7 +120,7 @@ There are many scenarios for which planned failover is ideal. These scenarios in
 
 - Disaster recovery (DR) planning and testing.
 - Recovery during an outage that doesn't affect your primary region's storage service endpoints, but prevents another Microsoft or 3rd party service from providing access to your workloads.
-- To proactively prepare for a large-scale disasters, such as a hurricane, that may impact a region.
+- To proactively prepare for large-scale disasters, such as a hurricane, that may impact a region.
 
 During the planned failover process, the primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
@@ -158,7 +158,7 @@ The following table summarizes the resulting redundancy configuration at every s
 <sup>1</sup> Geo-redundancy is lost during unplanned failover and must be manually reconfigured.<br>
 <sup>2</sup> Geo-redundancy is retained during a unplanned failover and doesn't need to be manually reconfigured.-->
 
-If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can initiate an u8nplanned failover to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data there.
+If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can initiate an unplanned failover to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data there.
 
 To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the unplanned failover and failback process. For details about how the process works, see [How customer-managed (unplanned) failover works](storage-failover-customer-managed-unplanned.md).
 
