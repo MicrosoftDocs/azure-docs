@@ -30,9 +30,9 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 >
 > | US               | Europe | Asia             |
 > |------------------|--------|------------------|
-> | North Central US | Italy  | East Asia        |
-> | Canada East      | Spain  | Taiwan Northwest |
-> | Mexico           | Norway | Taiwan North     |
+> |                  | Italy  | East Asia        |
+> |                  | Spain  | Taiwan Northwest |
+> |                  | Norway | Taiwan North     |
 >
 > - This feature is currently available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
