@@ -179,9 +179,15 @@ Meter characteristics - Meters associated with IQ exhibit specific traits in the
 
 ## Rounding adjustment details
 
-Rounding adjustment isn't available in the cost details file during an open month. The adjustment is visible when the month closes and the invoice gets generated.
+### Why do we have rounding adjustment?
 
-The rounding adjustment record is available in the Cost Details file at the Billing Profile scope for an MCA or at the Enrollment scope for EA. Because it's an aggregated value available at the invoice level, there's no lower-scope-level information available for the record. The following fields are the only valid ones for a record on rounding adjustment:
+Every financial system involves rounding logic, which can cause some variance. Invoices will always have rounded figures, while the cost file contains higher precision numbers, resulting in a variance between the two. This variance is the rounding adjustment value, provided at an aggregated invoice level. Whenever an invoice is ready, we include an aggregated rounding adjustment in the cost file. This ensures that the total cost in the cost file, including the rounding adjustment, matches the invoice total. Rounding adjustments are not available in the cost details file during an open month. The adjustment is visible when the month closes, and the invoice is generated.
+
+Customers can distribute the rounding adjustment across smaller granularities like resources, resource groups, or subscription levels using a weighted average or other methods.
+
+### Rounding adjustment record in the cost file
+
+The rounding adjustment record is available in the cost file at the Billing Profile scope for Microsoft Customer Agreement (MCA) or at the Enrollment scope for Enterprise Agreement (EA). Since it’s an aggregated value at the invoice level, there’s no lower-scope-level information for the record. The following fields are valid for a rounding adjustment record:
 
 - `BillingAccountId`
 - `BillingAccountName`
@@ -192,7 +198,7 @@ The rounding adjustment record is available in the Cost Details file at the Bill
 
 `MeterCategory`, `MeterSubCategory`, and `ChargeType` fields have the value as `RoundingAdjustment`.
 
-Here's an example of how rounding adjustment works in practice:
+### Illustration of rounding adjustment
 
 Suppose you have two resources in your subscription: A and B. Resource A costs $0.1234 per hour and resource B costs $0.5678 per hour. You use both resources for 10 hours in a day, so the total cost for each resource is:
 
@@ -207,7 +213,7 @@ However, when the invoice is generated, the costs are rounded to two decimal pla
 - Resource B: $5.68
 - Total: $6.91
 
-The difference between the invoice total and the actual total is $0.002, which is the rounding adjustment. To make sure that Cost Management costs match the invoice, the amount is shown in the cost details file.
+The difference between the invoice total and the actual total is $0.002, which is the rounding adjustment. To ensure Cost Management costs match the invoice, an amount of -$0.002 is shown in the cost file as the rounding adjustment after the invoice generation.
 
 ## List of terms from older APIs
 
