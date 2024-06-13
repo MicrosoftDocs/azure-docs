@@ -1,6 +1,6 @@
 ---
-title: Istio service mesh AKS add-on performance and scaling
-description: Istio service mesh AKS add-on performance and scaling
+title: Istio service mesh Azure Kubernetes Service add-on performance and scaling
+description: Istio service mesh Azure Kubernetes Service add-on performance and scaling
 ms.topic: article
 ms.custom:
 ms.service: azure-kubernetes-service
@@ -20,7 +20,7 @@ The Istio-based service mesh add-on is logically split into a control plane (`is
 #### Test specifications
 - One `istiod` instance with default settings
 - Horizontal pod autoscaling disabled
-- Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
+- Tested with two network plugins: Azure Container Networking Interface (CNI) Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
 - Node SKU: Standard D16 v3 (16 vCPU, 64-GB memory)
 - Kubernetes version: 1.28.5
 - Istio revision: asm-1-19
@@ -70,7 +70,7 @@ The [ClusterLoader2 framework][clusterloader2] was used to determine the maximum
 ## Data plane performance
 Various factors impact [sidecar performance][data-plane-performance] such as request size, number of proxy worker threads, and number of client connections. Additionally, any request flowing through the mesh traverses the client-side proxy and then the server-side proxy. Therefore, latency and resource consumption are measured to determine the data plane performance.
 
-[Fortio][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on.
+[`Fortio`][fortio] was used to create the load. The test was conducted with the [Istio benchmark repository][istio-benchmark] that was modified for use with the add-on.
 
 #### Test specifications
 - Tested with two network plugins: Azure CNI Overlay and Azure CNI Overlay with Cilium [ (recommended network plugins for large scale clusters) ](/azure/aks/azure-cni-overlay?tabs=kubectl#choosing-a-network-model-to-use)
@@ -99,7 +99,7 @@ The following results evaluate the impact of adding sidecar proxies to the data 
 
 ### Horizontal pod autoscaling
 
-[Horizontal pod autoscaling][hpa] is enabled for the `istiod` and ingress gateway pods. The default configurations for `istiod` and the gateways are:
+[Horizontal pod autoscaling (HPA)][hpa] is enabled for the `istiod` and ingress gateway pods. The default configurations for `istiod` and the gateways are:
 - Min Replicas: 2
 - Max Replicas: 5
 - CPU Utilization: 80%
