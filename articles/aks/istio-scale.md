@@ -97,20 +97,19 @@ The following results evaluate the impact of adding sidecar proxies to the data 
 
 ## Scaling 
 
-### Horizontal Pod Autoscaling
+### Horizontal pod autoscaling
 
 [Horizontal pod autoscaling][hpa] is enabled for the `istiod` and ingress gateway pods. The default configurations for `istiod` and the gateways are:
-
-Horizontal pod autoscaling is enabled for `istiod` and ingress gateway pods. The default configurations are:
 - Min Replicas: 2
 - Max Replicas: 5
 - CPU Utilization: 80%
 
-The HPA configuration can be modified through patches and direct edits:
+The HPA configuration can be modified through patches and direct edits.
 
 > [!NOTE]
 > To prevent conflicts with the `PodDisruptionBudget`, the add-on does not allow setting the `minReplicas` below the initial default of `2`.
 
+The following are the `istiod` and ingress gateway HPA resources:
 ```console
 NAMESPACE           NAME                                         REFERENCE
 aks-istio-ingress   aks-istio-ingressgateway-external-asm-1-19   Deployment/aks-istio-ingressgateway-external-asm-1-19
