@@ -43,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet, or create a new one. 
-   * **Assign roles** - Virtual Networks require special permissions in order to allow managed Cassandra clusters to be deployed. Keep this box checked if you are creating a new Virtual Network, or using an existing Virtual Network without permissions applied. If using a Virtual network where you have already deployed Azure SQL Managed Instance Cassandra clusters, uncheck this option.
+   * **Assign roles** - Virtual Networks require special permissions in order to allow managed Cassandra clusters to be deployed. Keep this box checked if you're creating a new Virtual Network, or using an existing Virtual Network without permissions applied. If using a Virtual network where you have already deployed Azure SQL Managed Instance Cassandra clusters, uncheck this option.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
@@ -129,7 +129,7 @@ To scale up or to scale down SKU size for your nodes, select from the `Sku Size`
 
 > [!NOTE]
 > The length of time it takes for a scaling operation depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
-> Scaling is an online operation and works in the same manner as described in patching for [Management operations](management-operations.md#patching)
+> Scaling is an online operation and works in the same manner as described for patching in [Management operations](management-operations.md#patching)
 
 ## Add a datacenter
 
