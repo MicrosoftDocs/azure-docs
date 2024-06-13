@@ -21,7 +21,7 @@ Message routing enables you to send messages from your devices to cloud services
 
 The IoT Hub defines a common format for all device-to-cloud messaging for interoperability across protocols. For more information, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## Routing endpoints
 
