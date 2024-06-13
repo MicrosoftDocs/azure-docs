@@ -185,7 +185,7 @@ Start-AzVM -ResourceGroupName myResourceGroup -Name myVm
 
 This section steps through using an ARM template to enable Trusted launch on existing Azure Generation 2 VM.
 
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 1. Review the template.
 

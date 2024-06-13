@@ -22,7 +22,7 @@ This quickstart assumes a basic understanding of WLS concepts. For more informat
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Deploy WLS with Administration Server on a VM
 
