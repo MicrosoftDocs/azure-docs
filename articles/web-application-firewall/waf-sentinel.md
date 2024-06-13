@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Using Microsoft Sentinel with Azure Web Application Firewall
 
-Azure Web Application Firewall (WAF) combined with Microsoft Sentinel can provide security information event management for WAF resources. Microsoft Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Microsoft Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces.
+Azure Web Application Firewall (WAF) combined with Microsoft Sentinel can provide security information event management for WAF resources. Microsoft Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Microsoft Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces. Microsoft Sentinel can also be used to set up automated detection and response to various threats by using built-in Detection query templates and custom Playbooks.
 
 ## WAF log analytics categories
 
@@ -95,6 +95,17 @@ Azure WAF also comes in with built-in Sentinel detection rules templates for SQL
 :::image type="content" source="media//waf-sentinel/waf-detections-1.png" alt-text="WAF Detections" lightbox="media//waf-sentinel/waf-detections-1.png":::
 
 The automation section of these rules can help you automatically respond to the incident by running a playbook. An example of such a playbook to respond to attack can be found in network security GitHub repository [here](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Playbook%20-%20WAF%20Sentinel%20Playbook%20Block%20IP%20-%20New). This playbook automatically creates WAF policy custom rules to block the source IPs of the attacker as detected by the WAF analytics detection rules.
+
+
+## Automated Detection and Response for Azure WAF with Sentinel
+
+There are built in detection query templates for SQLi and XSS attacks in Sentinel for Azure WAF. These templates can be found under the Analytics tab in the 'Rule Templates' section of Sentinel. By using these templates, we can create analytic rules that detect specific type of attack patterns in the WAF logs and further notify the security analyst by creating an incident. The automation section of these rules can help us respond to this incident by blocking the source IP of the attacker on the WAF Policy by utilizing a Playbook. This [Playbook](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Playbook%20-%20WAF%20Sentinel%20Playbook%20Block%20IP%20-%20New) can be deployed from the Net Sec Github Repository. 
+
+
+![image](https://user-images.githubusercontent.com/104413086/206823935-c316ee82-58d1-4999-bf0f-cc8775e88f62.png)
+
+
+For detailed information on setting up automated detection and response for Azure WAF using Microsoft Sentinel, refer to the Tech Community [Blog.](https://techcommunity.microsoft.com/t5/azure-network-security-blog/automated-detection-and-response-for-azure-waf-with-sentinel/ba-p/3692525)
 
 
 ## Next steps
