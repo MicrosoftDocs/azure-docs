@@ -111,6 +111,7 @@ Release annotations are a feature of the cloud-based Azure Pipelines service of 
 If all the following criteria are met, the deployment task creates the release annotation automatically:
 
 - The resource to which you're deploying is linked to Application Insights via the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting.
+- *NOTE : `APPLICATIONINSIGHTS_CONNECTION_STRING` is not supported even though it is the official replacement for appinsights_instrumentation key. You need to define both of them in your function or web app in order for this feature to work.* 
 - The Application Insights resource is in the same subscription as the resource to which you're deploying.
 - You're using one of the following Azure DevOps pipeline tasks:
 
