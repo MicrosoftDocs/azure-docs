@@ -6,7 +6,7 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.custom:
-ms.date: 03/12/2024
+ms.date: 06/13/2024
 ms.reviewer: lualderm
 ---
 
@@ -39,9 +39,9 @@ Information on these newer features is included in this article.
 
 There are three sources for diagnostic information:
 
-- **[Platform metrics](./metrics-supported.md)** are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
-- **[Platform logs](./platform-logs-overview.md)**  - provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.
-   - **Resource logs**  aren't collected until they're routed to a destination.
+- Platform metrics are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration. For more information on supported metrics, see [Supported metrics with Azure Monitor](./metrics-supported.md)
+- Platform logs provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on.
+   - **Resource logs**  aren't collected until they're routed to a destination. For more information on supported logs, see [Supported Resource log categories for Azure Monitor](/azure/azure-monitor/reference/supported-logs/logs-index)
    - The **Activity log** provides information about resources from outside the resource, such as when the resource was created or deleted. Entries exist on their own but can be routed to other locations.
 
 ### Metrics

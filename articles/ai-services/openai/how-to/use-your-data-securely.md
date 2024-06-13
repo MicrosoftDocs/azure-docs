@@ -203,11 +203,6 @@ To enable role-based access control via the REST API, set `authOptions` as `aadO
 }
 ```
 
-To use Azure OpenAI Studio, you can't disable the API key based authentication for Azure AI Search, because Azure OpenAI Studio uses the API key to call the Azure AI Search API from your browser. 
-
-> [!TIP]
-> For the best security, when you are ready for production and no longer need to use Azure OpenAI Studio for testing, we recommend that you disable the API key. See the [Azure AI Search RBAC article](/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal%2Ccustom-role-portal%2Cdisable-keys-portal#disable-api-key-authentication) for details. 
-
 ### Disable public network access
 
 You can disable public network access of your Azure AI Search resource in the Azure portal. 
