@@ -10,6 +10,9 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Windows.
 
+## Sample Code
+Find the finalized code for this quickstart on GitHub for [UWP](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/Calling) and [WinUI 3](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/CallingWinUI).
+
 ## Prerequisites
 
 - A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
