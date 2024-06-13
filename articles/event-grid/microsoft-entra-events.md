@@ -12,6 +12,9 @@ This article provides the properties and schema for Microsoft Entra events, whic
 ## Available event types
 These events are triggered when a [User](/graph/api/resources/user) or [Group](/graph/api/resources/group) is created, updated, or deleted in Microsoft Entra ID or by operating over those resources using Microsoft Graph API. 
 
+> [!NOTE]
+> When a user is created the `Microsoft.Graph.UserUpdated` event is raised as noted in the following table. 
+
  | Event name | Description |
  | ---------- | ----------- |
  | **Microsoft.Graph.UserUpdated** | Triggered when a user in Microsoft Entra ID is created or updated. |
