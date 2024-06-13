@@ -36,8 +36,12 @@ robocopy <Server A SourcePath> <Server B Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /M
 Removing user access to your server endpoints will cause downtime. To minimize downtime, perform these steps as quickly as possible.
 1.	Remove SMB access to the server endpoints on Server A. Don't delete the server endpoints yet.
 2.	On Server A, change the startup type of the Storage Sync Agent Service from Automatic to Disabled, and then put it in the Stopped state.
-3.	Run Robocopy again to copy any changes that happened since the last run. From Server A, run: robocopy <SourcePath> <Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /MIR /DCOPY:DAT /XA:O /B /IT /UNILOG:RobocopyLog.txt
-4.	Enable SMB access to the server endpoints on Server B.
+3.	Run Robocopy again to copy any changes that happened since the last run. From Server A, run:
+   
+    ```console
+  	robocopy <SourcePath> <Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /MIR /DCOPY:DAT /XA:O /B /IT /UNILOG:RobocopyLog.txt
+    ```
+5.	Enable SMB access to the server endpoints on Server B.
 Users should now be able to access the file share from the temporary VM (Server B).
 
 ## Step 4: Delete old server endpoints and replace drive
@@ -59,7 +63,11 @@ robocopy <Server B SourcePath> <Server A Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /M
 Removing user access to your server endpoints on the temporary VM will cause downtime. To minimize downtime, perform these steps as quickly as possible.
 
 1.	Remove SMB access to the server endpoints on Server B. Don't delete the server endpoints yet.
-2.	Run Robocopy again to copy any changes that happened since the last run. From Server B, run: robocopy <SourcePath> <Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /MIR /DCOPY:DAT /XA:O /B /IT /UNILOG:RobocopyLog.txt
+2.	Run Robocopy again to copy any changes that happened since the last run. From Server B, run:
+   
+    ```console
+  	robocopy <SourcePath> <Dest.Path> /MT:16 /R:2 /W:1 /COPYALL /MIR /DCOPY:DAT /XA:O /B /IT /UNILOG:RobocopyLog.txt
+    ```
 3.	On Server A, change the startup type of the Storage Sync Agent Service from Disabled to Automatic, and then put it in the Started state.
 4.	Enable SMB access to the server endpoints on Server A.
 5.	Sign into the Azure portal. Navigate to the sync group and verify that the cloud endpoint is syncing to the server endpoint(s) on Server A.
