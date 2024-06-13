@@ -4209,7 +4209,7 @@ The dashboard includes a default set of regulatory standards. If any of the supp
 
 Learn more in [Remove a standard from your dashboard](update-regulatory-compliance-packages.yml).
 
-### Microsoft.Security/securityStatuses table removed from Azure Resource Graph
+### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
 
 Azure Resource Graph is a service in Azure that is designed to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment.
 
