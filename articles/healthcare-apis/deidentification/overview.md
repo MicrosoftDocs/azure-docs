@@ -2,7 +2,7 @@
 title:  Overview of the deidentification service in Azure Health Data Services
 description: The deidentification service is a cloud-based solution for xyz. Learn more about its benefits and use cases.
 author: kimiamavon
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: overview
 ms.date: 06/11/2024
