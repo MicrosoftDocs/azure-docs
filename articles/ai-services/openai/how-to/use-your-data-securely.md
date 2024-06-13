@@ -112,9 +112,10 @@ When using the API, pass the `filter` parameter in each API request. For example
 Use the following sections to configure your resources for optimal secure usage. Even if you plan to only secure part of your resources, you still need to follow all the steps below. 
 
 This article describes network settings related to disabling public network for Azure OpenAI resources, Azure AI search resources, and storage accounts. Using selected networks with IP rules is not supported, because the services' IP addresses are dynamic.
-
+<!-- 
+hide this section, because this adhoc offline script is out-dated, and we have Studio in-product validation experience up-to-date, so no need for the script from the doc
 > [!TIP]
-> You can use the bash script available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/validate-oyd-vnet.sh) to validate your setup, and determine if all of the requirements listed here are being met. 
+> You can use the bash script available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/validate-oyd-vnet.sh) to validate your setup, and determine if all of the requirements listed here are being met.  -->
 
 ## Create resource group
 
