@@ -312,7 +312,8 @@ The Conversion service downloads all files specified under the `blobPrefix`, not
       "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
       "blobPrefix": "models/Assets",
       "relativeInputAssetPath": "myAsset.fbx"
-    ...
+      ...
+    }
   }
 }
 ```
