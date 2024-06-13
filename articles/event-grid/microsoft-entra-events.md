@@ -14,10 +14,10 @@ These events are triggered when a [User](/graph/api/resources/user) or [Group](/
 
  | Event name | Description |
  | ---------- | ----------- |
- | **Microsoft.Graph.UserUpdated** | Triggered when a user in Microsoft Entra ID is created or updated. |
- | **Microsoft.Graph.UserDeleted** | Triggered when a user in Microsoft Entra ID is permanently deleted. |
- | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Microsoft Entra ID is created or updated. |
- | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Microsoft Entra ID is permanently deleted.  |
+ | **Microsoft.Graph.UserUpdated** | Triggered when a user in Microsoft Entra ID is **created** or **updated**. |
+ | **Microsoft.Graph.UserDeleted** | Triggered when a user in Microsoft Entra ID is **permanently deleted**. |
+ | **Microsoft.Graph.GroupUpdated** | Triggered when a group in Microsoft Entra ID is **created** or **updated**. |
+ | **Microsoft.Graph.GroupDeleted** | Triggered when a group in Microsoft Entra ID is **permanently deleted**.  |
 
 > [!NOTE]
 > By default, deleting a user or a group is only a soft delete operation, which means that the user or group is marked as deleted but the user or group object still exists. Microsoft Graph sends an updated event when users are soft deleted. To permanently delete a user, navigate to the **Delete users** page in the Azure portal and select **Delete permanently**. Steps to permanently delete a group are similar.  
