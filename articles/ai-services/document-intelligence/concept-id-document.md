@@ -247,6 +247,8 @@ The following are the fields extracted per document type. The Document Intellige
 
 ::: moniker-end
 
+<!--docutune:disable -->
+
 ::: moniker range=">=doc-intel-3.0.0"
 
 ### `idDocument.driverLicense`
@@ -362,6 +364,8 @@ The following are the fields extracted per document type. The Document Intellige
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
+
+<!--docutune:enable -->
 
 ## Supported document types
 

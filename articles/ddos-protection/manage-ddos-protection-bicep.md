@@ -16,7 +16,7 @@ This QuickStart describes how to use Bicep to create a distributed denial of ser
 
 :::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

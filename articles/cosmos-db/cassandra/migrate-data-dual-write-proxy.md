@@ -24,7 +24,7 @@ Azure Cosmos DB does not support the native Apache Cassandra gossip protocol for
 
 The following image illustrates the pattern. The dual-write proxy is used to capture live changes, while historical data is copied in bulk using Apache Spark. The proxy can accept connections from your application code with few or no configuration changes. It will route all requests to your source database and asynchronously route writes to API for Cassandra while bulk copy is happening.
 
-:::image type="content" source="../../managed-instance-apache-cassandra/media/migration/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/managed-instance-apache-cassandra/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ We recommend Azure Databricks. Use a runtime which supports Spark 3.0 or higher.
 >[!IMPORTANT]
 > You need to ensure that your Azure Databricks account has network connectivity with your source Apache Cassandra cluster. This may require VNet injection. See article [here](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) for more information.  
 
-:::image type="content" source="./media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
 
 
 
@@ -79,7 +79,7 @@ You need to add the Apache Spark Cassandra Connector library to your cluster to 
 > [!IMPORTANT]
 > If you have a requirement to preserve Apache Cassandra `writetime` for each row during the migration, we recommend using [this sample](https://github.com/Azure-Samples/cassandra-migrator). The dependency jar in this sample also contains the Spark connector, so you should install this instead of the connector assembly above. This sample is also useful if you want to perform a row comparison validation between source and target after historic data load is complete. See sections "[run the historical data load](migrate-data-dual-write-proxy.md#run-the-historical-data-load)" and "[validate the source and target](migrate-data-dual-write-proxy.md#validate-the-source-and-target)" below for more details. 
 
-:::image type="content" source="./media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
 
 Select **Install**, and then restart the cluster when installation is complete.
 
