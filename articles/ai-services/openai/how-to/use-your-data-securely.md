@@ -14,6 +14,10 @@ recommendations: false
 
 # Securely use Azure OpenAI On Your Data
 
+> [!Note]
+> Since June 2024, The Microsoft managed virtual network is no longer required, and the form application of the managed private endpoint to Azure AI Search is no longer accepted.
+> The managed private endpoint will be deleted from Microsoft managed virtual network at June 2025. If you have already provisioned managed private endpoint through the form application process before June 2024, please migrate to the [Azure AI Service trusted service](#enable-inbound-trusted-service-of-search-resource) as early as possible to avoid service disruption. 
+
 Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints.
 
 This article is only applicable when using [Azure OpenAI On Your Data with text](/azure/ai-services/openai/concepts/use-your-data). It does not apply to [Azure OpenAI On Your Data with images](/azure/ai-services/openai/concepts/use-your-image-data).
@@ -206,20 +210,13 @@ To enable role-based access control via the REST API, set `authOptions` as `aadO
 }
 ```
 
+### Enable inbound trusted service of Search resource
+
 ### Disable public network access
 
 You can disable public network access of your Azure AI Search resource in the Azure portal. 
 
 To allow access to your Azure AI Search resource from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/search/service-create-private-endpoint) that connect to your Azure AI Search resource.
-
-> [!NOTE]
-> To allow access to your Azure AI Search resource from Azure OpenAI resource, you need to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in 5 business days and you will be contacted via email about the results. If you are eligible, we will provision the private endpoint in Microsoft managed virtual network, and send a private endpoint connection request to your search service, and you will need to approve the request.
-
-:::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
-
-The private endpoint resource is provisioned in a Microsoft managed tenant, while the linked resource is in your tenant. You can't access the private endpoint resource by just clicking the **private endpoint** link (in blue font) in the **Private access** tab of the **Networking page**. Instead, click elsewhere on the row, then the **Approve** button above should be clickable.
-
-Learn more about the [manual approval workflow](/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow).
 
 
 ### Create shared private link
