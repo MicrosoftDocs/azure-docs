@@ -319,11 +319,9 @@ To get a token for a resource, make an HTTP `GET` request to the endpoint, inclu
 
 ## <a name="scale-rules"></a>Use managed identity for scale rules
 
-Starting in API version `2024-02-02-preview`, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property instead of the `auth` property in your scale rule. Acceptable values for the `identity` property are either the Azure resource ID of a user-assigned identity, or `system` to use a system-assigned identity
+Starting in API version `2024-02-02-preview`, you can use managed identities in your scale rules to authenticate with Azure services that support managed identities. To use a managed identity in your scale rule, use the `identity` property instead of the `auth` property in your scale rule. Acceptable values for the `identity` property are either the Azure resource ID of a user-assigned identity, or `system` to use a system-assigned identity.
 
-The following example shows how to use a managed identities with an Azure Queue Storage scale rule:
-
-# [ARM template](#tab/arm)
+The following ARM template example shows how to use a managed identities with an Azure Queue Storage scale rule:
 
 The queue storage account uses the `accountName` property to identify the storage account, while the `identity` property specifies which managed identity to use. You do not need to use the `auth` property.
 
@@ -354,15 +352,13 @@ Starting in API version `2024-02-02-preview`, you can control which managed iden
 - `All`: available to all containers. This is the default setting.
 - `None`: not available to any containers. Use this when you have a managed identity that is only used for ACR image pull, scale rules, or Key Vault secrets and does not need to be available to the code running in your containers.
 
-The following example shows how to configure a container app on a workload profile consumption environment that:
+The following ARM template example shows how to configure a container app on a workload profile consumption environment that:
 
 - Restricts the container app's system-assigned identity to main containers only.
 - Restricts a specific user-assigned identity to init containers only.
 - Uses a specific user-assigned identity for Azure Container Registry image pull without allowing the code in the containers to use that managed identity to access the registry. In this example, the containers themselves don't need to access the registry.
 
 This approach limits the resources that can be accessed if a malicious actor were to gain unauthorized access to the containers.
-
-# [ARM template](#tab/arm)
 
 ```json
 {
