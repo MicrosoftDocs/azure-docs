@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 04/24/2023
+  ms.date: 05/29/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -44,8 +44,6 @@ landingContent:
             url: deploy-service-catalog-quickstart.md
           - text: Deploy managed app definition with Bicep
             url: deploy-bicep-definition.md
-          - text: Deploy Azure Marketplace managed app
-            url: deploy-marketplace-app-quickstart.md
       - linkListType: tutorial
         links:
           - text: Publish marketplace application

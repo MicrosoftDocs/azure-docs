@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 04/25/2024
 ms.custom:
   - devx-track-csharp
   - devx-track-dotnet
@@ -15,9 +15,9 @@ ms.custom:
 ms.devlang: csharp
 ---
 
-# 1 - Overview of adding search to a website with .NET
+# Step 1 - Overview of adding search to a website with .NET
 
-This tutorial builds a website to search through a catalog of books and then deploys the website to an Azure Static Web App. 
+This tutorial builds a website to search through a catalog of books and then deploys the website to an Azure static web app. 
 
 ## What does the sample do?
 
@@ -25,7 +25,7 @@ This tutorial builds a website to search through a catalog of books and then dep
 
 ## How is the sample organized?
 
-The [sample code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/search-website-functions-v4) includes the following:
+The [sample code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/search-website-functions-v4) includes the following folders:
 
 |App|Purpose|GitHub<br>Repository<br>Location|
 |--|--|--|
@@ -35,9 +35,9 @@ The [sample code](https://github.com/Azure-Samples/azure-search-dotnet-samples/t
 
 ## Set up your development environment
 
-Install the following for your local development environment. 
+Install the following software for your local development environment. 
 
-- [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0)  
+- [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0) or later
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 

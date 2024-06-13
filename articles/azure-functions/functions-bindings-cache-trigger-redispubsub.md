@@ -1,5 +1,5 @@
 ---
-title: RedisPubSubTrigger for Azure Functions (preview)
+title: RedisPubSubTrigger for Azure Functions
 description: Learn how to use RedisPubSubTrigger Azure Function with Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -8,10 +8,10 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 04/19/2024
+ms.date: 05/20/2024
 ---
 
-# RedisPubSubTrigger for Azure Functions (preview)
+# RedisPubSubTrigger for Azure Functions
 
 Redis features [publish/subscribe functionality](https://redis.io/docs/interact/pubsub/) that enables messages to be sent to Redis and broadcast to subscribers.
 
@@ -135,7 +135,7 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisPubSubT
 
 ### [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
 
 This sample listens to the channel `pubsubTest`.
 

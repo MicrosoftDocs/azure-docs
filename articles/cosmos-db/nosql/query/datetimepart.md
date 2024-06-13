@@ -22,7 +22,7 @@ Returns the value of the specified date and time part for the provided date and 
 ## Syntax
   
 ```nosql
-DateTimePart(<date_time> , <date_time_part>)
+DateTimePart(<date_time_part> , <date_time>)
 ```
 
 ## Arguments

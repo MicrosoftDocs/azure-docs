@@ -38,6 +38,9 @@ Autodelete on idle enables you to specify an idle interval after which a queue o
 ## Duplicate detection
 The duplicate detection feature enables the sender to resend the same message again and for the broker to drop a potential duplicate. For more information, see [Duplicate detection](duplicate-detection.md).
 
+## Batch delete of Messages
+Azure Service Bus supports deletion of messages in batches. This is useful in scenarios when messages within queues or subscriptions have become expired , or no longer relevant, necessitating a cleanup. For more information, see [Batch delete](batch-delete.md).
+
 ## Support ordering
 The **Support ordering** feature allows you to specify whether messages that are sent to a topic are forwarded to the subscription in the same order in which they were sent. This feature doesn't support partitioned topics. For more information, see [TopicProperties.SupportOrdering](/dotnet/api/azure.messaging.servicebus.administration.topicproperties.supportordering) in .NET or [TopicProperties.setOrderingSupported](/java/api/com.azure.messaging.servicebus.administration.models.topicproperties.setorderingsupported) in Java.
 

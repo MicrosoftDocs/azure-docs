@@ -409,11 +409,9 @@ The Azure Communication Services SMS SDK uses the following error codes to help 
 | 9999 | Message failed to deliver due to unknown error/failure| Try resending the message |
 
 
-
 ## Related articles
-- [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md)
-- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](./troubleshooting-codes.md)
+- [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md).
+- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](./troubleshooting-codes.md).
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
-- Log Filename APIs for Calling SDK
-- [Metrics](metrics.md)
-- [Service limits](service-limits.md)
+- [Metrics](metrics.md).
+- [Service limits](service-limits.md).

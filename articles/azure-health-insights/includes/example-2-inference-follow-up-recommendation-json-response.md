@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "followupRecommendation",
@@ -4948,12 +4948,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2024-04-16"
   },
-  "id": "5efeb8c5-5e43-44a2-a261-2f1454271830",
-  "createdDateTime": "2024-01-12T07:12:08.1045971Z",
-  "expirationDateTime": "2024-01-12T07:28:48.1045971Z",
-  "lastUpdateDateTime": "2024-01-12T07:12:16.3194638Z",
+  "id": "followupRecommendation2",
+  "createdAt": "2024-05-14T15:48:58Z",
+  "expiresAt": "2024-05-15T15:48:58Z",
+  "updatedAt": "2024-05-14T15:49:01Z",
   "status": "succeeded"
 }
 ```

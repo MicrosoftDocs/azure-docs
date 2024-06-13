@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -199,13 +199,28 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/locations/operationresults/read | Reads an operation result resource. |
 > | Microsoft.NetApp/locations/quotaLimits/read | Reads a Quotalimit resource type. |
 > | Microsoft.NetApp/locations/regionInfo/read | Reads a regionInfo resource. |
+> | Microsoft.NetApp/locations/regionInfos/read | Reads a arm compliant regionInfos resource |
 > | Microsoft.NetApp/netAppAccounts/read | Reads an account resource. |
 > | Microsoft.NetApp/netAppAccounts/write | Writes an account resource. |
 > | Microsoft.NetApp/netAppAccounts/delete | Deletes an account resource. |
 > | Microsoft.NetApp/netAppAccounts/renewCredentials/action | Renews MSI credentials of account, if account has MSI credentials that are due for renewal. |
+> | Microsoft.NetApp/netAppAccounts/migrateBackups/action | Migrate Account Backups to BackupVault. |
+> | Microsoft.NetApp/netAppAccounts/changeKeyVault/action | Change an account's existing AKV/HSM encryption with another instance of either AKV/HSM. |
+> | Microsoft.NetApp/netAppAccounts/getKeyVaultStatus/action | Get an account's key vault information, including subnet and private endpoint encryption pairs that have access to the key vault. |
+> | Microsoft.NetApp/netAppAccounts/migrateEncryption/action | Migrate volumes under an encryption sibling set from Microsoft-managed key to Customer-managed key or vice versa. |
+> | Microsoft.NetApp/netAppAccounts/accountBackups/read | Reads an account backup resource. |
+> | Microsoft.NetApp/netAppAccounts/accountBackups/write | Writes an account backup resource. |
+> | Microsoft.NetApp/netAppAccounts/accountBackups/delete | Deletes an account backup resource. |
 > | Microsoft.NetApp/netAppAccounts/backupPolicies/read | Reads a backup policy resource. |
 > | Microsoft.NetApp/netAppAccounts/backupPolicies/write | Writes a backup policy resource. |
 > | Microsoft.NetApp/netAppAccounts/backupPolicies/delete | Deletes a backup policy resource. |
+> | Microsoft.NetApp/netAppAccounts/backupVaults/read | Reads a Backup Vault resource. |
+> | Microsoft.NetApp/netAppAccounts/backupVaults/write | Writes a Backup Vault resource. |
+> | Microsoft.NetApp/netAppAccounts/backupVaults/delete | Deletes a Backup Vault Resource. |
+> | Microsoft.NetApp/netAppAccounts/backupVaults/backups/read | Reads a backup resource. |
+> | Microsoft.NetApp/netAppAccounts/backupVaults/backups/write | Writes a backup resource. |
+> | Microsoft.NetApp/netAppAccounts/backupVaults/backups/delete | Deletes a backup resource. |
+> | Microsoft.NetApp/netAppAccounts/backupVaults/backups/restoreFiles/action | Restores files from a backup resource |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/read | Reads a pool resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/write | Writes a pool resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/delete | Deletes a pool resource. |
@@ -229,9 +244,22 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeRelocation/action | Finalize relocation by cleaning up the old volume. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/revertRelocation/action | Revert the relocation and revert back to the old volume. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/breakFileLocks/action | Breaks file locks on a volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/migrateBackups/action | Migrate Volume Backups to BackupVault. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/populateAvailabilityZone/action | Populates logical availability zone for a volume in a zone aware region and storage. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/getGroupIdListForLdapUser/action | Get group Id list for a given user for an Ldap enabled volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/splitCloneFromParent/action | Split clone from parent volume to make it a standalone volume |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/reestablishReplication/action | Re-establish a previously deleted replication between 2 volumes that have a common ad-hoc or policy-based snapshots |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/peerClusterForOnPremMigration/action | Peers ANF cluster to OnPrem cluster for migration |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/createOnPremMigrationReplication/action | Starts a SVM peering and returns a command to be run on the external ontap to accept it. Once the SVMs have been peered a SnapMirror will be created. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/performReplicationTransfer/action | Starts a data transfer on the volume replication. Updating the data on the destination side. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeOnPremMigration/action | Finalize OnPrem migration by doing a final sync on the replication, break and release the replication and break cluster peering if no other migration is active. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/read | Reads a backup resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/write | Writes a backup resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete | Deletes a backup resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/restoreFiles/action | Restores files from a backup resource |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backupStatus/read | Get the status of the backup for a volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/latestBackupStatus/current/read | Get the status of the backup for a volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/latestRestoreStatus/current/read | Get the status of the restore for a volume |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/mountTargets/read | Reads a mount target resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource. |
@@ -252,7 +280,9 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/read | Reads a snapshot policy resource. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/write | Writes a snapshot policy resource. |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/delete | Deletes a snapshot policy resource. |
+> | Microsoft.NetApp/netAppAccounts/snapshotPolicies/listVolumes/read | List volumes connected to snapshot policy |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/volumes/read | List volumes connected to snapshot policy |
+> | Microsoft.NetApp/netAppAccounts/vaults/read | Reads a vault resource. |
 > | Microsoft.NetApp/netAppAccounts/volumeGroups/read | Reads a volume group resource. |
 > | Microsoft.NetApp/netAppAccounts/volumeGroups/write | Writes a volume group resource. |
 > | Microsoft.NetApp/netAppAccounts/volumeGroups/delete | Deletes a volume group resource. |
@@ -485,6 +515,9 @@ Azure service: [Azure HPC Cache](/azure/hpc-cache/)
 > | Microsoft.StorageCache/amlFilesystems/delete | Deletes the amlfilesystem instance |
 > | Microsoft.StorageCache/amlFilesystems/Archive/action | Archive the data in the amlfilesystem |
 > | Microsoft.StorageCache/amlFilesystems/CancelArchive/action | Cancel archiving the amlfilesystem |
+> | Microsoft.StorageCache/amlFilesystems/importJobs/read |  |
+> | Microsoft.StorageCache/amlFilesystems/importJobs/write |  |
+> | Microsoft.StorageCache/amlFilesystems/importJobs/delete |  |
 > | Microsoft.StorageCache/caches/write | Creates a new cache, or updates an existing one |
 > | Microsoft.StorageCache/caches/read | Gets the properties of a cache |
 > | Microsoft.StorageCache/caches/delete | Deletes the cache instance |

@@ -19,7 +19,7 @@ In this article, you learn how to create subscriptions programmatically using Az
 
 When you create an Azure subscription programmatically, it falls under the terms of the agreement where you receive Azure services from Microsoft or a certified seller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
 
@@ -289,6 +289,30 @@ You get the subscriptionId as part of the response from the command.
 ```
 
 ---
+
+## Create subscription and make subscriptionOwnerId the owner
+
+When a service principal uses the Subscription Alias API to create a new subscription and doesn't include `additionalProperties` in the request, the service principal automatically becomes the owner of the new subscription. If you don't want the service principal to be the owner, you can specify `subscriptionTenantId` and `subscriptionOwnerId` in the `additionalProperties`. This process makes the specified `subscriptionOwnerId` the owner of the new subscription, not the service principal.
+
+Sample request body:
+
+```json
+
+{
+    "properties": {
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/{EABillingAccountId}/enrollmentAccounts/{EnrollmentAccountId}",
+        "displayName": "{SubscriptionName}",
+        "workLoad": "Production",
+        "resellerId": null,
+        "additionalProperties": {
+            "managementGroupId": "",
+            "subscriptionTenantId": "{SubscriptionTenantId}", // Here you input the tenant GUID where the subscription resides after creation
+            "subscriptionOwnerId": "{ObjectId that becomes the owner of the subscription}", // Here you input the objectId which is set as the subscription owner when it gets created.
+            "tags": {}
+        }
+    }
+}
+```
 
 ## Create subscriptions in a different tenant
 

@@ -1,5 +1,5 @@
 ---
-title: Runtime environment in Azure Automation
+title: Runtime environment (preview) in Azure Automation
 description: This article provides an overview on Runtime environment in Azure Automation.
 services: automation
 ms.subservice: process-automation
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 ---
 
-# Runtime environment in Azure Automation
+# Runtime environment (preview) in Azure Automation
 
 This article provides an overview on Runtime environment, scope and its capabilities.
 
