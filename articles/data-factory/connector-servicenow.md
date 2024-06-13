@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/11/2024
+ms.date: 06/11/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -110,7 +110,7 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ServiceNowV2Object** | Yes |
-| tableName | Name of the table. | No (if "expression" in activity source is specified) |
+| tableName | Name of the table. | Yes |
 
 > [!Note]
 > In copy activities, the tableName in dataset will be the name of the table instead of the label in ServiceNow.
