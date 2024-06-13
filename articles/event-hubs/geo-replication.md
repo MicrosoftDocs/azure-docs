@@ -124,4 +124,4 @@ Clients that use the Event Hubs SDK need to upgrade to the April 2024 version of
 
 ## Pricing
 Event Hubs dedicated clusters are priced independently of geo-replication. Use of geo-replication with Event Hubs dedicated requires you to have at least two dedicated clusters in separate regions. The dedicated clusters used as secondary instances for geo-replication can be used for other workloads.
-There is a charge for geo-replication based on the published bandwidth times the number of secondary regions. The geo-replication charge is waived in early public preview. 
+There is a charge for geo-replication based on the published bandwidth * the number of secondary regions. The geo-replication charge is waived in early public preview. 
