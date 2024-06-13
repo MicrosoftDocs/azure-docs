@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mode-ui
-ms.date: 05/16/2024
+ms.date: 06/13/2024
 #Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -14,15 +14,31 @@ ms.date: 05/16/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-To create an automated workflow that performs tasks with multiple cloud services, this quickstart shows how to create an example workflow that integrates the following services, an RSS feed for a website and an email account. This example uses the **RSS** connector and the **Office 365 Outlook** connector. The **RSS** connector provides a trigger that you can use to check an RSS feed, based on a specific schedule. The **Office 365 Outlook** connector provides an action that sends an email for each new RSS item.
+To create an automated workflow that performs tasks with multiple cloud services, this quickstart shows how to create an example logic app workflow that integrates the following services, an RSS feed for a website and an email account.
+
+This example specifically creates a Consumption logic app resource and workflow that runs in multitenant Azure Logic Apps. The example uses the **RSS** connector and the **Office 365 Outlook** connector. The **RSS** connector provides a trigger that you can use to check an RSS feed, based on a specific schedule. The **Office 365 Outlook** connector provides an action that sends an email for each new RSS item.
 
 The following screenshot shows the high-level example workflow:
 
 :::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows example workflow with RSS trigger named When a feed item is published, and with the Outlook action named Send an email." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
 
-This example specifically creates a Consumption logic app resource and workflow that runs in multitenant Azure Logic Apps. To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
+> [!TIP]
+>
+> To learn more, you can ask Azure Copilot these questions:
+>
+> - *What's a Consumption logic app workflow?*
+> - *What's the RSS connector?*
+> - *What's the Office 365 Outlook connector?*
+>
+> To find Azure Copilot, on the Azure toolbar, select **Copilot**.
 
-As you progress through this quickstart, you'll learn the following basic steps:
+The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
+
+> [!NOTE]
+> To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see 
+> [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). 
+
+As you progress through this quickstart, you'll learn the following basic high-level steps:
 
 * Create a Consumption logic app resource that's hosted in multitenant Azure Logic Apps.
 * Add a trigger that specifies when to run the workflow.
