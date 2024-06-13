@@ -15,7 +15,7 @@ ms.author: greglin
 
 ![Application Gateway conceptual](media/overview/figure1-720.png)
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 Application Gateway includes the following features:
 
