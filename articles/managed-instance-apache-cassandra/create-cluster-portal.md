@@ -129,8 +129,6 @@ To scale up or to scale down SKU size for your nodes, select from the `Sku Size`
 
 > [!NOTE]
 > The length of time it takes for a scaling operation depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
-
-> [!NOTE]
 > Scaling is an online operation and works in the same manner as described in patching for [Management operations](management-operations.md#patching)
 
 ## Add a datacenter
