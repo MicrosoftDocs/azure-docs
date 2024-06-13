@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 05/31/2024
+ms.date: 06/13/2024
 ms.author: cshoe
 ---
 
@@ -15,13 +15,13 @@ Azure Container Apps supports client certificate authentication (also known as m
 
 When client certificates are used, the TLS certificates are exchanged between the client and your container app to authenticate identity and encrypt traffic. Client certificates are often used in "zero trust" security models to authorize client access within an organization.
 
-For example, you want to require a client certificate for a container app that manages sensitive data.
+For example, you might want to require a client certificate for a container app that manages sensitive data.
 
 Container Apps accepts client certificates in the PKCS12 format are that issued by a trusted certificate authority (CA), or are self-signed.
 
 ## Configure client certificate authorization
 
-To configure support of client certificates, set the `clientCertificateMode` property in your container app template.
+To configure support for client certificates, set the `clientCertificateMode` property in your container app template.
 
 The property can be set to one of the following values:
 
