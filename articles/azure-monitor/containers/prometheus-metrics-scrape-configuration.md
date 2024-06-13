@@ -497,8 +497,8 @@ Scraping targets using basic auth is currently not supported using pod/service m
 
 ---
 
-If you are using both basic auth and tls auth, please refer to the [section](#create-secret-using-yaml-for-both-basic-and-tls-auth) below.
-For more details, refer to the [note section](#note-for-both-basic-and-tls-authentication) below.
+If you are using both basic auth and tls auth, please refer to the [section](#basic-auth-and-tls) below.
+For more details, refer to the [note section](#note) below.
 
 
 ### TLS based scraping
@@ -562,7 +562,7 @@ Please follow the below steps.
 ---
 
    
-### Create secret using YAML for both basic and Tls auth
+### Basic Auth and TLS
 
    If you want to use both basic and Tls authentication settings in your configmap/CRD, just make sure that the secret **ama-metrics-mtls-secret** includes all the files(keys) under the data section with their corresponding base 64 encoded values, as shown below.
    
@@ -580,7 +580,7 @@ Please follow the below steps.
      password2: base64-encoded-string # used for basic auth
    ```
 
-### Note for both Basic and TLS authentication
+### Note
 > [!NOTE]
 > 
 > The **/etc/prometheus/certs/** path is mandatory, but *password1* can be any string and needs to match the key for the data in the secret created above. This is because the secret **ama-metrics-mtls-secret** is mounted in the path **/etc/prometheus/certs/** within the container.
