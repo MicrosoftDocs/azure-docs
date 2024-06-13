@@ -16,6 +16,8 @@ services: azure-maps
 
 This article shows how to use the Microsoft Azure Maps Power BI visual.
 
+>  [!NOTE]
+>  Power BI does not share the name of customer or end user who sends the above details or locations to Azure Maps.
 > [!NOTE]
 > This visual can be created and viewed in both Power BI Desktop and the Power BI service. The steps and illustrations in this article are from Power BI Desktop.
 
@@ -32,6 +34,9 @@ The Azure Maps Power BI visual connects to cloud service hosted in Azure to retr
 - Telemetry data may be collected on the health of the visual (for example, crash reports), if the telemetry option in Power BI is enabled.
 
 Other than the scenarios previously described, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
+
+>  [!NOTE]
+>  Power BI does not share the name of customer or end user who sends the above details or locations to Azure Maps.
 
 > [!TIP]
 > If using the Azure Maps [Geographic API endpoints], your firewall may need to be updated to allow access to the Azure Maps platform using either or all of the following URLs:
