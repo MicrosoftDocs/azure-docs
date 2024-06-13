@@ -2,7 +2,7 @@
 title: 'App Service Environment v3 and App Service public multi-tenant comparison'
 description: This article provides an overview of the difference between App Service Environment v3 and the public multi-tenant offering of App Service.
 author: seligj95
-ms.date: 6/11/2024
+ms.date: 6/13/2024
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -69,21 +69,50 @@ App Service Environment v3 tends to be more expensive than the public multi-tena
 |Savings plans|Available|Available|
 |Availability zone pricing|There's a minimum charge of 18 cores. There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as additional Windows I1v2 instances.|3 instance minimum enforced per App Service plan|
 
-## Frequently asked questions TODO:
+## Frequently asked questions
 
-- [What SKUs are available on App Service Environment v1, v2, and v3?](#what-skus-are-available-on-app-service-environment-v1-v2-and-v3)
+- [How do I know which offering is right for me?](#how-do-i-know-which-offering-is-right-for-me)
+- [Can I use App Service Environment v3 and the public multi-tenant offering together?](#can-i-use-app-service-environment-v3-and-the-public-multi-tenant-offering-together)
+- [Can I migrate from the public multi-tenant offering to App Service Environment v3?](#can-i-migrate-from-the-public-multi-tenant-offering-to-app-service-environment-v3)
+- [Can I use App Service Environment v3 for my development and testing environments?](#can-i-use-app-service-environment-v3-for-my-development-and-testing-environments)
+- [How do I get started with App Service Environment v3?](#how-do-i-get-started-with-app-service-environment-v3)
+- [How do I get started with the App Service public multi-tenant offering?](#how-do-i-get-started-with-the-app-service-public-multi-tenant-offering)
 
-#### What SKUs are available on App Service Environment v1, v2, and v3?
+#### How do I know which offering is right for me?
 
-App 
+Deciding between App Service Environment v3 and the public multi-tenant offering depends on your specific requirements. There are a few key factors to consider when deciding between the two offerings.
 
-## Next steps TODO:
+If you need a fully isolated and dedicated environment for running your apps, then App Service Environment v3 is the right choice for you. If you don't need a fully isolated environment and you're okay with sharing the underlying compute with other customers, then the public multi-tenant offering is the right choice for you. 
+
+If you need nearly instantaneous scaling times, then the public multi-tenant offering is the right choice for you. If you need to scale out to more than 30 instances, then App Service Environment v3 is the right choice for you. 
+
+If you need to use client certificates issued by a private CA, then App Service Environment v3 is the right choice for you. If you need to use client certificates issued by a private CA and you're deploying using either Windows containers or Linux containers, then the public multi-tenant offering is also a possibility.
+
+If you want to simplify your networking configuration and have all your apps in the same subnet, then App Service Environment v3 is the right choice for you. If you want to use virtual network integration, private endpoints, or IP access restrictions, then both offerings are right for you, but you'll need to enable these features on a per-app basis for the public multi-tenant offering.
+
+#### Can I use App Service Environment v3 and the public multi-tenant offering together?
+
+Yes, you can use App Service Environment v3 and the public multi-tenant offering together. You can use App Service Environment v3 for your most critical apps that require a fully isolated and dedicated environment, and you can use the public multi-tenant offering for your apps that don't require a fully isolated environment.
+
+#### Can I migrate from the public multi-tenant offering to App Service Environment v3?
+
+Yes, you can migrate from the public multi-tenant offering to App Service Environment v3 and vice versa. You can use the [backup and restore feature](../../app-service/manage-backup.md) to migrate your apps.
+
+#### Can I use App Service Environment v3 for my development and testing environments?
+
+Yes, you can use App Service Environment v3 for your development and testing environments. However, keep in mind that App Service Environment v3 is more expensive than the public multi-tenant offering, so you may want to use the public multi-tenant offering for your development and testing environments to save money.
+
+#### How do I get started with App Service Environment v3?
+
+To get started with App Service Environment v3, see [Azure App Service landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator).
+
+#### How do I get started with the App Service public multi-tenant offering?
+
+To get started with the App Service public multi-tenant offering, see [Getting started with Azure App Service](../../app-service/getting-started.md).
+
+## Next steps
 
 > [!div class="nextstepaction"]
-> [Manually migrate to App Service Environment v3](migration-alternatives.md)
+> [Getting started with Azure App Service](../../app-service/getting-started.md)
 
-> [!div class="nextstepaction"]
-> [App Service Environment v3 Networking](networking.md)
-
-> [!div class="nextstepaction"]
-> [Using an App Service Environment v3](using.md)
+> [Getting started with App Service Environment v3](/azure/cloud-adoption-framework/scenarios/app-platform/app-services/landing-zone-accelerator)
