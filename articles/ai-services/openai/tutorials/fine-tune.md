@@ -10,7 +10,7 @@ ms.date: 05/15/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-ms.custom:
+ms.custom: devx-track-python
 ---
 
 # Azure OpenAI GPT-3.5 Turbo fine-tuning tutorial

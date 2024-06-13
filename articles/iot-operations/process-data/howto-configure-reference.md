@@ -20,7 +20,7 @@ Reference datasets within the Azure IoT Data Processor Preview store reference d
 
 ## Prerequisites
 
-- A functioning instance of Data Processor.
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - A Data Processor pipeline with an input stage that deserializes incoming data.
 
 ## Configure a reference data store

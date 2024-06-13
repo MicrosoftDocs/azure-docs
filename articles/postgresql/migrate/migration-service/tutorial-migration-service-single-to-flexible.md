@@ -7,6 +7,7 @@ ms.author: hariramt
 ms.reviewer: maghan, adityaduvuri
 ms.date: 03/19/2024
 ms.service: postgresql
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 # CustomerIntent: As a user, I want to learn how to migrate my Single Server databases to Azure Database for PostgreSQL Flexible Server using the Azure portal, so that I can take advantage of the flexibility and scalability offered by the Flexible Server.
 ---
