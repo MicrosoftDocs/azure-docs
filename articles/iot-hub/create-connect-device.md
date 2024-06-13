@@ -18,6 +18,8 @@ Create a device identity for your device to connect to Azure IoT Hub. This artic
 
 * An IoT hub in your subscription. If you don't have an IoT hub, follow the steps in [Create an IoT hub](./iot-hub-create-through-portal.md)
 
+* Depending on which tool you use, either have access to the [Azure portal](https://portal.azure.com) or [install the Azure CLI](/cli/azure/install-azure-cli).
+
 ## Register a device
 
 In this section, you create a device identity in the [identity registry in your IoT hub](./iot-hub-devguide-identity-registry.md). A device can't connect to a hub unless it has a device identity.
@@ -26,7 +28,7 @@ The IoT Hub identity registry only stores device identities to enable secure acc
 
 When you register a device, you choose its authentication method. IoT Hub supports three methods for device authentication:
 
-* **Symmetric key** - *This option is recommended for quickstart scenarios.*
+* **Symmetric key** - *This option is easiest for quickstart scenarios.*
 
   When you register a device, you can provide keys or IoT Hub will generate keys for you. Both the device and the IoT hub have a copy of the symmetric key that can be compared when the device connects.
 
@@ -36,7 +38,7 @@ When you register a device, you choose its authentication method. IoT Hub suppor
 
 * **X.509 CA signed** - *This option is recommended for production scenarios.*
 
-If your device has a CA-signed X.509 certificate, then you can give IoT Hub a root or intermediate certificate in the signing chain for authentication. Before you register a device, you upload and verify an X.509 certificate authority (CA) certificate to the IoT hub. The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA. For more information, see [Authenticate identities with X.509 certificates](./authenticate-authorize-x509.md).
+  If your device has a CA-signed X.509 certificate, then you upload a root or intermediate certificate authority (CA) certificate in the signing chain to IoT Hub before you register the device.The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA. For more information, see [Authenticate identities with X.509 certificates](./authenticate-authorize-x509.md).
 
 ### Prepare certificates
 
@@ -61,8 +63,6 @@ Create a device identity in your IoT hub.
 1. Select **Device management** > **Devices**.
 
 1. Select **Add Device** to add a device in your IoT hub.
-
-    <!-- :::image type="content" source="./media/iot-hub-include-create-device/create-identity-portal.png" alt-text="Screen capture that shows how to create a device identity in the portal." border="true"::: -->
 
 1. In **Create a device**, provide the information for your new device identity:
 
@@ -125,8 +125,6 @@ The Azure portal only lists connection strings for devices that use symmetric ke
 
    By default, the keys and connection strings are masked because they're sensitive information. If you click the eye icon, they're revealed. It's not necessary to reveal them to copy them with the copy button.
 
-    <!-- :::image type="content" source="./media/iot-hub-include-create-device/device-details.png" alt-text="Screen capture that shows the device connection string." border="true" lightbox="./media/iot-hub-include-create-device/device-details.png"::: -->
-
 ### [Azure CLI](#tab/cli)
 
 Use the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-connection-string-show) command to retrieve a device's connection string. For example:
@@ -143,19 +141,17 @@ If you want to keep a device in your IoT hub's identity registry, but want to pr
 
 ### [Azure portal](#tab/portal)
 
-. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 
 1. Select **Device management** > **Devices**.
 
 1. Select your device from the list in the **Devices** pane.
 
-1. On the device details page, set the **Enable connection to IoT Hub** parameter to **Disable**.
+1. On the device details page, you can disable or delete the device registration.
 
-   :::image type="content" source="./media/iot-hub-create-through-portal/disable-device.png" alt-text="Screenshot that shows disabling a device connection.":::
+   * To prevent a device from connecting, set the **Enable connection to IoT Hub** parameter to **Disable**.
 
-   If you want to remove a device from your IoT hub's identity registry, you can delete its registration by selecting **Delete**.
-
-   :::image type="content" source="./media/iot-hub-create-through-portal/delete-device.png" alt-text="Screenshot that shows deleting a device."::: 
+   * To completely remove a device from your IoT hub's identity registry, select **Delete**.
 
 ### [Azure CLI](#tab/cli)
 
@@ -177,14 +173,8 @@ az iot hub device-identity delete --device-id <DEVICE_NAME> --hub-name <IOT_HUB_
 
 You can use other tools or interfaces to manage the IoT Hub identity registry, including:
 
-* PowerShell commands
+* **PowerShell commands**: Refer to the [Az.IotHub](/powershell/module/az.iothub/) command set to learn how to manage device identities.
 
-  Refer to the [Az.IotHub](/powershell/module/az.iothub/) command set to learn how to manage device identities.
+* **Visual Studio Code**: The [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) includes identity registry capabilities.
 
-* Visual Studio Code
-
-  The [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) includes identity registry capabilities.
-
-* REST API
-
-  Refer to the [IoT Hub Service APIs](/rest/api/iothub/service/devices) to learn how to manage device identities.
+* **REST API**: Refer to the [IoT Hub Service APIs](/rest/api/iothub/service/devices) to learn how to manage device identities.
