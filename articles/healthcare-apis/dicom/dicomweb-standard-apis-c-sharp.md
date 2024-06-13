@@ -279,7 +279,7 @@ _Details:_
 
 ```c#
 string query = $"/instances?SOPInstanceUID={sopInstanceUid}";
-DicomWebResponse response = await client.QueryStudyAsync(query);
+DicomWebResponse response = await client.QueryInstancesAsync(query);
 ```
 
 Validates that the response includes one instance, and that the response code is OK.
@@ -294,7 +294,7 @@ _Details:_
 
 ```c#
 string query = $"/studies/{studyInstanceUid}/instances?SOPInstanceUID={sopInstanceUid}";
-DicomWebResponse response = await client.QueryStudyAsync(query);
+DicomWebResponse response = await client.QueryStudyInstanceAsync(studyInstanceUid, query);
 ```
 
 Validates that the response includes one instance, and that the response code is OK.
