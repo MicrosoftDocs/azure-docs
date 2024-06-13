@@ -17,8 +17,6 @@ This article explains how to configure Redis output caching middleware in an ASP
 - Saving web server resource utilitzation from repeatedly generating HTTP responses and rendering HTML web pages.
 - Improving web request performance by reducing dependencies calls.
 
-For an introduction to ASP.NET Core output caching middleware, see [Output caching](/aspnet/core/performance/caching/overview#output-caching).
-
 The benefits of using Azure Cache for Redis as your output cache include:
 
 - Saving web server memory resource utilization by saving cached content in an external Redis.
@@ -31,12 +29,12 @@ The output caching middleware can be used in all types of ASP.NET Core apps: Min
 
 Pre-requisites:
 
-* Install .NET 8 SDK or later. [Download](https://dotnet.microsoft.com/download/dotnet/8.0)
-* Install Visual Studio Code. [Download](https://code.visualstudio.com/download)
-* Create an Azure Cache for Redis instance.
-    - [Quickstart: Create an open-source Redis cache](./quickstart-create-redis.md)
-    - [Quickstart: Create a Redis Enterprise cache](./quickstart-create-redis-enterprise.md)
-* (Optional) For an end-to-end application that uses Redis output caching, see [.NET 8 Web Application with Redis Output Caching and Azure Open AI](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/output-cache-open-ai)
+- Install .NET 8 SDK or later. [Download](https://dotnet.microsoft.com/download/dotnet/8.0)
+- Install Visual Studio Code. [Download](https://code.visualstudio.com/download)
+- Create an Azure Cache for Redis instance.
+  - [Quickstart: Create an open-source Redis cache](./quickstart-create-redis.md)
+  - [Quickstart: Create a Redis Enterprise cache](./quickstart-create-redis-enterprise.md)
+- (Optional) For an end-to-end application that uses Redis output caching, see [.NET 8 Web Application with Redis Output Caching and Azure Open AI](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/output-cache-open-ai)
 
 ### Create an empty ASP.NET core web application
 
@@ -170,4 +168,5 @@ Hello Redis Output Cache5/27/2024 8:31:35 PM
 
 ## Related content
 
-Check out the [ASP.NET Output Cache Provider for Azure Cache for Redis](cache-aspnet-output-cache-provider.md).
+- [ASP.NET Output Cache Provider for Azure Cache for Redis](cache-aspnet-output-cache-provider.md)
+- [Output caching](/aspnet/core/performance/caching/overview#output-caching)
