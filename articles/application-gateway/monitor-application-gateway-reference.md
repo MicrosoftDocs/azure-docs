@@ -64,7 +64,7 @@ The following metrics are available. For details, see the [metrics table](#suppo
 
 ### Application Gateway metrics for Application Gateway V1 SKU
 
-For Application Gateway, the following metrics are available:
+For Application Gateway V1 SKU, the following metrics are available:
 
 - **CPU Utilization**. Displays the utilization of the CPUs allocated to the Application Gateway.  Under normal conditions, CPU usage should not regularly exceed 90%, as this may cause latency in the websites hosted behind the Application Gateway and disrupt the client experience. You can indirectly control or improve CPU utilization by modifying the configuration of the Application Gateway by increasing the instance count or by moving to a larger SKU size, or doing both.
 
@@ -80,7 +80,7 @@ For Application Gateway, the following metrics are available:
 
 ### Backend metrics for Application Gateway V1 SKU
 
-For Application Gateway, the following metrics are available:
+The following metrics are available:
 
 - **Healthy host count**. The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show the number of healthy hosts in a specific backend pool.
 
@@ -170,6 +170,8 @@ Application Gateway's layer 4 proxy provides the capability to monitor the healt
 
 ### Application Gateway v1 metrics
 
+The following descriptions apply to metrics collected when you are running an Application Gateway v1 instance.
+
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
 |**CPU Utilization**|Percent|Displays the CPU usage allocated to the Application Gateway. Under normal conditions, CPU usage shouldn't regularly exceed 90%, because this situation might cause latency in the websites hosted behind the Application Gateway and disrupt the client experience. You can indirectly control or improve CPU usage by modifying the configuration of the Application Gateway by increasing the instance count or by moving to a larger SKU size, or doing both.|
@@ -214,7 +216,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-### Supported resource logs for Microsoft.Network/applicationGateways
+### Supported resource log categories for Microsoft.Network/applicationGateways
 
 [!INCLUDE [Microsoft.Network/applicationgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-applicationgateways-logs-include.md)]
 
@@ -227,11 +229,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
   > [!NOTE]
   > The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data.
 
-#### Activity log
-
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../azure-monitor/essentials/activity-log.md) article.
-
-#### Access log
+### Access log category
 
 The access log is generated only if you enable it on each Application Gateway instance, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown.
 
@@ -383,50 +381,13 @@ If the application gateway can't complete the request, it stores one of the foll
    | ERRORINFO_HTTP_TO_HTTPS_PORT	|The client sent a plain HTTP request to an HTTPS port. |
    | ERRORINFO_HTTPS_NO_CERT | 	Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
 
-
 |5XX Errors  | Description  |
 |---------|---------|
   |  ERRORINFO_UPSTREAM_NO_LIVE	| The application gateway is unable to find any active or reachable backend servers to handle incoming requests       |
   |  ERRORINFO_UPSTREAM_CLOSED_CONNECTION	| The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc.|
   | ERRORINFO_UPSTREAM_TIMED_OUT	| The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
 
-#### Performance log
-
-The performance log is generated only if you enable it on each Application Gateway instance, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It's available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
-
-|Value  |Description  |
-|---------|---------|
-|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there's one row per instance.        |
-|healthyHostCount     | Number of healthy hosts in the backend pool.        |
-|unHealthyHostCount     | Number of unhealthy hosts in the backend pool.        |
-|requestCount     | Number of requests served.        |
-|latency | Average latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
-|failedRequestCount| Number of failed requests.|
-|throughput| Average throughput since the last log, measured in bytes per second.|
-
-```json
-{
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
-    "operationName": "ApplicationGatewayPerformance",
-    "time": "2016-04-09T00:00:00Z",
-    "category": "ApplicationGatewayPerformanceLog",
-    "properties":
-    {
-        "instanceId":"ApplicationGatewayRole_IN_1",
-        "healthyHostCount":"4",
-        "unHealthyHostCount":"0",
-        "requestCount":"185",
-        "latency":"0",
-        "failedRequestCount":"0",
-        "throughput":"119427"
-    }
-}
-```
-
-> [!NOTE]
-> Latency is calculated from the time when the first byte of the HTTP request is received to the time when the last byte of the HTTP response is sent. It's the sum of the Application Gateway processing time plus the network cost to the back end, plus the time that the back end takes to process the request.
-
-#### Firewall log
+### Firewall log category
 
 The firewall log is generated only if you enable it for each application gateway, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:
 
@@ -482,7 +443,43 @@ The firewall log is generated only if you enable it for each application gateway
 }
 ```
 
-### Diagnostics tables
+### Performance log category
+
+The performance log is generated only if you enable it on each Application Gateway instance, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It's available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there's one row per instance.        |
+|healthyHostCount     | Number of healthy hosts in the backend pool.        |
+|unHealthyHostCount     | Number of unhealthy hosts in the backend pool.        |
+|requestCount     | Number of requests served.        |
+|latency | Average latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
+|failedRequestCount| Number of failed requests.|
+|throughput| Average throughput since the last log, measured in bytes per second.|
+
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayPerformance",
+    "time": "2016-04-09T00:00:00Z",
+    "category": "ApplicationGatewayPerformanceLog",
+    "properties":
+    {
+        "instanceId":"ApplicationGatewayRole_IN_1",
+        "healthyHostCount":"4",
+        "unHealthyHostCount":"0",
+        "requestCount":"185",
+        "latency":"0",
+        "failedRequestCount":"0",
+        "throughput":"119427"
+    }
+}
+```
+
+> [!NOTE]
+> Latency is calculated from the time when the first byte of the HTTP request is received to the time when the last byte of the HTTP response is sent. It's the sum of the Application Gateway processing time plus the network cost to the back end, plus the time that the back end takes to process the request.
+
+### Azure Monitor Logs and Log Analytics Tables
 
 Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
@@ -516,6 +513,8 @@ Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/refe
 - [applicationGateways resource provider operations](/azure/role-based-access-control/resource-provider-operations#networking)
 
 You can use Azure activity logs to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default. You can view them in the Azure portal. Azure activity logs were formerly known as *operational logs* and *audit logs*.
+
+Azure generates activity logs by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../azure-monitor/essentials/activity-log.md) article.
 
 ## Related content
 
