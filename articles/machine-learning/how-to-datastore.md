@@ -425,16 +425,18 @@ This section describes various options to create a OneLake datastore. The OneLak
 OneLake datastore creation requires the following information from your Microsoft Fabric instance:
 
 - Endpoint
-- Fabric GUID
+- Workspace GUID
 - Artifact GUID
 
  The following screenshots describe the retrieval of these required information resources from your Microsoft Fabric instance.
+
 :::image type="content" source="media/how-to-datastore/onelake-properties.png" alt-text="Screenshot that shows how to click into artifact properties of Microsoft Fabric workspace artifact in Microsoft Fabric UI." lightbox="./media/how-to-datastore/onelake-properties.png":::
 
-You will then find "URL" and "ABFS path" in the "Properties" page:
+You will then find "Endpoint", "Workspace GUID" and "Artifact GUID" in "URL" and "ABFS path" from the "Properties" page:
 
 - URL format: https://{your_one_lake_endpoint}/{your_one_lake_workspace_name}/{your_one_lake_artifact_name}/Files
 - ABFS path format: abfss://{your_one_lake_workspace_name}@{your_one_lake_endpoint}/{your_one_lake_artifact_name}/Files
+
 :::image type="content" source="media/how-to-datastore/onelake-url-abfspath.png" alt-text="Screenshot that shows URL and ABFS path of a OneLake artifact properties in Microsoft Fabric UI." lightbox="./media/how-to-datastore/onelake-url-abfspath.png":::
 
 ## Create a OneLake datastore
