@@ -104,8 +104,6 @@ The following results evaluate the impact of adding sidecar proxies to the data 
 - Max Replicas: 5
 - CPU Utilization: 80%
 
-The HPA configuration can be modified through patches and direct edits.
-
 > [!NOTE]
 > To prevent conflicts with the `PodDisruptionBudget`, the add-on does not allow setting the `minReplicas` below the initial default of `2`.
 
@@ -119,7 +117,7 @@ aks-istio-ingress   aks-istio-ingressgateway-internal-asm-1-19   Deployment/aks-
 aks-istio-system    istiod-asm-1-19                              Deployment/istiod-asm-1-19
 ```
 
-Example:
+The HPA configuration can be modified through patches and direct edits. Example:
 
 ```bash
 kubectl patch hpa aks-istio-ingressgateway-external-asm-1-19 -n aks-istio-ingress --type merge --patch '{"spec": {"minReplicas": 3, "maxReplicas": 6}}'
