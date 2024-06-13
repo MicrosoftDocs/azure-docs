@@ -15,7 +15,7 @@ ms.date: 06/12/2024
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-In this quickstart, you create a cluster replia in another region for a Azure Cosmos DB for MongoDB vCore cluster for disaster recovery (DR) purposes. This replica cluster stores a copy of all of your MongoDB resources - databases, collections, and documents - in another Azure region. The replica cluster provides a unique endpoint for various tools and SDKs to connect to and could be promoted to become available for writes in case of the primary region outage.
+In this quickstart, you create a cluster replica in another region for a Azure Cosmos DB for MongoDB vCore cluster for disaster recovery (DR) purposes. This replica cluster stores a copy of all of your MongoDB resources - databases, collections, and documents - in another Azure region. The replica cluster provides a unique endpoint for various tools and SDKs to connect to and could be promoted to become available for writes in case of the primary region outage.
 
 ## Prerequisites
 
