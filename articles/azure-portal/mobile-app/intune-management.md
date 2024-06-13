@@ -1,6 +1,6 @@
 ---
-title: Use Microsoft Copilot in Azure with the Azure mobile app
-description: You can use the Azure mobile app to access Microsoft Copilot in Azure (preview) and benefit from its features.
+title: Use Microsoft Intune MAM on devices that run the Azure mobile app
+description: Learn about setting and enforcing app protection policies on devices that run the Azure mobile app.
 ms.date: 06/13/2024
 ms.topic: conceptual
 ms.custom:
