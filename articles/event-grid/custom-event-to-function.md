@@ -11,7 +11,7 @@ ms.devlang: azurecli
 
 [Azure Event Grid](overview.md) is an eventing service for the cloud. Azure Functions is one of the [supported event handlers](event-handlers.md). In this article, you use the Azure portal to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an Azure Function.
 
-[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create Azure function app
 
