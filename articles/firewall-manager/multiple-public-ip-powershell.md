@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 If you want to protect a virtual hub using Azure Firewall, you can deploy the firewall with multiple public IP addresses using Azure PowerShell.
 
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy the firewall
 
