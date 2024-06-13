@@ -17,7 +17,7 @@ ms.custom: template-how-to, devx-track-azurepowershell
 
 Azure Virtual machine Scale sets supports enabling Trusted launch on existing [Uniform Scale sets](overview.md) VMs by upgrading to [Trusted launch](trusted-launch.md) security type.
 
-[Trusted launch](trusted-launch.md) enables foundational compute security on [Azure Generation 2](generation-2.md). Trusted launch protects your Scale sets and Virtual machines against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, vTPM, and Boot Integrity Monitoring on your Scale set.
+[Trusted launch](trusted-launch.md) enables foundational compute security on [Azure Generation 2](generation-2.md) Scale sets and Virtual machines and protects them against advanced and persistent attack techniques like boot kits and rootkits. It does so by combining infrastructure technologies like Secure Boot, vTPM, and Boot Integrity Monitoring on your Scale set.
 
 ## Limitations
 
