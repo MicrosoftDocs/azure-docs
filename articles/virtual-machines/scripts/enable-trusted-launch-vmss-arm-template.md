@@ -11,7 +11,8 @@ ms.custom: include file
 ---
 
 <details>
-<summary> Enable Trusted launch on existing scale set using ARM template </summary>
+
+<summary> Expand to view the complete sample ARM template which supports upgrade to Trusted launch and roll-back if required. </summary>
 
 ```json
 {
