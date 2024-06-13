@@ -20,7 +20,7 @@ Use this article to migrate data plane calls to newer versions of the [**Search 
 
 + [`2023-11-01`](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version.
 
-+ [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview API version. 
++ [`2024-05-01-preview`](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) is the most recent preview API version. 
 
 Upgrade instructions focus on code changes that get you through breaking changes from previous versions so that existing code runs the same as before, but on the newer API version. Once your code is in working order, you can decide whether to adopt newer features. To learn more about preview features, see [vector code samples](https://github.com/Azure/azure-search-vector-samples) and [What's New](whats-new.md).
 
