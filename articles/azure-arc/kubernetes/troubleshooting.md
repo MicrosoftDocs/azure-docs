@@ -151,7 +151,7 @@ You may see the error `Unable to install helm release: Error: UPGRADE Failed: ti
     clusterconnect-agent-7cb8b565c7-wklsh       2/3     CrashLoopBackOff   0          1m15s
     clusteridentityoperator-76d645d8bf-5qx5c    2/2     Running            0          4m15s
     config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
-     ```
+    ```
 
 3. If the `azure-identity-certificate` isn't present, the system assigned managed identity hasn't been installed.
 

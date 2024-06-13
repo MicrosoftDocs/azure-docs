@@ -72,7 +72,7 @@ If the preceding query step is an input processor, use the input metrics to help
 
 
 ## Get help
-For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
+For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/tags/179/azure-stream-analytics). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

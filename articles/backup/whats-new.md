@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/01/2024
+ms.date: 05/02/2024
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -18,6 +18,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- May 2024
+  - [Migration of Azure VM backups from standard to enhanced policy (preview)](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-preview)
+- March 2024
+  - [Agentless multi-disk crash-consistent backups for Azure VMs (preview)](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-preview)
+  - [Azure Files vaulted backup (preview)](#azure-files-vaulted-backup-preview)
+  - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
 - December 2023
@@ -82,6 +88,44 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Migration of Azure VM backups from standard to enhanced policy (preview)
+
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+
+For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
+
+## Agentless multi-disk crash-consistent backups for Azure VMs (preview)
+
+Azure Backup now supports agentless VM backups by using multi-disk crash-consistent restore points (preview). Crash consistent backups are OS agnostic, do not require any agent, and quiesce VM I/O for a shorter period compared to application or file-system consistent backups for performance sensitive workloads.
+
+For more information, see [About agentless multi-disk crash-consistent backup for Azure VMs (preview)](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
+
+## Azure Files vaulted backup (preview)
+
+Azure Backup now enables you to perform a vaulted backup of Azure Files to protect data from ransomware attacks or source data loss due to a malicious actor or rogue admin. You can define the schedule and retention of backups by using a backup policy. Azure Backup creates and manages the recovery points as per the schedule and retention defined in the backup policy.
+
+By using vaulted backups, Azure Backup copies and stores data in the Recovery Services vault. This creates an offsite copy of data that you can retain for up to *99 years*. If any data loss occurs on the source account, you can trigger a restore operation to an alternate account and access your data. Additionally, you can use Backup center to manage the vaulted backups at scale and monitor the backup operations by using the rich *Alerting* and *Reporting* capabilities of Azure Backup.
+
+If you're currently using snapshot-based backups, we recommend that you try vaulted backups (preview) for complete protection from different data loss scenarios.
+
+>[!Note]
+>Switching to vaulted backups (preview) doesn't lead to loss of the existing snapshots, and they're retained as per the expiry date set in the current backup policy. All future backups will be transferred to the vault as per the schedule and retention set in the modified policy.
+
+For more information, see [Azure Files backup overview](azure-file-share-backup-overview.md?tabs=vault-standard).
+
+## Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)
+
+Azure Backup and Azure Database Services provide a new backup solution for the MySQL - Flexible Servers that support retaining backups for up to **10 years**. This feature provides you with access to:
+
+- Comprehensive data protection for different levels of data loss due to  accidental deletions or ransomware attacks.
+- Customer controlled scheduled and on-demand backups.
+- Isolated backups stored in a separate security and fault domain.
+- Long-term retention of backups.
+- Centralized monitoring of all backup operations and jobs.
+
+Azure Backup and Azure Database services together help you build an enterprise-class backup solution for Azure MySQL - Flexible Server. You can meet your data protection and compliance needs with a customer-controlled backup policy that enables retention of backups for up to 10 years. This feature allows you to back up the entire MySQL - Flexible Server to long-term Azure Backup vault storage. You  can also restore the backups to your storage account and use the native MySQL tools to re-create the MySQL Server. Currently, you can use the Azure portal to perform the MySQL - Flexible Server database protection operations.
+
+For more information, see [About Azure Database for MySQL - Flexible Server retention for long term (preview)](backup-azure-mysql-flexible-server-about.md).
 
 ## Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available
 

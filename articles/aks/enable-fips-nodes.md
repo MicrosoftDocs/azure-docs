@@ -1,11 +1,11 @@
 ---
 title: Enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools
 description: Learn how to enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools.
-author: rayoef
-ms.author: rayoflores
+author: tamram
+ms.author: tamram
 ms.topic: how-to 
-ms.date: 06/28/2023
-ms.custom: template-how-to
+ms.date: 02/29/2024
+ms.custom: template-how-to, linux-related-content
 ---
 
 # Enable Federal Information Process Standard (FIPS) for Azure Kubernetes Service (AKS) node pools
@@ -16,17 +16,39 @@ The Federal Information Processing Standard (FIPS) 140-2 is a US government stan
 
 * Azure CLI version 2.32.0 or later installed and configured. Run `az --version` to find the version. For more information about installing or upgrading the Azure CLI, see [Install Azure CLI][install-azure-cli].
 
+> [!NOTE]
+>   AKS Monitoring Addon supports FIPS enabled node pools with Ubuntu, Azure Linux, and Windows starting with Agent version 3.1.17 (Linux) and Win-3.1.17 (Windows).
+
 ## Limitations
 
 * FIPS-enabled node pools have the following limitations:
   * FIPS-enabled node pools require Kubernetes version 1.19 and greater.
   * To update the underlying packages or modules used for FIPS, you must use [Node Image Upgrade][node-image-upgrade].
   * Container images on the FIPS nodes haven't been assessed for FIPS compliance.
+  * Mounting of a CIFS share fails because FIPS disables some authentication modules. To work around this issue, see [Errors when mounting a file share on a FIPS-enabled node pool][errors-mount-file-share-fips].
+
 
 > [!IMPORTANT]
 > The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools. To enable FIPS on a node pool, you must create a new Linux-based node pool. You can't enable FIPS on existing node pools.
 >
 > FIPS-enabled node images may have different version numbers, such as kernel version, than images that aren't FIPS-enabled. The update cycle for FIPS-enabled node pools and node images may differ from node pools and images that aren't FIPS-enabled.
+
+## Supported OS Versions
+You can create FIPS-enabled node pools on all supported OS types, Linux and Windows. However, not all OS versions support FIPS-enabled nodepools. After a new OS version is released, there is typically a waiting period before it is FIPS compliant.
+
+The below table includes the supported OS versions:
+
+|OS Type|OS SKU|FIPS Compliance|
+|--|--|--|
+|Linux|Ubuntu|Supported|
+|Linux|Azure Linux| Supported|
+|Windows|Windows Server 2019| Supported|
+|Windows| Windows Server 2022| Supported|
+
+When requesting FIPS enabled Ubuntu, if the default Ubuntu version does not support FIPS, AKS will default to the most recent FIPS-supported version of Ubuntu. For example, Ubuntu 22.04 is default for Linux node pools. Since 22.04 does not currently support FIPS, AKS will default to Ubuntu 20.04 for Linux FIPS-enabled nodepools.
+
+> [!NOTE]
+ > Previously, you could use the GetOSOptions API to determine whether a given OS supported FIPS. The GetOSOptions API is now deprecated and it will no longer be included in new AKS API versions starting with 2024-05-01. 
 
 ## Create a FIPS-enabled Linux node pool
 
@@ -137,3 +159,5 @@ To learn more about AKS security, see [Best practices for cluster security and u
 [fips]: /azure/compliance/offerings/offering-fips-140-2
 [install-azure-cli]: /cli/azure/install-azure-cli
 [node-image-upgrade]: node-image-upgrade.md
+[errors-mount-file-share-fips]: /troubleshoot/azure/azure-kubernetes/fail-to-mount-azure-file-share#fipsnodepool
+

@@ -3,6 +3,7 @@ title: Create an external ASE
 description: Learn how to create an App Service environment with an app in it, or create a standalone (empty) ASE.
 author: madsd
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 03/29/2022
 ms.author: madsd
 ---

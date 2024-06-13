@@ -1,6 +1,6 @@
 ---
 title: Configure the Microsoft Security DevOps GitHub action
-description: Learn how to configure the Microsoft Security DevOps GitHub action.
+description: Learn how to configure the Microsoft Security DevOps GitHub action to enhance your project's security and DevOps processes.
 ms.date: 06/18/2023
 ms.topic: how-to
 ---
@@ -16,6 +16,7 @@ Microsoft Security DevOps uses the following Open Source tools:
 | [AntiMalware](https://www.microsoft.com/windows/comprehensive-security) | AntiMalware protection in Windows from Microsoft Defender for Endpoint, that scans for malware and breaks the build if malware has been found. This tool scans by default on windows-latest agent. | Not Open Source |
 | [Bandit](https://github.com/PyCQA/bandit) | Python | [Apache License 2.0](https://github.com/PyCQA/bandit/blob/master/LICENSE) |
 | [BinSkim](https://github.com/Microsoft/binskim) | Binary--Windows, ELF | [MIT License](https://github.com/microsoft/binskim/blob/main/LICENSE) |
+| [Checkov](https://github.com/bridgecrewio/checkov) | Terraform, Terraform plan, CloudFormation, AWS SAM, Kubernetes, Helm charts, Kustomize, Dockerfile, Serverless, Bicep, OpenAPI, ARM | [Apache License 2.0](https://github.com/bridgecrewio/checkov/blob/main/LICENSE) |
 | [ESlint](https://github.com/eslint/eslint) | JavaScript | [MIT License](https://github.com/eslint/eslint/blob/main/LICENSE) |
 | [Template Analyzer](https://github.com/Azure/template-analyzer) | ARM Template, Bicep | [MIT License](https://github.com/Azure/template-analyzer/blob/main/LICENSE.txt) |
 | [Terrascan](https://github.com/accurics/terrascan) | Terraform (HCL2), Kubernetes (JSON/YAML), Helm v3, Kustomize, Dockerfiles, CloudFormation | [Apache License 2.0](https://github.com/accurics/terrascan/blob/master/LICENSE) |
@@ -31,7 +32,7 @@ Microsoft Security DevOps uses the following Open Source tools:
 
 - Open the [Microsoft Security DevOps GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
-- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository.
+- Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository. This includes setting "id-token: write" permissions in the GitHub Workflow for federation with Defender for Cloud.
 
 ## Configure the Microsoft Security DevOps GitHub action
 
@@ -58,20 +59,26 @@ Microsoft Security DevOps uses the following Open Source tools:
 1. Copy and paste the following [sample action workflow](https://github.com/microsoft/security-devops-action/blob/main/.github/workflows/sample-workflow.yml) into the Edit new file tab.
 
     ```yml
-    name: MSDO windows-latest
+    name: MSDO
     on:
       push:
         branches:
-          - main
+          - master
 
     jobs:
       sample:
-        name: Microsoft Security DevOps Analysis
+        name: Microsoft Security DevOps
 
         # MSDO runs on windows-latest.
         # ubuntu-latest also supported
         runs-on: windows-latest
-
+    
+        permissions:
+          contents: read
+          id-token: write
+          actions: read
+          security-events: write
+    
         steps:
 
           # Checkout your code repository to scan
@@ -81,12 +88,12 @@ Microsoft Security DevOps uses the following Open Source tools:
         - name: Run Microsoft Security DevOps Analysis
           uses: microsoft/security-devops-action@latest
           id: msdo
-          with:
+        # with:
           # config: string. Optional. A file path to an MSDO configuration file ('*.gdnconfig').
           # policy: 'GitHub' | 'microsoft' | 'none'. Optional. The name of a well-known Microsoft policy. If no configuration file or list of tools is provided, the policy may instruct MSDO which tools to run. Default: GitHub.
           # categories: string. Optional. A comma-separated list of analyzer categories to run. Values: 'code', 'artifacts', 'IaC', 'containers'. Example: 'IaC, containers'. Defaults to all.
           # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
-          # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
+          # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'checkov', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
 
           # Upload alerts to the Security tab
         - name: Upload alerts to Security tab
@@ -101,9 +108,9 @@ Microsoft Security DevOps uses the following Open Source tools:
             name: alerts
             path: ${{ steps.msdo.outputs.sarifFile }}
     ```
-    > [!NOTE]
-    >  For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
+    > [!NOTE]
+    >  **For additional tool configuration options and instructions, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)**
 
 1. Select **Start commit**
 
@@ -137,7 +144,7 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 
 - Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
-## Next steps
+## Related content
 
 Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
 

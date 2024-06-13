@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns a date and time string value constructed from input numeric values for v
   
 ## Syntax
   
-```sql
+```nosql
 DateTimeFromParts(<numeric_year>, <numeric_month>, <numeric_day> [, <numeric_hour>]  [, <numeric_minute>]  [, <numeric_second>] [, <numeric_second_fraction>])
 ```
 
@@ -47,7 +48,7 @@ Returns a UTC date and time string in the ISO 8601 format `YYYY-MM-DDThh:mm:ss.f
 
 The following example uses various combinations of the arguments to create date and time strings. This example uses the date and time **April 20, 2017 13:15 UTC**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/datetimefromparts/query.sql" highlight="2-6":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/datetimefromparts/query.sql" highlight="2-6":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/datetimefromparts/result.json":::
 

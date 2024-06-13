@@ -10,9 +10,9 @@ ms.custom: references_regions
 #Customer intent: As a developer, I want to protect logic apps from regional failures by setting up availability zones.
 ---
 
-# Protect logic apps from region failures with zone redundancy and availability zones
+# Protect logic apps from zonal failures with zone redundancy and availability zones
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
 
 In each Azure region, *availability zones* are physically separate locations that are tolerant to local failures. Such failures can range from software and hardware failures to events such as earthquakes, floods, and fires. These zones achieve tolerance through the redundancy and logical isolation of Azure services.
 

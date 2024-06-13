@@ -19,6 +19,8 @@ In Azure Machine Learning, new features and improvements are often first release
 
 Some preview features provide access to entire new functionality while others may reflect a change to the user interface, but little or no change in functionality.
 
+You can remove the ability to see any previews on a workspace or for all workspaces in a subscription.  For more information, see [Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)](how-to-manage-workspace.md#enforce-policies).  If the preview feature has been removed for your workspace, you will not see the panel described in the rest of this article.
+
 > [!NOTE]
 > The amount of time a feature remains in preview can vary based on user feedback, quality checks, and long-term road maps.
 

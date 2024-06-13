@@ -9,7 +9,7 @@ ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 1/21/2024
 ms.reviewer: chlandsi
-ms.custom: devx-track-js, devx-track-python
+ms.custom: devx-track-js, devx-track-python, linux-related-content
 ---
 
 # Select an audio input device with the Speech SDK

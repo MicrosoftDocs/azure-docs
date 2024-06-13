@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to deploy a [Spring Boot](https://spring.io/p
 
 > [!NOTE]
 > This tutorial assumes a basic understanding of Kubernetes concepts, Java Spring Boot and MySQL.
-> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still use Azure Kubernetes Services as a destination. 
+> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still use Azure Kubernetes Services as a destination. See [Java Workload Destination Guidance](https://aka.ms/javadestinations) for advice.
 
 ## Prerequisites
 

@@ -27,7 +27,8 @@ You need the Azure CLI version 2.2.0 or later installed and configured. Run `az 
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --node-count 2 \
-        --nodepool-labels dept=IT costcenter=9000
+        --nodepool-labels dept=IT costcenter=9000 \
+        --generate-ssh-keys
     ```
 
 2. Verify the labels were set using the `kubectl get nodes --show-labels` command.
@@ -187,3 +188,4 @@ Learn more about Kubernetes labels in the [Kubernetes labels documentation][kube
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [create-or-update-os-sku]: /rest/api/aks/agent-pools/create-or-update#ossku
 [install-azure-cli]: /cli/azure/install-azure-cli
+

@@ -6,16 +6,12 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
+ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
-
-
 #Customer intent: As an Azure AD B2C administrator, I want to manage custom policies using Microsoft Graph PowerShell, so that I can review, update, and delete policies in my Azure AD B2C tenant.
-
 ---
 
 # Manage Azure AD B2C custom policies with Microsoft Graph PowerShell

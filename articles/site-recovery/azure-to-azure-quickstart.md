@@ -72,7 +72,5 @@ To disable replication, perform these steps:
 
 ## Next steps
 
-In this quickstart, you replicated a single VM to a secondary region. Next, set up replication for multiple Azure VMs.
+In this quickstart, you replicated a single VM to a secondary region. Next, [set up replication for multiple Azure VMs](azure-to-azure-tutorial-enable-replication.md).
 
-> [!div class="nextstepaction"]
-> [Set up disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)

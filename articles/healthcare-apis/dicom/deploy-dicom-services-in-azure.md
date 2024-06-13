@@ -4,19 +4,19 @@ description: This article describes how to deploy the DICOM service in the Azure
 author: mmitrik
 ms.service: healthcare-apis
 ms.topic: how-to
-ms.date: 10/06/2023
+ms.date: 03/11/2024
 ms.author: mmitrik
 ms.custom: mode-api
 ---
 
-# Deploy the DICOM service
+# Deploy the DICOM service by using the Azure portal
 
 In this quickstart, you learn how to deploy the DICOM&reg; service by using the Azure portal.
 
 After deployment completes, you can use the Azure portal to see the details about the DICOM service, including the service URL. The service URL to access your DICOM service is ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the API version as part of the URL when you make requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
 > [!NOTE]
-> A public preview of the DICOM service with Data Lake Storage is now available. This capability provides greater flexibility and control over your imaging data. Learn more: [Deploy the DICOM service with Data Lake Storage (Preview)](deploy-dicom-services-in-azure-data-lake.md)
+> The DICOM service with Azure Data Lake Storage is generally available. This capability provides greater flexibility and control over your imaging data. Learn more: [Deploy the DICOM service with Azure Data Lake Storage](deploy-dicom-services-in-azure-data-lake.md)
 
 ## Prerequisites
 
@@ -26,19 +26,23 @@ To deploy the DICOM service, you need a workspace created in the Azure portal. F
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Azure Health Data Services workspace**.
 
-   [![Screenshot that shows selecting a workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
+:::image type="content" source="media/select-workspace-resource-group.png" alt-text="Screenshot showing selecting a workspace resource group." lightbox="media/select-workspace-resource-group.png":::
+
 
 1. Select **Deploy DICOM service**.
 
-   [![Screenshot that shows deploying the DICOM service.](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
+:::image type="content" source="media/workspace-deploy-dicom-services.png" alt-text="Screenshot showing deployment of the DICOM service." lightbox="media/workspace-deploy-dicom-services.png":::
+
 
 1. Select **Add DICOM service**.
 
-   [![Screenshot that shows adding the DICOM service.](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
+:::image type="content" source="media/add-dicom-service.png" alt-text="Screenshot showing how to add the DICOM service." lightbox="media/add-dicom-service.png":::
+
 
 1. Enter a name for the DICOM service, and then select **Review + create**.
 
-    [![Screenshot that shows the DICOM service name.](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
+:::image type="content" source="media/enter-dicom-service-name.png" alt-text="Screenshot showing the DICOM service name." lightbox="media/enter-dicom-service-name.png":::
+
 
 1. (Optional) Select **Next: Tags**.
 
@@ -48,11 +52,11 @@ To deploy the DICOM service, you need a workspace created in the Azure portal. F
 
 1. After the deployment process is finished, select **Go to resource**.
 
-   [![Screenshot that shows Go to resource.](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
+:::image type="content" source="media/go-to-resource.png" alt-text="Screenshot showing Go to resource." lightbox="media/go-to-resource.png":::
 
    The result of the newly deployed DICOM service is shown here.
 
-   [![Screenshot that shows the DICOM finished deployment.](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
+:::image type="content" source="media/results-deployed-dicom-service.png" alt-text="Screenshot showing the DICOM finished deployment." lightbox="media/results-deployed-dicom-service.png":::
 
 ## Next steps
 

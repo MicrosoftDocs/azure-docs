@@ -66,7 +66,7 @@ The hub virtual network contains the firewall subnet that is associated with the
     Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview)
 
     >[!NOTE]
-    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+    >[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Enter or select the following information in **Azure Bastion**:
 
@@ -413,7 +413,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Close the Bastion connection to **vm-spoke**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

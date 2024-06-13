@@ -18,7 +18,7 @@ Azure IoT technologies and services provide you with options to create a wide va
 
 ## Devices and device SDKs
 
-You can choose a device to use from the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com). You can implement your own embedded code using the open-source [device SDKs](./iot-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
+You can implement your own embedded code using the open-source [device SDKs](./iot-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 You can further simplify how you create the embedded code for your devices by following the [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) conventions. IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play, is a _device capability model_ schema that describes device capabilities. Use the device capability model to configure a cloud-based solution such as an IoT Central application.
 
@@ -29,7 +29,7 @@ You can further simplify how you create the embedded code for your devices by fo
 > [!IMPORTANT]
 > Because IoT Central uses IoT Hub internally, any device that can connect to an IoT Central application can also connect to an IoT hub.
 
-To learn more, see [Azure IoT device and application development](../iot-develop/about-iot-develop.md).
+To learn more, see [Azure IoT device and application development](./concepts-iot-device-development.md).
 
 ## Azure IoT Central
 

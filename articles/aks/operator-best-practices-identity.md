@@ -3,6 +3,7 @@ title: Best practices for managing authentication and authorization
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage authentication and authorization for clusters in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
+ms.subservice: aks-security
 ms.date: 02/16/2024
 ---
 

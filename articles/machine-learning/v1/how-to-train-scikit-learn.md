@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.author: balapv
 author: balapv
-ms.reviewer: mopeakande
+ms.reviewer: sgilley
 ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1

@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 # Get SQL query execution metrics and analyze query performance using .NET SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-This article presents how to profile SQL query performance on Azure Cosmos DB using [ServerSideCumulativeMetrics](/dotnet/api/microsoft.azure.cosmos.serversidecumulativemetrics) retrieved from the .NET SDK. `ServerSideCumulativeMetrics` is a strongly typed object with information about the backend query execution. It contains cumulative metrics that are aggregated across all physical partitions for the request, and a list of metrics for each physical partition. These metrics are documented in more detail in the [Tune Query Performance](./query-metrics.md#query-execution-metrics) article.
+This article presents how to profile SQL query performance on Azure Cosmos DB using [ServerSideCumulativeMetrics](/dotnet/api/microsoft.azure.cosmos.serversidecumulativemetrics) retrieved from the .NET SDK. `ServerSideCumulativeMetrics` is a strongly typed object with information about the backend query execution. It contains cumulative metrics that are aggregated across all physical partitions for the request, a list of metrics for each physical partition, and the total request charge. These metrics are documented in more detail in the [Tune Query Performance](./query-metrics.md#query-execution-metrics) article.
 
 ## Get query metrics
 
@@ -85,7 +85,7 @@ DoSomeLogging(totalTripsExecutionTime);
 
 ### Partitioned Metrics
 
-`ServerSideCumulativeMetrics` contains a `PartitionedMetrics` property that is a list of per-partition metrics for the round trip. If multiple physical partitions are reached in a single round trip, then metrics for each of them appear in the list. Partitioned metrics are represented as [ServerSidePartitionedMetrics](/dotnet/api/microsoft.azure.cosmos.serversidepartitionedmetrics) with a unique identifier for each physical partition. 
+`ServerSideCumulativeMetrics` contains a `PartitionedMetrics` property that is a list of per-partition metrics for the round trip. If multiple physical partitions are reached in a single round trip, then metrics for each of them appear in the list. Partitioned metrics are represented as [ServerSidePartitionedMetrics](/dotnet/api/microsoft.azure.cosmos.serversidepartitionedmetrics) with a unique identifier for each physical partition and request charge for that partition. 
 
 ```csharp
 // Retrieve the ServerSideCumulativeMetrics object from the FeedResponse
@@ -124,7 +124,9 @@ foreach(var partitionGroup in groupedPartitionMetrics)
 
 ## Get the query request charge
 
-You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the request charge by using the `RequestCharge` property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
+You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the total request charge using the `TotalRequestCharge` property in `ServerSideCumulativeMetrics` or you can look at the request charge from each partition using the `RequestCharge` property for each `ServerSidePartitionedMetrics` returned.
+
+The total request charge is also available using the `RequestCharge` property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
 
 ```csharp
 QueryDefinition query = new QueryDefinition("SELECT TOP 5 * FROM c");

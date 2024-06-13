@@ -2,7 +2,7 @@
 title: AMQP 1.0 request/response operations in Azure Service Bus
 description: This article defines the list of AMQP request/response-based operations in Microsoft Azure Service Bus.
 ms.topic: article
-ms.date: 12/20/2022
+ms.date: 03/04/2024
 ---
 
 # AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
@@ -416,6 +416,9 @@ The request message body must consist of an **amqp-value** section containing a 
 |last-updated-time|timestamp|Yes|Filter to include only sessions updated after a given time.|  
 |skip|int|Yes|Skip a number of sessions.|  
 |top|int|Yes|Maximum number of sessions.|  
+
+> [!NOTE]
+> When you set `LastUpdatedTime` to `DateTime.MaxValue` (in .NET), the **Enumerate Sessions** method returns all sessions whether they have state or not. `DateTime.MaxValue` in .NET may not exist in other programming languages. In such cases, use a time stamp that is equal to `253402300800000` milliseconds from the **Epoch** (January 1, 1970, 00:00:00 GMT), which is equivalent to `DateTime.MaxValue` in .NET.
   
 #### Response  
 
@@ -672,8 +675,8 @@ The request message body must consist of an **amqp-value** section containing a 
 |---------|----------------|--------------|--------------------|  
 |disposition-status|string|Yes|completed<br /><br /> abandoned<br /><br /> suspended|  
 |lock-tokens|array of uuid|Yes|Message lock tokens to update disposition status.|  
-|deadletter-reason|string|No|May be set if disposition status is set to **suspended**.|  
-|deadletter-description|string|No|May be set if disposition status is set to **suspended**.|  
+|deadletter-reason|string|No| It's set if disposition status is set to **suspended**.|  
+|deadletter-description|string|No| It's set if disposition status is set to **suspended**.|  
 |properties-to-modify|map|No|List of Service Bus brokered message properties to modify.|  
   
 #### Response  

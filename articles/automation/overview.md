@@ -5,6 +5,7 @@ services: automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
 ms.date: 10/25/2021
 ms.topic: overview
+ms.custom: linux-related-content
 ---
 
 # What is Azure Automation?
@@ -131,7 +132,7 @@ These Azure services can work with Automation job and runbook resources using an
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
 * [Azure Power Automate](/connectors/azureautomation)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Pricing for Azure Automation
 

@@ -4,7 +4,7 @@ description: Describes ways to monitor the capacity utilization of an Azure NetA
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.author: anfdocs

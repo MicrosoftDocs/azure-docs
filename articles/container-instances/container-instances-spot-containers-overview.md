@@ -16,7 +16,7 @@ Spot containers offer the best of both worlds by combining the simplicity of ACI
 
 This feature is designed for customers who need to run interruptible workloads with no strict availability requirements. Azure Container Instances Spot Containers support both Linux and Windows containers, providing flexibility for different operating system environments.
 
-This article provides background about the feature, limitations, and resources. To see the availability of Spot containers in Azure regions, see [Resource and region availability](container-instances-region-availability.md).
+This article provides background about the feature, limitations, and resources. To see the availability of Spot containers in Azure regions, see [Resource and quota limits](container-instances-resource-and-quota-limits.md).
 
 > [!NOTE]
 > Spot containers with Azure Container Instances is in preview and is not recommended for production scenarios.

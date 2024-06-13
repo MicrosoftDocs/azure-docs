@@ -1,11 +1,11 @@
 ---
 title: Note for data connector prerequisites
-ms.date: 11/09/2021
+ms.date: 03/02/2024
 ms.topic: include
 ---
 
 <!-- docutune:disable -->
 
-Each data connector will have its own set of prerequisites, such as required permissions on your Azure workspace, subscription, or policy, and so on, or other requirements for the partner data source you're connecting to.
+Each data connector has its own set of prerequisites. Prerequisites might include that you must have specific permissions on your Azure workspace, subscription, or policy. Or, you must meet other requirements for the partner data source you're connecting to.
 
-Prerequisites for each data connector are listed on the relevant data connector page in Microsoft Sentinel, on the **Instructions** tab.
+Prerequisites for each data connector are listed on the relevant data connector page in Microsoft Sentinel.

@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli, linux-related-content
+ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
@@ -30,9 +30,9 @@ The following example shows site traffic coming from both ports 8080 and 8081 an
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

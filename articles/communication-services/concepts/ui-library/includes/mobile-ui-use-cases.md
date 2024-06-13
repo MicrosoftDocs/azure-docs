@@ -28,6 +28,7 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | Manage the camera device                               |
 |                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
 |                                                                                                 | Make local preview available for a user to check video       |
+|                                                                                                 | Enable end call confirmation dialogue                 |
 | Call controls                                                                            | Mute and unmute a call                                       |
 |                                                                                                 | Turn video on or off during a call                                   |
 |                                                                                                 | End a call                                               |
@@ -79,20 +80,33 @@ Use the UI Library for mobile native platforms to give local and remote particip
 
 ### Skip Setup Screen
 
-UI Library provides the capability to join a call skipping the setup screen of the call join experience. By default, user goes through a setup screen to join a call. Here, user sets the call configuration such as camera turn on or off, microphone turn on or off and audio device selection before joining a call. This screen requires user interaction to join a call, which might be unnecessary for some users. So we provide the capability to join a call by skipping the setup screen and providing the call configuration APIs. For more information, see [How to use Skip Setup Screen Feature](../../../how-tos/ui-library-sdk/skip-setup-screen.md)
+UI Library provides the capability to join a call skipping the setup screen of the call join experience. By default, user goes through a setup screen to join a call. Here, user sets the call configuration such as camera turn on or off, microphone turn on or off and audio device selection before joining a call. This screen requires user interaction to join a call, which might be unnecessary for some users. So we provide the capability to join a call by skipping the setup screen and providing the call configuration APIs. For more information, see [How to use Skip Setup Screen Feature.](../../../how-tos/ui-library-sdk/skip-setup-screen.md)
+
+### Audio Only Mode
+
+The Audio Only Mode in the UI Library allows participants to join calls using only their audio, without sharing or receiving video. This feature is used to conserve bandwidth and maximize privacy. When activated, the Audio Only Mode automatically disables the video functionalities for both sending and receiving streams, and adjusts the UI to reflect this change by removing video-related controls. This mode can be enabled through the CallComposite configuration, more information available through the [Audio Only Quick Start.](../../../how-tos/ui-library-sdk/audio-only-mode.md)
 
 ### Orientation
 
-UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature](../../../how-tos/ui-library-sdk/orientation.md)
+UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience, which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature.](../../../how-tos/ui-library-sdk/orientation.md)
 
 ### Multitasking and Picture-in-Picture
-UI Library supports picture in picture mode for call screen. While being in the call, user can click back button on call screen to enable multitasking which will take user back to previous screen. If Picture-in-Picture is enabled, a system Picture-in-Picture will be displayed for call. To learn more about the multitasking and Picture-in-Picture for both Android and iOS platform and usage of the API, see [How to use Picture-in-Picture](../../../how-tos/ui-library-sdk/picture-in-picture.md)
+
+UI Library supports picture in picture mode for call screen. While being in the call, user can click back button on call screen to enable multitasking, which will take user back to previous screen. If Picture-in-Picture is enabled, a system Picture-in-Picture will be displayed for call. To learn more about the multitasking and Picture-in-Picture for both Android and iOS platform and usage of the API, see [How to use Picture-in-Picture.](../../../how-tos/ui-library-sdk/picture-in-picture.md)
 
 ### CallKit support
-UI Library supports CallKit Integration to handle interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit](../../../how-tos/ui-library-sdk/callkit.md)
+
+UI Library supports CallKit Integration to handle interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit.](../../../how-tos/ui-library-sdk/callkit.md)
 
 ### One-to-one call and PUSH notification support
-UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications](../../../how-tos/ui-library-sdk/one-to-one-calling.md)
+
+UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../how-tos/ui-library-sdk/one-to-one-calling.md)
+
+### Disable end call prompt
+
+When developing applications that integrate calling capabilities, ensuring a seamless and intuitive user experience is crucial. One area where UX can be streamlined is during the call termination process. Specifically, developers might find it beneficial to disable the left call confirmation prompt that appears when a user want to end call. This feature, while useful in preventing accidental call terminations, can sometimes hinder the user experience, especially in environments where speed and efficiency are crucial. [How to disable the call confirmation](../../../how-tos/ui-library-sdk/leave-call-confirmation.md)
+
+Fast-Paced Communication Environments: In settings such as trading floors, emergency call centers, or customer service centers where decisions and actions must be executed rapidly, the additional step of confirming call termination can impede workflow efficiency.
 
 ## Chat use cases
 

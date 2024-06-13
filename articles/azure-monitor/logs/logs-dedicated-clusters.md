@@ -3,7 +3,7 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 01/25/2024
+ms.date: 04/21/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ Capabilities that require dedicated clusters:
 - **[Cross-query optimization](../logs/cross-workspace-query.md)** - Cross-workspace queries run faster when workspaces are on the same cluster.
 - **Cost optimization** - Link your workspaces in same region to cluster to get commitment tier discount to all workspaces, even to ones with low ingestion that 
 eligible for commitment tier discount.
-- **[Availability zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. [Azure Monitor availability zones](./availability-zones.md#service-resilience---supported-regions) covers broader parts of the service and when available in your region, extends your Azure Monitor resilience automatically. Azure Monitor creates dedicated clusters as availability-zone-enabled (`isAvailabilityZonesEnabled`: 'true') by default in supported regions. [Dedicated clusters Availability zones](./availability-zones.md#data-resilience---supported-regions) aren't supported in all regions currently.
+- **[Availability zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. [Azure Monitor availability zones](./availability-zones.md#supported-regions) covers broader parts of the service and when available in your region, extends your Azure Monitor resilience automatically. Azure Monitor creates dedicated clusters as availability-zone-enabled (`isAvailabilityZonesEnabled`: 'true') by default in supported regions. [Dedicated clusters Availability zones](./availability-zones.md#supported-regions) aren't supported in all regions currently.
 - **[Ingest from Azure Event Hubs](../logs/ingest-logs-event-hub.md)** - Lets you ingest data directly from an event hub into a Log Analytics workspace. Dedicated cluster lets you use capability when ingestion from all linked workspaces combined meet commitment tier. 
 
 ## Cluster pricing model
@@ -56,7 +56,7 @@ Provide the following properties when creating new dedicated cluster:
 - **ClusterName**: Must be unique for the resource group.
 - **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review [Design a Log Analytics workspace configuration](../logs/workspace-design.md).
 - **Location**
-- **SkuCapacity**: You can set the commitment tier to 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
+- **SkuCapacity**: You can set the commitment tier to 100, 200, 300, 400, 500, 1000, 2000, 5000, 10000, 25000, 50000 GB per day. The minimum commitment tier supported in CLI is 500 currently. Use REST to configure lower commitment tiers with minimum of 100. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 - **Managed identity**: Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): 
   - System-assigned managed identity - Generated automatically with the cluster creation when identity `type` is set to "*SystemAssigned*". This identity can be used later to grant storage access to your Key Vault for wrap and unwrap operations.
 
@@ -94,9 +94,15 @@ Deleted clusters take two weeks to be completely removed. You can have up to sev
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Click **Create** in the **Log Analytics dedicated clusters** menu in the Azure portal. You will be prompted for details such as the name of the cluster and the commitment tier.
+
+:::image type="content" source="./media/logs-dedicated-cluster/create-cluster.png" alt-text="Screenshot for creating dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/create-cluster.png":::
+
 
 #### [CLI](#tab/cli)
+
+> [!NOTE]
+> The minimum commitment tier supported in CLI is 500 currently. Use REST to configure lower commitment tiers with minimum of 100.
 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
@@ -109,6 +115,9 @@ az resource wait --created --ids $clusterResourceId --include-response-body true
 ```
 
 #### [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> The minimum commitment tier supported in PowerShell is 500 currently. Use REST to configure lower commitment tiers with minimum of 100.
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -124,7 +133,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 *Call* 
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -155,7 +164,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. Use one
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+The portal will provide a status as the cluster is being provisioned.
 
 #### [CLI](#tab/cli)
 
@@ -178,7 +187,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 Send a GET request on the cluster resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
   ```rest
-  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2021-06-01
+  GET https://management.azure.com/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name?api-version=2022-10-01
   Authorization: Bearer <token>
   ```
 
@@ -233,18 +242,22 @@ You need 'write' permissions to both the workspace and the cluster resource for 
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
 Once Log Analytics workspace linked to a dedicated cluster, new data sent to workspace is ingested to your dedicated cluster, while previously ingested data remains in Log Analytics cluster. Linking a workspace has no effect on workspace operation, including ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete. 
- 
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
-A cluster can be linked to up to 1,000 workspaces located in the same region with cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
+Clusters are regional and can be linked to up to 1,000 workspaces located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
-The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+Linked workspaces can be in different subscriptions than the subscription the cluster is located in. The workspace and cluster can be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+
+When a dedicated cluster is configured with a customer-managed key (CMK), the newly ingested data is encrypted with your key, while older data remains encrypted with a Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
 
 Use the following steps to link a workspace to a cluster. You can use automation for linking multiple workspaces:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Linked workspaces** to view all workspaces currently linked to the dedicated cluster. Click **Link workspaces** to link additional workspaces.
+
+:::image type="content" source="./media/logs-dedicated-cluster/linked-workspaces.png" alt-text="Screenshot for linking workspaces to a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/linked-workspaces.png":::
+
+
 
 #### [CLI](#tab/cli)
 
@@ -292,7 +305,7 @@ Use the following REST call to link to a cluster:
 *Send*
 
 ```rest
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -311,13 +324,17 @@ Content-type: application/json
 
 
 ### Check workspace link status
-  
-When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state by sending Get request to workspace and observe if *clusterResourceId* property is present in the response under *features*.
+The workspace link operation can take up to 90 minutes to complete. You can check the status on both the linked workspaces and the cluster. When completed, the workspace resources will include `clusterResourceId` property under `features`, and the cluster will include linked workspaces under `associatedWorkspaces` section.
+
+When a cluster is configured with a customer managed key, data ingested to the workspaces after the link operation is complete will be stored encrypted with your key.
+
 
 #### [Portal](#tab/azure-portal)
 
-1. Open the **Log Analytics workspaces** menu and then select your workspace.
-1. On the **Overview** page, select **JSON View**.
+On the **Overview** page for your dedicated cluster, select **JSON View**. The `associatedWorkspaces` section lists the workspaces linked to the cluster.
+
+:::image type="content" source="./media/logs-dedicated-cluster/associated-workspaces.png" alt-text="Screenshot for viewing associated workspaces for a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/associated-workspaces.png":::
+
 
 #### [CLI](#tab/cli)
 
@@ -340,7 +357,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2023-09-01
 Authorization: Bearer <token>
 ```
 
@@ -398,9 +415,12 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 
 ## Get all clusters in resource group
 
+
 #### [Portal](#tab/azure-portal)
 
-N/A
+From the **Log Analytics dedicated clusters** menu in the Azure portal, select the **Resource group** filter.
+
+:::image type="content" source="./media/logs-dedicated-cluster/resource-group-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a resource group in the Azure portal." lightbox="./media/logs-dedicated-cluster/resource-group-clusters.png":::
 
 #### [CLI](#tab/cli)
 
@@ -423,7 +443,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 
@@ -472,7 +492,11 @@ Authorization: Bearer <token>
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+From the **Log Analytics dedicated clusters** menu in the Azure portal, select the **Subscription** filter.
+
+:::image type="content" source="./media/logs-dedicated-cluster/subscription-clusters.png" alt-text="Screenshot for viewing all dedicated clusters in a subscription in the Azure portal." lightbox="./media/logs-dedicated-cluster/subscription-clusters.png":::
+
+
 
 #### [CLI](#tab/cli)
 
@@ -494,7 +518,7 @@ Get-AzOperationalInsightsCluster
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
     
@@ -513,14 +537,16 @@ During the commitment period, you can change to a higher commitment tier, which 
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Change** next to **Commitment tier**
+
+:::image type="content" source="./media/logs-dedicated-cluster/commitment-tier.png" alt-text="Screenshot for changing commitment tier for a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/commitment-tier.png":::
 
 #### [CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
 
-az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 100
+az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 #### [PowerShell](#tab/powershell)
@@ -528,7 +554,7 @@ az monitor log-analytics cluster update --resource-group "resource-group-name" -
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 100
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
 #### [REST API](#tab/restapi)
@@ -536,7 +562,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 *Call*
 
 ```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -582,7 +608,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 *Call*
 
 ```rest
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -613,7 +639,10 @@ Use the following commands to unlink a workspace from cluster:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Linked workspaces** to view all workspaces currently linked to the dedicated cluster. Select any workspaces you want to unlink and click **Unlink**.
+
+:::image type="content" source="./media/logs-dedicated-cluster/unlink-workspace.png" alt-text="Screenshot for unlinking a workspace from a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/unlink-workspace.png":::
+
 
 #### [CLI](#tab/cli)
 
@@ -659,7 +688,9 @@ Use the following commands to delete a cluster:
 
 #### [Portal](#tab/azure-portal)
 
-N/A
+Select your cluster from **Log Analytics dedicated clusters** menu in the Azure portal and then click **Delete**.
+
+:::image type="content" source="./media/logs-dedicated-cluster/delete-cluster.png" alt-text="Screenshot for deleting a dedicated cluster in the Azure portal." lightbox="./media/logs-dedicated-cluster/delete-cluster.png":::
 
 #### [CLI](#tab/cli)
 
@@ -682,7 +713,7 @@ Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 Use the following REST call to delete a cluster:
 
 ```rest
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2022-10-01
 Authorization: Bearer <token>
 ```
 
@@ -705,6 +736,8 @@ Authorization: Bearer <token>
 - A maximum of two workspace link operations on particular workspace is allowed in 30 day period.
 
 - Moving a cluster to another resource group or subscription isn't currently supported.
+
+- Moving a cluster to another region isn't supported.
 
 - Cluster update shouldn't include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 
@@ -754,11 +787,11 @@ Authorization: Bearer <token>
 
 ### Cluster Get
 
- -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process.
+-  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process.
 
 ### Cluster Delete
 
- -  409--Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
+-  409--Can't delete a cluster while in provisioning state. Wait for the Async operation to complete and try again.
 
 ### Workspace link
 

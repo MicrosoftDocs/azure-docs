@@ -4,7 +4,7 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/22/2023
+ms.date: 03/05/2024
 ms.topic: how-to
 ms.service: iot-central
 ---
@@ -34,74 +34,6 @@ Azure Data Explorer destinations let you configure the connection with a *servic
 [!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
 
 ### Create an Azure Data Explorer destination
-
-# [Service principal](#tab/service-principal)
-
-If you don't have an existing Azure Data Explorer database to export to, follow these steps:
-
-1. You have two choices to create an Azure Data Explorer database:
-
-    - Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the cluster URI and the name of the database you create, you need these values in the following steps.
-    - Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI and the name of the database you create, you need these values in the following steps.
-
-1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
-
-    ```azurecli
-    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central" --scopes /subscriptions/<SubscriptionId>
-    ```
-
-    Make a note of the `appId`, `password`, and `tenant` values in the command output, you need them in the following steps.
-
-1. To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of previously:
-
-    ```kusto
-    .add database ['<YourDatabaseName>'] admins ('aadapp=<YourAppId>;<YourTenant>');
-    ```
-
-1. Create a table in your database with a suitable schema for the data you're exporting. The following example query creates a table called `smartvitalspatch`. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md):
-
-    ```kusto
-    .create table smartvitalspatch (
-      EnqueuedTime:datetime,
-      Message:string,
-      Application:string,
-      Device:string,
-      Simulated:boolean,
-      Template:string,
-      Module:string,
-      Component:string,
-      Capability:string,
-      Value:dynamic
-    )
-    ```
-
-1. (Optional) To speed up ingesting data into your Azure Data Explorer database:
-
-    1. Navigate to the **Configurations** page for your Azure Data Explorer cluster. Then enable the **Streaming ingestion** option.
-    1. Run the following query to alter the table policy to enable streaming ingestion:
-
-        ```kusto
-        .alter table smartvitalspatch policy streamingingestion enable
-        ```
-
-To create the Azure Data Explorer destination in IoT Central on the **Data export** page:
-
-1. Select **+ New destination**.
-
-1. Select **Azure Data Explorer** as the destination type.
-
-1. Enter your Azure Data Explorer cluster or pool URL, database name, and table name. The following table shows the service principal values to use for the authorization:
-
-    | Service principal value | Destination configuration |
-    | ----------------------- | ------------------------- |
-    | appId                   | ClientID                  |
-    | tenant                  | Tenant ID                 |
-    | password                | Client secret             |
-
-    > [!TIP]
-    > The cluster URL for a standalone Azure Data Explorer looks like `https://<ClusterName>.<AzureRegion>.kusto.windows.net`. The cluster URL for an Azure Synapse Data Explorer pool looks like `https://<DataExplorerPoolName>.<SynapseWorkspaceName>.kusto.azuresynapse.net`.
-
-    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination that uses a service principal.":::
 
 # [Managed identity](#tab/managed-identity)
 
@@ -179,6 +111,74 @@ To create the Azure Data Explorer destination in IoT Central on the **Data expor
     :::image type="content" source="media/howto-export-data/export-destination-managed.png" alt-text="Screenshot of Azure Data Explorer export destination that uses a managed identity.":::
 
 If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshooting.md).
+
+# [Service principal](#tab/service-principal)
+
+If you don't have an existing Azure Data Explorer database to export to, follow these steps:
+
+1. You have two choices to create an Azure Data Explorer database:
+
+    - Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the cluster URI and the name of the database you create, you need these values in the following steps.
+    - Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI and the name of the database you create, you need these values in the following steps.
+
+1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
+
+    ```azurecli
+    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central" --scopes /subscriptions/<SubscriptionId>
+    ```
+
+    Make a note of the `appId`, `password`, and `tenant` values in the command output, you need them in the following steps.
+
+1. To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of previously:
+
+    ```kusto
+    .add database ['<YourDatabaseName>'] admins ('aadapp=<YourAppId>;<YourTenant>');
+    ```
+
+1. Create a table in your database with a suitable schema for the data you're exporting. The following example query creates a table called `smartvitalspatch`. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md):
+
+    ```kusto
+    .create table smartvitalspatch (
+      EnqueuedTime:datetime,
+      Message:string,
+      Application:string,
+      Device:string,
+      Simulated:boolean,
+      Template:string,
+      Module:string,
+      Component:string,
+      Capability:string,
+      Value:dynamic
+    )
+    ```
+
+1. (Optional) To speed up ingesting data into your Azure Data Explorer database:
+
+    1. Navigate to the **Configurations** page for your Azure Data Explorer cluster. Then enable the **Streaming ingestion** option.
+    1. Run the following query to alter the table policy to enable streaming ingestion:
+
+        ```kusto
+        .alter table smartvitalspatch policy streamingingestion enable
+        ```
+
+To create the Azure Data Explorer destination in IoT Central on the **Data export** page:
+
+1. Select **+ New destination**.
+
+1. Select **Azure Data Explorer** as the destination type.
+
+1. Enter your Azure Data Explorer cluster or pool URL, database name, and table name. The following table shows the service principal values to use for the authorization:
+
+    | Service principal value | Destination configuration |
+    | ----------------------- | ------------------------- |
+    | appId                   | ClientID                  |
+    | tenant                  | Tenant ID                 |
+    | password                | Client secret             |
+
+    > [!TIP]
+    > The cluster URL for a standalone Azure Data Explorer looks like `https://<ClusterName>.<AzureRegion>.kusto.windows.net`. The cluster URL for an Azure Synapse Data Explorer pool looks like `https://<DataExplorerPoolName>.<SynapseWorkspaceName>.kusto.azuresynapse.net`.
+
+    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination that uses a service principal.":::
 
 ---
 

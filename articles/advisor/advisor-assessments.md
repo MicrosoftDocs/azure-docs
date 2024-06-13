@@ -39,8 +39,8 @@ You can manage access to Advisor WAF assessments using built-in roles. The permi
 
 | **Name** | **Description** |
 |---|:---:|
-|Reader|View assessments for a workload and the corresponding recommendations|
-|Contributor|Create assessments for a workload and triage the corresponding recommendations|
+|Reader|View assessments for a subscription or workload and the corresponding recommendations|
+|Contributor|Create assessments for a subscription or workload and triage the corresponding recommendations|
 
 ## Access Azure Advisor WAF assessments
 
@@ -157,7 +157,7 @@ Once the recommendation is, or multiple recommendations are, selected with **Mar
 Some common questions and answers.
 
 **Q**. Can I edit previously taken assessments?\
-**A**. In the "Most Valuable Professionals" (MVP) program scope, assessments can't be edited once completed.
+**A**. In the current program, assessments can't be edited once completed.
 
 **Q**. Why am I not getting any recommendations?\
 **A**. If you didn't answer all of the assessment questions and skipped to **View guidance**, you might not get any recommendations generated. The other reason might be that the Learn platform hasn't generated any recommendations for the assessment.
@@ -173,6 +173,18 @@ Some common questions and answers.
 
 **Q**. I completed my assessment, but I don't see the recommendations and the assessment shows "In progress," why?\
 **A**. Currently, it could take up to a maximum of eight hours, for the recommendations to sync into Advisor after we complete the assessment in the Learn platform. We're working on fixing it.
+
+**Q**. An error occurred while trying to retrieve the list.\
+**A**. This error occurs when you don't have Contributor or Reader access to any subscription. Work with your administrator to get access.  
+
+**Q**. Assessment type drop down is disabled for a subscription.\
+**A**. This error occurs when you don't have Contributor access on the subscription selected. Work with your administrator to get access or select a different subscription.  
+
+**Q**. Unable to log in to learn – "Your account is not registered to Microsoft Learn which is required before you can start assessment."\
+**A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](/entra/identity-platform/accounts-overview).  
+
+**Q**. Unable to log in to learn – "Looks like you are using an External/Guest Account which is not supported."\
+**A**. In the current release, we only support accounts whose home tenant is same as the tenant in which the subscription lies. As a workaround, ask your administrator to create a new account in the tenant of the subscription and use that account to register on Learn platform. To know more about tenant profiles and home tenant, check [Accounts & tenant profiles (Android)](/entra/identity-platform/accounts-overview).
 
 ## Related content
 

@@ -14,19 +14,19 @@ ms.custom: devx-track-azurecli, mode-api
 
 In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, review the [Overview](../general/overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. Once that you've completed that, you will store a key.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/cli-rg-create.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
+[!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
 
 ## Add a key to Key Vault
 
@@ -51,7 +51,7 @@ Now, you've created a Key Vault, stored a key, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/cli-rg-delete.md)]
 
 ## Next steps
 

@@ -3,12 +3,12 @@ title: Send a custom Text Analytics for health request to your custom model
 description: Learn how to send a request for custom text analytics for health.
 titleSuffix: Azure AI services
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.devlang: http
 ms.custom: language-service-custom-ta4h
 ---
@@ -16,7 +16,7 @@ ms.custom: language-service-custom-ta4h
 # Send queries to your custom Text Analytics for health model
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api). 
+You can query the deployment programmatically using the [Prediction API](/rest/api/language/text-analysis-runtime/analyze-text). 
 
 ## Test deployed model
 

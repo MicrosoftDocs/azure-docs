@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/31/2023
+ms.date: 02/22/2024
 ms.custom:
   - devx-track-csharp
   - ignite-2023
@@ -62,14 +62,11 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 ```
 
 ```csharp
-    parameters =
-        new SearchParameters()
-        {
-            Filter = "Rooms/any(room: room/BaseRate lt 150.0)",
-            Select = new[] { "HotelId", "HotelName", "Rooms/Description" ,"Rooms/BaseRate"}
-        };
-
-    var results = searchIndexClient.Documents.Search("*", parameters);
+options = new SearchOptions()
+{
+    Filter = "Rating gt 4",
+    OrderBy = { "Rating desc" }
+};
 ```
 
 ## Filter patterns
@@ -115,11 +112,11 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
 In the REST API, filterable is *on* by default for simple fields. Filterable fields increase index size; be sure to set `"filterable": false` for fields that you don't plan to actually use in a filter. For more information about settings for field definitions, see [Create Index](/rest/api/searchservice/create-index).
 
-In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) of the corresponding [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) object to `true`. In the next example, the attribute is set on the `BaseRate` property of a model class that maps to the index definition.
+In the .NET SDK, the filterable is *off* by default. You can make a field filterable by setting the [IsFilterable property](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) of the corresponding [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) object to `true`. In the next example, the attribute is set on the `Rating` property of a model class that maps to the index definition.
 
 ```csharp
-[IsFilterable, IsSortable, IsFacetable]
-public double? BaseRate { get; set; }
+[SearchField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+public double? Rating { get; set; }
 ```
 
 ### Making an existing field filterable

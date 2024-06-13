@@ -29,12 +29,6 @@ The default retention period for soft deleted artifacts is seven days, but it’
 
 The autopurge runs every 24 hours and always considers the current value of retention days before permanently deleting the soft deleted artifacts. For example, after five days of soft deleting the artifact, if you change the value of retention days from seven to 14 days, the artifact will only expire after 14 days from the initial soft delete.
 
-
-
-:::image type="content" source="./media/container-registry-delete/02-soft-delete.png" alt-text="Diagram of soft delete artifacts lifecycle.":::
-
-
-
 ## Availability and pricing information
 
 This feature is available in all the service tiers (also known as SKUs). For information about registry service tiers, see [Azure Container Registry service tiers](container-registry-skus.md).
@@ -138,7 +132,7 @@ Force restore overwrites the existing tag with the same name in the repository. 
 
 > [!IMPORTANT]
 > Restoring a [manifest list](push-multi-architecture-images.md#manifest-list) won't recursively restore any underlying soft deleted manifests.
-> If you're restoring soft deleted [ORAS artifacts](container-registry-oras-artifacts.md), then restoring a subject doesn't recursively restore the referrer chain. Also, the subject has to be restored first, only then a referrer manifest is allowed to restore. Otherwise it throws an error.
+> If you're restoring soft deleted [ORAS artifacts](container-registry-manage-artifact.md), then restoring a subject doesn't recursively restore the referrer chain. Also, the subject has to be restored first, only then a referrer manifest is allowed to restore. Otherwise it throws an error.
 
 ## Enable soft delete policy for registry - Portal
 

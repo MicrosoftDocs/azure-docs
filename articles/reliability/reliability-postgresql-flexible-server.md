@@ -18,7 +18,7 @@ ms.custom:
 
 # High availability (Reliability) in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../postgresql/includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes high availability in Azure Database for PostgreSQL - Flexible Server, which includes [availability zones](#availability-zone-support) and [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -34,11 +34,11 @@ Azure Database for PostgreSQL - Flexible Server supports both [zone-redundant an
 
     You can choose the region and the availability zones for both primary and standby servers. The standby replica server is provisioned in the chosen availability zone in the same region with a similar compute, storage, and network configuration as the primary server. Data files and transaction log files (write-ahead logs, a.k.a WAL) are stored on locally redundant storage (LRS) within each availability zone, automatically storing **three** data copies. A zone-redundant configuration provides physical isolation of the entire stack between primary and standby servers.
 
-    :::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Pictures illustrating redundant high availability architecture." lightbox="../postgresql/flexible-server/media/business-continuity/concepts-zone-redundant-high-availability-architecture.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/postgresql/concepts-zone-redundant-high-availability-architecture.png" alt-text="Pictures illustrating redundant high availability architecture." lightbox="~/reusable-content/ce-skilling/azure/media/postgresql/concepts-zone-redundant-high-availability-architecture.png":::
 
 - **Zonal**. Choose a zonal deployment when you want to achieve the highest level of availability within a single availability zone, but with the lowest network latency. You can choose the region and the availability zone to deploy both your primary database server. A standby replica server is *automatically* provisioned and managed in the *same* availability zone - with similar compute, storage, and network configuration - as the primary server. A zonal configuration protects your databases from node-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is replicated to the standby replica in synchronous mode. In the event of any disruption to the primary server, the server is automatically failed over to the standby replica.
 
-  :::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-same-zone-high-availability-architecture.png" alt-text="Pictures illustrating zonal high availability architecture." lightbox="../postgresql/flexible-server/media/business-continuity/concepts-same-zone-high-availability-architecture.png":::
+  :::image type="content" source="./media/concepts-same-zone-high-availability-architecture.png" alt-text="Pictures illustrating zonal high availability architecture." lightbox="./media/concepts-same-zone-high-availability-architecture.png":::
 
 > [!NOTE]  
 > Both zonal and zone-redundant deployment models architecturally behave the same. Various discussions in the following sections apply to both unless called out otherwise.
@@ -155,7 +155,7 @@ The health of primary and standby servers are continuously monitored, and approp
 
 PostgreSQL client applications are connected to the primary server using the DB server name. Application reads are served directly from the primary server. At the same time, commits and writes are confirmed to the application only after the log data is persisted on both the primary server and the standby replica. Due to this extra round-trip, applications can expect elevated latency for writes and commits. You can monitor the health of the high availability on the portal.
 
-:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-high-availability-steady-state.png" alt-text="Picture showing high availability steady state operation workflow.":::
+:::image type="content" source="./media/concepts-high-availability-steady-state.png" alt-text="Picture showing high availability steady state operation workflow.":::
 
 1. Clients connect to the flexible server and perform write operations.
 1. Changes are replicated to the standby site.
@@ -250,6 +250,15 @@ Application downtime is expected to start after step #1 and persists until step 
 
 - It's recommended that you perform a forced failover during a low-activity period to reduce downtime.
 
+
+#### Best practices for PostgreSQL statistics after failover
+
+After a PostgreSQL failover, the primary mechanism for maintaining optimal database performance involves understanding the distinct roles of [pg_statistic](https://www.postgresql.org/docs/current/catalog-pg-statistic.html) and the [pg_stat_*](https://www.postgresql.org/docs/current/monitoring-stats.html) tables. The `pg_statistic` table houses optimizer statistics, which are crucial for the query planner. These statistics include data distributions within tables and remain intact after a failover, ensuring that the query planner can continue to optimize query execution effectively based on accurate, historical data distribution information.
+
+In contrast, the `pg_stat_*` tables, which record activity statistics such as the number of scans, tuples read, and updates, are reset upon failover. An example of such a table is `pg_stat_user_tables`, which tracks activity for user-defined tables. This reset is designed to accurately reflect the new primary's operational state but also means the loss of historical activity metrics that could inform the autovacuum process and other operational efficiencies.
+
+Given this distinction, the best practice following a PostgreSQL failover is to run `ANALYZE`. This action updates the `pg_stat_*` tables, like `pg_stat_user_tables`, with fresh activity statistics, helping the autovacuum process and ensuring that the database performance remains optimal in its new role. This proactive step bridges the gap between preserving essential optimizer statistics and refreshing activity metrics to align with the database's current state.
+
 ### Zone-down experience
 
 **Zonal**: To recover from a zone-level failure, you can [perform point-in-time restore](#point-in-time-restore-of-high-availability-servers) using the backup. You can choose a custom restore point with the latest time to restore the latest data. A new flexible server is deployed in another nonaffected zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover.
@@ -268,7 +277,7 @@ Although it's not recommended, you can configure your flexible server without hi
 
 The picture below shows the transition between VM and storage failure.
 
-:::image type="content" source="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha - steady state." border="false" lightbox="../postgresql/flexible-server/media/business-continuity/concepts-availability-without-zone-redundant-ha-architecture.png":::
+:::image type="content" source="./media/concepts-availability-without-zone-redundant-ha-architecture.png" alt-text="Diagram that shows availability without zone redundant ha - steady state." border="false" lightbox="./media/concepts-availability-without-zone-redundant-ha-architecture.png":::
 
 ## Cross-region disaster recovery and business continuity
 

@@ -3,12 +3,12 @@ title: Custom Named Entity Recognition (NER) FAQ
 titleSuffix: Azure AI services
 description: Learn about Frequently asked questions when using custom Named Entity Recognition.
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: faq
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ms.custom: language-service-custom-ner
 ---
 

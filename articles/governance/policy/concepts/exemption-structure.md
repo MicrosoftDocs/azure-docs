@@ -9,9 +9,8 @@ ms.topic: conceptual
 The Azure Policy exemptions feature is used to _exempt_ a resource hierarchy or an
 individual resource from evaluation of initiatives or definitions. Resources that are _exempt_ count
 toward overall compliance, but can't be evaluated or have a temporary waiver. For more information,
-see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions  work with
-[Resource Manager modes](./definition-structure.md#resource-manager-modes), Microsoft.Kubneretes.Data, Microsoft.KeyVault.Data and Microsoft.Network.Data and don't work with the other 
-[Resource Provider modes](./definition-structure.md#resource-provider-modes).
+see [Understand applicability in Azure Policy](./policy-applicability.md). Azure Policy exemptions also work with the following
+[Resource Manager modes](./definition-structure.md#resource-manager-modes): Microsoft.Kubernetes.Data, Microsoft.KeyVault.Data and Microsoft.Network.Data.
 
 You use JavaScript Object Notation (JSON) to create a policy exemption. The policy exemption contains elements for:
 
@@ -22,11 +21,11 @@ You use JavaScript Object Notation (JSON) to create a policy exemption. The poli
 - [policy definitions within an initiative](#policy-definition-ids)
 - [exemption category](#exemption-category)
 - [expiration](#expiration)
-- [resource selectors](#resource-selectors-preview)
+- [resource selectors](#resource-selectors)
 - [assignment scope validation](#assignment-scope-validation-preview)
 
 
-A policy exemption is created as a child object on the resource hierarchy or the individual resource granted the exemption. Exemptions cannot be created at the Resource Provider mode component level. 
+A policy exemption is created as a child object on the resource hierarchy or the individual resource granted the exemption. Exemptions cannot be created at the Resource Provider mode component level.
 If the parent resource to which the exemption applies is removed, then the exemption is removed as well.
 
 For example, the following JSON shows a policy exemption in the **waiver** category of a resource to
@@ -108,9 +107,9 @@ format `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 > The policy exemptions isn't deleted when the `expiresOn` date is reached. The object is preserved
 > for record-keeping, but the exemption is no longer honored.
 
-## Resource selectors (preview)
+## Resource selectors
 
-Exemptions support an optional property `resourceSelectors`. This property works the same way in exemptions as it does in assignments, allowing for gradual rollout or rollback of an _exemption_ to certain subsets of resources in a controlled manner based on resource type, resource location, or whether the resource has a location. More details about how to use resource selectors can be found in the [assignment structure](assignment-structure.md#resource-selectors-preview). Here is an example exemption JSON, which uses resource selectors. In this example, only resources in `westcentralus` will be exempt from the policy assignment:
+Exemptions support an optional property `resourceSelectors`. This property works the same way in exemptions as it does in assignments, allowing for gradual rollout or rollback of an _exemption_ to certain subsets of resources in a controlled manner based on resource type, resource location, or whether the resource has a location. More details about how to use resource selectors can be found in the [assignment structure](assignment-structure.md#resource-selectors). Here is an example exemption JSON, which uses resource selectors. In this example, only resources in `westcentralus` will be exempt from the policy assignment:
 
 ```json
 {
@@ -181,9 +180,9 @@ assignment.
 
 ## Exemption creation and management
 
-Exemptions are recommended for time-bound or specific scenarios where a resource or resource hierarchy should still be tracked and would otherwise be evaluated, but there's a specific reason it shouldn't be assessed for compliance. For example, if an environment has the built-in definition `Storage accounts should disable public network access` (ID: `b2982f36-99f2-4db5-8eff-283140c09693`) assigned with _effect_ set to _audit_. Upon compliance assessment, resource "StorageAcc1" is non-compliant, but StorageAcc1 must have public network access enable for business purposes. At that time, a request should be submitted to create an exemption resource that targets StorageAcc1. Once the exemption is created, StorageAcc1 will be shown as _exempt_ in compliance review. 
+Exemptions are recommended for time-bound or specific scenarios where a resource or resource hierarchy should still be tracked and would otherwise be evaluated, but there's a specific reason it shouldn't be assessed for compliance. For example, if an environment has the built-in definition `Storage accounts should disable public network access` (ID: `b2982f36-99f2-4db5-8eff-283140c09693`) assigned with _effect_ set to _audit_. Upon compliance assessment, resource "StorageAcc1" is non-compliant, but StorageAcc1 must have public network access enable for business purposes. At that time, a request should be submitted to create an exemption resource that targets StorageAcc1. Once the exemption is created, StorageAcc1 will be shown as _exempt_ in compliance review.
 
-Regularly revisit your exemptions to ensure that all eligible items are appropriately exempted and promptly remove any no longer qualifying for exemption. At that time, exemption resources that have expired could be deleted as well. 
+Regularly revisit your exemptions to ensure that all eligible items are appropriately exempted and promptly remove any no longer qualifying for exemption. At that time, exemption resources that have expired could be deleted as well.
 
 
 ## Next steps

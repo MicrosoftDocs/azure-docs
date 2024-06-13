@@ -14,9 +14,9 @@ ms.author: pafarley
 
 # Object detection
 
-Object detection is similar to [tagging](concept-tag-images-40.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat, and person, the object detection operation will list those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
+Object detection is similar to [tagging](concept-tag-images-40.md), but the API returns the bounding box coordinates (in pixels) for each object found in the image. For example, if an image contains a dog, cat, and person, the object detection operation lists those objects with their coordinates in the image. You can use this functionality to process the relationships between the objects in an image. It also lets you determine whether there are multiple instances of the same object in an image.
 
-The object detection function applies tags based on the objects or living things identified in the image. There is no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the object detection function only finds objects and living things, while the tag function can also include contextual terms like "indoor", which can't be localized with bounding boxes.
+The object detection function applies tags based on the objects or living things identified in the image. There's no formal relationship between the tagging taxonomy and the object detection taxonomy. At a conceptual level, the object detection function only finds objects and living things, while the tag function can also include contextual terms like "indoor," which can't be localized with bounding boxes.
 
 Try out the capabilities of object detection quickly and easily in your browser using Vision Studio.
 
@@ -25,7 +25,7 @@ Try out the capabilities of object detection quickly and easily in your browser 
 
 ## Object detection example
 
-The following JSON response illustrates what the Analyze API returns when detecting objects in the example image.
+The following JSON response illustrates what the Analyze Image API returns when detecting objects in the example image.
 
 ![A woman using a Microsoft Surface device in a kitchen](./Images/windows-kitchen.jpg)
 
@@ -93,13 +93,13 @@ The following JSON response illustrates what the Analyze API returns when detect
 
 It's important to note the limitations of object detection so you can avoid or mitigate the effects of false negatives (missed objects) and limited detail.
 
-* Objects are generally not detected if they're small (less than 5% of the image).
-* Objects are generally not detected if they're arranged closely together (a stack of plates, for example).
-* Objects are not differentiated by brand or product names (different types of sodas on a store shelf, for example). However, you can get brand information from an image by using the [Brand detection](concept-brand-detection.md) feature.
+* Objects are usually not detected if they're small (less than 5% of the image).
+* Objects are usually not detected if they're arranged closely together (a stack of plates, for example).
+* Objects aren't differentiated by brand or product names (different types of sodas on a store shelf, for example). However, you can get brand information from an image by using the [Brand detection](concept-brand-detection.md) feature.
 
 ## Use the API
 
-The object detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Objects` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
+The object detection feature is part of the [Analyze Image](/rest/api/computervision/analyze-image/analyze-image?view=rest-computervision-v3.2&tabs=HTTP) API. You can call this API through a native SDK or through REST calls. Include `Objects` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"objects"` section.
 
 
 * [Quickstart: Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

@@ -3,17 +3,18 @@ title: Generative AI
 description: Generative AI with Azure Database for PostgreSQL - Flexible Server.
 author: mulander
 ms.author: adamwolk
-ms.date: 01/04/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
 ---
 
 # Generative AI with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Generative AI (GenAI) refers to a class of Artificial Intelligence algorithms that can learn from existing multimedia content and produce new content. The produced content can be customized using techniques such as prompts and fine-tuning. GenAI algorithms apply specific Machine Learning models:
 
@@ -22,6 +23,9 @@ Generative AI (GenAI) refers to a class of Artificial Intelligence algorithms th
 * Variational Autoencoders (VAEs) for image generation, etc.
 
 GenAI is used in image and music synthesis, healthcare, common tasks such as text autocompletion, text summarization and translation. GenAI techniques enable features on data such as clustering and segmentation, semantic search and recommendations, topic modeling, question answering and anomaly detection. 
+
+
+>[!Video https://www.youtube.com/embed/em0PKDGzzlQ?si=cT0VVzVv_2xV1Mi_]
 
 ## OpenAI
 

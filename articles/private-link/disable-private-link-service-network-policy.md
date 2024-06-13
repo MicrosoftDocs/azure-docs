@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: private-link
 ms.topic: how-to
-ms.date: 02/02/2023
+ms.date: 03/28/2024
 ms.author: abell 
 ms.custom: template-how-to
 ms.devlang: azurecli

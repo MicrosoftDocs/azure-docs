@@ -18,8 +18,72 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     If you have a material storage footprint in a region and service level, you can optimize your TCO by committing to a one-year or three-year term of Azure NetApp Files reserved capacity. Like other [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md), Azure NetApp Files reserved capacity are automatically applied to existing Azure NetApp Files capacity pools in the same region and service level. Reserved capacity is available in increments of 100 TiB and 1 PiB for a one-year or three-year term. Reserved capacity can be used in a single subscription (single subscription scope), or across multiple subscriptions (shared scope) in the same tenant. For more detail, see [Azure NetApp Files reserved capacity](optimize-costs-reserved-capacity.md) or view purchasing options in the Azure portal.
         
+## May 2024
+
+* [Large volumes](large-volumes-requirements-considerations.md) are now generally available (GA) with support for [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).
+
+    Azure NetApp Files large volumes feature support the creation of new volumes between 50 TiB to 500 TiB in size. Regular Azure NetApp Files volumes are limited to 100 TiB in size. Large volumes enable a variety of use cases and workloads that require larger volumes with a single namespace such as High-Performance Computing (HPC) in the EDA and O&G space.
+    
+    Azure NetApp Files large volumes is now also supported with cross-zone and cross-region replication. This capability is particularly beneficial for HPC, AI/ML, and large file content repositories, ensuring data resilience and business continuity across various scenarios.
+    
+    For HPC workloads, which are essential for simulating processes and electronic design automation, this feature enhances data protection and availability, crucial for maintaining uninterrupted operations. AI/ML workloads, especially those involving large datasets for training complex models, will benefit from the added security and recovery options, ensuring data integrity for critical applications. Content repositories with large files, which often remain unchanged for extended periods but require immediate access, can now leverage the benefits of cross-zone and cross-region replication to safeguard against data loss while optimizing for cost and scale. By integrating these replication features, you can achieve a new level of data security and operational stability.
+
+* [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (Preview)
+
+    The Azure NetApp Files support for one Active Directory (AD) connection per NetApp account feature now allows each NetApp account to connect to its own AD Forest and Domain, providing the ability to manage more than one AD connections within a single region under a subscription. This enhancement enables distinct AD connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. AD connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to AD connections in the NetApp account, the management of AD environments becomes more scalable, streamlined and efficient. This feature is in preview.
+
+* [Azure NetApp Files backup](backup-introduction.md) is now generally available (GA).
+
+    Azure NetApp Files online snapshots are enhanced with backup of snapshots. With this backup capability, you can offload (vault) your Azure NetApp Files snapshots to a Backup vault in a fast and cost-effective way, further protecting your data from accidental deletion. 
+     
+    Backup further extends Azure NetApp Files’ built-in snapshot technology; when snapshots are vaulted to a Backup vault only changed data blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots however are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative full-incremental recovery process.   
+
+    This feature is now generally available in all [supported regions](backup-introduction.md#supported-regions). 
+
+## April 2024 
+
+* [Application volume group for Oracle](application-volume-group-oracle-introduction.md) (Preview)
+
+    Application volume group (AVG) for Oracle enables you to deploy all volumes required to install and operate Oracle databases at enterprise scale, with optimal performance and according to best practices in a single one-step and optimized workflow. The application volume group feature uses the Azure NetApp Files ability to place all volumes in the same availability zone as the VMs to achieve automated, latency-optimized deployments. 
+
+    Application volume group for Oracle has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for Oracle. All required volumes, such as up to eight data volumes, online redo log and archive redo log, backup and binary, are created in a single "atomic" operation (through the Azure portal, RP, or API).
+
+    Azure NetApp Files application volume group shortens Oracle database deployment time and increases overall application performance and stability, including the use of multiple storage endpoints. The application volume group feature supports a wide range of Oracle database layouts from small databases with a single volume up to multi 100-TiB sized databases. It supports up to eight data volumes with latency-optimized performance and is only limited by the database VM's network capabilities. 
+
+    Application volume group for Oracle is supported in all Azure NetApp Files-enabled regions.
+  
+## March 2024
+
+* [Large volumes (Preview) improvement:](large-volumes-requirements-considerations.md) new minimum size of 50 TiB
+
+    Large volumes support a minimum size of 50 TiB. Large volumes still support a maximum quota of 500 TiB. 
+
+* [Availability zone volume placement](manage-availability-zone-volume-placement.md) is now generally available (GA).
+
+    You can deploy new volumes in the logical availability zone of your choice to create cross-zone volumes to improve resiliency in case of zonal failures. This feature is available in all availability zone-enabled regions with Azure NetApp Files presence.
+    
+    The [populate existing volume](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) feature is still in preview. 
+
+* [Capacity pool enhancement](azure-netapp-files-set-up-capacity-pool.md): The 1 TiB capacity pool feature is now generally available (GA). 
+
+    The 1 TiB lower limit for capacity pools using Standard network features is now generally available (GA). You still must register the feature.
+
+* [Volume enhancement: create volumes with the same file path, share name, or volume path in different availability zones](manage-availability-zone-volume-placement.md#file-path-uniqueness) (Preview)
+
+    Azure NetApp Files now allows you to create volumes with the same file path (NFS), share name (SMB), or volume path (dual-protocol) as long as they are in different availability zones. For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md), [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md), or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). This enhancement is currently in preview. 
+    
 ## February 2024
 
+* [Volume and protocol enhancement](understand-volume-languages.md): extended language support for file and path names
+
+    Azure NetApp Files uses a default volume language of C.UTF-8, which provides POSIX compliant UTF-8 encoding for character sets. The C.UTF-8 language natively supports characters with a size of 0-3 bytes, which includes a majority of the world’s languages on the Basic Multilingual Plane (BMP) (including Japanese, German, and most of Hebrew and Cyrillic). 
+    
+    Azure NetApp Files now supports characters outside of the BMP using surrogate pair logic, where multiple character byte sets are combined to form new characters. Emoji symbols, for example, fall into this category and are now supported in Azure NetApp Files.
+
+    To learn more about languages and special character handling in Azure NetApp Files volumes, see [Understand volume languages in Azure NetApp Files](understand-volume-languages.md).
+    
+    To learn more about file path lengths in relation to language and character handling in Azure NetApp Files volumes, see [Understand path lengths in Azure NetApp Files](understand-path-lengths.md).
+    
 
 * [Customer-managed keys enhancement:](configure-customer-managed-keys.md) automated managed system identity (MSI) support
 
@@ -36,13 +100,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## January 2024
 
-* [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md#regions-edit-network-features) (Preview)
+* [Standard network features - Edit volumes available in US Gov regions](azure-netapp-files-network-topologies.md) (Preview)
 
     Azure NetApp Files now supports the capability to edit network features of existing volumes in US Gov Arizona, US Gov Texas, and US Gov Texas. This capability provides an enhanced, more standard, Microsoft Azure Virtual Network experience through various security and connectivity features that are available on Virtual Networks to Azure services. This feature is in preview in commercial and US Gov regions. 
     
 * [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
-
-    You still must register the feature before using it for the first time.
 
 ## November 2023
 
@@ -56,7 +118,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports a "throughput limit reached" metric for volumes. The metric is a Boolean value that denotes the volume is hitting its QoS limit. With this metric, you know whether or not to adjust volumes so they meet the specific needs of your workloads.
 
-* [Standard network features in US Gov regions](azure-netapp-files-network-topologies.md#supported-regions) is now generally available (GA)
+* [Standard network features in US Gov regions](azure-netapp-files-network-topologies.md) is now generally available (GA)
 
     Azure NetApp Files now supports Standard network features for new volumes in US Gov Arizona, US Gov Texas, and US Gov Virginia. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files.
 
@@ -78,7 +140,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard storage with cool access](cool-access-introduction.md) (Preview)
 
-    Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 7 to 183 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
+    Most of unstructured data is typically infrequently accessed. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. You can now use the cool access option in a capacity pool of Azure NetApp Files standard service level to have inactive data transparently moved from Azure NetApp Files standard service-level storage (the *hot tier*) to an Azure storage account (the *cool tier*). This option lets you free up storage that resides within Azure NetApp Files volumes by moving data blocks to the lower cost cool tier, resulting in overall cost savings. You can configure this option on a volume by specifying the number of days (the *coolness period*, ranging from 2 to 183 days) for inactive data to be considered "cool". Viewing and accessing the data stay transparent, except for a higher access time to data blocks that were moved to the cool tier.
 
 * [Troubleshoot Azure NetApp Files using diagnose and solve problems tool](troubleshoot-diagnose-solve-problems.md)
 
@@ -153,7 +215,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Connectivity over Active/Active VPN gateway setup
     * [ExpressRoute FastPath](../expressroute/about-fastpath.md) connectivity to Azure NetApp Files
 
-    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md#regions-edit-network-features). It will roll out to other regions. Stay tuned for further information as more regions become available.
+    This feature is now in public preview, currently available in [16 Azure regions](azure-netapp-files-network-topologies.md). It will roll out to other regions. Stay tuned for further information as more regions become available.
 
 * [Azure Application Consistent Snapshot tool (AzAcSnap) 8 (GA)](azacsnap-introduction.md)
 
@@ -174,7 +236,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## April 2023
 
-* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#supported-regions) that support standard network features
+* [Azure Virtual WAN](configure-virtual-wan.md) is now generally available in [all regions](azure-netapp-files-network-topologies.md#) that support standard network features
 
 ## March 2023
 
@@ -230,7 +292,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports a lower limit of 2 TiB for capacity pool sizing with Standard network features.
 
-    You can now choose a minimum size of 2 TiB when creating a capacity pool. Capacity pools smaller than 4 TiB in size can only be used with volumes using [standard network features](configure-network-features.md#options-for-network-features). This enhancement provides a more cost effective solution for running workloads such as SAP-shared files and VDI that require lower capacity pool sizes for their capacity and performance needs. When you have less than 2-4 TiB capacity with proportional performance, this enhancement allows you to start with 2 TiB as a minimum pool size and increase with 1-TiB increments. For capacities less than 3 TiB, this enhancement saves cost by allowing you to re-evaluate volume planning to take advantage of savings of smaller capacity pools. This feature is supported in all [regions with Standard network features](azure-netapp-files-network-topologies.md#supported-regions).
+    You can now choose a minimum size of 2 TiB when creating a capacity pool. Capacity pools smaller than 4 TiB in size can only be used with volumes using [standard network features](configure-network-features.md#options-for-network-features). This enhancement provides a more cost effective solution for running workloads such as SAP-shared files and VDI that require lower capacity pool sizes for their capacity and performance needs. When you have less than 2-4 TiB capacity with proportional performance, this enhancement allows you to start with 2 TiB as a minimum pool size and increase with 1-TiB increments. For capacities less than 3 TiB, this enhancement saves cost by allowing you to re-evaluate volume planning to take advantage of savings of smaller capacity pools. This feature is supported in all [regions with Standard network features](azure-netapp-files-network-topologies.md).
 
 ## December 2022
 
@@ -287,7 +349,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## August 2022
 
-* [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
+* [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md).
 
     Standard network features now includes Global virtual network peering.
 

@@ -1,6 +1,6 @@
 ---
-title: Import document format guidelines - question answering
-description: Use these guidelines for importing documents to get the best results for your content with question answering.
+title: Import document format guidelines - custom question answering
+description: Use these guidelines for importing documents to get the best results for your content with custom question answering.
 ms.service: azure-ai-language
 ms.author: jboback
 author: jboback
@@ -8,19 +8,19 @@ ms.topic: reference
 ms.date: 12/19/2023
 ---
 
-# Format guidelines for question answering
+# Format guidelines for custom question answering
 
 Review these formatting guidelines to get the best results for your content.
 
 ## Formatting considerations
 
-After importing a file or URL, question answering converts and stores your content in the [markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of the markdown format helps you to understand the converted content and manage your project content.
+After importing a file or URL, custom question answering converts and stores your content in the [markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of the markdown format helps you to understand the converted content and manage your project content.
 
-If you add or edit your content directly in your project, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. Question answering supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers.
+If you add or edit your content directly in your project, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. Custom question answering supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers.
 
 ## Basic document formatting
 
-Question answering identifies sections and subsections and relationships in the file based on visual clues like:
+Custom question answering identifies sections and subsections and relationships in the file based on visual clues like:
 
 * font size
 * font style
@@ -32,7 +32,7 @@ Question answering identifies sections and subsections and relationships in the 
 
 ### Product manuals
 
-A manual is typically guidance material that accompanies a product. It helps the user to set up, use, maintain, and troubleshoot the product. When question answering processes a manual, it extracts the headings and subheadings as questions and the subsequent content as answers. See an example [here](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
+A manual is typically guidance material that accompanies a product. It helps the user to set up, use, maintain, and troubleshoot the product. When custom question answering processes a manual, it extracts the headings and subheadings as questions and the subsequent content as answers. See an example [here](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
 
 Below is an example of a manual with an index page, and hierarchical content
 
@@ -64,9 +64,9 @@ Below is an example of an unstructured PDF document:
 > QnA pairs are not extracted in the "Edit sources" tab for unstructured sources.
 
 > [!IMPORTANT]
-> Support for unstructured file/content is available only in question answering.
+> Support for unstructured file/content is available only in custom question answering.
 
-### Structured question answering document
+### Structured custom question answering document
 
 The format for structured question-answers in DOC files, is in the form of alternating questions and answers per line, one question per line followed by its answer in the following line, as shown below:
 
@@ -80,14 +80,14 @@ Question2
 Answer2
 ```
 
-Below is an example of a structured question answering word document:
+Below is an example of a structured custom question answering word document:
 
 > [!div class="mx-imgBorder"]
-> ![Structured question answering document example for a project](../../../qnamaker/media/qnamaker-concepts-datasources/structured-qna-doc.png)
+> ![Structured custom question answering document example for a project](../../../qnamaker/media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ### Structured *TXT*, *TSV* and *XLS* Files
 
-Question answering in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to question answering to create or augment a project.  These can either be plain text, or can have content in RTF or HTML. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
+Custom question answering in the form of structured *.txt*, *.tsv* or *.xls* files can also be uploaded to custom question answering to create or augment a project.  These can either be plain text, or can have content in RTF or HTML. Question answer pairs have an optional metadata field that can be used to group question answer pairs into categories.
 
 | Question  | Answer  | Metadata (1 key: 1 value) |
 |-----------|---------|-------------------------|
@@ -109,7 +109,7 @@ Importing a project replaces the content of the existing project. Import require
 
 ### Multi-turn document formatting
 
-* Use headings and subheadings to denote hierarchy. For example, You can h1 to denote the parent question answer and h2 to denote the question answer that should be taken as prompt. Use small heading size to denote subsequent hierarchy. Do not use style, color, or some other mechanism to imply structure in your document, question answering will not extract the multi-turn prompts.
+* Use headings and subheadings to denote hierarchy. For example, You can h1 to denote the parent question answer and h2 to denote the question answer that should be taken as prompt. Use small heading size to denote subsequent hierarchy. Do not use style, color, or some other mechanism to imply structure in your document, custom question answering will not extract the multi-turn prompts.
 * First character of heading must be capitalized.
 * Do not end a heading with a question mark, `?`.
 
@@ -117,7 +117,7 @@ Importing a project replaces the content of the existing project. Import require
 
 ## FAQ URLs
 
-Question answering can support FAQ web pages in three different forms:
+Custom question answering can support FAQ web pages in three different forms:
 
 * Plain FAQ pages
 * FAQ pages with links
@@ -147,7 +147,7 @@ Below is an example of a Topics page with links to FAQ sections in different pag
 
 ### Support URLs
 
-Question answering can process semi-structured support web pages, such as web articles that would describe how to perform a given task, how to diagnose and resolve a given problem, and what are the best practices for a given process. Extraction works best on content that has a clear structure with hierarchical headings.
+Custom question answering can process semi-structured support web pages, such as web articles that would describe how to perform a given task, how to diagnose and resolve a given problem, and what are the best practices for a given process. Extraction works best on content that has a clear structure with hierarchical headings.
 
 > [!NOTE]
 > Extraction for support articles is a new feature and is in early stages. It works best for simple pages, that are well structured, and do not contain complex headers/footers.

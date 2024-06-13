@@ -1,62 +1,59 @@
 ---
-title: "Azure Operator Nexus: How to Configure Network Access Control Lists (ACLs) for SSH Access on Management VPN."
-description: Instructions on setting up network access control lists (ACLs) to control SSH access on a management VPN.
+title: Create ACLs on an NNI in Azure Operator Nexus
+description: Get instructions on setting up network access control lists (ACLs) to control SSH access on a management VPN.
 ms.service: azure-operator-nexus
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/07/2024
 author: sushantjrao
 ms.author: sushrao
 ---
 
-# How-To Guide: Creating ACLs on an NNI
+# Create ACLs on an NNI in Azure Operator Nexus
 
-ACLs (Permit & Deny) at an NNI Level are designed to protect SSH access on the Management VPN. Network Access Control Lists can be applied before provisioning the Network Fabric. It's important to note that this limitation is temporary and will be removed in future releases.
+In Azure Operator Nexus, access control lists (ACLs) for `Permit` and `Deny` actions at a network-to-network interconnect (NNI) level help protect Secure Shell (SSH) access on the management virtual private network (VPN). You create ingress and egress ACLs before the creation of NNI resources and then reference those ACLs in the NNI payload. You need to create referenced ingress and egress ACLs before you provision the network fabric.
 
-Ingress and Egress ACLs are created prior to the creation of NNI resources and are referenced into the NNI payload. When NNI resources are created, they also create referenced ingress and egress ACLs. This activity needs to be performed before provisioning the Network Fabric.
+These are the high-level steps for creating an ACL on an NNI:
 
-## Steps to Create an ACL on an NNI:
+1. Create NNI ingress and egress ACLs.
+2. Update the Azure Resource Manager resource reference in a management NNI.
+3. Create an NNI and provision the network fabric.
 
-1. Create NNI Ingress and Egress ACLs
-2. Update ARM Resource Reference in Management NNI
-3. Create NNI and Provision Network Fabric
+## Parameter usage guidance
 
-## Parameter Usage Guidance:
-
-| Parameter            | Description                                                  | Example or Range                |
+| Parameter            | Description                                                  | Example or range                |
 |----------------------|--------------------------------------------------------------|--------------------------------|
-| defaultAction        | Defines default action to be taken. If not defined, traffic is permitted. | "defaultAction": "Permit"      |
-| resource-group       | Resource group of the network fabric.                        | nfresourcegroup                 |
-| resource-name        | Name of the ACL.                                             | example-ingressACL              |
-| vlanGroups           | List of VLAN groups.                                         |                                |
-| vlans                | List of VLANs that need to be matched.                       |                                |
-| match-configurations | Name of match configuration.                                 | example_acl (spaces and special character "&" aren't supported) |
-| matchConditions      | Conditions required to be matched.                           |                                |
-| ttlValues            | TTL (Time To Live).                                          | 0-255                          |
-| dscpMarking          | DSCP Markings that need to be matched.                       | 0-63                           |
-| portCondition        | Port condition that needs to be matched.                     |                                |
-| portType             | Port type that needs to be matched.                          | Example: SourcePort. Allowed values: DestinationPort, SourcePort |
-| protocolTypes        | Protocols that need to be matched.                           | [tcp, udp, range[1-2, 1, 2]] (if protocol number, it should be in the range of 1-255) |
-| vlanMatchCondition  | VLAN match condition that needs to be matched.                |                                |
-| layer4Protocol       | Layer 4 Protocol.                                           | Should be either TCP or UDP    |
-| ipCondition          | IP condition that needs to be matched.                       |                                |
-| actions              | Action to be taken based on match condition.                 | Example: permit                |
-| configuration-type   | Configuration type can be inline or by using a file. However, AON supports only inline today. | Example: inline                |
+| `defaultAction`        | Default action to be taken. If you don't define it, traffic is permitted. | `"defaultAction": "Permit"`      |
+| `resource-group`       | Resource group of the network fabric.                        | `nfresourcegroup`                 |
+| `resource-name`        | Name of the ACL.                                             | `example-ingressACL`              |
+| `vlanGroups`           | List of virtual local area network (VLAN) groups.                                         |                                |
+| `vlans`                | List of VLANs that need to be matched.                       |                                |
+| `match-configurations` | Name of the match configuration.                                 | `example_acl`. Spaces and the ampersand character (&) aren't supported. |
+| `matchConditions`      | Conditions required to be matched.                           |                                |
+| `ttlValues`            | Time to live (TTL).                                          | `0`-`255`                          |
+| `dscpMarking`          | Differentiated Services Code Point (DSCP) markings that need to be matched.                       | `0`-`63`                           |
+| `portCondition`        | Port condition that needs to be matched.                     |                                |
+| `portType`             | Port type that needs to be matched.                          | Example: `SourcePort`. Allowed values: `DestinationPort`, `SourcePort`. |
+| `protocolTypes`        | Protocols that need to be matched.                           | `[tcp, udp, range[1-2, 1, 2]]`. If it's a protocol number, it should be in the range of `1`-`255`. |
+| `vlanMatchCondition`  | VLAN match condition that needs to be matched.                |                                |
+| `layer4Protocol`       | Layer 4 protocol.                                           | Should be either `TCP` or `UDP`.    |
+| `ipCondition`          | IP condition that needs to be matched.                       |                                |
+| `actions`              | Action to be taken based on a match condition.                 | Example: `permit`.                |
+| `configuration-type`   | Configuration type, which can be inline or file. At this time, Azure Operator Nexus supports only inline. | Example: `inline`.                |
 
+You should also be aware of these restrictions:
 
-There are some further restrictions that you should be aware of:
+- Inline ports and inline VLANs are a static way of defining the ports or VLANs by using `azcli`.
+- `portGroupNames` and `vlanGroupNames` are dynamic ways of defining ports and VLANs.
+- Inline ports and `portGroupNames` together aren't allowed.
+- Inline VLANs and `vlanGroupNames` together aren't allowed.
+- `ipGroupNames` and `ipPrefixValues` together aren't allowed.
+- Egress ACLs don't support IP options, IP length, fragment, EtherType, DSCP marking, or TTL values.
+- Ingress ACLs don't support EtherType options.
 
-- **Inline ports and inline VLANs** are a static way of defining the ports or VLANs using `azcli`.
-- **PortGroupNames and VLANGroupNames** are dynamic ways of defining ports and VLANs.
-- **Inline ports and the PortGroupNames** together aren't allowed.
-- **Inline VLANs and the VLANGroupNames** together aren't allowed.
-- **IpGroupNames and IpPrefixValues** together aren't allowed.
-- **Egress ACLs** won’t support IP options, IP length, fragment, ether-type, DSCP marking, or TTL values.
-- **Ingress ACLs** won't support following options: etherType.
+## Create an ingress ACL
 
-## Creating Ingress ACL
-
-To create an Ingress ACL, you can use the following Azure CLI command:
+To create an ingress ACL, you can use the following Azure CLI command. This command creates an ingress ACL with the specified configurations and provides the expected result as output. Adjust the parameters as needed for your use case.
 
 ```bash
 az networkfabric acl create
@@ -70,7 +67,7 @@ az networkfabric acl create
 
 ```
 
-### Expected Output:
+#### Expected output
 
 ```json
 {
@@ -136,11 +133,9 @@ az networkfabric acl create
 }
 ```
 
-This command creates an Ingress ACL with the specified configurations and outputs the expected result. Adjust the parameters as needed for your use case.
+## Create an egress ACL
 
-## Creating Egress ACL
-
-To create an Egress ACL, you can utilize the following Azure CLI command:
+To create an egress ACL, you can use the following Azure CLI command. This command creates an egress ACL with the specified configurations and provides the expected result as output. Adjust the parameters as needed for your use case.
 
 ```bash
 az networkfabric acl create
@@ -154,7 +149,7 @@ az networkfabric acl create
 
 ```
 
-### Expected Output:
+#### Expected output
 
 ```json
 {
@@ -200,16 +195,16 @@ az networkfabric acl create
 }
 ```
 
-This command creates an Egress ACL with the specified configurations and outputs the expected result. Adjust the parameters as needed for your use case.
+## Update the Resource Manager reference
 
-## Updating ARM Reference
+This step enables the creation of ACLs (ingress and egress if a reference is provided) during the creation of the NNI resource. After you create the NNI and before you provision the network fabric, you can perform re-put on the NNI.
 
-This step enables the creation of ACLs (ingress and egress if reference is provided) during the creation of the NNI resource. Post creation of NNI and before fabric provisioning, re-put can be done on NNI.
+- `ingressAclId`: Reference ID for the ingress ACL.
+- `egressAclId`: Reference ID for the egress ACL.
 
-- `ingressAclId`: Reference ID for ingress ACL
-- `egressAclId`: Reference ID for egress ACL
+To get the Resource Manager resource ID, go to the resource group of the subscription that you're using.
 
-To get ARM resource ID, navigate to the resource group of the subscription used.
+The following command updates the Resource Manager reference for the NNI resource by associating it with the provided ingress and egress ACLs. Adjust the parameters as needed for your use case.
 
 ```bash
 az networkfabric nni create
@@ -225,38 +220,29 @@ az networkfabric nni create
 --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
 ```
 
-This command updates the ARM reference for the NNI resource, associating it with the provided ingress and egress ACLs. Adjust the parameters as needed for your use case.
+## Show ACL details
 
-## Show ACL
-
-To display the details of an Access Control List (ACL), use the following command:
+To display the details of a specified ACL, use the following command:
 
 ```bash
 az networkfabric acl show --resource-group "example-rg" --resource-name "example-acl"
 ```
 
-This command will retrieve and display information about the specified ACL.
+## List ACLs
 
-## List ACL
-
-To list all Access Control Lists (ACLs) within a resource group, execute the following command:
+To list all ACLs within a specified resource group, use the following command:
 
 ```bash
 az networkfabric acl list --resource-group "ResourceGroupName"
 ```
 
-This command will list all ACLs present in the specified resource group.
+## Create ACLs on the ISD external network
 
-## Create ACL on Isolation Domain External Network
+Use the following information to create ingress and egress ACLs for the isolation domain (ISD) external network. Then, update the Resource Manager resource reference for the external network.
 
-Steps to be performed to create an ACL on an NNI:
+### Create an egress ACL for the ISD external network
 
-1. Create an isolation domain external network ingress and egress ACLs.
-2. Update Arm Resource Reference for External Network.
-
-## Create ISD External Network Egress ACL
-
-To create an Egress Access Control List (ACL) for an Isolation Domain External Network, use the following command:
+To create an egress ACL for the specified ISD external network with the provided configuration, use the following command. Adjust the parameters as needed for your use case.
 
 ```bash
 az networkfabric acl create
@@ -269,11 +255,9 @@ az networkfabric acl create
 --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_EGRESS_ACL_IPV4_CE_PE',sequenceNumber:1110,ipAddressType:IPv4,matchConditions:[{ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}},{ipCondition:{type:DestinationIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}}],actions:[{type:Count}]}]"
 ```
 
-This command creates an Egress ACL for the specified Isolation Domain External Network with the provided configuration.
+#### Expected output
 
-### Expected Output
-
-Upon successful execution, the command will return information about the created ACL in the following format:
+Upon successful execution, the command returns information about the created ACL in the following format. This output includes details about the configuration and state.
 
 ```json
 {
@@ -337,11 +321,9 @@ Upon successful execution, the command will return information about the created
 }
 ```
 
-This output provides details of the created ACL, including its configuration, state, and other relevant information. Adjust the parameters as required for your use case.
+### Create an ingress ACL for the ISD external network
 
-## Create ISD External Network Ingress ACL
-
-To create an Ingress Access Control List (ACL) for an Isolation Domain External Network, use the following command:
+To create an ingress ACL for the specified ISD external network with the provided configuration, use the following command. Adjust the parameters as needed for your use case.
 
 ```bash
 az networkfabric acl create
@@ -354,11 +336,9 @@ az networkfabric acl create
 --match-configurations "[{matchConfigurationName:'L3ISD_EXT_OPTA_INGRESS_ACL_IPV4_CE_PE',sequenceNumber:1110,ipAddressType:IPv4,matchConditions:[{ipCondition:{type:SourceIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}},{ipCondition:{type:DestinationIP,prefixType:Prefix,ipPrefixValues:['10.18.0.124/30','10.18.0.128/30','10.18.30.16/30','10.18.30.20/30']}}],actions:[{type:Count}]}]"
 ```
 
-This command creates an Ingress ACL for the specified Isolation Domain External Network with the provided configuration.
+#### Expected output
 
-### Expected Output
-
-Upon successful execution, the command will return information about the created ACL in the following format:
+Upon successful execution, the command returns information about the created ACL in the following format. This output includes details about the configuration and state.
 
 ```json
 {
@@ -421,7 +401,3 @@ Upon successful execution, the command will return information about the created
     "type": "microsoft.managednetworkfabric/accesscontrollists"
 }
 ```
-
-This output provides details of the created ACL, including its configuration, state, and other relevant information. Adjust the parameters as required for your use case.
-
-

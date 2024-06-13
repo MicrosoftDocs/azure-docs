@@ -12,11 +12,11 @@ ms.date: 01/10/2024
 #CustomerIntent: As an operator, I want to send data from a pipeline to Azure Data Explorer so that I can store and analyze my data in the cloud.
 ---
 
-# Send data to Azure Data Explorer from a Data Processor pipeline
+# Send data to Azure Data Explorer from an Azure IoT Data Processor Preview pipeline
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor (preview) pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
+Use the _Azure Data Explorer_ destination to write data to a table in Azure Data Explorer from an [Azure IoT Data Processor Preview pipeline](../process-data/overview-data-processor.md). The destination stage batches messages before it sends them to Azure Data Explorer.
 
 ## Prerequisites
 
@@ -28,7 +28,11 @@ To configure and use an Azure Data Explorer destination pipeline stage, you need
 
 ## Set up Azure Data Explorer
 
-Before you can write to Azure Data Explorer from a data pipeline, enable [service principal authentication](/azure/data-explorer/provision-azure-ad-app) in your database. To create a service principal with a client secret:
+Before you can write to Azure Data Explorer from a data pipeline, you need to grant access to the database from the pipeline. You can use either a service principal or a managed identity to authenticate the pipeline to the database. The advantage of using a managed identity is that you don't need to manage the lifecycle of the service principal. The managed identity is automatically managed by Azure and is tied to the lifecycle of the resource it's assigned to.
+
+# [Service principal](#tab/serviceprincipal)
+
+To create a service principal with a client secret:
 
 [!INCLUDE [data-processor-create-service-principal](../includes/data-processor-create-service-principal.md)]
 
@@ -38,23 +42,6 @@ To grant admin access to your Azure Data Explorer database, run the following co
 .add database <DatabaseName> admins (<ApplicationId>) <Notes>
 ```
 
-Data Processor writes to Azure Data Explorer in batches. While you batch data in data processor before sending it, Azure Data Explorer has its own default [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). Therefore, you might not see your data in Azure Data Explorer immediately after Data Processor writes it to the Azure Data Explorer destination.
-
-To view data in Azure Data Explorer as soon as the pipeline sends it, you can set the ingestion batching policy count to `1`. To edit the ingestion batching policy, run the following command in your database query tab:
-
-````kusto
-.alter database <YourDatabaseName> policy ingestionbatching
-```
-{
-    "MaximumBatchingTimeSpan" : "00:00:30",
-    "MaximumNumberOfItems" : 1,
-    "MaximumRawDataSizeMB": 1024
-}
-```
-````
-
-## Configure your secret
-
 For the destination stage to connect to Azure Data Explorer, it needs access to a secret that contains the authentication details. To create a secret:
 
 1. Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal:
@@ -63,7 +50,36 @@ For the destination stage to connect to Azure Data Explorer, it needs access to 
     az keyvault secret set --vault-name <your-key-vault-name> --name AccessADXSecret --value <client-secret>
     ```
 
-1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations deployment](../deploy-iot-ops/howto-manage-secrets.md).
+1. Add the secret reference to your Kubernetes cluster by following the steps in [Manage secrets for your Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-manage-secrets.md).
+
+# [Managed identity](#tab/managedidentity)
+
+[!INCLUDE [get-managed-identity](../includes/get-managed-identity.md)]
+
+To add the managed identity to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of in the previous step:
+
+```kusto
+.add database ['<your-database-name>'] admins ('aadapp=<your-app-ID>;<your-tenant-ID>');
+```
+
+---
+
+### Batching
+
+Data Processor writes to Azure Data Explorer in batches. While you batch data in data processor before sending it, Azure Data Explorer has its own default [ingestion batching policy](/azure/data-explorer/kusto/management/batchingpolicy). Therefore, you might not see your data in Azure Data Explorer immediately after Data Processor writes it to the Azure Data Explorer destination.
+
+To view data in Azure Data Explorer as soon as the pipeline sends it, you can set the ingestion batching policy count to `1`. To edit the ingestion batching policy, run the following command in your database query tab:
+
+````kusto
+.alter database <your-database-name> policy ingestionbatching
+```
+{
+    "MaximumBatchingTimeSpan" : "00:00:30",
+    "MaximumNumberOfItems" : 1,
+    "MaximumRawDataSizeMB": 1024
+}
+```
+````
 
 ## Configure the destination stage
 
@@ -77,11 +93,14 @@ The Azure Data Explorer destination stage JSON configuration defines the details
 | Database | String | The database name.  | Yes | - | |
 | Table | String |  The name of the table to write to.  | Yes | - |  |
 | Batch | [Batch](../process-data/concept-configuration-patterns.md#batch) | How to [batch](../process-data/concept-configuration-patterns.md#batch) data.  | No | `60s` | `10s`  |
-| Authentication<sup>1</sup> | The authentication details to connect to Azure Data Explorer.  | Service principal | Yes | - |
+| Retry | [Retry](../process-data/concept-configuration-patterns.md#retry) | The retry policy to use.  | No | `default` | `fixed` |
+| Authentication<sup>1</sup> | String | The authentication details to connect to Azure Data Explorer. `Service principal` or `Managed identity` | Service principal | Yes | - |
 | Columns&nbsp;>&nbsp;Name | string | The name of the column. | Yes | | `temperature` |
 | Columns&nbsp;>&nbsp;Path | [Path](../process-data/concept-configuration-patterns.md#path) | The location within each record of the data where the value of the column should be read from. | No | `.{{name}}` | `.temperature` |
 
-Authentication<sup>1</sup>: Currently, the destination stage supports service principal based authentication when it connects to Azure Data Explorer. In your Azure Data Explorer destination, provide the following values to authenticate. You made a note of these values when you created the service principal and added the secret reference to your cluster.
+<sup>1</sup>Authentication: Currently, the destination stage supports service principal based authentication or managed identity when it connects to Azure Data Explorer.
+
+To configure service principal based authentication provide the following values. You made a note of these values when you created the service principal and added the secret reference to your cluster.
 
 | Field | Description | Required |
 | --- | --- | --- |
@@ -149,7 +168,12 @@ The following JSON example shows a complete Azure Data Explorer destination stag
             "name": "IsSpare",
             "path": ".IsSpare"
         }
-    ]
+    ],
+    "retry": {
+        "type": "fixed",
+        "interval": "20s",
+        "maxRetries": 4
+    }
 }
 ```
 
@@ -189,6 +213,8 @@ The following example shows a sample input message to the Azure Data Explorer de
 ## Related content
 
 - [Send data to Microsoft Fabric](howto-configure-destination-fabric.md)
+- [Send data to Azure Blob Storage](howto-configure-destination-blob.md)
 - [Send data to a gRPC endpoint](../process-data/howto-configure-destination-grpc.md)
+- [Send data to an HTTP endpoint](../process-data/howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](../process-data/howto-configure-destination-mq-broker.md)
 - [Send data to the reference data store](../process-data/howto-configure-destination-reference-store.md)

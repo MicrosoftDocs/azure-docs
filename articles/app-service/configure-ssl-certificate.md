@@ -12,6 +12,8 @@ author: msangapu-msft
 
 # Add and manage TLS/SSL certificates in Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [secure custom DNS names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. Currently called Transport Layer Security (TLS) certificates, also previously known as Secure Socket Layer (SSL) certificates, these private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
 
 The following table lists the options for you to add certificates in App Service:
@@ -53,7 +55,9 @@ To secure a custom domain in a TLS binding, the certificate has more requirement
 > **Elliptic Curve Cryptography (ECC) certificates** work with App Service but aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
 
 > [!NOTE]
-> After you upload a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group and region combination. Private certificates uploaded or imported to App Service are shared with App Services in the same deployment unit. 
+> After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system combination, internally called a *webspace*. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with App Services in the same deployment unit.
+>
+> You can add up to 1000 private certificates per webspace.
 
 ## Create a free managed certificate
 
@@ -132,12 +136,12 @@ If you use Azure Key Vault to manage your certificates, you can import a PKCS12 
 By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must [authorize read access for the resource provider to the key vault](../key-vault/general/assign-access-policy-cli.md). 
 
 > [!NOTE]
-> Currently, a Key Vault certificate supports only the Key Vault access policy, not RBAC model.
+> Currently, the Azure portal does not allow you to configure an App Service certificate in Key Vault to use the RBAC model. You can, however, use Azure CLI, Azure PowerShell, or an ARM template deployment to perform this configuration.  For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md?tabs=azure-cli).
 
-| Resource provider | Service principal AppId | Key vault secret permissions | Key vault certificate permissions |
-|--|--|--|--|
-| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd`, which is the same for all Azure subscriptions <br><br>- For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714`. | Get | Get |
-| **Microsoft.Azure.CertificateRegistration** |  | Get<br/>List<br/>Set<br/>Delete | Get<br/>List |
+| Resource provider | Service principal AppId | Key vault secret permissions | Key vault certificate permissions | Key vault RBAC permissions |
+|--|--|--|--|--|
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd`, which is the same for all Azure subscriptions <br><br>- For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714`. | Get | Get | Certificate User |
+| **Microsoft.Azure.CertificateRegistration** |  | Get<br/>List<br/>Set<br/>Delete | Get<br/>List | |
 
 ### Import a certificate from your vault to your app
 

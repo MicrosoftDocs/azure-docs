@@ -21,14 +21,6 @@ Workspace-based resources:
 > - Are available in all commercial regions and [Azure US Government](../../azure-government/index.yml).
 > - Don't require changing instrumentation keys after migration from a classic resource.
 
-
-> [!IMPORTANT]
-> * On February 29, 2024, continuous export will be deprecated as part of the classic Application Insights deprecation.
-> 
-> * [Workspace-based Application Insights resources](./create-workspace-resource.md) are not compatible with continuous export. We recommend migrating to  [diagnostic settings](../essentials/diagnostic-settings.md) on classic Application Insights resources before transitioning to a workspace-based Application Insights. This ensures continuity and compatibility of your diagnostic settings.
->
-> * Diagnostic settings export might increase costs. For more information, see [Diagnostic settings-based export](export-telemetry.md#diagnostic-settings-based-export).
-
 ## New capabilities
 
 Workspace-based Application Insights resources allow you to take advantage of the latest capabilities of Azure Monitor and Log Analytics:
@@ -198,7 +190,10 @@ Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -Ingesti
 
 ### Azure Resource Manager templates
 
-This section provides templates.
+This section provides templates. 
+
+   > [!CAUTION]
+   > Ensure that you have removed all Continous Export settings from your resource before running the migration templates. See [Prerequisites](#prerequisites) 
 
 #### Template file
 
@@ -289,16 +284,18 @@ This section provides answers to common questions.
 
 Microsoft will begin an automatic phased approach to migrating classic resources to workspace-based resources beginning in May 2024 and this migration will span the course of several months. We can't provide approximate dates that specific resources, subscriptions, or regions will be migrated.
 
-We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the deprecation notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
+We strongly encourage manual migration to workspace-based resources, which is initiated by selecting the retirement notice banner in the classic Application Insights resource Overview pane of the Azure portal. This process typically involves a single step of choosing which Log Analytics workspace will be used to store your application data. If you use continuous export, you'll need to additionally migrate to diagnostic settings or disable the feature first.
 
 If you don't wish to have your classic resource automatically migrated to a workspace-based resource, you may delete or manually migrate the resource.
 
 ### Is there any implication on the cost from migration?
 
-There's usually no difference, with a couple of exceptions:
+There's usually no difference, with two exceptions.
 
- - Migrated Application Insights resources can use [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers) to reduce cost if the data volumes in the workspace are high enough.
- - Grandfathered Application Insights resources no longer get 1 GB per month free from the original Application Insights pricing model.
+- Application Insights resources that were receiving 1 GB per month free via legacy Application Insights pricing model will no longer receive the free data.
+- Application Insights resources that were in the basic pricing tier prior to April 2018 continue to be billed at the same non-regional price point as before April 2018. Application Insights resources created after that time, or those converted to be workspace-based, will receive the current regional pricing. For current prices in your currency and region, see [Application Insights pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+The migration to workspace-based Application Insights offers a number of options to further [optimize cost](../logs/cost-logs.md), including [Log Analytics commitment tiers](../logs/cost-logs.md#commitment-tiers), [dedicated clusters](../logs/cost-logs.md#dedicated-clusters), and [basic logs](../logs/cost-logs.md#basic-logs).  
 
 ### How will telemetry capping work?
 
@@ -344,7 +341,7 @@ To avoid this issue, make sure to use the latest version of the Terraform [azure
 
 For backwards compatibility, calls to the old API for creating Application Insights resources will continue to work. Each of these calls will eventually create both a workspace-based Application Insights resource and a Log Analytics workspace to store the data.
 
-We strongly encourage updating to the [new API](https://learn.microsoft.com/azure/azure-monitor/app/resource-manager-app-resource) for better control over resource creation.
+We strongly encourage updating to the [new API](create-workspace-resource.md) for better control over resource creation.
 
 ### Should I migrate diagnostic settings on classic Application Insights before moving to a workspace-based AI?
 Yes, we recommend migrating diagnostic settings on classic Application Insights resources before transitioning to a workspace-based Application Insights. It ensures continuity and compatibility of your diagnostic settings.
@@ -417,7 +414,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 | traces | AppTraces | Detailed logs (traces) emitted through application code/logging frameworks recorded via `TrackTrace()`. |
 
 > [!CAUTION]
-> Don't take a production dependency on the Log Analytics tables until you see new telemetry records show up directly in Log Analytics. It might take up to 24 hours after the migration process started for records to appear.
+> Wait for new telemetry in Log Analytics before relying on it. After starting the migration, telemetry first goes to Classic Application Insights. Telemetry ingestion is switched to Log Analytics within 24 hours. Once done, Log Analytics solely captures new telemetry.
 
 ### Table schemas
 
@@ -458,7 +455,7 @@ Legacy table: availabilityResults
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -499,7 +496,7 @@ Legacy table: browserTimings
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
 |receiveDuration|real|ReceiveDurationMs|real|
@@ -545,7 +542,7 @@ Legacy table: dependencies
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |resultCode|string|ResultCode|string|
 |sdkVersion|string|SDKVersion|string|
@@ -587,7 +584,7 @@ Legacy table: customEvents
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -622,7 +619,7 @@ Legacy table: customMetrics
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -669,7 +666,7 @@ Legacy table: pageViews
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -709,7 +706,7 @@ Legacy table: performanceCounters
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -749,7 +746,7 @@ Legacy table: requests
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|String|
 |resultCode|string|ResultCode|String|
 |sdkVersion|string|SDKVersion|string|
@@ -799,7 +796,7 @@ Legacy table: exceptions
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |outerAssembly|string|OuterAssembly|string|
 |outerMessage|string|OuterMessage|string|
 |outerMethod|string|OuterMethod|string|
@@ -843,7 +840,7 @@ Legacy table: traces
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |severityLevel|int|SeverityLevel|int|

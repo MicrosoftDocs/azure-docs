@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -39,7 +39,7 @@ All Global Administrators in Microsoft Entra ID get read-only access to all Micr
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Search in the Azure portal for cost management + billing.](./media/elevate-access-global-admin/billing-search-cost-management-billing.png)
+    :::image type="content" border="true" source="./media/elevate-access-global-admin/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Search in the Azure portal for Cost Management + Billing.":::
 3. Select **Billing scopes** on the left side of the page.
 4. On the Billing scopes page, select the box to view all billing accounts.  
     :::image type="content" source="./media/elevate-access-global-admin/global-admin-view-all-accounts.png" alt-text="Screenshot that shows global admins selecting the box to view all accounts." lightbox="./media/elevate-access-global-admin/global-admin-view-all-accounts.png" :::  

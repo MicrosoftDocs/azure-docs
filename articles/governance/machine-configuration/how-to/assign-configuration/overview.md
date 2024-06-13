@@ -3,7 +3,7 @@ title: How to create a machine configuration assignment using templates
 description: Learn how to deploy configurations to machines using different template tools.
 ms.date: 02/01/2024
 ms.topic: how-to
-ms.custom: devx-track-terraform, devx-track-arm-template, devx-track-bicep
+ms.custom:
 ---
 
 # How to create a machine configuration assignment using templates

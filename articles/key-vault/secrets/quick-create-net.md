@@ -55,11 +55,7 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 ### Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permissions to your user account
-
-```azurecli
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -82,12 +78,7 @@ This quickstart is using Azure Identity library with Azure PowerShell to authent
 
 ### Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permissions to your user account
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy -VaultName "<YourKeyVaultName>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets delete,get,list,set,purge
-```
-
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 ---
 
 ### Create new .NET console app

@@ -211,7 +211,7 @@ ai-custom-data-demo/
 
            final var store = vectorStore(embeddingClient);
 
-           final String question = "What are the differences between Azure Machine Learning and Azure AI services?";
+           final String question = "What are my available health plans?";
 
            final var candidateDocs = store.similaritySearch(question);
 
@@ -386,11 +386,7 @@ ai-custom-data-demo/
 Sending custom data prompt to AI service. One moment please...
 
 Prompt created 1 generated response(s).
-Generated response from "assistant": Azure Machine Learning is a cloud-based service that allows users to build, deploy, and manage machine learning models. It provides a range of tools and capabilities for data scientists and developers to train models, automate the machine learning workflow, and deploy models as web services.
-
-On the other hand, Azure AI services is a broader category that includes various services and technologies for artificial intelligence. It encompasses not only machine learning but also other AI capabilities such as natural language processing, computer vision, speech recognition, and more. Azure AI services provide pre-built AI models and APIs that developers can easily integrate into their applications.
-
-In summary, Azure Machine Learning is specifically focused on machine learning model development and deployment, while Azure AI services offer a wider range of AI capabilities beyond just machine learning.
+Generated response from "assistant": The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans.
 ```
 
 > [!div class="nextstepaction"]

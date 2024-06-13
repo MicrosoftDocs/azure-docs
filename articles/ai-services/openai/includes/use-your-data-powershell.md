@@ -22,7 +22,7 @@ To trigger a response from the model, you should end with a user message indicat
 ```powershell-interactive
 # Azure OpenAI metadata variables
    $openai = @{
-       api_key     = $Env:AZURE_OPENAI_KEY
+       api_key     = $Env:AZURE_OPENAI_API_KEY
        api_base    = $Env:AZURE_OPENAI_ENDPOINT # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
        api_version = '2023-07-01-preview' # this may change in the future
        name        = 'YOUR-DEPLOYMENT-NAME-HERE' #This will correspond to the custom name you chose for your deployment when you deployed a model.
@@ -49,7 +49,7 @@ To trigger a response from the model, you should end with a user message indicat
     messages = @(
             @{
                 role = 'user'
-                content = 'How do you query REST using PowerShell'
+                content = 'What are my available health plans?'
             }
     )
    } | convertto-json -depth 5
@@ -69,7 +69,7 @@ To trigger a response from the model, you should end with a user message indicat
 ### Example output
 
 ```text
-To query a RESTful web service using PowerShell, you can use the `Invoke-RestMethod` cmdlet. This cmdlet sends HTTP and HTTPS requests to RESTful web services and processes the response based on the data type.
+The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans.
 ```
 
 > [!IMPORTANT]

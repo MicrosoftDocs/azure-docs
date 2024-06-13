@@ -4,7 +4,7 @@ description: Learn how to connect Azure Cosmos DB to your application in Azure S
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 04/18/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, service-connector
 ---

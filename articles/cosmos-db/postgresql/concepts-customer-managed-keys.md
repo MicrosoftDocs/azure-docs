@@ -32,7 +32,7 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL is
 | **Key encryption key (KEK)** | A key encryption key is an encryption key used to encrypt the DEKs. A KEK that never leaves a key vault allows the DEKs themselves to be encrypted and controlled. The entity that has access to the KEK might be different than the entity that requires the DEK. Since the KEK is required to decrypt the DEKs, the KEK is effectively a single point and deletion of the KEK effectively deletes the DEKs. |
 
 > [!NOTE]
-> Azure Key Vault is a cloud-based key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (**HSM**s). A key vault doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. A key vault can generate the key, import it, or have it transferred from an on-premises HSM device.
+> Azure Key Vault is a cloud-based key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance) hardware security modules (**HSM**s). A key vault doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. A key vault can generate the key, import it, or have it transferred from an on-premises HSM device.
 
 The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [Security in encryption at rest.](../../security/fundamentals/encryption-atrest.md).
 

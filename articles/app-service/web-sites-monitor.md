@@ -108,7 +108,7 @@ For an app, the available metrics are:
 For an App Service plan, the available metrics are:
 
 > [!NOTE]
-> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
+> App Service plan metrics are available only for plans in *Basic*, *Standard*, *Premium*, and *Isolated* tiers.
 > 
 
 | Metric | Description |

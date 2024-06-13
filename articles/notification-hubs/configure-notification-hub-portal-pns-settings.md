@@ -66,7 +66,7 @@ When you complete these steps, an alert indicates that the notification hub has 
 
 You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) project.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 - This article requires version 2.0.67 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

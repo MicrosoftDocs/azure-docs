@@ -1,5 +1,5 @@
 ---
-author: xiaofanzhou
+author: xfz11
 ms.service: service-connector
 ms.topic: include
 ms.date: 10/20/2023
@@ -100,6 +100,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     ```bash
     pip install azure-identity
     pip install psycopg2-binary
+    pip freeze > requirements.txt # Save the dependencies to a file
     ```
 1. Get access token using `azure-identity` library and use the token as password. Get connection information from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
@@ -109,7 +110,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
      
     # Uncomment the following lines according to the authentication type.
     # For system-assigned identity.
-    # credential = DefaultAzureCredential()
+    # cred = DefaultAzureCredential()
 
     # For user-assigned identity.
     # managed_identity_client_id = os.getenv('AZURE_POSTGRESQL_CLIENTID')

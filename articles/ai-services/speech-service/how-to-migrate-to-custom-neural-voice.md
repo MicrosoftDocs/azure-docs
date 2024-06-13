@@ -14,9 +14,7 @@ ms.reviewer: v-baolianzou
 # Migrate from custom voice to custom neural voice
 
 > [!IMPORTANT]
-> We are retiring the standard non-neural training tier of custom voice from March 1, 2021 through February 29, 2024. If you used a non-neural custom voice with your Speech resource prior to March 1, 2021 then you can continue to do so until February 29, 2024. All other Speech resources can only use custom neural voice. After February 29, 2024, the non-neural custom voices won't be supported with any Speech resource. 
-> 
-> The pricing for custom voice is different from custom neural voice. Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details in the collapsable "Deprecated" section. Custom voice (non-neural training) is referred as **Custom**.
+> The standard non-neural training tier of custom voice is retired as of February 29, 2024. You could have used a non-neural custom voice with your Speech resource prior to February 29, 2024. Now you can only use custom neural voice with your Speech resources. If you have a non-neural custom voice, you must migrate to custom neural voice.
 
 The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users benefit from the latest Text to speech technology, in a responsible way. 
 

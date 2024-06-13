@@ -31,20 +31,22 @@ Azure Stream Analytics supports the following four function types:
 * Azure Machine Learning 
 
 You can use these functions for scenarios such as real-time scoring using machine learning models, string manipulations, complex mathematical calculations, encoding and decoding data. 
+> [!IMPORTANT]
+> C# user-defined functions for Azure Stream Analytics will be retired on September 30th 2024. After that date, it won't be possible to use the feature.
 
 ## Limitations
 
-User-defined functions are stateless, and the return value can only be a scalar value. You cannot call out to external REST endpoints from these user-defined functions, as it will likely impact performance of your job. 
+User-defined functions are stateless, and the return value can only be a scalar value. You can't call out to external REST endpoints from these user-defined functions, as it will likely impact performance of your job. 
 
-Azure Stream Analytics does not keep a record of all functions invocations and returned results. To guarantee repeatability - for example, re-running your job from older timestamp produces the same results again - do not to use functions such as `Date.GetData()` or `Math.random()`, as these functions do not return the same result for each invocation.  
+Azure Stream Analytics doesn't keep a record of all functions invocations and returned results. To guarantee repeatability - for example, re-running your job from older timestamp produces the same results again - don't to use functions such as `Date.GetData()` or `Math.random()`, as these functions don't return the same result for each invocation.  
 
 ## Resource logs
 
-Any runtime errors are considered fatal and are surfaced through activity and resource logs. It is recommended that your function handles all exceptions and errors and return a valid result to your query. This will prevent your job from going to a [Failed state](job-states.md).  
+Any runtime errors are considered fatal and are surfaced through activity and resource logs. It's recommended that your function handles all exceptions and errors and return a valid result to your query. This will prevent your job from going to a [Failed state](job-states.md).  
 
 ## Exception handling
 
-Any exception during data processing is considered a catastrophic failure when consuming data in Azure Stream Analytics. User-defined functions have a higher potential to throw exceptions and cause the processing to stop. To avoid this issue, use a *try-catch* block in JavaScript or C# to catch exceptions during code execution. Exceptions that are caught can be logged and treated without causing a system failure. You are encouraged to always wrap your custom code in a *try-catch* block to avoid throwing unexpected exceptions to the processing engine.
+Any exception during data processing is considered a catastrophic failure when consuming data in Azure Stream Analytics. User-defined functions have a higher potential to throw exceptions and cause the processing to stop. To avoid this issue, use a *try-catch* block in JavaScript or C# to catch exceptions during code execution. Exceptions that are caught can be logged and treated without causing a system failure. You're encouraged to always wrap your custom code in a *try-catch* block to avoid throwing unexpected exceptions to the processing engine.
 
 ## Next steps
 

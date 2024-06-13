@@ -9,7 +9,7 @@ ms.custom: how-to
 # Integrate ClearPass with Microsoft Defender for IoT
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 
 This article describes how to integrate Aruba ClearPass with Microsoft Defender for IoT, in order to view both ClearPass and Defender for IoT information in a single place.

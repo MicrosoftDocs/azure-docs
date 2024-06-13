@@ -1,24 +1,24 @@
 ---
 title: Azure VMware Solution datastore performance considerations for Azure NetApp Files | Microsoft Docs
-description: Describes considerations for Azure VMware Solution (AVS) datastore design and sizing when used with Azure NetApp Files.
+description: Describes considerations for Azure VMware Solution datastore design and sizing when used with Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/12/2023
+ms.date: 3/22/2024
 ms.author: anfdocs
 ---
 # Azure VMware Solution datastore performance considerations for Azure NetApp Files 
 
-This article provides performance considerations for Azure VMware Solution (AVS) datastore design and sizing when used with Azure NetApp Files. This content is applicable to a virtualization administrator, cloud architect, or storage architect. 
+This article provides performance considerations for Azure VMware Solution datastore design and sizing when used with Azure NetApp Files. This content is applicable to a virtualization administrator, cloud architect, or storage architect. 
 
 The considerations outlined in this article help you achieve the highest levels of performance from your applications with optimized cost efficiency. 
 
-Azure NetApp Files provides an instantly scalable, high performance, and highly reliable storage service for AVS.  The tests included various different configurations between AVS and Azure NetApp Files.  The tests were able to drive over 10,500 MiB/s and over 585,000 input/output operations per second (IOPS) with only four AVS/ESXi hosts and a single Azure NetApp Files capacity pool. 
+Azure NetApp Files provides an instantly scalable, high performance, and highly reliable storage service for Azure VMware Solution.  The tests included various different configurations between Azure VMware Solution and Azure NetApp Files.  The tests were able to drive over 10,500 MiB/s and over 585,000 input/output operations per second (IOPS) with only four Azure VMware Solution/ESXi hosts and a single Azure NetApp Files capacity pool. 
  
-## Achieving higher storage performance for AVS using Azure NetApp Files   
+## Achieving higher storage performance for Azure VMware Solution using Azure NetApp Files   
 
-Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from AVS hosts to several datastores. You can use the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
+Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from Azure VMware Solution hosts to several datastores. You can use the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
 
 When you determine how to configure datastores, the easiest solution from a management perspective is to create a single Azure NetApp Files datastore, mount it, and put all your VMs in. This strategy works well for many situations, until more throughput or IOPS is required. To identify the different boundaries, the tests used a synthetic workload generator, the program [`fio`](https://github.com/axboe/fio) , to evaluate a range of workloads for each of these scenarios. This analysis can help you determine how to provision Azure NetApp Files volumes as datastores to maximize performance and optimize costs. 
 
@@ -28,7 +28,7 @@ For Azure NetApp Files performance data, see:
 
 * [Azure NetApp Files: Getting the Most Out of Your Cloud Storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
 
-    On an AVS host, a single network connection is established per NFS datastore akin to using `nconnect=1` on the Linux tests referenced in Section 6 (*The Tuning Options*). This fact is key to understanding how AVS scales performance so well across multiple datastores. 
+    On an Azure VMware Solution host, a single network connection is established per NFS datastore akin to using `nconnect=1` on the Linux tests referenced in Section 6 (*The Tuning Options*). This fact is key to understanding how Azure VMware Solution scales performance so well across multiple datastores. 
 
 * [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](performance-benchmarks-azure-vmware-solution.md)
 
@@ -39,11 +39,11 @@ This section describes the methodology used for the tests.
 
 ### Test scenarios and iterations
 
-This testing follows the "four-corners" methodology, which includes both read operations and write operations for each sequential and random input/output (IO). The variables of the tests include one-to-many AVS hosts, Azure NetApp Files datastores, VMs (per host), and VM disks (VMDKs) per VM. The following scaling datapoints were selected to find the maximum throughput and IOPS for the given scenarios:
+This testing follows the "four-corners" methodology, which includes both read operations and write operations for each sequential and random input/output (IO). The variables of the tests include one-to-many Azure VMware Solution hosts, Azure NetApp Files datastores, VMs (per host), and VM disks (VMDKs) per VM. The following scaling datapoints were selected to find the maximum throughput and IOPS for the given scenarios:
 * Scaling VMDKs, each on their own datastore for a single VM.
 * Scaling number of VMs per host on a single Azure NetApp Files datastore.
-* Scaling number of AVS hosts, each with one VM sharing a single Azure NetApp Files datastore.
-* Scaling number of Azure NetApp Files datastores, each with one VMDK equally spread across AVS hosts. 
+* Scaling number of Azure VMware Solution hosts, each with one VM sharing a single Azure NetApp Files datastore.
+* Scaling number of Azure NetApp Files datastores, each with one VMDK equally spread across Azure VMware Solution hosts. 
 
 Testing both small and large block operations and iterating through sequential and random workloads ensure the testing of all components in the compute, storage, and network stacks to the "edge". To cover the four corners with block size and randomization, the following common combinations are used:
 * 64 KB sequential tests
@@ -54,28 +54,28 @@ Testing both small and large block operations and iterating through sequential a
     * Small block tests typically produce the highest number of IOPS.
 
 > [!NOTE]
-> This article addresses only  the testing of Azure NetApp Files. It doesn't cover the vSAN storage included with AVS.
+> This article addresses only  the testing of Azure NetApp Files. It doesn't cover the vSAN storage included with Azure VMware Solution.
 
 ### Environment details 
 
 The results in this article were achieved using the following environment configuration:   
 
-* AVS hosts:
+* Azure VMware Solution hosts:
     * Size: [AV36](../azure-vmware/introduction.md) 
     * Host count: 4
     * VMware ESXi version 7u3
-* AVS private cloud connectivity: UltraPerformance gateway with FastPath
+* Azure VMware Solution private cloud connectivity: UltraPerformance gateway with FastPath
 * Guest VMs: 
     * Operating system: Ubuntu 20.04
     * CPUs/Memory: 16 vCPU / 64-GB memory
-    * Virtual LSI SAS SCSI controller with 16-GB OS disk on AVS vSAN datastore
+    * Virtual LSI SAS SCSI controller with 16-GB OS disk on Azure VMware Solution vSAN datastore
     * Paravirtual SCSI controller for test VMDKs
     * LVM/Disk configurations:
         * One physical volume per disk
         * One volume group per physical volume
         * One logical partition per volume group
         * One XFS file system per logical partition
-* AVS to Azure NetApp Files protocol: [NFS version 3](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal#faqs) 
+* Azure VMware Solution to Azure NetApp Files protocol: [NFS version 3](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal#faqs) 
 * Workload generator: `fio` version 3.16
 * Fio scripts: [`fio-parser`](https://github.com/mchad1/fio-parser)
  
@@ -85,15 +85,15 @@ This section describes the results of the performed tests.
 
 ### Single-VM scaling 
 
-When you configure datastore-presented storage on an AVS virtual machine, you should consider the impact of file-system layout. Configuring multiple VMDKs spread across multiple datastores provides for the highest amounts of available bandwidth. Configuring one-to-many VMDKs placed on a single datastore ensures the greatest simplicity when it comes to backups and DR operations, but at the cost of a lower performance ceiling. The empirical data provided in this article helps you with the decisions.
+When you configure datastore-presented storage on an Azure VMware Solution virtual machine, you should consider the impact of file-system layout. Configuring multiple VMDKs spread across multiple datastores provides for the highest amounts of available bandwidth. Configuring one-to-many VMDKs placed on a single datastore ensures the greatest simplicity when it comes to backups and DR operations, but at the cost of a lower performance ceiling. The empirical data provided in this article helps you with the decisions.
 
-To maximize performance, it's common to scale a single VM across multiple VMDKs and place those VMDKs across multiple datastores. A single VM with just one or two VMDKs can be throttled by one NFS datastore as it's mounted via a single TCP connection to a given AVS host. 
+To maximize performance, it's common to scale a single VM across multiple VMDKs and place those VMDKs across multiple datastores. A single VM with just one or two VMDKs can be throttled by one NFS datastore as it's mounted via a single TCP connection to a given Azure VMware Solution host. 
 
 For example, engineers often provision a VMDK for a database log and then provision one-to-many VMDKs for database files. With multiple VMDKs, there are two options. The first option is using each VDMK as an individual file system. The second option is using a storage-management utility such as LVM, MSSQL Filegroups, or Oracle ASM to balance IO by striping across VMDKs. When VMDKs are used as individual file systems, distributing workloads across multiple datastores is a manual effort and can be cumbersome. Using storage management utilities to spread the files across VMDKs enables workload scalability. 
 
 If you stripe volumes across multiple disks, ensure the backup software or disaster recovery software supports backing up multiple virtual disks simultaneously. As individual writes are striped across multiple disks, the file system needs to ensure disks are "frozen" during snapshot or backup operations.  Most modern file systems include a freeze or snapshot operation such as `xfs` (`xfs_freeze`) and NTFS (volume shadow copies), which backup software can take advantage of. 
 
-To understand how well a single AVS VM scales as more virtual disks are added, tests were performed with one, two, four, and eight datastores (each containing a single VMDK). The following diagram shows a single disk averaged around 73,040 IOPS (scaling from 100% write / 0% read, to 0% write / 100% read). When this test was increased to two drives, performance increased by 75.8% to 128,420 IOPS. Increasing to four drives began to show diminishing returns of what a single VM, sized as tested, could push.  The peak IOPS observed were 147,000 IOPS with 100% random reads. 
+To understand how well a single Azure VMware Solution VM scales as more virtual disks are added, tests were performed with one, two, four, and eight datastores (each containing a single VMDK). The following diagram shows a single disk averaged around 73,040 IOPS (scaling from 100% write / 0% read, to 0% write / 100% read). When this test was increased to two drives, performance increased by 75.8% to 128,420 IOPS. Increasing to four drives began to show diminishing returns of what a single VM, sized as tested, could push.  The peak IOPS observed were 147,000 IOPS with 100% random reads. 
 
 :::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-multiple.png" alt-text="Diagram that shows single VM scaling to multiple datastores." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-multiple.png":::
 
@@ -107,7 +107,7 @@ Increasing the block size (to 64 KB) for large block workloads had comparable re
 
 ### Single-host scaling – Multiple datastores
 
-From the context of a single AVS host, while a single datastore allowed the VMs to drive about 76,000 IOPS, spreading the workloads across two datastores increased total throughput by 76% on average. Moving beyond two datastores to four resulted in a 163% increase (over one datastore, a 49% increase from two to four) as shown in the following diagram. Even though there were still performance gains, increasing beyond eight datastores showed diminishing returns.
+From the context of a single Azure VMware Solution host, while a single datastore allowed the VMs to drive about 76,000 IOPS, spreading the workloads across two datastores increased total throughput by 76% on average. Moving beyond two datastores to four resulted in a 163% increase (over one datastore, a 49% increase from two to four) as shown in the following diagram. Even though there were still performance gains, increasing beyond eight datastores showed diminishing returns.
 
 :::image type="content" source="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host-four-vm.png" alt-text="Diagram that shows scaling VMs on a single datastore host with four VMs." lightbox="./media/performance-azure-vmware-solution-datastore/performance-azure-vmware-datastore-scale-single-host-four-vm.png":::
 
@@ -159,13 +159,13 @@ Because Azure NetApp Files bills for provisioned capacity at the capacity pool r
 
 For example, as you approach the end of a fiscal year you find that you need more storage performance on Standard datastore. You can increase the datastores' service level for a month to enable all VMs on those datastores to have more performance available to them, while maintaining other datastores at a lower service level. You not only save cost but gain more performance by having workloads spread among more TCP connections between each datastore to each AVS host. 
 
-You can monitor your datastore metrics through vCenter or through the Azure API/Console. From vCenter, you can monitor a datastore's aggregate average IOPS in the [Performance/Advanced Charts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-B3D99B36-E856-41A5-84DB-9B7C8FABCF83.html) , as long as you enable Storage IO Control Metrics collection on the datastore. The Azure [API](monitor-volume-capacity.md#using-rest-api) and [console](monitor-azure-netapp-files.md)  present metrics for `WriteIops`, `ReadIops`, `ReadThroughput`, and `WriteThroughput`, among others, to measure your workloads at the datastore level. With Azure metrics, you can set alert rules with actions to automatically resize a datastore via an Azure function, a webhook, or other actions. 
+You can monitor your datastore metrics through vCenter Server or through the Azure API/Console. From vCenter Server, you can monitor a datastore's aggregate average IOPS in the [Performance/Advanced Charts](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-B3D99B36-E856-41A5-84DB-9B7C8FABCF83.html) , as long as you enable Storage IO Control Metrics collection on the datastore. The Azure [API](monitor-volume-capacity.md#using-rest-api) and [console](monitor-azure-netapp-files.md)  present metrics for `WriteIops`, `ReadIops`, `ReadThroughput`, and `WriteThroughput`, among others, to measure your workloads at the datastore level. With Azure metrics, you can set alert rules with actions to automatically resize a datastore via an Azure function, a webhook, or other actions. 
 
 ## Next steps  
 
 * [Striping Disks in Azure](../virtual-machines/premium-storage-performance.md#disk-striping)
 * [Creating striped volumes in Windows Server](/windows-server/administration/windows-commands/create-volume-stripe)
-* [Azure VMware Solution storage concepts](../azure-vmware/concepts-storage.md)
+* [Azure VMware Solution storage architecture](../azure-vmware/architecture-storage.md)
 * [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 * [Attach Azure NetApp Files to Azure VMware Solution VMs](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
 * [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md)

@@ -3,8 +3,12 @@ title: Create a persistent volume with Azure Files in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.custom: devx-track-azurecli, linux-related-content
-ms.date: 11/28/2023
+ms.custom: devx-track-azurecli
+ms.subservice: aks-storage
+ms.date: 03/05/2024
+author: tamram
+ms.author: tamram
+
 ---
 
 # Create and use a volume with Azure Files in Azure Kubernetes Service (AKS)
@@ -28,7 +32,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 This section provides guidance for cluster administrators who want to provision one or more persistent volumes that include details of one or more shares on Azure Files. A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure Files file share.
 
-### Dynamic provisioning parameters
+### Storage class parameters for dynamic PersistentVolumes
+
+The following table includes parameters you can use to define a custom storage class for your PersistentVolumeClaim.
 
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
@@ -77,7 +83,7 @@ Storage classes define how to create an Azure file share. A storage account is a
 * `Standard_ZRS`: Standard zone redundant storage (ZRS)
 * `Standard_RAGRS`: Standard read-access geo-redundant storage (RA-GRS)
 * `Premium_LRS`: Premium locally redundant storage (LRS)
-* `Premium_ZRS`: pPremium zone redundant storage (ZRS)
+* `Premium_ZRS`: Premium zone redundant storage (ZRS)
 
 > [!NOTE]
 > Minimum premium file share is 100GB.
@@ -245,7 +251,9 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 
 This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of an existing Azure Files share to use with a workload.
 
-### Static provisioning parameters
+### Static provisioning parameters for PersistentVolume
+
+The following table includes parameters you can use to define a PersistentVolume.
 
 |Name | Meaning | Available Value | Mandatory | Default value |
 |--- | --- | --- | --- | --- |
@@ -258,8 +266,8 @@ This section provides guidance for cluster administrators who want to create one
 |--- | **Following parameters are only for SMB protocol** | --- | --- | --- |
 |volumeAttributes.secretName | Specify a secret name that stores storage account name and key. | | No |
 |volumeAttributes.secretNamespace | Specify a secret namespace. | `default`,`kube-system`, etc. | No | PVC namespace (`csi.storage.k8s.io/pvc/namespace`) |
-|nodeStageSecretRef.name | Specify a secret name that stores storage account name and key. | Existing secret name |  Yes  ||
-|nodeStageSecretRef.namespace | Specify a secret namespace. | Kubernetes namespace  |  Yes  ||
+|nodeStageSecretRef.name | Specify a secret name that stores storage account name and key. | Existing secret name. |  No  |If empty, driver uses kubelet identity to get account key.|
+|nodeStageSecretRef.namespace | Specify a secret namespace. | Kubernetes namespace  |  No  ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.fsGroupChangePolicy | Indicates how the driver changes a volume's ownership. Pod `securityContext.fsGroupChangePolicy` is ignored.  | `OnRootMismatch` (default), `Always`, `None` | No | `OnRootMismatch` |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions. The default is `0777` | | No ||
@@ -512,3 +520,4 @@ For associated best practices, see [Best practices for storage and backups in AK
 [tag-resources]: ../azure-resource-manager/management/tag-resources.md
 [azure-files-usage]: ../storage/files/understand-performance.md#choosing-a-performance-tier-based-on-usage-patterns
 [az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
+

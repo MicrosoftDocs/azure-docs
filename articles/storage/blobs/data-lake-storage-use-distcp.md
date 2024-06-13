@@ -5,6 +5,7 @@ description: Copy data to and from Azure Data Lake Storage Gen2 using the Apache
 author: normesta
 
 ms.service: azure-data-lake-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta

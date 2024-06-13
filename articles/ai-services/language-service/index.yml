@@ -8,12 +8,12 @@ metadata:
   title: Azure AI Language documentation - Tutorials, API Reference | Microsoft Docs
   titleSuffix: Azure AI services
   description: Learn how to integrate AI that works on written text into your applications.
-  author: aahill
+  author: jboback
   manager: nitinme
   ms.service: azure-ai-language
   ms.topic: hub-page
   ms.date: 01/09/2024
-  ms.author: aahi
+  ms.author: jboback
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:

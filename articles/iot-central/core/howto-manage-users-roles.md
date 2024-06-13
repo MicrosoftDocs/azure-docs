@@ -1,9 +1,9 @@
 ---
 title: Manage users and roles in Azure IoT Central application
-description: Create, edit, delete, and manage users and roles in your Azure IoT Central application to control access to resources
+description: Create, edit, delete, and manage users and roles in your Azure IoT Central application to control access to resources.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/01/2022
+ms.date: 03/01/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -23,18 +23,18 @@ To learn how to manage users and roles by using the IoT Central REST API, see [H
 
 Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Microsoft Entra accounts, Microsoft Entra groups, and Microsoft Entra service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Microsoft Entra ID](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section.
+1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section:
 
     :::image type="content" source="media/howto-manage-users-roles/manage-users.png" alt-text="Screenshot that shows the manage users page in IoT Central." lightbox="media/howto-manage-users-roles/manage-users.png":::  
 
-1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add a Microsoft Entra group on the **Users** page, choose **+ Assign group**. Start typing the name of the Active Directory group or service principal to auto-populate the form.
+1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add a Microsoft Entra group on the **Users** page, choose **+ Assign group**. Start typing the name of the Active Directory group or service principal to autopopulate the form.
 
     > [!NOTE]
     > Service principals and Active Directory groups must belong to the same Microsoft Entra tenant as the Azure subscription associated with the IoT Central application.
 
 1. If your application uses [organizations](howto-create-organizations.md), choose an organization to assign to the user from the **Organization** drop-down menu.
 
-1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
+1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article:
 
     :::image type="content" source="media/howto-manage-users-roles/add-user.png" alt-text="Screenshot showing how to add a user and select a role." lightbox="media/howto-manage-users-roles/add-user.png":::
 
@@ -43,7 +43,7 @@ Every user must have a user account before they can sign in and access an applic
     > [!NOTE]
     > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
 
-    When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
+    When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user signs in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
     > [!NOTE]
     > If a user is deleted from Microsoft Entra ID and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
@@ -56,7 +56,7 @@ The following limitations apply to Microsoft Entra groups and service principals
 
 ### Edit the roles and organizations that are assigned to users
 
-Roles and organizations can't be changed after they're assigned. To change the role or organization that's assigned to a user, delete the user, and then add the user again with a different role or organization.
+Roles and organizations can't be changed after they're assigned. To change the role or organization assigned to a user, delete the user, and then add the user again with a different role or organization.
 
 > [!NOTE]
 > The roles assigned are specific to the IoT Central application and cannot be managed from the Azure Portal.
@@ -110,7 +110,7 @@ If your solution requires finer-grained access controls, you can create roles wi
 - Select **+ New**, add a name and description for your role, and select **Application** or **Organization** as the role type. This option lets you create a role definition from scratch.
 - Navigate to an existing role and select **Copy**. This option lets you start with an existing role definition that you can customize.
 
-:::image type="content" source="media/howto-manage-users-roles/create-custom-role.png" alt-text="Screenshot to build a custom role." lightbox="media/howto-manage-users-roles/create-custom-role.png":::
+:::image type="content" source="media/howto-manage-users-roles/create-custom-role.png" alt-text="Screenshot that shows how to build a custom role." lightbox="media/howto-manage-users-roles/create-custom-role.png":::
 
 > [!WARNING]
 > You can't change the role type after you create a role.
@@ -120,7 +120,7 @@ When you invite a user to your application, if you associate the user with:
 - The root organization, then only **Application** roles are available.
 - Any other organization, then only **Organization** roles are available.
 
-You can add users to your custom role in the same way that you add users to a built-in role
+You can add users to your custom role in the same way that you add users to a built-in role.
 
 ### Custom role options
 
@@ -348,7 +348,3 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Create | View <br/> Other dependencies: View custom roles |
 | Delete | View <br/> Other dependencies: View custom roles |
 | Full Control | View, Create, Delete <br/> Other dependencies: View custom roles |
-
-## Next steps
-
-Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Manage IoT Central organizations](howto-create-organizations.md).

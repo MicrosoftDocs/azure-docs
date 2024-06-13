@@ -4,7 +4,7 @@ description: Learn about metrics in Azure Monitor, which are lightweight monitor
 author: bwren
 ms.reviewer: priyamishra
 ms.topic: conceptual
-ms.date: 04/25/2023
+ms.date:   03/10/2024
 ms.author: bwren
 ---
 
@@ -37,20 +37,21 @@ The differences between each of the metrics are summarized in the following tabl
 | Aggregation | pre-aggregated | pre-aggregated | raw data |
 | Analyze | [Metrics Explorer](metrics-charts.md) | [Metrics Explorer](metrics-charts.md) | PromQL<br>Grafana dashboards |
 | Alert  | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [Prometheus alert rule](../essentials/prometheus-rule-groups.md) |
-| Visualize | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights)<br>[Grafana](../visualize/grafana-plugin.md) | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights)<br>[Grafana](../visualize/grafana-plugin.md) | [Grafana](../../managed-grafana/overview.md) |
-| Retrieve | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/azquery)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Grafana](../../managed-grafana/overview.md) |
-
-
+| Visualize | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/tutorial-app-dashboards.md)<br>[Grafana](../visualize/grafana-plugin.md) | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/tutorial-app-dashboards.md)<br>[Grafana](../visualize/grafana-plugin.md) | [Grafana](../../managed-grafana/overview.md) |
+| Retrieve | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/query/azlogs)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/monitor/query/azlogs)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Grafana](../../managed-grafana/overview.md) |
 
 ## Data collection
 
 Azure Monitor collects metrics from the following sources. After these metrics are collected in the Azure Monitor metric database, they can be evaluated together regardless of their source:
 
-- **Azure resources**: Platform metrics are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](./metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition.
+- **Azure resources**: Platform metrics are created by Azure resources and give you visibility into their health and performance. Each type of resource creates a [distinct set of metrics](./metrics-supported.md) without any configuration required. Platform metrics are collected from Azure resources at one-minute frequency unless specified otherwise in the metric's definition. 
 - **Applications**: Application Insights creates metrics for your monitored applications to help you detect performance issues and track trends in how your application is being used. Values include _Server response time_ and _Browser exceptions_.
 - **Virtual machine agents**: Metrics are collected from the guest operating system of a virtual machine. You can enable guest OS metrics for Windows virtual machines by using the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview). Azure Monitor Agent replaces the legacy agents - [Windows diagnostic extension](../agents/diagnostics-extension-overview.md) and the [InfluxData Telegraf agent](https://www.influxdata.com/time-series-platform/telegraf/) for Linux virtual machines.
 - **Custom metrics**: You can define metrics in addition to the standard metrics that are automatically available. You can [define custom metrics in your application](../app/api-custom-events-metrics.md) that's monitored by Application Insights. You can also create custom metrics for an Azure service by using the [custom metrics API](./metrics-store-custom-rest-api.md).
 - **Kubernetes clusters**: Kubernetes clusters typically send metric data to a local Prometheus server that you must maintain. [Azure Monitor managed service for Prometheus ](prometheus-metrics-overview.md) provides a managed service that collects metrics from Kubernetes clusters and store them in Azure Monitor Metrics.
+
+> [!NOTE]
+> Metrics collected from different sources and by different methods may be aggregated differently. For example, platform metrics are pre-aggregated and stored in a time-series database, while Prometheus metrics are stored as raw data.Resource metrics may also have a different latency than other metrics. This can lead to differences in metric values for a specific sample time. Over time when latency ceases to be an issue, and when analyzing the metrics at the same time granularity, these differences disappear.
 
 ## REST API
 

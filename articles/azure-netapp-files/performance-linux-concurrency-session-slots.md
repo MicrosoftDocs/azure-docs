@@ -4,6 +4,7 @@ description: Describes best practices about session slots and slot table entries
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 08/02/2021
 ms.author: anfdocs

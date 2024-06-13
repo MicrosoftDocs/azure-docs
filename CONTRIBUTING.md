@@ -16,9 +16,7 @@ There are many ways to contribute to the documentation. Review the following sec
 
 ### Report bugs and suggesting enhancements
 
-Please use the Feedback tool at the bottom of any article to submit bugs and suggestions.
-
-![Feedback Tool](media/feedback-tool.png)
+Use the Feedback tool at the bottom of any article to submit bugs and suggestions. Select **This product** for product feedback and **This page** for documentation related feedback. 
 
 ### Edit in GitHub
 

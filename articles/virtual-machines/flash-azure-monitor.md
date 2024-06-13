@@ -51,7 +51,7 @@ Select the VM availability metric chart on the overview page, to navigate to [Me
 | Data Retention | Data for the VM availability metric is [stored for 93 days](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics) to help trend analysis and historical lookback. |
 | Pricing | Refer to the [Pricing breakdown](https://azure.microsoft.com/pricing/details/monitor/#pricing), specifically in the "Metrics" and "Alert Rules" sections. |
 
-We plan to include impact details (user vs platform initiated, planned vs unplanned) as dimensions to the metric, so users are well equipped to interpret dips, and set up much more targeted metric alerts. With the emission of dimensions in 202, we also anticipate transitioning the offering to a general availability status.
+We plan to include impact details (user vs platform initiated, planned vs unplanned) as dimensions to the metric, so users are well equipped to interpret dips, and set up much more targeted metric alerts. With the emission of dimensions in 2023, we also anticipate transitioning the offering to a general availability status.
 
 ### Useful links
 

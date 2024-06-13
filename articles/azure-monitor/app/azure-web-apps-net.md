@@ -2,7 +2,7 @@
 title: Monitor Azure app services performance ASP.NET | Microsoft Docs
 description: Learn about application performance monitoring for Azure app services by using ASP.NET. Chart load and response time and dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/05/2024
 ms.devlang: javascript
 ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
@@ -17,7 +17,7 @@ Enabling monitoring on your ASP.NET-based web applications running on [Azure App
 
 If both autoinstrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This arrangement prevents duplicate data from being sent. To learn more, see the [Troubleshooting section](#troubleshooting).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Enable autoinstrumentation monitoring
 

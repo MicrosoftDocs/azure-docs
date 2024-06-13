@@ -15,8 +15,6 @@ The **Network Features** functionality enables you to indicate whether you want 
 
 This article helps you understand the options and shows you how to configure network features.
 
-The **Network Features** functionality isn't available in Azure Government regions. See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
-
 ## Options for network features 
 
 Two settings are available for network features: 
@@ -35,8 +33,6 @@ Two settings are available for network features:
 
 * Regardless of the network features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
  
-* You can create or modify volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
-
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability isn't available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you can't modify the setting.
 
@@ -49,7 +45,7 @@ Two settings are available for network features:
 * When you change the network features option of existing volumes from Basic to Standard network features, access to existing Basic networking volumes might be lost if your UDR or NSG implementations prevent the Basic networking volumes from connecting to DNS and domain controllers. You might also lose the ability to update information, such as the site name, in the Active Directory connector if all volumes can’t communicate with DNS and domain controllers. For guidance about UDRs and NSGs, see [Configure network features for an Azure NetApp Files volume](azure-netapp-files-network-topologies.md#udrs-and-nsgs).
 
 >[!NOTE]
-> The networking features of the DP volume will not be affected by changing the source volume from basic to standard network features.
+> The networking features of the DP volume are not affected by changing the source volume from Basic to Standard network features.
 
 ## <a name="set-the-network-features-option"></a>Set network features option during volume creation
 
@@ -80,7 +76,8 @@ You can edit the network features option of existing volumes from *Basic* to *St
 >[!IMPORTANT]
 >It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
 
-See [regions supported for this feature](azure-netapp-files-network-topologies.md#regions-edit-network-features).
+>[!IMPORTANT]
+>You should not use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md). Application volume group for SAP HANA only supports Basic network features. 
 
 > [!NOTE]
 > You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 
@@ -94,7 +91,7 @@ See [regions supported for this feature](azure-netapp-files-network-topologies.m
 > ```
 
 > [!NOTE]
-> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
+> You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeatures)**. The revert capability can take approximately one week to be enabled after you submit the waitlist request. You can check the status of the registration by using the following command: 
 >
 > ```azurepowershell-interactive
 > Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFStdToBasicNetworkFeaturesRevert                                                      
@@ -108,6 +105,9 @@ See [regions supported for this feature](azure-netapp-files-network-topologies.m
 
 > [!IMPORTANT]
 > Updating the network features option might cause a network disruption on the volumes for up to 5 minutes. 
+
+>[!NOTE]
+>If you have enabled both the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs are using 1 or 2-TiB capacity pools, see [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) for information about sizing your capacity pools. 
 
 1. Navigate to the volume for which you want to change the network features option. 
 1. Select **Change network features**. 

@@ -1,5 +1,4 @@
 ---
-
 title: Container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments 
 description: Learn about container vulnerability assessments powered by Microsoft Defender Vulnerability Management subassessments 
 author: dcurwin
@@ -13,18 +12,20 @@ ms.topic: how-to
 ## Overview
 
 Azure Resource Graph (ARG) provides a REST API that can be used to programmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
-Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
+Learn more about [ARG references and query examples](../governance/resource-graph/overview.md).
 
-Azure, AWS, and GCP container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
+Azure, AWS, and GCP container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](../governance/resource-graph/samples/samples-by-category.md?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
 
 ## ARG query examples
 
 To pull specific sub assessments, you need the assessment key.
+
 * For Azure container vulnerability assessment powered by MDVM, the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
 * For AWS container vulnerability assessment powered by MDVM, the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
-* For GCP container vulnerability assessment powered by MDVM, the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
+* For GCP container vulnerability assessment powered by MDVM, the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`.
 
 The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
+
 ```kql
 securityresources 
 | where type =~ "microsoft.security/assessments/subassessments" and properties.additionalData.assessedResourceType == "AzureContainerRegistryVulnerability"
@@ -33,7 +34,9 @@ securityresources
 | extend timeGenerated = properties.timeGenerated
 | where timeGenerated > ago(1h)
 ```
+
 ### Query result - Azure sub-assessment
+
 ```json
 [
   {
@@ -167,6 +170,7 @@ securityresources
 ```
 
 ### Query result - AWS sub-assessment
+
 ```json
 [
   {
@@ -316,6 +320,7 @@ securityresources
 ```
 
 ### Query result - GCP sub-assessment
+
 ```json
 [
   {
@@ -652,19 +657,19 @@ Status of the sub-assessment
 
 | **Name** | **Type** | **Description**|
 | --------------------------- | --------------- | ------------------------------------------------ |
-| cause | String | 	Programmatic code for the cause of the assessment status |
-| code | SubAssessmentStatusCode | Programmatic code for the status of the assessment
+| cause | String |  Programmatic code for the cause of the assessment status |
+| code | SubAssessmentStatusCode | Programmatic code for the status of the assessment|
 | description | string | Human readable description of the assessment status |
 | severity | severity | The sub-assessment severity level |
 
 ### SubAssessmentStatusCode
 
-Programmatic code for the status of the assessment 
+Programmatic code for the status of the assessment
 
 | **Name** | **Type** | **Description**|
 | --------------------------- | --------------- | ------------------------------------------------ |
-| Healthy	| string | The resource is healthy |
-| NotApplicable	| string | Assessment for this resource didn't happen |
+| Healthy | string | The resource is healthy |
+| NotApplicable | string | Assessment for this resource didn't happen |
 | Unhealthy | string | The resource has a security issue that needs to be addressed |
 
 ### SecuritySubAssessment
@@ -682,8 +687,8 @@ Security subassessment on a resource
 | properties.id              | string                                                       | Vulnerability ID                                    |
 | properties.impact          | string                                                       | Description of the impact of this subassessment    |
 | properties.remediation     | string                                                       | Information on how to remediate this subassessment |
-| properties.resourceDetails | ResourceDetails: <br> [Azure Resource Details](/azure/defender-for-cloud/subassessment-rest-api#resourcedetails---azure) <br> [AWS/GCP Resource Details](/azure/defender-for-cloud/subassessment-rest-api#resourcedetails---aws--gcp) | Details of the resource that was assessed           |
-| properties.status          | [SubAssessmentStatus](/azure/defender-for-cloud/subassessment-rest-api#subassessmentstatus) | Status of the subassessment                        |
+| properties.resourceDetails | ResourceDetails: <br> [Azure Resource Details](subassessment-rest-api.md#resourcedetails---azure) <br> [AWS/GCP Resource Details](subassessment-rest-api.md#resourcedetails---aws--gcp) | Details of the resource that was assessed           |
+| properties.status          | [SubAssessmentStatus](subassessment-rest-api.md#subassessmentstatus) | Status of the subassessment                        |
 | properties.timeGenerated   | string                                                       | The date and time the subassessment was generated  |
 | type                       | string                                                       | Resource type                                       |
 

@@ -23,7 +23,7 @@ public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
     speechConfig.setSpeechSynthesisLanguage("en-US"); 
-    speechConfig.setSpeechSynthesisVoiceName("en-US-JennyNeural");
+    speechConfig.setSpeechSynthesisVoiceName("en-US-AvaMultilingualNeural");
 }
 ```
 
@@ -160,7 +160,7 @@ To start using SSML for customization, you make a minor change that switches the
 
    ```xml
    <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-JennyNeural">
+     <voice name="en-US-AvaMultilingualNeural">
        When you're on the freeway, it's a good idea to use a GPS.
      </voice>
    </speak>
@@ -201,7 +201,7 @@ To start using SSML for customization, you make a minor change that switches the
    ```
 
 > [!NOTE]
-> To change the voice without using SSML, set the property on `SpeechConfig` by using `SpeechConfig.setSpeechSynthesisVoiceName("en-US-JennyNeural");`.
+> To change the voice without using SSML, set the property on `SpeechConfig` by using `SpeechConfig.setSpeechSynthesisVoiceName("en-US-AvaMultilingualNeural");`.
 
 ## Subscribe to synthesizer events
 
@@ -232,7 +232,7 @@ public class SpeechSynthesis {
         // Required for WordBoundary event sentences.
         speechConfig.setProperty(PropertyId.SpeechServiceResponse_RequestSentenceBoundary, "true");
 
-        String speechSynthesisVoiceName = "en-US-JennyNeural"; 
+        String speechSynthesisVoiceName = "en-US-AvaMultilingualNeural"; 
         
         String ssml = String.format("<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>"
             .concat(String.format("<voice name='%s'>", speechSynthesisVoiceName))

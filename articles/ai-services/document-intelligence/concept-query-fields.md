@@ -36,7 +36,7 @@ Query fields and key value pairs perform similar functions, there are a few dist
 
 For query field extraction, specify the fields you want to extract and Document Intelligence analyzes the document accordingly. Here's an example:
 
-* If you're processing a contract in the [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio/layout), use the `2023-10-31-preview` or later API version:
+* If you're processing a contract in the [Document Intelligence Studio](https://documentintelligence.ai.azure.com/studio/layout), use the `2024-02-29-preview`, `2023-10-31-preview`, or later API version:
 
     :::image type="content" source="media/studio/query-fields.png" alt-text="Screenshot of the query fields button in Document Intelligence Studio.":::
 
@@ -44,14 +44,15 @@ For query field extraction, specify the fields you want to extract and Document 
 
    :::image type="content" source="media/studio/query-field-select.png" alt-text="Screenshot of query fields selection window in Document Intelligence Studio.":::
 
-* In addition to the query fields, the response includes the model output. For a list of features or schema extracted by each model, see [model analysis features](concept-model-overview.md#analysis-features).
+* In addition to the query fields, the response includes the model output. For a list of features or schema extracted by each model, see [model analysis features](concept-model-overview.md#model-analysis-features).
+
 
 ## Query fields REST API request**
 
-Use the query fields feature with the [general document model](concept-general-document.md), to add fields to the extraction process without having to train a custom model:
+Use the query fields feature with the [general document model](concept-general-document.md), and add fields to the extraction process without having to train a custom model:
 
 ```http
-POST https://{endpoint}/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2023-10-31-preview&features=queryFields&queryFields=Terms,PaymentDate HTTP/1.1
+POST https://{endpoint}/documentintelligence/documentModels/prebuilt-layout:analyze?api-version=2024-02-29-preview&features=queryFields&queryFields=Terms,PaymentDate HTTP/1.1
 Host: *.cognitiveservices.azure.com
 Content-Type: application/json
 Ocp-Apim-Subscription-Key:

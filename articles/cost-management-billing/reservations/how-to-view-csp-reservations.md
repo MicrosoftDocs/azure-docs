@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 

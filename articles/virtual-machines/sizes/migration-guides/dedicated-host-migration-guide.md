@@ -124,7 +124,7 @@ On Azure portal, go through the following steps:
 >[!NOTE] 
 > **Skip this step for automatically placed VMs and virtual machine scale set.** 
 
-Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](../../dedicated-hosts-how-to.md#add-an-existing-vm).
+Once the target Dedicated Host has been created and the VM has been stopped, [reassign the VM to the target Dedicated Host](../../dedicated-hosts-how-to.md#reassign-an-existing-vm).
 
 #### Start the VM(s) or virtual machine scale set
 

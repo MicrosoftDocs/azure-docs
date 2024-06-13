@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud hosted application. [Azure App Service](../app-service/index.yml) provides the hosting infrastructure for your function apps. This article provides security strategies for running your function code, and how App Service can help you secure your functions. 
 
-[!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
+[!INCLUDE [app-service-security-intro](~/reusable-content/ce-skilling/azure/includes/app-service-security-intro.md)]
 
 For a set of security recommendations that follow the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction), see [Azure Security Baseline for Azure Functions](/security/benchmark/azure/baselines/functions-security-baseline).
 
@@ -47,7 +47,7 @@ For more information, see [Secure connections (TLS)](../app-service/overview-sec
 
 #### System key 
 
-Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
+Specific extensions may require a system-managed key to access webhook endpoints. System keys are designed for extension-specific function endpoints that get called by internal components. For example, the [Event Grid trigger](functions-bindings-event-grid-trigger.md) requires that the subscription use a system key when calling the trigger endpoint. Durable Functions also uses system keys to call [Durable Task extension APIs](durable/durable-functions-http-api.md). 
 
 The scope of system keys is determined by the extension, but it generally applies to the entire function app. System keys can only be created by specific extensions, and you can't explicitly set their values. Like other keys, you can generate a new value for the key from the portal or by using the key APIs.
 
@@ -121,7 +121,7 @@ Connection strings and other credentials stored in application settings gives al
 
 #### Managed identities
 
-[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
+[!INCLUDE [app-service-managed-identities](~/reusable-content/ce-skilling/azure/includes/app-service-managed-identities.md)]
 
 Managed identities can be used in place of secrets for connections from some triggers and bindings. See [Identity-based connections](#identity-based-connections).
 
@@ -209,7 +209,7 @@ App Service deployments require a set of deployment credentials. These deploymen
 
 There are two kinds of deployment credentials:
 
-[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
+[!INCLUDE [app-service-deploy-credentials](~/reusable-content/ce-skilling/azure/includes/app-service-deploy-credentials.md)]
 
 At this time, Key Vault isn't supported for deployment credentials. To learn more about managing deployment credentials, see [Configure deployment credentials for Azure App Service](../app-service/deploy-configure-credentials.md).
 

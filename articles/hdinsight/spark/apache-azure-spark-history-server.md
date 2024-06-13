@@ -229,7 +229,7 @@ If you run into an error in Spark History Server, do the following steps to repo
 
 2. Select **Provide us feedback** from the **Spark Application & Job Graph** page.
 
-    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="Provide feedback on the Spark Application & Job Graph page" border="true":::
+    :::image type="content" source="./media/apache-azure-spark-history-server/sparkui-graph-feedback.png" alt-text="Provide feedback on the Spark Application & Job Graph page." border="true":::
 
 3. Provide the title and a description of the error. Then, drag the .zip file to the edit field and select **Submit new issue**.
 
@@ -307,7 +307,7 @@ If you want to upgrade with a hotfix, use the following script, which will upgra
     |Node type(s)|Head, Worker|
     |Parameters|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
 
-     :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-upload1.png" alt-text="Azure portal submit script action" border="true":::
+     :::image type="content" source="./media/apache-azure-spark-history-server/apache-spark-upload1.png" alt-text="Azure portal submit script action." border="true":::
 
 ## Known issues
 

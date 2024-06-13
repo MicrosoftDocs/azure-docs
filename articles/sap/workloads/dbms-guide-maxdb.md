@@ -242,7 +242,7 @@ ms.custom: H1Hack27Feb2017
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
-[virtual-machines-linux-attach-disk-portal]:../../virtual-machines/linux/attach-disk-portal.md
+[virtual-machines-linux-attach-disk-portal]:../../virtual-machines/linux/attach-disk-portal.yml
 [virtual-machines-azure-resource-manager-architecture]:/azure/azure-resource-manager/management/deployment-models
 [virtual-machines-azurerm-versus-azuresm]:/azure/azure-resource-manager/management/deployment-models
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
@@ -279,7 +279,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../virtual-network/manage-virtual-network.md#create-a-virtual-network
+[virtual-networks-create-vnet-arm-pportal]:../../virtual-network/manage-virtual-network.yml#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics]:../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../virtual-network/security-overview.md

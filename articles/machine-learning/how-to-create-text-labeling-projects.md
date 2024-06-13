@@ -173,6 +173,9 @@ After you train the machine learning model on your manually labeled data, the mo
 
 [!INCLUDE [initialize](includes/machine-learning-data-labeling-initialize.md)]
 
+## Troubleshooting
+
+[!INCLUDE [troubleshoot](includes/machine-learning-data-labeling-troubleshoot.md)]
 
 ## Next steps
 

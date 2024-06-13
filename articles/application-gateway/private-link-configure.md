@@ -199,4 +199,4 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ## Next steps
 
-- Learn about Azure Private Link: [What is Azure Private Link?](../private-link/private-link-overview.md)
+- Learn about Azure Private Link: [What is Azure Private Link](../private-link/private-link-overview.md).

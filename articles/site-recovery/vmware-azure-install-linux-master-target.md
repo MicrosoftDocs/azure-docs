@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 08/01/2023
+ms.date: 03/07/2024
 ---
 
 
 # Install a Linux master target server for failback
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic.
 
@@ -102,7 +102,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  In the next selection for encrypting your home directory, select **No** (the default option), and then select **Enter**.
 
-1. If the time zone that's displayed is correct, select **Yes** (the default option), and then select **Enter**. To reconfigure your time zone, select **No**.
+1. If the time zone displayed is correct, select **Yes** (the default option), and then select **Enter**. To reconfigure your time zone, select **No**.
 
 1. From the partitioning method options, select **Guided - use entire disk**, and then select **Enter**.
 
@@ -125,7 +125,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
      ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
-    > Because the Azure Site Recovery master target server requires a very specific version of the Ubuntu, you need to ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades cause the master target server to malfunction. Make sure you select the **No automatic updates** option.
+    > Because the Azure Site Recovery master target server requires a very specific version of the Ubuntu, you must ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades cause the master target server to malfunction. Make sure you select the **No automatic updates** option.
 
 1.  Select default options. If you want openSSH for SSH connect, select the **OpenSSH server** option, and then select **Continue**.
 
@@ -181,12 +181,12 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 #### Disable kernel upgrades
 
-Azure Site Recovery master target server requires a specific version of the Ubuntu, ensure that the kernel upgrades are disabled for the virtual machine. If kernel upgrades are enabled,it can cause the master target server to malfunction.
+Azure Site Recovery master target server requires a specific version of the Ubuntu. Ensure that the kernel upgrades are disabled for the virtual machine. If kernel upgrades are enabled, it can cause the master target server to malfunction.
 
-#### Download and install additional packages
+#### Download and install extra packages
 
 > [!NOTE]
-> Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these Deb packages and install them.
+> Make sure that you have Internet connectivity to download and install extra packages. If you don't have Internet connectivity, you need to manually find these Deb packages and install them.
 
  ```bash
     sudo apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx
@@ -354,11 +354,11 @@ After the installation has finished, register the configuration server by using 
 
 ### Install VMware tools / open-vm-tools on the master target server
 
-You need to install VMware tools or open-vm-tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
+You need to install VMware tools or open-vm-tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotected screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
 
 ### Upgrade the master target server
 
-Running the installer will automatically detect that the agent is installed on the master target. To complete the upgrade, complete the following steps:
+Running the installer automatically detects that the agent is installed on the master target. To complete the upgrade, complete the following steps:
 1. Copy tar.gz from configuration server to linux master target
 2. Run this command to validate the version you are running: cat /usr/local/.vx_version
 3. Extract tar: tar -xvf latestlinuxmobsvc.tar.gz
@@ -373,7 +373,7 @@ After the setup has been completed, check the version of the master target insta
    sudo cat /usr/local/.vx_version
 ```
 
-You will see that the **Version** field gives the version number of the master target.
+You'll see that the **Version** field gives the version number of the master target.
 
 ## Upgrade OS of master target server from Ubuntu 16.04 to Ubuntu 20.04
 

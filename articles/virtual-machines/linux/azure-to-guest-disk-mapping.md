@@ -3,6 +3,7 @@ title: How to map Azure Disks to Linux VM guest disks
 description: How to determine the Azure Disks that underlay a Linux VM's guest disks.
 author: timbasham
 ms.service: azure-disk-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham

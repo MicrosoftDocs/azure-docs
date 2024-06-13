@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 > - Add an authentication controller to support GitHub authentication
 > - Deploy your ASP.NET Core web app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -360,7 +360,7 @@ In this section, you integrate the real authentication workflow by adding the `A
 
 Prepare your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 In this section, you use the Azure CLI to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app is configured to use local Git deployment. The web app is also configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 

@@ -3,6 +3,9 @@ title: Support and troubleshooting for Azure Kubernetes Service (AKS)
 description: This article provides support and troubleshooting options for Azure Kubernetes Service (AKS).
 ms.topic: troubleshooting
 ms.date: 09/27/2023
+author: nickomang
+ms.author: nickoman
+
 ms.custom: support-help-page
 ---
 
@@ -74,3 +77,4 @@ Learn about important product updates, roadmap, and announcements in [Azure Upda
 ## Next steps
 
 Visit the [Azure Kubernetes Service (AKS) documentation](./index.yml).
+

@@ -2,7 +2,7 @@
 title: Set up disaster recovery after migration to Azure with Azure Site Recovery
 description: This article describes how to prepare machines to set up disaster recovery between Azure regions after migration to Azure using Azure Site Recovery.
 ms.service: site-recovery
-ms.custom: linux-related-content
+ms.custom:
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: ankitadutta
@@ -86,5 +86,5 @@ Install the [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) agen
 
 ## Next steps
 
-[Review troubleshooting](site-recovery-extension-troubleshoot.md) for the Site Recovery extension on the Azure VM agent.
-[Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.
+- [Review troubleshooting](site-recovery-extension-troubleshoot.md) for the Site Recovery extension on the Azure VM agent.
+- [Quickly replicate](azure-to-azure-quickstart.md) an Azure VM to a secondary region.

@@ -1,7 +1,7 @@
 ---
-title: Connect Custom Question Answering with Azure OpenAI on your data 
+title: Connect custom question answering with Azure OpenAI on your data 
 titleSuffix: Azure AI services
-description: Learn how to use Custom Question Answering with Azure OpenAI.
+description: Learn how to use custom question answering with Azure OpenAI.
 ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
@@ -9,33 +9,33 @@ ms.topic: how-to
 ms.date: 02/09/2024
 ---
 
-# Connect Custom Question Answering with Azure OpenAI on your data 
+# Connect custom question answering with Azure OpenAI on your data 
 
-Custom Question Answering enables you to create a conversational layer on your data based on sophisticated Natural Language Processing (NLP) capabilities with enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Most use cases for Custom Question Answering rely on finding appropriate answers for inputs by integrating it with chat bots, social media applications and speech-enabled desktop applications. 
+Custom question answering enables you to create a conversational layer on your data based on sophisticated Natural Language Processing (NLP) capabilities with enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support. Most use cases for custom question answering rely on finding appropriate answers for inputs by integrating it with chat bots, social media applications and speech-enabled desktop applications. 
 
 AI runtimes however, are evolving due to the development of Large Language Models (LLMs), such as GPT-35-Turbo and GPT-4 offered by [Azure OpenAI](../../../openai/overview.md) can address many chat-based use cases, which you may want to integrate with.
 
-At the same time, customers often require a custom answer authoring experience to achieve more granular control over the quality and content of question-answer pairs, and allow them to address content issues in production. Read this article to learn how to integrate Azure OpenAI On Your Data (Preview) with question-answer pairs from your Custom Question Answering project, using your project's underlying Azure AI Search indexes.
+At the same time, customers often require a custom answer authoring experience to achieve more granular control over the quality and content of question-answer pairs, and allow them to address content issues in production. Read this article to learn how to integrate Azure OpenAI On Your Data (Preview) with question-answer pairs from your custom question answering project, using your project's underlying Azure AI Search indexes.
 
 ## Prerequisites
 
 * An existing Azure OpenAI resource. If you don't already have an Azure OpenAI resource, then [create one and deploy a model](../../../openai/how-to/create-resource.md).
-* An Azure Language Service resource and Custom Question Answering project. If you don’t have one already, then [create one](../quickstart/sdk.md). 
+* An Azure Language Service resource and custom question answering project. If you don’t have one already, then [create one](../quickstart/sdk.md). 
     * Azure OpenAI requires registration and is currently only available to approved enterprise customers and partners. See [Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context) for more information. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
     * Be sure that you are assigned at least the [Cognitive Services OpenAI Contributor role](/azure/role-based-access-control/built-in-roles#cognitive-services-openai-contributor) for the Azure OpenAI resource.
 
 
-## Connect Azure OpenAI on your data and question answering
+## Connect Azure OpenAI on your data and custom question answering
 
-1.	Sign in to [Language Studio](https://aka.ms/languageStudio) and navigate to your Custom Question Answering project with an existing deployment.
+1.	Sign in to [Language Studio](https://aka.ms/languageStudio) and navigate to your custom question answering project with an existing deployment.
 
-    :::image type="content" source="../media/question-answering/deployment-sources.png" alt-text="A screenshot showing a Custom Question Answering deployment." lightbox="../media/question-answering/deployment-sources.png":::
+    :::image type="content" source="../media/question-answering/deployment-sources.png" alt-text="A screenshot showing a custom question answering deployment." lightbox="../media/question-answering/deployment-sources.png":::
 
 1. Select the **Azure Search** tab on the navigation menu to the left.
 
 1. Make a note of your Azure Search details, such as Azure Search resource name, subscription, and location. You will need this information when you connect your Azure AI Search index to Azure OpenAI.
 
-    :::image type="content" source="../media/question-answering/azure-search.png" alt-text="A screenshot showing the Azure search section for a Custom Question Answering project." lightbox="../media/question-answering/azure-search.png":::
+    :::image type="content" source="../media/question-answering/azure-search.png" alt-text="A screenshot showing the Azure search section for a custom question answering project." lightbox="../media/question-answering/azure-search.png":::
 
 1. Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource.
 
@@ -51,8 +51,7 @@ At the same time, customers often require a custom answer authoring experience t
         
     :::image type="content" source="../media/question-answering/data-source-selection.png" alt-text="A screenshot showing data selection options in Azure OpenAI Studio." lightbox="../media/question-answering/data-source-selection.png":::
                     
-
-1. Select the subscription, Azure AI Search service and Azure AI Search Index associated with your Custom Question Answering project. Select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
+1. Select the subscription, Azure AI Search service and Azure AI Search Index associated with your custom question Answering project. Select the acknowledgment that connecting it will incur usage on your account. Then select **Next**.
 
     :::image type="content" source="../media/question-answering/azure-search-data-source.png" alt-text="A screenshot showing selection information for Azure AI Search in Azure OpenAI Studio." lightbox="../media/question-answering/azure-search-data-source.png":::
 
@@ -75,4 +74,4 @@ At the same time, customers often require a custom answer authoring experience t
 You can now start exploring Azure OpenAI capabilities with a no-code approach through the chat playground. It's simply a text box where you can submit a prompt to generate a completion. From this page, you can quickly iterate and experiment with the capabilities. You can also launch a [web app](../../../openai/how-to/use-web-app.md) to chat with the model over the web.
 
 ## Next steps
-* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md) 
+* [Using Azure OpenAI on your data](../../../openai/concepts/use-your-data.md)

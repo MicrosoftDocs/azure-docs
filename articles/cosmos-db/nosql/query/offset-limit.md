@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -22,7 +23,7 @@ When ``OFFSET LIMIT`` is used with an ``ORDER BY`` clause, the result set is pro
 
 ## Syntax
 
-```sql  
+```nosql  
 OFFSET <offset_amount> LIMIT <limit_amount>
 ```  
 
@@ -37,11 +38,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 For the example in this section, this reference set of items is used. Each item includes a ``name`` property.
 
-:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/seed.json" range="1-2,4,6-7,9,11-12,14,16-17,19,21-22,24,26-27" highlight="3,6,9,12,15":::
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/seed.json" range="1-2,4-7,9-12,14-17,19-22,24-27" highlight="3,6,9,12,15":::
 
 This example includes a query using the ``OFFSET LIMIT`` clause to return a subset of the matching items by skipping **one** item and taking the next **three**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/query.sql" range="1-5,8-10" highlight="8":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/query.sql" highlight="10":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/offset-limit/result.json":::
 

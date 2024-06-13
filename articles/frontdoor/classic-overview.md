@@ -12,6 +12,8 @@ ms.author: duau
 
 # What is Azure Front Door (classic)?
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Azure Front Door (classic) is a global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. With Front Door (classic), you can transform your global consumer and enterprise applications into robust, high-performing personalized modern applications with contents that reach a global audience through Azure.
 
 :::image type="content" source="./media/front-door-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door (classic) routing user traffic to endpoints.":::

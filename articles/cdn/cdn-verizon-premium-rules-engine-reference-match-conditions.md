@@ -1,19 +1,18 @@
 ---
-title: Azure CDN from Edgio Premium rules engine match conditions
+title: Azure Content Delivery Network from Edgio Premium rules engine match conditions
 description: Reference documentation for Azure Content Delivery Network from Edgio Premium rules engine match conditions.
 services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 03/20/2024
 ms.author: duau
-
 ---
 
-# Azure CDN from Edgio Premium rules engine match conditions
+# Azure Content Delivery Network from Edgio Premium rules engine match conditions
 
-This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Edgio Premium [rules engine](cdn-verizon-premium-rules-engine.md).
+This article lists detailed descriptions of the available match conditions for the Azure content delivery network from Edgio Premium [rules engine](cdn-verizon-premium-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features is performed.
 
@@ -25,16 +24,16 @@ For example, you can use a match condition to:
 
 ## <a name="top"></a>Match Conditions
 
-* [Always](#always)
-* [Device](#device)
-* [Location](#location)
-* [Origin](#origin)
-* [Request](#request)
-* [URL](#url)
+- [Always](#always)
+- [Device](#device)
+- [Location](#location)
+- [Origin](#origin)
+- [Request](#request)
+- [URL](#url)
 
 ### <a name="always"></a>Always
 
-[The Always match condition](https://docs.vdms.com/cdn/Content/HRE/M/Always.htm) is designed to apply a default set of features to all requests.
+The [Always match condition](https://docs.vdms.com/cdn/Content/HRE/M/Always.htm) is designed to apply a default set of features to all requests.
 
 ### <a name="device"></a>Device
 
@@ -58,7 +57,7 @@ These match conditions are designed to identify requests based on the client's u
 | [Is Tablet?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Tablet.htm) | Identifies requests by whether the device is a tablet. |
 | [Is Touchscreen?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Touchscreen.htm) | Identifies requests by whether the device's primary pointing device is a touchscreen. |
 | [Is Windows Phone?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Windows-Phone.htm) | Identifies requests by whether the device is a Windows Mobile 6.5/ Windows Phone 7 or higher. |
-| [Is Wireless Device?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Wireless-Device.htm) | Identifies requests by whether the device is wireless. 
+| [Is Wireless Device?](https://docs.vdms.com/cdn/Content/HRE/M/D-Is-Wireless-Device.htm) | Identifies requests by whether the device is wireless.
 | Marketing Name | Identifies requests by whether the device's marketing name matches a: <br> **-** Specific value ([Marketing Name Literal](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Literal.htm)) <br> **-** Regular expression ([Marketing Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Regex.htm)) <br> **-** Specific pattern ([Marketing Name Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/D-Marketing-Name-Wildcard.htm)) |
 | Mobile Browser | Identifies requests by whether the device's browser matches a: <br> **-** Specific value ([Mobile Browser Literal](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Literal.htm)) <br> **-** Regular expression ([Mobile Browser Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Regex.htm)) <br> **-** Specific pattern ([Mobile Browser Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Wildcard.htm)) |
 | Mobile Browser Version | Identifies requests by whether the device's browser version matches a: <br> **-** Specific value ([Mobile Browser Version Literal](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Version-Literal.htm)) <br> **-** Regular expression ([Mobile Browser Version Regex](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Version-Regex.htm)) <br> **-** Specific pattern ([Mobile Browser Version Wildcard](https://docs.vdms.com/cdn/Content/HRE/M/D-Mobile-Browser-Version-Wildcard.htm)) |
@@ -80,7 +79,7 @@ These match conditions are designed to identify requests based on the requester'
 | City Name | Identifies requests by whether they originate from a city whose name matches a: <br> **-** Specific value ([City Name Literal](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Literal.htm)) <br> **-** Regular expression ([City Name Regex](https://docs.vdms.com/cdn/Content/HRE/M/City-Name-Regex.htm)) |
 | [Continent](https://docs.vdms.com/cdn/Content/HRE/M/Continent.htm) | Identifies requests that originate from the specified continents. |
 | [Country](https://docs.vdms.com/cdn/Content/HRE/M/Country.htm) | Identifies requests that originate from the specified countries/regions. |
-| [DMA Code](https://docs.vdms.com/cdn/Content/HRE/M/DMA-Code.htm) | Identifies requests that originate from the specified metros (Designated Market Areas). |
+| [Direct memory access (DMA) Code](https://docs.vdms.com/cdn/Content/HRE/M/DMA-Code.htm) | Identifies requests that originate from the specified metros (Designated Market Areas). |
 | [Latitude](https://docs.vdms.com/cdn/Content/HRE/M/Latitude.htm) | Identifies requests that originate from the specified latitudes. |
 | [Longitude](https://docs.vdms.com/cdn/Content/HRE/M/Longitude.htm) | Identifies requests that originate from the specified longitudes. |
 | [Metro Code](https://docs.vdms.com/cdn/Content/HRE/M/Metro-Code.htm) | Identifies requests that originate from the specified metros (Designated Market Areas). |
@@ -95,11 +94,11 @@ Both of these match conditions provide the same capability. However, we recommen
 
 ### <a name="origin"></a>Origin
 
-These match conditions are designed to identify requests that point to CDN storage or a customer origin server.
+These match conditions are designed to identify requests that point to content delivery network storage or a customer origin server.
 
 | Name       | Purpose                                                           |
 |------------|-------------------------------------------------------------------|
-| [CDN Origin](https://docs.vdms.com/cdn/Content/HRE/M/CDN-Origin.htm) | Identifies requests for content stored on CDN storage. |
+| [Content delivery network Origin](https://docs.vdms.com/cdn/Content/HRE/M/CDN-Origin.htm) | Identifies requests for content stored on content delivery network storage. |
 | [Customer Origin](https://docs.vdms.com/cdn/Content/HRE/M/Customer-Origin.htm) | Identifies requests for content stored on a specific customer origin server. |
 
 **[Back to Top](#top)**

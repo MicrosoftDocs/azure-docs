@@ -3,8 +3,9 @@ title: Node autoprovisioning (preview)
 description: Learn about Azure Kubernetes Service (AKS) node autoprovisioning (preview).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/18/2024
-ms.author: juda
+ms.date: 06/13/2024
+ms.author: schaffererin
+author: schaffererin
 #Customer intent: As a cluster operator or developer, how to scale my cluster based on workload requirements and right size my nodes automatically
 ---
 
@@ -65,74 +66,107 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 
 ## Limitations
 
-- Windows and Azure Linux node pools aren't supported yet
-- Kubelet configuration through Node pool configuration is not supported
-- NAP can only be enabled on new clusters currently
+- The only network configuration allowed is [Azure CNI Overlay](concepts-network-azure-cni-overlay.md) with [Powered by Cilium](azure-cni-powered-by-cilium.md).
+- You can't enable in a cluster where node pools have cluster autoscaler enabled
+
+### Unsupported features
+
+- Windows node pools
+- Applying custom configuration to the node kubelet
+- IPv6 clusters
+- [Service Principals](./kubernetes-service-principal.md)
+   > [!NOTE]
+   > You can use either a system-assigned or user-assigned managed identity.
+- Disk encryption sets
+- CustomCATrustCertificates
+- [Start Stop mode](./start-stop-cluster.md)
+- [HTTP proxy](./http-proxy.md)
+- [OutboundType](./egress-outboundtype.md) mutation. All OutboundTypes are supported, however you can't change them after creation.
 
 ## Enable node autoprovisioning
 
-To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
+### Enable node autoprovisioning on a new cluster
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
-az aks create --name karpuktest --resource-group karpuk --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
+- Enable node autoprovisioning on a new cluster using the `az aks create` command and set `--node-provisioning-mode` to `Auto`. You also need to set the `--network-plugin` to `azure`, `--network-plugin-mode` to `overlay`, and `--network-dataplane` to `cilium`.
 
-```
+    ```azurecli-interactive
+    az aks create \
+        --name $CLUSTER_NAME \
+        --resource-group $RESOURCE_GROUP_NAME \
+        --node-provisioning-mode Auto \
+        --network-plugin azure \
+        --network-plugin-mode overlay \
+        --network-dataplane cilium \
+        --generate-ssh-keys
+    ```
 
-### [Azure ARM](#tab/azure-arm)
+### [ARM template](#tab/arm)
 
-```azurecli-interactive
-az deployment group create --resource-group napcluster --template-file ./nap.json  
-```
+- Enable node autoprovisioning on a new cluster using the `az deployment group create` command and specify the `--template-file` parameter with the path to the ARM template file.
 
-```arm
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "metadata": {},
-  "parameters": {},
-  "resources": [
+    ```azurecli-interactive
+    az deployment group create --resource-group $RESOURCE_GROUP_NAME --template-file ./nap.json  
+    ```
+
+    The `nap.json` file should contain the following ARM template:
+
+    ```JSON
     {
-      "type": "Microsoft.ContainerService/managedClusters",
-      "apiVersion": "2023-09-02-preview",
-      "sku": {
-        "name": "Base",
-        "tier": "Standard"
-      },
-      "name": "napcluster",
-      "location": "uksouth",
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "properties": {
-        "networkProfile": {
-            "networkPlugin": "azure",
-            "networkPluginMode": "overlay",
-            "networkPolicy": "cilium",
-            "networkDataplane":"cilium",
-            "loadBalancerSku": "Standard"
-        },
-        "dnsPrefix": "napcluster",
-        "agentPoolProfiles": [
-          {
-            "name": "agentpool",
-            "count": 3,
-            "vmSize": "standard_d2s_v3",
-            "osType": "Linux",
-            "mode": "System"
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "metadata": {},
+      "parameters": {},
+      "resources": [
+        {
+          "type": "Microsoft.ContainerService/managedClusters",
+          "apiVersion": "2023-09-02-preview",
+          "sku": {
+            "name": "Base",
+            "tier": "Standard"
+          },
+          "name": "napcluster",
+          "location": "uksouth",
+          "identity": {
+            "type": "SystemAssigned"
+          },
+          "properties": {
+            "networkProfile": {
+                "networkPlugin": "azure",
+                "networkPluginMode": "overlay",
+                "networkPolicy": "cilium",
+                "networkDataplane":"cilium",
+                "loadBalancerSku": "Standard"
+            },
+            "dnsPrefix": "napcluster",
+            "agentPoolProfiles": [
+              {
+                "name": "agentpool",
+                "count": 3,
+                "vmSize": "standard_d2s_v3",
+                "osType": "Linux",
+                "mode": "System"
+              }
+            ],
+            "nodeProvisioningProfile": {
+              "mode": "Auto"
+            },
           }
-        ],
-        "nodeProvisioningProfile": {
-          "mode": "Auto"
-        },
-      }
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 ---
+
+### Enable node autoprovisioning on an existing cluster
+
+- Enable node autoprovisioning on an existing cluster using the `az aks update` command and set `--node-provisioning-mode` to `Auto`. You also need to set the `--network-plugin` to `azure`, `--network-plugin-mode` to `overlay`, and `--network-dataplane` to `cilium`.
+
+    ```azurecli-interactive
+    az aks update --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP_NAME --node-provisioning-mode Auto --network-plugin azure --network-plugin-mode overlay --network-dataplane cilium
+    ```
 
 ## Node pools
 

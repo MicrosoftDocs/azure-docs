@@ -1,15 +1,15 @@
 ---
 title: NFS file shares in Azure Files
-description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol.
+description: Learn about file shares hosted in Azure Files using the Network File System (NFS) protocol, including security, networking, feature support, and regional availability.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/26/2024
+ms.date: 06/11/2024
 ms.author: kendownie
-ms.custom: references_regions, linux-related-content
+ms.custom: references_regions
 ---
 
-# NFS file shares in Azure Files
+# NFS Azure file shares
 
 Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol and the [Network File System (NFS)](https://en.wikipedia.org/wiki/Network_File_System) protocol, allowing you to pick the protocol that is the best fit for your workload. Azure file shares don't support accessing an individual Azure file share with both the SMB and NFS protocols, although you can create SMB and NFS file shares within the same FileStorage storage account. Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
 
@@ -46,7 +46,7 @@ Unlike Azure Files using the SMB protocol, file shares using the NFS protocol do
 
 A private endpoint (also called a private link) gives your storage account a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your storage account stays within peered virtual networks, including those in other regions and on premises. Standard [data processing rates](https://azure.microsoft.com/pricing/details/private-link/) apply.
 
-If you don't require a static IP address, you can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Files within the virtual network. A service endpoint configures storage accounts to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints.
+If you don't require a static IP address, you can enable a [service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Files within the virtual network. A service endpoint configures storage accounts to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. However, be aware that a rare event such as a zonal outage could cause the underlying IP address of the storage account to change. While the data will still be available on the file share, the client would require a remount of the share.
 
 If you want to access shares from on-premises, then you must set up a VPN or ExpressRoute in addition to a private endpoint. Requests that don't originate from the following sources will be rejected:
 
@@ -84,18 +84,19 @@ The status of items that appear in this table might change over time as support 
 | Root squash|  ✔️  |
 | Access same data from Windows and Linux client|  ⛔   |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
-| [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ⛔  |
+| [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ✔️ (preview) |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)|  ✔️ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [AzCopy](../common/storage-use-azcopy-v10.md?toc=/azure/storage/files/toc.json)| ⛔ |
 | Azure Storage Explorer| ⛔ |
+| Azure Storage Explorer on Azure portal| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
 ## Regional availability
 
-[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
 
 ## Performance
 

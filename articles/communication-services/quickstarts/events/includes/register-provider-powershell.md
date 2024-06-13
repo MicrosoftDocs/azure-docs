@@ -1,7 +1,7 @@
 ---
 author: pgrandhi
 ms.service: azure-communication-services
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: include
 ms.date: 01/27/2024
 ms.author: pgrandhi

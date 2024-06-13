@@ -27,7 +27,7 @@ Virtual networks and their subnets are regional. Subnets aren't restricted to a 
 
 ## Zonal
 
-You can place your NAT gateway resource in a specific zone for a region. When NAT gateway is deployed to a specific zone, it provides outbound connectivity to the internet explicitly from that zone. The public IP address or prefix configured to NAT gateway must match the same zone. NAT gateway resources with public IP addresses from a different zone, zone-redundancy or with no zone aren't allowed.
+You can place your NAT gateway resource in a specific zone for a region. When NAT gateway is deployed to a specific zone, it provides outbound connectivity to the internet explicitly from that zone. NAT gateway resources assigned to an availability zone can be attached to public IP addresses either from the same zone or that are zone redundant. Public IP addresses from a different availability zone or no zone aren't allowed.
 
 NAT gateway can provide outbound connectivity for virtual machines from other availability zones different from itself. The virtual machine’s subnet needs to be configured to the NAT gateway resource to provide outbound connectivity. Additionally, multiple subnets can be configured to the same NAT gateway resource. 
 

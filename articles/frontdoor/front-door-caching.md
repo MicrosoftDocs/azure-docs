@@ -12,6 +12,8 @@ zone_pivot_groups: front-door-tiers
 
 # Caching with Azure Front Door
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Azure Front Door is a modern content delivery network (CDN), with dynamic site acceleration and load balancing capabilities. When caching is configured on your route, the edge site that receives each request checks its cache for a valid response. Caching helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
 
 Each Front Door edge site manages its own cache, and requests might get served by different edge sites. As a result, you might still see some traffic reach your origin, even if you served cached responses.
@@ -108,7 +110,7 @@ If a request supports gzip and Brotli compression, Brotli compression takes prec
 
 When a request for an asset specifies compression and the request results in a cache miss, Azure Front Door (classic) does compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache. The resulting item is returned with a `Transfer-Encoding: chunked` response header.
 
-If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door PoP, then response sizes greater than 8 MB aren't supported.
+If the origin uses Chunked Transfer Encoding (CTE) to send data to the Azure Front Door POP, then compression isn't supported.
 
 > [!NOTE]
 > Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `Accept-Encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on the origin, or create a Rules Engine rule to remove the `Accept-Encoding` header from the request for byte range requests.

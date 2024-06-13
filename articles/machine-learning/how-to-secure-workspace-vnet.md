@@ -78,7 +78,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 ### Azure Container Registry
 
-When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+When your Azure Machine Learning workspace or any resource is configured with a private endpoint it may be required to setup a user managed compute cluster for AzureML Environment image builds. Default scenario is leveraging [serverless compute](how-to-use-serverless-compute.md) and currently intended for scenarios with no network restrictions on resources associated with AzureML Workspace.
 
 > [!IMPORTANT]
 > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](concept-vulnerability-management.md#using-a-private-package-repository), or use [custom Docker images (SDK v1)](v1/how-to-train-with-custom-image.md?view=azureml-api-1&preserve-view=true) that already include the packages.
@@ -273,6 +273,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     az ml workspace update --name myworkspace --resource-group myresourcegroup --image-build-compute mycomputecluster
     ```
 
+    You can switch back to serverless compute by executing the same command and referencing the compute as an empty space: `--image-build-compute ' '`.
+
     # [Python SDK](#tab/python)
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme). Replace `mycomputecluster` with the name of the cluster to use:
@@ -297,7 +299,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     # Update to use cpu-cluster for image builds
     ws.image_build_compute="cpu-cluster"
     ml_client.workspaces.begin_update(ws)
-    # To switch back to using ACR to build (if ACR is not in the VNet):
+    
+    # To switch back to serverless compute:
     # ws.image_build_compute = ''
     # ml_client.workspaces.begin_update(ws)
     ```

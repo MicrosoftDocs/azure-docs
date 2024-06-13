@@ -24,6 +24,33 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## April 2024
+
+### Data flow
+
+We're updating Azure Data Factory Mapping Data Flows to use Spark 3.3.
+
+### Data movement
+
+Pipeline activity limit lifted to 80 activities. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/data-factory-increases-maximum-activities-per-pipeline-to-80/ba-p/4096418)
+
+## March 2024
+
+### Data movement
+
+- PostgreSQL Connector available for Copy activity with improved native PostgreSQL support and better copy performance. [Learn more](connector-postgresql.md) 
+- Google BigQuery Connector available for Copy activity with improved native support and better copy performance. [Learn more](connector-google-bigquery.md)
+- Snowflake Connector available for Copy activity with support for Basic and Key pair authentication for both source and sink. [Learn more](connector-snowflake.md)
+- New connectors available for Microsoft Fabric Warehouse, for Copy, Lookup, Get Metadata, Script and Stored procedure activities. [Learn more](connector-microsoft-fabric-warehouse.md)
+
+## February 2024
+
+### Data movement
+
+- Mysql Connector driver upgrade available for Copy activity. [Learn more](connector-mysql.md)
+- MariaDB Connector driver upgrade available for Copy activity. [Learn more](connector-mariadb.md)
+- We added native UI support of parameterization for the following linked services: SAP HANA; MariaDB; Google BigQuery. [Learn more](parameterize-linked-services.md#supported-linked-service-types)
+
 ## January 2024
 
 ### Data movement
@@ -79,47 +106,6 @@ Added support for metadata driven pipelines for dynamic full and incremental pro
 ### Integration runtime
 
 Self-hosted integration runtime now supports self-contained interactive authoring (Preview) [Learn more](create-self-hosted-integration-runtime.md?tabs=data-factory#self-contained-interactive-authoring-preview)
-
-## July 2023
-
-### Change Data Capture
-
-Top-level CDC resource now supports schema evolution. [Learn more](how-to-change-data-capture-resource-with-schema-evolution.md)
-
-### Data flow
-
-Merge schema option in delta sink now supports schema evolution in Mapping Data Flows. [Learn more](format-delta.md#delta-sink-optimization-options)
-
-### Data movement
-
-- Comment Out Part of Pipeline with Deactivation. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/comment-out-part-of-pipeline/ba-p/3868069)
-- Pipeline return value is now generally available. [Learn more](tutorial-pipeline-return-value.md)
-
-### Developer productivity
-
-Documentation search now included in the Azure Data Factory search toolbar. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/documentation-search-now-embedded-in-azure-data-factory/ba-p/3873890)
-
-## June 2023
-
-### Continuous integration and continuous deployment
-
-npm package now supports pre-downloaded bundle for building ARM templates. If your firewall setting is blocking direct download for your npm package, you can now pre-load the package upfront, and let npm package consume local version instead. This is a super boost for your CI/CD pipeline in a firewalled environment.
-
-### Region expansion
-
-Azure Data Factory is now available in Sweden Central. You can co-locate your ETL workflow in this new region if you are utilizing the region for storing and managing your modern data warehouse. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/continued-region-expansion-azure-data-factory-just-became/ba-p/3857249)
-
-### Data movement
-
-Securing outbound traffic with Azure Data Factory's outbound network rules is now supported. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/securing-outbound-traffic-with-azure-data-factory-s-outbound/ba-p/3844032)
-
-### Connectors
-
-The Amazon S3 connector is now supported as a sink destination using Mapping Data Flows. [Learn more](connector-amazon-simple-storage-service.md)
-
-### Data flow
-
-We introduce optional Source settings for DelimitedText and JSON sources in top-level CDC resource. The top-level CDC resource in data factory now supports optional source configurations for Delimited and JSON sources. You can now select the column/row delimiters for delimited sources and set the document type for JSON sources. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-optional-source-settings-for-delimitedtext-and-json/ba-p/3824274)
 
 ## Related content
 

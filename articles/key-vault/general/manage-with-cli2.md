@@ -205,16 +205,16 @@ az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor
 
 To authorize the application to access the key or secret in the vault, use the `az keyvault set-policy` command.
 
-For example, if your vault name is ContosoKeyVault, the application has an appID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, use the following command:
+For example, if your vault name is ContosoKeyVault and you want to authorize the application to decrypt and sign with keys in your vault, use the following command with your application ID:
 
 ```azurecli
-az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn {application-id} --key-permissions decrypt sign
 ```
 
 To authorize the same application to read secrets in your vault, type the following command:
 
 ```azurecli
-az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn {application-id} --secret-permissions get
 ```
 
 ## Setting key vault advanced access policies
@@ -241,7 +241,7 @@ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 ## Working with Hardware security modules (HSMs)
 
-For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
+For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance). If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 

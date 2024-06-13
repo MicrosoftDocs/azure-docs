@@ -5,7 +5,7 @@ description: Learn how to create a route-based virtual network gateway for a VPN
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/07/2023
+ms.date: 05/07/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,13 +14,20 @@ ms.custom: devx-track-azurepowershell
 
 This article helps you quickly create a route-based Azure VPN gateway using PowerShell. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
 
+A VPN gateway is just one part of a connection architecture to help you securely access resources within a virtual network.
+
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+
+* The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
+* You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
+
 ## Before you begin
 
 The steps in this article will create a VNet, a subnet, a gateway subnet, and a route-based VPN gateway (virtual network gateway). Once the gateway creation has completed, you can then create connections. These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [powershell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## Create a resource group
 
@@ -81,7 +88,7 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="PublicIP"></a>Request a public IP address
 
-A VPN gateway must have an allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. Use the following example to request a public IP address:
+A VPN gateway must have an allocated public IP address. When you create a connection to a VPN gateway, this is the IP address that you specify. Use the following example to request a public IP address. Note that if you want to create a VPN gateway using the Basic gateway SKU, use the following values when requesting a public IP address: `-AllocationMethod Dynamic -Sku Basic`.
 
 ```azurepowershell-interactive
 $gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static

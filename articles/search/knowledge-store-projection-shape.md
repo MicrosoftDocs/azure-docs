@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/31/2023
+ms.date: 03/18/2024
 ---
 
 # Shaping data for projection into a knowledge store

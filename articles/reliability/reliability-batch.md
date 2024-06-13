@@ -58,7 +58,7 @@ Azure Batch account doesn't reallocate or create new nodes to compensate for nod
 To prepare for a possible availability zone failure, you should over-provision capacity of service to ensure that the solution can tolerate 1/3 loss of capacity and continue to function without degraded performance during zone-wide outages. Since the platform spreads VMs across three zones and you need to account for at least the failure of one zone, multiply peak workload instance count by a factor of zones/(zones-1), or 3/2. For example, if your typical peak workload requires four instances, you should provision six instances: (2/3 * 6 instances) = 4 instances.
 
 
-### Availability zone redeployment and migration
+### Availability zone migration
 
 You can't migrate an existing Batch pool to availability zone support. If you wish to recreate your Batch pool across availability zones, see [Create an Azure Batch pool across availability zones](/azure/batch/create-pool-availability-zones).
 
