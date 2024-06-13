@@ -17,8 +17,8 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 
 | Version | New in this release |
 |---|---|
-| 3.3.1.0 | - Microsoft-registered App ID support for Microsoft Entra ID authentication Audience for point-to-site connections<br> - TLS 1.3 support (requires TLS1.3 in Azure VPN Gateway) <br> - Better integrations with Feedback Hub (also valid for previous versions)<br> - Client stability improvements <br>- Minor bug fixes |
-| 3.2.0.0 | - Microsoft Entra authentication is now available from the settings page<br> - Accessibility Improvements<br>- Connection logs in UTCM<br>- Minor bug fixes
+| 3.3.1.0 | - Microsoft-registered App ID Audience support for Microsoft Entra ID authentication <br> - TLS 1.3 support (requires TLS1.3 in Azure VPN Gateway) <br> - Better integrations with Feedback Hub (also valid for previous versions)<br> - Client stability improvements <br>- Minor bug fixes |
+| 3.2.0.0 | - Microsoft Entra authentication is now available from the settings page<br> - Accessibility Improvements<br>- Connection logs in UTCM<br>- Minor bug fixes |
 
 ## Azure VPN Client - Linux
 
