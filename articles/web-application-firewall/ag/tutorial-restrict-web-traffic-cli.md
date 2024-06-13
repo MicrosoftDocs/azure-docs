@@ -21,7 +21,7 @@ In this article, you learn how to:
  * Create a virtual machine scale set
  * Create a storage account and configure diagnostics
 
-![Web Application Firewall example](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
+:::image type="content" source="../media/tutorial-restrict-web-traffic-cli/scenario-waf.png" alt-text="Diagram of the Web application firewall example." lightbox="../media/tutorial-restrict-web-traffic-cli/scenario-waf.png":::
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 

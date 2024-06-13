@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 06/13/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 #CustomerIntent: As an Azure administrator, I want to manage Network Watcher instance in Azure regions based on my team's needs to Network Watcher capabilities in those regions.
@@ -20,8 +20,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 > [!NOTE]
 > - By default, Network Watcher is automatically enabled. When you create or update a virtual network in your subscription, Network Watcher will be automatically enabled in your Virtual Network's region.
 > - Automatically enabling Network Watcher doesn't affect your resources or associated charge.
-> - If you previously chose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually [enable Network Watcher](#enable-network-watcher-for-your-region) in each region where you want to use Network Watcher capabilities.
-> - Network Watcher can be enabled for these [Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=network-watcher&regions=all).
+> - If you previously chose to [opt out of Network Watcher automatic enablement](#opt-out-of-network-watcher-automatic-enablement), you must manually [enable Network Watcher](#enable-network-watcher-for-your-region) in each region where you want to use Network Watcher capabilities. For more information, see [Network Watcher Azure regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=network-watcher&regions=all).
 
 ## Prerequisites
 
@@ -33,7 +32,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure PowerShell.
 
@@ -43,7 +42,7 @@ Network Watcher is enabled in an Azure region through the creation of a Network 
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Azure Cloud Shell or Azure CLI.
     
