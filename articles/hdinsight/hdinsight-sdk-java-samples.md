@@ -4,7 +4,7 @@ description: Find Java examples on GitHub for common tasks using the HDInsight S
 ms.custom: devx-track-java, devx-track-extended-java
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 06/09/2023
+ms.date: 06/13/2024
 ---
 
 # Azure HDInsight: Java samples

@@ -4,7 +4,7 @@ description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolki
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/09/2023
+ms.date: 06/13/2024
 ---
 
 # Debug Apache Spark applications on an HDInsight cluster with Azure Toolkit for IntelliJ through SSH

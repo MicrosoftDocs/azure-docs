@@ -3,7 +3,7 @@ title: Azure HDInsight highly available solution architecture case study
 description: This article is a fictional case study of a possible Azure HDInsight highly available solution architecture.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ---
 
 # Azure HDInsight highly available solution architecture case study
