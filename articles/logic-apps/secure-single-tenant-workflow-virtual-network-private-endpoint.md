@@ -12,7 +12,7 @@ ms.date: 01/10/2024
 
 # Secure traffic between Standard logic apps and Azure virtual networks using private endpoints
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 To securely and privately communicate between your workflow in a Standard logic app and an Azure virtual network, you can set up *private endpoints* for inbound traffic and use virtual network integration for outbound traffic.
 
