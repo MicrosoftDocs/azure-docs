@@ -116,19 +116,21 @@ Now that you have deployed a cluster with a single data center, you can either s
 
 ### Horizontal scale
 
-To scale out on nodes, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
+To scale out or scale in on nodes, move the slider to the desired number, or just edit the value. When finished, hit `Scale`. 
 
 :::image type="content" source="./media/create-cluster-portal/datacenter-scale-2.png" alt-text="Screenshot of selecting number of datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-scale-2.png" border="true":::
 
 
 ### Vertical scale
 
-To scale up to a more powerful SKU size for your nodes, select from the `Sku Size` dropdown. When finished, hit `Scale`. 
+To scale up or to scale down SKU size for your nodes, select from the `Sku Size` dropdown. When finished, hit `Scale`. 
 
 :::image type="content" source="./media/create-cluster-portal/datacenter-scale-3.png" alt-text="Screenshot of selecting Sku Size." lightbox="./media/create-cluster-portal/datacenter-scale-3.png" border="true":::
 
 > [!NOTE]
 > The length of time it takes for a scaling operation depends on various factors, it may take several minutes. When Azure notifies you that the scale operation has completed, this does not mean that all your nodes have joined the Cassandra ring. Nodes will be fully commissioned when they all display a status of "healthy", and the datacenter status reads "succeeded".
+
+> Scaling is an online operation and works in the same manner as described in patching for [Management operations](management-operations.md#patching)
 
 ## Add a datacenter
 
