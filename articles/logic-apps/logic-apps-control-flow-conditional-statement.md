@@ -10,7 +10,7 @@ ms.date: 08/08/2023
 
 # Add conditions to control workflow actions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you want to set up a condition that returns true or false and have the result determine whether your workflow runs one path of actions or another, add the **Control** action named **Condition** to your workflow. You can also nest conditions inside each other.
 

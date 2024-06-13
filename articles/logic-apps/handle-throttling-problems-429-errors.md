@@ -10,7 +10,7 @@ ms.date: 01/10/2024
 
 # Handle throttling problems (429 - "Too many requests" errors) in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 If your logic app workflow experiences throttling, which happens when the number of requests exceed the rate at which the destination can handle over a specific amount of time, you get the ["HTTP 429 Too many requests" error](https://developer.mozilla.org/docs/Web/HTTP/Status/429). Throttling can create problems such as delayed data processing, reduced performance speed, and errors such as exceeding the specified retry policy.
 
