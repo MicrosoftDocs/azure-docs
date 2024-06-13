@@ -264,7 +264,7 @@ _Details:_
 
 ```c#
 string query = $"/studies/{studyInstanceUid}/series?SeriesInstanceUID={seriesInstanceUid}";
-DicomWebResponse response = await client.QueryStudyAsync(query);
+DicomWebResponse response = await client.QueryStudySeriesAsync(studyInstanceUid, query);
 ```
 
 Validates that the response includes one series, and that the response code is OK.
