@@ -364,7 +364,7 @@ Architecture      : x64
 
 Adding COM ports requires disabling Secure Boot. Hence, COM ports are disabled by default in Trusted Launch VMs.
 
-## Boot types and issues
+## Troubleshooting boot issues
 
 Feature specific states, boot types, and common boot issues.
 
