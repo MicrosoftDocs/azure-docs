@@ -29,7 +29,7 @@ When enforcing a policy, you can determine its effect over the resulting evaluat
   
 ## Available Built-In Policy Definitions
 
-Predetermined policies, referred to as 'built-ins', facilitate governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the key vault and its objects before enforcing a deny operation to prevent outages. Current built-ins for Azure Key Vault are categorized in four major groups: key vault, certificates, keys, and secrets management. Within each category, policies are grouped towards driving specific security goals.
+Predetermined policies, referred to as 'built-ins', facilitate governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resourcebefore enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../../governance/policy/samples/built-in-policies#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
 
 ## Enabling and managing a load testing policy through the Azure portal
 
@@ -54,9 +54,9 @@ Predetermined policies, referred to as 'built-ins', facilitate governance over y
 
 ### Assign a Policy to a Scope 
 
-1. Select a policy you wish to apply, in this example, the **MALT policy for VNet** policy is shown. Click the assign button in the top-left corner.
+1. Select a policy you wish to apply, in this example, the **Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network** policy is shown. Click the assign button in the top-left corner.
 
-    ![Screenshot that shows the MALT policy for VNet policy.](../media/policy-img5.png)
+    ![Screenshot that shows the Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network policy.](../media/policy-img5.png)
   
 1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
 
