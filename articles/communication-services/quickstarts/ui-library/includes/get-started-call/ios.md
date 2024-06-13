@@ -219,7 +219,7 @@ let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_
 
 #### Join via Teams Meeting ID and Passcode
 
-The `TeamsMeetingIdLocator` locates a meeting using a meeting ID and passcode. These can be found under a Teams meeting's join info.
+The `teamMeetingId` locates a meeting using a meeting ID and passcode. These can be found under a Teams meeting's join info.
 A Teams meeting ID is 12 characters long and consists of numeric digits grouped in threes (i.e. `000 000 000 000`).
 A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
 
