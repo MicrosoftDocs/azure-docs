@@ -15,7 +15,7 @@ Agentless vulnerability assessment uses the Microsoft Defender Vulnerability Man
 
 ## Compatibility with agent-based vulnerability assessment solutions
 
-Defender for Cloud already supports different agent-based vulnerability scans, including [Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md) (MDVM), [BYOL](deploy-vulnerability-assessment-byol-vm.md) and [Qualys](deploy-vulnerability-assessment-vm.md). Agentless scanning extends the visibility of Defender for Cloud to reach more devices.
+Defender for Cloud already supports different agent-based vulnerability scans, including [Microsoft Defender Vulnerability Management (MDVM)](deploy-vulnerability-assessment-defender-vulnerability-management.md), [BYOL](deploy-vulnerability-assessment-byol-vm.md) and [Qualys](deploy-vulnerability-assessment-vm.md). Agentless scanning extends the visibility of Defender for Cloud to reach more devices.
 
 When you enable agentless vulnerability assessment:
 
