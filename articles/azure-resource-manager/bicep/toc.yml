@@ -603,7 +603,7 @@
     items:
     - name: All codes
       href: bicep-error-codes.md
-    - name: BCP033 
+    - name: BCP033
       href: bicep-error-bcp033.md
     - name: BCP035
       href: bicep-error-bcp035.md
