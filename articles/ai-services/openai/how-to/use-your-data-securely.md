@@ -16,7 +16,7 @@ recommendations: false
 
 > [!Note]
 > Since June 2024, the form application of the Microsoft managed private endpoint to Azure AI Search is no longer needed.
-> The managed private endpoint will be deleted from Microsoft managed virtual network at July 2025. If you have already provisioned managed private endpoint through the form application process before June 2024, please migrate to the [Azure AI Service trusted service](#enable-inbound-trusted-service-of-search-resource) as early as possible to avoid service disruption. 
+> The managed private endpoint will be deleted from Microsoft managed virtual network at July 2025. If you have already provisioned managed private endpoint through the form application process before June 2024, please migrate to the [Azure AI Service trusted service](#enable-trusted-service-of-search-resource) as early as possible to avoid service disruption. 
 
 Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints.
 
@@ -210,10 +210,6 @@ To enable role-based access control via the REST API, set `authOptions` as `aadO
 }
 ```
 
-### Enable inbound trusted service of Search resource
-
-TBD
-Update diagrams
 
 ### Disable public network access
 
@@ -221,6 +217,32 @@ You can disable public network access of your Azure AI Search resource in the Az
 
 To allow access to your Azure AI Search resource from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/search/service-create-private-endpoint) that connect to your Azure AI Search resource.
 
+
+### Enable trusted service of search resource
+
+You can enable trusted service of your search resource from Azure portal.
+
+Go to search resource network tab, when the public network access is disabled, check the checkbox of "Allow Azure services on the trusted services list to access this search service."
+
+:::image type="content" source="../media/use-your-data/search-trusted-service.png" alt-text="A diagram showing the search trusted service." lightbox="../media/use-your-data/search-trusted-service.png":::
+
+You can also use REST API to enable search trusted service. The example below uses the Azure CLI and `jq` tool.
+
+```bash
+rid=/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.Search/searchServices/<YOUR-RESOURCE-NAME>
+apiVersion=2024-03-01-Preview
+#store the resource properties in a variable
+az rest --uri "https://management.azure.com$rid?api-version=$apiVersion" > search.json
+
+#replace bypass with AzureServices using jq
+jq '.properties.networkRuleSet.bypass = "AzureServices"' search.json > search_updated.json
+
+#apply the updated properties to the resource
+az rest --uri "https://management.azure.com$rid?api-version=$apiVersion" \
+    --method PUT \
+    --body @search_updated.json
+
+```
 
 ### Create shared private link
 
