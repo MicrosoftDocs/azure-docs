@@ -6,6 +6,7 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 04/01/2024
 ms.author: cherylmc
+ms.custom: references_regions
 ---
 
 # Azure Bastion FAQ
@@ -30,9 +31,10 @@ Azure Bastion doesn't move or store customer data out of the region it's deploye
 
 ### <a name="az"></a>Does Azure Bastion support availability zones?
 
-Some regions support the ability to deploy Azure Bastion in an availability zone (or multiple, for zone redundancy).
-To deploy zonally, you can select the availability zones you want to deploy under instance details when you deploy Bastion using manually specified settings. You can't change zonal availability after Bastion is deployed.
+[!INCLUDE [Availability Zones description and supported regions](../../includes/bastion-availability-zones-description.md)]
+
 If you aren't able to select a zone, you might have selected an Azure region that doesn't yet support availability zones.
+
 For more information about availability zones, see [Availability Zones](../reliability/availability-zones-overview.md?tabs=azure-cli).
 
 ### <a name="vwan"></a>Does Azure Bastion support Virtual WAN?
@@ -233,7 +235,7 @@ Yes, existing sessions on the target Bastion resource will disconnect during mai
 
 ### I'm connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md).
+If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
 
 ## <a name="peering"></a>VNet peering FAQs
 

@@ -13,7 +13,7 @@ ms.date: 04/16/2021
 
 Refer to this link to learn more about [BOS:311](https://www.cityofboston.gov/311/).
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Volume and retention
 

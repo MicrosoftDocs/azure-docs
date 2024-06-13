@@ -4,7 +4,7 @@ titlesuffix: Azure Managed Grafana
 description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
 ms.service: managed-grafana
 ms.topic: troubleshooting
-ms.date: 01/23/2024
+ms.date: 05/23/2024
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -30,22 +30,24 @@ Azure Managed Grafana has the following known limitations:
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
-* Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com)
+* Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
 
-* Some Azure Managed Grafana features aren't available in Azure Government and Microsoft Azure operated by 21Vianet due to limitations in these specific environments. This following table lists the feature differences.
+## Feature availability in sovereign clouds
 
-  | Feature | Azure Government | Microsoft Azure operated by 21Vianet |
-  |---------|:------------:|:------------:|
-  | Private link | &#x274C; | &#x274C; |
-  | Managed private endpoint | &#x274C; | &#x274C; |
-  | Team sync with Microsoft Entra ID | &#x274C; | &#x274C; |
-  | Enterprise plugins | &#x274C; | &#x274C; |
+Some Azure Managed Grafana features aren't available in Azure Government and Microsoft Azure operated by 21Vianet due to limitations in these specific environments. The following table lists these differences.
+
+| Feature                           | Azure Government | Microsoft Azure operated by 21Vianet (Preview) |
+|-----------------------------------|:----------------:|:----------------------------------------------:|
+| Private link                      |   Not supported  |                  Not supported                 |
+| Managed private endpoint          |   Not supported  |                  Not supported                 |
+| Team sync with Microsoft Entra ID |      Preview     |                     Preview                    |
+| Enterprise plugins                |   Not supported  |                  Not supported                 |
 
 ## Throttling limits and quotas
 
 The following quotas apply to the Essential (preview) and Standard plans.
 
-[!INCLUDE [Azure Managed Grafana limits](../../includes/azure-managed-grafana-limits.md)]
+[!INCLUDE [Azure Managed Grafana limits](~/reusable-content/ce-skilling/azure/includes/azure-managed-grafana-limits.md)]
 
 Each data source also has its own limits that can be reflected in Azure Managed Grafana dashboards, alerts and reports. We recommend that you research these limits in the documentation of each data source provider. For instance:
 

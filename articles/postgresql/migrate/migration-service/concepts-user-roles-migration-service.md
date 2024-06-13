@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Migration of user roles, ownerships, and privileges for the migrations service in Azure Database for PostgreSQL
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 > [!IMPORTANT]  
 > The migration of user roles, ownerships, and privileges feature is available only for the Azure Database for PostgreSQL Single server as the source. This feature is currently disabled for PostgreSQL version 16 servers.

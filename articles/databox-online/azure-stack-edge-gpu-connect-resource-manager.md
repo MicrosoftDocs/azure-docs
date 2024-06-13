@@ -52,7 +52,7 @@ The following sections detail each of the above steps in connecting to Azure Res
 
 ## Prerequisites
 
-Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge device](azure-stack-edge-gpu-configure-tls-settings.md).
+Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge device](azure-stack-edge-gpu-configure-tls-settings.yml).
 
 ## Step 1: Configure Azure Stack Edge device
 

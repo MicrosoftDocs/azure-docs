@@ -59,6 +59,7 @@ Ubuntu packages NVIDIA proprietary drivers. Those drivers come directly from NVI
    ```bash
    sudo ubuntu-drivers install
    ```
+   Reboot the VM after the GPU driver is installed.
 3. Download and install the CUDA toolkit from NVIDIA:
     > [!NOTE]
    >  The example shows the CUDA package path for Ubuntu 22.04 LTS. Replace the path specific to the version you plan to use.

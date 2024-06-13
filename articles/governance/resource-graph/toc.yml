@@ -8,17 +8,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run your first query - Portal
-    displayName: portal, resource, graph, explorer
+  - name: Run a query - Azure portal
+    displayName: portal, resource, az graph, explorer
     href: ./first-query-portal.md
-  - name: Run your first query - Azure CLI
-    displayName: extension, docker
+  - name: Run a query - Azure CLI
+    displayName: extension, docker, resource, graph, explorer
     href: ./first-query-azurecli.md
-  - name: Run your first query - Azure PowerShell
+  - name: Run a query - Azure PowerShell
     displayName: module, docker, Az.ResourceGraph
     href: ./first-query-powershell.md
-  - name: Run your first query - REST
-    displayName: armclient, postman
+  - name: Run a query - REST
+    displayName: az rest
     href: ./first-query-rest-api.md
   - name: Create a shared query - Azure CLI
     displayName: extension, docker, queries
@@ -36,7 +36,7 @@
     displayName: queries, powershell, Az.ResourceGraph
     href: ./paginate-powershell.md
   - name: Create alert on ARG query
-    displayName: alerts, portal, resource graph, monitor, log analytics, query
+    displayName: alerts, portal, resource graph, monitor agent, log analytics, query
     href: ./alerts-query-quickstart.md
   - name: Run ARG query with Power BI connector
     displayName: portal, resource graph, query, power bi connector

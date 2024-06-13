@@ -31,8 +31,8 @@ Here's a list of code samples written by Azure Web PubSub team and the community
 ::: zone pivot="method-javascript"
 | App scenario                                        | Industry          | 
 | --------------------------------------------------- | ----------------- |
-| [Cross-platform chat](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Social | 
-| [Collaborative code editor](https://github.com/Azure/azure-webpubsub/blob/main/samples/csharp/chatapp/Startup.cs#L29) | Modern work | 
+| [Cross-platform chat](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp) | Social | 
+| [Collaborative code editor](https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp) | Modern work | 
 ::: zone-end
 
 ::: zone pivot="method-java"

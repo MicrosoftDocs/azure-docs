@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 04/22/2024
 ---
 
 # Index JSON blobs and files in Azure AI Search
@@ -35,6 +35,10 @@ The blob indexer provides a `parsingMode` parameter to optimize the output of th
 For both **`jsonArray`** and **`jsonLines`**, you should review [Indexing one blob to produce many search documents](search-howto-index-one-to-many-blobs.md) to understand how the blob indexer handles disambiguation of the document key for multiple search documents produced from the same blob.
 
 Within the indexer definition, you can optionally set [field mappings](search-indexer-field-mappings.md) to choose which properties of the source JSON document are used to populate your target search index. For example, when using the **`jsonArray`** parsing mode, if the array exists as a lower-level property, you can set a "documentRoot" property indicating where the array is placed within the blob.
+
+> [!NOTE]
+> When a JSON parsing mode is used, Azure AI Search assumes that all blobs use the same parser (either for **`json`**, **`jsonArray`** or **`jsonLines`**). If you have a mix of different file types in the same data source, consider using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported.
+
 
 The following sections describe each mode in more detail. If you're unfamiliar with indexer clients and concepts, see [Create a search indexer](search-howto-create-indexers.md). You should also be familiar with the details of [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md), which isn't repeated here.
 
@@ -73,6 +77,7 @@ api-key: [admin key]
 
 > [!NOTE]
 > As with all indexers, if fields do not clearly match, you should expect to explicitly specify individual [field mappings](search-indexer-field-mappings.md) unless you are using the implicit fields mappings available for blob content and metadata, as described in [basic blob indexer configuration](search-howto-indexing-azure-blob-storage.md).
+
 
 ### json example (single hotel JSON files)
 

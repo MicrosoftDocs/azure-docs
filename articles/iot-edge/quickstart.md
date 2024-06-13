@@ -5,7 +5,7 @@ author: PatAltimore
 manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 1/31/2023
+ms.date: 03/25/2024
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-other, linux-related-content
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own Windows Client device to see how easy it is to use Azure IoT Edge for Linux on Windows. If you wish to use Windows Server or an Azure VM to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md).
 
@@ -191,13 +191,24 @@ Follow these steps to deploy your first module from Azure Marketplace.
 
    Choose which modules you want to run on your device. You can choose from modules that you've already created, modules from Azure Marketplace, or modules that you've built yourself. In this quickstart, you'll deploy a module from Azure Marketplace.
 
-1. Under **IoT Edge Modules**, open the **Add** drop-down menu, and then select **Marketplace Module**.
+1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
+1. Update the following module settings:
 
-1. In **IoT Edge Module Marketplace**, search for and select the `Simulated Temperature Sensor` module. The module is added to the IoT Edge Modules section with the desired **running** status.
+    | Setting            | Value                                                                |
+    |--------------------|----------------------------------------------------------------------|
+    | IoT Module name    | `SimulatedTemperatureSensor`                                         |
+    | Image URI          | `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:latest` |
+    | Restart policy     | always                                                               |
+    | Desired status     | running                                                              |
 
 1. Select **Next: Routes** to continue to configure routes.
 
-    A route named *SimulatedTemperatureSensorToIoTHub* was created automatically when you added the module from Azure Marketplace. This route sends all messages from the simulated temperature module to IoT Hub.
+1. Add a route that sends all messages from the simulated temperature module to IoT Hub.
+
+    | Setting                          | Value                                      |
+    |----------------------------------|--------------------------------------------|
+    | Name                             | `SimulatedTemperatureSensorToIoTHub`       |
+    | Value                            | `FROM /messages/modules/SimulatedTemperatureSensor/* INTO $upstream` |
 
 1. Select **Next: Review + create**.
 

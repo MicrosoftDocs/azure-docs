@@ -39,7 +39,7 @@ There are two ways that you can add a condition. You can add a condition when yo
 
 ### New role assignment
 
-1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 1. On the **Conditions (optional)** tab, click **Add condition**.
 

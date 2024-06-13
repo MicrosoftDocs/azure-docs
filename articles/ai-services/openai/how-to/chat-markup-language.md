@@ -5,7 +5,7 @@ description: Learn how to work with Chat Markup Language (preview)
 author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: azure-ai-openai
-ms.topic: include
+ms.topic: how-to
 ms.date: 04/05/2024
 manager: nitinme
 keywords: ChatGPT
@@ -14,7 +14,7 @@ keywords: ChatGPT
 # Chat Markup Language ChatML (Preview)
 
 > [!IMPORTANT]
-> Using GPT-3.5-Turbo models with the completion endpoint as described in this article remains in preview and is only possible with `gpt-35-turbo` version (0301) which is [slated for retirement as early as June 13th, 2024](../concepts/model-retirements.md#current-models). We strongly recommend using the [GA Chat Completion API/endpoint](./chatgpt.md). The Chat Completion API is the recommended method of interacting with the GPT-3.5-Turbo models. The Chat Completion API is also the only way to access the GPT-4 models.
+> Using GPT-3.5-Turbo models with the completion endpoint as described in this article remains in preview and is only possible with `gpt-35-turbo` version (0301) which is [slated for retirement as early as August 1, 2024](../concepts/model-retirements.md#current-models). We strongly recommend using the [GA Chat Completion API/endpoint](./chatgpt.md). The Chat Completion API is the recommended method of interacting with the GPT-3.5-Turbo models. The Chat Completion API is also the only way to access the GPT-4 models.
 
 The following code snippet shows the most basic way to use the GPT-3.5-Turbo models with ChatML. If this is your first time using these models programmatically we recommend starting with our [GPT-35-Turbo & GPT-4 Quickstart](../chatgpt-quickstart.md).
 

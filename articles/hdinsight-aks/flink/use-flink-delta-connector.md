@@ -3,7 +3,7 @@ title: How to use Apache Flink® on HDInsight on AKS with Flink/Delta connector
 description: Learn how to use Flink/Delta Connector.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 04/25/2024
 ---
 
 # How to use Flink/Delta Connector
@@ -316,19 +316,27 @@ public class DeltaSourceExample {
     </build>
 </project>
 ```
+
 ## Package the jar and submit it to Flink cluster to run
 
-### Submit the jar on WebSSH pod
+1. Upload the jar to ABFS.
+    :::image type="content" source="./media/use-flink-delta-connector/app-mode-jar.png" alt-text="Screenshot showing App mode jar files." lightbox="./media/use-flink-delta-connector/app-mode-jar.png":::
 
-:::image type="content" source="./media/use-flink-delta-connector/webssh-pod.png" alt-text="Screenshot showing how to submit the jar on WebSSH pod." lightbox="./media/use-flink-delta-connector/webssh-pod.png":::
+1. Pass the job jar information in AppMode cluster.
 
-### Check Job on Flink UI
+    :::image type="content" source="./media/use-flink-delta-connector/cluster-configuration.png" alt-text="Screenshot showing cluster configuration." lightbox="./media/use-flink-delta-connector/cluster-configuration.png":::
 
-:::image type="content" source="./media/use-flink-delta-connector/check-job-on-flink-ui.png" alt-text="Screenshot showing how to check the job on Flink UI." lightbox="./media/use-flink-delta-connector/check-job-on-flink-ui.png":::
+    > [!NOTE]
+    > Always enable `hadoop.classpath.enable` while reading/writing to ADLS.
 
-### Check the delta output on Azure portal
+1. Submit the cluster, you should be able to see the job in Flink UI.
 
-:::image type="content" source="./media/use-flink-delta-connector/delta-output.png" alt-text="Screenshot showing the delta output." lightbox="./media/use-flink-delta-connector/delta-output.png":::
+    :::image type="content" source="./media/use-flink-delta-connector/flink-dashboard.png" alt-text="Screenshot showing Flink dashboard." lightbox="./media/use-flink-delta-connector/flink-dashboard.png":::
+
+1. Find Results in ADLS.
+
+    :::image type="content" source="./media/use-flink-delta-connector/output.png" alt-text="Screenshot showing the output." lightbox="./media/use-flink-delta-connector/output.png":::
+
 
 ## Power BI integration
 
