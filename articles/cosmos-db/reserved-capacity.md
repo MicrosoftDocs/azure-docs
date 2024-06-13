@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB pricing & discounts with Reserved Capacity
-description: Azure Cosmos DB cost optimization with Reserved Capacity.
+description: Azure Cosmos DB pricing allows for various forms of optimization. You may receive discounts of up to 63% savings with Reserved Capacity.
 author: seesharprun
 ms.service: cosmos-db
 ms.topic: conceptual
