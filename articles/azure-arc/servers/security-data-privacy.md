@@ -42,9 +42,11 @@ The Azure Connected Machine agent keeps a set of local logs on each server that 
 ## HIMDS log
 
 The HIMDS log file contains all log data from the HIMDS service. This data includes heartbeat information, connection and disconnection attempts, and a history of REST API requests for IMDS metadata and managed identity tokens from other apps on the system.
-OS	Log location
-Windows	%PROGRAMDATA%\AzureConnectedMachineAgent\Log\himds.log
-Linux	/var/opt/azcmagent/log/himds.log
+
+|OS  |Log location  |
+|---------|---------|
+|Windows |%PROGRAMDATA%\AzureConnectedMachineAgent\Log\himds.log |
+|Linux |/var/opt/azcmagent/log/himds.log |
 
 ## azcmagent CLI log
 

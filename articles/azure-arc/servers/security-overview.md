@@ -42,7 +42,7 @@ Once the Azure Connected Machine agent is installed, you can enable other Azure 
 
 You can use Azure Policy to limit what your organization’s users can do with Azure Arc. Cloud-based restrictions like Azure Policy are a great way to apply security controls at-scale while retaining flexibility to adjust the restrictions at any time. However, sometimes you need even stronger controls to protect against a legitimately privileged account being used to circumvent security measures (for example, disabling policies). To account for this, the Azure Connected Machine agent also has security controls of its own that take precedence over any restrictions set in the cloud.
 
-:::image type="content" source="media/security-basics/connected-machine-agent-architecuture.png" alt-text="Architecure diagram describing how the Azure Connected Machine agent functions.":::
+:::image type="content" source="media/security-basics/connected-machine-agent-architecuture.png" alt-text="Architecure diagram describing how the Azure Connected Machine agent functions." lightbox="media/security-basics/connected-machine-agent-architecuture.png":::
 
 ## Agent services
 
@@ -52,15 +52,15 @@ The Azure Connected Machine agent is a combination of four services/daemons that
 
 The Hybrid Instance Metadata Service (HIMDS) is the “core” service in the agent and is responsible for registering the server with Azure, ongoing metadata synchronization (heartbeats), managed identity operations, and hosting the local REST API which other apps can query to learn about the device’s connection with Azure. This service is unprivileged and runs as a virtual account (NT SERVICE\himds with SID S-1-5-80-4215458991-2034252225-2287069555-1155419622-2701885083) on Windows or a standard user account (himds) on Linux operating systems.
 
-### Extension Manager
+### Extension manager
 
 The extension manager is responsible for installing, configuring, upgrading, and removing additional software on your machine. Out of the box, Azure Arc doesn’t know how to do things like monitor or patch your machine. Instead, when you choose to use those features, the extension manager downloads and enables those capabilities. The extension manager runs as Local System on Windows and root on Linux because the software it installs may require full system access. You can limit which extensions the extension manager is allowed to install or disable it entirely if you don’t intend to use extensions.
 
-### Guest Configuration
+### Guest configuration
 
 The guest configuration service evaluates and enforces Azure machine (guest) configuration policies on your server. These are special Azure policies written in PowerShell Desired State Configuration to check software settings on a server. The guest configuration service regularly evaluates and reports on compliance with these policies and, if the policy is configured in enforce mode, will change settings on your system to bring the machine back into compliance if necessary. The guest configuration service runs as Local System on Windows and root on Linux to ensure it has access to all settings on your system. You can disable the guest configuration feature if you don't intend to use guest configuration policies.
 
-### Azure Arc Proxy
+### Azure Arc proxy
 
 The Azure Arc proxy service is responsible for aggregating network traffic from the Azure Connected Machine agent services and any extensions you’ve installed and deciding where to route that data. If you’re using the Azure Arc Gateway to simplify your network endpoints, the Azure Arc Proxy service is the local component that forwards network requests via the Azure Arc Gateway instead of the default route. The Azure Arc proxy runs as Network Service on Windows and a standard user account (arcproxy) on Linux. It's disabled by default until you configure the agent to use the Azure Arc Gateway.
 
