@@ -195,21 +195,11 @@ To allow your other resources to recognize the Azure AI Search using Microsoft E
 :::image type="content" source="../media/use-your-data/outbound-managed-identity-ai-search.png" alt-text="A screenshot showing the managed identity setting for Azure AI Search in the Azure portal." lightbox="../media/use-your-data/outbound-managed-identity-ai-search.png":::
 
 ### Enable role-based access control
-As Azure OpenAI uses managed identity to access Azure AI Search, you need to enable role-based access control in your Azure AI Search. To do it on Azure portal, select **Both** in the **Keys** tab in the Azure portal.
+As Azure OpenAI uses managed identity to access Azure AI Search, you need to enable role-based access control in your Azure AI Search. To do it on Azure portal, select **Both** or **Role-based access control** in the **Keys** tab in the Azure portal.
 
 :::image type="content" source="../media/use-your-data/managed-identity-ai-search.png" alt-text="A screenshot showing the managed identity option for Azure AI search in the Azure portal." lightbox="../media/use-your-data/managed-identity-ai-search.png":::
 
-To enable role-based access control via the REST API, set `authOptions` as `aadOrApiKey`. For more information, see the [Azure AI Search RBAC article](/azure/search/search-security-rbac?tabs=config-svc-rest%2Croles-portal%2Ctest-portal%2Ccustom-role-portal%2Cdisable-keys-portal#configure-role-based-access-for-data-plane).
-
-```json
-"disableLocalAuth": false,
-"authOptions": { 
-    "aadOrApiKey": { 
-        "aadAuthFailureMode": "http401WithBearerChallenge"
-    }
-}
-```
-
+For more information, see the [Azure AI Search RBAC article](/azure/search/search-security-enable-roles).
 
 ### Disable public network access
 
