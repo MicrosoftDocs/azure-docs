@@ -81,16 +81,15 @@ The script also creates two federated credentials. One credential is used for th
 
 For more detail, see the `./deployment/infra/deploy.sh` script in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
 
-
 ## Validate deployment and run the workload
 
-Upon successful completion of the deployment script, you can use the `./deployment/environmentVariables.sh` to set the environment variables. Use this command:
+Upon successful completion of the deployment script, you can now deploy the workload on the AKS cluster that was created. Before running the workload deployment scripts, you can use `./deployment/environmentVariables.sh` to set the environment variables. Use this command:
 
 ```bash
 source  ./deployment/environmentVariables.sh
 ```
 
-Gou can also use the information contained in the `./deployment/deploy.state` file to set environment variables for the names of the resources created in the deployment. Use the `cat` command to display the file contents:
+You'll also need the information contained in the `./deployment/deploy.state` file to set environment variables for the names of the resources created in the deployment. Use the `cat` command to display the file contents:
 
 ```bash
 cat ./deployment/deploy.state
@@ -122,13 +121,13 @@ export $line; \
 done < ./deployment/deploy.state
 ```
 
-Before you can verify that the KEDA operator is running, first get the AKS cluster credentials using this Azure CLI command:
+Before you verify that the KEDA operator is running, get the AKS cluster credentials by using this Azure CLI command:
 
 ```azurecli
 az aks get-credentials –resource-group $RESOURCE_GROUP –name $AKS_CLUSTER_NAME
 ```
 
-The KEDA operator is installed on the AKS cluster in the kube-system namespace. Use the kubectl command as follows to verify that the KEDA operator pods are running:
+The KEDA operator is installed on the AKS cluster in the `kube-system` namespace. Use the kubectl command as follows to verify that the KEDA operator pods are running:
 
 ```bash
 kubectl get pods –namespace kube-system | grep keda

@@ -15,7 +15,7 @@ To replicate the EDW workload in Azure, your code uses Azure SDKs to work with A
 
 The AWS workload relies on AWS services and their associated data access AWS SDKs. You have already [mapped AWS services to equivalent Azure services](eks-edw-rearchitect.md#map-aws-services-to-azure-services). Now you need to create the code that accesses data for the producer queue and the consumer results database table in Python, using Azure SDKs.
 
-For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. However, the consumer saves results in a database, and the table schema for DynamoDB is incompatible with an equivalent table definition in Azure Table storage. The DynamoDB table schema will need to be remapped to an Azure Table storage table schema. The data access layer code also requires changes. Finally, you need to change the authentication logic for the Azure Storage Queue and the Azure Table storage results table.
+For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. The original consumer app saves the processed messages in a DynamoDB table. With minor modifications to the consumer app code, we can store the processed messages in an Azure Storage Table.
 
 ## Authentication code changes for service-to-service
 
@@ -51,7 +51,7 @@ The AWS workload uses a resource-based policy that defines full access to a Dyna
 }
 ```
 
-In the AWS workload deployment, both these policies are assigned via the AWS CLI in a manner similar to the following:
+In the AWS sample workload deployment, both these policies are assigned via the AWS CLI in a manner similar to the following:
 
 ```bash
 aws iam create-policy --policy-name sqs-sample-policy --policy-document <filepath/filename>.json
@@ -66,7 +66,7 @@ aws iam attach-role-policy --role-name keda-sample-iam-role --policy-arn=arn:aws
 
 ### Azure service-to-service authentication implementation
 
-Next, we’ll explore how to perform similar AWS service-to-service logic within the Azure environment using AKS. To control data plane access to the Azure Storage Queue and the Azure Table storage table, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles aren'tf bundled with the resource, but rather assigned to a service principal associated with a given resource. The user-assigned managed identity linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Table storage automatically use the context of the security principal to access data in both resources.
+Next, let's explore how to perform similar AWS service-to-service logic within the Azure environment using AKS. To control data plane access to the Azure Storage Queue and the Azure Table storage table, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles aren't bundled with the resource, but rather assigned to a service principal associated with a given resource. The user-assigned managed identity linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Table storage automatically use the context of the security principal to access data in both resources.
 
 The [**Storage Queue Data Contributor** role definition](/azure/role-based-access-control/built-in-roles/storage) permits the role assignee to read, write, or delete against the Azure Storage Queue.
 
@@ -128,7 +128,7 @@ response = sqs_client.send_message(
 
 #### Azure producer code implementation
 
-In Azure, an equivalent means of making connections to Azure Storage Queue is to use 'passwordless' OAuth authentication. The [DefaultAzureCredential](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#authorize-access-and-create-a-client-object) Python class is workload identity aware and transparently uses the managed identity associated with workload identity to authenticate to the storage queue.
+In Azure, an equivalent means of making connections to Azure Storage Queue is to use passwordless OAuth authentication. The [DefaultAzureCredential](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#authorize-access-and-create-a-client-object) Python class is workload identity aware, and it transparently uses the managed identity associated with workload identity to authenticate to the storage queue.
 
 The following example shows how to authenticate to an Azure Storage Queue using the `DefaultAzureCredential` class instead of secrets such as a connection string:
 
@@ -150,7 +150,7 @@ The code for the queue producer (`aqs-producer.py`) can be found in our [GitHub 
 
 ## Consumer code changes
 
-In the original AWS code for DynamoDB access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the Azure SDK for Python to interact with CosmosDB services.
+In the original AWS code for DynamoDB access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the Azure SDK for Python to interact with Azure Storage Tables.
 
 ### AWS consumer code implementation
 
@@ -172,7 +172,7 @@ table.put_item(
 
 #### Azure consumer code implementation
 
-Now you need the producer code to authenticate to Azure Cosmos DB. As discussed earlier, the schema used in the preceding section with DynamoDB is incompatible with Azure Cosmos DB. You'll also use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
+Now you need the producer code to authenticate to Azure Storage Table. As discussed earlier, the schema used in the preceding section with DynamoDB is incompatible with Azure Storage Table. Instead, you'll use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
 
 This example shows the code required for Azure:
 
@@ -180,7 +180,10 @@ This example shows the code required for Azure:
 from azure.storage.queue import QueueClient
 from azure.data.tables import (TableServiceClient)
 
-table = TableServiceClient(connection_string=cosmos_conn_string)
+    creds = DefaultAzureCredential()
+    table = TableServiceClient(
+        endpoint=f"https://{storage_account_name}.table.core.windows.net/",  
+        credential=creds).get_table_client(table_name=azure_table)
 
 entity={
     'PartitionKey': _id,
@@ -190,12 +193,12 @@ entity={
     'dateStamp': current_dateTime}
         
 response = table.insert_entity(
-    table_name=cosmosdb_table,
+    table_name=azure_table,
     entity=entity,
     timeout=60)
 ```
 
-Notice that unlike DynamoDB, the Azure Cosmos DB code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the 'id' `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Cosmos DB while the `RowKey` is a `uniqueidentifier` for all the rows in a given partition. In the case of the AWS workload, each partition will contain at most one row, which doesn't necessitate the use of a `RowKey`.
+Notice that unlike DynamoDB, the Azure Storage Table code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the ID `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Storage Table, while the `RowKey` is a `uniqueidentifier` for all the rows in a given partition. In the case of the AWS workload, each partition will contain at most one row, which doesn't necessitate the use of a `RowKey`.
 
 Completed versions of both the producer and consumer code can be found in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
 
