@@ -17,7 +17,7 @@ The PowerShell cmdlets that you use to generate certificates are part of the ope
 
 If you don't have a computer that meets the operating system requirement, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) to generate certificates. The certificates that you generate using either method can be installed on any [supported](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) client operating system.
 
-[!INCLUDE [Generate and export - this include is for both vpn-gateway and virtual-wan](../../includes/vpn-gateway-generate-export-certificates-include.md)]
+[!INCLUDE [Generate and export - this include is for both vpn-gateway and virtual-wan](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-generate-export-certificates-include.md)]
 
 ## <a name="install"></a>Install an exported client certificate
 

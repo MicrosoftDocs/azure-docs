@@ -302,7 +302,7 @@ export OTEL_SERVICE_NAME="my-helloworld-service"
 
 ## Enable Sampling
 
-You might want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a sampling ratio, which Application Insights converts to `ItemCount`. The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights SDKs. For more information, see [Learn More about sampling](sampling.md#brief-summary).
+You might want to enable sampling to reduce your data ingestion volume, which reduces your cost. Azure Monitor provides a custom *fixed-rate* sampler that populates events with a sampling ratio, which Application Insights converts to `ItemCount`. The *fixed-rate* sampler ensures accurate experiences and event counts. The sampler is designed to preserve your traces across services, and it's interoperable with older Application Insights Software Development Kits (SDKs). For more information, see [Learn More about sampling](sampling.md#brief-summary).
 
 > [!NOTE]
 > Metrics and Logs are unaffected by sampling.
@@ -384,6 +384,86 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 > When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
 
 <a name='enable-entra-id-formerly-azure-ad-authentication'></a>
+
+## Live metrics
+
+[Live metrics](live-stream.md) provides a real-time analytics dashboard for insight into application activity and performance.
+
+#### [ASP.NET Core](#tab/aspnetcore)
+
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+This feature is enabled by default.
+
+Users can disable Live Metrics when configuring the Distro.
+
+```csharp
+builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
+	// Disable the Live Metrics feature.
+    options.EnableLiveMetrics = false;
+});
+```
+
+#### [.NET](#tab/net)
+
+This feature isn't available in the Azure Monitor .NET Exporter.
+
+#### [Java](#tab/java)
+
+The Live Metrics experience is enabled by default.
+
+For more information on Java configuration, see [Configuration options: Azure Monitor Application Insights for Java](java-standalone-config.md#configuration-options-azure-monitor-application-insights-for-java).
+
+#### [Node.js](#tab/nodejs)
+
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Users can enable/disable Live Metrics when configuring the Distro using the `enableLiveMetrics` property.
+
+```typescript
+const options: AzureMonitorOpenTelemetryOptions = {
+    azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
+    },
+    enableLiveMetrics: false
+};
+
+useAzureMonitor(options);
+```
+
+<!--
+
+TODO:
+
+This feature is/isn't enabled by default.
+
+Functionality and customization are covered in the following configuration sample.
+
+```
+Configuration sample
+```
+
+-->
+
+#### [Python](#tab/python)
+
+> [!IMPORTANT]
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+You can enable live metrics using the Azure monitor OpenTelemetry Distro for Python as follows:
+
+```python
+...
+configure_azure_monitor(
+	enable_live_metrics=True
+)
+...
+```
+
+---
 
 ## Enable Microsoft Entra ID (formerly Azure AD) authentication
 

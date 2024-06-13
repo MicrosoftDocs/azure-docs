@@ -1,13 +1,13 @@
 ---
 title: CreateUiDefinition.json file for portal pane
 description: Describes how to create user interface definitions for the Azure portal. Used when defining Azure Managed Applications.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2021
 ---
 
 # CreateUiDefinition.json for Azure managed application's create experience
 
-This document introduces the core concepts of the **createUiDefinition.json** file. The Azure portal uses this file to define the user interface when creating a managed application.
+This document introduces the core concepts of the _createUiDefinition.json_ file. The Azure portal uses this file to define the user interface when creating a managed application.
 
 The template is as follows
 
@@ -41,11 +41,11 @@ The schema of the parameters property depends on the combination of the specifie
 
 Including `$schema` is recommended, but optional. If specified, the value for `version` must match the version within the `$schema` URI.
 
-You can use a JSON editor to create your createUiDefinition then test it in the [createUiDefinition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
+You can use a JSON editor to create your createUiDefinition then test it in the [createUiDefinition Sandbox](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
 
 ## Config
 
-The `config` property is optional. Use it to either override the default behavior of the basics step, or to set your interface as a step-by-step wizard. If `config` is used, it's the first property in the **createUiDefinition.json** file's `parameters` section. The following example shows the available properties.
+The `config` property is optional. Use it to either override the default behavior of the basics step, or to set your interface as a step-by-step wizard. If `config` is used, it's the first property in the _createUiDefinition.json_ file's `parameters` section. The following example shows the available properties.
 
 ```json
 "config": {
@@ -200,7 +200,7 @@ CreateUiDefinition provides [functions](create-uidefinition-functions.md) for wo
 
 ## Next steps
 
-The createUiDefinition.json file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:
+The _createUiDefinition.json_ file itself has a simple schema. The real depth of it comes from all the supported elements and functions. Those items are described in greater detail at:
 
 - [Elements](create-uidefinition-elements.md)
 - [Functions](create-uidefinition-functions.md)

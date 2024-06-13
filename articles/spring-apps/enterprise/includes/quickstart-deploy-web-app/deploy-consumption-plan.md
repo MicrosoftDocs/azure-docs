@@ -72,7 +72,7 @@ Use the following steps to create an Azure Spring Apps instance and an Azure Dat
 
 ### 3.1. Sign in to the Azure portal
 
-Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/), enter your credentials, and sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 

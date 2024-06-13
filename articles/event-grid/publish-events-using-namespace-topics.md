@@ -2,9 +2,9 @@
 title: Publish and consume events using namespace topics
 description: This article provides step-by-step instructions to publish events to Azure Event Grid in the CloudEvents JSON format and consume those events by using the pull delivery model.
 ms.topic: quickstart
-ms.custom: ignite-2023, devx-track-azurecli
-ms.author: jafernan
-author: jfggdl
+ms.custom: ignite-2023, devx-track-azurecli, build-2024
+ms.author: robece
+author: robece
 ms.date: 02/20/2024
 ---
 
@@ -13,7 +13,7 @@ ms.date: 02/20/2024
 This article provides a quick introduction to pull delivery using the ``curl`` bash shell command to publish, receive, and acknowledge events. Event Grid resources are created using CLI commands. This article is suitable for a quick test of the pull delivery functionality. For sample code using the data plane SDKs, see the [.NET](event-grid-dotnet-get-started-pull-delivery.md) or the Java samples. For Java, we provide the sample code in two articles: [publish events](publish-events-to-namespace-topics-java.md) and [receive events](receive-events-from-namespace-topics-java.md) quickstarts.
  For more information about the pull delivery model, see the [concepts](concepts-event-grid-namespaces.md) and [pull delivery overview](pull-delivery-overview.md) articles.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

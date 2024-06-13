@@ -49,7 +49,7 @@ In this article, you learn how to create, change, enable, disable, or delete a v
 
 Create a flow log for your virtual network, subnet, or network interface. This flow log is saved in an Azure storage account.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -99,7 +99,7 @@ Enable traffic analytics for a flow log to analyze the flow log data. Traffic an
 
 To enable traffic analytics for a flow log, follow these steps:
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -129,7 +129,7 @@ To disable traffic analytics for a flow log, take the previous steps 1-3, then u
 
 You can configure and change a flow log after you create it. For example, you can change the storage account or Log Analytics workspace.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -151,7 +151,7 @@ You can configure and change a flow log after you create it. For example, you ca
 
 You can list all flow logs in a subscription or a group of subscriptions. You can also list all flow logs in a region.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -163,7 +163,7 @@ You can list all flow logs in a subscription or a group of subscriptions. You ca
 
 You can view the details of a flow log in a subscription or a group of subscriptions. You can also list all flow logs in a region.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -179,7 +179,7 @@ You can view the details of a flow log in a subscription or a group of subscript
 
 You can download the flow logs data from the storage account that you saved the flow log to.
 
-1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter *storage accounts*. Select **Storage accounts** from the search results.
 
 1. Select the storage account you used to store the logs.
 
@@ -206,7 +206,7 @@ For information about the structure of a flow log, see [Log format of virtual ne
 
 You can temporarily disable a virtual network flow log without deleting it. Disabling a flow log stops flow logging for the associated virtual network. However, the flow log resource remains with all its settings and associations. You can re-enable it at any time to resume flow logging for the configured virtual network.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -223,7 +223,7 @@ You can temporarily disable a virtual network flow log without deleting it. Disa
 
 You can enable a virtual network flow log that you previously disabled to resume flow logging with the same settings you previously selected. 
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -237,7 +237,7 @@ You can enable a virtual network flow log that you previously disabled to resume
 
 You can permanently delete a virtual network flow log. Deleting a flow log deletes all its settings and associations. To begin flow logging again for the same virtual network, you must create a new flow log for it.
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
