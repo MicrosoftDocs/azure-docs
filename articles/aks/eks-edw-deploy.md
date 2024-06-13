@@ -19,7 +19,7 @@ Before running the `deploy.sh` script, sign in to Azure by running the following
 az login
 ```
 
-If your Azure account has multiple subscriptions, make sure you have selected the correct subscription. To list the names and IDs of your subscriptions, run the following command:
+If your Azure account has multiple subscriptions, make sure to select the correct subscription. To list the names and IDs of your subscriptions, run the following command:
 
 ```bash
 az account list --query "[].{id: id, name:name }" --output table
@@ -74,7 +74,7 @@ The script creates the following Azure resources:
 
 In addition to these resources, the script also creates two user assigned managed identities:
 
-- AKS cluster managed identity – The deployment script assigns the `acrPull` role to this identity, which is assigned to the AKS cluster when it is created. This managed identity facilitates access to the attached ACR for pulling images.
+- AKS cluster managed identity – The deployment script assigns the `acrPull` role to this identity, which is assigned to the AKS cluster when it's created. This managed identity facilitates access to the attached ACR for pulling images.
 - Workload identity – This managed identity is associated with the Kubernetes service account used as the identity for pods on which the consumer app containers are deployed. This provides role-based access control (RBAC) access to Azure resources, based on the level of access granted to the pod, instead of relying on secrets. For this workflow, the managed identity is assigned the **Storage Queue Data Contributor** and **Storage Table Data Contributor** roles.
 
 The script also creates two federated credentials. One credential is used for the managed identity used to implement pod identity. The other credential is used for the KEDA operator service account, providing access for the KEDA scaler to gather the metrics needed to control pod autoscaling.
@@ -153,7 +153,7 @@ chmod +x ./deployment/keda/deploy-keda-app-workload-id.sh
 ./deployment/keda/deploy-keda-app-workload-id.sh
 ```
 
-The deployment script (`deploy-keda-app-workload-id.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws) performs templating on the application manifest YAML specification to pass environment variables to the pod. The following is an exceprt from the script:
+The deployment script (`deploy-keda-app-workload-id.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws) performs templating on the application manifest YAML specification to pass environment variables to the pod. Review the following excert from this script:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -195,9 +195,9 @@ spec:
 EOF
 ```
 
-Notice the label `azure.workload.identity/use` in the `spec/template` section, which is the pod template for the deployment. Setting the label to `true` specifies that we are using workload identity. The `serviceAccountName` in the pod specification specifies the Kubernetes service account to associate with the workload identity.
+Notice the label `azure.workload.identity/use` in the `spec/template` section, which is the pod template for the deployment. Setting the label to `true` specifies that you're using workload identity. The `serviceAccountName` in the pod specification specifies the Kubernetes service account to associate with the workload identity.
 
-Also notice that even though the pod specification contains a reference for an image in a private repository, there is no `imagePullSecret` specified.
+Also notice that even though the pod specification contains a reference for an image in a private repository, there's no `imagePullSecret` specified.
 
 To verify that the script has run successfully, use the following kubectl command:
 
@@ -261,15 +261,15 @@ spec:
 EOF
 ```
 
-The manifest describes two resources.  The `TriggerAuthentication` object specifies to KEDA that the scaled object is using pod identity for authentication. The `identityID` property refers to the managed identity that was to use as the workload identity.
+The manifest describes two resources. The `TriggerAuthentication` object specifies to KEDA that the scaled object is using pod identity for authentication. The `identityID` property refers to the managed identity that was to use as the workload identity.
 
-When the scaled object is correctly installed and KEDA detects the scaling threshold is exceeded, it begins scheduling pods. If you are using k9s, you should see something like this:
+When the scaled object is correctly installed and KEDA detects the scaling threshold is exceeded, it begins scheduling pods. If you're using k9s, you should see something like this:
 
 :::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
 
 Finally, if you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes. Using k9s, you should see something like this:
 
-:::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
+:::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" alt-text="Screenshot showing an example of the K9s view with scheduling nodes.":::
 
 In these two images, notice how the number of nodes whose name contains `aks-default` node pool has increased from one to three nodes. If you stop the producer app from putting messages on the queue, eventually the consumers will reduce the queue depth below the threshold and both KEDA and Karpenter will scale in. Using k9s, you should see something like this:
 
@@ -277,5 +277,5 @@ In these two images, notice how the number of nodes whose name contains `aks-def
 
 ## Clean up resources
 
-When you are finished, remember to clean up the resources you created. The cleanup script provided at `/deployment/infra/cleanup.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws)) can be run to delete all of the resources created in this deployment.
+When you're finished, remember to clean up the resources you created. The cleanup script provided at `/deployment/infra/cleanup.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws)) can be run to delete all of the resources created in this deployment.
 

@@ -15,7 +15,7 @@ To replicate the EDW workload in Azure, your code uses Azure SDKs to work with A
 
 The AWS workload relies on AWS services and their associated data access AWS SDKs. You have already [mapped AWS services to equivalent Azure services](eks-edw-rearchitect.md#map-aws-services-to-azure-services). Now you need to create the code that accesses data for the producer queue and the consumer results database table in Python, using Azure SDKs.
 
-For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. However, the consumer saves results in a database, and the table schema for DynamoDB is incompatible with an equivalent table definition in Azure Table storage. The DynamoDB table schema will need to be re-mapped to an Azure Table storage table schema. The data access layer code will also require changes to work with Azure Cosmos DB. Finally, you need to change the authentication logic for the Azure Storage Queue and the Azure Table storage results table.
+For the data plane, the producer message body (payload) is JSON, and it doesn't need any schema changes for Azure. However, the consumer saves results in a database, and the table schema for DynamoDB is incompatible with an equivalent table definition in Azure Table storage. The DynamoDB table schema will need to be remapped to an Azure Table storage table schema. The data access layer code also requires changes. Finally, you need to change the authentication logic for the Azure Storage Queue and the Azure Table storage results table.
 
 ## Authentication code changes for service-to-service
 
@@ -66,13 +66,13 @@ aws iam attach-role-policy --role-name keda-sample-iam-role --policy-arn=arn:aws
 
 ### Azure service-to-service authentication implementation
 
-Next, we’ll explore how to perform similar AWS service-to-service logic within the Azure environment using AKS. To control data plane access to the Azure Storage Queue and the Azure Table storage table, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles are not bundled with the resource, but rather assigned to a service principal associated with a given resource. The user-assigned managed identity linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Table storage automatically use the context of the security principal to access data in both resources.
+Next, we’ll explore how to perform similar AWS service-to-service logic within the Azure environment using AKS. To control data plane access to the Azure Storage Queue and the Azure Table storage table, two Azure RBAC role definitions will be applied. These roles are like the resource-based policies that AWS uses to control access to SQS and DynamoDB. However, Azure RBAC roles aren'tf bundled with the resource, but rather assigned to a service principal associated with a given resource. The user-assigned managed identity linked to the workload identity in an Azure Kubernetes Service (AKS) pod will have these roles assigned to it. The Azure Python SDKs for Azure Storage Queue and Azure Table storage automatically use the context of the security principal to access data in both resources.
 
 The [**Storage Queue Data Contributor** role definition](/azure/role-based-access-control/built-in-roles/storage) permits the role assignee to read, write, or delete against the Azure Storage Queue.
 
 The [**Storage Table Data Contributor** role definition](/azure/role-based-access-control/built-in-roles/storage) permits the assignee to read, write, or delete data against an Azure storage table.
 
-The following steps show how to create a managed identity and assign to it the Storage Queue Data Contributor and **Storage Table Data Contributor** roles using the Azure CLI:
+The following steps show how to create a managed identity and assign the **Storage Queue Data Contributor** and **Storage Table Data Contributor** roles using the Azure CLI:
 
 1. Create a managed identity:
 
@@ -113,7 +113,7 @@ In the original AWS code for storage queue access, the AWS boto3 library is used
 
 ### AWS producer code implementation
 
-In the AWS workload, Python code similar to the example below is used to connect to SQS using the AWS IAM `AssumeRole` capability to authenticate to the SQS endpoint using the IAM Identity assocated with the EKS pod hosting the application.
+In the AWS workload, Python code similar to the following example is used to connect to SQS using the AWS IAM `AssumeRole` capability to authenticate to the SQS endpoint using the IAM Identity associated with the EKS pod hosting the application.
 
 ```python
 import boto3
@@ -128,9 +128,9 @@ response = sqs_client.send_message(
 
 #### Azure producer code implementation
 
-In Azure, an equivalent means of making connections to Azure Storage Queue is to use 'passwordless' OAuth authentication. The [DefaultAzureCredential](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#authorize-access-and-create-a-client-object) Python class is workload identity aware and will transparently use the managed identity associated with workload identity to authenticate to the storage queue.
+In Azure, an equivalent means of making connections to Azure Storage Queue is to use 'passwordless' OAuth authentication. The [DefaultAzureCredential](/azure/storage/queues/storage-quickstart-queues-python?tabs=passwordless%2Croles-azure-portal%2Cenvironment-variable-windows%2Csign-in-azure-cli#authorize-access-and-create-a-client-object) Python class is workload identity aware and transparently uses the managed identity associated with workload identity to authenticate to the storage queue.
 
-The following example shows how to authenticate to an Azure Storage Queu using the `DefaultAzureCredential` class instead of secrets such as a connection string:
+The following example shows how to authenticate to an Azure Storage Queue using the `DefaultAzureCredential` class instead of secrets such as a connection string:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -154,7 +154,7 @@ In the original AWS code for DynamoDB access, the AWS boto3 library is used to i
 
 ### AWS consumer code implementation
 
-The consumer part of the workload uses the same code as the producer for connecting to the AWS SQS queue to read messages. In addition, the consumer contains Python code similar to that shown below to connect to DynamoDB. This connection is made using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint, using the IAM identity assocated with the EKS pod hosting the application.
+The consumer part of the workload uses the same code as the producer for connecting to the AWS SQS queue to read messages. In addition, the consumer contains Python code similar to the following in order to connect to DynamoDB. This connection is made using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint, using the IAM identity associated with the EKS pod hosting the application.
 
 ```python
 # presumes policy deployment ahead of time such as: aws iam create-policy --policy-name <policy_name> --policy-document <policy_document.json>
@@ -172,9 +172,9 @@ table.put_item(
 
 #### Azure consumer code implementation
 
-Now you need the producer code to authenticate to Azure Cosmos DB. As discussed earlier, the schema used in the preceeding section with DynamoDB is incompatible with Azure Cosmos DB. You'll also use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
+Now you need the producer code to authenticate to Azure Cosmos DB. As discussed earlier, the schema used in the preceding section with DynamoDB is incompatible with Azure Cosmos DB. You'll also use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
 
-This example shows the code required For Azure:
+This example shows the code required for Azure:
 
 ```python
 from azure.storage.queue import QueueClient
