@@ -55,7 +55,7 @@ This error typically occurs when trying to download the `KVAIO` image (400 MB co
 ### Context timed out during phase `WaitingForAPIServer`
 When deploying Arc resource bridge, you may receive the error: `Deployment of the Arc resource bridge appliance VM timed out. Please collect logs with _az arcappliance logs_ and create a support ticket for help. To troubleshoot the error, refer to aka.ms/arc-rb-error   { _errorCode_: _ContextError_, _errorResponse_: _{\n\_message\_: \_Context timed out during phase _WaitingForAPIServer`
 
-This error indicates that the deployment machine is unable to contact the control plane IP for Arc resource bridge within the time limit. Common causes of the error are often networking related, such as communication between the deployment machine and control plane IP being routed through a proxy. Another cause could be a firewall closing access to the port.
+This error indicates that the deployment machine is unable to contact the control plane IP for Arc resource bridge within the time limit. Common causes of the error are often networking related, such as communication between the deployment machine and control plane IP being routed through a proxy. Traffic from the deployment machine to the control plane and the appliance VM IPs should not pass through proxy even if there is one. Another cause for this error is if a firewall is closing access to the port 6443 and port 22 between the deployment machine and control plane IP or the deployment machine and appliance VM IPs.
 
 ### Arc resource bridge is offline
 
