@@ -19,7 +19,7 @@ This quickstart describes how to create a payment HSM with the host and manageme
 - [Create a payment HSM with host and management port in different virtual network using an ARM template](create-different-vnet.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -244,7 +244,7 @@ First, save the "azuredeploy.json" and "azuredeploy.parameters.json" files local
 
 Next, create an Azure resource group.  
 
-[!INCLUDE [Create a resource group with the Azure CLI](~/reusable-content/ce-skilling/azure/includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure CLI](../../includes/cli-rg-create.md)]
 
 Finally, use the Azure CLI [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to deploy your ARM template.
 
@@ -271,7 +271,7 @@ First, save the "azuredeploy.json" and "azuredeploy.parameters.json" files local
 
 Next, create an Azure resource group.  
 
-[!INCLUDE [Create a resource group with Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group with Azure PowerShell](../../includes/powershell-rg-create.md)]
 
 Now, set the following variables for use in the deploy step:
 
@@ -319,11 +319,11 @@ You should see the name of your newly created payment HSM.
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Delete resource group](~/reusable-content/ce-skilling/azure/includes/cli-rg-delete.md)]
+[!INCLUDE [Delete resource group](../../includes/cli-rg-delete.md)]
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Delete resource group](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
+[!INCLUDE [Delete resource group](../../includes/powershell-rg-delete.md)]
 
 ---
 

@@ -44,7 +44,7 @@ You can continue with this quick start if the "RegistrationState" of both comman
     Set-AzContext -Subscription "<subscription-id>"
     ```
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
 - You must install the Az.DedicatedHsm PowerShell module:
 
@@ -54,7 +54,7 @@ You can continue with this quick start if the "RegistrationState" of both comman
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group with the Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure PowerShell](../../includes/powershell-rg-create.md)]
 
 ## Create a virtual network and subnet
 
@@ -143,7 +143,7 @@ Remove-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup"
 
 ## Delete the resource group
 
-[!INCLUDE [Delete a resource group with Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
+[!INCLUDE [Delete a resource group with Azure PowerShell](../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 

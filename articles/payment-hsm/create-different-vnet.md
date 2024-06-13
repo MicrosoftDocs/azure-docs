@@ -20,7 +20,7 @@ This tutorial describes how to create a payment HSM with the host and management
 - [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
@@ -51,11 +51,11 @@ This tutorial describes how to create a payment HSM with the host and management
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Create a resource group with the Azure CLI](~/reusable-content/ce-skilling/azure/includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure CLI](../../includes/cli-rg-create.md)]
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Create a resource group with the Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure PowerShell](../../includes/powershell-rg-create.md)]
 
 ---
 
