@@ -160,7 +160,7 @@ For RedisEnterprise, because the resource types are slightly different, the way 
 ```
 
 ## Commands to run deployment
-[!INCLUDE [app-service-deploy-commands](~/reusable-content/ce-skilling/azure/includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
 
