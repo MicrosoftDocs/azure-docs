@@ -506,7 +506,7 @@ For more details, refer to the [note section](#note) below.
 If you have a Prometheus instance served with TLS and you want to scrape metrics from it, you need to set scheme to `https` and set the TLS settings in your configmap or respective CRD. 
 Please follow the below steps.
 
-1. Create a secret in the kube-system namespace named ama-metrics-mtls-secret. Each key-value pair specified in the data section of the secret object will be mounted as a seperate file in this /etc/prometheus/certs location with filename(s) same as key(s) specified in the data section. The secret values should be base64 encoded before putting them under the    data section, like below.
+1. Create a secret in the kube-system namespace named ama-metrics-mtls-secret. Each key-value pair specified in the data section of the secret object will be mounted as a separate file in this /etc/prometheus/certs location with filename(s) same as key(s) specified in the data section. The secret values should be base64 encoded before putting them under the    data section, like below.
 
    Below is an example of creating secret through YAML. 
 
