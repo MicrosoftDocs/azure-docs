@@ -3,6 +3,7 @@ title: Quickstart - Create your Azure API center - Azure CLI
 description: In this quickstart, use the Azure CLI to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
 ms.service: api-center
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 04/19/2024
 ms.author: danlep 
@@ -17,8 +18,7 @@ ms.author: danlep
 * For Azure CLI:
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-    > [!NOTE]
-    > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+    [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
 
 ## Register the Microsoft.ApiCenter provider
 

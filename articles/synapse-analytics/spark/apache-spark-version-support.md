@@ -8,9 +8,7 @@ ms.date: 03/08/2024
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: reference
-ms.custom:
-  - devx-track-dotnet
-  - devx-track-python
+ms.custom: devx-track-python
 ---
 # Azure Synapse runtimes
 

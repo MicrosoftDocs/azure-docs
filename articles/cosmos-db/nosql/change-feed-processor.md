@@ -12,6 +12,7 @@ ms.date: 04/19/2024
 ms.custom: devx-track-csharp, build-2023
 ---
 
+
 # Change feed processor in Azure Cosmos DB
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -19,6 +20,12 @@ ms.custom: devx-track-csharp, build-2023
 The change feed processor is part of the Azure Cosmos DB [.NET V3](https://github.com/Azure/azure-cosmos-dotnet-v3) and [Java V4](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos) SDKs. It simplifies the process of reading the change feed and distributes the event processing across multiple consumers effectively.
 
 The main benefit of using the change feed processor is its fault-tolerant design, which assures an "at-least-once" delivery of all the events in the change feed.
+
+## Supported SDKs
+
+|  .Net V3  |   Java    |  Node.JS  |  Python   |
+| --------- | --------- | --------- | --------- |
+|     ✓     |    ✓     |     ✕     |    ✕     |
 
 ## Components of the change feed processor
 

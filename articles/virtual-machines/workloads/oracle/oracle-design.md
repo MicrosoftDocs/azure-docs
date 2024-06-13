@@ -2,8 +2,7 @@
 title: Architectures for Oracle Database Enterprise Edition on Azure
 description: Design and implement an Oracle database in your Azure environment.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 10/15/2021

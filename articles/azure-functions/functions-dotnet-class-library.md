@@ -11,7 +11,7 @@ ms.date: 10/12/2022
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
-[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
 
 This article is an introduction to developing Azure Functions by using C# in .NET class libraries. These class libraries are used to run _in-process with the Functions runtime_. Your .NET functions can alternatively run _isolated from the Functions _runtime_, which offers several advantages. To learn more, see [the isolated worker model](dotnet-isolated-process-guide.md). For a comprehensive comparison between these two models, see [Differences between the in-process model and the isolated worker model](dotnet-isolated-in-process-differences.md).
 
@@ -614,8 +614,7 @@ Define an imperative binding as follows:
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
-with blob path that's defined at run time, then writes a string to the blob.
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md) with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
 public static class IBinderExample

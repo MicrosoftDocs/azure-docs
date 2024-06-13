@@ -28,8 +28,9 @@ With this feature, we don't take a read lock on the server. We instead read tabl
 :::image type="content" source="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Reconciliation progress." lightbox="media/migrate-azure-mysql-consistent-backup/reconciliation-tab.png":::
 
 Key features of Consistent Snapshot without locks:
-    *Ability to support heavy workload servers or servers with long-running transactions without the need for read locks.
-    *Resilient in completing migrations even in the event of failures caused by transient network/server blips that result in loss of all the precreated connections.
+
+* Ability to support heavy workload servers or servers with long-running transactions without the need for read locks.
+* Resilient in completing migrations even in the event of failures caused by transient network/server blips that result in loss of all the pre-created connections.
 
 ### Enable Consistent Snapshot with read lock (GA)
 
