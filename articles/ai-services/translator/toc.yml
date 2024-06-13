@@ -117,7 +117,7 @@ items:
   - name: What is Document Translation?
     displayName: ocr,batch,features,development,formats,file types
     href: document-translation/overview.md
-  - name: Document Translation SDK guide
+  - name: 🆕 Document Translation SDK guide
     displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
     href: document-translation/document-sdk-overview.md
   - name: 🆕 Document Translation REST API guide

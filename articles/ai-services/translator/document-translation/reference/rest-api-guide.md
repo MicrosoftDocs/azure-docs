@@ -19,11 +19,14 @@ API Version: **2024-05-01**</br>
 
 Document Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Batch Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the following table:
 
+> [!NOTE]
+> The `get supported storage sources` method is no longer supported. The Translator service only supports Azure Blob storage.
+
 | Request|Method| Description|API path|
 |---------|:-------:|-------|-----|
-|**Single document translation operation** ||||
+|||**Single document translation operation** ||
 |[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?api-version={date}`|
-|**Batch Translation operations**||||
+|||**Batch Translation operations**||
 |[**Start translation**](start-translation.md)|POST| Start a batch document translation job.|`{document-translation-endpoint}/translator/document/batches?api-version={date}`|
 |[**Get status for all translation jobs**](get-translations-status.md)|GET| Request a list and the status of translation jobs submitted by the user.|`{document-translation-endpoint}/translator/document/batches?api-version={date}`|
 |[**Get status for a specific translation job**](get-translation-status.md) |GET| Request a summary of the status for a specific translation job. The response includes the overall job status and the status for documents that are being translated as part of that job.|`{document-translation-endpoint}/translator/document/batches/{id}?api-version={date}`|
@@ -33,8 +36,22 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 |[**Get supported document formats**](get-supported-document-formats.md)|GET| Request a list of supported document formats.|`{document-translation-endpoint}/translator/document/formats?api-version={date}&type=document`|
 |[**Get supported glossary formats**](get-supported-glossary-formats.md)|GET|Request a list of supported glossary formats.|`{document-translation-endpoint}/translator/document/formats?api-version={date}&type=glossary`|
 
-> [!NOTE]
-> The `get supported storage sources` method is no longer supported. The Translator service only supports Azure Blob storage.
+| Request|Method| Description|API path|
+|---------|:-------:|-------|-----|
+||**Single document translation operation** |||
+|[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?sourceLanguage={source language}&targetLanguage={target language}&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"`|
+|[**Start translation**](start-translation.md)|POST|Start a batch document translation job.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches`|
+|[**Get status for all translation jobs**](get-translations-status.md)|GET|Request a list and the status of translation jobs submitted by the user.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches`|
+|[**Get status for a specific translation job**](get-translation-status.md)|GET| Request a summary of the status for a specific translation job. The response includes the overall job status and the status for documents that are being translated as part of that job.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}`|
+|[**Get status for all documents**](get-documents-status.md)|GET| Request the status for a specific document in a job.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}/documents`|
+|[**Get status for a specific document**](get-document-status.md)|GET| Request the status for a specific document in a job.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}/documents/{documentId}`|
+|[**Cancel translation**](cancel-translation.md)|DELETE| Cancel a document translation job that is currently processing or queued.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}`|
+| [**Get supported document formats**](get-supported-document-formats.md)|GET| Request a list of supported document formats.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/documents/formats`|
+|[**Get supported glossary formats**](get-supported-glossary-formats.md)|GET|Request a list of supported glossary formats.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/glossaries/formats`|
+|[**Get supported storage sources**](get-supported-storage-sources.md)|GET|Request a list of supported storage sources/options. Currently, Translator service only supports Azure Blob storage.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/storagesources`|
+
+
+
 
 > [!div class="nextstepaction"]
 > [Explore our client libraries and SDKs for C# and Python programming languages.](../quickstarts/client-library-sdks.md).
