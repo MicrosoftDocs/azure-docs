@@ -227,6 +227,10 @@
       href: vpn-gateway-p2s-advertise-custom-routes.md
     - name: Create custom IPsec policies for P2S
       href: create-custom-policies-p2s-ps.md
+    - name: Azure VPN Client - optional settings 
+      href: azure-vpn-client-optional-configurations.md
+    - name: Azure VPN Client versions
+      href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
   - name: Manage gateway SKUs
