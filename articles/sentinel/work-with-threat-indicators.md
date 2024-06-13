@@ -89,7 +89,7 @@ The **Threat intelligence** page also allows you to create threat indicators dir
 
 Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply tags to an indicator related to a particular incident, or representing threats from a particular known actor or well-known attack campaign. Once you search for the indicators you want to work with, tag them individually, or multi-select indicators and tag them all at once with one or more tags. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags.
 
-:::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Screenshot of apply tags to threat indicators." lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
 
 Microsoft Sentinel also allows you to edit indicators, whether they've been created directly in Microsoft Sentinel, or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators coming from partner sources, only specific fields are editable, including tags, *Expiration date*, *Confidence*, and *Revoked*. Either way, keep in mind only the latest version of the indicator is displayed in the **Threat Intelligence** page view. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
 
