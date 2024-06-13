@@ -43,5 +43,27 @@ Otherwise, continue to follow the guidelines in this article.
 
 ## Prepare
 
+The following steps show how to prepare the Azure Recovery Vault for relocation using a Resource Manager template.
 
 
+### Export and modify a template
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All resources** and then select your Recovery Vault resource.
+3. Select **Export template**. 
+4. Choose **Download** in the **Export template** page.
+5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+
+   This zip file contains the .json files that include the template and scripts to deploy the template.
+
+
+6. Validate all the associated resources detail in the downloaded template like Private endpoint, Backup policy, security setting like soft delete etc.
+
+7. Update the parameter of the Recovery Vault and change the value property under parameters like Recovery Vault name, replication type, sku, target location etc.
+
+8. Once the target Recovery service vault created, then reconfigure all the associated settings that were copied from source Recovery service vault:
+    - (Optiona) Private Endpoint - Please follow the procedure to relocate a [virtual network]](/technical-delivery-playbook/azure-services/networking/virtual-network/) as described and create the Private Endpoint.
+    - Network firewall reconfiguration
+    - Alert Notification.
+    - Move workbook if configured any
+    - Diagnostic settings reconfiguration
