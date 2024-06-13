@@ -149,7 +149,7 @@ There are some limitations with using virtual network:
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager virtual network.
 * The app and the virtual network must be in the same region.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can have only one regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
+* You can have up to two regional virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
 
 ### Subnets
