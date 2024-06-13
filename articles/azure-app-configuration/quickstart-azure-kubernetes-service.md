@@ -349,6 +349,28 @@ kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
 
 Use the logs for further troubleshooting. For example, if you see requests to your App Configuration store are responded with *RESPONSE 403: 403 Forbidden*, it may indicate the App Configuration Kubernetes Provider doesn't have the necessary permission to access your App Configuration store. Follow the instructions in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to ensure associated managed identity is assigned proper permission.
 
+## FAQ
+
+#### Why I can't see the target ConfigMap being created after apply the `AzureAppConfigurationProvider` resource?
+
+You can follow the steps in the [Troubleshooting](#troubleshooting) to check the logs to know the detailed reason of creating the ConfigMap failure. Here are some common problems:
+
+- **RESPONSE 403: 403 Forbidden**: It indicates that configured authentication doesn't have the necessary permission to access the App Configuration store. Please follow the [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) to ensure the associated managed identity is assigned proper role.
+- **A Key Vault reference is found in App Configuration, but 'spec.secret' was not configured**: It's because a Key Vault reference is selected by the `spec.configuration.selectors` field, but the `spec.secret` field is missed to conduct the Azure App Configuration Provider how the resolve the selected Key Vault reference. Please follow the [use Key Vault reference](./reference-kubernetes-provider.md#key-vault-references) to configure the `spec.secret` field.
+- **spec.configuration.selectors: one of keyFilter and snapshotName field must be set**: It's because the `spec.configuration.selectors` field is misconfigured. For each *selector*, you should either set the `keyFilter` to select key-values or `snapshotName` field to select key-values from snapshot. Please refer to the [key-value selection](./reference-kubernetes-provider.md#key-value-selection) for more information.
+
+#### Why the crated ConfigMap doesn't have the expected data?
+
+It's usually because inaccurate `selectors` are used. You can double check the `spec.configuration.selectors` field you set in the `AzureAppConfigurationProvider` resource. Please be aware that if the `selectors` field is absent, all key-values with no label will be downloaded.
+
+#### Can the target ConfigMap be updated after I update the key-values in the App Configuration store?
+
+Please follow this [Configuration Refresh](./reference-kubernetes-provider.md#configuration-refresh) to learn how to refresh the ConfigMap.
+
+#### Can I install the Azure App Configuration Kubernetes Provider in a specific node?
+
+Yes, you can install it in a specific node by setting the `nodeSelector` helm value while installing the helm chart. You can find more information about supported helm values [here](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml).
+
 ## Clean up resources
 
 Uninstall the App Configuration Kubernetes Provider from your AKS cluster if you want to keep the AKS cluster.
