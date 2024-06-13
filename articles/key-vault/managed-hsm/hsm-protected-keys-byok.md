@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 # Import HSM-protected keys to Managed HSM (BYOK)
 
- Azure Key Vault Managed HSM supports importing keys generated in your on-premises hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the Marvell LiquidSecurity HSM adapters (FIPS 140-2 Level 3 validated) to protect your keys.
+ Azure Key Vault Managed HSM supports importing keys generated in your on-premises hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key (BYOK)*. Managed HSM uses the Marvell LiquidSecurity HSM adapters (FIPS 140-2 Level 3 validated) to protect your keys.
 
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 
@@ -26,7 +26,7 @@ For more information, and for a tutorial to get started using Managed HSM, see [
 
 Here's an overview of the process. Specific steps to complete are described later in the article.
 
-* In Managed HSM, generate a key (referred to as a *Key Exchange Key* (KEK)). The KEK must be an RSA-HSM key that has only the `import` key operation. 
+* In Managed HSM, generate a key (referred to as a *Key Exchange Key (KEK)*). The KEK must be an RSA-HSM key that has only the `import` key operation. 
 * Download the KEK public key as a .pem file.
 * Transfer the KEK public key to an offline computer that is connected to an on-premises HSM.
 * In the offline computer, use the BYOK tool provided by your HSM vendor to create a BYOK file. 

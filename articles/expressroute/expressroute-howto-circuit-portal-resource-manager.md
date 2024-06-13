@@ -11,7 +11,7 @@ ms.custom: mode-ui
 zone_pivot_groups: expressroute-experience
 ---
 
-# Quickstart: Create and modify ExpressRoute circuits
+# Quickstart: Create and modify ExpressRoute Circuits
 
 This quickstart shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 

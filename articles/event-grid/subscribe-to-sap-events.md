@@ -16,7 +16,7 @@ This article describes steps to subscribe to events published by an SAP S/4HANA 
 Following are the prerequisites that your system needs to meet before attempting to configure your SAP system to send events to Azure Event Grid.
 
 1. SAP S/4HANA system (on-premises) version 2020 or later.
-1. SAP's [Business Technology Platform](https://www.sap.com/products/technology-platform.html)(BTP).
+1. SAP's [Business Technology Platform (BTP)](https://www.sap.com/products/technology-platform.html).
 1. On the Business Technology Platform, [SAP Event Mesh](https://help.sap.com/docs/SAP_EM/bf82e6b26456494cbdd197057c09979f/df532e8735eb4322b00bfc7e42f84e8d.html) is enabled.
 
 If you have any questions, contact us at <a href="mailto:ask-grid-and-ms-sap@microsoft.com">ask-grid-and-ms-sap@microsoft.com</a>
