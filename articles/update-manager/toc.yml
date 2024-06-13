@@ -34,6 +34,8 @@
     href: updates-maintenance-schedules.md
   - name: Assessment options
     href: assessment-options.md
+  - name: Overview of Pre and Post Events (preview)
+    href: pre-post-scripts-overview.md
   - name: Query resources with Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
@@ -66,8 +68,6 @@
       href: manage-alerts.md
     - name: Pre and Post Events (preview)
       items:
-      - name: Overview
-        href: pre-post-scripts-overview.md
       - name: Manage pre and post events (preview)
         href: manage-pre-post-events.md  
       - name: FAQ
