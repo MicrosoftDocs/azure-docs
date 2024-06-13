@@ -67,7 +67,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
     :::image type="content" source="media/tutorial-migration-service-aws-online/portal-online-create-migration.png" alt-text="Screenshot of creating a migration." lightbox="media/tutorial-migration-service-aws-online/portal-online-create-migration.png":::
 
-If you've already created migrations to your Azure Database for PostgreSQL target, the grid contains information about attempted migrations.
+    If you've already created migrations to your Azure Database for PostgreSQL target, the grid contains information about attempted migrations.
 
 1. Select the **Create** button. You then go through a wizard-based series of tabs to create a migration into this Azure Database for PostgreSQL target from the PostgreSQL source instance.
 
@@ -309,8 +309,8 @@ az postgres flexible-server migration update --subscription <<subscription ID>> 
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
-Cancelling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
-Cancelling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
+Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
+Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
 
 ### Check the migration when completed
 

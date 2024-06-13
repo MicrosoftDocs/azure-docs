@@ -227,7 +227,7 @@ Copy other server settings, such as tags, alerts, and firewall rules (if applica
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration that's in the **Succeeded** or **Failed** state.
 
-- Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action rolls back all changes made by the migration service on your target server.
+- Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. The cancel action rolls back all changes made by the migration service on your target server.
 
 #### [CLI](#tab/cli)
 
