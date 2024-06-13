@@ -1,6 +1,6 @@
 ---
 title: Convert dashboards to Azure Workbooks in Microsoft Sentinel
-description: Learn how to review, planning and migrate your current dashboards to Azure Workbooks.
+description: Learn how to review, planning, and migrate your current dashboards to Azure Workbooks.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
@@ -12,21 +12,19 @@ ms.collection: usx-security
 
 # Convert dashboards to Azure Workbooks 
 
-Convert dashboards in your existing SIEM to an Azure workbook for Microsoft Sentinel. Azure Workbooks provide versatility to create custom dashboards for Microsoft Sentinel.
-
-This article describes how to review, plan, and convert your current dashboards to Azure Workbooks.
+Convert dashboards from your existing security information and event management (SIEM) solution to an Azure workbook for Microsoft Sentinel. Azure Workbooks provide versatility to create custom dashboards for Microsoft Sentinel. This article describes how to review, plan, and convert your current dashboards to Azure Workbooks.
 
 ## Review dashboards in your current SIEM
 
-Review these considerations when designing your migration.
+Consider the following steps when you design your migration.
 
-- **Discover dashboards**. Gather information about your dashboards, including design, parameters, data sources, and other details. Identify the purpose or usage of each dashboard.
-- **Select**. Don’t migrate all dashboards without consideration. Focus on dashboards that are critical and used regularly.
-- **Consider permissions**. Consider who are the target users for workbooks. Azure Workbooks use Azure role-based access control (RBAC). For more information, see [Assess control in Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview#access-control). To create dashboards outside Azure, for example for business executives without Azure access, use a reporting tool such as Power BI.
+- **Analyze dashboards**. Gather information about your dashboards, including design, parameters, data sources, and other details. Identify the purpose or usage of each dashboard.
+- **Be selective**. Don’t migrate all dashboards without consideration. Focus on dashboards that are critical and used regularly.
+- **Consider permissions**. Consider who are the target users for workbooks. Azure Workbooks use Azure role-based access control (Azure RBAC). For more information, see [Assess control in Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview#access-control). To create dashboards outside Azure, for example for business executives without Azure access, use a reporting tool such as Power BI.
 
 ## Prepare for the dashboard conversion
 
-After reviewing your dashboards, do the following tasks to prepare for your dashboard migration:
+After reviewing your dashboards, complete the following tasks to prepare for your dashboard migration:
 
 - Review all of the visualizations in each dashboard. The dashboards in your current SIEM might contain several charts or panels. It's crucial to review the content of your short-listed dashboards to eliminate any unwanted visualizations or data.
 - Capture the dashboard design and interactivity.
@@ -41,7 +39,7 @@ After reviewing your dashboards, do the following tasks to prepare for your dash
 
 ## Convert dashboards
 
-Perform the following tasks in Azure Workbook and Microsoft Sentinel to convert your dashboard.
+To convert your dashboard, complete the following tasks in Azure Workbooks and Microsoft Sentinel.
 
 ### 1. Identify data sources
 
@@ -64,7 +62,7 @@ For more information, see the following resources:
 
 ### 3. Create or update the workbook
 
-Create a workbook, update the workbook, or clone an existing workbook so that you don’t have to start from scratch. Also, specify how the data or visualizations is represented, arranged and grouped. There are two common designs:
+Create a workbook, update the workbook, or clone an existing workbook so that you don’t have to start from scratch. Also, specify how the data or visualizations is represented, arranged, and grouped. There are two common designs:
 
 - Vertical workbook
 - Tabbed workbook
@@ -76,7 +74,7 @@ For more information, see the following articles:
 
 ### 4. Create or update workbook parameters or user inputs
 
-By the time you arrive at this stage, you should have identified the required parameters for your workbook. With parameters, you can collect input from the consumers and reference the input in other parts of the workbook. This input is typically used to scope the result set, to set the correct visualization, and allows you to build interactive reports and experiences.
+By the time you arrive at this stage, you identified the required parameters for your workbook. With parameters, you can collect input from the consumers and reference the input in other parts of the workbook. This input is typically used to scope the result set, to set the correct visualization, and allows you to build interactive reports and experiences.
 
 Workbooks allow you to control how your parameter controls are presented to consumers. For example, you select whether the controls are presented as a text box vs. drop down, or single- vs. multi-select. You can also select which values to use, from text, JSON, KQL, or Azure Resource Graph, and more.
 
@@ -98,7 +96,7 @@ Workbooks provide a rich set of capabilities for visualizing your data. Review t
 
 ### 6. Preview and save the workbook
 
-Once you've saved your workbook, specify the parameters, if any exist, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf).
+After you save your workbook, specify the parameters, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf).
 
 ## Next steps
 
