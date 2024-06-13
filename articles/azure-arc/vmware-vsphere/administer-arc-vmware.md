@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 12/05/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ms.custom: devx-track-azurecli
 ---
