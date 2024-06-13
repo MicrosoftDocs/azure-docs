@@ -64,9 +64,7 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 
 Metrics provide information about the app or the App Service plan's behavior.
 
-For a list of available metrics for apps, see [Supported metrics for Microsoft.Web/sites](/azure/azure-monitor/reference/supported-metrics/microsoft-web-sites-metrics).
-
-For a list of available metrics for an App Service plan, see [Supported metrics for Microsoft.Web/serverfarms](/azure/azure-monitor/reference/supported-metrics/microsoft-web-serverfarms-metrics).
+For a list of available metrics for apps or for App Service plans, see [Supported metrics for Microsoft.Web](monitor-app-service-reference.md#supported-metrics-for-microsoftweb).
 
 > [!NOTE]
 > App Service plan metrics are available only for plans in *Basic*, *Standard*, *Premium*, and *Isolated* tiers.

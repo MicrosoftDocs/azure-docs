@@ -29,8 +29,8 @@ The following table lists monitoring methods to use for different scenarios.
 
 |Scenario|Monitoring method |
 |----------|-----------|
-|I want to monitor platform metrics and logs | (Azure Monitor) [Diagnostic Settings](troubleshoot-diagnostic-logs.md)|
-|I want to monitor application performance and usage | (Azure Monitor) [Application Insights](monitor-app-service.md#application-insights)|
+|I want to monitor platform metrics and logs | (Azure Monitor) [Diagnostic Settings](#diagnostic-settings-via-azure-monitor)|
+|I want to monitor application performance and usage | (Azure Monitor) [Application Insights](#application-insights)|
 |I want to monitor built-in logs for testing and development|[Log stream](troubleshoot-diagnostic-logs.md#stream-logs)|
 |I want to monitor resource limits and configure alerts|[Quotas and alerts](web-sites-monitor.md)|
 |I want to monitor web app resource events|[Activity logs](#activity-log)|
