@@ -36,7 +36,7 @@ You must provide the following information to execute a full backup:
 - Storage account blob storage container
 - User assigned managed identity OR storage container SAS token with permissions 'crdw'
 
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 #### Prerequisites if backing up and restoring using user assigned managed identity:
 

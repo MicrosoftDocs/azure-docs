@@ -19,7 +19,7 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 
 For specific examples, see [Queries for device and module twins](query-twins.md) or [Queries for jobs](query-jobs.md).
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## Run IoT Hub queries
 
