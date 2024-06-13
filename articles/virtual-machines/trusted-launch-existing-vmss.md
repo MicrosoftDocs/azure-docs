@@ -11,7 +11,7 @@ ms.date: 06/10/2024
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
-# (Preview) Enable Trusted launch on existing Azure Scale set
+# (Preview) Enable Trusted launch on existing Virtual machine Scale set
 
 **Applies to:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: Virtual Machine Scale Sets Uniform
 
