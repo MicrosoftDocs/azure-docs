@@ -59,9 +59,9 @@ The command should return a status of “Registered” (as shown below) before y
 
 ### Creating HSM resources
 
-An HSM device is provisioned into a customers' virtual network. This implies the requirement for a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md), and finally a virtual machine is required to access the HSM device using the Thales client software. 
+An HSM device is provisioned into a customers' virtual network. This implies the requirement for a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md), and finally a virtual machine is required to access the HSM device using the Thales client software.
 
-Once you have the files, you must edit the parameter file to insert your preferred names for resources. This means editing lines with “value”: “”.
+You can create a Dedicated HSM resource using an ARM template based on the example provided below. You must update the parameters by replacing the lines containing "value":"" with your preferred resource names.
 
 - `namingInfix` Prefix for names of HSM resources
 - `ExistingVirtualNetworkName` Name of the virtual network used for the HSMs
