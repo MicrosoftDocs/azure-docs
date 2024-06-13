@@ -159,13 +159,7 @@ You can view this information by using the Azure portal, Python SDK, or Azure CL
 
 ### Azure portal
 
-In your workspace in Azure Machine Learning studio:
-
-1. Select the **Jobs** page.
-1. Select an experiment.
-1. Select a job from the **Display name** column.
-1. Select **Outputs + logs** from the top menu.
-1. Expand **logs** > **azureml**, and then select the link that begins with **###_azure**.
+In your workspace in Azure Machine Learning studio, select the experiment from the **Jobs** page and then select the job from the **Display name** column. To view the Git properties, select **Raw JSON** under **See all properties** in the **Properties** section of the **Overview** page.
 
 ### Python SDK V2
 
