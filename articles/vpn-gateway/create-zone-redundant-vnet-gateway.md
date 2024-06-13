@@ -43,7 +43,7 @@ For an ExpressRoute gateway, follow the [ExpressRoute documentation](../expressr
 
 ## PowerShell workflow
 
-[!INCLUDE [powershell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="variables"></a>1. Declare your variables
 

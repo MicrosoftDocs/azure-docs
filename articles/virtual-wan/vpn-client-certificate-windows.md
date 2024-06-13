@@ -74,7 +74,7 @@ For more information about User VPN client profile files, see [Working with User
 
 ### Download the Azure VPN Client
 
-[!INCLUDE [Download the Azure VPN Client](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-download-vpn-client.md)]
+[!INCLUDE [Download the Azure VPN Client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ### Configure the Azure VPN Client
 

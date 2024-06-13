@@ -29,13 +29,13 @@ This article helps you connect to Azure Virtual WAN from a macOS or iOS operatin
 
 The following example uses **TunnelBlick**.
 
-[!INCLUDE [OpenVPN Mac](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-mac.md)]
+[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
 ##  <a name="OpenVPN-iOS"></a>OpenVPN Client - iOS steps
 
 The following example uses **OpenVPN Connect** from the App store.
 
-[!INCLUDE [OpenVPN iOS](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 
 ## Next steps
 
