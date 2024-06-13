@@ -228,7 +228,7 @@ Preparing an Oracle Linux 7 VM for Azure is similar to Oracle Linux 6, but sever
     sudo systemctl enable waagent
     ```
 
-1. Install `cloud-init` to handle the provisioning
+1. Install `cloud-init` to handle the provisioning:
 
     ```bash
     sudo yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
