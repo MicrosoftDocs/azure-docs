@@ -61,7 +61,7 @@ The parameter `replicate_wild_ignore_table` creates a replication filter for tab
 
 ### Generated Invisible Primary Key
 
-For MySQL version 8.0 and above, [Generated Invisible Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html)(GIPK) is enabled by default for all the Azure Database for MySQL flexible server instances. MySQL 8.0+ servers adds the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. This feature, when enabled may impact some of the data-in replication use cases, as described below:
+For MySQL version 8.0 and above, [Generated Invisible Primary Keys (GIPK)](https://dev.mysql.com/doc/refman/8.0/en/create-table-gipks.html) is enabled by default for all the Azure Database for MySQL flexible server instances. MySQL 8.0+ servers adds the invisible column *my_row_id* to the tables and a primary key on that column, where the InnoDB table is created without an explicit primary key. This feature, when enabled may impact some of the data-in replication use cases, as described below:
 
 - Data-in replication fails with replication error: “**ERROR 1068 (42000): Multiple primary key defined**” if source server creates a Primary key on the table without Primary Key. For mitigation, run the following sql command, skip replication error and restart [data-in replication](how-to-data-in-replication.md). 
 

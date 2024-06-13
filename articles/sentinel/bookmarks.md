@@ -116,7 +116,7 @@ View bookmarked queries, results, or their history.
 
    :::image type="content" source="media/bookmarks/bookmark-logs.png" alt-text="Screenshot of bookmark logs command.":::
 
-This view shows all your bookmarks with associated metadata. You can use [Kusto Query Language](/azure/data-explorer/kql-quick-reference) (KQL) queries to filter down to the latest version of the specific bookmark you're looking for.
+This view shows all your bookmarks with associated metadata. You can use [Kusto Query Language (KQL)](/azure/data-explorer/kql-quick-reference) queries to filter down to the latest version of the specific bookmark you're looking for.
 
 There can be a significant delay (measured in minutes) between the time you create a bookmark and when it's displayed in the **Bookmarks** tab.
 
