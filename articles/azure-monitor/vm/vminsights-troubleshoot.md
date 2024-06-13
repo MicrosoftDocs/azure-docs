@@ -67,7 +67,7 @@ In this example, the original stream name was changed to reflect the name of the
 
 :::image type="content" source="media/vminsights-troubleshoot/dcr-json.png" lightbox="media/vminsights-troubleshoot/dcr-json.png" alt-text="Screenshot that shows a changed stream name in a data collection rule.":::
 
-Although the counter sections are pointing the `perf` table, the stream dataflow is still configured for the proper destination `Microsoft-InsightsMetrics`.
+Although the counter sections point to the `Microsoft-Perf` table, the stream dataflow is still configured for the proper destination `Microsoft-InsightsMetrics`.
 
 ### Resolve the problem
 
@@ -83,13 +83,13 @@ You can't resolve this problem by using the Azure Monitor dashboard directly. Bu
 
 3. On the **Export template** pane for the selected DCR, the portal creates the template file and a matching parameter file. After this process is complete, select **Download** to download the template package and save it locally.
 
-   :::image type="content" source="media/vminsights-troubleshoot/template-download.png" lightbox="media/vminsights-troubleshoot/template-download.png" alt-text="Screenshot of the button for downloading a template for a data collection rule.":::
+   :::image type="content" source="media/vminsights-troubleshoot/template-download.png" lightbox="media/vminsights-troubleshoot/template-download.png" alt-text="Screenshot that shows the button for downloading a template for a data collection rule.":::
 
 4. Select **Open file**.
 
    :::image type="content" source="media/vminsights-troubleshoot/downloads.png" lightbox="media/vminsights-troubleshoot/downloads.png" alt-text="Screenshot that shows the link for opening a downloaded file package.":::
 
-5. Copy the two .json files to a local folder.
+5. Copy the two files to a local folder.
 
    :::image type="content" source="media/vminsights-troubleshoot/copy-file.png" lightbox="media/vminsights-troubleshoot/copy-file.png" alt-text="Screenshot that shows parameter and template files copied to a local folder.":::
 
@@ -101,7 +101,7 @@ You can't resolve this problem by using the Azure Monitor dashboard directly. Bu
 
 2. By using the valid stream name from the dataflow node, fix the invalid reference. Then save and close your file.
 
-   :::image type="content" source="media/vminsights-troubleshoot/correct-template.png" lightbox="media/vminsights-troubleshoot/correct-template.png" alt-text="Screenshot of an updated stream name in a template file.":::
+   :::image type="content" source="media/vminsights-troubleshoot/correct-template.png" lightbox="media/vminsights-troubleshoot/correct-template.png" alt-text="Screenshot that shows an updated stream name in a template file.":::
 
 #### Import the template by using the custom deployment feature
 
@@ -111,27 +111,27 @@ You can't resolve this problem by using the Azure Monitor dashboard directly. Bu
 
 2. On the **Custom deployment** pane, select **Build your own template in the editor**.
 
-   :::image type="content" source="media/vminsights-troubleshoot/build-template.png" lightbox="media/vminsights-troubleshoot/build-template.png" alt-text="Screenshot of the option to build your own template in the editor.":::
+   :::image type="content" source="media/vminsights-troubleshoot/build-template.png" lightbox="media/vminsights-troubleshoot/build-template.png" alt-text="Screenshot that shows the option to build a template in the editor.":::
 
 3. Select **Load file**, and then browse to your saved template and parameter files.
 
-   :::image type="content" source="media/vminsights-troubleshoot/load-file.png" lightbox="media/vminsights-troubleshoot/load-file.png" alt-text="Screenshot of the button for loading a file.":::
+   :::image type="content" source="media/vminsights-troubleshoot/load-file.png" lightbox="media/vminsights-troubleshoot/load-file.png" alt-text="Screenshot that shows the button for loading a file.":::
 
 4. Visually inspect the template to validate that the change is in place, and then select **Save**.
 
    :::image type="content" source="media/vminsights-troubleshoot/save-template.png" lightbox="media/vminsights-troubleshoot/save-template.png" alt-text="Screenshot of the pane for editing a template.":::
 
-5. The portal uses the parameter file to fill in the deployment options (which can be changed or left intact to overwrite the existing DCR). When the portal completes the process, select the **Review + create** button.
+5. The portal uses the parameter file to fill in the deployment options (which can be changed or left intact to overwrite the existing DCR). When the portal completes the process, select **Review + create**.
 
    :::image type="content" source="media/vminsights-troubleshoot/deploy.png" lightbox="media/vminsights-troubleshoot/deploy.png" alt-text="Screenshot of the pane for custom deployment.":::
 
 6. After validation, select **Create** to finish the deployment.
 
-   :::image type="content" source="media/vminsights-troubleshoot/create-deployment.png" lightbox="media/vminsights-troubleshoot/create-deployment.png" alt-text="Screenshot of the button for creating a custom deployment.":::
+   :::image type="content" source="media/vminsights-troubleshoot/create-deployment.png" lightbox="media/vminsights-troubleshoot/create-deployment.png" alt-text="Screenshot that shows the button for creating a custom deployment.":::
 
 7. After the deployment is complete, browse to the DCR again and review the JSON in the overview pane.
 
-   :::image type="content" source="media/vminsights-troubleshoot/updated-json.png" lightbox="media/vminsights-troubleshoot/updated-json.png" alt-text="Screenshot of the pane for reviewing JSON.":::
+   :::image type="content" source="media/vminsights-troubleshoot/updated-json.png" lightbox="media/vminsights-troubleshoot/updated-json.png" alt-text="Screenshot that shows the pane for reviewing JSON.":::
 
 8. The agent detects the change and downloads the new configuration, which restores ingestion to the `Microsoft-InsightsMetrics` table.
 
@@ -187,4 +187,4 @@ The last lines of the file should indicate why the kernel didn't load. For examp
 
 ## Related content
 
-- For more information about installing VM insights agents, see [Enable VM insights overview](vminsights-enable-overview.md)
+- For more information on installing VM insights agents, see [Enable VM insights overview](vminsights-enable-overview.md)
