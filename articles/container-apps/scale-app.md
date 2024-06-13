@@ -423,7 +423,7 @@ A KEDA scaler supports using secrets in a [TriggerAuthentication](https://keda.s
    
 #### Using managed identity
 
-Azure scale rules can use managed identity. The following command creates a container app with a user-assigned managed identity and uses it to authenticate for an Azure Queue scaler.
+Container Apps scale rules can use managed identity to authenticate with Azure services. The following command creates a container app with a user-assigned managed identity and uses it to authenticate for an Azure Queue scaler.
 
 ```bash
 az containerapp create \
