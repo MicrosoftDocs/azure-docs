@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.date: 06/13/2024
-ms.author: AjKundnani
+ms.author: ajkundna
 ms.custom: include file
 ---
 
