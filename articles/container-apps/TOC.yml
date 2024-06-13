@@ -81,9 +81,9 @@
       items:
         - name: Connect to services
           items:
-            - name: Connecting to services overview
+            - name: Overview
               href: services.md
-              displayName: Services overview
+              displayName: Connecting to services overview
             - name: Tutorials
               items:
               - name: Apache Kafka
