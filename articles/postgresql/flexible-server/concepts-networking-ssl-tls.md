@@ -59,6 +59,9 @@ The Internet Engineering Task Force (IETF) released the TLS 1.3 specification in
 > [!NOTE]
 > Azure Database for PostgreSQL - Flexible server doesn't support [custom SSL\TLS certificates](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CERTIFICATE-CREATION) at this time.
 
+> [!NOTE]
+> Microsoft has been going through root CA changes for various Azure services, including Azure Database for PostgreSQL - Flexible Server , as detailed in this [document](../../security/fundamentals/tls-certificate-changes.md) and [Configuring SSL on the Client section below](#configuring-ssl-on-the-client).
+
 To determine your current TLS\SSL connection status, you can load the [sslinfo extension](concepts-extensions.md) and then call the `ssl_is_used()` function to determine if SSL is being used. The function returns t if the connection is using SSL, otherwise it returns f. You can also collect all the information about your Azure Database for PostgreSQL flexible server instance's SSL usage by process, client, and application by using the following query:
 
 ```sql
@@ -111,6 +114,7 @@ For more on SSL\TLS configuration on the client, see [PostgreSQL documentation](
 > [!NOTE]
 > For clients that use **verify-ca** and **verify-full** sslmode configuration settings, i.e. certificate pinning, they have to deploy **three** root CA certificates to the client certificate stores:
 > **[DigiCert Global Root G2](https://www.digicert.com/kb/digicert-root-certificates.htm)** and **[Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/docs/repository.htm)** root CA certificates, as services are migrating from Digicert to Microsoft CA. For legacy compatibility **[Digicert Global Root CA](https://www.digicert.com/kb/digicert-root-certificates.htm)**.
+
 
 
 ### Downloading Root CA certificates and updating application clients in certificate pinning scenarios
