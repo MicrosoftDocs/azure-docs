@@ -159,11 +159,6 @@ To find the values that you need to use in the **properties** object for complet
 
 `GET https://management.azure.com/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/{connector-name}?api-version=2016-06-01`
 
-> [!NOTE]
->
-> If your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition.
-> For more information, see [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
-
 In the response, find the **connectionParameters** object, which contains the necessary information to complete the resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
 
 ```json
@@ -189,6 +184,18 @@ In the response, find the **connectionParameters** object, which contains the ne
 ```
 
 As an alternative, you can capture and review the network trace for when you create a connection using the workflow designer in Azure Logic Apps. Find the `PUT` call that's sent to the connector's managed API as previously described, and review the request body for all the necessary information.
+
+#### On-premises data gateway resource definition
+
+If your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. To view the data gateway's resource definition, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find and view the Azure resource for your on-premises data gateway.
+
+1. On the resource menu, under **Automation**, select **Export template**.
+
+   After Azure generates the template, the gateway's resource definition appears in the code window.
+
+For more information, see [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
 
 ### Release to Azure
 
