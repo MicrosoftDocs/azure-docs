@@ -136,30 +136,36 @@ If the `git` command isn't available on your development environment, or your tr
 
 ## View Git information
 
-The Git information is stored in the properties for a training job. The logged information contains JSON code similar to the following example:
+The Git information is stored as JSON code in the properties for a training job. The logged Git information can include the following properties:
 
 ```json
-"properties": {
-    "_azureml.ComputeTargetType": "batchai",
-    "ContentSnapshotId": "5ca66406-cbac-4d7d-bc95-f5a51dd3e57e",
-    "azureml.git.repository_uri": "git@github.com:azure/machinelearningnotebooks",
-    "mlflow.source.git.repoURL": "git@github.com:azure/machinelearningnotebooks",
-    "azureml.git.branch": "master",
-    "mlflow.source.git.branch": "master",
-    "azureml.git.commit": "4d2b93784676893f8e346d5f0b9fb894a9cf0742",
-    "mlflow.source.git.commit": "4d2b93784676893f8e346d5f0b9fb894a9cf0742",
-    "azureml.git.dirty": "True",
-    "AzureML.DerivedImageName": "azureml/azureml_9d3568242c6bfef9631879915768deaf",
-    "ProcessInfoFile": "azureml-logs/process_info.json",
-    "ProcessStatusFile": "azureml-logs/process_status.json"
-}
+"azureml.git.repository_uri": "git@github.com:azure/<repo-name>",
+"azureml.git.branch": "<branch-name>",
+"azureml.git.commit": "<commit-id>",
+"azureml.git.dirty": "<True/False>",
+"mlflow.source.git.repoURL": "git@github.com:azure/<repo-name>",
+"mlflow.source.git.branch": "<branch-name>",
+"mlflow.source.git.commit": "<commit-id>",
+
 ```
 
 You can view this information by using the Azure portal, Python SDK, or Azure CLI.
 
 ### Azure portal
 
-In your workspace in Azure Machine Learning studio, select the experiment from the **Jobs** page and then select the job from the **Display name** column. To view the Git properties, select **Raw JSON** under **See all properties** in the **Properties** section of the **Overview** page.
+In your workspace in Azure Machine Learning studio, select your job from the **Jobs** page. In the **Properties** section of the job **Overview** page, select **Raw JSON** under **See all properties**.
+
+In the JSON, look for the Git properties, for example:
+
+```json
+    "properties": {
+        "mlflow.source.git.repoURL": "git@github.com:azure/azureml-examples",
+        "mlflow.source.git.branch": "main",
+        "mlflow.source.git.commit": "0000000000000000000000000000000000000000",
+        "azureml.git.dirty": "False",
+    ...
+    },
+```
 
 ### Python SDK V2
 
