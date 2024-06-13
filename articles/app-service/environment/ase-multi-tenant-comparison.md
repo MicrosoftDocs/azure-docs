@@ -21,7 +21,7 @@ An App Service Environment is an Azure App Service feature that provides a fully
 |Dedicated host group|[Available](creation.md#deployment-considerations) |No |
 |Remote file storage|Fully dedicated to the App Service Environment |Remote file storage for the application is dedicated, but the storage is hosted on a shared file server |
 |Internal Load Balancer (ILB) configuration|Yes, using ILB App Service Environment variation |Yes, via private endpoint |
-|Planned maintenance|[Manual upgrade preference is available](maintenance.md). Maintenance is non-disruptive to your apps. |Maintenance is handled by the platform and is non-disruptive to your apps |
+|Planned maintenance|[Manual upgrade preference is available](how-to-upgrade-preference.md). Maintenance is non-disruptive to your apps. |Maintenance is handled by the platform and is non-disruptive to your apps |
 
 ## Scaling
 
@@ -52,9 +52,9 @@ Both App Service Environment v3 and the public multi-tenant offering run on [Vir
 |---------|---------|---------|
 |Virtual network integration|Yes, App Service Environment v3 is deployed into a subnet in your virtual network by default |Supported, [must be explicitly enabled](../../app-service/networking-features.md#virtual-network-integration)|
 |Private endpoint support|Yes, [must be explicitly enabled on the App Service Environment](networking.md#private-endpoint) |Yes, [must be explicitly enabled](../../app-service/networking-features.md#private-endpoint) |
-|IP access restrictions for inbound traffic|Yes, [must be explicitly enabled](networking.md#ip-access-restrictions) |Yes, [must be explicitly enabled](../../app-service/networking-features.md#ip-access-restrictions) |
+|IP access restrictions for inbound traffic|Yes, [must be explicitly enabled](../../app-service/networking-features.md#access-restrictions) |Yes, [must be explicitly enabled](../../app-service/networking-features.md#access-restrictions) |
 |Network security group (NSG) integration|Supports inbound and outbound traffic control |Can use NSG for inbound traffic control using the subnet that sourced the IP of a private endpoint (Note: requires private endpoints). Supports outbound network restrictions with NSG on the virtual network integration subnet. |
-|UDR integration|Supports outbound traffic routing, [must be explicitly enabled](networking.md#user-defined-routing) |Supports outbound traffic routing, [must be explicitly enabled](../../app-service/networking-features.md#user-defined-routing) |
+|UDR integration|Supports outbound traffic routing, [must be explicitly enabled](networking.md#network-routing) |Supports outbound traffic routing, [must be explicitly enabled](../../app-service/networking-features.md#network-secure-outbound-traffic-azure-firewall) |
 |Route outbound traffic over virtual network|Yes, all apps are in the same subnet and all outbound traffic is routed through the virtual network by default |Supported |
 |[Block inbound traffic to App Service functionality hosted on non-HTTP ports](../../app-service/networking-features.md#app-service-ports)|Supported, NSG can be used to block inbound traffic to non-HTTP ports |Not supported. In some cases (FTP and remote debugging), functionality can be explicitly disabled on a per-application basis. However, inbound network traffic cannot be blocked using NSGs since the listed ports are owned by the underlying App Service platform hosting infrastructure. |
 
