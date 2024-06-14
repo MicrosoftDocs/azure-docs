@@ -16,6 +16,9 @@ This article lists the most commonly used Microsoft Sentinel workbooks. Install 
 
 We recommend you deploy any workbooks associated with the data you ingest into Microsoft Sentinel. Workbooks allow for broader monitoring and investigating based on your collected data. For more information, see [Microsoft Sentinel data connectors](connect-data-sources.md) and [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
+## Commonly used workbooks
+
+The following table includes workbooks we recommend and the solution or standalone item from the **Content hub** that contains the workbook. 
 
 |Workbook name  |Description  |Content hub title|
 |---------|---------|---------|
