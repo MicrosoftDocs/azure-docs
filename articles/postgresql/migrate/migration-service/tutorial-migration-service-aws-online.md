@@ -92,7 +92,7 @@ For more information about the Runtime Server, visit the [Migration Runtime Serv
 
 The **Connect to Source** tab prompts you to provide details related to the Source selected in the **Setup Tab**, which is the Source of the databases.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/aws-connect-source.png" alt-text="Screenshot of Connectsourcemigration." lightbox="media/tutorial-migration-service-aws-online/aws-connect-source.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/03-portal-online-connect-source-aws.png" alt-text="Screenshot of Connectsourcemigration." lightbox="media/tutorial-migration-service-aws-online/aws-connect-source.png":::
 
 - **Server Name** - Provide the Hostname or the IP address of the source PostgreSQL instance
 - **Port** - Port number of the Source server

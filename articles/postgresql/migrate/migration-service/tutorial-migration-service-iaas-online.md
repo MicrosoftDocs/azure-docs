@@ -191,19 +191,11 @@ If there are both **Migrate** and **Validate and Migrate**, completion of the On
 Before initiating cutover, it's important to ensure that:
 
 - Writes to the source are stopped - `Latency` value is 0 or close to 0. The `Latency` information can be obtained from the migration details screen as shown below:
-
-    :::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-cutover-migration.png" alt-text="Screenshot of Cutovermigration.":::
-
 - `latency` value decreases to 0 or close to 0
 - `latency` value indicates when the target last synced with the source. Writing to the source can be stopped at this point, and a cutover can be initiated. In case there's heavy traffic at the source, it's recommended to stop writes first so that `Latency` can come close to 0, and then a cutover is initiated.
 - The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with nonzero `Latency`, the replication stops until that point in time. All the data on the source until the cutover point is then applied to the target. if you experience a latency of 15 minutes at the cutover point, all the changed data in the last 15 minutes are applied to the target.
 The time depends on the backlog of changes occurring in the last 15 minutes. Hence, it's recommended that the latency go to zero or near zero before triggering the cutover.
-
-    :::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-confirm-cutover.png" alt-text="Screenshot of Confirmcutovermigration.":::
-
 - The migration moves to the `Succeeded` state when the `Migrating Data` substate or the cutover (in Online migration) finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
-
-    :::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-successful-migration.png" alt-text="Screenshot of Successmigration.":::
 
 ## Cancel the migration
 
