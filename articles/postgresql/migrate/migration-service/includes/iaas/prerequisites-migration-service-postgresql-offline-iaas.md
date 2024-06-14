@@ -37,6 +37,12 @@ Network setup is crucial for the migration service to function correctly. Ensure
 
 For information about network setup, visit [Network guide for migration service](../../how-to-network-setup-migration-service.md).
 
+- **Additional networking considerations:**
+
+pg_hba.conf Configuration: To facilitate connectivity between the source and target PostgreSQL instances, it's essential to verify and potentially modify the pg_hba.conf file. This file includes client authentication and must be configured to allow the target PostgreSQL to connect to the source. Changes to the pg_hba.conf file typically require a restart of the source PostgreSQL instance to take effect.
+
+The pg_hba.conf file is located in the data directory of the PostgreSQL installation. This file should be checked and configured if the source database is an on-premises PostgreSQL server or a PostgreSQL server hosted on an Azure VM. 
+
 ### Enable extensions
 
 Extensions are extra features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL but must be enabled manually. To enable extensions, follow these steps:

@@ -12,7 +12,7 @@ ms.topic: tutorial
 # CustomerIntent: As a user, I want to learn how to migrate my Single Server databases to Azure Database for PostgreSQL Flexible Server using the Azure portal, so that I can take advantage of the flexibility and scalability offered by the Flexible Server.
 ---
 
-# Tutorial: Migrate from Azure Database for PostgreSQL - Single Server to Azure Database for PostgreSQL - Flexible Server using the migration service
+# Tutorial: Migrate from Azure Database for PostgreSQL - Single Server to Flexible Server with the migration service
 
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 

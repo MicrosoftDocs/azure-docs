@@ -27,9 +27,9 @@ The table below summarizes the scenarios for connecting a source database to an 
 | PostgreSQL installed Azure VM in same/different virtual network | VNet-integrated Azure Database for PostgreSQL - Flexible Server in same/different virtual network | Yes |
 | Azure Database for PostgreSQL - Single Server with public access | VNet-integrated Azure Database for PostgreSQL - Flexible Server | Yes |
 | Azure Database for PostgreSQL - Single Server with private endpoint | VNet-integrated Azure Database for PostgreSQL - Flexible Server | Yes |
-| Azure Database for PostgreSQL - Single Server with private endpoint | Azure Database for PostgreSQL - Flexible Server with private endpoint | Planned for future release |
-| On-premises/Azure VM/AWS with private access | Azure Database for PostgreSQL - Flexible Server with private endpoint | Planned for future release |
-| On-premises/Azure VM/AWS with private access | Azure Database for PostgreSQL - Flexible Server with public access | Planned for future release |
+| Azure Database for PostgreSQL - Single Server with private endpoint | Azure Database for PostgreSQL - Flexible Server with private endpoint | Yes |
+| On-premises/Azure VM/AWS with private access | Azure Database for PostgreSQL - Flexible Server with private endpoint | Yes |
+| On-premises/Azure VM/AWS with private access | Azure Database for PostgreSQL - Flexible Server with public access | No |
 
 ## Scenario 1: On-premises source to Azure Database for PostgreSQL with public access
 
@@ -211,17 +211,6 @@ Below are the networking steps for migrating a PostgreSQL database from an on-pr
     - Ensure both source and target Azure Database for PostgreSQL - Flexible Server VNets are linked to the private DNS zone of the migration runtime server.
     - Attach a private DNS zone to the Flexible Server's private endpoint if not already configured.
     - Add virtual network links for the Flexible Server and Migration Runtime Server to the private DNS zone.
-
-## Scenario 10: Custom private DNS Zone attached to the private endpoint
-
-This scenario addresses the networking challenge when migrating databases to Azure PostgreSQL, which requires using Azure's default private DNS zone. Custom DNS configurations are incompatible with the Migration Runtime Server, necessitating the temporary use of Azure's default private DNS zone.
-
-- Check if the source and target databases use custom DNS zones with private endpoints.
-- For both the source and target databases, set up new private endpoints that are linked to Azure's default private DNS zone.
-- Connect the new private endpoints to the **privatelink.postgres.database.azure.com** DNS zone for proper name resolution.
-- Ensure the Migration Runtime Server can resolve and communicate with both databases using the new private endpoints.
-- Carry out the database migration through the secondary endpoints that use the default private DNS zone.
-- Remove the secondary private endpoints after successful migration and restore any custom DNS configurations if needed.
 
 ## Resources for network setup
 

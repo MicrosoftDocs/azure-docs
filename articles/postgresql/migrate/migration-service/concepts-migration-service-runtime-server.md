@@ -30,7 +30,7 @@ The migration runtime server is essential for transferring data between differen
 
 To use the Migration Runtime Server feature within the migration service in Azure Database for PostgreSQL, follow these steps in the Azure portal:
 
-- Sign in to the Azure portal and access the migration service in the Azure Database for PostgreSQL.
+- Sign in to the Azure portal and access the migration service (from the target server) in the Azure Database for PostgreSQL instance.
 - Begin a new migration workflow within the service.
 - When you reach the "Select runtime server" tab, use the Migration Runtime Server by selecting "Yes."
 Choose your Azure subscription and resource group and the location of the VNet-integrated Azure Database for PostgreSQL—Flexible server.
