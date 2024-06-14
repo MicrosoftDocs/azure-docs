@@ -24,7 +24,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Python 3
    - For macOS or Linux, download from [python.org](https://www.python.org/downloads/).
-   - For Windows 11, use the [Windows Store](https://www.microsoft.com/en-us/p/python-3/9nblggh083nz?activetab=pivot:overviewtab).
+   - For Windows 11, use the [Windows Store](https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation&hl=en-us&gl=US).
 
 ## Create an Azure Cache for Redis instance
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
@@ -41,11 +41,11 @@ The following example used `pip3` for Python 3 to install `redis-py` on Windows 
 
 ## Read and write to the cache
 
-Run Python from the command line and test your cache by using the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
+Run [Python from the command line](https://docs.python.org/3/faq/windows.html#id2) to test your cache. First, initiate the python interpreter in your command line by typing `py`, and then use the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
 
 ```python
 >>> import redis
->>> r = redis.StrictRedis(host='<Your Host Name>',
+>>> r = redis.Redis(host='<Your Host Name>',
         port=6380, db=0, password='<Your Access Key>', ssl=True)
 >>> r.set('foo', 'bar')
 True
@@ -66,7 +66,7 @@ import redis
 myHostname = "<Your Host Name>"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,
+r = redis.Redis(host=myHostname, port=6380,
                       password=myPassword, ssl=True)
 
 result = r.ping()
