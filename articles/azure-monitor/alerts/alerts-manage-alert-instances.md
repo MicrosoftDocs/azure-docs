@@ -84,6 +84,10 @@ The **Alert details** page provides more information about the selected alert:
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" lightbox="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot that shows the Alerts details page in the Azure portal.":::
 
+> [!NOTE]  
+> Alert status can be either New, Acknowledged, or Closed and it can be manually set by the administrator.
+
+
 ## Manage your alerts programmatically
 
 You can query your alerts instances to create custom views outside of the Azure portal or to analyze your alerts to identify patterns and trends.
