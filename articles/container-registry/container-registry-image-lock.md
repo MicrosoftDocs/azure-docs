@@ -189,6 +189,16 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
+However, if a customer applies a lock on the manifest, they would indeed need to run an additional command to unlock the manifest.
+    
+```azurecli
+az acr repository update \
+   --name myregistry \
+   --image $repo@$digest \
+   --delete-enabled true \ 
+   --write-enabled true
+```
+
 ## Next steps
 
 In this article, you learned about using the [az acr repository update][az-acr-repository-update] command to prevent deletion or updating of image versions in a repository. To set additional attributes, see the [az acr repository update][az-acr-repository-update] command reference.
