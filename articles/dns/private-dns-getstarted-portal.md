@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS zone and reco
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 06/19/2023
+ms.date: 06/13/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -32,27 +32,21 @@ If you prefer, you can complete this quickstart using [Azure PowerShell](private
 
 ## Create a private DNS zone
 
-The following example creates a DNS zone called **private.contoso.com** in a resource group called **MyAzureResourceGroup**.
+The following example creates a DNS zone called **private.contoso.com** in a resource group called **MyResourceGroup**.
 
-A DNS zone contains the DNS entries for a domain. To start hosting your domain in Azure DNS, you create a DNS zone for that domain name.
-
-:::image type="content" source="./media/private-dns-portal/search-private-dns.png" alt-text="Screenshot of private DNS zones search.":::
+![Screenshot of private DNS zones search.](./media/private-dns-portal/search-private-dns.png)
 
 1. On the portal search bar, type **private dns zones** in the search text box and press **Enter**.
-1. Select **Private DNS zone**.
-1. Select **Create private dns zone**.
+2. Under **Marketplace**, select **Private DNS zone**. The **Create Private DNS Zone** page opens.
+3. On the **Create Private DNS Zone** page, type or select the following values:
+   - **Resource group**: Select an existing resource group, or choose **Create new**, enter a resource group name, and then select **OK**. For example: **MyResourceGroup**. The resource group name must be unique within the Azure subscription.
+   -  **Name**: Type **private.contoso.com** for this example.
+4. The **Resource group location** is selected already if you use an existing resource group. If you created a new resource group, choose a location, for example: **(US) West US**.
+5. Select **Review + Create** and then select **Create**.
 
-1. On the **Create Private DNS zone** page, type or select the following values:
+It might take a few minutes to create the zone.
 
-   - **Resource group**: Select **Create new**, enter *MyAzureResourceGroup*, and select **OK**. The resource group name must be unique within the Azure subscription.
-   -  **Name**: Type *private.contoso.com* for this example.
-1. For **Resource group location**, select **West Central US**.
-
-1. Select **Review + Create**.
-
-1. Select **Create**.
-
-It may take a few minutes to create the zone.
+![Screenshot of creating a private DNS zone.](./media/private-dns-portal/create-private-zone.png)
 
 ## Virtual network and parameters
 
