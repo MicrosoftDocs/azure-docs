@@ -4,7 +4,7 @@ description: Learn how to use Apache Ambari to monitor cluster health and availa
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/23/2023
+ms.date: 06/14/2024
 ---
 
 # How to monitor cluster availability with Apache Ambari in Azure HDInsight

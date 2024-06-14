@@ -5,7 +5,7 @@ keywords: out of memory error, OOM, Hive settings
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 06/22/2023
+ms.date: 06/14/2024
 ---
 
 # Fix an Apache Hive out of memory error in Azure HDInsight

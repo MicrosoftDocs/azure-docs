@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: quickstart
 author: yeturis
 ms.author: sairamyeturi
-ms.date: 06/22/2023
+ms.date: 06/14/2024
 ---
 
 # Azure HDInsight interactive query cluster (Hive LLAP) schedule based autoscale
