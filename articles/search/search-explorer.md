@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 05/30/2024
+ms.date: 06/14/2024
 ms.custom:
   - mode-ui
 ---
@@ -16,7 +16,10 @@ ms.custom:
 
 In this quickstart, learn how to use **Search explorer**, a built-in query tool in the Azure portal used for running queries against a search index in Azure AI Search. Use it to test a query or filter expression, or confirm whether content exists in the index.
 
-This quickstart uses an existing index to demonstrate Search explorer. 
+This quickstart uses an existing index to demonstrate Search explorer.
+
+> [!TIP]
+> Search explorer now supports image search. [Quickstart: Image search in Azure portal](search-get-started-portal-image-search.md) provides the steps.
 
 ## Prerequisites
 
