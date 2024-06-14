@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom:
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 06/14/2024
 ms.author: danlep
 ---
 
@@ -67,18 +67,22 @@ You can also migrate to the `stv2` platform by enabling [zone redundancy](../rel
 
 ### Update network configuration
 
-You can use the Azure portal or other Azure tools such to migrate to a new subnet in the same or a different VNet. The following image shows a high level overview of what happens during migration to a new subnet.
+You can use the Azure portal to migrate to a new subnet in the same or a different VNet. The following image shows a high level overview of what happens during migration to a new subnet.
 
 :::image type="content" source="media/migrate-stv1-to-stv2-vnet/inplace-new-subnet.gif" alt-text="Diagram of in-place migration to a new subnet.":::
 
-For example, to use the portal:
+#### [Portal](#tab/portal)
 
-1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, select **Network** > **Virtual network**.
-1. Select the network connection in the location you want to update.
-1. Select the virtual network and subnet you want to configure. Optionally select a new public IP. Select **Apply**. 
-1. Continue configuring VNet settings for the remaining locations of your API Management instance.
-1. In the top navigation bar, select **Save**.
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Settings**, select **Platform migration**.
+1. On the **Platform migration** page, in **Step 1**, review migration requirements and prerequisites.
+1. In **Step 2**, select a location to migrate. Select the **Virtual network**, **Subnet**, and optional **Public IP** you want to migrate to. 
+    :::image type="content" source="media/migrate-stv1-to-stv2-vnet/select-location.png" alt-text="Screenshot of selecting network migration settings in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/select-location.png":::
+
+1. In **Step 3**, confirm you want to migrate, and select **Migrate**. 
+1. If your API Management instance is deployed in multiple regions, continue migrating VNet settings for the remaining locations of your instance.
+
+---
 
 After you update the VNet configuration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
 
@@ -109,7 +113,11 @@ The following image shows a high level overview of what happens during migration
 1. In the [portal](https://portal.azure.com), navigate to your original VNet.
 1. In the left menu, select **Subnets**, and then the original subnet. 
 1. Verify that the original IP addresses were released by API Management. Under **Available IPs**, note the number of IP addresses available in the subnet. All addresses (except for Azure reserved addresses) should be available. If necessary, wait for IP addresses to be released. 
-1. Repeat the migration steps in the [preceding section](#trigger-migration-of-a-network-injected-api-management-instance). In each region, specify the original VNet and subnet. Optionally select a new public IP.
+1. Navigate to your API Management instance.
+1. In the left menu, under **Network**, select **Virtual network**.
+1. Select the network connection in the location you want to update.
+1. Select the original VNet network and subnet. Optionally select a new public IP. Select **Apply**. 
+1. If your API Management instance is deployed in multiple regions, continue configuring VNet settings for the remaining locations of your instance.
 1. In the top navigation bar, select **Save**.
 
 After you update the VNet configuration, the status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
@@ -158,11 +166,11 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **How to confirm that the migration is complete and successful?**
 
-   The migration is considered complete and successful when the status in the overview page reads **Online** along with the platform version being either `stv2` or `stv2.1`. Also verify that the network status in the network blade shows green for all required connectivity.
+   The migration is considered complete and successful when the status in the **Overview** page reads **Online** along with the platform version being either `stv2` or `stv2.1`. Also verify that the network status in the **Network** blade shows green for all required connectivity.
 
 - **Can I do the migration using the portal?**
 
-   Yes, VNet-injected instances can be migrated by changing the subnet configuration(s) in the **Network** blade.
+   Yes, VNet-injected instances can be migrated by changing the subnet configuration(s) in the **Platform migration** blade.
 
 - **Can I preserve the IP address of the instance?**
 
@@ -201,7 +209,7 @@ After you update the VNet configuration, the status of your API Management insta
 
 - **My stv1 instance is deployed to multiple Azure regions (multi-region). How do I upgrade to stv2?**
 
-   Multi-region deployments include more managed gateways deployed in other locations. Each location should be migrated separately by providing a new subnet and a new public IP (required when enabling zone redundancy). Navigate to the **Locations** blade and perform the changes on each listed location. The instance is considered migrated to the new platform only when all the locations are migrated. All regional gateways continue to operate normally throughout the migration process.
+   Multi-region deployments include more managed gateways deployed in other locations. Migrate each location separately by updating network settings in sequence - for example, using the **Platform migration** blade. The instance is considered migrated to the new platform only when all the locations are migrated. All regional gateways continue to operate normally throughout the migration process.
 
 
 - **Can I upgrade my stv1 instance to the same subnet?**
