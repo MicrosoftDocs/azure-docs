@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core Output Cache Provider for Azure Cache for Redis
+title: ASP.NET Core output cache provider for Azure Cache for Redis
 description: Use the Redis Output Cache Provider to cache ASP.NET Core page output out of process by using Azure Cache for Redis.
 author: flang-msft
 ms.author: cawa
