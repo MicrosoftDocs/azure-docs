@@ -84,15 +84,15 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    * Performance log
    * Firewall log
 
-2. To start collecting data, select **Turn on diagnostics**.
+1. To start collecting data, select **Turn on diagnostics**.
 
    ![Turning on diagnostics][1]
 
-3. The **Diagnostics settings** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
+1. The **Diagnostics settings** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
 
    ![Starting the configuration process][2]
 
-5. Type a name for the settings, confirm the settings, and select **Save**.
+1. Type a name for the settings, confirm the settings, and select **Save**.
 
 To view and analyze activity log data, see [Analyze monitoring data](monitor-application-gateway.md#azure-monitor-tools).
 
