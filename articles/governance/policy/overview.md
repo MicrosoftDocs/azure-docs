@@ -179,12 +179,11 @@ Here are a few pointers and tips to keep in mind:
   the assignment can be scoped down to a subscription or resource group within that management
   group.
 
-- We recommend creating and assigning initiative definitions even for a single policy definition.
-  For example, you have policy definition _policyDefA_ and create it under initiative definition
-  _initiativeDefC_. If you create another policy definition later for _policyDefB_ with goals
-  similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
+- We recommend creating and assigning initiative definitions even if starting with a single policy definition. This enables you to add policy definitions to the initiative later without increasing the number of assignments to manage.
 
-    - Once you've created an initiative assignment, policy definitions added to the initiative also
+  - For example, imagine you create policy definition _policyDefA_ and add it to initiative definition  _initiativeDefC_. If you later create another policy definition _policyDefB_ with goals similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
+
+  - Once you've created an initiative assignment, policy definitions added to the initiative also
   become part of that initiative's assignments.
 
   - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
