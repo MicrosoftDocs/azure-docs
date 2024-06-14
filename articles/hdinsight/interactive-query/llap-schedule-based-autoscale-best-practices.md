@@ -8,7 +8,7 @@ ms.author: sairamyeturi
 ms.date: 06/14/2024
 ---
 
-# Azure HDInsight interactive query cluster (Hive LLAP) schedule based autoscale
+# Azure HDInsight interactive query cluster (Hive LLAP) `schedule based autoscale`
 
 This document provides the onboarding steps to enable schedule-based autoscale for Interactive Query (LLAP) Cluster type in Azure HDInsight. It includes some of the best practices to operate Autoscale in Hive-LLAP.
 
