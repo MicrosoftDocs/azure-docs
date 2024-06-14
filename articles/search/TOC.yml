@@ -23,11 +23,11 @@
     href:  /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
   - name: Portal
     items:
-    - name: Create and query an index (Import data wizard)
+    - name: Keyword search wizard
       href: search-get-started-portal.md
-    - name: Vector indexing (Import and vectorize data wizard)
+    - name: Vector search wizard
       href: search-get-started-portal-import-vectors.md
-    - name: Image search
+    - name: Image search wizard
       href: search-get-started-portal-image-search.md
     - name: Create a demo app
       href: search-create-app-portal.md

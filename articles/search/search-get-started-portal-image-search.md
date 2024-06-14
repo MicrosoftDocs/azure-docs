@@ -8,37 +8,43 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/14/2024
+ms.custom:
+  - references_regions
 ---
 
-# Quickstart: Image search in Azure portal (preview)
+# Quickstart: Image search using Search Explorer in Azure portal
 
 > [!IMPORTANT]
-> **Import and vectorize data** wizard and Azure AI Vision vectorizers are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, it targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+> Image vectors are supported in stable API versions, but the wizard and vectorizers are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, the wizard targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-Get started with image search using the **Import and vectorize data** wizard in the Azure portal and image search in **Search explorer**.
+Get started with image search using the **Import and vectorize data** wizard in the Azure portal and use **Search explorer** to run image-based queries.
 
-You need three Azure resources and sample data to complete this walkthrough:
+You need three Azure resources and some sample image files to complete this walkthrough:
 
 > [!div class="checklist"]
 > + Azure Storage to store image files as blobs
-> + Azure AI services multiservice account, used for image vectorization and image analysis
+> + Azure AI services multiservice account, used for image vectorization and Optical Character Recognition (OCR)
 > + Azure AI Search for indexing and queries
 
-Sample data consists of image files in the azure-search-sample-data repo, but you can use different images and still follow this walkthrough.
+Sample data consists of image files in the [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/unsplash-images) repo, but you can use different images and still follow this walkthrough.
 
 ## Prerequisites
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure AI services, a multiservice account, in a region that provides Azure AI Vision multimodal embeddings. Currently, those regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval) for an updated list.
++ Azure AI services, a multiservice account, in a region that provides Azure AI Vision multimodal embeddings.
 
-+ Azure AI Search, on any tier, but in the same region as Azure AI services. The tier of your search service determines how many blobs you can index. We used the free tier to create this walkthrough and we limited the content to 10 JPG files.
+  Currently, those regions are: SwedenCentral, EastUS, NorthEurope, WestEurope, WestUS, SoutheastAsia, KoreaCentral, FranceCentral, AustraliaEast, WestUS2, SwitzerlandNorth, JapanEast. [Check the documentation](/azure/ai-services/computer-vision/how-to/image-retrieval) for an updated list.
 
-+ Azure Storage, use a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
++ Azure AI Search, on any tier, but in the same region as Azure AI services. 
+
+  Service tier determines how many blobs you can index. We used the free tier to create this walkthrough and limited the content to 10 JPG files.
+
++ Azure Storage, a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
 
 All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security.
 
-A free search service supports role-based access control on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This means you must use key-based authentication on free search service connections to other Azure services. Or, you can use basic or above and [configure a managed identity](search-howto-managed-identities-data-sources.md) and role assignment to admit requests from Azure AI Search. 
+A free search service supports role-based access control on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This means you must use key-based authentication on free search service connections to other Azure services. For more secure connections, use basic tier or above and [configure a managed identity](search-howto-managed-identities-data-sources.md) and role assignments to admit requests from Azure AI Search on other Azure services. 
 
 ## Check for space
 
@@ -56,7 +62,7 @@ If you're starting with the free service, you're limited to three indexes, three
 
 ## Start the wizard
 
-If your Azure AI multiservice account and Azure AI Search are in the same supported region and tenant, and if your Azure Storage blob container is using the default configuration, you're ready to start the wizard.
+If your search service and Azure AI service are located in the same [supported region](/azure/ai-services/computer-vision/how-to/image-retrieval) and tenant, and if your Azure Storage blob container is using the default configuration, you're ready to start the wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure AI Search service.
 
@@ -66,9 +72,9 @@ If your Azure AI multiservice account and Azure AI Search are in the same suppor
 
 ## Connect to your data
 
-The next step is to connect to a data source to use for the search index.
+The next step is to connect to a data source that provides the images.
 
-1. In the **Import and vectorize data** wizard on the **Connect to your data** tab, expand the **Data Source** dropdown list and select **Azure Blob Storage**.
+1. On the **Connect to your data** tab, select **Azure Blob Storage**.
 
 1. Specify the Azure subscription.
 
@@ -82,9 +88,9 @@ The next step is to connect to a data source to use for the search index.
 
 If raw content includes text, or if the skillset produces text, the wizard calls a text embedding model to generate vectors for that content. In this exercise, text will be produced from the Optical Character Recognition (OCR) skill that you add in the next step.
 
-Azure AI Vision model provides text embeddings, so we'll use that model for text vectorization.
+Azure AI Vision provides text embeddings, so we'll use that resource for text vectorization.
 
-1. On the **Vectorize text** page, select **AI Vision vectorization**. If it's not selectable, make sure Azure AI Search and Azure AI multiservice account are together in a region that [supports AI Vision multimodal APIs](/azure/ai-services/computer-vision/how-to/image-retrieval).
+1. On the **Vectorize your text** page, select **AI Vision vectorization**. If it's not selectable, make sure Azure AI Search and your Azure AI multiservice account are together in a region that [supports AI Vision multimodal APIs](/azure/ai-services/computer-vision/how-to/image-retrieval).
 
    :::image type="content" source="media/search-get-started-portal-images/vectorize-your-text.png" alt-text="Screenshot of the Vectorize your text page in the wizard.":::
 
@@ -94,9 +100,15 @@ Azure AI Vision model provides text embeddings, so we'll use that model for text
 
 Use Azure AI Vision to generate a vector representation of the image files. 
 
-In this step, you can also set enrichment options to extract text from images. The wizard uses OCR from Azure AI services to recognize text in image files. Two more outputs appear in the index when OCR is added to the workflow. First, the "chunk" field is populated with the OCR-generated string. Second, the "text_vector" field is populated with an embedding that represents the string. The inclusion of plain text in an index is useful if you want to use relevance features that operate on strings, such as semantic ranker and scoring profiles.
+In this step, you can also apply AI to extract text from images. The wizard uses OCR from Azure AI services to recognize text in image files. Two more outputs appear in the index when OCR is added to the workflow:
 
-1. On the **Vectorize images** page, select the **Vectorize images** checkbox, and then select **AI Vision vectorization**.
++ First, the "chunk" field is populated with the OCR-generated string. 
+
++ Second, the "text_vector" field is populated with an embedding that represents the string. 
+
+The inclusion of plain text in an index is useful if you want to use relevance features that operate on strings, such as semantic ranking and scoring profiles.
+
+1. On the **Vectorize your images** page, select the **Vectorize images** checkbox, and then select **AI Vision vectorization**.
 
 1. Select **Use same AI service selected for text vectorization**.
 
@@ -131,16 +143,20 @@ In this step, you can also set enrichment options to extract text from images. T
    + Skillset with the following five skills:
 
      + [OCR skill](cognitive-search-skill-ocr.md) recognizes text in image files.
-     + [Text Merger skill](cognitive-search-skill-textmerger.md) reunites the various outputs of OCR processing.
-     + [Text Split skill](cognitive-search-skill-textsplit.md) adds data chunking. This skill is part of the wizard workflow, although for this data, chunking isn't technically necessary. 
-     + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is used to vectorize OCR-generated text.
+
+     + [Text Merger skill](cognitive-search-skill-textmerger.md) unifies the various outputs of OCR processing.
+
+     + [Text Split skill](cognitive-search-skill-textsplit.md) adds data chunking. This skill is built into the wizard workflow.
+
+     + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is used to vectorize text generated from OCR.
+
      + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is called again to vectorize images.
 
    + Indexer with field mappings and output field mappings.
 
 ## Check results
 
-Search explorer accepts text, vectors, and images as query inputs. You can drag or select an image into the search area, and it will be vectorized for search. Image vectorization assumes that your index has a vectorizer definition, which the **Import and vectorize data** wizard creates using your selections.
+Search explorer accepts text, vectors, and images as query inputs. You can drag or select an image into the search area, and it will be vectorized for search. Image vectorization assumes that your index has a vectorizer definition, which **Import and vectorize data** creates from your inputs.
 
 1. In the Azure portal, under **Search Management** and **Indexes**, select the index your created. An embedded Search Explorer is the first tab.
 
@@ -154,9 +170,9 @@ Search explorer accepts text, vectors, and images as query inputs. You can drag 
 
    :::image type="content" source="media/search-get-started-portal-images/image-search.png" alt-text="Screenshot of search results.":::
 
-   The top match should be the image you searched for.
+   The top match should be the image you searched for. Because a vector search matches on similar vectors, the search engine returns any document that is sufficiently similar to the query input. You can switch to JSON view for more advanced queries that include relevance tuning.
 
-1. Try the query options to compare search outcomes:
+1. Try other query options to compare search outcomes:
 
    + Hide vectors for more readable results.
    + Select a vector field to query over. The default is text vectors, but you can specify the image vector to exclude text vectors from query execution.
