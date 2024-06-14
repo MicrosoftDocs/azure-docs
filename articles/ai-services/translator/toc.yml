@@ -263,7 +263,7 @@ items:
     - name: Model training
       displayName: tuning
       href: custom-translator/concepts/model-training.md
-    - name: Bilingual Evaluation Understudy (BLEU) score
+    - name: Bilingual Evaluation Understudies (BLEU) score
       href: custom-translator/concepts/bleu-score.md
     - name: Encrypt data at rest
       displayName: encryption,key vault,revoke
