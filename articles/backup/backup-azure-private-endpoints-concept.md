@@ -46,7 +46,6 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 - You can create DNS across subscriptions.
 
 - You can create a secondary private endpoint before or after having protected items in the vault. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
-- 
 
 ## Recommended and supported scenarios
 

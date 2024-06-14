@@ -211,7 +211,7 @@ To perform Cross Subscription Restore to a Private Endpoint enabled vault:
 4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
 5. Create the **Private Endpoint** and trigger the restore process.
 
-#### Cross Region Restore to a Private Endpoint enabled vault
+#### Cross region restore to a private endpoint enabled vault
 
 You can create a **Secondary Private Endpoint** before or after adding protected items in the vault.
 
