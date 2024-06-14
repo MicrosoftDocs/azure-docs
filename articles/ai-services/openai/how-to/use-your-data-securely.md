@@ -210,7 +210,7 @@ Go to your search resource's network tab. With the public network access set to 
 
 :::image type="content" source="../media/use-your-data/search-trusted-service.png" alt-text="A diagram showing the search trusted service." lightbox="../media/use-your-data/search-trusted-service.png":::
 
-You can also use REST API to enable search trusted service. The example uses the Azure CLI and `jq` tool.
+You can also use the REST API to enable trusted service. This example uses the Azure CLI and the `jq` tool.
 
 ```bash
 rid=/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.Search/searchServices/<YOUR-RESOURCE-NAME>
