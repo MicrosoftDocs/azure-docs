@@ -24,8 +24,8 @@ landingContent:
         links:
           - text: What is Azure IoT Operations?
             url: overview-iot-operations.md
-          - text: Deploy
-            url: deploy-end-to-end-sample/quickstart-deploy.md
+          - text: Get started with an end-to-end sample
+            url: get-started-end-to-end-sample/quickstart-deploy.md
   # Card
   - title: Common scenarios
     linkLists:
