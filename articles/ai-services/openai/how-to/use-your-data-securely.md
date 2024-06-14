@@ -16,7 +16,7 @@ recommendations: false
 
 > [!Note]
 > Since June 2024, the form application of the Microsoft managed private endpoint to Azure AI Search is no longer needed.
-> The managed private endpoint will be deleted from Microsoft managed virtual network at July 2025. If you have already provisioned managed private endpoint through the form application process before June 2024, please migrate to the [Azure AI Service trusted service](#enable-trusted-service-of-search-resource) as early as possible to avoid service disruption. 
+> The managed private endpoint will be deleted from Microsoft managed virtual network at July 2025. If you have already provisioned managed private endpoint through the form application process before June 2024, please migrate to the [Azure AI Service trusted service](#enable-trusted-service-1) as early as possible to avoid service disruption. 
 
 Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints.
 
@@ -32,12 +32,12 @@ When you use Azure OpenAI On Your Data to ingest data from Azure blob storage, l
 * Downloading URLs to your blob storage is not illustrated in this diagram. After web pages are downloaded from the internet and uploaded to blob storage, steps 3 onward are the same.
 * Two indexers, two indexes, two data sources and a [custom skill](/azure/search/cognitive-search-custom-skill-interface) are created in the Azure AI Search resource.
 * The chunks container is created in the blob storage.
-* If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes), the ingestion process starts from step 7.
+* If the ingestion is triggered by a scheduled refresh, the ingestion process starts from step 7.
 *  Azure OpenAI's `preprocessing-jobs` API implements the [Azure AI Search customer skill web API protocol](/azure/search/cognitive-search-custom-skill-web-api), and processes the documents in a queue. 
 * Azure OpenAI:
     1. Internally uses the first indexer created earlier to crack the documents.
     1. Uses a heuristic-based algorithm to perform chunking, honoring table layouts and other formatting elements in the chunk boundary to ensure the best chunking quality.
-    1. If you choose to enable vector search, Azure OpenAI uses the selected embedding deployment to vectorize the chunks internally.
+    1. If you choose to enable vector search, Azure OpenAI uses the selected embedding setting to vectorize the chunks.
 * When all the data that the service is monitoring are processed, Azure OpenAI triggers the second indexer.
 * The indexer stores the processed data into an Azure AI Search service.
 
@@ -47,9 +47,9 @@ For the managed identities used in service calls, only system assigned managed i
 
 :::image type="content" source="../media/use-your-data/inference-architecture.png" alt-text="A diagram showing the process of using the inference API." lightbox="../media/use-your-data/inference-architecture.png":::
 
-When you send API calls to chat with an Azure OpenAI model on your data, the service needs to retrieve the index fields during inference to perform fields mapping automatically if the fields mapping isn't explicitly set in the request. Therefore the service requires the Azure OpenAI identity to have the `Search Service Contributor` role for the search service even during inference.
+When you send API calls to chat with an Azure OpenAI model on your data, the service needs to retrieve the index fields during inference to perform fields mapping. Therefore the service requires the Azure OpenAI identity to have the `Search Service Contributor` role for the search service even during inference.
 
-If an embedding deployment is provided in the inference request, the rewritten query will be vectorized by Azure OpenAI, and both query and vector are sent Azure AI Search for vector search.
+If an embedding deployment is provided in the inference request, the rewritten query will be vectorized by Azure OpenAI, and both query and vector are sent to Azure AI Search for vector search.
 
 ## Document-level access control
 
@@ -132,8 +132,8 @@ Create a resource group, so you can organize all the relevant resources. The res
 
 The virtual network has three subnets. 
 
-1. The first subnet is used for the private IPs of the three private endpoints.
-1. The second subnet is created automatically when you create the virtual network gateway.
+1. The first subnet is used for the virtual network gateway.
+1. The second subnet is used for the private endpoints for the three key services.
 1. The third subnet is empty, and used for Web App outbound virtual network integration.
 
 :::image type="content" source="../media/use-your-data/virtual-network.png" alt-text="A diagram showing the virtual network architecture." lightbox="../media/use-your-data/virtual-network.png":::
@@ -208,7 +208,7 @@ You can disable public network access of your Azure AI Search resource in the Az
 To allow access to your Azure AI Search resource from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/search/service-create-private-endpoint) that connect to your Azure AI Search resource.
 
 
-### Enable trusted service of search resource
+### Enable trusted service
 
 You can enable trusted service of your search resource from Azure portal.
 
