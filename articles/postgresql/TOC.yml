@@ -571,7 +571,7 @@
     - name: How-to guides
       items:
       - name: How to set up Azure CLI
-        href: migrate/migration-service/how-to-setup-azure-cli-commands-postgresql
+        href: migrate/migration-service/how-to-setup-azure-cli-commands-postgresql.md
       - name: How to set up the network
         href: migrate/migration-service/how-to-network-setup-migration-service.md
     - name: Troubleshoot
