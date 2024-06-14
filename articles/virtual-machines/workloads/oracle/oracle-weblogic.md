@@ -54,7 +54,7 @@ The solution template [WebLogic Server dynamic cluster on Azure VMs](https://aka
 
 ## WebLogic Server on Azure VM Base Images
 
-The solution templates introduced above support a range of operating system, Java, and WebLogic Server versions through base images - such as WebLogic Server 14 and Java 11 on Red Hat Enterprise Linux 8. These base images are also available on Azure Marketplace on their own.The base images are suitable for customers that require complex, customized Azure deployments. You can use the keywords *oracle weblogic base image* to search for the current set of [base images of WebLogic Server on Azure VM](https://aka.ms/wls-vm-base-images) available in Azure Marketplace.
+The solution templates introduced above support a range of operating system, Java, and WebLogic Server versions through base images - such as WebLogic Server 14 and Java 11 on Red Hat Enterprise Linux 8. These base images are also available on Azure Marketplace on their own. The base images are suitable for customers that require complex, customized Azure deployments. You can use the keywords *oracle weblogic base image* to search for the current set of [base images of WebLogic Server on Azure VM](https://aka.ms/wls-vm-base-images) available in Azure Marketplace.
 
 ## Next steps
 
