@@ -12,7 +12,7 @@ This article describes the steps to move App Service resources between resource 
 
 If you want to move App Services to a new region, see [Move an App Service resource to another region](../../../app-service/manage-move-across-regions.md).
 
-You can move App Service resources to a new resource group or subscription but you need to delete and upload its TLS/SSL certificates to the new new resource group or subscription. However, you can't move a free App Service managed certificate. For that scenario, see [Move with free managed certificates](#move-with-free-managed-certificates).
+You can move App Service resources to a new resource group or subscription but you need to delete and upload its TLS/SSL certificates to the new resource group or subscription. Also, you can't move a free App Service managed certificate. For that scenario, see [Move with free managed certificates](#move-with-free-managed-certificates).
 
 ## Move across subscriptions
 
