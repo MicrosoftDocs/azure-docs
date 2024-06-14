@@ -4,7 +4,7 @@ description: How to use data streaming with scalable Apache clusters in Azure HD
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ---
 
 # Streaming at scale in HDInsight

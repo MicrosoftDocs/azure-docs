@@ -30,7 +30,7 @@ The following screenshot shows the high-level example workflow:
 > - *What's the RSS connector?*
 > - *What's the Office 365 Outlook connector?*
 >
-> To find Azure Copilot, on the Azure toolbar, select **Copilot**.
+> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
 

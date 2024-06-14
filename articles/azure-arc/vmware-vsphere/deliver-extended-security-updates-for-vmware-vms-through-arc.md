@@ -5,8 +5,8 @@ ms.date: 12/06/2023
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 keywords: "VMware, Arc, Azure"
 ---
