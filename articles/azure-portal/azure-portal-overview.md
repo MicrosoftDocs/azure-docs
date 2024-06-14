@@ -11,7 +11,7 @@ The Azure portal is a web-based, unified console that lets you create and manage
 
 The Azure portal is designed for resiliency and continuous availability. It has a presence in every Azure datacenter. This configuration makes the Azure portal resilient to individual datacenter failures and helps avoid network slowdowns by being close to users. The Azure portal updates continuously, and it requires no downtime for maintenance activities. You can access the Azure portal with [any supported browser](azure-portal-supported-browsers-devices.md).
 
-In this topic, you learn about the different parts of the Azure portal.
+In this article, you learn about the different parts of the Azure portal.
 
 ## Home
 
@@ -19,9 +19,11 @@ By default, the first thing you see after you [sign in to the portal](https://po
 
 ## Portal elements and controls
 
-The portal menu and page header are global elements that are always present in the Azure portal. These persistent features are the "shell" for the user interface associated with each individual service or feature. The header provides access to global controls. The working pane for a resource or service may also have a resource menu specific to that area.
+The [portal menu](#portal-menu) and page header are global elements that are always present in the Azure portal. These persistent features are the "shell" for the user interface associated with each individual service or feature. The header provides access to global controls.
 
-The figure below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine, but the same elements generally apply, no matter what type of resource or service you're working with.
+The working pane for a resource or service may also have a [service menu](#service-menu) with commands specific to that area.
+
+The illustration below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine, but the same elements generally apply, no matter what type of resource or service you're working with.
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-callouts.png" alt-text="Screenshot showing the full screen portal view and a key to UI elements." lightbox="media/azure-portal-overview/azure-portal-overview-portal-callouts.png":::
 
@@ -83,5 +85,5 @@ For more help getting started with Azure, explore the [Azure Quickstart Center](
 
 ## Next steps
 
-* Take the [Manage services with the Azure portal training module](/training/modules/tour-azure-portal/).
-* Stay connected on the go with the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+- Take the [Manage services with the Azure portal training module](/training/modules/tour-azure-portal/).
+- Stay connected on the go with the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
