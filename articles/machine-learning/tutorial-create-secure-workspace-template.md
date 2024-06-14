@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: build-2023
 ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.date: 06/05/2023
 ms.topic: tutorial
 monikerRange: 'azureml-api-2 || azureml-api-1'
