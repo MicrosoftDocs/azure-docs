@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.reviewer: larryfr
 ms.date: 01/16/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
