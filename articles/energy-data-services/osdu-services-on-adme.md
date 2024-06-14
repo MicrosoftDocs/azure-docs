@@ -1,16 +1,16 @@
 ---
-title: OSDU Overview - Available and Exclusive Services
+title: OSDU Concepts - Available and Exclusive Services
 description: This article provides an overview of the OSDU services available on Azure Data Manager for Energy as well as the OSDU services that are exclusively available in the community version.
 author: bananibrahim
 ms.service: energy-data-services
 ms.author: bananibrahim
 
-ms.topic: overview
+ms.topic: concepts
 ms.date: 06/12/2024
-ms.custom: template-overview
+ms.custom: template-concepts
 ---
 
-# OSDU&reg; Concepts: available and exclusive services
+# OSDU&reg; Concepts: Available and exclusive services
 Azure Data Manager for Energy is currently compliant with the M18 OSDU® milestone release. 
 ## OSDU&reg; M18 services available on Azure Data Manager for Energy 
 Below you will find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. Please note that this page will be regularly updated as service versions and availablity evolve. 
