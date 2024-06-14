@@ -50,7 +50,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. In the **Overview** tab of the flexible server, on the left menu, scroll down to **Migration** and select it.
 
-    :::image type="content" source="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png" alt-text="Screenshot of the migration selection in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png":::
+    :::image type="content" source="media/tutorial-migration-service-iaas-offline/portal-offline-select-migration-pane.png" alt-text="Screenshot of the migration selection in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png":::
 
 1. Select the **Create** button to migrate to a flexible server from on-premises or Azure VMs.
 
@@ -78,13 +78,13 @@ The user needs to provide multiple details related to the migration, like the mi
 
 Choosing the **Validate** or **Validate and Migrate** option is always a good practice for performing premigration validations before running the migration.
 
-To learn more about the premigration validation, visit [premigration](../../concepts-premigration-migration-service.md).
+To learn more about the premigration validation, visit [premigration](concepts-premigration-migration-service.md).
 
 - **Migration mode** allows you to pick the mode for the migration. **Offline** is the default option.
 
 Select the **Next: Connect to source** button.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/01-portal-offline-setup-migration.png" alt-text="Screenshot of the Setup migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-setup-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/01-portal-offline-setup-migration.png" alt-text="Screenshot of the Setup migration page in the Azure portal.":::
 
 #### Runtime Server
 
@@ -112,7 +112,7 @@ The **Connect to Source** tab prompts you to give details related to the source 
 
 After the successful test connection, select the **Next: Select Migration target** button.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/03-portal-offline-connect-source-migration.png" alt-text="Screenshot of connect source migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-connect-source-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/03-portal-offline-connect-source-migration.png" alt-text="Screenshot of connect source migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/03-portal-offline-connect-source-migration.png":::
 
 #### Select migration target
 
@@ -126,7 +126,7 @@ The **select migration target** tab displays metadata for the Flexible Server ta
 
 After the successful test connection, select the **Next: Select Database(s) for Migration**
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/04-portal-offline-select-migration-target.png" alt-text="Screenshot of the connect target migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-connect-target-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/04-portal-offline-select-migration-target.png" alt-text="Screenshot of the connect target migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/04-portal-offline-connect-target-migration.png":::
 
 #### Select databases for migration
 
@@ -140,7 +140,7 @@ After selecting the databases, select the **Next: Summary**.
 
 The **Summary** tab summarizes all the source and target details for creating the validation or migration. Review the details and select the Start Validation and Migration button.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/06-portal-offline-summary-migration.png" alt-text="Screenshot of the summary migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-summary-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/06-portal-offline-summary-migration.png" alt-text="Screenshot of the summary migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/06-portal-offline-summary-migration.png":::
 
 ### Monitor the migration
 

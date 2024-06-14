@@ -19,7 +19,7 @@ To begin migrating using Azure CLI, you need to install the Azure CLI on your lo
 
 - [Choose the right command line tool](/CLI/azure/choose-the-right-azure-command-line-tool)
 - [Install Azure CLI](/cli/azure/install-azure-cli)
-- [Review the az postgresql commands](/cli/azure/postgres?view=azure-cli-latest)
+- [Review the az postgresql commands](/cli/azure/postgres)
 
 ## Migrate commands
 
@@ -86,9 +86,9 @@ For more information about this command, use the `help` parameter.
 
 ## Related content
 
-- [Migration service in Azure Database for PostgreSQL](../../concepts-migration-service-postgresql.md)
-- [Migrate from Single Server to Flexible Server](../../tutorial-migration-service-single-to-flexible.md)
-- [Migrate offline from AWS RDS PostgreSQL](../../tutorial-migration-service-aws-offline.md)
-- [Migrate online from AWS RDS PostgreSQL](../../tutorial-migration-service-aws-online.md)
-- [Migrate offline from on-premises or an Azure VM hosted PostgreSQL](../../tutorial-migration-service-iaas-offline.md)
-- [Migrate online from on-premises or an Azure VM hosted PostgreSQL](../../tutorial-migration-service-iaas-online.md)
+- [Migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md)
+- [Migrate from Single Server to Flexible Server](tutorial-migration-service-single-to-flexible.md)
+- [Migrate offline from AWS RDS PostgreSQL](tutorial-migration-service-aws-offline.md)
+- [Migrate online from AWS RDS PostgreSQL](tutorial-migration-service-aws-online.md)
+- [Migrate offline from on-premises or an Azure VM hosted PostgreSQL](tutorial-migration-service-iaas-offline.md)
+- [Migrate online from on-premises or an Azure VM hosted PostgreSQL](tutorial-migration-service-iaas-online.md)
