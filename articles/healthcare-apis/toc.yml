@@ -54,7 +54,7 @@
       href: configure-private-link.md
     - name: Configure events
       href: ./events/events-deploy-portal.md
-    - name: Enable diagnostic logging
+    - name: Enable logging
       href: logging.md
     - name: Built-in policy definitions
       href: azure-health-data-services-policy-reference.md

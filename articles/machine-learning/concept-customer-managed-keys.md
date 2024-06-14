@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
+ms.author: deeikele  
+author: deeikele  
 ms.reviewer: larryfr
 ms.date: 05/21/2024
 ms.custom: engagement-fy23, build-2024

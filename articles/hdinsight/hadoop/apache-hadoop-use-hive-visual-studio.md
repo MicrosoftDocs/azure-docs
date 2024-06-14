@@ -129,7 +129,7 @@ The following example relies on the `log4jLogs` table created in the previous pr
         > [!NOTE]  
         > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
-    * `STORED AS ORC`: Stores the data in *optimized row columnar* (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
+    * `STORED AS ORC`: Stores the data in *optimized row columnar (ORC)* format. ORC is a highly optimized and efficient format for storing Hive data.
 
     * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
 
