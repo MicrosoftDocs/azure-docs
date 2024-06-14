@@ -206,7 +206,7 @@ To allow access to your Azure AI Search resource from your client machines, like
 
 You can enable trusted service of your search resource from Azure portal.
 
-Go to search resource network tab, when the public network access is disabled, check the checkbox of "Allow Azure services on the trusted services list to access this search service."
+Go to your search resource's network tab. With the public network access set to **disabled**, select **Allow Azure services on the trusted services list to access this search service.**
 
 :::image type="content" source="../media/use-your-data/search-trusted-service.png" alt-text="A diagram showing the search trusted service." lightbox="../media/use-your-data/search-trusted-service.png":::
 
