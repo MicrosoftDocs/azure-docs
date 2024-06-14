@@ -239,7 +239,7 @@ With managed identities, an app can obtain tokens to access Azure resources that
 Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint is available from within the app with a standard HTTP `GET` request, which you can send with a generic HTTP client in your preferred language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. You can connect to other Azure services by adding a credential object to the service-specific client.
 
 > [!NOTE]
-> When using Azure Identity client library, you need to explicitly specify the user-assigned managed identity client id.
+> When using Azure Identity client library, you need to explicitly specify the user-assigned managed identity client ID.
 
 # [.NET](#tab/dotnet)
 
