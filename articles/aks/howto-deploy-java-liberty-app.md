@@ -29,7 +29,7 @@ This article uses the Azure Marketplace offer for Open Liberty or WebSphere Libe
 * The Open Liberty Operator and WebSphere Liberty Operator.
 * Optionally, a container image that includes Liberty and your application.
 
-If you prefer manual step-by-step guidance for running Liberty on AKS, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json).
+If you prefer manual step-by-step guidance for running Liberty on AKS, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual).
 
 This article is intended to help you quickly get to deployment. Before you go to production, you should explore the [IBM documentation about tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
@@ -37,7 +37,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-* An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+* [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * Install the [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -531,4 +531,4 @@ You can learn more from the following references:
 Learn more about deploying IBM WebSphere family on Azure by following these links:
 
 > [!div class="nextstepaction"]
-> [Explore the IBM WebSphere family of products on Azure](/azure/developer/java/ee/websphere-family?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json)
+> [Explore the IBM WebSphere family of products on Azure](/azure/developer/java/ee/websphere-family)
