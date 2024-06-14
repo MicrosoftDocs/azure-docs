@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 5/22/2024
+ms.date: 6/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -290,7 +290,7 @@ You can update the zones parameter and the scale set capacity in the same ARM te
 
 When you are satisfied that the new instances are ready, scale in your scale set to remove the original regional instances. You can either manually delete the specific regional instances, or scale in by reducing the scale set capacity. When scaling in via reducing scale set capacity, the platform will always prefer removing the regional instances, then follow the scale in policy.
 
-#### Automate with rolling upgrades + MaxSurge (preview)
+#### Automate with rolling upgrades + MaxSurge (Preview)
 
 With [rolling upgrades + MaxSurge](virtual-machine-scale-sets-upgrade-policy.md), new zonal instances are created and brought up-to-date with the latest scale model in batches. Once a batch of new instances is added to the scale set and report as healthy, a batch of old instances are automated removed from the scale set. Upgrades continue until all instances are brought up-to-date.
 
