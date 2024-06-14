@@ -240,7 +240,7 @@ You can download AzCopy from [Get started with AzCopy](../../storage/common/stor
 ## Troubleshooting
 
 ### Use case 1: 
-If Hbase masters and region servers up and regions stuck in transition, or only one region i.e. `hbase:meta` region is assigned, andWaiting for other regions to assign
+If Hbase masters and region servers up and regions stuck in transition, or only one region i.e. `hbase:meta` region is assigned, and waiting for other regions to assign
 
 **Solution:** 
 
