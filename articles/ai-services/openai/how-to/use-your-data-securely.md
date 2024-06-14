@@ -59,7 +59,7 @@ If an embedding dependency is provided in the inference request, Azure OpenAI wi
 
 Azure OpenAI On Your Data lets you restrict the documents that can be used in responses for different users with Azure AI Search [security filters](/azure/search/search-security-trimming-for-azure-search-with-aad). When you enable document level access, Azure AI Search will trim the search results based on user Microsoft Entra group membership specified in the filter. You can only enable document-level access on existing Azure AI Search indexes. To enable document-level access:
 
-1. To register your application and create users and groups, follow the steps in the [Azure AI Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad) .
+1. To register your application and create users and groups, follow the steps in the [Azure AI Search documentation](/azure/search/search-security-trimming-for-azure-search-with-aad).
 1. [Index your documents with their permitted groups](/azure/search/search-security-trimming-for-azure-search-with-aad#index-document-with-their-permitted-groups). Be sure that your new [security fields](/azure/search/search-security-trimming-for-azure-search#create-security-field) have the schema:
         
     ```json
