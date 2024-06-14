@@ -189,7 +189,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-However, if a customer applies a lock on the manifest, they would indeed need to run an additional command to unlock the manifest.
+However, if there is a lock on the manifest, you need to run an additional command to unlock the manifest.
     
 ```azurecli
 az acr repository update \
