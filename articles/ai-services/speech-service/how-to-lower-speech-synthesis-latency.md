@@ -318,7 +318,7 @@ For Linux and Windows, `GStreamer` is required to enable this feature.
 Refer [this instruction](how-to-use-codec-compressed-audio-input-streams.md) to install and configure `GStreamer` for Speech SDK.
 For Android, iOS and macOS, no extra configuration is needed starting version 1.20.
 
-## Text stream
+## Text streaming
 
 The text stream API allows real-time text processing for rapid audio generation. It's perfect for dynamic text vocalization, such as reading outputs from AI models like GPT in real-time. This API minimizes latency and improves the fluidity and responsiveness of audio outputs, making it ideal for interactive applications, live events, and responsive AI-driven dialogues.
 
