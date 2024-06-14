@@ -40,10 +40,6 @@ The generation for the source image is shown when you select the image you want 
 
 If you receive the error message starting **PrivateLinkService Network Policy is not disabled for the given subnet**, you need to disable the *private service policy* on the subnet. For more information, see [Disable private service policy on the subnet](../virtual-machines/windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet).
 
-## Removing the Microsoft Store app 
-
-Removing or uninstalling the Microsoft Store app is not supported. Learn how to [Configure access to the Microsoft Store](/windows/configuration/stop-employees-from-using-microsoft-store).
-
 ## Issues installing or enabling additional languages on Windows 10 images
 
 Additional languages can be added by custom image templates, which uses the [Install-Language PowerShell cmdlet](/powershell/module/languagepackmanagement/install-language). If you have issues installing or enabling additional languages on Windows 10 Enterprise and Windows 10 Enterprise multi-session images, ensure that:
@@ -56,6 +52,6 @@ Additional languages can be added by custom image templates, which uses the [Ins
 
 - Your session hosts can connect to Windows Update to download languages and latest cumulative updates. 
 
-## Is Trusted Launch or are Confidential VMs supported?
+## Can't progress from the source image tab in the Azure portal
 
-As custom image templates is based on Azure Image Builder, support for Trusted Launch or Confidential VMs is inherited. For more information, see [Confidential VM and Trusted Launch support](../virtual-machines/image-builder-overview.md#confidential-vm-and-trusted-launch-support).
+When you create a custom image template in the Azure portal, you might not be able to progress from the **Source image** tab if you select the **Azure Compute Gallery** as the **Source type**. A red `X` appears next to the tab name. As a workaround, select **Previous** to return to the **Basics** tab, then select **Next** to return to the **Source image** tab. You should now be able to progress to the next tab and a green check mark appears next to the tab name.
