@@ -437,7 +437,7 @@ You will then find "Endpoint", "Workspace GUID" and "Artifact GUID" in "URL" and
 - URL format: https://{your_one_lake_endpoint}/{your_one_lake_workspace_guid}/{your_one_lake_artifact_guid}/Files
 - ABFS path format: abfss://{your_one_lake_workspace_guid}@{your_one_lake_endpoint}/{your_one_lake_artifact_guid}/Files
 
-:::image type="content" source="media/how-to-datastore/onelake-url-abfspath.png" alt-text="Screenshot that shows URL and ABFS path of a OneLake artifact properties in Microsoft Fabric UI." lightbox="./media/how-to-datastore/onelake-url-abfspath.png":::
+:::image type="content" source="media/how-to-datastore/onelake-url-abfs-path.png" alt-text="Screenshot that shows URL and ABFS path of a OneLake artifact in Microsoft Fabric UI." lightbox="./media/how-to-datastore/onelake-url-abfs-path.png":::
 
 ## Create a OneLake datastore
 
