@@ -267,30 +267,30 @@
       "contributors_to_exclude": [
         "alexbuckgit",
         "American-Dipper",
-	      "AnnaMHuff",
-		    "cdpark",
+	"AnnaMHuff",
+	"cdpark",
         "Court72",
-			  "damabe",
+	"damabe",
         "denrea",
-			  "dksimpson",
+	"dksimpson",
         "garycentric",
         "GitHubber17",
         "Jak-MS",
-			  "JamesJBarnett",
+	"JamesJBarnett",
         "JasonWHowell",
-			  "JillGrant615",
-    	  "JKirsch1",
-    	  "Jmart1428",
-    	  "JustPies",
+	"JillGrant615",
+    	"JKirsch1",
+    	"Jmart1428",
+    	"JustPies",
         "ktoliver",
-    	  "LizCasey1",
-    	  "MeeraDi",
+    	"LizCasey1",
+    	"MeeraDi",
         "meganbradley",
-    	  "mohitp930",
-    	  "mSarts",
-    	  "ms-robkni",
+    	"mohitp930",
+    	"mSarts",
+    	"ms-robkni",
         "openpublishingbuild",
-	      "paulth1",
+	"paulth1",
         "PMEds28",
         "PRmerger",
         "PRMerger17",
@@ -305,7 +305,7 @@
         "sdwheeler",
         "ShannonLeavitt",
         "ShawnJackson",
-	      "ShawnKupfer",
+	"ShawnKupfer",
         "tfosmark",
         "TimShererWithAquent",
         "ttorble",
@@ -318,9 +318,9 @@
       	"v-regandowner",
       	"v-savila",
         "v-shils",
-	      "v-stsavell",
+	"v-stsavell",
         "v-thepet",
-	      "v-thpra"
+	"v-thpra"
       ]
     },
     "fileMetadata": {
@@ -691,9 +691,7 @@
         "articles/ai-services/personalizer/**/*.*": "None",
         "articles/ai-services/qnamaker/**/*.*": "None",
         "articles/ai-services/LUIS/**/*.*": "None",
-        "articles/aks/**/*": "OpenSource",
-        "articles/azure-monitor/**/*.*": "None",
-        "articles/advisor/**/*.*": "None",   
+        "articles/aks/**/*": "OpenSource", 
         "articles/virtual-machines/linux/classic/**/*": "None",
         "articles/virtual-machines/windows/classic/**/*": "None"
       },
@@ -719,11 +717,23 @@
       },
       "open_source_feedback_issueTitle":
       {
-        "articles/aks/**/*": ""
+        "articles/aks/**/*": "AKS Learn feedback:"
+      },
+      "open_source_feedback_issueLabels":
+      {
+        "articles/aks/**/*": "azure-kubernetes-service/svc"
       },
       "open_source_feedback_issueUrl": 
       {
         "articles/aks/**/*": "https://github.com/MicrosoftDocs/azure-docs/issues/new?template=aks-customer-feedback.yml"
+      },
+      "open_source_feedback_productLogoLightUrl":
+      {
+        "articles/aks/**/*": "https://learn.microsoft.com/azure/media/index/kubernetes-services.svg"
+      },
+      "open_source_feedback_productLogoDarkUrl":
+      {
+        "articles/aks/**/*": "https://learn.microsoft.com/azure/media/index/kubernetes-services.svg"
       },
       "open_source_feedback_productName":
       {
