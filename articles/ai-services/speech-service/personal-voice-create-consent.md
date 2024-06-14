@@ -16,7 +16,7 @@ ms.author: eur
 
 With the personal voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
 
-To add user consent to the personal voice project, you provide the prerecorded consent audio file [from a publicly accessible URL](#add-consent-from-a-url) ([Consents_Create](/rest/api/aiservices/speechapi/consents/create)) or [upload the audio file](#add-consent-from-a-file) (`Consents_Post`).  
+To add user consent to the personal voice project, you provide the prerecorded consent audio file [from a publicly accessible URL](#add-consent-from-a-url) ([Consents_Create](/rest/api/aiservices/speechapi/consents/create)) or [upload the audio file](#add-consent-from-a-file) ([Consents_Post](/rest/api/aiservices/speechapi/consents/post)).  
 
 ## Consent statement
 
