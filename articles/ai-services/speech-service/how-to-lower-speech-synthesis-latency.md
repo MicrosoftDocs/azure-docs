@@ -341,7 +341,7 @@ var speechConfig = SpeechConfig.FromEndpoint(
 #### Key steps
 
 1. **Create a text stream request**: Use `SpeechSynthesisRequestInputType.TextStream` to initiate a text stream.
-1. **Set global properties**: Adjust settings such as output format and voice name directly, as the feature handles partial text inputs and doesn't support SSML. Refer to the following sample code for instructions on how to set them.
+1. **Set global properties**: Adjust settings such as output format and voice name directly, as the feature handles partial text inputs and doesn't support SSML. Refer to the following sample code for instructions on how to set them. OpenAI text to speech voices aren't supported by the text streaming feature. See this [language table](language-support.md?tabs=tts#supported-languages) for full language support. 
 
     ```csharp
     // Set output format
