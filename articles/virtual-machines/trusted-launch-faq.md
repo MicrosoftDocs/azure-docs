@@ -58,6 +58,7 @@ $adminPassword = <PASSWORD> | ConvertTo-SecureString -AsPlainText -Force
 $vmCred = New-Object System.Management.Automation.PSCredential($adminUsername, $adminPassword)
 New-AzVM -Name MyVm -Credential $vmCred -SecurityType Standard
 ```
+
 ### Can I disable Secure Boot option for Trusted Launch VMs?
 
 Secure Boot is NOT enabled by default but it is recommended to enable it if you are not using custom unsigned kernel or drivers. Once a VM is created with Trusted Launch and Secure Boot option enabled, you can go to VM, under Settings tab, go to Configurations and unselect 'Enable secure boot' option. 
@@ -67,7 +68,9 @@ Secure Boot is NOT enabled by default but it is recommended to enable it if you 
 ## Supported features and deployments
 
 ### Is Azure Compute Gallery supported by trusted launch?
+
 Trusted launch now allows images to be created and shared through the [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) (formerly Shared Image Gallery). The image source can be:
+
 - an existing Azure VM that is either generalized or specialized OR,
 - an existing managed disk or a snapshot OR,
 - a VHD or an image version from another gallery.
@@ -75,22 +78,25 @@ Trusted launch now allows images to be created and shared through the [Azure Com
 For more information about deploying Trusted Launch VM using Azure Compute Gallery, see [deploy Trusted Launch VMs](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image).
 
 ### Is Azure Backup supported by trusted launch?
+
 Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
 
 ### Will Azure Backup continue working after enabling trusted launch?
+
 Backups configured with [enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) will continue to take backup of VM after enabling Trusted Launch.
 
 ### Are Ephemeral OS disks supported by trusted launch?
+
 Trusted launch supports ephemeral OS disks. For more information, see [Trusted Launch for Ephemeral OS disks](ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks).
 > [!NOTE]
 > While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing.
 
-
 ### Can virtual machine be restored using backup taken before enabling trusted launch?
+
 Backups taken before [upgrading existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore entire virtual machine or individual data disks. They can't be used to restore or replace OS disk only.
 
-
 ### How can I find VM sizes that support trusted launch?
+
 See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#virtual-machines-sizes).
 
 The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) doesn't support Trusted launch.
