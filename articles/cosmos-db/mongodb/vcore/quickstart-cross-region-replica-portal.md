@@ -11,11 +11,17 @@ ms.topic: quickstart
 ms.date: 06/12/2024
 ---
 
-# Quickstart: Create and use a cross-region cluster replica n Azure Cosmos DB for MongoDB vCore
+# Quickstart: Create and use a cross-region cluster replica in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-In this quickstart, you create a cluster replica in another region for a Azure Cosmos DB for MongoDB vCore cluster for disaster recovery (DR) purposes. This replica cluster stores a copy of all of your MongoDB resources - databases, collections, and documents - in another Azure region. The replica cluster provides a unique endpoint for various tools and SDKs to connect to and could be promoted to become available for writes in case of the primary region outage.
+In this quickstart, you create a cluster replica in another region for an Azure Cosmos DB for MongoDB vCore cluster for disaster recovery (DR) purposes. This replica cluster stores a copy of all of your MongoDB resources - databases, collections, and documents - in another Azure region. The replica cluster provides a unique endpoint for various tools and SDKs to connect to and could be promoted to become available for writes in case of the primary region outage.
+
+> [!IMPORTANT]
+> Cross-region replication in Azure Cosmos DB for MongoDB vCore is currently in preview.
+> This preview version is provided without a service level agreement (SLA), and it's not recommended
+> for production workloads. Certain features might not be supported or might have constrained
+> capabilities.
 
 ## Prerequisites
 
@@ -34,13 +40,20 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. On the **New** page, search for and select **Azure Cosmos DB**.
 
-1. On the **Which API best suits your workload?** page, select the **Create** option within the **Azure Cosmos DB for MongoDB** section. For more information, see [API for MongoDB and it's various models](../choose-model.md).
+1. On the **Which API best suits your workload?** page, select the **Create** option within the **Azure Cosmos DB for MongoDB** section. 
 
    :::image type="content" source="media/quickstart-portal/select-api-option.png" lightbox="media/quickstart-portal/select-api-option.png" alt-text="Screenshot of the select API option page for Azure Cosmos DB.":::
 
-1. On the **Which type of resource?** page, select the **Create** option within the **vCore cluster** section. For more information, see [API for MongoDB vCore overview](introduction.md).
+1. On the **Which type of resource?** page, select the **Create** option within the **vCore cluster** section. For more information, see [overview of the vCore architecture in Azure Cosmos DB for MongoDB](introduction.md).
 
     :::image type="content" source="media/quickstart-portal/select-resource-type.png" alt-text="Screenshot of the select resource type option page for Azure Cosmos DB for MongoDB.":::
+
+1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Access to global distribution (preview)** option within the **Cluster tier** section.
+
+    :::image type="content" source="media/quickstart-cross-region-replication/select-access-to-cross-region-replication-preview.png" alt-text="Screenshot of the access to global distribution preview.":::
+
+> [!IMPORTANT]
+> You should select **Access to global distribution (preview)** during provisioning to be able to create a preview replica cluster.
 
 1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Configure** option within the **Cluster tier** section.
 
@@ -54,7 +67,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | **Cluster tier** | M30 Tier, 2 vCores, 8-GiB RAM |
     | **Storage per shard** | 128 GiB |
 
-1. Leave the **High availability** option unselected. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
+1. Unselect the **High availability** option. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
 
     :::image type="content" source="media/quickstart-portal/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
 
@@ -63,14 +76,14 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | Setting | Value | Description |
     | --- | --- | --- |
     | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB for MongoDB cluster. |
-    | Resource Group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-    | cluster Name | A unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
-    | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster. Use the location that is closest to your users to give them the fastest access to the data. |
-    | MongoDB version | Version of MongoDB to run in your cluster |  This value is set to a default of **5.0** |
+    | Resource group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
+    | Cluster name | A glboally unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *mongodbcluster.cosmos.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3 and 40 characters in length. |
+    | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster with read and write capabilities, the primary cluster. Use the location that is closest to your users to give them the fastest access to the data. |
+    | MongoDB version | Version of MongoDB to run on your cluster |  This value is set to a default of the most recent MongoDB version available. |
     | Admin username | Provide a username to access the cluster | This user is created on the cluster as a user administrator. |
-    | Password | Use a unique password to pair with the username | Password must be at least eight characters and at most 128 characters. |
+    | Password | Use a unique password to pair with the username | Password must be at least 8 characters and at most 128 characters. |
 
-    :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of various configuration options for a cluster.":::
+    :::image type="content" source="media/quickstart-cross-region-replication/configure-cluster.png" alt-text="Screenshot of various configuration options for a cluster.":::
 
 1. Select **Next: Networking**.
 
