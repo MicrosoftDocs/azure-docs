@@ -82,6 +82,14 @@ If the **Online** migration is selected, Logical replication must be turned on i
 
 Select the **Next : Connect to Source** button.
 
+### Runtime Server
+
+The Migration Runtime Server is a specialized feature within the [migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md), designed to act as an intermediary server during migration. It's a separate Azure Database for PostgreSQL - Flexible Server instance that isn't the target server but is used to facilitate the migration of databases from a source environment that is only accessible via a private network.
+
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/02-portal-offline-runtime-server-migration-single-server.png" alt-text="Screenshot of the Migration Runtime Server page.":::
+
+For more information about the Runtime Server, visit the [Migration Runtime Server](concepts-migration-service-runtime-server.md).
+
 ### Connect to source
 
 The **Source** tab prompts you to give details related to the Single Server, which is the source of the databases.
@@ -252,6 +260,14 @@ It's always a good practice to choose **Validate** or **Validate and Migrate** o
 If the **Online** migration is selected, Logical replication must be turned on in the source Single server. If it's not turned on, the migration service automatically turns on logical replication at the source Single server. Replication can also be set up manually under the **Replication** tab in the Single server-side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
 Select the **Next : Connect to Source** button.
+
+### Runtime Server
+
+The Migration Runtime Server is a specialized feature within the [migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md), designed to act as an intermediary server during migration. It's a separate Azure Database for PostgreSQL - Flexible Server instance that isn't the target server but is used to facilitate the migration of databases from a source environment that is only accessible via a private network.
+
+:::image type="content" source="../../media/tutorial-migration-service-single-to-flexible/02-portal-online-runtime-server-migration-single-server.png" alt-text="Screenshot of the Migration Runtime Server page.":::
+
+For more information about the Runtime Server, visit the [Migration Runtime Server](concepts-migration-service-runtime-server.md).
 
 ### Connect to source
 
