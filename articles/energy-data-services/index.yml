@@ -36,7 +36,7 @@ landingContent:
             url: tutorial-manifest-ingestion.md
       - linkListType: concept
         links:
-          - text: OSDU&reg; services available on Azure Data Manager for Energy
+          - text: OSDU® services available on Azure Data Manager for Energy
             url: osdu-services-on-adme.md
           - text: Manifest ingestion concepts
             url: concepts-manifest-ingestion.md
