@@ -36,7 +36,7 @@ When you use Azure OpenAI On Your Data to ingest data from Azure blob storage, l
 *  Azure OpenAI's `preprocessing-jobs` API implements the [Azure AI Search customer skill web API protocol](/azure/search/cognitive-search-custom-skill-web-api), and processes the documents in a queue. 
 * Azure OpenAI:
     1. Internally uses the first indexer created earlier to crack the documents.
-    1. Uses a heuristic-based algorithm to perform chunking, honoring table layouts and other formatting elements in the chunk boundary to ensure the best chunking quality.
+    1. Uses a heuristic-based algorithm to perform chunking. It honors table layouts and other formatting elements in the chunk boundary to ensure the best chunking quality.
     1. If you choose to enable vector search, Azure OpenAI uses the selected embedding setting to vectorize the chunks.
 * When all the data that the service is monitoring are processed, Azure OpenAI triggers the second indexer.
 * The indexer stores the processed data into an Azure AI Search service.
@@ -183,7 +183,7 @@ To allow access to your Azure OpenAI service from your client machines, like usi
 
 ## Configure Azure AI Search
 
-You can use basic pricing tier and higher for the configuration below. It's not necessary, but if you use the S2 pricing tier you will see [additional options](#create-shared-private-link) available for selection.
+You can use basic pricing tier and higher for the search resource. It's not necessary, but if you use the S2 pricing tier, [advanced options](#create-shared-private-link) are available.
 
 ### Enable managed identity
 
@@ -213,7 +213,7 @@ Go to search resource network tab, when the public network access is disabled, c
 
 :::image type="content" source="../media/use-your-data/search-trusted-service.png" alt-text="A diagram showing the search trusted service." lightbox="../media/use-your-data/search-trusted-service.png":::
 
-You can also use REST API to enable search trusted service. The example below uses the Azure CLI and `jq` tool.
+You can also use REST API to enable search trusted service. The example uses the Azure CLI and `jq` tool.
 
 ```bash
 rid=/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.Search/searchServices/<YOUR-RESOURCE-NAME>
@@ -240,7 +240,7 @@ This section is only applicable for S2 pricing tier search resource, because it 
 
 To create shared private link from your search resource connecting to your Azure OpenAI resource, see the [search documentation](/azure/search/search-indexer-howto-access-private). Select **Resource type** as `Microsoft.CognitiveServices/accounts` and **Group ID** as `openai_account`.
 
-With shared private link, [step eight](#data-ingestion-architecture) of the data ingestion architecture diagram is changed from **bypass trusted service** to **shared private link**.
+With shared private link, [step 8](#data-ingestion-architecture) of the data ingestion architecture diagram is changed from **bypass trusted service** to **shared private link**.
 
 :::image type="content" source="../media/use-your-data/ingestion-architecture-s2.png" alt-text="A diagram showing the process of ingesting data with an S2 search resource." lightbox="../media/use-your-data/ingestion-architecture-s2.png":::
 
@@ -248,7 +248,7 @@ With shared private link, [step eight](#data-ingestion-architecture) of the data
 
 ### Enable trusted service
 
-To allow access to your Storage Account from Azure OpenAI and Azure AI Search, while the Storage Account has no public network access, you need to set up Storage Account to bypass your Azure OpenAI and Azure AI Search as [trusted services based on managed identity](/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity).
+To allow access to your Storage Account from Azure OpenAI and Azure AI Search, you need to set up Storage Account to bypass your Azure OpenAI and Azure AI Search as [trusted services based on managed identity](/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity).
 
 In the Azure portal, navigate to your storage account networking tab, choose "Selected networks", and then select **Allow Azure services on the trusted services list to access this storage account** and click Save.
 
