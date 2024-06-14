@@ -14,9 +14,10 @@ recommendations: false
 
 # Securely use Azure OpenAI On Your Data
 
-> [!Note]
-> Since June 2024, the form application of the Microsoft managed private endpoint to Azure AI Search is no longer needed.
-> The managed private endpoint will be deleted from Microsoft managed virtual network at July 2025. If you have already provisioned managed private endpoint through the form application process before June 2024, please migrate to the [Azure AI Service trusted service](#enable-trusted-service-1) as early as possible to avoid service disruption. 
+> [!NOTE]
+> As of June 2024, the application form for the Microsoft managed private endpoint to Azure AI Search is no longer needed.
+>
+> The managed private endpoint will be deleted from the Microsoft managed virtual network at July 2025. If you have already provisioned a managed private endpoint through the application process before June 2024, migrate to the [Azure AI Search trusted service](#enable-trusted-service-1) as early as possible to avoid service disruption. 
 
 Use this article to learn how to use Azure OpenAI On Your Data securely by protecting data and resources with Microsoft Entra ID role-based access control, virtual networks, and private endpoints.
 
