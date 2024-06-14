@@ -10,11 +10,11 @@ ms.date: 06/12/2024
 ms.custom: template-overview
 ---
 
-# OSDU&reg; Overview: Available and Exclusive Services
-
-## OSDU&reg; M18 Services Available on Azure Data Manager for Energy 
+# OSDU&reg; Concepts: available and exclusive services
+Azure Data Manager for Energy is currently compliant with the M18 OSDU® milestone release. 
+## OSDU&reg; M18 services available on Azure Data Manager for Energy 
 Below you will find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. Please note that this page will be regularly updated as service versions and availablity evolve. 
-### Core and Helper Services
+### Core and helper services
 - **Indexer**: Provides an endpoint to create aliases for existing indices and features flag index extended properties.
 - **Indexer Queue**: Manages the queuing of indexing tasks and logs important identifiers.
 - **Schema**: Manages OSDU data definition deliverables, including new schemas and schema versions.
@@ -34,19 +34,20 @@ Below you will find an overview of the OSDU&reg; services that are currently ava
 - **CSV Parser**: Assists in parsing CSV files into a format for ingestion and processing. 
 - **Entitlements**: Enables authorization by allowing the creation and management of groups that define user permissions.
 
-### Ingestion Services
+### Ingestion services
 - **Ingestion Workflow**: Manages the workflow for data ingestion, including user ID configuration.
 - **osdu-airflow-lib**: A library that enables user context ingestion within the Airflow workflows.
 - **osdu-ingestion-lib**: A library that supports user context ingestion and includes various fixes related to Python versioning and authority replacement.
 - **Segy to Zgy Conversion**: Converts SEGY file formats to ZGY.
 - **Segy to oVDS Conversion**: Converts SEGY files to oVDS format.
+- **External Data Services [[Preview]](https://learn.microsoft.com/en-us/azure/energy-data-services/how-to-enable-external-data-sources)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
 
-### Domain Data Management Services
+### Domain data management services (DDMS)
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
 - **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 
-## OSDU&reg; Services Exclusive to M18 Community Version
+## OSDU&reg; services exclusive to M18 community version
 NOTE: The following OSDU&reg; services are not currently available on Azure Data Manager for Energy.
 - **WITSML Parser**
 - **Reservoir DDMS**
