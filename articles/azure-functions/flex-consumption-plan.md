@@ -136,7 +136,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
   + Continuous deployment using GitHub Actions (`functions-action@v1`) 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
 + **Authorization**: EasyAuth isn't currently supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.
-+ **CORS**: CORS settings are currently ignored for Flex Consumption apps.  
++ **CORS**: [Cross-origin resource sharing (CORS) settings](functions-how-to-use-azure-function-app-settings.md#cors) are currently ignored for Flex Consumption apps.  
  
 ## Related articles 
 
