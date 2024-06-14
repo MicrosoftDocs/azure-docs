@@ -713,6 +713,22 @@
         "articles/load-testing/**/*": "get-help-at-qna",
         "articles/iot-operations/**/*": "get-help-at-qna"
       },
+      "open_source_feedback_contributorGuideUrl":
+      {
+        "articles/aks/**/*": "https://learn.microsoft.com/contribute/content/"
+      },
+      "open_source_feedback_issueTitle":
+      {
+        "articles/aks/**/*": ""
+      },
+      "open_source_feedback_issueUrl": 
+      {
+        "articles/aks/**/*": "https://github.com/MicrosoftDocs/azure-docs/issues/new?template=aks-customer-feedback.yml"
+      },
+      "open_source_feedback_productName":
+      {
+        "articles/aks/**/*": "Azure Kubernetes Service"
+      },
       "learn_banner_products": {
         "articles/**/*.md": [
           "azure"
