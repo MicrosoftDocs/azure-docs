@@ -33,6 +33,9 @@ Virtual machines in a scale set can also be deployed into multiple availability 
 ## Availability sets
 An [availability set](availability-set-overview.md) is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). There is no cost for the Availability Set itself, you only pay for each VM instance that you create.
 
+> [!NOTE]  
+> To protect VMs against data center failures, deploy VMs across various Availability Zones. Be aware that  Availability Set and Scale Set can't protect you against data center failures.
+
 
 ## Load balancer
 Combine the [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with availability zones and scale sets to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see the Load Balancer quickstarts using the [CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) or [PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md).
