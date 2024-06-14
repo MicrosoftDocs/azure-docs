@@ -208,11 +208,11 @@ Some possible migration states:
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
 - Canceling a validation stops further validation activity, and the validation moves to a **Cancelled** state.
-- Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action returns all changes made by the migration service on your target server.
+- Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action returns all changes the migration service makes on your target server.
 
 #### [CLI](#tab/cli)
 
-This article explores using the Azure CLI to migrate your PostgreSQL database from an Azure virtual machine or an on-premises PostgreSQL instance to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
+This article explores using the Azure CLI to migrate your PostgreSQL database from an Azure virtual machine or an on-premises PostgreSQL instance to an Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
 To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql).
 
@@ -224,7 +224,7 @@ Once the CLI is installed, open the command prompt and log into your Azure accou
 
 ### Configure the migration task
 
-To begin the migration, you need to create a JSON file with the migration details. The JSON file contains the following information:
+To begin the migration, create a JSON file with the migration details. The JSON file contains the following information:
 
 - Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-CLI\migration_body.json
 

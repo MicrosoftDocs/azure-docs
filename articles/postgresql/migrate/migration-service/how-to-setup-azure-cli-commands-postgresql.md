@@ -39,7 +39,7 @@ The following table defines the parameters and the commands that use them:
 | `migration-name` | Create, Show | Unique identifier to migrations attempted to Flexible Server. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with -, and no two migrations to a Flexible Server target can have the same name. |
 | `filter` | List | To filter migrations, two values are supported – Active and All  
 | `help` | Create, List, Show | Provides information about each command. |
-| `migration-mode` | Create | This is an optional parameter. Default value: Offline. Offline migration involves copying your source databases at a point in time to your target server. |
+| `migration-mode` | Create | This is an optional parameter. Default value: Offline. Offline migration involves copying your source databases to your target server at a point in time. |
 | `migration-option` | Create | Allows you to perform validations before triggering a migration. Default is ValidateAndMigrate. Allowed values are - Migrate, Validate, ValidateAndMigrate.
 | `properties` | Create | Absolute path to a JSON file that has the information about the source server |
 

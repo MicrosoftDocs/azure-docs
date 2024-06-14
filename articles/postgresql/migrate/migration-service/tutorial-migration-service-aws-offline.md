@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Migrate offline from AWS RDS PostgreSQL to Azure Database for PostgreSQL with the migration service
 
-In this article, we explore how to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL offline.
+This article explores how to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL offline.
 
 The migration service in Azure Database for PostgreSQL is a fully managed service integrated into the Azure portal and Azure CLI. It's designed to simplify your migration journey to Azure Database for PostgreSQL server.
 
@@ -34,7 +34,7 @@ To complete the migration, you need the following prerequisites:
 
 ## Perform the migration
 
-You can perform the migration by using the Azure portal or the Azure CLI.
+You can migrate by using the Azure portal or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
@@ -59,7 +59,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
     > [!NOTE]  
     > The first time you use the migration service, an empty grid appears with a prompt to begin your first migration.
 
-    If migrations to your flexible server target have already been created, the grid now contains information about attempted migrations.
+    If migrations to your flexible server target are already created, the grid now contains information about attempted migrations.
 
 1. Select the **Create** button to go through a wizard-based series of tabs to perform a migration.
 
@@ -77,7 +77,8 @@ The user needs to provide multiple details related to the migration, such as the
     - **Validate** - Checks your server and database readiness for migration to the target.
     - **Migrate** - Skips validations and starts migrations.
     - **Validate and Migrate**—Performs validation before triggering a migration. If there are no validation failures, the migration is triggered.
-        - Choosing the **Validate** or **Validate and Migrate** option is always a good practice to perform premigration validations before running the migration.
+
+Choosing the **Validate** or **Validate and Migrate** option is always a good practice for performing premigration validations before running the migration.
 
 To learn more about the premigration validation, visit [premigration](concepts-premigration-migration-service.md).
 
@@ -132,7 +133,7 @@ After the successful test connection, select the **Next: Select Database(s) for 
 #### Select database for migration
 
 Under the **Select database for migration** tab, you can choose a list of user databases to migrate from your source PostgreSQL server.  
-After selecting the databases, select the **Next:Summary**
+After selecting the databases, select the **Next: Summary**
 
 :::image type="content" source="media/tutorial-migration-service-aws-offline/05-portal-offline-select-database-aws.png" alt-text="Screenshot of the fetchDB migration page.":::
 
@@ -148,7 +149,7 @@ After you select the **Start Validation and Migration** button, a notification a
 
 :::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-monitor-migration-aws.png" alt-text="Screenshot of the monitor migration page." lightbox="media/tutorial-migration-service-aws-offline/portal-offline-monitor-migration-aws.png":::
 
-The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration** and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry on the top. You can use the refresh button to refresh the status of the validation or migration run.
+The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration, and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry on the top. You can use the refresh button to refresh the status of the validation or migration run.
 
 ### Migration details
 

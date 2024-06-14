@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Migrate online from AWS RDS PostgreSQL to Azure Database for PostgreSQL with the migration service
 
-In this article, we explore how to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL online.
+This article explores how to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL online.
 
 The migration service in Azure Database for PostgreSQL is a fully managed service integrated into the Azure portal and Azure CLI. It's designed to simplify your migration journey to Azure Database for PostgreSQL server.
 
@@ -35,7 +35,7 @@ To complete the migration, you need the following prerequisites:
 
 ## Perform the migration
 
-You can perform the migration by using the Azure portal or the Azure CLI.
+You can migrate by using the Azure portal or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
@@ -61,11 +61,11 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
     If you've already created migrations to your Azure Database for PostgreSQL target, the grid contains information about attempted migrations.
 
-1. Select the **Create** button. You then go through a wizard-based series of tabs to create a migration into this Azure Database for PostgreSQL target from the PostgreSQL source instance.
+1. Select the **Create ** button. Then, you go through a wizard-based series of tabs to create a migration into this Azure Database for PostgreSQL target from the PostgreSQL source instance.
 
 #### Setup
 
-The first tab is the setup tab, where the user needs to provide migration details like migration name source type to initiate the migrations
+The first tab is the **Setup** tab, where the user needs to provide migration details like migration name source type to initiate the migrations.
 
 :::image type="content" source="media/tutorial-migration-service-aws-online/01-portal-online-setup-aws.png" alt-text="Screenshot of Setup migration." lightbox="media/01-tutorial-migration-service-aws-online/01-portal-online-setup-aws.png":::
 
@@ -79,7 +79,7 @@ The first tab is the setup tab, where the user needs to provide migration detail
      - **Migrate** - Skips validations and starts migrations.
      - **Validate and Migrate**—Performs validation before triggering a migration. The migration is triggered only if there are no validation failures.
 
-Choosing the **Validate** or **Validate and Migrate** option is always a good practice to perform premigration validations before running the migration. To learn more about the premigration validation, refer to this [documentation](concepts-premigration-migration-service.md).
+Choosing the **Validate** or **Validate and Migrate** option is always a good practice when performing premigration validations before running the migration. To learn more about the premigration validation, refer to this [documentation](concepts-premigration-migration-service.md).
 
 - **Migration mode** allows you to pick the mode for the migration. **Offline** is the default option.
 
@@ -103,8 +103,8 @@ The **Connect to Source** tab prompts you to provide details related to the Sour
 - **Port** - Port number of the Source server
 - **Server admin login name** - Username of the source PostgreSQL server
 - **Password** - Password of the Source PostgreSQL server
-- **SSL Mode**—The supported values are prefer and require. When the SSL at the Source PostgreSQL server is OFF, use SSLMODE=prefer. If the SSL at the source server is ON, use SSLMODE=require. SSL values can be determined in the Postgresql.conf file.
-- **Test Connection** - Performs the connectivity test between target and Source. Once the connection is successful, users can proceed with the next step. Otherwise, we need to identify the networking issues between the target and Source and verify the username/password for the Source. Test connection takes a few minutes to establish a connection between the target and Source
+- **SSL Mode**—The supported values are preferred and required. When the SSL at the Source PostgreSQL server is OFF, use SSLMODE=prefer. If the SSL at the source server is ON, use SSLMODE=require. SSL values can be determined in the Postgresql.conf file.
+- **Test Connection**—Performs the connectivity test between the target and the Source. Once the connection is successful, users can proceed with the next step. Otherwise, we need to identify the networking issues between the target and the Source and verify the username/password for the Source. Establishing a test connection takes a few minutes.
 
 After the successful test connection, select the **Next: Select Migration target**
 
@@ -136,21 +136,21 @@ The **Summary** tab summarizes all the Source and target details for creating th
 
 #### Monitor the migration
 
-After you select the start button, a notification appears in a few seconds saying that the validation or migration creation is successful. You're redirected automatically to the **Migration** page of Flexible Server, which has a new entry for the recently created validation or migration.
+After you select the start button, a notification will appear in a few seconds saying that the validation or migration creation is successful. You'll then be automatically redirected to the **Migration** page of Flexible Server, which has a new entry for the recently created validation or migration.
 
 :::image type="content" source="media/tutorial-migration-service-aws-online/aws-monitor.png" alt-text="Screenshot of Monitor migration." lightbox="media/tutorial-migration-service-aws-online/aws-monitor.png":::
 
 The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration**, and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry at the top. You can use the refresh button to refresh the status of the validation or migration.
 Select the migration name in the grid to see the associated details.
 
-As soon as the validation or migration is created, it moves to the **InProgress** state and **PerformingPreRequisiteSteps** substrate. The workflow takes 2-3 minutes to set up the migration infrastructure and network connections.
+When the validation or migration is created, it moves to the **InProgress** state and **PerformingPreRequisiteSteps** substrate. The workflow takes 2-3 minutes to set up the migration infrastructure and network connections.
 
 #### Migration details
 
 In the Setup tab, we have selected the migration option as **Migrate and Validate**. In this scenario, validations are performed first before migration starts. After the **PerformingPreRequisiteSteps** substate is completed, the workflow moves into the substate of **Validation in Progress**.
 
 - If validation has errors, the migration moves into a **Failed** state.
-- If validation completes without any error, the migration starts, and the workflow moves into the substate of **Migrating Data**.
+- If validation completes without error, the migration starts, and the workflow moves into the substate of **Migrating Data**.
 
 You can see the results of validation and migration at the instance and database level.
 
@@ -190,19 +190,19 @@ Some possible migration states:
 
 #### Cutover
 
-If there are both **Migrate** and **Validate and Migrate**, completion of the Online migration requires another step—the user must take a Cutover action. After the copy/clone of the base data is complete, the migration moves to the `WaitingForUserAction` state and the `WaitingForCutoverTrigger' substate. In this state, the user can trigger the cutover from the portal by selecting the migration.
+If there are both **Migrate** and **Validate and Migrate**, completing the Online migration requires another step—the user must take a Cutover action. After the copy/clone of the base data is complete, the migration moves to the `WaitingForUserAction` state and the `WaitingForCutoverTrigger' substate. In this state, the user can trigger the cutover from the portal by selecting the migration.
 
 Before initiating cutover, it's important to ensure that:
 
-- Writes to the Source are stopped - `Latency` value is 0 or close to 0 The `Latency` information can be obtained from the migration details screen as shown below:
+- Writes to the Source are stopped - `Latency` value is 0 or close to 0. The `Latency` information can be obtained from the migration details screen as shown below:
 
     :::image type="content" source="media/tutorial-migration-service-aws-online/aws-cutover-migration.png" alt-text="Screenshot of Cutover migration." lightbox="media/tutorial-migration-service-aws-online/aws-cutover-migration.png":::
 
 - `latency` value decreases to 0 or close to 0
 
-- The `latency` value indicates when the target last synced with the Source. At this point, writing to the Source can be stopped, and cutover can be initiated. In case there's heavy traffic at the Source, it's recommended to stop writes first so that `Latency` can come close to 0, and then cutover is initiated.
-The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with nonzero `Latency,` the replication stops until that point in time. All the data on the Source until the cutover point is then applied on the target. Say a latency was 15 minutes at the cutover point, so all the changed data in the last 15 minutes are applied on the target.
-Time depends on the backlog of changes occurring in the last 15 minutes. Hence, it's recommended that the latency go to zero or near zero before triggering the cutover.
+- The `latency` value indicates when the target last synced with the Source. At this point, writing to the Source can be stopped, and cutover can be initiated. In case there's heavy traffic at the Source, it's recommended to stop writes first so that `Latency` can come close to 0, and then a cutover is initiated.
+The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with nonzero `Latency,` the replication stops until that point in time. All the data is on the Source until the cutover point is applied to the target. Say a latency was 15 minutes at the cutover point, so all the changed data in the last 15 minutes are applied to the target.
+Time depends on the backlog of changes occurring in the last 15 minutes. Hence, it's recommended that the Latency go to zero or near zero before triggering the cutover.
 
     :::image type="content" source="media/tutorial-migration-service-aws-online/aws-confirm-cutover.png" alt-text="Screenshot of Confirmcutovermigration." lightbox="media/tutorial-migration-service-aws-online/aws-confirm-cutover.png":::
 
@@ -224,7 +224,7 @@ Once the CLI is installed, open the command prompt and log into your Azure accou
 
 ### Configure the migration task
 
-To begin the migration, you need to create a JSON file with the migration details. The JSON file contains the following information:
+To begin the migration, create a JSON file with the migration details. The JSON file contains the following information:
 
 - Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-CLI\migration_body.json
 
@@ -274,7 +274,7 @@ To begin the migration, you need to create a JSON file with the migration detail
 
 #### Cutover
 
-In online migrations, after the base data migration is complete, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, the user can trigger the cutover through the CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
+After the base data migration is complete in online migrations, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, the user can trigger the cutover through the CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
 
 ```bash
 az postgres flexible-server migration update --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --cutover
