@@ -6,11 +6,11 @@ ms.service: energy-data-services
 ms.author: bananibrahim
 
 ms.topic: conceptual
-ms.date: 06/12/2024
+ms.date: 06/14/2024
 ms.custom: template-concept
 ---
 
-# OSDU&reg; Concepts: Available and exclusive services
+# OSDU&reg; concepts: available and exclusive services
 Azure Data Manager for Energy is currently compliant with the M18 OSDU® milestone release. 
 ## OSDU&reg; M18 services available on Azure Data Manager for Energy 
 Below you will find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. Please note that this page will be regularly updated as service versions and availablity evolve. 
@@ -51,7 +51,6 @@ Below you will find an overview of the OSDU&reg; services that are currently ava
 NOTE: The following OSDU&reg; services are not currently available on Azure Data Manager for Energy.
 - **WITSML Parser**
 - **Reservoir DDMS**
-- **External Data Services**
 - **Policy Service**
 - **Geospatial Consumption Zone**
 - **Manifest Ingestion by Reference**
