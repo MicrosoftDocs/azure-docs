@@ -8,11 +8,21 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Regional failover mapping for Device Update for IoT Hub
+# Device Update for IoT Hub regional mapping for scan and failover 
 
-In cases where an Azure region is unavailable due to an outage, Device Update for IoT Hub supports business continuity and disaster recovery (BCDR) efforts with regional failover pairings. During an outage, data contained in the update files submitted to the Device Update service may be sent to a secondary Azure region. This failover enables Device Update to continue scanning update files for malware and making the updates available on the service endpoints.
+When importing an update into the Device Update for IoT Hub service, that update content may be processed within different Azure regions depending on the region that your Device Update Instance was created in.
 
-## Failover region mapping
+## Anti-malware scan
+
+If you are using the Azure portal for importing your update, you will see an option to enable anti-malware scan. If you select the option to enable anti-malware scan, your update will be sent to the Azure region that corresponds to the "Normal" column table in the **Region mapping for normal and failover cases** section. If you don't select the option to enable anti-malware scan, your update will be processed in the same region as your Device Update Instance, but it won't be scanned for malware. **Optional anti-malware scan is in Public Preview**.
+
+If you are using the Azure CLI or directly calling APIs, your update will not be scanned for malware during the import process and will be processed in the same region as your Device Update Instance. The optional scan functionality will be added to the Azure CLI and exposed via API in a future release.
+
+## Failover and BCDR
+
+As an exception to the previous section, in cases where an Azure region is unavailable due to an outage, Device Update for IoT Hub supports business continuity and disaster recovery (BCDR) efforts with regional failover pairings. During an outage, data contained in the update files submitted to the Device Update service may be sent to a secondary Azure region for processing. This failover enables Device Update to continue scanning update files for malware if you select that option. This will occur whether you select the option to enable anti-malware scan or not.
+
+## Region mapping for normal and failover cases
 
 | Region name |  Fails over to
 | --- | --- |
