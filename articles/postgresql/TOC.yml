@@ -543,7 +543,7 @@
   - name: Migration Service
     items:
     - name: Overview
-      href: migrate/migration-service/concepts-migration-service-postgresql.md
+      href: migrate/migration-service/overview-migration-service-postgresql.md
     - name: Tutorials
       items:
       - name: Migrate from Single Server
@@ -570,7 +570,9 @@
         href: migrate/migration-service/concepts-known-issues-migration-service.md
     - name: How-to guides
       items:
-      - name: Network setup
+      - name: How to set up Azure CLI
+        href: migrate/migration-service/how-to-setup-azure-cli-commands-postgresql
+      - name: How to set up the network
         href: migrate/migration-service/how-to-network-setup-migration-service.md
     - name: Troubleshoot
       items:

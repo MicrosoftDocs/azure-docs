@@ -105,7 +105,7 @@ az postgres flexible-server migration update cancel -- help
 
 ## Related content
 
-- [Migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md)
+- [Migration service in Azure Database for PostgreSQL](overview-migration-service-postgresql.md)
 - [Migrate from Single Server to Flexible Server](tutorial-migration-service-single-to-flexible.md)
 - [Migrate offline from AWS RDS PostgreSQL](tutorial-migration-service-aws-offline.md)
 - [Migrate online from AWS RDS PostgreSQL](tutorial-migration-service-aws-online.md)

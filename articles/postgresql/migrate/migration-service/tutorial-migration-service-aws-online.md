@@ -31,7 +31,7 @@ The migration service in Azure Database for PostgreSQL is a fully managed servic
 
 To complete the migration, you need the following prerequisites:
 
-[!INCLUDE [prerequisites-migration-service-postgresql-online-iaas](includes/iaas/prerequisites-migration-service-postgresql-online-iaas.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql-online-iaas](includes/aws/prerequisites-migration-service-postgresql-online-aws.md)]
 
 ## Perform the migration
 
