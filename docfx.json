@@ -693,8 +693,7 @@
         "articles/ai-services/LUIS/**/*.*": "None",
         "articles/aks/**/*": "OpenSource",
         "articles/azure-monitor/**/*.*": "None",
-        "articles/advisor/**/*.*": "None",
-        "articles/iot-operations/**/*": "OpenSource",	      
+        "articles/advisor/**/*.*": "None",   
         "articles/virtual-machines/linux/classic/**/*": "None",
         "articles/virtual-machines/windows/classic/**/*": "None"
       },
