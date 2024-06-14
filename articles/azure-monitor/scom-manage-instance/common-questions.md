@@ -5,12 +5,10 @@ description: This article summarizes frequently asked questions about Azure Moni
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
-ms.date: 05/15/2024
-ms.custom: UpdateFrequency.5, engagement-fy24
-ms.service: system-center
+ms.date: 06/14/2024
+ms.service: azure-monitor
 ms.subservice: operations-manager-managed-instance
 ms.topic: faq
-monikerRange: '>=sc-om-2019'
 ---
 
 # Azure Monitor SCOM Managed Instance frequently asked questions
@@ -238,4 +236,4 @@ Currently, multi-homing for gateway servers isn't supported.
 
 ## Next steps
 
-[SCOM Managed Instance overview](operations-manager-managed-instance-overview.md)
+[SCOM Managed Instance overview](overview.md)
