@@ -1,6 +1,6 @@
 ---
-title: Azure services that support geo-replication for non-paired regions
-description: Learn about Azure services that support geo-replication for non-paired regions
+title: Cross-region replication for non-paired regions
+description: Learn about cross-region replication for non-paired regions
 author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
@@ -10,11 +10,13 @@ ms.author: anaharris
 ms.custom: references_regions
 ---
 
-# Azure services that support geo-replication for non-paired regions
+# Cross-region replication for non-paired regions
 
 Some Azure services support cross-region replication to ensure business continuity and protect against data loss. These services make use of another secondary region that uses *cross-region replication*. Both the primary and secondary regions together form a [region pair](./cross-region-replication-azure.md#azure-paired-regions).
 
-However, there are some [regions that are non-paired](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair) and so require alternative methods to achieving geo-replication. This document lists the services and possible solutions that support geo-replication methods without requiring paired regions. 
+However, there are some [regions that are non-paired](./cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair) and so require alternative methods to achieving geo-replication. 
+
+This document lists some of the services and possible solutions that support geo-replication methods without requiring paired regions. 
 
 
 ## Azure Storage
