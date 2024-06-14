@@ -5,21 +5,25 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: overview
-ms.date: 05/31/2024
+ms.date: 06/14/2024
 
 ---
 
 # What is Azure Extended Zones?
 
-Azure Extended Zones are small extensions of Azure. They're strategically located in metros, industry centers, or specific jurisdictions to accommodate workloads that require low latency and data residency. These zones support various Azure resources, including virtual machines (VMs), containers, and storage. They can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries. This setup effectively addresses users' needs for low latency and data regulation compliance.
-
-Azure Extended Zones are part of the Microsoft global network. They offer secure, reliable, and high-bandwidth connectivity for applications running in close proximity to the user. They address the needs for low latency and data residency by bringing Azure's capabilities closer to the user or within their jurisdiction. They offer all the benefits of the Azure ecosystem, including consistent access, user experience, automation, and security. Azure users can easily manage their resources, services, and workloads within Azure Extended Zones through the Azure portal and other deployment methods.
+Azure Extended Zones are small-footprint extensions of Azure placed in metros, industry centers, or a specific jurisdiction to serve low latency and/or data residency workloads. Azure Extended Zones supports VMs, containers, storage, and a selected set of Azure services and can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries.
+ 
+Azure Extended Zones are part of the Microsoft global network that provides secure, reliable, high-bandwidth connectivity between applications that run on an Azure Extended Zone close to the user. Extended Zones address low latency and data residency by bringing all the goodness of the Azure ecosystem (access, user experience, automation, security, etc.) closer to the customer or their jurisdiction. Azure customers can provision and manage their Azure Extended Zones resources, services, and workloads through the Azure portal and other essential Azure tools.
 
 The key scenarios Azure Extended Zones enable are: 
 
 - **Latency**: users want to run their resources, for example, media editing software, remotely with low latency.
 
 - **Data residency**: users want their applications data to stay within a specific geography and might essentially want to host locally for various privacy, regulatory, and compliance reasons.
+
+The following diagram shows some of the industries and use cases where Azure Extended Zones can provide benefits.
+
+    :::image type="content" source="./media/overview/azure-extended-zones-industries.png" alt-text="Diagram that shows industries and use cases where Azure Extended Zones can provide benefits." lightbox="./media/overview/azure-extended-zones-industries.png":::
 
 ## Service offerings for Azure Extended Zones
 
@@ -34,6 +38,9 @@ The following key services are available in Azure Extended Zones:
 | **Storage** | Azure Managed Disks <br> Azure Premium Page Blobs <br> Azure Premium Block Blobs <br> Azure Premium Files <br>  Azure Data Lake Storage Gen2<br> Hierarchical Namespace <br>Azure Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
 | **BCDR** | Azure Site Recovery <br> Azure Backup |
 
+The following diagram shows how Azure services are deployed at the Azure Extended Zones location.
+
+    :::image type="content" source="./media/overview/azure-extended-zone-services.png" alt-text="Diagram that shows available Azure services at an Azure Extended Zone." lightbox="./media/overview/azure-extended-zone-services.png":::
 
 ## Next step
 
