@@ -90,15 +90,14 @@ curl -sSl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/
 
 # Install the production repo list for focal
 # For Ubuntu 20.04
-curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-
-ubuntu-focal-prod.list
+curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-ubuntu-focal-prod.list
 
 # Install the production repo list for jammy
 # For Ubuntu 22.04
-curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-
-ubuntu-jammy-prod.list
+curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-ubuntu-jammy-prod.list
 
 sudo apt-get update
+
 sudo apt-get install microsoft-azurevpnclient
 ```
 
