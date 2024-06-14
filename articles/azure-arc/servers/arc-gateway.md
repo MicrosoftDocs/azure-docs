@@ -14,7 +14,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, the Azure
 - Connect to Azure Arc by opening public network access to only seven Fully Qualified Domains (FQDNs).
 - View and audit all traffic an Azure Connected Machine agent sends to Azure via the Arc gateway.
 
-This article explain how to set up and use an Arc gateway Resource.
+This article explains how to set up and use an Arc gateway Resource.
 
 This feature is currently only available for [Azure Arc-enabled servers](overview.md).
 
@@ -57,7 +57,7 @@ The Arc gateway object has limits you should consider when planning your setup. 
 - TLS Terminating Proxies aren't supported.
 - ExpressRoute/Site-to-Site VPN used with the Arc gateway (Limited preview) isn't supported.
 - The Arc gateway (Limited preview) is only supported for Azure Arc-enabled servers.
-- There's a limit of 5 Arc gateway (Limited preview) resources per Azure Subscription.
+- There's a limit of five Arc gateway (Limited preview) resources per Azure Subscription.
 - It's required to use Azure Connected Machine Agent version 1.43 or higher to use the Arc gateway (Limited preview).
 
 ## How to use the Arc gateway (Limited preview)
@@ -69,7 +69,7 @@ After completing the [Azure Arc gateway Limited Public Preview Sign-up form](htt
 1. Ensure the required URLs are allowed in your environment.
 1. Associate new or existing Azure Arc resources with your Arc gateway Resource.
 1. Verify that the setup succeeded.
-1. Ensure additional scenarios use the Arc gateway (Linux only)
+1. Ensure other scenarios use the Arc gateway (Linux only)
 
 ### Step 1: Download the az connectedmachine.whl file
 
@@ -96,7 +96,7 @@ The gateway creation process takes 4-5 minutes to complete.
 
 ### Step 3: Ensure the required URLs are allowed in your environment
 
-When the gateway Resource is created, the success response will include the Arc gateway URL. Ensure your Arc gateway URL and all URLs in the following table are allowed in the environment where your Arc resources live:
+When the gateway Resource is created, the success response includes the Arc gateway URL. Ensure your Arc gateway URL and all URLs in the following table are allowed in the environment where your Arc resources live:
 
 |URL  |Purpose  |
 |---------|---------|
@@ -207,7 +207,7 @@ When the gateway Resource is created, the success response will include the Arc 
     ```
 1. Await reconciliation.
 
-    Once your machines have been updated to use the Arc gateway, some Azure Arc endpoints that were previously allowed in your enterprise proxy or firewalls will no longer be needed. However, there's a transition period, so please allow 1 hour before removing unneeded endpoints from your firewall/enterprise proxy.
+    Once your machines have been updated to use the Arc gateway, some Azure Arc endpoints that were previously allowed in your enterprise proxy or firewalls won't be needed. However, there's a transition period, so allow 1 hour before removing unneeded endpoints from your firewall/enterprise proxy.
     
 ### Step 5: Verify that the setup succeeded.
 On the onboarded server, run the following command: `azcmagent show`
@@ -241,7 +241,7 @@ For **Microsoft Defender for Endpoint**, run the following command:
 
 To delete an Arc gateway resource, detach the resource from the applicable server(s); the resource can then be deleted safely:
 
-1. Set the connection type of the Azure Arc-enabled server to “direct” instead of “gateway”:  
+1. Set the connection type of the Azure Arc-enabled server to "direct" instead of "gateway":  
 
     `azcmagent config set connection.type direct` 
 
