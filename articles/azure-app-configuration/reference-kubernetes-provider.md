@@ -58,6 +58,7 @@ The `spec.auth.workloadIdentity` property has the following child properties. On
 |---|---|---|---|
 |managedIdentityClientId|The client ID of the user-assigned managed identity associated with the workload identity.|alternative|string|
 |managedIdentityClientIdReference|The client ID of the user-assigned managed identity can be obtained from a ConfigMap. The ConfigMap must be in the same namespace as the Kubernetes provider.|alternative|object|
+|serviceAccountName|The name of the service account associated with the workload identity.|alternative|string|
 
 The `spec.auth.workloadIdentity.managedIdentityClientIdReference` property has the following child properties.
 
@@ -246,19 +247,40 @@ By default, autoscaling is disabled. However, if you have multiple `AzureAppConf
 
 1. [Enable Workload Identity](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) on the Azure Kubernetes Service (AKS) cluster.
 
-1. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
+2. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
 
-1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
+3. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
+  
+4. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) in Azure App Configuration.
 
-1. Create the federated identity credential between the managed identity, OIDC issuer, and subject using the Azure CLI.
+5. Create the federated identity credential between the managed identity, OIDC issuer, and subject using the Azure CLI. You can choose to bind the managed identity to the provider global service account or a custom service account.
 
-   ``` azurecli
-   az identity federated-credential create --name "${FEDERATED_IDENTITY_CREDENTIAL_NAME}" --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:azappconfig-system:az-appconfig-k8s-provider --audience api://AzureADTokenExchange
-   ```
+    ##### [Use service account of provider](#tab/global)
 
-1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) in Azure App Configuration.
+    ``` azurecli
+    az identity federated-credential create --name "${FEDERATED_IDENTITY_CREDENTIAL_NAME}" --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:azappconfig-system:az-appconfig-k8s-provider --audience api://AzureADTokenExchange
+    ```
 
-1. Set the `spec.auth.workloadIdentity.managedIdentityClientId` property to the client ID of the user-assigned managed identity in the following sample `AzureAppConfigurationProvider` resource and deploy it to the AKS cluster.
+    ##### [Use custom service account](#tab/custom)
+
+    Create a custom service account in the same namespace as the `AzureAppConfigurationProvider` resource.
+
+    ``` console
+    kubectl create serviceaccount my-service-account -n default
+    ```
+
+    Create the federated identity credential to bind the managed identity to the custom service account.
+
+    ``` azurecli
+    az identity federated-credential create --name "${FEDERATED_IDENTITY_CREDENTIAL_NAME}" --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:default:my-service-account --audience api://AzureADTokenExchange
+
+    ```
+
+    ---
+
+6. Apply the following sample `AzureAppConfigurationProvider` resource to the Kubernetes cluster.
+   
+    ##### [Use service account of provider](#tab/global)
 
     ``` yaml
     apiVersion: azconfig.io/v1
@@ -273,6 +295,24 @@ By default, autoscaling is disabled. However, if you have multiple `AzureAppConf
         workloadIdentity:
           managedIdentityClientId: <your-managed-identity-client-id>
     ```
+
+    ##### [Use custom service account](#tab/custom)
+
+    ``` yaml
+    apiVersion: azconfig.io/v1
+    kind: AzureAppConfigurationProvider
+    metadata:
+      name: appconfigurationprovider-sample
+    spec:
+      endpoint: <your-app-configuration-store-endpoint>
+      target:
+        configMapName: configmap-created-by-appconfig-provider
+      auth:
+        workloadIdentity:
+          serviceAccountName: my-service-account
+    ```
+
+    ---
 
 #### Use connection string
 
