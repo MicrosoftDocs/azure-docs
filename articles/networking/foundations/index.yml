@@ -52,7 +52,7 @@ productDirectory:
       url: ../../dns/index.yml
     - title: Azure Virtual Network Manager (AVNM)
       summary: AVNM is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions.
-      imageSrc: ./media/virtual-network.svg
+      imageSrc: ./media/avnm.svg
       url: ../../virtual-network-manager/index.yml
     - title: Azure Bastion
       summary: Azure Bastion is a fully managed PaaS service that enables you to securely connect to virtual machines via private IP address.
@@ -60,7 +60,7 @@ productDirectory:
       url: ../../bastion/index.yml
     - title: Route Server
       summary: Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your Azure virtual network.
-      imageSrc: ./media/virtual-network.svg
+      imageSrc: ./media/route-server.svg
       url: ../../route-server/index.yml
     - title: NAT Gateway
       summary: Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.
