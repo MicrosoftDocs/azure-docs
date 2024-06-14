@@ -99,7 +99,7 @@ During the cluster upgrade process, Operator Nexus performs the following operat
 
 > [!IMPORTANT]
 > Ensure that any `PodDisruptionBudgets` ([PDB](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets)) allow for at least *one* pod replica to be moved at a time otherwise the drain/evict operation will fail.
-> If the drain operation fails, the upgrade operation will fail as well, to ensure that the applications are not disrupted. Please correct what caused the operation to stop (i.e. incorrect PDBs, lack of quota, etc.) and re-try the operation. It is also possible to configure a drain timeout per worker node pool, after which the node will be removed even if pods have not yet finished draining. This can prevent upgrades from being blocked by misconfigured PDBs. The drain timeout setting is configured in seconds and defaults to 0, which indicates an infinite timeout.
+> If the drain operation fails, the upgrade operation will fail as well, to ensure that the applications are not disrupted. Please correct what caused the operation to stop (i.e. incorrect PDBs, lack of quota, etc.) and re-try the operation. It is also possible to configure a drain timeout per worker node pool, after which the node will be removed even if pods have not yet finished draining. This can prevent upgrades from being blocked by misconfigured PDBs. The drain timeout setting is configured in seconds and defaults to 1800.
 
 1. Upgrade your cluster using the `networkcloud kubernetescluster update` command.
 
