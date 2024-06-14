@@ -64,7 +64,7 @@ The listed version will be supported until the **End of Arc Support Date**. If c
 
 | Operating system | Last supported agent version | End of Arc Support Date | Notes |
 | -- | -- | -- | -- | 
-| Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 3/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See: [End of support for Windows Server 2008 and Windows Server 2008 R2](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2) | 
+| Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 3/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See: [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2) | 
 
 
 ### Client operating system guidance
