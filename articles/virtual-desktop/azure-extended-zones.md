@@ -42,7 +42,7 @@ Azure Virtual Desktop with Azure Extended Zones has the following limitations:
 
 - Azure Extended Zones don't support NAT Gateways. You'll need to use an Azure Load Balancer with outbound rules enabled for outbound connectivity.
 
-- There's a reduced set of supported virtual machine SKUs.
+- There's a reduced set of supported virtual machine SKUs. See [Service offerings for Azure Extended Zones](/azure/extended-zones/overview#service-offerings-for-azure-extended-zones) for more information.
 
 
 ## Next steps
