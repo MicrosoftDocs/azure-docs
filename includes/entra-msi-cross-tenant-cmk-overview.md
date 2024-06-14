@@ -19,7 +19,7 @@ Azure platform services and resources that are owned by the service provider and
 
 The image below shows a data encryption at rest with federated identity in a cross-tenant CMK workflow spanning a service provider and its customer.
 
-:::image type="content" source="../media/msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" alt-text="Screenshot showing a cross-tenant CMK with a federated identity." lightbox="../media/msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" border="true":::
+:::image type="content" source="./media/msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" alt-text="Screenshot showing a cross-tenant CMK with a federated identity." lightbox="./media/msi-cross-tenant-cmk-overview/cross-tenant-cmk.png" border="true":::
 
 In the example above, there are two Microsoft Entra tenants: an independent service provider's tenant (*Tenant 1*), and a customer's tenant (*Tenant 2*). *Tenant 1* hosts Azure platform services and *Tenant 2* hosts the customer's key vault.
 
