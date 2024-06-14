@@ -55,6 +55,8 @@ The **Overview** page in the Azure portal for each Application Gateway includes 
 
 For a list of available metrics for Azure Application Gateway, see [Application Gateway monitoring data reference](monitor-application-gateway-reference.md#metrics).
 
+For available Web Application Firewall (WAF) metrics, see [Application Gateway WAF v2 metrics](../web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v2-metrics) and [Application Gateway WAF v1 metrics](../web-application-firewall/ag/application-gateway-waf-metrics.md#application-gateway-waf-v1-metrics).
+
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
