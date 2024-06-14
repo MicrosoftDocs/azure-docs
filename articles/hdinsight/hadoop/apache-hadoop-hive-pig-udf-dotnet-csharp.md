@@ -249,7 +249,7 @@ You can also run a Pig job that uses your Pig UDF application.
     > [!NOTE]
     > The application name that is used for streaming must be surrounded by the `` ` `` (backtick) character when aliased, and by the `'` (single quote) character when used with `SHIP`.
 
-4. After entering the last line, the job should start. It returns output similar to the following text:
+4. Once you enter the last line, the job should start. It returns output similar to the following text:
 
     ```output
     (2019-07-15 16:43:25 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
