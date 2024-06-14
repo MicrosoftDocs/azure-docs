@@ -2,7 +2,7 @@
 title: 'App Service Environment v3 and App Service public multitenant comparison'
 description: This article provides an overview of the difference between App Service Environment v3 and the public multitenant offering of App Service.
 author: seligj95
-ms.date: 6/13/2024
+ms.date: 6/14/2024
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -11,20 +11,20 @@ ms.topic: article
 
 An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Compared to the public multitenant offering, where the underlying compute is shared with other customers, App Service Environment provides enhanced security, isolation, and network access control. This article provides a comparison between the notable features of App Service Environment v3 and the public multitenant offering of App Service.
 
-## Hosting
+### Hosting
 
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|
-|Hosting environment|Fully isolated and dedicated compute|Shared environment. Workers running your apps are dedicated, but the underlying compute is shared with other customers. |
+|Hosting environment|Fully isolated and dedicated compute|Shared environment. Workers running your apps are dedicated, but the supporting infrastructure is shared with other customers. |
 |Hardware|[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)|[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)|
 |[Available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2        |Free, Basic, Standard, Premium v2, Premium v3        |
 |Dedicated host group|[Available](creation.md#deployment-considerations) |No |
 |Remote file storage|Fully dedicated to the App Service Environment |Remote file storage for the application is dedicated, but the storage is hosted on a shared file server |
-|Internal Load Balancer (ILB) configuration|Yes, using ILB App Service Environment variation |Yes, via private endpoint |
+|Private inbound configuration|Yes, using ILB App Service Environment variation |Yes, via private endpoint |
 |Planned maintenance|[Manual upgrade preference is available](how-to-upgrade-preference.md). Maintenance is nondisruptive to your apps. |The platform handles maintenance and is nondisruptive to your apps |
 |Aggregate remote file share storage limit|1 TB for all apps in an App Service Environment v3|250 GB for all apps in a single App Service plan. 500 GB for all apps across all App Service plans in a single resource group.|
 
-## Scaling
+### Scaling
 
 Both App Service Environment v3 and the public multitenant offering run on [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md), which means that both offerings benefit from the capabilities that scale sets provide. However, App Service Environment v3 is a dedicated environment, which means that even though it can scale out to more instances than the public multitenant offering, scaling out to multiple instances can be slower than the public multitenant offering.
 
@@ -33,7 +33,7 @@ Both App Service Environment v3 and the public multitenant offering run on [Virt
 |Maximum instance count|100 instances per App Service plan. Maximum of 200 instances across all plans in a single App Service Environment v3.|30 instances per App Service plan. This limit is a hard limit that can't be raised.|
 |Scaling speed|Slower scaling times due to the dedicated nature of the environment|Faster scaling times due to the shared nature of the environment|
 
-## Certificates and domains
+### Certificates and domains
 
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|
@@ -41,14 +41,14 @@ Both App Service Environment v3 and the public multitenant offering run on [Virt
 |Custom domain on private DNS (no domain verification required)|Yes, on an Internal Load Balancer (ILB) App Service Environment|No, the custom domain needs to resolve via public DNS|
 |Inbound TLS|Yes, you can manage SSL certificates directly within the environment, including the ability to upload and bind custom SSL certificates|Yes, you can bring your own certificate or use a certificate provided by Azure |
 |Inbound TLS using certificates issues by private certificate authority (CA)|Supported|No|
-|Outbound calls using client certificates issues by private CA|Supported, you can load your own root CA certificate into the trusted root store|Not supported for source-code based deployments. Supported if deploying using either Windows containers or Linux containers (you can install arbitrary dependencies including private CA issued client certificates inside of a custom container for both platform variants).|
+|Outbound calls using client certificates issues by private CA|[Supported only from custom code in Windows code-based apps](overview-certificates.md#private-client-certificate). You can load your own root CA certificate into the trusted root store.|Not supported for source-code based deployments. Supported if deploying using either Windows containers or Linux containers (you can install arbitrary dependencies including private CA issued client certificates inside of a custom container for both platform variants).|
 |App Service Managed Certificates|No|Supported|
 |Certificates shared across apps|Yes|No, you must upload the certificate to every app|
 |Public certificate limit|1,000 public certificates per App Service Plan|1,000 public certificates per App Service Plan|
 |End to end TLS encryption for inbound calls|Supported|Supported in preview for Linux, not supported on Windows|
 |Change TLS cipher suite order|Supported|Supported with min TLS cipher suite feature|
 
-## Networking
+### Networking
 
 |Feature  |App Service Environment v3  |App Service public multitenant  |
 |---------|---------|---------|
@@ -65,7 +65,7 @@ Both App Service Environment v3 and the public multitenant offering run on [Virt
 |Maximum outbound TCP/IP connections per virtual machine instance|16,000|1,920 per P1V3 instance. 3,968 per P2V3 instance. 8,064 per P3V3 instance|
 |Maximum SNAT ports per virtual machine instance|Dynamic: 256 - 1,024 depending on total instance count|128 per instance|
 
-## Pricing
+### Pricing
 
 App Service Environment v3 tends to be more expensive than the public multitenant offering due to the dedicated nature of the infrastructure. For both offerings, you only pay for the resources you use. Reserved instances and savings plans are available for both offerings to save money on long-term commitments.
 
@@ -76,7 +76,7 @@ App Service Environment v3 tends to be more expensive than the public multitenan
 |Savings plans|Available|Available|
 |Availability zone pricing|There's a minimum charge of 18 cores. There's no added charge for availability zone support if you have 18 or more cores across your App Service plan instances. If you have fewer than 18 cores across your App Service plans in the zone redundant App Service Environment, the difference between 18 cores and the sum of the cores from the running instance count is charged as Windows I1v2 instances.|Three instance minimum enforced per App Service plan|
 
-## Frequently asked questions
+### Frequently asked questions
 
 - [How do I know which offering is right for me?](#how-do-i-know-which-offering-is-right-for-me)
 - [Can I use App Service Environment v3 and the public multitenant offering together?](##can-i-use-app-service-environment-v3-and-the-public-multitenant-offering-together')
