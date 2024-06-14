@@ -8,8 +8,6 @@
     - name: About Domain Data Management Services (DDMS)
       displayName: DDMS overview
       href: overview-ddms.md
-    - name: OSDU&reg; services available on Azure Data Manager for Energy
-      href: osdu-services-on-adme.md
     - name: What's new
       items:
         - name: Release notes
@@ -37,6 +35,8 @@
       href: tutorial-petrel-ddms.md
 - name: Concepts
   items:
+    - name: OSDU&reg; services available on Azure Data Manager for Energy
+      href: osdu-services-on-adme.md
     - name: CSV parser ingestion
       href: concepts-csv-parser-ingestion.md
     - name: Manifest ingestion
