@@ -154,7 +154,7 @@ After a ransomware attack or an incident response simulation, take the following
 
 ## Next steps
 
-In this article, you learned how to improve your backup and restore plan to protect against ransomware. For best practices on deploying ransomware protection, see Rapidly protect against ransomware and extortion.
+For best practices on deploying ransomware protection, see Rapidly protect against ransomware and extortion.
 
 Key industry information:
 
@@ -178,9 +178,3 @@ Microsoft Defender XDR:
 
 - [Find ransomware with advanced hunting](/microsoft-365/security/defender/advanced-hunting-find-ransomware)
 
-Microsoft Security team blog posts:
-
-- [Becoming resilient by understanding cybersecurity risks: Part 4, navigating current threats (May 2021)](https://www.microsoft.com/security/blog/2021/05/26/becoming-resilient-by-understanding-cybersecurity-risks-part-4-navigating-current-threats/). See the Ransomware section
-- [Human-operated ransomware attacks: A preventable disaster (March 2020)](https://www.microsoft.com/security/blog/2020/03/05/human-operated-ransomware-attacks-a-preventable-disaster/). Includes attack chain analysis of actual human-operated ransomware attacks
-- [Ransomware response — to pay or not to pay? (December 2019)](https://www.microsoft.com/security/blog/2019/12/16/ransomware-response-to-pay-or-not-to-pay/)
-- [Norsk Hydro responds to ransomware attack with transparency (December 2019)](https://www.microsoft.com/security/blog/2019/12/17/norsk-hydro-ransomware-attack-transparency/)
