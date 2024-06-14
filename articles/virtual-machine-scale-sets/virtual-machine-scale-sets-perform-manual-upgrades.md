@@ -1,15 +1,15 @@
 ---
-title: Performing manual upgrades on Virtual Machine Scale Sets
+title: Performing manual upgrades on Virtual Machine Scale Sets (Preview)
 description: Learn about how to perform a manual upgrade on Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 6/6/2024
+ms.date: 6/14/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
-# Performing manual upgrades on Virtual Machine Scale Sets
+# Performing manual upgrades on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
 > Manual upgrade policy for Virtual Machine Scale Sets with Uniform Orchestration is in general availability (GA) .

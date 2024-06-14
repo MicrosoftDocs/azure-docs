@@ -1,5 +1,5 @@
 ---
-title: Change the upgrade policy on Virtual Machine Scale Sets
+title: Change the upgrade policy on Virtual Machine Scale Sets (Preview)
 description: Learn how to change the upgrade policy on Virtual Machine Scale Sets
 author: mimckitt
 ms.author: mimckitt
@@ -9,7 +9,7 @@ ms.date: 6/6/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
-# Change the upgrade policy on Virtual Machine Scale Sets
+# Change the upgrade policy on Virtual Machine Scale Sets (Preview)
 
 > [!NOTE]
 > Automatic, manual and rolling upgrade policy for Virtual Machine Scale Sets with Uniform Orchestration are in general availability (GA) . 

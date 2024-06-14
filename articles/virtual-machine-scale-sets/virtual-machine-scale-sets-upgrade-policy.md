@@ -1,15 +1,15 @@
 ---
-title: Upgrade policies for Virtual Machine Scale Sets
+title: Upgrade policies for Virtual Machine Scale Sets (Preview)
 description: Learn about the different upgrade policies available for Virtual Machine Scale Sets.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.date: 6/6/2024
+ms.date: 6/14/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 ---
-# Upgrade policies for Virtual Machine Scale Sets
+# Upgrade policies for Virtual Machine Scale Sets (Preview)
 
 The upgrade policy of a Virtual Machine Scale Set determines how virtual machines can be brought up-to-date with the latest scale set model. 
 
