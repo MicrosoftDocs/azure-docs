@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The troubleshooting guides for Azure Database for PostgreSQL flexible server are designed to help you quickly identify and resolve common challenges you may encounter while using Azure Database for PostgreSQL flexible server. Integrated directly into the Azure portal, the troubleshooting guides provide actionable insights, recommendations, and data visualizations to assist you in diagnosing and addressing issues related to common performance problems. With these guides at your disposal, you'll be better equipped to optimize your Azure Database for PostgreSQL flexible server experience and ensure a smoother, more efficient database operation.
 

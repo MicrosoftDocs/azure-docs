@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 ---
 
@@ -18,12 +18,12 @@ ms.author: pafarley
 > [!CAUTION]
 > The sample data in this guide might contain offensive content. User discretion is advised.
 
-The default AI classifiers are sufficient for most content moderation needs. However, you might need to screen for items that are specific to your use case.
+The default AI classifiers are sufficient for most content moderation needs. However, you might need to screen for items that are specific to your use case. Blocklists let you add custom terms to the AI classifiers. You can use blocklists to screen for specific terms or phrases that you want to flag in your content.
 
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (see [Region availability](/azure/ai-services/content-safety/overview#region-availability)), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * One of the following installed:
   * [cURL](https://curl.haxx.se/) for REST API calls.

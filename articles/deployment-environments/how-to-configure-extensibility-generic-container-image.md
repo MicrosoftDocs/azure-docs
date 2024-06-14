@@ -3,11 +3,11 @@ title: ADE extensibility model for custom container images
 titleSuffix: Azure Deployment Environments
 description: Learn how to use the ADE extensibility model to build and utilize custom container images with your environment definitions for deployment environments.
 ms.service: deployment-environments
+ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/13/2024
+ms.date: 05/28/2024
 ms.topic: how-to
-
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
 ---
 
@@ -21,24 +21,56 @@ The ADE extensibility model enables you to create custom container images to use
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
-The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Deployment Environments set up in your Azure subscription. 
     - To set up ADE, follow the [Quickstart: Configure Azure Deployment Environments](quickstart-create-and-configure-devcenter.md).
 
-## Create and build a container image
+## Use container images with ADE
+
+You can take one of the following approaches to use container images with ADE:
+
+- **Use the standard container image:** For simple scenarios, use the standard Bicep container image provided by ADE.
+- **Create a custom container image:** For more complex scenarios, create a custom container image that meets your specific requirements.
+
+Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
+
+## Use a standard image
+
+ADE supports Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (azuredeploy.json and environment.yaml) to your catalog. ADE then uses the standard Bicep container image to create the deployment environment.
+
+In the environment.yaml file, the runner property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers runner, as listed in the following table.
+
+The following example shows a runner that references the sample Bicep container image:
+```yml
+    name: WebApp
+    version: 1.0.0
+    summary: Azure Web App Environment
+    description: Deploys a web app in Azure without a datastore
+    runner: Bicep
+    templatePath: azuredeploy.json
+```
+You can see the standard Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
+
+For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](/azure/deployment-environments/configure-environment-definition).
+
+## Create a custom container image
+
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard container images.
+
+After you complete the image customization, you must build the image and push it to your container registry.
+
+### Create and customize a container image with Docker
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image on one of the ADE authored images.
 
-To build an image configured for ADE, follow these steps:
+The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
+
+To create an image configured for ADE, follow these steps:
 1. Base your image on an ADE-authored sample image or the image of your choice by using the FROM statement.
 1. Install any necessary packages for your image by using the RUN statement.
 1. Create a *scripts* folder at the same level as your Dockerfile, store your *deploy.sh* and *delete.sh* files within it, and ensure those scripts are discoverable and executable inside your created container. This step is necessary for your deployment to work using the ADE core image.
-1. Build and push your image to your container registry, and ensure it's accessible to ADE.
-1. Reference your image in the `runner` property of your environment definition.
 
 ### Select a sample container image by using the FROM statement
 
@@ -78,7 +110,13 @@ RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
-### Build the image
+## Make the custom image accessible to ADE
+
+You must build your Docker image and push it to your container registry to make it available for use in ADE. You can build your image using the Docker CLI, or by using a script provided by ADE.
+
+Select the appropriate tab to learn more about each approach.
+
+## [Build the image with Docker CLI](#tab/build-the-image-with-docker-cli/)
 
 Before you build the image to be pushed to your registry, ensure the [Docker Engine is installed](https://docs.docker.com/desktop/) on your computer. Then, navigate to the directory of your Dockerfile, and run the following command:
 
@@ -92,7 +130,7 @@ For example, if you want to save your image under a repository within your regis
 docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
 ```
 
-## Push the image to a registry
+### Push the image to a registry
 
 In order to use custom images, you need to set up a publicly accessible image registry with anonymous image pull enabled. This way, Azure Deployment Environments can access your custom image to execute in our container.
 
@@ -114,6 +152,11 @@ When you're ready to push your image to your registry, run the following command
 ```docker
 docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
+## [Build a container image with a script](#tab/build-a-container-image-with-a-script/)
+
+[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
+
+---
 
 ## Connect the image to your environment definition
 
@@ -123,10 +166,6 @@ When authoring environment definitions to use your custom image in their deploym
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
-## Build a container image with a script
-
-[!INCLUDE [custom-image-script](includes/custom-image-script.md)]
-
 ## Access operation logs and error details
 
 [!INCLUDE [custom-image-logs-errors](includes/custom-image-logs-errors.md)]
@@ -134,3 +173,4 @@ runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ## Related content
 
 - [ADE CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference)
+- [ADE CLI variables reference](reference-deployment-environment-variables.md)

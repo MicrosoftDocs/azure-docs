@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 05/20/2024
+ms.date: 06/13/2024
 recommendations: false
 ---
 
@@ -18,7 +18,31 @@ recommendations: false
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
+## June 2024
+
+### Token based billing for fine-tuning
+
+* Azure OpenAI fine-tuning billing is now based on the number of tokens in your training file – instead of the total elapsed training time. This can result in a significant cost reduction for some training runs, and makes estimating fine-tuning costs much easier. To learn more, you can consult the [official announcement](https://techcommunity.microsoft.com/t5/ai-azure-ai-services-blog/pricing-update-token-based-billing-for-fine-tuning-training/ba-p/4164465).
+
+### GPT-4o released in new regions
+
+* GPT-4o is now also available in:
+    -  Sweden Central for standard regional deployment.
+    -  Japan East, Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
+
+For the latest information on model availability, see the [models page](./concepts/models.md).
+
+### Customer-managed key (CMK) support for Assistants
+
+Threads and Files in Assistants now supports CMK in the following region:
+* West US 3
+
 ## May 2024
+
+### GPT-4o provisioned deployments
+
+`gpt-4o` Version: `2024-05-13` is available for both standard and provisioned deployments. Provisioned and standard model deployments accept both text and image/vision inference requests.
+For information on model regional availability consult the model matrix for [provisioned deployments](./concepts/models.md#provisioned-deployment-model-availability).
 
 ### Assistants v2 (preview)
 
@@ -415,7 +439,7 @@ If you are currently using the `2023-03-15-preview` API, we recommend migrating 
 
 - **DALL-E 2 public preview**. Azure OpenAI Service now supports image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md). To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/access).
 
-- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](./how-to/fine-tuning.md?pivots=programming-language-studio#deploy-a-customized-model).
+- **Inactive deployments of customized models will now be deleted after 15 days; models will remain available for redeployment.** If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-studio#deploy-a-custom-model).
 
 
 ## March 2023

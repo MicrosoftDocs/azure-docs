@@ -12,7 +12,7 @@ ms.date: 11/27/2023
 
 ## Create a new Spring application
 
-Spring AI doesn't currently support the `AzureCognitiveSearchChatExtensionConfiguration` options that allow an Azure AI query to encapsulate the [Retrieval Augmented Generation](../../../search/retrieval-augmented-generation-overview.md) (RAG) method and hide the details from the user. As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure AI Search index and use retrieved documents to augment your query.
+Spring AI doesn't currently support the `AzureCognitiveSearchChatExtensionConfiguration` options that allow an Azure AI query to encapsulate the [Retrieval Augmented Generation (RAG)](../../../search/retrieval-augmented-generation-overview.md) method and hide the details from the user. As an alternative, you can still invoke the RAG method directly in your application to query data in your Azure AI Search index and use retrieved documents to augment your query.
 
 Spring AI supports a VectorStore abstraction, and you can wrap Azure AI Search can be wrapped in a Spring AI VectorStore implementation for querying your custom data. The following project implements a custom VectorStore backed by Azure AI Search and directly executes RAG operations.
 

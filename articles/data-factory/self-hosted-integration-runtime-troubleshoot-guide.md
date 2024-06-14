@@ -218,7 +218,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
     > [!TIP] 
     > In Process Monitor, you can set filters as shown in following screenshot.
     >
-    > The preceding error message says that the DLL System.ValueTuple is not located in the related *Global Assembly Cache* (GAC) folder, in the *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* folder, or in the *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* folder.
+    > The preceding error message says that the DLL System.ValueTuple is not located in the related *Global Assembly Cache (GAC)* folder, in the *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* folder, or in the *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* folder.
     >
     > Basically, the process loads the DLL first from the *GAC* folder, then from the *Shared* folder, and finally from the *Gateway* folder. Therefore, you can load the DLL from any path that's helpful.
     

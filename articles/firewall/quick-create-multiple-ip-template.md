@@ -14,9 +14,9 @@ ms.author: victorh
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
 
-:::image type="content" source="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png" alt-text="Diagram showing the network configuration for this quickstart.":::
+:::image type="content" source="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png" alt-text="Diagram showing the network configuration for this quickstart." lightbox="media/quick-create-multiple-ip-bicep/azure-firewall-multiple-ip.png":::
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 For more information about Azure Firewall with multiple public IP addresses, see [Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell](deploy-multi-public-ip-powershell.md).
 

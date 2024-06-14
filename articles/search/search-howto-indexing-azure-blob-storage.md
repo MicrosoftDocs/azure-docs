@@ -41,7 +41,7 @@ Blob indexers are frequently used for both [AI enrichment](cognitive-search-conc
 
 The blob indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)]
 
 ## Determine which blobs to index
 
