@@ -14,9 +14,9 @@ When importing an update into the Device Update for IoT Hub service, that update
 
 ## Anti-malware scan
 
-If you are using the Azure portal for importing your update, you will see an option to enable anti-malware scan. If you select the option to enable anti-malware scan, your update will be sent to the Azure region that corresponds to the "Default" column table in the **Region mapping for default and failover cases** section. If you don't select the option to enable anti-malware scan, your update will be processed in the same region as your Device Update Instance, but it won't be scanned for malware. **Optional anti-malware scan is in Public Preview**.
+When using the Azure portal for importing your update, there is now an option to enable anti-malware scan. If you select the option to enable anti-malware scan, your update is sent to the Azure region that corresponds to the "Default" column table in the **Region mapping for default and failover cases** section. If you don't select the option to enable anti-malware scan, your update is processed in the same region as your Device Update Instance, but it isn't scanned for malware. **Optional anti-malware scan is in Public Preview**.
 
-If you are using the Azure CLI or directly calling Device Update APIs, your update won't be scanned for malware during the import process. It will be processed in the same region as your Device Update Instance. The optional scan functionality will be added to the Azure CLI and exposed via API in a future release.
+If you are using the Azure CLI or directly calling Device Update APIs, your update isn't scanned for malware during the import process. It is processed in the same region as your Device Update Instance. The optional scan functionality will be added to the Azure CLI and exposed via API in a future release.
 
 ## Failover and BCDR
 
