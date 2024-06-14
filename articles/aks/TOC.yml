@@ -150,6 +150,10 @@
           href: concepts-network-services.md
         - name: Ingress
           href: concepts-network-ingress.md
+    - name: AI and machine learning
+      items:
+        - name: Small and large language models
+          href: concepts-ai-ml-language-models.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
