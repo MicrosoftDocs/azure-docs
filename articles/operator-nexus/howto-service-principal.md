@@ -13,7 +13,7 @@ ms.author: matthewernst
 
 Service principals in Azure are identity entities that are used by applications, services, and automation tools to access specific Azure resources. They can be thought of as 'users' for applications, allowing these applications to interact with Azure services. Service principals provide and control permissions to Azure resources within your subscription, allowing you to specify exactly what actions an application can perform in your environment. 
 
-For more information on how to create a Service principal, reference this [tutorial](../cli/azure/azure-cli-sp-tutorial-1.md) or this [documentation](../entra/architecture/service-accounts-principal.md).
+For more information on how to create a Service principal, reference this [tutorial](../cli/azure/azure-cli-sp-tutorial-1.md) or this [documentation](../entra/identity-platform/service-accounts-principal.md).
 
 ## Service principals in Operator Nexus
 
@@ -21,7 +21,7 @@ A single customer-provided Service principal is used by Operator Nexus to facili
 
 ## Creating a service principal
 
-For information on how to rotate a service principal, reference [how to create a service principal](../identity-platform/howto-create-service-principal-portal.md).
+For information on how to rotate a service principal, reference [how to create a service principal](../azure/active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Rotating a service principal
 
