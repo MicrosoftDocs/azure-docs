@@ -4,7 +4,7 @@ description: Shows you how to quickly stand up Red Hat JBoss EAP on Azure Red Ha
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 05/29/2024
+ms.date: 06/14/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 ---
 
@@ -22,17 +22,17 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - A local developer command line with a UNIX-like command environment - for example, Ubuntu, macOS, or Windows Subsystem for Linux - and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
+  > [!NOTE]
+  > You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed.
+  >
+  > :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+
 - The `mysql` CLI. You can install the CLI by using the following commands:
 
-```azurecli-interactive
-sudo apt update
-sudo apt install mysql-server
-```
-  
-> [!NOTE]
-> You can also execute this guidance from the [Azure Cloud Shell](/azure/cloud-shell/quickstart). This approach has all the prerequisite tools pre-installed.
->
-> :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+  ```azurecli-interactive
+  sudo apt update
+  sudo apt install mysql-server
+  ```
 
 - Ensure the Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
 
@@ -129,7 +129,7 @@ The following steps show you how to fill out the **EAP Application** pane shown 
 
 1. Track the progress of the deployment on the **Deployment is in progress** page.
 
-Depending on network conditions and other activity in your selected region, the deployment may take up to 35 minutes to complete.
+Depending on network conditions and other activity in your selected region, the deployment might take up to 35 minutes to complete.
 
 While you wait, you can set up the database.
 
@@ -187,7 +187,7 @@ Next, use the following steps to create an Azure Database for MySQL - Flexible S
        --yes
    ```
 
-   This command may take ten or more minutes to complete. When the command successfully completes, you see output similar to the following example:
+   This command might take ten or more minutes to complete. When the command successfully completes, you see output similar to the following example:
 
    ```output
    {
@@ -460,7 +460,7 @@ Next, use the following steps to create a secret:
    javaee-cafe-0         1/1     Running             0          30s
    ```
 
-   It may take a few minutes to reach the proper state. You may even see `STATUS` column values including `ErrImagePull` and `ImagePullBackOff` before `Running` is shown.
+   It might take a few minutes to reach the proper state. You might even see `STATUS` column values including `ErrImagePull` and `ImagePullBackOff` before `Running` is shown.
 
 1. Run the following command to return the URL of the application. You can use this URL to access the deployed sample app. Copy the output to the clipboard.
 
@@ -471,7 +471,7 @@ Next, use the following steps to create a secret:
 1. Paste the output into an Internet-connected web browser, and then press <kbd>Enter</kbd>. You should see the UI of **Java EE Cafe** app similar to the following screenshot:
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/javaee-cafe-ui.png" alt-text="Screenshot of Java EE Cafe app UI." lightbox="media/howto-deploy-java-enterprise-application-platform-app/javaee-cafe-ui.png":::
-   
+
 1. Add and delete some rows to verify the database connectivity is correctly functioning.
 
 
