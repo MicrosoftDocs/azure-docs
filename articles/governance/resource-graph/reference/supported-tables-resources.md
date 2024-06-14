@@ -8,7 +8,7 @@ ms.custom: generated
 
 # Azure Resource Graph table and resource type reference
 
-[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/samples/archive-samples.md)]
 
 Azure Resource Graph supports the following **resource types** of [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is part of a **table** in Resource Graph.
 
@@ -708,7 +708,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.Network/expressRoutePorts (ExpressRoute Direct)
 - microsoft.Network/firewallPolicies (Firewall policies)
 - microsoft.Network/frontdoors (Front Doors)
-- microsoft.Network/FrontDoorWebApplicationFirewallPolicies (Web Application Firewall policies (WAF))
+- microsoft.Network/FrontDoorWebApplicationFirewallPolicies (Web Application Firewall (WAF) policies)
 - microsoft.network/ipallocations
 - microsoft.Network/ipGroups (IP Groups)
 - microsoft.Network/LoadBalancers (Load balancers)

@@ -200,6 +200,8 @@ items:
       - name: What is text to speech avatar?
         href: text-to-speech-avatar/what-is-text-to-speech-avatar.md
         displayName: avatar
+      - name: Content credentials
+        href: text-to-speech-avatar/content-credentials.md
       - name: How to synthesize text to speech avatar
         items:
         - name: Real-time synthesis

@@ -89,7 +89,7 @@ Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled 
      * Deploy the Azure IoT Operations resources.
 
    ```azurecli-interactive
-   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_ID>
+   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
    ```
 
    > [!IMPORTANT]

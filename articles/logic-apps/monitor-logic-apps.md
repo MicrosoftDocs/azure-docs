@@ -292,10 +292,21 @@ You can rerun a previously finished workflow with the same inputs that the workf
 
 Completing this task creates and adds a new workflow run to your workflow's run history.
 
-> [!NOTE]
->
-> If your workflow has operations such as create or delete operations, resubmitting a run might 
-> create duplicate data or try to delete data that no longer exists, resulting in an error.
+### Limitations and considerations
+
+- By default, only Consumption workflows and Standard stateful workflows, which record and store run history, are supported. To use these capabilities with a stateless Standard workflow, enable stateful mode. For more information, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-for-stateless-workflows) and [Enable stateful mode for stateless connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+
+- The resubmitted run executes the same workflow version as the original run, even if you updated the workflow definition.
+
+- You can resubmit only actions from sequential workflows. Workflows with parallel paths are currently not supported.
+
+- The workflow must have a completed state, such as Succeeded, Failed, or Cancelled.
+
+- The workflow must have 40 or fewer actions for you to rerun from a specific action.
+
+- If your workflow has operations such as create or delete operations, resubmitting a run might create duplicate data or try to delete data that no longer exists, resulting in an error.
+
+- These capabilities currently are unavailable with Visual Studio Code or Azure CLI.
 
 ### [Consumption](#tab/consumption)
 
@@ -333,9 +344,9 @@ The resubmit capability is available for all actions except for non-sequential a
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
 | **Condition** action and actions in the **True** and **False** paths | - Yes for **Condition** action <br>- No for actions in the **True** and **False** paths |
-| **For each** action and all actions inside the loop | No for all actions |
+| **For each** action plus all actions inside the loop and after the loop | No for all actions |
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
-| **Until** action and all actions inside the loop | No for all actions |
+| **Until** action plus all actions inside the loop and after the loop | No for all actions |
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
@@ -389,9 +400,9 @@ The resubmit capability is available for all actions except for non-sequential a
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
 | **Condition** action and actions in the **True** and **False** paths | - Yes for **Condition** action <br>- No for actions in the **True** and **False** paths |
-| **For each** action and all actions inside the loop | No for all actions |
+| **For each** action plus all actions inside the loop and after the loop | No for all actions |
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
-| **Until** action and all actions inside the loop | No for all actions |
+| **Until** action plus all actions inside the loop and after the loop | No for all actions |
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow.
 

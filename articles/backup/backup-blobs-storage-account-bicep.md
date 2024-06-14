@@ -2,7 +2,7 @@
 title: Quickstart - Back up blobs in a storage account
 description: Learn how to back up blobs in a storage account with a Bicep template.
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-bicep
 ms.date: 05/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

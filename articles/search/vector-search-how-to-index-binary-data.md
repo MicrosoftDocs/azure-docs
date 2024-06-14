@@ -82,10 +82,10 @@ The following example shows a basic `vectorSearch` configuration:
 
 The fields collection of an index must include a field for the document key, vector fields, and any other fields that you need for hybrid search scenarios.
 
-Binary fields are of type `Collection(Edm.Binary)` and contain embeddings in packed form. For example, if the original embedding dimension is `1024`, the packed binary vector length is `ceiling(1024 / 8) = 128`. You get the packed form by setting the `vectorEncoding` property on the field.
+Binary fields are of type `Collection(Edm.Byte)` and contain embeddings in packed form. For example, if the original embedding dimension is `1024`, the packed binary vector length is `ceiling(1024 / 8) = 128`. You get the packed form by setting the `vectorEncoding` property on the field.
 
 1. Add a field to the fields collection and give it name.
-1. Set data type to `Collection(Edm.Binary)`.
+1. Set data type to `Collection(Edm.Byte)`.
 1. Set `vectorEncoding` to `packedBit` for binary encoding. 
 1. Set `dimensions` to `1024`. Specify the original (unpacked) vector dimension.
 1. Set `vectorSearchProfile` to a profile you defined in the previous step.

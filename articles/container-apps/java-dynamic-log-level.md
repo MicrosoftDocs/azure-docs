@@ -4,6 +4,7 @@ description: Learn how to use dynamic logger level settings to debug your Java a
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 05/10/2024
 ms.author: cshoe
