@@ -14,7 +14,7 @@ ms.date: 04/22/2024
 
 # Connect Azure IoT MQ Preview MQTT bridge cloud connector to other MQTT brokers
 
-[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 You can use the Azure IoT MQ Preview MQTT bridge to connect to Azure Event Grid or other MQTT brokers. MQTT bridging is the process of connecting two MQTT brokers together so that they can exchange messages.
 
@@ -374,7 +374,7 @@ This helps you balance the message traffic for the bridge between multiple clien
 
 ## Azure Event Grid MQTT broker support
 
-To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with [Azure Event Grid's MQTT broker feature](../../../event-grid/mqtt-overview.md).
+To minimize credential management, using the system-assigned managed identity and Azure RBAC is the recommended way to bridge Azure IoT MQ with [Azure Event Grid's MQTT broker feature](../../event-grid/mqtt-overview.md).
 
 For an end-to-end tutorial, see [Tutorial: Configure MQTT bridge between Azure IoT MQ Preview and Azure Event Grid](tutorial-connect-event-grid.md).
 
@@ -393,7 +393,7 @@ az role assignment create --assignee <MQ_ID> --role 'EventGrid TopicSpaces Publi
 ```
 
 > [!TIP]
-> To optimize for principle of least privilege, you can assign the role to a topic space instead of the entire Event Grid namespace. To learn more, see [Event Grid RBAC](../../../event-grid/mqtt-client-azure-ad-token-and-rbac.md) and [Topic spaces](../../../event-grid/mqtt-topic-spaces.md).
+> To optimize for principle of least privilege, you can assign the role to a topic space instead of the entire Event Grid namespace. To learn more, see [Event Grid RBAC](../../event-grid/mqtt-client-azure-ad-token-and-rbac.md) and [Topic spaces](../../event-grid/mqtt-topic-spaces.md).
 
 Finally, create an MQTTBridgeConnector and choose [managed identity](#managed-identity) as the authentication method. Create MqttBridgeTopicMaps and deploy the MQTT bridge with `kubectl`.
 

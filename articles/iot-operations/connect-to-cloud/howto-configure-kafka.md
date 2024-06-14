@@ -14,7 +14,7 @@ ms.date: 04/22/2024
 
 # Send and receive messages between Azure IoT MQ Preview and Azure Event Hubs or Kafka
 
-[!INCLUDE [public-preview-note](../../includes/public-preview-note.md)]
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 The Kafka connector pushes messages from Azure IoT MQ Preview MQTT broker to a Kafka endpoint, and similarly pulls messages the other way. Since [Azure Event Hubs supports Kafka API](/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview), the connector works out-of-the-box with Event Hubs.
 
@@ -279,7 +279,7 @@ authentication:
       secretName: my-tls-secret
 ```
 
-To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`.
+To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`.
 
 ```yaml
 authentication:

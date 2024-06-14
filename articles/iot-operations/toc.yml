@@ -90,15 +90,15 @@ items:
       - name: Connect to cloud services
         items:
         - name: Connect to MQTT or Event Grid
-          href: manage-mqtt-broker/connect-to-cloud/howto-configure-mqtt-bridge.md
+          href: connect-to-cloud/howto-configure-mqtt-bridge.md
         - name: Bridge MQTT data between IoT MQ and Azure Event Grid
-          href: manage-mqtt-broker/connect-to-cloud/tutorial-connect-event-grid.md
+          href: connect-to-cloud/tutorial-connect-event-grid.md
         - name: Upload MQTT data to a lakehouse
           href: view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md
         - name: Send data to a data lake
-          href: manage-mqtt-broker/connect-to-cloud/howto-configure-data-lake.md
+          href: connect-to-cloud/howto-configure-data-lake.md
         - name: Send data to Kafka or Azure Event Hubs
-          href: manage-mqtt-broker/connect-to-cloud/howto-configure-kafka.md
+          href: connect-to-cloud/howto-configure-kafka.md
     - name: Manage layered network
       items:
       - name: Overview
