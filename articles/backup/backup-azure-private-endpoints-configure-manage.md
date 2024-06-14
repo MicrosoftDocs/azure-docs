@@ -211,27 +211,32 @@ To perform Cross Subscription Restore to a Private Endpoint enabled vault:
 4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
 5. Create the **Private Endpoint** and trigger the restore process.
 
+#### Cross Region Restore to a Private Endpoint enabled vault
+
+You can create a **Secondary Private Endpoint** before or after adding protected items in the vault.
+
+To restore data across regions to a Private Endpoint enabled vault, follow these steps:
+
+1. Go to the target *Recovery Services Vault* > **Settings** > **Networking**, and ensure that Private Endpoint is created with the target *VM VNet* before protecting any items.
 
 
+     If the private endpoint is not enabled, [enable it](#deny-public-network-access-to-the-vault).
 
-#### Cross Region Restore to a private endpoint enabled vault
+2. On the **Private access** tab, [create *Private Endpoints* in the *secondary region*](#create-private-endpoints-for-azure-backup).
 
-You can create a secondary private endpoint before or after having protected items in the vault.
+   :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/create-private-endpoint-in-secondary-region.png" alt-text="Screenshot shows how to create private endpoints in a secondary region." lightbox="./media/backup-azure-private-endpoints-configure-manage/create-private-endpoint-in-secondary-region.png":::
 
-To restore data across regions to a private endpoint enabled vault, follow these steps:
+3.	On the **Create a private endpoint** blade, on the **Basics** tab, select the **Region** as the secondary region of the target VM to which you want to do the *Cross Region Restore* operation.
 
-1. Go to the target *Recovery Services Vault* > **Settings** > **Networking**, and then ensure that private endpoint is created with the target *VM vnet* before protecting any items.
-
-
-   If the private endpoint is not enabled, [enable it](#deny-public-network-access-to-the-vault).
-
-2. On the **Private access** tab, create *Private Endpoints* in the *secondary region*.
- 
-3.	On the **Create a private endpoint** blade, on the **Basics** tab, select the **Region** as the secondary region of the target VM to which you want to do cross-region restore.
+   :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/select-region-for-cross-region-restore.png" alt-text="Screenshot shows how to select the region for restore to the secondary region.":::
  
 4. On the **Resource** tab, select the **Target sub-resource** as **AzureBackup_Secondary**.
- 
-5. On the **Virtual Network** blade, select the **Virtual Network** of the target VM to which you want to do cross-region restore.
+
+   :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/select-sub-resource.png" alt-text="Screenshot shows how to select the sub resource as Azure Backup Secondary.":::
+
+5. On the **Virtual Network** blade, select the **Virtual Network** of the target VM to which you want to do the *Cross Region Restore* operation.
+
+   :::image type="content" source="./media/backup-azure-private-endpoints-configure-manage/select-virtual-network.png" alt-text="Screenshot shows how to select the virtual network of the target VM for Cross Region Restore.":::
  
    >[!Note]
    >You can add a maximum of **12** Azure Backup Secondary Private Endpoints to a vault.
