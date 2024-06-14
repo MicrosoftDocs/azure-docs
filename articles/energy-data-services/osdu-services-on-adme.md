@@ -12,8 +12,8 @@ ms.custom: template-overview
 
 # OSDU&reg; Overview: Available and Exclusive Services
 
-## OSDU&reg; M18 Services Available on ADME 
-Below you will find an overview of the OSDU&reg; services that are currently available on ADME. Please note that this page will be continuously updated as service versions and availablity evolve. 
+## OSDU&reg; M18 Services Available on Azure Data Manager for Energy 
+Below you will find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. Please note that this page will be regularly updated as service versions and availablity evolve. 
 ### Core and Helper Services
 - **Indexer**: Provides an endpoint to create aliases for existing indices and features flag index extended properties.
 - **Indexer Queue**: Manages the queuing of indexing tasks and logs important identifiers.
@@ -41,13 +41,13 @@ Below you will find an overview of the OSDU&reg; services that are currently ava
 - **Segy to Zgy Conversion**: Converts SEGY file formats to ZGY.
 - **Segy to oVDS Conversion**: Converts SEGY files to oVDS format.
 
-### DDMS Services
+### Domain Data Management Services
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
 - **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 
 ## OSDU&reg; Services Exclusive to M18 Community Version
-NOTE: The following OSDU&reg; services are not currently available on ADME.
+NOTE: The following OSDU&reg; services are not currently available on Azure Data Manager for Energy.
 - **WITSML Parser**
 - **Reservoir DDMS**
 - **External Data Services**
