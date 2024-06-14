@@ -1,17 +1,17 @@
 ### YamlMime:Hub
-title: Azure network foundation documentation
+title: Azure Network Foundation Services
 summary: Azure network foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
-  title: Azure network foundation documentation
-  summary: Learn about Azure network foundation services that provide core connectivity for your resources in Azure.
+  title: Azure Network Foundation Services
+  summary: Learn about Azure network foundation services that provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
   ms.service: dns 
   ms.topic: hub-page
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 06/14/2024
+  ms.date: 05/13/2024
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -39,38 +39,42 @@ productDirectory:
   title: Get started
   items:
     - title: Azure Virtual Network
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/virtual-networks.svg
-      summary: The fundamental building block for your private network in Azure
-      url: ../../virtual-network/index.yml
-    - title: Azure Private Link
-      summary: Enables you to access Azure services over a private endpoint in your virtual network
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/private-link.svg
-      url: ../../private-link/index.yml
-    - title: Azure DNS
-      summary: Name resolution for your Azure services using Azure infrastructure
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/dns.svg
-      url: ../../dns/index.yml
-    - title: Azure Virtual Network Manager
-      summary: A management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions
-      imageSrc: ./media/virtual-network.svg
-      url: ../../virtual-network-manager/index.yml
-    - title: Azure Bastion
-      summary: A fully managed PaaS service that you provision to securely connect to virtual machines via private IP address 
-      imageSrc: ./media/bastion.svg
-      url: ../../bastion/index.yml
-    - title: Route Server
-      summary: Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your Azure virtual network 
-      imageSrc: ./media/virtual-network.svg
-      url: ../../route-server/index.yml
-    - title: NAT Gateway
-      summary: Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service 
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/nat-gateway.svg
-      url: ../../nat-gateway/index.yml
-    - title: Traffic Manager
-      summary: Azure Traffic Manager is a DNS-based traffic load balancer 
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/traffic-manager.svg
-      url: ../../traffic-manager/index.yml
+      imageSrc: media/virtual-network.svg
+      links:
+        - text: Azure Virtual Network overview 
+          url: /azure/virtual-network/virtual-networks-overview
+        - text: Quickstart - Create a Virtual Network
+          url: /azure/virtual-network/quick-create-portal
+        - text: Azure Virtual Network concepts and best practices 
+          url: /azure/virtual-network/concepts-and-best-practices
+        - text: Virtual networks and virtual machines in Azure
+          url: /azure/virtual-network/network-overview
 
+    - title: Azure Private Link
+      imageSrc: media/private-link-product.svg
+      links:
+        - text: Azure Private Link overview
+          url: /azure/private-link/private-link-overview   
+        - text: Quickstart - Create a private endpoint
+          url: /azure/private-link/create-private-endpoint-portal
+        - text: What is a private endpoint? 
+          url: /azure/private-link/private-endpoint-overview
+        - text: What is Azure Private Link service?
+          url: /azure/private-link/private-link-service-overview
+
+    - title: Azure DNS
+      imageSrc: media/dns.svg
+      links:
+        - text: Azure DNS overview         
+          url: /azure/dns/dns-overview
+        - text: Quickstart - Create a public DNS zone
+          url: /azure/dns/dns-getstarted-portal
+        - text: What is an Azure Private DNS zone?
+          url: /azure/dns/private-dns-privatednszone
+        - text: What is Azure DNS Private Resolver?
+          url: /azure/dns/dns-private-resolver-overview
+        - text: What is Traffic Manager?
+          url: /azure/traffic-manager/traffic-manager-overview
           
 # conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:
@@ -207,7 +211,7 @@ conceptualContent:
 # Card with summary style
 additionalContent:
   sections:
-    - title: Networking services
+    - title: Networking pillars
       items:
         - title: Load balancing and Content Delivery
           url: https://review.learn.microsoft.com/en-us/azure/networking/load-balancer-content-delivery/index-d?branch=pr-en-us-270877
