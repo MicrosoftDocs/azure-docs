@@ -76,7 +76,7 @@ You can use the Azure portal to migrate to a new subnet in the same or a differe
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **Settings**, select **Platform migration**.
 1. On the **Platform migration** page, in **Step 1**, review migration requirements and prerequisites.
-1. In **Step 2**, select a location to migrate. Select the **Virtual network**, **Subnet**, and optional **Public IP** you want to migrate to. 
+1. In **Step 2**, select a location to migrate. Select the **Virtual network**, **Subnet**, and optional **Public IP address** you want to migrate to. 
     :::image type="content" source="media/migrate-stv1-to-stv2-vnet/select-location.png" alt-text="Screenshot of selecting network migration settings in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/select-location.png":::
 
 1. In **Step 3**, confirm you want to migrate, and select **Migrate**. 
