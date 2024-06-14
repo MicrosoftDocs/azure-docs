@@ -86,19 +86,19 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
     sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
 
-> [!NOTE]
-> When you use Accelerated Networking, the synthetic interface that's created must be configured to be unmanaged by using a udev rule. This action prevents `NetworkManager` from assigning the same IP to it as the primary interface. <br>
-
- To apply it:<br>
-
-```
-sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
-# Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
-# This interface is transparentlybonded to the synthetic interface,
-# so NetworkManager should just ignore any SRIOV interfaces.
-SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
-EOF
-```
+    > [!NOTE]
+    > When you use Accelerated Networking, the synthetic interface that's created must be configured to be unmanaged by using a udev rule. This action prevents `NetworkManager` from assigning the same IP to it as the primary interface. <br>
+    
+     To apply it:<br>
+    
+    ```
+    sudo cat <<EOF>> /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules
+    # Accelerated Networking on Azure exposes a new SRIOV interface to the VM.
+    # This interface is transparentlybonded to the synthetic interface,
+    # so NetworkManager should just ignore any SRIOV interfaces.
+    SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add", ENV{NM_UNMANAGED}="1"
+    EOF
+    ```
 
 1. Ensure that the network service starts at boot time:
 
@@ -271,15 +271,15 @@ EOF
 
     1. Configure `waagent` for `cloud-init`:
 
-    ```bash
-    sudo sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=auto/g' /etc/waagent.conf
-    sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-    ```
-
-    > [!NOTE]
-    > If you're migrating a specific VM and don't want to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` configuration.
-
+        ```bash
+        sudo sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=auto/g' /etc/waagent.conf
+        sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+        sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+        ```
+    
+        > [!NOTE]
+        > If you're migrating a specific VM and don't want to create a generalized image, set `Provisioning.Agent=disabled` on the `/etc/waagent.conf` configuration.
+    
     1. Configure mounts:
 
         ```bash
