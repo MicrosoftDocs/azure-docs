@@ -30,7 +30,7 @@ The migration service in Azure Database for PostgreSQL is a fully managed servic
 
 To begin the migration, you need the following prerequisites:
 
-[!INCLUDE [prerequisites-migration-service-postgresql-offline-aws](includes/aws/prerequisites-migration-service-postgresql-offline-aws.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql-offline-iaas](includes/iaas/prerequisites-migration-service-postgresql-offline-iaas.md)]
 
 ## Perform the migration
 
@@ -173,7 +173,7 @@ You can see the **validation** and the **migration** status under the migration 
 
 Some possible migration states:
 
-### Migration States
+### Migration states
 
 | State | Description |
 | --- | --- |
@@ -184,7 +184,7 @@ Some possible migration states:
 | **Succeeded** | The migration has succeeded and is complete. |
 | **WaitingForUserAction** | Applicable only for online migration. Waiting for user action to perform cutover. |
 
-### Migration Substates
+### Migration substates
 
 | Substate | Description |
 | --- | --- |
@@ -195,7 +195,7 @@ Some possible migration states:
 | **Completed** | Migration has been completed. |
 | **Failed** | Migration has failed. |
 
-### Validation Substates
+### Validation substates
 
 | Substate | Description |
 | --- | --- |
@@ -212,41 +212,43 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 
 #### [CLI](#tab/cli)
 
-This article guides you in using the Azure CLI to migrate your PostgreSQL database from an Azure VM or an on-premises PostgreSQL server to an Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
+This article explores using the Azure CLI to migrate your PostgreSQL database from an Azure virtual machine or an on-premises PostgreSQL instance to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
-To learn more about how to set up Azure CLI, see the [How to set up Azure CLI for migration service in Azure Database for PostgreSQL - Flexible Server](how-to-setup-azure-cli-commands-postgresql.md).
+To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql).
 
-### Connect to source
+Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
 
-We're going to migrate "ticketdb," "inventorydb," and "salesdb" into the Azure Database for the PostgreSQL flexible server.
+```azurecli-interactive
+`az login`
+```
 
-### Migrate using Azure CLI
+### Configure the migration task
 
-- Open the command prompt and sign in to the Azure using `az login` command
+To begin the migration, you need to create a JSON file with the migration details. The JSON file contains the following information:
 
 - Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-CLI\migration_body.json
 
-    ```bash
-    {
-    "properties": {
-    "SourceDBServerResourceId": "<<source hostname or IP address>>:<<port>>@<<username>>",
-            "SecretParameters": {
-                "AdminCredentials": {
-                    "SourceServerPassword": "<<Source Password>>",
-                    "TargetServerPassword": "<<Target Password>>"
-                }
-            },
-         "targetServerUserName":"<<Target username>>",
-            "DBsToMigrate": [
-               "<<comma separated list of databases like - "ticketdb","timedb","salesdb">>"
-            ],
-            "OverwriteDBsInTarget": "true",
-            "MigrationMode": "Offline",
-            "sourceType": "AzureVM",
-            "sslMode": "Prefer"
-        }
+```bash
+{
+"properties": {
+"SourceDBServerResourceId": "<<source hostname or IP address>>:<<port>>@<<username>>",
+        "SecretParameters": {
+            "AdminCredentials": {
+                "SourceServerPassword": "<<Source Password>>",
+                "TargetServerPassword": "<<Target Password>>"
+            }
+        },
+        "targetServerUserName":"<<Target username>>",
+        "DBsToMigrate": [
+            "<<comma separated list of databases like - "ticketdb","timedb","salesdb">>"
+        ],
+        "OverwriteDBsInTarget": "true",
+        "MigrationMode": "Offline",
+        "sourceType": "OnPremises",
+        "sslMode": "Prefer"
     }
-    ```
+}
+```
 
 - Run the following command to check if any migrations are running. The migration name is unique across the migrations within the Azure Database for PostgreSQL flexible server target.
 
@@ -266,34 +268,17 @@ We're going to migrate "ticketdb," "inventorydb," and "salesdb" into the Azure D
     az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
     ```
 
-- The status of the migration progress is shown in the CLI.
+- The status of the migration progress is shown in the Azure CLI.
 
-- You can also see the status in the Azure Database for PostgreSQL flexible server portal.
+- You can also see the status of the Azure Database for PostgreSQL flexible server in the Azure portal.
 
-### Cancel the migration using CLI
+### Cancel the migration
 
 You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
-
-```azurecli
-az postgres flexible-server migration update cancel [--subscription]
-                                            [--resource-group]
-                                            [--name]
-                                            [--migration-name]
-```
-
-For example:
 
 ```azurecli-interactive
 az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
 ```
-
-For more information about this command, use the `help` parameter:
-
-```azurecli-interactive
- az postgres flexible-server migration update cancel -- help
-```
-
-The command gives you the following output:
 
 ---
 

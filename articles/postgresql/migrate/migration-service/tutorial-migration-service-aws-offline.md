@@ -15,14 +15,14 @@ ms.custom:
 
 # Tutorial: Migrate offline from AWS RDS PostgreSQL to Azure Database for PostgreSQL with the migration service
 
-In this tutorial, we explore how to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL offline.
+In this article, we explore how to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL offline.
 
 The migration service in Azure Database for PostgreSQL is a fully managed service integrated into the Azure portal and Azure CLI. It's designed to simplify your migration journey to Azure Database for PostgreSQL server.
 
 > [!div class="checklist"]
 >  
 > - Prerequisites
-> - Configure the migration task
+> - Perform the migration
 > - Monitor the migration
 > - Check the migration when completed
 
@@ -85,15 +85,15 @@ To learn more about the premigration validation, visit [premigration](concepts-p
 
 Select the **Next: Connect to source** button.
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-setup-migration-aws.png" alt-text="Screenshot of the Setup Migration page to get started.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/01-portal-offline-setup-aws.png" alt-text="Screenshot of the Setup Migration page to get started.":::
 
-#### Runtime Server
+#### Select Runtime Server
 
-The Migration Runtime Server is a specialized feature within the [migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md), designed to act as an intermediary server during migration. It's a separate Azure Database for PostgreSQL - Flexible Server instance that isn't the target server but is used to facilitate the migration of databases from a source environment that is only accessible via a private network.
-
-:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-runtime-server-migration-aws.png" alt-text="Screenshot of the Migration Runtime Server page.":::
+The migration Runtime Server is a specialized feature within the migration service, designed to act as an intermediary server during migration. It's a separate Azure Database for PostgreSQL - Flexible Server instance that isn't the target server but is used to facilitate the migration of databases from a source environment that is only accessible via a private network.
 
 For more information about the Runtime Server, visit the [Migration Runtime Server](concepts-migration-service-runtime-server.md).
+
+:::image type="content" source="media/tutorial-migration-service-aws-offline/02-portal-offline-runtime-server-aws.png" alt-text="Screenshot of the Migration Runtime Server page.":::
 
 #### Connect to source
 
@@ -113,7 +113,7 @@ The **Connect to Source** tab prompts you to give details related to the source 
 
 After the successful test connection, select the **Next: Select Migration target** button.
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-connect-source-migration-aws.png" alt-text="Screenshot of the connect to source page." lightbox="media/tutorial-migration-service-aws-offline/portal-offline-connect-source-migration-aws.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/03-portal-offline-connect-source-aws.png" alt-text="Screenshot of the connect to source page." lightbox="media/tutorial-migration-service-aws-offline/03-portal-offline-connect-source-migration-aws.png":::
 
 #### Select migration target
 
@@ -127,20 +127,20 @@ The **select migration target** tab displays metadata for the Flexible Server ta
 
 After the successful test connection, select the **Next: Select Database(s) for Migration**
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-connect-target-migration.png" alt-text="Screenshot of the connect target migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/04-portal-offline-select-migration-target-aws.png" alt-text="Screenshot of the connect target migration page.":::
 
-#### Select databases for migration
+#### Select database for migration
 
 Under the **Select database for migration** tab, you can choose a list of user databases to migrate from your source PostgreSQL server.  
 After selecting the databases, select the **Next:Summary**
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-select-database-migration-aws.png" alt-text="Screenshot of the fetchDB migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/05-portal-offline-select-database-aws.png" alt-text="Screenshot of the fetchDB migration page.":::
 
 #### Summary
 
 The Summary tab summarizes all the source and target details for creating the validation or migration. Review the details and select the Start Validation and Migration button.
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/portal-offline-summary-migration-aws.png" alt-text="Screenshot of the summary migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/04-portal-offline-select-migration-target-aws.png" alt-text="Screenshot of the summary migration page.":::
 
 ### Monitor the migration
 
@@ -174,7 +174,7 @@ You can see the **validation** and the **migration** status under the migration 
 
 Some possible migration states:
 
-### Migration States
+### Migration states
 
 | State | Description |
 | --- | --- |
@@ -185,7 +185,7 @@ Some possible migration states:
 | **Succeeded** | The migration has succeeded and is complete. |
 | **WaitingForUserAction** | Applicable only for online migration. Waiting for user action to perform cutover. |
 
-### Migration Substates
+### Migration substates
 
 | Substate | Description |
 | --- | --- |
@@ -196,7 +196,7 @@ Some possible migration states:
 | **Completed** | Migration has been completed. |
 | **Failed** | Migration has failed. |
 
-### Validation Substates
+### Validation substates
 
 | Substate | Description |
 | --- | --- |
@@ -212,13 +212,19 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 
 #### [CLI](#tab/cli)
 
-This tutorial explores using the Azure CLI to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
+This article explores using the Azure CLI to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
-For example, let's migrate databases: `ticketdb`, `inventorydb`, and `timedb` into an Azure Database for a PostgreSQL flexible server.
+To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql).
+
+Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
+
+```azurecli-interactive
+`az login`
+```
 
 ### Configure the migration task
 
-- Open the command prompt and sign in into Azure using the `az login` command
+To begin the migration, you need to create a JSON file with the migration details. The JSON file contains the following information:
 
 - Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-CLI\migration_body.json
 
@@ -238,7 +244,7 @@ For example, let's migrate databases: `ticketdb`, `inventorydb`, and `timedb` in
         ],
         "OverwriteDBsInTarget": "true",
         "MigrationMode": "Offline",
-        "sourceType": "AWS",
+        "sourceType": "AWS_RDS",
         "sslMode": "Require"
     }
 }
@@ -247,7 +253,7 @@ For example, let's migrate databases: `ticketdb`, `inventorydb`, and `timedb` in
 - Run the following command to check if any migrations are running. The migration name is unique across the migrations within the Azure Database for PostgreSQL flexible server target.
 
     ```bash
-    az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible  Server>> --filter All
+    az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
     ```
 
 - In the above steps, there are no migrations performed so we start with the new migration by running the following command
@@ -262,42 +268,23 @@ For example, let's migrate databases: `ticketdb`, `inventorydb`, and `timedb` in
     az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
     ```
 
-- The status of the migration progress is shown in the CLI.
+- The status of the migration progress is shown in the Azure CLI.
 
-- You can also see the status of the PostgreSQL flexible server portal in the Azure Database.
+- You can also see the status of the Azure Database for PostgreSQL flexible server in the Azure portal.
 
 ### Cancel the migration
 
 You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
 
-```azurecli
-az postgres flexible-server migration update cancel [--subscription]
-                                            [--resource-group]
-                                            [--name]
-                                            [--migration-name]
-```
-
-For example:
-
 ```azurecli-interactive
 az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
 ```
-
-For more information about this command, use the `help` parameter:
-
-```azurecli-interactive
-az postgres flexible-server migration update cancel -- help
-```
-
-The command gives you the following output:
-
-:::image type="content" source="media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="media/tutorial-migration-service-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
 
 ---
 
 ## Check the migration when complete
 
-After completing the databases, you need to manually validate the data between source and target and verify that all the objects in the target database are successfully created.
+After completing the databases, you need to manually validate the data between the source and the target and verify that all the objects in the target database are successfully created.
 
 After migration, you can perform the following tasks:
 
@@ -305,7 +292,7 @@ After migration, you can perform the following tasks:
 - Post verification, enable the high availability option on your flexible server as needed.
 - Change the SKU of the flexible server to match the application needs. This change needs a database server restart.
 - If you change any server parameters from their default values in the source instance, copy those server parameter values in the flexible server.
-Copy other server settings, such as tags, alerts, and firewall rules (if applicable), from the source instance to the flexible server.
+- Copy other server settings, such as tags, alerts, and firewall rules (if applicable), from the source instance to the flexible server.
 - Make changes to your application to point the connection strings to a flexible server.
 - Monitor the database performance closely to see if it requires performance tuning.
 

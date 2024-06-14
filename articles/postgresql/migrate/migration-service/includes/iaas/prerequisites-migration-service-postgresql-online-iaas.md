@@ -29,7 +29,7 @@ If the source PostgreSQL version is less than 9.5, upgrade it to 9.5 or higher b
 ### Install test_decoding - Source Setup
 
 - **test_decoding** receives WAL through the logical decoding mechanism and decodes it into text representations of the operations performed.
-- In Amazon RDS for PostgreSQL, the test_decoding plugin is preinstalled and ready for logical replication. This allows you to easily set up logical replication slots and stream WAL changes, facilitating use cases such as change data capture (CDC) or replication to external systems.
+
 - For more information about the test-decoding plugin, see the [PostgreSQL documentation](https://www.postgresql.org/docs/16/test-decoding.html)
 
 ### Configure target setup
@@ -41,19 +41,23 @@ If the source PostgreSQL version is less than 9.5, upgrade it to 9.5 or higher b
 ### Enable CDC as a source
 
 - `test_decoding` logical decoding plugin captures the changed records from the source.
-- In the source, PostgreSQL instance, modify the following parameters by creating a new parameter group:
-    - Set `rds.logical_replication = 1`
-    - Set `max_replication_slots` to a value greater than one; the value should be greater than the number of databases selected for migration.
-    - Set `max_wal_senders` to a value greater than one. It should be at least the same as `max_replication_slots`, plus the number of senders already used on your instance.
-    - The `wal_sender_timeout` parameter ends inactive replication connections longer than the specified number of milliseconds. The default for an AWS RDS for PostgreSQL instance is `30000 milliseconds (30 seconds)`. Setting the value to 0 (zero) disables the timeout mechanism and is a valid setting for migration.
+- In the source PostgreSQL instance, set the following parameters and values in the postgresql.conf configuration file:
+    - `Set wal_level = logical`
+    - `Set max_replication_slots` to a value greater than 1, the value should be greater than the number of databases selected for migration.
+    - `Set max_wal_senders` to a value greater than 1, should be set to at least the same as max_replication_slots, plus the number of senders already used by your instance.
+    - The `wal_sender_timeout` parameter ends replication connections that are inactive longer than the specified number of milliseconds. The default for an on-premises PostgreSQL database is 60000 milliseconds (60 seconds). Setting the value to 0 (zero) disables the timeout mechanism and is a valid setting for migration.
 
 ### Configure network setup
 
-Networking is required to establish a successful connectivity between the source and target.
+Network setup is crucial for the migration service to function correctly. Ensure that the source PostgreSQL server can communicate with the target Azure Database for PostgreSQL server. The following network configurations are essential for a successful migration.
 
-- You need to set up Express route/ IP Sec VPN/ VPN tunneling while connecting your source from AWS RDS to Azure.
+For information about network setup, visit [Network guide for migration service](../../how-to-network-setup-migration-service.md).
 
-For more information on network setup, visit [Network guide for migration service](../../how-to-network-setup-migration-service.md)
+- **Additional networking considerations:**
+
+pg_hba.conf Configuration: To facilitate connectivity between the source and target PostgreSQL instances, it's essential to verify and potentially modify the pg_hba.conf file. This file includes client authentication and must be configured to allow the target PostgreSQL to connect to the source. Changes to the pg_hba.conf file typically require a restart of the source PostgreSQL instance to take effect.
+
+The pg_hba.conf file is located in the data directory of the PostgreSQL installation. This file should be checked and configured if the source database is an on-premises PostgreSQL server or a PostgreSQL server hosted on an Azure VM. 
 
 ### Enable extensions
 

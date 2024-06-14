@@ -32,13 +32,15 @@ The migration service in Azure Database for PostgreSQL is a fully managed servic
 
 To begin the migration, you need the following prerequisites:
 
-[!INCLUDE [prerequisites-migration-service-postgresql-offline-aws](includes/aws/prerequisites-migration-service-postgresql-offline-aws.md)]
+[!INCLUDE [prerequisites-migration-service-postgresql-online-iaas](includes/iaas/prerequisites-migration-service-postgresql-online-iaas.md)]
 
 ## Perform the migration
 
 You can migrate by using the Azure portal or the Azure CLI.
 
 #### [Portal](#tab/portal)
+
+This article guides you using the Azure portal to migrate your PostgreSQL database from an Azure VM or an on-premises PostgreSQL server to an Azure Database for PostgreSQL. The Azure portal allows you to perform various tasks, including database migration. Following the steps outlined in this tutorial, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
 ### Configure the migration task
 
@@ -68,7 +70,7 @@ The first tab is the setup tab, where the user provides migration details like m
 
 - **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
-- **Source Server Type**—Depending on your PostgreSQL source, you can select AWS RDS for PostgreSQL or Azure Database for PostgreSQL—single server, on-premises, or Azure VM.
+- **Source Server Type** — Depending on your PostgreSQL source, you can select *Azure VM* or *on-premises*.
 
 - **Migration Option** allows you to perform validations before triggering a migration. You can pick any of the following options:
      - **Validate** - Checks your server and database readiness for migration to the target.
@@ -141,7 +143,7 @@ Select the migration name in the grid to see the associated details.
 
 When the validation or migration is created, it moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. The workflow takes 2 to 3 minutes to set up the migration infrastructure and network connections.
 
-### Migration Details
+### Migration details
 
 In the Setup tab, we have selected the migration option as **Migrate and Validate**. In this scenario, validations are performed first before migration starts. After the **PerformingPreRequisiteSteps** substate is completed, the workflow moves into the substate of **Validation in Progress**.
 - If validation has errors, the migration moves into a **Failed** state.
@@ -153,7 +155,7 @@ The validation results are displayed under the **Validation** tab, and the migra
 
 Some possible migration states:
 
-### Migration States
+### Migration states
 
 | State | Description |
 | --- | --- |
@@ -164,7 +166,7 @@ Some possible migration states:
 | **Succeeded** | The migration has succeeded and is complete. |
 | **WaitingForUserAction** | Applicable only for online migration. Waiting for user action to perform cutover. |
 
-### Migration Substates
+### Migration substates
 
 | Substate | Description |
 | --- | --- |
@@ -175,7 +177,7 @@ Some possible migration states:
 | **Completed** | Migration has been completed. |
 | **Failed** | Migration has failed. |
 
-### Validation Substates
+### Validation substates
 
 | Substate | Description |
 | --- | --- |
@@ -206,7 +208,9 @@ Canceling a migration stops further migration activity on your target server and
 
 #### [CLI](#tab/cli)
 
-This article explores using the Azure CLI to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
+This article explores using the Azure CLI to migrate your PostgreSQL database from an Azure virtual machine or an on-premises PostgreSQL instance to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
+
+To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql).
 
 Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
 
@@ -216,27 +220,14 @@ Once the CLI is installed, open the command prompt and log into your Azure accou
 
 ### Configure the migration task
 
-We begin migrating the PostgreSQL database residing in an Azure VM with public access to an Azure Database for PostgreSQL Flexible server using Azure CLI.
+To begin the migration, you need to create a JSON file with the migration details. The JSON file contains the following information:
 
-#### Connect to the source
-
-In this article, the source PostgreSQL version used is 14.8, and it's installed in one of the Azure VMs with an operating system of Ubuntu.
-The source PostgreSQL instance contains around 10 databases, and for this article, we're going to migrate "ticketdb," "timedb," "salesdb," and "postgres" into the Azure Database for PostgreSQL—Flexible server.
-
-#### Create a target Azure Database for PostgreSQL flexible server
-
-Use [Create an Azure Database for PostgreSQL](../../flexible-server/quickstart-create-server-portal.md) to create a corresponding PostgreSQL target flexible server. We kept the SKU the same, and given we're just migrating a small sample database, we're allocating 128 GB of storage. Below is the target server screenshot once created –
-
-#### Migrate with Azure CLI
-
-- Open the command prompt and login into the Azure using `az login` command
-
-- Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this article, we have saved the file in C:\migration-CLI\migration_body.json
+- Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-CLI\migration_body.json
 
 ```bash
 {
 "properties": {
-"SourceDBServerResourceId": "<<hostname or IP address>>:<<port>>@<<username>>",
+"SourceDBServerResourceId": "<<source hostname or IP address>>:<<port>>@<<username>>",
         "SecretParameters": {
             "AdminCredentials": {
                 "SourceServerPassword": "<<Source Password>>",
@@ -245,35 +236,55 @@ Use [Create an Azure Database for PostgreSQL](../../flexible-server/quickstart-c
         },
      "targetServerUserName":"<<Target username>>",
         "DBsToMigrate": [
-            << comma separated list of databases like - "ticketdb","timedb","salesdb" >>
+           "<<comma separated list of databases like - "ticketdb","timedb","inventorydb">>"
         ],
         "OverwriteDBsInTarget": "true",
         "MigrationMode": "Online",
-    "sourceType": "OnPremises",
-    "sslMode": "Prefer"
+        "sourceType": "OnPremises",
+        "sslMode": "Prefer"
     }
 }
 ```
 
-- Run the following command to check if any migrations have already been performed. The migration name is unique across the migrations within the Azure Database for PostgreSQL – Flexible server target.
+- Run the following command to check if any migrations are running. The migration name is unique across the migrations within the Azure Database for PostgreSQL flexible server target.
+
+    ```bash
+    az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
+    ```
+
+- In the above steps, there are no migrations performed so we start with the new migration by running the following command
+
+    ```bash
+    az postgres flexible-server migration create --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
+    ```
+
+- Run the following command to initiate the migration status in the previous step. You can check the status of the migration by providing the migration name
+
+    ```bash
+    az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
+    ```
+
+- The status of the migration progress is shown in the Azure CLI.
+
+- You can also see the status of the Azure Database for PostgreSQL flexible server in the Azure portal.
+
+#### Cutover
+
+In online migrations, after the base data migration is complete, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, the user can trigger the cutover through the CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
 
 ```bash
-az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
+az postgres flexible-server migration update --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --cutover
 ```
 
-- In the above steps, there are no migrations performed so we start with the new migration by running the following command –
+-  You can also see the status in the Azure Database for PostgreSQL – Flexible server portal
 
-```bash
-az postgres flexible-server migration create --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --properties "C:\migration-cli\migration_body.json"
+### Cancel the migration
+
+You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
+
+```azurecli-interactive
+az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
 ```
-
-- Run the following command to get the migration status initiated in the previous step. You can check the status of the migration by providing the migration name
-
-```bash
-az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
-```
-
-- You can also see the status in the Azure Database for PostgreSQL – Flexible server portal
 
 ---
 

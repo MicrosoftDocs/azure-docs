@@ -84,6 +84,25 @@ If the cutover isn't successful, the migration moves to the `Failed` state.
 
 For more information about this command, use the `help` parameter.
 
+## Cancel the migration
+
+To cancel the migration task, use the following command:
+
+```azurecli
+az postgres flexible-server migration update cancel [--subscription]
+                                            [--resource-group]
+                                            [--name]
+                                            [--migration-name]
+```
+
+## The --help command
+
+For more information about this command, use the `help` parameter:
+
+```azurecli-interactive
+az postgres flexible-server migration update cancel -- help
+```
+
 ## Related content
 
 - [Migration service in Azure Database for PostgreSQL](concepts-migration-service-postgresql.md)
