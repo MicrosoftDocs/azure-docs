@@ -24,8 +24,6 @@ landingContent:
         links:
           - text: What is Microsoft Azure Data Manager for Energy?
             url: overview-microsoft-energy-data-services.md
-          - text: OSDU&reg; services available on Azure Data Manager for Energy
-            url: osdu-services-on-adme.md
       - linkListType: quickstart
         links:
           - text: Create a Microsoft Azure Data Manager for Energy instance
@@ -38,6 +36,8 @@ landingContent:
             url: tutorial-manifest-ingestion.md
       - linkListType: concept
         links:
+          - text: OSDU&reg; services available on Azure Data Manager for Energy
+            url: osdu-services-on-adme.md
           - text: Manifest ingestion concepts
             url: concepts-manifest-ingestion.md
           - text: CSV parser concepts
