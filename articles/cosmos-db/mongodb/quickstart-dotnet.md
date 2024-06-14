@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 07/06/2022
+ms.date: 06/14/2024
 ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-dotnet, devx-track-extended-azdevcli
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
@@ -41,7 +41,18 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE [dev-setup](../nosql/includes/quickstart/dev-setup.md)]
+[!INCLUDE[Developer Quickstart setup prefix](includes/quickstart/dev-setup-prefix.md)]
+
+1. Use `azd init` to initialize the project.
+
+    ```azurecli
+    azd init --template cosmos-db-mongodb-dotnet-quickstart
+    ```
+
+    > [!NOTE]
+    > This quickstart uses the [azure-samples/cosmos-db-mongodb-dotnet-quickstart](https://github.com/azure-samples/cosmos-db-mongodb-dotnet-quickstart) template GitHub repository. The Azure Developer CLI will automatically clone this project to your machine if it is not already there.
+
+[!INCLUDE[Developer Quickstart setup prefix](includes/quickstart/dev-setup-suffix.md)]
 
 ---
 
