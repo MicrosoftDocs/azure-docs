@@ -654,7 +654,7 @@ If the data export rule includes an unsupported table, the configuration will su
 > We are in a process of adding support for more tables. Please check this article regularly.
 
 | Table | Limitations |
-|:---|:---|
+|---|---|
 | AACAudit |  |
 | AACHttpRequest |  |
 | AADB2CRequestLogs |  |
