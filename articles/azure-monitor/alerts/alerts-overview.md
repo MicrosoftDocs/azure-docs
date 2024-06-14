@@ -61,7 +61,7 @@ Alerts can be stateful or stateless.
 - Stateless alerts fire each time the condition is met, even if fired previously.
 - Stateful alerts fire when the rule conditions are met, and will not fire again or trigger any more actions until the conditions are resolved.
 
-Alert status can be either New, Acknowledged, or Closed and it’s manually set by the Administrator. Alerts are stored for 30 days and are deleted after the 30-day retention period.
+Alert status can be either New, Acknowledged, or Closed and it can be manually set by the administrator. Alerts are stored for 30 days and are deleted after the 30-day retention period.
 
 ### Stateless alerts
 Stateless alerts fire each time the condition is met. The alert condition for all stateless alerts is always `fired`. 
