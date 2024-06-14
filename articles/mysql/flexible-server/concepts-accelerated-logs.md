@@ -41,7 +41,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 ## Limitations
 
-- The accelerated logs feature can't be enabled on servers that have [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK) enabled.
+- The accelerated logs feature can't be enabled on servers that have [Customer Managed Keys (CMK)](./concepts-customer-managed-key.md) enabled.
 
 - The Accelerated logs feature is currently available only in specific regions. [Learn more about supported regions](#regions).
 
