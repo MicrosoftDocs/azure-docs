@@ -46,7 +46,7 @@ If you're starting with the free service, you're limited to three indexes, three
 
 ## Prepare sample data
 
-1. Download the [unsplash-signs image folder](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/unsplash-images/jpg-signs) to a local folder or find some images of your own. On a free search service, keep the image files under 20 to stay under the free quota for enrichment procedssing.
+1. Download the [unsplash-signs image folder](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/unsplash-images/jpg-signs) to a local folder or find some images of your own. On a free search service, keep the image files under 20 to stay under the free quota for enrichment processing.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure Storage account.
 
@@ -80,93 +80,86 @@ The next step is to connect to a data source to use for the search index.
 
 ## Vectorize your text
 
-If raw content includes text, this step specifies an embedding model that generates vectors for that content. Azure AI Vision model provides text embeddings, so we'll use that for this step.
+If raw content includes text, or if the skillset produces text, the wizard calls a text embedding model to generate vectors for that content. In this exercise, text will be produced from the Optical Character Recognition (OCR) skill that you add in the next step.
 
-1. On the **Vectorize your text** page, select **AI Vision vectorization**.  If it's not selectable, make sure Azure AI Search and Azure AI multiservice account are together in a region that [supports AI Vision multimodal APIs](/azure/ai-services/computer-vision/how-to/image-retrieval).
+Azure AI Vision model provides text embeddings, so we'll use that model for text vectorization.
 
-   :::image type="content" source="media/search-get-started-portal-images/vectorize-your-text.png" alt-text="Screenshot of the vectorize your text page in the wizard.":::
+1. On the **Vectorize text** page, select **AI Vision vectorization**. If it's not selectable, make sure Azure AI Search and Azure AI multiservice account are together in a region that [supports AI Vision multimodal APIs](/azure/ai-services/computer-vision/how-to/image-retrieval).
 
-1. Select **Next**.
-
-## Vectorize your images
-
-Use Azure AI Vision to generate a vector representation of the image files.
-
-
-vectorize-enrich-images.png
-
-
-1. For AI Vision vectorization, select the account. 
-1
-1. Select the checkbox acknowledging the billing impact of using these resources.
+   :::image type="content" source="media/search-get-started-portal-images/vectorize-your-text.png" alt-text="Screenshot of the Vectorize your text page in the wizard.":::
 
 1. Select **Next**.
 
 ## Vectorize and enrich your images
 
-If your content includes images, you can apply AI in two ways:
+Use Azure AI Vision to generate a vector representation of the image files. 
 
-+ Use a supported image embedding model from the catalog, or choose the Azure AI Vision multimodal embeddings API to vectorize images. 
-+ Use OCR to recognize text in images. 
+In this step, you can also set enrichment options to extract text from images. The wizard uses OCR from Azure AI services to recognize text in image files. Two more outputs appear in the index when OCR is added to the workflow. First, the "chunk" field is populated with the OCR-generated string. Second, the "text_vector" field is populated with an embedding that represents the string. The inclusion of plain text in an index is useful if you want to use relevance features that operate on strings, such as semantic ranker and scoring profiles.
 
-Azure AI Search and your Azure AI resource must be in the same region.
+1. On the **Vectorize images** page, select the **Vectorize images** checkbox, and then select **AI Vision vectorization**.
 
-1. Specify the kind of connection the wizard should make. For image vectorization, it can connect to embedding models in Azure AI Studio or Azure AI Vision.
+1. Select **Use same AI service selected for text vectorization**.
 
-1. Specify the subscription.
+1. In the enrichment section, select **Extract text from images**.
 
-1. For Azure AI Studio model catalog, specify the project and deployment. See [Setting up an embedding model](#set-up-embedding-models) for details.
+1. Select **Use same AI service selected for image vectorization**.
 
-1. Optionally, you can crack binary images (for example, scanned document files) and [use OCR](cognitive-search-skill-ocr.md) to recognize text.
-
-1. Select the checkbox acknowledging the billing impact of using these resources.
+   :::image type="content" source="media/search-get-started-portal-images/vectorize-enrich-images.png" alt-text="Screenshot of the Vectorize your images page in the wizard.":::
 
 1. Select **Next**.
 
 ## Advanced settings
 
-1. Optionally, specify a [run time schedule](search-howto-schedule-indexers.md) for the indexer.
+1. Specify a [run time schedule](search-howto-schedule-indexers.md) for the indexer. We recommend **Once** for this exercise, but for data sources where the underlying data is volatile, you can schedule indexing to pick up the changes.
+
+   :::image type="content" source="media/search-get-started-portal-images/run-once.png" alt-text="Screenshot of the Advanced settings page in the wizard.":::
 
 1. Select **Next**.
 
 ## Run the wizard
 
-1. On Review and create, specify a prefix for the objects created when the wizard runs. A common prefix helps you stay organized.
+1. On Review and create, specify a prefix for the objects created when the wizard runs. The wizard creates multiple objects. A common prefix helps you stay organized.
+
+   :::image type="content" source="media/search-get-started-portal-images/review-create.png" alt-text="Screenshot of the Review and create page in the wizard.":::
 
 1. Select **Create** to run the wizard. This step creates the following objects:
 
-   + Data source connection.
+   + Data source connection to blob storage.
 
-   + Index with vector fields, vectorizers, vector profiles, vector algorithms. You aren't prompted to design or modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+   + Index with vector fields, text fields, vectorizers, vector profiles, vector algorithms. You can't modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
-   + Skillset with [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and an embedding skill for vectorization. The embedding skill is either the [AzureOpenAIEmbeddingModel skill](cognitive-search-skill-azure-openai-embedding.md) for Azure OpenAI or [AML skill](cognitive-search-aml-skill.md) for Azure AI Studio model catalog.
+   + Skillset with the following five skills:
 
-   + Indexer with field mappings and output field mappings (if applicable).
+     + [OCR skill](cognitive-search-skill-ocr.md) recognizes text in image files.
+     + [Text Merger skill](cognitive-search-skill-textmerger.md) reunites the various outputs of OCR processing.
+     + [Text Split skill](cognitive-search-skill-textsplit.md) adds data chunking. This skill is part of the wizard workflow, although for this data, chunking isn't technically necessary. 
+     + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is used to vectorize OCR-generated text.
+     + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is called again to vectorize images.
 
-If you can't select Azure AI Vision vectorizer, make sure you have an Azure AI Vision resource in a supported region, and that your search service managed identity has **Cognitive Services OpenAI User** permissions.
-
-If you can't progress through the wizard because other options aren't available (for example, you can't select a data source or an embedding model), revisit the role assignments. Error messages indicate that models or deployments don't exist, when in fact the real issue is that the search service doesn't have permission to access them.
+   + Indexer with field mappings and output field mappings.
 
 ## Check results
 
-Search explorer accepts text strings as input and then vectorizes the text for vector query execution.
+Search explorer accepts text, vectors, and images as query inputs. You can drag or select an image into the search area, and it will be vectorized for search. Image vectorization assumes that your index has a vectorizer definition, which the **Import and vectorize data** wizard creates using your selections.
 
-1. In the Azure portal, under **Search Management** and **Indexes**, select the index your created.
+1. In the Azure portal, under **Search Management** and **Indexes**, select the index your created. An embedded Search Explorer is the first tab.
 
-1. Optionally, select **Query options** and hide vector values in search results. This step makes your search results easier to read.
+1. Under **View**, select **Image view**.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/query-options.png" alt-text="Screenshot of the query options button.":::
+   :::image type="content" source="media/search-get-started-portal-images/select-image-view.png" alt-text="Screenshot of the query options button with image view.":::
 
-1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter. 
+1. Drag an image from the local folder that contains the sample image files. Or, open the file browser to select a local image file.
 
+1. Select **Search** to run the query 
 
-1. Replace the text `"*"` with a question related to health plans, such as *"which plan has the lowest deductible"*.
+   :::image type="content" source="media/search-get-started-portal-images/image-search.png" alt-text="Screenshot of search results.":::
 
-1. Select **Search** to run the query.
+   The top match should be the image you searched for.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
+1. Try the query options to compare search outcomes:
 
-   You should see 5 matches, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
+   + Hide vectors for more readable results.
+   + Select a vector field to query over. The default is text vectors, but you can specify the image vector to exclude text vectors from query execution.
 
 ## Clean up
 
