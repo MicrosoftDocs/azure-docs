@@ -61,7 +61,7 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
 After deploying the Flexible Server, follow the steps 3 to 5 under [Configure the migration task.](#configure-the-migration-task)
 
-### Setup tab
+### Setup
 
 The first tab is **Setup**. In case you missed it, allowlist necessary extensions as shown in It's essential to allowlist these extensions before you initiate a migration.
 
@@ -82,7 +82,7 @@ If the **Online** migration is selected, Logical replication must be turned on i
 
 Select the **Next : Connect to Source** button.
 
-### Source tab
+### Connect to source
 
 The **Source** tab prompts you to give details related to the Single Server, which is the source of the databases.
 
@@ -96,7 +96,7 @@ After filling out all the fields, select the **Connect to source** link. This va
 
 Select the **Next : Select migration target** button to continue.
 
-### Target tab
+### Select migration target
 
 The **Target** tab displays metadata for the Flexible Server target, such as subscription name, resource group, server name, location, and PostgreSQL version.
 
@@ -106,7 +106,7 @@ For **Server admin login name**, the tab displays the admin username used during
 
 Select the **Next** button to select the databases to migrate.
 
-### Select Databases for the migration tab
+### Select database for migration
 
 Under this tab, there's a list of user databases inside the Single Server. You can select and migrate up to eight databases in a single migration attempt. If there are more than eight user databases, the migration process is repeated between the source and target servers for the next set of databases. By default, selected databases with the same name on the target are overwritten.
 
@@ -232,7 +232,7 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
 After deploying the Flexible Server, follow the steps 3 to 5 under [Configure the migration task.](#configure-the-migration-task)
 
-### Setup tab
+### Setup
 
 The first tab is **Setup**. In case you missed it, allowlist necessary extensions as shown in It's essential to allowlist these extensions before you initiate a migration.
 
@@ -253,7 +253,7 @@ If the **Online** migration is selected, Logical replication must be turned on i
 
 Select the **Next : Connect to Source** button.
 
-### Source tab
+### Connect to source
 
 The **Source** tab prompts you to give details related to the Single Server, which is the source of the databases.
 
@@ -267,7 +267,7 @@ After filling out all the fields, select the **Connect to source** link. This va
 
 Select the **Next : Select migration target** button to continue.
 
-### Target tab
+### Select migrfation target
 
 The **Target** tab displays metadata for the Flexible Server target, such as subscription name, resource group, server name, location, and PostgreSQL version.
 
@@ -277,7 +277,7 @@ For **Server admin login name**, the tab displays the admin username used during
 
 Select the **Next** button to select the databases to migrate.
 
-### Select Databases for the migration tab
+### Select database for the migration
 
 Under this tab, there's a list of user databases inside the Single Server. You can select and migrate up to eight databases in a single migration attempt. If there are more than eight user databases, the migration process is repeated between the source and target servers for the next set of databases. By default, selected databases with the same name on the target are overwritten.
 
