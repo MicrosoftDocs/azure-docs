@@ -149,7 +149,7 @@ After a ransomware attack or an incident response simulation, take the following
 
 1. Identify lessons learned where the process didn't work well (and opportunities to simplify, accelerate, or otherwise improve the process)
 2. Perform root cause analysis on the biggest challenges (at enough detail to ensure solutions address the right problem — considering people, process, and technology)
-3. Investigate and remediate the original breach (engage the [Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help)
+1. Investigate and remediate the original breach (engage the [Microsoft Incident Response team (formerly DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) to help)
 4. Update your backup and restore strategy based on lessons learned and opportunities — prioritizing based on highest impact and quickest implementation steps first
 
 ## Next steps
