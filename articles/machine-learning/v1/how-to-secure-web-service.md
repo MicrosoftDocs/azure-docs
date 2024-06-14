@@ -5,8 +5,8 @@ description: Learn how to enable HTTPS with TLS version 1.2 to secure a web serv
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.date: 07/28/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, cliv1, sdkv1
