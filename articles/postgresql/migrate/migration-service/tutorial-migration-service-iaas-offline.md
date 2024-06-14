@@ -50,7 +50,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. In the **Overview** tab of the flexible server, on the left menu, scroll down to **Migration** and select it.
 
-    :::image type="content" source="media/tutorial-migration-service-iaas-offline/portal-offline-select-migration-pane.png" alt-text="Screenshot of the migration selection in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/offline-portal-select-migration-pane.png":::
+    :::image type="content" source="media/tutorial-migration-service-iaas-offline/portal-offline-select-migration-pane.png" alt-text="Screenshot of the migration selection in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-select-migration-pane.png":::
 
 1. Select the **Create** button to migrate to a flexible server from on-premises or Azure VMs.
 
@@ -126,7 +126,7 @@ The **select migration target** tab displays metadata for the Flexible Server ta
 
 After the successful test connection, select the **Next: Select Database(s) for Migration**
 
-:::image type="content" source="media/tutorial-migration-service-iaas-offline/04-portal-offline-select-migration-target.png" alt-text="Screenshot of the connect target migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/04-portal-offline-connect-target-migration.png":::
+:::image type="content" source="media/tutorial-migration-service-iaas-offline/04-portal-offline-select-migration-target.png" alt-text="Screenshot of the connect target migration page in the Azure portal." lightbox="media/tutorial-migration-service-iaas-offline/04-portal-offline-select-migration-target.png":::
 
 #### Select databases for migration
 
@@ -168,6 +168,7 @@ Validation details are available at the instance and database level.
     - It contains validation of the individual databases related to extensions and collations support in Azure Database for PostgreSQL, a flexible server.
 
 You can see the **validation** and the **migration** status under the migration details page.
+
 :::image type="content" source="media/tutorial-migration-service-iaas-offline/portal-offline-details-migration.png" alt-text="Screenshot of the details showing validation and migration." lightbox="media/tutorial-migration-service-iaas-offline/portal-offline-details-migration.png":::
 
 Some possible migration states:

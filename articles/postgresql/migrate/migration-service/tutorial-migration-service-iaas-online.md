@@ -133,7 +133,8 @@ The **Summary** tab summarizes all the source and target details for creating th
 ### Monitor the migration
 
 After you select the start button, a notification appears in a few seconds saying that the validation or migration creation is successful. You're redirected automatically to the **Migration** blade of Flexible Server, which has a new entry for the recently created validation or migration.
-:::image type="content" source="media/tutorial-migration-service-iaas-online/portal_offline_monitor_migration.png" alt-text="Screenshot of Monitormigration.":::
+
+:::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-monitor-migration.png" alt-text="Screenshot of monitor migration in the Azure portal.":::
 
 The grid that displays the migrations has these columns: **Name**, **Status**, **Migration mode**, **Migration type**, **Source server**, **Source server type**, **Databases**, **Duration, and **Start time**. The entries are displayed in the descending order of the start time, with the most recent entry at the top. You can use the refresh button to refresh the status of the validation or migration.
 Select the migration name in the grid to see the associated details.
@@ -148,9 +149,7 @@ In the Setup tab, we have selected the migration option as **Migrate and Validat
 
 The validation results are displayed under the **Validation** tab, and the migration is monitored under the **Migration** tab.
 
-:::image type="content" source="media/tutorial-migration-service-iaas-online/portal_offline_validation_migration.png" alt-text="Screenshot of Validationmigration.":::
-
-:::image type="content" source="media/tutorial-migration-service-iaas-online/portal_offline_details_migration.png" alt-text="Screenshot of Detailsmigration.":::
+:::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-details-migration.png" alt-text="Screenshot of Detailsmigration.":::
 
 Some possible migration states:
 
