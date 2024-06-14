@@ -12,7 +12,7 @@ ms.custom: include file
 
 <details>
 
-<summary> Expand to view the complete sample ARM template which supports upgrade of existing scale set to Trusted launch and roll-back if required. </summary>
+<summary> Expand to view the complete sample ARM template, which supports upgrade of existing scale set to Trusted launch and roll-back (if needed). </summary>
 
 ```json
 {
