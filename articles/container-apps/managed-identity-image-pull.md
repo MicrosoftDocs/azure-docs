@@ -67,7 +67,7 @@ Use the following steps to create a container app with the default quickstart im
     |---|---|
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Select an existing resource group or create a new one. |
-    | **Container app name** |  Enter a container app name. |
+    | **Container app name** | Enter a container app name. |
     | **Location** | Select a location. |
     | **Create Container App Environment** | Create a new or select an existing environment. |
 
@@ -173,7 +173,7 @@ Follow these steps to create a container app with the default quickstart image.
     |---|---|
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Select an existing resource group or create a new one. |
-    | **Container app name** |  Enter a container app name. |
+    | **Container app name** | Enter a container app name. |
     | **Location** | Select a location. |
     | **Create Container App Environment** | Create a new or select an existing environment. |
 
@@ -353,7 +353,7 @@ Follow this procedure to configure user-assigned managed identity:
 
 # [Bash](#tab/bash)
 
-Create a user-assigned managed identity. Before you run the following command, replace placeholders surrounded by `<>` with the name of your managed identity.
+Create a user-assigned managed identity. Before you run the following command, replace the *\<PLACEHOLDERS\>* with the name of your managed identity. 
 
 ```azurecli
 IDENTITY="<YOUR_IDENTITY_NAME>"
@@ -367,10 +367,10 @@ az identity create \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Create a user-assigned managed identity. Before you run the following command, replace placeholders surrounded by `<>` with the name of your managed identity.
+Create a user-assigned managed identity. Before you run the following command, replace the *\<PLACEHOLDERS\>* with the name of your managed identity. 
 
 ```azurepowershell
-$IdentityName = '<YourIdentityName>'
+$IdentityName = '<YOUR_IDENTITY_NAME>'
 ```
 
 ```azurepowershell
@@ -399,7 +399,7 @@ $IdentityId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName
 $PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroupName).PrincipalId
 ```
 
-Get the registry's resource ID. Before you run the following command, replace placeholders surrounded by `<>` with the resource group name for your registry.
+Get the registry's resource ID. Before you run the following command, replace the *\<placeholders\>* with the resource group name for your registry.
 
 ```azurepowershell
 $RegistryId = (Get-AzContainerRegistry -ResourceGroupName <RegistryResourceGroup> -Name $RegistryName).Id

@@ -22,6 +22,9 @@ Application Gateway and WAF can be configured to scale in two modes:
 
 - **Manual** - You can also choose Manual mode where the gateway doesn't autoscale. In this mode, if there's more traffic than what Application Gateway or WAF can handle, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
 
+> [!NOTE]
+> These scaling modes don’t apply for Application Gateway Basic. Application Gateway Basic automatically scales up to an estimated 200 connections per second, based on an RSA 2048-bit key TLS certificate.
+
 ## Autoscaling and High Availability
 
 Azure Application Gateways are always deployed in a highly available fashion. The service is made up of multiple instances that are created as configured if autoscaling is disabled, or required by the application load if autoscaling is enabled. From the user's perspective, you don't necessarily have visibility into the individual instances, but just into the Application Gateway service as a whole. If a certain instance has a problem and stops being functional, Azure Application Gateway transparently creates a new instance.

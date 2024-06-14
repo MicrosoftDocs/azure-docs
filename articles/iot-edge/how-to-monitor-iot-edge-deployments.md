@@ -4,7 +4,7 @@ description: High-level monitoring including edgeHub and edgeAgent reported prop
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 9/22/2022
+ms.date: 06/03/2024
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
@@ -73,7 +73,7 @@ The deployment show command takes the following parameters:
 * **--deployment-id** - The name of the deployment that exists in the IoT hub. Required parameter.
 * **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 
-Inspect the deployment in the command window. The **metrics** property lists a count for each metric that is evaluated by each hub:
+Inspect the deployment in the command window. The **metrics** property lists a count for each metric that is evaluated by each hub:
 
 * **targetedCount** - A system metric that specifies the number of device twins in IoT Hub that match the targeting condition.
 * **appliedCount** - A system metric specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub.

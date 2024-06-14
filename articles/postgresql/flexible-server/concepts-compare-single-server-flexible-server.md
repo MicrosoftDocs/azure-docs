@@ -4,7 +4,7 @@ description: Detailed comparison of features and capabilities between Azure Data
 author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 04/29/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -118,7 +118,7 @@ The following table provides a list of high-level features and capabilities comp
 | Microsoft Entra ID Support (Microsoft Entra ID) | Yes | Yes |
 | Customer managed encryption key (BYOK) | Yes | Yes |
 | SCRAM Authentication (SHA-256) | No | Yes |
-| Secure Sockets Layer support (SSL) | Yes | Yes |
+| Secure Sockets Layer (SSL) support | Yes | Yes |
 | **Other features** | | |
 | Alerts | Yes | Yes |
 | Microsoft Defender for Cloud | Yes | Yes |

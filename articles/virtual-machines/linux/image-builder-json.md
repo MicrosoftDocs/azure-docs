@@ -24,7 +24,6 @@ The basic format is:
 ```json
 {
   "type": "Microsoft.VirtualMachineImages/imageTemplates",
-  "apiVersion": "2022-02-14",
   "location": "<region>",
   "tags": {
     "<name>": "<value>",
@@ -98,16 +97,16 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 ```
 
 ---
+## API version
+The API version will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
 
-## Type and API version
-
-The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
+## Type
+The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. 
 
 # [JSON](#tab/json)
 
 ```json
 "type": "Microsoft.VirtualMachineImages/imageTemplates",
-"apiVersion": "2022-02-14",
 ```
 
 # [Bicep](#tab/bicep)
@@ -157,6 +156,8 @@ The location is the region where the custom image is created. The following regi
 - China North 3 (Public Preview)
 - Sweden Central
 - Poland Central
+- Italy North
+- Israel Central
 
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
@@ -852,8 +853,8 @@ imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
 
 az resource show \
-  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-  --api-version=2021-10-01
+  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName" \
+--api-version=2023-07-01
 ```
 
 Output:
@@ -1207,7 +1208,7 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```json
 "optimize": {
-      "vmboot": {
+      "vmBoot": {
         "state": "Enabled"
       }
     }
@@ -1217,15 +1218,15 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```bicep
 optimize: {
-      vmboot: {
+      vmBoot: {
         state: 'Enabled'
       }
     }
 ```
 ---
 
-- **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
-- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
+- **vmBoot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
+- state: The state of the boot optimization feature within `vmBoot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 To learn more, see [VM optimization for gallery images with Azure VM Image Builder](../vm-boot-optimization.md).
 
@@ -1361,7 +1362,7 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 ```json
 "source": {
   "type": "SharedImageVersion",
-  "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
+  "imageVersionId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
 }
 ```
 
@@ -1722,6 +1723,8 @@ vnetConfig: {
 }
 ```
 
+---
+
 #### subnetId
 Resource ID of a pre-existing subnet on which the build VM and validation VM is deployed.
 
@@ -1746,7 +1749,37 @@ This field can be specified only if `subnetId` is also specified and must meet t
 #### proxyVmSize (optional)
 Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This field must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
 
----
+## Properties: autoRun
+
+You can use the `autoRun` property to control whether the image template build process should automatically start when the template is created or updated. It's an enum with two possible values:
+- **Enabled** - Auto run is enabled, so your image template build process will automatically start when the template is created or updated. 
+- **Disabled** - Auto run is disabled, so you will have to manually start the image build process after the template is created or updated.
+
+```json
+"properties": {
+		"autoRun": "Enabled"
+}
+```
+
+> [!NOTE]
+> When you set `autoRun` to "Enabled," the image build process runs **once** upon template creation or update. It ensures that the initial image build occurs seamlessly. However, it does not provide consistent and ongoing image builds. For consistent and ongoing image builds that run once an image template is updated, see [How to use Azure Image Builder triggers to set up an automatic image build](../image-builder-triggers-how-to.md).
+>
+> Unlike `autoRun`, automatic image creation via the Azure Image Builder trigger resource ensures that image builds occur consistently. Whenever there are changes to the template, the Azure Image Builder service will automatically trigger the image build process.
+>
+> Choose `autoRun` for immediate image builds upon template creation or update. Opt for automatic image creation when you need ongoing consistency in image builds. Consider your specific requirements and use the appropriate option based on your workflow.
+
+## Properties: managedResourceTags
+
+You can use the `managedResourceTags` property to apply tags to the resources that the Azure Image Builder service creates in the staging resource group during the image build. For more information on the staging resource group, see [Azure Image Builder Overview](../image-builder-overview.md#how-it-works)
+
+```json
+"properties": {
+		"managedResourceTags": {
+			"tag1": "value1",
+      			"tag2": "value2"
+              }
+}
+```
 
 ## Image Template Operations
 
@@ -1755,7 +1788,7 @@ Size of the proxy virtual machine used to pass traffic to the build VM and valid
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Run -Force
 ```
 
 ```azurecli-interactive
@@ -1775,7 +1808,7 @@ The build can be canceled anytime. If the distribution phase has started you can
 Examples of `cancel` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Cancel -Force
 ```
 
 ```azurecli-interactive

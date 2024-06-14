@@ -4,7 +4,7 @@ metadata:
   description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
   ms.topic: faq
   ms.service: azure-blob-storage
-  ms.date: 08/10/2023
+  ms.date: 03/20/2024
   ms.author: normesta
   author: normesta
 title: Azure Blob Storage frequently asked questions
@@ -35,7 +35,7 @@ sections:
         answer: |
           If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob by changing its tier can result in a scenario where the lifecycle policy moves the blob back to the archive tier. This can happen if the last modified time, creation time, or last access time is beyond the threshold set for the policy. There are three ways to prevent this from happening:
 
-          - Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. This condition applies only to the last modified time. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
+          - Add the `daysAfterLastTierChangeGreaterThan` condition to the tierToArchive action of the policy. See [Use lifecycle management policies to archive blobs](archive-blob.md#use-lifecycle-management-policies-to-archive-blobs).
 
           - Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. 
 

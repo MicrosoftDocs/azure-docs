@@ -3,16 +3,14 @@ title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 05/01/2023
+ms.date: 06/07/2024
 ---
 # Use RDMA or GPU instances in Batch pools
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 To run certain Batch jobs, you can take advantage of Azure VM sizes designed for large-scale computation. For example:
 
-* To run multi-instance [MPI workloads](batch-mpi.md), choose H-series or other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications.
+* To run multi-instance [MPI workloads](batch-mpi.md), choose HB, HC, NC, or ND series or other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications.
 
 * For CUDA applications, choose N-series sizes that include NVIDIA Tesla graphics processing unit (GPU) cards.
 
@@ -27,15 +25,15 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 ## Dependencies
 
-The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. (The list of supported operating systems is a subset of those supported for virtual machines created in these sizes.) Depending on how you create your Batch pool, you might need to install or configure additional driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
+The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported only in certain operating systems. The supported operating systems for these VM sizes include only a subset of those available for virtual machine creation. Depending on how you create your Batch pool, you might need to install or configure extra driver or other software on the nodes. The following tables summarize these dependencies. See linked articles for details. For options to configure Batch pools, see later in this article.
 
 ### Linux pools - Virtual machine configuration
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS, or<br/>CentOS 8.1<br/>(Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
-| [NV, NVv2, NVv4 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 22.04 LTS, or<br/>CentOS 8.1<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [H16r, H16mr](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA drivers | Enable inter-node communication, disable concurrent task execution |
+| [NCv3, NDv2, NDv4, NDv5 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 22.04 LTS  <br/> (Azure Marketplace) | NVIDIA CUDA or CUDA Toolkit drivers | N/A |
+| [NVv3, NVv4, NVv5 series](../virtual-machines/linux/n-series-driver-setup.md) | Accelerated Visualization GPU | Ubuntu 22.04 LTS <br/> (Azure Marketplace) | NVIDIA GRID drivers (if required) | N/A |
 
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
@@ -71,19 +69,15 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 * For pools in the virtual machine configuration, choose a preconfigured [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM image that has drivers and software preinstalled. Examples:
 
-  * [CentOS-based 8.1 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) - includes RDMA drivers and Intel MPI 5.1
+* [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) for Linux or Windows - includes NVIDIA CUDA drivers
 
-  * [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) for Linux or Windows - includes NVIDIA CUDA drivers
+* Linux images for Batch container workloads that also include GPU and RDMA drivers:
 
-  * Linux images for Batch container workloads that also include GPU and RDMA drivers:
+* [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-    * [CentOS (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.centos-container-rdma?tab=Overview)
+* Create a [custom Windows or Linux VM image](batch-sig-images.md) with installed drivers, software, or other settings required for the VM size.
 
-    * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
-
-* Create a [custom Windows or Linux VM image](batch-sig-images.md) on which you have installed drivers, software, or other settings required for the VM size.
-
-* Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer, and configure Batch to deploy the package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](jobs-and-tasks.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
+* Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer. Then, configure Batch to deploy this package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](jobs-and-tasks.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
 
   > [!NOTE]
   > The start task must run with elevated (admin) permissions, and it must wait for success. Long-running tasks will increase the time to provision a Batch pool.
@@ -141,22 +135,6 @@ To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to co
 | **Image Type** | Custom Image |
 | **Custom Image** | *Name of the image* |
 | **Node agent SKU** | batch.node.windows amd64 |
-| **Node size** | H16r Standard |
-| **Internode communication enabled** | True |
-| **Max tasks per node** | 1 |
-
-## Example: Intel MPI on a Linux H16r VM pool
-
-To run MPI applications on a pool of Linux HB-series nodes, one option is to use the [CentOS-based 8.1 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) image from the Azure Marketplace. Linux RDMA drivers and Intel MPI are preinstalled. This image also supports Docker container workloads.
-
-Using the Batch APIs or Azure portal, create a pool using this image and with the desired number of nodes and scale. The following table shows sample pool settings:
-
-| Setting | Value |
-| ---- | ---- |
-| **Image Type** | Marketplace (Linux/Windows) |
-| **Publisher** | OpenLogic |
-| **Offer** | CentOS-HPC |
-| **Sku** | 8.1 |
 | **Node size** | H16r Standard |
 | **Internode communication enabled** | True |
 | **Max tasks per node** | 1 |

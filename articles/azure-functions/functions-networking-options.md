@@ -3,6 +3,8 @@ title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
 author: ggailey777
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 4/6/2023
 ms.author: cachai
 ---
@@ -147,7 +149,7 @@ There are some limitations with using virtual network:
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager virtual network.
 * The app and the virtual network must be in the same region.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can have only one regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
+* You can have up to two regional virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
 
 ### Subnets
@@ -207,7 +209,7 @@ If virtual network integration is configured for the app, [Key Vault references]
 
 Currently, you can use non-HTTP trigger functions from within a virtual network in one of two ways:
 
-+ Run your function app in a Premium plan and enable virtual network trigger support.
++ Run your function app in an [Elastic Premium plan](./functions-premium-plan.md) and enable virtual network trigger support.
 + Run your function app in an App Service plan or App Service Environment.
 
 ### Premium plan with virtual network triggers
