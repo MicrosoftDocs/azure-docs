@@ -40,7 +40,7 @@ Below you will find an overview of the OSDU&reg; services that are currently ava
 - **osdu-ingestion-lib**: A library that supports user context ingestion and includes various fixes related to Python versioning and authority replacement.
 - **Segy to Zgy Conversion**: Converts SEGY file formats to ZGY.
 - **Segy to oVDS Conversion**: Converts SEGY files to oVDS format.
-- **External Data Services [[Preview]](https://learn.microsoft.com/en-us/azure/energy-data-services/how-to-enable-external-data-sources)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
+- **External Data Services [[Preview]](https://learn.microsoft.com/azure/energy-data-services/how-to-enable-external-data-sources)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
 
 ### Domain data management services (DDMS)
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
