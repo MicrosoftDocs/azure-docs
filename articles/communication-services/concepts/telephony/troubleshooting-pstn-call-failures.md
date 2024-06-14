@@ -13,11 +13,11 @@ localization_priority: Normal
 ---
 # Troubleshooting Azure Communication Services PSTN call failures
 
-When troubleshooting Azure Communication Services PSTN call failures, we recommended that you [enable logging](../../analytics/enable-logging.md). Then you can use `ResultCategories`, `ParticipantEndReason`, and `ParticipantEndSubReason` values to determine why an individual call ended and whether the system detected any failures.
+When troubleshooting Azure Communication Services PSTN call failures, we recommended that you [enable logging](../analytics/enable-logging.md). Then you can use `ResultCategories`, `ParticipantEndReason`, and `ParticipantEndSubReason` values to determine why an individual call ended and whether the system detected any failures.
 
 ## Using ResultCategories to troubleshoot PSTN call failures
 
-The `ResultCategories` array is a property of the [Call summary log schema](../../analytics/logs/voice-and-video-logs.md#call-summary-log-schema) and contains a list of general reasons describing how the call ended.
+The `ResultCategories` array is a property of the [Call summary log schema](../analytics/logs/voice-and-video-logs.md#call-summary-log-schema) and contains a list of general reasons describing how the call ended.
 
 General reasons that a call ended:
 
@@ -32,7 +32,7 @@ If this level of detail isn't sufficient, then developers can use `ParticipantEn
 
 ## Using ParticipantEndReason and ParticipantEndSubReason to troubleshoot PSTN call failures
 
-The `ParticipantEndReason` and `ParticipantEndSubReason` are properties of the [Call summary log schema](../../analytics/logs/voice-and-video-logs.md#call-summary-log-schema) and provide more details about why the call ended.
+The `ParticipantEndReason` and `ParticipantEndSubReason` are properties of the [Call summary log schema](../analytics/logs/voice-and-video-logs.md#call-summary-log-schema) and provide more details about why the call ended.
 
 When you're troubleshooting PSTN calls, use these two properties to understand why the call ended as follows:
 
@@ -52,8 +52,8 @@ For all other `ParticipantEndSubReason` codes that don't start with **560**, the
 
 ## Detailed information on individual error codes
 
-For more information about common error codes and suggested actions, see [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](../../troubleshooting-codes.md).
+For more information about common error codes and suggested actions, see [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](../troubleshooting-codes.md).
 
 ## Related articles
 
-For more information, see [Troubleshooting in Azure Communication Services](../../troubleshooting-info.md).
+For more information, see [Troubleshooting in Azure Communication Services](../troubleshooting-info.md).

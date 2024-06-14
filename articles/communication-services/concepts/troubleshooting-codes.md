@@ -107,7 +107,7 @@ Response `ParticipantEndReason` with value 4xx means that the call didn't connec
 
 The call was blocked for one of the following reasons:
 
-- Alternate ID not supplied for the call. For more information on the Alternate ID, see [Manage calls](../../../how-tos/calling-sdk/manage-calls.md#place-a-call).
+- Alternate ID not supplied for the call. For more information on the Alternate ID, see [Manage calls](../how-tos/calling-sdk/manage-calls.md#place-a-call).
 - Phone number not allowed by users Session Border Controller (SBC).
 
 Suggested actions:
@@ -142,7 +142,7 @@ Indicates no Resource SIP trunk configuration found.
 
 Suggested actions:
 
-- Check your direct routing setup in the [Azure portal](https://portal.azure.com). For more information, see [Direct routing provisioning](../direct-routing-provisioning.md).
+- Check your direct routing setup in the [Azure portal](https://portal.azure.com). For more information, see [Direct routing provisioning](../concepts/telephony/direct-routing-provisioning.md).
 
 
 #### 560404 404 Phone Number not found
@@ -216,7 +216,7 @@ Indicates that Interactive Connectivity Establishment (ICE) checks failed.
 Suggested actions:
 
 - The media path couldn't be established. Usually caused by incorrect network configuration. Verify your network configuration to make sure that the required IP addresses and ports aren't blocked. Read the guidelines in <https://www.rfc-editor.org/rfc/rfc5245#section-7>.
-- For direct routing calls, check your Session Border Control logs and settings for ICE configuration and profile. Contact your SBC vendor for configuration help. For more information, see [List of Session Border Controllers certified for Azure Communication Services direct routing](../certified-session-border-controllers.md).
+- For direct routing calls, check your Session Border Control logs and settings for ICE configuration and profile. Contact your SBC vendor for configuration help. For more information, see [List of Session Border Controllers certified for Azure Communication Services direct routing](../concepts/telephony/certified-session-border-controllers.md).
 
 
 #### 560480 480 No answer
@@ -338,7 +338,7 @@ The call was rejected for one of the following reasons:
 Suggested actions:
 
 - If declined by the recipient, retry the call.
-- Ensure that you aren't exceeding the maximum number of concurrent calls allowed for your Azure Communication Services phone number. For more information, see [PSTN call limitations](../../service-limits.md#pstn-call-limitations).
+- Ensure that you aren't exceeding the maximum number of concurrent calls allowed for your Azure Communication Services phone number. For more information, see [PSTN call limitations](../concepts/service-limits.md#pstn-call-limitations).
 
 ## Related articles
 
