@@ -360,7 +360,28 @@ For detailed implementation, see the [sample code on GitHub](https://github.com/
 
 ::: zone pivot="programming-language-python"
 
+See the sample code for setting the endpoint:
 
+```python
+# IMPORTANT: MUST use the websocket v2 endpoint
+speech_config = speechsdk.SpeechConfig(endpoint=f"wss://{os.getenv('AZURE_TTS_REGION')}.tts.speech.microsoft.com/cognitiveservices/websocket/v2",
+                                       subscription=os.getenv("AZURE_TTS_API_KEY"))
+```
+
+#### Key steps
+
+1. **Create a text stream request**: Use `speechsdk.SpeechSynthesisRequestInputType.TextStream` to initiate a text stream.
+1. **Set global properties**: Adjust settings such as output format and voice name directly, as the feature handles partial text inputs and doesn't support SSML. Refer to the following sample code for instructions on how to set them. OpenAI text to speech voices aren't supported by the text streaming feature. See this [language table](language-support.md?tabs=tts#supported-languages) for full language support. 
+
+    ```python
+    # set a voice name
+    speech_config.speech_synthesis_voice_name = "en-US-AvaMultilingualNeural"
+    ```
+   
+1. **Stream your text**: For each text chunk generated from a GPT model, use `request.input_stream.write(text)` to send the text to the stream.
+1. **Close the stream**: Once the GPT model completes its output, close the stream using `request.input_stream.close()`.
+
+For detailed implementation, see the [sample code on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/tts-text-stream).
 
 ::: zone-end
 
