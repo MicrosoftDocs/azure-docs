@@ -57,7 +57,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Configure** option within the **Cluster tier** section.
 
-    :::image type="content" source="media/quickstart-portal/select-cluster-option.png" alt-text="Screenshot of the configure cluster option for a new Azure Cosmos DB for MongoDB cluster.":::
+    :::image type="content" source="media/quickstart-portal/select-cluster-option.png" alt-text="Screenshot of the cluster configuration option for a new Azure Cosmos DB for MongoDB cluster.":::
 
 1. On the **Scale** page, leave the options set to their default values:
 
@@ -77,7 +77,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | --- | --- | --- |
     | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB for MongoDB cluster. |
     | Resource group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-    | Cluster name | A glboally unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *mongodbcluster.cosmos.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3 and 40 characters in length. |
+    | Cluster name | A globally unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *mongodbcluster.cosmos.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3 and 40 characters in length. |
     | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster with read and write capabilities, the primary cluster. Use the location that is closest to your users to give them the fastest access to the data. |
     | MongoDB version | Version of MongoDB to run on your cluster |  This value is set to a default of the most recent MongoDB version available. |
     | Admin username | Provide a username to access the cluster | This user is created on the cluster as a user administrator. |
