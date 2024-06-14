@@ -178,7 +178,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 ## Update partner module URIs
 
-If you use partner modules, update your module deployments with image URIs provided by the partner. Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners) to obtain the updated container image URI. Update your device configurations with the new image URI provided by the publisher.
+If you use partner modules, update your module deployments with image URIs provided by the partner. Contact the [IoT Edge module publisher](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?filters=partners&page=1) to obtain the updated container image URI. Update your device configurations with the new image URI provided by the publisher.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
 1. On the left pane, select **Devices** under the **Device management** menu.
