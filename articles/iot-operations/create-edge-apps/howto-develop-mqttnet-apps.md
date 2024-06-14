@@ -127,4 +127,4 @@ To run the sample, follow the instructions in its [README](https://github.com/Az
 ## Related content
 
 - [Azure IoT MQ overview](../manage-mqtt-broker/overview-iot-mq.md)
-- [Develop with Azure IoT MQ](concept-about-distributed-apps.md)
+- [Develop with Azure IoT MQ](edge-apps-overview.md)

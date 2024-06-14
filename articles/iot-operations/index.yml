@@ -11,7 +11,7 @@ metadata:
     - ignite-2023
   author: dominicbetts
   ms.author: dobett
-  ms.date: 09/08/2023
+  ms.date: 06/14/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -31,21 +31,21 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure IoT Operations
+          - text: Deploy Azure IoT Operations to K3s
             url: deploy-iot-ops/howto-deploy-iot-operations.md
-          - text: Manage assets
+          - text: Discover and manage assets
             url: discover-manage-assets/overview-manage-assets.md
-          - text: Manage MQTT connectivity
+          - text: Azure IoT MQ overview
             url: manage-mqtt-broker/overview-iot-mq.md
           - text: Process data
             url: process-data/overview-data-processor.md
           - text: Manage layered network
             url: manage-layered-network/overview-layered-network.md
-          - text: Monitor service and asset health
+          - text: Configure observability and monitoring
             url: configure-observability-monitoring/howto-configure-observability.md
 
   # Card
-  - title: Connect to the cloud
+  - title: Connect to cloud services
     linkLists:
       - linkListType: how-to-guide
         links:

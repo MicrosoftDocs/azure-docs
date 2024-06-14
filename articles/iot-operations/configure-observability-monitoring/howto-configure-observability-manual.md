@@ -1,5 +1,5 @@
 ---
-title: Configure observability manually
+title: Deploy observability resources manually
 description: How to configure observability features manually in Azure IoT Operations so that you can monitor your solution.
 author: kgremban
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 02/27/2024
 # on the health of my industrial assets and edge environment.
 ---
 
-# Configure observability manually
+# Deploy observability resources manually
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-This article shows how to install and configure Azure IoT Operations observability components manually. This approach provides more options and control over your environment. For a simplified setup process that installs all the components you need to get started, see [Get started: configure observability](howto-configure-observability.md).
+This article shows how to install and configure Azure IoT Operations observability components manually. This approach provides more options and control over your environment. For a simplified setup process that installs all the components you need to get started, see [Deploy observability resources with a script](howto-configure-observability.md).
 
 ## Configure your subscription
 
@@ -53,4 +53,4 @@ To install Azure Managed Grafana, complete the following steps:
 
 ## Related content
 
-- [Get started: configure observability](howto-configure-observability.md)
+- [Deploy observability resources with a script](howto-configure-observability.md)

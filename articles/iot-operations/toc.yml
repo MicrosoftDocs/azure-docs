@@ -7,7 +7,7 @@ items:
     - name: Get started with an end-to-end sample
       expanded: true
       items:
-      - name: Deploy Azure IoT Operations
+      - name: Deploy Azure IoT Operations to K3s
         href: get-started-end-to-end-sample/quickstart-deploy.md
       - name: Add OPC UA assets to your cluster
         href: get-started-end-to-end-sample/quickstart-add-assets.md
@@ -41,7 +41,7 @@ items:
           displayName: Deploy, Orchestrator
     - name: Discover and manage assets
       items:
-      - name: Overview
+      - name: Asset management overview
         href: discover-manage-assets/overview-manage-assets.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
@@ -57,8 +57,6 @@ items:
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
         - name: Configure an OPC PLC simulator
           href: discover-manage-assets/howto-configure-opc-plc-simulator.md
-        - name: Configure OPC UA authentication options
-          href: discover-manage-assets/howto-configure-opcua-authentication-options.md
       - name: Akri (automatic asset discovery)
         items:
         - name: Akri overview
@@ -69,7 +67,7 @@ items:
           href: discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md
     - name: Manage MQTT broker
       items:
-      - name: Overview
+      - name: Azure IoT MQ overview
         href: manage-mqtt-broker/overview-iot-mq.md
       - name: Configure core MQTT broker settings
         href: manage-mqtt-broker/howto-configure-availability-scale.md
@@ -99,6 +97,72 @@ items:
           href: connect-to-cloud/howto-configure-data-lake.md
         - name: Send data to Kafka or Azure Event Hubs
           href: connect-to-cloud/howto-configure-kafka.md
+    - name: Process data
+      items:
+      - name: Overview
+        href: process-data/overview-data-processor.md
+      - name: Concepts
+        items:
+        - name: Message structure
+          href: process-data/concept-message-structure.md
+        - name: Supported message formats
+          href: process-data/concept-supported-formats.md
+        - name: Pipeline partitioning
+          href: process-data/concept-partitioning.md
+        - name: Configuration patterns
+          href: process-data/concept-configuration-patterns.md
+      - name: Edit and manage pipelines
+        href: process-data/howto-edit-pipelines.md
+      - name: Read data
+        items:
+        - name: Configure a pipeline MQ data source stage
+          href: process-data/howto-configure-datasource-mq.md
+        - name: Configure a pipeline HTTP endpoint source stage
+          href: process-data/howto-configure-datasource-http.md
+        - name: Configure a pipeline SQL Server source stage
+          href: process-data/howto-configure-datasource-sql.md
+        - name: Configure a pipeline InfluxDB source stage
+          href: process-data/howto-configure-datasource-influxdb.md
+      - name: Process data
+        items:
+        - name: Aggregate data in a pipeline
+          href: process-data/howto-configure-aggregate-stage.md
+        - name: Filter data in a pipeline
+          href: process-data/howto-configure-filter-stage.md
+        - name: Call out to a gRPC endpoint from a pipeline
+          href: process-data/howto-configure-grpc-callout-stage.md
+        - name: Call out to an HTTP endpoint from a pipeline
+          href: process-data/howto-configure-http-callout-stage.md
+        - name: Use last known values in a pipeline
+          href: process-data/howto-configure-lkv-stage.md
+        - name: Transform data in a pipeline
+          href: process-data/howto-configure-transform-stage.md
+      - name: Enrich data
+        items:
+        - name: Pipeline contextualization
+          href: process-data/concept-contextualization.md
+        - name: Configure reference data store
+          href: process-data/howto-configure-reference.md
+        - name: Send data to the reference data store
+          href: process-data/howto-configure-destination-reference-store.md
+        - name: Configure enrich stage
+          href: process-data/howto-configure-enrich-stage.md
+      - name: Send data
+        items:   
+        - name: Send data to a gRPC endpoint
+          href: process-data/howto-configure-destination-grpc.md
+        - name: Send data to an HTTP endpoint
+          href: process-data/howto-configure-destination-http.md
+        - name: Publish data to an MQTT broker
+          href: process-data/howto-configure-destination-mq-broker.md
+      - name: jq guide
+        items:
+        - name: What is jq?
+          href: process-data/concept-jq.md
+        - name: jq paths
+          href: process-data/concept-jq-path.md
+        - name: jq expressions
+          href: process-data/concept-jq-expression.md
     - name: Manage layered network
       items:
       - name: Overview
@@ -125,9 +189,9 @@ items:
         href: view-analyze-telemetry/tutorial-real-time-dashboard-fabric.md
     - name: Configure observability and monitoring
       items:
-      - name: Get started with observability
+      - name: Deploy observability resources with a script
         href: configure-observability-monitoring/howto-configure-observability.md
-      - name: Configure observability manually
+      - name: Deploy observability resources manually
         href: configure-observability-monitoring/howto-configure-observability-manual.md
       - name: Add a cluster to observability infrastructure
         href: configure-observability-monitoring/howto-add-cluster.md
@@ -137,8 +201,8 @@ items:
         href: configure-observability-monitoring/howto-configure-diagnostics.md
     - name: Create edge apps
       items:
-      - name: About distributed apps
-        href: create-edge-apps/concept-about-distributed-apps.md
+      - name: Edge apps overview
+        href: create-edge-apps/edge-apps-overview.md
       - name: Dapr apps
         items:
         - name: Deploy Dapr

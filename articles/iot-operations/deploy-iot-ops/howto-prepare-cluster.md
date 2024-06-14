@@ -344,4 +344,4 @@ To manage which clusters your OT users have access to, you can group your cluste
 
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can [deploy Azure IoT Operations to K3s](../deploy-iot-ops/howto-deploy-iot-operations.md).

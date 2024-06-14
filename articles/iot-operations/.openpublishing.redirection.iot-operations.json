@@ -206,8 +206,8 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/iot-operations/develop/concept-about-distributed-apps.md",
-            "redirect_url": "/azure/iot-operations/create-edge-apps/concept-about-distributed-apps",
+            "source_path_from_root": "/articles/iot-operations/develop/edge-apps-overview.md",
+            "redirect_url": "/azure/iot-operations/create-edge-apps/edge-apps-overview",
             "redirect_document_id": true
         },
         {

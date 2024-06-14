@@ -11,7 +11,7 @@ ms.date: 05/15/2024
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
-# Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster
+# Deploy Azure IoT Operations Preview extensions to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

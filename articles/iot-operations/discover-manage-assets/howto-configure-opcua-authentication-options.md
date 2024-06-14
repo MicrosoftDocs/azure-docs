@@ -21,7 +21,7 @@ To learn more, see [OPC UA applications - user authentication](https://reference
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations – to an Arc-enabled Kubernetes cluster](../get-started-end-to-end-sample/quickstart-deploy.md).
+A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 ## Features supported
 

@@ -92,7 +92,7 @@ The following example implements contextualization and normalization of data wit
 
 A northbound application consists of input and output stages, and an optional processing stage. The input stage subscribes to a distributed MQTT broker to receive data, while the output stage ingests messages into a cloud data-lake. The processing stage executes contextualization and normalization logic on the received data.
 
-![Diagram of a highly available app architecture.](./media/concept-about-distributed-apps/highly-available-app.png)
+![Diagram of a highly available app architecture.](./media/edge-apps-overview/highly-available-app.png)
 
 To ensure high availability, the input stage connects to IoT MQ and sets the *clean-session* flag to false for persistent sessions, using QoS-1 for reliable message delivery, acknowledging messages post-processing by the output stage. Additionally, the application might use the built-in *HashMap* key-value store for temporary state management and the round robin algorithm to load-balance multiple instances using shared subscriptions.
 

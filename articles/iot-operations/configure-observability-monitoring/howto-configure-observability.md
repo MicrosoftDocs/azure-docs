@@ -1,6 +1,6 @@
 ---
-title: Get started with observability
-description: How to get started with configuring observability features in Azure IoT Operations so that you can monitor your solution.
+title: Deploy observability resources with a script
+description: How to get started with configuring observability features with a script in Azure IoT Operations, so that you can monitor your solution.
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.date: 02/27/2024
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
 
-# Get started: configure observability in Azure IoT Operations Preview
+# Get started: configure observability with a script in Azure IoT Operations Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -160,4 +160,4 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 ## Related content
 
 - [Azure Monitor overview](../../azure-monitor/overview.md)
-- [How to configure observability manually](howto-configure-observability-manual.md)
+- [How to Deploy observability resources manually](howto-configure-observability-manual.md)

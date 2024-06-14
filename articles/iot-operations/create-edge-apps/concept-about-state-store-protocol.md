@@ -437,4 +437,4 @@ abc<CR><LF>
 ## Related content
 
 - [Azure IoT MQ overview](../manage-mqtt-broker/overview-iot-mq.md)
-- [Develop with Azure IoT MQ](concept-about-distributed-apps.md)
+- [Develop with Azure IoT MQ](edge-apps-overview.md)
