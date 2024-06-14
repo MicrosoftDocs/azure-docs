@@ -105,7 +105,7 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 ### Isolated Virtual Machine Sizes
 
-[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
+[!INCLUDE [virtual-machines-common-isolation](~/reusable-content/ce-skilling/azure/includes/virtual-machines-common-isolation.md)]
 
 ### Dedicated hosts
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 ---
 # Share images across tenants using an app registration
 
-[!INCLUDE [virtual-machines-share-images-across-tenants](../virtual-machines/includes/virtual-machines-share-images-across-tenants.md)]
+[!INCLUDE [virtual-machines-share-images-across-tenants](~/reusable-content/ce-skilling/azure/includes/virtual-machines/includes/virtual-machines-share-images-across-tenants.md)]
 
 ## Create a scale set using Azure CLI
 

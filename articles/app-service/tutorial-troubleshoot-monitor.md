@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 You can follow the steps in this tutorial on macOS, Linux, Windows.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -250,7 +250,7 @@ Converting images should not longer produce the HTTP 500 errors.
 
 ![PHP app running in Azure App Service](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
 
 Delete the diagnostic setting with the following command:
 

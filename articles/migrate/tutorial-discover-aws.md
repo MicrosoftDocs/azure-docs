@@ -68,7 +68,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of Add role assignment page in Azure portal.":::
 
 1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
 

@@ -1,10 +1,10 @@
 ---
 title: Track your Microsoft Sentinel migration with a workbook | Microsoft Docs
 description: Learn how to track your migration with a workbook, how to customize and manage the workbook, and how to use the workbook tabs for useful Microsoft Sentinel actions.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson
+ms.author: cwatson
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 06/06/2024
 ---
 
 # Track your Microsoft Sentinel migration with a workbook
@@ -23,10 +23,10 @@ This article describes how to track your migration with the **Microsoft Sentinel
 
 ## Deploy the workbook content and view the workbook
 
-1. In the Azure portal, select Microsoft Sentinel and then select **Workbooks**. 
-1. From the search bar, search for `migration`. 
-1. From the search results, select the **Microsoft Sentinel Deployment and Migration** workbook and select **Save**.
-   Microsoft Sentinel deploys the workbook and saves the workbook in your environment. 
+1. In the Microsoft Sentinel **Content hub**, filter the content listed by **Content type** = **Workbooks**, and then enter *migration* in the search bar.
+
+1. From the search results, select the **Microsoft Sentinel Deployment and Migration** workbook and then select **Install**.  Microsoft Sentinel deploys the workbook and saves the workbook in your environment.
+
 1. To view the workbook, select **Open saved workbook**. 
 
 ## Deploy the watchlist 

@@ -1,7 +1,7 @@
 ---
 title: Manage Azure portal settings and preferences
 description: Change Azure portal settings such as default subscription/directory, timeouts, menu mode, contrast, theme, notifications, language/region and more.
-ms.date: 04/12/2024
+ms.date: 06/06/2024
 ms.topic: how-to
 ---
 
@@ -17,11 +17,11 @@ Within **Portal settings**, you'll see different sections. This article describe
 
 ## Directories + subscriptions
 
-**Directories + subscriptions** lets you manage directories and set subscription filters.
+**Directories + subscriptions** lets you manage directories (Azure tenants) and set subscription filters.
 
 ### Switch and manage directories
 
-In the **Directories** section, you'll see your **Current directory** (the directory that you're currently signed in to).
+In the **Directories** section, you'll see your **Current directory** (the directory, or Azure tenant, that you're currently signed in to).
 
 The **Startup directory** shows the default directory when you sign in to the Azure portal (or **Last visited** if you've chosen that option). To choose a different startup directory, select **change** to open [Appearance + startup views](#appearance--startup-views), where you can change your selection.
 
@@ -116,7 +116,7 @@ Choose one of the following options for **Startup page**. This setting determine
 
 ### Manage startup directory options
 
-Choose one of the following options for the directory to work in when you first sign in to the Azure portal.
+Choose one of the following options to control which directory (Azure tenant) to work in when you first sign in to the Azure portal.
 
 - **Last visited**: When you sign in to the Azure portal, you'll start in the same directory from your previous visit.
 - **Select a directory**: Choose this option to select a specific directory. You'll start in that directory every time you sign in to the Azure portal, even if you had been working in a different directory last time.
@@ -190,7 +190,7 @@ Information about your custom settings is stored in Azure. You can delete the fo
 
 It's a good idea to export and review your settings before you delete them, as described in the previous section. Rebuilding [dashboards](azure-portal-dashboards.md) or redoing custom settings can be time-consuming.
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 To delete your portal settings, select **Delete all settings and private dashboards** from the top of **My information**. You'll be prompted to confirm the deletion. When you do so, all settings customizations will return to the default settings, and all of your private dashboards will be lost.
 
@@ -218,7 +218,7 @@ If your admin has enabled an inactivity timeout policy, you can still set your o
 
 ### Change the directory timeout setting (admin)
 
-Users with the [Global Administrator role](../active-directory/roles/permissions-reference.md#global-administrator) can enforce the maximum idle time before a session is signed out. This inactivity timeout setting applies to all users in the directory. Once it's set, all new sessions will comply with the new timeout settings. The change won't apply to signed-in users until their next sessions.
+Users with the [Global Administrator role](../active-directory/roles/permissions-reference.md#global-administrator) can enforce the maximum idle time before a session is signed out. This inactivity timeout setting applies to all users in the Azure tenant. Once it's set, all new sessions will comply with the new timeout settings. The change won't apply to signed-in users until their next sessions.
 
 Global Administrators can't specify different settings for individual users in the tenant. However, each user has the option to set a shorter timeout interval for themselves. Users can't change their individual timeout setting to a longer interval than the current option set by a Global Administrator.
 
@@ -228,7 +228,7 @@ To enforce an idle timeout setting for all users of the Azure portal, sign in wi
 
 To confirm that the inactivity timeout policy is set correctly, select **Notifications** from the global page header and verify that a success notification is listed.
 
-To change a previously selected directory timeout, any Global Administrator can follow these steps again to apply a new timeout interval. If a Global Administrator unchecks the box for **Enable directory level idle timeout**, the previous setting will remain in place by default for all users; however, each user can change their individual setting to whatever they prefer.
+To change a previously selected timeout, any Global Administrator can follow these steps again to apply a new timeout interval. If a Global Administrator unchecks the box for **Enable directory level idle timeout**, the previous setting will remain in place by default for all users; however, each user can change their individual setting to whatever they prefer.
 
 ### Enable or disable pop-up notifications
 

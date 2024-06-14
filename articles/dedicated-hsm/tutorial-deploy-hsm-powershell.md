@@ -26,7 +26,7 @@ A typical, high availability, multi-region deployment architecture may look as f
 This tutorial focuses on a pair of HSMs and the required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

@@ -34,21 +34,31 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 ## Get started
 
 > [!IMPORTANT]
-> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of the [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
+> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) or Classic [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in Live Metrics.
 
 1. Follow language-specific guidelines to enable Live Metrics:
+
+  Using OpenTelemetry (Recommended):
+
+   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live Metrics is enabled by default.
+   * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Live Metrics is enabled by default.
+   * [Java](./opentelemetry-enable.md?tabs=java): Live Metrics is enabled by default.
+   * [Node.js](opentelemetry-enable.md?tabs=nodejs): Live Metrics is enabled by default.
+   * [Python](opentelemetry-enable.md?tabs=python): Live Metrics is enabled by default.
+  
+  Using Classic:
+  
    * [ASP.NET](./asp-net.md): Live Metrics is enabled by default.
    * [ASP.NET Core](./asp-net-core.md): Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md): Live Metrics is enabled by default.
    * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
-   * [Java](./opentelemetry-enable.md?tabs=java): Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
-1. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.
+2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.
 
-1. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
+3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Enable Live Metrics by using code for any .NET application
 

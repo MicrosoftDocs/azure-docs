@@ -3,7 +3,7 @@ title: "Create your first C# durable function running in the isolated worker"
 description: Create and publish a C# Azure Durable Function running in the isolated worker using Visual Studio or Visual Studio Code.
 author: lilyjma
 ms.topic: quickstart
-ms.date: 01/31/2023
+ms.date: 06/05/2024
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
@@ -42,7 +42,7 @@ To complete this tutorial:
 
 * Make sure that you have version 3.1 or a later version of the [.NET Core SDK](https://dotnet.microsoft.com/download) installed.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project 
 
@@ -60,79 +60,28 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | ------ | ----- | ----------- |
     | Select a language for your function app project | C# | Create a local C# Functions project. |
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-     | Select a .NET runtime | .NET 7.0 isolated | Creates a function project that supports .NET 7 running in isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).  |
-    | Select a template for your project's first function | Skip for now | |
+     | Select a .NET runtime | .NET 8.0 isolated | Creates a function project that supports .NET 8 running in isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).  |
+    | Select a template for your project's first function | Durable Functions Orchestration | Create a Durable Functions orchestration |
+    | Choose a durable storage type | Azure Storage | The default storage provider for Durable Functions. See [Durable Functions storage providers](./durable-functions-storage-providers.md) for more details. | 
+    | Provide a function name | HelloOrchestration | Name of the orchestration function |
+    | Provide a namespace | Company.Function | Namespace for the generated class |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 
-Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
+Visual Studio Code installs the Azure Functions Core Tools if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files. 
 
-## Add NuGet package references
+There's also a file called *HelloOrchestration.cs*, which contains the basic building blocks of a Durable Functions app:
 
-Add the following to your app project: 
-
-```xml
-<ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" OutputItemType="Analyzer" />
-</ItemGroup>
-```
-## Add functions to the app
-
-The most basic Durable Functions app contains the following three functions. Add them to a new class in the app:
-
-```csharp
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.DurableTask;
-using Microsoft.DurableTask.Client;
-using Microsoft.Extensions.Logging;
-
-static class HelloSequence
-{
-    [Function(nameof(HelloCities))]
-    public static async Task<string> HelloCities([OrchestrationTrigger] TaskOrchestrationContext context)
-    {
-        string result = "";
-        result += await context.CallActivityAsync<string>(nameof(SayHello), "Tokyo") + " ";
-        result += await context.CallActivityAsync<string>(nameof(SayHello), "London") + " ";
-        result += await context.CallActivityAsync<string>(nameof(SayHello), "Seattle");
-        return result;
-    }
-
-    [Function(nameof(SayHello))]
-    public static string SayHello([ActivityTrigger] string cityName, FunctionContext executionContext)
-    {
-        ILogger logger = executionContext.GetLogger(nameof(SayHello));
-        logger.LogInformation("Saying hello to {name}", cityName);
-        return $"Hello, {cityName}!";
-    }
-    
-    [Function(nameof(StartHelloCities))]
-    public static async Task<HttpResponseData> StartHelloCities(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-        [DurableClient] DurableTaskClient client,
-        FunctionContext executionContext)
-    {
-        ILogger logger = executionContext.GetLogger(nameof(StartHelloCities));
-
-        string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(HelloCities));
-        logger.LogInformation("Created new orchestration with instance ID = {instanceId}", instanceId);
-
-        return client.CreateCheckStatusResponse(req, instanceId);
-    }
-}
-```
 | Method | Description |
 | -----  | ----------- |
-| **`HelloCities`** | Manages the durable orchestration. In this case, the orchestration starts, creates a list, and adds the result of three functions calls to the list. When the three function calls are complete, it returns the list. |
-| **`SayHello`** | The function returns a hello. It's the function that contains the business logic that is being orchestrated. |
-| **`StartHelloCities`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
+| **`HelloOrchestration`** | Defines the durable orchestration. In this case, the orchestration starts, creates a list, and adds the result of three functions calls to the list. When the three function calls are complete, it returns the list. |
+| **`SayHello`** | Simple function returning hello. It's the function containing the business logic that is being orchestrated. |
+| **`HelloOrchestration_HttpStart`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
+
+You can find more details about these functions in [Durable Functions types and features](./durable-functions-types-features-overview.md). 
 
 ## Configure storage
 
-Your app needs a storage for runtime information. To use [Azurite](../../storage/common/storage-use-azurite.md?tabs=visual-studio-code), which is an emulator for Azure Storage, set `AzureWebJobStorage` in _local.settings.json_ to `UseDevelopmentStorage=true`: 
+You can use [Azurite](../../storage/common/storage-use-azurite.md?tabs=visual-studio-code), which is an emulator for Azure Storage, to test the function locally. Do this by setting `AzureWebJobStorage` in _local.settings.json_ to `UseDevelopmentStorage=true`: 
 
 ```json
 {
@@ -154,11 +103,11 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
 
 1. To test your function, set a breakpoint in the `SayHello` activity function code and press <kbd>F5</kbd> to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-> [!NOTE]
-> For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
+   > [!NOTE]
+   > For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
-> [!NOTE]
-> If you encounter a "No job functions found" error, please [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Older versions of core tools do not support .NET isolated.
+   > [!NOTE]
+   > If you encounter a "No job functions found" error, please [update your Azure Functions Core Tools installation to the latest version](./../functions-core-tools-reference.md). Older versions of core tools do not support .NET isolated.
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
@@ -166,11 +115,13 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
 
 1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), and then send an HTTP POST request to the URL endpoint.
 
-   The response is the HTTP function's initial result, letting us know that the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
+   The response is the HTTP function's initial result, letting us know that the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. 
 
-1. Copy the URL value for `statusQueryGetUri`, paste it into the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+   At this point, your breakpoint in the activity function should be hit because the orchestration has started. Step through it to get a response for the status of the orchestration.
 
-   The request will query the orchestration instance for the status. You must get an eventual response, which shows us that the instance has completed and includes the outputs or results of the durable function. It looks like:
+1. Copy the URL value for `statusQueryGetUri`, paste it into the browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request. 
+
+    The request will query the orchestration instance for the status. You should see that the instance has completed and includes the outputs or results of the durable function. It looks like:
 
     ```json
     {
@@ -184,6 +135,9 @@ Azure Functions Core Tools lets you run an Azure Functions project locally. You'
         "lastUpdatedTime":"2023-01-31T18:48:56Z"
     }
     ```
+    
+   > [!NOTE]
+   > You can observe the [replay behavior](./durable-functions-orchestrations.md#reliability) of Durable Functions through breakpoints. Because this is an important concept to understand, it's highly recommended that you read the linked article. 
 
 1. To stop debugging, press <kbd>Shift + F5</kbd> in Visual Studio Code.
 
@@ -224,7 +178,7 @@ To complete this tutorial:
 
 * Verify that you have the [Azurite Emulator](../../storage/common/storage-use-azurite.md) installed and running.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create a function app project
 
@@ -244,85 +198,35 @@ The Azure Functions template creates a project that can be published to a functi
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | .NET 7 Isolated | Creates a function project that supports .NET 7 running in isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
-    | **Function** | Empty | Creates an empty function app. |
-    | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
+    | **Functions worker** | .NET 8 Isolated (Long Term Support) | Creates a function project that supports .NET 8 running in isolated worker process and the Azure Functions Runtime 4.0. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
+    | **Function** | Durable Functions Orchestration | Creates a Durable Functions orchestration. |
 
-5. Select **Create** to create an empty function project. This project has the basic configuration files needed to run your functions. Make sure the box for _"Use Azurite for runtime storage account (AzureWebJobStorage)"_ is checked. This will use Azurite emulator.
+> [!NOTE]
+> If you don't see .NET 8 isolated in the Functions worker drop-down, it could be because you don't have the latest Azure Functions toolsets and templates. Go to Tools -> Options -> Projects and Solutions -> Azure Functions -> Check for updates to download the latest. 
 
-Note that there are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
+5. Make sure the box for _"Use Azurite for runtime storage account (AzureWebJobStorage)"_ is checked. This will use Azurite emulator. Select **Create** to create a function project with a Durable Functions orchestration template. This project has the basic configuration files needed to run your functions. 
 
-## Add NuGet package references
+> [!NOTE]
+> There are other storage options you can use for your Durable Functions app. See [Durable Functions storage providers](durable-functions-storage-providers.md) to learn more about different storage options and what benefits they provide. 
 
-Add the following to your app project: 
+In your function app, you'll see a file called *Function1.cs* containing three functions, which are the basic building blocks of a Durable Functions:
 
-```xml
-<ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.DurableTask" Version="1.1.1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" OutputItemType="Analyzer" />
-</ItemGroup>
-```
-## Add functions to the app
-
-The most basic Durable Functions app contains the following three functions. Add them to a new class in the app:
-
-```csharp
-using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.DurableTask;
-using Microsoft.DurableTask.Client;
-using Microsoft.Extensions.Logging;
-
-static class HelloSequence
-{
-    [Function(nameof(HelloCities))]
-    public static async Task<string> HelloCities([OrchestrationTrigger] TaskOrchestrationContext context)
-    {
-        string result = "";
-        result += await context.CallActivityAsync<string>(nameof(SayHello), "Tokyo") + " ";
-        result += await context.CallActivityAsync<string>(nameof(SayHello), "London") + " ";
-        result += await context.CallActivityAsync<string>(nameof(SayHello), "Seattle");
-        return result;
-    }
-
-    [Function(nameof(SayHello))]
-    public static string SayHello([ActivityTrigger] string cityName, FunctionContext executionContext)
-    {
-        ILogger logger = executionContext.GetLogger(nameof(SayHello));
-        logger.LogInformation("Saying hello to {name}", cityName);
-        return $"Hello, {cityName}!";
-    }
-    
-    [Function(nameof(StartHelloCities))]
-    public static async Task<HttpResponseData> StartHelloCities(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-        [DurableClient] DurableTaskClient client,
-        FunctionContext executionContext)
-    {
-        ILogger logger = executionContext.GetLogger(nameof(StartHelloCities));
-
-        string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(nameof(HelloCities));
-        logger.LogInformation("Created new orchestration with instance ID = {instanceId}", instanceId);
-
-        return client.CreateCheckStatusResponse(req, instanceId);
-    }
-}
-
-```
 | Method | Description |
 | -----  | ----------- |
-| **`HelloCities`** | Manages the durable orchestration. In this case, the orchestration starts, creates a list, and adds the result of three functions calls to the list. When the three function calls are complete, it returns the list. |
+| **`RunOrchestrator`** | Defines the durable orchestration. In this case, the orchestration starts, creates a list, and adds the result of three functions calls to the list. When the three function calls are complete, it returns the list. |
 | **`SayHello`** | The function returns a hello. It's the function that contains the business logic that is being orchestrated. |
-| **`StartHelloCities`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
+| **`HttpStart`** | An [HTTP-triggered function](../functions-bindings-http-webhook.md) that starts an instance of the orchestration and returns a check status response. |
 
+You can find more details about these functions in [Durable Functions types and features](./durable-functions-types-features-overview.md). 
 
 ## Test the function locally
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio.
 
-1. To test your function, press <kbd>F5</kbd>. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You may also need to enable a firewall exception so that the tools can handle HTTP requests.
+1. To test your function, set a breakpoint in the `SayHello` activity function code and press <kbd>F5</kbd>. If prompted, accept the request from Visual Studio to download and install Azure Functions Core (CLI) tools. You may also need to enable a firewall exception so that the tools can handle HTTP requests.
+
+> [!NOTE]
+> For more information on debugging, see [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging).
 
 2. Copy the URL of your function from the Azure Functions runtime output.
 
@@ -332,11 +236,13 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     :::image type="content" source="./media/durable-functions-create-first-csharp/isolated-functions-vs-status.png" alt-text="Screenshot of the browser window with statusQueryGetUri called out.":::
 
-    The response is the HTTP function's initial result, letting us know that the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
+    The response is the HTTP function's initial result, letting us know that the durable orchestration has started successfully. It isn't yet the end result of the orchestration. The response includes a few useful URLs. 
+    
+    At this point, your breakpoint in the activity function should be hit because the orchestration has started. Step through it to get a response for the status of the orchestration.
 
 4. Copy the URL value for `statusQueryGetUri`, paste it into the browser's address bar, and execute the request.
 
-    The request will query the orchestration instance for the status. You must get an eventual response that looks like the following.  This output shows us the instance has completed and includes the outputs or results of the durable function.
+    The request will query the orchestration instance for the status. You should see that the instance has completed and includes the outputs of your activity invocations. It looks like:
 
     ```json
     {
@@ -350,6 +256,9 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
         "lastUpdatedTime":"2023-01-31T16:44:37Z"
     }
     ```
+
+> [!NOTE]
+> You can observe the [replay behavior](./durable-functions-orchestrations.md#reliability) of Durable Functions through breakpoints. Because this is an important concept to understand, it's highly recommended that you read the linked article. 
 
 5. To stop debugging, press <kbd>Shift + F5</kbd>.
 

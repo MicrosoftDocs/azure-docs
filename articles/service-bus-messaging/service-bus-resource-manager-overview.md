@@ -18,7 +18,7 @@ Azure Resource Manager templates help you define the resources to deploy for a s
 > [!NOTE]
 > The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for **Service Bus**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Service Bus Resource Manager templates
 

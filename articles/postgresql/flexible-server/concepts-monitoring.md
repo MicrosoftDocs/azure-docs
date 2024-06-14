@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL flexible server provides various monitoring options to provide insight into how your server is performing.
 

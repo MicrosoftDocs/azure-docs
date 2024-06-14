@@ -17,7 +17,7 @@ ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure Key Vault managed HSM.  Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -84,7 +84,7 @@ You should see the name of your newly created managed HSM.
 
 ## Clean up resources
 
-[!INCLUDE [Delete resource group](../../../includes/cli-rg-delete.md)]
+[!INCLUDE [Delete resource group](~/reusable-content/ce-skilling/azure/includes/cli-rg-delete.md)]
 
 > [!WARNING]
 > Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)

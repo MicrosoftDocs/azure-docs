@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 06/03/2024
+ms.date: 06/10/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,17 +20,42 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## June 2024
+
+|Date | Update |
+|--|--|
+| June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+
+### Copilot for Security in Defender for Cloud (Preview)
+
+June 10, 2024
+
+We're announcing the integration of Microsoft Copilot for Security into Defender for Cloud in public preview. Copilot's embedded experience in Defender for Cloud provides users with the ability to ask questions and get answers in natural language. Copilot can help you understand the context of a recommendation, the effect of implementing a recommendation, the steps needed to take to implement a recommendation, assist with the delegation of recommendations, and assist with the remediation of misconfigurations in code.
+
+Learn more about [Copilot for Security in Defender for Cloud](copilot-security-in-defender-for-cloud.md).
+
 ## May 2024
 
 |Date | Update |
 |--|--|
+| May 30 | [General availability of agentless malware detection in Defender for Servers Plan 2](#general-availability-of-agentless-malware-detection-in-defender-for-servers-plan-2) |
 | May 30 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) |
 | May 28 | [Remediate security baseline recommendation](#remediate-security-baseline-recommendation) |
 | May 22 | [Configure email notifications for attack paths](#configure-email-notifications-for-attack-paths) |
 | May 9 | [Checkov integration for IaC scanning in Defender for Cloud (Preview)](#checkov-integration-for-iac-scanning-in-defender-for-cloud-preview) |
+| May 6 | [AI multicloud security posture management is available for Azure and AWS (Preview)](#ai-multicloud-security-posture-management-is-available-for-azure-and-aws-preview) |
 | May 2 | [Updated security policy management is now generally available](#updated-security-policy-management-is-now-generally-available) |
 | May 1 | [Defender for open-source databases is now available on AWS for Amazon instances (Preview)](#defender-for-open-source-databases-is-now-available-on-aws-for-amazon-instances-preview) |
 
+### General availability of agentless malware detection in Defender for Servers Plan 2
+
+May 30, 2024
+
+We're announcing the release of Defender for Cloud's agentless malware detection for Azure virtual machines (VMs), AWS EC2 instances, and GCP VM instances, as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
+
+Agentless malware detection for VMs is now included in our agentless scanning platform. Agentless malware detection utilizes [Microsoft Defender Antivirus](/microsoft-365/security/defender-endpoint/microsoft-defender-antivirus-windows) anti-malware engine to scan and detect malicious files. Any detected threats, trigger security alerts directly into Defender for Cloud and Defender XDR, where they can be investigated and remediated. The Agentless malware scanner complements the agent-based coverage with a second layer of threat detection with frictionless onboarding and has no effect on your machine's performance.
+
+Learn more about [agentless malware scanning](agentless-malware-scanning.md) for servers and [agentless scanning for VMs](concept-agentless-data-collection.md).
 
 ### General Availability of Unified Disk Encryption recommendations
 
@@ -43,9 +68,9 @@ The following Unified Disk Encryption recommendations are now generally availabl
 | [Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a40cc620-e72c-fdf4-c554-c6ca2cd705c0) | a40cc620-e72c-fdf4-c554-c6ca2cd705c0 |
 | [Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0cb5f317-a94b-6b80-7212-13a9cc8826af) | 0cb5f317-a94b-6b80-7212-13a9cc8826af |
 
-Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines. 
+Azure Disk Encryption (ADE) and EncryptionAtHost provide encryption at rest coverage, as described in [Overview of managed disk encryption options - Azure Virtual Machines](/azure/virtual-machines/disk-encryption-overview), and we recommend enabling either of these on virtual machines.
 
-The recommendations depend on [Guest configuration](/azure/governance/machine-configuration/overview). The recommendations in this document are dependent on the configuration of the guest operating system. To ensure that the recommendations can be properly assessed for compliance, it is necessary to enable the required prerequisites on all virtual machines. 
+The recommendations depend on [Guest configuration](/azure/governance/machine-configuration/overview). The recommendations in this document are dependent on the configuration of the guest operating system. To ensure that the recommendations can be properly assessed for compliance, it is necessary to enable the required prerequisites on all virtual machines.
 
 These recommendations replace the recommendation [Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d57a4221-a804-52ca-3dea-768284f06bb7).
 
@@ -59,7 +84,7 @@ Microsoft Defender for Cloud enhances the Center for Internet Security (CIS) ben
 
 May 22, 2024
 
-You can now configure email notifications for attack paths in Defender for Cloud. This feature allows you to receive email notifications when an attack path is detected with a specified risk level or higher. 
+You can now configure email notifications for attack paths in Defender for Cloud. This feature allows you to receive email notifications when an attack path is detected with a specified risk level or higher.
 Learn how to [configure email notifications](configure-email-notifications.md).
 
 ### Advanced hunting in Microsoft Defender XDR now includes Defender for Cloud alerts and incidents
@@ -78,7 +103,7 @@ We are announcing the public preview of the Checkov integration for DevOps secur
 
 While in preview, Checkov must be explicitly invoked through the 'tools' input parameter for the MSDO CLI.
 
-Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md) and configuring the MSDO CLI for [Azure DevOps](azure-devops-extension.yml) and [GitHub](github-action.md). 
+Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md) and configuring the MSDO CLI for [Azure DevOps](azure-devops-extension.yml) and [GitHub](github-action.md).
 
 ### General availability of permissions management in Defender for Cloud
 
@@ -86,11 +111,11 @@ May 7, 2024
 
 We're announcing the general availability (GA) of [permissions management](permissions-management.md) in Defender for Cloud.
 
-### AI multicloud security posture management is publicly available for Azure and AWS
+### AI multicloud security posture management is available for Azure and AWS (Preview)
 
 May 6, 2024
 
-We're announcing the inclusion of AI security posture management in Defender for Cloud. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
+We're announcing the inclusion of AI security posture management in Defender for Cloud in public preview. This feature provides AI security posture management capabilities for Azure and AWS that enhance the security of your AI pipelines and services.
 
 Learn more about [AI security posture management](ai-security-posture.md).
 

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/29/2024
 ms.subservice: aks-developer
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-javaee-websphere, build-2023, devx-track-extended-java
 ---
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
@@ -33,7 +33,7 @@ If you prefer manual step-by-step guidance for running Liberty on AKS, see [Manu
 
 This article is intended to help you quickly get to deployment. Before you go to production, you should explore the [IBM documentation about tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 
 This sample script exports key-values from an Azure App Configuration store.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -32,7 +32,7 @@ This sample script exports key-values from an Azure App Configuration store.
 az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 ```
 
-[!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-cleanup](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

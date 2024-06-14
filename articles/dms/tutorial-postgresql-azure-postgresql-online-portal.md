@@ -107,9 +107,9 @@ To complete all the database objects like table schemas, indexes and stored proc
    > [!NOTE]
    > The migration service internally handles the enable/disable of foreign keys and triggers to ensure a reliable and robust data migration. As a result, you do not have to worry about making any modifications to the target database schema.
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
-[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   
+[!INCLUDE [instance-create](./includes/database-migration-service-instance-create.md)]   
 
 
 ## Create a migration project

@@ -13,7 +13,7 @@ ms.date: 10/21/2021
 
 # Rebuild a Studio (classic) experiment in Azure Machine Learning
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 In this article, you learn how to rebuild an ML Studio (classic) experiment in Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 

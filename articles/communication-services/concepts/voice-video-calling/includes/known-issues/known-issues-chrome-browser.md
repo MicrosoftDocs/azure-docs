@@ -27,7 +27,9 @@ ms.custom: template-how-to
 **Browser version:** Google Chrome version 125 (May 2024) installed on Android devices.<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** Chrome version 125 for Android introduced a regression when making video calls - the result of this bug is a user making a call on Azure Communication Services with this version of Chrome has no outgoing video in Group and Azure Communication Services-Microsoft Teams calls.
-This behavior is observed on Huawei, OnePlus, Poco and Xiaomi Android devices. The behaviour is not observed on Samsung, Google Pixel and Motorola Android devices.<br>
+This behavior is observed on Huawei, OnePlus, Poco and Xiaomi Android devices. The behaviour is not observed on Samsung, Google Pixel and Motorola Android devices.
+- A fix is available starting from Google Chrome version 125.0.6422.146/147.<br>
+
 **Devices affected:** 
 - Huawei P30 Lite
 - OnePlus Nord N10
@@ -35,6 +37,8 @@ This behavior is observed on Huawei, OnePlus, Poco and Xiaomi Android devices. T
 - Poco X3 Pro
 - Xiaomi Redmi 8T
 and possibly other similar models/devices.<br>
+
+**Recommended workaround:** Users are advised to update to Google Chrome version 125.0.6422.146/147 or later, where this issue has been resolved.<br>
 
 ### Outgoing audio issue on Android 14 when browser is in background or device screen is locked
 **Android version:** Android 14.<br>

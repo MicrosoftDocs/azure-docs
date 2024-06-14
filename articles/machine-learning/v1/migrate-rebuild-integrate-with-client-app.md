@@ -14,7 +14,7 @@ ms.date: 05/31/2022
 
 # Consume pipeline endpoints from client applications
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 In this article, you learn how to integrate client applications with Azure Machine Learning endpoints.
 

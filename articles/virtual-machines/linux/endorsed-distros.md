@@ -38,7 +38,7 @@ For more information on support by distribution, see [Support for Linux images
 
 For more information about running Azure workloads on Linux, see the following video:
 
-> [!VIDEO https://youtu.be/K3ybTXorG5I?si=nnT3yY735-Y7sAYr]
+> [!VIDEO https://www.youtube.com/embed/K3ybTXorG5I?si=Bedb40scj_A0oD3U]
 
 ## Types of Images
 Azure Linux images can be grouped into three categories: 

@@ -146,7 +146,7 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 Only URL-safe characters can appear in an Azure AI Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/lookup-document)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
 
-The following example specifies the base64Encode function on `metadata_storage_name `to handle unsupported characters.
+The following example specifies the base64Encode function on `metadata_storage_name` to handle unsupported characters.
 
 ```http
 PUT /indexers?api-version=2020-06-30

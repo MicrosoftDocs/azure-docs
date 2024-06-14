@@ -116,7 +116,7 @@ namespace AzureSQL.ToDo
 
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-csharp).
 

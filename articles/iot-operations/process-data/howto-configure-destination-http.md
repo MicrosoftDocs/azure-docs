@@ -22,7 +22,7 @@ When you send data to an HTTP endpoint from a destination stage, any response is
 
 To configure and use this destination pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor (preview).
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - An HTTP server that's accessible from the Data Processor instance.
 
 ## Configure the destination stage

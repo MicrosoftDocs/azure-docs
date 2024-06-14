@@ -30,7 +30,7 @@ Azure Managed Grafana has the following known limitations:
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
-* Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [contact us](mailto:ad4g@microsoft.com)
+* Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
 
 ## Feature availability in sovereign clouds
 
@@ -47,7 +47,7 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 
 The following quotas apply to the Essential (preview) and Standard plans.
 
-[!INCLUDE [Azure Managed Grafana limits](../../includes/azure-managed-grafana-limits.md)]
+[!INCLUDE [Azure Managed Grafana limits](~/reusable-content/ce-skilling/azure/includes/azure-managed-grafana-limits.md)]
 
 Each data source also has its own limits that can be reflected in Azure Managed Grafana dashboards, alerts and reports. We recommend that you research these limits in the documentation of each data source provider. For instance:
 

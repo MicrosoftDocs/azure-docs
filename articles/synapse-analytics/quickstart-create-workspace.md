@@ -52,7 +52,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
     | Assign access to | USER |
     | Members | your user name |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 1. On the left pane, select **Containers** and create a container.
 1. You can give the container any name. In this document, we'll name the container **users**.
 1. Accept the default setting **Public access level**, and then select **Create**.
@@ -75,7 +75,7 @@ Managed identities for your Azure Synapse workspace might already have access to
     > [!NOTE]
     > The managed identity name is also the workspace name.
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 1. Select **Save**.
 
 ## Next steps

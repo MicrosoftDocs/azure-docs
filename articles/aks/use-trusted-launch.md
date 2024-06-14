@@ -37,7 +37,7 @@ Trusted launch is composed of several, coordinated infrastructure technologies t
 
 ### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -96,7 +96,13 @@ Perform the following steps to deploy an AKS cluster using the Azure CLI.
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*, and enables Secure Boot and vTPM:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group myResourceGroup --node-count 1 --enable-secure-boot --enable-vtpm --enable-managed-identity --generate-ssh-keys
+    az aks create \
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --node-count 1 \
+        --enable-secure-boot \
+        --enable-vtpm \
+        --generate-ssh-keys
     ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.

@@ -8,7 +8,7 @@ ms.subservice: extensions
 ms.collection: linux
 ms.topic: how-to
 ms.date: 03/31/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, linux-related-content
+ms.custom: devx-track-arm-template, linux-related-content
 
 #CustomerIntent: As an Azure administrator, I want to install Network Watcher Agent VM extension and manage it so that I can use Network watcher features to diagnose and monitor my Linux virtual machines (VMs).
 ---

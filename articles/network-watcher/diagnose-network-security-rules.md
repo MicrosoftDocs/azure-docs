@@ -54,7 +54,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
     :::image type="content" source="./media/diagnose-network-security-rules/virtual-networks-portal-search.png" alt-text="Screenshot shows how to search for virtual networks in the Azure portal." lightbox="./media/diagnose-network-security-rules/virtual-networks-portal-search.png":::
 
@@ -191,7 +191,7 @@ In this section, you create a virtual machine and a network security group appli
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter ***virtual machines***. Select **Virtual machines** from the search results.
 
 1. Select **+ Create** and then select **Azure virtual machine**.
 
@@ -271,7 +271,7 @@ In this section, you add a security rule to the network security group associate
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter ***network security groups***. Select **Network security groups** in the search results.
+1. In the search box at the top of the portal, enter ***network security groups***. Select **Network security groups** from the search results.
 
 1. From the list of network security groups, select **myVM-nsg**.
 
