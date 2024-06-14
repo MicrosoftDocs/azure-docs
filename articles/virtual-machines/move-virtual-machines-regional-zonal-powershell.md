@@ -481,7 +481,7 @@ Check whether the regional VMs you added have any dependencies on other resource
     
 ### Availability Zones VM SKU, Quota and Capacity validations
 
-Azure provides recommendations when the selected Availability Zone doesn't have the virtual machine SKU, or when there is not enough Quota or Capacity available. Here are some examples of these recommendations and the actions that should be taken. If the VM SKU is not available.
+Azure provides recommendations when the selected Availability Zone doesn't have the virtual machine SKU, or when there is not enough Quota or Capacity available. Here are some examples of these recommendations and the actions that should be taken if the virtual machine SKU is not available.
 
 #### VM SKU not available
 
@@ -526,20 +526,20 @@ To address the situations where the VM SKU is not found or there is a capacity i
 
 1. Update virtual machine move resource object to new Zone or SKU as per the recommendations.
 
-  ```azurepowershell
-  $targetResourceSettingsObj.TargetVmSize = "Standard_DC1ds_v3"
-  $targetResourceSettingsObj.TargetAvailabilityZone = "3"
-  ```
+    ```azurepowershell
+    $targetResourceSettingsObj.TargetVmSize = "Standard_DC1ds_v3"
+    $targetResourceSettingsObj.TargetAvailabilityZone = "3"
+    ```
 
 1. Update virtual machine move resource
 
-  ```azurepowershell
-  Add-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" -SourceId "/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/virtualMachines/vmtwo" -Name "demoVM-MoveResource2" -ResourceSetting $targetResourceSettingsObj
-  ```
+    ```azurepowershell
+    Add-AzResourceMoverMoveResource -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC" -SourceId "/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.Compute/virtualMachines/vmtwo" -Name "demoVM-MoveResource2" -ResourceSetting $targetResourceSettingsObj
+    ```
 
 1. Run resolve again
 
-  `Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC"`
+    `Resolve-AzResourceMoverMoveCollectionDependency -ResourceGroupName "RegionToZone-DemoMCRG" -MoveCollectionName "RegionToZone-DemoMC"`
 
 ### Insufficient Quota
 
@@ -641,6 +641,22 @@ After the initial move, you must commit the move or discard it. **Commit** compl
   ```
 
   ---
+
+## Remove a resource
+
+You can remove a single resource or multiple resources from a `MoveCollection` using the following cmdlets:
+ 
+1.  Get a list of the move resources that are added to the move collection:
+    `$list = Get-AzResourceMoverMoveResource -ResourceGroupName "<MoveCollectionResourceGroupName>" -MoveCollectionName "<MoveCollectionName>"`
+ 
+1. Remove the move resources you found:
+    `Invoke-AzResourceMoverBulkRemove -ResourceGroupName "<MoveCollectionResourceGroupName>" -MoveCollectionName "<MoveCollectionName>" -MoveResource $($list.Name)`
+ 
+1. Remove the move collection:
+    `Remove-AzResourceMoverMoveCollection -ResourceGroupName "<MoveCollectionResourceGroupName>" -MoveCollectionName "<MoveCollectionName>"`
+
+> [!NOTE]
+> If you observe managed identities authorization issues, re-enable the managed identities access by following [these steps](#remove-a-resource) again.
 
 
 ## Delete source regional VMs

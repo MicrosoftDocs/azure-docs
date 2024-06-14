@@ -18,66 +18,46 @@ This article answers common questions about Azure single instance virtual machin
 
 Currently, you can move virtual machine(s) across all public regions that are supported by Availability Zones. Learn more about the [availability zone service and regional support](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
+> [!NOTE]
+> Azure China (China North 3) and Azure Govt (US Gov Virginia) are also supported.
+
 ### Where is the metadata stored?
 
 The service doesn't retain any customer data, and all data remains within the source virtual machine region. The following table shows the mapping between the virtual machine region and metadata region:
 
 | Region group | Region | Metadata region |
 | --- | --- | ----|
-| **Americas** | centralus | eastus2 |
-| | centraluseuap | centraluseuap |
+| **Americas** | eastus2 | eastus2 |
 | | eastus | eastus2 |
-| | eastus2 | eastus2 |
-| | eastus2euap | eastus2euap |
-| | westus | eastus2 |
 | | westus2 | eastus2 |
-| | northcentralus | eastus2 |
 | | southcentralus | eastus2 |
-| | westcentralus | eastus2 |
 | | brazilsouth | brazilsouth |
-| | brazilus | brazilsouth |
 | | canadacentral | canadacentral |
-| | canadaeast | canadacentral |
-| | brazilsoutheast | brazilsouth |
 | | westus3 | eastus2 |
+||||
 | **Europe**| northeurope | northeurope |
 | | westeurope | northeurope |
-| | uknorth | uksouth |
-| | uksouth2 | uksouth |
 | | uksouth | uksouth |
-| | ukwest | uksouth |
 | | francecentral | francecentral |
-| | francesouth | francecentral |
 | | switzerlandnorth | switzerlandnorth |
-| | switzerlandwest | switzerlandnorth |
-| | germanynorth | germanywestcentral |
 | | germanywestcentral | germanywestcentral |
 | | norwayeast | norwayeast |
-| | norwaywest | norwayeast |
 | | swedencentral | swedencentral |
 | | polandcentral | polandcentral |
 | | spaincentral | northeurope |
 | | italynorth | northeurope |
-| | swedensouth | swedencentral |
-| **Middle East** | uaecentral | uaenorth |
-| | uaenorth | uaenorth |
+||||
+| **Middle East** | uaenorth | uaenorth |
 | | qatarcentral | qatarcentral |
-| **Asia Pacific** | japaneast | |
-| | japanwest | japaneast |
+||||
+| **Asia Pacific** | japaneast | japaneast |
 | | eastasia | southeastasia |
 | | southeastasia | southeastasia |
-| | australiasoutheast | australiaeast |
 | | australiaeast | australiaeast |
-| | westindia | centralindia |
-| | southindia | centralindia |
 | | centralindia | centralindia |
 | | koreacentral | koreacentral |
-| | koreasouth | koreacentral |
-| | jioindiawest | centralindia |
-| | jioindiacentral | centralindia |
-| | malaysiasouth | southeastasia |
+||||
 | **Africa** | southafricanorth | southeastasia |
-| | southafricawest | southeastasia |
 
 
 ### Is the collected metadata encrypted?
@@ -139,7 +119,7 @@ Managed identity previously known as Managed Service Identity (MSI), is a featur
 
 ### Can I move my resources from Regional to Zonal and across subscriptions?
 
-You can use Azure Resource Manager to move virtual machines from a regional to a zonal deployment within the same subscription, and then move them across subscriptions.
+You can use virtual machine Regional to Zonal Move capability to move virtual machines from a regional to a zonal deployment within the same subscription and then use Azure Resource Manager to move them across subscriptions.
 
 ### Are Azure Backup/DR, RBAC, Tags, Policies, and extensions on virtual machines supported?
 

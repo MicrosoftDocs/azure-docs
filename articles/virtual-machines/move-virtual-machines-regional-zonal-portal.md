@@ -41,7 +41,7 @@ To select the VMs for the move, follow these steps:
 2.	In the virtual machine resource pane, select **Availability + scaling** > **edit**. 
     :::image type="content" source="./media/tutorial-move-regional-zonal/scaling-pane.png" alt-text="Screenshot of Availability + scaling pane.":::  
 
-    Alternatively, in the **DemoTestVM1** overview plane, you can select **Availability + scale** > **Availability + scaling**.
+    Alternatively, in the virtual machine overview plane, you can select **Availability + scale** > **Availability + scaling**.
         
 
  
