@@ -691,7 +691,7 @@
         "articles/ai-services/personalizer/**/*.*": "None",
         "articles/ai-services/qnamaker/**/*.*": "None",
         "articles/ai-services/LUIS/**/*.*": "None",
-        "articles/aks": "GitHub",
+        "articles/aks/**/*.*": "GitHub",
         "articles/azure-monitor/**/*.*": "None",
         "articles/advisor/**/*.*": "None",
         "articles/iot-operations/**/*": "GitHub",	      
