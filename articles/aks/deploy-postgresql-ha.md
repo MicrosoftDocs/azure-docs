@@ -75,8 +75,6 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
       --kube-context=$AKS_PRIMARY_CLUSTER_NAME
     ```
 
-TODO: Russell, investigate Prometheus metrics export and rules with EDB reference https://github.com/cloudnative-pg/cloudnative-pg/tree/main/docs/src/samples/monitoring
-
 For reference dump the configured PodMonitor: kubectl -n $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME \
     get podmonitors.monitoring.coreos.com \
