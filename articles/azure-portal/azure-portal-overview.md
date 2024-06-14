@@ -1,8 +1,7 @@
 ---
 title: What is the Azure portal?
 description: The Azure portal is a graphical user interface that you can use to manage your Azure services. Learn how to navigate and find resources in the Azure portal.
-keywords: portal
-ms.date: 04/10/2024
+ms.date: 06/14/2024
 ms.topic: overview
 ---
 
@@ -14,9 +13,9 @@ The Azure portal is designed for resiliency and continuous availability. It has 
 
 In this topic, you learn about the different parts of the Azure portal.
 
-## Azure Home
+## Home
 
-By default, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Azure Home**. This page compiles resources that help you get the most from your Azure subscription. We include links to free online courses, documentation, core services, and useful sites for staying current and managing change for your organization. For quick and easy access to work in progress, we also show a list of your most recently visited resources.
+By default, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Home**. This page compiles resources that help you get the most from your Azure subscription. Select **Create a resource** to quickly create a new resource in the current subscription, or choose a service to start working in. For quick and easy access to work in progress, we show a list of your most recently visited resources. We also include links to free online courses, documentation, and other useful resources.
 
 ## Portal elements and controls
 
@@ -26,25 +25,30 @@ The figure below labels the basic elements of the Azure portal, each of which ar
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-callouts.png" alt-text="Screenshot showing the full screen portal view and a key to UI elements." lightbox="media/azure-portal-overview/azure-portal-overview-portal-callouts.png":::
 
-:::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png" alt-text="Screenshot showing the portal menu and a key to UI elements.":::
-
-|Key|Description
+|Key|Description |
 |:---:|---|
 |1|**Page header**. Appears at the top of every portal page and holds global elements.|
 |2|**Global search**. Use the search bar to quickly find a specific resource, a service, or documentation.|
 |3|**Global controls**. Like all global elements, these controls persist across the portal. Global controls include Cloud Shell, Notifications, Settings, Support + Troubleshooting, and Feedback.|
 |4|**Your account**. View information about your account, switch directories, sign out, or sign in with a different account.|
-|5|**Portal menu**. This global element can help you to navigate between services. Sometimes referred to as the sidebar. (Items 10 and 11 in this list appear in this menu.)|
-|6|**Resource menu**. Many services include a resource menu to help you manage the service. You may see this element referred to as the service menu, or sometimes as the left pane. The commands you see are contextual to the resource or service that you're using.|
+|5|**Portal menu**. This global element can help you to navigate between services. Sometimes referred to as the sidebar.|
+|6|**Service menu**. Many services include a menu with commands that are contextual to the service or resource that you're working with. You may see also this element referred to as the resource menu, or sometimes as the left pane.|
 |7|**Command bar**. These controls are contextual to your current focus.|
 |8|**Working pane**. Displays details about the resource that is currently in focus.|
-|9|**Breadcrumb**. You can use the breadcrumb links to move back a level in your workflow.|
-|10|**+ Create a resource**. Master control to create a new resource in the current subscription, available in the Azure portal menu. You can also find this option on the **Home** page.|
-|11|**Favorites**. Your favorites list in the Azure portal menu. To learn how to customize this list, see [Add, remove, and sort favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md).|
+|9|**Breadcrumb**. Use the breadcrumb links to move back a level in your workflow.|
 
 ## Portal menu
 
-The Azure portal menu lets you quickly get to key functionality and resource types. You can [choose a default mode for the portal menu](set-preferences.md#set-menu-behavior): flyout or docked.
+The Azure portal menu lets you quickly get to key functionality and resource types. It's available from anywhere in the Azure portal.
+
+:::image type="content" source="media/azure-portal-overview/azure-portal-menu.png" alt-text="Screenshot showing the Azure portal menu.":::
+
+Useful commands in the portal menu include:
+
+- **+ Create a resource**. An easy way to get started creating a new resource in the current subscription.
+- **Favorites**. Your list of favorite Azure services. To learn how to customize this list, see [Add, remove, and sort favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md).|
+
+You can [choose a default mode for the portal menu](set-preferences.md#portal-menu-behavior): flyout or docked.
 
 When the portal menu is in flyout mode, it's hidden until you need it. Select the menu icon to open or close the menu.
 
@@ -54,7 +58,9 @@ If you choose docked mode for the portal menu, it will always be visible. You ca
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-menu-expandcollapse.png" alt-text="Screenshot of the Azure portal menu in docked mode.":::
 
-You can [customize the favorites list](azure-portal-add-remove-sort-favorites.md) that appears in the portal menu.
+## Service menu
+
+The service menu appears when you're working with an Azure service or resource. Commands in this menu 
 
 ## Dashboard
 
@@ -72,6 +78,8 @@ To view all available services, select **All services** from the sidebar.
 
 > [!TIP]
 > Often, the quickest way to get to a resource, service, or documentation is to use *Search* in the global header.
+
+For more help getting started with Azure, explore the [Azure Quickstart Center](azure-portal-quickstart-center.md).
 
 ## Next steps
 
