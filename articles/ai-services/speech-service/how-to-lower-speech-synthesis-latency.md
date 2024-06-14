@@ -320,18 +320,28 @@ For Android, iOS and macOS, no extra configuration is needed starting version 1.
 
 ## Text streaming
 
-The text stream API allows real-time text processing for rapid audio generation. It's perfect for dynamic text vocalization, such as reading outputs from AI models like GPT in real-time. This API minimizes latency and improves the fluidity and responsiveness of audio outputs, making it ideal for interactive applications, live events, and responsive AI-driven dialogues.
+Text streaming allows real-time text processing for rapid audio generation. It's perfect for dynamic text vocalization, such as reading outputs from AI models like GPT in real-time. This feature minimizes latency and improves the fluidity and responsiveness of audio outputs, making it ideal for interactive applications, live events, and responsive AI-driven dialogues.
 
-### How to use the text stream API
+### How to use text streaming
 
-To use the text stream API, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
+To use the text streaming feature, connect to the websocket V2 endpoint: `wss://{region}.tts.speech.microsoft.com/cognitiveservices/websocket/v2`
 
 ::: zone pivot="programming-language-csharp"
+
+See the sample code for setting the endpoint:
+
+```csharp
+// IMPORTANT: MUST use the websocket v2 endpoint
+var ttsEndpoint = $"wss://{Environment.GetEnvironmentVariable("AZURE_TTS_REGION")}.tts.speech.microsoft.com/cognitiveservices/websocket/v2";
+var speechConfig = SpeechConfig.FromEndpoint(
+    new Uri(ttsEndpoint),
+    Environment.GetEnvironmentVariable("AZURE_TTS_API_KEY"));
+```
 
 #### Key steps
 
 1. **Create a text stream request**: Use `SpeechSynthesisRequestInputType.TextStream` to initiate a text stream.
-1. **Set global properties**: Adjust settings such as output format and voice name directly, as the API handles partial text inputs and doesn't support SSML. Refer to the following sample code for instructions on how to set them.
+1. **Set global properties**: Adjust settings such as output format and voice name directly, as the feature handles partial text inputs and doesn't support SSML. Refer to the following sample code for instructions on how to set them.
 
     ```csharp
     // Set output format
