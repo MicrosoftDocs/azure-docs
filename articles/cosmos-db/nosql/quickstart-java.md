@@ -10,7 +10,7 @@ ms.subservice: nosql
 ms.devlang: java
 ms.custom: devx-track-extended-java, devx-track-extended-azdevcli
 ms.topic: quickstart-sdk
-ms.date: 01/08/2024
+ms.date: 06/14/2024
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 # CustomerIntent: As a developer, I want to learn the basics of the Java library so that I can build applications with Azure Cosmos DB for NoSQL.
 ---
@@ -45,7 +45,18 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE[Developer Quickstart setup](includes/quickstart/dev-setup.md)]
+[!INCLUDE[Developer Quickstart setup prefix](includes/quickstart/dev-setup-prefix.md)]
+
+1. Use `azd init` to initialize the project.
+
+    ```azurecli
+    azd init --template cosmos-db-nosql-java-quickstart
+    ```
+
+    > [!NOTE]
+    > This quickstart uses the [azure-samples/cosmos-db-nosql-java-quickstart](https://github.com/azure-samples/cosmos-db-nosql-java-quickstart) template GitHub repository. The Azure Developer CLI will automatically clone this project to your machine if it is not already there.
+
+[!INCLUDE[Developer Quickstart setup prefix](includes/quickstart/dev-setup-suffix.md)]
 
 ### Install the client library
 
