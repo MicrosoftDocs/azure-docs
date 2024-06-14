@@ -42,11 +42,13 @@
       href: cross-region-replication.md
     - name: Reliability
       href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
+    - name: Compute and storage
+      href: compute-storage.md 
     - name: Migration options
       href: migration-options.md 
     - name: Security
       items: 
-        - name: Security Overview
+        - name: Security overview
           href: security.md
         - name: Data encryption
           href: database-encryption-at-rest.md

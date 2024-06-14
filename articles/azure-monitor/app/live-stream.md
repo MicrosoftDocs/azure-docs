@@ -40,7 +40,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
   Using OpenTelemetry (Recommended):
 
-   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live Metrics is enabled by default.
+   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live Metrics is not supported.
    * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Live Metrics is enabled by default.
    * [Java](./opentelemetry-enable.md?tabs=java): Live Metrics is enabled by default.
    * [Node.js](opentelemetry-enable.md?tabs=nodejs): Live Metrics is enabled by default.
