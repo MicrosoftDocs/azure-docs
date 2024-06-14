@@ -21,6 +21,10 @@ The key scenarios Azure Extended Zones enable are:
 
 - **Data residency**: users want their applications data to stay within a specific geography and might essentially want to host locally for various privacy, regulatory, and compliance reasons.
 
+The following diagram shows some of the industries and use cases where Azure Extended Zones can provide benefits.
+
+:::image type="content" source="./media/overview/azure-extended-zones-industries.png" alt-text="Diagram that shows industries and use cases where Azure Extended Zones can provide benefits." lightbox="./media/overview/azure-extended-zones-industries.png":::
+
 ## Service offerings for Azure Extended Zones
 
 Azure Extended Zones enable some key Azure services for customers to deploy. The control plane for these services remains in the region and the data plane is deployed at the Extended Zone site, resulting in a smaller Azure footprint.
@@ -34,6 +38,9 @@ The following key services are available in Azure Extended Zones:
 | **Storage** | Azure Managed Disks <br> Azure Premium Page Blobs <br> Azure Premium Block Blobs <br> Azure Premium Files <br>  Azure Data Lake Storage Gen2<br> Hierarchical Namespace <br>Azure Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
 | **BCDR** | Azure Site Recovery <br> Azure Backup |
 
+The following diagram shows how Azure services are deployed at the Azure Extended Zones location.
+
+:::image type="content" source="./media/overview/azure-extended-zone-services.png" alt-text="Diagram that shows available Azure services at an Azure Extended Zone." lightbox="./media/overview/azure-extended-zone-services.png":::
 
 ## Next step
 
