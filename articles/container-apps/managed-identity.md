@@ -1,882 +1,431 @@
 ---
-title: Azure Container Apps image pull from Azure Container Registry with managed identity
-description: Set up Azure Container Apps to authenticate Azure Container Registry image pulls with managed identity
+title: Managed identities in Azure Container Apps
+description: Using managed identities in Container Apps
 services: container-apps
 author: v-jaswel
 ms.service: container-apps
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 10/25/2023
 ms.author: v-wellsjason
-zone_pivot_groups: container-apps-azure-portal-console-bicep
 ---
 
-# Azure Container Apps image pull with managed identity
+# Managed identities in Azure Container Apps
 
-You can pull images from private repositories in Microsoft Azure Container Registry using managed identities for authentication to avoid the use of administrative credentials.
+A managed identity from Microsoft Entra ID allows your container app to access other Microsoft Entra protected resources. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-You can use a user-assigned or system-assigned managed identity to authenticate with Azure Container Registry.
-- With a user-assigned managed identity, you create and manage the identity outside of Azure Container Apps. It can be assigned to multiple Azure resources, including Azure Container Apps.
-- With a system-assigned managed identity, the identity is created and managed by Azure Container Apps. It is tied to your container app and is deleted when your app is deleted.
-- When possible, you should use a user-assigned managed identity to pull images.
+Your container app can be granted two types of identities:
 
-Container Apps checks for a new version of the image whenever a container is started. In Docker or Kubernetes terminology, Container Apps sets each container's image pull policy to `always`.
+- A **system-assigned identity** is tied to your container app and is deleted when your container app is deleted. An app can only have one system-assigned identity.
+- A **user-assigned identity** is a standalone Azure resource that you can assign to your container app and other resources. A container app can have multiple user-assigned identities. User-assigned identities exist until you delete them.
 
-::: zone pivot="portal"
+## Why use a managed identity?
 
-This article describes how to use the Azure portal to configure your container app to use user-assigned and system-assigned managed identities to pull images from private Azure Container Registry repositories.
+You can use a managed identity in a running container app to authenticate to any [service that supports Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-## User-assigned managed identity
+With managed identities:
 
-The following steps describe the process to configure your container app to use a user-assigned managed identity to pull images from private Azure Container Registry repositories.
+- Your app connects to resources with the managed identity. You don't need to manage credentials in your container app.
+- You can use role-based access control to grant specific permissions to a managed identity.
+- System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
+- You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's lifecycle.
+- You can use managed identity to [authenticate with a private Azure Container Registry](./managed-identity-image-pull.md) without a username and password to pull containers for your container app.
+- You can use a [managed identity to create connections for Dapr-enabled applications via Dapr components](./dapr-overview.md)
 
-1. Create a container app with a public image.
-1. Add the user-assigned managed identity to the container app.
-1. Create a container app revision with a private image and the user-assigned managed identity.
+### Common use cases
 
-### Prerequisites
+System-assigned identities are best for workloads that:
 
-- An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- A private Azure Container Registry containing an image you want to pull.
-- Your Azure Container Registry must allow ARM audience tokens for authentication in order to use managed identity to pull images.
-    Use the following command to check if ARM tokens are allowed to access your ACR:
+- are contained within a single resource
+- need independent identities
 
-    ```azurecli
-    az acr config authentication-as-arm show -r <REGISTRY>
-    ```
+User-assigned identities are ideal for workloads that:
 
-    If ARM tokens are disallowed, you can allow them with the following command:
+- run on multiple resources and can share a single identity
+- need pre-authorization to a secure resource
 
-    ```azurecli
-    az acr config authentication-as-arm update -r <REGISTRY> --status enabled
-    ```
-- Create a user-assigned managed identity. For more information, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+## Limitations
 
-### Create a container app 
+- Managed identities in scale rules isn't supported. You need to include connection strings or keys in the `secretRef` of the scaling rule.
+- [Init containers](containers.md#init-containers) can't access managed identities.
 
-Use the following steps to create a container app with the default quickstart image.
+## Configure managed identities
 
-1. Navigate to the portal **Home** page.
-1. Search for **Container Apps** in the top search bar.
-1. Select **Container Apps** in the search results.
-1. Select the **Create** button.
-1. In the *Basics* tab, do the following actions.
+You can configure your managed identities through:
 
-    | Setting | Action |
-    |---|---|
-    | **Subscription** | Select your Azure subscription. |
-    | **Resource group** | Select an existing resource group or create a new one. |
-    | **Container app name** | Enter a container app name. |
-    | **Location** | Select a location. |
-    | **Create Container App Environment** | Create a new or select an existing environment. |
+- the Azure portal
+- the Azure CLI
+- your Azure Resource Manager (ARM) template
 
-1. Select the **Review + Create** button at the bottom of the **Create Container App** page.
-1. Select the **Create** button at the bottom of the **Create Container App** window.
+When a managed identity is added, deleted, or modified on a running container app, the app doesn't automatically restart and a new revision isn't created.
 
-Allow a few minutes for the container app deployment to finish. When deployment is complete, select **Go to resource**.
+> [!NOTE]
+> When adding a managed identity to a container app deployed before April 11, 2022, you must create a new revision.
 
-### Add the user-assigned managed identity
+### Add a system-assigned identity
 
-1. Select **Identity** from the left menu.
-1. Select the **User assigned** tab.
-1. Select the **Add user assigned managed identity** button.
-1. Select your subscription.
-1. Select the identity you created.
-1. Select **Add**.
- 
-### Create a container app revision 
+# [Azure portal](#tab/portal)
 
-Create a container app revision with a private image and the system-assigned managed identity.
+1. Go to your container app in the Azure portal.
 
-1. Select **Revision Management** from the left menu.
-1. Select **Create new revision**.
-1. Select the container image from the **Container Image** table.
-1. Enter the information in the *Edit a container* dialog.
+1. From the *Settings* group, select **Identity**.
 
-    |Field|Action|
-    |-----|------|
-    |**Name**|Enter a name for the container.|
-    |**Image source**|Select **Azure Container Registry**.|
-    |**Authentication**|Select **Managed Identity**.|
-    |**Identity**|Select the identity you created from the drop-down menu.|
-    |**Registry**|Select the registry you want to use from the drop-down menu.|
-    |**Image**|Enter the name of the image you want to use.|
-    |**Image Tag**|Enter the name and tag of the image you want to pull.|
-
-     :::image type="content" source="media/managed-identity/screenshot-edit-a-container-user-assigned-identity.png" alt-text="Screen shot of the Edit a container dialog entering user assigned managed identity.":::
-     >[!NOTE]
-     > If the administrative credentials are not enabled on your Azure Container Registry registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
+1. Within the *System assigned* tab, switch *Status* to **On**.
 
 1. Select **Save**.
-1. Select **Create** from the **Create and deploy new revision** page.
 
-A new revision will be created and deployed. The portal will automatically attempt to add the `acrpull` role to the user-assigned managed identity. If the role isn't added, you can add it manually.
+:::image type="content" source="media/managed-identity/screenshot-system-assigned-identity.png" alt-text="Screenshot of system-assigned identities.":::
 
-You can verify that the role was added by checking the identity from the **Identity** pane of the container app page.
+# [Azure CLI](#tab/cli)
 
-1. Select **Identity** from the left menu.
-1. Select the **User assigned** tab.
-1. Select the user-assigned managed identity.
-1. Select **Azure role assignments** from the menu on the managed identity resource page.
-1. Verify that the `acrpull` role is assigned to the user-assigned managed identity.
-
-### Create a container app with a private image
-
-If you don't want to start by creating a container app with a public image, you can also do the following.
-
-1. Create a user-assigned managed identity.
-1. Add the `acrpull` role to the user-assigned managed identity.
-1. Create a container app with a private image and the user-assigned managed identity.
-
-This method is typical in Infrastructure as Code (IaC) scenarios.
-
-### Clean up resources
-
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
-
->[!WARNING]
->Deleting the resource group will delete all the resources in the group. If you have other resources in the group, they will also be deleted. If you want to keep the resources, you can delete the container app instance and the container app environment.
-
-1. Select your resource group from the *Overview* section.
-1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name in the confirmation dialog.
-1. Select **Delete**.
-    The process to delete the resource group may take a few minutes to complete.
-
-## System-assigned managed identity
-
-The method for configuring a system-assigned managed identity in the Azure portal is the same as configuring a user-assigned managed identity. The only difference is that you don't need to create a user-assigned managed identity. Instead, the system-assigned managed identity is created when you create the container app.
-
-The method to configure a system-assigned managed identity in the Azure portal is:
-
-1. Create a container app with a public image.
-1. Create a container app revision with a private image and the system-assigned managed identity.
-
-### Prerequisites
-
-- An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
-- A private Azure Container Registry containing an image you want to pull. See [Create a private Azure Container Registry](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
-
-### Create a container app
-
-Follow these steps to create a container app with the default quickstart image.
-
-1. Navigate to the portal **Home** page.
-1. Search for **Container Apps** in the top search bar.
-1. Select **Container Apps** in the search results.
-1. Select the **Create** button.
-1. In the **Basics** tab, do the following actions.
-
-    | Setting | Action |
-    |---|---|
-    | **Subscription** | Select your Azure subscription. |
-    | **Resource group** | Select an existing resource group or create a new one. |
-    | **Container app name** | Enter a container app name. |
-    | **Location** | Select a location. |
-    | **Create Container App Environment** | Create a new or select an existing environment. |
-
-1. Select the **Review + Create** button at the bottom of the **Create Container App** page.
-1. Select the **Create** button at the bottom of the **Create Container App** page.
-
-Allow a few minutes for the container app deployment to finish. When deployment is complete, select **Go to resource**.
-
-### Edit and deploy a revision
-
-Edit the container to use the image from your private Azure Container Registry, and configure the authentication to use system-assigned identity.
-
-1. The **Containers** from the side menu on the left.
-1. Select **Edit and deploy**.
-1. Select the *simple-hello-world-container* container from the list.
-
-    | Setting | Action |
-    |---|---|
-    |**Name**| Enter the container app name. |
-    |**Image source**| Select **Azure Container Registry**. |
-    |**Authentication**| Select **Managed identity**. |
-    |**Identity**| Select **System assigned**. |
-    |**Registry**| Enter the Registry name. |
-    |**Image**| Enter the image name. |
-    |**Image tag**| Enter the tag. |
-
-    :::image type="content" source="media/managed-identity/screenshot-edit-a-container-system-assigned-identity.png" alt-text="Screen shot Edit a container with system-assigned managed identity.":::
-    >[!NOTE]
-    > If the administrative credentials are not enabled on your Azure Container Registry registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
-
-1. Select **Save** at the bottom of the page.
-1. Select **Create** at the bottom of the **Create and deploy new revision** page
-1. After a few minutes, select **Refresh** on the **Revision management** page to see the new revision.
-
-A new revision will be created and deployed. The portal will automatically attempt to add the `acrpull` role to the system-assigned managed identity. If the role isn't added, you can add it manually.
-
-You can verify that the role was added by checking the identity in the **Identity** pane of the container app page.
-
-1. Select **Identity** from the left menu.
-1. Select the **System assigned** tab.
-1. Select **Azure role assignments**.
-1. Verify that the `acrpull` role is assigned to the system-assigned managed identity.
-
-### Clean up resources
-
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
-
->[!WARNING]
->Deleting the resource group will delete all the resources in the group. If you have other resources in the group, they will also be deleted. If you want to keep the resources, you can delete the container app instance and the container app environment.
-
-1. Select your resource group from the *Overview* section.
-1. Select the **Delete resource group** button at the top of the resource group *Overview*.
-1. Enter the resource group name in the confirmation dialog.
-1. Select **Delete**.
-    The process to delete the resource group may take a few minutes to complete. 
-
-::: zone-end
-::: zone pivot="console"
-
-This article describes how to configure your container app to use managed identities to pull images from a private Azure Container Registry repository using Azure CLI and Azure PowerShell.
-
-## Prerequisites
-
-| Prerequisite | Description |
-|--------------|-------------|
-| Azure account | An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/). |
-| Azure CLI | If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine. |
-| Azure PowerShell | If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`. |
-|Azure Container Registry | A private Azure Container Registry containing an image you want to pull. [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)|
-
-[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
-
-Next, set the following environment variables. Replace the placeholders surrounded by `<>` with your values.
-
-# [Bash](#tab/bash)
+Run the `az containerapp identity assign` command to create a system-assigned identity:
 
 ```azurecli
-RESOURCE_GROUP="<YOUR_RESOURCE_GROUP_NAME>"
-LOCATION="<YOUR_LOCATION>"
-CONTAINERAPPS_ENVIRONMENT="<YOUR_ENVIRONMENT_NAME>"
-REGISTRY_NAME="<YOUR_REGISTRY_NAME>"
-CONTAINERAPP_NAME="<YOUR_CONTAINERAPP_NAME>"
-IMAGE_NAME="<YOUR_IMAGE_NAME>"
+az containerapp identity assign --name myApp --resource-group myResourceGroup --system-assigned
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [ARM template](#tab/arm)
 
-```azurepowershell
-$ResourceGroupName = '<RESOURCE_GROUP_NAME>'
-$Location = '<LOCATION>'
-$ContainerAppsEnvironment = '<ENVIRONMENT_NAME>'
-$RegistryName = '<REGISTRY_NAME>'
-$ContainerAppName = '<CONTAINERAPP_NAME>'
-$ImageName = '<IMAGE_NAME>'
-```
+An ARM template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your ARM template.
 
----
-
-If you already have a resource group, skip this step. Otherwise, create a resource group.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group create \
-  --name $RESOURCE_GROUP \
-  --location $LOCATION
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroup -Location $Location -Name $ResourceGroupName
-```
-
----
-
-### Create a container app environment
-
-If the environment doesn't exist, run the following command:
-
-# [Bash](#tab/bash)
-
-To create the environment, run the following command:
-
-```azurecli
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to variables.
-
-```azurepowershell
-$WorkspaceArgs = @{
-    Name = 'myworkspace'
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    PublicNetworkAccessForIngestion = 'Enabled'
-    PublicNetworkAccessForQuery = 'Enabled'
+```json
+"identity": {
+    "type": "SystemAssigned"
 }
-New-AzOperationalInsightsWorkspace @WorkspaceArgs
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).CustomerId
-$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroupName -Name $WorkspaceArgs.Name).PrimarySharedKey
 ```
 
-To create the environment, run the following command:
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
 
-```azurepowershell
-$EnvArgs = @{
-    EnvName = $ContainerAppsEnvironment
-    ResourceGroupName = $ResourceGroupName
-    Location = $Location
-    AppLogConfigurationDestination = 'log-analytics'
-    LogAnalyticConfigurationCustomerId = $WorkspaceId
-    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
-}
+# [YAML](#tab/yaml)
 
-New-AzContainerAppManagedEnv @EnvArgs
+Some Azure CLI commands, including `az containerapp create` and `az containerapp job create`, support YAML files for input. To add a system-assigned identity, add an `identity` section to your YAML file.
+
+```yaml
+identity:
+  type: SystemAssigned
 ```
 
----
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete YAML template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
 
-Continue to the next section to configure user-assigned managed identity or skip to the [System-assigned managed identity](#system-assigned-managed-identity-1) section.
+# [Bicep](#tab/bicep)
 
-## User-assigned managed identity
-
-Follow this procedure to configure user-assigned managed identity:
-
-1. Create a user-assigned managed identity.
-1. If you're using PowerShell, assign a `acrpull` role for your registry to the managed identity. The Azure CLI automatically makes this assignment.
-1. Create a container app with the image from the private registry that is authenticated with the user-assigned managed identity.
-
-### Create a user-assigned managed identity
-
-# [Bash](#tab/bash)
-
-Create a user-assigned managed identity. Before you run the following command, replace the *\<PLACEHOLDERS\>* with the name of your managed identity. 
-
-```azurecli
-IDENTITY="<YOUR_IDENTITY_NAME>"
-```
-
-```azurecli
-az identity create \
-  --name $IDENTITY \
-  --resource-group $RESOURCE_GROUP
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-Create a user-assigned managed identity. Before you run the following command, replace the *\<PLACEHOLDERS\>* with the name of your managed identity. 
-
-```azurepowershell
-$IdentityName = '<YOUR_IDENTITY_NAME>'
-```
-
-```azurepowershell
-New-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroupName -Location $Location
-```
-
----
-
-# [Bash](#tab/bash)
-
-Get identity's resource ID.
-
-```azurecli
-IDENTITY_ID=`az identity show \
-  --name $IDENTITY \
-  --resource-group $RESOURCE_GROUP \
-  --query id`
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-Get the identity's resource and principal ID. 
-
-```azurepowershell
-$IdentityId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroupName).Id
-$PrincipalId = (Get-AzUserAssignedIdentity -Name $IdentityName -ResourceGroupName $ResourceGroupName).PrincipalId
-```
-
-Get the registry's resource ID. Before you run the following command, replace the *\<placeholders\>* with the resource group name for your registry.
-
-```azurepowershell
-$RegistryId = (Get-AzContainerRegistry -ResourceGroupName <RegistryResourceGroup> -Name $RegistryName).Id
-```
-
-Create the `acrpull` role assignment for the identity.
-
-```azurepowershell
-New-AzRoleAssignment -ObjectId $PrincipalId -Scope $RegistryId -RoleDefinitionName acrpull
-```
-
----
-
-### Create a container app
-
-Create your container app with your image from the private registry authenticated with the identity.
-
-# [Bash](#tab/bash)
-
-Copy the identity's resource ID to paste into the *\<IDENTITY_ID\>* placeholders in the command below. If your image tag isn't `latest`, replace 'latest' with your tag.
-
-```azurecli
-echo $IDENTITY_ID
-```
-
-```azurecli
-az containerapp create \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --user-assigned <IDENTITY_ID> \
-  --registry-identity <IDENTITY_ID> \
-  --registry-server "$REGISTRY_NAME.azurecr.io" \
-  --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$CredentialArgs = @{
-    Server = $RegistryName + '.azurecr.io'
-    Identity = $IdentityId
-}
-$CredentialObject = New-AzContainerAppRegistryCredentialObject @CredentialArgs
-$ImageParams = @{
-    Name = 'my-container-app'
-    Image = $RegistryName + '.azurecr.io/' + $ImageName + ':latest'
-}
-$TemplateObj = New-AzContainerAppTemplateObject @ImageParams
-$EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id
-
-$AppArgs = @{
-    Name = 'my-container-app'
-    Location = $Location
-    ResourceGroupName = $ResourceGroupName
-    ManagedEnvironmentId = $EnvId
-    ConfigurationRegistry = $CredentialObject
-    IdentityType = 'UserAssigned'
-    IdentityUserAssignedIdentity = @{ $IdentityId = @{ } }
-    TemplateContainer = $TemplateObj
-    IngressTargetPort = 80
-    IngressExternal = $true
-}
-New-AzContainerApp @AppArgs
-```
-
----
-
-### Clean up
-
->[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group delete --name $RESOURCE_GROUP
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Remove-AzResourceGroup -Name $ResourceGroupName -Force
-```
-
----
-
-## System-assigned managed identity
-
-To configure a system-assigned identity, you'll need to:
-
-1. Create a container app with a public image.
-1. Assign a system-assigned managed identity to the container app.
-1. Update the container app with the private image.
-
-### Create a container app
-
-Create a container with a public image.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az containerapp create \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --image mcr.microsoft.com/k8se/quickstart:latest \
-  --target-port 80 \
-  --ingress external
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```powershell
-$ImageParams = @{
-    Name = "my-container-app"
-    Image = "mcr.microsoft.com/k8se/quickstart:latest"
-}
-$TemplateObj = New-AzContainerAppTemplateObject @ImageParams
-$EnvId = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).Id
-
-$AppArgs = @{
-    Name = "my-container-app"
-    Location = $Location
-    ResourceGroupName = $ResourceGroupName
-    ManagedEnvironmentId = $EnvId
-    IdentityType = "SystemAssigned"
-    TemplateContainer = $TemplateObj
-    IngressTargetPort = 80
-    IngressExternal = $true
-
-}
-New-AzContainerApp @AppArgs
-```
-
----
-
-### Update the container app
-
-Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the Azure Container Registry pull. You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.
-
-# [Bash](#tab/bash)
-
-Set the registry server and turn on system-assigned managed identity in the container app.
-
-```azurecli
-az containerapp registry set \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --identity system \
-  --server "$REGISTRY_NAME.azurecr.io"
-```
-
-```azurecli
-az containerapp update \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --image "$REGISTRY_NAME.azurecr.io/$IMAGE_NAME:latest"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```powershell
-$CredentialArgs = @{
-    Server = $RegistryName + '.azurecr.io'
-    Identity = 'system'
-}
-$CredentialObject = New-AzContainerAppRegistryCredentialObject @CredentialArgs
-$ImageParams = @{
-    Name = 'my-container-app'
-    Image = $RegistryName + ".azurecr.io/" + $ImageName + ":latest"
-}
-$TemplateObj = New-AzContainerAppTemplateObject @ImageParams
-
-$AppArgs = @{
-    Name = 'my-container-app'
-    Location = $Location
-    ResourceGroupName = $ResourceGroupName
-    ConfigurationRegistry = $CredentialObject
-    IdentityType = 'SystemAssigned'
-    TemplateContainer = $TemplateObj
-    IngressTargetPort = 80
-    IngressExternal = $true
-}
-Update-AzContainerApp @AppArgs
-```
-
----
-
-### Clean up
-
->[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group delete --name $RESOURCE_GROUP
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Remove-AzResourceGroup -Name $ResourceGroupName -Force
-```
-
----
-
-::: zone-end
-::: zone pivot="bicep"
-
-This article describes how to use a Bicep template to configure your container app to use user-assigned managed identities to pull images from private Azure Container Registry repositories.
-
-## Prerequisites
-
-- An Azure account with an active subscription.
-  - If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
-- If using Azure CLI, [install the Azure CLI](/cli/azure/install-azure-cli) on your local machine.
-- If using PowerShell, [install the Azure PowerShell](/powershell/azure/install-azure-powershell) on your local machine. Ensure that the latest version of the Az.App module is installed by running the command `Install-Module -Name Az.App`.
-- A private Azure Container Registry containing an image you want to pull. To create a container registry and push an image to it, see [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md) or [Quickstart: Create a private container registry using Azure PowerShell](../container-registry/container-registry-get-started-powershell.md)
-
-[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
-
-### Install Bicep
-
-If you don't have Bicep installed, you can install it as follows.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az bicep install
-```
-
-If you do have Bicep installed, make sure you have the latest version.
-
-```azurecli
-az bicep upgrade
-```
-
-For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install).
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-You must manually install Bicep for any use other than Azure CLI. For more information, see [Installing Bicep](/azure/azure-resource-manager/bicep/install#install-manually).
-
----
-
-### Set environment variables
-
-Next, set the following environment variables. Replace placeholders surrounded by `<>` with your values.
-
-# [Bash](#tab/bash)
-
-```azurecli
-RESOURCE_GROUP="<RESOURCE_GROUP_NAME>"
-LOCATION="<LOCATION>"
-REGISTRY_NAME="<REGISTRY_NAME>"
-IMAGE_NAME="<IMAGE_NAME>"
-IMAGE_TAG="<IMAGE_TAG>"
-BICEP_TEMPLATE="<BICEP_TEMPLATE>"
-CONTAINERAPPS_ENVIRONMENT="<ENVIRONMENT_NAME>"
-CONTAINER_NAME="<CONTAINER_NAME>"
-CONTAINERAPP_NAME="<CONTAINERAPP_NAME>"
-USER_ASSIGNED_IDENTITY_NAME="<USER_ASSIGNED_IDENTITY_NAME>"
-LOG_ANALYTICS_WORKSPACE_NAME="<LOG_ANALYTICS_WORKSPACE_NAME>"
-APP_INSIGHTS_NAME="<APP_INSIGHTS_NAME>"
-ACR_PULL_DEFINITION_ID="7f951dda-4ed3-4680-a7ca-43fe172d538d"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$ResourceGroupName = '<RESOURCE_GROUP_NAME>'
-$Location = '<LOCATION>'
-$RegistryName = '<REGISTRY_NAME>'
-$ImageName = '<IMAGE_NAME>'
-$ImageTag = '<IMAGE_TAG>'
-$BicepTemplate = '<BICEP_TEMPLATE>'
-$ContainerAppsEnvironment = '<ENVIRONMENT_NAME>'
-$ContainerName = '<CONTAINER_NAME>'
-$ContainerAppName = '<CONTAINERAPP_NAME>'
-$UserAssignedIdentityName = '<USER_ASSIGNED_IDENTITY_NAME>'
-$LogAnalyticsWorkspaceName = '<LOG_ANALYTICS_WORKSPACE_NAME>'
-$AppInsightsName = '<LOG_ANALYTICS_WORKSPACE_NAME>'
-$AcrPullDefinitionId = '7f951dda-4ed3-4680-a7ca-43fe172d538d'
-```
-
----
-
-The [`AcrPull`](/azure/role-based-access-control/built-in-roles#acrpull) role grants your user-assigned managed identity permission to pull the image from the registry.
-
-## Bicep template
-
-Copy the following Bicep template and save it as a file with the extension `.bicep`.
+A Bicep template can be used to automate deployment of your container app and resources. To add a system-assigned identity, add an `identity` section to your Bicep template.
 
 ```bicep
-param environmentName string 
-param logAnalyticsWorkspaceName string
-param appInsightsName string
-param containerAppName string 
-param azureContainerRegistry string
-param azureContainerRegistryImage string 
-param azureContainerRegistryImageTag string
-param acrPullDefinitionId string
-param userAssignedIdentityName string
-param location string = resourceGroup().location
-
-resource identity 'Microsoft.ManagedIdentity/userAssignedIdentities@2022-01-31-preview' = {
-  name: userAssignedIdentityName
-  location: location 
+identity: {
+  type: 'SystemAssigned'
 }
-
-resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-  name: guid(resourceGroup().id, azureContainerRegistry, 'AcrPullTestUserAssigned')
-  properties: {
-    principalId: identity.properties.principalId  
-    principalType: 'ServicePrincipal'
-    // acrPullDefinitionId has a value of 7f951dda-4ed3-4680-a7ca-43fe172d538d
-    roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', acrPullDefinitionId)
-  }
-}
-
-resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
-  name: logAnalyticsWorkspaceName
-  location: location
-  properties: any({
-    retentionInDays: 30
-    features: {
-      searchVersion: 1
-    }
-    sku: {
-      name: 'PerGB2018'
-    }
-  })
-}
-
-resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
-  name: appInsightsName
-  location: location
-  kind: 'web'
-  properties: {
-    Application_Type: 'web'
-    WorkspaceResourceId: logAnalyticsWorkspace.id
-  }
-}
-
-resource appEnvironment 'Microsoft.App/managedEnvironments@2022-06-01-preview' = {
-  name: environmentName
-  location: location
-  properties: {
-    daprAIInstrumentationKey: appInsights.properties.InstrumentationKey
-    appLogsConfiguration: {
-      destination: 'log-analytics'
-      logAnalyticsConfiguration: {
-        customerId: logAnalyticsWorkspace.properties.customerId
-        sharedKey: logAnalyticsWorkspace.listKeys().primarySharedKey
-      }
-    }
-  }
-}
-
-resource containerApp 'Microsoft.App/containerApps@2022-06-01-preview' = {
-  name: containerAppName
-  location: location
-  identity: {
-    type: 'UserAssigned'
-    userAssignedIdentities: {
-      '${identity.id}': {}
-    }
-  }
-  properties: {
-    environmentId: appEnvironment.id
-    configuration: {
-      ingress: {
-        targetPort: 8080
-        external: true
-      }
-      registries: [
-        {
-          server: '${azureContainerRegistry}.azurecr.io'
-          identity: identity.id
-        }
-      ]
-    }
-    template: {
-      containers: [
-        {
-          image: '${azureContainerRegistry}.azurecr.io/${azureContainerRegistryImage}:${azureContainerRegistryImageTag}'
-          name: '${azureContainerName}'
-          resources: {
-            cpu: 1
-            memory: '2Gi'
-          }
-        }
-      ]
-      scale: {
-        minReplicas: 1
-        maxReplicas: 1
-      }
-    }
-  }
-}
-
-output location string = location
-output environmentId string = appEnvironment.id
 ```
 
-## Deploy the container app
-
-Deploy your container app with the following command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az deployment group create \
-  --resource-group "$RESOURCE_GROUP" \
-  --template-file "$BICEP_TEMPLATE" \
-  --parameters environmentName="$CONTAINERAPPS_ENVIRONMENT" \
-  logAnalyticsWorkspaceName="$LOG_ANALYTICS_WORKSPACE_NAME" \
-  appInsightsName="$APP_INSIGHTS_NAME" \
-  containerAppName="$CONTAINERAPP_NAME" \
-  azureContainerRegistry="$REGISTRY_NAME" \
-  azureContainerRegistryImage="$IMAGE_NAME" \
-  azureContainerRegistryImageTag="$IMAGE_TAG" \
-  azureContainerName="$CONTAINER_NAME" \
-  acrPullDefinitionId="$ACR_PULL_DEFINITION_ID" \
-  userAssignedIdentityName="$USER_ASSIGNED_IDENTITY_NAME" \
-  location="$LOCATION"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$params = @{
-  environmentName = $ContainerAppsEnvironment
-  logAnalyticsWorkspaceName = $LogAnalyticsWorkspaceName
-  appInsightsName = $AppInsightsName
-  containerAppName = $ContainerAppName
-  azureContainerRegistry = $RegistryName
-  azureContainerRegistryImage = $ImageName
-  azureContainerRegistryImageTag = $ImageTag
-  azureContainerName = $ContainerName
-  acrPullDefinitionId = $AcrPullDefinitionId
-  userAssignedIdentityName = $UserAssignedIdentityName
-  location = $Location
-}
-
-New-AzResourceGroupDeployment `
-  -ResourceGroupName $ResourceGroupName `
-  -TemplateParameterObject $params `
-  -TemplateFile $BicepTemplate `
-  -SkipTemplateParameterPrompt
-```
+Adding the system-assigned type tells Azure to create and manage the identity for your application. For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
 
 ---
 
-This command deploys the following.
-- An Azure resource group.
-- A Container Apps environment.
-- A Log Analytics workspace associated with the Container Apps environment.
-- An Application Insights resource for distributed tracing.
-- A user-assigned managed identity.
-- A container to store the image.
-- A container app based on the image.
+### Add a user-assigned identity
 
-If you receive the error `Failed to parse '<YOUR_BICEP_FILE_NAME>', please check whether it is a valid JSON format`, make sure your Bicep template file has the extension `.bicep`.
+Configuring a container app with a user-assigned identity requires that you first create the identity then add its resource identifier to your container app's configuration. You can create user-assigned identities via the Azure portal or the Azure CLI. For information on creating and managing user-assigned identities, see [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
 
-## Additional resources
+# [Azure portal](#tab/portal)
 
-For more information, see the following.
-- [Bicep format](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep)
-- [Example Bicep templates](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep#quickstart-templates)
-- [Using Managed Identity and Bicep to pull images with Azure Container Apps](https://azureossd.github.io/2023/01/03/Using-Managed-Identity-and-Bicep-to-pull-images-with-Azure-Container-Apps/)
+First, you'll need to create a user-assigned identity resource.
 
-::: zone-end
+1. Create a user-assigned managed identity resource according to the steps found in [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+
+1. Go to your container app in the Azure portal.
+
+1. From the *Settings* group, select **Identity**.
+
+1. Within the *User assigned* tab, select **Add**.
+
+1. Search for and select the identity you created earlier.
+
+1. Select **Add**.
+
+:::image type="content" source="media/managed-identity/screenshot-user-assigned-identity.png" alt-text="Screenshot of user-assigned identities.":::
+
+# [Azure CLI](#tab/cli)
+
+1. Create a user-assigned identity.
+
+   ```azurecli
+   az identity create --resource-group <GROUP_NAME> --name <IDENTITY_NAME> --output json
+   ```
+
+   Note the `id` property of the new identity.
+
+1. Run the `az containerapp identity assign` command to assign the identity to the app. The identities parameter is a space separated list.
+
+   ```azurecli
+   az containerapp identity assign --resource-group <GROUP_NAME> --name <APP_NAME> \
+       --user-assigned <IDENTITY_RESOURCE_ID>
+   ```
+
+   Replace `<IDENTITY_RESOURCE_ID>` with the `id` property of the identity. To assign more than one user-assigned identity, supply a space-separated list of identity IDs to the `--user-assigned` parameter.
+
+# [ARM template](#tab/arm)
+
+To add one or more user-assigned identities, add an `identity` section to your ARM template. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
+
+Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
+
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<IDENTITY1_RESOURCE_ID>": {},
+        "<IDENTITY2_RESOURCE_ID>": {}
+    }
+}
+```
+
+For a complete ARM template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=arm-template#container-app-examples).
+
+> [!NOTE]
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the value for the `type` property would be `SystemAssigned,UserAssigned`.
+
+# [YAML](#tab/yaml)
+
+To add one or more user-assigned identities, add an `identity` section to your YAML configuration file. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
+
+Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
+
+```yaml
+identity:
+    type: UserAssigned
+    userAssignedIdentities:
+        <IDENTITY1_RESOURCE_ID>: {}
+        <IDENTITY2_RESOURCE_ID>: {}
+```
+
+For a complete YAML template example, see [ARM API Specification](azure-resource-manager-api-spec.md?tabs=yaml#container-app-examples).
+
+> [!NOTE]
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
+
+# [Bicep](#tab/bicep)
+
+To add one or more user-assigned identities, add an `identity` section to your Bicep template. Replace `<IDENTITY1_RESOURCE_ID>` and `<IDENTITY2_RESOURCE_ID>` with the resource identifiers of the identities you want to add.
+
+Specify each user-assigned identity by adding an item to the `userAssignedIdentities` object with the identity's resource identifier as the key. Use an empty object as the value.
+
+```bicep
+identity: {
+  type: 'UserAssigned'
+  userAssignedIdentities: {
+    <IDENTITY1_RESOURCE_ID>: {}
+    <IDENTITY2_RESOURCE_ID>: {}
+  }
+}
+```
+
+For a complete Bicep template example, see [Microsoft.App containerApps Bicep, ARM template & Terraform AzAPI reference](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-bicep).
+
+> [!NOTE]
+> An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`.
+
+---
+
+## Configure a target resource
+
+For some resources, you need to configure role assignments for your app's managed identity to grant access. Otherwise, calls from your app to services, such as Azure Key Vault and Azure SQL Database, are rejected even when you use a valid token for that identity. To learn more about Azure role-based access control (Azure RBAC), see [What is RBAC?](../role-based-access-control/overview.md). To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+> [!IMPORTANT]
+> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. If you update the access policy of a particular target resource and immediately retrieve a token for that resource, you may continue to get a cached token with outdated permissions until that token expires. Forcing a token refresh isn't supported.
+
+## Connect to Azure services in app code
+
+With managed identities, an app can obtain tokens to access Azure resources that use Microsoft Entra ID, such as Azure SQL Database, Azure Key Vault, and Azure Storage. These tokens represent the application accessing the resource, and not any specific user of the application.
+
+Container Apps provides an internally accessible [REST endpoint](managed-identity.md?tabs=cli%2Chttp#rest-endpoint-reference) to retrieve tokens. The REST endpoint is available from within the app with a standard HTTP `GET` request, which you can send with a generic HTTP client in your preferred language. For .NET, JavaScript, Java, and Python, the Azure Identity client library provides an abstraction over this REST endpoint. You can connect to other Azure services by adding a credential object to the service-specific client.
+
+> [!NOTE]
+> When using Azure Identity client library, you need to explicitly specify the user-assigned managed identity client id.
+
+# [.NET](#tab/dotnet)
+
+> [!NOTE]
+> When connecting to Azure SQL data sources with [Entity Framework Core](/ef/core/), consider using [Microsoft.Data.SqlClient](/sql/connect/ado-net/sql/azure-active-directory-authentication), which provides special connection strings for managed identity connectivity.
+
+For .NET apps, the simplest way to work with a managed identity is through the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). See the following resources for more information:
+
+- [Add Azure Identity client library to your project](/dotnet/api/overview/azure/identity-readme#getting-started)
+- [Access Azure service with a system-assigned identity](/dotnet/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/dotnet/api/overview/azure/identity-readme#specify-a-user-assigned-managed-identity-with-defaultazurecredential)
+
+The linked examples use [`DefaultAzureCredential`](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+
+# [JavaScript](#tab/javascript)
+
+For Node.js apps, the simplest way to work with a managed identity is through the [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?). See the following resources for more information:
+
+- [Add Azure Identity client library to your project](/javascript/api/overview/azure/identity-readme#install-the-package)
+- [Access Azure service with a system-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/javascript/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+
+The linked examples use [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+
+For more code examples of the Azure Identity client library for JavaScript, see [Azure Identity examples](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/identity_2.0.1/sdk/identity/identity/samples/AzureIdentityExamples.md).
+
+# [Python](#tab/python)
+
+For Python apps, the simplest way to work with a managed identity is through the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme). See the following resources for more information:
+
+- [Add Azure Identity client library to your project](/python/api/overview/azure/identity-readme#getting-started)
+- [Access Azure service with a system-assigned identity](/python/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/python/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+
+The linked examples use [`DefaultAzureCredential`](/python/api/overview/azure/identity-readme#defaultazurecredential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+
+# [Java](#tab/java)
+
+For Java apps and functions, the simplest way to work with a managed identity is through the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme). See the following resources for more information:
+
+- [Add Azure Identity client library to your project](/java/api/overview/azure/identity-readme#include-the-package)
+- [Access Azure service with a system-assigned identity](/java/api/overview/azure/identity-readme#authenticating-with-defaultazurecredential)
+- [Access Azure service with a user-assigned identity](/java/api/overview/azure/identity-readme#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
+
+The linked examples use [`DefaultAzureCredential`](/azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential). This object is effective in most scenarios as the same pattern works in Azure (with managed identities) and on your local machine (without managed identities).
+
+For more code examples of the Azure Identity client library for Java, see [Azure Identity Examples](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples).
+
+# [PowerShell](#tab/powershell)
+
+Use the following script to retrieve a token from the local endpoint by specifying a resource URI of an Azure service. Replace the placeholder with the resource URI to obtain the token.
+
+```powershell
+$resourceURI = "https://<AAD-resource-URI>"
+$tokenAuthURI = $env:IDENTITY_ENDPOINT + "?resource=$resourceURI&api-version=2019-08-01"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"X-IDENTITY-HEADER"="$env:IDENTITY_HEADER"} -Uri $tokenAuthURI
+$accessToken = $tokenResponse.access_token
+```
+
+# [HTTP GET](#tab/http)
+
+A raw HTTP `GET` request looks like the following example.
+
+Obtain the token endpoint URL from the `IDENTITY_ENDPOINT` environment variable. `x-identity-header` contains the GUID that is stored in the `IDENTITY_HEADER` environment variable.
+
+```http
+GET http://localhost:42356/msi/token?resource=https://vault.azure.net&api-version=2019-08-01 HTTP/1.1
+x-identity-header: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
+```
+
+A response might look like this example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "access_token": "eyJ0eXAi…",
+    "expires_on": "1586984735",
+    "resource": "https://vault.azure.net",
+    "token_type": "Bearer",
+    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
+}
+
+```
+
+This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, add the value of `access_token` to a client connection with the vault.
+
+### REST endpoint reference
+
+A container app with a managed identity exposes the identity endpoint by defining two environment variables:
+
+- `IDENTITY_ENDPOINT`: Local URL from which your container app can request tokens.
+- `IDENTITY_HEADER`: A header used to help mitigate server-side request forgery (SSRF) attacks. The value is rotated by the platform.
+
+To get a token for a resource, make an HTTP `GET` request to the endpoint, including the following parameters:
+
+| Parameter name    | In     | Description                                                                                                                                                                                                                                                                                                                                          |
+| ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| resource          | Query  | The Microsoft Entra resource URI of the resource for which a token should be obtained. The resource could be one of the [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI. |
+| api-version       | Query  | The version of the token API to be used. Use "2019-08-01" or later.                                                                                                                                                                                                                                                                                  |
+| X-IDENTITY-HEADER | Header | The value of the `IDENTITY_HEADER` environment variable. This header mitigates server-side request forgery (SSRF) attacks.                                                                                                                                                                                                                           |
+| client_id         | Query  | (Optional) The client ID of the user-assigned identity to be used. Can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                                         |
+| principal_id      | Query  | (Optional) The principal ID of the user-assigned identity to be used. `object_id` is an alias that may be used instead. Can't be used on a request that includes client_id, mi_res_id, or object_id. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.             |
+| mi_res_id         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. Can't be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used.                                                 |
+
+> [!IMPORTANT]
+> If you are attempting to obtain tokens for user-assigned identities, you must include one of the optional properties. Otherwise the token service will attempt to obtain a token for a system-assigned identity, which may or may not exist.
+
+---
+
+## View managed identities
+
+You can show the system-assigned and user-assigned managed identities using the following Azure CLI command. The output shows the managed identity type, tenant IDs and principal IDs of all managed identities assigned to your container app.
+
+```azurecli
+az containerapp identity show --name <APP_NAME> --resource-group <GROUP_NAME>
+```
+
+## Remove a managed identity
+
+When you remove a system-assigned identity, it's deleted from Microsoft Entra ID. System-assigned identities are also automatically removed from Microsoft Entra ID when you delete the container app resource itself. Removing user-assigned managed identities from your container app doesn't remove them from Microsoft Entra ID.
+
+# [Azure portal](#tab/portal)
+
+1. In the left navigation of your app's page, scroll down to the **Settings** group.
+
+1. Select **Identity**. Then follow the steps based on the identity type:
+
+   - **System-assigned identity**: Within the **System assigned** tab, switch **Status** to **Off**. Select **Save**.
+   - **User-assigned identity**: Select the **User assigned** tab, select the checkbox for the identity, and select **Remove**. Select **Yes** to confirm.
+
+# [Azure CLI](#tab/cli)
+
+To remove the system-assigned identity:
+
+```azurecli
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> --system-assigned
+```
+
+To remove one or more user-assigned identities:
+
+```azurecli
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
+    --user-assigned <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID>
+```
+
+To remove all user-assigned identities:
+
+```azurecli
+az containerapp identity remove --name <APP_NAME> --resource-group <GROUP_NAME> \
+    --user-assigned <IDENTITY1_RESOURCE_ID> <IDENTITY2_RESOURCE_ID>
+```
+
+# [ARM template](#tab/arm)
+
+To remove all identities, set the `type` of the container app's identity to `None` in the ARM template:
+
+```json
+"identity": {
+    "type": "None"
+}
+```
+
+# [YAML](#tab/yaml)
+
+To remove all identities, set the `type` of the container app's identity to `None` in the YAML configuration file:
+
+```yaml
+identity:
+    type: None
+```
+
+# [Bicep](#tab/bicep)
+
+To remove all identities, set the `type` of the container app's identity to `None` in the Bicep template:
+
+```bicep
+identity: {
+  type: 'None'
+}
+```
+
+---
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Managed identities in Azure Container Apps](managed-identity.md)
+> [Monitor an app](monitor.md)
