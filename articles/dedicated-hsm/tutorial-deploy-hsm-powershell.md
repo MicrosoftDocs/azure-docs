@@ -22,7 +22,7 @@ This tutorial aims to show a typical provisioning process where:
 
 A typical, high availability, multi-region deployment architecture is as follows:
 
-:::image type="content" source="media/tutorial-deploy-hsm-powershell/high-availability.png" lightbox="media/tutorial-deploy-hsm-powershell/high-availability.png" alt-text="Multi region deployment":::
+:::image type="content" source="media/tutorial-deploy-hsm-powershell/high-availability.png" lightbox="media/tutorial-deploy-hsm-powershell/high-availability.png" alt-text="A diagram illustrating a multi-region deployment.":::
 
 This tutorial focuses on a pair of HSMs and the required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above). All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
@@ -47,7 +47,7 @@ Provisioning the HSMs and integrating into an existing virtual network via [Expr
 
 ### Validating Feature Registration
 
-As mentioned, any provisioning activity requires that the Dedicated HSM service is registered for your subscription. To validate that, run the following PowerShell command in the Azure portal Cloud Shell. 
+As mentioned, any provisioning activity requires that the Dedicated HSM service is registered for your subscription. To validate that, run the following PowerShell command in the Azure portal Cloud Shell.
 
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
@@ -55,7 +55,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -Feat
 
 The command should return a status of "Registered" before you proceed any further.  If you're not registered for this service, contact your Microsoft account representative.
 
-:::image type="content" source="media/tutorial-deploy-hsm-powershell/subscription-status.png" lightbox="media/tutorial-deploy-hsm-powershell/subscription-status.png" alt-text="Subscription status":::
+:::image type="content" source="media/tutorial-deploy-hsm-powershell/subscription-status.png" lightbox="media/tutorial-deploy-hsm-powershell/subscription-status.png" alt-text="Subscription status.":::
 
 ### Creating HSM resources
 
@@ -112,7 +112,7 @@ Once parameter values are set, the files need to be uploaded to Azure portal Clo
 
 Select the upload/download option on the toolbar to upload the template and parameter files to your file share:
 
-:::image type="content" source="media/tutorial-deploy-hsm-powershell/file-share.png" lightbox="media/tutorial-deploy-hsm-powershell/file-share.png" alt-text="File share":::
+:::image type="content" source="media/tutorial-deploy-hsm-powershell/file-share.png" lightbox="media/tutorial-deploy-hsm-powershell/file-share.png" alt-text="File share.":::
 
 Once the files are uploaded, you're ready to create resources.
 
@@ -174,7 +174,7 @@ New-AzResourceGroupDeployment -ResourceGroupName myRG `
 
 This command should take approximately 20 minutes to complete. The "-verbose" option used will ensure status is continually displayed.
 
-:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status.png" alt-text="Deploying a Decicated HSM":::
+:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status.png" alt-text="Deploying a Decicated HSM.":::
 
 When completed successfully, shown by "provisioningState": "Succeeded", you can sign in to your existing virtual machine and use SSH to ensure availability of the HSM device.
 
@@ -191,7 +191,7 @@ Get-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupNa
 
 ```
 
-:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status2.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status2.png" alt-text="Provisioning status":::
+:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status2.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status2.png" alt-text="Provisioning status.":::
 
 You'll also now be able to see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand "subscriptions" on the left, expand your specific subscription for Dedicated HSM, expand "resource groups", expand the resource group you used and finally select the "resources" item.
 

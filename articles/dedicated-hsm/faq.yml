@@ -4,6 +4,7 @@ metadata:
   description: Find answers to common questions about Azure Dedicated Hardware Security Module, such as basic information, interoperability, high availability, and support.
   services: dedicated-hsm
   author: keithp
+  ms.custom: references_regions
   ms.topic: faq
   ms.service: dedicated-hsm
   ms.date: 02/20/2024
@@ -292,7 +293,7 @@ sections:
       - question: |
           How do I get the client software, documentation and access to integration guidance for the Thales Luna 7 HSM?
         answer: |
-          After you register for the service, you will receive a Thales Customer ID that allows for registration in the Thales customer support portal., enabling access to all software and documentation as well as support requests directly with Thales.
+          After you register for the service, you will receive a Thales Customer ID that allows for registration in the Thales customer support portal, enabling access to all software and documentation as well as support requests directly with Thales.
 
       - question: |
           If there a security vulnerability is found and a patch released by Thales, who is responsible for upgrading/patching OS/Firmware?
