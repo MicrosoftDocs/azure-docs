@@ -67,7 +67,7 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 The first tab is the **Setup** tab, where the user needs to provide migration details like migration name source type to initiate the migrations.
 
-:::image type="content" source="media/tutorial-migration-service-aws-online/01-portal-online-setup-aws.png" alt-text="Screenshot of Setup migration." lightbox="media/01-tutorial-migration-service-aws-online/01-portal-online-setup-aws.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-online/01-portal-online-setup-aws.png" alt-text="Screenshot of the Setup migration in the Azure portal." lightbox="media/tutorial-migration-service-aws-online/01-portal-online-setup-aws.png":::
 
 - **Migration name** is the unique identifier for each migration to this Flexible Server target. This field accepts only alphanumeric characters and doesn't accept any special characters except a hyphen (-). The name can't start with a hyphen and should be unique for a target server. No two migrations to the same Flexible Server target can have the same name.
 
@@ -214,7 +214,7 @@ Time depends on the backlog of changes occurring in the last 15 minutes. Hence, 
 
 This article explores using the Azure CLI to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
-To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql).
+To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql.md).
 
 Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
 

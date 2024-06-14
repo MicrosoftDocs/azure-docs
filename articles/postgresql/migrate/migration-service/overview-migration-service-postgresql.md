@@ -7,7 +7,7 @@ ms.reviewer: maghan
 ms.date: 06/14/2024
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.topic: ovefrview
+ms.topic: overview
 ---
 
 # Migration service in Azure Database for PostgreSQL

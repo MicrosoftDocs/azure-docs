@@ -114,7 +114,7 @@ The **Connect to Source** tab prompts you to give details related to the source 
 
 After the successful test connection, select the **Next: Select Migration target** button.
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/03-portal-offline-connect-source-aws.png" alt-text="Screenshot of the connect to source page." lightbox="media/tutorial-migration-service-aws-offline/03-portal-offline-connect-source-migration-aws.png":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/03-portal-offline-connect-source-aws.png" alt-text="Screenshot of the connect to source page." lightbox="media/tutorial-migration-service-aws-offline/03-portal-offline-connect-source-aws.png":::
 
 #### Select migration target
 
@@ -215,7 +215,7 @@ You can cancel any ongoing validations or migrations. The workflow must be in th
 
 This article explores using the Azure CLI to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL. The Azure CLI provides a powerful and flexible command-line interface that allows you to perform various tasks, including database migration. Following the steps outlined in this article, you can seamlessly transfer your database to Azure and take advantage of its powerful features and scalability.
 
-To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql).
+To learn more about Azure CLI with the migration service, visit [How to set up Azure CLI for the migration service](how-to-setup-azure-cli-commands-postgresql.md).
 
 Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
 
