@@ -1,6 +1,6 @@
 ### YamlMime:Hub
 title: Azure network foundation documentation
-summary: Azure network foundation services provide core connectivity for your resources in Azure. Services include Azure Virtual Network, Private Link, and Azure DNS.
+summary: Azure network foundation services provide core connectivity for your resources in Azure.
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
@@ -40,34 +40,34 @@ productDirectory:
   items:
     - title: Azure Virtual Network
       imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/virtual-networks.svg
-      summary: The fundamental building block for your private network in Azure
+      summary: Azure Virtual Network is the fundamental building block for your private network in Azure.
       url: ../../virtual-network/index.yml
     - title: Azure Private Link
-      summary: Enables you to access Azure services over a private endpoint in your virtual network
+      summary: Azure Private Link enables you to access Azure services over a private endpoint in your virtual network.
       imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/private-link.svg
       url: ../../private-link/index.yml
     - title: Azure DNS
-      summary: Name resolution for your Azure services using Azure infrastructure
+      summary: Azure DNS provides reliable and secure name resolution for your Azure services using Azure infrastructure.
       imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/dns.svg
       url: ../../dns/index.yml
-    - title: Azure Virtual Network Manager
-      summary: A management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions
+    - title: Azure Virtual Network Manager (AVNM)
+      summary: AVNM is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions.
       imageSrc: ./media/virtual-network.svg
       url: ../../virtual-network-manager/index.yml
     - title: Azure Bastion
-      summary: A fully managed PaaS service that you provision to securely connect to virtual machines via private IP address 
+      summary: Azure Bastion is a fully managed PaaS service that enables you to securely connect to virtual machines via private IP address.
       imageSrc: ./media/bastion.svg
       url: ../../bastion/index.yml
     - title: Route Server
-      summary: Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your Azure virtual network 
+      summary: Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your Azure virtual network.
       imageSrc: ./media/virtual-network.svg
       url: ../../route-server/index.yml
     - title: NAT Gateway
-      summary: Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service 
-      imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/nat-gateway.svg
+      summary: Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.
+      imageSrc: ./media/nat-gateway.svg
       url: ../../nat-gateway/index.yml
     - title: Traffic Manager
-      summary: Azure Traffic Manager is a DNS-based traffic load balancer 
+      summary: Azure Traffic Manager is a DNS-based traffic load balancer.
       imageSrc: https://learn.microsoft.com/static/ui/media/product/azure/traffic-manager.svg
       url: ../../traffic-manager/index.yml
 
