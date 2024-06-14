@@ -29,7 +29,12 @@ The following diagram shows some of the industries and use cases where Azure Ext
 
 Azure Extended Zones enable some key Azure services for customers to deploy. The control plane for these services remains in the region and the data plane is deployed at the Extended Zone site, resulting in a smaller Azure footprint.
 
-The following key services are available in Azure Extended Zones:
+The following diagram shows how Azure services are deployed at the Azure Extended Zones location.
+
+:::image type="content" source="./media/overview/azure-extended-zone-services.png" alt-text="Diagram that shows available Azure services at an Azure Extended Zone." lightbox="./media/overview/azure-extended-zone-services.png":::
+
+
+The following table lists key services that are available in Azure Extended Zones:
 
 | Service category | Available services |
 | ------------------ | ------------------- |
@@ -37,10 +42,6 @@ The following key services are available in Azure Extended Zones:
 | **Networking** | Azure Private Link <br> Standard public IP <br> Azure Virtual Networks <br> Virtual Network Peering <br> ExpressRoute <br> Azure Standard Load Balancer <br> DDoS (Standard protection) |
 | **Storage** | Azure Managed Disks <br> Azure Premium Page Blobs <br> Azure Premium Block Blobs <br> Azure Premium Files <br>  Azure Data Lake Storage Gen2<br> Hierarchical Namespace <br>Azure Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
 | **BCDR** | Azure Site Recovery <br> Azure Backup |
-
-The following diagram shows how Azure services are deployed at the Azure Extended Zones location.
-
-:::image type="content" source="./media/overview/azure-extended-zone-services.png" alt-text="Diagram that shows available Azure services at an Azure Extended Zone." lightbox="./media/overview/azure-extended-zone-services.png":::
 
 ## Next step
 
