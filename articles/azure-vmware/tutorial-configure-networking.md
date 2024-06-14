@@ -9,7 +9,7 @@ ms.date: 6/12/2024
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure virtual network. Because Azure VMware Solution doesn't support your on-premises vCenter Server instance, you need to take extra steps to integrate with your on-premises environment. You also need to set up a virtual network gateway and an Azure ExpressRoute circuit.
+An Azure VMware Solution private cloud requires an Azure virtual network. Because Azure VMware Solution doesn't support an on-premises vCenter Server instance, you need to take extra steps to integrate with your on-premises environment. You also need to set up a virtual network gateway and an Azure ExpressRoute circuit.
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
@@ -26,26 +26,26 @@ This tutorial assumes that you completed the [previous tutorial about creating a
 > [!NOTE]
 > Before you create a virtual network, evaluate whether you want to connect to Azure VMware Solution by using an existing virtual network or by creating a new one:
 >
-> * To use an existing virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#select-an-existing-vnet) tab on the **Connectivity** pane.
+> * To use an existing virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#select-an-existing-virtual-network) tab on the **Connectivity** pane.
 > * To use an existing virtual network in a different Azure subscription from Azure VMware Solution, use the guidance for [connecting to the private cloud manually](#connect-to-the-private-cloud-manually).
-> * To create a new virtual network in same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#create-a-new-vnet) tab or create one [manually](#create-a-vnet-manually).
+> * To create a new virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#create-a-new-virtual-network) tab or create one [manually](#create-a-virtual-network-manually).
+
+## Prerequisites
+
+* Make sure that the virtual network that you use for this tutorial:
+
+  * Contains a gateway subnet.
+  * Is in the same region as the Azure VMware Solution private cloud.
+  * Is in the same resource group as the Azure VMware Solution private cloud.
+  * Contains an address space that doesn't overlap with CIDR in the Azure VMware Solution private cloud.
+
+* Validate that your solution design is within the [Azure VMware Solution limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## Connect to the private cloud by using the Azure VNet connect feature
 
 You can take advantage of the **Azure VNet connect** feature if you want to connect to Azure VMware Solution by using an existing virtual network or by creating a new virtual network.
 
 **Azure VNet connect** is a function to configure virtual network connectivity. It doesn't record configuration state. Browse through the Azure portal to check what settings are already configured.
-
-### Prerequisites
-
-Before you select an existing virtual network, you must meet these requirements:
-
-* Make sure that the virtual network:
-  * Contains a gateway subnet.
-  * Is in the same region as the Azure VMware Solution private cloud.
-  * Is in the same resource group as the Azure VMware Solution private cloud.
-  * Contains an address space that doesn't overlap with CIDR in the Azure VMware Solution private cloud.
-* Validate that the solution design is within the [Azure VMware Solution limits](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Select an existing virtual network
 
