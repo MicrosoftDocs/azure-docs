@@ -161,7 +161,7 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
     ```
     AZURE_OPENAI_ENDPOINT=endpoint_value
     AZURE_OPENAI_CHAT_DEPLOYMENT=chat_deployment_name
-    AZURE_OPENAI_API_VERSION=api_version (such as "2024-02-15-preview")
+    AZURE_OPENAI_API_VERSION=api_version
     ```
 
 1. Navigate to the [chat playground inside of your AI Studio project](./get-started-playground.md#chat-in-the-playground-without-your-data). First validate that chat is working with your model by sending a message to the LLM.
@@ -174,7 +174,7 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
 
     :::image type="content" source="../media/quickstarts/promptflow-sdk/playground-copy-endpoint.png" alt-text="Screenshot of the view code popup highlighting the button to copy the endpoint value." lightbox="../media/quickstarts/promptflow-sdk/playground-copy-endpoint.png":::
 
-1. In the ```.env``` file, replace ```endpoint_value``` with the endpoint value and replace ```api_version``` with the API version copied from the dialog in the previous step. 
+1. In the ```.env``` file, replace ```endpoint_value``` with the endpoint value and replace ```api_version``` with the API version copied from the dialog in the previous step (such as "2024-02-15-preview"). 
 
 > [!WARNING]
 > Key based authentication is supported but isn't recommended by Microsoft. If you want to use keys you can add your key to the ```.env```, but please ensure that your ```.env``` is in your ```.gitignore``` file so that you don't accidentally check it into your git repository.
