@@ -29,9 +29,9 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 
 | Request|Method| Description|API path|
 |---------|:-------:|-------|-----|
-|||**Single document translation operation** ||
+|**single** |**synchronous**|**document**|**translation**|
 |[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?api-version={date}`|
-|||**Batch Translation operations**||
+|**batch**|**asynchronous**| **documents**| **translation**|
 |[**Start translation**](start-translation.md)|POST| Start a batch document translation job.|`{document-translation-endpoint}/translator/document/batches?api-version={date}`|
 |[**Get status for all translation jobs**](get-translations-status.md)|GET| Request a list and the status of translation jobs submitted by the user.|`{document-translation-endpoint}/translator/document/batches?api-version={date}`|
 |[**Get status for a specific translation job**](get-translation-status.md) |GET| Request a summary of the status for a specific translation job. The response includes the overall job status and the status for documents that are being translated as part of that job.|`{document-translation-endpoint}/translator/document/batches/{id}?api-version={date}`|
@@ -44,9 +44,10 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 ## Stable version
 
 | Request|Method| Description|API path|
-|---------|:-------:|-------|-----|
-||**Single document translation operation** |||
+|---------|:-------|-------|-----|
+|**single** |**synchronous**|**document**|**translation**|
 |[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?sourceLanguage={source language}&targetLanguage={target language}&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"`|
+|**batch**|**asynchronous**|**documents**|**operations**|
 |[**Start translation**](start-translation.md)|POST|Start a batch document translation job.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches`|
 |[**Get status for all translation jobs**](get-translations-status.md)|GET|Request a list and the status of translation jobs submitted by the user.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches`|
 |[**Get status for a specific translation job**](get-translation-status.md)|GET| Request a summary of the status for a specific translation job. The response includes the overall job status and the status for documents that are being translated as part of that job.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}`|
