@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Core Output Cache Provider for Azure Cache for Redis
-description: Learn how to use the Redis Output Cache Provider to cache ASP.NET Core page output out of process by using Azure Cache for Redis.
+description: Use the Redis Output Cache Provider to cache ASP.NET Core page output out of process by using Azure Cache for Redis.
 author: flang-msft
 ms.author: cawa
 ms.service: cache
@@ -24,7 +24,15 @@ The benefits of using Azure Cache for Redis as your output cache include:
 - Saving web server memory resource utilization by storing cached content in an external Redis database.
 - Improving web application resiliency by persisting cached content in an external Redis database in the scenario of server failover or restart.
 
-The Redis output caching implementation includes performance and storage optimizations that compare with custom implementations of the output caching middleware providers.
+Using the Redis option for output caching provides performance and storage optimizations over custom implementations of other output caching providers.
+
+<!-- PM input needed: original text - "The Redis output caching implementation includes performance and storage optimizations comparing with custom implementations of the Output Caching middleware providers."
+
+What I think it means: Using the Redis option for output caching provides performance and storage optimizations over custom implementations of other output caching providers.
+
+This almost sounds a bit to much like marketing and maybe we should omit it. Will it always be true? Do we have benchmarks that quantitatively show this? Or am I missing the real technical advantage?
+
+-->
 
 You can use the output caching middleware in all types of ASP.NET Core apps: minimal API, web API with controllers, Model-View-Controller (MVC), and Razor Pages. For a detailed walkthrough of output caching syntax and features, see [Output caching middleware in ASP.NET Core](/aspnet/core/performance/caching/output).
 
