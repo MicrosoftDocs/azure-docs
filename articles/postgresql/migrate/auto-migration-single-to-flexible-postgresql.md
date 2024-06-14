@@ -3,7 +3,7 @@ title: Auto-migration
 description: This tutorial describes how to configure notifications, review migration details and FAQs for an Azure Database for PostgreSQL Single Server instance schedule for auto-migration to Flexible Server.
 author: hariramt
 ms.author: hariramt
-ms.reviewer: maghan
+ms.reviewer: shriramm
 ms.date: 06/04/2024
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -21,13 +21,17 @@ ms.custom:
 
 The auto-migration provides a highly resilient and self-healing offline migration experience during a planned migration window, with about **10 mins** of downtime. The migration service is a hosted solution using the [pgcopydb](https://github.com/dimitri/pgcopydb) binary and provides a fast and efficient way of copying databases from the source PostgreSQL instance to the target. This migration removes the overhead to manually migrate your server. Post migration, you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
-- **Target Flexible Server is deployed** matches your Single server SKU in terms of performance and cost, inheriting all firewall rules from source Single Server.
+- **Target Flexible Server is deployed** and matches your Single server SKU in terms of performance and cost, inheriting all firewall rules from source Single Server.
 
 - **Date is migrated** during the migration window chosen by the service or elected by you. If the window is chosen by the service, it is typically outside business hours of the specific region the server is hosted in.Source Single Server is set to read-only and the data & schema is migrated from the source Single Server to the target Flexible Server. User roles, privileges and ownership of all database objects are also migrated to the flexible server.
 
 - **DNS switch and cutover** are performed within the planned migration window with minimal downtime, allowing usage of the same connection string post-migration. Client applications seamlessly connect to the target flexible server without any user driven manual updates or changes. In addition to both connection string formats (Single and Flexible Server) being supported on migrated Flexible Server, both username formats – username@server_name and username are also supported on the migrated Flexible Server.
 
-- The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. The legacy Single Server is deleted seven days after the migration.
+- The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI.
+
+- The **updated connection strings** to connect to your old single server are shared with you by email. This can be used to login to the Single server if you want to copy any settings to your new Flexible server.
+
+- The **legacy Single Server** is deleted **seven days** after the migration.
 
 ## Nomination Eligibility
 
@@ -41,7 +45,7 @@ Following described are the ways to check and configure auto-migration notificat
 
 - Subscription owners for Single Servers scheduled for auto-migration receive an email notification.
 - Configure **service health alerts** to receive auto-migration schedule and progress notifications via email/SMS by following steps [here](../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
-- Check the auto-migration **notification on the Azure portal** by following steps [here](../../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
+- Check the auto-migration **notification on the Azure portal** by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
 
 Following described are the ways to review your migration schedule once you receive the auto-migration notification:
 
@@ -93,17 +97,9 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 
 Here's the info you need to know post auto-migration:
 
-- Copy the following properties from the source Single Server to target Flexible Server post auto-migration operation is completed successfully:
-  - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
-  - Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
-- For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. Note, for certain workloads this could affect performance and if you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
-- For Single Server instance with Microsoft Defender for Cloud enabled, the enablement state is migrated. To achieve parity in Flexible Server post auto-migration for properties you can configure in Single Server, consider the details in the following table:
-
-| Property | Configuration |
-| --- | --- |
-| properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). |
-| properties.emailAccountAdmins, properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). |
-| properties.retentionDays, properties.storageAccountAccessKey, properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md?tabs=azure-portal). |
+1) The server parameters in Flexible server are tuned to the community standards. If you would like to retain the same server parameter values as your Single server, you can login via Powershell and run this [script](https://github.com/hariramt/auto-migration/blob/main/copy-server-parameters.ps1) to copy all the parameters that have been changed.
+2) To enable [query perf insights](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-performance-insight), you need to enable query store on the Flexible server which is not enabled by default
+3) If [High Availability](https://learn.microsoft.com/azure/reliability/reliability-postgresql-flexible-server) is needed, you can enable it with zero downtime.
 
 ## Frequently Asked Questions (FAQs)
 
@@ -119,7 +115,7 @@ Here's the info you need to know post auto-migration:
 
 **A.** Following are the ways you can set up alerts:
 
-- Configure service health alerts to receive auto-migration schedule and progress notifications via email/SMS by following steps [here](../../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
+- Configure service health alerts to receive auto-migration schedule and progress notifications via email/SMS by following steps [here](../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
 - Check the auto-migration notification on the Azure portal by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
 
 **Q. How can I defer the scheduled migration?​**
@@ -136,4 +132,4 @@ Here's the info you need to know post auto-migration:
 
 ## Related content
 
-- [Manage an Azure Database for postgresql - Flexible Server using the Azure portal.](../../flexible-server/how-to-manage-server-portal.md)
+- [Manage an Azure Database for postgresql - Flexible Server using the Azure portal.](../flexible-server/how-to-manage-server-portal.md)
