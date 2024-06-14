@@ -44,7 +44,7 @@ You must ensure that traffic is entering the Azure Microsoft peering path with v
 There are no restrictions on the length of the NAT IP prefix advertised through this peering. You must monitor the NAT pool and ensure that you aren't starved of NAT sessions.
 
 > [!IMPORTANT]
-> The NAT IP pool advertised to Microsoft must not be advertised to the Internet. This will break connectivity to other Microsoft services.
+> The NAT IP pool advertised to Microsoft must not be advertised to the Internet. This will break connectivity to other Microsoft services. We advise against a public IP address from the range assigned to primary or secondary link. Instead, you should use a different range of public IP addresses that has been assigned to you and registered in a Regional Internet Registry (RIR) or Internet Routing Registry (IRR). Depending on your call volume, this range can be as small as a single IP address (represented as '/32' for IPv4 or '/128' for IPv6).
 > 
 
 ## Next steps
