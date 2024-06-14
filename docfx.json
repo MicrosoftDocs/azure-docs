@@ -691,9 +691,7 @@
         "articles/ai-services/personalizer/**/*.*": "None",
         "articles/ai-services/qnamaker/**/*.*": "None",
         "articles/ai-services/LUIS/**/*.*": "None",
-        "articles/aks/**/*": "OpenSource",
-        "articles/azure-monitor/**/*.*": "None",
-        "articles/advisor/**/*.*": "None",   
+        "articles/aks/**/*": "OpenSource", 
         "articles/virtual-machines/linux/classic/**/*": "None",
         "articles/virtual-machines/windows/classic/**/*": "None"
       },
@@ -721,9 +719,21 @@
       {
         "articles/aks/**/*": ""
       },
+      "open_source_feedback_issueLabels":
+      {
+        "articles/aks/**/*": "needs-triage, azure-kubernetes-service/svc"
+      },
       "open_source_feedback_issueUrl": 
       {
         "articles/aks/**/*": "https://github.com/MicrosoftDocs/azure-docs/issues/new?template=aks-customer-feedback.yml"
+      },
+      "open_source_feedback_productLogoLightUrl":
+      {
+        "articles/aks/**/*": "https://learn.microsoft.com/azure/media/index/kubernetes-services.svg"
+      },
+      "open_source_feedback_productLogoDarkUrl":
+      {
+        "articles/aks/**/*": "https://learn.microsoft.com/azure/media/index/kubernetes-services.svg"
       },
       "open_source_feedback_productName":
       {
