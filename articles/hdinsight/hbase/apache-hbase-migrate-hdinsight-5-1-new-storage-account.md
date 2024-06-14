@@ -240,12 +240,12 @@ You can download AzCopy from [Get started with AzCopy](../../storage/common/stor
 ## Troubleshooting
 
 ### Use case 1: 
-If Hbase masters and region servers up and regions stuck in transition or only one region i.e `hbase:meta` region is assigned. Waiting for other regions to assign
+If Hbase masters and region servers up and regions stuck in transition or only one region i.e. `hbase:meta` region is assigned. Waiting for other regions to assign
 
 **Solution:** 
 
 1. ssh into any ZooKeeper node of original cluster and run `kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<zk FQDN>` if this is ESP cluster
-1. Run `echo "scan '`hbase:meta`'" | hbase shell > meta.out` to read the `hbase:meta` into a file
+1. Run `echo "scan `hbase:meta`| hbase shell > meta.out` to read the `hbase:meta` into a file
 1. Run `grep "info:sn" meta.out | awk '{print $4}' | sort | uniq`  to get all RS instance names where the regions were present in old cluster. Output should be like `value=<wn FQDN>,16020,........`
 1. Create a dummy WAL dir with that `wn` value
 
