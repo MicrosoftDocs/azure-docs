@@ -11,7 +11,11 @@ ms.custom: engagement-fy23
 
 <!-- used in tutorial-expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
 
-1. In the Azure portal, go to the Azure VMware Solution private cloud. Select **Manage** > **Connectivity** > **ExpressRoute**, and then select **+ Request an authorization key**.
+1. In the Azure portal, go to the Azure VMware Solution private cloud.
+
+1. Under **Manage**, select **Connectivity**.
+
+1. Select the **ExpressRoute** tab, and then select **+ Request an authorization key**.
 
    :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Screenshot that shows selections for requesting an ExpressRoute authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
 

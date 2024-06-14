@@ -23,7 +23,7 @@ ms.custom: engagement-fy23
    | --- | --- |
    | **Name**  | Enter a name for the connection.  |
    | **Connection type**  | Select **ExpressRoute**.  |
-   | **Redeem authorization**  | Ensure that this box is selected.  |
+   | **Redeem authorization**  | Ensure that this checkbox is selected.  |
    | **Virtual network gateway** | The value is prepopulated with the virtual network gateway that you intend to use.  |
    | **Authorization key**  | Paste the authorization key that you copied earlier. |
    | **Peer circuit URI**  | Paste the ExpressRoute ID that you copied earlier.  |
