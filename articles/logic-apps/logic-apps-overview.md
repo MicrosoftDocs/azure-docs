@@ -35,7 +35,7 @@ The following partial example enterprise workflow uses conditions and switches t
 > - *What problems can I solve with Azure Logic Apps?*
 > - *What benefits does Azure Logic Apps provide?*
 >
-> To find Azure Copilot, on the Azure toolbar, select **Copilot**.
+> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
 If you're ready to try creating your first logic app workflow, see [Get started](#get-started).
 
