@@ -3,7 +3,7 @@ title: How to create and manage private endpoints (with v2 experience) for Azure
 description: This article explains how to configure and manage private endpoints for Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 03/26/2024
+ms.date: 06/14/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -210,6 +210,39 @@ To perform Cross Subscription Restore to a Private Endpoint enabled vault:
 3. Select the *subscription* of the target vault in which you want to restore.
 4. In the **Virtual Network** section, select the **VNet** of the target VM that you want to restore across subscription.
 5. Create the **Private Endpoint** and trigger the restore process.
+
+
+
+
+#### Cross Region Restore to a private endpoint enabled vault
+
+You can create a secondary private endpoint before or after having protected items in the vault.
+
+To restore data across regions to a private endpoint enabled vault, follow these steps:
+
+1. Go to the target *Recovery Services Vault* > **Settings** > **Networking**, and then ensure that private endpoint is created with the target *VM vnet* before protecting any items.
+
+
+   If the private endpoint is not enabled, [enable it](#deny-public-network-access-to-the-vault).
+
+2. On the **Private access** tab, create *Private Endpoints* in the *secondary region*.
+ 
+3.	On the **Create a private endpoint** blade, on the **Basics** tab, select the **Region** as the secondary region of the target VM to which you want to do cross-region restore.
+ 
+4. On the **Resource** tab, select the **Target sub-resource** as **AzureBackup_Secondary**.
+ 
+5. On the **Virtual Network** blade, select the **Virtual Network** of the target VM to which you want to do cross-region restore.
+ 
+   >[!Note]
+   >You can add a maximum of **12** Azure Backup Secondary Private Endpoints to a vault.
+
+6. [Create the private endpoint](#create-private-endpoints-for-azure-backup) and [start the restore process from the secondary region](sap-hana-database-restore.md#cross-subscription-restore).
+
+
+
+
+
+
 
 ## Deleting private endpoints
 
