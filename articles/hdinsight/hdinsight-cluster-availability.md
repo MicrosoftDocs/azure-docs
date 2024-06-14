@@ -11,7 +11,7 @@ ms.date: 06/14/2024
 
 HDInsight clusters include Apache Ambari, which provides health information at a glance and predefined alerts.
 
-This article shows how to use Ambari to monitor your cluster and walks through some examples for configuring an Ambari alert, monitoring node availability rate, and creating an Azure Monitor alert that fires when a heartbeat hasn't been received from one or more nodes in five hours.
+This article shows how to use Ambari to monitor your cluster and walks through some examples for configuring an Ambari alert, monitor node availability rate, and create an Azure Monitor alert that fires when a heartbeat hasn't been received from one or more nodes in five hours
 
 ## Dashboard
 
