@@ -195,5 +195,5 @@ Thus, during the canary upgrade, when two revisions exist simultaneously on the 
 [istio-canary-upstream]: https://istio.io/latest/docs/setup/upgrade/canary/
 [meshconfig]: ./istio-meshconfig.md
 [meshconfig-canary-upgrade]: ./istio-meshconfig.md#mesh-configuration-and-upgrades
-[istio-service-mesh-tsg]: https://learn.microsoft.com/en-us/troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting
+[istio-service-mesh-tsg]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting
 
