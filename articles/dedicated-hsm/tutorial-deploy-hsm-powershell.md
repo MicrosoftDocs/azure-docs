@@ -10,7 +10,7 @@ ms.date: 02/20/2024
 ms.author: mbaldwin
 ---
 
-# Tutorial – Deploying HSMs into an existing virtual network using PowerShell
+# Tutorial: Deploying HSMs into an existing virtual network using PowerShell
 
 The Azure Dedicated HSM Service provides a physical device for sole customer use, with complete administrative control and full management responsibility. Due to providing physical hardware, Microsoft must control how those devices are allocated to ensure capacity is managed effectively. As a result, within an Azure subscription, the Dedicated HSM service aren't normally visible for resource provisioning. Any Azure customer requiring access to the Dedicated HSM service must first contact their Microsoft account executive to request registration for the Dedicated HSM service. Only once this process completes successfully is provisioning possible.
 
@@ -174,7 +174,7 @@ New-AzResourceGroupDeployment -ResourceGroupName myRG `
 
 This command should take approximately 20 minutes to complete. The "-verbose" option used will ensure status is continually displayed.
 
-:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status.png" alt-text="Provisioning status":::
+:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status.png" alt-text="Deploying a Decicated HSM":::
 
 When completed successfully, shown by "provisioningState": "Succeeded", you can sign in to your existing virtual machine and use SSH to ensure availability of the HSM device.
 
