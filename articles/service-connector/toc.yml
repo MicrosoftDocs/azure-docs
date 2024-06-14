@@ -164,6 +164,8 @@ items:
       href: how-to-integrate-storage-file.md
     - name: Azure Key Vault
       href: how-to-integrate-key-vault.md
+    - name: Azure OpenAI
+      href: how-to-integrate-openai.md
     - name: Azure Queue Storage
       href: how-to-integrate-storage-queue.md
     - name: Azure Service Bus

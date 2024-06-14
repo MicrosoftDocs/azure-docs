@@ -8,9 +8,10 @@ ms.author: wchi
 
 ### [.NET](#tab/dotnet)
 
-1. Install the following dependency.
+1. Install the following dependencies.
     ```bash
     dotnet add package Azure.AI.OpenAI --prerelease
+    dotnet add package Azure.Core --version 1.40.0
     ```
 1. Get the Azure OpenAI endpoint and API key from the environment variables added by Service Connector.
     
@@ -31,6 +32,11 @@ ms.author: wchi
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
+        <artifactId>azure-core</artifactId>
+        <version>1.49.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
         <artifactId>azure-ai-openai</artifactId>
         <version>1.0.0-beta.6</version>
     </dependency>
@@ -47,34 +53,43 @@ ms.author: wchi
 
 ### [Python](#tab/python)
 
-1. Install the following dependency.
+1. Install the following dependencies.
     ```bash
     pip install openai
+    pip install azure-core
     ```
 1. Get the App Configuration connection string from the environment variables added by Service Connector.
     ```python
     import os
-    import OpenAI
+    from openai import AzureOpenAI
     from azure.core.credentials import AzureKeyCredential
     
-    openai.api_key = os.environ['AZURE_OPENAI_KEY']
-    openai.base_url = os.environ['AZURE_OPENAI_BASE']
-    client = OpenAI()
+    key = os.environ['AZURE_OPENAI_KEY']
+    endpoint = os.environ['AZURE_OPENAI_BASE']
+    client = AzureOpenAI(
+        api_version="2024-02-15-preview",
+        azure_endpoint=endpoint,
+        api_key=key
+    )
     ```
 
 ### [NodeJS](#tab/nodejs)
 
-1. Install the following dependency.
+1. Install the following dependencies.
     ```bash
-    npm install @azure/app-configuration
+    npm install @azure/openai
+    npm install @azure/core-auth
     ```
 1. Get the App Configuration connection string from the environment variables added by Service Connector.
     
     ```javascript
-    const appConfig = require("@azure/app-configuration");
+    import { OpenAIClient } from "@azure/openai";
+    import { AzureKeyCredential } from "@azure/core-auth";
 
-    const connection_string = process.env.AZURE_APPCONFIGURATION_CONNECTIONSTRING;
-    const client = new appConfig.AppConfigurationClient(connection_string);
+    const endpoint = process.env.AZURE_OPENAI_BASE;
+    const credential = new AzureKeyCredential(process.env.AZURE_OPENAI_KEY);
+
+    const client = new OpenAIClient(endpoint, credential);
     ```
 
 ### [Other](#tab/none)

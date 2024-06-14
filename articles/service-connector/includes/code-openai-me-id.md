@@ -78,7 +78,7 @@ ms.author: wchi
     //   .tenantId(System.getenv("AZURE_OPENAI_TENANTID"))
     //   .build();
     
-    String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");
+    String endpoint = System.getenv("AZURE_OPENAI_BASE");
     
     OpenAIClient client = new OpenAIClientBuilder()
       .credential(credential)
@@ -90,14 +90,14 @@ ms.author: wchi
 
 1. Install dependencies.
     ```bash
-    pip install azure-OPENAI
+    pip install openai
     pip install azure-identity
     ```
-1. Authenticate using `azure-identity` and get the Azure App Configuration endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```python
     import os
-    from azure.OPENAI import AzureOPENAIClient
-    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
+    import OpenAI
+    from azure.identity import ManagedIdentityCredential, ClientSecretCredential, get_bearer_token_provider
     
     # Uncomment the following lines according to the authentication type.
     # system-assigned managed identity
@@ -113,9 +113,17 @@ ms.author: wchi
     # client_secret = os.getenv('AZURE_OPENAI_CLIENTSECRET')
     # cred = ClientSecretCredential(tenant_id=tenant_id, client_id=client_id, client_secret=client_secret)
 
-    endpoint_url = os.getenv('AZURE_OPENAI_ENDPOINT')
+    token_provider = get_bearer_token_provider(
+        cred, "https://cognitiveservices.azure.com/.default"
+    )
 
-    client = AzureOPENAIClient(base_url="your_endpoint_url", credential=credential)
+    endpoint = os.getenv('AZURE_OPENAI_BASE')
+
+    client = AzureOpenAI(
+        api_version="2024-02-15-preview",
+        azure_endpoint=endpoint,
+        azure_ad_token_provider=token_provider
+    )
     ```
 
 ### [NodeJS](#tab/nodejs)
@@ -123,13 +131,12 @@ ms.author: wchi
 1. Install dependencies.
     ```bash
     npm install --save @azure/identity
-    npm install @azure/app-configuration
+    npm install @azure/openai
     ```
-1. Authenticate using `@azure/identity` and get the Azure App Configuration endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `@azure/identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
-    const appConfig = require("@azure/app-configuration");
     
     // Uncomment the following lines according to the authentication type.
     // for system-assigned managed identity
@@ -147,12 +154,8 @@ ms.author: wchi
     // const clientSecret = process.env.AZURE_OPENAI_CLIENTSECRET;
     // const credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
     
-    const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
-
-    const client = new appConfig.OPENAIClient(
-        endpoint,
-        credential
-    );
+    const endpoint = process.env.AZURE_OPENAI_BASE;
+    const client = new OpenAIClient(endpoint, credential);
     ```
 
 ### [Other](#tab/none)
