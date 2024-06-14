@@ -17,10 +17,15 @@ Reference</br>
 Feature: **Azure AI Translator → Document Translation**</br>
 API Version: **2024-05-01**</br>
 
-Document Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Batch Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the following table:
+Document Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Batch Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the following tables:
+
+## Current version (preview)
 
 > [!NOTE]
-> The `get supported storage sources` method is no longer supported. The Translator service only supports Azure Blob storage.
+>
+> * The current version is backward compatible with the stable version. You can use either version's operations to translate documents.
+>
+> * The `get supported storage sources` method is no longer supported. The Translator service only supports Azure Blob storage.
 
 | Request|Method| Description|API path|
 |---------|:-------:|-------|-----|
@@ -35,6 +40,8 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 |[**Cancel translation**](cancel-translation.md)|DELETE| Cancel a document translation job that is currently processing or queued.|`{document-translation-endpoint}/translator/document/batches/{id}?api-version={date}`|
 |[**Get supported document formats**](get-supported-document-formats.md)|GET| Request a list of supported document formats.|`{document-translation-endpoint}/translator/document/formats?api-version={date}&type=document`|
 |[**Get supported glossary formats**](get-supported-glossary-formats.md)|GET|Request a list of supported glossary formats.|`{document-translation-endpoint}/translator/document/formats?api-version={date}&type=glossary`|
+
+## Stable version
 
 | Request|Method| Description|API path|
 |---------|:-------:|-------|-----|
