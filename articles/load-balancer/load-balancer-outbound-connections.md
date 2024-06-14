@@ -150,11 +150,19 @@ For more information about connection pooling with Azure App Service, see [Troub
 
 New outbound connections to a destination IP fail when port exhaustion occurs. Connections succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the [troubleshooting guide](./troubleshoot-outbound-connection.md).  
 
-For TCP connections, the load balancer uses a single SNAT port for every destination IP and port. This also enables the load balancer to reuse the same SNAT port for multiple connections, as long as the destination IP and port is unique. For scenarios involving multiple connections to the same destination IP and port, unique SNAT ports will be consumed and reuse will not apply.
+### Port reuse
+For TCP connections, the load balancer uses a single SNAT port for every destination IP and port. For connections to the same destination IP, a single SNAT port can be reused as long as the destination port differs. Reuse is not possible when there already exists a connection to the same destination IP and port.
 
 For UDP connections, the load balancer uses a **port-restricted cone NAT** algorithm, which consumes one SNAT port per destination IP, regardless of the destination port. 
 
-A port is reused for an unlimited number of connections. The port is only reused if the destination IP or port is different.
+Individual ports can be reused for an unlimited number of connections where reuse is permitted (when the destination IP or port is different).
+
+In the example in the following table, a backend instance with private IP 10.0.0.1 is making TCP connections to destination IPs 23.53.254.142 and 26.108.254.155, while the load balancer is configured with frontend IP address 192.0.2.0. Because the destination IPs are different, the same SNAT port can be reused for multiple connections.
+
+| Flow | Source tuple | Source tuple after SNAT | Destination tuple |
+| --- | --- | --- | --- |
+| 1 | 10.0.0.1:80 | 192.0.2.0:1 | 23.53.254.142:80 |
+| 2 | 10.0.0.1:80 | 192.0.2.0:1 | 26.108.254.155:80 |
 
 ## Constraints
 
