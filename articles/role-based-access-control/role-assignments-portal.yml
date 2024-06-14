@@ -237,13 +237,13 @@ procedureSection:
       - |
         In the **State** column, click the link, such as **Eligible time-bound** or **Active permanent**.
 
-        The **Edit assignment** pane appears where you can update the role assignment type settings.
+        The **Edit assignment** pane appears where you can update the role assignment type settings. The pane might take a few moments to open.
 
         :::image type="content" source="./media/role-assignments-portal/assignment-type-edit.png" alt-text="Screenshot of Edit assignment pane with Assignment type options displayed." lightbox="./media/role-assignments-portal/assignment-type-edit.png":::
       - |
         When finished, click **Save**.
 
-        It takes a few moments for your updates to be processed.
+        Your updates might take a while to be processed and reflected in the portal.
 
 relatedContent:
   - text: Assign a user as an administrator of an Azure subscription
