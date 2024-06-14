@@ -39,10 +39,10 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 The following Linux distributions are supported for x64 architectures that use the Speech CLI:
 
-* CentOS 7/8
-* Debian 9/10
-* Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 18.04/20.04
+- Ubuntu 20.04/22.04
+- Debian 11/12
+- Red Hat Enterprise Linux (RHEL) 7
+- CentOS 7
 
 > [!NOTE]
 > The Speech SDK (not the Speech CLI) supports additional architectures. For more information, see [About the Speech SDK](../speech-sdk.md).
