@@ -5,10 +5,12 @@ description: This article summarizes frequently asked questions about Azure Moni
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
-ms.date: 05/24/2024
+ms.date: 05/15/2024
+ms.custom: UpdateFrequency.5, engagement-fy24
 ms.service: system-center
 ms.subservice: operations-manager-managed-instance
 ms.topic: faq
+monikerRange: '>=sc-om-2019'
 ---
 
 # Azure Monitor SCOM Managed Instance frequently asked questions
@@ -27,10 +29,10 @@ The minimum address space is /27 (which means /28 and above wouldn't work).
 
 **How many subnets does the VNet need to have?**
 
-- VNet needs two subnets. 
+- VNet needs two subnets.
     - For SCOM Managed Instance
     - For SQL Managed Instance
-- The subnet for SQL Managed Instance instance will be a delegated (dedicated) subnet and won't be used by the SCOM Managed Instance. Name the subnets accordingly to avoid confusion in the future while you create the SQL Managed Instance/SCOM Managed Instance.
+- The subnet for SQL Managed Instance will be a delegated (dedicated) subnet and won't be used by the SCOM Managed Instance. Name the subnets accordingly to avoid confusion in the future while you create the SQL Managed Instance/SCOM Managed Instance.
 
 **What address range do the two subnets need?**
 
@@ -76,17 +78,22 @@ If you have multiple VNets created, you need to peer your VNets. If you're peeri
 
 Azure RBAC is the role-based access control system that Azure follows while granting permissions. For more information, see [Azure role-based access control](/azure/role-based-access-control/overview). 
 
-Azure RBAC is divided into Azure roles and Azure Active Directory roles. At a high level, Azure roles control permissions to manage Azure resources, while Azure Active Directory roles control permissions to manage Azure Active Directory resources. The following table compares some of the differences.
+Azure RBAC is divided into Azure roles and Microsoft Entra ID roles. At a high level, Azure roles control permissions to manage Azure resources, while Microsoft Entra ID roles control permissions to manage Microsoft Entra ID Directory resources. The following table compares some of the differences.
 
-:::image type="Comparision of Azure roles and Azure active directory roles" source="media/operations-manager-managed-instance-common-questions/comparision-of-azure-roles-and-azure-active-directory-roles.png" alt-text="Screenshot of Azure roles and Azure active directory roles.":::
+|**Azure roles**|**Microsoft Entra ID roles**|
+|---|---|
+|Manage access to Azure resources|Manage access to Microsoft Entra ID resources|
+|Supports custom roles|Supports custom roles|
+|Scope can be specified at multiple levels (management group, subscription, resource group, resource)|Scope can be specified at the tenant level (organization-wide), administrative unit, or on an individual object (for example, a specific application)|
+|Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API|Role information can be accessed in Azure admin portal, Microsoft 365, admin center, Microsoft Graph, Microsoft Entra ID PowerShell|
 
 Below is the high-level view of how the classic subscription administrator roles, Azure roles, and Azure AD roles are related.
 
-:::image type="Azure active directory roles" source="media/operations-manager-managed-instance-common-questions/azure-active-directory-roles.png" alt-text="Screenshot of Azure active directory roles.":::
+:::image type="Microsoft Entra ID roles" source="media/operations-manager-managed-instance-common-questions/azure-active-directory-roles.png" alt-text="Screenshot of Microsoft Entra ID roles.":::
 
 **What is a Global Administrator role?**
 
-Users with the Global administrator role have access to all administrative features in Azure Active Directory and services that use Azure Active Directory identities, such as:
+Users with the Global administrator role have access to all administrative features in Microsoft Entra ID and services that use Microsoft Entra ID identities, such as:
    - Microsoft 365 Defender portal
    - Compliance portal
    - Exchange Online
@@ -97,7 +104,7 @@ Users with the Global administrator role have access to all administrative featu
 
 **What if there's an error during the deployment?**
 
-During the deployment phase, there can be several reasons why deploying a SCOM Managed Instance shows an error. It might be some backend error, or you might have given the wrong credentials for one of the accounts. In the scenario of an error during deployment, it's best to delete the instance and create one again. For more information, see [Troubleshoot issues with Azure Monitor SCOM Managed Instance](./troubleshoot-scom-managed-instance.md).
+During the deployment phase, there can be several reasons why deploying a SCOM Managed Instance shows an error. It might be due to wrong input while creation or some backend error. Raise a support ticket in case you need any further assistance. In the scenario of an error during deployment, it's best to delete the instance and create one again. For more information, see [Troubleshoot issues with Azure Monitor SCOM Managed Instance](./troubleshoot-scom-managed-instance.md).
 
 **What is the procedure to delete an instance?**
 
@@ -107,9 +114,9 @@ In the instance view, select *Delete* from the top menu and wait for the confirm
 
 :::image type="Delete option" source="media/operations-manager-managed-instance-common-questions/delete.png" alt-text="Screenshot showing delete option.":::
 
-Alternatively, go to your resource group view (search for Resource Group in the Azure search bar, and in the list of results, open your resource group). If you created a separate resource group for SCOM Managed Instance, delete the resource group. Otherwise, in the resource group, search for your instance and select *Delete*. 
+Alternatively, go to your resource group view (search for Resource Group in the Azure search bar, and in the list of results, open your resource group). Go to the resource group where the SCOM Managed Instance resides and delete the instance.
 
-Once the instance is deleted, you'll also have to delete the two databases created in SQL MI. In the resource view, select the two databases (depending on what name you gave to your SQL MI instance) and select **Delete**. With the two databases deleted, you can recreate your SCOM Managed Instance.
+Once the instance is deleted, you'll also have to delete the two databases created in SQL MI. In the resource view, select the two databases (depending on what name you gave to your SCOM Managed Instance) and select **Delete**.
 
 **If an Arc instance to connect to private cloud with some resources is available, will SCOM Managed Instance scale to those resources?**
 
@@ -122,7 +129,7 @@ SCOM Managed Instance and System Center Operations Manager share the same featur
 **How is SCOM Managed Instance different from running System Center Operations Manager in Azure VMs?**
 
 - SCOM Managed Instance is native to Azure, while running System Center Operations Manager in Azure VMs isn't a native solution. This means, SCOM Managed Instance integrates smoothly with Azure and all of Azure’s updates are available to SCOM Managed Instance.
-- In terms of ease of deployment, SCOM Managed Instance is easy to deploy, while running VMs in Azure takes possibly months of effort (and requires in-depth technical knowledge).
+- SCOM Managed Instance prepares the entire infra for high availability by deploying VMSS, Load Balancer, MSI, etc. To prepare such setup manually, it takes months of effort (and requires in-depth technical knowledge).
 - SCOM Managed Instance uses SQL MI as the backend for database management by default.
 - SCOM Managed Instance comes with built-in scaling, patching features, and integrated reports.
 
@@ -231,4 +238,4 @@ Currently, multi-homing for gateway servers isn't supported.
 
 ## Next steps
 
-[SCOM Managed Instance overview](overview.md)
+[SCOM Managed Instance overview](operations-manager-managed-instance-overview.md)
