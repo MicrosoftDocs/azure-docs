@@ -18,7 +18,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
 
@@ -519,7 +519,4 @@ If you're not going to continue to use the OpenShift cluster, navigate back to y
 
 ## Next steps
 
-Learn more about deploying JBoss EAP on Azure by following these links:
-
-> [!div class="nextstepaction"]
-> [Explore Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure)
+For more information about deploying JBoss EAP on Azure, see [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure).

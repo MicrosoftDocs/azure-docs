@@ -37,7 +37,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by WebLogic Server on AKS, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 - Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
 - Accept the license terms for WebLogic Server.
@@ -726,4 +726,4 @@ Learn more about running WebLogic Server on AKS or virtual machines by following
 * [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/java/ee/toc.json&bc=/azure/java/ee/breadcrumb/toc.json)
 * [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/java/ee/toc.json&bc=/azure/java/ee/breadcrumb/toc.json)
 
-To find more about Oracle WebLogic offers, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
+For more information about the Oracle WebLogic offers at Azure Marketplace, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume that you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.

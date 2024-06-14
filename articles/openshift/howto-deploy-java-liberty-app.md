@@ -417,7 +417,4 @@ az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 
 ## Next steps
 
-Learn more about deploying IBM WebSphere family on Azure by following these links:
-
-> [!div class="nextstepaction"]
-> [Explore the IBM WebSphere family of products on Azure](/azure/developer/java/ee/websphere-family)
+For more information about deploying the IBM WebSphere family on Azure, see [What are solutions to run the WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family)

@@ -55,4 +55,6 @@ The following articles provide more information on getting started with these te
 * [Deploy a Java application with WebLogic Server on an Azure Kubernetes Service (AKS) cluster](/azure/aks/howto-deploy-java-wls-app?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 * [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](./oracle-weblogic.md?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
 
-To find more about Oracle WebLogic offers, visit the overview page of [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure. You're encouraged to [connect with the development team](https://aka.ms/wls-on-azure-survey) and provide feedback on further improving WebLogic on AKS solutions.
+For more information about the Oracle WebLogic offers at Azure Marketplace, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume that you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
+
+You're encouraged to [connect with the development team](https://aka.ms/wls-on-azure-survey) and provide feedback on further improving WebLogic on AKS solutions.
