@@ -5,9 +5,9 @@ author: bananibrahim
 ms.service: energy-data-services
 ms.author: bananibrahim
 
-ms.topic: concepts
+ms.topic: conceptual
 ms.date: 06/12/2024
-ms.custom: template-concepts
+ms.custom: template-concept
 ---
 
 # OSDU&reg; Concepts: Available and exclusive services
