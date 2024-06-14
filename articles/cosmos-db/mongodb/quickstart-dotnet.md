@@ -25,7 +25,7 @@ packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-
 
 ## Prerequisites
 
-[!INCLUDE [Developer Quickstart prerequisites](../nosql/includes/quickstart-dev-prereqs.md)]
+[!INCLUDE [Developer Quickstart prerequisites](includes/quickstart-dev-prereqs.md)]
 
 ## Setting up
 
