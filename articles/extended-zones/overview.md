@@ -38,7 +38,7 @@ The following table lists key services that are available in Azure Extended Zone
 
 | Service category | Available services |
 | ------------------ | ------------------- |
-| **Compute** | Azure virtual machines (general purpose: A, B, D, E, and F series, GPU NVadsA10 v5 series) <br> Virtual Machine Scale Sets <br> Azure Kubernetes Service |
+| **Compute** | Azure virtual machines (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series) <br> Virtual Machine Scale Sets <br> Azure Kubernetes Service |
 | **Networking** | Azure Private Link <br> Standard public IP <br> Virtual networks <br> Virtual network peering <br> ExpressRoute <br> Azure Standard Load Balancer <br> DDoS (Standard protection) |
 | **Storage** | Azure managed disks <br> Azure Premium Page Blobs <br> Azure Premium Block Blobs <br> Azure Premium Files <br>  Azure Data Lake Storage Gen2<br> Hierarchical Namespace <br>Azure Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
 | **BCDR** | Azure Site Recovery <br> Azure Backup |
