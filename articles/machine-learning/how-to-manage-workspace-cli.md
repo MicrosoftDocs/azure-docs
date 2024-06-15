@@ -22,7 +22,7 @@ In this article, you learn how to create and manage Azure Machine Learning works
 You can also use the following methods to create and manage Azure Machine Learning workspaces:
 
 - [Azure Machine Learning studio](quickstart-create-resources.md#create-the-workspace)
-- [Azure portal or Python SDK](how-to-manage-workspace.md)
+- [Azure portal](how-to-manage-workspace.md)
 - [Python SDK](how-to-manage-workspace.md)
 - [Azure PowerShell](how-to-manage-workspace-powershell.md)
 - [Visual Studio Code with the Azure Machine Learning extension](how-to-setup-vs-code.md)
@@ -30,7 +30,7 @@ You can also use the following methods to create and manage Azure Machine Learni
 ## Prerequisites
 
 - An Azure subscription with a free or paid version of Azure Machine Learning. If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
-- If you want to run the Azure CLI commands in this article locally, you need [Azure CLI](/cli/azure/install-azure-cli) installed.
+- [Azure CLI](/cli/azure/install-azure-cli) installed, if you want to run the Azure CLI commands in this article locally.
 
   If you run the Azure CLI commands in [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), you don't need to install anything. The browser accesses the latest cloud version of Azure CLI and the Azure Machine Learning extension.
 
@@ -41,6 +41,10 @@ You can also use the following methods to create and manage Azure Machine Learni
 - The following limitation applies to the Application Insights instance created during workspace creation:
 
   [!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
+
+- The Azure Machine Learning workspace uses Azure Container Registry for some operations, and automatically creates a Container Registry instance when it first needs one.
+
+  [!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Connect to your Azure subscription
 
@@ -170,7 +174,7 @@ When you use Private Link, your workspace can't use Azure Container Registry to 
 
 :::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
-After you create the workspace by running `az ml workspace create -g <resource-group-name> --file <configuration-file>.yml`, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
+After you create the workspace by running `az ml workspace create`, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -224,9 +228,9 @@ az network private-endpoint dns-zone-group add \
     --zone-name 'privatelink.notebooks.azure.net'
 ```
 
-For more information on using a private endpoint and virtual network with your workspace, see:
+For more information on using a private endpoint and virtual network with your workspace, see the following articles:
 
-- [Configure a private endpoint for your Azure Machine Learning workspace](how-to-configure-private-link.md).
+- [Private endpoint configuration for your Azure Machine Learning workspace](how-to-configure-private-link.md)
 - [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 ### Resource management private links
@@ -311,12 +315,6 @@ az ml workspace sync-keys -n <workspace-name> -g <resource-group-name>
 
 Moving an Azure Machine Learning workspace is currently in preview. For more information, see [Move Azure Machine Learning workspaces between subscriptions (preview)](how-to-move-workspace.md).
 
-### Delete the Azure container registry
-
-The Azure Machine Learning workspace uses Azure Container Registry for some operations, and automatically creates a Container Registry instance when it first needs one.
-
-[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
-
 ### Delete a workspace
 
 To delete a workspace after it's no longer needed, use the following command:
@@ -325,7 +323,7 @@ To delete a workspace after it's no longer needed, use the following command:
 az ml workspace delete -n <workspace-name> -g <resource-group-name>
 ```
 
-The default behavior for Azure Machine Learning is to *soft delete* the workspace. The workspace isn't immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
+The default behavior for Azure Machine Learning is to *soft-delete* the workspace. The workspace isn't immediately deleted, but instead is marked for deletion. For more information, see [Soft delete](./concept-soft-delete.md).
 
 [!INCLUDE [machine-learning-delete-workspace](includes/machine-learning-delete-workspace.md)]
 
