@@ -20,6 +20,9 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
 
+> [!NOTE]  
+> You don't need to stop or restart a VM to detach its disk. You can remove the disk as long as nothing is actively using the disk when it is being detached.
+
 
 ## Connect to the VM to unmount the disk
 
