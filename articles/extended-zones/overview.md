@@ -15,6 +15,8 @@ Azure Extended Zones are small-footprint extensions of Azure placed in metros, i
  
 Azure Extended Zones are part of the Microsoft global network that provides secure, reliable, high-bandwidth connectivity between applications that run on an Azure Extended Zone close to the user. Extended Zones address low latency and data residency by bringing all the goodness of the Azure ecosystem (access, user experience, automation, security, etc.) closer to the customer or their jurisdiction. Azure customers can provision and manage their Azure Extended Zones resources, services, and workloads through the Azure portal and other essential Azure tools.
 
+## Key scenarios
+
 The key scenarios Azure Extended Zones enable are: 
 
 - **Latency**: users want to run their resources, for example, media editing software, remotely with low latency.
