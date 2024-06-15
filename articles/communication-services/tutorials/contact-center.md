@@ -30,7 +30,8 @@ A typical multi-channel contact center may start with the most efficient form of
 
 ![Data flow diagram for chat with a bot agent](media/contact-center/contact-center-progression.svg)
 
-Developers have the option of using Azure Communication Services for all of these phases or a select few. For example, you may implement your own text chat system and then use Azure solely for video calling. Documentation for these communication channels are linked:
+Developers have the option of using Azure Communication Services for all of these phases or a select few. For example, you may implement your own text chat system and then use Azure solely for video calling. For more information, see any of the articles linked from this table:
+
 
 | Enable customers to initiate messaging via:  | Enable customers to initiate voice and video calling via: | Enable agents to reply to messages and answer voice calls via:   | Integrate services and bots via:  |
 |----|--|---|--|
