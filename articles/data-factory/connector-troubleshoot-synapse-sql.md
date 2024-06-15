@@ -135,7 +135,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Message**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
-- **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program utility (bcp) client.
+- **Cause**: SQL Bulk Copy failed because it received an invalid column length from the bulk copy program (bcp) utility client.
 
 - **Recommendation**:  To identify which row has encountered the problem, enable the fault tolerance feature on the copy activity. This can redirect problematic rows to the storage for further investigation. For more information, see [Fault tolerance of copy activity](./copy-activity-fault-tolerance.md).
 

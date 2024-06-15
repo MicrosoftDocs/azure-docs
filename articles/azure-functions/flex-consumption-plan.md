@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 05/24/2024
+ms.date: 06/15/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -118,7 +118,7 @@ Currently, each region in a given subscription has a memory limit of `512,000 MB
 | `2048 MB` | 250 |
 | `4096 MB` | 125 |
 
-You could have any other combination of instance memory sizes and counts in a given region, as long as they stay under the `512,000` MB limit. If your apps require a larger quota, you can create a support ticket to request a quota increase.
+You could have any other combination of instance memory sizes and counts in a given region, as long as they stay under the `512,000 MB` limit. If your apps require a larger quota, you can create a support ticket to request a quota increase.
 
 ## Deprecated properties and settings
 
