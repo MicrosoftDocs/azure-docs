@@ -24,11 +24,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-<<<<<<< HEAD
 - [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-=======
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
->>>>>>> 701309bb6f47ecf4331a926767cdc86cc72dbc75
 
 ## Deploy WebLogic Server with Administration Server on a VM
 

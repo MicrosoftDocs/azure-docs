@@ -19,11 +19,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Prerequisites
 
-<<<<<<< HEAD
 - [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-=======
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
->>>>>>> 701309bb6f47ecf4331a926767cdc86cc72dbc75
 - Install [Azure CLI](/cli/azure/install-azure-cli).
 - Install a Java Standard Edition (SE) implementation version 8 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.5.0 or higher.
