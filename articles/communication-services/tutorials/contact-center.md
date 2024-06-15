@@ -146,4 +146,4 @@ The following list presents relevant Teams interoperability features available f
 
 1.  Teams Auto Attendant must be voice enabled.
 2.  Licensing required
-3.  Teams Call Parking will be available after general availability
+3.  Teams Call Parking becomes available with general availability.
