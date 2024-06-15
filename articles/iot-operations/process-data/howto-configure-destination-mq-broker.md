@@ -21,7 +21,7 @@ Use the _MQ_ destination to publish processed messages to an MQTT broker, such a
 
 ## Prerequisites
 
-To configure and use a destination pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
+To configure and use a destination pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 
 ## Configure the destination stage
 

@@ -216,7 +216,7 @@ To create an instance resource, add the resource definition JSON to an Azure Res
     "scope": "myNamespace",
     "solution": "mySolution",
     "target": {
-      "name": "myInstance"
+      "name": "myTarget"
     },
     "reconciliationPolicy": {
       "type": "periodic",

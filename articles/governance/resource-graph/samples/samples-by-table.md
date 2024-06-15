@@ -8,7 +8,7 @@ ms.custom: generated
 
 # Azure Resource Graph sample queries by table
 
-[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/samples/archive-samples.md)]
 
 This page is a collection of Azure Resource Graph sample queries grouped by table. To jump to a
 specific **table**, use the links on the top of the page. Otherwise, use

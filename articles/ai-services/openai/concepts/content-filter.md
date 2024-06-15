@@ -7,7 +7,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 11/06/2023
-ms.custom: template-concept
+ms.custom: template-concept, devx-track-python
 manager: nitinme
 ---
 

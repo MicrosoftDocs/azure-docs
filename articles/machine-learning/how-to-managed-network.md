@@ -85,8 +85,8 @@ Before following the steps in this article, make sure you have the following pre
 
 * The Azure identity you use when deploying a managed network requires the following [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) actions to create private endpoints:
 
-    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read
-    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
+    * `Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read`
+    * `Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write`
 
 * The [Azure CLI](/cli/azure/) and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
@@ -111,8 +111,8 @@ Before following the steps in this article, make sure you have the following pre
 
 * The Azure identity you use when deploying a managed network requires the following [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) actions to create private endpoints:
 
-    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read
-    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
+    * `Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read`
+    * `Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write`
 
 * The Azure Machine Learning Python SDK v2. For more information on the SDK, see [Install the Python SDK v2 for Azure Machine Learning](/python/api/overview/azure/ai-ml-readme).
 
@@ -155,8 +155,8 @@ Before following the steps in this article, make sure you have the following pre
 
 * The Azure identity you use when deploying a managed network requires the following [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) actions to create private endpoints:
 
-    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read
-    * Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write
+    * `Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read`
+    * `Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write`
 
 ---
 

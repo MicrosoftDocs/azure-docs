@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 03/14/2024
 ms.author: v-wellsjason
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Troubleshoot a container app

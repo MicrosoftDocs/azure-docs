@@ -9,9 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 06/03/2024
-ms.custom:
-  - subject-rbac-steps
-  - references_regions
+ms.custom: subject-rbac-steps, references_regions, devx-track-azurepowershell
 ---
 
 # Connect to Azure AI Search using role-based access controls
@@ -104,8 +102,8 @@ New-AzRoleAssignment -SignInName <email> `
 
 Role assignments are global across the search service. To [scope permissions to a single index](#rbac-single-index), use PowerShell or the Azure CLI to create a custom role.
 
-> [!IMPORTANT]
-> If you configure role-based access for a service or index and you also provide an API key on the request, the search service uses the API key to authenticate.
+> [!NOTE]
+> If you make a request, such as a REST call, that includes an API key, and you're also part of a role assignment, the API key takes precedence. For instance, if you have a read-only role assignment but make a request with an admin API key, the permissions granted by the API key override the role assignment. This behavior only applies if both keys and roles are enabled for your search service.
 
 #### [**Azure portal**](#tab/roles-portal)
 

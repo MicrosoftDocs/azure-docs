@@ -82,7 +82,6 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Analysis Services                              |
 > | Azure AI services                            |
 > | Azure Automation                                     |
-> | Azure AI services                             |
 > | Azure Container Apps                                 |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |

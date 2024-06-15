@@ -2,7 +2,7 @@
 title: Update language versions in Azure Functions
 description: Learn how to update the version of the native language used by a function app in Azure Functions.
 ms.topic: how-to
-ms.custom: devx-track-extended-java, devx-track-azurecli, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-azurecli, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 12/06/2023
 zone_pivot_groups: programming-languages-set-functions
 ---

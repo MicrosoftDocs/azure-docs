@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: This article provides an overview of the supported features and plans for Defender for Cloud in Azure commercial cloud and government clouds.
 ms.topic: limits-and-quotas
-ms.date: 03/10/2024
+ms.date: 05/29/2024
 ---
 
 # Defender for Cloud support for Azure commercial/other clouds
@@ -14,7 +14,6 @@ This article indicates which Defender for Cloud features are supported in Azure 
 ## Cloud support
 
 In the support table, **NA** indicates that the feature isn't available.
-
 
 |**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**|
 |--- | --- | --- | --- |
@@ -27,6 +26,7 @@ In the support table, **NA** indicates that the feature isn't available.
 |[Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md) | Preview | NA | NA|
 |[Azure Workbooks integration for reporting](custom-dashboards-azure-workbooks.md) | GA | GA | GA|
 |[Automatic component/agent/extension provisioning](monitoring-components.md) | GA | GA | GA|
+|[Copilot for Security in Defender for Cloud](copilot-security-in-defender-for-cloud.md) | Preview | NA | NA |
 |**FOUNDATIONAL CSPM FEATURES (FREE)** | | ||
 |[Asset inventory](asset-inventory.md) | GA | GA | GA|
 |[Security recommendations](security-policy-concept.md) based on the [Microsoft Cloud Security Benchmark](concept-regulatory-compliance.md)  | GA | GA | GA|

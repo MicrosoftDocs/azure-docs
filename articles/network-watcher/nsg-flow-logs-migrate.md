@@ -7,7 +7,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 05/10/2024
-ms.custom: devx-track-azurepowershell
+ms.custom:
 
 #CustomerIntent: As an Azure administrator, I want to migrate my network security group flow logs to the new virtual network flow logs so that I can use all the benefits of virtual network flow logs, which overcome some of the network security group flow logs limitations.
 ---

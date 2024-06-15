@@ -4,6 +4,7 @@ description: Use real time log data with .NET Aspire Dashboard in Azure Containe
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-dotnet
 ms.topic: how-to
 ms.date: 05/09/2024
 ms.author: cshoe
