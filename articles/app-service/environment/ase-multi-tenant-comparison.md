@@ -59,9 +59,9 @@ Both App Service Environment v3 and the public multitenant offering run on [Virt
 |UDR integration|Supports outbound traffic routing, [must be explicitly enabled](networking.md#network-routing) |Supports outbound traffic routing, [must be explicitly enabled](../../app-service/networking-features.md#) |
 |Route outbound traffic over virtual network|Yes, all apps are in the same subnet and all outbound traffic is routed through the virtual network by default |[Supported](../../app-service/overview-vnet-integration.md#routes) |
 |[Block inbound traffic to App Service functionality hosted on non-HTTP ports](../../app-service/networking-features.md#app-service-ports)|Supported, NSG can be used to block inbound traffic to non-HTTP ports |Not supported. In some cases (FTP and remote debugging), functionality can be explicitly disabled on a per-application basis. However, inbound network traffic can't be blocked using NSGs since the underlying App Service platform hosting infrastructure owns the listed ports. |
-|Pull Docker containers over virtual network|Supported, uses the App Service Environment's subnet|[Supported](../../app-service/networking-features.md#container-image-pull)|
-|Azure Functions storage account access over virtual network|Supported, uses the App Service Environment's subnet|[Supported](../../app-service/networking-features.md#content-share)|
-|Backup/restore over a virtual network|Supported, uses the App Service Environment's subnet|[Supported](../../app-service/networking-features.md#backuprestore)|
+|Pull Docker containers over virtual network|Supported, uses the App Service Environment's subnet|[Supported](../../app-service/overview-vnet-integration.md#container-image-pull)|
+|Azure Functions storage account access over virtual network|Supported, uses the App Service Environment's subnet|[Supported](../../app-service/overview-vnet-integration.md#content-share)|
+|Backup/restore over a virtual network|Supported, uses the App Service Environment's subnet|[Supported](../../app-service/overview-vnet-integration.md#backuprestore)|
 |Maximum outbound TCP/IP connections per virtual machine instance|16,000|1,920 per P1V3 instance. 3,968 per P2V3 instance. 8,064 per P3V3 instance|
 |Maximum SNAT ports per virtual machine instance|Dynamic: 256 - 1,024 depending on total instance count|128 per instance|
 
@@ -79,7 +79,7 @@ App Service Environment v3 tends to be more expensive than the public multitenan
 ### Frequently asked questions
 
 - [How do I know which offering is right for me?](#how-do-i-know-which-offering-is-right-for-me)
-- [Can I use App Service Environment v3 and the public multitenant offering together?](#can-i-use-app-service-environment-v3-and-the-public-multitenant-offering-together')
+- [Can I use App Service Environment v3 and the public multitenant offering together?](#can-i-use-app-service-environment-v3-and-the-public-multitenant-offering-together)
 - [Can I migrate from the public multitenant offering to App Service Environment v3?](#can-i-migrate-from-the-public-multitenant-offering-to-app-service-environment-v3)
 - [Can I use App Service Environment v3 for my development and testing environments?](#can-i-use-app-service-environment-v3-for-my-development-and-testing-environments)
 - [How do I get started with App Service Environment v3?](#how-do-i-get-started-with-app-service-environment-v3)
