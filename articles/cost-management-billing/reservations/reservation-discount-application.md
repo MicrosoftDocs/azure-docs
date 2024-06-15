@@ -51,7 +51,6 @@ Read the following articles that apply to you to learn how discounts apply to a 
 - [Azure Cache for Redis](understand-azure-cache-for-redis-reservation-charges.md)
 - [Azure Cosmos DB](understand-cosmosdb-reservation-charges.md)
 - [Azure SQL Edge](discount-sql-edge.md)
-- [Database for MariaDB](understand-reservation-charges-mariadb.md)
 - [Database for MySQL](understand-reservation-charges-mysql.md)
 - [Database for PostgreSQL](../../postgresql/single-server/concept-reserved-pricing.md)
 - [Databricks](reservation-discount-databricks.md)

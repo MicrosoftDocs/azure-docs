@@ -3,6 +3,8 @@ title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
 ms.date: 06/05/2024
 ms.topic: sample
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
