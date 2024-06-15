@@ -35,6 +35,10 @@ Information on these newer features is included in this article.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
 
+> [!NOTE]  
+> Diagnostics settings in resource group helps you to diagnose errors or review warnings for the resources inside the resource group.
+
+
 ## Sources
 
 There are three sources for diagnostic information:
