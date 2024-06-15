@@ -36,8 +36,8 @@ This schedule looks a lot like a calendar in outlook, but there are a few import
 
 - The schedule is repeating itself. It has the seven weekdays and at the end of the week, the schedule repeats.
 - An entry in the schedule is a designated limit the agent shall not exceed. Clear time stretches on a day designate no limitation, allowing the agent to use as much bandwidth as needed.
-- You cannot schedule a limit for a specific date, but for repeating weekdays. As an example, you can say: *"Limit the agent's bandwidth to no more than x during my cloud backup window on Sundays"*
-- The schedule does not store a timezone. When you set a limit that starts for instance at 9am, then that means agent-local time. You can see what timezone is configured for the agent. Pay close attention, the agent's timezone may be different from the timezone of your site where the agent is deployed.
+- You can't schedule a limit for a specific date, but for repeating weekdays. As an example, you can say: *"Limit the agent's bandwidth to no more than x during my cloud backup window on Sundays"*
+- The schedule doesn't store a timezone. When you set a limit that starts for instance at 9am, then that means agent-local time. You can see what timezone is configured for the agent. Pay close attention, the agent's timezone may be different from the timezone of your site where the agent is deployed.
 
 ## Enabling or changing a bandwidth management schedule
 <!-- ########################################################
@@ -65,7 +65,7 @@ Tabs: portal / PowerShell
    IMAGE of Add limit window
    !########################################################
    -->
-1. The dialog requires you to set a start and an end-time during which you want to apply a uplink limit for the agent. You can then pick on which days of the week you like to apply your new limit. Select all weekdays during which you like to apply the same limit. You then need to specify the limit in Mbps (Megabits per second). Overlapping times are not allowed. Any limit you set, will apply at the displayed time in the agent's timezone. You can find the agent's timezone displayed at the top of the bandwidth management window. You may need to offset your schedule or adjust the agent's timezone. Find more details in the paragraph: "*[Reusing a schedule from another agent](#reusing-a-schedule-from-another-agent)*".
+1. The dialog requires you to set a start and an end-time during which you want to apply an uplink limit for the agent. You can then pick on which days of the week you like to apply your new limit. Select all weekdays during which you like to apply the same limit. You then need to specify the limit in Mbps (Megabits per second). Overlapping times aren't allowed. Any limit you set, applies at the displayed time in the agent's timezone. You can find the agent's timezone displayed at the top of the bandwidth management window. You may need to offset your schedule or adjust the agent's timezone. Find more details in the paragraph: "*[Reusing a schedule from another agent](#reusing-a-schedule-from-another-agent)*".
 1. To apply your changes to this agent, select the "*Save*" button at the bottom of the "*Bandwidth management*" window.
 
 > [!NOTE]
@@ -81,7 +81,7 @@ If you like to edit or delete a specific limit, select the limit and the "*Edit 
 
 If your goal is to disable bandwidth management altogether for the agent, select the "Clear all limits" command.
 
-Don't forget to select the "*Save*" button at the bottom of the "*Bandwidth management*" window to apply your changes to this agent. 
+Don't forget to apply your changes to this agent. Select the "*Save*" button at the bottom of the "*Bandwidth management*" window.
 
 
 ## Reusing a schedule from another agent
@@ -91,7 +91,7 @@ You can reuse the bandwidth limit schedule from another agent for your currently
 > Schedules are stored free of a timezone. That enables them to be reused on other agents. A scheduled limit will be in effect during this time in whatever the agent's timezone is. You need to ensure that you offset your bandwidth management schedule if the agent's timezone is different to the one used in the location you've deployed the agent in. For example, if the agent's timezone is UTC but your agent is actually deployed in the Pacific timezone (PST), you need to offset your schedule by -7 hours or adjust your agent's timezone to the correct one for the location. Alternatively, you can adjust the agent's timezone to the correct one for the location. Doing this removes the need to offset your schedule and also enables your schedule to automatically adjust to Daylight Savings, should your timezone observe that.
 
 1. Open the bandwidth management schedule for your selected agent. ([See the previous paragraph.](#enabling-or-changing-a-bandwidth-management-schedule))
-1. Select the command "*Import limits from other agents*" and select the agent you like to copy the schedule from. If there are no agents in the list, then there is no other agent that has a schedule set.
+1. Select the command "*Import limits from other agents*" and select the agent you like to copy the schedule from. If there are no agents in the list, then there's no other agent that has a schedule set.
    > [!WARNING]
    > Using this option will overwrite the currently configured schedule for this agent.
 1. Optionally, you can now modify this copied schedule.
