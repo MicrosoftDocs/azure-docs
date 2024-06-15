@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/1/2024
+ms.date: 06/14/2024
 ---
 
 # Index data from SharePoint document libraries
@@ -248,7 +248,7 @@ api-key: [admin key]
 
 An indexer connects a data source with a target search index and provides a schedule to automate the data refresh. Once the index and data source are created, you can create the indexer.
 
-During this step, you’re asked to sign in with organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have. 
+If you are using delegated permissions, during this step, you’re asked to sign in with organization credentials that have access to the SharePoint site. If possible, we recommend creating a new organizational user account and giving that new user the exact permissions that you want the indexer to have. 
 
 There are a few steps to creating the indexer:
 
@@ -286,6 +286,8 @@ There are a few steps to creating the indexer:
         ]
     }
     ```
+
+If you're using application permissions, it's necessary to wait until the initial run is complete before starting to query your index. The following instructions provided in this step pertain specifically to delegated permissions, and are not applicable to application permissions.
 
 1. When you create the indexer for the first time, the [Create Indexer (preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) request waits until you complete the next step. You must call [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) to get the link and enter your new device code. 
 
