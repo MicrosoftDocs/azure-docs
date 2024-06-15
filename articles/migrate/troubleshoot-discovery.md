@@ -180,9 +180,9 @@ The issue happens when the VMware discovery agent in the appliance tries to down
 The error usually appears for servers running Windows Server 2008 or lower.
 
 ### Remediation
-Install Windows PowerShell 5.1 at this location on the server. Following the instructios in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
+Install Windows PowerShell 5.1 at this location on the server. Follow the instructions in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/install/installing-windows-powershell) to install PowerShell in Windows Server.
 
-After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification).
+After you install the required PowerShell version, verify if the error was resolved by following the steps [here](troubleshoot-discovery.md#mitigation-verification).
 
 ## Error 9022: GetWMIObjectAccessDenied
 

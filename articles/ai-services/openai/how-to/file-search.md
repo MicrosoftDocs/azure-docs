@@ -80,7 +80,7 @@ client = AzureOpenAI(
 
 assistant = client.beta.assistants.create(
   name="Financial Analyst Assistant",
-  instructions="You are an expert financial analyst. Use you knowledge base to answer questions about audited financial statements.",
+  instructions="You are an expert financial analyst. Use your knowledge base to answer questions about audited financial statements.",
   model="gpt-4-turbo",
   tools=[{"type": "file_search"}],
 )

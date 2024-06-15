@@ -16,7 +16,7 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 > [!NOTE] 
 > Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Batch Execution activity to execute Machine Learning Studio (classic) batches.

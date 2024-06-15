@@ -14,9 +14,11 @@ This article shows you how to quickly stand up JBoss Enterprise Application Plat
 
 This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't utilize the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - A Red Hat account with complete profile. If you don't have one, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register).
 
@@ -517,7 +519,4 @@ If you're not going to continue to use the OpenShift cluster, navigate back to y
 
 ## Next steps
 
-Learn more about deploying JBoss EAP on Azure by following these links:
-
-> [!div class="nextstepaction"]
-> [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure?toc=/azure/openshift/toc.json&bc=/azure/openshift/breadcrumb/toc.json)
+For more information about deploying JBoss EAP on Azure, see [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure).

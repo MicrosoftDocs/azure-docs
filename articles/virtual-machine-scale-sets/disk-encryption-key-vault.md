@@ -28,7 +28,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [disk-encryption-key-vault](../../includes/disk-encryption-key-vault.md)]
+[!INCLUDE [disk-encryption-key-vault](~/reusable-content/ce-skilling/azure/includes/disk-encryption-key-vault.md)]
  
 ## Next steps
 

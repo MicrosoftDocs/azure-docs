@@ -15,7 +15,7 @@ author: Blackmist
 
 # Add a new connection using the Azure Machine Learning SDK
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to add a new connection using the Azure Machine Learning SDK.
 

@@ -6,8 +6,7 @@ ms.author: peterwhiting
 ms.date: 04/16/2024
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
-
+ms.custom:
 ---
 # About parameter exposure using the Azure Operator Service Manager (AOSM) CLI extension
 

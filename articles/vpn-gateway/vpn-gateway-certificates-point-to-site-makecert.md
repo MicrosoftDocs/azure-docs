@@ -35,7 +35,7 @@ The following steps show you how to create a self-signed certificate using MakeC
 
 ## <a name="cer"></a>Export the public key (.cer)
 
-[!INCLUDE [Export public key](../../includes/vpn-gateway-certificates-export-public-key-include.md)]
+[!INCLUDE [Export public key](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-export-public-key-include.md)]
 
 The exported.cer file must be uploaded to Azure. For instructions, see [Configure a Point-to-Site connection](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). To add an additional trusted root certificate, see [this section](vpn-gateway-howto-point-to-site-resource-manager-portal.md#add) of the article.
 
@@ -66,7 +66,7 @@ The following steps walk you through generating a client certificate from a self
 
 ### <a name="clientexport"></a>Export a client certificate
 
-[!INCLUDE [Export client certificate](../../includes/vpn-gateway-certificates-export-client-cert-include.md)]
+[!INCLUDE [Export client certificate](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-export-client-cert-include.md)]
 
 ### <a name="install"></a>Install an exported client certificate
 

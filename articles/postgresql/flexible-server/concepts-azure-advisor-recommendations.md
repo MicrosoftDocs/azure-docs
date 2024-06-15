@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Azure Advisor for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Learn about how Azure Advisor is applied to Azure Database for PostgreSQL flexible server and get answers to common questions.
 ## What is Azure Advisor for PostgreSQL?

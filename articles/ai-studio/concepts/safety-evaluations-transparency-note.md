@@ -15,7 +15,7 @@ author: lgayhardt
 
 # Transparency Note for Azure AI Studio safety evaluations
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 ## What is a Transparency Note
 

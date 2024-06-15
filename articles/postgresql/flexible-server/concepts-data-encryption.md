@@ -14,7 +14,7 @@ ms.custom:
 
 # Data encryption with a customer-managed key in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at rest by default, by using Microsoft-managed keys. For users of Azure Database for PostgreSQL flexible server, it's similar to transparent data encryption in other databases such as SQL Server.
 

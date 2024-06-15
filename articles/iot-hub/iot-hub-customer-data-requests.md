@@ -13,7 +13,7 @@ services: iot-hub
 
 The Azure IoT Hub is a REST API-based cloud service targeted at enterprise customers that enables secure, bi-directional communication between millions of devices and a partitioned Azure service.
 
-[!INCLUDE [gdpr-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 Individual devices are assigned a device identifier (device ID) by a tenant administrator. Device data is based on the assigned device ID. Microsoft maintains no information and has no access to data that would allow device ID to user correlation.
 

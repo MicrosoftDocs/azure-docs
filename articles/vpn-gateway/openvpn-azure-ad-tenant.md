@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 This article helps you configure your Microsoft Entra tenant and point-to-site (P2S) VPN Gateway settings for Microsoft Entra ID authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using Microsoft Entra ID authentication, you must include the OpenVPN tunnel type in your point-to-site configuration.
 
-[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ If you already have an existing P2S gateway, the steps in this article help you 
 
 ## Authorize the Azure VPN application
 
-[!INCLUDE [Steps to authorize the Azure VPN app](../../includes/vpn-gateway-vwan-azure-ad-tenant.md)]
+[!INCLUDE [Steps to authorize the Azure VPN app](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-azure-ad-tenant.md)]
 
 ## <a name="enable-authentication"></a>Configure the VPN gateway
 
