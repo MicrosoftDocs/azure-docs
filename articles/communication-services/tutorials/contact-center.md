@@ -107,7 +107,8 @@ To learn more about Call Automation API and how a contact center can leverage th
 The following list presents relevant Teams interoperability features available for contact centers in Azure Communication Services. For additional capability information, see [Azure Communication Services Calling SDK overview](/azure/communication-services/concepts/voice-video-calling/calling-sdk-features). Azure Communication Services Calling to Teams, including Teams Auto Attendant and Call Queue, requires setup to be completed as described in [Teams Call Queue on Azure Communication Services](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-call-queue).
 
 | Group of features| Capability| Status |
-|--|-|--|
+|-- | -- | -- |
+
 | DTMF Support in Azure Communication Services UI SDK | Allows touch tone entry | ✔️|
 | Teams Capabilities| Audio and video| ✔️|
 |   | Screen sharing| ✔️|
