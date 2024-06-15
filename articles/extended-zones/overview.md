@@ -43,7 +43,8 @@ The following table lists key services that are available in Azure Extended Zone
 | **Storage** | Azure managed disks <br> Azure Premium Page Blobs <br> Azure Premium Block Blobs <br> Azure Premium Files <br>  Azure Data Lake Storage Gen2<br> Hierarchical Namespace <br>Azure Data Lake Storage Gen2 Flat Namespace <br> Change Feed <br> Blob Features <br> - SFTP <br> - NFS |
 | **BCDR** | Azure Site Recovery <br> Azure Backup |
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
+- [Quickstart: Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md).
+- [Tutorial: Back up an Azure Extended Zone virtual machine](backup-virtual-machine.md).
+- [Azure Extended Zones frequently asked questions (FAQ)](faq.md).
