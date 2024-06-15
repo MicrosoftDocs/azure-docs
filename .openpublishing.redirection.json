@@ -4092,12 +4092,7 @@
             "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-desktop/host-pool-load-balancing.md",
-            "redirect_url": "/azure/virtual-desktop/configure-host-pool-load-balancing.md",
-            "redirect_document_id": true
         }
-       
+        
     ]
 }

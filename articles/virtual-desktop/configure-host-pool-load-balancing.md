@@ -38,7 +38,7 @@ The depth-first load balancing algorithm aims to saturate one session host at a 
 
 The depth-first algorithm first queries session hosts that allow new connections and haven't reached their maximum session limit. The algorithm then selects the session host with most sessions. If there's a tie, the algorithm selects the first session host from the query.
 
-You must [set a maximum session limit](configure-host-pool-load-balancing.md#configure-depth-first-load-balancing) when using the depth-first algorithm. You can use Azure Virtual Desktop Insights to monitor [the number of sessions on each session host](insights-use-cases.md#session-host-utilization) and [session host performance](insights-use-cases.md#session-host-performance) to help determine the best maximum session limit for your environment.
+You must [set a maximum session limit](configure-host-pool-load-balancing.md#configure-load-balancing) when using the depth-first algorithm. You can use Azure Virtual Desktop Insights to monitor [the number of sessions on each session host](insights-use-cases.md#session-host-utilization) and [session host performance](insights-use-cases.md#session-host-performance) to help determine the best maximum session limit for your environment.
 
 > [!IMPORTANT]
 > Once all session hosts have reached the maximum session limit, you need to increase the limit or [add more session hosts to the host pool](add-session-hosts-host-pool.md).
