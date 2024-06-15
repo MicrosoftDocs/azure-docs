@@ -390,11 +390,11 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 You must consider these limitations when developing your functions in the [Azure portal](https://portal.azure.com):
 
-+ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
-+ Python in-portal editing is only supported when running in the Consumption plan.       
 + In-portal editing is currently only supported for functions that were created or last modified in the portal.
++ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
++ In-portal editing isn't currently supported in the preview release of the [Flex Consumption plan](flex-consumption-plan.md#considerations).   
 + When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md). 
-+ For compiled C# functions, Java functions, and some Python functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
++ For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
