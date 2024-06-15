@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The pre and post events in Azure Update Manager allow you to perform certain tasks automatically before and after a scheduled maintenance configuration. For example, using pre and post events, you can execute the following tasks on machines that are part of a schedule. The following list isn't exhaustive, and you can create pre and post events as per your need.
+The pre and post events in Azure Update Manager allow you to perform certain tasks automatically before and after a scheduled maintenance configuration. For more information on how to create schedule maintenance configurations, see [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md). For example, using pre and post events, you can execute the following tasks on machines that are part of a schedule. The following list isn't exhaustive, and you can create pre and post events as per your need.
 
  
 ## Sample tasks
@@ -42,7 +42,7 @@ The following are the scenarios where you can define pre and post events:
 
 ## Schedule execution order with pre and post events
 
-For a given schedule, you can include a pre-event, post-event, or both. For more information on how to create schedule maintenance configurations, see [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md) Additionally, you can have multiple pre and/or post-events. The sequence of execution for a schedule with pre and post events is as follows: 
+For a given schedule, you can include a pre-event, post-event, or both. Additionally, you can have multiple pre and/or post-events. The sequence of execution for a schedule with pre and post events is as follows: 
 
 1. **Pre-event** - Tasks that run before the schedule maintenance window begins. For example - Turn on the machines before patching.
 1. **Cancellation** - In this step, you can initiate the cancellation of the schedule run. Some scenarios where you might choose to cancel a schedule run include pre-event failures or pre-event didn't complete execution.
@@ -64,7 +64,7 @@ For a given schedule, you can include a pre-event, post-event, or both. For more
    :::image type="content" source="./media/pre-post-scripts-overview/overview.png" alt-text="Screenshot that shows the sequence of execution for a schedule with pre and post." lightbox="./media/pre-post-scripts-overview/overview.png":::
 
    > [!NOTE]
-   > If you're using Runbooks in pre and post events in Azure Automation Update management and plan to move to Azure Update Manager, we recommend that you use Azure Webhooks linked to Automation Runbooks. [Learn more](tutorial-webhooks-using-runbooks.md).
+   > If you're using Runbooks in pre and post events in Azure Automation Update management and plan to reuse them in Azure Update Manager, we recommend that you use Azure Webhooks linked to Automation Runbooks. [Learn more](tutorial-webhooks-using-runbooks.md).
 
 ## Timeline of schedules for pre and post events
 
@@ -83,8 +83,8 @@ For example, if a maintenance schedule is set to start at **3:00 PM**, with the 
 | 2:20 PM - 2:30 PM     | Since the pre-event gets triggered at least 30 mins prior, it can get triggered anytime between 2:20 PM to 2:30 PM. |
 | 2:30 PM - 2:50 PM    | The pre-event runs from 2:30 PM to 2:50 PM. The pre-event must complete the tasks by 2:50 PM. </br> **Note** If you have more than one pre-event configured, all the events must run within 20 minutes. In case of multiple pre-events, all of them will execute independently of each other. You can customize as per your needs by defining the logic in the pre-events. For example, if you want two pre-events to run sequentially, you can include a delayed start time in your second pre-event’s logic. </br> If the pre-event continues to run beyond 20 mins or fails, you can choose to cancel the schedule run otherwise the patch installation proceeds irrespective of the pre-event run status.|
 | 2:50 PM   | The latest time that can invoke the cancellation API is 2:50 PM. **Note** If cancellation API fails to get invoked or hasn't been set up, the patch installation proceeds to run.|
-| 3:00 PM   | The schedule run is triggered at 3:00 PM |
-| 6:55 PM   | - At 6:55 PM, the schedule completes installing the updates during the 3 hours 55-mins maintenance window. </br> The post event triggers at 6:55 PM once the updates are installed. </br> **Note** If you have defined a shorter maintenance window of 2 hours, the post maintenance event will trigger after 2 hours and if the update installation is completed before the stipulated time of 2 hours (i.e) 1 hours 50 mins, the post event will start immediately.
+| 3:00 PM   | The schedule run is triggered at 3:00 PM. |
+| 6:55 PM   | At 6:55 PM, the schedule completes installing the updates during the 3 hours 55-mins maintenance window. </br> The post event triggers at 6:55 PM once the updates are installed. </br> **Note** If you have defined a shorter maintenance window of 2 hours, the post maintenance event will trigger after 2 hours and if the update installation is completed before the stipulated time of 2 hours (i.e) 1 hours 50 mins, the post event will start immediately.
 
 We recommend that you're watchful of the following:
 - If you're creating a new schedule or editing an existing schedule with a pre-event, you need at least 40 minutes prior to the start of maintenance window (3:00 PM in the above example) for the pre-event to run otherwise it leads to auto-cancellation of the current scheduled run.
@@ -93,5 +93,5 @@ We recommend that you're watchful of the following:
 
 ## Next steps
 
-- To learn on how to configure pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md)
+- To learn on how to configure pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
  
