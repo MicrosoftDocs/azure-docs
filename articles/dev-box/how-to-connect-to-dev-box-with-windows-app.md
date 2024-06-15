@@ -41,7 +41,7 @@ The Windows App shows all your available virtual desktops, including your dev bo
 
 1. Once installed, select **Open** in the Microsoft Store. Alternatively, find the app in the Start menu.
 1. Agree to the license terms.
-1. Read the Welcome screens, and select **Next**, **Next, and then **Done** to progress.
+1. Read the Welcome screens, and select **Next**, **Next**, and then **Done** to progress.
 1. Select **Go to devices**.
  
     :::image type="content" source="media/how-to-connect-to-dev-box-with-windows-app/windows-app-home.png" alt-text="Screenshot of the Windows App home page." lightbox="media/how-to-connect-to-dev-box-with-windows-app/windows-app-home.png"::: 
@@ -114,16 +114,17 @@ The dev box is removed from Task view.
 
 If you added a dev box to Task view but no longer have access to it, you might want to remove it from the Task view. Attempting to remove the stale dev box by selecting the [**Remove from Task view**](#remove-dev-box-from-task-view) option in the Windows App might fail.
 
-There are two troubleshooting options for removing a stale dev box from Task view:
-
-1. Uninstall and reinstall the Windows App.
+There are two troubleshooting options for removing a stale dev box from Task view: first, uninstall and reinstall the Windows App.
  
-1. Remove the registry entry.
-    1. Open the Registry Editor app.
-    1. Navigate to Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RemoteSystemProviders\
-    1. Open the subfolder that has a title containing "Windows365".
-    1. Delete the registry key that is titled as your stale dev box. 
-    1. Restart your local machine.
+If the unwanted dev box still shows in Task view after reinstalling the Windows App, you can remove it by deleting the registry entry for the stale dev box.
+
+To remove the registry entry:
+
+1. Open the Registry Editor app.
+1. Navigate to `Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RemoteSystemProviders\`
+1. Open the subfolder that has a title containing "Windows365".
+1. Delete the registry key that is titled as your stale dev box. 
+1. Restart your local machine.
 
 ## Related content
 
