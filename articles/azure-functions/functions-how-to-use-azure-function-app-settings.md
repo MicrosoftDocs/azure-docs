@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 06/14/2024
+ms.date: 06/15/2024
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -159,7 +159,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` with the resource group and function app names, respective. 
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 Run the following Azure PowerShell command to get your hosting plan type:
 
@@ -176,7 +176,7 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 
 ## Plan migration
 
-You can use either the Azure portal or Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
+You can migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
 
 + Direct migration to a Dedicated (App Service) plan isn't currently supported.
 + Migration isn't supported on Linux. 
@@ -184,6 +184,24 @@ You can use either the Azure portal or Azure CLI commands to migrate a function 
 + The specific CLI commands depend on the direction of the migration.
 + Downtime in your function executions occurs as the function app is migrated between plans.
 + State and other app-specific content is maintained, since the same Azure Files share is used by the app both before and after migration.
+
+You can migrate your plan using these tools:
+
+### [Portal](#tab/portal)
+
+You can use the [Azure portal](https://portal.azure.com) to switch to a different plan.
+
+### [Azure CLI](#tab/azure-cli)
+
+You can use the Azure CLI commands to manually create a new plan, switch your app to use the new plan, and delete the original plan.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+You can use Azure PowerShell commands to manually create a new plan, switch your app to use the new plan, and delete the original plan.
+
+---
+
+Choose the direction of the migration for your app on Windows.
 
 ### [Consumption-to-Premium](#tab/to-premium/portal)
 
