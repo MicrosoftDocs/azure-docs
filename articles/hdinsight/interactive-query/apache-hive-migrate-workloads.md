@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 06/12/2026
+ms.date: 06/12/2024
 ---
 
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
