@@ -28,9 +28,16 @@ It's important to note that if the user revokes access permission during the cal
 ## How to mitigate or resolve
 Your application should always call the `askDevicePermission` API after the `CallClient` is initialized.
 This way gives the user a chance to grant the device permission if they didn't do so before or if the permission state is `prompt`.
+The application can also show a warning message if the user denies the permission, so the user can fix it before joining a call.
 
 It's also important to listen for the `microphonePermissionDenied` event. Display a warning message if the user revokes the permission during the call. By doing so, the user is aware of the issue and can adjust their browser or system settings accordingly.
 
+## References
+### Troubleshooting process
 Below is a flow diagram of the troubleshooting process for this issue.
 
-:::image type="content" source="./media/permission-issue-troubleshooting.png" alt-text="Diagram of troubleshooting the permission issue.":::
+:::image type="content" source="./media/permission-issue-troubleshooting.svg" alt-text="Diagram of troubleshooting the permission issue.":::
+
+### Links
+* [askDevicePermission](javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-askdevicepermission)
+* [microphonePermissionDenied UFD](../voice-video-calling/references/ufd/microphone-permission-denied)
