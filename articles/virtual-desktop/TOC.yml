@@ -125,9 +125,6 @@
         href: organization-internal-external-commercial-purposes-recommendations.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
-    - name: Host pool load balancing methods
-      href: host-pool-load-balancing.md
-      displayName: load-balancing, lb
     - name: User profile management
       items:
       - name: FSLogix profile container
