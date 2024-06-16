@@ -3,7 +3,7 @@ title: Cluster creation fails with DomainNotFound error in Azure HDInsight
 description: Troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 
 # Scenario: Cluster creation fails with DomainNotFound error in Azure HDInsight

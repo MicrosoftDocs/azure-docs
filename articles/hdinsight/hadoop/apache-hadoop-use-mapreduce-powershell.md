@@ -4,7 +4,7 @@ description: Learn how to use PowerShell to remotely run MapReduce jobs with Apa
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 05/26/2023
+ms.date: 06/15/2024
 ---
 
 # Run MapReduce jobs with Apache Hadoop on HDInsight using PowerShell

@@ -3,7 +3,7 @@ title: Apache Ambari heartbeat issues in Azure HDInsight
 description: Review of various reasons for Apache Ambari heartbeat issues in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/10/2023
+ms.date: 05/15/2024
 ---
 
 # Apache Ambari heartbeat issues in Azure HDInsight

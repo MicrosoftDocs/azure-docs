@@ -4,7 +4,7 @@ description: Learn how to set up and use the Microsoft Hive ODBC driver for Exce
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 
 # Connect Excel to Apache Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
