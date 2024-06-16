@@ -26,11 +26,11 @@ The listener should check for events with the value of `microphonePermissionDeni
 It's important to note that if the user revokes access permission during the call, this `microphonePermissionDenied`  event also fires.
 
 ## How to mitigate or resolve
-Your application should always call the `askDevicePermission` API after the `CallClient` is initialized.
+Your application should always call the [askDevicePermission](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-askdevicepermission) API after the `CallClient` is initialized.
 This way gives the user a chance to grant the device permission if they didn't do so before or if the permission state is `prompt`.
 The application can also show a warning message if the user denies the permission, so the user can fix it before joining a call.
 
-It's also important to listen for the `microphonePermissionDenied` event. Display a warning message if the user revokes the permission during the call. By doing so, the user is aware of the issue and can adjust their browser or system settings accordingly.
+It's also important to listen for the [microphonePermissionDenied](../references/ufd/microphone-permission-denied) UFD event. Display a warning message if the user revokes the permission during the call. By doing so, the user is aware of the issue and can adjust their browser or system settings accordingly.
 
 ## References
 ### Troubleshooting process
@@ -46,7 +46,3 @@ If the speaking participant is using your application, you can follow this flow 
 5. If there is no `microphonePermissionDenied` Bad UFD, we need to consider other possiblities. For the speaking participant, there might be other potential reasons for issues with outgoing audio, such as network reconnection, or device issues.
 6. If there is a `networkReconnect` Bad UFD, the outgoing audio may be temporarily lost due to a network disconnection. See [There's a network issue in the call](./network-issue) for detailed information.
 7. If no `networkReconnect` Bad UFD occurs, there might be a problem on the speaking participant's microphone. See [The speaking participant's microphone has a problem](./microphone-issue) for detailed information.
-
-### Links
-* [askDevicePermission](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-askdevicepermission)
-* [microphonePermissionDenied UFD](../references/ufd/microphone-permission-denied)
