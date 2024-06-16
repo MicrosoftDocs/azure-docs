@@ -155,7 +155,7 @@ For more information about how the Standard model works with operations that run
 
 ## Integration service environment (ISE)
 
-When you create a logic app using the **Logic App (Consumption)** resource type, and you deploy to a dedicated [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the logic app and its workflow follow the [Integration Service Environment plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. This pricing model depends on your [ISE level or *SKU*](connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) and differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
+When you create a logic app using the **Logic App (Consumption)** resource type, and you deploy to a dedicated [*integration service environment (ISE)*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the logic app and its workflow follow the [Integration Service Environment plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. This pricing model depends on your [ISE level or *SKU*](connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) and differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
 
 The following table summarizes how the ISE model handles metering and billing for capacity and other dedicated resources based on your ISE level or SKU:
 
