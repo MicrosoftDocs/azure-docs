@@ -90,16 +90,14 @@ Use the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnostic
 The following example PowerShell cmdlet creates a diagnostic setting for all logs, or for audit logs, and metrics for a key vault by using Log Analytics Workspace.
 
 ```powershell
-$KV= Get-AzKeyVault -ResourceGroupName <resource group name> -VaultName <key vault name>
-$Law= Get-AzOperationalInsightsWorkspace -ResourceGroupName <resource group name> -Name <workspace name>  #LAW name is case sensitive
+$KV = Get-AzKeyVault -ResourceGroupName <resource group name> -VaultName <key vault name>
+$Law = Get-AzOperationalInsightsWorkspace -ResourceGroupName <resource group name> -Name <workspace name>  # LAW name is case sensitive
 
-$metric = @()
-$log = @()
-$metric += New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics
+$metric = New-AzDiagnosticSettingMetricSettingsObject -Enabled $true -Category AllMetrics
 # For all available logs, use:
-$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs  
+$log = New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup allLogs  
 # or, for audit logs, use:
-$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup audit    
+$log = New-AzDiagnosticSettingLogSettingsObject -Enabled $true -CategoryGroup audit    
 New-AzDiagnosticSetting -Name 'KeyVault-Diagnostics' -ResourceId $KV.ResourceId -WorkspaceId $Law.ResourceId -Log $log -Metric $metric -Verbose
 ```
 
