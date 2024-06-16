@@ -96,6 +96,8 @@
       href: tutorial-sap-hana-manage-cli.md
   - name: Configure SAP HANA database instance snapshot backup
     href: tutorial-configure-sap-hana-database-instance-snapshot-backup.md    
+  - name: Back up Azure Managed Disks
+    href: back-up-managed-disks-tutorial.md
   - name: Configure Multi-user authorization (MUA)
     href: multi-user-authorization-tutorial.md
   - name: Recover soft deleted items with enhanced soft delete

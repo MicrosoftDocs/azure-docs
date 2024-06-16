@@ -52,8 +52,6 @@ items:
            href: /java/api/overview/azure/health-insights-radiologyinsights-readme
          - name: Python
            href: /python/api/overview/azure/healthinsights-radiologyinsights-readme
-         - name: JavaScript
-           href: /javascript/api/overview/azure/health-insights-radiologyinsights-rest-readme
 - name: Resources
   items:
      - name: FAQ

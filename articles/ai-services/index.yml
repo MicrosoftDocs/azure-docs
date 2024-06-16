@@ -38,27 +38,27 @@ productDirectory:
   items:
     # Card
     - title: Azure OpenAI
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/azure-openai.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/azure-openai.svg
       summary: Perform a wide variety of natural language tasks.
       url: ./openai/index.yml
     # Card
     - title: Speech
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/speech.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/speech.svg
       summary: Speech to text, text to speech, translation, and speaker recognition
       url: ./speech-service/index.yml
     # Card
     - title: Language
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/language.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/language.svg
       summary: Build apps with industry-leading natural language understanding capabilities.
       url: ./language-service/index.yml
     # Card
     - title: Translator
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/translator.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/translator.svg
       summary: Use AI-powered translation technology to translate more than 100 in-use, at-risk, and endangered languages and dialects.
       url: ./translator/index.yml
     # Card
     - title: Vision
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/vision.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/vision.svg
       summary: Analyze content in images and videos.
       url: ./computer-vision/index.yml
     # Card
@@ -68,12 +68,12 @@ productDirectory:
       url: ./custom-vision-service/index.yml
     # Card
     - title: Face
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/face.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/face.svg
       summary: Detect and identify people and emotions in images.
       url: ./computer-vision/overview-identity.md
     # Card
     - title: Content Safety
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/content-safety.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/content-safety.svg
       summary: An AI service that detects unwanted contents
       url: ./content-safety/index.yml
     # Card
@@ -83,7 +83,7 @@ productDirectory:
       url: /composer/
     # Card
     - title: Document Intelligence
-      imageSrc: ~/reusable-content/ce-skilling/azure/media/service-icons/document-intelligence.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/document-intelligence.svg
       summary: Turn documents into intelligent data-driven solutions.
       url: ./document-intelligence/index.yml
     # Card
