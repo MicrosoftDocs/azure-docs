@@ -24,7 +24,7 @@ You need three Azure resources and some sample image files to complete this walk
 > [!div class="checklist"]
 > + Azure Storage to store image files as blobs
 > + Azure AI services multiservice account, used for image vectorization and Optical Character Recognition (OCR)
-> + Azure AI Search for image vectorization during indexing and queries
+> + Azure AI Search for indexing and queries
 
 Sample data consists of image files in the [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data/tree/main/unsplash-images) repo, but you can use different images and still follow this walkthrough.
 
@@ -104,7 +104,7 @@ In this step, you can also apply AI to extract text from images. The wizard uses
 
 Two more outputs appear in the index when OCR is added to the workflow:
 
-+ First, the "chunk" field is populated with an OCR-generated string of any text in the image. 
++ First, the "chunk" field is populated with an OCR-generated string of any text found in the image. 
 + Second, the "text_vector" field is populated with an embedding that represents the "chunk" string. 
 
 The inclusion of plain text in the "chunk" field is useful if you want to use relevance features that operate on strings, such as [semantic ranking](semantic-search-overview.md) and [scoring profiles](index-add-scoring-profiles.md).
@@ -137,11 +137,13 @@ The inclusion of plain text in the "chunk" field is useful if you want to use re
 
 1. Select **Create** to run the wizard. This step creates the following objects:
 
-   + Data source connection to blob storage.
+   + An indexer that drives the indexing pipeline.
 
-   + Index with vector fields, text fields, vectorizers, vector profiles, vector algorithms. You can't modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+   + A data source connection to blob storage.
 
-   + Skillset with the following five skills:
+   + An index with vector fields, text fields, vectorizers, vector profiles, vector algorithms. You can't modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+
+   + A skillset with the following five skills:
 
      + [OCR skill](cognitive-search-skill-ocr.md) recognizes text in image files.
      + [Text Merger skill](cognitive-search-skill-textmerger.md) unifies the various outputs of OCR processing.
@@ -149,11 +151,9 @@ The inclusion of plain text in the "chunk" field is useful if you want to use re
      + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is used to vectorize text generated from OCR.
      + [Azure AI Vision multimodal](cognitive-search-skill-vision-vectorize.md) is called again to vectorize images.
 
-   + Indexer with field mappings and output field mappings.
-
 ## Check results
 
-Search explorer accepts text, vectors, and images as query inputs. You can drag or select an image into the search area, and it will be vectorized for search. Search Explorer vectorizes your image and sends the vector as a query input to the search engine. Image vectorization assumes that your index has a vectorizer definition, which **Import and vectorize data** creates from your inputs.
+Search Explorer accepts text, vectors, and images as query inputs. You can drag or select an image into the search area. Search Explorer vectorizes your image and sends the vector as a query input to the search engine. Image vectorization assumes that your index has a vectorizer definition, which **Import and vectorize data** creates based on your embedding model inputs.
 
 1. In the Azure portal, under **Search Management** and **Indexes**, select the index your created. An embedded Search Explorer is the first tab.
 
@@ -171,7 +171,7 @@ Search explorer accepts text, vectors, and images as query inputs. You can drag 
 
 1. Try other query options to compare search outcomes:
 
-   + Hide vectors for more readable results.
+   + Hide vectors for more readable results (recommended).
    + Select a vector field to query over. The default is text vectors, but you can specify the image vector to exclude text vectors from query execution.
 
 ## Clean up
