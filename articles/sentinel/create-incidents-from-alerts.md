@@ -4,7 +4,7 @@ description: Learn how to create incidents from alerts in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 05/28/2024
+ms.date: 05/29/2024
 ms.author: yelevin
 ---
 

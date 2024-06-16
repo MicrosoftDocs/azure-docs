@@ -472,4 +472,4 @@ The following table lists the firewall requirements for scenarios where Azure vi
 
 In this article, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
