@@ -34,10 +34,19 @@ It's also important to listen for the `microphonePermissionDenied` event. Displa
 
 ## References
 ### Troubleshooting process
-Below is a flow diagram of the troubleshooting process for this issue.
+If a user cannot hear sound during a call, one possibility is that the speaking participant has not granted microphone permission.
+If the speaking participant is using your application, you can follow this flow diagram to troubleshoot the issue.
 
 :::image type="content" source="./media/permission-issue-troubleshooting.svg" alt-text="Diagram of troubleshooting the permission issue.":::
 
+1. Check if there is a `microphonePermissionDenied` Bad UFD event for the speaking participant. This usually indicates that the user has denied the permission or that the permission is not requested.
+2. If a `microphonePermissionDenied` Bad UFD event occurs, verify whether the app has called `askDevicePermission` API.
+3. The app must call `askDevicePermission` if the API has not been called before the user joins the call. The app can determine the state of the permission and display a message if the user needs to adjust their permissions.
+4. If the app has called `askDevicePermission` API, but the user still gets a `microphonePermissionDenied` Bad UFD event. The user has to reset or grant the microphone permission in the browser. If they have confirmed that the permission is granted in the browser, they should check if the OS is blocking mic access to the browser.
+5. If there is no `microphonePermissionDenied` Bad UFD, we need to consider other possiblities. For the speaking participant, there might be other potential reasons for issues with outgoing audio, such as network reconnection, or device issues.
+6. If there is a `networkReconnect` Bad UFD, the outgoing audio may be temporarily lost due to a network disconnection. Please see [There's a network issue in the call](./network-issue) for detailed information.
+7. If no `networkReconnect` Bad UFD occurs, there might be a problem on the speaking participant's microphone. Please see [The speaking participant's microphone has a problem](./microphone-issue) for detiled information.
+
 ### Links
-* [askDevicePermission](javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-askdevicepermission)
-* [microphonePermissionDenied UFD](../voice-video-calling/references/ufd/microphone-permission-denied)
+* [askDevicePermission](/javascript/api/azure-communication-services/@azure/communication-calling/devicemanager?view=azure-communication-services-js#@azure-communication-calling-devicemanager-askdevicepermission)
+* [microphonePermissionDenied UFD](../references/ufd/microphone-permission-denied)
