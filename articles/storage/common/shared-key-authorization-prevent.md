@@ -10,7 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 04/16/2024
 ms.reviewer: nachakra
-ms.custom: devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ms.devlang: azurecli
 ---
 

@@ -174,7 +174,7 @@ App settings also exist for some configuration routing options. These app settin
 
 ### Network routing
 
-You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group](../virtual-network/network-security-groups-overview.md) (NSG) to block outbound traffic to resources in your virtual network or the internet. An NSG that you apply to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
+You can use route tables to route outbound traffic from your app without restriction. Common destinations can include firewall devices or gateways. You can also use a [network security group (NSG)](../virtual-network/network-security-groups-overview.md) to block outbound traffic to resources in your virtual network or the internet. An NSG that you apply to your integration subnet is in effect regardless of any route tables applied to your integration subnet.
 
 Route tables and network security groups only apply to traffic routed through the virtual network integration. See [application routing](#application-routing) and [configuration routing](#configuration-routing) for details. Routes don't apply to replies from inbound app requests and inbound rules in an NSG don't apply to your app. Virtual network integration affects only outbound traffic from your app. To control inbound traffic to your app, use the [access restrictions](./overview-access-restrictions.md) feature or [private endpoints](./networking/private-endpoint.md).
 

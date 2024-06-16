@@ -3,12 +3,14 @@ title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
 ms.date: 06/05/2024
 ms.topic: sample
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.custom: generated
 ---
 
 # Azure Resource Graph sample queries by category
 
-[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/archive-samples.md)]
+[!INCLUDE [azure-resource-graph-archive-samples](../../includes/resource-graph/samples/archive-samples.md)]
 
 This page is a collection of Azure Resource Graph sample queries grouped by general and service
 categories. To jump to a specific **category**, use the links on the top of the page.
@@ -69,7 +71,7 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy](../../includes/resource-graph/samples/bycat/azure-policy.md)]
 
-[!INCLUDE [policy-resources-exemption-query](../../includes/policy/policy-resources-exemption-query.md)]
+[!INCLUDE [policy-resources-exemption-query](../../includes/resource-graph/samples/query/policy-resources-exemption-query.md)]
 
 ## Azure Policy guest configuration
 
