@@ -22,7 +22,7 @@ Due to various ambari-agent bugs, in rare cases, your ambari-agent can have high
 
 ### Resolution
 
-1. Identify process ID (pid) of ambari-agent:
+1. Identify process ID `PID` of ambari-agent:
 
     ```bash
     ps -ef | grep ambari_agent

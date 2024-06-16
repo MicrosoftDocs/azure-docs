@@ -93,7 +93,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
     :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Screenshot that shows the Apache Ranger HBase policies list." border="true":::
 
-1. On the **Create Policy** screen, enter the following values:
+1. On the `Create Policy` screen, enter the following values:
 
    |Setting  |Suggested value  |
    |---------|---------|
