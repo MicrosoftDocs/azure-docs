@@ -86,7 +86,20 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
 ## Supported services and features
 
-For a list of features and services that use Azure Monitor Agent for data collection, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#migrate-additional-services-and-features).
+Azure Monitor Agent is generally available (GA) for data collection. Most services that used Log Analytics agent for data collection have migrated to Azure Monitor Agent.
+
+The following features and services now have an Azure Monitor Agent version available:
+
+| Service or feature                | Current state | More information                                      |
+|-----------------------------------|---------------|-------------------------------------------------------|
+| VM insights, Service Map, and Dependency agent | GA | [Enable VM Insights](/azure/azure-monitor/vm/vminsights-enable-overview) |
+| Microsoft Sentinel               | Public Preview| [AMA migration for Microsoft Sentinel](/azure/sentinel/ama-migrate) |
+| Change Tracking and Inventory    | GA | [Migration for Change Tracking and inventory](/azure/automation/change-tracking/guidance-migration-log-analytics-monitoring-agent) |
+| Network Watcher                  | GA | [Monitor network connectivity using connection monitor](/azure/network-watcher/azure-monitor-agent-with-connection-monitor) |
+| Azure Stack HCI Insights         | GA | [Monitor Azure Stack HCI with Insights](/azure-stack/hci/manage/monitor-hci-single) |
+| Azure Virtual Desktop (AVD) Insights | GA  | [Azure Virtual Desktop Insights](/azure/virtual-desktop/insights?tabs=monitor#session-host-data-settings) |
+| Container Monitoring Solution    | GA | [Enable Container Insights](/azure/azure-monitor/containers/container-insights-transition-solution) |
+| DNS Collector                    | GA | [Enable DNS Connector](/azure/sentinel/connect-dns-ama) |
 
 ## Supported regions
 
@@ -117,7 +130,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |
 |	**Services and features supported**	|		|		|		|
-|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#understand-additional-dependencies-and-services))	| ✓ |
 |		|	VM Insights	|	✓ | ✓ |
 |		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |
 |		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |
@@ -141,7 +154,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |
 |	**Services and features supported**	|		|		|		|
-|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |
+|		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#understand-additional-dependencies-and-services))	| ✓ |
 |		|	VM Insights	| ✓ |	✓ |
 |		|	Microsoft Defender for Cloud - Only use MDE agent	| | |
 |		|	Automation Update Management - Moved to Azure Update Manager	|	✓	| ✓ |
@@ -262,9 +275,9 @@ An agent is only required to collect data from the operating system and workload
 
 ### Does Azure Monitor Agent support data collection for the various Log Analytics solutions and Azure services like Microsoft Defender for Cloud and Microsoft Sentinel?
 
-For a list of features and services that use Azure Monitor Agent for data collection, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md#migrate-additional-services-and-features).
+Yes, Azure Monitor Agent supports data collection for various Log Analytics solutions and Azure services like Microsoft Defender for Cloud and Microsoft Sentinel.
 
-Some services might install other extensions to collect more data or to transforms or process data, and then use Azure Monitor Agent to route the final data to Azure Monitor.
+Some services might install other extensions to collect more data or to transforms or process data, and then use Azure Monitor Agent to route the final data to Azure Monitor. For more information, see [Migrate to Azure Monitor Agent from Log Analytics agent](./azure-monitor-agent-migration.md#understand-additional-dependencies-and-services).
 
 The following diagram explains the new extensibility architecture.
 
