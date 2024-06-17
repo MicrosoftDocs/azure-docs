@@ -65,7 +65,7 @@ A test profile describes your function app configuration, request details, and l
 
     :::image type="content" source="media/how-to-optimize-azure-functions/create-test-profile.png" alt-text="Screenshot that the create test profile page in the Azure portal." lightbox="media/how-to-optimize-azure-functions/create-test-profile.png":::
 
-1. In the **Request details** section, enter the request details for your function app. You can specify the request method, URL, and headers.
+1. In the *Request details* section, enter the request details for your function app. You can specify the request method, URL, and headers.
 
 
 1. Select **Add request** to add HTTP requests to the load test:
