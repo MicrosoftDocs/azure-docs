@@ -32,7 +32,7 @@ The performance optimizer enables the following capabilities:
 
 Performance optimizer allows you to test different configurations to help you find the right balance of performance vs.  cost. For instance, you can test metrics like instance size and HTTP concurrency amounts for you Functions app. The performance optimizer uses Azure Load Testing to help you identify your app's optimal configuration for performance and scalability. You can run the performance optimizer on your functions with HTTP triggers. Once you deploy your code to Azure Functions, use the following steps to run the optimizer.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to the function app hosted on Flex Consumption plan.
 
