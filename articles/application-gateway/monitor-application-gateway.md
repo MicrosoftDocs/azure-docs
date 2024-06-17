@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Application Gateway
 description: Start here to learn how to monitor Azure Application Gateway. Learn how to monitor resources for availability, performance, and operation.
-ms.date: 06/04/2024
+ms.date: 06/17/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: greg-lindsay
@@ -33,11 +33,11 @@ For Application Gateway, resource-specific mode creates three tables:
 >
 > Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination.Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time.
 
-- **Selecting the destination table in Log analytics**: All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
+**Selecting the destination table in Log analytics**: All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
 
-  [![Screenshot of the resource ID for application gateway in the portal.](./media/application-gateway-diagnostics/resource-specific.png)](./media/application-gateway-diagnostics/resource-specific.png#lightbox)
+:::image type="content" source="./media/application-gateway-diagnostics/resource-specific.png" alt-text="Screenshot of the resource ID for application gateway in the portal." lightbox="./media/application-gateway-diagnostics/resource-specific.png":::
 
-- **Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it's ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
+**Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md) ingests it. This approach provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
 
 For detailed instructions on setting up workspace transformations, see [Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
 
@@ -61,8 +61,6 @@ For available Web Application Firewall (WAF) metrics, see [Application Gateway W
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
-
 See [Application Gateway monitoring data reference](monitor-application-gateway-reference.md#resource-logs) for:
 
 - A list of the types of resource logs collected for Application Gateway.
@@ -75,7 +73,7 @@ See [Application Gateway monitoring data reference](monitor-application-gateway-
 
 ### Analyzing Access logs through GoAccess
 
-We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
+We published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 

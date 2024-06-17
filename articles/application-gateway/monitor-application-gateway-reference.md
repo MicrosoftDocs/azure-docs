@@ -19,7 +19,7 @@ See [Monitor Azure Application Gateway](monitor-application-gateway.md) for deta
 
 ### Supported metrics for Microsoft.Network/applicationGateways
 
-The following table lists the all metrics available for the Microsoft.Network/applicationGateways resource type. Additional description details for many metrics are included after this table.
+The following table lists the all metrics available for the Microsoft.Network/applicationGateways resource type. More description details for many metrics are included after this table.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
@@ -68,15 +68,15 @@ For Application Gateway v2 SKU, the following backend metrics are available. Wha
 
 For Application Gateway v1 SKU, the following metrics are available. What follows is expanded descriptions of the metrics already listed in the previous [metrics table](#supported-metrics-for-microsoftnetworkapplicationgateways).
 
-- **CPU Utilization**. Displays the utilization of the CPUs allocated to the Application Gateway.  Under normal conditions, CPU usage should not regularly exceed 90%, as this may cause latency in the websites hosted behind the Application Gateway and disrupt the client experience. You can indirectly control or improve CPU utilization by modifying the configuration of the Application Gateway by increasing the instance count or by moving to a larger SKU size, or doing both.
+- **CPU Utilization**. Displays the utilization of the CPUs allocated to the Application Gateway. Under normal conditions, CPU usage shouldn't regularly exceed 90%, because that situation might cause latency in the websites hosted behind the Application Gateway and disrupt the client experience. You can indirectly control or improve CPU utilization by modifying the configuration of the Application Gateway by increasing the instance count or by moving to a larger SKU size, or doing both.
 
-- **Current connections**. Count of current connections established with Application Gateway
+- **Current connections**. Count of current connections established with Application Gateway.
 
 - **Failed Requests**. Number of requests that failed due to connection issues. This count includes requests that failed due to exceeding the "Request time-out" HTTP setting and requests that failed due to connection issues between Application gateway and backend. This count doesn't include failures due to no healthy backend being available. 4xx and 5xx responses from the backend are also not considered as part of this metric.
 
 - **Response Status**. HTTP response status returned by Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.
 
-- **Throughput**. Number of bytes per second the Application Gateway has served
+- **Throughput**. Number of bytes per second the Application Gateway served.
 
 - **Total Requests**. Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
@@ -167,11 +167,11 @@ Application Gateway's layer 4 proxy provides the capability to monitor the healt
 
 [!INCLUDE [Microsoft.Network/applicationgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-applicationgateways-logs-include.md)]
 
-- **Access Log**. You can use the Access log to view Application Gateway access patterns and analyze important information. This information includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The `instanceId` property identifies the Application Gateway instance.
+- **Access log**. You can use the Access log to view Application Gateway access patterns and analyze important information. This information includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The `instanceId` property identifies the Application Gateway instance.
 
 - **Firewall log**. You can use the Firewall log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds.
 
-- **Performance Log**. You can use the Performance log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds.
+- **Performance log**. You can use the Performance log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds.
 
   > [!NOTE]
   > The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data.
@@ -180,40 +180,40 @@ Application Gateway's layer 4 proxy provides the capability to monitor the healt
 
 The access log is generated only if you enable it on each Application Gateway instance, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown.
 
-For Application Gateway and WAF v2 SKU:
-
 > [!NOTE]
 > For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
 
-|Value  |Description  |
-|---------|---------|
-|instanceId     | Application Gateway instance that served the request.        |
-|clientIP     | IP of the immediate client of Application Gateway. If another proxy fronts your application gateway, this value displays the IP of that fronting proxy.   |
-|httpMethod     | HTTP method used by the request.       |
-|requestUri     | URI of the received request.        |
-|UserAgent     | User agent from the HTTP request header.        |
-|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
-|httpVersion     | HTTP version of the request.        |
-|receivedBytes     | Size of packet received, in bytes.        |
-|sentBytes| Size of packet sent, in bytes.|
-|clientResponseTime| Time difference (in seconds) between the first byte and the last byte application gateway sent to the client. Helpful in gauging Application Gateway's processing time for responses or slow clients. |
-|timeTaken| Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and its last-byte sent in the response to the client. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|WAFEvaluationTime| Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
-|WAFMode| Value can be either Detection or Prevention |
-|transactionId| Unique identifier to correlate the request received from the client |
-|sslEnabled| Whether communication to the backend pools used TLS. Valid values are on and off.|
-|sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
-|sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
-|serverRouted| The backend server that application gateway routes the request to.|
-|serverStatus| HTTP status code of the backend server.|
-|serverResponseLatency| Latency of the response (in **seconds**) from the backend server.|
-|host| Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name|
-|originalRequestUriWithArgs| This field contains the original request URL |
-|requestUri| This field contains the URL after the rewrite operation on Application Gateway |
-|upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
-|originalHost| This field contains the original request host name|
-|error_info|The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in the error code tables in this article. |
-|contentType|The type of content or data that is being processed or delivered by the application gateway
+For Application Gateway and WAF v2 SKU:
+
+| Value    | Description |
+|:---------|:------------|
+|instanceId | Application Gateway instance that served the request. |
+|clientIP   | IP of the immediate client of Application Gateway. If another proxy fronts your application gateway, this value displays the IP of that fronting proxy. |
+|httpMethod | HTTP method used by the request. |
+|requestUri | URI of the received request. |
+|UserAgent  | User agent from the HTTP request header. |
+|httpStatus | HTTP status code returned to the client from Application Gateway. |
+|httpVersion | HTTP version of the request. |
+|receivedBytes | Size of packet received, in bytes. |
+|sentBytes | Size of packet sent, in bytes. |
+|clientResponseTime | Time difference (in seconds) between the first byte and the last byte application gateway sent to the client. Helpful in gauging Application Gateway's processing time for responses or slow clients. |
+|timeTaken | Length of time (in **seconds**) that it takes for the first byte of a client request to be processed and its last-byte sent in the response to the client. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|WAFEvaluationTime | Length of time (in **seconds**) that it takes for the request to be processed by the WAF. |
+|WAFMode | Value can be either Detection or Prevention. |
+|transactionId | Unique identifier to correlate the request received from the client. |
+|sslEnabled | Whether communication to the backend pools used TLS. Valid values are on and off. |
+|sslCipher | Cipher suite being used for TLS communication (if TLS is enabled). |
+|sslProtocol | SSL/TLS protocol being used (if TLS is enabled). |
+|serverRouted | The backend server that application gateway routes the request to. |
+|serverStatus | HTTP status code of the backend server. |
+|serverResponseLatency | Latency of the response (in **seconds**) from the backend server. |
+|host | Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name. |
+|originalRequestUriWithArgs | This field contains the original request URL. |
+|requestUri | This field contains the URL after the rewrite operation on Application Gateway. |
+|upstreamSourcePort | The source port used by Application Gateway when initiating a connection to the backend target. |
+|originalHost | This field contains the original request host name. |
+|error_info | The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in the error code tables in this article. |
+|contentType | The type of content or data that is being processed or delivered by the application gateway. |
 
 ```json
 {
@@ -267,23 +267,23 @@ For Application Gateway and WAF v2 SKU:
 
 For Application Gateway Standard and WAF SKU (v1):
 
-|Value  |Description  |
-|---------|---------|
-|instanceId     | Application Gateway instance that served the request.        |
-|clientIP     | Originating IP for the request.        |
-|clientPort     | Originating port for the request.       |
-|httpMethod     | HTTP method used by the request.       |
-|requestUri     | URI of the received request.        |
-|RequestQuery     | **Server-Routed**: Backend pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the backend servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
-|UserAgent     | User agent from the HTTP request header.        |
-|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
-|httpVersion     | HTTP version of the request.        |
-|receivedBytes     | Size of packet received, in bytes.        |
-|sentBytes| Size of packet sent, in bytes.|
-|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This value is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the backend pools used TLS/SSL. Valid values are on and off.|
-|host| The hostname for which the request has been sent to the backend server. If backend hostname is being overridden, this name reflects that.|
-|originalHost| The hostname for which the request was received by the Application Gateway from the client.|
+| Value   | Description |
+|:--------|-------------|
+| instanceId | Application Gateway instance that served the request. |
+| clientIP   | Originating IP for the request. |
+| clientPort | Originating port for the request. |
+| httpMethod | HTTP method used by the request. |
+| requestUri | URI of the received request. |
+| RequestQuery | **Server-Routed**: Backend pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the backend servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end. |
+| UserAgent   | User agent from the HTTP request header. |
+| httpStatus  | HTTP status code returned to the client from Application Gateway. |
+| httpVersion | HTTP version of the request. |
+| receivedBytes | Size of packet received, in bytes. |
+| sentBytes   | Size of packet sent, in bytes. |
+| timeTaken   | Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This value is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+| sslEnabled  | Whether communication to the backend pools used TLS/SSL. Valid values are on and off. |
+| host        | The hostname for which the request has been sent to the backend server. If backend hostname is being overridden, this name reflects that. |
+| originalHost | The hostname for which the request was received by the Application Gateway from the client. |
 
 ```json
 {
@@ -313,50 +313,50 @@ For Application Gateway Standard and WAF SKU (v1):
 
 If the application gateway can't complete the request, it stores one of the following reason codes in the error_info field of the access log.
 
-|4XX Errors  | (The 4xx error codes indicate that there was an issue with the client's request, and the Application Gateway can't fulfill it.) |
-|---------|---------|
-|    ERRORINFO_INVALID_METHOD|	The client sent a request  that is non-RFC compliant. Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc.|
-  |  ERRORINFO_INVALID_REQUEST	| The server can't fulfill the request because of incorrect syntax.|
-  | ERRORINFO_INVALID_VERSION|	The application gateway received a request with an invalid or unsupported HTTP version.|
-   | ERRORINFO_INVALID_09_METHOD|	The client sent request with HTTP Protocol version 0.9.|
-   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value. For example, when there's no Basic listener, and none of the hostnames of Multisite listeners match with the host.| 
-   | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the content-Length header doesn't match the actual length of the content in the request.|
-   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method, which the application gateway doesn't support.|
-   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed. Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway.|
-   | ERRORINFO_REQUEST_URI_INVALID	|Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request. |
-   |  ERRORINFO_HTTP_NO_HOST_HEADER	| Client sent a request without Host header. |
-   | ERRORINFO_HTTP_TO_HTTPS_PORT	|The client sent a plain HTTP request to an HTTPS port. |
-   | ERRORINFO_HTTPS_NO_CERT | 	Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
+| 4XX Errors  | The 4xx error codes indicate that there was an issue with the client's request, and the Application Gateway can't fulfill it. |
+|:---------|:---------|
+| ERRORINFO_INVALID_METHOD | The client sent a request  that is non-RFC compliant. Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc. |
+| ERRORINFO_INVALID_REQUEST | The server can't fulfill the request because of incorrect syntax. |
+| ERRORINFO_INVALID_VERSION | The application gateway received a request with an invalid or unsupported HTTP version. |
+| ERRORINFO_INVALID_09_METHOD | The client sent request with HTTP Protocol version 0.9. |
+| ERRORINFO_INVALID_HOST | The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value. For example, when there's no Basic listener, and none of the hostnames of Multisite listeners match with the host. |
+| ERRORINFO_INVALID_CONTENT_LENGTH | The length of the content specified by the client in the content-Length header doesn't match the actual length of the content in the request. |
+| ERRORINFO_INVALID_METHOD_TRACE | The client sent HTTP TRACE method, which the application gateway doesn't support. |
+| ERRORINFO_CLIENT_CLOSED_REQUEST | The client closed the connection with the application gateway before the idle timeout period elapsed. Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway. |
+| ERRORINFO_REQUEST_URI_INVALID | Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request. |
+| ERRORINFO_HTTP_NO_HOST_HEADER | Client sent a request without Host header. |
+| ERRORINFO_HTTP_TO_HTTPS_PORT | The client sent a plain HTTP request to an HTTPS port. |
+| ERRORINFO_HTTPS_NO_CERT | Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication. |
 
-|5XX Errors  | Description  |
-|---------|---------|
-  |  ERRORINFO_UPSTREAM_NO_LIVE	| The application gateway is unable to find any active or reachable backend servers to handle incoming requests       |
-  |  ERRORINFO_UPSTREAM_CLOSED_CONNECTION	| The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc.|
-  | ERRORINFO_UPSTREAM_TIMED_OUT	| The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
+| 5XX Errors | Description |
+|:-----------|:------------|
+| ERRORINFO_UPSTREAM_NO_LIVE | The application gateway is unable to find any active or reachable backend servers to handle incoming requests. |
+| ERRORINFO_UPSTREAM_CLOSED_CONNECTION | The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc. |
+| ERRORINFO_UPSTREAM_TIMED_OUT | The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
 
 ### Firewall log category
 
 The firewall log is generated only if you enable it for each application gateway, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:
 
-|Value  |Description  |
-|---------|---------|
-|instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there's one row per instance.         |
-|clientIp     |   Originating IP for the request.      |
-|clientPort     |  Originating port for the request.       |
-|requestUri     | URL of the received request.       |
-|ruleSetType     | Rule set type. The available value is OWASP.        |
-|ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
-|ruleId     | Rule ID of the triggering event.        |
-|message     | User-friendly message for the triggering event. More details are provided in the details section.        |
-|action     |  Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these values are both for mandatory rules, depending on if the WAF is in detection or prevention mode).      |
-|site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
-|details     | Details of the triggering event.        |
-|details.message     | Description of the rule.        |
-|details.data     | Specific data found in request that matched the rule.         |
-|details.file     | Configuration file that contained the rule.        |
-|details.line     | Line number in the configuration file that triggered the event.       |
-|hostname   | Hostname or IP address of the Application Gateway.    |
-|transactionId  | Unique ID for a given transaction, which helps group multiple rule violations that occurred within the same request.   |
+| Value  | Description  |
+|: ------|:-------------|
+| instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there's one row per instance.         |
+| clientIp     |   Originating IP for the request.      |
+| clientPort     |  Originating port for the request.       |
+| requestUri     | URL of the received request.       |
+| ruleSetType     | Rule set type. The available value is OWASP.        |
+| ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
+| ruleId     | Rule ID of the triggering event.        |
+| message     | User-friendly message for the triggering event. More details are provided in the details section.        |
+| action     |  Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these values are both for mandatory rules, depending on if the WAF is in detection or prevention mode).      |
+| site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
+| details     | Details of the triggering event.        |
+| details.message     | Description of the rule.        |
+| details.data     | Specific data found in request that matched the rule.         |
+| details.file     | Configuration file that contained the rule.        |
+| details.line     | Line number in the configuration file that triggered the event.       |
+| hostname   | Hostname or IP address of the Application Gateway.    |
+| transactionId  | Unique ID for a given transaction, which helps group multiple rule violations that occurred within the same request.   |
 
 ```json
 {
@@ -394,15 +394,15 @@ The firewall log is generated only if you enable it for each application gateway
 
 The performance log is generated only if you enable it on each Application Gateway instance, as detailed in [Enable logging](application-gateway-diagnostics.md#enable-logging-through-the-azure-portal). The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It's available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
 
-|Value  |Description  |
-|---------|---------|
-|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there's one row per instance.        |
-|healthyHostCount     | Number of healthy hosts in the backend pool.        |
-|unHealthyHostCount     | Number of unhealthy hosts in the backend pool.        |
-|requestCount     | Number of requests served.        |
-|latency | Average latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
-|failedRequestCount| Number of failed requests.|
-|throughput| Average throughput since the last log, measured in bytes per second.|
+| Value    | Description |
+|:---------|:------------|
+| instanceId         | Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there's one row per instance. |
+| healthyHostCount   | Number of healthy hosts in the backend pool.        |
+| unHealthyHostCount | Number of unhealthy hosts in the backend pool.        |
+| requestCount       | Number of requests served.        |
+| latency            | Average latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
+| failedRequestCount | Number of failed requests.|
+| throughput         | Average throughput since the last log, measured in bytes per second.|
 
 ```json
 {
@@ -431,18 +431,18 @@ The performance log is generated only if you enable it on each Application Gatew
 Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
 | Property | Description |
-|:--- |:---|
-| requestUri_s | The URI of the client request.|
-| Message | Informational messages such as "SQL Injection Attack"|
-| userAgent_s | User agent details of the client request|
-| ruleName_s | Request routing rule that is used to serve this request|
-| httpMethod_s | HTTP method of the client request|
-| instanceId_s | The Appgw instance to which the client request is routed to for evaluation|
-| httpVersion_s | HTTP version of the client request|
-| clientIP_s | IP from which is request is made|
-| host_s | Host header of the client request|
+|:-------- |:------------|
+| requestUri_s   | The URI of the client request.|
+| Message        | Informational messages such as "SQL Injection Attack"|
+| userAgent_s    | User agent details of the client request|
+| ruleName_s     | Request routing rule that is used to serve this request|
+| httpMethod_s   | HTTP method of the client request|
+| instanceId_s   | The Appgw instance to which the client request is routed to for evaluation|
+| httpVersion_s  | HTTP version of the client request|
+| clientIP_s     | IP from which is request is made|
+| host_s         | Host header of the client request|
 | requestQuery_s | Query string as part of the client request|
-| sslEnabled_s | Does the client request have SSL enabled|
+| sslEnabled_s   | Does the client request have SSL enabled|
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
@@ -457,7 +457,7 @@ Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/refe
 
 ### TLS/TCP proxy logs
 
-Application Gateway's Layer 4 proxy provides log data through access logs. These logs are only generated and published if they are configured in the diagnostic settings of your gateway. Also see: [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
+Application Gateway's Layer 4 proxy provides log data through access logs. These logs are only generated and published if they're configured in the diagnostic settings of your gateway. Also see: [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
 
 > [!NOTE]
 > The columns with Mutual Authentication details for a TLS listener are currently available only through the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics).
@@ -465,29 +465,28 @@ Application Gateway's Layer 4 proxy provides log data through access logs. These
 | Category | Resource log category |
 |:--------------|:----------------------------------------------------------------------|
 | ResourceGroup | The resource group to which the application gateway resource belongs. |
-| SubscriptionId |The subscription ID of the application gateway resource. |
-| ResourceProvider |This value is MICROSOFT.NETWORK for application gateway. |
-| Resource |The name of the application gateway resource. |
-| ResourceType |This value is APPLICATIONGATEWAYS. |
-| ruleName |The name of the routing rule that served the connection request. |
-| instanceId |Application Gateway instance that served the request. |
-| clientIP |Originating IP for the request. |
-| receivedBytes |Data received from client to gateway, in bytes. |
-| sentBytes |Data sent from gateway to client, in bytes. |
-| listenerName |The name of the listener that established the frontend connection with client. |
-| backendSettingName |The name of the backend setting used for the backend connection. |
-| backendPoolName |The name of the backend pool from which a target server was selected to establish the backend connection. |
-| protocol |TCP (Irrespective of it being TCP or TLS, the protocol value is always TCP). |
-| sessionTime |session duration, in seconds (this value is for the client->appgw session) |
-| upstreamSentBytes |Data sent to backend server, in bytes. |
-| upstreamReceivedBytes |Data received from backend server, in bytes. |
-| upstreamSessionTime |session duration, in seconds (this value is for the appgw->backend session) |
-| sslCipher |Cipher suite being used for TLS communication (for TLS protocol listeners). |
-| sslProtocol |SSL/TLS protocol being used (for TLS protocol listeners). |
-| serverRouted |The backend server IP and port number to which the traffic was routed. |
-| serverStatus |200 - session completed successfully. 400 - client data couldn't be parsed. 500 - internal server error. 502 - bad gateway. For example, when an upstream server couldn't be reached. 503 - service unavailable. For example, if access is limited by the number of connections. |
-| ResourceId |Application Gateway resource URI |
-
+| SubscriptionId | The subscription ID of the application gateway resource. |
+| ResourceProvider | This value is MICROSOFT.NETWORK for application gateway. |
+| Resource | The name of the application gateway resource. |
+| ResourceType | This value is APPLICATIONGATEWAYS. |
+| ruleName | The name of the routing rule that served the connection request. |
+| instanceId | Application Gateway instance that served the request. |
+| clientIP | Originating IP for the request. |
+| receivedBytes | Data received from client to gateway, in bytes. |
+| sentBytes | Data sent from gateway to client, in bytes. |
+| listenerName | The name of the listener that established the frontend connection with client. |
+| backendSettingName | The name of the backend setting used for the backend connection. |
+| backendPoolName | The name of the backend pool from which a target server was selected to establish the backend connection. |
+| protocol | TCP (Irrespective of it being TCP or TLS, the protocol value is always TCP). |
+| sessionTime | Session duration, in seconds (this value is for the client->appgw session). |
+| upstreamSentBytes | Data sent to backend server, in bytes. |
+| upstreamReceivedBytes | Data received from backend server, in bytes. |
+| upstreamSessionTime | Session duration, in seconds (this value is for the appgw->backend session). |
+| sslCipher | Cipher suite being used for TLS communication (for TLS protocol listeners). |
+| sslProtocol | SSL/TLS protocol being used (for TLS protocol listeners). |
+| serverRouted | The backend server IP and port number to which the traffic was routed. |
+| serverStatus | 200 - session completed successfully. 400 - client data couldn't be parsed. 500 - internal server error. 502 - bad gateway. For example, when an upstream server couldn't be reached. 503 - service unavailable. For example, if access is limited by the number of connections. |
+| ResourceId | Application Gateway resource URI. |
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 

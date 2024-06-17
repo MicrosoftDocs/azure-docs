@@ -99,9 +99,9 @@
       href: key-vault-certs.md
     - name: SSL certificate management
       href: ssl-certificate-management.md
-  - name: Health monitoring
+  - name: Monitoring
     items:
-    - name: Monitor Azure Application Gateway
+    - name: Overview of Monitoring
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md

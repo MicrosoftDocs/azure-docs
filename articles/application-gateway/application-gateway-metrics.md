@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/17/2023
+ms.date: 06/17/2024
 ms.author: greglin
 
 ---
@@ -30,7 +30,7 @@ Application Gateway provides several built‑in timing metrics related to the re
 >
 > If there is more than one listener in the Application Gateway, then always filter by *Listener* dimension while comparing different latency metrics in order to get meaningful inference.
 
-You can use timing metrics to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size. For more information, see [Timing metrics](monitor-application-gateway-reference.md#timing-metrics).
+You can use timing metrics to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size. For more information, see [Timing metrics](monitor-application-gateway-reference.md#timing-metrics-for-application-gateway-v2-sku).
 
 For example, if there's a spike in *Backend first byte response time* trend but the *Backend connect time* trend is stable, you can infer that the application gateway to backend latency and the time taken to establish the connection is stable. The spike is caused due to an increase in the response time of backend application. On the other hand, if the spike in *Backend first byte response time* is associated with a corresponding spike in *Backend connect time*, you can deduce that either the network between Application Gateway and backend server or the backend server TCP stack has saturated.
 
@@ -40,11 +40,11 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 
 ### Application Gateway metrics
 
-For Application Gateway, there are several metrics available. For a list, see [Application Gateway metrics](monitor-application-gateway-reference.md#application-gateway-metrics).
+For Application Gateway, there are several metrics available. For a list, see [Application Gateway metrics](monitor-application-gateway-reference.md#metrics-for-application-gateway-v2-sku).
 
 ### Backend metrics
 
-For Application Gateway, There are several backend metrics available. For a list, see [Backend metrics](monitor-application-gateway-reference.md#backend-metrics).
+For Application Gateway, There are several backend metrics available. For a list, see [Backend metrics](monitor-application-gateway-reference.md#backend-metrics-for-application-gateway-v2-sku).
 
 ### Web Application Firewall (WAF) metrics
 
