@@ -298,10 +298,10 @@ Cluster create Logs can be viewed in the following locations:
 
 ## Delete a cluster
 
-When deleting a cluster, it will delete the resources in Azure and the cluster the reside in the on-premises environment.
+When deleting a cluster, it will delete the resources in Azure and the cluster that resides in the on-premises environment.
 
 >[!NOTE]
->If there are any tenant resources that exists in the undercloud, the cluster will not be deleted until those resources are deleted.
+>If there are any tenant resources that exist in the cluster, it will not be deleted until those resources are deleted.
 
 :::image type="content" source="./media/nexus-delete_failure.png" lightbox="./media/nexus-delete_failure.png" alt-text="Screenshot of the portal showing the failure to delete because of tenant resources":::
 
