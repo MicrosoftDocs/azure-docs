@@ -38,7 +38,7 @@ Performance optimizer allows you to test different configurations to help you fi
 
 1. From the *Performance* section of your app, select **Performance Optimizer**.
 
-1. If you don’t have an Azure Load Testing resource in the subscription, create one by clicking Create Load Testing resource.
+1. If you don’t have an Azure Load Testing resource in the subscription, create one by selecting **Create Load Testing resource**.
 
 :::image type="content" source="media/how-to-optimize-azure-functions/performance-optimizer-open.png" alt-text="Screenshot that the performance optimizer page in the Azure portal." lightbox="media/how-to-optimize-azure-functions/performance-optimizer-open.png":::
 
