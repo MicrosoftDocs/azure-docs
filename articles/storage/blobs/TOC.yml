@@ -94,6 +94,8 @@ items:
     items:
     - name: Storage migration overview
       href: ../common/storage-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+    - name: Tape migration overview
+      href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Compare data transfer solutions
       href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -448,7 +450,9 @@ items:
       items:
       - name: Disaster recovery planning and failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: How customer-managed failover works
+      - name: How customer-managed planned failover (preview) works
+        href: ../common/storage-failover-customer-managed-planned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: How customer-managed (unplanned) failover works
         href: ../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

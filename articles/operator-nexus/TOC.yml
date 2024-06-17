@@ -183,6 +183,8 @@
               href: howto-delete-layer-3-isolation-domains.md
             - name: How to put a device into maintenance mode
               href: howto-put-device-in-maintenance-mode.md
+            - name: How to upgrade Network Fabric
+              href: howto-upgrade-nexus-fabric.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:

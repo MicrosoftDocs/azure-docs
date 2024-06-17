@@ -51,14 +51,9 @@ For more information about investigating indexer errors and warnings, see [Index
 
 ## Monitor with Azure Monitoring Metrics
 
-Azure AI Search is a monitored resource in Azure Monitor, which means that you can use [Metrics Explorer](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) to see basic metrics about the number of indexer-processed documents and skill invocations. These metrics can be used to monitor indexer progress and [set up alerts](../azure-monitor/alerts/alerts-metric-overview.md). 
+Azure AI Search is a monitored resource in Azure Monitor, which means that you can use [Metrics Explorer](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) to see basic metrics about the number of indexer-processed documents and skill invocations. These metrics can be used to monitor indexer progress and [set up alerts](../azure-monitor/alerts/alerts-metric-overview.md).
 
-Metric views can be filtered or split up by a set of predefined dimensions.
-
-| Metric Name  |  Description | Dimensions  | Sample use cases |
-|---|---|---|---|
-| Document processed count  | Shows the number of indexer processed documents.  | Data source name, failed, index name, indexer name, skillset name  | <br> - Can be referenced as a rough measure of throughput (number of documents processed by indexer over time) <br> - Set up to alert on failed documents | 
-|  Skill execution invocation count | Shows the number of skill invocations. | Data source name, failed, index name, indexer name, skill name, skill type, skillset name | <br> - Reference to ensure skills are invoked as expected by comparing relative invocation numbers between skills and number of skill invocations to the number of documents. <br> - Set up to alert on failed skill invocations |
+Metric views can be filtered or split up by a set of predefined dimensions. To learn about the dimensions associated with the metrics *Document processed count* and *Skill execution invocation count*, see [Metric dimensions](monitor-azure-cognitive-search-data-reference.md#metric-dimensions).
 
 The following screenshot shows the number of documents processed by indexers within a service over an hour, split up by indexer name.
 
