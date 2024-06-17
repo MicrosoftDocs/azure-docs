@@ -13,7 +13,7 @@ ms.custom:
 # customer intent: As a developer, I want to learn how to migrate from AWS RDS to Azure Database for PostgreSQL using the migration service, so that I can simplify the transition and ensure data integrity.
 ---
 
-# Tutorial: Migrate online from AWS RDS PostgreSQL to Azure Database for PostgreSQL with the migration service
+# Tutorial: Migrate online from AWS RDS PostgreSQL to Azure Database for PostgreSQL with the migration service Preview
 
 This article explores how to migrate your PostgreSQL database from AWS RDS to Azure Database for PostgreSQL online.
 
@@ -219,7 +219,7 @@ To learn more about Azure CLI with the migration service, visit [How to set up A
 Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
 
 ```azurecli-interactive
-`az login`
+az login
 ```
 
 ### Configure the migration task
