@@ -72,7 +72,7 @@ If you have Beeline installed locally, and connect over an Azure Virtual Network
 Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-To find the fully qualified domain name of a headnode, use the information in the Manage HDInsight using the Ambari REST API document.
+To find the fully qualified domain name of a headnode, use the information in the Managed HDInsight using the Ambari REST API document.
 
 ## Users of HDInsight clusters with ESP
 
@@ -91,9 +91,9 @@ A HDInsight cluster with ESP has three new users in addition to Ambari Admin.
 
     Note the other AD users also have these privileges.
 
-    There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence aren't secure. These end points are locked down for all users except the cluster admin domain user.
+    There are some end points within the cluster (for example, Templeton) which aren't managed by Ranger, and hence  secure. These end points are locked down for all users except the cluster admin domain user.
 
-- **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups are synced to Ranger and Ambari. These users are domain users and have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
+- **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups are synced to Ranger and Ambari. These users are domain users and have access to only Ranger-managed endpoints (for example, `Hiveserver2`). All the RBAC policies and auditing will be applicable to these users.
 
 ## Roles of HDInsight clusters with ESP
 
