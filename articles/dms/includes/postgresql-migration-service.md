@@ -9,4 +9,4 @@ ms.topic: include
 ---
 
 > [!IMPORTANT]
-> It’s recommended to use the new migration service in Azure Database for PostgreSQL for a more streamlined and efficient migration experience. This service simplifies the process by supporting a variety of source environments, ensuring a hassle-free transition to Azure Database for PostgreSQL.
+> It’s recommended to use the [new migration service in Azure Database for PostgreSQL](/azure/postgresql/migrate/migration-service/concepts-migration-service-postgresql) for a more streamlined and efficient migration experience. This service simplifies the process by supporting a variety of source environments, ensuring a hassle-free transition to Azure Database for PostgreSQL.
