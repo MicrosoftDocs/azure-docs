@@ -26,7 +26,7 @@ When enforcing a policy, you can determine its effect over the resulting evaluat
 
 - [**Audit**](../../governance/policy/concepts/effects.md#audit): when the effect of a policy is set to `Audit`, the policy won't cause any breaking changes to your environment. It will only alert you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
-- [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of new test runs that don't comply with the policy definition. Existing non-compliant test runs aren't affected. The 'audit' capabilities will continue to operate.
+- [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of a new resource or new test runs that don't comply with the policy definition. Existing non-compliant test runs aren't affected. The 'audit' capabilities will continue to operate.
   
 ## Available Built-In Policy Definitions
 
