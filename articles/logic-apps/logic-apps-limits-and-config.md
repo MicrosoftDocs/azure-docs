@@ -10,7 +10,7 @@ ms.date: 05/20/2024
 
 # Limits and configuration reference for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > For Power Automate, review [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 

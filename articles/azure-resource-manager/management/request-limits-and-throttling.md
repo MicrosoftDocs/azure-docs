@@ -85,7 +85,7 @@ This section discusses the throttling limits of some widely used resource provid
 
 ### Storage throttling
 
-[!INCLUDE [azure-storage-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### Network throttling
 

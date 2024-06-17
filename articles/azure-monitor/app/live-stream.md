@@ -40,7 +40,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
   Using OpenTelemetry (Recommended):
 
-   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live Metrics is enabled by default.
+   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live Metrics is not supported.
    * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Live Metrics is enabled by default.
    * [Java](./opentelemetry-enable.md?tabs=java): Live Metrics is enabled by default.
    * [Node.js](opentelemetry-enable.md?tabs=nodejs): Live Metrics is enabled by default.
@@ -58,7 +58,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Enable Live Metrics by using code for any .NET application
 
