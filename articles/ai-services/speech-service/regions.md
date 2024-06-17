@@ -81,7 +81,7 @@ The following regions are supported for Speech service features such as speech t
 
 <sup>10</sup> The region supports text to speech avatar.
 
-<sup>11</sup> The region supports video translation .
+<sup>11</sup> The region supports video translation.
 
 ## Intent recognition
 
