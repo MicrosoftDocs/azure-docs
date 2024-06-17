@@ -18,9 +18,9 @@ The Azure Load Testing performance optimizer tool helps you decide which configu
 
 The performance optimizer enables the following capabilities:
 
-- In-context experience to quickly create and run tests by specifying different memory and HTTP concurrency configurations with the expected load.
-- Comparison of performance metrics from load test results across scale & concurrency configs helping you choose the right configuration.
-- Right-sizing based on performance metrics to optimize costs.
+- **Concurrent tests**: In-context experience where you can quickly create and run tests by specifying different memory and HTTP concurrency configurations with expected loads.
+- **Side-by-side comparison**: Evaluate performance metrics from load test results across scale & concurrency configs helping you choose the right configuration.
+- **Metrics**: Right-sizing based on performance metrics to optimize costs.
 
 ## Prerequisites
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
