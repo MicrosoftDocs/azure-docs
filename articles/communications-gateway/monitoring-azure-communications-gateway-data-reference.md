@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Communications Gateway
 description: This article contains important reference material you need when you monitor Azure Communications Gateway.
-ms.date: 06/04/2024
+ms.date: 06/17/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: rcdun
@@ -27,29 +27,23 @@ The following table lists the metrics available for the Microsoft.VoiceServices/
 
 [!INCLUDE [Microsoft.VoiceServices/communicationsGateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-voiceservices-communicationsgateways-metrics-include.md)]
 
-The automatically collected metrics for Azure Communications Gateway include the following types:
+Of the metrics described in the preceding table, the following are automatically collected for Azure Communications Gateway:
 
-- Error metrics: Errors.
-
-  - Active Call Failures
-
-- Traffic metrics: Metrics related to traffic.
-
-  - Active Calls
-  - Active Emergency Calls
-
-- Connectivity metrics: Metrics related to the connection between your network and the Communications Gateway resource.
-
-  - SIP 2xx Responses Received
-  - SIP 2xx Responses Sent
-  - SIP 3xx Responses Received
-  - SIP 3xx Responses Sent
-  - SIP 4xx Responses Received
-  - SIP 4xx Responses Sent
-  - SIP 5xx Responses Received
-  - SIP 5xx Responses Sent
-  - SIP 6xx Responses Received
-  - SIP 6xx Responses Sent
+| Metric | Description |
+|:-------|:------------|
+| Active Call Failures | Percentage of active calls that fail. This metric includes, for example, calls where the media is dropped and calls that are torn down unexpectedly. |
+| Active Calls | Count of the total number of active calls. |
+| Active Emergency Calls |Count of the total number of active emergency calls.|
+| SIP 2xx Responses Received | Count of the total number of SIP 2xx responses received for OPTIONS and INVITEs.|
+| SIP 2xx Responses Sent | Count of the total number of SIP 2xx responses sent for OPTIONS and INVITEs.|
+| SIP 3xx Responses Received | Count of the total number of SIP 3xx responses received for OPTIONS and INVITEs.|
+| SIP 3xx Responses Sent | Count of the total number of SIP 3xx responses sent for OPTIONS and INVITEs.|
+| SIP 4xx Responses Received | Count of the total number of SIP 4xx responses received for OPTIONS and INVITEs.|
+| SIP 4xx Responses Sent | Count of the total number of SIP 4xx responses sent for OPTIONS and INVITEs.|
+| SIP 5xx Responses Received | Count of the total number of SIP 5xx responses received for OPTIONS and INVITEs.|
+| SIP 5xx Responses Sent | Count of the total number of SIP 5xx responses sent for OPTIONS and INVITEs.|
+| SIP 6xx Responses Received | Count of the total number of SIP 6xx responses received for OPTIONS and INVITEs.|
+| SIP 6xx Responses Sent | Count of the total number of SIP 6xx responses sent for OPTIONS and INVITEs.|
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 

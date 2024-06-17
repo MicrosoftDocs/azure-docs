@@ -100,7 +100,7 @@ items:
   items:
   - name: Set up user roles
     href: provision-user-roles.md
-  - name: Monitor
+  - name: Overview of monitoring
     href: monitor-azure-communications-gateway.md
   - name: Maintenance notifications
     href: maintenance-notifications.md
