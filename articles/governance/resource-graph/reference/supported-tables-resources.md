@@ -3,6 +3,8 @@ title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
 ms.date: 06/05/2024
 ms.topic: reference
+author: davidsmatlak
+ms.author: davidsmatlak
 ms.custom: generated
 ---
 
@@ -708,7 +710,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.Network/expressRoutePorts (ExpressRoute Direct)
 - microsoft.Network/firewallPolicies (Firewall policies)
 - microsoft.Network/frontdoors (Front Doors)
-- microsoft.Network/FrontDoorWebApplicationFirewallPolicies (Web Application Firewall policies (WAF))
+- microsoft.Network/FrontDoorWebApplicationFirewallPolicies (Web Application Firewall (WAF) policies)
 - microsoft.network/ipallocations
 - microsoft.Network/ipGroups (IP Groups)
 - microsoft.Network/LoadBalancers (Load balancers)

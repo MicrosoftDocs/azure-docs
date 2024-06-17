@@ -15,7 +15,7 @@ ms.date: 02/08/2024
 [Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including log search alert rules. When a log search alert rule is healthy, the rule runs and the query executes successfully. This article explains how to view the health status of your log search alert rule, and tells you what to do if there are issues affecting your log search alert rules.
 
 Azure Service Health monitors:
-- [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific log search alert rule. 
+- [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific log search alert rule. See [here](../../service-health/resource-health-checks-resource-types.md) for the resource health checks performed on log search alert rules.
 - [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, which might affect your log search alert rule, including communications about outages, planned maintenance activities, and other health advisories.
 
  > [!NOTE]
