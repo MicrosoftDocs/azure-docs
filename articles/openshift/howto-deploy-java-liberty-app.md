@@ -206,7 +206,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
 The following steps guide you through creating an Azure SQL Database single database for use with your app:
 
-1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences described in the following note. Return to this article after creating and configuring the database server.
+1. Create a single database in Azure SQL Database by following the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart), carefully noting the differences described in the following note. You can deploy the database to the same resource group as the OpenShift cluster. Return to this article after creating and configuring the database server.
 
    > [!NOTE]
    > At the **Basics** step, write down the values for **Resource group**, **Database name**, **_\<server-name>_.database.windows.net**, **Server admin login**, and **Password**. The database **Resource group** is referred to as `<db-resource-group>` later in this article.
