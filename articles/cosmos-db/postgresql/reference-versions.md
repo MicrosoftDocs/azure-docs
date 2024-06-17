@@ -6,7 +6,7 @@ author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 02/11/2024
+ms.date: 05/28/2024
 ---
 
 # Supported database versions in Azure Cosmos DB for PostgreSQL
@@ -19,23 +19,23 @@ The version of PostgreSQL running in a cluster is customizable during creation a
 
 ### PostgreSQL version 16
 
-The current minor release is 16.2. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/16.2/) to learn more about improvements and fixes in this minor release.
+The current minor release is 16.3. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/16.3/) to learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 15
 
-The current minor release is 15.6. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.6/) to learn more about improvements and fixes in this minor release.
+The current minor release is 15.7. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.7/) to learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 14
 
-The current minor release is 14.11. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.11/) to learn more about improvements and fixes in this minor release.
+The current minor release is 14.12. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.12/) to learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 13
 
-The current minor release is 13.14. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.14/) to learn more about improvements and fixes in this minor release.
+The current minor release is 13.15. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.15/) to learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 12
 
-The current minor release is 12.18. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.18/) to learn more about improvements and fixes in this minor release.
+The current minor release is 12.19. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.19/) to learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 11 and older
 

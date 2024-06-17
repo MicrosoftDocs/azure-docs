@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 05/21/2024
+ms.date: 06/12/2024
 ---
 
 # Index data from OneLake files and shortcuts
@@ -20,7 +20,7 @@ Use this indexer for the following tasks:
   
 + **Data indexing and incremental indexing:** The indexer can index files and associated metadata from data paths within a lakehouse. It detects new and updated files and metadata through built-in change detection. You can configure data refresh on a schedule or on demand. 
 + **Deletion detection:** The indexer can [detect deletions via custom metadata](#detect-deletions-via-custom-metadata) for most files and shortcuts. This requires adding metadata to files to signify that they have been "soft deleted", enabling their removal from the search index. Currently, it's not possible to detect deletions in Google Cloud Storage or Amazon S3 shortcut files because custom metadata isn't supported for those data sources.
-+ **Applied AI through skillsets:** [Skillsets](cognitive-search-concept-intro.md) are fully supported by the OneLake files indexer. This includes key features like [integrated vectorization](vector-search-integrated-vectorization.md).
++ **Applied AI through skillsets:** [Skillsets](cognitive-search-concept-intro.md) are fully supported by the OneLake files indexer. This includes key features like [integrated vectorization](vector-search-integrated-vectorization.md) that adds data chunking and embedding steps.
 + **Parsing modes:** The indexer supports [JSON parsing modes](search-howto-index-json-blobs.md) if you want to parse JSON arrays or lines into individual search documents.
 + **Compatibility with other features:** The OneLake indexer is designed to work seamlessly with other indexer features, such as [debug sessions](cognitive-search-debug-session.md), [indexer cache for incremental enrichments](search-howto-incremental-index.md), and [knowledge store](knowledge-store-concept-intro.md). 
 
@@ -29,8 +29,6 @@ Use the [2024-05-01-preview REST API](/rest/api/searchservice/data-sources/creat
 This article uses the REST APIs to illustrate each step.
   
 ## Prerequisites  
-  
-Before you begin, you need to have:  
   
 + A Fabric workspace. Follow this tutorial to [create a Fabric workspace](/fabric/data-engineering/tutorial-lakehouse-get-started). 
 
@@ -44,8 +42,8 @@ Before you begin, you need to have:
   + [Use data pipelines](/fabric/data-engineering/tutorial-lakehouse-data-ingestion) from [Microsoft Fabric](https://fabric.microsoft.com/)
   + [Add shortcuts](/fabric/onelake/create-onelake-shortcut) from external data sources like [Amazon S3](/fabric/onelake/create-s3-shortcut) or [Google Cloud Storage](/fabric/onelake/create-gcs-shortcut).  
 
-+ A search service configured for either a [system managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) or [user-assigned assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-user-assigned-managed-identity-preview). 
-
++ An AI Search service configured for either a [system managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) or [user-assigned assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-user-assigned-managed-identity). The AI Search service must reside within the same tenant as the Microsoft Fabric workspace.
+  
 + A Contributor role assignment in the Microsoft Fabric workspace where the lakehouse is located. Steps are outlined in the [Grant permissions](#assign-service-permissions) section of this article.
 
 + [A REST client](search-get-started-rest.md) to formulate REST calls similar to the ones shown in this article.
@@ -56,7 +54,7 @@ Before you begin, you need to have:
   
 The OneLake files indexer can extract text from the following document formats:
 
-[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)] 
+[!INCLUDE [search-blob-data-sources](./includes/search-blob-data-sources.md)] 
 
 ## Supported shortcuts
 

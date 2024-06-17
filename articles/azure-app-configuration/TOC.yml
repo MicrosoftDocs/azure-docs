@@ -43,6 +43,8 @@
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
           href: quickstart-feature-flag-azure-functions-csharp.md
+        - name: Python app
+          href: quickstart-feature-flag-python.md
         - name: Azure Kubernetes Service
           href: quickstart-feature-flag-azure-kubernetes-service.md
     - name: Service integration
@@ -316,9 +318,15 @@
     - name: Feature management
       items:
         - name: .NET
-          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
+          items: 
+            - name: Feature reference
+              href: ./feature-management-dotnet-reference.md
+            - name: API reference
+              href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring
-          href: https://azure.github.io/azure-sdk-for-java/springboot.html
+          items:
+            - name: API reference
+              href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Deployment
       items:
       - name: ARM template
@@ -354,5 +362,7 @@
           href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
         - name: Three reasons to use configuration snapshots
           href: https://aka.ms/appconfig/snapshotVideo
+        - name: Five things you might not know about Azure App Configuration
+          href: https://aka.ms/appconfig/fiveThingsVideo
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

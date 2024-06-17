@@ -217,7 +217,7 @@ To create a role assignment for the data share resource's managed identity manua
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section.
 
@@ -245,7 +245,7 @@ Alternatively, user can have owner of the storage account add the data share res
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select one of the roles listed in the role assignment table in the previous section. For example, for a storage account, select Storage Blob Data Reader.
 

@@ -364,6 +364,8 @@ items:
       items:
       - name: Face REST API
         href: identity-api-reference.md
+      - name: Face API error codes
+        href: reference-face-error-codes.md
       - name: .NET
         href: /dotnet/api/overview/azure/cognitiveservices/face
       - name: Java

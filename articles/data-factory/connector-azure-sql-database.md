@@ -375,8 +375,8 @@ These generic properties are supported for an Azure SQL Database linked service 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureSqlDatabase**. | Yes |
-| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
+| connectionString | Specify information needed to connect to the Azure SQL Database instance for the **connectionString** property. <br/>You also can put a password or service principal key in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
 
 For different authentication types, refer to the following sections on specific properties and prerequisites respectively:
@@ -782,7 +782,7 @@ Refer to the respective sections about how to configure in the service and best 
 
 ### Append data
 
-Appending data is the default behavior of this Azure SQL Database sink connector. the service does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
+Appending data is the default behavior of this Azure SQL Database sink connector. The service does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
 
 ### Upsert data
 
@@ -893,7 +893,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 :::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
 
-**Enable incremental extract**: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed.To enable incremental extract with schema drift, choose tables based on Incremental / Watermark columns rather than tables that are enabled for Native Change Data Capture.
+**Enable incremental extract**: Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed. To enable incremental extract with schema drift, choose tables based on Incremental / Watermark columns rather than tables that are enabled for Native Change Data Capture.
 
 **Incremental column**: When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table.
 

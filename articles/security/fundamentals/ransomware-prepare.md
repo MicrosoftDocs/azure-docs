@@ -13,7 +13,7 @@ ms.date: 01/10/2022
 
 ## Adopt a Cybersecurity framework
 
-A good place to start is to adopt the [Microsoft cloud security benchmark](/security/benchmark/azure) (MCSB) to secure the Azure environment. The Microsoft cloud security benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
+A good place to start is to adopt the [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure) to secure the Azure environment. The Microsoft cloud security benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
 
 :::image type="content" source="./media/ransomware/ransomware-13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
 

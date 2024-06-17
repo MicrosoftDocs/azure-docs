@@ -78,7 +78,7 @@ For this exercise, you won't select a zone-redundant SKU. If you want to learn a
 
 A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
-[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [NSG warning](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="view"></a>View the public IP address
 

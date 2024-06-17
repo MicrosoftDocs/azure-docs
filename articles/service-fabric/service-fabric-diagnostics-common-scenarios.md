@@ -13,7 +13,7 @@ ms.date: 07/14/2022
 
 This article illustrates common scenarios users have encountered in the area of monitoring and diagnostics with Service Fabric. The scenarios presented cover all 3 layers of service fabric: Application, Cluster, and Infrastructure. Each solution uses Application Insights and Azure Monitor logs, Azure monitoring tools, to complete each scenario. The steps in each solution give users an introduction on how to use Application Insights and Azure Monitor logs in the context of Service Fabric.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites and Recommendations
 

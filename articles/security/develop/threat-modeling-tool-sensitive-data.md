@@ -228,7 +228,7 @@ instance: 'https://login.microsoftonline.com/',
 tenant: ns.Configurations.Tenant,
 clientId: ns.Configurations.AADApplicationClientID,
 postLogoutRedirectUri: window.location.origin,
-cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+cacheLocation: 'localStorage', // enable this for Internet Explorer, as sessionStorage does not work for localhost.
 };
 ```
 

@@ -3,7 +3,7 @@ title: Relocation guidance overview for Microsoft Azure products and services (P
 description: Relocation guidance overview for Microsoft Azure products and services. View Azure service specific relocation guides.
 author: anaharris-ms
 ms.service: reliability
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 01/16/2024
 ms.author: anaharris
 ms.custom:
@@ -32,7 +32,7 @@ Each service specific guide can contain service-specific information on topics s
 
 ## Service categories across region types
 
-[!INCLUDE [Service categories across region types](../../includes/service-categories/service-category-definitions.md)]
+[!INCLUDE [Service categories across region types](~/reusable-content/ce-skilling/azure/includes/service-categories/service-category-definitions.md)]
 
 ## Azure services relocation guides
 
@@ -65,6 +65,9 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Database for MariaDB Server](../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Database for MySQL Server](../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |
+[Azure Event Grid domains](relocation-event-grid-domains.md)| ✅ | ❌| ❌ |
+[Azure Event Grid custom topics](relocation-event-grid-custom-topics.md)| ✅ | ❌| ❌ |
+[Azure Event Grid system topics](relocation-event-grid-system-topics.md)| ✅ | ❌| ❌ |
 [Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |❌  | ❌ |
 [Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ✅| ❌ | ❌ |

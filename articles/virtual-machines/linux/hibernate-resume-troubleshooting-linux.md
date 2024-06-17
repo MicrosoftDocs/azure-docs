@@ -3,6 +3,7 @@ title: Troubleshoot hibernation on Linux virtual machines
 description: Learn how to troubleshoot hibernation on Linux VMs.
 author: mattmcinnes
 ms.service: virtual-machines
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/16/2024
 ms.author: jainan

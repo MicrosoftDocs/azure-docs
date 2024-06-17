@@ -4,7 +4,7 @@ description: This article describes several libraries and drivers that you can u
 author: olmoloce
 ms.author: olmoloce
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/17/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Connection libraries for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article lists libraries and drivers that developers can use to develop applications to connect to and query Azure Database for PostgreSQL flexible server.
 

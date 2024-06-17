@@ -12,7 +12,7 @@ ms.topic: troubleshooting-error-codes
 
 # Canceling statement due to conflict with recovery
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article helps you solve a problem that occurs during executing queries against read replica.
 

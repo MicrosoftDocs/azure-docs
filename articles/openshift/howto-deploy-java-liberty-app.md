@@ -1,14 +1,14 @@
 ---
-title: "IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift"
+title: "WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift"
 description: Shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift.
 author: KarlErickson
 ms.author: haiche
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 05/29/2024
 ms.custom: template-overview, devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aro, devx-track-javaee-websphere, devx-track-extended-java
 ---
 
-# Deploy IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
+# Deploy WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift
 
 This article shows you how to quickly stand up IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift (ARO) using the Azure portal.
 
@@ -16,18 +16,21 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
 
 This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebSphere on Azure solutions, fill out this short [survey on WebSphere migration](https://aka.ms/websphere-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
 [!INCLUDE [aro-quota](includes/aro-quota.md)]
 
 ## Prerequisites
 
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - A local machine with a Unix-like operating system installed (for example, Ubuntu, macOS, or Windows Subsystem for Linux).
 - The [Azure CLI](/cli/azure/install-azure-cli). If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 * When you're prompted, install the Azure CLI extension on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires at least version 2.31.0 of Azure CLI.
-- A Java SE implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
+- A Java Standard Edition (SE) implementation, version 17 or later (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
 - [Maven](https://maven.apache.org/download.cgi) version 3.5.0 or higher.
 - [Docker](https://docs.docker.com/get-docker/) for your OS.
 - The Azure identity you use to sign in has either the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role and the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role or the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
@@ -45,7 +48,7 @@ Use your Red Hat account to sign in to the OpenShift cluster manager portal, by 
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png" alt-text="Screenshot of Red Hat Update Your Account page." lightbox="media/howto-deploy-java-liberty-app/red-hat-account-complete-profile.png":::
 
-After you sign in, select **OpenShift** then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download** to get the value, as shown in the following screenshot.
+After you sign in, select **OpenShift**, then **Downloads**. Select the **All categories** dropdown list and then select **Tokens**. Under **Pull secret**, select **Copy** or **Download**, as shown in the following screenshot.
 
 :::image type="content" source="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png" alt-text="Screenshot of Red Hat console portal showing the pull secret." lightbox="media/howto-deploy-java-liberty-app/red-hat-console-portal-pull-secret.png":::
 
@@ -93,7 +96,7 @@ The steps in this section direct you to deploy IBM WebSphere Liberty or Open Lib
 
 The following steps show you how to find the offer and fill out the **Basics** pane.
 
-1. In the search bar at the top of the Azure portal, enter *Liberty*. In the auto-suggested search results, in the **Marketplace** section, select **IBM Liberty on ARO**, as shown in the following screenshot.
+1. In the search bar at the top of the Azure portal, enter *Liberty*. In the autosuggested search results, in the **Marketplace** section, select **IBM Liberty on ARO**, as shown in the following screenshot.
 
    :::image type="content" source="media/howto-deploy-java-liberty-app/marketplace-search-results.png" alt-text="Screenshot of Azure portal showing IBM WebSphere Liberty and Open Liberty on Azure Red Hat OpenShift in search results." lightbox="media/howto-deploy-java-liberty-app/marketplace-search-results.png":::
 
@@ -260,11 +263,11 @@ mssql
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aro* directory, there are three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *webspherelibertyapplication.yaml* is used in this quickstart to deploy the WebSphere Liberty Application. Use the file *openlibertyapplication.yaml* to deploy the Open Liberty Application if you deployed Open Liberty Operator in section [Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift](#deploy-ibm-websphere-liberty-or-open-liberty-on-azure-red-hat-openshift).
+In the *aro* directory, there are three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with database connection credentials. The file *webspherelibertyapplication.yaml* is used in this quickstart to deploy the WebSphere Liberty Application. Use the file *openlibertyapplication.yaml* to deploy the Open Liberty Application if you deployed Open Liberty Operator in section [Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift](#deploy-ibm-websphere-liberty-or-open-liberty-on-azure-red-hat-openshift).
 
 In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty. These files are *Dockerfile* and *Dockerfile-ol*, respectively. You use the file *Dockerfile* to build the application image with WebSphere Liberty in this quickstart. Similarly, use the file *Dockerfile-ol* to build the application image with Open Liberty if you deployed Open Liberty Operator in section [Deploy IBM WebSphere Liberty or Open Liberty on Azure Red Hat OpenShift](#deploy-ibm-websphere-liberty-or-open-liberty-on-azure-red-hat-openshift).
 
-In directory *liberty/config*, the *server.xml* file is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* file is used to configure the database connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Build the project
 
@@ -299,7 +302,7 @@ You can now run and test the project locally before deploying to Azure by using 
 
 Next, use the following steps to containerize your project using Docker and run it as a container locally before deploying to Azure:
 
-1. Run the `docker build` command to build the image.
+1. Use the following commands to build the image:
 
    ```bash
    cd ${BASE_DIR}/3-integration/connect-db/mssql/target
@@ -359,7 +362,7 @@ When you're satisfied with the state of the application, you build the image rem
 
 Use the following steps to deploy and test the application:
 
-1. Use the following command to apply the DB secret:
+1. Use the following command to apply the database secret:
 
    ```bash
    cd ${BASE_DIR}/3-integration/connect-db/mssql/target
@@ -397,7 +400,7 @@ Use the following steps to deploy and test the application:
       echo "route host: https://$(oc get route javaee-cafe --template='{{ .spec.host }}')"
       ```
 
-   1. Copy the value of `route host` from the output, then open it in your browser to test the application. If the web page doesn't render correctly, that's because the app is still starting in the background. Wait for a few minutes and then try again.
+   1. Copy the value of `route host` from the output, open it in your browser, and test the application. If the web page doesn't render correctly, that's because the app is still starting in the background. Wait for a few minutes and then try again.
 
    1. Add and delete a few coffees to verify the functionality of the app and the database connection.
 
@@ -414,7 +417,4 @@ az group delete --name $DB_RESOURCE_GROUP_NAME --yes --no-wait
 
 ## Next steps
 
-Learn more about deploying IBM WebSphere family on Azure by following these links:
-
-> [!div class="nextstepaction"]
-> [What are solutions to run the IBM WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family?toc=/azure/openshift/toc.json&bc=/azure/openshift/breadcrumb/toc.json)
+For more information about deploying the IBM WebSphere family on Azure, see [What are solutions to run the WebSphere family of products on Azure?](/azure/developer/java/ee/websphere-family)

@@ -24,7 +24,7 @@ General recommendations about the right service to use are as follows:
 |---------|---------|
 |VMware VM (not running on AVS) |[Azure Arc-enabled VMware vSphere](vmware-vsphere/overview.md) |
 |Azure VMware Solution (AVS) VM |[Azure Arc-enabled VMware vSphere for Azure VMware Solution](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution?tabs=windows) |
-|VM managed by System Center Virtual Machine Manager |[Azure Arc-enabled SCVMM](vmware-vsphere/overview.md) |
+|VM managed by System Center Virtual Machine Manager |[Azure Arc-enabled SCVMM](system-center-virtual-machine-manager/overview.md) |
 |Azure Stack HCI VM |[Azure Stack HCI](/azure-stack/hci/overview) |
 |Physical server |[Azure Arc-enabled servers](servers/overview.md) |
 |VM on another hypervisor |[Azure Arc-enabled servers](servers/overview.md) |

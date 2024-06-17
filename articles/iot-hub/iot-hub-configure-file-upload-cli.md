@@ -28,7 +28,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
 
 ## Sign in and set your Azure account
 

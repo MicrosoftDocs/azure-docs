@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Transform JSON and XML using Liquid templates as maps in workflows using Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
 
 When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use **Liquid** actions in multitenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 

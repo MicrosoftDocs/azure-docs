@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 01/23/2024
+ms.date: 05/30/2024
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli, mode-api
 ---
@@ -22,11 +22,14 @@ The application gateway directs application web traffic to specific resources in
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or the [Azure portal](quick-create-portal.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+
+> [!NOTE]
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ## Create resource group
 

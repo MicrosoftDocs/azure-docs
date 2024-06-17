@@ -74,7 +74,7 @@ To set Contributor or Owner permissions in the Azure subscription:
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Add role assignment page in Azure portal.":::
 
 To give the account the required permissions to register Microsoft Entra apps:
 

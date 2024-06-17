@@ -8,13 +8,13 @@ ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet, devx-track-extended-azdevcli
+ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-dotnet, devx-track-extended-azdevcli
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
@@ -98,7 +98,7 @@ From the project directory, open the *Program.cs* file. In your editor, add a us
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="using_directives":::
 
-Define a new instance of the ``MongoClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
+Define a new instance of the ``MongoClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string set by the Azure Developer CLI earlier.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
 

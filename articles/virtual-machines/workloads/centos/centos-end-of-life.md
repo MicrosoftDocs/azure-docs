@@ -1,9 +1,9 @@
 ---
 title: CentOS end-of-life (EOL) guidance
 description: Understand your options for moving CentOS workloads
-author: chasecrum
+author: clausw
 ms.service: virtual-machines
-ms.subservice:
+ms.subservice: vm-linux-setup-configuration
 ms.custom: linux-related-content, linux-related-content
 ms.collection: linux
 ms.topic: article
@@ -56,11 +56,10 @@ See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for detai
 
 > [!CAUTION]
 > If you perform an in-place major version update following a migration (e.g. CentOS 7 -> RHEL 7 -> RHEL 8) there will be a disconnection between the data plane and the **[control plane](/azure/architecture/guide/multitenant/considerations/control-planes)** of the virtual machine (VM). Azure capabilities such as **[Auto guest patching](/azure/virtual-machines/automatic-vm-guest-patching)**, **[Auto OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)**, **[Hotpatching](/windows-server/get-started/hotpatch?toc=%2Fazure%2Fvirtual-machines%2Ftoc.json)**, and **[Azure Update Manager](/azure/update-manager/overview)** won't be available. To utilize these features, it's recommended to create a new VM using your preferred operating system instead of performing an in-place upgrade.
-> 
-> [!NOTE]
-> - “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
-> - For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
-> - For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
+> > [!NOTE]
+> - “Binary compatible” (Application Binary Interface or ABI) means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
+- For a full list of endorsed Linux Distributions on Azure see: [Linux distributions endorsed on Azure - Azure Virtual Machines | Microsoft Learn](../../linux/endorsed-distros.md)
+- For details on Red Hat & Microsoft Integrated Support see: Microsoft and Red Hat Partner and Deliver Integrated Support, a Unique Offering in the IT World | Microsoft Learn
 
 ## Alternate distributions
 

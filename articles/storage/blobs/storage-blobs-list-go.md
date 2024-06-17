@@ -27,7 +27,7 @@ This article shows how to list blobs using the [Azure Storage client module for 
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs](/rest/api/storageservices/list-blobs#authorization).
+The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
 
 ## About blob listing options
 

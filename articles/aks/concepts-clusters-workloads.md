@@ -145,7 +145,7 @@ Reserved memory in AKS includes the sum of two values:
    * If the VM provides 8GB of memory and the node supports up to 30 pods, AKS reserves *20MB * 30 Max Pods + 50MB = 650MB* for kube-reserved. `Allocatable space = 8GB - 0.65GB (kube-reserved) - 0.1GB (eviction threshold) = 7.25GB or 90.625% allocatable.`
    * If the VM provides 4GB of memory and the node supports up to 70 pods, AKS reserves *25% * 4GB = 1000MB* for kube-reserved, as this is less than *20MB * 70 Max Pods + 50MB = 1450MB*.
 
-    For more information, see [Configure maximum pods per node in an AKS cluster](./azure-cni-overview.md#maximum-pods-per-node).
+    For more information, see [Configure maximum pods per node in an AKS cluster][maximum-pods].
 
 **AKS versions prior to 1.29**
 
@@ -233,7 +233,11 @@ When you create an AKS cluster, you specify an Azure resource group to create th
 The node resource group is assigned a name by default with the following format: *MC_resourceGroupName_clusterName_location*. During cluster creation, you can specify the name assigned to your node resource group. When using an Azure Resource Manager template, you can define the name using the `nodeResourceGroup` property. When using Azure CLI, you use the `--node-resource-group` parameter with the `az aks create` command, as shown in the following example:
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
+az aks create \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --node-resource-group myNodeResourceGroup \
+    --generate-ssh-keys
 ```
 
 When you delete your AKS cluster, the AKS resource provider automatically deletes the node resource group.
@@ -363,9 +367,7 @@ Two Kubernetes resources, however, let you manage these types of applications: *
 
 Modern application development often aims for stateless applications. For stateful applications, like those that include database components, you can use *StatefulSets*. Like deployments, a StatefulSet creates and manages at least one identical pod. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrade, and termination operations. The naming convention, network names, and storage persist as replicas are rescheduled with a StatefulSet.
 
-You can define the application in YAML format using `kind: StatefulSet`. From there, the StatefulSet Controller handles the deployment and management of the required replicas. Data writes to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains, even when the StatefulSet is deleted.
-
-For more information, see [Kubernetes StatefulSets][kubernetes-statefulsets].
+You can define the application in YAML format using `kind: StatefulSet`. From there, the StatefulSet Controller handles the deployment and management of the required replicas. Data writes to persistent storage, provided by Azure Managed Disks or Azure Files. The underlying persistent storage remains even when the StatefulSet is deleted, unless the `spec.persistentVolumeClaimRetentionPolicy` is set to `Delete`. For more information, see [Kubernetes StatefulSets][kubernetes-statefulsets].
 
 > [!IMPORTANT]
 > Replicas in a StatefulSet are scheduled and run across any available node in an AKS cluster. To ensure at least one pod in your set runs on a node, you should use a DaemonSet instead.
@@ -439,3 +441,5 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-support]: support-policies.md#user-customization-of-agent-nodes
 [intro-azure-linux]: ../azure-linux/intro-azure-linux.md
 [fully-managed-resource-group]: ./node-resource-group-lockdown.md
+[maximum-pods]: concepts-network-ip-address-planning.md#maximum-pods-per-node
+

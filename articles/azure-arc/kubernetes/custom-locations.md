@@ -72,11 +72,11 @@ If you run the above command while signed in to Azure CLI using a service princi
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service. To avoid this error, complete the following steps:
+This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service (custom location). To avoid this error, complete the following steps:
 
-1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the Microsoft Entra application used by the Azure Arc service by using the following command:
+1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the custom location application used by the Azure Arc service by using the following command:
 
-   ```azurecli
+      ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
    ```
 

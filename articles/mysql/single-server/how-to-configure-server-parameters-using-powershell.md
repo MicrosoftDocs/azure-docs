@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 You can list, show, and update configuration parameters for an Azure Database for MySQL server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.
@@ -40,7 +40,7 @@ To complete this how-to guide, you need:
 If you choose to use PowerShell locally, connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## List server configuration parameters for Azure Database for MySQL server
 

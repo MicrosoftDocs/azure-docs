@@ -23,13 +23,13 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
 
 ## Create a hub
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
 
 Once you have the settings configured, click **Review + Create** to validate, then click **Create**. The hub will begin provisioning. After the hub is created, go to the hub's **Overview** page. When provisioning is completed, the **Routing status** is **Provisioned**.
 

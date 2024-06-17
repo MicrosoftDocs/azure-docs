@@ -11,7 +11,7 @@ ms.author: gahllevy
 ms.custom: cosmos-db-video
 ---
 # Manage indexing in Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
 

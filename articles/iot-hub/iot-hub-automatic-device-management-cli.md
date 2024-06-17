@@ -37,7 +37,7 @@ Automatic configurations run for the first time shortly after the configuration 
 
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-cli).
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
 
 ## Implement twins
 

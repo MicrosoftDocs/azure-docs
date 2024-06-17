@@ -25,7 +25,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -76,7 +76,11 @@ Results:
 Create an AKS cluster using the [`az aks create`][az-aks-create] command. The following example creates a cluster with one node and enables a system-assigned managed identity.
 
 ```azurecli-interactive
-az aks create --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AKS_CLUSTER_NAME --enable-managed-identity --node-count 1 --generate-ssh-keys
+az aks create \
+    --resource-group $MY_RESOURCE_GROUP_NAME \
+    --name $MY_AKS_CLUSTER_NAME \
+    --node-count 1 \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -360,7 +364,7 @@ You can validate that the application is running by visiting the public IP addre
 Get the application URL using the following commands:
 
 ```azurecli-interactive
-runtime="5 minute"
+runtime="5 minutes"
 endtime=$(date -ud "$runtime" +%s)
 while [[ $(date -u +%s) -le $endtime ]]
 do
@@ -383,7 +387,7 @@ curl $IP_ADDRESS
 
 Results:
 <!-- expected_similarity=0.3 -->
-```JSON
+```HTML
 <!doctype html>
 <html lang="">
    <head>
@@ -402,7 +406,7 @@ Results:
 </html>
 ```
 
-```JSON
+```OUTPUT
 echo "You can now visit your web server at $IP_ADDRESS"
 ```
 

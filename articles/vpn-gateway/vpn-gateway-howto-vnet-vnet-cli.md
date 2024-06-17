@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli
 
 This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When connecting VNets from different subscriptions, the subscriptions don't need to be associated with the same tenant.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram.":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
 The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and use Azure CLI. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
@@ -508,7 +508,7 @@ This step is split into two CLI sessions marked as **[Subscription 1]**, and **[
 
 ## <a name="verify"></a>Verify the connections
 
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [vpn-gateway-no-nsg-include](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 

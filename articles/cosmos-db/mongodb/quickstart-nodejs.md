@@ -8,13 +8,13 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 07/06/2022
-ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey, devx-track-azurecli
+ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB driver for Node.js
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >

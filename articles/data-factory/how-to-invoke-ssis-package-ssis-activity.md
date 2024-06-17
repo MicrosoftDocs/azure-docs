@@ -26,7 +26,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 # [Azure Data Factory](#tab/data-factory)
 1. On your Data Factory overview or home page in the Azure portal, select the **Open Azure Data Factory Studio** tile to start the Data Factory UI or app in a separate tab. 
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page.":::
 
    On the home page, select **Orchestrate**. 
 

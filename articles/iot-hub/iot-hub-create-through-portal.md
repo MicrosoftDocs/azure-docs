@@ -18,7 +18,7 @@ This article describes how to create and manage an IoT hub, using the [Azure por
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](~/reusable-content/ce-skilling/azure/includes/iot-hub-include-create-hub.md)]
 
 ## Update the IoT hub
 

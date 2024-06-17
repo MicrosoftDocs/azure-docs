@@ -17,9 +17,6 @@ Use GitHub Codespaces to try Azure IoT Operations on a Kubernetes cluster withou
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/) for managing Kubernetes resources
 - Other useful tools like [Helm](https://helm.sh/) and [k9s](https://k9scli.io/)
 
-> [!IMPORTANT]
-> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only.
-
 To create your codespace and cluster, use the following steps:
 
 1. Create a codespace in GitHub Codespaces.

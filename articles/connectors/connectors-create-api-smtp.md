@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Connect to your SMTP account from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 With Azure Logic Apps and the Simple Mail Transfer Protocol (SMTP) connector, 
 you can create automated tasks and workflows that send email from your SMTP account. 
