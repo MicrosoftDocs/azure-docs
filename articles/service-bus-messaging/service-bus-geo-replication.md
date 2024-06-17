@@ -20,7 +20,7 @@ The Geo-Replication feature ensures that the metadata and data of a namespace ar
 - Namespace configuration.
 
 > [!NOTE]
-> Currently only a single secondary is supported. 
+> Currently only a single secondary is supported.
 
 This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the name for the namespace to the selected secondary region, and switches the roles between the primary and secondary region. The promotion is nearly instantaneous once initiated. 
 
