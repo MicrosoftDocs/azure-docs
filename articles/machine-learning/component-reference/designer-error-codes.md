@@ -33,13 +33,13 @@ Following are error codes of components in the designer.
 
 |Exception Messages|
 |------------------------|
-|One or more specified columns weren't found.|
+|One or more specified columns were not found.|
 |Column with name or index "{column_id}" not found.|
-|Column with name or index "{column_id}" doesn't exist in "{arg_name_missing_column}".|
-|Column with name or index "{column_id}" doesn't exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
+|Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}".|
+|Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
 |Columns with name or index "{column_names}" not found.|
-|Columns with name or index "{column_names}" doesn't exist in "{arg_name_missing_column}".|
-|Columns with name or index "{column_names}" doesn't exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}".|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
 
 
 ## Error 0002  
@@ -160,10 +160,10 @@ Following are error codes of components in the designer.
 
 |Exception Messages|
 |------------------------|
-|Parameter value isn't in the specified range.|
-|Parameter "{arg_name}" value isn't in range.|
+|Parameter value is not in the specified range.|
+|Parameter "{arg_name}" value is not in range.|
 |Parameter "{arg_name}" value should be in the range of [{lower_boundary}, {upper_boundary}].|
-|Parameter "{arg_name}" value isn't in range. {reason}|
+|Parameter "{arg_name}" value is not in range. {reason}|
 
 
 ## Error 0009  
@@ -209,7 +209,7 @@ If the complete path to a blob was specified, verify that the path is specified 
 |Exception Messages|
 |------------------------|
 |Columns with corresponding index in input datasets have different names.|
-|Column names aren't the same for column {col_index} (zero-based) of input datasets ({dataset1} and {dataset2} respectively).|
+|Column names are not the same for column {col_index} (zero-based) of input datasets ({dataset1} and {dataset2} respectively).|
 
 
 ## Error 0011  
@@ -228,8 +228,8 @@ If the complete path to a blob was specified, verify that the path is specified 
 
 |Exception Messages|
 |------------------------|
-|Specified column set doesn't apply to any of dataset columns.|
-|Specified column set "{column_set}" doesn't apply to any of dataset columns.|
+|Specified column set does not apply to any of dataset columns.|
+|Specified column set "{column_set}" does not apply to any of dataset columns.|
 
 
 ## Error 0012  
@@ -362,10 +362,10 @@ For text columns, you can use [Feature Hashing](../algorithm-module-reference/fe
 
 |Exception Messages|
 |------------------------|
-|Can't process column of current type. The type isn't supported by the component.|
-|Can't process column of type {col_type}. The type isn't supported by the component.|
-|Can't process column "{col_name}" of type {col_type}. The type isn't supported by the component.|
-|Can't process column "{col_name}" of type {col_type}. The type isn't supported by the component. Parameter name: {arg_name}.|
+|Cannot process column of current type. The type is not supported by the component.|
+|Cannot process column of type {col_type}. The type is not supported by the component.|
+|Cannot process column "{col_name}" of type {col_type}. The type is not supported by the component.|
+|Cannot process column "{col_name}" of type {col_type}. The type is not supported by the component. Parameter name: {arg_name}.|
 
 
 ## Error 0018  
@@ -391,12 +391,12 @@ For text columns, you can use [Feature Hashing](../algorithm-module-reference/fe
 
 |Exception Messages|
 |------------------------|
-|Dataset isn't valid.|
+|Dataset is not valid.|
 |{dataset1} contains invalid data.|
-|{dataset1} and {dataset2} should be consistent column wise.|
+|{dataset1} and {dataset2} should be consistent columnwise.|
 |{dataset1} contains invalid data, {reason}.|
 |{dataset1} contains {invalid_data_category}. {troubleshoot_hint}|
-|{dataset1} isn't valid, {reason}. {troubleshoot_hint}|
+|{dataset1} is not valid, {reason}. {troubleshoot_hint}|
 
 
 ## Error 0019  
@@ -409,10 +409,10 @@ For text columns, you can use [Feature Hashing](../algorithm-module-reference/fe
 
 |Exception Messages|
 |------------------------|
-|Values in column aren't sorted.|
-|Values in column "{col_index}" aren't sorted.|
-|Values in column "{col_index}" of dataset "{dataset}" aren't sorted.|
-|Values in argument "{arg_name}" aren't sorted in "{sorting_order}" order.|
+|Values in column are not sorted.|
+|Values in column "{col_index}" are not sorted.|
+|Values in column "{col_index}" of dataset "{dataset}" are not sorted.|
+|Values in argument "{arg_name}" are not sorted in "{sorting_order}" order.|
 
 
 ## Error 0020  
@@ -460,7 +460,7 @@ For text columns, you can use [Feature Hashing](../algorithm-module-reference/fe
 
 -   You specify a single label column or key column and accidentally selected multiple columns.  
   
--   You're renaming columns, but provided more or fewer names then there are columns.  
+-   You're renaming columns, but provided more or fewer names than there are columns.  
   
 -   The number of columns in the source or destination has changed or doesn't match the number of columns used by the component.  
   
@@ -479,10 +479,10 @@ For text columns, you can use [Feature Hashing](../algorithm-module-reference/fe
 
 |Exception Messages|
 |------------------------|
-|Number of selected columns in input dataset doesn't equal to the expected number.|
-|Number of selected columns in input dataset doesn't equal to {expected_col_count}.|
+|Number of selected columns in input dataset does not equal to the expected number.|
+|Number of selected columns in input dataset does not equal to {expected_col_count}.|
 |Column selection pattern "{selection_pattern_friendly_name}" provides number of selected columns in input dataset not equal to {expected_col_count}.|
-|Column selection pattern "{selection_pattern_friendly_name}" is expected to provide {expected_col_count} column(s) selected in input dataset, but {selected_col_count} column(s) is/are provided.|
+|Column selection pattern "{selection_pattern_friendly_name}" is expected to provide {expected_col_count} column(s) selected in input dataset, but {selected_col_count} column(s) is/are actually provided.|
 
 
 ## Error 0023  
@@ -517,8 +517,8 @@ It can also happen that a label column is present in the dataset, but not detect
   
 |Exception Messages|
 |------------------------|
-|There's no label column in dataset.|
-|There's no label column in "{dataset_name}".|
+|There is no label column in dataset.|
+|There is no label column in "{dataset_name}".|
 
 
 ## Error 0025  
@@ -531,9 +531,9 @@ It can also happen that a label column is present in the dataset, but not detect
 
 |Exception Messages|
 |------------------------|
-|There's no score column in dataset.|
-|There's no score column in "{dataset_name}".|
-|There's no score column in "{dataset_name}" that is produced by a "{learner_type}". Score the dataset using the correct type of learner.|
+|There is no score column in dataset.|
+|There is no score column in "{dataset_name}".|
+|There is no score column in "{dataset_name}" that is produced by a "{learner_type}". Score the dataset using the correct type of learner.|
 
 
 ## Error 0026  
@@ -546,8 +546,8 @@ It can also happen that a label column is present in the dataset, but not detect
 
 |Exception Messages|
 |------------------------|
-|Equal column names are specified in arguments. Equal column names aren't allowed by component.|
-|Equal column names in arguments "{arg_name_1}" and "{arg_name_2}" aren't allowed. Specify different names.|
+|Equal column names are specified in arguments. Equal column names are not allowed by component.|
+|Equal column names in arguments "{arg_name_1}" and "{arg_name_2}" are not allowed. Please specify different names.|
 
 
 ## Error 0027  
@@ -649,8 +649,8 @@ It can also happen that a label column is present in the dataset, but not detect
 
 |Exception Messages|
 |------------------------|
-|Argument isn't a number.|
-|"{arg_name}" isn't a number.|
+|Argument is not a number.|
+|"{arg_name}" is not a number.|
 
 
 ## Error 0033  
@@ -664,7 +664,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |Argument must be finite.|
-|"{arg_name}" isn't finite.|
+|"{arg_name}" is not finite.|
 |Column "{column_name}" contains infinite values.|
 
 
@@ -787,9 +787,9 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |Not allowed conversion.|
-|Couldn't convert column of type {type1} to column of type {type2}.|
-|Couldn't convert column "{col_name1}" of type {type1} to column of type {type2}.|
-|Couldn't convert column "{col_name1}" of type {type1} to column "{col_name2}" of type {type2}.|
+|Could not convert column of type {type1} to column of type {type2}.|
+|Could not convert column "{col_name1}" of type {type1} to column of type {type2}.|
+|Could not convert column "{col_name1}" of type {type1} to column "{col_name2}" of type {type2}.|
 
 
 ## Error 0044  
@@ -802,9 +802,9 @@ Another reason you might get this error if you try to use a column containing fl
 
 |Exception Messages|
 |------------------------|
-|Can't derive element type of the column.|
-|Can't derive element type for column "{column_name}" -- all the elements are null references.|
-|Can't derive element type for column "{column_name}" of dataset "{dataset_name}" -- all the elements are null references.|
+|Cannot derive element type of the column.|
+|Cannot derive element type for column "{column_name}" -- all the elements are null references.|
+|Cannot derive element type for column "{column_name}" of dataset "{dataset_name}" -- all the elements are null references.|
 
 
 ## Error 0045  
@@ -817,9 +817,9 @@ Another reason you might get this error if you try to use a column containing fl
 
 |Exception Messages|
 |------------------------|
-|Can't create column with mixed element types.|
-|Can't create column with id "{column_id}" of mixed element types:<br />Type of data[{row_1}, {column_id}] is "{type_1}". <br />Type of data[{row_2}, {column_id}] is "{type_2}".|
-|Can't create column with id "{column_id}" of mixed element types:<br />Type in chunk {chunk_id_1} is "{type_1}". <br />Type in chunk {chunk_id_2} is "{type_2}" with chunk size: {chunk_size}.|
+|Cannot create column with mixed element types.|
+|Cannot create column with id "{column_id}" of mixed element types:<br />Type of data[{row_1}, {column_id}] is "{type_1}". <br />Type of data[{row_2}, {column_id}] is "{type_2}".|
+|Cannot create column with id "{column_id}" of mixed element types:<br />Type in chunk {chunk_id_1} is "{type_1}". <br />Type in chunk {chunk_id_2} is "{type_2}" with chunk size: {chunk_size}.|
 
 
 ## Error 0046  
@@ -832,8 +832,8 @@ Another reason you might get this error if you try to use a column containing fl
 
 |Exception Messages|
 |------------------------|
-|Specify a valid output directory.|
-|Directory: {path} can't be created. Specify valid path.|
+|Please specify a valid output directory.|
+|Directory: {path} cannot be created. Please specify valid path.|
 
 
 ## Error 0047  
@@ -944,8 +944,8 @@ Another reason you might get this error if you try to use a column containing fl
 
 |Exception Messages|
 |------------------------|
-|One or more selected columns weren't in an allowed category.|
-|Column with name "{col_name}" isn't in an allowed category.|
+|One or more selected columns were not in an allowed category.|
+|Column with name "{col_name}" is not in an allowed category.|
 
 
 ## Error 0057  
@@ -982,11 +982,11 @@ Another reason you might get this error if you try to use a column containing fl
 
 |Exception Messages|
 |------------------------|
-|The label column values and scored label column values aren't comparable.|
-|The label column isn't as expected in "{dataset_name}".|
-|The label column isn't as expected in "{dataset_name}", {reason}.|
-|The label column "{column_name}" isn't expected in "{dataset_name}".|
-|The label column "{column_name}" isn't expected in "{dataset_name}", {reason}.|
+|The label column values and scored label column values are not comparable.|
+|The label column is not as expected in "{dataset_name}".|
+|The label column is not as expected in "{dataset_name}", {reason}.|
+|The label column "{column_name}" is not expected in "{dataset_name}".|
+|The label column "{column_name}" is not expected in "{dataset_name}", {reason}.|
 
 
 ## Error 0059  
@@ -999,8 +999,8 @@ Another reason you might get this error if you try to use a column containing fl
 
 |Exception Messages|
 |------------------------|
-|One or more specified column indexes or index ranges couldn't be parsed.|
-|Column index or range "{column_index_or_range}" couldn't be parsed.|
+|One or more specified column indexes or index ranges could not be parsed.|
+|Column index or range "{column_index_or_range}" could not be parsed.|
 
 
 ## Error 0060  
@@ -1080,7 +1080,7 @@ Another reason you might get this error if you try to use a column containing fl
 |------------------------|
 |The Azure storage blob name is incorrect.|
 |The Azure storage blob name "{blob_name}" is incorrect.|
-|The Azure storage blob name with prefix "{blob_name_prefix}" doesn't exist.|
+|The Azure storage blob name with prefix "{blob_name_prefix}" does not exist.|
 |Failed to find any Azure storage blobs under container "{container_name}".|
 |Failed to find any Azure storage blobs with wildcard path "{blob_wildcard_path}".|
 
@@ -1095,8 +1095,8 @@ Another reason you might get this error if you try to use a column containing fl
 
 |Exception Messages|
 |------------------------|
-|The resource couldn't be uploaded to Azure storage.|
-|The file "{source_path}" couldn't be uploaded to Azure storage as "{dest_path}".|
+|The resource could not be uploaded to Azure storage.|
+|The file "{source_path}" could not be uploaded to Azure storage as "{dest_path}".|
 
 
 ## Error 0067  
@@ -1163,8 +1163,8 @@ See the following articles for help with Hive queries for machine learning:
 |Exception Messages|
 |------------------------|
 |SQL script is incorrect.|
-|SQL query "{sql_query}" isn't correct.|
-|SQL query "{sql_query}" isn't correct. Exception message: {exception}.|
+|SQL query "{sql_query}" is not correct.|
+|SQL query "{sql_query}" is not correct. Exception message: {exception}.|
 
 
 ## Error 0070  
@@ -1177,8 +1177,8 @@ See the following articles for help with Hive queries for machine learning:
 
 |Exception Messages|
 |------------------------|
-|Azure table doesn't exist.|
-|Azure table "{table_name}" doesn't exist.|
+|Azure table does not exist.|
+|Azure table "{table_name}" does not exist.|
 
 
 ## Error 0072  
@@ -1275,7 +1275,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 |Exception Messages|
 |------------------------|
-|Columns with all values missing aren't allowed.|
+|Columns with all values missing are not allowed.|
 |Column {col_index_or_name} has all values missing.|
 
 
@@ -1302,7 +1302,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 |Exception Messages|
 |------------------------|
-|Model couldn't be deserialized because it's likely serialized with an older serialization format. Retrain and resave the model.|
+|Model could not be deserialized because it is likely serialized with an older serialization format. Retrain and resave the model.|
 
 
 ## Error 0083  
@@ -1358,9 +1358,9 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 |Exception Messages|
 |------------------------|
-|The Hive table couldn't be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the component parameter.|
-|The Hive table "{table_name}" couldn't be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the component parameter.|
-|The Hive table "{table_name}" couldn't be created. For a HDInsight cluster, ensure the Azure storage account name associated with cluster is "{cluster_name}".|
+|The Hive table could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the component parameter.|
+|The Hive table "{table_name}" could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the component parameter.|
+|The Hive table "{table_name}" could not be created. For a HDInsight cluster, ensure the Azure storage account name associated with cluster is "{cluster_name}".|
 
 
 ## Error 0102  
@@ -1377,13 +1377,13 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 |Exception Messages|
 |------------------------|
-|Given ZIP file isn't in the correct format.|
+|Given ZIP file is not in the correct format.|
 
 
 ## Error 0105  
  This error is displayed when a component definition file contains an unsupported parameter type.  
   
- This error in Azure Machine Learning is produced when you creating a custom component xml definition and the type of a parameter or argument in the definition doesn't match a supported type.  
+ This error in Azure Machine Learning is produced when you create a custom component xml definition and the type of a parameter or argument in the definition doesn't match a supported type.  
   
 **Resolution:**
  Make sure that the type property of any **Arg** element in the custom component xml definition file is a supported type.  
@@ -1415,7 +1415,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 
 |Exception Messages|
 |------------------------|
-|Dataset schema doesn't match.|
+|Dataset schema does not match.|
 
 
 ## Error 0127  
@@ -1526,8 +1526,8 @@ Resolution:
 
 |Exception Messages|
 |------------------------|
-|Key column element types aren't compatible.|
-|Key column element types aren't compatible.(left: {keys_left}; right: {keys_right})|
+|Key column element types are not compatible.|
+|Key column element types are not compatible.(left: {keys_left}; right: {keys_right})|
 
 
 ## Error 0155  
@@ -1535,8 +1535,8 @@ Resolution:
 
 |Exception Messages|
 |------------------------|
-|The dataframe column name must be string type. Column names aren't string.|
-|The dataframe column name must be string type. Column names {column_names} aren't string.|
+|The dataframe column name must be string type. Column names are not string.|
+|The dataframe column name must be string type. Column names {column_names} are not string.|
 
 
 ## Error 0156  
