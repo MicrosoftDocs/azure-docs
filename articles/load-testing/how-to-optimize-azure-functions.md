@@ -34,7 +34,7 @@ Performance optimizer allows you to test different configurations to help you fi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to the function app hosted on Flex Consumption plan.
+1. Go to your Functions app hosted on Flex Consumption plan.
 
 1. Select Performance Optimizer in the Performance section of your app.
 
