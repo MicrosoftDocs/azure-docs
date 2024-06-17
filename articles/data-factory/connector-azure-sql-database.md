@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/07/2024
+ms.date: 06/17/2024
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -1097,11 +1097,7 @@ The table below shows the differences between Azure SQL Database using the recom
 
 | Recommended version | Legacy version | 
 |:--- |:--- |
-| Using the property bag as the app model. | Using the ADO .NET connection string as the app model. | 
-| Support the connection string parser to parse ADO .NET to app models. | Support directly passing ADO .NET connection strings with AKV. | 
 | Support TLS 1.3 via `encrypt` as `strict`. | TLS 1.3 is not supported.| 
-| Provide better error messages.<br> Error message example: `The given value{0} of type {1} from the data source cannot be converted to type {2} for Column {3} [{4}].` | Error message example: `The given value{0} of type {1} from the data source cannot be converted to type {2} for the specified target column.` | 
-| Provide better supportability. |  / | 
 
 ## Related content
 
