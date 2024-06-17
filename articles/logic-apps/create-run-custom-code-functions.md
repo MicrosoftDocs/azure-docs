@@ -1,25 +1,25 @@
 ---
-title: Create and run .NET Framework code from Standard workflows
-description: Write and run code using the .NET Framework from Standard workflows in Azure Logic Apps.
+title: Create and run .NET code from Standard workflows
+description: Write and run .NET code inline for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 06/14/2024
-# Customer intent: As a logic app workflow developer, I want to write and run my own .NET Framework code to perform custom integration tasks.
+ms.date: 06/17/2024
+# Customer intent: As a logic app workflow developer, I want to write and run my own .NET code to perform custom integration tasks.
 ---
 
-# Create and run .NET Framework code from Standard workflows in Azure Logic Apps
+# Create and run .NET code from Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
 
-For integration solutions where you have to author and run .NET Framework code from your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This extension provides the following capabilities and benefits:
+For integration solutions where you have to author and run .NET code from your Standard logic app workflow, you can use Visual Studio Code with the Azure Logic Apps (Standard) extension. This extension provides the following capabilities and benefits:
 
 - Write your own code by creating functions that have the flexibility and control to solve your most challenging integration problems.
 - Debug code locally in Visual Studio Code. Step through your code and workflows in the same debugging session.
 - Deploy code alongside your workflows. No other service plans are necessary.
-- Support BizTalk Server migration scenarios so you can lift-and shift custom .NET Framework investments from on premises to the cloud.
+- Support BizTalk Server migration scenarios so you can lift-and shift custom .NET investments from on premises to the cloud.
 
 With the capability to write your own code, you can accomplish scenarios such as the following:
 
@@ -46,10 +46,7 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
   - The custom functions capability is currently available only in Visual Studio Code, running on a Windows operating system.
 
-  - The custom functions capability currently supports calling the following assemblies:
-  
-    - Azure-hosted logic app workflows: .NET Framework and .NET 8
-    - Linux-hosted containers: Netcore and .NET 8
+  - The custom functions capability currently supports calling .NET Framework and .NET 8 for Azure-hosted logic app workflows.
 
 - A local folder to use for creating your code project
 
@@ -70,8 +67,6 @@ The latest Azure Logic Apps (Standard) extension for Visual Studio Code includes
 1. In the **Azure** window that opens, on the **Workspace** section toolbar, from the **Azure Logic Apps** menu, select **Create new logic app workspace**. 
 
    :::image type="content" source="media/create-run-custom-code-functions/create-workspace.png" alt-text="Screenshot shows Visual Studio Code, Azure window, Workspace section toolbar, and selected option for Create new logic app workspace.":::
-
-1. From the 
 
 1. In the **Select folder** box, browse to and select the local folder that you created for your project.
 
@@ -323,17 +318,25 @@ After you confirm that your code compiles and that your logic app project contai
 
       The **Terminal** window opens and shows the started debugging process. The **Debug Console** window then appears and shows the debugging statuses. At the bottom of Visual Studio Code, the task bar turns orange, indicating that the .NET debugger is loaded.
 
-1. Attach the debugger to your .NET functions project by following these steps:
+1. Attach the debugger to your .NET functions project by following these steps, based on your code:
+
+   **.NET 8 projects**
 
    1. From the Visual Studio Code **View** menu, select **Command Palette**.
 
    1. From the command palette, find and select **Debug: Attach to a .NET 5+ or .NET Core process**.
 
-      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-functions.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions selected and Play button selected.":::
+      :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-core.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions selected and Play button selected.":::
 
    1. From the list, find and select the **dotnet.exe** process. If multiple **dotnet.exe** processes exist, select the process that has the following path:
 
       **\<drive-name\>:\Users\<user-name>\.azure-functions-core-tools\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows\<extension-bundle-version>\CustomCodeNetFxWorker\net8\Microsoft.Azure.Workflows.Functions.CustomCodeNetFxWorker.dll**
+
+   **.NET Framework projects**
+
+   From the **Run and Debug** list, select **Attach to .NET Functions (Functions)**, if not already selected, and then select **Play** (green arrow).
+
+   :::image type="content" source="media/create-run-custom-code-functions/attach-debugger-net-functions.png" alt-text="Screenshot shows Run and Debug list with Attach to NET Functions (Functions) selected and Play button selected.":::
 
 1. To set any breakpoints, in your function definition (**<*function-name*>.cs**) or workflow definition (**workflow.json**), find the line number where you want the breakpoint, and select the column to the left, for example:
 
