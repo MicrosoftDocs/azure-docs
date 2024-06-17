@@ -29,7 +29,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Name | Enter **vnet-1**. |
     | Region | Select **East US 2**. |
 
-    :::image type="content" source="../media/virtual-network-create-with-bastion/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab for creating a virtual network in the Azure portal.":::
+    :::image type="content" source="./media/virtual-network-create-with-bastion/create-virtual-network-basics.png" alt-text="Screenshot of the Basics tab for creating a virtual network in the Azure portal.":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
@@ -64,7 +64,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Starting address | Leave the default of **10.0.0.0**. |
     | Size | Leave the default of **/24 (256 addresses)**. |
 
-    :::image type="content" source="./media/virtual-network-create-with-bastion/address-subnet-space.png" alt-text="Screenshot of configuration details for a subnet." lightbox="../media/virtual-network-create-with-bastion/address-subnet-space.png":::
+    :::image type="content" source="./media/virtual-network-create-with-bastion/address-subnet-space.png" alt-text="Screenshot of configuration details for a subnet." lightbox="./media/virtual-network-create-with-bastion/address-subnet-space.png":::
 
 1. Select **Save**.
 
