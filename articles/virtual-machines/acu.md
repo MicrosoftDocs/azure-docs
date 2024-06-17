@@ -14,7 +14,7 @@ ms.reviewer: davberg
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-> [!CAUTION]
+> [!NOTE]
 > This page is no longer being maintained and is planned for archival on 12/16/2024.
 > 
 > Azure is no longer publishing ACUs since the metric has limited ability to inform users of the expected performance of a VM across the various VM attributes.  For the most accurate results on a specific virtual machine, Azure recommends users run their workload(s) on that VM to verify performance.
