@@ -94,7 +94,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 Considerations:
 
-[!INCLUDE [vpn-gateway-gwudr-warning.md](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-gwudr-warning.md)]
+[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 
 ## <a name="lng"></a>Local network gateways
 
