@@ -16,7 +16,7 @@ In this article, you learn how optimize Azure Functions for performance and cost
 
 Performance Optimizer is a tool powered by Azure Load Testing, that enables you to decide the right configuration for your app by running load tests on different Functions configurations. It helps you to understand the performance and cost implications of different configurations and make informed decisions.
 
-Performance optimizer enables the following
+The performance optimizer enables the following capabilities:
 
 - In-context experience to quickly create and run tests by specifying different memory and HTTP concurrency configurations with the expected load.
 - Comparison of performance metrics from load test results across scale & concurrency configs helping you choose the right configuration.
