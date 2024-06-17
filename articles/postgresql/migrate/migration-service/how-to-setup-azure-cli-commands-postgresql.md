@@ -31,7 +31,7 @@ All the CLI commands start with `az postgres flexible-server migration`. There a
 Once the CLI is installed, open the command prompt and log into the Azure account using the below command.
 
 ```azurecli-interactive
-`az login`
+az login
 ```
 
 ## Migrate commands
@@ -43,7 +43,7 @@ The migration service provides the following commands to help you migrate your P
 The `--help` command in Azure CLI is a valuable option that provides detailed documentation about the commands and their subcommands, including the required verbs for operations. The `–-help`command displays the necessary commands and their associated actions for migration service in Azure Database for PostgreSQL.
 
 ```azurecli-interactive
-`az postgres flexible-server migration –-help`
+az postgres flexible-server migration –-help
 ```
 
 The output guides you through the necessary steps and parameters required to manage your database migrations effectively using the Azure CLI.

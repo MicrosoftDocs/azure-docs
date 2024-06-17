@@ -220,7 +220,7 @@ To learn more about Azure CLI with the migration service, visit [How to set up A
 Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
 
 ```azurecli-interactive
-`az login`
+az login
 ```
 
 ### Configure the migration task

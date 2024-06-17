@@ -13,7 +13,7 @@ ms.custom:
 # CustomerIntent: As a user, I want to learn how to perform offline migration from on-premises and Azure virtual machines to Azure Database for PostgreSQL - Flexible Server using the migration service in Azure, so that I can simplify the transition and ensure data integrity and efficient deployment.
 ---
 
-# Tutorial: Migrate online from an Azure VM or an on-premises PostgreSQL server to Azure Database for PostgreSQL with the migration service
+# Tutorial: Migrate online from an Azure VM or an on-premises PostgreSQL server to Azure Database for PostgreSQL with the migration service Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
@@ -217,7 +217,7 @@ To learn more about Azure CLI with the migration service, visit [How to set up A
 Once the CLI is installed, open the command prompt and log into your Azure account using the below command.
 
 ```azurecli-interactive
-`az login`
+az login
 ```
 
 ### Configure the migration task
