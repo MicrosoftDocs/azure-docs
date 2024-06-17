@@ -38,14 +38,6 @@ You can also use the following methods to create and manage Azure Machine Learni
 
 [!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-- The following limitation applies to the Application Insights instance created during workspace creation:
-
-  [!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
-
-- The Azure Machine Learning workspace uses Azure Container Registry for some operations, and automatically creates a Container Registry instance when it first needs one.
-
-  [!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
-
 ## Connect to your Azure subscription
 
 If you use Azure Cloud Shell from the Azure portal, you can skip this section. The cloud shell automatically authenticates you using the Azure subscription you're signed in with.
@@ -128,33 +120,48 @@ The output of the workspace creation command is similar to the following JSON. Y
 
 ### YAML configuration file
 
-To use existing resources for a new workspace, you create a YAML configuration file that defines the resources. The following YAML code shows an example workspace configuration file:
+To use existing resources for a new workspace, you define the resources in a YAML configuration file. The following example shows a YAML workspace configuration file:
 
 :::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/with-existing-resources.yml":::
 
-You don't have to specify all the associated dependent resources in the configuration file. You can specify one or more of the resources, and let the others be automatically created.
+You don't have to specify all the associated dependent resources in the configuration file. You can specify one or more of the resources, and let the others be created automatically.
 
-If you use an existing storage account for the workspace, it must meet the following criteria. These requirements apply only to the *default* storage account for the workspace.
+You must provide the IDs for existing resources in the YAML file. You can get these IDs either by viewing the resource **Properties** in the Azure portal, or by running the following Azure CLI commands:
 
-- Not a premium account (Premium_LRS or Premium_GRS)
-- Azure Blob and Azure File capabilities both enabled
-- Hierarchical namespace disabled for Azure Data Lake Storage
+- **Azure Application Insights**:<br>
+  `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
+- **Azure Container Registry**:<br>
+  `az acr show --name <container-registry-name> -g <resource-group-name> --query "id"`
+- **Azure Key Vault**:<br>
+  `az keyvault show --name <key-vault-name> --query "id"`
+- **Azure Storage Account**:<br>
+  `az storage account show --name <storage-account-name> --query "id"`
+
+The query results look like the following string:<br>
+`"/subscriptions/<subscription-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<id>"`.
+
+### Associated dependent resources
+
+The following considerations and limitations apply to dependent resources associated with workspaces.
+
+#### Application Insights
+
+[!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
+
+#### Container Registry
+
+The Azure Machine Learning workspace uses Azure Container Registry for some operations, and automatically creates a Container Registry instance when it first needs one.
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 To use an existing Azure container registry with an Azure Machine Learning workspace, you must [enable the admin account](/azure/container-registry/container-registry-authentication#admin-account) on the container registry.
 
-You must provide the existing resource IDs in the YAML file. You can get these IDs either by viewing the resource **Properties** in the Azure portal, or by running the following Azure CLI commands:
+#### Storage Account
 
-- **Azure Storage Account**:<br>
-  `az storage account show --name <storage-account-name> --query "id"`
-- **Azure Application Insights**:<br>
-  `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
-- **Azure Key Vault**:<br>
-  `az keyvault show --name <key-vault-name> --query "id"`
-- **Azure Container Registry**:<br>
-  `az acr show --name <container-registry-name> -g <resource-group-name> --query "id"`
+If you use an existing storage account for the workspace, it must meet the following criteria. These requirements apply to the default storage account only.
 
-The query results look similar to the following string:<br>
-`"/subscriptions/<subscription-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<id>"`.
+- The account can't be Premium_LRS or Premium_GRS.
+- Azure Blob and Azure File capabilities must both be enabled.
+- Hierarchical namespace must be disabled for Azure Data Lake Storage.
 
 ## Secure Azure CLI communications
 
