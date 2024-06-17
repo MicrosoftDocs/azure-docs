@@ -20,211 +20,19 @@ Passwordless connections are enabled with the following steps:
 * Set environment variables, as needed. 
 * Use an Azure Identity library credential type to create an Azure AI Search client object.
 
-## Authentication
+## Prerequisites
 
-Authentication to Microsoft Entra ID is required to use the Azure client libraries.
+The following steps need to be completed for both local development and production workloads.
 
-Authentication differs based on the environment in which the app is running:
+### Create an AI Search resource
 
-* [Local development](#authenticate-for-local-development)
-* [Azure](#authenticate-for-azure-hosted-environments)
+Before continuing with this article, you need an Azure AI Search resource to work with. If you don't have a resource, [create your resource](search-create-service-portal.md) now.
 
-### Authenticate for local development
+### Install Azure Identity client library
 
-#### [.NET](#tab/csharp)
-
-Select a tool for [authentication during local development](/dotnet/api/overview/azure/identity-readme#authenticate-the-client).
-
-#### [Java](#tab/java)
-
-Select a tool for [authentication during local development](/java/api/overview/azure/identity-readme#authenticate-the-client).
-
-#### [JavaScript](#tab/javascript)
-
-Select a tool for [authentication during local development](/javascript/api/overview/azure/identity-readme#authenticate-the-client-in-development-environment).
-
-#### [Python](#tab/python)
-
-Select a tool for [authentication during local development](/python/api/overview/azure/identity-readme#authenticate-during-local-development).
-
----
-
-### Authenticate for Azure-hosted environments
+Before working locally without passwords, update your AI Search enabled code with the Azure Identity client library.
 
 #### [.NET](#tab/csharp)
-
-Learn about how to manage the [DefaultAzureCredential](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) for applications deployed to Azure.
-
-#### [Java](#tab/java)
-
-Learn about how to manage the [DefaultAzureCredential](/java/api/overview/azure/identity-readme#defaultazurecredential) for applications deployed to Azure.
-
-#### [JavaScript](#tab/javascript)
-
-Learn about how to manage the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential) for applications deployed to Azure.
-
-#### [Python](#tab/python)
-
-Learn about how to manage the [DefaultAzureCredential](/python/api/overview/azure/identity-readme#defaultazurecredential) for applications deployed to Azure.
-
----
-
-## Configure roles for authorization
-
-1. Find the [role](search-security-rbac.md#assign-roles) for your usage of Azure AI Search. Depending on how you intend to set that role, you'll need either the name or ID. 
-
-    |Role name|Role ID|
-    |--|--|
-    |For Azure CLI or Azure PowerShell, you can use role name. |For Bicep, you need the role ID.|
-
-1. Select an identity type to use.
-
-    * **Personal identity**: This is your personal identity tied to your sign in to Azure.
-    * **Managed identity**: This is an identity managed by and created for use on Azure. For [managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity), create a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). When you create the managed identity, you need the `Client ID`, also known as the `app ID`.  
-
-1. To find your personal identity, use one of the following commands. Use the ID as the `<identity-id>` in the next step.
-
-    ### [Azure CLI](#tab/azure-cli)
-
-    For local development, to get your own identity ID, use the following command. You need to sign in with `az login` before using this command.
-
-    ```azurecli
-    az ad signed-in-user show \
-        --query id -o tsv
-    ```
-
-    ### [Azure PowerShell](#tab/azure-powershell)
-
-
-    For local development, to get your own identity ID, use the following command. You need to sign in with `Connect-AzAccount` before using this command.
-
-    ```azurepowershell
-    (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
-    ```
-
-    ### [Bicep](#tab/bicep)
-
-    When using [Bicep](/azure/azure-resource-manager/bicep/) deployed with [Azure Developer CLI](/azure/developer/azure-developer-cli), the identity of the person or service running the deployment uses a _special_ AZD environment variable `AZURE_PRINCIPAL_ID`. 
-
-    To use the special AZD environment variable, set the environment variable to a Bicep variable, such as `principalId` as a possible example. 
-
-    ```json
-    "principalId": {
-        "value": "${AZURE_PRINCIPAL_ID}"
-      },
-    ```
-
-    In Azure, as part of the Bicep deployment process, you should specify a user-assigned managed identity. This identity should be distinct from the one that runs the process. Assign the userAssignedManagedIdentity to the host application, which could be Azure App Service or Azure Container Apps.
-
-    ```bicep
-    resource userAssignedManagedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
-      name: managedIdentityName
-      location: location
-    }
-    ```
-
-    ### [Azure portal](#tab/portal)
-
-    Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
-
-    ---
-
-1. Assign the role-based access control (RBAC) role to the identity for the resource group.  
-
-    ### [Azure CLI](#tab/azure-cli)
-
-    To grant your identity permissions to your resource through RBAC, assign a role using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
-
-    ```azurecli
-    az role assignment create \
-        --role "<role-name>" \
-        --assignee "<identity-id>" \
-        --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
-    ```
-
-    ### [Azure PowerShell](#tab/azure-powershell)
-
-    To grant your application permissions to your Azure AI Search resource through RBAC, assign a role using the Azure PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
-
-    ```azurepowershell
-    New-AzRoleAssignment -ObjectId "<identity-id>" -RoleDefinitionName "<role-name>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
-    ```
-
-    ### [Bicep](#tab/bicep)
-
-    Use the following Azure AI Search Bicep template to create the resource and set the authentication for the `identityId`. Bicep requires the role ID. The `name` shown in this Bicep snippet isn't the Azure role; it's specific to the Bicep deployment. 
-
-    ```bicep
-    // main.bicep
-    param environment string = 'production'
-    param roleGuid string = ''
-
-    module aiSearchRoleUser 'core/security/role.bicep' = {
-        scope: aiSearchResourceGroup
-        name: 'aiSearch-role-user'
-        params: {
-            principalId: (environment == 'development') ? principalId : userAssignedManagedIdentity.properties.principalId 
-            principalType: (environment == 'development') ? 'User' : 'ServicePrincipal'
-            roleDefinitionId: roleGuid
-        }
-    }
-    ```
-
-    The `main.bicep` file calls the following generic Bicep code to create any role. You have the option to create multiple RBAC roles, such as one for the user and another for production. This allows you to enable both development and production environments within the same Bicep deployment.
-
-    ```bicep
-    // core/security/role.bicep
-    metadata description = 'Creates a role assignment for an identity.'
-    param principalId string // passed in from main.bicep
-
-    @allowed([
-        'Device'
-        'ForeignGroup'
-        'Group'
-        'ServicePrincipal'
-        'User'
-    ])
-    param principalType string = 'ServicePrincipal'
-    param roleDefinitionId string // Role ID
-
-    resource role 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
-        name: guid(subscription().id, resourceGroup().id, principalId, roleDefinitionId)
-        properties: {
-            principalId: principalId
-            principalType: principalType
-            roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', roleDefinitionId)
-        }
-    }
-    ```
-
-
-    ### [Azure portal](#tab/portal)
-
-    Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
-    
-    ---
-    
-    Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-group-name>` with your actual values. 
-
-## Configure environment variables
-
-To connect to Azure AI Search, your code needs to know your resource endpoint, and _may_ need additional environment variables. 
-
-1. Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
-
-    * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
-    
-2. Create environment variables based on the location in which your app runs:
-
-    | Location | Identity| Description|
-    |--|--|--|
-    |Local|Personal|For local runtimes with your **personal identity**, [sign in](#authenticate-for-local-development) to create your credential with a tool.|
-    |Azure cloud|User-assigned managed identity|Create an `AZURE_CLIENT_ID` environment variable containing the client ID of the user-assigned managed identity to authenticate as.|
-
-## Install Azure Identity client library
-
-
-### [.NET](#tab/csharp)
 
 Install the .NET [Azure Identity client library](https://www.nuget.org/packages/Azure.Identity):
 
@@ -232,7 +40,7 @@ Install the .NET [Azure Identity client library](https://www.nuget.org/packages/
 dotnet add package Azure.Identity
 ```
 
-### [Java](#tab/java)
+#### [Java](#tab/java)
 
 Install the Java [Azure Identity client library](https://mvnrepository.com/artifact/com.azure/azure-identity) with the following POM file:
 
@@ -250,7 +58,7 @@ Install the Java [Azure Identity client library](https://mvnrepository.com/artif
 </dependencyManagement>
 ```
 
-### [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 Install the JavaScript [Azure Identity client library](https://www.npmjs.com/package/@azure/identity):
 
@@ -258,7 +66,7 @@ Install the JavaScript [Azure Identity client library](https://www.npmjs.com/pac
 npm install --save @azure/identity
 ```
 
-### [Python](#tab/python)
+#### [Python](#tab/python)
 
 Install the Python [Azure Identity client library](https://pypi.org/project/azure-identity/):
 
@@ -268,11 +76,11 @@ pip install azure-identity
 
 ---
 
-## Use DefaultAzureCredential
+### Update source code to use DefaultAzureCredential
 
 The Azure Identity library's `DefaultAzureCredential` allows the customer to run the same code in the local development environment and in the Azure Cloud.
 
-### [.NET](#tab/csharp)
+#### [.NET](#tab/csharp)
 
 For more information on `DefaultAzureCredential` for .NET, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
 
@@ -294,7 +102,7 @@ SearchClient client = new SearchClient(new Uri(endpoint), indexName, new Default
 SearchIndexClient client = new SearchIndexClient(endpoint, new DefaultAzureCredential());
 ```
 
-### [Java](#tab/java)
+#### [Java](#tab/java)
 
 For more information on `DefaultAzureCredential` for Java, see [Azure Identity client library for Java](/java/api/overview/azure/identity-readme#defaultazurecredential).
 
@@ -338,7 +146,7 @@ SearchIndexAsyncClient searchIndexAsyncClient = new SearchIndexClientBuilder()
     .buildAsyncClient();
 ```
 
-### [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 For more information on `DefaultAzureCredential` for JavaScript, see [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme#defaultazurecredential).
 
@@ -364,7 +172,7 @@ const indexClient = new SearchIndexClient(
   new DefaultAzureCredential());
 ```
 
-### [Python](#tab/python)
+#### [Python](#tab/python)
 
 For more information on `DefaultAzureCredential` for Python, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
@@ -394,6 +202,190 @@ search_index_client = SearchIndexClient(
 
 ---
 
+
+## Local development
+
+Local development without passwords includes these steps:
+
+- Assign your personal identity with RBAC roles on the specific resource.
+- Use a tool to authenticate with Azure.
+- Establish environment variables for your resource.
+
+### Roles for local development
+
+As a local developer, your Azure identity needs full control of your service. This control is provided with RBAC roles. To manage your resource during development, these are the suggested roles:
+
+|Role name|
+|Search Service Contributor|
+|Search Index Data Contributor|
+|Search Index Data Reader|
+
+Find your personal identity with on of the following tools. Use that identity as the `<identity-id>` value.
+
+#### [Azure CLI](#tab/azure-cli)
+
+1. Sign in to Azure CLI.
+
+    ```azurecli
+    azure login
+    ```
+
+2. Get your personal identity.
+
+    ```azurecli
+    az ad signed-in-user show \
+        --query id -o tsv
+    ```
+
+3. Assign the role-based access control (RBAC) role to the identity for the resource group.  
+
+    ```azurecli
+    az role assignment create \
+        --role "<role-name>" \
+        --assignee "<identity-id>" \
+        --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
+    ```
+    
+#### [Azure PowerShell](#tab/azure-powershell)
+
+1. Sign in with PowerShell.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+2. Get your personal identity.
+
+    ```azurepowershell
+    (Get-AzContext).Account.ExtendedProperties.HomeAccountId.Split('.')[0]
+    ```
+
+3. Assign the role-based access control (RBAC) role to the identity for the resource group.  
+
+    ```azurepowershell
+    New-AzRoleAssignment -ObjectId "<identity-id>" -RoleDefinitionName "<role-name>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>"
+    ```
+
+#### [Azure portal](#tab/portal)
+
+1. Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
+    
+2. Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
+    
+---
+    
+Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-group-name>` with your actual values. 
+
+
+### Authentication for local development
+
+Use a tool in your local development environment to authentication to Azure identity. Once you're authenticated, the AzureDefaultCredential in your source code finds and uses the authentication.  
+
+#### [.NET](#tab/csharp)
+
+Select a tool for [authentication during local development](/dotnet/api/overview/azure/identity-readme#authenticate-the-client).
+
+#### [Java](#tab/java)
+
+Select a tool for [authentication during local development](/java/api/overview/azure/identity-readme#authenticate-the-client).
+
+#### [JavaScript](#tab/javascript)
+
+Select a tool for [authentication during local development](/javascript/api/overview/azure/identity-readme#authenticate-the-client-in-development-environment).
+
+#### [Python](#tab/python)
+
+Select a tool for [authentication during local development](/python/api/overview/azure/identity-readme#authenticate-during-local-development).
+
+---
+
+### Configure environment variables for local development
+
+To connect to Azure AI Search, your code needs to know your resource endpoint. 
+
+Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
+
+* `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
+
+## Production workloads
+
+Deploy production workloads includes these steps:
+
+- Choose RBAC roles that adhere to the principle of least privilege.
+- Assign RBAC roles to your production identity on the specific resource.
+- Set up environment variables for your resource.
+
+### Roles for production workloads
+
+To create your production resources, you need to create an identity then assign that identity to your resources with the correct roles. 
+
+Production workload [managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) include:
+
+* [User-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity): a standalone Azure resource. 
+* System-assigned managed identity: a hosting resource-based identity that is removed with the parent resource is removed. 
+
+The following role is suggested for a production application:
+
+|Role name|Id|
+|Search Index Data Reader|1407120a-92aa-4202-b7e9-c0e197c71c8f|
+
+### Authentication for production workloads
+
+Use the following Azure AI Search **Bicep template** to create the resource and set the authentication for the `identityId`. Bicep requires the role ID. The `name` shown in this Bicep snippet isn't the Azure role; it's specific to the Bicep deployment. 
+
+```bicep
+// main.bicep
+param environment string = 'production'
+param roleGuid string = ''
+
+module aiSearchRoleUser 'core/security/role.bicep' = {
+    scope: aiSearchResourceGroup
+    name: 'aiSearch-role-user'
+    params: {
+        principalId: (environment == 'development') ? principalId : userAssignedManagedIdentity.properties.principalId 
+        principalType: (environment == 'development') ? 'User' : 'ServicePrincipal'
+        roleDefinitionId: roleGuid
+    }
+}
+```
+
+The `main.bicep` file calls the following generic Bicep code to create any role. You have the option to create multiple RBAC roles, such as one for the user and another for production. This allows you to enable both development and production environments within the same Bicep deployment.
+
+```bicep
+// core/security/role.bicep
+metadata description = 'Creates a role assignment for an identity.'
+param principalId string // passed in from main.bicep
+
+@allowed([
+    'Device'
+    'ForeignGroup'
+    'Group'
+    'ServicePrincipal'
+    'User'
+])
+param principalType string = 'ServicePrincipal'
+param roleDefinitionId string // Role ID
+
+resource role 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+    name: guid(subscription().id, resourceGroup().id, principalId, roleDefinitionId)
+    properties: {
+        principalId: principalId
+        principalType: principalType
+        roleDefinitionId: resourceId('Microsoft.Authorization/roleDefinitions', roleDefinitionId)
+    }
+}
+```
+
+### Configure environment variables for production workloads
+
+To connect to Azure AI Search, your code needs to know your resource endpoint, and the ID of the managed identity. 
+
+1. Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
+
+    - `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.   
+    - `AZURE_CLIENT_ID`: This is the identity to authenticate as.|
+
 ## Additional resources
 
 * [Passwordless connections developer guide](/azure/developer/intro/passwordless-overview)
+* [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
