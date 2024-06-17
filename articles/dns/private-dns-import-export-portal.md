@@ -61,7 +61,7 @@ The following notes provide more details about the zone import process.
 1. Obtain a copy of the zone file for the zone you wish to import. 
     
     > [!NOTE]
-    > If the Start of Authority (SOA) record is present in the zone, it is overwritten with values that are compatible with Azure Private DNS. Nameserver (NS) records must be removed prior to import. Compatible resource record types for Azure Private DNS include A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT. Incompatible records are underlined in red and can be removed using the Private DNS Zone Editor.
+    > If the Start of Authority (SOA) record is present in the zone, it is overwritten with values that are compatible with Azure Private DNS. Nameserver (NS) records must be removed prior to import. Compatible resource record types for Azure Private DNS include A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT. Incompatible records are underlined in red in the Private DNS Zone Editor.
 
     The following small zone file and resource records are used in this example:
 
@@ -98,7 +98,7 @@ The following notes provide more details about the zone import process.
 4. Select the **Private DNS Zone Editor** tab and then drag and drop or browse and select the **private.contoso.com.txt** file. The **Private DNS Zone Editor** opens.
 5. If changes to the zone are needed, you can edit the values that are displayed.
 
-  ![Screenshot showing the private.contoso.com zone displayed in the DNS Zone Editor.](./media/private-dns-import-export-portal/dns-zone-editor.png)
+    ![Screenshot showing the private.contoso.com zone displayed in the DNS Zone Editor.](./media/private-dns-import-export-portal/dns-zone-editor.png)
 
 6. Select **Review + Create** and then select **Create**.
 7. When deployment is complete, select **Go to resource** and then select **Recordsets**. An SOA record compatible with Azure Private DNS is automatically added to the zone. See the following example:
