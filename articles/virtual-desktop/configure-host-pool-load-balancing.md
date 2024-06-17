@@ -58,7 +58,7 @@ To configure load balancing for a pooled host pool, you need:
 
 ### [Azure portal](#tab/portal) 
 
-To configure load balancing with the Azure portal:
+Here's how to configure load balancing with the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -74,7 +74,7 @@ To configure load balancing with the Azure portal:
 
 ### [Azure PowerShell](#tab/powershell)
 
-Here's how to configure load balancing with Azure PowerShell.
+Here's how to configure load balancing with Azure PowerShell:
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -126,7 +126,7 @@ Here's how to configure load balancing with Azure PowerShell.
 
 ### [Azure CLI](#tab/cli)
 
-Here's how to configure load balancing with Azure CLI.
+Here's how to configure load balancing with Azure CLI:
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
