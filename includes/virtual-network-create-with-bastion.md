@@ -18,7 +18,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. On the **Virtual networks** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -47,7 +47,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Azure Bastion host name | Enter **bastion**. |
     | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip-bastion** in Name. </br> Select **OK**. |
 
-    :::image type="content" source="../media/virtual-network-create-with-bastion/enable-bastion.png" alt-text="Screenshot of options for enabling an Azure Bastion host as part of creating a virtual network in the Azure portal.":::
+    :::image type="content" source="./media/virtual-network-create-with-bastion/enable-bastion.png" alt-text="Screenshot of options for enabling an Azure Bastion host as part of creating a virtual network in the Azure portal.":::
 
 1. Select **Next** to proceed to the **IP Addresses** tab.
 
@@ -64,7 +64,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Starting address | Leave the default of **10.0.0.0**. |
     | Size | Leave the default of **/24 (256 addresses)**. |
 
-    :::image type="content" source="../media/virtual-network-create-with-bastion/address-subnet-space.png" alt-text="Screenshot of configuration details for a subnet." lightbox="../media/virtual-network-create-with-bastion/address-subnet-space.png":::
+    :::image type="content" source="./media/virtual-network-create-with-bastion/address-subnet-space.png" alt-text="Screenshot of configuration details for a subnet." lightbox="../media/virtual-network-create-with-bastion/address-subnet-space.png":::
 
 1. Select **Save**.
 

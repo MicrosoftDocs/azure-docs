@@ -44,7 +44,7 @@ Use the following steps to create a two way network peer between **vnet1** and *
     | Allow gateway or route server in 'vnet-1' to forward traffic to 'vnet-2' | Leave the default of cleared. |
     | Enable 'vnet-1' to use 'vnet-2's' remote gateway or route server | Leave the default of cleared. |
 
-    :::image type="content" source="../media/virtual-network-create-network-peer/add-peering.png" alt-text="Screenshot of Add peering in the Azure portal.":::
+    :::image type="content" source="./media/virtual-network-create-network-peer/add-peering.png" alt-text="Screenshot of Add peering in the Azure portal.":::
 
 1. Select **Add**.
-
+includes/media/virtual-network-create-network-peer/add-peering.png
