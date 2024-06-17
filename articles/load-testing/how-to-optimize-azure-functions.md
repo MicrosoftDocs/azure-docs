@@ -58,7 +58,7 @@ A test profile describes your function app configuration, request details, and l
     | **Test profile description**         | (Optional) Enter a test profile description. |
     | **Run test after creation**  | When selected, the test profile starts automatically after creating the test. |
 
-1. In the **Functions configuration** section, select the function app configuration you want to test. You can select the instance memory size and the HTTP concurrency. You can select up to ten combinations of memory and concurrency. 
+1. In the **Functions configuration** section, select the Functions app configuration you want to test. You can select the instance memory size and the HTTP concurrency. You can select up to ten combinations of memory and concurrency. 
 
     > [!NOTE]
     > Once the test profile run initiates, configuration changes are made directly to your app. Your Function app will restart for every combination specified and a load test is run against your app.
