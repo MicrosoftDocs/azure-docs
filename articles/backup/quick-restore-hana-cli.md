@@ -20,9 +20,9 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 >- Original Location Recovery (OLR) is currently not supported for HSR.
 >- Restore to HSR instance isn't supported. However, restore only to HANA instance is supported.
 
-## prerequisites
+## Prerequisites
 
-Before you restore the HSR database backuos, review the [supported configurations and scenarios, see](sap-hana-backup-support-matrix.md).
+Before you restore from the HSR database backups, review the [supported configurations and scenarios, see](sap-hana-backup-support-matrix.md).
 
 ## View the restore points for a protected database
 
