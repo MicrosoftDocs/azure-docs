@@ -14,7 +14,7 @@ ms.author: glenga
 | Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded | unbounded | unbounded |
 | Max request size (MB)<sup>3</sup> | 100 | 100 | 100 | 100 |  100 |
 | Max query string length<sup>3</sup> | 4096 | 4096 | 4096 | 4096 |   4096 | 
-| Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 
+| Max request URL length<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 8192 | 
 |[ACU](/azure/virtual-machines/acu) per instance | 100 | varies | 210-840 | 100-840/210-250<sup>8</sup> | [varies](/azure/container-apps/billing) |
 | Max memory (GB per instance) | 1.5 | 4<sup>13</sup> | 3.5-14 | 1.75-14/3.5-14 | [varies](/azure/container-apps/billing) |
 | Max instance count (Windows/Linux) | 200/100 | 1000 <sup>14</sup> | 100/20 | varies by SKU/100<sup>9</sup> |  10-300<sup>18</sup> | 
