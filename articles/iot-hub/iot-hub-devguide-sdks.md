@@ -24,25 +24,25 @@ Microsoft also provides a set of SDKs for provisioning devices through and build
 
 Learn about the [benefits of developing using Azure IoT SDKs](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/).
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## Azure IoT Hub device SDKs
 
-[!INCLUDE [iot-hub-sdks-device](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-device.md)]
+[!INCLUDE [iot-hub-sdks-device](../../includes/iot-hub-sdks-device.md)]
 
 Learn more about the IoT Hub device SDKs in the [IoT device development documentation](../iot/iot-sdks.md).
 
 ### Embedded device SDKs
 
-[!INCLUDE [iot-hub-sdks-embedded](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-embedded.md)]
+[!INCLUDE [iot-hub-sdks-embedded](../../includes/iot-hub-sdks-embedded.md)]
 
 ## Azure IoT Hub service SDKs
 
-[!INCLUDE [iot-hub-sdks-service](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-service.md)]
+[!INCLUDE [iot-hub-sdks-service](../../includes/iot-hub-sdks-service.md)]
 
 ## Azure IoT Hub management SDKs
 
-[!INCLUDE [iot-hub-sdks-management](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-management.md)]
+[!INCLUDE [iot-hub-sdks-management](../../includes/iot-hub-sdks-management.md)]
 
 ## SDKs for related Azure IoT services
 

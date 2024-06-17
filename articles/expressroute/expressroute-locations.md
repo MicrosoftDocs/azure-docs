@@ -263,7 +263,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Altice Business](https://lightpathfiber.com/applications/cloud-connect)** |Equinix |New York<br/>Washington DC |
 | **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal<br/>Toronto |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokyo |
-| **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
+| **Axtel** |Equinix |Dallas|
 | **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
 | **[Bezeq International Ltd.](https://selfservice.bezeqint.net/english/company-profile)** | euNetworks | London |
 | **[BICS](https://www.bics.com/cloud-connect/)** | Equinix | Amsterdam<br/>Frankfurt<br/>London<br/>Singapore<br/>Washington DC |
