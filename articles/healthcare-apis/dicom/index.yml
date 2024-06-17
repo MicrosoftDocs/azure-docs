@@ -37,7 +37,7 @@ landingContent:
 
   - title: API reference
     linkLists:
-      - linkListType: reference
+      - linkListType: how-to-guide
         links:
           - text: Implement DICOMweb Standard APIs with C#
             url: dicomweb-standard-apis-c-sharp.md
