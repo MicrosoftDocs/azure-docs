@@ -103,7 +103,7 @@ A test profile describes your function app configuration, request details and lo
 
     If you previously selected *Run test after creation*, the test profile starts automatically.
 
-The Function App is reverted to the original configuration after the test profile run completes.
+The Functions app is reverted to the original configuration after the test profile run completes.
 
 
 ## View results
