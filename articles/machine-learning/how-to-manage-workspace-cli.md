@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
-ms.date: 06/13/2024
+ms.date: 06/17/2024
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2
 ---
@@ -107,20 +107,20 @@ The output of the workspace creation command is similar to the following JSON. Y
 
 ```json
 {
-  "applicationInsights": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>",
-  "containerRegistry": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.containerregistry/registries/<acr-name>",
+  "applicationInsights": "/subscriptions/<subscription-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>",
+  "containerRegistry": "/subscriptions/<subscription-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.containerregistry/registries/<container-registry-name>",
   "creationTime": "2019-08-30T20:24:19.6984254+00:00",
   "description": "",
   "friendlyName": "<workspace-name>",
-  "id": "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>",
+  "id": "/subscriptions/<subscription-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-id>",
   "identityPrincipalId": "<GUID>",
   "identityTenantId": "<GUID>",
   "identityType": "SystemAssigned",
-  "keyVault": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
+  "keyVault": "/subscriptions/<subscription-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.keyvault/vaults/<key-vault-name>",
   "location": "<location>",
   "name": "<workspace-name>",
   "resourceGroup": "<resource-group-name>",
-  "storageAccount": "/subscriptions/<service-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
+  "storageAccount": "/subscriptions/<subscription-GUID>/resourcegroups/<resource-group-name>/providers/microsoft.storage/storageaccounts/<storage-account-name>",
   "type": "Microsoft.MachineLearningServices/workspaces",
   "workspaceid": "<GUID>"
 }
@@ -137,8 +137,8 @@ You don't have to specify all the associated dependent resources in the configur
 If you use an existing storage account for the workspace, it must meet the following criteria. These requirements apply only to the *default* storage account for the workspace.
 
 - Not a premium account (Premium_LRS or Premium_GRS)
-- Both Azure Blob and Azure File capabilities enabled
-- For Azure Data Lake Storage, hierarchical namespace disabled
+- Azure Blob and Azure File capabilities both enabled
+- Hierarchical namespace disabled for Azure Data Lake Storage
 
 To use an existing Azure container registry with an Azure Machine Learning workspace, you must [enable the admin account](/azure/container-registry/container-registry-authentication#admin-account) on the container registry.
 
@@ -151,35 +151,41 @@ You must provide the existing resource IDs in the YAML file. You can get these I
 - **Azure Key Vault**:<br>
   `az keyvault show --name <key-vault-name> --query "id"`
 - **Azure Container Registry**:<br>
-  `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
+  `az acr show --name <container-registry-name> -g <resource-group-name> --query "id"`
 
 The query results look similar to the following string:<br>
-`"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<id>"`.
+`"/subscriptions/<subscription-GUID>/resourceGroups/<resource-group-name>/providers/<provider>/<subresource>/<id>"`.
 
 ## Secure Azure CLI communications
 
-All Azure Machine Learning V2 `az ml` commands communicate operational data, such as YAML parameters and metadata, to Azure Resource Manager. Some of the Azure CLI commands communicate with Azure Resource Manager over the internet. If your Azure Machine Learning workspace is public and isn't behind a virtual network, communications are secured by using HTTPS/TLS 1.2. No extra configuration is required.
+All Azure Machine Learning V2 `az ml` commands communicate operational data, such as YAML parameters and metadata, to Azure Resource Manager. Some of the Azure CLI commands communicate with Azure Resource Manager over the internet.
+
+If your Azure Machine Learning workspace is public and isn't behind a virtual network, communications are secured by using HTTPS/TLS 1.2. No extra configuration is required.
 
 If your Azure Machine Learning workspace uses a private endpoint and virtual network, you must choose one of the following configurations to use Azure CLI:
 
 - To communicate over the public internet, set the `--public-network-access` parameter to `Enabled`.
 
-- To increase security and avoid communicating over the public internet, configure Azure Machine Learning to use private network connectivity with an Azure Private Link endpoint, as described in the following section.
+- To avoid communicating over the public internet for security reasons, configure Azure Machine Learning to use private network connectivity with an Azure Private Link endpoint, as described in the following section.
 
 ### Private network connectivity
 
 Depending on your use case and organizational requirements, you can configure Azure Machine Learning to use private network connectivity. You can use the Azure CLI to deploy a workspace and a Private Link endpoint for the workspace resource.
 
-When you use Private Link, your workspace can't use Azure Container Registry to build Docker images. In your YAML workspace configuration file, you must set the `image_build_compute` property to a CPU compute cluster name to use for Docker image environment building. You can also specify that the private link workspace isn't accessible over the internet by setting the `public_network_access` property to `Disabled`.
+If you use private link endpoints for both Azure Container Registry and Azure Machine Learning, you can't use Container Registry tasks to build Docker environment images. Instead you must build images by using an Azure Machine Learning compute cluster.
+
+In your YAML workspace configuration file, you must set the `image_build_compute` property to a compute cluster name to use for Docker image environment building. You can also specify that the private link workspace isn't accessible over the internet by setting the `public_network_access` property to `Disabled`.
+
+The following code shows an example workspace configuration file for private network connectivity.
 
 :::code language="YAML" source="~/azureml-examples-main/cli/resources/workspace/privatelink.yml":::
 
-After you create the workspace by running `az ml workspace create`, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
+After you create the workspace, use the [Azure networking CLI commands](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private link endpoint for the workspace.
 
 ```azurecli-interactive
 az network private-endpoint create \
     --name <private-endpoint-name> \
-    --vnet-name <vnet-name> \
+    --vnet-name <virtual-network-name> \
     --subnet <subnet-name> \
     --private-connection-resource-id "/subscriptions/<subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>" \
     --group-id amlworkspace \
@@ -198,13 +204,13 @@ az network private-dns link vnet create \
     -g <resource-group-name> \
     --zone-name 'privatelink.api.azureml.ms' \
     --name <link-name> \
-    --virtual-network <vnet-name> \
+    --virtual-network <virtual-network-name> \
     --registration-enabled false
 
 az network private-endpoint dns-zone-group create \
     -g <resource-group-name> \
     --endpoint-name <private-endpoint-name> \
-    --name myzonegroup \
+    --name <zone-group-name> \
     --private-dns-zone 'privatelink.api.azureml.ms' \
     --zone-name 'privatelink.api.azureml.ms'
 
@@ -217,13 +223,13 @@ az network private-dns link vnet create \
     -g <resource-group-name> \
     --zone-name 'privatelink.notebooks.azure.net' \
     --name <link-name> \
-    --virtual-network <vnet-name> \
+    --virtual-network <virtual-network-name> \
     --registration-enabled false
 
 az network private-endpoint dns-zone-group add \
     -g <resource-group-name> \
     --endpoint-name <private-endpoint-name> \
-    --name myzonegroup \
+    --name <zone-group-name> \
     --private-dns-zone 'privatelink.notebooks.azure.net' \
     --zone-name 'privatelink.notebooks.azure.net'
 ```
@@ -335,7 +341,7 @@ az group delete -g <resource-group-name>
 
 For more information, see [az ml workspace delete](/cli/azure/ml/workspace#az-ml-workspace-delete).
 
-### Troubleshoot resource provider errors
+## Troubleshoot resource provider errors
 
 [!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
