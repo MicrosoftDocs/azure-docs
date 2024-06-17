@@ -914,15 +914,13 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 #### [Linux Hybrid Worker](#tab/lin-hrw)
 
-Run the following commands on agent-based Linux Hybrid Worker:
+1. Run the following commands on agent-based Linux Hybrid Worker:
 
-1. ```bash
-      sudo bash
+   ```bash
+   sudo bash
+   rm -r /home/nxautomation
    ```
 
-1. ```bash
-      rm -r /home/nxautomation
-   ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.

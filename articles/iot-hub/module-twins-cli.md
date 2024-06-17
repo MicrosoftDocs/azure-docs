@@ -78,7 +78,7 @@ Next, you must prepare an Azure CLI session. If you're using the Cloud Shell, yo
    az extension add --name azure-iot
    ```
 
-   [!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create a device identity and module identity
 

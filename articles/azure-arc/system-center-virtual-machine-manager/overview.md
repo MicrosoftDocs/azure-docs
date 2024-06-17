@@ -2,11 +2,11 @@
 title:  Overview of the Azure Connected System Center Virtual Machine Manager 
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
 ms.date: 04/12/2024
-ms.topic: conceptual
+ms.topic: overview
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 keywords: "VMM, Arc, Azure"
 ms.custom: references_regions

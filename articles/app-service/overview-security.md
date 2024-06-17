@@ -13,7 +13,7 @@ ms.author: cephalin
 
 This article shows you how [Azure App Service](overview.md) helps secure your web app, mobile app back end, API app, and [function app](../azure-functions/index.yml). It also shows how you can further secure your app with the built-in App Service features.
 
-[!INCLUDE [app-service-security-intro](~/reusable-content/ce-skilling/azure/includes/app-service-security-intro.md)]
+[!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
 The following sections show you how to further protect your App Service app from threats.
 
