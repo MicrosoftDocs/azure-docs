@@ -295,3 +295,14 @@ Cluster create Logs can be viewed in the following locations:
 2. Azure CLI with `--debug` flag passed on command-line.
 
 :::image type="content" source="./media/nexus-deploy-activity-log.png" lightbox="./media/nexus-deploy-activity-log.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::
+
+## Delete a cluster
+
+When deleting a cluster, it will delete the resources in Azure and the cluster the reside in the on-premises environment.  
+
+>[!NOTE]
+>If there are any tenant resources that exists in the undercloud, the cluster will not be deleted until those resources are deleted.  
+
+```azurecli 
+az networkcloud cluster delete --name "$CLUSTER_NAME" --resource-group "$CLUSTER_RG"
+```
