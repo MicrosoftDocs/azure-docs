@@ -840,7 +840,7 @@
           href: ../store-credentials-key-vault.md
     - name: Monitor
       items:
-        - name: Monitor
+        - name: Monitor Cosmos DB
           href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
