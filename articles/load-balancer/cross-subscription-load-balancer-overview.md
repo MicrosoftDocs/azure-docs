@@ -63,7 +63,7 @@ With syncMode configured as “Manual”, backend pool instances aren't synchron
 
 ## Cross-subscription Global Load Balancer
 
-In addition to, cross-subscription load balancing is supported for Azure global Load Balancer. With cross-subscription global load balancer, backend regional load balancers can each be located in different subscriptions. Cross-subscription backends on a global load balancer don't need other parameters or changes to the backend pool.
+In addition, cross-subscription load balancing is supported for Azure global Load Balancer. With cross-subscription global load balancer, backend regional load balancers can each be located in different subscriptions. Cross-subscription backends on a global load balancer don't need other parameters or changes to the backend pool.
 
 :::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png" alt-text="Diagram of cross subscription global load balancer concept":::
 
@@ -89,7 +89,7 @@ Microsoft.Network/virtualNetworks/write
 Microsoft.Network/networkInterfaces/write
 
 ### Cross-tenant  
-When working cross-tenant, a user must be assigned to the *Network Contributor* role or to a custom role that is assigned the appropriate actions for cross-subscription frontends in both subscriptions. More information on cross-tenant linkage can be found here. 
+When working cross-tenant, a user must be assigned to the *Network Contributor* role or to a custom role that is assigned the appropriate actions for cross-subscription frontends in both subscriptions. More information on cross-tenant linkage, see [Authenticate requests across tenants](../azure-resource-manager/management/authenticate-multi-tenant.md). 
 
 ## Limitations 
 - syncMode can only be set on new backend pools 

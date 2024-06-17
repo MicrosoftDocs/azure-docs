@@ -134,12 +134,19 @@ Create a load balancer with [`New-AzLoadBalancer`](/powershell/module/az.network
 
 ```azurepowershell
 # Create a load balancer
+
+$tags = @{
+'IsRemoteFrontend'= 'true'
+}
+
 $loadbalancer = @{
     ResourceGroupName = 'myResourceGroupLB'
     Name = 'myLoadBalancer'
     Location = 'westus'
     Sku = 'Standard'
+    Tag = $tags
 }
+
 
 $LB = New-AzLoadBalancer @loadbalancer
  

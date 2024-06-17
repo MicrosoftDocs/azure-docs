@@ -27,7 +27,7 @@ A [cross-subscription internal load balancer (ILB)](cross-subscription-load-bala
 
 ## Create a load balancer 
 
-In this section, you create a load balancer in **Azure Subscription B**. You create a load balancer with a frontend IP address.
+In this section, you create a load balancer in **Azure Subscription B** that is connected to a virtual network in **Azure Subscription A**. You create a load balancer with a frontend IP address.
 
 # [Azure PowerShell](#tab/azurepowershell)
 With Azure PowerShell, you'll:
@@ -39,11 +39,17 @@ With Azure PowerShell, you'll:
 
 ```azurepowershell
 # Create a load balancer
+
+$tags = @{
+'IsRemoteFrontend'= 'true'
+}
+
 $loadbalancer = @{
     ResourceGroupName = 'myResourceGroupLB'
     Name = 'myLoadBalancer'
     Location = 'westus'
     Sku = 'Standard'
+    Tags = $tags
 }
 
 $LB = New-AzLoadBalancer @loadbalancer
