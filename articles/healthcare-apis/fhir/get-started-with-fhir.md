@@ -1,6 +1,6 @@
 ---
-title: Get started with FHIR service - Azure Health Data Services
-description: This document describes how to get started with FHIR service in Azure Health Data Services.
+title: Get started with the FHIR service in Azure Health Data Services
+description: Learn how to set up the FHIR service in Azure Health Data Services with steps to create workspaces, register apps, and manage data.
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -10,9 +10,9 @@ ms.author: kesheth
 ms.custom: mode-api
 ---
 
-# Get started with FHIR service
+# Get started with the FHIR service
 
-This article outlines the basic steps to get started with the FHIR service in [Azure Health Data Services](../healthcare-apis-overview.md).
+This article outlines the basic steps to get started with the FHIR&reg; service in [Azure Health Data Services](../healthcare-apis-overview.md).
 
 As a prerequisite, you need an Azure subscription and permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
 

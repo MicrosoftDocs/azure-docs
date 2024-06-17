@@ -1,6 +1,6 @@
 ---
 title: What is the FHIR service in Azure Health Data Services?
-description: The FHIR service enables rapid exchange of health data through FHIR APIs. Ingest, manage, and persist Protected Health Information (PHI) with a managed cloud service.
+description: Discover the FHIR service in Azure Health Data Services for secure, compliant, and scalable health data exchange and management in the cloud
 services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
@@ -12,11 +12,11 @@ ms.author: kesheth
 
 # What is the FHIR service?
 
-The FHIR service in Azure Health Data Services enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. As part of a managed Platform-as-a-Service (PaaS), the FHIR service makes it easy for anyone working with health data to securely store and exchange Protected Health Information ([PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html)) in the cloud. 
+The FHIR&reg; service in Azure Health Data Services enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR®) data standard. As part of a managed Platform-as-a-Service (PaaS), the FHIR service makes it easy for anyone working with health data to securely store and exchange Protected Health Information ([PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html)) in the cloud. 
 
 The FHIR service offers the following:
 
-- Managed FHIR-compliant server, provisioned in the cloud in minutes 
+- Managed FHIR-compliant server, provisioned in the cloud in minutes
 - Enterprise-grade FHIR API endpoint for FHIR data access and storage
 - High performance, low latency
 - Secure management of Protected Health Information (PHI) in a compliant cloud environment
@@ -66,17 +66,14 @@ FHIR servers are essential for interoperability of health data. The FHIR service
 
 FHIR capabilities from Microsoft are available in three configurations:
 
-* The **FHIR service** is a managed platform as a service (PaaS) that operates as part of Azure Health Data Services. In addition to the FHIR service, Azure Health Data Services includes managed services for other types of health data such as the DICOM service for medical imaging data and the MedTech service for medical IoT data. All services (FHIR service, DICOM service, and MedTech service) can be connected and administered within an Azure Health Data Services workspace. 
-* **Azure API for FHIR** is a managed FHIR server offered as a PaaS in Azure – easily provisioned in the Azure portal. Azure API for FHIR is not part of Azure Health Data Services and lacks some of the features of the FHIR service.
-* **FHIR Server for Azure**, an open-source FHIR server that can be deployed into your Azure subscription, is available on GitHub at https://github.com/Microsoft/fhir-server.
+- The **FHIR service** is a managed platform as a service (PaaS) that operates as part of Azure Health Data Services. In addition to the FHIR service, Azure Health Data Services includes managed services for other types of health data such as the DICOM service for medical imaging data and the MedTech service for medical IoT data. All services (FHIR service, DICOM service, and MedTech service) can be connected and administered within an Azure Health Data Services workspace. 
+- **Azure API for FHIR** is a managed FHIR server offered as a PaaS in Azure – easily provisioned in the Azure portal. Azure API for FHIR is not part of Azure Health Data Services and lacks some of the features of the FHIR service.
+- **FHIR Server for Azure**, an open-source FHIR server that can be deployed into your Azure subscription, is available on GitHub at https://github.com/Microsoft/fhir-server.
 
 For use cases that require customizing a FHIR server with admin access to the underlying services (e.g., access to the database without going through the FHIR API), developers should choose the open-source FHIR Server for Azure. For implementation of a turnkey, production-ready FHIR API with a provisioned database backend (i.e., data can only be accessed through the FHIR API - not the database directly), developers should choose the FHIR service.
 
 ## Next Steps
 
-To start working with the FHIR service, follow the 5-minute quickstart instructions for FHIR service deployment.
+[Deploy the FHIR service](fhir-portal-quickstart.md)
 
->[!div class="nextstepaction"]
->[Deploy FHIR service](fhir-portal-quickstart.md)
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

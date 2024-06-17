@@ -66,8 +66,8 @@ In the **Select** box, search for a user, service principal, or group that you w
 
 In this article, you've learned how to assign Azure roles for the FHIR service and DICOM service. To learn how to access the Azure Health Data Services using Postman, see
 
-- [Access using Postman](./fhir/use-postman.md)
-- [Access using the REST Client](./fhir/using-rest-client.md)
-- [Access using cURL](./fhir/using-curl.md)
+[Access using Postman](./fhir/use-postman.md)
+[Access using the REST Client](./fhir/using-rest-client.md)
+[Access using cURL](./fhir/using-curl.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]

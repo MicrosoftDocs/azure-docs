@@ -189,9 +189,6 @@ Now that you've granted proper permissions to the client application, you can ac
 
 ## Next steps
 
-In this article, you learned how to grant permissions to client applications using Azure CLI and REST API. For information on how to access Azure Health Data Services using the REST Client Extension in Visual Studio Code, see 
+[Access using REST Client](./fhir/using-rest-client.md) 
 
->[!div class="nextstepaction"]
->[Access using REST Client](./fhir/using-rest-client.md) 
-
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]
