@@ -82,8 +82,7 @@ A test profile describes your function app configuration, request details and lo
     | **Headers**          | (Optional) Enter HTTP headers to include in the HTTP request. |
     | **Body**             | (Optional) Depending on the HTTP method, you can specify the HTTP body content. Azure Load Testing supports the following formats: raw data, JSON view, JavaScript, HTML, and XML. |
 
-1. Select the **Load configuration** tab to configure the load parameters for the load test.
-
+1. Select the *Load configuration* tab to configure the load parameters for the load test.
 
     |Field  |Description  |
     |-|-|
