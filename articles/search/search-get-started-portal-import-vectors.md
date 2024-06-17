@@ -22,7 +22,7 @@ Get started with [integrated vectorization (preview)](vector-search-integrated-v
 You need three Azure resources and some sample files to complete this walkthrough:
 
 > [!div class="checklist"]
-> + Azure data: Blob storage or Microsoft Fabric with OneLake
+> + Azure Blob storage or Microsoft Fabric with OneLake for your data
 > + Azure vectorizations: either Azure AI services multiservice account, Azure OpenAI, or Azure AI Studio model catalog
 > + Azure AI Search for indexing and queries
 
