@@ -101,7 +101,7 @@
       href: ssl-certificate-management.md
   - name: Monitoring
     items:
-    - name: Overview of Monitoring
+    - name: Overview of monitoring
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
