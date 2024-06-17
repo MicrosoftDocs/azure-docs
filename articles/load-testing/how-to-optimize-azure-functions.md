@@ -36,7 +36,7 @@ Performance optimizer allows you to test different configurations to help you fi
 
 1. Go to your Functions app hosted on Flex Consumption plan.
 
-1. Select Performance Optimizer in the Performance section of your app.
+1. From the *Performance* section of your app, select **Performance Optimizer**.
 
 1. If you don’t have an Azure Load Testing resource in the subscription, create one by clicking Create Load Testing resource.
 
