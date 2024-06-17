@@ -16,7 +16,7 @@ ms.topic: how-to
 
 This document outlines various scenarios for connecting a source database to an Azure Database for PostgreSQL using the migration service. Each scenario presents different networking requirements and configurations to establish a successful connection for migration. Specific details vary based on the actual network setup and requirements of the source and target environments.
 
-The table below summarizes the scenarios for connecting a source database to an Azure Database for PostgreSQL using the migration service. It indicates whether each scenario is supported based on the configurations of the source and target environments.
+The table summarizes the scenarios for connecting a source database to an Azure Database for PostgreSQL using the migration service. It indicates whether each scenario is supported based on the configurations of the source and target environments.
 
 | PostgreSQL Source | Target | Supported |
 | --- | --- | --- |
@@ -154,7 +154,7 @@ Completing these steps enables the Azure Database for PostgreSQL - Flexible Serv
 
 ## Scenario 8: Azure Database for PostgreSQL single server with private endpoint to Azure Database for PostgreSQL flexible server with private endpoint
 
-Below are the essential networking steps for migrating from a Single Server with a private endpoint to a Flexible Server with a private endpoint in Azure PostgreSQL, including the integration of a runtime server's virtual network with private endpoint configurations.
+Below are the essential networking steps for migrating from a Single Server with a private endpoint to a Flexible Server with a private endpoint in Azure PostgreSQL, including the integration of a runtime server's virtual network with private endpoint configurations. For more information about the Runtime Server, visit the [Migration Runtime Server](concepts-migration-service-runtime-server.md).
 
 - **Gather Private Endpoint Details for Single Server**
     - Access the Azure portal and locate the Azure Database for PostgreSQL - Single Server instance.
@@ -169,7 +169,7 @@ Below are the essential networking steps for migrating from a Single Server with
     :::image type="content" source="media/how-to-network-setup-migration-service/flexible-server-private-endpoint.png" alt-text="Screenshot of Flexible Server with PE." lightbox="media/how-to-network-setup-migration-service/flexible-server-private-endpoint.png":::
 
 - **Gather VNET details for Migration Runtime Server**
-    - Access the Azure portal and locate the migration runtime server, that is, Azure Database for PostgreSQL - Flexible Server (VNETc Integrated) instance.
+    - Access the Azure portal and locate the migration runtime server, that is, Azure Database for PostgreSQL - Flexible Server (VNET Integrated) instance.
     - Record the Virtual Network (virtual network) and subnet details listed under the virtual network.
 
     :::image type="content" source="media/how-to-network-setup-migration-service/instance-vnet.png" alt-text="Screenshot of migration runtime server with virtual network." lightbox="media/how-to-network-setup-migration-service/instance-vnet.png":::
@@ -190,21 +190,21 @@ Below are the essential networking steps for migrating from a Single Server with
 
     :::image type="content" source="media/how-to-network-setup-migration-service/source-dns-zone.png" alt-text="Screenshot of private DNS zone of source/target server." lightbox="media/how-to-network-setup-migration-service/source-dns-zone.png":::
 
-## Scenario 9: On-Premises, Azure VM, AWS RDS with private IPs to Azure Database for PostgreSQL flexible server with private endpoint
+## Scenario 9: On-premises, Azure VM, AWS RDS with private IPs to Azure Database for PostgreSQL flexible server with private endpoint
 
-Below are the networking steps for migrating a PostgreSQL database from an on-premises environment, Azure VM, or AWS instance—all of which are configured with private IPs—to an Azure Database for PostgreSQL Flexible Server that is secured with a private endpoint. The migration ensures secure data transfer within a private network space, using Azure's VPN or ExpressRoute for on-premises connections and virtual network peering or VPN for cloud-to-cloud migrations.
+Below are the networking steps for migrating a PostgreSQL database from an on-premises environment, Azure VM, or AWS instance—all of which are configured with private IPs—to an Azure Database for PostgreSQL Flexible Server that is secured with a private endpoint. The migration ensures secure data transfer within a private network space, using Azure's VPN or ExpressRoute for on-premises connections and virtual network peering or VPN for cloud-to-cloud migrations. For more information about the Runtime Server, visit the [Migration Runtime Server](concepts-migration-service-runtime-server.md).
 
 - **Establish Network Connectivity:**
    - For on-premises sources, set up a Site-to-Site VPN or ExpressRoute to connect your local network to Azure's virtual network.
    - For Azure VM or AWS instances, ensure virtual network peering or a VPN gateway or a ExpressRoute is in place for secure connectivity to Azure's virtual network.
 
 - **Gather VNET details for Migration Runtime Server**
-    - Access the Azure portal and locate the migration runtime server, i.e., Azure Database for PostgreSQL - Flexible Server (VNETc Integrated) instance.
+    - Access the Azure portal and locate the migration runtime server, that is, Azure Database for PostgreSQL - Flexible Server (VNET Integrated) instance.
     - Record the Virtual Network (virtual network) and subnet details listed under the virtual network.
 
 - **Assess VNet Peering Requirements**
     - Enable virtual network peering if the servers are in different VNets; no peering is needed in the same virtual network but with different subnets.
-    - Ensure no NSGs are blocking traffic between the source, migration runtime and target servers.
+    - Ensure no NSGs are blocking traffic between the source, migration runtime, and target servers.
 
 - **Private DNS Zone Configuration**
     - Verify the use of a private DNS zone on the networking page of the Migration Runtime Server.

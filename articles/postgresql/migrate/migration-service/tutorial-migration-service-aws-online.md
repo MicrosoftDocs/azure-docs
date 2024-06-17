@@ -163,7 +163,7 @@ Some possible migration states:
 | State | Description |
 | --- | --- |
 | **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
-| **Cancelled** | The migration is canceled or deleted. |
+| **Canceled** | The migration is canceled or deleted. |
 | **Failed** | The migration has failed. |
 | **Validation Failed** | The validation has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
@@ -224,77 +224,70 @@ Once the CLI is installed, open the command prompt and log into your Azure accou
 
 ### Configure the migration task
 
-To begin the migration, create a JSON file with the migration details. The JSON file contains the following information:
+To begin the migration, you need to create a JSON file with the migration details. The JSON file contains the following information:
 
 - Edit the below placeholders `<< >>` in the JSON lines and store them in the local machine as `<<filename>>.json` where the CLI is being invoked. In this tutorial, we have saved the file in C:\migration-CLI\migration_body.json
 
 ```bash
 {
-"properties": {
-"SourceDBServerResourceId": "<<source hostname or IP address>>:<<port>>@<<username>>",
-        "SecretParameters": {
-            "AdminCredentials": {
-                "SourceServerPassword": "<<Source Password>>",
-                "TargetServerPassword": "<<Target Password>>"
-            }
-        },
-     "targetServerUserName":"<<Target username>>",
-        "DBsToMigrate": [
-           "<<comma separated list of databases like - "ticketdb","timedb","inventorydb">>"
-        ],
-        "OverwriteDBsInTarget": "true",
-        "MigrationMode": "Online",
-        "sourceType": "AWS_RDS",
-        "sslMode": "Require"
-    }
+	"properties": {
+		"SourceDBServerResourceId": "<<source hostname or IP address>>:<<port>>@<<username>>",
+		"SecretParameters": {
+			"AdminCredentials": {
+				"SourceServerPassword": "<<Source Password>>",
+				"TargetServerPassword": "<<Target Password>>"
+			},
+			"targetServerUserName": "<<Target username>>"
+		},
+		"DBsToMigrate": "<<comma separated list of databases in a array like - ["ticketdb","timedb","inventorydb"]>>",
+		"OverwriteDBsInTarget": "true",
+		"sourceType": "AWS_RDS",
+		"sslMode": "Require"
+	}
 }
 ```
 
 - Run the following command to check if any migrations are running. The migration name is unique across the migrations within the Azure Database for PostgreSQL flexible server target.
 
-    ```bash
-    az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
+    ```azurecli-interactive
+    az postgres flexible-server migration list --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --filter All
     ```
 
 - In the above steps, there are no migrations performed so we start with the new migration by running the following command
 
-    ```bash
-    az postgres flexible-server migration create --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
+    ```azurecli-interactive
+    az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --migration-mode online --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
     ```
 
 - Run the following command to initiate the migration status in the previous step. You can check the status of the migration by providing the migration name
 
-    ```bash
-    az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
+    ```azurecli-interactive
+    az postgres flexible-server migration show --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
     ```
 
 - The status of the migration progress is shown in the Azure CLI.
-
 - You can also see the status of the Azure Database for PostgreSQL flexible server in the Azure portal.
+
+- You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
+
+    ```azurecli-interactive
+    az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
+    ```
 
 #### Cutover
 
-After the base data migration is complete in online migrations, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, the user can trigger the cutover through the CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
+- After the base data migration is complete in online migrations, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, the user can trigger the cutover through the CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
+- You can also initiate the cutover from the Azure portal.
 
-```bash
-az postgres flexible-server migration update --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --cutover
-```
-
--  You can also see the status in the Azure Database for PostgreSQL – Flexible server portal
-
-### Cancel the migration
-
-You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
-
-```azurecli-interactive
-az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
-```
+    ```azurecli-interactive
+    az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --cutover
+    ```
 
 ---
 
 ## Check the migration when complete
 
-After completing the databases, you need to manually validate the data between the source and the target and verify that all the objects in the target database are successfully created.
+After completing the databases, you need to manually validate the data between the source, and the target and verify that all the objects in the target database are successfully created.
 
 After migration, you can perform the following tasks:
 

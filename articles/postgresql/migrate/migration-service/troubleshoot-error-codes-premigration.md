@@ -17,6 +17,33 @@ This article contains error message numbers and their description for premigrati
 
 The following tables provide a comprehensive list of error codes for the migration service feature in Azure Database for PostgreSQL. These error codes help you troubleshoot and resolve issues during the migration process. Each error code has an error message and other details that provide further context and guidance for resolving the issue.
 
+## Connection timeouts
+
+### Symptoms
+
+Migration failures often manifest through error messages that indicate connectivity issues. These issues can arise during the data transfer process. When such failures occur, they result in the following error messages:
+
+- server closed the connection unexpectedly
+- SSL SYSCALL error: EOF detected
+- unexpected EOF on client connection
+- could not receive data from client: Connection reset by peer
+
+### Cause
+
+The underlying cause for these symptoms is a `connection timeout`. This occurs when the server or the client expects to receive data within a certain time frame, but no data is sent or received, leading the connection to time out. The specific reasons for a connection timeout can vary, but common factors include network congestion, misconfigured network settings, or overly aggressive timeout settings.
+
+In the context of migration service in Azure Database for PostgreSQL, a connection timeout between the source and the migration service or between the migration service and the target can interrupt the data transfer process, resulting in the symptoms described above.
+
+### Resolution
+
+- To address the connection timeout issues, adjust the TCP parameters on both the source and target servers as follows:
+
+    - `tcp_keepalives_idle=10`
+    - `tcp_keepalives_interval=10`
+    - `tcp_keepalives_count=60`
+
+These settings will help maintain the connection by sending keepalive probes to prevent timeouts due to inactivity. Importantly, modifying these TCP parameters does not require a restart of the source or target PostgreSQL instances. Changes can be applied dynamically, allowing for a seamless continuation of service without interrupting the database operations.
+
 ## Premigration validation error codes
 
 | Error Code | Error message | Resolution |
@@ -45,19 +72,6 @@ The following tables provide a comprehensive list of error codes for the migrati
 | 603409 | User-defined casts present. Source database `{0}` contains user-defined casts that can't be migrated to the target server. | N/A |
 | 603410 | System table permission error. Users have access to system tables like pg_authid and pg_shadow that can't be migrated to the target. Revoke these permissions and retry the migration. | Validating the default permissions granted to `pg_catalog` tables/views (such as `pg_authid` and `pg_shadow`) is essential. However, these permissions can't be assigned to the target. Specifically, User `{1}` possesses `{2}` permissions, while User `{3}` holds `{4}` permissions. For a workaround, visit https://aka.ms/troubleshooting-user-roles-permission-ownerships-issues. |
 
-## Connection timeouts
-
-### Symptoms
-
-When attempting to connect to the source server, the connection times out, and the migration service displays an error message.
-
-### Cause
-
-The connection timeout issue can occur due to various reasons, such as network connectivity issues, firewall restrictions, or high server load. It could also be caused by incorrect connection settings or misconfiguration of the source server.
-
-### Resolution
-
-To resolve the connection timeout issue, follow these steps.
 
 ## Related content
 

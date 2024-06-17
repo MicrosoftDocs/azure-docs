@@ -56,11 +56,11 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. Select the **Create** button to migrate from an Azure virtual machine (VM) or an on-premises PostgreSQL server to the Flexible Server. If this is your first time using the migration service, an empty grid appears with a prompt to begin your first migration.
 
-    :::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-create-migration.png" alt-text="Screenshot of Createmigration.":::
+    :::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-create-migration.png" alt-text="Screenshot of Create migration.":::
 
     If you've already created migrations to your Flexible Server target, the grid contains information about attempted migrations.
 
-1. Select the ** Create ** button. Then, you go through a wizard-based series of tabs to create a migration into this Flexible Server target from the PostgreSQL source Server.
+1. Select the **Create** button. Then, you go through a wizard-based series of tabs to create a migration into this Flexible Server target from the PostgreSQL source Server.
 
 #### Setup
 
@@ -204,9 +204,9 @@ The time depends on the backlog of changes occurring in the last 15 minutes. Hen
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
-Canceling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
+Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
 
-Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
+Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
 
 #### [CLI](#tab/cli)
 
@@ -234,59 +234,55 @@ To begin the migration, create a JSON file with the migration details. The JSON 
             "AdminCredentials": {
                 "SourceServerPassword": "<<Source Password>>",
                 "TargetServerPassword": "<<Target Password>>"
-            }
+            },
+			"targetServerUserName": "<<Target username>>"
         },
-     "targetServerUserName":"<<Target username>>",
-        "DBsToMigrate": [
-           "<<comma separated list of databases like - "ticketdb","timedb","inventorydb">>"
-        ],
+        "DBsToMigrate": "<<comma separated list of databases in a array like - ["ticketdb","timedb","inventorydb"]>>",
         "OverwriteDBsInTarget": "true",
-        "MigrationMode": "Online",
         "sourceType": "OnPremises",
         "sslMode": "Prefer"
     }
 }
 ```
 
+> [!NOTE]  
+> When configuring the JSON properties for the migration to Azure Database for PostgreSQL Flexible Server, if your source environment is an Azure Virtual Machine, you can specify the source type using the `"sourceType":"AzureVM"` property. This helps the migration service understand the environment from which the data is being migrated.
+
 - Run the following command to check if any migrations are running. The migration name is unique across the migrations within the Azure Database for PostgreSQL flexible server target.
 
-    ```bash
-    az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
+    ```azurecli-interactive
+    az postgres flexible-server migration list --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --filter All
     ```
 
 - In the above steps, there are no migrations performed so we start with the new migration by running the following command
 
-    ```bash
-    az postgres flexible-server migration create --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
+    ```azurecli-interactive
+    az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --migration-mode online --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
     ```
 
 - Run the following command to initiate the migration status in the previous step. You can check the status of the migration by providing the migration name
 
-    ```bash
-    az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
+    ```azurecli-interactive
+    az postgres flexible-server migration show --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
     ```
 
 - The status of the migration progress is shown in the Azure CLI.
-
 - You can also see the status of the Azure Database for PostgreSQL flexible server in the Azure portal.
+
+- You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
+
+    ```azurecli-interactive
+    az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
+    ```
 
 #### Cutover
 
-After the base data migration is complete in online migrations, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, the user can trigger the cutover through the CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
+- After the base data migration is complete in online migrations, the migration task moves to the `WaitingForCutoverTrigger` substate. In this state, the user can trigger the cutover through the CLI using the command below. The cutover can also be triggered from the portal by selecting the migration name in the migration grid.
+- You can also initiate the cutover from the Azure portal.
 
-```bash
-az postgres flexible-server migration update --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --cutover
-```
-
--  You can also see the status in the Azure Database for PostgreSQL – Flexible server portal
-
-### Cancel the migration
-
-You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
-
-```azurecli-interactive
-az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
-```
+    ```azurecli-interactive
+    az postgres flexible-server migration update --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --cutover
+    ```
 
 ---
 

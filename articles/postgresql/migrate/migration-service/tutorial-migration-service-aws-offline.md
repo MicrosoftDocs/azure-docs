@@ -76,7 +76,7 @@ The user needs to provide multiple details related to the migration, such as the
 - **Migration Option** - Allows you to perform validations before triggering a migration. You can pick any of the following options
     - **Validate** - Checks your server and database readiness for migration to the target.
     - **Migrate** - Skips validations and starts migrations.
-    - **Validate and Migrate**—Performs validation before triggering a migration. If there are no validation failures, the migration is triggered.
+    - **Validate and Migrate** — Performs validation before triggering a migration. If there are no validation failures, the migration is triggered.
 
 Choosing the **Validate** or **Validate and Migrate** option is always a good practice for performing premigration validations before running the migration.
 
@@ -141,7 +141,7 @@ After selecting the databases, select the **Next: Summary**
 
 The Summary tab summarizes all the source and target details for creating the validation or migration. Review the details and select the Start Validation and Migration button.
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/04-portal-offline-select-migration-target-aws.png" alt-text="Screenshot of the summary migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/06-portal-offline-summary-aws.png" alt-text="Screenshot of the summary migration page.":::
 
 ### Monitor the migration
 
@@ -180,7 +180,7 @@ Some possible migration states:
 | State | Description |
 | --- | --- |
 | **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
-| **Cancelled** | The migration is canceled or deleted. |
+| **Canceled** | The migration is canceled or deleted. |
 | **Failed** | The migration has failed. |
 | **Validation Failed** | The validation has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
@@ -237,14 +237,11 @@ To begin the migration, you need to create a JSON file with the migration detail
             "AdminCredentials": {
                 "SourceServerPassword": "<<Source Password>>",
                 "TargetServerPassword": "<<Target Password>>"
-            }
+            },
+			"targetServerUserName": "<<Target username>>"
         },
-     "targetServerUserName":"<<Target username>>",
-        "DBsToMigrate": [
-           "<<comma separated list of databases like - "ticketdb","timedb","inventorydb">>"
-        ],
+        "DBsToMigrate": "<<comma separated list of databases in a array like - ["ticketdb","timedb","inventorydb"]>>",
         "OverwriteDBsInTarget": "true",
-        "MigrationMode": "Offline",
         "sourceType": "AWS_RDS",
         "sslMode": "Require"
     }
@@ -253,39 +250,36 @@ To begin the migration, you need to create a JSON file with the migration detail
 
 - Run the following command to check if any migrations are running. The migration name is unique across the migrations within the Azure Database for PostgreSQL flexible server target.
 
-    ```bash
-    az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
+    ```azurecli-interactive
+    az postgres flexible-server migration list --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --filter All
     ```
 
 - In the above steps, there are no migrations performed so we start with the new migration by running the following command
 
-    ```bash
-    az postgres flexible-server migration create --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
+    ```azurecli-interactive
+    az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --migration-mode offline --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
     ```
 
 - Run the following command to initiate the migration status in the previous step. You can check the status of the migration by providing the migration name
 
-    ```bash
-    az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
+    ```azurecli-interactive
+    az postgres flexible-server migration show --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
     ```
 
 - The status of the migration progress is shown in the Azure CLI.
-
 - You can also see the status of the Azure Database for PostgreSQL flexible server in the Azure portal.
 
-### Cancel the migration
+- You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
 
-You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
-
-```azurecli-interactive
-az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
-```
+    ```azurecli-interactive
+    az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
+    ```
 
 ---
 
 ## Check the migration when complete
 
-After completing the databases, you need to manually validate the data between the source and the target and verify that all the objects in the target database are successfully created.
+After completing the databases, you need to manually validate the data between the source, and the target and verify that all the objects in the target database are successfully created.
 
 After migration, you can perform the following tasks:
 

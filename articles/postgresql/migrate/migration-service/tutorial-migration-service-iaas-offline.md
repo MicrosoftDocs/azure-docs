@@ -130,7 +130,7 @@ After the successful test connection, select the **Next: Select Database(s) for 
 
 #### Select databases for migration
 
-Under the **Select database for migration** tab, you can choose a list of user databases to migrate from your source PostgreSQL server.
+Under the **Selected database for migration** tab, you can choose a list of user databases to migrate from your source PostgreSQL server.
 
 After selecting the databases, select the **Next: Summary**.
 
@@ -178,7 +178,7 @@ Some possible migration states:
 | State | Description |
 | --- | --- |
 | **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
-| **Cancelled** | The migration is canceled or deleted. |
+| **Canceled** | The migration is canceled or deleted. |
 | **Failed** | The migration has failed. |
 | **Validation Failed** | The validation has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
@@ -207,8 +207,8 @@ Some possible migration states:
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
-- Canceling a validation stops further validation activity, and the validation moves to a **Cancelled** state.
-- Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action returns all changes the migration service makes on your target server.
+- Canceling a validation stops further validation activity, and the validation moves to a **Canceled** state.
+- Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. The cancel action returns all changes the migration service makes on your target server.
 
 #### [CLI](#tab/cli)
 
@@ -236,49 +236,46 @@ To begin the migration, create a JSON file with the migration details. The JSON 
             "AdminCredentials": {
                 "SourceServerPassword": "<<Source Password>>",
                 "TargetServerPassword": "<<Target Password>>"
-            }
+            },
+			"targetServerUserName": "<<Target username>>"
         },
-        "targetServerUserName":"<<Target username>>",
-        "DBsToMigrate": [
-            "<<comma separated list of databases like - "ticketdb","timedb","salesdb">>"
-        ],
+        "DBsToMigrate": "<<comma separated list of databases in a array like - ["ticketdb","timedb","inventorydb"]>>",
         "OverwriteDBsInTarget": "true",
-        "MigrationMode": "Offline",
         "sourceType": "OnPremises",
         "sslMode": "Prefer"
     }
 }
 ```
 
+> [!NOTE]  
+> When configuring the JSON properties for the migration to Azure Database for PostgreSQL Flexible Server, if your source environment is an Azure Virtual Machine, you can specify the source type using the `"sourceType":"AzureVM"` property. This helps the migration service understand the environment from which the data is being migrated.
+
 - Run the following command to check if any migrations are running. The migration name is unique across the migrations within the Azure Database for PostgreSQL flexible server target.
 
-    ```bash
-    az postgres flexible-server migration list --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --filter All
+    ```azurecli-interactive
+    az postgres flexible-server migration list --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --filter All
     ```
 
 - In the above steps, there are no migrations performed so we start with the new migration by running the following command
 
-    ```bash
-    az postgres flexible-server migration create --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Unique Migration Name>> --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
+    ```azurecli-interactive
+    az postgres flexible-server migration create --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1 --migration-mode offline --migration-option ValidateAndMigrate --properties "C:\migration-cli\migration_body.json"
     ```
 
 - Run the following command to initiate the migration status in the previous step. You can check the status of the migration by providing the migration name
 
-    ```bash
-    az postgres flexible-server migration show --subscription <<subscription ID>> --resource-group <<resource group name>> --name <<Name of the Flexible Server>> --migration-name <<Migration ID>>
+    ```azurecli-interactive
+    az postgres flexible-server migration show --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
     ```
 
 - The status of the migration progress is shown in the Azure CLI.
-
 - You can also see the status of the Azure Database for PostgreSQL flexible server in the Azure portal.
 
-### Cancel the migration
+- You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
 
-You can cancel any ongoing migration attempts using the `cancel` command. This command stops the particular migration attempt and rolls back all changes on your target server. Here's the CLI command to delete a migration:
-
-```azurecli-interactive
-az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1"
-```
+    ```azurecli-interactive
+    az postgres flexible-server migration update cancel --subscription 11111111-1111-1111-1111-111111111111 --resource-group my-learning-rg --name myflexibleserver --migration-name migration1
+    ```
 
 ---
 
