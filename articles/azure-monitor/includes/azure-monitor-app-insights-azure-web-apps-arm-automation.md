@@ -9,7 +9,7 @@ ms.author: aaronmax
 
 ### App Service application settings with Azure Resource Manager
 
-Application settings for Azure App Service can be managed and configured with [Azure Resource Manager templates](../articles/azure-resource-manager/templates/syntax.md). You can use this method when you deploy new App Service resources with Resource Manager automation or modify the settings of existing resources.
+Application settings for Azure App Service can be managed and configured with [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md). You can use this method when you deploy new App Service resources with Resource Manager automation or modify the settings of existing resources.
 
 The basic structure of the application settings JSON for an App Service resource:
 
@@ -43,11 +43,11 @@ To create a Resource Manager template with the default Application Insights sett
 
 1. Select **Review + create**. Then select **Download a template for automation**.
 
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." lightbox="../articles/azure-monitor/app/media/azure-web-apps/create-web-app.png":::
+    :::image type="content" source="../app/media/azure-web-apps/create-web-app.png" alt-text="Screenshot that shows the App Service web app creation menu." lightbox="../app/media/azure-web-apps/create-web-app.png":::
 
     This option generates the latest Resource Manager template with all required settings configured.
     
-    :::image type="content" source="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png" alt-text="Screenshot that shows an App Service web app template." border="false" lightbox="../articles/azure-monitor/app/media/azure-web-apps/arm-template.png":::
+    :::image type="content" source="../app/media/azure-web-apps/arm-template.png" alt-text="Screenshot that shows an App Service web app template." border="false" lightbox="../app/media/azure-web-apps/arm-template.png":::
 
 In the following sample, replace all instances of `AppMonitoredSite` with your site name:
 
@@ -153,7 +153,7 @@ In the following sample, replace all instances of `AppMonitoredSite` with your s
 
 To enable the application monitoring through PowerShell, only the underlying application settings must be changed. The following sample enables application monitoring for a website called `AppMonitoredSite` in the resource group `AppMonitoredRG`. It configures data to be sent to the `012345678-abcd-ef01-2345-6789abcd` instrumentation key.
 
-[!INCLUDE [updated-for-az](./updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../updated-for-az.md)]
 
 > [!NOTE]
 > If using Windows, set ApplicationInsightsAgent_EXTENSION_VERSION to `~2`. If using Linux, set ApplicationInsightsAgent_EXTENSION_VERSION to `~3`.
