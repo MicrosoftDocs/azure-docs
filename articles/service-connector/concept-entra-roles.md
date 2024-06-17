@@ -49,7 +49,7 @@ For more information about these roles, go to [Azure built-in roles](../role-bas
 
 When creating a new connection in Service connector, users can choose other roles than the default ones. This is done in the Azure portal in the Service Connector menu, in the **Authentication** tab, under **Advanced** > **Role**.
 
-:::image type="content" source="./media/roles/customize-role.png" alt-text="Screenshot of the Azure portal, showing how to edit a connection's role.":::
+:::image type="content" source="./media/entra-roles/customize-role.png" alt-text="Screenshot of the Azure portal, showing how to edit a connection's role.":::
 
 ## Related content
 
