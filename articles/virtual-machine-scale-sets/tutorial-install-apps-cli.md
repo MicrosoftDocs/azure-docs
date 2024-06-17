@@ -44,9 +44,6 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 }
 ```
 
-> [!NOTE]
-> You may need to invert the use of the single (') and double quotes (") within the JSON block if you decide to reference the JSON directly (instead of referencing the *customConfig.json* file) in the *--settings* parameter below. 
-
 ## Create a scale set
 
 > [!IMPORTANT]
@@ -92,7 +89,7 @@ Each VM instance in the scale set downloads and runs the script from GitHub. In 
 > File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
 
 ## Allow traffic to port 80 
-To allow traffic to flow through the load balancer to the virtual machines the default network security group needs to be updated. 
+To allow traffic to the application, add a network security group rule. 
 
 ```azurecli-interactive
 az network nsg rule create --name AllowHTTP --resource-group myResourceGroup --nsg-name myScaleSetNSG --access Allow --priority 1010 --destination-port-ranges 80 
