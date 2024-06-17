@@ -68,7 +68,7 @@ A test profile describes your function app configuration, request details, and l
 1. In the *Request details* section, enter the request details for your function app. You can specify the request method, URL, and headers.
 
 
-1. Select **Add request** to add HTTP requests to the load test:
+1. Select **Add request** to add HTTP requests to the load test.
 
     On the **Add request** page, enter the details for the request:
 
