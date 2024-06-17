@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 # Moving an Azure Key Vault to another subscription
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Overview
 

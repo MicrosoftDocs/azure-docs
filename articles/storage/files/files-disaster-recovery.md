@@ -76,7 +76,7 @@ Write access is restored for geo-redundant accounts once the DNS entry has been 
 > [!IMPORTANT]
 > After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint/region. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
-> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](../common/storage-initiate-account-failover.md#important-implications-of-account-failover).
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [The time and cost of failing over](../common/storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over).
 
 ### Anticipate data loss
 

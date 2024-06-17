@@ -314,7 +314,7 @@ To verify that Shared Key authorization is no longer permitted, you can query th
 az storage account show \
     --name <storage-account-name> \
     --resource-group <resource-group-name> \
-    --query "allow-shared-key-access"
+    --query "allowSharedKeyAccess"
 ```
 
 The command returns **false** if Shared Key authorization is disallowed for the storage account.
