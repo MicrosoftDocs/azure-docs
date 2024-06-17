@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
-ms.date: 06/06/2024
+ms.date: 06/17/2024
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
@@ -143,7 +143,7 @@ While Microsoft Sentinel is also available in the [Microsoft Defender portal](mi
 
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
-|[SOC optimizations](soc-optimization/soc-optimization-access.md) |Public preview |&#x2705; |&#10060; |&#10060; |
+|[SOC optimizations](soc-optimization/soc-optimization-access.md) |Supported for production use|&#x2705; |&#10060; |&#10060; |
 
 ## SAP
 
