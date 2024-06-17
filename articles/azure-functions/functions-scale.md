@@ -80,7 +80,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 1. During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan.  <br/>
 2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
-4. On Container Apps, you can set the [maximum number of replicas](../articles/container-apps/scale-app.md#scale-definition), which is honored as long as there's enough cores quota available.
+4. On Container Apps, you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which is honored as long as there's enough cores quota available.
 
 ## Cold start behavior
 
@@ -90,7 +90,7 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | **[Flex Consumption plan]** | Supports [always ready instances](./flex-consumption-plan.md#always-ready-instances) to reduce the delay when provisioning new instances. |
 | **[Premium plan]** | Supports [always ready instances](./functions-premium-plan.md#always-ready-instances) to avoid cold starts by letting you maintain one or more _perpetually warm_ instances. |
 | **[Dedicated plan]** | When running in a Dedicated plan, the Functions host can run continuously on a prescribed number of instances, which means that cold start isn't really an issue. |
-| **[Container Apps]** | Depends on the [minimum number of replicas](../articles/container-apps/scale-app.md#scale-definition):<br/> • When set to zero: apps can scale to zero when idle and some requests might have more latency at startup.<br/>• When set to one or more: the host process runs continuously, which means that cold start isn't an issue.  | 
+| **[Container Apps]** | Depends on the [minimum number of replicas](../container-apps/scale-app.md#scale-definition):<br/> • When set to zero: apps can scale to zero when idle and some requests might have more latency at startup.<br/>• When set to one or more: the host process runs continuously, which means that cold start isn't an issue.  | 
 
 ## Service limits
 
