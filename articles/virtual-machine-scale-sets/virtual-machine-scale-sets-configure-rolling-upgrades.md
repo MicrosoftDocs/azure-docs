@@ -20,8 +20,6 @@ ms.custom: upgradepolicy, devx-track-azurepowershell
 >
 > Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of these features may change prior to general availability (GA). 
 
-
-
 Rolling upgrade policy is the safest way to apply updates to instances in a Virtual Machine Scale Set. Performing updates in batches ensures that your scale set maintains a set number of instances available to take traffic, meaning you don't need to take down your entire workload to make a change. 
 
 Rolling upgrade policy is best suited for production workloads.
@@ -79,12 +77,14 @@ Update an existing Virtual Machine Scale Set using [az vmss update](/cli/azure/v
 az vmss update \
 	--name myScaleSet \
 	--resource-group myResourceGroup \
+  --set upgradePolicy.mode=Rolling \
 	--max-batch-instance-percent 10 \
 	--max-unhealthy-instance-percent 20 \
 	--max-unhealthy-upgraded-instance-percent 20 \
 	--prioritize-unhealthy-instances true \
 	--pause-time-between-batches PT2S \
 	--max-surge true 
+
 ```
 
 ### [PowerShell](#tab/powershell1)
