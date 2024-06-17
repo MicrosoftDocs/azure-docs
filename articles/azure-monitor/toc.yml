@@ -741,7 +741,7 @@ items:
         - name: AMA migration helper workbook  
           href: agents/azure-monitor-agent-migration-helper-workbook.md
         - name: DCR Config Generator
-          href: agents/azure-monitor-agent-migration-dcr-generator.md 
+          href: agents/azure-monitor-agent-migration-data-collection-rule-generator.md 
         - name: MMA removal tool
           href: agents/azure-monitor-agent-mma-removal-tool.md
         - name: Migration custom text log tables

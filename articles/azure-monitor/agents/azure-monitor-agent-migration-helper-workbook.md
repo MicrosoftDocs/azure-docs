@@ -29,7 +29,7 @@ This page provides a high-level view of the resources in your subscriptions, whi
 On the subscriptions overview tab, the workbook automatically detects the following resources:
 - Subscriptions 
 - Workspaces
-- Azure VMs
+- Azure Virtual Machiness
 - Virtual Machine Scale Sets
 - Arc-enabled servers
 - Hybrid machines without Arc where the legacy agent is deployed
@@ -60,9 +60,9 @@ The following image shows the migration status table with the following statuses
 
   :::image type="content" source="./media/azure-monitor-agent-migration-helper-workbook/migration-status.png" lightbox="./media/azure-monitor-agent-migration-helper-workbook/migration-status.png" alt-text="A screenshot showing the migration status table.":::
 
-### Azure Virtual Machines, VM Scale Sets, and Arc-enabled servers tabs
+### Azure Virtual Machines, Azure Virtual Machine Scale Sets, and Arc-enabled servers tabs
 
-The Azure Virtual Machines and Scale Sets tabs provides a detailed view of the Azure VMs, VM scale sets and Arc-enabled serves in your subscriptions. These machines are listed regardless of the workspace to which they send telemetry. 
+The Azure Virtual Machines and Scale Sets tabs provides a detailed view of the Azure Virtual Machines, Virtual Machine Scale Sets and Arc-enabled serves in your subscriptions. These machines are listed regardless of the workspace to which they send telemetry. 
 The table provides a view of the migration status is per machine showing which agents are deployed, the last time a heartbeat was sent to one of your workspaces, and the migration status. 
 
  :::image type="content" source="./media/azure-monitor-agent-migration-helper-workbook/azure-virtual-machines-tab.png" lightbox="./media/azure-monitor-agent-migration-helper-workbook/azure-virtual-machines-tab.png" alt-text="A screenshot showing the Azure Virtual Machines migration status tab.":::

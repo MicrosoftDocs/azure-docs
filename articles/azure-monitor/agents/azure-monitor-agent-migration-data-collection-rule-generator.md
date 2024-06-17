@@ -11,7 +11,7 @@ ms.date: 06/16/2024
 
 ---
 
-# Convert workspace configuration to DCR configurations.
+# Convert workspace configuration to DCR configurations
 
 Whereas Log Analytics Agent inherits its configuration from Log Analytics workspaces, the Azure Monitor Agent relies on data collection rules (DCRs) for configuration
 

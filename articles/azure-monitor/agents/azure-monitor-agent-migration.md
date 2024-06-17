@@ -32,16 +32,16 @@ To monitor non-Azure and on-premises servers, you must install the Azure Arc age
 - Verify that Azure Monitor Agent can address all of your needs. Azure Monitor Agent is General Availability (GA) for data collection and is used for data collection by various Azure Monitor features and other Azure services.
 -  Verify that you have the necessary permissions to install the Azure Monitor Agent. You must have the necessary permissions to install the agent on the machines you want to monitor. For more information, see [Permissions required to install the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage#permissions-required-to-install-the-azure-monitor-agent).
 
-## High level guidance.
+## High level guidance
 
 Use the following guidance to plan and execute your migration:
 
-1. Understand your agents and how many you have to migrate.
-1. Understand how you're using your workspaces.
-1. Understand which solutions, insights, and data collections that are configured.
-1. Configure your data collections and validate the collections.
-1. Understand additional dependencies and services.
-1. Remove the legacy agents.
+- Understand your agents and how many you have to migrate.
+- Understand how you're using your workspaces.
+- Understand which solutions, insights, and data collections that are configured.
+- Configure your data collections and validate the collections.
+- Understand additional dependencies and services.
+- Remove the legacy agents.
 
 The **Azure Monitor Agent Migration Helper** workbook is a workbook-based Azure Monitor solution that can help you at each of the steps outlined above. This guide references the workbook and other tools at each stage of the migration process. For more information, see [Azure Monitor Agent Migration Helper workbook](./azure-monitor-agent-migration-helper-workbook.md).
 
@@ -67,13 +67,13 @@ When looking at your workspaces, note which solutions are configured. This infor
 
 The Azure Monitor Agent Migration Helper Workbook can help you understand which workspaces you have, and the solutions implemented in each workspace, and when you last used the solution. Each solution has a migration recommendation. For more information, see [Azure Monitor Agent migration helper workbook- Workspaces](./azure-monitor-agent-migration-helper-workbook.md#workspaces)
 
-You can also the Azure Monitor Workspace Auditing workbook to help you understand your workspaces.  To use the Azure Monitor Workspace Auditing workbook, copy the workbook from the [GitHub repository](https://github.com/microsoft/AzureMonitorCommunity/blob/master/Azure%20Services/Log%20Analytics%20workspaces/Workbooks/Workspace%20Audit.json) and import it into your Log Analytics workspace. 
+You can also use the Azure Monitor Workspace Auditing workbook to help you understand your workspaces.  To use the Azure Monitor Workspace Auditing workbook, copy the workbook from the [GitHub repository](https://github.com/microsoft/AzureMonitorCommunity/blob/master/Azure%20Services/Log%20Analytics%20workspaces/Workbooks/Workspace%20Audit.json) and import it into your Log Analytics workspace. 
 
 This workbook collects all of your Log Analytics workspaces and shows you the following for each workspace:
-1. All data sources that are sending data to the workspace.
-1. The agents that are sending heartbeats to the workspace. 
-1. The resources that are sending data to the workspace.
-1. Any Application Insights resources that are sending data to the workspace.
+- All data sources that are sending data to the workspace.
+- The agents that are sending heartbeats to the workspace. 
+- The resources that are sending data to the workspace.
+- Any Application Insights resources that are sending data to the workspace.
 
 For more information, see [Azure Monitor Workspace Auditing workbook](./azure-monitor-agent-migration-helper-workbook.md#workspace-auditing-workbook).
 
@@ -82,14 +82,14 @@ For more information, see [Azure Monitor Workspace Auditing workbook](./azure-mo
 
 When configuring your data collections, consider the following steps:
 
-1. Identify a pilot group of servers that you can use for this process. Use the pilot servers to validate the data before you deploy at scale.
+- Identify a pilot group of servers that you can use for this process. Use the pilot servers to validate the data before you deploy at scale.
 
-1. Use the DCR Config Generator to transform the data collections that are configured in the workspace and deploy them as data collection rules back into your environment. For more information on the DCR Config Generator, see [DCR Config Generator](./azure-monitor-agent-migration-dcr-generator.md).
-1. Migrate VM Insights or Azure Monitor for Virtual Machines to the Azure Monitor Agent. Validate the migrated data collections for the pilot group of servers compared with what was collected before migration. To avoid double ingestion, you can disable data collection from legacy agents during the testing phase without uninstalling the agents yet, by removing the workspace configurations for legacy agents. For more information, see [Log Analytics agent data sources in Azure Monitor](/azure/azure-monitor/agents/agent-data-sources#configure-data-sources)
+- Use the DCR Config Generator to transform the data collections that are configured in the workspace and deploy them as data collection rules back into your environment. For more information on the DCR Config Generator, see [DCR Config Generator](./azure-monitor-agent-migration-data-collection-rule-generator.md).
+- Migrate VM Insights or Azure Monitor for Virtual Machines to the Azure Monitor Agent. Validate the migrated data collections for the pilot group of servers compared with what was collected before migration. To avoid double ingestion, you can disable data collection from legacy agents during the testing phase without uninstalling the agents yet, by removing the workspace configurations for legacy agents. For more information, see [Log Analytics agent data sources in Azure Monitor](/azure/azure-monitor/agents/agent-data-sources#configure-data-sources)
 
-1. Validate the new data to ensure there are no gaps. Compare the data ingested by legacy agent data to Azure Monitor Agent. Use KQL to compare equivalent data from each agent based on agent type.
+- Validate the new data to ensure there are no gaps. Compare the data ingested by legacy agent data to Azure Monitor Agent. Use KQL to compare equivalent data from each agent based on agent type.
 
-1. Plan deployment at scale using Azure policy. Use built-in policies to deploy extensions and DCR associations at scale. Using policy also ensures automatic deployment of extensions and DCR associations for new machines. For more information on deploying at scale, see [Manage Azure Monitor Agent - Use Azure policies](/azure/azure-monitor/agents/azure-monitor-agent-manage#use-azure-policy).
+- Plan deployment at scale using Azure policy. Use built-in policies to deploy extensions and DCR associations at scale. Using policy also ensures automatic deployment of extensions and DCR associations for new machines. For more information on deploying at scale, see [Manage Azure Monitor Agent - Use Azure policies](/azure/azure-monitor/agents/azure-monitor-agent-manage#use-azure-policy).
 
 
 
@@ -128,5 +128,5 @@ A SCOM Admin Management Pack exists and can help you remove the workspace config
 ## Next steps
 
 - [Azure Monitor Agent migration helper workbook](./azure-monitor-agent-migration-helper-workbook.md)
-- [DCR Config Generator](./azure-monitor-agent-migration-dcr-generator.md)
+- [DCR Config Generator](./azure-monitor-agent-migration-data-collection-rule-generator.md)
 - [MMA Discovery and Removal tool](/azure/azure-monitor/agents/azure-monitor-agent-mma-removal-tool?tabs=single-tenant%2Cdiscovery)
