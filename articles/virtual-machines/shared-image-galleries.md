@@ -370,7 +370,7 @@ StorageProfile = new GalleryImageVersionStorageProfile()
             },
 ```
 
-### Does deleting the Azure Compute Gallery Image affect existing VM created from it?
+### Does deleting the Azure Compute Gallery affect VMs created from it?
 VMs created from the Azure Compute Gallery image remains unaffected due to their persistent disks. However, VMSS scale out operation will fail as they rely on the source image ID reference which would be lost once the Azure Compute Gallery image is deleted.
 
 ## Troubleshoot
