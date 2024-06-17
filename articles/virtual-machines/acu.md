@@ -19,7 +19,7 @@ ms.reviewer: davberg
 > 
 > Azure is no longer publishing ACUs since the metric has limited ability to inform users of the expected performance of a VM across the various VM attributes.  For the most accurate results on a specific virtual machine, Azure recommends users run their workload(s) on that VM to verify performance.
 
-The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark
+The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This helps you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark
 
 *ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.
 
@@ -101,7 +101,7 @@ The following GPU series are also retiring:
 
 We understand that Azure customers want the best possible consistent performance, they want to be able to count on getting the same performance from the same type of VM every time.  
 
-Azure VM sizes typically run with maximum performance on the hardware platform they are first released on.  Azure may place controls on older Azure VMs when run on newer hardware to help maintain consistent performance for our customers even when the VMs run on different hardware.  For example:
+Azure VM sizes typically run with maximum performance on the hardware platform they're first released on.  Azure may place controls on older Azure VMs when run on newer hardware to help maintain consistent performance for our customers even when the VMs run on different hardware.  For example:
 1) **D**, **E**, and **F** series VMs may have the processor frequency set to a lower level when running on newer hardware to help achieve better performance consistency across hardware updates.  (The specific frequency setting varies based on the processor the VM series was first released on and the comparable performance of the current hardware.)
 2) **A** series VMs use an older model based on time slicing newer hardware to deliver performance consistency across hardware versions.
 3) **B** series VMs are burstable and use a credit system (described in their [documentation](sizes-b-series-burstable.md) to achieve expected performance.
