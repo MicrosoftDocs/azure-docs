@@ -141,7 +141,7 @@ After selecting the databases, select the **Next: Summary**
 
 The Summary tab summarizes all the source and target details for creating the validation or migration. Review the details and select the Start Validation and Migration button.
 
-:::image type="content" source="media/tutorial-migration-service-aws-offline/04-portal-offline-select-migration-target-aws.png" alt-text="Screenshot of the summary migration page.":::
+:::image type="content" source="media/tutorial-migration-service-aws-offline/06-portal-offline-summary-aws.png" alt-text="Screenshot of the summary migration page.":::
 
 ### Monitor the migration
 
