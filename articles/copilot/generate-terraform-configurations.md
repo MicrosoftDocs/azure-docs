@@ -1,6 +1,6 @@
 ---
 title: Generate Terraform configurations using Microsoft Copilot in Azure
-description: Learn about scenarios where Microsoft Copilot in Azure can generate PowerShell scripts for you to customize and use.
+description: Learn about scenarios where Microsoft Copilot in Azure can generate Terraform configurations for you to use.
 ms.date: 06/17/2024
 ms.topic: conceptual
 ms.service: copilot-for-azure
