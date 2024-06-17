@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-[!INCLUDE [resource group definition](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
+[!INCLUDE [resource group definition](../../includes/resource-group.md)]
 
 The following steps show how to use the Azure portal to [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).  For simplicity, you create all resources for this tutorial in the same resource group.  
 
@@ -101,7 +101,7 @@ Next, you configure the subnet to be used with Azure Lab Services.  To use a sub
 
 ## Create a network security group
 
-[!INCLUDE [nsg intro](~/reusable-content/ce-skilling/azure/includes/virtual-networks-create-nsg-intro-include.md)]
+[!INCLUDE [nsg intro](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 An NSG is required when using advanced networking in Azure Lab Services.
 
