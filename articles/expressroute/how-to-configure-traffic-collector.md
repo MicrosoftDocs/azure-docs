@@ -35,7 +35,8 @@ This article helps you deploy an ExpressRoute Traffic Collector using the Azure 
 ## Permissions
 
 - Minimum of **contributor** access is required to deploy ExpressRoute Traffic Collector.
-- Minimum of **contributor** access is required to associate ExpressRoute Direct circuit with ExpressRoute Traffic Collector.
+- Minimum of **contributor** access is required to associate ExpressRoute circuit with ExpressRoute Traffic Collector.
+
 - **Monitor contributor** role is required to associate Log Analytics workspace with ExpressRoute Traffic Collector.
 
 - Minimum of **contributor** access is required in both subscriptions to associate an ExpressRoute Traffic Collector with an ExpressRoute circuit in a different subscription.

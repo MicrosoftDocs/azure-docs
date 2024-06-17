@@ -1,13 +1,13 @@
 ---
 title: Modify an Azure Virtual Machine Scale Set
 description: Learn how to modify and update an Azure Virtual Machine Scale Set with the REST APIs, Azure PowerShell, and Azure CLI
-author: mimckitt
-ms.author: mimckitt
+author: ju-shim
+ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 6/14/2024
-ms.reviewer: ju-shim
-ms.custom: upgradepolicy
+ms.date: 06/14/2024
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Modify a Virtual Machine Scale Set

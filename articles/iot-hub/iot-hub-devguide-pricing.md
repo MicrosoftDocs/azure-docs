@@ -14,7 +14,7 @@ ms.custom: [amqp, mqtt]
 
 [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub) provides the general information on different SKUs and pricing for IoT Hub. This article contains details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## Charges per operation
 
