@@ -14,7 +14,7 @@ ms.topic: how-to
 
 In this article, you learn how optimize Azure Functions for performance and costs using Azure Load Testing. The Azure Functions Flex Consumption plan gives you flexibility and custom features that include private networking, fast and large scale-out features, and instance memory size selection based on a serverless model.
 
-Performance Optimizer is a tool powered by Azure Load Testing, that enables you to decide the right configuration for your app by running load tests on different Functions configurations. It helps you to understand the performance and cost implications of different configurations and make informed decisions.
+The Azure Load Testing performance optimizer tool helps you decide which configuration is right your app by running load tests among different Functions configurations. The tool helps you to understand the performance and cost implications of different configurations to help you make more informed decisions.
 
 The performance optimizer enables the following capabilities:
 
