@@ -57,4 +57,4 @@ Below is a flow diagram of the troubleshooting process for this issue.
 4. If the user's system volume is set to a low value, the user should increase the volume in the settings.
 5. In some systems that support app-specific volume settings, the audio volume output from the app may be low even if system volume is not. In this case, the user should check their volume setting of the app within the system.
 6. If the volume setting of the app in the system is low, the user should increase it.
-7. If you cannot determine why the audio output volume is low, ask the user to check their speaker device or select another audio output device. The issue may be due to a device problem and not related to the software or operating system.
+7. If you still cannot determine why the audio output volume is low, ask the user to check their speaker device or select another audio output device. The issue may be due to a device problem and not related to the software or operating system.
