@@ -39,56 +39,49 @@ Predetermined policies, referred to as 'built-ins', facilitate governance over y
 1. Log in to the Azure portal.
 1. Search "Policy" in the Search Bar and Select **Policy**.
 
-    ![Screenshot that shows the Search Bar.](../media/policy-img1.png)
+    ![Screenshot that shows the Search Bar.](media/how-to-use-azure-policy/search-policy.png)
 
 1. In the Policy window, select **Definitions**.
 
-    ![Screenshot that highlights the Definitions option.](../media/policy-img2.png)
+    ![Screenshot that highlights the Definitions option.](media/how-to-use-azure-policy/select-definitions.png)
 
 1. In the Category Filter, Unselect **Select All** and select **Azure Load Testing**. 
 
-    ![Screenshot that shows the Category Filter and the selected Key Vault category.](../media/policy-img3.png)
+    ![Screenshot that shows the Category Filter and the selected Azure Load Testing category.](media/how-to-use-azure-policy/select-category.png)
 
 1. Now you should be able to see all the policies available for Azure Load Testing. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
 
-    ![Screenshot that shows the policies that are available for Public Preview.](../media/policy-img4.png)
+    ![Screenshot that shows the available policies.](media/how-to-use-azure-policy/search-policy.png)
 
 ### Assign a Policy to a Scope 
 
 1. Select a policy you wish to apply, in this example, the **Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network** policy is shown. Click the assign button in the top-left corner.
 
-    ![Screenshot that shows the Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network policy.](../media/policy-img5.png)
+    ![Screenshot that shows the Load tests using Azure Load Testing should be run only against private endpoints from within a virtual network policy.](media/how-to-use-azure-policy/select-policy.png)
   
 1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
 
-    ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
+    ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
 
-1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
+1. To specify the policy effect, click on the parameters tab at the top of the screen. Uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
 
-    ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
+    ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](media/how-to-use-azure-policy/select-policy-effect.png)
 
 ## Feature Limitations
 
 Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. The delay refers to following scenarios -
 1. A new policy is assigned.
 2. An existing policy assignment is modified.
-3. A new KeyVault (resource) is created in a scope with existing policies.
+3. A new Azure Load Testing resource is created in a scope with existing policies.
 
-The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI.
+The policy evaluation of existing components in an Azure Load Testing resource may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI.
 
 If the compliance results show up as "Not Started" it may be due to the following reasons:
 
 - The policy valuation hasn't completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario.
-- There are no key vaults in the scope of the policy assignment.
-- There are no key vaults with certificates within the scope of the policy assignment.
-
-> [!NOTE]
-> Azure Policy [Resource Provider modes](../../governance/policy/concepts/definition-structure.md#resource-provider-modes), such as those for Azure Key Vault, provide information about compliance on the [Component Compliance](../../governance/policy/how-to/get-compliance-data.md#component-compliance)
-> page.
+- There are no Azure Load Testing resources in the scope of the policy assignment.
 
 ## Next Steps
 
-- [Logging and frequently asked questions for Azure policy for Key Vault](troubleshoot-azure-policy-for-key-vault.md)
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
-- See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
-- Learn about [Microsoft cloud security benchmark on Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)
+- See Key Vault samples: [Azure Load Testing built-in policy definitions](../../governance/policy/samples/built-in-policies.md#azure-load-testing)
