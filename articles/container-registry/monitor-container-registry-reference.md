@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Container Registry
 description: This article contains important reference material you need when you monitor Azure Container Registry.
-ms.date: 06/04/2024
+ms.date: 06/17/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: tejaswikolli-web

@@ -196,10 +196,10 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
         - name: Service Fabric
           href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-    - name: Monitor
+    - name: Monitoring
       expanded: false
       items:
-        - name: Monitor
+        - name: Overview of monitoring
           href: monitor-container-registry.md
         - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md
