@@ -23,7 +23,7 @@ To learn more, see [OPC UA certificates infrastructure for Azure IoT OPC UA Brok
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started-end-to-end-sample/quickstart-deploy.md).
+A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 ## Configure a self-signed application instance certificate
 

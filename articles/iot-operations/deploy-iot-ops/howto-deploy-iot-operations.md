@@ -1,5 +1,5 @@
 ---
-title: Deploy extensions with Azure IoT Orchestrator
+title: Deploy Azure IoT Operations to a cluster
 description: Use the Azure CLI to deploy Azure IoT Operations extensions with the Azure IoT Orchestrator.
 author: kgremban
 ms.author: kgremban
@@ -11,7 +11,7 @@ ms.date: 06/06/2024
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
-# Deploy Azure IoT Operations Preview extensions to an Arc-enabled Kubernetes cluster
+# Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

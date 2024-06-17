@@ -109,4 +109,4 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Next step
 
-Try the [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](get-started-end-to-end-sample/quickstart-deploy.md).
+Try the [Quickstart: Get started with an end-to-end sample](get-started-end-to-end-sample/quickstart-deploy.md).

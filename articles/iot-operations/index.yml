@@ -31,7 +31,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure IoT Operations to K3s
+          - text: Deploy Azure IoT Operations to a cluster
             url: deploy-iot-ops/howto-deploy-iot-operations.md
           - text: Discover and manage assets
             url: discover-manage-assets/overview-manage-assets.md

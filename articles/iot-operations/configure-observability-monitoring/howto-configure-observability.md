@@ -19,7 +19,7 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. For more information, see [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started-end-to-end-sample/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. For more information, see [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 - [Git](https://git-scm.com/downloads) for cloning the repository.
 
 ## Configure your subscription

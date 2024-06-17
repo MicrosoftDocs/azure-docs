@@ -19,7 +19,7 @@ In this tutorial, you learn how to configure IoT MQ for bi-directional MQTT brid
 
 ## Prerequisites
 
-* [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started-end-to-end-sample/quickstart-deploy.md)
+* [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 
 ## Set environment variables
 

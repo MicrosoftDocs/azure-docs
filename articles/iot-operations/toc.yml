@@ -7,7 +7,7 @@ items:
     - name: Get started with an end-to-end sample
       expanded: true
       items:
-      - name: Deploy Azure IoT Operations to K3s
+      - name: Configure Github Codespaces and K3s
         href: get-started-end-to-end-sample/quickstart-deploy.md
       - name: Add OPC UA assets to your cluster
         href: get-started-end-to-end-sample/quickstart-add-assets.md

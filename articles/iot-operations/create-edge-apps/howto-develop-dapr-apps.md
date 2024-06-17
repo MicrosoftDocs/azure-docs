@@ -20,7 +20,7 @@ To use the Azure IoT MQ Preview Dapr pluggable components, deploy both the pub/s
 
 ## Prerequisites
 
-* Azure IoT Operations deployed - [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started-end-to-end-sample/quickstart-deploy.md)
+* Azure IoT Operations deployed - [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 * IoT MQ Dapr Components deployed - [Deploy IoT MQ Dapr Components](./howto-deploy-dapr.md)
 
 ## Creating a Dapr application

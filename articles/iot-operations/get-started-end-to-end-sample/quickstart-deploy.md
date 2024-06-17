@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Deploy Azure IoT Operations Preview to K3s"
-description: "Quickstart: Use Azure IoT Orchestrator to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster."
+title: "Quickstart: Configure Github Codespaces and K3s"
+description: "Quickstart: Use Azure IoT Orchestrator to configure Azure IoT Operations Preview in Github Codespaces with Kubernetes."
 author: kgremban
 ms.author: kgremban
 ms.subservice: orchestrator
@@ -11,7 +11,7 @@ ms.date: 05/02/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
+# Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -27,7 +27,7 @@ The services deployed in this quickstart include:
 * [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
 * [Observability](../configure-observability-monitoring/howto-configure-observability.md)
 
-The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Before you begin
 

@@ -22,7 +22,7 @@ In this quickstart, you use the data lake connector for Azure IoT MQ to forward 
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
+- [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
 
 You also need a Microsoft Fabric subscription. If you don't have a subscription, you can sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial). To access the trial capacity, you must be a [trial capacity administrator](/fabric/get-started/fabric-trial#look-up-the-trial-capacity-administrator). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
@@ -38,7 +38,7 @@ To use a tool such as Power BI to analyze your OPC UA data, you need to send the
 
 ## Grant access to your Microsoft Fabric workspace
 
-You need to allow the MQ extension on your cluster to connect to your Microsoft Fabric workspace. You made a note of the MQ extension name in the [deployment quickstart](quickstart-deploy.md#view-resources-in-your-cluster). The name of the extension looks like `mq-z2ewy`.
+You need to allow the MQ extension on your cluster to connect to your Microsoft Fabric workspace. You made a note of the MQ extension name in the [Configure Github Codespaces and K3s quickstart](quickstart-deploy.md#view-resources-in-your-cluster). The name of the extension looks like `mq-z2ewy`.
 
 > [!TIP]
 > If you need to find the unique name assigned to your MQ extension, run the following command in your Codespaces terminal to list your cluster extensions: `az k8s-extension list --resource-group <your-resource-group-name> --cluster-name $CLUSTER_NAME --cluster-type connectedClusters -o table`
