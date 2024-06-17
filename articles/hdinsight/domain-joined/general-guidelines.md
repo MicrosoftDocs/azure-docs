@@ -66,7 +66,7 @@ When hierarchical name space in not enabled:
 If the url auth is enabled:
 
 * The config will contain what prefixes are covered in the url auth (like `adl://`).
-* If the access is for this url, then Ranger will check if the user is in the allow list.
+* If the access is for this url, then Ranger will check if the user is in the allowlist.
 * Ranger won't check any of the fine grained policies.
 
 ### Manage Ranger audit logs

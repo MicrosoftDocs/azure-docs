@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 1. From the Overview page, click **Open SaaS Account on publisher’s site**, to go the SendGrid webpage for your account.
 
-    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="SendGrid overview in azure portal.":::
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="SendGrid overview in Azure portal.":::
 
 1. From the left menu, navigate to your **Settings** and then **API Keys**.
 

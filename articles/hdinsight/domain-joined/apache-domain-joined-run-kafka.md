@@ -66,7 +66,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
 
    |Setting  |Suggested value  |
    |---------|---------|
-   |Policy Name  |  HDinsight marketing policy   |
+   |Policy Name  |  HDInsight marketing policy   |
    |Topic   |  `marketingspend` |
    |Select User  |  marketing_user1 |
    |Permissions  | publish, consume, create |

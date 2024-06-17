@@ -10,7 +10,7 @@ ms.date: 06/15/2024
 
 Learn the users and the roles in HDInsight Enterprise Security Package (ESP), and how to manage ESP clusters.
 
-## Use VSCode to link to domain joined cluster
+## Use VS Code to link to domain joined cluster
 
 You can link a normal cluster by using Apache Ambari managed username, also link a security Apache Hadoop cluster by using domain username (such as: `user1@contoso.com`).
 

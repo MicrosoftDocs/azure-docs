@@ -110,9 +110,9 @@ You can also view all alerts that have fired, grouped by severity, by going to *
 
 :::image type="content" source="media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png" alt-text="Log Analytics workspace alerts.":::
 
-When you select on a severity group (i.e. **severity 1,** as highlighted above) will show records for all alerts of that severity that have fired like below:
+When you select on a severity group (i.e. **severity 1,** as highlighted above) it will show records for all alerts of that severity that have fired like below:
 
-:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png" alt-text="Log Analytics workspace severity  one alert.":::
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png" alt-text="Screenshot showing Log Analytics workspace severity  one alert.":::
 
 ## Next steps
 
