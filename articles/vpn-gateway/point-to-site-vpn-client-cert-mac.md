@@ -139,6 +139,18 @@ Configure authentication settings.
 
    :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/connected.png":::
 
+## OpenVPN: macOS steps
+
+The following example uses **TunnelBlick**.
+
+[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
+
+## OpenVPN: iOS steps
+
+The following example uses **OpenVPN Connect** from the App store.
+
+[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+
 ## Next steps
 
 Follow up with any additional server or connection settings. See [Point-to-site configuration steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
