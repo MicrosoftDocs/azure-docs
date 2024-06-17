@@ -49,7 +49,7 @@ Below is a flow diagram of the troubleshooting process for this issue.
 :::image type="content" source="./media/speaker-issue-troubleshooting.svg" alt-text="Diagram of troubleshooting the speaker issue.":::
 
 1. When a user reports that they cannot hear audio, the first thing we need to check is whether the incoming audio is silent. The application can obtain this information by checking `audioOutputLevel` in the mediastats.
-2. If the `audioOutputLevel` value is consistently 0, it indicates that the incoming audio is silent. In this case, ask the user to verify if the speaking participant is muted or experiencing other issues, such as permission issues, device problems, or network issues.
+2. If the `audioOutputLevel` value is constantly 0, it indicates that the incoming audio is silent. In this case, ask the user to verify if the speaking participant is muted or experiencing other issues, such as permission issues, device problems, or network issues.
 3. If the `audioOutputLevel` value is not always 0, the user may still be unable to hear audio due to system volume settings. Ask the user to check their system volume settings. 
 4. If the user's system volume is set to 0 or very low, the user should increase the volume in the settings.
 5. In some systems that support app-specific volume settings, the audio volume output from the app may be low even if system volume is not. In this case, the user should check their volume setting of the app within the system.
