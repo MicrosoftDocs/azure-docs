@@ -138,7 +138,7 @@ The following example shows how to set up feature flags in a JSON file:
 }
 ```
 
-By convention, the `feature_management` section of this JSON document is used for feature flag settings. The `feature_flags` section of this JSON document is for a list of the defined feature flags. The prior example shows three feature flags, with the final one which uses a filter defined in the `enabled_for` property:
+By convention, the `feature_management` section of this JSON document is used for feature flag settings. The `feature_flags` section of this JSON document is for a list of the defined feature flags. The prior example shows three feature flags, with the final one which uses a filter defined in the `client_filters` property:
 
 * `FeatureA` is *on*.
 * `FeatureB` is *off*.
