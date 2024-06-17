@@ -12,7 +12,7 @@ ms.date: 12/12/2023
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
 This how-to guide shows how to create example logic app workflows for some common SAP integration scenarios using Azure Logic Apps and the SAP connector.
 
