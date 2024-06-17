@@ -1,9 +1,13 @@
 ---
 title: How to use a secured storage account with Azure Functions
 description: Learn how to use a secured storage account in a virtual network as the default storage account for a function app in Azure Functions.
+ms-service: azure-functions
 ms.topic: how-to
 ms.date: 06/13/2024
 ms.custom: template-how-to, build-2024
+
+# Customer intent: As a developer, I want to understand how to use a secured storage account in a virtual network as the default storage account for my function app, so that my function app can be secure.
+
 ---
 
 # How to use a secured storage account with Azure Functions
@@ -77,9 +81,7 @@ Route your function app's traffic to go through the virtual network by following
 
     1. In the new page, under **Application routing**, select **Outbound internet traffic**.
 
-1. Enable [content share routing](../app-service/overview-vnet-integration.md#content-share) to enable your function app to communicate with your new storage account through its virtual network:
-
-    1. In the same page, under **Configuration routing**, select **Content storage**.
+1. Enable [content share routing](../app-service/overview-vnet-integration.md#content-share) to enable your function app to communicate with your new storage account through its virtual network. In the same page as the previous step, under **Configuration routing**, select **Content storage**.
 
 ### 4. Update application settings
 
