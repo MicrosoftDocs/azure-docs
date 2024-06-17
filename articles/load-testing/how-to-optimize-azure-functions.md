@@ -97,7 +97,11 @@ A test profile describes your function app configuration, request details and lo
     Learn more about [load testing privately hosted endpoints](./how-to-test-private-endpoint.md).
 
 
-1. Select **Review + create** to review the test profile configuration, and then select **Create** to create the test profile. Azure Load Testing now creates the test profile. If you selected **Run test after creation** previously, the test profile starts automatically.
+1. Select **Review + create** to review the test profile configuration.
+
+1. Select **Create** to create the test profile. Azure Load Testing now creates the test profile.
+
+    If you previously selected *Run test after creation*, the test profile starts automatically.
 
 The Function App is reverted to the original configuration after the test profile run completes.
 
