@@ -7,7 +7,7 @@ ms.author: lajanuar
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 02/12/2024
+ms.date: 06/14/2024
 ---
 
 # Get started: Document Translation REST APIs
@@ -18,9 +18,9 @@ Document Translation is a cloud-based feature of the [Azure AI Translator](../..
 
 The Document translation API supports two translation processes:
 
-* [Asynchronous batch translation](#asynchronously-translate-documents-post-request) supports the processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with storage containers for your source and translated documents.
+* [Asynchronous batch translation](#asynchronously-translate-documents-post) supports the processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with storage containers for your source and translated documents.
 
-* [Synchronous single file](#synchronously-translate-a-single-document-post-request) supports the processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [Synchronous single file](#synchronously-translate-a-single-document-post) supports the processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
 ***Let's get started.***
 
@@ -54,7 +54,7 @@ You need an active Azure subscription. If you don't have an Azure subscription, 
   * [Windows](https://curl.haxx.se/windows/)
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
-## Asynchronously translate documents (POST Request)
+## Asynchronously translate documents (POST)
 
 1. Using your preferred editor or IDE, create a new directory for your app named `document-translation`.
 
@@ -107,7 +107,7 @@ Upon successful completion:
 * The successful POST method returns a `202 Accepted` response code indicating that the service created the batch request.
 * The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-### Synchronously translate a single document (POST request)
+## Synchronously translate a single document (POST)
 
 To call the synchronous translation feature via the [REST API](../reference/synchronous-rest-api-guide.md), you need to include the following headers with each request. Don't worry, we include the headers for you in the sample code.
 
