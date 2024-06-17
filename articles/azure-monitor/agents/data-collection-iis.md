@@ -11,22 +11,15 @@ ms.reviewer: jeffwo
 
 # Collect IIS logs with Azure Monitor Agent
 
-To collect data from Azure virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using [Azure Monitor Agent](azure-monitor-agent-overview.md), [create a data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md) and associate it with your machines. The data collection rule defines which data Azure Monitor Agent collects from which machines, and where you want to store the collected data. When you create a data collection rule in the Azure portal, the portal automatically installs Azure Monitor Agent on the selected machines.      
-
 This article explains how to configure data collection of Internet Information Service (IIS) logs data from Windows virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
 ## Prerequisites
-To complete this procedure, you need: 
 
-- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- One or two [data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint), depending on whether your virtual machine and Log Analytics workspace are in the same region.
+- One or two [data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint), depending on whether your virtual machine and Log Analytics workspace are in the same region. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
-    For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
-
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that runs IIS. 
     - An IIS log file in W3C format must be stored on the local drive of the machine on which Azure Monitor Agent is running. 
     - Each entry in the log file must be delineated with an end of line. 
@@ -34,15 +27,11 @@ To complete this procedure, you need:
 
 ## Configure collection of IIS logs
 
-1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
-1. In the **Collect and deliver** step, select **IIS Logs** from the **Data source type** dropdown.
+In the **Collect and deliver** step, select **IIS Logs** from the **Data source type** dropdown.
 
     :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
 
 1. Specify a file pattern to identify the directory where the log files are located. 
-1. On the **Destination** tab, add a destination for the data source.
-    <!-- convertborder later -->
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the Azure portal form to add a data source in a data collection rule." border="false":::
 
 
 ### Sample IIS log queries
