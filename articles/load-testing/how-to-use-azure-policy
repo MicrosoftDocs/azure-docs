@@ -27,7 +27,9 @@ When enforcing a policy, you can determine its effect over the resulting evaluat
 - [**Audit**](../../governance/policy/concepts/effects.md#audit): when the effect of a policy is set to `Audit`, the policy won't cause any breaking changes to your environment. It will only alert you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
 - [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of a new resource or new test runs that don't comply with the policy definition. Existing non-compliant test runs are not affected. The 'audit' capabilities will continue to operate.
-  
+
+- [**Disabled**](../../governance/policy/concepts/effects.md#disabled): when the effect of a policy is set to `Disabled`, the policy will still be evaluated but enforcement won't take effect, thus being compliant for the condition with `Disabled` effect. This is useful to disable the policy for a specific condition as opposed to all conditions.
+
 ## Available Built-In Policy Definitions
 
 Predetermined policies, referred to as 'built-ins', facilitate governance over your load testing resources so you don't have to write custom policies in JSON format to enforce commonly used rules associated with best security practices. Even though built-ins are predetermined, certain policies require you to define parameters. For example, by defining the effect of the policy, you can audit the load testing resource before enforcing a deny operation to prevent outages. See [built-in policies for Azure Load Testing](../../governance/policy/samples/built-in-policies#azure-load-testing) to view the current built-in policies available for Azure Load Testing. 
@@ -63,7 +65,7 @@ Predetermined policies, referred to as 'built-ins', facilitate governance over y
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
 
-1. To specify the policy effect, click on the parameters tab at the top of the screen. Uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
+1. To specify the policy effect, click on the parameters tab at the top of the screen. Uncheck 'Only show parameters that need input or review' option. Select **Audit** or **Deny** or **Disabled** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
 
     ![Screenshot that shows the Parameters tab where you can specify the policy effect.](media/how-to-use-azure-policy/select-policy-effect.png)
 
