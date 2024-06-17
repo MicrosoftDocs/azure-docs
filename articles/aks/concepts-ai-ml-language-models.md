@@ -2,7 +2,7 @@
 title: Concepts - Small and large language models
 description: Learn about small and large language models, including when and how you can use them with your Azure Kubernetes Service (AKS) AI and machine learning workloads.
 ms.topic: conceptual
-ms.date: 06/14/2024
+ms.date: 06/17/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -16,11 +16,11 @@ In this article, you learn about small and large language models, including when
 
 Language models are powerful machine learning models used for natural language processing (NLP) tasks, such as text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
 
-*Conventional language models* have been used in supervised settings where they're trained on well-labeled text datasets for specific tasks. *Pretrained language models*, on the other hand, are trained on large-scale text corpora from the internet using deep neural networks and can be fine-tuned on smaller datasets for specific tasks.
+*Conventional language models* are used in supervised settings where they're trained on well-labeled text datasets for specific tasks. *Pretrained language models* are trained on large-scale text corpora from the internet using deep neural networks and can be fine-tuned on smaller datasets for specific tasks.
 
 The size of a language model is determined by the number of parameters it has, which is the number of weights that determine how the model processes input data and generates output. Parameters are learned during the training process by adjusting the weights to minimize the difference between the model's predictions and the actual data. The more parameters a model has, the more complex and expressive it is, but also the more computationally expensive it is to train and use.
 
-In general, ***small language models*** have *fewer than 100 million parameters*, while ***large language models*** have *more than 100 million parameters*. For example, GPT-2 has four versions with different sizes: small (124 million parameters), medium (355 million parameters), large (774 million parameters), and extra-large (1.5 billion parameters).
+In general, **small language models** have *fewer than 100 million parameters*, and **large language models** have *more than 100 million parameters*. For example, GPT-2 has four versions with different sizes: small (124 million parameters), medium (355 million parameters), large (774 million parameters), and extra-large (1.5 billion parameters).
 
 ## When to use small language models
 
