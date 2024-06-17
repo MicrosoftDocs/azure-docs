@@ -1,8 +1,8 @@
 ---
 title: Remove your VMware vCenter environment from Azure Arc
 description: This article explains the steps to cleanly remove your VMware vCenter environment from Azure Arc-enabled VMware vSphere and delete related Azure Arc resources from Azure.
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ms.topic: how-to
 ms.date: 03/12/2024
