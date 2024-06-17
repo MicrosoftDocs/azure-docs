@@ -20,7 +20,7 @@ Once you have Azure IoT Operations Preview deployed to a connected cluster, you 
 
 ## Prerequisites
 
-* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../howto-deploy-iot-operations.md).
+* An Arc-enabled Kubernetes cluster with Azure IoT Orchestrator deployed to it. For more information, see [Deploy Azure IoT Operations Preview extensions to a Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Deploy a helm chart with override values
 
