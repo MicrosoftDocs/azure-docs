@@ -71,7 +71,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
 1. Download the latest [Azure Virtual Desktop administrative template files](https://aka.ms/avdgpo) and extract the contents of the .cab file and .zip archive.
 
-1. Copy and paste the **terminalserver-avd.admx** file to the Group Policy Central Store for your domain, for example `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions`, where *contoso.com* is your domain name. Then copy the **terminalserver-avd.adml** file to the `en-us` subfolder.
+1. Copy and paste the terminalserver-avd.admx file from the extracted folder to the PolicyDefinitions folder '(C:\Windows\PolicyDefinitions)'. Then copy the terminalserver-avd.adml (available in the en-us folder within the extracted folder) file to the en-us subfolder in the location 'C:\Windows\PolicyDefinitions\en-US'.
 
 1. Open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
 
@@ -85,7 +85,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
 1. Download the latest [Azure Virtual Desktop administrative template files](https://aka.ms/avdgpo) and extract the contents of the .cab file and .zip archive.
 
-1. Copy and paste the **terminalserver-avd.admx** file to the PolicyDefinitions folder at `%windir%\PolicyDefinitions`. Then copy the **terminalserver-avd.adml** file to the `en-us` subfolder.
+1. Copy and paste the **terminalserver-avd.admx** file from the extracted folder to the PolicyDefinitions folder '(C:\Windows\PolicyDefinitions)'. Then copy the **terminalserver-avd.adml** (available in the en-us folder within the extracted folder) file to the `en-us` subfolder in the location 'C:\Windows\PolicyDefinitions\en-US'.
 
 1. Open the **Local Group Policy Editor** console.
 
