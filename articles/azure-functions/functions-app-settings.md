@@ -54,7 +54,7 @@ The instrumentation key for Application Insights. Don't use both `APPINSIGHTS_IN
 
 Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. Use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -390,6 +390,16 @@ The following major runtime version values are supported:
 | `~2` | 2.x | No longer supported |
 | `~1` | 1.x | Support ends September 14, 2026 |
 
+## FUNCTIONS\_INPROC\_NET8\_ENABLED
+
+Indicates whether to an app can use .NET 8 on the in-process model. To use .NET 8 on the in-process model, this value must be set to `1`. See [Updating to target .NET 8](./functions-dotnet-class-library.md#updating-to-target-net-8) for complete instructions, including other required configuration values.
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS_INPROC_NET8_ENABLED|`1`|
+
+Set to `0` to disable support for .NET 8 on the in-process model.
+
 ## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
 
 This app setting is a temporary way for Node.js apps to enable a breaking change that makes entry point errors easier to troubleshoot on Node.js v18 or lower. It's highly recommended to use `true`, especially for programming model v4 apps, which always use entry point files. The behavior without the breaking change (`false`) ignores entry point errors and doesn't log them in Application Insights.
@@ -405,11 +415,6 @@ For Node.js v18 or lower, the app setting can be used and the default behavior d
 |FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Block on entry point errors and log them in Application Insights.|
 |FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Ignore entry point errors and don't log them in Application Insights.|
 
-## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
-
->[!IMPORTANT]
-> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
-
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
 Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104857600 bytes. 
@@ -417,6 +422,11 @@ Overrides the default limit on the body size of requests sent to HTTP endpoints.
 |Key|Sample value|
 |---|------------|
 |FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`250000000`|
+
+## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
+
+>[!IMPORTANT]
+> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
