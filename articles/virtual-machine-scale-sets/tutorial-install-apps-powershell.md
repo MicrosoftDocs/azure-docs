@@ -46,6 +46,7 @@ New-AzVmss `
   -VMScaleSetName "myScaleSet" `
   -OrchestrationMode "Flexible" `
   -Location "EastUS" `
+  -UpgradePolicyMode "Automatic" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
@@ -81,11 +82,15 @@ $vmss = Add-AzVmssExtension `
   -TypeHandlerVersion 1.9 `
   -Setting $customConfig
 
-# Update the scale set and apply the Custom Script Extension to the VM instances
+# Update the scale set
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
+
+# Update all of the existing scale set instances
+Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
+
 ```
 
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
@@ -166,9 +171,11 @@ Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
+
+Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
 ```
 
-All VM instances in the scale set are automatically updated with the latest version of the sample web page. To see the updated version, refresh the web site in your browser:
+All VM instances in the scale set are updated with the latest version of the sample web page. To see the updated version, refresh the web site in your browser:
 
 ![Updated web page in IIS](media/tutorial-install-apps-powershell/running-iis-updated.png)
 
