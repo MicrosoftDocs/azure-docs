@@ -259,7 +259,6 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "location": "[parameters('location')]",
                 "apiVersion": "2021-09-01-preview",
                 "properties": {
-                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
                     "streamDeclarations": {
                         "Custom-MyTableRawData": {
                             "columns": [
@@ -358,6 +357,7 @@ The [DCR](../essentials/data-collection-rule-overview.md) defines how the data w
                 "location": "[parameters('location')]",
                 "apiVersion": "2021-09-01-preview",
                 "properties": {
+                    "dataCollectionEndpointId": "[parameters('endpointResourceId')]",
                     "streamDeclarations": {
                         "Custom-MyTableRawData": {
                             "columns": [
