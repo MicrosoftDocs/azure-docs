@@ -11,7 +11,7 @@ ms.date: 06/10/2024
 
 # Add and run C# scripts inline with Standard workflows for Azure Logic Apps (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 > This capability is in preview and is subject to the

@@ -290,7 +290,7 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 ## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
 
-[!INCLUDE [customer-controlled network gateway maintenance](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
+[!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
 
 ### How do I find out more about customer-controlled gateway maintenance?
 
