@@ -65,3 +65,12 @@ In this case, reducing the volume of audio playing sound may help.
 Below is a flow diagram of the troubleshooting process for this issue.
 
 :::image type="content" source="./media/poor-audio-quality-issue-troubleshooting.svg" alt-text="Diagram of troubleshooting the poor audio quality issue.":::
+1. When a user reports experiencing poor audio quality during a call, the first thing to check is the source of the issue. It could be coming from the sender's side or the receiver's side. If other participants on different networks also have similar issues, it's very possible that the issue comes from the sender's side.
+2. Check if there is `networkSendQuality` UFD Bad event on the sender's side.
+3. If there is no `networkSendQuality` UFD Bad event on the sender's side, the poor audio could be due to device issues or audio distortion caused by the browser's audio processing module. Ask the user to collect diagnostic audio recordings from the browser. Refer to [How to collect diagnostic audio recordings](../references/how-to-collect-diagnostic-audio-recordings)
+4. If there is a `networkSendQuality` UFD Bad event, the poor audio quality might be due to the sender's network issues. Check the sender's network.
+5. If the user experiences poor audio quality but no other participants have the same issue, and there are only two participants in the call, still check the sender's network.
+6. If the user experiences poor audio quality but no other participants have the same issue in a group call, the issue might be due to the receiver's network. Check for a `networkReceiveQuality` UFD Bad event on the receiver's end.
+7. If there is a `networkReceiveQuality` UFD Bad event, check the receiver's network.
+8. If you cannot find a `networkReceiveQuality` UFD Bad event, check if other mediastats metrics on the receiver's end are poor, such as packetsLost, jitter, etc.
+9. If you cannot determine why the audio quality on the receiver's end is poor, create a support ticket for the ACS team to investigate.
