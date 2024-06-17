@@ -11,8 +11,8 @@
             "redirect_document_id": false
          },
         {
-            "source_path_from_root": "/articles/azure-monitor/scom-manage-instance/scom-managed-instance-faq.yml",
-            "redirect_url": "/azure/azure-monitor/scom-manage-instance/common-questions",
+            "source_path_from_root": "/articles/azure-monitor/scom-manage-instance/common-questions.md",
+            "redirect_url": "/azure/azure-monitor/scom-manage-instance/scom-managed-instance-faq",
             "redirect_document_id": false
          },
         {
