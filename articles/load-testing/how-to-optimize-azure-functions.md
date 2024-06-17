@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Optimize Azure Functions for Performance and Costs using Azure Load Testing
 
-In this article, learn how optimize Azure Functions for performance and costs using Azure Load Testing. Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure. Azure Functions Flex Consumption plan hosting gives you more flexibility and customizability by introducing private networking, instance memory size selection, and fast/large scale-out features still based on a serverless model.
+In this article, you learn how optimize Azure Functions for performance and costs using Azure Load Testing. The Azure Functions Flex Consumption plan gives you flexibility and custom features that include private networking, fast and large scale-out features, and instance memory size selection based on a serverless model.
 
 Performance Optimizer is a tool powered by Azure Load Testing, that enables you to decide the right configuration for your app by running load tests on different Functions configurations. It helps you to understand the performance and cost implications of different configurations and make informed decisions.
 
