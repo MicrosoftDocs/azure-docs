@@ -36,7 +36,7 @@ Do all the setup steps in [Visual Studio Code](https://code.visualstudio.com/) w
 - Appropriate permission on the configured scopes. To grant the remediation user-assigned managed identity with the previously mentioned roles on the target scopes, you must have **User Access Administrator** or **Owner** permission. For example, if you're configuring the setup for a particular subscription, you must have the **User Access Administrator** role assignment on that subscription so that the script can provide the permissions for the remediation user-assigned managed identity.
 
 ## Resources created
-The removal tool creates a resource group and creates the following resources to manage the removal of agents. Some of these resources may have an Azure cost.
+The removal tool creates a resource group and resources to manage the removal of agents. Some of these resources may have an Azure cost.
 
 
 ## Download the deployment package
@@ -399,7 +399,9 @@ The script contains these parameters:
 | `RemovalCondition` |  Indicator that the MMA extension should be removed when the `CheckForAMAPresence` AMA extension is present. It's `SkipAMAPresenceCheck` in all cases, whether an AMA extension is present or not. | No |
 | `DisableRemovalPhase`  | Indicator of disabling the removal phase. | Yes (mutually exclusive with `-EnableRemovalPhase`)|  
 
-Here are known issues with removal:
+### Known issues
+
+The following issues may occur during the removal phase:
 
 - Removal of the MMA in a virtual machine scale set where the orchestration mode is `Uniform` depends on its upgrade policy. We recommend that you manually upgrade the instance if the policy is set to `Manual`.  
 - If you get the following error message, rerun the installation command with the same parameter values:
