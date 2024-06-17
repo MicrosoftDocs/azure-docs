@@ -70,7 +70,7 @@ A test profile describes your function app configuration, request details, and l
 
 1. Select **Add request** to add HTTP requests to the load test.
 
-    On the **Add request** page, enter the details for the request:
+    On the *Add request* page, enter the details for the request:
 
     |Field  |Description  |
     |-|-|
