@@ -1,9 +1,11 @@
 ---
 title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
-ms.date: 06/12/2024
+ms.service: azure-functions
 ms.topic: how-to
+ms.date: 06/17/2024
 ms.custom: devdivchpfy22
+
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
 ---
 
@@ -480,12 +482,12 @@ Update-AzFunctionAppSetting -Name MyAppName -ResourceGroupName MyResourceGroupNa
 
 You can use the Health Check feature to monitor function apps on the Premium (Elastic Premium) and Dedicated (App Service) plans. Health check isn't an option for the Consumption plan. To learn how to configure it, see [Monitor App Service instances using Health check](../app-service/monitor-instances-health-check.md). Your function app should have an HTTP trigger function that responds with an HTTP status code of 200 on the same endpoint as configured on the `Path` parameter of the health check. You can also have that function perform extra checks to ensure that dependent services are reachable and working.
 
-## Next steps
+## Related content
 
 For more information about monitoring, see:
 
 + [Monitor Azure Functions](functions-monitoring.md)
 + [Analyze Azure Functions telemetry data in Application Insights](analyze-telemetry-data.md)
-+ [Application Insights](../azure-monitor/app/app-insights-overview.md)
++ [Application Insights overview](../azure-monitor/app/app-insights-overview.md)
 
 [host.json]: functions-host-json.md
