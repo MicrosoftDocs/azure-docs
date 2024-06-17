@@ -45,7 +45,7 @@ Performance optimizer allows you to test different configurations to help you fi
 
 ### Create a test profile
 
-A test profile describes your function app configuration, request details and load configuration. For each function app configuration, a load test is run with the specified load. You can create a test profile by following these steps:
+A test profile describes your function app configuration, request details, and load configuration. For each Functions app configuration, a load test is run with the specified load. You can create a test profile by following these steps:
 
 1. Click on Create test profile to start creating a new test profile.
 
