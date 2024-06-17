@@ -108,7 +108,7 @@ The Function App is reverted to the original configuration after the test profil
 
 ## View results
 
-After the test profile run completes, you can view the results in the Azure portal. The test profile run contains the load test runs for each function app configuration. The results include performance metrics such as response time, throughput, and error rate for each function app configuration. You can compare the performance metrics across different configurations and choose the right configuration for your app. Once you’ve decided the optimal configuration, click on Apply to apply the scale and concurrency settings to your Function App.
+After the test profile run completes, you can view the results in the Azure portal. The test profile run contains the load test runs for each Functions app configuration. The results include performance metrics such as response time, throughput, and error rate for each function app configuration. You can compare the performance metrics across different configurations and choose the right configuration for your app. Once you’ve decided the optimal configuration, select **Apply** to apply the scale and concurrency settings to your Functions app.
 
 :::image type="content" source="media/how-to-optimize-azure-functions/test-profile-run-results.png" alt-text="Screenshot that the create test profile run results in the Azure portal." lightbox="media/how-to-optimize-azure-functions/test-profile-run-results.png":::
 
