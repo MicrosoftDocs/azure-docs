@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 06/14/2024
+ms.date: 06/17/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -165,7 +165,7 @@ Here's a snippet of the expected output:
 
 ## Synchronous translation code sample
 
-You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
+You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
 
 ```csharp
 
@@ -188,7 +188,7 @@ class Program {
     using Stream fileStream = File.OpenRead(filePath);
 
     // MultipartFormFileData (string name, System.IO.Stream content, string contentType);
-    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "text/html");
+    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
 
     DocumentTranslateContent content = new DocumentTranslateContent(sourceDocument);
 
@@ -363,7 +363,7 @@ Here's a snippet of the expected output:
 
 ## Synchronous translation code sample
 
-You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
+You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
 
 ```csharp
 
@@ -382,11 +382,11 @@ class Program {
 
   try
   {
-    string filePath = @"C:\{folder}\document.txt"
+    string filePath = @"C:\{folder}\document-translation-sample.docx"
     using Stream fileStream = File.OpenRead(filePath);
 
     // MultipartFormFileData (string name, System.IO.Stream content, string contentType);
-    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "text/html");
+    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
 
     DocumentTranslateContent content = new DocumentTranslateContent(sourceDocument);
 
