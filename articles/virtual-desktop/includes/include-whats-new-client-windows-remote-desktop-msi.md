@@ -2,7 +2,7 @@
 ms.topic: include
 author: heidilohr
 ms.author: helohr
-ms.date: 05/29/2024
+ms.date: 06/11/2024
 ---
 
 ## Supported client versions
@@ -12,12 +12,23 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5405 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5453 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.5454 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5453 (Insider)  
-*Date published: June 4, 2024* 
+
+## Updates for version 1.2.5454 (Insider)  
+*Date published: June 11, 2024* 
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when a session is disconnected. 
+
+>[!NOTE]
+>This Insider release was originally version 1.2.5453, but we made a change to fix an issue with the client crashing when a session is disconnected and re-released as version 1.2.5454. This version contains all the changes made in 1.2.5450, 1.2.5452, and 1.2.5453. 
+
+## Updates for version 1.2.5453  
+*Date published: June 4, 2024* 
 
 In this release, we made the following changes:
 

@@ -22,7 +22,6 @@ The services deployed in this quickstart include:
 * [Azure IoT Orchestrator Preview](../deploy-custom/overview-orchestrator.md)
 * [Azure IoT MQ Preview](../manage-mqtt-connectivity/overview-iot-mq.md)
 * [Azure IoT OPC UA Broker Preview](../manage-devices-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
-* [Azure IoT Data Processor Preview](../process-data/overview-data-processor.md) with a demo pipeline to start routing the simulated data
 * [Azure IoT Akri Preview](../manage-devices-assets/overview-akri.md)
 * [Azure Device Registry Preview](../manage-devices-assets/overview-manage-assets.md#manage-assets-as-azure-resources-in-a-centralized-registry)
 * [Azure IoT Layered Network Management Preview](../manage-layered-network/overview-layered-network.md)
@@ -130,7 +129,7 @@ To view your cluster on the Azure portal, use the following steps:
 
    :::image type="content" source="./media/quickstart-deploy/view-extensions.png" alt-text="Screenshot that shows the deployed extensions on your Arc-enabled cluster.":::
 
-   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service. These extensions have a unique suffix that identifies your deployment. In the previous screenshot, this suffix is **-z2ewy**.
+   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service. These extensions have a unique suffix that identifies your deployment. In the previous screenshot, this suffix is **-tg45l**.
 
    There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
 

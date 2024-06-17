@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Key Vault using CSI driver in an AKS 
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 03/01/2024
 ---

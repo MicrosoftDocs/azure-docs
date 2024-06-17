@@ -418,7 +418,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / appliedReservationOrders | No | No |
 > | billingAccounts / associatedTenants | No | No |
 > | billingAccounts / billingPermissions | No | No |
-> | billingAccounts / billingProfiles | No | No |
+> | billingAccounts / billingProfiles | Yes | Yes |
 > | billingAccounts / billingProfiles / billingPermissions | No | No |
 > | billingAccounts / billingProfiles / billingRoleAssignments | No | No |
 > | billingAccounts / billingProfiles / billingRoleDefinitions | No | No |
@@ -429,7 +429,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | billingAccounts / billingProfiles / invoices | No | No |
 > | billingAccounts / billingProfiles / invoices / pricesheet | No | No |
 > | billingAccounts / billingProfiles / invoices / transactions | No | No |
-> | billingAccounts / billingProfiles / invoiceSections | No | No |
+> | billingAccounts / billingProfiles / invoiceSections | Yes | Yes |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | No | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | No | No |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleDefinitions | No | No |

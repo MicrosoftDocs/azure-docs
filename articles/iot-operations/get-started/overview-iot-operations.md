@@ -74,6 +74,9 @@ A Data Processor pipeline typically:
 1. Processes the messages by using one or more configurable stages.
 1. Sends the processed messages to a destination such as a Microsoft Fabric data lake for storage and analysis.
 
+> [!NOTE]
+> Data Processor is an optional component of Azure IoT Operations. To use it, you must chose to add it when you deploy Azure IoT Operations.
+
 ## Connect to the cloud
 
 To connect to the cloud from Azure IoT Operations, you have the following options:
