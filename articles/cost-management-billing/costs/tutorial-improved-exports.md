@@ -68,23 +68,40 @@ You can create multiple exports of various data types using the following steps.
 
 On the Exports page, at the top of the page, select **+ Create**.
 
-### Fill in export details
+### Select the export template
 
-1. On the Add export page, select the **Type of data**, the **Dataset version**, and enter an **Export name**. Optionally, enter an **Export description**.
+1. On the Basics page, select a template that meets your scenario. A template simplifies Export creation by preselecting a set of commonly used datasets and their configurations. 
+
+   1. The eight most common templates are always shown. If you don't find a suitable template, click on **Show more** to see additional options. If none of these templates meet your needs, you can select **Create your own export** to build your custom combination. 
+      
+1. Once you select a template, you will be taken to the **Datasets** tab where you can customize your export name by entering a common **Export prefix**, edit the preselected configuration, and add or remove exports from the list. 
+
+1. You can change the template and discard your export configurations by navigating back to the **Basics** tab and selecting a new template. 
+
+![Exports templates.](media/tutorial-improved-exports/image.png)
+
+ 
+
+### Optionally add more exports
+
+1. On the **Datasets** tab you can add another export by selecting **+ Add export** button. 
+
+1. You need to select the **Type of data**, the **Dataset version**, and enter an **Export name**. Optionally, you can enter an **Export description**. 
+
 2. For **Type of data**, when you select **Reservation recommendations**, select values for the other fields that appear:
     - Reservation scope
     - Resource type
     - Look back period
 3. Depending on the **Type of data** and **Frequency** that you select, you might need to specify more fields to define the date range in UTC format.
-4. Select **Add** to see the export listed on the Basic tab.
+1. Select **Add** to see the export listed on the Datasets tab.
 
-:::image type="content" source="./media/tutorial-improved-exports/new-export.png" alt-text="Screenshot of Add export page." lightbox="./media/tutorial-improved-exports/new-export.png" :::
-
-### Optionally add more exports
-
-You can create up to 10 exports when you select **+ Add new exports**.
+1. You can create up to 10 exports when you select **+ Add new exports**.
 
 Select **Next** when you're ready to define the destination.
+
+![User's image](media/tutorial-improved-exports/image1.png)
+
+
 
 ### Define the export destination
 
