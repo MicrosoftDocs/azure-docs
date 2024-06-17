@@ -82,13 +82,13 @@ Records arriving out of order benefit from **event-time based windowing operatio
 
 ### Streams
 
-A stream is the abstracted representation of a Kafka topic. It consists of an unbounded, continously updating data set of immutable data records, where each data record is a key-value pair.
+A stream is the abstracted representation of a Kafka topic. It consists of an unbounded, continuously updating data set of immutable data records, where each data record is a key-value pair.
 
 ### Stream processing topology
 
 A Kafka streams application defines the computational logic through a [DAG (directed acyclic graph)](https://en.wikipedia.org/wiki/Directed_acyclic_graph) represented by a processor [topology](https://javadoc.io/doc/org.apache.kafka/kafka-streams/latest/org/apache/kafka/streams/Topology.html). The processor topology comprises stream processors(nodes in the topology) which represent a processing step, connected by streams(edges in the topology).
 
-Stream processors can be chained to upstream processors or downstream processors, except for certain special cases - 
+Stream processors can be chained to upstream processors or downstream processors, except for certain special cases: 
   * Source processors - These processors don't have any upstream processors and read from one or more streams directly. They can then be chained to downstream processors. 
   * Sink processors - These processors don't have any downstream processors and must write directly to a stream.
 
@@ -99,7 +99,7 @@ Stream processing topology can be defined either with the [Kafka Streams DSL](ht
 
 Streams and tables are 2 different but useful abstractions provided by the [Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html), modeling both time series and relational data formats which must co-exist for stream processing use-cases. 
 
-Kafka extends this further and introuces a duality between streams and tables, where a
+Kafka extends this further and introduces a duality between streams and tables, where a
   * A **stream** can be considered as a changelog of a **table**, and
   * A **table** can be considered as a snapshot of the latest value of each key in a **stream**.
 
@@ -114,9 +114,9 @@ For example
 
 Kafka Streams allows windowing and grace functions to allow for out of order data records to be ingested and still be included in the processing. To ensure that this behavior is deterministic, there are additional notions of time in Kafka streams. These include: 
 
-  * Creation time (aka Event time) - This is the time when the event occured and the data record was created.
+  * Creation time (also known as 'Event time') - This is the time when the event occurred and the data record was created.
   * Processing time - This is the time when the data record is processed by the stream processing application (or when it is consumed).
-  * Append time (aka Creation time) - This is the time when the data is stored and committed to the storage of the Kafka broker. This differs from the creation time because of the time difference between the creation of the event and the actual ingestion by the broker.
+  * Append time (also known as 'Creation time') - This is the time when the data is stored and committed to the storage of the Kafka broker. This differs from the creation time because of the time difference between the creation of the event and the actual ingestion by the broker.
 
 
  

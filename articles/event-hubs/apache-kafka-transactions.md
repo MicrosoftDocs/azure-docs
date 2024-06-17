@@ -29,10 +29,10 @@ In cloud native environments, applications must be made resilient to network dis
 
 Apache Kafka provides a transactional API to ensure this level of processing guarantees across the same or different set of topic/partitions.
 
-Transactions apply to the below cases : 
+Transactions apply to the below cases: 
 
-1.	Transactional producers.
-2.	Exactly once processing semantics.
+  * Transactional producers.
+  * Exactly once processing semantics.
 
 ### Transactional Producers
 
