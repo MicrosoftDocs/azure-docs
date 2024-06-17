@@ -11,7 +11,7 @@
             "redirect_document_id": false
          },
         {
-            "source_path_from_root": "/articles/azure-monitorvm/scom-managed-instance-overview.md",
+            "source_path_from_root": "/articles/azure-monitor/vm/scom-managed-instance-overview.md",
             "redirect_url": "/azure/azure-monitor/azure-monitor/scom-manage-instance/overview",
             "redirect_document_id": false
          },
