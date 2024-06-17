@@ -1611,15 +1611,15 @@ If the component enabled distributed training fails without any `70_driver` logs
 
   The following example shows that **Process count per node** is larger than **Processing Unit** of the compute.
 
-  [ ![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png) ](./media/module/distributed-training-error-mpi-log.png#lightbox)
+  [![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png)](./media/module/distributed-training-error-mpi-log.png#lightbox)
 
 Otherwise, you can check `70_driver_log` for each process. `70_driver_log_0` is for master process.
 
-  [ ![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)
+  [![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png)](./media/module/distributed-training-error-driver-log.png#lightbox)
 
 ### Fail to mount sample data in pipeline
 
-:::image type="content" source="./media/module/global_datasets_error.png" alt-text="Screenshot of datastore of sample data." lightbox = "./media/module/global_datasets_error.png":::
+:::image type="content" source="./media/module/global_datasets_error.png" alt-text="Screenshot of error of sample datastore." lightbox = "./media/module/global_datasets_error.png":::
 
 If you encounter above error, please follow the steps below to resolve the issue:
 
