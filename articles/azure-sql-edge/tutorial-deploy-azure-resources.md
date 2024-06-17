@@ -35,7 +35,7 @@ In this three-part tutorial, you'll create a machine learning model to predict i
 
 Deploy the Azure resources required by this Azure SQL Edge tutorial. These resources can be deployed either by using a PowerShell script or through the Azure portal. This tutorial uses a PowerShell script.
 
-[!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 1. Import the modules needed to run the PowerShell script in this tutorial.
 

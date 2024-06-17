@@ -11,7 +11,7 @@ ms.reviewer: harelbr
 
 ## Overview
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 **Metric Alerts for Logs** allows you to leverage metric alerts capabilities on a predefined set of logs in Azure Monitor Logs. The monitored logs, which can be collected from Azure or on-premises computers, are converted to metrics, and then monitored with metric alert rules just like any other metric.
 The supported Log Analytics logs are the following:
