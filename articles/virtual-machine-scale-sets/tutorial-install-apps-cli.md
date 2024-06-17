@@ -44,6 +44,9 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 }
 ```
 
+> [!NOTE]
+> You may need to invert the use of the single (') and double quotes (") within the JSON block if you decide to reference the JSON directly (instead of referencing the *customConfig.json* file) in the *--settings* parameter below. 
+
 ## Create a scale set
 
 > [!IMPORTANT]
@@ -63,7 +66,6 @@ az vmss create \
   --name myScaleSet \
   --image Ubuntu2204 \
   --orchestration-mode Flexible \
-  --upgrade-policy-mode Automatic \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -83,13 +85,18 @@ az vmss extension set \
   --settings customConfig.json
 ```
 
-Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
-
 > [!CAUTION]
 > File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
 
+## Update your scale set instances
+To apply the custom script to all existing instances, perform a manual upgrade.
+
+```azurecli-interactive
+az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
+```
+
 ## Allow traffic to port 80 
-To allow traffic to the application, add a network security group rule. 
+To allow traffic to flow through the load balancer to the virtual machines the default network security group needs to be updated. 
 
 ```azurecli-interactive
 az network nsg rule create --name AllowHTTP --resource-group myResourceGroup --nsg-name myScaleSetNSG --access Allow --priority 1010 --destination-port-ranges 80 
@@ -114,8 +121,6 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 Leave the web browser open so that you can see an updated version in the next step.
 
 ## Update app deployment
-Throughout the lifecycle of a scale set, you might need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `--upgrade-policy-mode` was set to *automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
-
 In your current shell, create a file named *customConfigv2.json* and paste the following configuration. This definition runs an updated *v2* version of the application install script:
 
 ```json
@@ -125,7 +130,7 @@ In your current shell, create a file named *customConfigv2.json* and paste the f
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az vmss extension set](/cli/azure/vmss/extension). The *customConfigv2.json* is used to apply the updated version of the application:
+Apply the Custom Script Extension configuration to the your scale set again with [az vmss extension set](/cli/azure/vmss/extension). The *customConfigv2.json* is used to apply the updated version of the application:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -137,7 +142,14 @@ az vmss extension set \
   --settings @customConfigv2.json
 ```
 
-Refresh your web browser to see the updated messaging. 
+## Update your scale set instances
+To apply the updated custom script to all existing instances, perform a manual upgrade.
+
+```azurecli-interactive
+az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
+```
+
+Refresh your web browser to see the updated application.
 
 ![Updated web page in Nginx](media/tutorial-install-apps-cli/running-nginx-updated.png)
 
