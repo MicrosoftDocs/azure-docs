@@ -6,15 +6,15 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.date: 06/17/2024
+ms.custom: engagement-fy24
 ---
 
 # Set up an appliance for servers on Hyper-V
 
 Follow this article to set up the Azure Migrate appliance for discovery and assessment of servers on Hyper-V with the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
 
-The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance used by Azure Migrate: Discovery and assessment/ Migration to discover on-premises servers on Hyper-V, and send server metadata/performance data to Azure.
+The [Azure Migrate appliance](migrate-appliance.md) is a lightweight appliance used by Azure Migrate: Discovery and assessment/ Migration to discover on-premises servers on Hyper-V, and send server metadata/performance data to Azure.
 
 You can deploy the appliance using a couple of methods:
 
@@ -24,7 +24,7 @@ You can deploy the appliance using a couple of methods:
 After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
 
 > [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
 
 ## Appliance deployment (VHD)
 
@@ -47,9 +47,6 @@ To set up the appliance using a VHD template:
 ### Download the VHD
 
 In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
-
-   :::image type="content" source="./media/tutorial-assess-hyper-v/servers-discover.png" alt-text="Screenshot of selections for Discover servers.":::
-
 
    :::image type="content" source="./media/tutorial-assess-hyper-v/generate-key-hyper-v-inline-1.png" alt-text="Screenshots of selections for Generate Key." lightbox="./media/tutorial-assess-hyper-v/generate-key-hyper-v-expanded-1.png":::
 
@@ -143,9 +140,9 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
     ```
 
 2. Alternatively, do this in the Local Group Policy Editor on the appliance:
-    - In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
+    - In **Local Computer Policy** > **Computer Configuration**, select **Administrative Templates** > **System** > **Credentials Delegation**.
     - Double-click **Allow delegating fresh credentials**, and select **Enabled**.
-    - In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+    - In **Options**, select **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
     - In  **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
 
 ## Start continuous discovery
@@ -166,8 +163,8 @@ Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
     - If you choose **Import CSV**, you can download a CSV template file, populate the file with the Hyper-V host/cluster **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
 
 1. On clicking Save, appliance will try validating the connection to the Hyper-V hosts/clusters added and show the **Validation status** in the table against each host/cluster.
-    - For successfully validated hosts/clusters, you can view more details by clicking on their IP address/FQDN.
-    - If validation fails for a host, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+    - For successfully validated hosts/clusters, you can view more details by selecting their IP address/FQDN.
+    - If validation fails for a host, review the error by selecting **Validation failed** in the **Status** column of the table. Fix the issue, and validate again.
     - To remove hosts or clusters, click on **Delete**.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
@@ -208,7 +205,7 @@ If validation fails, you can select the **Failed** status to see the validation 
 
 ### Start discovery
 
-Click on **Start discovery**, to kick off server discovery from the successfully validated host(s)/cluster(s). After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
+Select **Start discovery**, to kick off server discovery from the successfully validated host(s)/cluster(s). After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
 
 ## How discovery works
 
@@ -221,7 +218,7 @@ Click on **Start discovery**, to kick off server discovery from the successfully
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+2. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** page, select the icon that displays the count for **Discovered servers**.
 
 ## Next steps
 
