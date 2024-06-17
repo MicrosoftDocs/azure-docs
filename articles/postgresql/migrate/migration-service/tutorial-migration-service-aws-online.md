@@ -163,7 +163,7 @@ Some possible migration states:
 | State | Description |
 | --- | --- |
 | **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
-| **Cancelled** | The migration is canceled or deleted. |
+| **Canceled** | The migration is canceled or deleted. |
 | **Failed** | The migration has failed. |
 | **Validation Failed** | The validation has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
@@ -287,7 +287,7 @@ To begin the migration, you need to create a JSON file with the migration detail
 
 ## Check the migration when complete
 
-After completing the databases, you need to manually validate the data between the source and the target and verify that all the objects in the target database are successfully created.
+After completing the databases, you need to manually validate the data between the source, and the target and verify that all the objects in the target database are successfully created.
 
 After migration, you can perform the following tasks:
 

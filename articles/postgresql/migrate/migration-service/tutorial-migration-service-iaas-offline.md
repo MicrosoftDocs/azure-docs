@@ -130,7 +130,7 @@ After the successful test connection, select the **Next: Select Database(s) for 
 
 #### Select databases for migration
 
-Under the **Select database for migration** tab, you can choose a list of user databases to migrate from your source PostgreSQL server.
+Under the **Selected database for migration** tab, you can choose a list of user databases to migrate from your source PostgreSQL server.
 
 After selecting the databases, select the **Next: Summary**.
 
@@ -178,7 +178,7 @@ Some possible migration states:
 | State | Description |
 | --- | --- |
 | **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
-| **Cancelled** | The migration is canceled or deleted. |
+| **Canceled** | The migration is canceled or deleted. |
 | **Failed** | The migration has failed. |
 | **Validation Failed** | The validation has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
@@ -207,8 +207,8 @@ Some possible migration states:
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
-- Canceling a validation stops further validation activity, and the validation moves to a **Cancelled** state.
-- Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. The cancel action returns all changes the migration service makes on your target server.
+- Canceling a validation stops further validation activity, and the validation moves to a **Canceled** state.
+- Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. The cancel action returns all changes the migration service makes on your target server.
 
 #### [CLI](#tab/cli)
 

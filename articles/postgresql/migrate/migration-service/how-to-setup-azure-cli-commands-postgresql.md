@@ -20,11 +20,11 @@ The Azure CLI is a set of commands used across Azure services to create and mana
 - **Install Azure CLI**: Depending on your operating system, download and install the Azure CLI. It’s available for Windows, macOS, and Linux.
 - **Azure CLI Installation Guide**: Follow the instructions provided in the official Azure documentation to install the Azure CLI - [How to install the Azure CLI](/cli/azure/install-azure-cli).
 - **Check Azure CLI Version**: Ensure that your Azure CLI version is at least 2.56.0 or higher, as this is required for the migration service. Use the command `az --version` to check your current version.
-- **Sign in to Azure**: After installation, execute `az login` to authenticate. This will open your default browser to complete the sign-in process with your Azure credentials.
+- **Sign in to Azure**: After installation, execute `az login` to authenticate. This opens your default browser to complete the sign-in process with your Azure credentials.
 
-These steps will prepare your environment for using the Azure CLI to manage the migration service in Azure Database for PostgreSQL effectively. Always refer to the latest Azure documentation for any updates or changes to the installation process.
+These steps prepare your environment for using the Azure CLI to manage the migration service in Azure Database for PostgreSQL effectively. Always refer to the latest Azure documentation for any updates or changes to the installation process.
 
-## Setup CLI commands for the migration service
+## Set up CLI commands for the migration service
 
 All the CLI commands start with `az postgres flexible-server migration`. There are also help statements provided to assist you in understanding the various options and framing the correct syntax for the CLI commands.
 
@@ -40,31 +40,31 @@ The migration service provides the following commands to help you migrate your P
 
 ### Help command
 
-The `--help` command in Azure CLI is a valuable option that provides detailed documentation about the commands and their subcommands, including the required verbs for operations. The `–-help`command displays the necessary commands and their associated actions fpr migration service in Azure Database for PostgreSQL.
+The `--help` command in Azure CLI is a valuable option that provides detailed documentation about the commands and their subcommands, including the required verbs for operations. The `–-help`command displays the necessary commands and their associated actions for migration service in Azure Database for PostgreSQL.
 
 ```azurecli-interactive
 `az postgres flexible-server migration –-help`
 ```
 
-The output will guide you through the necessary steps and parameters required to manage your database migrations effectively using the Azure CLI.
+The output guides you through the necessary steps and parameters required to manage your database migrations effectively using the Azure CLI.
 
 ### Create command
 
 The `az postgres flexible-server migration create` command in Azure CLI is used to initiate a new migration workflow. It facilitates the migration of databases from a source PostgreSQL instance to a target Azure Database for PostgreSQL - Flexible Server instance. This command sets up the necessary parameters and configurations to ensure a smooth and efficient migration process.
 
-For more information, refer to [az postgres flexible-server migration create](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-create)
+For more information, see [az postgres flexible-server migration create](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-create)
 
 ### List command
 
 The `az postgres flexible-server migration list` command is used to list all the migration attempts made to an Azure Database for PostgreSQL target. This command provides an overview of the migrations that have been initiated, allowing you to track the status and details of each migration attempt.
 
-For more information, refer to [az postgres flexible-server migration list](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-list)
+For more information, see [az postgres flexible-server migration list](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-list)
 
 ### Show command
 
 The `az postgres flexible-server migration show` command helps you monitor ongoing migrations and gives the current state and substate of the migration. These details include information on the current state and substate of the migration.
 
-For more information, refer to [az postgres flexible-server migration show](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-show)
+For more information, see [az postgres flexible-server migration show](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-show)
 
 Some possible migration states:
 
@@ -73,7 +73,7 @@ Some possible migration states:
 | State | Description |
 | --- | --- |
 | **InProgress** | The migration infrastructure setup is underway, or the actual data migration is in progress. |
-| **Cancelled** | The migration is canceled or deleted. |
+| **Canceled** | The migration is canceled or deleted. |
 | **Failed** | The migration has failed. |
 | **Validation Failed** | The validation has failed. |
 | **Succeeded** | The migration has succeeded and is complete. |
@@ -110,9 +110,9 @@ The `az postgres flexible-server migration update` command is used to manage the
         - `latency` value indicates when the target last synced with the source. At this point, writes to the source can be stopped and cutover initiated. In case there's heavy traffic at the source, it's recommended to stop writes first so that `Latency` can come close to 0, and then a cutover is initiated.
         - The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with nonzero `Latency`, the replication stops until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at the cutover point, so all the changed data in the last 15 minutes applies to the target.
 - **Cancel the migration**: If needed, this option allows you to stop the migration process.
-- **Setup logical replication at the source**: This is particularly useful when the source server is an Azure Database for PostgreSQL - Single Server, as it prepares the server for data replication to the Flexible Server.
+- **Setup logical replication at the source**: This is useful when the source server is an Azure Database for PostgreSQL - Single Server, as it prepares the server for data replication to the Flexible Server.
 
-For more information, refer to [az postgres flexible-server migration update](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-update)
+For more information, see [az postgres flexible-server migration update](/cli/azure/postgres/flexible-server/migration#az-postgres-flexible-server-migration-update)
 
 ## Summary
 
@@ -137,11 +137,11 @@ The `az postgres flexible-server migration create` command requires a JSON file 
 | Property Name | Description |
 | --- | --- |
 | `sourceDbServerResourceId` | Source server details in the format for on-premises, Azure virtual machines (VMs), AWS_RDS - `<<hostname or IP address>>:<<port>>@<<username>>`. If the source server is Azure Database for PostgreSQL - Single server then the resource ID is in the format - `/subscriptions/<<Subscription ID>>/resourceGroups/<<Resource Group Name>>/providers/Microsoft.DBforPostgreSQL/servers/<<PostgreSQL Single Server name>>`|
-| `adminCredentials` | This parameter lists passwords for admin users for both the source server and the target PostgreSQL flexible server. These passwords help to authenticate against the source and target servers. It includes two sub-properties, `sourceServerPassword` and `targetServerPassword` |
+| `adminCredentials` | This parameter lists passwords for admin users for both the source server and the target PostgreSQL flexible server. These passwords help to authenticate against the source and target servers. It includes two subproperties, `sourceServerPassword` and `targetServerPassword` |
 | `targetServerUserName` | The default value is the admin user created during the creation of the PostgreSQL target flexible server, and the password provided is used for authentication against this user. |
 | `dbsToMigrate` | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. Providing the list of DBs in array format. |
 | `overwriteDBsInTarget` | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, the migration service automatically overwrites the database |
-| `sourceType` | Required parameter. Values can be - OnPremises, AWS_RDS, AzureVM, PostgreSQLSingleServer |
+| `sourceType` | Required parameter. Values can be - on-premises, AWS_RDS, AzureVM, PostgreSQLSingleServer |
 | `sslMode` | SSL modes for migration. SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer/Require for other source types. |
 
 ## Related content

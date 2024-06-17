@@ -56,11 +56,11 @@ The migration service comes with a simple, wizard-based experience on the Azure 
 
 1. Select the **Create** button to migrate from an Azure virtual machine (VM) or an on-premises PostgreSQL server to the Flexible Server. If this is your first time using the migration service, an empty grid appears with a prompt to begin your first migration.
 
-    :::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-create-migration.png" alt-text="Screenshot of Createmigration.":::
+    :::image type="content" source="media/tutorial-migration-service-iaas-online/portal-online-create-migration.png" alt-text="Screenshot of Create migration.":::
 
     If you've already created migrations to your Flexible Server target, the grid contains information about attempted migrations.
 
-1. Select the ** Create ** button. Then, you go through a wizard-based series of tabs to create a migration into this Flexible Server target from the PostgreSQL source Server.
+1. Select the **Create** button. Then, you go through a wizard-based series of tabs to create a migration into this Flexible Server target from the PostgreSQL source Server.
 
 #### Setup
 
@@ -204,9 +204,9 @@ The time depends on the backlog of changes occurring in the last 15 minutes. Hen
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration in the **Succeeded** or **Failed** state.
 
-Canceling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
+Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
 
-Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
+Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server that is involved in a canceled migration.
 
 #### [CLI](#tab/cli)
 
