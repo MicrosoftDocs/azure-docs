@@ -295,7 +295,7 @@ The value of the secret is retrieved:
 "Hello Container Instances"
 ```
 
-For Windows containers, the 'az login' command will not work because the metadata server is unavailable.
+For Windows containers, the 'az login' command will not work because the metadata server is unavailable. Additionally, a managed identity token cannot be generated in a Windows VNet container.
 
 ## Enable managed identity using Resource Manager template
 
