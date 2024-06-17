@@ -97,9 +97,9 @@ The following GPU series are also retiring.
 ## Performance consistency
 Azure virtual machine sizes typically run with maximum performance on the hardware platform they're first released on. Azure may place controls on older Azure virtual machines when run on newer hardware to help maintain consistent performance for our customers even when the virtual machines run on different hardware. For example:
 
-1) **D**, **E**, and **F** series virtual machines may have the processor frequency set to a lower level when running on newer hardware to help achieve better performance consistency across hardware updates. (The specific frequency setting varies based on the processor the virtual machine series was first released on and the comparable performance of the current hardware).
-2) **A** series virtual machines use an older model based on time slicing newer hardware to deliver performance consistency across hardware versions.
-3) **B** series virtual machines are burstable and use a credit system (described in their [documentation](sizes-b-series-burstable.md) to achieve expected performance.
+- **D**, **E**, and **F** series virtual machines may have the processor frequency set to a lower level when running on newer hardware to help achieve better performance consistency across hardware updates. (The specific frequency setting varies based on the processor the virtual machine series was first released on and the comparable performance of the current hardware).
+- **A** series virtual machines use an older model based on time slicing newer hardware to deliver performance consistency across hardware versions.
+- **B** series virtual machines are burstable and use a credit system (described in their [documentation](sizes-b-series-burstable.md) to achieve expected performance.
 
 These different processor settings for virtual machines are a key part of Azure's effort to provide consistent performance and minimize the impact of changes in underlying hardware platform outside of our customer’s control.
 
