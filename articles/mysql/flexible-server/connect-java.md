@@ -223,7 +223,7 @@ Next, create a non-admin user and grant all permissions on the `demo` database t
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-export AZ_MYSQL_AD_NON_ADMIN_USERID=$CURRENT_USER_OBJECTID
+export AZ_MYSQL_AD_NON_ADMIN_USERID=
 
 cat << EOF > create_ad_user.sql
 SET aad_auth_validate_oids_in_tenant = OFF;
