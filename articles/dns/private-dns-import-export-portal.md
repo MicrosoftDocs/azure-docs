@@ -66,25 +66,25 @@ The following notes provide more details about the zone import process.
     The following small zone file and resource records are used in this example:
 
     ```text
-; MX Records
+    ; MX Records
 
-; A Records
-aa1	3600	IN	A	10.10.0.1
-db1002	3600	IN	A	10.1.1.2
-myvm	10	IN	A	10.10.2.5
-server1	3600	IN	A	10.0.1.1
-server2	3600	IN	A	10.0.1.2
+    ; A Records
+    aa1	3600	IN	A	10.10.0.1
+    db1002	3600	IN	A	10.1.1.2
+    myvm	10	IN	A	10.10.2.5
+    server1	3600	IN	A	10.0.1.1
+    server2	3600	IN	A	10.0.1.2
 
-; AAAA Records
+    ; AAAA Records
 
-; CNAME Records
-app1	3600	IN	CNAME	aa1.private.contoso.com.
+    ; CNAME Records
+    app1	3600	IN	CNAME	aa1.private.contoso.com.
 
-; PTR Records
+    ; PTR Records
 
-; TXT Records
+    ; TXT Records
 
-; SRV Records
+    ; SRV Records
     ```
     Names used:
     - Origin zone name: **private.contoso.com** 
@@ -98,7 +98,7 @@ app1	3600	IN	CNAME	aa1.private.contoso.com.
 4. Select the **Private DNS Zone Editor** tab and then drag and drop or browse and select the **private.contoso.com.txt** file. The **Private DNS Zone Editor** opens.
 5. If changes to the zone are needed, you can edit the values that are displayed.
 
-    ![Screenshot showing the private.contoso.com zone displayed in the DNS Zone Editor.](./media/private-dns-import-export-portal/dns-zone-editor.png)
+  ![Screenshot showing the private.contoso.com zone displayed in the DNS Zone Editor.](./media/private-dns-import-export-portal/dns-zone-editor.png)
 
 6. Select **Review + Create** and then select **Create**.
 7. When deployment is complete, select **Go to resource** and then select **Recordsets**. An SOA record compatible with Azure Private DNS is automatically added to the zone. See the following example:
@@ -115,41 +115,41 @@ app1	3600	IN	CNAME	aa1.private.contoso.com.
 3. Open the file to view the contents. See the following example:
 
     ```text
-; 	Exported zone file from Azure Private DNS
-; 	Zone name: private.contoso.com
-; 	Date and time (UTC): Mon, 17 Jun 2024 20:35:47 GMT
+    ; 	Exported zone file from Azure Private DNS
+    ; 	Zone name: private.contoso.com
+    ; 	Date and time (UTC): Mon, 17 Jun 2024 20:35:47 GMT
 
-$TTL 10
-$ORIGIN private.contoso.com
+    $TTL 10
+    $ORIGIN private.contoso.com
 
-; SOA Record
-@	 3600		IN	SOA	azureprivatedns.net	azureprivatedns-host.microsoft.com	(
+    ; SOA Record
+    @	 3600		IN	SOA	azureprivatedns.net	azureprivatedns-host.microsoft.com	(
 	 	 	1	 ;serial
 	 	 	3600	 ;refresh
 	 	 	300	 ;retry
 	 	 	2419200	 ;expire
 	 	 	10	 ;minimum ttl
-)
+    )
 
-; MX Records
+    ; MX Records
 
-; A Records
-aa1	3600	IN	A	10.10.0.1
-db1002	3600	IN	A	10.1.1.2
-myvm	10	IN	A	10.10.2.5
-server1	3600	IN	A	10.0.1.1
-server2	3600	IN	A	10.0.1.2
+    ; A Records
+    aa1	3600	IN	A	10.10.0.1
+    db1002	3600	IN	A	10.1.1.2
+    myvm	10	IN	A	10.10.2.5
+    server1	3600	IN	A	10.0.1.1
+    server2	3600	IN	A	10.0.1.2
 
-; AAAA Records
+    ; AAAA Records
 
-; CNAME Records
-app1	3600	IN	CNAME	aa1.private.contoso.com.
+    ; CNAME Records
+    app1	3600	IN	CNAME	aa1.private.contoso.com.
 
-; PTR Records
+    ; PTR Records
 
-; TXT Records
+    ; TXT Records
 
-; SRV Records
+    ; SRV Records
     ```
 
 ## Next steps
