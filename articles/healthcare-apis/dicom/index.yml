@@ -46,7 +46,7 @@ landingContent:
           - text: Implement DICOMweb Standard APIs with Python
             url: dicomweb-standard-apis-python.md
           - text: Change feed custom API
-            url: change-feed-overview
+            url: change-feed-overview.md
           - text: Extended query tags API
             url: dicom-extended-query-tags-overview.md
   - title: DICOM change feed 
@@ -55,7 +55,7 @@ landingContent:
         links:
           - text: What is the DICOM change feed? 
             url: change-feed-overview.md
-          - text: Access DICOM Change Feed logs
+          - text: Access DICOM change feed logs
             url: pull-dicom-changes-from-change-feed.md
 
   - title: Configuration 
