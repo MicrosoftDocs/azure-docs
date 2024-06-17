@@ -17,11 +17,14 @@ For information about generating certificates, see the [Generate certificates](v
 
 ## <a name="installwin"></a>Windows
 
-[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## <a name="installmac"></a>macOS
 
-[!INCLUDE [Install on Mac](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
+>[!NOTE]
+>macOS VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
+
+[!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
 ## <a name="installlinux"></a>Linux
 
