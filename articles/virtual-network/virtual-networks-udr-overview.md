@@ -66,7 +66,7 @@ Azure adds more default system routes for different Azure capabilities, but only
 
 ## Custom routes
 
-You create custom routes by either creating [user-defined](#user-defined) routes, or by exchanging [border gateway protocol](#border-gateway-protocol) (BGP) routes between your on-premises network gateway and an Azure virtual network gateway. 
+You create custom routes by either creating [user-defined](#user-defined) routes, or by exchanging [border gateway protocol (BGP)](#border-gateway-protocol) routes between your on-premises network gateway and an Azure virtual network gateway. 
 
 ### User-defined
 
