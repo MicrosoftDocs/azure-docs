@@ -25,7 +25,7 @@ With Intune MAM, you can select and assign groups of users to include and exclud
 
 An Intune license is required in order for app protection policies to apply correctly to a user or group. If an unlicensed user is included in an app protection policy, the rules of that policy won't be applied to that user.
 
-Only Intune-targeted users and groups will be subject to the rules of the app protection policy. To ensure data remains protected, verify that the necessary groups and users have been included in your policy during creation.
+Only Intune-targeted users and groups will be subject to the rules of the app protection policy. To ensure data remains protected, verify that the necessary groups and users were included in your policy during creation.
 
 Users that are out of compliance with their MAM policy or Conditional Access policy may lose access to data and resources, including full access to the Azure mobile app. When a user is marked as out of compliance, the Azure mobile app may initially try automated remediation to regain compliance. If automatic remediation is disabled or unsuccessful, the user is signed out of the app.
 
@@ -43,11 +43,11 @@ After the user sets up their PIN, they'll be prompted to enter that PIN every ti
 
 :::image type="content" source="media/intune-management/intune-pin-enter.png" alt-text="Screenshot of Intune MAM prompting the user to enter their PIN in the Azure mobile app.":::
 
-If a user is marked as out of compliance with their policy (following any remediation steps), they will be signed out of the app. For example, a user might switch to a different policy-protected account that was marked as out of compliance. In this case, the app signs them out and display a message notifying the user that they must sign back in.
+If a user is marked as out of compliance with their policy (following any remediation steps), they'll be signed out of the app. For example, a user might switch to a different policy-protected account that was marked as out of compliance. In this case, the app signs them out and displays a message notifying the user that they must sign back in.
 
 :::image type="content" source="media/intune-management/intune-sign-in-required.png" alt-text="Screenshot of Intune MAM requiring a user to sign back in to the Azure mobile app.":::
 
 ## Next steps
 
 - Learn more about the [Microsoft Intune](/mem/intune/fundamentals/what-is-intune).
-- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/azureapp/ios/doc), [Google Play](https://aka.ms/azureapp/android/doc) or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).
+- Download the Azure mobile app for free from the [Apple App Store](https://aka.ms/azureapp/ios/doc), [Google Play](https://aka.ms/azureapp/android/doc), or [Amazon App Store](https://aka.ms/azureapp/amazon/doc).
