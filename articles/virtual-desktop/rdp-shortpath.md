@@ -66,7 +66,7 @@ To use RDP Shortpath for managed networks, you must enable a UDP listener on you
 
 The following diagram gives a high-level overview of the network connections when using RDP Shortpath for managed networks and session hosts joined to an Active Directory domain.
 
-:::image type="content" source="media/rdp-shortpath-managed-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.svg":::
+:::image type="content" source="media/rdp-shortpath-managed-networks.png" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.png":::
 
 ### Connection sequence
 
@@ -88,7 +88,7 @@ If your users have both RDP Shortpath for managed network and public networks av
 
 To provide the best chance of a UDP connection being successful when using a public connection, there are the *direct* and *indirect* connection types:
 
-- **Direct connection**: STUN is used to establish a direct UDP connection between a client and session host. To establish this connection, the client and session host must be able to connect to each other through a public IP address and negotiated port. However, most clients don't know their own public IP address as they sit behind a [Network Address Translation](#network-address-translation-and-firewalls) (NAT) gateway device. STUN is a protocol for the self-discovery of a public IP address from behind a NAT gateway device and the client to determine its own public-facing IP address. 
+- **Direct connection**: STUN is used to establish a direct UDP connection between a client and session host. To establish this connection, the client and session host must be able to connect to each other through a public IP address and negotiated port. However, most clients don't know their own public IP address as they sit behind a [Network Address Translation (NAT)](#network-address-translation-and-firewalls) gateway device. STUN is a protocol for the self-discovery of a public IP address from behind a NAT gateway device and the client to determine its own public-facing IP address. 
 
   For a client to use STUN, its network must allow UDP traffic. Assuming both the client and session host can route to the other's discovered IP address and port directly, communication is established with direct UDP over the WebSocket protocol. If firewalls or other network devices block direct connections, an indirect UDP connection will be tried.
 

@@ -41,6 +41,22 @@ az arcappliance get-credentials -n <Arc resource bridge name> -g <resource group
 az arcappliance logs vmware --kubeconfig kubeconfig --out-dir <path to specified output directory>
    ```
 
+### Download/upload connectivity was not successful
+If your network speed is slow you may be unable to successfully download the Arc resource bridge VM image and this error may occur: `ErrorCode: ValidateKvaError, Error: Pre-deployment validation of your download/upload connectivity was not successful. Timeout error occurred during download and preparation of appliance image to the on-premises fabric storage. Common causes of this timeout error are slow network download/upload speeds, a proxy limiting the network speed or slow storage performance.`
+
+If the error is due to slow network speed impacting upload, a workaround is to create a VM directly on the on-premises private cloud and then run the Arc resource bridge deployment script from that VM. This workaround ensures a faster upload of the image to the datastore.
+
+
+### Context timed out during phase `ApplyingKvaImageOperator`
+You may receive the following error while deploying Arc resource bridge: `Deployment of the Arc resource bridge appliance VM timed out. Please collect logs with _az arcappliance logs_ and create a support ticket for help. To troubleshoot the error, refer to aka.ms/arc-rb-error   { _errorCode_: _ContextError_, _errorResponse_: _{\n\_message\_: \_Context timed out during phase _ApplyingKvaImageOperator_\_\n}_ }`
+
+This error typically occurs when trying to download the `KVAIO` image (400 MB compressed) over a network that is slow or experiencing intermittent connectivity. The `KVAIO` controller manager is waiting for the image download to complete and times out. You may want to check that your network speed between the Arc resource bridge VM and Microsoft Container Registry (`mcr.microsoft.com`) is stable and at least 2 Mbps. If your network connectivity and speed are stable and you are still getting this error, wait at least 30 minutes before you re-try as Microsoft Container Registry may be receiving a high volume of traffic.
+
+### Context timed out during phase `WaitingForAPIServer`
+When deploying Arc resource bridge, you may receive the error: `Deployment of the Arc resource bridge appliance VM timed out. Please collect logs with _az arcappliance logs_ and create a support ticket for help. To troubleshoot the error, refer to aka.ms/arc-rb-error   { _errorCode_: _ContextError_, _errorResponse_: _{\n\_message\_: \_Context timed out during phase _WaitingForAPIServer`
+
+This error indicates that the deployment machine is unable to contact the control plane IP for Arc resource bridge within the time limit. Common causes of the error are often networking related, such as communication between the deployment machine and control plane IP being routed through a proxy. Traffic from the deployment machine to the control plane and the appliance VM IPs should not pass through proxy even if there is one. Another cause for this error is if a firewall is closing access to port 6443 and port 22 between the deployment machine and control plane IP or the deployment machine and appliance VM IPs.
+
 ### Arc resource bridge is offline
 
 If the resource bridge is offline, this is typically due to a networking change in the infrastructure, environment or cluster that stops the appliance VM from being able to  communicate with its counterpart Azure resource. If you're unable to determine what changed, you can reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
@@ -55,7 +71,7 @@ In this release, all the parameters are specified at time of creation. To update
 
 ### Appliance Network Unavailable 
 
-If Arc resource bridge is experiencing a network problem, you may see an "Appliance Network Unavailable" error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host". The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
+If Arc resource bridge is experiencing a network problem, you may see an "Appliance Network Unavailable" error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host". The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. A temporary network issue may not allow the host to reach the Arc resource bridge VM. Once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
 
 ### Token refresh error
 
@@ -216,9 +232,9 @@ To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappli
 
 ## Azure Arc-enabled VMware VCenter issues
 
-### errorCode: CreateConfigKvaCustomerError, errorResponse: error getting the vsphere sdk
+### errorCode: CreateConfigKvaCustomerError, errorResponse: error getting the vsphere sdk client
 
-For errors with errorCode `CreateConfigKvaCustomerError` and errorResponse `error getting the vsphere sdk`, these errors occur when your deployment machine is trying to establish a TCP connection to your vCenter address but encounters a problem. You receive this errorCode and errorResponse if your vCenter address is incorrect (403 or 404 error) or if there's a network/proxy/firewall configuration blocking it (connection attempt failed). If you enter your vCenter address as a hostname and receive the error `no such host`, then your deployment machine isn't able to resolve the vCenter hostname via the client DNS. You may receive an error if the deployment machine is able to resolve the vCenter hostname but the deployment machine can't reach the IP address it received from DNS. Continuing along this flow, you may receive an error if the endpoint returned by DNS isn't your vCenter address, or if the traffic was intercepted by proxy. Finally, you may get an error if your deployment machine is able to communicate with your vCenter address, but the username or password is incorrect.
+For errors with errorCode `CreateConfigKvaCustomerError` and errorResponse `error getting the vsphere sdk client`, these errors occur when your deployment machine is trying to establish a TCP connection to your vCenter address but encounters a problem. You receive this errorCode and errorResponse if your vCenter address is incorrect (403 or 404 error) or if there's a network/proxy/firewall configuration blocking it (connection attempt failed). If you enter your vCenter address as a hostname and receive the error `no such host`, then your deployment machine isn't able to resolve the vCenter hostname via the client DNS. You may receive an error if the deployment machine is able to resolve the vCenter hostname but the deployment machine can't reach the IP address it received from DNS. You may receive an error if the endpoint returned by DNS isn't your vCenter address, or if the traffic was intercepted by proxy. Finally, you may get an error if your deployment machine is able to communicate with your vCenter address, but the username or password is incorrect.
 
 ### vSphere SDK client - Connection attempt failed
 
