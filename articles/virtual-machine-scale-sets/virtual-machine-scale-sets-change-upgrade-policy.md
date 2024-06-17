@@ -23,7 +23,7 @@ The upgrade policy for a Virtual Machine Scale Set can be changed at any point i
 Select the Virtual Machine Scale Set you want to change the upgrade policy for. In the menu under **Settings**, select **Upgrade Policy** and from the drop-down menu, select the upgrade policy you want to enable. 
 
 > [!NOTE]
-> Setting or changing the upgrade policy to automatic in the Azure Portal on Virtual Machine Scale Sets with Flexible Orchestration is not yet available. To set or change the upgrade policy to automatic, use CLI, PowerShell, ARM Template, or any other SDK. 
+> Setting or changing the upgrade policy to automatic using the Azure Portal on Virtual Machine Scale Sets with Flexible Orchestration is not yet available. To set or change the upgrade policy to automatic, use CLI, PowerShell, ARM Template, or any other SDK. 
 
 If using a rolling upgrade policy, see [configure rolling upgrade policy](virtual-machine-scale-sets-configure-rolling-upgrades.md) for more configuration options and suggestions.
 
