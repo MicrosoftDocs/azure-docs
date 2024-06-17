@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Deploy JBoss EAP on an Azure virtual machine (VM)"
-description: Shows you how to quickly stand up JBoss EAP Server on an Azure virtual machine.
+title: "Quickstart: Deploy JBoss EAP on an Azure Virtual Machine (VM)"
+description: Shows you how to quickly stand up JBoss EAP Server on an Azure Virtual Machine.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
@@ -9,13 +9,17 @@ ms.service: virtual-machines
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-vm
 ---
 
-# Quickstart: Deploy JBoss EAP on an Azure virtual machine (VM)
+# Quickstart: Deploy JBoss EAP on an Azure Virtual Machine (VM)
 
-This article shows you how to quickly deploy JBoss Enterprise Application Platform (EAP) on an Azure virtual machine (VM) using the Azure portal.
+This article shows you how to quickly deploy JBoss Enterprise Application Platform (EAP) on an Azure Virtual Machine (VM) using the Azure portal.
+
+This article uses the Azure Marketplace offer for JBoss EAP standalone server to accelerate your journey to Azure Virtual Machine. This solution automates most boilerplate steps to provision a single JBoss EAP instance on an Azure Virtual Machine. Once initial provisioning is complete, you are completely free to customize deployments further. The solution is jointly developed by Red Hat and Microsoft. If you prefer manual step-by-step guidance for installing Red Hat JBoss EAP Cluster on Azure VMs that doesn't utilize the automation enabled by the offer, see [Tutorial: Install Red Hat JBoss EAP on Azure Virtual Machines manually](/azure/developer/java/migration/migrate-jboss-eap-to-azure-vm-manually?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json)).
+
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing JBoss EAP on Azure solutions, fill out this short [survey on JBoss EAP migration](https://aka.ms/jboss-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli).
 - Install a Java Standard Edition (SE) implementation version 8 or later - for example, [Microsoft build of OpenJDK](/java/openjdk).
 - Install [Maven](https://maven.apache.org/download.cgi), version 3.5.0 or higher.
@@ -173,7 +177,4 @@ az group delete --name <resource-group-name> --yes --no-wait
 
 ## Next steps
 
-Learn more about migrating JBoss EAP applications to JBoss EAP on Azure VMs by following these links:
-
-> [!div class="nextstepaction"]
-> [Migrate JBoss EAP applications to JBoss EAP on Azure VMs](/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-vms?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json)
+For more information about deploying JBoss EAP on Azure, see [Red Hat JBoss EAP on Azure](/azure/developer/java/ee/jboss-on-azure?toc=/azure/virtual-machines/workloads/redhat/toc.json&bc=/azure/virtual-machines/workloads/redhat/breadcrumb/toc.json).
