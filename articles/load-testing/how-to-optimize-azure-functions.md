@@ -49,7 +49,7 @@ A test profile describes your function app configuration, request details, and l
 
 1. Select **Create test profile** to create a new test profile.
 
-1. On the **Profile Configuration** tab, first enter the test details:
+1. On the *Profile Configuration* tab, first enter the test details:
 
     |Field  |Description  |
     |-|-|
