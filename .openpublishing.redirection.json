@@ -3479,6 +3479,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-desktop/partners.md",
             "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
             "redirect_document_id": false

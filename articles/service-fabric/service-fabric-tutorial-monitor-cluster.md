@@ -11,7 +11,7 @@ ms.date: 07/14/2022
 
 # Tutorial: Monitor a Service Fabric cluster in Azure
 
-Monitoring and diagnostics are critical to developing, testing, and deploying workloads in any cloud environment. This tutorial is part two of a series, and shows you how to monitor and diagnose a Service Fabric cluster using events, performance counters, and health reports.   For more information, read the overview about [cluster monitoring](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) and [infrastructure monitoring](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
+Monitoring and diagnostics are critical to developing, testing, and deploying workloads in any cloud environment. This tutorial is part two of a series, and shows you how to monitor and diagnose a Service Fabric cluster using events, performance counters, and health reports.   For more information, read the overview about [cluster monitoring](monitor-service-fabric.md#platform-cluster-monitoring) and [infrastructure monitoring](monitor-service-fabric.md#infrastructure-performance-monitoring).
 
 In this tutorial, you learn how to:
 

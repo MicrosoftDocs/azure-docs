@@ -122,6 +122,6 @@ If you are using version 6.4, you can edit your Azure Resource Manager template 
 ## Next steps
 * Get started with the EventStore API - [Using the EventStore APIs in Azure Service Fabric clusters](service-fabric-diagnostics-eventstore-query.md)
 * Learn more about the list of events offered by EventStore - [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md)
-* Overview of monitoring and diagnostics in Service Fabric - [Monitoring and Diagnostics for Service Fabric](service-fabric-diagnostics-overview.md)
+* Overview of monitoring and diagnostics in Service Fabric - [Monitor Service Fabric](monitor-service-fabric.md)
 * View the full list of API calls - [EventStore REST API Reference](/rest/api/servicefabric/sfclient-index-eventsstore)
 * Learn more about monitoring your cluster - [Monitoring the cluster and platform](service-fabric-diagnostics-event-generation-infra.md).

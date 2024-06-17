@@ -39,5 +39,5 @@ Humio is a log collection service that can gather logs from your applications an
 
 ## Next steps
 
-* Get an [overview of monitoring and diagnostics](service-fabric-diagnostics-overview.md) in Service Fabric
+* Get an [overview of monitoring and diagnostics](monitor-service-fabric.md) in Service Fabric
 * Learn how to [diagnose common scenarios](service-fabric-diagnostics-common-scenarios.md) with our first party tools

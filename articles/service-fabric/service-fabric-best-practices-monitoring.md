@@ -11,7 +11,7 @@ ms.date: 07/14/2022
 
 # Monitoring and diagnostic best practices for Azure Service Fabric
 
-[Monitoring and diagnostics](./service-fabric-diagnostics-overview.md) are critical to developing, testing, and deploying workloads in any cloud environment. For example, you can track how your applications are used, the actions taken by the Service Fabric platform, your resource utilization with performance counters, and the overall health of your cluster. You can use this information to diagnose and correct issues, and prevent them from occurring in the future.
+[Monitoring and diagnostics](monitor-service-fabric.md) are critical to developing, testing, and deploying workloads in any cloud environment. For example, you can track how your applications are used, the actions taken by the Service Fabric platform, your resource utilization with performance counters, and the overall health of your cluster. You can use this information to diagnose and correct issues, and prevent them from occurring in the future.
 
 ## Application monitoring
 
