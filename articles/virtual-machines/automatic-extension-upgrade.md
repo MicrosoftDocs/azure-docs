@@ -256,6 +256,23 @@ If multiple extension upgrades are available for a virtual machine, the upgrades
 
 Automatic Extension Upgrades can also be applied when a VM or virtual machine scale set has multiple extensions configured with [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Extension sequencing is applicable for the first-time deployment of the VM, and any future extension upgrades on an extension are applied independently.
 
+## Difference between enableAutomaticUpgrade and autoUpgradeMinorVersion
+1. AutoUpgradeMinorVersion:
+   - This property is used during VM creation.
+   - When set to “true,” it ensures that the latest minor version of the extension is automatically installed on the new virtual machine.
+   - It overrides the TypeHandlerVersion with the latest stable minor version available.
+   - This helps keep newly created VMs up-to-date with the latest stable minor extension version.
+   - If you want to manually specify the extension version during VM creation, set this property to “false.”
+     
+2. EnableAutomaticUpgrade:
+   - This property affects existing virtual machines.
+   - It does not impact the version installed during VM creation.
+   - After VM creation, if the VM is not running the latest minor version of the extension, enabling this property triggers an automatic upgrade.
+   - It ensures that existing VMs stay secure and up-to-date by automatically updating them to the latest minor version.
+
+It is recommemded to enable both properties to keep all VMs secure and up-to-date. 
+
+Updates to major extension versions are never performed automatically by either property since they could cause breaking change. You must manually set the TypeHandlerVersion to a major version and manually update each existing VM to the latest major version.
 
 ## Next steps
 > [!div class="nextstepaction"]
