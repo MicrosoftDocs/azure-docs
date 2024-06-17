@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 02/06/2024
+ms.date: 06/14/2024
 ms.reviewer: ju-shim
 ms.custom: upgradepolicy
 
