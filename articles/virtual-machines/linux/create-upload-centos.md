@@ -391,7 +391,7 @@ Preparing a CentOS 7 VM for Azure is similar to CentOS 6. Several significant di
     sudo yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
     ```
 
-    1. Configure `waagent` for `cloud-init`:
+    - Configure `waagent` for `cloud-init`:
 
     ```bash
     sudo sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=auto/g' /etc/waagent.conf
