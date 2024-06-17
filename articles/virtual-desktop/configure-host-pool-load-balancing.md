@@ -83,27 +83,45 @@ Here's how to configure load balancing with Azure PowerShell.
    - To set breadth-first without adjusting the maximum session limit, run the following command:
 
    ```powershell
-   Update-AzWvdHostPool -ResourceGroupName <ResourceGroupName> -Name <HostPoolName> -LoadBalancerType 'BreadthFirst' 
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       LoadBalancerType = 'BreadthFirst'
+   }
+   
+   Update-AzWvdHostPool @parameters 
    ```
 
    - To set depth-first and adjust the maximum session limit to 10, run the following command:
 
    ```powershell
-   Update-AzWvdHostPool -ResourceGroupName <ResourceGroupName> -Name <HostPoolName> -LoadBalancerType 'DepthFirst' -MaxSessionLimit 10
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       LoadBalancerType = 'DepthFirst'
+       MaxSessionLimit = '10'
+   }
+   
+   Update-AzWvdHostPool @parameters 
    ```
 
 3. To make sure the setting has updated, run this command:
 
    ```powershell
-   Get-AzWvdHostPool -ResourceGroupName <ResourceGroupName> -Name <HostPoolName> | Format-List Name, LoadBalancerType, MaxSessionLimit
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+   }
+   
+   Get-AzWvdHostPool @parameters | Format-Table Name, LoadBalancerType, MaxSessionLimit
    ```
 
    The output should be similar to the following output:
 
    ```output
-   Name             : contosohp01
-   LoadBalancerType : DepthFirst
-   MaxSessionLimit  : 10
+   Name        LoadBalancerType MaxSessionLimit
+   ----------- ---------------- ---------------
+   contosohp01 DepthFirst                    10
    ```
 
 ### [Azure CLI](#tab/cli)
