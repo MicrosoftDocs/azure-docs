@@ -108,24 +108,24 @@ If you use the Azure portal to enable Prometheus metrics collection and install 
 
 ### How can I monitor the service limits and quota?
 
-Azure Monitor Managed service for Prometheus has default limits and quotas for ingestion. For information on Prometheus metrics limits, see [Azure Monitor service limits](../service-limits.md#prometheus-metrics). When you reach the ingestion limits throttling can occur. In order to avoid throttling, you can monitor and setup an alert on Azure Monitor Workspace ingestion limits.
+Azure Monitor Managed service for Prometheus has default limits and quotas for ingestion. For information on Prometheus metrics limits, see [Azure Monitor service limits](../service-limits.md#prometheus-metrics). When you reach the ingestion limits throttling can occur. In order to avoid throttling, you can monitor and set up an alert on Azure Monitor Workspace ingestion limits.
 
 1. In the Azure portal, navigate to your Azure Monitor Workspace, click on **Metrics** under the **Monitoring** section.
 2. Select the Azure Monitor Workspace as scope, and in the drop-down for Metric, select *"View standard metrics with the builder"*.
 3. In the drop-down for Metric, select **Active Time Series % Utilization** and **Events Per Minute Ingested % Utilization** and verify that they are below 100%.
 
-:::image type="content" source="media/azure-monitor-workspace-overview/azure-monitor-workspace-limits-metrics.png" alt-text="Screenshot that shows how to create an alert rule for Azure Monitor Workspace ingestion limits":::
+:::image type="content" source="media/azure-monitor-workspace-overview/azure-monitor-workspace-limits-metrics.png" alt-text="Screenshot that shows how to create an alert rule for Azure Monitor Workspace ingestion limits." lightbox="media/azure-monitor-workspace-overview/azure-monitor-workspace-limits-metrics.png":::
 
 4. You can set an Azure Alert to monitor the utilization and fire an alert when the utilization is greater than a certain threshold (eg. 80% of the limit). Click on "**New alert rule**" to create an Azure alert for the same.
 
-:::image type="content" source="media/azure-monitor-workspace-overview/alert-azure-monitor-workspace.png" alt-text="Screenshot that shows how to create an alert for Azure Monitor Workspace limits.":::
+:::image type="content" source="media/azure-monitor-workspace-overview/alert-azure-monitor-workspace.png" alt-text="Screenshot that shows how to create an alert for Azure Monitor Workspace limits." lightbox="media/azure-monitor-workspace-overview/alert-azure-monitor-workspace.png":::
 
 If the alert is fired i.e. the ingestion utilization is more than the threshold, you can request an increase in these limits by creating a support ticket.
 
 1. In the Azure portal, navigate to your Azure Monitor Workspace, click on **Support + Troubleshooting**.
 2. Type the issue eg. "Service and subscription limits (quotas)", then select **Service and subscription limits (quotas)** and click "Next".
 
-:::image type="content" source="media/azure-monitor-workspace-overview/azure-monitor-workspace-support-ticket.png" alt-text="Screenshot that shows how to create a support ticket for limit increase.":::
+:::image type="content" source="media/azure-monitor-workspace-overview/azure-monitor-workspace-support-ticket.png" alt-text="Screenshot that shows how to create a support ticket for limit increase." lightbox="media/azure-monitor-workspace-overview/azure-monitor-workspace-support-ticket.png":::
 
 3. In the next screen, select your subscription and then select **Managed Prometheus** as the **Quota type**.
 4. Provide additional details to create the support ticket.
