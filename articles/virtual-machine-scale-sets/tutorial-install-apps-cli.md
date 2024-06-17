@@ -66,6 +66,7 @@ az vmss create \
   --name myScaleSet \
   --image Ubuntu2204 \
   --orchestration-mode Flexible \
+  --upgrade-policy-mode Automatic \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -89,13 +90,6 @@ Each VM instance in the scale set downloads and runs the script from GitHub. In 
 
 > [!CAUTION]
 > File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
-
-## Update your scale set instances
-To apply the custom script to all existing instances, perform a manual upgrade.
-
-```azurecli-interactive
-az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
-```
 
 ## Allow traffic to port 80 
 To allow traffic to flow through the load balancer to the virtual machines the default network security group needs to be updated. 
@@ -146,11 +140,6 @@ az vmss extension set \
   --settings @customConfigv2.json
 ```
 
-To apply the updated custom script to all existing instances, perform another manual upgrade.
-
-```azurecli-interactive
-az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
-```
 Refresh your web browser to see the updated messaging. 
 
 ![Updated web page in Nginx](media/tutorial-install-apps-cli/running-nginx-updated.png)
