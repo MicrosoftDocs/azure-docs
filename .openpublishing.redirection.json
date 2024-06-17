@@ -1,30 +1,5 @@
 {
     "redirections": [
-    {
-      "source_path": "articles/governance/resource-graph/samples/advanced.md",
-      "redirect_url": "/previous-versions/azure/governance/resource-graph/samples/advanced",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/governance/resource-graph/samples/samples-by-category.md",
-      "redirect_url": "/previous-versions/azure/governance/resource-graph/samples/samples-by-category",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/governance/resource-graph/samples/samples-by-table.md",
-      "redirect_url": "/previous-versions/azure/governance/resource-graph/samples/samples-by-table",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/governance/resource-graph/samples/starter.md",
-      "redirect_url": "/previous-versions/azure/governance/resource-graph/samples/starter",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/governance/resource-graph/reference/supported-tables-resources.md",
-      "redirect_url": "/previous-versions/azure/governance/resource-graph/reference/supported-tables-resources",
-      "redirect_document_id": false
-    },
         {
              "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-cli.md",
              "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-cli",
