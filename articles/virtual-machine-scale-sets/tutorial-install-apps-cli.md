@@ -89,7 +89,7 @@ az vmss extension set \
 > File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
 
 ## Update your scale set instances
-To apply the custom script to all existing instances, perform a manual upgrade.
+Upgrade all the instances to apply the custom script. The upgrade may take a couple of minutes.
 
 ```azurecli-interactive
 az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
@@ -143,7 +143,7 @@ az vmss extension set \
 ```
 
 ## Update your scale set instances
-To apply the updated custom script to all existing instances, perform a manual upgrade.
+Again, upgrade all the instances to apply the custom script. The upgrade may take a couple of minutes.
 
 ```azurecli-interactive
 az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
