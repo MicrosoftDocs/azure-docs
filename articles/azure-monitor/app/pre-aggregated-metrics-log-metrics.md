@@ -28,7 +28,7 @@ At the same time, collecting a complete set of events might be impractical or ev
 In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that's optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they're stored as pre-aggregated time series, and only with key dimensions. This change makes the new metrics superior at query time. Retrieving data happens faster and requires less compute power. As a result, new scenarios are enabled, such as [near real time alerting on dimensions of metrics](../alerts/alerts-metric-near-real-time.md) and more responsive [dashboards](./overview-dashboard.md).
 
 > [!IMPORTANT]
-> Both log-based and pre-aggregated metrics coexist in Application Insights. To differentiate the two, in the Application Insights user experience the pre-aggregated metrics are now called Standard metrics (preview). The traditional metrics from the events were renamed to Log-based metrics.
+> Both log-based and pre-aggregated metrics coexist in Application Insights. To differentiate the two, in the Application Insights user experience the pre-aggregated metrics are now called standard metrics. The traditional metrics from the events were renamed to log-based metrics.
 
 The newer SDKs ([Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK or later for .NET) pre-aggregate metrics during collection. This process applies to [standard metrics sent by default](../essentials/metrics-supported.md#microsoftinsightscomponents), so the accuracy isn't affected by sampling or filtering. It also applies to custom metrics sent by using [GetMetric](./api-custom-events-metrics.md#getmetric), which results in less data ingestion and lower cost.
 
@@ -88,7 +88,7 @@ The collection of custom metrics dimensions is turned off by default because in 
 
 ## Create charts and explore log-based and standard pre-aggregated metrics
 
-Use [Azure Monitor metrics explorer](../essentials/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics and to author dashboards with charts. After you select the Application Insights resource you want, use the namespace picker to switch between standard (preview) and log-based metrics. You can also select a custom metric namespace.
+Use [Azure Monitor metrics explorer](../essentials/metrics-getting-started.md) to plot charts from pre-aggregated and log-based metrics and to author dashboards with charts. After you select the Application Insights resource you want, use the namespace picker to switch between standard and log-based metrics. You can also select a custom metric namespace.
 
 :::image type="content" source="./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png" lightbox="./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png" alt-text="Screenshot that shows Metric namespace.":::
 
