@@ -90,21 +90,22 @@ Each VM instance in the scale set downloads and runs the script from GitHub. In 
 > [!CAUTION]
 > File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
 
-## Test your scale set
-To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb*:
+## Update your scale set instances
+To apply the custom script to all existing instances, perform a manual upgrade.
 
 ```azurecli-interactive
-az network lb rule create \
-  --resource-group myResourceGroup \
-  --name myLoadBalancerRuleWeb \
-  --lb-name myScaleSetLB \
-  --backend-pool-name myScaleSetLBBEPool \
-  --backend-port 80 \
-  --frontend-ip-name loadBalancerFrontEnd \
-  --frontend-port 80 \
-  --protocol tcp
+az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
 ```
 
+## Allow traffic to port 80 
+To allow traffic to flow through the load balancer to the virtual machines the default network security group needs to be updated. 
+
+```azurecli-interactive
+az network nsg rule create --name AllowHTTP --resource-group myResourceGroup --nsg-name myScaleSetNSG --access Allow --priority 1010 --destination-port-ranges 80 
+```
+
+
+## Test your scale set
 To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
@@ -145,7 +146,12 @@ az vmss extension set \
   --settings @customConfigv2.json
 ```
 
-All VM instances in the scale set are automatically updated with the latest version of the sample web page. To see the updated version, refresh the web site in your browser:
+To apply the updated custom script to all existing instances, perform another manual upgrade.
+
+```azurecli-interactive
+az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
+```
+Refresh your web browser to see the updated messaging. 
 
 ![Updated web page in Nginx](media/tutorial-install-apps-cli/running-nginx-updated.png)
 
