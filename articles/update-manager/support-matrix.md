@@ -191,6 +191,7 @@ Following is the list of supported images and no other marketplace images releas
 | | sql2019-ws2019 | standard |
 | | sql2019-ws2019 | standard-gen2|
 |microsoftazuresiterecovery  | process-server | windows-2012-r2-datacenter |
+|microsoft-dvsm | dsvm-windows </br> dsvm-win-2019 </br> dsvm-win-2022 | * </br> * </br> * |
 
 #### Supported Linux OS versions
 
@@ -238,7 +239,16 @@ Following is the list of supported images and no other marketplace images releas
 | |centos-lvm | 7-lvm, 8-lvm |
 | |centos-ci | 7-ci |
 | |centos-lvm | 7-lvm-gen2 |
-
+|almalinux | almalinux </br> almalinux-x86_64 </br> almalinux-hpc | 8-gen1, 8-gen2, 9-gen1, 9-gen2 </br> 8-gen1, :8-gen2, 9-gen1, 9-gen2 </br> 8_6-hpc, 8_6-hpc-gen2 |
+| aviatrix-systems | aviatrix-bundle-payg </br> aviatrix-copilot / </br> aviatrix-companion-gateway-v9 </br> aviatrix-companion-gateway-v10 </br> aviatrix-companion-gateway-v12 </br> aviatrix-companion-gateway-v13 </br> aviatrix-companion-gateway-v14 </br> aviatrix-companion-gateway-v16 </br> | aviatrix-enterprise-bundle-byol </br> avx-cplt-byol-01, avx-cplt-byol-02 </br> aviatrix-companion-gateway-v9 </br>
+aviatrix-companion-gateway-v10, aviatrix-companion-gateway-v10u </br> aviatrix-companion-gateway-v12 </br> aviatrix-companion-gateway-v13, aviatrix-companion-gateway-v13u </br> aviatrix-companion-gateway-v14, aviatrix-companion-gateway-v14u </br> aviatrix-companion-gateway-v14, aviatrix-companion-gateway-v14u |
+| cncf-upstream | capi | ubuntu-1804-gen1, ubuntu-2004-gen1, ubuntu-2204-gen1 |
+| credativ | debian | 9, 9-backports |
+| debian | debian-10 | 10, 10-gen2, 10-backports, 10-backports-gen2 |
+| microsoft-dsvm | aml-workstation </br> ubuntu-hpc </br> ubuntu-2004  | ubuntu </br> 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 </br> 2004, 2004-gen2 | 
+| redhat | rhel-byos </br> rhel-ha </br> rhel-sap-apps </br> rhel-sap-ha </br> | rhel-lvm88, rhel-lvm88-gent2, rhel-lvm92, rhel-lvm92-gen2 </br> 9_2, 9_2-gen2 </br> 9_0, 90sapapps-gen2, 9_2, 92sapapps-gen2 </br> 9_2, 92sapha-gen2 |
+| suse | sles-standard </br> sle-hpc-15-sp4-byos </br> sle-hpc-15-sp5-byos </br> sle-hpc-15-sp5 </br> sles-15-sp4-byos </br> sle-hpc-15-sp5 </br> sle-hpc-15-sp5 </br> sles-15-sp4-byos </br>  sles-15-sp4-chost-byos </br> sles-15-sp4-hardened-byos </br> sles-15-sp5-basic </br> sles-15-sp5-byos </br> sles-15-sp5-chost-byos </br> sles-15-sp5-hardened-byos </br> sles-15-sp5-sapcal </br> sles-15-sp5 </br> sles-sap-15-sp4-byos </br> sles-sap-15-sp4-hardened-byos </br> sles-sap-15-sp5-byos </br> sles-sap-15-sp5-hardened-byo | 12-sp4-gen2 </br> 12-sp4-gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 </br> gen1, gen2 |
+ 
 ### Custom images
 
 We support VMs created from customized images (including images uploaded to [Azure Compute gallery](../virtual-machines/linux/tutorial-custom-images.md#overview)) and the following table lists the operating systems that we support for all Azure Update Manager operations except automatic VM guest patching. For instructions on how to use Update Manager to manage updates on VMs created from custom images, see [Manage updates for custom images](manage-updates-customized-images.md).
