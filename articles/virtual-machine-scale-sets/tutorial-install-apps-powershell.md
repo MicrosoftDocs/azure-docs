@@ -31,6 +31,13 @@ The Custom Script extension integrates with Azure Resource Manager templates. It
 To see the Custom Script Extension in action, create a scale set that installs the IIS web server and outputs the hostname of the scale set VM instance. The Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
 ## Create a scale set
+
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
+
+```azurecli-interactive
+New-AzResourceGroup -Name myResourceGroup -Location "East US"
+```
+
 Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80. It also allows remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
 
 ```azurepowershell-interactive
