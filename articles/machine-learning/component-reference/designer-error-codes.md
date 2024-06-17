@@ -1617,8 +1617,11 @@ Otherwise, you can check `70_driver_log` for each process. `70_driver_log_0` is 
 
   [ ![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)
 
-### Sample dataset not found in pipeline
-If you encounter this error, please follow the steps below to resolve the issue:
+### Fail to mount sample data in pipeline
+
+:::image type="content" source="./media/module/global_datasets_error.png" alt-text="Screenshot of datastore of sample data." lightbox = "./media/module/global_datasets_error.png":::
+
+If you encounter above error, please follow the steps below to resolve the issue:
 
 - Double click data node to go to detail page of datastore.
   :::image type="content" source="./media/module/sample-data-datastore.png" alt-text="Screenshot of datastore of sample data." lightbox = "./media/module/sample-data-datastore.png":::
