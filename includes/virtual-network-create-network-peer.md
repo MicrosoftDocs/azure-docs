@@ -47,4 +47,4 @@ Use the following steps to create a two way network peer between **vnet1** and *
     :::image type="content" source="./media/virtual-network-create-network-peer/add-peering.png" alt-text="Screenshot of Add peering in the Azure portal.":::
 
 1. Select **Add**.
-includes/media/virtual-network-create-network-peer/add-peering.png
+
