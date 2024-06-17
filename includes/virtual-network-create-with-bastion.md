@@ -5,7 +5,7 @@
  author: asudbring
  ms.service: virtual-network
  ms.topic: include
- ms.date: 05/29/2024
+ ms.date: 06/17/2024
  ms.author: allensu
  ms.custom: include file
 ---
@@ -18,7 +18,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. On the **Virtual networks** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -57,14 +57,15 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     | Setting | Value |
     |---|---|
-    | **Subnet details** |  |
-    | Subnet template | Leave the default of **Default**. |
+    | Subnet purpose | Leave the default of **Default**. |
     | Name | Enter **subnet-1**. |
+    | **IPv4** |  |
+    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Leave the default of **10.0.0.0**. |
-    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+    | Size | Leave the default of **/24 (256 addresses)**. |
 
     :::image type="content" source="./media/virtual-network-create-with-bastion/address-subnet-space.png" alt-text="Screenshot of configuration details for a subnet." lightbox="./media/virtual-network-create-with-bastion/address-subnet-space.png":::
 
-1. Select **Add**.
+1. Select **Save**.
 
 1. Select **Review + create** at the bottom of the window. When validation passes, select **Create**.
