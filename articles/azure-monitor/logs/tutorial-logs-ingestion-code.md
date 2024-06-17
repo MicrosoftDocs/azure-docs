@@ -113,7 +113,7 @@ The following script uses the [Azure Monitor Ingestion client library for .NET](
                 {
                     InstanceName = "user" + i.ToString(),
                     TimeZone = "Central Time",
-                    Level = Random.Shared.Next(1, 5),
+                    Level = 3,
                     CounterName = "AppMetric1" + i.ToString(),
                     CounterValue = i
                 }
