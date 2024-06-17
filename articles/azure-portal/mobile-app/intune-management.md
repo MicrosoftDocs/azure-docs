@@ -1,7 +1,7 @@
 ---
 title: Use Microsoft Intune MAM on devices that run the Azure mobile app
 description: Learn about setting and enforcing app protection policies on devices that run the Azure mobile app.
-ms.date: 06/13/2024
+ms.date: 06/17/2024
 ms.topic: conceptual
 ms.custom:
   - build-2024
@@ -39,7 +39,7 @@ For example, a user's MAM policy may specify a 6-digit PIN requirement. When tha
 
 :::image type="content" source="media/intune-management/intune-intro-message.png" alt-text="Screenshot of an introductory message from Intune MAM in the Azure mobile app.":::   :::image type="content" source="media/intune-management/intune-pin-prompt.png" alt-text="Screenshot of Intune MAM prompting the user to set up a PIN in the Azure mobile app.":::
 
-After the user sets up their PIN, they'll be prompted to enter that PIN when they sign in on the future. The PIN must be entered in order to use the Azure mobile app.
+After the user sets up their PIN, they'll be prompted to enter that PIN every time they sign in. The PIN must be entered in order to use the Azure mobile app.
 
 :::image type="content" source="media/intune-management/intune-pin-enter.png" alt-text="Screenshot of Intune MAM prompting the user to enter their PIN in the Azure mobile app.":::
 
