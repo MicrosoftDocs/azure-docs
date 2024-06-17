@@ -75,7 +75,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the VNet in the portal. The gateway appears as a connected device.
 
-[!INCLUDE [NSG warning](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="generatecert"></a>Generate certificates
 
