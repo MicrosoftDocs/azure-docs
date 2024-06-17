@@ -27,6 +27,7 @@ To achieve geo-replication in non-paired regions, you can use:
 - [AZCopy](/azure/storage/common/storage-use-azcopy-blobs-copy).
 - [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-best-practices) or any application-level replication service. 
 - [Azure NetApp Files (ANF)](/azure/azure-netapp-files/azure-netapp-files-introduction) can be also considered as an option since it can replicate to a set of paired regions not constrained by geo-redundant storage (GRS).
+- [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) to sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.” 
 
 
 ## Azure Backup
@@ -38,7 +39,11 @@ To achieve geo-replication in non-paired regions, you can use:
 
 ## Azure SQL Database and SQL Managed Instance
 
-For geo-replication in non-paired regions, Azure SQL data services offers the [Failover Group feature](/azure/azure-sql/database/failover-group-sql-db?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying storage GRS. 
+For geo-replication in non-paired regions, Azure SQL data services you can use:
+
+- [Failover Group feature](/azure/azure-sql/database/failover-group-sql-db?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying storage GRS.
+
+- [Active geo-replication feature](/azure/azure-sql/database/active-geo-replication-overview?view=azuresql&preserve-view=true) to create a continuously synchronized readable secondary database for a primary database. The readable secondary database may be in the same Azure region as the primary or, more commonly, in a different region. This kind of readable secondary database is also known as a *geo-secondary* or *geo-replica*.
 
 
 ## Azure Key Vault
@@ -46,6 +51,7 @@ For geo-replication in non-paired regions, Azure SQL data services offers the [F
 To achieve geo-replication in non-paired regions, you can:
 
 - Within a single geography only, [backup Azure Key Vault](/azure/key-vault/general/backup?tabs=azure-cli). 
+
 - Use [Key Vault Managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/overview). Although it's a more expensive option, as it provides encryption key management.
 
 
@@ -55,7 +61,11 @@ For geo-replication in non-paired regions, Azure Data Factory (ADF) supports Inf
 
 ## Azure Database for MySQL 
 
-For geo-replication in non-paired regions, you can export and copy the MySQL database.
+For geo-replication in non-paired regions:
+
+1. [Export](/azure/mysql/flexible-server/concepts-migrate-import-export) the database.
+
+2. [Copy](/azure/mysql/flexible-server/concepts-migrate-dump-restore) the database.
 
 ## Azure Database for PostgreSQL
 
@@ -79,6 +89,8 @@ For geo-replication in non-paired regions, use the [concierge pattern](/azure/io
 
 With Log Analytics Workspace, the only possible solution is to have all the "sources" and "agents" replicate to multiple workspaces in different regions, which is something complex and expensive to implement. Deployment of other solutions like Azure Sentinel may add complexity to Business Continuity and Disaster recovery (BCDR). 
 
+For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication)
+
 
 ## Azure Kubernetes Service (AKS)
 
@@ -87,10 +99,6 @@ Azure Backup can provide protection for AKS clusters, including a [cross-regio
 
 ## Azure App Service
 For App Service, custom backups are stored on a selected storage account. As a result, there's a dependency for cross-region restore on GRS and paired regions. For automatic backup type, you can't backup/restore across regions. As a workaround, you can implement a custom file copy mechanism for the saved data set to manually copy across non-paired regions and different storage accounts.
-
-## Azure File Sync
-
-Geo-redundancy options (GRS and Geo-zone redundant storage( GZRS)) aren't available to a non-paired region and for Azure premium file shares. Use [Azure File Sync](/azure/storage/file-sync/file-sync-introduction) to sync between your Azure file share (cloud endpoint), an on-premises Windows file server, and a mounted file share running on a virtual machine in another Azure region (your server endpoint for disaster recovery purposes). You must disable cloud tiering to ensure that all data is present locally, and provision enough storage on the Azure Virtual Machine to hold the entire dataset. To ensure changes replicate quickly to the secondary region, files should only be accessed and modified on the server endpoint rather than in Azure.” 
 
 
 ## Next steps
