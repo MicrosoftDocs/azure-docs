@@ -153,7 +153,7 @@ From here, either select the options menu or select **View full details** to tak
 
 The `Recommendations` operation group provides access to SOC optimizations via the Azure REST API. For example, use the API to get details about a specific recommendations, or all current recommendations across your workspaces, or to reevaluate a recommendation if you've made changes.
 
-SOC opimtization API documentation is available only in the Swagger specification and not in the REST API reference. For more information, see [API versions of Microsoft Sentinel REST APIs](/rest/api/securityinsights/api-versions).
+SOC optimization API documentation is available only in the Swagger specification and not in the REST API reference. For more information, see [API versions of Microsoft Sentinel REST APIs](/rest/api/securityinsights/api-versions).
 
 ## SOC optimization usage flow
 
