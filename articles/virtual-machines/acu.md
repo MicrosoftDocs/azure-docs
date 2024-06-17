@@ -19,15 +19,12 @@ ms.reviewer: davberg
 > 
 > Azure is no longer publishing ACUs since the metric has limited ability to inform users of the expected performance of a virtual machine across various attributes.  For the most accurate results on a specific virtual machine, Azure recommends users run their workload(s) on that virtual machine to verify performance.
 
-The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This helps you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) virtual machine being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark
+The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This helps you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) virtual machine being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark.
 
-*ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the virtual machine size, workload, and other workloads running on the same host.
-
-**ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the virtual machine size, workload, and other workloads running on the same host.
-
-***Hyper-threaded and capable of running nested virtualization
-
-****AMD Simultaneous multithreading technology
+*ACUs use Intel® Turbo technology to increase CPU frequency and provide a performance increase. The amount of the performance increase can vary based on the virtual machine size, workload, and other workloads running on the same host.<br>
+**ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase. The amount of the performance increase can vary based on the virtual machine size, workload, and other workloads running on the same host.<br>
+***Hyper-threaded and capable of running nested virtualization.<br>
+****AMD Simultaneous multithreading technology.<br>
 
 > [!IMPORTANT]
 > The ACU is only a guideline. The results for your workload may vary.
@@ -73,11 +70,11 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Mv2](msv2-mdsv2-series.md) | 240 - 280 | 2:1\*\*\* |
 | [NVv4](nvv4-series.md) |230 - 260** | 2:1\*\*\*\* |
 
-Processor model information for each SKU is available in the SKU documentation (see links above).  Optimal performance may require the latest VM images (OS and [VM generation](generation-2.md)) to ensure the latest updates and fastest drivers.
+Processor model information for each SKU is available in the SKU documentation (see links above).  Optimal performance may require the latest virtual machine images (OS and [virtual machine generation](generation-2.md)) to ensure the latest updates and fastest drivers.
 
 ### Virtual machine series retiring
 
-The following virtual machine series are retiring on or before August 31, 2024:
+The following virtual machine series are retiring on or before August 31, 2024.
 
 | SKU Family | ACU \ vCPU | vCPU: Core |  Retirement Date |
 | --- | --- |---| --- |
@@ -88,7 +85,7 @@ The following virtual machine series are retiring on or before August 31, 2024:
 | [A5 - A7](sizes-previous-gen.md)  |100         | 1:1 | [August 31, 2024](av1-series-retirement.md) |
 | [A8 - A11](sizes-previous-gen.md) |225*        | 1:1 | [August 31, 2024](av1-series-retirement.md) |
 
-The following GPU series are also retiring:
+The following GPU series are also retiring.
 
 | SKU Family | Retirement Date |
 | ---------- | --------------- |
@@ -99,10 +96,10 @@ The following GPU series are also retiring:
 
 ## Performance consistency
 
-We understand that Azure customers want the best possible consistent performance, they want to be able to count on getting the same performance from the same type of virtual machine every time.  
+We understand that Azure customers want the best possible consistent performance and want to be able to count on getting the same performance from the same type of virtual machine every time.  
 
-Azure virtual machine sizes typically run with maximum performance on the hardware platform they're first released on.  Azure may place controls on older Azure virtual machines when run on newer hardware to help maintain consistent performance for our customers even when the virtual machines run on different hardware.  For example:
-1) **D**, **E**, and **F** series virtual machines may have the processor frequency set to a lower level when running on newer hardware to help achieve better performance consistency across hardware updates.  (The specific frequency setting varies based on the processor the virtual machine series was first released on and the comparable performance of the current hardware.)
+Azure virtual machine sizes typically run with maximum performance on the hardware platform they're first released on.  Azure may place controls on older Azure virtual machines when run on newer hardware to help maintain consistent performance for our customers even when the virtual machines run on different hardware. For example:
+1) **D**, **E**, and **F** series virtual machines may have the processor frequency set to a lower level when running on newer hardware to help achieve better performance consistency across hardware updates. (The specific frequency setting varies based on the processor the virtual machine series was first released on and the comparable performance of the current hardware).
 2) **A** series virtual machines use an older model based on time slicing newer hardware to deliver performance consistency across hardware versions.
 3) **B** series virtual machines are burstable and use a credit system (described in their [documentation](sizes-b-series-burstable.md) to achieve expected performance.
 
@@ -111,7 +108,7 @@ These different processor settings for virtual machines are a key part of Azure'
 
 ## More information
 
-Here are links to more information about the different sizes:
+For more information about the different sizes see:
 
 - [General-purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
