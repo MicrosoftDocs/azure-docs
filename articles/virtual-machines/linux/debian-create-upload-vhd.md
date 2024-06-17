@@ -84,7 +84,7 @@ sudo qemu-img resize "$rawdisk" $rounded_size
 qemu-img convert -f raw -o subformat=fixed,force_size -O vpc "$rawdisk" "$vhddisk"
 ```
 
-This process creates a VHD `image_[release]_azure_amd64.vhd` with a rounded size so that it can be copied successfully to an Azure Disk.
+This process creates a VHD `image_[release]_azure_amd64.vhd` with a rounded size so that it can be copied successfully to an Azure disk.
 
 >[!NOTE]
 > Rather than cloning the salsa repository and building images locally, current stable images can be built and downloaded from [FAI](https://fai-project.org/FAIme/cloud/).
@@ -139,14 +139,14 @@ az vm create \
         --query id -o tsv)
 ```
 
-If the bandwidth from your local machine to the Azure Disk is causing a long time to process the upload with `azcopy`, you can use an Azure VM jumpbox to speed up the process. Here's how this process can be done:
+If the bandwidth from your local machine to the Azure disk is causing a long time to process the upload with `azcopy`, you can use an Azure VM jumpbox to speed up the process. Here's how this process can be done:
 
 1. Create a tarball of the VHD on your local machine: `tar -czvf ./image_buster_azure_amd64.vhd.tar.gz ./image_[release]_azure_amd64.vhd`.
-1. Create an Azure Linux VM (distro of your choice). Make sure that you create it with a large-enough disk to hold the extracted VHD.
+1. Create an Azure Linux VM (distribution of your choice). Make sure that you create it with a large-enough disk to hold the extracted VHD.
 1. Download the `azcopy` utility to the Azure Linux VM. You can retrieve it from [Get started with AzCopy](../../storage/common/storage-use-azcopy-v10.md#download-azcopy).
 1. Copy the tarball to the VM: `scp ./image_buster_azure_amd64.vhd.tar.gz <vm>:~`.
 1. On the VM, extract the VHD: `tar -xf ./image_buster_azure_amd64.vhd.tar.gz`. This step takes a bit of time based on the size of the file.
-1. Finally, on the VM, copy the VHD to the Azure Disk with `azcopy` (the preceding command).
+1. Finally, on the VM, copy the VHD to the Azure disk with `azcopy` (the preceding command).
 
 ## Related content
 
