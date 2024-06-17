@@ -376,7 +376,7 @@ You'll configure the VPN connection using the [Always On VPN](/windows-server/re
 
 To install the client certificate required for authentication against the virtual network gateway, follow these steps on the client computer.
 
-[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](../../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## Install the VPN client
 
