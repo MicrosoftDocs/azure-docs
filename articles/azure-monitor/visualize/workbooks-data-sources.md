@@ -101,9 +101,9 @@ Merging data from different sources can enhance the insights experience. An exam
 With workbooks, you can query different data sources. Workbooks also provide simple controls that you can use to merge or join data to provide rich insights. The *merge* control is the way to achieve it.  A single merge data source can do many merges in one step.  For example, a *single* merge data source can merge results from a step using Azure Resource Graph with Azure Metrics, and then merge that result with another step using the Azure Resource Manager (ARM) data source in one query item.
 
 > [!NOTE]
-> While hidden query and metrics steps will run if referenced by a merge step,  hidden query items *using the merge data source* do not run while hidden.
-> A step using merge that attempts to reference *a hidden* step using merge data source *will not run* until that hidden step becomes visible.
-> A single merge step can merge many data sources at once.  There is very rarely a case where a merge data source will reference *another* merge data source.
+> While hidden query and metrics steps will run if referenced by a merge step,  hidden query items using the merge data source do not run while hidden.
+> A step using merge that attempts to reference a hidden step using merge data source will not run until that hidden step becomes visible.
+> A single merge step can merge many data sources at once.  There is very rarely a case where a merge data source will reference another merge data source.
 
 
 ### Combine alerting data with Log Analytics VM performance data
