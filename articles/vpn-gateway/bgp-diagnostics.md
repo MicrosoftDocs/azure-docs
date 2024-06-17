@@ -67,7 +67,7 @@ In the Azure portal, you can view BGP peers, learned routes, and advertised rout
 
 Use **Get-AzVirtualNetworkGatewayBGPPeerStatus** to view all BGP peers and the status.
 
-[!INCLUDE [VPN Gateway PowerShell instructions](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [VPN Gateway PowerShell instructions](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayBgpPeerStatus -ResourceGroupName resourceGroup -VirtualNetworkGatewayName gatewayName
