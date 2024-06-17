@@ -2,7 +2,7 @@
 metadata:
   title: Azure Monitor SCOM Managed Instance - FAQ
   description: This article answers frequently asked questions about Azure Monitor SCOM Managed Instance.
-  ms.date: 06/14/2024
+  ms.date: 06/17/2024
   ms.topic: faq
   ms.service: azure-monitor
   ms.subservice: operations-manager-managed-instance
@@ -47,17 +47,19 @@ sections:
           - You need to specify a peering name (in the field **Peering link name**).
           - The first name is used to name the peer network from the current network to the other network. The second name is used to name the peer network from the other network to this network.
           - In the section *Virtual Network*, specify the name of the VNet that you're peering. If you can't find the VNet, you can search for it using the *Resource ID*. Retain the rest of the options as default.
-             :::image type="Add peering" source="media/operations-manager-managed-instance-common-questions/add-peering-inline.png" alt-text="Screenshot showing add peering screen." lightbox="media/operations-manager-managed-instance-common-questions/add-peering-expanded.png":::
+             :::image type="Add peering" source="media/scom-managed-instance-faq/add-peering-inline.png" alt-text="Screenshot showing add peering screen." lightbox="media/scom-managed-instance-faq/add-peering-expanded.png":::
   - name: SQL managed instance
     questions:
       - question: |
           I don't see my region in SQL MI. How do I solve that?
         answer: |
           1. If you don't see the region that you want to choose (West US or West Europe) in the list of regions, select **Not seeing a region**, and then select **Request quota increase for your subscription**.
-             :::image type="Region error" source="media/operations-manager-managed-instance-common-questions/region-error.png" alt-text="Screenshot showing region error.":::
+             :::image type="Region error" source="media/scom-managed-instance-faq/region-error.png" alt-text="Screenshot showing region error.":::
           2. Enter the required fields in **Basics** and go to **Details** to enter the **Problem details**.
-             :::image type="New support request" source="media/operations-manager-managed-instance-common-questions/new-support-request-inline.png" alt-text="Screenshot showing new support request." lightbox="media/operations-manager-managed-instance-common-questions/new-support-request-expanded.png":::
+             :::image type="New support request" source="media/scom-managed-instance-faq/new-support-request-inline.png" alt-text="Screenshot showing new support request." lightbox="media/scom-managed-instance-faq/new-support-request-expanded.png":::
           3. Select **Enter details**. **Quota details** page opens on the right pane. In *Region*, choose the desired region and change the limits as desired (10 subnets and 500 vCores should suffice). Select **Save and continue** and then select **Next: Review + create >>** to raise the ticket. It might take 24 hours for the ticket to get resolved. Wait for it to get resolved before proceeding to create the SQL MI instance.
+          <br>
+          For more information, see [Which Azure regions are supported?](/azure/azure-sql/managed-instance/frequently-asked-questions-faq?view=azuresql#which-azure-regions-are-supported).
   - name: Azure role-based access control (RBAC)
     questions:
       - question: |
@@ -74,7 +76,7 @@ sections:
            |Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API|Role information can be accessed in Azure admin portal, Microsoft 365, admin center, Microsoft Graph, Microsoft Entra ID PowerShell|
           <br>
           Below is the high-level view of how the classic subscription administrator roles, Azure roles, and Azure AD roles are related.
-           :::image type="Microsoft Entra ID roles" source="media/operations-manager-managed-instance-common-questions/azure-active-directory-roles.png" alt-text="Screenshot of Microsoft Entra ID roles.":::
+           :::image type="Microsoft Entra ID roles" source="media/scom-managed-instance-faq/azure-active-directory-roles.png" alt-text="Screenshot of Microsoft Entra ID roles.":::
       - question: |
           What is a Global Administrator role?
         answer: |
@@ -96,7 +98,7 @@ sections:
           You can either delete the instance from the instance view itself or from the *Resource Group* view.
           <br>
           In the instance view, select *Delete* from the top menu and wait for the confirmation that the instance has been deleted. 
-           :::image type="Delete option" source="media/operations-manager-managed-instance-common-questions/delete.png" alt-text="Screenshot showing delete option.":::
+           :::image type="Delete option" source="media/scom-managed-instance-faq/delete.png" alt-text="Screenshot showing delete option.":::
           Alternatively, go to your resource group view (search for Resource Group in the Azure search bar, and in the list of results, open your resource group). Go to the resource group where the SCOM Managed Instance resides and delete the instance.
           <br>
           Once the instance is deleted, you'll also have to delete the two databases created in SQL MI. In the resource view, select the two databases (depending on what name you gave to your SCOM Managed Instance) and select **Delete**.
@@ -122,7 +124,7 @@ sections:
       - question: |
           Can I view the SCOM Managed Instance resources and VMs in my subscription?
         answer: |
-          Since this instance requires you to create the SCOM Managed Instance in your subscription, all the SCOM Managed Instance resources (including the VMs) will be visible to you. However, we recommend not to do any actions on the VMs and other resources while you're operating SCOM Managed Instance to avoid unforeseen complexities.
+          Since this instance requires you to create the SCOM Managed Instance in your subscription, you will be able to see all the SCOM Managed Instance resources (including the VMs). However, we recommend not to do any actions on the VMs and other resources while you're operating SCOM Managed Instance to avoid unforeseen complexities.
   - name: Monitoring scenarios
     questions:
       - question: |
@@ -146,17 +148,17 @@ sections:
   - name: Monitored Resources (Agents)/Managed Gateway Servers
     questions:
       - question: |
-          Can we perform actions on on-premises monitored resources?
+          Can we perform actions on on-premises monitored resources from Azure Portal?
         answer: |  
-          You can't perform actions on the on-premises monitored resources, but can view them. Additionally, if the monitored objects are deleted, the portal will automatically remove those on-premises objects after six hours.
+          You can't perform actions on the on-premises monitored resources, but can view them. Additionally, if the monitored objects are deleted, the portal will automatically remove those on-premises objects in five minutes.
       - question: |
           How often are the connectivity synchronizations performed for monitored resources and managed gateways?
         answer: |
           The monitored resources and managed gateways connectivity status are updated every minute, you can view the same in the Properties context menu.
       - question: |
-          What happens if an agent is already installed on the machine?
+          What happens if a System Center Operations Manager agent is already installed on the machine?
         answer: |
-          The same agent will be used and multi-homed to the SCOM Managed Instance.
+          The agent will be upgraded in-place (if required) and multi-homed to the SCOM Managed Instance.
       - question: |
           Which extension version of SCOM Managed Instance supports agent (monitored resource) or managed gateway servers?
         answer: |
@@ -184,7 +186,7 @@ sections:
            - Check if it has the outbound connectivity to *.workloadnexus.azure.com
            - Check if the firewall has been opened for this URL.
           <br>
-          For example: `Test-NetConnection westus.workloadnexus.azure.com -Port 443`
+          For example: `Test-NetConnection westus.workloadnexus.azure.com -Port 443` (Region must be SCOM Managed Instance's region)
       - question: |
           How can we determine if an agent (monitored resource) or gateway has a line of sight to the management servers?
         answer: |
