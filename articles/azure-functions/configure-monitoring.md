@@ -165,14 +165,14 @@ If *[host.json]* includes multiple logs that start with the same string, the mor
 You can use a log level setting of `None` to prevent any logs from being written for a category.
 
 > [!CAUTION]
-> Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables. If you set a category log level to any value different from `Information`, it prevents the telemetry to flow to those tables, and you won't be able to see the related data in the **Application Insights** or **Function Monitor** tab.
+> Azure Functions integrates with Application Insights by storing telemetry events in Application Insights tables. If you set a category log level to any value different from `Information`, it prevents the telemetry from flowing to those tables, and you won't be able to see related data in the **Application Insights** and **Function Monitor** tabs.
 >
-> From above samples:
-
-> + If the `Host.Results` category is set to `Error` log level, it will only gather host execution telemetry events in the `requests` table for failed function executions, preventing to display host execution details of success executions in both the **Application Insights** and **Function Monitor** tab.
-> + If the `Function` category is set to `Error` log level, it will stop gathering function telemetry data related to `dependencies`, `customMetrics`, and `customEvents` for all the functions, preventing to see any of this data in Application Insights. It will only gather `traces` logged with `Error` level.
+> For example, for the previous samples:
 >
-> In both cases you will continue to collect errors and exceptions data in the **Application Insights** and **Function Monitor** tab. For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
+> + If you set the `Host.Results` category to the `Error` log level, Azure gathers only host execution telemetry events in the `requests` table for failed function executions, preventing the display of host execution details of successful executions in both the **Application Insights** and **Function Monitor** tabs.
+> + If you set the `Function` category to the `Error` log level, it stops gathering function telemetry data related to `dependencies`, `customMetrics`, and `customEvents` for all the functions, preventing you from viewing any of this data in Application Insights. Azure gathers only `traces` logged at the `Error` level.
+>
+> In both cases, Azure continues to collect errors and exceptions data in the **Application Insights** and **Function Monitor** tabs. For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
 ## Configure the aggregator
 
