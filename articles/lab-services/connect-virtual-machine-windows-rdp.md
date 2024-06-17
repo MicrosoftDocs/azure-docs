@@ -13,6 +13,8 @@ ms.date: 03/06/2024
 
 # Connect to a VM using Remote Desktop Protocol on Windows
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to connect to a lab VM in Azure Lab Services from Windows by using Remote Desktop Protocol (RDP).
 
 ## Connect to VM from Windows using RDP

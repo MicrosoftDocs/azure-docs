@@ -13,6 +13,8 @@ ms.custom: subject-rbac-steps
 
 # Tutorial: Set up a lab account with Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
 In Azure Lab Services, a lab account serves as the central resource in which you manage your organization's labs. In your lab account, give permission to others to create labs, and set policies that apply to all labs under the lab account. In this tutorial, learn how to create a lab account by using the Azure portal.

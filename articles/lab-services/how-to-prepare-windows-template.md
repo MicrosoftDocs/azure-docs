@@ -12,6 +12,8 @@ ms.date: 05/17/2023
 
 # Prepare a Windows template machine in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes best practices and tips for preparing a Windows-based lab template virtual machine in Azure Lab Services. Learn how to configure commonly used software and operating system settings, such as Windows Update, OneDrive, and Microsoft 365.
 
 >[!IMPORTANT]
@@ -139,6 +141,8 @@ The following example PowerShell script shows how to set Microsoft 365 to use th
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"

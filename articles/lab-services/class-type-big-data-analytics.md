@@ -12,6 +12,8 @@ ms.date: 04/25/2023
 
 # Set up a lab for big data analytics in Azure Lab Services using Docker deployment of HortonWorks Data Platform
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article shows you how to set up a lab to teach a big data analytics class. A big data analytics class teaches users how to handle large volumes of data. It also teaches them to apply machine and statistical learning algorithms to derive data insights. A key objective is to learn how to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/). The software package provides tools for storing, managing, and processing big data.

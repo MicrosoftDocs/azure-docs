@@ -13,6 +13,8 @@ ms.date: 03/04/2024
 
 # Set up a lab to teach ethical hacking class by using Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article shows you how to set up a class that focuses on the forensics side of ethical hacking with Azure Lab Services. In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Penetration testing, a practice that the ethical hacking community uses, occurs when someone attempts to gain access to the system or network to demonstrate vulnerabilities that a malicious attacker might exploit.
 
 Each student gets a Windows host virtual machine (VM) that has two nested virtual machines: one VM with Metasploitable3 image and another VM with the Kali Linux image. Use the Metasploitable VM to try exploitation tasks. The Kali VM provides access to the tools you need to run forensic tasks.
@@ -45,6 +47,8 @@ To configure the template VM, complete the following tasks:
 
 # [PowerShell](#tab/powershell)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 ### Prepare template machine for nested virtualization
 
 - Launch **PowerShell** in **Administrator** mode. Run these commands.
@@ -71,6 +75,8 @@ The Rapid7 Metasploitable image is an image purposely configured with security v
   ```
 
 # [Windows tools](#tab/windows)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 ### Prepare template machine for nested virtualization
 

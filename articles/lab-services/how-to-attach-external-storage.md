@@ -12,6 +12,8 @@ ms.date: 04/25/2023
 
 # Use external file storage in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article covers some of the options for using external file storage in Azure Lab Services. [Azure Files](https://azure.microsoft.com/services/storage/files/) offers fully managed file shares in the cloud, [accessible via SMB 2.1 and SMB 3.0](/azure/storage/files/storage-how-to-use-files-windows). An Azure Files share can be connected either publicly or privately within a virtual network. You can also configure the share to use a lab user’s Active Directory credentials for connecting to the file share. If you're on a Linux machine, you can also use Azure NetApp Files with NFS volumes for external file storage with Azure Lab Services.
 
 ## Which solution to use
@@ -74,12 +76,18 @@ For file share with a public endpoint:
 #!/bin/bash
 
 # Assign variables values for your storage account and file share
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 STORAGE_ACCOUNT_NAME=""
 STORAGE_ACCOUNT_KEY=""
 FILESHARE_NAME=""
 
 # Do not use 'mnt' for mount directory.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Using ‘mnt’ will cause issues on lab VMs.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 MOUNT_DIRECTORY="prm-mnt" 
 
 sudo mkdir /$MOUNT_DIRECTORY/$FILESHARE_NAME
@@ -102,13 +110,19 @@ For file share with a private endpoint:
 #!/bin/bash
 
 # Assign variables values for your storage account and file share
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 STORAGE_ACCOUNT_NAME=""
 STORAGE_ACCOUNT_IP=""
 STORAGE_ACCOUNT_KEY=""
 FILESHARE_NAME=""
 
 # Do not use 'mnt' for mount directory.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Using ‘mnt’ will cause issues on lab VMs.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 MOUNT_DIRECTORY="prm-mnt" 
 
 sudo mkdir /$MOUNT_DIRECTORY/$FILESHARE_NAME

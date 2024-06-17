@@ -14,6 +14,8 @@ ms.custom: mode-portal
 
 # Quickstart: Create resources you need to get started with Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this quickstart, you create an Azure Lab Services lab plan in the Azure portal and grant permissions to a user to create labs. Azure Lab Services enables you to create labs with infrastructure managed by Azure. After you create a lab plan, you can create labs by using the Azure Lab Services website, Microsoft Teams, or Canvas.
 
 :::image type="content" source="./media/quick-create-resources/lab-services-process-lab-plan.png" alt-text="Diagram that shows the steps for creating a lab with Azure Lab Services, highlighting Create a lab plan." lightbox="./media/quick-create-resources/lab-services-process-lab-plan.png":::

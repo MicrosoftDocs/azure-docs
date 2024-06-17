@@ -12,6 +12,8 @@ ms.date: 04/24/2023
 
 # Set up a lab with GPU virtual machines in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 In this article, you learn how to choose between the different GPU-based virtual machines sizes when creating a lab in Azure Lab Services. Learn how to install the necessary drivers in the lab to take advantage of the GPUs.

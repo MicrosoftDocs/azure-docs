@@ -13,6 +13,8 @@ ms.date: 03/04/2024
 
 # Connect to a VM using Remote Desktop Protocol on a Mac
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to connect to a lab virtual machine (VM) in Azure Lab Services from a Mac by using Remote Desktop Protocol (RDP).
 
 ## Install Microsoft Remote Desktop on a Mac

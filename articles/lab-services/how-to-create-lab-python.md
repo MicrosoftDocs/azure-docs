@@ -10,6 +10,8 @@ ms.date: 02/15/2022
 
 # Create a lab in Azure Lab Services using Python and the Azure Python libraries (SDK)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to create a lab using Python and the Azure Python libraries (SDK).  The lab uses the settings from a previously created lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
@@ -27,10 +29,20 @@ Before you can create a lab, you need the lab plan object.  In the [create a lab
 
 ```python
 # --------------------------------------------------------------------------
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Copyright (c) Microsoft Corporation. All rights reserved.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Licensed under the MIT License. See License.txt in the project root for
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # license information.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # --------------------------------------------------------------------------
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 from datetime import timedelta
 import time
@@ -151,10 +163,20 @@ the group and lab with the following steps:
 
 ```python
 # --------------------------------------------------------------------------
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Copyright (c) Microsoft Corporation. All rights reserved.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Licensed under the MIT License. See License.txt in the project root for
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # license information.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # --------------------------------------------------------------------------
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 from datetime import timedelta
 import time
@@ -163,7 +185,11 @@ from azure.mgmt.labservices import LabServicesClient
 from azure.mgmt.resource import ResourceManagementClient
 
 # - other dependence -
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # - end -
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 #
 
 def main():

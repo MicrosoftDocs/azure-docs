@@ -7,6 +7,8 @@ ms.date: 09/11/2020
 
 # Attach or detach a shared image gallery to a lab account in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article shows you how to attach or detach a shared image gallery to a lab account.

@@ -10,6 +10,8 @@ ms.custom: mode-api, devx-track-azurepowershell
 
 # Create a lab in Azure Lab Services using PowerShell and the Azure module
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to create a lab using PowerShell and the Azure modules.  The lab uses the settings from a previously created lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
@@ -69,6 +71,8 @@ We're now ready to create a lab based of our lab plan with the Window 11 Pro ima
 
 ``` powershell
 # $plan and $image are from the Create LabPlan QuickStart.
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 $password = "<custom password>"
 
 $lab = New-AzLabServicesLab -Name "ContosoLab" `

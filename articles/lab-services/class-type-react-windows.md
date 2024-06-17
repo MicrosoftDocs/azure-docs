@@ -9,6 +9,8 @@ ms.service: lab-services
 
 # Set up lab for React on Windows
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces (UI). React is a declarative way to create reusable components for your website.  There are many other popular libraries for JavaScript-based front-end development.  We'll use a few of these libraries while creating our lab.  [Redux](https://redux.js.org/) is a library that provides predictable state container for JavaScript apps and is often used in compliment with React. [JSX](https://reactjs.org/docs/introducing-jsx.html) is a library syntax extension to JavaScript often used with React to describe what the UI should look like.  [NodeJS](https://nodejs.org/) is a convenient way to run a webserver for your React application.

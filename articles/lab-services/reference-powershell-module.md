@@ -9,6 +9,8 @@ ms.custom: devdivchpfy22
 
 # Az.LabServices PowerShell module for lab accounts in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 > [!NOTE]
@@ -30,9 +32,13 @@ Some example commands:
 
 ```powershell
 # To list all the labs in your subscription:
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 Get-AzLabAccount | Get-AzLab
 
 # To stop all running VMs in all labs
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 

@@ -13,6 +13,8 @@ ms.date: 03/06/2024
 
 # Set up a lab to teach a networking class with GNS3 in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article shows you how to set up a class to emulate, configure, test, and troubleshoot networks with GNS3 software in Azure Lab Services.
 
 This article has two sections. The first section covers how to create the lab. The second section covers how to configure the template machine with nested virtualization enabled and with GNS3 installed and configured.

@@ -11,6 +11,8 @@ ms.date: 06/02/2023
 
 # Use Azure Lab Services within Microsoft Teams
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 You can access and manage your labs from within Microsoft Teams by using the Azure Lab Services Teams app. Take advantage of team membership and permissions in Microsoft Teams to grant access to labs and provision lab virtual machines.
 
 This article outlines the benefits of using Azure Lab Services within Teams and provides links to other articles for instructions on how to create and manage labs within Teams.

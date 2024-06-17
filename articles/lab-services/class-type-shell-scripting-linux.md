@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22, linux-related-content
 
 # Set up a lab to teach shell scripting on Linux
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article shows you how to set up a lab to teach shell scripting on Linux. Scripting is a useful part of system administration that allows administrators to avoid repetitive tasks. In this sample scenario, the class covers traditional bash scripts and enhanced scripts. Enhanced scripts are scripts that combine bash commands and Ruby. This approach lets Ruby pass the data around and bash commands to interact with the shell.
