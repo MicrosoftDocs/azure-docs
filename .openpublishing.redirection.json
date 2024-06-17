@@ -4064,7 +4064,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cosmos-dbcreate-websitemd",
+            "source_path_from_root": "/articles/cosmos-db/create-website.md",
             "redirect_url": "/azure/cosmos-db/sql/create-website",
             "redirect_document_id": true
         },
@@ -4072,6 +4072,27 @@
             "source_path_from_root": "/articles/virtual-machines-linux-nodejs-deploy.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/move-system-topics-across-regions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/move-custom-topics-across-regions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/event-grid/move-domains-across-regions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
+            "redirect_url": "/azure",
+            "redirect_document_id": false
         }
+       
     ]
 }

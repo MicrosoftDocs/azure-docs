@@ -61,7 +61,7 @@ The following containers support DocumentIntelligence v3.0 models and features:
 
 Document Intelligence container images can be found within the [**Microsoft Artifact Registry** (also know as Microsoft Container Registry(MCR))](https://mcr.microsoft.com/catalog?search=document%20intelligence), the primary registry for all Microsoft published container images.
 
-The following containers support DocumentIntelligence v3.0 models and features:
+The following containers support DocumentIntelligence v3.1 models and features:
 
 | Container name |image |
 |---|---|

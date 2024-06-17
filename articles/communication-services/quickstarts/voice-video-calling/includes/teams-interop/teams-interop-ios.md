@@ -44,6 +44,8 @@ import AVFoundation
 
 struct ContentView: View {
     @State var meetingLink: String = ""
+    @State var meetingId: String = ""
+    @State var meetingPasscode: String = ""
     @State var callStatus: String = ""
     @State var message: String = ""
     @State var recordingStatus: String = ""
@@ -57,6 +59,8 @@ struct ContentView: View {
             Form {
                 Section {
                     TextField("Teams meeting link", text: $meetingLink)
+                    TextField("Teams meeting id", text: $meetingId)
+                    TextField("Teams meeting passcode", text: $meetingPasscode)
                     Button(action: joinTeamsMeeting) {
                         Text("Join Teams Meeting")
                     }.disabled(callAgent == nil)
@@ -100,8 +104,14 @@ struct ContentView: View {
         AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
             if granted {
                 let joinCallOptions = JoinCallOptions()
-                let teamsMeetingLinkLocator = TeamsMeetingLinkLocator(meetingLink: self.meetingLink)
-                self.callAgent?.join(with: teamsMeetingLinkLocator, joinCallOptions: joinCallOptions) {(call, error) in
+
+                // join with meeting link
+                let teamsMeetingLocator = TeamsMeetingLinkLocator(meetingLink: self.meetingLink)
+
+                // (or) to join with meetingId and passcode use the below code snippet.
+                // let teamsMeetingLocator = TeamsMeetingIdLocator(with: self.meetingId, passcode: self.meetingPasscode)
+
+                self.callAgent?.join(with: teamsMeetingLocator, joinCallOptions: joinCallOptions) {(call, error) in
                     if (error == nil) {
                         self.call = call
                         self.callObserver = CallObserver(self)

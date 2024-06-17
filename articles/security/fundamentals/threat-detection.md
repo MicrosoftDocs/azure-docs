@@ -121,7 +121,7 @@ Microsoft security researchers are constantly on the lookout for threats. They h
 
 Thus, Defender for Cloud can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
 
-:::image type="content" source="../../defender-for-cloud/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
+:::image type="content" source="../media/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
 Microsoft Defender for Cloud automatically collects security information from your resources, the network, and connected partner solutions. It analyzes this information, correlating information from multiple sources, to identify threats.
 
