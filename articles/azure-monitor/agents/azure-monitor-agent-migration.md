@@ -110,7 +110,7 @@ As part of your migration planning, plan to remove the legacy agent once migrati
 
 If you don't need to retain the MMA on any of your machines, use the MMA Discovery and Removal tool to remove the agent at scale.  For more information on the MMA Discovery and Removal tool, see [MMA Discovery and Removal tool](/azure/azure-monitor/agents/azure-monitor-agent-mma-removal-tool?tabs=single-tenant%2Cdiscovery). 
 
-If however you're using SCOM, keep the MMA agent deployed to the machines that you'll continue managing with System Center Operations Manager.
+If however you're using System Center Operations Manager (SCOM), keep the MMA agent deployed to the machines that you'll continue managing with System Center Operations Manager.
 
 A SCOM Admin Management Pack exists and can help you remove the workspace configurations at scale while retaining the SCOM Management Group configuration. For more information on the SCOM Admin Management Pack, see [SCOM Admin Management Pack](https://github.com/thekevinholman/SCOM.Management).
 
