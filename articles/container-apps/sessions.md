@@ -79,11 +79,11 @@ For code interpreter sessions, you can also use an integration with an [LLM fram
 
 The session identifier is critical and sensitive information that must be securely created and managed. It's important to secure your application to ensure each user or tenant only has access to their own sessions.
 
-The specific strategies to prevent misuse of session identifiers differ depends on the design and architecture of your app. However, your app must always have complete control over the creation and use of session identifiers so that a malicious user cannot access another user's session.
+The specific strategies to prevent misuse of session identifiers differ depending on the design and architecture of your app. However, your app must always have complete control over the creation and use of session identifiers so that a malicious user can't access another user's session.
 
 Some example strategies include:
 
-* If your app uses one session per user, each user must be securely authenticated and your app must use a session identifier that is unique to each logged in user.
+* If your app uses one session per user, each user must be securely authenticated and your app must use a session identifier that is unique to the corresponding logged in user.
 * If your app uses one session per AI agent conversation, ensure your app uses a session identifier that is unique to each conversation and can't be modified by the end user.
 
 > [!IMPORTANT]
