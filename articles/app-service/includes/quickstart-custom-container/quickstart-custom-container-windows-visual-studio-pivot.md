@@ -166,7 +166,7 @@ The streamed logs look like this:
 
 ## 7 - Clean up resources
 
-[!INCLUDE [Clean-up Portal web app resources](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal-no-h.md)]
+[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
 
 ## Next steps

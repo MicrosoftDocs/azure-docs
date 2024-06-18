@@ -32,12 +32,6 @@ You can now use Microsoft Intune to configure client device redirection settings
 
 For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
 
-### Getting started feature for Azure Virtual Desktop renamed Quickstart
-
-Quickstart offers a streamlined onboarding experience in the Azure portal to set up your Azure Virtual Desktop environment. Create deployments with Microsoft Entra Domain Services or use with an existing Active Directory Domain Services domain the simple and easy way. 
-
-For more information, along with instructions, see [Use quickstart to create a sample infrastructure](quickstart.md).
-
 ### Hibernate support for session hosts in a personal host pool is generally available
 
 Deploying session hosts in a personal host pool with hibernate support is now generally available. With hibernate support, you can pause session hosts you aren't using. For more information, see [Hibernating Windows virtual machines](../virtual-machines/windows/hibernate-resume-windows.md).

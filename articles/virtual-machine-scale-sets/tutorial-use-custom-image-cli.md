@@ -5,7 +5,7 @@ author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.author: jushiman
 ms.custom: mvc, devx-track-azurecli
@@ -21,7 +21,7 @@ When you create a scale set, you specify an image to be used when the VM instanc
 > * Create a scale set from a specialized image
 > * Share an image gallery
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

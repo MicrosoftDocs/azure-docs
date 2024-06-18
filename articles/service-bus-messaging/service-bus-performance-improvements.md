@@ -93,7 +93,7 @@ The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SD
 
 For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Reusing factories and clients
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)

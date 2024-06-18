@@ -5,13 +5,12 @@ ms.service: azure-arc
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 04/30/2024
+ms.date: 06/11/2024
 ---
 
-<!---
 At this time, a test or preview build is not available for the next release.
--->
 
+<!---
 June, 2024 preview release is now available.
 
 |Component|Value|
@@ -46,3 +45,4 @@ Release Notes:
 - Arc SQL Server | High Availability | Availability Group Management - Manual Failover | GA
 - Arc SQL Server | Arc enabled SQL Server FCI - View SQL Server FCI metadata in Azure portal | GA
 - Arc SQL Server | Billing | Support an option to bill back ESU 2012 to Y1
+-->

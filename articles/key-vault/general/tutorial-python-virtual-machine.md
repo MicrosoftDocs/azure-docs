@@ -46,11 +46,11 @@ az login
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
 
