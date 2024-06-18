@@ -152,6 +152,8 @@ For more information, review the following documentation:
 
    The HTTP action fails, which is by design and expected because the workflow runs in the cloud and can't access your internal service.
 
+<a name="set-up-virtual-network-integration"></a>
+
 ### Set up virtual network integration
 
 1. In the Azure portal, on the logic app resource menu, under **Settings**, select **Networking**.

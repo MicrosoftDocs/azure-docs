@@ -193,7 +193,7 @@ To read artifacts and write any state information, your Premium integration acco
 
 <a name="set-up-private-endpoint"></a>
 
-## Set up private endpoint for Premium integration account
+## Set up private endpoint for Premium integration account (Preview)
 
 To create a private connection between your Premium integration account and Azure services, you can [set up a private endpoint for your integration account](#set-up-private-endpoint). A [private endpoint](../../private-link/private-endpoint-overview.md) is a network interface that uses a private IP address from your Azure virtual network. This way, traffic between your virtual network and Azure services stays on the Azure backbone network and never traverses the public internet. Private endpoints ensure a secure, private communication channel between your resources and Azure services by providing the following benefits:
 
@@ -207,6 +207,10 @@ To create a private connection between your Premium integration account and Azur
 
 - Saves on costs by reducing extra network infrastructure and avoiding data egress charges through public endpoints.
 
+### Limitations
+
+Only Standard logic app workflows can use private endpoints on a Premium integration account.
+
 ### Best practices for private endpoints
 
 - Carefully plan your virtual network and subnet architecture to accommodate private endpoints. Make sure to properly segment and secure your subnets.
@@ -219,7 +223,7 @@ To create a private connection between your Premium integration account and Azur
 
 - Regularly monitor network traffic to and from your private endpoints. Audit and analyze traffic patterns by using tools such as Azure Monitor and Azure Security Center.
 
-### Create and use a private endpoint
+### Create a private endpoint
 
 Before you start, make sure that you have an [Azure virtual network](../../virtual-network/quick-create-portal.md) defined with the appropriate subnets and network security groups to manage and secure traffic.
 
@@ -241,7 +245,7 @@ Before you start, make sure that you have an [Azure virtual network](../../virtu
 
    | Property | Value |
    |----------|-------|
-   | **Connection method** | **Connect to an Azure resource in my directory** |
+   | **Connection method** | - **Connect to an Azure resource in my directory**: Creates a private endpoint that is *automatically approved* and ready for immediate use. The endpoint's **Connection status** property is set to **Approved** after creation. <br><br>- **Connect to an Azure resource by resource ID or alias**: Create a private endpoint that is *manually approved* and requires data administrator approval before anyone can use. The endpoint's **Connection status** property is set to **Pending** after creation. <br><br>**Note**: If the endpoint is manually approved, the **DNS** tab is unavailable. |
    | **Subscription** | <*Azure-subscription*> |
    | **Resource type** | **Microsoft.Logic/integrationAccounts** |
    | **Resource** | <*Premium-integration-account*> |
@@ -266,6 +270,52 @@ Before you start, make sure that you have an [Azure virtual network](../../virtu
 1. When you're done, confirm all the provided information, and select **Create**.
 
 1. After you confirm that Azure created the private endpoint, check your connectivity and test your setup to make sure that the resources in your virtual network can securely connect to the your integration account through the private endpoint.
+
+### View pending endpoint connections
+
+For a private endpoint that requires approval, follow these steps:
+
+1. In the Azure portal, go to the **Private Link** page.
+
+1. On the left menu, select **Pending connections**.
+
+### Approve a pending private endpoint
+
+For a private endpoint that requires approval, follow these steps:
+
+1. In the Azure portal, go to the **Private Link** page.
+
+1. On the left menu, select **Pending connections**.
+
+1. Select the pending connection. On the toolbar, select **Approve**. Wait for the operation to finish.
+
+   The endpoint's **Connection status** property changes to **Approved**.
+
+<a name="call-integration-account-api"></a>
+
+### Enable Standard logic app calls through private endpoint on Premium integration account
+
+1. Choose one of the following options:
+
+   - To create a Standard logic app that can communicate through the private endpoint on a Premium integration account, see [Create example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md#create-logic-app-resource).
+
+   - To set up an existing Standard logic app that can communicate through the private endpoint on a Premium integration account, see [Set up virtual network integration](../secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-virtual-network-integration).
+
+1. To make calls through the private endpoint, include an **HTTP** action in your Standard logic app workflow where you want to call the integration account.
+
+1. In the Azure portal, go to your Premium integration account. On the integration account menu, under **Settings**, select **Callback URL**, and copy the URL.
+
+1. In your workflow's **HTTP** action, on the **Parameters** tab, in the **URI** property, enter the callback URL using the following format:
+
+   **`https://{domain-name}-{integration-account-ID}.cy.integrationaccounts.microsoftazurelogicapps.net:443/integrationAccounts/{integration-account-ID}?api-version=2015-08-01-preview&sp={sp}&sv={sv}&sig={sig}`**
+
+   The following example shows sample values:
+
+   `https://prod-02-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.cy.integrationaccounts.microsoftazurelogicapps.net:443/integrationAccounts/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX?api-version=2015-08-01-preview&sp={sp}&sv={sv}&sig={sig}`
+
+1. For the **HTTP** action's **Method** property, select **GET**.
+
+1. Finish setting up the **HTTP** action as necessary, and test your workflow.
 
 <a name="link-account"></a>
 
