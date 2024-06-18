@@ -21,7 +21,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 - **Definition:** Automatic extension upgrade is available for Azure Arc-enabled clusters.
 - **Accepted Values:** `true`, `false`
 - **Default Value:** `false`
-- **Note:** Azure Connected Machine agent manages the upgrade process and automatic rollback in case of issues.
+- **Note:** Azure Connected Machine agent manages the upgrade process and automatic rollback in issues.
 
 ### Bring Your Own Certificate (BYOC)
 
@@ -57,7 +57,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 
 ### Cluster-name
 
-- **Definition:** The name of the Arc cluster for which the extension will be deployed.
+- **Definition:** The name of the Arc cluster for which the extension is deployed.
 - **Accepted Values:** Alphanumerical value
 
 ### Cluster-type
@@ -103,7 +103,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 
 - **Value Type:** Numerical
 - **Default Value/Behavior:** Every two days
-- **Description:** Message TTL defines the duration sync messages are retained in the cloud. This value is not applicable when the sync schedule is continuous.
+- **Description:** Message TTL defines the duration sync messages are retained in the cloud. This value isn't applicable when the sync schedule is continuous.
 
 ### Modes
 
@@ -134,8 +134,8 @@ This glossary provides terms and definitions for the Connected registry extensio
 
 ### pvc.storageRequest
 
-- **Definition:** Specifies the storage size that the connected registry will claim in the cluster.
-- **Accepted Values:** Alphanumerical value (e.g., “500Gi”)
+- **Definition:** Specifies the storage size that the connected registry claims in the cluster.
+- **Accepted Values:** Alphanumerical value (for example, “500Gi”)
 - **Default Value:** `500Gi`
 
 ### service.ClusterIP
@@ -164,7 +164,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 
 ### trustDistribution.enabled
 
-- **Definition:** Configures nodes labelled with "containerd-configured-by: connected-registry" to decide which nodes to configure the trust distribution daemonset within the cluster at extension deployment.
+- **Definition:** Configures nodes labeled with "containerd-configured-by: connected-registry" to decide which nodes to configure the trust distribution daemon set within the cluster at extension deployment.
 - **Accepted Values:** `true`, `false`
 - **Note:** Customer must choose `true` or `false`.
 
