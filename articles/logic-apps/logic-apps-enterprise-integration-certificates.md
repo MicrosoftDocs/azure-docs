@@ -12,7 +12,7 @@ ms.date: 03/05/2024
 
 # Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 When you need to exchange confidential messages in a logic app business-to-business (B2B) workflow, you can increase the security around this communication by using certificates. A certificate is a digital document that helps secure communication in the following ways:
 

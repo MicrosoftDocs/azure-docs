@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/26/2023
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
