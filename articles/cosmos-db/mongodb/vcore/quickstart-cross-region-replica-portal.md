@@ -93,6 +93,8 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. Select a value from the **Read replica region** drop-down list.
 
+   :::image type="content" source="media/quickstart-cross-region-replication/global-distribution-tab.png" alt-text="Screenshot of the global distribution tab in cluster provisioning.":::
+
 1. Select **Next: Networking**.
 
 1. On the **Networking** tab, select **Add current client IP address** to create a firewall rule with the public IP address of your computer, as perceived by the Azure system. 
@@ -101,7 +103,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 Verify your IP address before saving this configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the Internet and Azure services. Thus, you may need to change the start IP and end IP to make the rule function as expected. Use a search engine or other online tool to check your own IP address. For example, search for *what is my IP*.
 
-   :::image type="content" source="media/quickstart-portal/what-is-my-ip.png" alt-text="Screenshot of a web search result for the current host's public IP address.":::
+   :::image type="content" source="media/quickstart-cross-region-replication/what-is-my-ip.png" alt-text="Screenshot of a web search result for the current host's public IP address.":::
 
 You can also select add 0.0.0.0 - 255.255.255.255 firewall rule to allow not just your IP, but the whole Internet to access the cluster. In this situation, clients still must log in with the correct username and password to use the cluster. Nevertheless, it's best to allow worldwide access for only short periods of time and for only non-production databases.
 
