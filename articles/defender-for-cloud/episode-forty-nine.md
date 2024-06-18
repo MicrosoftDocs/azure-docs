@@ -2,7 +2,7 @@
 title: Microsoft Copilot Security Integration with Defender for Cloud | Defender for Cloud in the field
 description: Learn about Microsoft's Defender for Cloud integration with Copilot for Security. This integration provides advanced security features and enhances cloud protection.
 ms.topic: reference
-ms.date: 06/16/2024
+ms.date: 06/18/2024
 ---
 
 # Microsoft Copilot Security Integration with Defender for Cloud

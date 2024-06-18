@@ -2,7 +2,7 @@
 title: Microsoft CNAPP solution | Defender for Cloud in the field
 description: Learn about Microsoft's CNAPP Defender for Cloud solution.
 ms.topic: reference
-ms.date: 06/16/2024
+ms.date: 06/18/2024
 ---
 
 # Microsoft CNAPP solution
@@ -12,13 +12,13 @@ ms.date: 06/16/2024
 
 > [!VIDEO https://aka.ms/docs/player?id=d956ec66-c484-4bf2-9851-92a3df725148]
 
-- [01:36](/shows/mdc-in-the-field/microsoft-cnappt#time=01m36s) - What is CNAPP?
-- [03:52](/shows/mdc-in-the-field/microsoft-cnappt#time=03m52s) - What it means to have contextual insights in CNAPP?
-- [06:37](/shows/mdc-in-the-field/microsoft-cnappt#time=06m37s) - Why should my organization adopt a CNAPP solution?
-- [09:00](/shows/mdc-in-the-field/microsoft-cnappt#time=09m00s) - CNAPP ROI
-- [11:32](/shows/mdc-in-the-field/microsoft-cnappt#time=11m32s) - Where should I start when it comes to CNAPP adoption?
-- [18:30](/shows/mdc-in-the-field/microsoft-cnappt#time=18m30s) - Security tools replacement when adopting CNAPP
-- [25:21](/shows/mdc-in-the-field/microsoft-cnappt#time=25m21s) - Where should I start when it comes to CNAPP adoption?
+- [01:36](/shows/mdc-in-the-field/microsoft-cnapp#time=01m36s) - What is CNAPP?
+- [03:52](/shows/mdc-in-the-field/microsoft-cnapp#time=03m52s) - What it means to have contextual insights in CNAPP?
+- [06:37](/shows/mdc-in-the-field/microsoft-cnapp#time=06m37s) - Why should my organization adopt a CNAPP solution?
+- [09:00](/shows/mdc-in-the-field/microsoft-cnapp#time=09m00s) - CNAPP ROI
+- [11:32](/shows/mdc-in-the-field/microsoft-cnapp#time=11m32s) - Where should I start when it comes to CNAPP adoption?
+- [18:30](/shows/mdc-in-the-field/microsoft-cnapp#time=18m30s) - Security tools replacement when adopting CNAPP
+- [25:21](/shows/mdc-in-the-field/microsoft-cnapp#time=25m21s) - Where should I start when it comes to CNAPP adoption?
 
 ## Recommended resources
 
