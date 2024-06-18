@@ -170,6 +170,63 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 [Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
 
+#### Enable Live Metrics by using code for any .NET application
+
+> [!NOTE]
+> Live Metrics is enabled by default when you onboard it by using the recommended instructions for .NET applications.
+
+To manually configure Live Metrics:
+
+1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
+1. The following sample console app code shows setting up Live Metrics:
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+
+// Create a TelemetryConfiguration instance.
+TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+QuickPulseTelemetryProcessor quickPulseProcessor = null;
+config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+    .Use((next) =>
+    {
+        quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+        return quickPulseProcessor;
+    })
+    .Build();
+
+var quickPulseModule = new QuickPulseTelemetryModule();
+
+// Secure the control channel.
+// This is optional, but recommended.
+quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+quickPulseModule.Initialize(config);
+quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+// Create a TelemetryClient instance. It is important
+// to use the same TelemetryConfiguration here as the one
+// used to set up Live Metrics.
+TelemetryClient client = new TelemetryClient(config);
+
+// This sample runs indefinitely. Replace with actual application logic.
+while (true)
+{
+    // Send dependency and request telemetry.
+    // These will be shown in Live Metrics.
+    // CPU/Memory Performance counter is also shown
+    // automatically without any additional steps.
+    client.TrackDependency("My dependency", "target", "http://sample",
+        DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+    client.TrackRequest("My Request", DateTimeOffset.Now,
+        TimeSpan.FromMilliseconds(230), "200", true);
+    Task.Delay(1000).Wait();
+}
+```
+
+The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
+
 ### ILogger logs
 
 The default configuration collects `ILogger` `Warning` logs and more severe logs. For more information, see [How do I customize ILogger logs collection?](#how-do-i-customize-ilogger-logs-collection).
