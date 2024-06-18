@@ -79,6 +79,7 @@ If you delete a volume in Azure NetApp Files, the associated DNS records (such a
 * Azure NetApp Files supports standard and secure dynamic DNS updates. If you require secure dynamic DNS updates, ensure that secure updates are configured on the DNS servers.
 * If dynamic DNS updates are not used, you need to manually create an A record and a PTR record for the AD DS computer account(s) created in the AD DS **Organizational Unit** (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
 * For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization may be required to support LDAP enabled NFS volumes](#ad-ds-ldap-discover).  
+* If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled.
 
 ### Time source requirements 
 

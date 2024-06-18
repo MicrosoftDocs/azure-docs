@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/24/2024
+ms.date: 05/17/2024
 ms.author: greglin 
 ---
 
@@ -34,13 +34,13 @@ You have the following options to store the logs in your preferred location.
 
 **Log Analytic workspace**: This option allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. The tables used by resource logs in log analytics workspace depend on what type of collection the resource is using:
    
-**Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
+* **Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
 
-**Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource. In resource specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen workspace. This has several benefits, including: 
- - Easier data manipulation in log queries 
- - Improved discoverability of schemas and their structures 
- - Enhanced performance in terms of ingestion latency and query times
- - The ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access)
+* **Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource. In resource specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen workspace. This has several benefits, including: 
+  - Easier data manipulation in log queries 
+  - Improved discoverability of schemas and their structures 
+  - Enhanced performance in terms of ingestion latency and query times
+  - The ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access)
 
  For Application Gateway, resource specific mode creates three tables: 
   * [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
@@ -134,7 +134,10 @@ The access log is generated only if you've enabled it on each Application Gatewa
 ### For Application Gateway and WAF v2 SKU
 
 > [!NOTE]
-> For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
+> * For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
+> * Some columns from the shared AzureDiagnostics table are still being ported to the dedicated tables. Therefore, the columns with Mutual Authentication details are currently available only through the [AzureDiagnostics table](#storage-locations).
+> * Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
+
 
 |Value  |Description  |
 |---------|---------|
@@ -160,7 +163,6 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |serverResponseLatency| Latency of the response (in **seconds**) from the backend server.|
 |host| Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name|
 |originalRequestUriWithArgs| This field contains the original request URL |
-|requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
 |originalHost| This field contains the original request host name|
 |error_info|The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in [Error code information.](./application-gateway-diagnostics.md#error-code-information) |
@@ -212,8 +214,6 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
-> [!Note]
->Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
 
 ### For Application Gateway Standard and WAF SKU (v1)
 

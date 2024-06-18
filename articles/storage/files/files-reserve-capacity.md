@@ -108,11 +108,9 @@ Exchanging a Reservation enables you to receive a prorated refund based on the u
 
 There's no limit on the number of exchanges you can make. Additionally, there's no fee associated with an exchange. The new Reservation that you purchase must be of equal or greater value than the prorated credit from the original reservation. An Azure Files reservation can be exchanged only for another Azure Files reservation, and not for a reservation for any other Azure service.
 
-### Refund a Reservation
+### Refund reservations
 
-You may cancel an Azure Files Reservation at any time. When you cancel, you'll receive a prorated refund based on the remaining term of the Reservation, minus a 12 percent early termination fee. The maximum refund per year is $50,000.
-
-Cancelling a Reservation immediately terminates the Reservation and returns the remaining months to Microsoft. The remaining prorated balance, minus the fee, will be refunded to your original form of purchase.
+You can refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Expiration of a Reservation
 

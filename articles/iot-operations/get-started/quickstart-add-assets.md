@@ -61,7 +61,7 @@ When you deployed Azure IoT Operations, you chose to include a built-in OPC PLC 
 
 To add an asset endpoint:
 
-1. Select **Manage asset endpoints** and then **Create asset endpoint**:
+1. Select **Asset endpoints** and then **Create asset endpoint**:
 
     :::image type="content" source="media/quickstart-add-assets/asset-endpoints.png" alt-text="Screenshot that shows the asset endpoints page in the Azure IoT Operations (preview) portal.":::
 
@@ -127,9 +127,7 @@ After you select your instance in Azure IoT Operations (preview) portal, you see
 
 ### Create an asset
 
-To create an asset, select **Create asset**.
-
-Enter the following asset information:
+To create an asset, select **Create asset**. Then enter the following asset information:
 
 | Field | Value |
 | --- | --- |
@@ -182,6 +180,9 @@ To verify that the thermostat asset you added is publishing data, view the telem
 
 :::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry." lightbox="media/quickstart-add-assets/mqttui-output.png":::
 
+> [!TIP]
+> Data from an asset with a name that starts with _boiler-_ is from an asset that was automatically discovered. This is not the same asset as the thermostat asset you created.
+
 If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
 
 1. Find the name of your `aio-opc-opc.tcp-1` pod by using the following command:
@@ -225,31 +226,31 @@ In the previous section, you saw how to add assets manually. You can also use Az
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
-```bash
+```console
 kubectl get pods -n azure-iot-operations | grep akri
-```
-
-```powershell
-kubectl get pods -n azure-iot-operations |  Select-String -Pattern "akri"
 ```
 
 The output from the previous command looks like the following example:
 
-```console
-akri-opcua-asset-discovery-daemonset-h47zk     1/1     Running   3 (4h15m ago)    2d23h
+```output
 aio-akri-otel-collector-5c775f745b-g97qv       1/1     Running   3 (4h15m ago)    2d23h
 aio-akri-agent-daemonset-mp6v7                 1/1     Running   3 (4h15m ago)    2d23h
 ```
 
-In your Codespaces terminal, run the following command to apply a new configuration for the discovery handler:
+Use the following command to verify that the discovery pod is running:
 
 ```console
-kubectl apply -f /workspaces/explore-iot-operations/samples/quickstarts/akri-opcua-asset.yaml
+kubectl get pods -n azure-iot-operations | grep discovery
 ```
 
-The following snippet shows the YAML file that you applied:
+The output from the previous command looks like the following example:
 
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/akri-opcua-asset.yaml":::
+```output
+aio-opc-asset-discovery-wzlnj                   1/1     Running     0              19m
+```
+
+> [!TIP]
+> There's currently a known issue where the Akri discovery handler pod might not start. If you encounter this issue, see [Troubleshoot Azure IoT Akri Preview](../troubleshoot/known-issues.md#azure-iot-akri-preview).
 
 To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri:
 
@@ -257,20 +258,18 @@ To verify the configuration, run the following command to view the Akri instance
 kubectl get akrii -n azure-iot-operations
 ```
 
-It might take a few minutes for the instance to show up.
-
 The output from the previous command looks like the following example.
 
-```console
-NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
-azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["dom-aio-vm"]   35m
+```output
+NAME                      CONFIG             SHARED   NODES                          AGE
+akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["k3d-k3s-default-server-0"]   45s
 ```
 
 Now you can use these resources in the local cluster namespace.
 
 To confirm that Akri connected to the OPC UA Broker, copy and paste the name of the Akri instance from the previous step into the following command:
 
-```bash
+```console
 kubectl get akrii <AKRI_INSTANCE_NAME> -n azure-iot-operations -o json
 ```
 

@@ -9,19 +9,19 @@ ms.service: azure-operator-service-manager
 ---
 # What is Azure Operator Service Manager?
 
-Azure Operator Service Manager is an Azure service specifally designed to assist telecom operators in managing their network services. It provides management capabilities for multi-vendor applications across hybrid cloud sites, encompassing Azure regions, edge platforms, and Arc-connected sites. Azure Operator Service Manager caters to the needs of telecom operators who are in the process of migrating their workloads to Azure and Arc-connected cloud environments.
+Azure Operator Service Manager is an Azure service specifically designed to assist telecom operators in managing their network services. It provides management capabilities for multi-vendor applications across hybrid cloud sites, encompassing Azure regions, edge platforms, and Arc-connected sites. Azure Operator Service Manager caters to the needs of telecom operators who are in the process of migrating their workloads to Azure and Arc-connected cloud environments.
 
 ## Orchestrate operator services across Azure platforms
 
 As part of the Azure AI Operations program, Azure Operator Service Manager transforms the traditional operator service management experience into a modern cloud service. With support for Azure For Operator platforms, like Azure Operator Nexus and services like Azure Operator 5G Core, operators can simplify complex service deployments. This simplification ensures carrier grade service reliability while accelerating both service innovation and service monetization.
 
-:::image type="content" source="media/overview-unified-service.png" alt-text="Diagram that shows unified service orchestration across Azure domains.":::
+:::image type="content" source="media/overview-unified-service.png" alt-text="Diagram that shows unified service orchestration across Azure domains." lightbox="media/overview-unified-service-lightbox.png":::
 
 ## Technical overview
 
-Managing complex network services efficiently and reliably can be a challenge.  Azure Operator Service Manager’s unique role-based approach introduces curated experiences for publishers, designers and operators.  Use of Network Service Design (NSD) artifacts to onboard service requirements and configuration group schemas/values to define run-time inputs. The following diagram illustrates the Azure Operator Service Manager (AOSM) deployment workflow.
+Managing complex network services efficiently and reliably can be a challenge. Azure Operator Service Manager’s unique role-based approach introduces curated experiences for publishers, designers, and operators.  Use of Network Service Design (NSD) artifacts to onboard service requirements and configuration group schemas/values to define run-time inputs. The following diagram illustrates the Azure Operator Service Manager (AOSM) deployment workflow.
 
-:::image type="content" source="media/overview-deployment-workflows.png" alt-text="Illustration that shows the Azure Operator Service Manager (AOSM) deployment workflow.":::
+:::image type="content" source="media/overview-deployment-workflows.png" alt-text="Illustration that shows the Azure Operator Service Manager (AOSM) deployment workflow." lightbox="media/overview-deployment-workflows-lightbox.png":::
 
 ## Product features
 
@@ -35,7 +35,7 @@ Consolidate software and configuration management tasks into a single set of end
 
 ### Simplify service creation
 
-Model network services using Azure Resource Manager (ARM), just like any other Azure resources.  Reduce the number of parameters needed to create operator-centric services and drive run-time operations via traditional Azure interfaces, such as portal, CLI, API or SDK.
+Model network services using Azure Resource Manager (ARM), just like any other Azure resources.  Reduce the number of parameters needed to create operator-centric services and drive run-time operations via traditional Azure interfaces, such as portal, CLI, API, or SDK.
 
 ### Reliably deploy Telco grade network function software
 
@@ -53,11 +53,11 @@ Updating services becomes straightforward. Operators can recall the last service
 
 ### Accelerate service velocity
 
-Leverage Azure Operator Service manager’s approach to service composition, deployment and updates, to realize up to a 3x acceleration of service velocity. This allows operators to increase the frequency of services updates and be first to market with new services.
+Leverage Azure Operator Service manager’s approach to service composition, deployment, and updates, to realize up to a 3x acceleration of service velocity. This allows operators to increase the frequency of services updates and be first to market with new services.
 
 ### Optimize capital expenses
 
-Ease the path to Azure cloud savings with on-demand placement of service resources.  Operators can realize up to a 40% reduction in capital expenses, by breaking the traditional cycle of advanced capacity purchasing.
+Ease the path to Azure cloud savings with on-demand placement of service resources. Operators can realize up to a 40% reduction in capital expenses, by breaking the traditional cycle of advanced capacity purchasing.
 
 ### Reduce energy expense
 

@@ -314,7 +314,7 @@
               items:
                 - name: Use explorer
                   href: ../data-explorer.md
-                - name: Keyboard shorcuts
+                - name: Keyboard shortcuts
                   href: ../data-explorer-shortcuts.md
         - name: Troubleshooting and performance
           items:

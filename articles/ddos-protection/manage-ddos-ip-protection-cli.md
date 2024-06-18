@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS IP Protection using Azure CLI'
+title: 'QuickStart: Create and configure Azure DDoS IP Protection using Azure CLI'
 description: Learn how to create Azure DDoS IP Protection using Azure CLI
 author: AbdullahBell
 ms.author: abell
@@ -14,7 +14,7 @@ ms.custom: template-quickstart, devx-track-azurecli
 Get started with Azure DDoS IP Protection by using Azure CLI.
 In this QuickStart, you'll enable DDoS IP protection and link it to a public IP address.
 
-:::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address.":::
+:::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address." lightbox="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png":::
 
 ## Prerequisites
 

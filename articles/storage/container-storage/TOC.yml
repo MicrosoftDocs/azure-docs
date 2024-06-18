@@ -39,6 +39,8 @@
     href: container-storage-faq.md
 - name: Reference
   items:
+  - name: Storage pool parameters
+    href: container-storage-storage-pool-parameters.md
   - name: APIs for data access
     items:
     - name: REST API

@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: EdB-MSFT
 ms.author: edbaynash
-ms.date: 07/10/2022
+ms.date: 05/31/2024
 ---
 
 # Microsoft Entra authorization proxy 
