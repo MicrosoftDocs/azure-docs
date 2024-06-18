@@ -18,7 +18,10 @@ introduction: |
   **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
   This article shows you how to attach a new managed data disk to a Windows virtual machine (VM) by using the Azure portal. 
-  
+
+  > [!NOTE]  
+  > To attach a disk to a VM, you don’t need to stop or restart the VM.
+
 prerequisites:
   summary: |
     Before you attach disks to your VM, review these tips:
