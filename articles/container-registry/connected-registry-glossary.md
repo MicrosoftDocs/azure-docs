@@ -14,7 +14,7 @@ ms.date: 06/18/2024
 
 This glossary provides terms and definitions for the Connected registry extension with Azure Arc to secure the extension deployment.
 
-## Terms
+## Glossary of terms
 
 ### Auto-upgrade-version
 
