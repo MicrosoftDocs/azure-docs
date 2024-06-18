@@ -408,7 +408,7 @@ For a complete code sample with the Speech SDK, see [speech translation samples 
 ## Using custom translation in speech translation
 The custom translation feature in speech translation seamlessly integrates with the Azure Custom Translation service, it allows you to achieve more accurate and tailored translations. As the integration directly harnesses the capabilities of the Azure custom translation service, it is essential to prepare a multi-service resource to ensure the correct functioning of the complete set of features. For detailed instructions, please consult the guide on [Create a multi-service resource for Azure AI services](https://learn.microsoft.com/en-us/azure/ai-services/multi-service-resource?tabs=windows&pivots=azportal).
 
-Additionally, for offline training of a custom translator and obtaining a "Category ID," please refer to the step-by-step script provided in the[Quickstart: Build, deploy, and use a custom model - Custom Translator](https://learn.microsoft.com/en-us/azure/ai-services/translator/custom-translator/quickstart).
+Additionally, for offline training of a custom translator and obtaining a "Category ID," please refer to the step-by-step script provided in the [Quickstart: Build, deploy, and use a custom model - Custom Translator](/azure/ai-services/translator/custom-translator/quickstart).
 
 ```csharp
 // Creates an instance of a translation recognizer using speech translation configuration
