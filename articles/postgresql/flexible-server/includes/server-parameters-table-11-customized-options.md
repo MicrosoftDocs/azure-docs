@@ -867,7 +867,7 @@ ms.topic: include
 | Default value  | `100`          |
 | Allowed values | `1-600000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  | [pgms_wait_sampling.history_period](./concepts-query-store.md)                                    |
+| Documentation  | [pgms_wait_sampling.history_period](../concepts-query-store.md)                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
