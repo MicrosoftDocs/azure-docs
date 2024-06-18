@@ -5,13 +5,14 @@ services: api-management
 author: dlepow
  
 ms.service: api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/17/2024
 ms.author: danlep
-ms.custom:
+#customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
+
 ---
 
-# Workspaces in Azure API Management
+# What are workspaces in Azure API Management
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
@@ -67,7 +68,7 @@ The following resources can be managed in workspaces.
 
 ## Workspace gateway
 
-A dedicated API gateway can be configured for each workspace, managed by the workspace collaborators and separate from the default service gateway and other workspace gateways. If configured, the gateway is used to route API traffic to the backend services for the workspace's APIs. 
+By default, the managed API gateway in the API Management instance is the default runtime environment for workspace APIs. However, a dedicated API gateway can be configured for each workspace, managed by the workspace collaborators and separate from the default service gateway and other workspace gateways. If configured, the gateway is used to route API traffic only to the backend services for the workspace's APIs. 
 
 Key features and constraints of workspace gateways are in the following sections. For more information, see [API Management gateways](api-management-gateways-overview.md).
 
@@ -101,6 +102,8 @@ Workspace members must be assigned roles (or equivalent permissions using custom
 > 
 
 ## Workspaces and other API Management features
+
+Certain features of API Management aren't available in workspaces or have constraints:
     
 * **Resource references** - Resources in a workspace can reference other resources in the workspace and users from the service level. They can't reference resources from another workspace.
 
