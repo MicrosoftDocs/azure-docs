@@ -1,6 +1,6 @@
 ---
 title: " Upgrade and Rollback Connected registry with Azure arc"
-description: "Upgrade and Rollback the Connected registry extension with Azure Arc to secure the extension deployment."
+description: "Upgrade and Roll back the Connected registry extension with Azure Arc to secure the extension deployment."
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
@@ -12,7 +12,7 @@ ms.date: 06/17/2024
 
 # Upgrade and Rollback with Connected registry with Azure arc
 
-In this tutorial, you learn how to upgrade the Connected registry extension with Azure Arc. The upgrade process includes securing the extension deployment with HTTPS, TLS encryption, and upgrades/rollbacks.
+In this tutorial, you learn how to upgrade the Connected registry extension with Azure Arc. The upgrade process includes securing the extension deployment with HTTPS, Transport Layer Security (TLS) encryption, and upgrades/rollbacks.
 
 You learn how to:
 
