@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Customize an HTTP endpoint in Azure Functions
 
-In this article, you learn how to build highly scalable APIs with Azure Functions. Azure Functions includes a collection of built-in HTTP triggers and bindings, which make it easy to author an endpoint in various languages, including Node.js, C#, and more. In this article, you customize an HTTP trigger to handle specific actions in your API design. You also prepare for growing your API by integrating it with Azure Functions proxies and setting up mock APIs. These tasks are accomplished on top of the Functions serverless compute environment, so you don't have to worry about scaling resources. Instead, you can just focus on your API logic.
+In this article, you learn how to build highly scalable APIs with Azure Functions by customizing an HTTP trigger to handle specific actions in your API design. Azure Functions includes a collection of built-in HTTP triggers and bindings, which make it easy to author an endpoint in various languages, including Node.js, C#, and more. You also prepare to grow your API by integrating it with Azure Functions proxies and setting up mock APIs. Because these tasks are accomplished on top of the Functions serverless compute environment, you don't need to be concerned about scaling resources. Instead, you can just focus on your API logic.
 
 [!INCLUDE [functions-legacy-proxies-deprecation](../../includes/functions-legacy-proxies-deprecation.md)]
 
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Customize your HTTP function
 
-By default, you configure your HTTP trigger function to accept any HTTP method. You can use the default URL, `https://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>`. In this section, you modify the function to respond only to GET requests with `/api/hello`.
+By default, you configure your HTTP trigger function to accept any HTTP method. In this section, you modify the function to respond only to GET requests with `/api/hello`. You can use the default URL, `https://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>`:
 
 1. Navigate to your function in the Azure portal. Select **Integration** in the left menu, and then select **HTTP (req)** under **Trigger**.
 
@@ -43,7 +43,7 @@ By default, you configure your HTTP trigger function to accept any HTTP method. 
     | Authorization level | Anonymous | Optional: Makes your function accessible without an API key |
     | Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
 
-    Because a global setting handles it the `/api` base path prefix in the route template, you didn't need to include it here.
+    Because a global setting handles the `/api` base path prefix in the route template, you didn't need to set it here.
 
 1. Select **Save**.
 
@@ -57,13 +57,9 @@ Next, test your function to see how it works with the new API surface:
 
 1. Select **Get function URL** from the top menu and copy the URL. Confirm that your function now uses the `/api/hello` path.
 
-1. Copy the URL to a new browser tab or your preferred REST client.
+1. Copy the URL to a new browser tab or your preferred REST client. Browsers use GET by default.
 
-   Browsers use GET by default.
-
-1. Add parameters to the query string in your URL.
-
-   For example, `/api/hello/?name=John`.
+1. Add parameters to the query string in your URL. For example, `/api/hello/?name=John`.
 
 1. Press Enter to confirm that your function is working. You should see the response, "*Hello John*."
 
@@ -91,7 +87,7 @@ In this section, you create a new proxy, which serves as a frontend to your over
 
 ### Set up the frontend environment
 
-Repeat the steps in [Create a function app](./functions-create-function-app-portal.md) to create a new function app in which you create your proxy. This new app's URL serves as the frontend for our API, and the function app you previously edited serves as a backend:
+Repeat the steps in [Create a function app](./functions-create-function-app-portal.md#create-a-function-app) to create a new function app in which you create your proxy. This new app's URL serves as the frontend for our API, and the function app you previously edited serves as a backend:
 
 1. Navigate to your new frontend function app in the portal.
 1. Expand **Settings**, and then select **Environment variables**.
