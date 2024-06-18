@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.topic: how-to
 ms.date: 05/02/2024
 ms.author: tgokal
-ms.review: ssalgado
+ms.reviewer: ssalgado
 author: tgokal
 ms.custom: references_regions
 ---

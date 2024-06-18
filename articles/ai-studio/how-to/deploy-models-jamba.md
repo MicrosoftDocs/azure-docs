@@ -6,8 +6,8 @@ manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
 ms.date: 05/02/2024
-ms.author: tgokal
-ms.review: ssalgado
+ms.author: ssalgado
+ms.reviewer: tgokal
 author: tgokal
 ms.custom: references_regions
 ---
