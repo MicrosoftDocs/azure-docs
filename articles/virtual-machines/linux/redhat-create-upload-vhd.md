@@ -327,7 +327,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
         ```
 
 1. Swap configuration:
-    1. Don't create swap space on the operating system disk.
+    - Don't create swap space on the operating system disk.
 
        Previously, the Azure Linux agent was used to automatically configure swap space by using the local resource disk that's attached to the VM after the VM is provisioned on Azure. This action is now handled by `cloud-init`. You *must not* use the Linux agent to format the resource disk to create the swap file. Modify the following parameters in `/etc/waagent.conf` appropriately:
 
@@ -336,7 +336,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
         ResourceDisk.EnableSwap=n
         ```
 
-    1. If you want to mount, format, and create the swap, you can either:
+    - If you want to mount, format, and create the swap, you can either:
        * Pass this code in as a `cloud-init` configuration every time you create a VM through custom data. We recommend this method.
        * Use a `cloud-init` directive baked into the image that does this step every time the VM is created.
 
@@ -517,7 +517,7 @@ This section assumes that you've already obtained an ISO file from the Red Hat w
         ```
 
 1. Swap configuration:
-    1. Don't create swap space on the operating system disk.
+    - Don't create swap space on the operating system disk.
 
        Previously, the Azure Linux agent was used to automatically configure swap space by using the local resource disk that's attached to the VM after the VM is provisioned on Azure. This action is now handled by `cloud-init`. You *must not* use the Linux agent to format the resource disk create the swap file. Modify the following parameters in `/etc/waagent.conf` appropriately:
 
