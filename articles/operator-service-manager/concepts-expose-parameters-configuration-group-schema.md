@@ -33,6 +33,9 @@ The Azure CLI AOSM extension `az aosm nfd generate-config` command generates an 
 
 This parameter controls the parameter exposure behavior in the AOSM CLI extension.
 
+>[!WARNING]
+> By exposing all parameters you are also exposing all your defaults. Make sure your defaults do not contain any sensitive information.
+
 ## Default behavior
 
 `expose_all_parameters` is always set to `false` by default. The AOSM CLI:
