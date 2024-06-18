@@ -726,7 +726,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams 
 
 ### Connect to your cluster
 
-To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
+To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](connect-cluster.md).
 
 ### Clean up resources - PowerShell
 
@@ -830,7 +830,7 @@ az deployment group create \
 
 ### Connect to your cluster - Azure CLI
 
-To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
+To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](connect-cluster.md).
 
 ### Clean up resources - Azure CLI
 

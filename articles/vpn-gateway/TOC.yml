@@ -181,8 +181,6 @@
           href: point-to-site-entra-gateway.md
         - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
-        - name: Change Audience for P2S gateway
-          href: point-to-site-entra-gateway-update.md
         - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
@@ -197,6 +195,8 @@
           href: point-to-site-entra-vpn-client-mac.md
       - name: Generate VPN client profile configuration files
         href: about-vpn-profile-download.md
+      - name: Change Audience values - gateway and clients
+        href: point-to-site-entra-gateway-update.md
     - name: RADIUS authentication
       items:
       - name: P2S gateway configuration
