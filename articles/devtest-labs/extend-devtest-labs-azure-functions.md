@@ -106,9 +106,9 @@ After you publish the Function app, you need to get URLs for the functions from 
 
 ## Update application settings
 
-In addition to the URL for each function, you also need information about the service principal, such as the application ID, key, and tenant ID.
+In addition to the URL for each function, you also need to update information about the service principal, including the application ID, key, and tenant ID.
 
-Follow these steps to update the application settings in Visual Studio:
+Follow these steps to update the required application settings in Visual Studio:
 
 1. In Visual Studio, return to the **Publish** page for the **AzureFunctions** project.
 
@@ -116,7 +116,7 @@ Follow these steps to update the application settings in Visual Studio:
 
    :::image type="content" source="./media/extend-devtest-labs-azure-functions/manage-settings.png" alt-text="Screenshot that shows how to manage the Azure App Service settings from the Publish page for the Function app." lightbox="./media/extend-devtest-labs-azure-functions/manage-settings-large.png":::
 
-1. On the **App Service settings** dialog, update the **Remote** value for the following application settings:
+1. On the **Application settings** dialog, update the **Remote** value for the following settings:
 
    - **AzureFunctionUrl_ApplyUpdates**
    - **AzureFunctionUrl_UpdateSupportPage**
@@ -125,7 +125,9 @@ Follow these steps to update the application settings in Visual Studio:
    - **ServicePrincipal_Key**
    - **ServicePrincipal_Tenant**
 
-   :::image type="content" source="./media/extend-devtest-labs-azure-functions/application-settings.png" alt-text="Screenshot that shows how to update the Azure App Service Function app settings in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/application-settings-large.png":::
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/application-settings.png" alt-text="Screenshot that shows how to update the Azure App Service Function application settings in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/application-settings-large.png":::
+
+1. Select **OK**.
 
 ## Test Azure function
 
