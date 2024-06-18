@@ -19,6 +19,10 @@ If you don't have a computer that meets the operating system requirement, you ca
 
 [!INCLUDE [Generate and export - this include is for both vpn-gateway and virtual-wan](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
+## Linux
+
+For Linux steps, see [Generate self-signed certificates - Linux - OpenSSL](../vpn-gateway/point-to-site-certificates-linux-openssl.md) or [Generate self-signed certificates - Linux - strongSwan](../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md).
+
 ## Install an exported client certificate
 
 Each client that connects over a P2S connection requires a client certificate to be installed locally. For steps to install a certificate, see [Install client certificates](install-client-certificates.md).

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/28/2024
+ms.date: 06/17/2024
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -1137,6 +1137,14 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 ## Upgrade the Azure Synapse Analytics version
 
 To upgrade the Azure Synapse Analytics version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties for the recommended version](#recommended-version).
+
+## Differences between the recommended and the legacy version
+
+The table below shows the differences between Azure Synapse Analytics using the recommended and the legacy version.
+
+| Recommended version | Legacy version | 
+|:--- |:--- |
+| Support TLS 1.3 via `encrypt` as `strict`. | TLS 1.3 is not supported.| 
 
 ## Related content
 
