@@ -656,7 +656,7 @@ You can remove a single resource or multiple resources from a `MoveCollection` u
     `Remove-AzResourceMoverMoveCollection -ResourceGroupName "<MoveCollectionResourceGroupName>" -MoveCollectionName "<MoveCollectionName>"`
 
 > [!NOTE]
-> If you observe managed identities authorization issues, re-enable the managed identities access by following [these steps](#remove-a-resource) again.
+> If you observe managed identities authorization issues, re-enable the managed identities access by following [these steps](#grant-access-to-the-managed-identity) again.
 
 
 ## Delete source regional VMs
