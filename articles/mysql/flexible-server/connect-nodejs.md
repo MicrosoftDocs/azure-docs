@@ -4,11 +4,15 @@ description: This quickstart provides several Node.js code samples you can use t
 author: shreyaaithal
 ms.author: shaithal
 ms.reviewer: maghan
-ms.date: 06/19/2023
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js, mode-api, linux-related-content
+ms.custom:
+  - mvc
+  - devx-track-js
+  - mode-api
+  - linux-related-content
 ms.devlang: javascript
 ---
 
