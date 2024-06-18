@@ -73,8 +73,6 @@ $publicIp = Get-AzPublicIpAddress @pip
 
 # [Azure CLI](#tab/azurecli/)
 
-```azurecli
-
 With Azure CLI, you'll sign into Azure with [az login](/cli/azure/reference-index#az-login), and change your subscription context with [`az account set`](/cli/azure/account#az_account_set) to **Azure Subscription A**.
 
 ```azurecli
