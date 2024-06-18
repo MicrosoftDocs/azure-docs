@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot VM insights
-description: Get troubleshooting information about agent installation and the use of VM insights in Azure Monitor.
+title: Troubleshoot VM Insights
+description: Get troubleshooting information about agent installation and the use of the VM Insights feature in Azure Monitor.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
@@ -11,11 +11,11 @@ ms.custom: references_regions
 
 # Troubleshoot VM insights
 
-This article provides troubleshooting information to help you with problems that you might experience when you try to enable or use virtual machine (VM) insights in Azure Monitor.
+This article provides troubleshooting information to help you with problems that you might experience when you try to enable or use the VM Insights feature in Azure Monitor.
 
-## Can't enable VM insights on a machine
+## Can't enable VM Insights on a machine
 
-When you onboard an Azure virtual machine from the Azure portal, the following actions occur:
+When you onboard an Azure virtual machine (VM) from the Azure portal, the following actions occur:
 
 - A default Log Analytics workspace is created if you selected that option.
 - The Azure Monitor Agent is installed on the virtual machine through an extension, if the agent is already installed.
@@ -34,7 +34,7 @@ If the virtual machine has been turned off for a while, is off currently, or was
 If the operating system isn't in the [list of supported operating systems](vminsights-enable-overview.md#supported-operating-systems), installation of the extension fails and you get a message about waiting for data to arrive.
 
 > [!IMPORTANT]
-> If a virtual machine that you onboarded on or after April 11, 2022, doesn't appear in VM insights, you might be running an older version of the Dependency Agent. For more information, see the blog post [Potential breaking changes for VM insights Linux customers](https://techcommunity.microsoft.com/t5/azure-monitor-status/potential-breaking-changes-for-vm-insights-linux-customers/ba-p/3271989). This consideration doesn't apply for Windows machines and for virtual machines that you onboarded before April 11, 2022.
+> If a virtual machine that you onboarded on or after April 11, 2022, doesn't appear in VM Insights, you might be running an older version of the Dependency Agent. For more information, see the blog post [Potential breaking changes for VM Insights Linux customers](https://techcommunity.microsoft.com/t5/azure-monitor-status/potential-breaking-changes-for-vm-insights-linux-customers/ba-p/3271989). This consideration doesn't apply for Windows machines and for virtual machines that you onboarded before April 11, 2022.
 
 ### Was the extension installed properly?
 
@@ -55,7 +55,7 @@ Run the tool from an elevated command prompt. It returns results and highlights 
 
 :::image type="content" source="media/vminsights-troubleshoot/test-cloud-connectivity.png" lightbox="media/vminsights-troubleshoot/test-cloud-connectivity.png" alt-text="Screenshot that shows the tool for testing cloud connectivity.":::
 
-## DCR created by the VM insights process was modified and now data is missing
+## DCR created by the VM Insights process was modified and now data is missing
 
 ### Identify the problem
 
@@ -187,4 +187,4 @@ The last lines of the file should indicate why the kernel didn't load. For examp
 
 ## Related content
 
-- For more information on installing VM insights agents, see [Enable VM insights overview](vminsights-enable-overview.md)
+- For more information on installing VM Insights agents, see [Enable VM Insights overview](vminsights-enable-overview.md)
