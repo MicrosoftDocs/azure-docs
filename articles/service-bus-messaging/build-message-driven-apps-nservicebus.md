@@ -34,8 +34,8 @@ The sample assumes you've [created an Azure Service Bus namespace](service-bus-q
     :::image type="content" source="./media/nservicebus/sequence-diagram.png" alt-text="Image showing the sequence diagram":::    
 1. Open `SendReceiveWithNservicebus.sln` in your favorite code editor (For example, Visual Studio 2022). 
 1. Open `appsettings.json` in both the Receiver and Sender projects and set `AzureServiceBusConnectionString` to the connection string for your Azure Service Bus namespace.
-   - This can be found in the Azure portal under the Service Bus Namespace -> Settings -> Shared access policies -> RootManageSharedAccessKey -> Primary Connection String
-   - The `AzureServiceBusTransport` also has a constructor that accepts a namespace and token credential, which in a production environment will be more secure, however for the purposes of this tutorial the shared access key connection string will be used
+   - This can be found in the Azure portal under  **Service Bus Namespace** > **Settings** > **Shared access policies** > **RootManageSharedAccessKey** > **Primary Connection String** .
+   - The `AzureServiceBusTransport` also has a constructor that accepts a namespace and token credential, which in a production environment will be more secure, however for the purposes of this tutorial the shared access key connection string will be used.
 
 ## Define the shared message contracts
 
