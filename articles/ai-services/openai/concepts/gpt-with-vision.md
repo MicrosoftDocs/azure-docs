@@ -79,13 +79,14 @@ If you turn on Enhancements, additional usage applies for using GPT-4 Turbo with
 
 For a typical use case, take an image with both visible objects and text and a 100-token prompt input. When the service processes the prompt, it generates 100 tokens of output. In the image, both text and objects can be detected. The price of this transaction would be:
 
-| Item        | Detail        | Total Cost   |
+| Item        | Detail        |  Cost   |
 |-----------------|-----------------|--------------|
-| GPT-4 Turbo with Vision input tokens | 100 text tokens | $0.001 |
+| Text prompt input | 100 text tokens | $0.001 |
+| Example image input (see [Image tokens](/ai-services/openai/overview#image-tokens-gpt-4-turbo-with-vision)) | 170 + 85 image tokens | $0.00255 |
 | Enhanced add-on features for OCR | $1.50 / 1000 transactions | $0.0015 |
 | Enhanced add-on features for Object Grounding | $1.50 / 1000 transactions | $0.0015 | 
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |
-| **Total Cost** |  | $0.007 |
+| **Total** |  |**$0.00955** |
 
 
 ### Example video price calculation
@@ -95,13 +96,13 @@ For a typical use case, take an image with both visible objects and text and a 1
 
 For a typical use case, take a 3-minute video with a 100-token prompt input. The video has a transcript that's 100 tokens long, and when the service processes the prompt, it generates 100 tokens of output. The pricing for this transaction would be:
 
-| Item        | Detail        | Total Cost   |
+| Item        | Detail        |  Cost   |
 |-----------------|-----------------|--------------|
 | GPT-4 Turbo with Vision input tokens      | 100 text tokens    | $0.001     |
 | Additional Cost to identify frames        | 100 input tokens + 700 tokens + 1 Video Retrieval transaction         | $0.00825     |
 | Image Inputs and Transcript Input         | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |
-| **Total Cost**      |      | **$0.03025** |
+| **Total**      |      | **$0.03025** |
 
 Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute video. This index can be reused across any number of Video Retrieval and GPT-4 Turbo with Vision API calls.
 
