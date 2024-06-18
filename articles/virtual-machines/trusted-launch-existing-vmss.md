@@ -21,7 +21,12 @@ Azure Virtual machine Scale sets supports enabling Trusted launch on existing [U
 
 ## Limitations
 
-- Enabling Trusted launch on existing [virtual machine Scale sets Uniform](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) with **data disks attached** is currently not supported.
+- Enabling Trusted launch on existing [virtual machine Scale sets with data disks attached](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) is currently not supported.
+
+    - To validate if scale is configured with data disk, navigate to scale set -> **Disks** under **Settings** menu -> check under heading **Data disks**
+
+    :::image type="content" source="./media/trusted-launch/00-vmss-with-data-disks.png" alt-text="Screenshot of the scale set with data disks.":::
+
 - Enabling Trusted launch on existing [virtual machine Scale sets Flex](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) is currently not supported.
 - Enabling Trusted launch on existing [Service fabric clusters](../service-fabric/service-fabric-overview.md) and [Service fabric managed clusters](../service-fabric/overview-managed-cluster.md) is currently not supported.
 
