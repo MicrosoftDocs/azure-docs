@@ -6738,9 +6738,11 @@
             "source_path_from_root": "/articles/azure-monitor/essentials/pipeline-overview.md",
             "redirect_url": "/azure/azure-monitor/essentials/data-collection-rule-overview",
             "redirect_document_id": false
-        }
-        
-        
-
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/agents/azure-monitor-agent-migration-tools.md",
+            "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-migration",
+            "redirect_document_id": false
+        }     
     ]
 }
