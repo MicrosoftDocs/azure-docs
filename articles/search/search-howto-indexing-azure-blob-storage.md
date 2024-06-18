@@ -252,50 +252,50 @@ To illustrate, let's consider an example of two indexers, pulling data from two 
 First indexer definition example:
 
 ```http
- POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
- {
-   "name" : "my-blob-indexer1",
-   "dataSourceName" : "my-blob-datasource1",
-   "targetIndexName" : "my-search-index",
-   "parameters": {
-       "batchSize": null,
-       "maxFailedItems": null,
-       "maxFailedItemsPerBatch": null,
-       "base64EncodeKeys": null,
-       "configuration": {
-           "indexedFileNameExtensions" : ".pdf,.docx",
-           "excludedFileNameExtensions" : ".png,.jpeg",
-           "dataToExtract": "contentAndMetadata",
-           "parsingMode": "default"
-       }
-   },
-   "schedule" : { },
-   "fieldMappings" : [ ]
- }
+POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+{
+  "name" : "my-blob-indexer1",
+  "dataSourceName" : "my-blob-datasource1",
+  "targetIndexName" : "my-search-index",
+  "parameters": {
+      "batchSize": null,
+      "maxFailedItems": null,
+      "maxFailedItemsPerBatch": null,
+      "base64EncodeKeys": null,
+      "configuration": {
+          "indexedFileNameExtensions" : ".pdf,.docx",
+          "excludedFileNameExtensions" : ".png,.jpeg",
+          "dataToExtract": "contentAndMetadata",
+          "parsingMode": "default"
+      }
+  },
+  "schedule" : { },
+  "fieldMappings" : [ ]
+}
 ```
 Second indexer definition that runs in parallel example:
 
 ```http
- POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
- {
-   "name" : "my-blob-indexer2",
-   "dataSourceName" : "my-blob-datasource2",
-   "targetIndexName" : "my-search-index",
-   "parameters": {
-       "batchSize": null,
-       "maxFailedItems": null,
-       "maxFailedItemsPerBatch": null,
-       "base64EncodeKeys": null,
-       "configuration": {
-           "indexedFileNameExtensions" : ".pdf,.docx",
-           "excludedFileNameExtensions" : ".png,.jpeg",
-           "dataToExtract": "contentAndMetadata",
-           "parsingMode": "default"
-       }
-   },
-   "schedule" : { },
-   "fieldMappings" : [ ]
- }
+POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+{
+  "name" : "my-blob-indexer2",
+  "dataSourceName" : "my-blob-datasource2",
+  "targetIndexName" : "my-search-index",
+  "parameters": {
+      "batchSize": null,
+      "maxFailedItems": null,
+      "maxFailedItemsPerBatch": null,
+      "base64EncodeKeys": null,
+      "configuration": {
+          "indexedFileNameExtensions" : ".pdf,.docx",
+          "excludedFileNameExtensions" : ".png,.jpeg",
+          "dataToExtract": "contentAndMetadata",
+          "parsingMode": "default"
+      }
+  },
+  "schedule" : { },
+  "fieldMappings" : [ ]
+}
 ```
 
 ## Check indexer status
