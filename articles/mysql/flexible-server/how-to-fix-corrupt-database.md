@@ -1,12 +1,13 @@
 ---
 title: Resolve database corruption
 description: Learn about how to fix database corruption problems in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
-ms.date: 06/20/2022
 ---
 
 # Troubleshoot database corruption in Azure Database for MySQL - Flexible Server
