@@ -6,7 +6,6 @@
     displayName: Resource Manager, query language, rbac, permissions
     href: ./overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Run a query - Azure portal
     displayName: portal, resource, az graph, explorer
@@ -41,6 +40,7 @@
   - name: Run ARG query with Power BI connector
     displayName: portal, resource graph, query, power bi connector
     href: ./power-bi-connector-quickstart.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal
@@ -51,18 +51,6 @@
     href: ./tutorials/logic-app-calling-arg.md
 - name: Samples
   items:
-  - name: Starter queries
-    displayName: query language, data explorer, count, list, show, samples
-    href: ./samples/starter.md
-  - name: Advanced queries
-    displayName: query language, data explorer, list, regex, samples
-    href: ./samples/advanced.md
-  - name: Sample queries by category
-    displayName: samples, category
-    href: ./samples/samples-by-category.md
-  - name: Sample queries by table
-    displayName: samples, table
-    href: ./samples/samples-by-table.md
   - name: Alerts samples
     displayName: samples, alerts
     href: ./samples/alerts-samples.md
@@ -138,8 +126,6 @@
       href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2022-10-01
   - name: Resource Manager templates
     href: /azure/templates/microsoft.resourcegraph/allversions
-  - name: Resource Graph tables and resource types
-    href: ./reference/supported-tables-resources.md
 - name: Resources
   items:
   - name: Governance YouTube Channel
