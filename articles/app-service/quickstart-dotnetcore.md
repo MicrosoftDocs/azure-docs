@@ -43,11 +43,6 @@ Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux 
 > [!TIP]
 > Find GitHub Copilot tips in the Visual Studio, Visual Studio Code, and Azure portal steps.
 
-This video shows you how to deploy an ASP.NET web app.
-> [!VIDEO 31309745-82c2-4208-aed5-7ace0b7f7f4d]
-
-The steps in the video are also described in the following sections.
-
 ## Prerequisites
 
 :::zone target="docs" pivot="development-environment-vs"
@@ -600,7 +595,7 @@ You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .
     > [!TIP]
     > With GitHub Copilot enabled in Visual Studio, try the following:
     >
-    > 1. Select the `<div>` element and type `Alt`+`/`
+    > 1. Select the `<div>` element and type <kbd>Alt</kbd>+<kbd>/</kbd>.
     > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
    Save your changes.
@@ -655,6 +650,14 @@ You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .
     You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio Code - Updated ASP.NET Core 8.0 web app in Azure.":::
+
+:::zone-end
+
+<!-- markdownlint-disable MD044 -->
+:::zone target="docs" pivot="development-environment-cli,development-environment-ps,development-environment-azd"
+> [!TIP]
+> To see how Visual Studio with GitHub Copilot helps improve your web development experience, see the Visual Studio Code steps. 
+<!-- markdownlint-enable MD044 -->
 
 :::zone-end
 
