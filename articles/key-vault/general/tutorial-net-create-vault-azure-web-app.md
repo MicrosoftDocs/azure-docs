@@ -255,7 +255,7 @@ The command will return this JSON snippet:
 }
 ```
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ### Modify the app to access your key vault
 

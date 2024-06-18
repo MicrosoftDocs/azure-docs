@@ -94,7 +94,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 
 ## Assign permissions to the VM identity
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Log in to the VM
 
