@@ -116,7 +116,7 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm  -VirtualMachineScaleS
 
 ### Limitations for attaching an existing VM to a scale set
 - The scale set must use Flexible orchestration mode.
-- The scale set must have a `platformFaultDomainCount` of *1*.
+- The scale set must have a `platformFaultDomainCount` of **1**.
 - The VM and scale set must be in the same resource group. 
 - The VM and target scale set must both be zonal, or they must both be regional. You can't attach a zonal VM to a regional scale set. 
 - The VM can't be in a self-defined availability set. 
