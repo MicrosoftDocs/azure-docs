@@ -24,7 +24,7 @@ Note that:
 - Purview Catalog provides data context **only** for resources in subscriptions not onboarded to sensitive data discovery feature or resource types not supported by this feature.
 - Data context provided by Purview Catalog is provided as is and does **not** consider the [data sensitivity settings](data-sensitivity-settings.md).
 
-Learn more in [Data-aware security posture (preview)](concept-data-security-posture.md).
+Learn more in [Data security posture management](concept-data-security-posture.md).
 
 ## Availability
 

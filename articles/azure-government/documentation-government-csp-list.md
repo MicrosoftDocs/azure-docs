@@ -32,7 +32,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ACP Technologies](https://acp.us.com)|
 |[ActioNet](https://www.actionet.com/)|
 |[ADNET Technologies](https://thinkadnet.com/)|
-|[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Advisicon, Inc](https://advisicon.com/)|
 |[Advizex Technologies](https://advizex.com/)|
 |[Aeon Nexus Corp.](https://www.aeonnexus.com/)|

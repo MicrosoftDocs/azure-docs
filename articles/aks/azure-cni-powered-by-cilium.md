@@ -73,11 +73,15 @@ Azure CNI powered by Cilium currently has the following limitations:
 Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
-az aks create --name <clusterName> --resource-group <resourceGroupName> --location <location> \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --pod-cidr 192.168.0.0/16 \
-  --network-dataplane cilium
+az aks create \
+    --name <clusterName> \
+    --resource-group <resourceGroupName> \
+    --location <location> \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --network-dataplane cilium \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -102,12 +106,16 @@ az network vnet subnet create --resource-group <resourceGroupName> --vnet-name <
 Create the cluster using `--network-dataplane cilium`:
 
 ```azurecli-interactive
-az aks create --name <clusterName> --resource-group <resourceGroupName> --location <location> \
-  --max-pods 250 \
-  --network-plugin azure \
-  --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
-  --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
-  --network-dataplane cilium
+az aks create \
+    --name <clusterName> \
+    --resource-group <resourceGroupName> \
+    --location <location> \
+    --max-pods 250 \
+    --network-plugin azure \
+    --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
+    --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
+    --network-dataplane cilium \
+    --generate-ssh-keys
 ```
 
 ## Upgrade an existing cluster to Azure CNI Powered by Cilium

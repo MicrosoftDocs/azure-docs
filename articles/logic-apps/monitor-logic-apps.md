@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 06/10/2024
 ---
 
 # Monitor workflow run status, review trigger and workflow run history, and set up alerts in Azure Logic Apps
@@ -282,16 +282,35 @@ You can view run history only for stateful workflows, not stateless workflows. T
 
 <a name="resubmit-workflow-run"></a>
 
-## Rerun a workflow with same inputs
+## Resubmit a workflow with same inputs
 
-You can rerun a previously finished workflow with the same inputs that the workflow previously used by resubmitting the run to Azure Logic Apps. Completing this task creates and adds a new workflow run to your workflow's run history.
+You can rerun a previously finished workflow with the same inputs that the workflow used previously in the following ways:
 
-> [!NOTE]
->
-> If your workflow has operations such as create or delete operations, resubmitting a run might 
-> create duplicate data or try to delete data that no longer exists, resulting in an error.
+- Rerun the entire workflow.
+
+- Rerun the workflow starting at a specific action. The resubmitted action and all subsequent actions run as usual.
+
+Completing this task creates and adds a new workflow run to your workflow's run history.
+
+### Limitations and considerations
+
+- By default, only Consumption workflows and Standard stateful workflows, which record and store run history, are supported. To use these capabilities with a stateless Standard workflow, enable stateful mode. For more information, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-for-stateless-workflows) and [Enable stateful mode for stateless connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+
+- The resubmitted run executes the same workflow version as the original run, even if you updated the workflow definition.
+
+- You can resubmit only actions from sequential workflows. Workflows with parallel paths are currently not supported.
+
+- The workflow must have a completed state, such as Succeeded, Failed, or Cancelled.
+
+- The workflow must have 40 or fewer actions for you to rerun from a specific action.
+
+- If your workflow has operations such as create or delete operations, resubmitting a run might create duplicate data or try to delete data that no longer exists, resulting in an error.
+
+- These capabilities currently are unavailable with Visual Studio Code or Azure CLI.
 
 ### [Consumption](#tab/consumption)
+
+#### Rerun the entire workflow
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
@@ -311,6 +330,39 @@ You can rerun a previously finished workflow with the same inputs that the workf
    > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
 1. To review the inputs and outputs for the resubmitted workflow run, on the **Runs history** tab, select that run.
+
+### Rerun from a specific action (preview)
+
+> [!NOTE]
+>
+> This capability is in preview. For legal terms that apply to Azure features that 
+> are in beta, preview, or otherwise not yet released into general availability, see 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this capability might change before general availability (GA).
+
+The resubmit capability is available for all actions except for non-sequential and complex concurrency scenarios and per the following limitations:
+
+| Actions | Resubmit availability and limitations |
+|---------|---------------------------------------|
+| **Condition** action and actions in the **True** and **False** paths | - Yes for **Condition** action <br>- No for actions in the **True** and **False** paths |
+| **For each** action plus all actions inside the loop and after the loop | No for all actions |
+| **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
+| **Until** action plus all actions inside the loop and after the loop | No for all actions |
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
+
+1. On the logic app resource menu, select **Overview**. On the **Overview** page, select **Runs history**, which shows the run history for the workflow.
+
+1. On the **Runs history** tab, select the run that you want to resubmit.
+
+   The run details page opens and shows the status for each step in the run.
+
+1. In the run details page, find the action from where you want to resubmit the workflow run, open the shortcut menu, and select **Submit from this action**.
+
+   The run details page refreshes and shows the new run. All the operations that precede the resubmitted action show a lighter-colored status icon, representing reused inputs and outputs. The resubmitted action and subsequent actions show the usually colored status icons. For more information, see [Review workflow run history](#review-runs-history).
+
+   > [!TIP]
+   >
+   > If the run hasn't fully finished, on the run details page toolbar, select **Refresh**.
 
 ### [Standard](#tab/standard)
 
@@ -337,8 +389,6 @@ You can rerun only stateful workflows, not stateless workflows. To enable run hi
 
 ### Rerun from a specific action (preview)
 
-You can rerun a previously finished workflow starting at a specific action using the same inputs and outputs from the preceding actions. The resubmitted action and all subsequent actions run as usual. When the resubmitted actions finish, a new workflow run appears in your workflow's run history.
-
 > [!NOTE]
 >
 > This capability is in preview. For legal terms that apply to Azure features that 
@@ -350,9 +400,9 @@ The resubmit capability is available for all actions except for non-sequential a
 | Actions | Resubmit availability and limitations |
 |---------|---------------------------------------|
 | **Condition** action and actions in the **True** and **False** paths | - Yes for **Condition** action <br>- No for actions in the **True** and **False** paths |
-| **For each** action and all actions inside the loop | No for all actions |
+| **For each** action plus all actions inside the loop and after the loop | No for all actions |
 | **Switch** action and all actions in the **Default** path and **Case** paths | - Yes for **Switch** action <br>- No for actions in the **Default** path and **Case** paths |
-| **Until** action and all actions inside the loop | No for all actions |
+| **Until** action plus all actions inside the loop and after the loop | No for all actions |
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow.
 

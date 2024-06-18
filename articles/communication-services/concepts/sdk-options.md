@@ -1,13 +1,13 @@
 ---
-title: SDK's and REST APIs for Azure Communication Services
+title: SDKs and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Learn more about Azure Communication Services SDK's and REST APIs.
-author: tophpalmer
+description: Learn more about Azure Communication Services SDKs and REST APIs.
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
-ms.date: 04/16/2024
+ms.author: micahvivion
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -18,6 +18,9 @@ Azure Communication Services capabilities are conceptually organized into discre
 In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS shouldn't be directly accessed by end-user devices in low trust environments.
 
 Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
+
+## Creating a practice to use the latest SDK
+Browsers and operating systems are constantly evolving to support the latest enhancements and to fix existing bugs. Using the most recent Azure Communication Services SDK can help you achieve the best overall end user experience for your application when used with updated browsers and operating system updates. The most update Azure Communication Services SDK offers many benefits, such as better performance, security, compatibility, quality, and usability. Updating allows you to access the newest features and updates that are regularly added to the browser and operating system. Azure Communication Services SDKs are updated frequently (approximately every 6 weeks to once a quarter). It's advised that you create a process to ensure that you're always updating to the most recent SDKs.
 
 ## SDKs
 
@@ -123,8 +126,8 @@ Communication Services APIs are documented alongside other [Azure REST APIs](/re
 
 In the future we may retire versions of the Communication Services SDKs, and we may introduce breaking changes to our REST APIs and released SDKs. Azure Communication Services *generally* follows two supportability policies for retiring service versions:
 
-- You'll be notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
-- You'll be notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. Using the latest SDK is especially important for the Calling and Chat libraries that real-time components that often require security and performance updates. We strongly encourage you to keep all your Communication Services SDKs updated.
+- You're notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
+- You're notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. Using the latest SDK is especially important for the Calling and Chat libraries that real-time components that often require security and performance updates. We strongly encourage you to keep all your Communication Services SDKs updated.
 
 ### API and SDK decommissioning examples
 

@@ -16,7 +16,7 @@ author: lgayhardt
 
 # Tune prompts using variants in Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to use variants to tune prompts and evaluate the performance of different variants.
 

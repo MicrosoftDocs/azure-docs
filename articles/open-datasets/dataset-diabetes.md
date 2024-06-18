@@ -12,7 +12,7 @@ The Diabetes dataset has 442 samples with 10 features, making it ideal for getti
 [Original dataset description](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html) 
 | [Original data file](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt)
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Columns
 

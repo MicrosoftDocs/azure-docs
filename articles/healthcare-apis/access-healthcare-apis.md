@@ -5,6 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
+ms.custom: devx-track-python
 ms.topic: conceptual
 ms.date: 04/29/2024
 ms.author: jasteppe
@@ -41,6 +42,3 @@ The MedTech service works with the IoT Hub and Event Hubs to receive message dat
 [Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)
 
 [!INCLUDE [FHIR and DICOM trademark statements](./includes/healthcare-apis-fhir-dicom-trademark.md)]
-
-
-

@@ -6,7 +6,7 @@ ms.author: peterwhiting
 ms.date: 04/12/2024
 ms.topic: concept-article
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Learn how the Azure Operator Service Manager (AOSM) CLI extension discovers container images in source ACRs based on helm chart configuration

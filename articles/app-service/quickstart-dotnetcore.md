@@ -34,6 +34,8 @@ target cross-platform with .NET 7.0.
 
 # Quickstart: Deploy an ASP.NET web app
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 In this quickstart, you learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
 Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux container in App Service](quickstart-custom-container.md).
@@ -237,12 +239,6 @@ Retrieve and initialize [the ASP.NET Core web app template](https://github.com/A
 :::zone-end
 
 ## 2. Publish your web app
-
-The AZD template contains files that will generate the following required resources for your application to run in App service:
-
-- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
-- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
-- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
 
 Follow these steps to create your App Service resources and publish your project:
 
@@ -535,6 +531,12 @@ Follow these steps to create your App Service resources and publish your project
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-azd"
+
+The AZD template contains files that will generate the following required resources for your application to run in App service:
+
+- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
+- A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
+- A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
 
 1. Sign into your Azure account by using the az login command and following the prompt:
 

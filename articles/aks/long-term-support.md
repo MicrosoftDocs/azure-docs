@@ -40,7 +40,13 @@ Enabling and disabling long-term support is a combination of moving your cluster
 ### Create a cluster with LTS enabled
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myAKSCluster --tier premium --k8s-support-plan AKSLongTermSupport --kubernetes-version 1.27
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --tier premium \
+    --k8s-support-plan AKSLongTermSupport \
+    --kubernetes-version 1.27 \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]

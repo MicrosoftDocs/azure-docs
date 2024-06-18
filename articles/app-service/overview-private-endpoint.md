@@ -11,6 +11,8 @@ ms.custom: msangapu
 
 # Using Private Endpoints for App Service apps
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 > [!IMPORTANT]
 > Private endpoint is available for Windows and Linux apps, containerized or not, hosted on these App Service plans : **Basic**, **Standard**, **PremiumV2**, **PremiumV3**, **IsolatedV2**, **Functions Premium** (sometimes referred to as the Elastic Premium plan). 
 
@@ -53,7 +55,7 @@ In the Web HTTP logs of your app, you find the client source IP. This feature is
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default mywebappname.azurewebsites.net.
+When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default mywebappname.azurewebsites.net (see [note at top](#dnl-note)).
 
 By default, without private endpoint, the public name of your web app is a canonical name to the cluster.
 For example, the name resolution is:

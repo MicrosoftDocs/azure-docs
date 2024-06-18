@@ -124,7 +124,7 @@ As you get started with Azure Lab Services, we recommend that you establish nami
 | Resource group | Contains one or more lab plans, labs, or compute galleries. | rg-labs-{org-name}-{env}-{instance}, rg-labs-{dept-name}-{env}-{instance} | rg-labs-contoso-pilot, rg-labs--math-prod-001 |
 | Lab plan | Template for newly created labs. | lp-{org-name}-{env}-{instance}, lp-{dept-name}-{env}-{instance} | lp-contoso, lp-contoso-pilot, lp-math-001 |
 | Lab | Contains student VMs. | {class-name}-{time}-{educator} | CS101-Fall2021, CS101-Fall2021-JohnDoe |
-| Azure Compute Gallery | Contains VM image versions. | sig-{org-name}-{env}-{instance}, sig-{dept-name}-{env}-{instance} | sig-contoso-001, sig-math-prod |
+| Azure Compute Gallery | Contains VM image versions. | sig_{org-name}\_{env}\_{instance}, sig_{dept-name}\_{env}\_{instance} | sig_contoso_001, sig_math_prod_001 |
 
 In the proceeding table, the suggested name patterns use some terms and tokens:
 

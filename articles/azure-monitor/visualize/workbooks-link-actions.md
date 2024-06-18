@@ -3,7 +3,7 @@ title: Azure Workbooks link actions
 description: This article explains how to use link actions in Azure Workbooks.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 04/18/2024
+ms.date: 05/29/2024
 ms.author: abbyweisberg
 ms.reviewer: gardnerjr
 ---
@@ -139,7 +139,10 @@ After these configurations are set, when you select the link, the view opens wit
 
 ## Custom view link settings
 
-Use this setting to open **Custom Views** in the Azure portal. Verify the configuration and settings. Incorrect values cause errors in the portal or fail to open the views correctly. There are two ways to configure the settings: via the form or URL.
+Use this setting to open **Custom Views** in the Azure portal. You can configure the settings using the form or URL.
+
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/custom-link-settings.png" lightbox="./media/workbooks-link-actions/custom-link-settings.png" alt-text="Screenshot that shows the Custom link settings." border="false":::
 
 > [!NOTE]
 > Views with a menu can't be opened in a context tab. If a view with a menu is configured to open in a context tab, no context tab is shown when the link is selected.
@@ -151,23 +154,26 @@ Use this setting to open **Custom Views** in the Azure portal. Verify the config
 |Extension name| The name of the extension that hosts the name of the view.|
 |View name| The name of the view to open.|
 
-#### View inputs
 
-There are two types of inputs: grids and JSON. Use a grid for simple key and value tab inputs. Select JSON to specify a nested JSON input.
+There are two types of inputs: grids and JSON. Use a grid for simple key and value tab inputs. Use JSON to specify a nested JSON input.
 
-- Grid
-    - **Parameter Name**: The name of the View input parameter.
-    - **Parameter Comes From**: Where the value of the View parameter should come from. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).
+
+#### Grid
+
+- **Parameter Name**: The name of the View input parameter.
+- **Parameter Comes From**: Where the value of the View parameter should come from. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).
     > [!NOTE]
     > If you select **Static Value**, the parameters can be resolved by using brackets to link `"{paramName}"` in the text box. Columns can be treated as parameters columns by appending `_column` after the column name like `"{columnName_column}"`.
+- **Parameter Value**: Depending on the value in **Parameter Comes From**, this dropdown contains available parameters, columns, or a static value.
 
-    - **Parameter Value**: Depending on the value in **Parameter Comes From**, this dropdown contains available parameters, columns, or a static value.
-    <!-- convertborder later -->
-    :::image type="content" source="./media/workbooks-link-actions/custom-tab-settings.png" lightbox="./media/workbooks-link-actions/custom-tab-settings.png" alt-text="Screenshot that shows the Edit column settings pane that shows the Get Custom View settings from form." border="false":::
-- JSON
-    - Specify your tab input in a JSON format on the editor. Like the **Grid** mode, parameters and columns can be referenced by using `{paramName}` for parameters and `{columnName_column}` for columns. Selecting **Show JSON Sample** shows the expected output of all resolved parameters and columns used for the view input.
-    <!-- convertborder later -->
-    :::image type="content" source="./media/workbooks-link-actions/custom-tab-json.png" lightbox="./media/workbooks-link-actions/custom-tab-json.png" alt-text="Screenshot that shows the Open Custom View settings pane with view input on JSON." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/custom-view-settings-grid.png" lightbox="./media/workbooks-link-actions/custom-view-settings-grid.png" alt-text="Screenshot that shows the Open Custom View settings pane." border="false":::
+
+#### JSON
+
+- Specify your tab input in a JSON format on the editor. Like the **Grid** mode, parameters and columns can be referenced by using `{paramName}` for parameters and `{columnName_column}` for columns. Selecting **Show JSON Sample** shows the expected output of all resolved parameters and columns used for the view input.
+
+
 
 ### URL
 

@@ -14,7 +14,7 @@ ms.custom:
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Backups form an essential part of any business continuity strategy. They help protect data from accidental corruption or deletion. 
 

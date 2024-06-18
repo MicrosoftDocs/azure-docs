@@ -12,7 +12,7 @@ ms.date: 04/16/2021
 
 For more information on the data, see the [Data Dictionary](https://www.ncbi.nlm.nih.gov/projects/clinvar/ClinVarDataDictionary.pdf) and [FAQ](https://www.ncbi.nlm.nih.gov/clinvar/docs/faq/).
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

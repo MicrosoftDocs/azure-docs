@@ -120,7 +120,16 @@ az role assignment create --assignee <id> --role "Contributor" --scope <Resource
 Create an AKS cluster, and add the Host Group you just configured.
 
 ```azurecli-interactive
-az aks create --resource-group MyResourceGroup --name MyManagedCluster --location eastus --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
+az aks create \
+    --resource-group MyResourceGroup \
+    --name MyManagedCluster \
+    --location eastus \
+    --nodepool-name agentpool1 \
+    --node-count 1 \
+    --host-group-id <id> \
+    --node-vm-size Standard_D2s_v3 \
+    --assign-identity <id> \
+    --generate-ssh-keys
 ```
 
 ## Add a Dedicated Host Node Pool to an existing AKS cluster

@@ -7,7 +7,8 @@ ms.author: sasinnat
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 06/05/2024
+ms.collection: azure-cosmos-db-skilling-managed
 zone_pivot_groups: azure-cosmos-db-apis-nosql-mongodb-cassandra-gremlin-table
 # CustomerIntent: As a developer, I want to use the Azure Cosmos DB emulator so that I can develop my application against a database during development.
 ---
@@ -1234,7 +1235,7 @@ Run a test suite using the built-in test driver for .NET and a testing framework
           - name: Checkout (GitHub)
             uses: actions/checkout@v3
           - name: Start Azure Cosmos DB emulator
-            run: >-
+            run: |
               Write-Host "Launching Cosmos DB Emulator"
               Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
               Start-CosmosDbEmulator
@@ -1275,7 +1276,7 @@ Test your Python application and database operations using [`pytest`](https://py
           - name: Checkout (GitHub)
             uses: actions/checkout@v3
           - name: Start Azure Cosmos DB emulator
-            run: >-
+            run: |
               Write-Host "Launching Cosmos DB Emulator"
               Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
               Start-CosmosDbEmulator
@@ -1318,7 +1319,7 @@ Use [`mocha`](https://www.npmjs.com/package/mocha) to test your Node.js applicat
           - name: Checkout (GitHub)
             uses: actions/checkout@v3
           - name: Start Azure Cosmos DB emulator
-            run: >-
+            run: |
               Write-Host "Launching Cosmos DB Emulator"
               Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
               Start-CosmosDbEmulator

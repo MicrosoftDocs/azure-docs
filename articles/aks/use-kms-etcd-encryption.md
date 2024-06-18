@@ -160,7 +160,14 @@ az role assignment create --role "Key Vault Crypto User" --assignee-object-id $I
 To turn on KMS etcd encryption, create an AKS cluster by using the [az aks create][az-aks-create] command. You can use the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-vault-network-access`, and `--azure-keyvault-kms-key-id` parameters with `az aks create`.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $KEY_ID
+az aks create \
+    --name myAKSCluster \
+    --resource-group MyResourceGroup \
+    --assign-identity $IDENTITY_RESOURCE_ID \
+    --enable-azure-keyvault-kms \
+    --azure-keyvault-kms-key-vault-network-access "Public" \
+    --azure-keyvault-kms-key-id $KEY_ID \
+    --generate-ssh-keys
 ```
 
 ### Update an existing AKS cluster to turn on KMS etcd encryption for a public key vault
@@ -280,7 +287,15 @@ az role assignment create --role "Key Vault Contributor" --assignee-object-id $I
 To turn on KMS etcd encryption for a private key vault, create an AKS cluster by using the [az aks create][az-aks-create] command. You can use the `--enable-azure-keyvault-kms`, `--azure-keyvault-kms-key-id`, `--azure-keyvault-kms-key-vault-network-access`, and `--azure-keyvault-kms-key-vault-resource-id` parameters with `az-aks-create`.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group MyResourceGroup --assign-identity $IDENTITY_RESOURCE_ID --enable-azure-keyvault-kms --azure-keyvault-kms-key-id $KEY_ID --azure-keyvault-kms-key-vault-network-access "Private" --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID
+az aks create \
+    --name myAKSCluster \
+    --resource-group MyResourceGroup \
+    --assign-identity $IDENTITY_RESOURCE_ID \
+    --enable-azure-keyvault-kms \
+    --azure-keyvault-kms-key-id $KEY_ID \
+    --azure-keyvault-kms-key-vault-network-access "Private" \
+    --azure-keyvault-kms-key-vault-resource-id $KEYVAULT_RESOURCE_ID \
+    --generate-ssh-keys
 ```
 
 ### Update an existing AKS cluster to turn on KMS etcd encryption for a private key vault

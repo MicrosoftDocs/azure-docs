@@ -12,6 +12,8 @@ author: msangapu-msft
 
 # App Service overview
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 *Azure App Service* is an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Node.js, PHP, and Python. Applications run and scale with ease on both Windows and [Linux](#app-service-on-linux)-based environments.
 
 App Service adds the power of Microsoft Azure to your application, such as security, load balancing, autoscaling, and automated management. Additionally, you can take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, package management, staging environments, custom domain, and TLS/SSL certificates.
@@ -63,7 +65,7 @@ If you need to create another web app with an outdated runtime version that is n
 Create your first web app.
 
 > [!div class="nextstepaction"]
-> [Getting started)](getting-started.md)
+> [Getting started](getting-started.md)
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
