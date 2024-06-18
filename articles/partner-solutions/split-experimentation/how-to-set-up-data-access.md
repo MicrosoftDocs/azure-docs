@@ -82,7 +82,7 @@ In the Microsoft Entra admin center, go to your app and open the **Expose an API
 Split Experimentation workspace supports well-known roles to scope access control. Add the following roles in the Entra application.
 
 1. Go to the **App roles** menu and select **Create app role**.
-1. Select or enter the following information in the pane that opens to create a first role:
+1. Select or enter the following information in the pane that opens to create an *ExperimentationDataOwner* role. This role gives the app full access to execute all operations on the Split Experimentation resource.
 
     - **Display name**: enter *ExperimentationDataOwner*
     - **Allowed member types**: select **Both (Users/Groups + Applications)**
@@ -92,7 +92,7 @@ Split Experimentation workspace supports well-known roles to scope access contro
 
     :::image type="content" source="media/data-access/create-app-role.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to create an app role.":::
 
-1. Create a second role:
+1. Create an *ExperimentationDataReader* role. This role gives the app read access on the Split Experimentation resource, but doesn't allow it to make any changes.
 
     - **Display name**: enter *ExperimentationDataReader*
     - **Allowed member types**: select **Both (Users/Groups + Applications)**
