@@ -5,7 +5,7 @@ author: mattchenderson
 ms.author: mahender
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 06/17/2024
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to customize HTTP trigger endpoints in Azure Functions so that I can build a highly scalable API.
@@ -43,7 +43,7 @@ By default, you configure your HTTP trigger function to accept any HTTP method. 
     | Authorization level | Anonymous | Optional: Makes your function accessible without an API key |
     | Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
 
-    Because a global setting handles the `/api` base path prefix in the route template, you didn't need to set it here.
+    Because a global setting handles the `/api` base path prefix in the route template, you don't need to set it here.
 
 1. Select **Save**.
 
@@ -133,7 +133,7 @@ Next, you use a proxy to create a mock API for your solution. This proxy allows 
 
 1. Select `proxies.json` in the left pane. This file stores the configuration for all of your proxies. If you use one of the [Functions deployment methods](./functions-continuous-deployment.md), you maintain this file in source control. For more information about this file, see [Proxies advanced configuration](./legacy-proxies.md#advanced-configuration).
 
-   Your *proxies.json* should appear as follows:
+   Your *proxies.json* file should appear as follows:
 
    ```json
    {
@@ -185,15 +185,15 @@ Next, you use a proxy to create a mock API for your solution. This proxy allows 
    }
    ```
 
-   This code adds a new proxy, `GetUserByName`, omitting the `backendUri` property. Instead of calling another resource, it modifies the default response from Azure Functions proxies by using a response override. You can also use request and response overrides with a backend URL. This technique is useful when you proxy to a legacy system, where you might need to modify headers, query parameters, and so on. For more information about request and response overrides, see [Modifying requests and responses in Proxies](./legacy-proxies.md).
+   This code adds a new proxy, `GetUserByName`, which omits the `backendUri` property. Instead of calling another resource, it modifies the default response from Azure Functions proxies by using a response override. You can also use request and response overrides with a backend URL. This technique is useful when you proxy to a legacy system, where you might need to modify headers, query parameters, and so on. For more information about request and response overrides, see [Modify requests and responses](./legacy-proxies.md#modify-requests-responses).
 
-1. Test your mock API by calling the `<YourProxyApp>.azurewebsites.net/api/users/{username}` endpoint with a browser or your favorite REST client. Be sure to replace *{username}* with a string value representing a username.
+1. Test your mock API by calling the `<YourProxyApp>.azurewebsites.net/api/users/{username}` endpoint with a browser or your favorite REST client. Replace *{username}* with a string value that represents a username.
 
 ## Related content
 
 In this article, you learned how to build and customize an API with Azure Functions. You also learned how to bring multiple APIs, including mock APIS, together as a unified API surface. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
-The following references might be helpful as you develop your API further:
+For more information about developing your API:
 
 - [Azure Functions HTTP triggers and bindings overview](./functions-bindings-http-webhook.md)
 - [Working with Azure Functions proxies]
