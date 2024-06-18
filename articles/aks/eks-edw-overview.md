@@ -52,4 +52,21 @@ code .
 
 ## Next steps
 
-- [Understand platform differences for the event-driven workflow (EDW) scaling workload](eks-edw-understand.md).
+> [!div class="nextstepaction"]
+> [Understand platform differences for the event-driven workflow (EDW) scaling workload][eks-edw-understand]
+
+<!-- LINKS -->
+[competing-consumers]: /azure/architecture/patterns/competing-consumers
+[edw-aws-eks]: https://aws.amazon.com/blogs/containers/scalable-and-cost-effective-event-driven-workloads-with-keda-and-karpenter-on-amazon-eks/
+[azure-free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-built-in-roles]: /azure/role-based-access-control/built-in-roles
+[install-cli]: /cli/azure/install-azure-cli
+[aks-preview]: ./draft.md#install-the-aks-preview-azure-cli-extension
+[install-jq]: https://jqlang.github.io/jq/
+[install-python]: https://www.python.org/downloads/
+[install-kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[install-helm]: https://helm.sh/docs/intro/install/
+[download-vscode]: https://code.visualstudio.com/Download
+[github-repo]: https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws
+[eks-edw-understand]: ./eks-edw-understand.md
+
