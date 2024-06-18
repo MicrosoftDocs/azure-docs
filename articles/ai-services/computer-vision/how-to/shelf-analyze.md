@@ -8,7 +8,7 @@ ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 02/14/2024
 ms.author: pafarley
-ms.custom: references_regions, build-2023, build-2023-dataai
+ms.custom: build-2023, build-2023-dataai
 ---
 
 # Shelf Product Recognition (preview): Analyze shelf images using pretrained model
@@ -22,7 +22,7 @@ The fastest way to start using Product Recognition is to use the built-in pretra
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in the **East US** or **West US 2** region. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="create a Vision resource"  target="_blank">create a Vision resource</a> in the Azure portal. It must be deployed in a supported Azure region (see [Region availability](./../overview-image-analysis.md#region-availability)). After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Azure AI Vision service. You'll paste your key and endpoint into the code below later in the guide.
 * An Azure Storage resource with a blob storage container. [Create one](/azure/storage/common/storage-account-create?tabs=azure-portal)
 * [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Swagger or the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for VS Code.

@@ -14,31 +14,33 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 This article demonstrates how to:
 
 - Run your Java, Java EE, or Jakarta EE on Oracle WebLogic Server (WLS).
-- Stand up a WLS cluster using the Azure Marketplace offer.
+- Stand up a WebLogic Server cluster using the Azure Marketplace offer.
 - Build the application Docker image to serve as auxiliary image to provide WebLogic Deploy Tooling (WDT) models and applications.
-- Deploy the containerized application to the existing WLS cluster on AKS with connection to Microsoft Azure SQL.
+- Deploy the containerized application to the existing WebLogic Server cluster on AKS with connection to Microsoft Azure SQL.
 
-This article uses the Azure Marketplace offer for WLS to accelerate your journey to AKS. The offer automatically provisions several Azure resources, including the following resources:
+This article uses the Azure Marketplace offer for WebLogic Server to accelerate your journey to AKS. The offer automatically provisions several Azure resources, including the following resources:
 
 - An Azure Container Registry instance
 - An AKS cluster
 - An Azure App Gateway Ingress Controller (AGIC) instance
 - The WebLogic Operator
 - A container image including the WebLogic runtime
-- A WLS cluster without an application
+- A WebLogic Server cluster without an application
 
-Then, this article introduces building an auxiliary image step by step to update an existing WLS cluster. The auxiliary image provides application and WDT models.
+Then, this article introduces building an auxiliary image step by step to update an existing WebLogic Server cluster. The auxiliary image provides application and WDT models.
 
 For full automation, you can select your application and configure datasource connection from Azure portal before the offer deployment. To see the offer, visit the [Azure portal](https://aka.ms/wlsaks).
 
 For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Service, see the official documentation from Oracle at [Azure Kubernetes Service](https://oracle.github.io/weblogic-kubernetes-operator/samples/azure-kubernetes-service/).
 
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on AKS solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
+
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Ensure the Azure identity you use to sign in and complete this article has either the [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the current subscription or the [Contributor](/azure/role-based-access-control/built-in-roles#contributor) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) For details on the specific roles required by WLS on AKS, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 - Have the credentials for an Oracle single sign-on (SSO) account. To create one, see [Create Your Oracle Account](https://aka.ms/wls-aks-create-sso-account).
-- Accept the license terms for WLS.
+- Accept the license terms for WebLogic Server.
   - Visit the [Oracle Container Registry](https://container-registry.oracle.com/) and sign in.
   - If you have a support entitlement, select **Middleware**, then search for and select **weblogic_cpu**.
   - If you don't have a support entitlement from Oracle, select **Middleware**, then search for and select **weblogic**.
@@ -49,20 +51,20 @@ For step-by-step guidance in setting up WebLogic Server on Azure Kubernetes Serv
   - [Azure CLI](/cli/azure). Use `az --version` to test whether az works. This document was tested with version 2.55.1.
   - [Docker](https://docs.docker.com/get-docker). This document was tested with Docker version 20.10.7. Use `docker info` to test whether Docker Daemon is running.
   - [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl). Use `kubectl version` to test whether kubectl works. This document was tested with version v1.21.2.
-  - A Java JDK compatible with the version of WLS you intend to run. The article directs you to install a version of WLS that uses JDK 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
+  - A Java JDK compatible with the version of WebLogic Server you intend to run. The article directs you to install a version of WebLogic Server that uses JDK 11. Azure recommends [Microsoft Build of OpenJDK](/java/openjdk/download). Ensure that your `JAVA_HOME` environment variable is set correctly in the shells in which you run the commands.
   - [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   - Ensure that you have the zip/unzip utility installed. Use `zip/unzip -v` to test whether `zip/unzip` works.
 - All of the steps in this article, except for those involving Docker, can also be executed in the Azure Cloud Shell. To learn more about Azure Cloud Shell, see [What is Azure Cloud Shell?](/azure/cloud-shell/overview)
 
-## Deploy WLS on AKS
+## Deploy WebLogic Server on AKS
 
-The steps in this section direct you to deploy WLS on AKS in the simplest possible way. WLS on AKS offers a broad and deep selection of Azure integrations. For more information, see [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)
+The steps in this section direct you to deploy WebLogic Server on AKS in the simplest possible way. WebLogic Server on AKS offers a broad and deep selection of Azure integrations. For more information, see [What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?](/azure/virtual-machines/workloads/oracle/weblogic-aks)
 
-The following steps show you how to find the WLS on AKS offer and fill out the **Basics** pane.
+The following steps show you how to find the WebLogic Server on AKS offer and fill out the **Basics** pane.
 
 1. In the search bar at the top of the Azure portal, enter *weblogic*. In the auto-suggested search results, in the **Marketplace** section, select **WebLogic Server on AKS**.
 
-   :::image type="content" source="media/howto-deploy-java-wls-app/marketplace-search-results.png" alt-text="Screenshot of the Azure portal that shows WLS in the search results." lightbox="media/howto-deploy-java-wls-app/marketplace-search-results.png":::
+   :::image type="content" source="media/howto-deploy-java-wls-app/marketplace-search-results.png" alt-text="Screenshot of the Azure portal that shows WebLogic Server in the search results." lightbox="media/howto-deploy-java-wls-app/marketplace-search-results.png":::
 
    You can also go directly to the [WebLogic Server on AKS](https://aka.ms/wlsaks) offer.
 
@@ -88,11 +90,11 @@ The following steps show you how to start the deployment process.
 
 1. Depending on whether or not the Oracle SSO account has an Oracle support entitlement, select the appropriate option for **Select the type of WebLogic Server Images.**. If the account has a support entitlement, select **Patched WebLogic Server Images**. Otherwise, select **General WebLogic Server Images**.
 
-1. Leave the value in **Select desired combination of WebLogic Server...** at its default value. You have a broad range of choices for WLS, JDK, and OS version.
+1. Leave the value in **Select desired combination of WebLogic Server...** at its default value. You have a broad range of choices for WebLogic Server, JDK, and OS version.
 
 1. In the **Application** section, next to **Deploy an application?**, select **No**.
 
-The following steps make it so the WLS admin console and the sample app are exposed to the public Internet with a built-in Application Gateway ingress add-on. For a more information, see [What is Application Gateway Ingress Controller?](/azure/application-gateway/ingress-controller-overview)
+The following steps make it so the WebLogic Server admin console and the sample app are exposed to the public Internet with a built-in Application Gateway ingress add-on. For a more information, see [What is Application Gateway Ingress Controller?](/azure/application-gateway/ingress-controller-overview)
 
 :::image type="content" source="media/howto-deploy-java-wls-app/configure-load-balancing.png" alt-text="Screenshot of the Azure portal that shows the simplest possible load balancer configuration on the Create Oracle WebLogic Server on Azure Kubernetes Service page." lightbox="media/howto-deploy-java-wls-app/configure-load-balancing.png":::
 
@@ -127,8 +129,8 @@ If you navigated away from the **Deployment is in progress** page, the following
    :::image type="content" source="media/howto-deploy-java-wls-app/resource-group-deployments.png" alt-text="Screenshot of the Azure portal that shows the resource group deployments list." lightbox="media/howto-deploy-java-wls-app/resource-group-deployments.png":::
 
 1. In the navigation pane, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
-1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WLS admin console for this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
-1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WLS on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
+1. The **adminConsoleExternalUrl** value is the fully qualified, public Internet visible link to the WebLogic Server admin console for this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
+1. The **clusterExternalUrl** value is the fully qualified, public Internet visible link to the sample app deployed in WebLogic Server on this AKS cluster. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageModelYaml** value is the base64 string of WDT model that built in the container image. Save this value aside for later.
 1. The **shellCmdtoOutputWlsImageProperties** value is base64 string of WDT model properties that built in the container image. Save this value aside for later.
 1. The **shellCmdtoConnectAks** value is the Azure CLI command to connect to this specific AKS cluster. This lets you use `kubectl` to administer the cluster.
@@ -149,15 +151,15 @@ The other values in the outputs are beyond the scope of this article, but are ex
 
    After a successful run, you should see the message **Query succeeded: Affected rows: 0**. If you don't see this message, troubleshoot and resolve the problem before proceeding.
 
-The database, tables, AKS cluster, and WLS cluster are created. If you want, you can explore the admin console by opening a browser and navigating to the address of **adminConsoleExternalUrl**. Sign in with the values you entered during the WLS on AKS deployment.
+The database, tables, AKS cluster, and WebLogic Server cluster are created. If you want, you can explore the admin console by opening a browser and navigating to the address of **adminConsoleExternalUrl**. Sign in with the values you entered during the WebLogic Server on AKS deployment.
 
 You can proceed to preparing AKS to host your WebLogic application.
 
 ## Configure and deploy the sample application
 
-The offer provisions the WLS cluster via [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/). Currently, the WLS cluster has no application deployed.
+The offer provisions the WebLogic Server cluster via [model in image](https://oracle.github.io/weblogic-kubernetes-operator/samples/domains/model-in-image/). Currently, the WebLogic Server cluster has no application deployed.
 
-This section updates the WLS cluster by deploying a sample application using [auxiliary image](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/#using-docker-to-create-an-auxiliary-image).
+This section updates the WebLogic Server cluster by deploying a sample application using [auxiliary image](https://oracle.github.io/weblogic-kubernetes-operator/managing-domains/model-in-image/auxiliary-images/#using-docker-to-create-an-auxiliary-image).
 
 ### Check out the application
 
@@ -488,7 +490,7 @@ Use the following steps to build the image:
 
 1. Use the following steps to push the auxiliary image to Azure Container Registry:
 
-   1. Open the Azure portal and go to the resource group that you provisioned in the [Deploy WSL on AKS](#deploy-wls-on-aks) section.
+   1. Open the Azure portal and go to the resource group that you provisioned in the [Deploy WebLogic Server on AKS](#deploy-weblogic-server-on-aks) section.
    1. Select the resource of type **Container registry** from the resource list.
    1. Hover the mouse over the value next to **Login server** and select the copy icon next to the text.
    1. Save the value in the `ACR_LOGIN_SERVER` environment variable by using the following command:
@@ -533,7 +535,7 @@ Use the following steps to build the image:
 
 ### Apply the auxiliary image
 
-In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WLS cluster, use the following steps to create the secret for the datasource URL, username, and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
+In the previous steps, you created the auxiliary image including models and WDT. Before you apply the auxiliary image to the WebLogic Server cluster, use the following steps to create the secret for the datasource URL, username, and password. The secret is used as part of the placeholder in the *dbmodel.yaml*.
 
 1. Connect to the AKS cluster by copying the **shellCmdtoConnectAks** value that you saved aside previously, pasting it into the Bash window, then running the command. The command should look similar to the following example:
 
@@ -671,11 +673,11 @@ In the previous steps, you created the auxiliary image including models and WDT.
 
 ## Verify the functionality of the deployment
 
-Use the following steps to verify the functionality of the deployment by viewing the WLS admin console and the sample app:
+Use the following steps to verify the functionality of the deployment by viewing the WebLogic Server admin console and the sample app:
 
-1. Paste the **adminConsoleExternalUrl** value into the address bar of an Internet-connected web browser. You should see the familiar WLS admin console login screen.
+1. Paste the **adminConsoleExternalUrl** value into the address bar of an Internet-connected web browser. You should see the familiar WebLogic Server admin console login screen.
 
-1. Sign in with the username `weblogic` and the password you entered when deploying WLS from the Azure portal. Recall that this value is `wlsAksCluster2022`.
+1. Sign in with the username `weblogic` and the password you entered when deploying WebLogic Server from the Azure portal. Recall that this value is `wlsAksCluster2022`.
 
 1. In the **Domain Structure** box, select **Services**.
 
@@ -700,7 +702,7 @@ Use the following steps to verify the functionality of the deployment by viewing
    :::image type="content" source="media/howto-deploy-java-wls-app/weblogic-cafe-deployment.png" alt-text="Screenshot of weblogic-cafe test points." border="false":::
 
    > [!NOTE]
-   > The hyperlinks in the **Test Point** column are not selectable because we did not configure the admin console with the external URL on which it is running. This article shows the WLS admin console merely by way of demonstration. Don't use the WLS admin console for any durable configuration changes when running WLS on AKS. The cloud-native design of WLS on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
+   > The hyperlinks in the **Test Point** column are not selectable because we did not configure the admin console with the external URL on which it is running. This article shows the WebLogic Server admin console merely by way of demonstration. Don't use the WebLogic Server admin console for any durable configuration changes when running WebLogic Server on AKS. The cloud-native design of WebLogic Server on AKS requires that any durable configuration must be represented in the initial docker images or applied to the running AKS cluster using CI/CD techniques such as updating the model, as described in the [Oracle documentation](https://aka.ms/wls-aks-docs-update-model).
 
 1. Understand the `context-path` value of the sample app you deployed. If you deployed the recommended sample app, the `context-path` is `weblogic-cafe`.
 1. Construct a fully qualified URL for the sample app by appending the `context-path` to the **clusterExternalUrl** value. If you deployed the recommended sample app, the fully qualified URL should be something like `http://wlsgw202401-wls-aks-domain1.eastus.cloudapp.azure.com/weblogic-cafe/`.
@@ -719,14 +721,9 @@ az group delete --name <db-resource-group-name> --yes --no-wait
 
 ## Next steps
 
-Learn more about running WLS on AKS or virtual machines by following these links:
+Learn more about running WebLogic Server on AKS or virtual machines by following these links:
 
-> [!div class="nextstepaction"]
-> [WLS on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks)
+* [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/java/ee/toc.json&bc=/azure/java/ee/breadcrumb/toc.json)
+* [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/java/ee/toc.json&bc=/azure/java/ee/breadcrumb/toc.json)
 
-> [!div class="nextstepaction"]
-> [Migrate WebLogic Server applications to Azure Kubernetes Service](/azure/developer/java/migration/migrate-weblogic-to-azure-kubernetes-service)
-
-> [!div class="nextstepaction"]
-> [WLS on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
-
+For more information about the Oracle WebLogic offers at Azure Marketplace, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume that you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
