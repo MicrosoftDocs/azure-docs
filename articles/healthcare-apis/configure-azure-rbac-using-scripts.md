@@ -10,14 +10,14 @@ ms.date: 06/06/2022
 ms.author: chrupa
 ---
 
-# Configure Azure RBAC role using Azure CLI and REST API
+# Configure Azure RBAC roles by using Azure CLI and REST API
 
-In this article, you'll learn how to grant permissions to client applications (and users) to access Azure Health Data Services using Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
-[role-based access control (Azure RBAC role)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Azure Health Data Services, see [Configure Azure RBAC role](configure-azure-rbac.md).
+In this article, you learn how to grant permissions to client applications and users to access Azure Health Data Services by using the Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
+[role-based access control (Azure RBAC role)](./../role-based-access-control/role-assignments-cli.md). For more information, see [Configure Azure RBAC role](configure-azure-rbac.md).
 
-You can view and download the [CLI scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-cli.http) and [REST API scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-rest-api.http) from [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples).
+View and download the [CLI scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-cli.http) and [REST API scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-rest-api.http) from [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples).
 
-> [!Note] 
+> [!Note]
 > To perform the role assignment operation, the user (or the client application) must be granted with RBAC permissions. Contact your Azure subscription administrators for assistance.
 
 ## Role assignments with CLI
@@ -34,7 +34,7 @@ az role definition list --name 58a3b984-7adf-4c20-983a-32417c86fbc8
 
 ### Azure Health Data Services role assignment
 
-The role assignments for Azure Health Data Services require the following values.
+The role assignments for Azure Health Data Services require these values:
 
 - Application role name or GUID ID.
 - Service principal ID for the user or client application.
@@ -82,6 +82,7 @@ spid=$(az ad sp show --id $clientid --query objectId --output tsv)
 #assign the specified role
 az role assignment create --assignee-object-id $spid --assignee-principal-type ServicePrincipal --role "$fhirrole" --scope $fhirrolescope
 ```
+
 ## Role assignments with REST API
 
 Alternatively, you can send a Put request to the role assignment REST API directly. For more information, see [Assign Azure roles using the REST API](./../role-based-access-control/role-assignments-rest.md).
