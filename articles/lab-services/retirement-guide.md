@@ -10,8 +10,11 @@ ms.date: 06/17/2024
 # Azure Lab Services retirement guide
 
 Azure Lab Services will be retired on June 28, 2027. The Azure Lab Services retirement guide presents options available for you to transition to other Microsoft services or Microsoft recommended partner solutions.
-Note Transition your Azure Labs Services workflows to a Microsoft service or Microsoft partner solution by June 28, 2027. Azure Lab Services will be fully retired on this date.
-Action Required: To avoid any service disruptions, you are strongly recommended to review this transition guide to choose the most suitable solution for your requirements by June 28, 2027. To learn about transitioning to other Microsoft services and partner solutions, follow this documentation.
+
+> [!Note] 
+> Transition your Azure Labs Services workflows to a Microsoft service or Microsoft partner solution by June 28, 2027. Azure Lab Services will be fully retired on this date.
+
+**Action Required:** To avoid any service disruptions, you are strongly recommended to review this transition guide to choose the most suitable solution for your requirements by **June 28, 2027**. To learn about transitioning to other Microsoft services and partner solutions, follow this documentation.
 
 ## Transition guidance overview
 This section provides links to Microsoft and partner solutions that cover the breadth of Azure Lab Services capabilities. Also included are links that can help you with your transition from Azure Lab Services.

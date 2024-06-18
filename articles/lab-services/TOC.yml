@@ -3,6 +3,8 @@
 - name: Overview
   expanded: true
   items:
+  - name: Azure Lab Services retirement guide
+    href: retirement-guide.md
   - name: What is Azure Lab Services?
     href: lab-services-overview.md
 - name: Migrate to lab plans
