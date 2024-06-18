@@ -54,16 +54,16 @@ This article assumes the Azure portal for network access configuration. You can 
 
 1. Add other client IP addresses for other devices and services that send requests to a search service.
 
-   The Azure portal supports IP addresses and IP address ranges in the CIDR format. An example of CIDR notation is 8.8.8.0/24, which represents the IPs that range from 8.8.8.0 to 8.8.8.255.
+   IP addresses and ranges are in the CIDR format. An example of CIDR notation is 8.8.8.0/24, which represents the IPs that range from 8.8.8.0 to 8.8.8.255.
 
    If your search client is a static web app on Azure, see [Inbound and outbound IP addresses in Azure App Service](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips). For Azure functions, see [IP addresses in Azure Functions](/azure/azure-functions/ip-addresses).
 
-1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this search service**. These services must be configured to run under a managed identity (system or user-assigned, but usually system):
+1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this search service**. The trusted service list includes:
 
    + `Microsoft.CognitiveServices` for Azure OpenAI and Azure AI services
    + `Microsoft.MachineLearningServices` for Azure Machine Learning
 
-   You take a dependency on Microsoft Entra ID authentication and role assignments if you choose the trusted service exception. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for details.
+   You take a dependency on Microsoft Entra ID authentication, managed identities, and role assignments if you choose the trusted service exception. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for details.
 
 1. **Save** your changes.
 
@@ -102,7 +102,7 @@ For ping, the request times out, but the IP address is visible in the response. 
 
 ## Grant access to trusted Azure services
 
-Did you select the trusted services exception? If yes, your Azure resource must have a managed identity (either system or user-assigned), and you must use role-based access controls. 
+Did you select the trusted services exception? If yes, your Azure resource must have a managed identity (either system or user-assigned, but usually system), and you must use role-based access controls. 
 
 Azure resources on the trusted service list include:
 
