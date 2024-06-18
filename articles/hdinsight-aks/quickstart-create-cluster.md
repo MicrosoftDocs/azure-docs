@@ -17,6 +17,7 @@ HDInsight on AKS introduces the concept of cluster pools and clusters, which all
 - **Clusters** are individual compute workloads, such as Apache Spark, Apache Flink, or Trino, which can be created in the same cluster pool.
 
 For every cluster type, you must have a cluster pool. It can be created independently or you can create new cluster pool during cluster creation.
+In this quickstart, you learn how to create a cluster pool using the Azure portal.
 
 ## Prerequisites
 
