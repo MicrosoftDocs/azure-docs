@@ -31,10 +31,6 @@ You can monitor how your applications are used, the actions taken by the Service
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), a desktop application for Windows, macOS, and Linux, is an open-source tool for inspecting and managing Azure Service Fabric clusters. To enable automation, every action that can be taken through Service Fabric Explorer can also be done through PowerShell or a REST API.
 
-### Application Insights
-
-Application Insights integrates with Service Fabric to provide Service Fabric specific metrics and tooling experiences for Visual Studio and Azure portal. Application Insights provides a comprehensive out-of-the-box logging experience. For more information, see [Event analysis and visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
-
 ## Application monitoring
 
 Application monitoring tracks how features and components of your application are being used. You want to monitor your applications to make sure issues that impact users are caught. The responsibility of application monitoring is on the users developing an application and its services since it is unique to the business logic of your application. Monitoring your applications can be useful in the following scenarios:
@@ -45,9 +41,24 @@ Application monitoring tracks how features and components of your application ar
 * What is happening within the services running inside my containers?
 
 The great thing about application monitoring is that developers can use whatever tools and framework they'd like since it lives within the context of your application! You can learn more about the Azure solution for application monitoring with Azure Monitor Application Insights in [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+
 We also have a tutorial with how to [set this up for .NET Applications](service-fabric-tutorial-monitoring-aspnet.md). This tutorial goes over how to install the right tools, an example to write custom telemetry in your application, and viewing the application diagnostics and telemetry in the Azure portal.
 
-For more information on application monitoring, see [Application logging](service-fabric-diagnostics-event-generation-app.md).
+### Application logging
+
+Instrumenting your code is not only a way to gain insights about your users, but also the only way you can know whether something is wrong in your application, and to diagnose what needs to be fixed. Although technically it's possible to connect a debugger to a production service, it's not a common practice. So, having detailed instrumentation data is important.
+
+Some products automatically instrument your code. Although these solutions can work well, manual instrumentation is almost always required to be specific to your business logic. In the end, you must have enough information to forensically debug the application. Service Fabric applications can be instrumented with any logging framework. This section describes a few different approaches to instrumenting your code, and when to choose one approach over another.
+
+- **Application Insights SDK**: Application Insights has a rich integration with Service Fabric out of the box. Users can add the AI Service Fabric nuget packages and receive data and logs created and collected viewable in the Azure portal. Additionally, users are encouraged to add their own telemetry in order to diagnose and debug their applications and track which services and parts of their application are used the most. The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) class in the SDK provides many ways to track telemetry in your applications. For more information, see [Event analysis and visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+
+    Check out an example of how to instrument and add application insights to your application in our tutorial for [monitoring and diagnosing a .NET application](service-fabric-tutorial-monitoring-aspnet.md)
+
+- **EventSource**: When you create a Service Fabric solution from a template in Visual Studio, an **EventSource**-derived class (**ServiceEventSource** or **ActorEventSource**) is generated. A template is created, in which you can add events for your application or service. The **EventSource** name **must** be unique, and should be renamed from the default template string MyCompany-&lt;solution&gt;-&lt;project&gt;. Having multiple **EventSource** definitions that use the same name causes an issue at run time. Each defined event must have a unique identifier. If an identifier is not unique, a runtime failure occurs. Some organizations preassign ranges of values for identifiers to avoid conflicts between separate development teams. For more information, see [Vance's blog](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) or the [MSDN documentation](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
+
+- **ASP.NET Core logging**: It's important to carefully plan how you will instrument your code. The right instrumentation plan can help you avoid potentially destabilizing your code base, and then needing to reinstrument the code. To reduce risk, you can choose an instrumentation library like [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), which is part of Microsoft ASP.NET Core. ASP.NET Core has an [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) interface that you can use with the provider of your choice, while minimizing the effect on existing code. You can use the code in ASP.NET Core on Windows and Linux, and in the full .NET Framework, so your instrumentation code is standardized.
+
+For examples on how to use these suggestions, see [Add logging to your Service Fabric application](service-fabric-how-to-diagnostics-log.md).
 
 ## Platform (cluster) monitoring
 
@@ -86,9 +97,7 @@ Now that we've covered the diagnostics in your application and the platform, how
 * Am I utilizing my hardware efficiently? Do you want to use your hardware at 90% CPU or 10% CPU. This comes in handy when scaling your cluster, or optimizing your application's processes.
 * Can I predict infrastructure issues proactively? - many issues are preceded by sudden changes (drops) in performance, so you can use performance counters such as network I/O and CPU utilization to predict and diagnose the issues proactively.
 
-A list of performance counters that should be collected at the infrastructure level can be found at [Performance metrics](service-fabric-diagnostics-event-generation-perf.md).
-
-Service Fabric also provides a set of performance counters for the Reliable Services and Actors programming models. If you are using either of these models, these performance counters can information to ensure that your actors are spinning up and down correctly, or that your reliable service requests are being handled fast enough. For more information, see [Monitoring for Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) and [Performance monitoring for Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters).
+A list of performance counters that should be collected at the infrastructure level can be found at [Performance metrics](monitor-service-fabric-reference.md#performance-metrics).
 
 Azure Monitor Logs is recommended for monitoring cluster level events. After you configure the [Log Analytics agent](service-fabric-diagnostics-oms-agent.md) with your workspace, you can collect:
 

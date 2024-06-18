@@ -299,7 +299,7 @@ To collect performance counters or event logs, modify the Resource Manager templ
 
 ## Collect Performance Counters
 
-To collect performance metrics from your cluster, add the performance counters to your "WadCfg > DiagnosticMonitorConfiguration" in the Resource Manager template for your cluster. See [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) for steps on modifying your `WadCfg` to collect specific performance counters. Reference [Service Fabric Performance Counters](service-fabric-diagnostics-event-generation-perf.md) for a list of performance counters that we recommend collecting.
+To collect performance metrics from your cluster, add the performance counters to your "WadCfg > DiagnosticMonitorConfiguration" in the Resource Manager template for your cluster. See [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) for steps on modifying your `WadCfg` to collect specific performance counters. Reference [Performance metrics](monitor-service-fabric-reference.md#performance-metrics) for a list of performance counters that we recommend collecting.
   
 If you are using an Application Insights sink, as described in the section below, and want these metrics to show up in Application Insights, then make sure to add the sink name in the "sinks" section as shown above. This will automatically send the performance counters that are individually configured to your Application Insights resource.
 

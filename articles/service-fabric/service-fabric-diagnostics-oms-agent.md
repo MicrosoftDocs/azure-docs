@@ -71,7 +71,7 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 
 3. Click **Advanced Settings**.
 
-4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](/windows/win32/perfctrs/specifying-a-counter-path).
+4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](monitor-service-fabric-reference.md#performance-metrics) to collect. The proper format is referenced in this [article](/windows/win32/perfctrs/specifying-a-counter-path).
 
 5. Click **Save**, then click **OK**.
 
@@ -89,6 +89,6 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 
 ## Next steps
 
-* Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/agents/agent-data-sources.md#configure-data-sources).
+* Collect relevant [performance counters](monitor-service-fabric-reference.md#performance-metrics). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/agents/agent-data-sources.md#configure-data-sources).
 * Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/alerts/alerts-overview.md) to aid in detecting and diagnostics
 * As an alternative you can collect performance counters through [Azure Diagnostics extension and send them to Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

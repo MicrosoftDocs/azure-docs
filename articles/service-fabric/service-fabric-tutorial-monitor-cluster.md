@@ -225,7 +225,7 @@ To view performance counters, go to the [Azure portal](https://portal.azure.com)
 
 Select the resource **ServiceFabric(mysfomsworkspace)**, then **Log Analytics Workspace**, and then **Advanced Settings**.
 
-Click **Data**, then click **Windows Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Click **Save**, then click **OK**.
+Click **Data**, then click **Windows Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](monitor-service-fabric-reference.md#performance-metrics) to collect. The proper format is referenced in this [article](/windows/desktop/PerfCtrs/specifying-a-counter-path). Click **Save**, then click **OK**.
 
 Close the Advanced Settings blade and select **Workspace summary** under the **General** heading. For each of the solutions enabled there is a graphical tile, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
