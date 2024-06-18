@@ -905,7 +905,7 @@
           href: eks-edw-overview.md
         - name: Understand platform differences
           href: eks-edw-understand.md
-        - name: Rearchitect for Azure
+        - name: Rearchitect for AKS
           href: eks-edw-rearchitect.md
         - name: Refactor app
           href: eks-edw-refactor.md
