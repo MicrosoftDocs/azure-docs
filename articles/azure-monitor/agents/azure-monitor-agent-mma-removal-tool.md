@@ -13,7 +13,7 @@ ms.custom:
 # MMA Discovery and Removal Utility
 
 > [!NOTE]
-> We have received many reports from customers that this tool is failing to remove AMA agents. At this time, we recommend that this tool not be used. We are working to provide an at scale removal tool.
+> We have received many reports from customers that this tool is failing to remove MMA agents. At this time, we recommend that this tool not be used.
 
 After you migrate your machines to the Azure Monitor Agent (AMA), remove the Log Analytics or Microsoft Management Agent (MMA) to avoid duplication of logs. The Azure Tenant Security Solution (AzTS) MMA Discovery and Removal Utility can remove the MMA extension from Azure Virtual Machines (VMs), Azure Virtual Machine Scale Sets (VMSSs), and Azure Arc servers from a tenant.  
 
