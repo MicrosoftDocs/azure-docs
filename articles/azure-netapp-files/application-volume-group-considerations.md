@@ -40,9 +40,9 @@ This article describes the requirements and considerations you need to be aware 
 ### <a name="extension-1-requirements-considerations"></a> Extension 1 requirements and considerations (preview)
 
 * Extension 1 is currently in preview and requires that you [register for the feature](application-volume-group-deploy-first-host.md#register-for-extension-1).
-* Application volume group supports [Standard network features](azure-netapp-files-network-topologies.md) beginning with extension one. This support is in addition to the support for Basic network features. 
-* In addition to proximity placement group, [availability zone volume placement](use-availability-zones.md) is supported as the new default method. This upgrade mitigates the need for AVset pinning and eliminates the need for proximity placement group (PPG). Instead, you only need to select the same availability zone as the database servers. Using availability zone volume placement aligns with the Microsoft recommendation on how to deploy SAP HANA infrastructures to achieve best performance with high-availability, maximum flexibility, and simplified deployment. 
-    If regions do not support availability zones, you can select a regional deployment or choose proximity placement groups if so required.
+* Application volume group supports Basic network features. If you're registered for extension 1, application volume group also supports [Standard network features](azure-netapp-files-network-topologies.md).
+* Extension 1 supports [availability zone volume placement](use-availability-zones.md) as the new default method for placement. This upgrade mitigates the need for AVset pinning and eliminates the need for proximity placement groups. With support for availabilty zone volume placement, you only need to select the same availability zone as the database servers. Using availability zone volume placement aligns with the Microsoft recommendation on how to deploy SAP HANA infrastructures to achieve best performance with high-availability, maximum flexibility, and simplified deployment. 
+    If regions do not support availability zones, you can select a regional deployment or choose proximity placement groups.
 
 ## Best practices about proximity placement groups
 

@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, devx-track-extended-java, linux-related-content
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, devx-track-extended-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 05/03/2023
@@ -223,7 +223,7 @@ Next, create a non-admin user and grant all permissions on the `demo` database t
 Create a SQL script called *create_ad_user.sql* for creating a non-admin user. Add the following contents and save it locally:
 
 ```bash
-export AZ_MYSQL_AD_NON_ADMIN_USERID=$CURRENT_USER_OBJECTID
+export AZ_MYSQL_AD_NON_ADMIN_USERID=$(az ad signed-in-user show --query id --output tsv)
 
 cat << EOF > create_ad_user.sql
 SET aad_auth_validate_oids_in_tenant = OFF;

@@ -288,7 +288,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_CLIENTID`                | Your client ID                    | `<client-ID>`                                           |
 > | `AZURE_SQL_CLIENTSECRET`            | Your client secret                | `<client-secret>`                                       |
 > | `AZURE_SQL_TENANTID`                | Your tenant ID                    | `<tenant-ID>`                                           |
-> | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=a30eeedc-e75f-4301-b1a9-56e81e0ce99c;Password=asdfghwerty;Authentication=ActiveDirectoryServicePrincipal` |
+> | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=<client-Id>;Password=<client-secret>;Authentication=ActiveDirectoryServicePrincipal` |
 
 #### [Java](#tab/sql-me-id-java)
 

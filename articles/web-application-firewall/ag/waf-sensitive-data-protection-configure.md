@@ -12,6 +12,9 @@ ms.date: 09/05/2023
 
 The Web Application Firewall's (WAF's) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
 
+> [!NOTE]
+> When you enable the log scrubbing feature, Microsoft still retains IP addresses in our internal logs to support critical security features.
+
 The following table shows examples of log scrubbing rules that can be used to protect your sensitive data:
 
 | Match Variable | Operator | Selector | What gets scrubbed |

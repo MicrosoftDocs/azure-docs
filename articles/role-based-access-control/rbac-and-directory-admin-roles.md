@@ -6,7 +6,7 @@ manager: amycolannino
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
-ms.date: 03/08/2024
+ms.date: 03/15/2024
 ms.author: rolyon
 ms.custom: it-pro;
 ---
@@ -50,7 +50,7 @@ When you click the **Roles** tab, you'll see the list of built-in and custom rol
 
 :::image type="content" source="./media/shared/roles-list.png" alt-text="Screenshot of built-in roles in the Azure portal." lightbox="./media/shared/roles-list.png":::
 
-For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 <a name='azure-ad-roles'></a>
 
@@ -108,17 +108,13 @@ In the Azure portal, you can manage Co-Administrators or view the Service Admini
 
 :::image type="content" source="./media/shared/classic-administrators.png" alt-text="Screenshot of Azure classic subscription administrators in the Azure portal." lightbox="./media/shared/classic-administrators.png":::
 
-In the Azure portal, you can view or change the Service Administrator or view the Account Administrator on the properties page of your subscription.
-
-:::image type="content" source="./media/rbac-and-directory-admin-roles/account-admin.png" alt-text="Screenshot of Account Administrator and Service Administrator in the Azure portal." lightbox="./media/rbac-and-directory-admin-roles/account-admin.png":::
-
 For more information, see [Azure classic subscription administrators](classic-administrators.md).
 
 ### Azure account and Azure subscriptions
 
 An Azure account is used to establish a billing relationship. An Azure account is a user identity, one or more Azure subscriptions, and an associated set of Azure resources. The person who creates the account is the Account Administrator for all subscriptions created in that account. That person is also the default Service Administrator for the subscription.
 
-Azure subscriptions help you organize access to Azure resources. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by office, department, project, and so on. Every service belongs to a subscription, and the subscription ID may be required for programmatic operations.
+Azure subscriptions help you organize access to Azure resources. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by office, department, project, and so on. Most services belong to a subscription, and the subscription ID may be required for programmatic operations.
 
 Each subscription is associated with a Microsoft Entra directory. To find the directory the subscription is associated with, open **Subscriptions** in the Azure portal and then select a subscription to see the directory.
 
@@ -126,6 +122,6 @@ Accounts and subscriptions are managed in the [Azure portal](https://portal.azur
 
 ## Next steps
 
-- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.yml)
 - [Assign Microsoft Entra roles to users](../active-directory/roles/manage-roles-portal.md)
 - [Roles for Microsoft 365 services in Microsoft Entra ID](../active-directory/roles/m365-workload-docs.md)

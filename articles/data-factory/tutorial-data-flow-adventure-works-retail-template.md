@@ -5,7 +5,7 @@ author: kromerm
 ms.author: aamerril
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # AdventureWorks template documentation

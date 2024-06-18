@@ -60,9 +60,10 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
 ### [Without Extension 1](#tab/without-extension-1)
 
-1. From your NetApp account, select **Application volume groups**, and select **+Add Group**. Then, in Deployment Type, select **SAP HANA** and select **Next**. 
+1. From your NetApp account, select **Application volume groups** then **+Add Group**.
+1. In Deployment Type, select **SAP HANA** then **Next**. 
 
-2. In the **SAP HANA** tab, provide HANA-specific information. 
+1. In the **SAP HANA** tab, provide HANA-specific information. 
 
     > [!IMPORTANT]
     > Be sure to select the **Disaster recovery destination** option to indicate that you are creating a HANA system as a cross-region replication destination.  
@@ -89,20 +90,20 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     [ ![Screenshot that shows the Create a Volume Group page in a cross-region replication configuration.](./media/application-volume-group-disaster-recovery/application-cross-region-create-volume.png) ](./media/application-volume-group-disaster-recovery/application-cross-region-create-volume.png#lightbox)
 
-3. In the **Volume group** tab, provide information for creating the volume group:
+1. In the **Volume group** tab, provide information for creating the volume group:
 
-* **Proximity placement group (PPG)**:  
-    Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
-    Even if you don't need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
-* **Capacity pool**:  
-    All volumes will be placed in a single manual QoS capacity pool.   
-    If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
-* **Virtual network**:  
-    Specify an existing VNet where the VMs are placed. 
-* **Subnet**:  
-    Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
+    * **Proximity placement group (PPG)**:  
+        Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
+        Even if you don't need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
+    * **Capacity pool**:  
+        All volumes will be placed in a single manual QoS capacity pool.   
+        If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
+    * **Virtual network**:  
+        Specify an existing VNet where the VMs are placed. 
+    * **Subnet**:  
+        Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
-Select **Next: Protocols**. 
+    Select **Next: Protocols**. 
 
 4. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.
 

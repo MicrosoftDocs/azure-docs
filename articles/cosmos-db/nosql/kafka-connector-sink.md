@@ -260,9 +260,8 @@ If you have non-JSON data on your source topic in Kafka and attempt to read it u
 
 ```console
 org.apache.kafka.connect.errors.DataException: Converting byte[] to Kafka Connect data failed due to serialization error:
-…
-org.apache.kafka.common.errors.SerializationException: java.io.CharConversionException: Invalid UTF-32 character 0x1cfa7e2 (above 0x0010ffff) at char #1, byte #7)
-
+...
+org.apache.kafka.common.errors.SerializationException: java.io.CharConversionException: Invalid UTF-32 character 0x1cfa7e2 (above 0x0010ffff) at char #1, byte #7
 ```
 
 This error is likely caused by data in the source topic being serialized in either Avro or another format such as CSV string.
@@ -313,10 +312,9 @@ This scenario is applicable when you try to use the Avro converter to read data 
 ```console
 org.apache.kafka.connect.errors.DataException: my-topic-name
 at io.confluent.connect.avro.AvroConverter.toConnectData(AvroConverter.java:97)
-…
+...
 org.apache.kafka.common.errors.SerializationException: Error deserializing Avro message for id -1
 org.apache.kafka.common.errors.SerializationException: Unknown magic byte!
-
 ```
 
 **Solution**: Check the source topic’s serialization format. Then, either switch Kafka Connect’s sink connector to use the right converter or switch the upstream format to Avro.

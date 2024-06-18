@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2023
-ms.author: chez
-author: chez-charlie
+ms.author: makromer
+author: kromerm
 ---
 
 # Copy data from Marketo using Azure Data Factory or Synapse Analytics (Preview)

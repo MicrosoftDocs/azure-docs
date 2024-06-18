@@ -10,7 +10,6 @@ ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 01/19/2024
 ms.author: pafarley
-ms.custom: references_regions
 ---
 
 # Background removal (version 4.0 preview)
@@ -27,7 +26,7 @@ This feature provides two possible outputs based on the customer's needs:
 - An alpha matte that shows the opacity of the detected foreground object. This matte can be used to separate the foreground object from the background for further processing.
 
 > [!IMPORTANT]
-> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+> Background removal is only available in certain Azure regions. See [Region availability](./overview-image-analysis.md#region-availability). 
 
 ## Background removal examples
 
@@ -52,7 +51,7 @@ It's important to note the limitations of background removal:
 
 ## Use the API
 
-The background removal feature is available through the [Segment](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-02-01-preview/operations/63e6b6d9217d201194bbecbd) API (`imageanalysis:segment`). See the [Background removal how-to guide](./how-to/background-removal.md) for more information.
+The background removal feature is available through the [Segment](/rest/api/computervision/image-analysis/segment?view=rest-computervision-2023-02-01-preview&tabs=HTTP) API (`imageanalysis:segment`). See the [Background removal how-to guide](./how-to/background-removal.md) for more information.
 
 ## Next steps
 

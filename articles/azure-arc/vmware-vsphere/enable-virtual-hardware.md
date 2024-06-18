@@ -5,8 +5,9 @@ ms.topic: how-to
 ms.date: 03/13/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+ms.custom: devx-track-azurecli
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ---
 
@@ -103,4 +104,3 @@ When you encounter this error message, you'll be able to perform the **Link to v
 ## Next steps
 
 [Set up and manage self-service access to VMware resources through Azure RBAC](setup-and-manage-self-service-access.md).
-

@@ -1,8 +1,9 @@
 ---
 title: Alerts and incidents in Microsoft Defender XDR
 description: Learn about the benefits of receiving Microsoft Defender for Cloud's alerts in Microsoft Defender XDR 
-ms.topic: conceptual
-ms.date: 01/03/2024
+ms.topic: concept-article
+ms.date: 05/21/2024
+#customer intent: As a security professional, I want to understand the benefits of integrating Microsoft Defender for Cloud alerts with Microsoft Defender XDR.
 ---
 
 # Alerts and incidents in Microsoft Defender XDR
@@ -29,6 +30,14 @@ The following table describes the detection and investigation experience in Micr
 
 Learn more about [handling alerts in Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud).
 
+## Advanced hunting in XDR
+
+Microsoft Defender XDR's advanced hunting capabilities are extended to include Defender for Cloud alerts and incidents. This integration allows security teams to hunt across all their cloud resources, devices, and identities in a single query.
+
+The advanced hunting experience in Microsoft Defender XDR is designed to provide security teams with the flexibility to create custom queries to hunt for threats across their environment. The integration with Defender for Cloud alerts and incidents allows security teams to hunt for threats across their cloud resources, devices, and identities.
+
+The [CloudAuditEvents table](/defender-xdr/advanced-hunting-cloudauditevents-table) in advanced hunting allows you to hunt through cloud audit events in Microsoft Defender for Cloud and to create custom detections to surface suspicious Azure Resource Manager and Kubernetes (KubeAudit) control plane activities.
+
 ## Sentinel customers
 
 Microsoft Sentinel customers can [benefit from the Defender for Cloud integration with Microsoft 365 Defender](../sentinel/ingest-defender-for-cloud-incidents.md) in their workspaces using the Microsoft 365 Defender incidents and alerts connector.
@@ -49,6 +58,6 @@ Customers who integrated their Microsoft 365 Defender incidents into Sentinel an
 
 Learn how [Defender for Cloud and Microsoft 365 Defender handle your data's privacy](data-security.md#defender-for-cloud-and-microsoft-defender-365-defender-integration).
 
-## Next steps
+## Related content
 
 [Security alerts - a reference guide](alerts-reference.md)

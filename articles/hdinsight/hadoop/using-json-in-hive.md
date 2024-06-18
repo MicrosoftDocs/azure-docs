@@ -3,7 +3,7 @@ title: Analyze & process JSON with Apache Hive - Azure HDInsight
 description: Learn how to use JSON documents and analyze them by using Apache Hive in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/24/2023
+ms.date: 05/09/2024
 ---
 
 # Process and analyze JSON documents by using Apache Hive in Azure HDInsight
@@ -85,7 +85,7 @@ The **INSERT** statement populates the **StudentOneLine** table with the flatten
 
 The **SELECT** statement only returns one row.
 
-Here is the output of the **SELECT** statement:
+Here's the output of the **SELECT** statement:
 
 :::image type="content" source="./media/using-json-in-hive/hdinsight-flatten-json.png" alt-text="HDInsight flattening the JSON document." border="true":::
 
@@ -111,14 +111,14 @@ SELECT
 FROM StudentsOneLine;
 ```
 
-Here is the output when you run this query in the console window:
+Here's the output when you run this query in the console window:
 
 :::image type="content" source="./media/using-json-in-hive/hdinsight-get-json-object.png" alt-text="Apache Hive gets json object UDF." border="true":::
 
 There are limitations of the get_json_object UDF:
 
 * Because each field in the query requires reparsing of the query, it affects the performance.
-* **GET\_JSON_OBJECT()** returns the string representation of an array. To convert this array to a Hive array, you have to use regular expressions to replace the square brackets "[" and "]", and then you also have to call split to get the array.
+* **GET\_JSON_OBJECT()** returns the string representation of an array. To convert this array to a Hive array, you've to use regular expressions to replace the square brackets "[" and "]", and then you also have to call split to get the array.
 
 This conversion is why the Hive wiki recommends that you use **json_tuple**.  
 
@@ -151,5 +151,5 @@ The type of JSON operator in Hive that you choose depends on your scenario. With
 
 For related articles, see:
 
-* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](./hdinsight-use-hive.md)
+* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache `log4j` file](./hdinsight-use-hive.md)
 * [Analyze flight delay data by using Interactive Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

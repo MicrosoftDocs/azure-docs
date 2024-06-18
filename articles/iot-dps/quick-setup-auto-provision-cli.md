@@ -20,7 +20,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 > Both the IoT hub and the provisioning service you create in this quickstart will be publicly discoverable as DNS endpoints. Make sure to avoid any sensitive information if you decide to change the names used for these resources.
 >
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -64,12 +64,12 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## Get the connection string for the IoT hub
 
-You need your IoT hub's connection string to link it with the Device Provisioning Service. Use the [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) command to get the connection string and use its output to set a variable that's used later, when you link the two resources. 
+You need your IoT hub's connection string to link it with the Device Provisioning Service. Use the [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az-iot-hub-connection-string-show) command to get the connection string and use its output to set a variable that's used later, when you link the two resources.
 
 The following example sets the *hubConnectionString* variable to the value of the connection string for the primary key of the hub's *iothubowner* policy (the `--policy-name` parameter can be used to specify a different policy). Trade out *my-sample-hub* for the unique IoT hub name you chose earlier. The command uses the Azure CLI [query](/cli/azure/query-azure-cli) and [output](/cli/azure/format-output-azure-cli#tsv-output-format) options to extract the connection string from the command output.
 
 ```azurecli-interactive
-hubConnectionString=$(az iot hub show-connection-string --name my-sample-hub --key primary --query connectionString -o tsv)
+hubConnectionString=$(az iot hub connection-string show --name my-sample-hub --key primary --query connectionString -o tsv)
 ```
 
 You can use the `echo` command to see the connection string.
@@ -80,7 +80,7 @@ echo $hubConnectionString
 
 > [!NOTE]
 > These two commands are valid for a host running under Bash.
-> 
+>
 > If you're using a local Windows/CMD shell or a PowerShell host, modify the commands to use the correct syntax for that environment.
 >
 > If you're using Azure Cloud Shell, check that the environment drop-down on the left side of the shell window says **Bash**.

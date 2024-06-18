@@ -48,6 +48,7 @@ This table shows the parameters that define the resource naming.
 > | -------------------------------- | ---------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------- |
 > | `environment`                    | Identifier for the control plane (max 5 characters). | Mandatory  | For example, `PROD` for a production environment and `NP` for a nonproduction environment.  |
 > | `location`                       | Azure region in which to deploy.                     | Required   | Use lowercase.                                                                              |
+> | `codename`                       | Additional component for naming the resources.       | Optional   |                                                                                             |
 > | `name_override_file`             | Name override file.                                  | Optional   | See [Custom naming](naming-module.md).                                                      |
 > | `place_delete_lock_on_resources` | Place a delete lock on the key resources.            | Optional   |                                                                                             |
 
@@ -58,8 +59,8 @@ This table shows the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resource_group_name`   | Name of the resource group to be created                 | Optional   |
-> | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |
+> | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
 ### Network parameters
@@ -171,6 +172,8 @@ This section defines the parameters used for defining the Azure Key Vault inform
 > | `deployer_password_secret_name`	                 | The key vault secret name for the deployer password.                                  | Optional	  |
 > | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment key vault access policies.         | Optional	  |
 > | `set_secret_expiry`	                             | Set expiry of 12 months for key vault secrets.                                        | Optional	  |
+> | `soft_delete_retention_days`	                   | The number of days that items should be retained in the soft delete period.           | Optional	  |
+> | `deployer_assign_subscription_permissions`	     | Controls subscription permission assignment.                                          | Optional	  |
 
 ### DNS support
 
@@ -270,8 +273,8 @@ This table shows the parameters that define the resource group.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
 > | ----------------------- | -------------------------------------------------------- | ---------- |
-> | `resource_group_name`   | Name of the resource group to be created                 | Optional   |
-> | `resource_group_arm_id` | Azure resource identifier for an existing resource group | Optional   |
+> | `resourcegroup_name`    | Name of the resource group to be created                 | Optional   |
+> | `resourcegroup_arm_id`  | Azure resource identifier for an existing resource group | Optional   |
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
 ### SAP installation media storage account

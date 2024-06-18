@@ -2,9 +2,8 @@
 title: Set up availability alerts with Application Insights
 description: Learn how to set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 03/22/2023
-ms.reviewer: sdash
-
+ms.date: 04/28/2024
+ms.reviewer: cogoodson
 ---
 
 # Availability alerts
@@ -30,13 +29,13 @@ Alerts are now automatically enabled by default, but to fully configure an alert
 
 Automatically enabled availability alerts trigger an email when the endpoint you've defined is unavailable and when it's available again. Availability alerts that are created through this experience are state based. When the alert criteria are met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it won't generate a new alert.
 
-For example, suppose that your website is down for an hour and you've set up an email alert with an evaluation frequency of 15 minutes. You'll only receive an email when the website goes down and another email when it's back up. You won't receive continuous alerts every 15 minutes to remind you that the website is still unavailable.
+For example, suppose that your website is down for an hour and you've set up an email alert with an evaluation frequency of 15 minutes. You'll only receive an email when the website goes down and another email when it's back online. You won't receive continuous alerts every 15 minutes to remind you that the website is still unavailable.
 
 You might not want to receive notifications when your website is down for only a short period of time, for example, during maintenance. You can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold so that it only triggers an alert if the website is down for a specific number of regions. For longer scheduled downtimes, temporarily deactivate the alert rule or create a custom rule. It gives you more options to account for the downtime.
 
 #### Change the alert criteria
 
-To make changes to the location threshold, aggregation period, and test frequency, select the condition on the edit page of the alert rule to open the **Configure signal logic** window.
+To make changes to the location threshold, aggregation period, and test frequency, select the condition on the edit page of the alert rule to open the "**Configure signal logic**" window.
 
 ### Create a custom alert rule
 

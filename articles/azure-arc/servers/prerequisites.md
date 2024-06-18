@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 02/07/2024
+ms.date: 04/09/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 # Connected Machine agent prerequisites
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This topic describes the basic requirements for installing the Connected Machine agent to onboard a physical server or virtual machine to Azure Arc-enabled servers. Some [onboarding methods](deployment-options.md) may have more requirements.
 
@@ -44,18 +44,28 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 * Azure Stack HCI
 * CentOS Linux 7 and 8
 * Debian 10, 11, and 12
-* Oracle Linux 7 and 8
+* Oracle Linux 7, 8, and 9
 * Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Rocky Linux 8 and 9
 * SUSE Linux Enterprise Server (SLES) 12 SP3-SP5 and 15
 * Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
 * Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
 * Windows IoT Enterprise
-* Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016, 2019, and 2022
+* Windows Server 2012, 2012 R2, 2016, 2019, and 2022
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported on Azure Stack HCI
 
 The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
+
+## Limited support operating systems
+
+The following operating system versions have **limited support**. In each case, newer agent versions won't support these operating systems.  The last agent version that supports the operating system is listed, and newer agent releases won't be made available for that system. 
+The listed version is supported until the **End of Arc Support Date**. If critical security issues are identified that affect these agent versions, the fixes can be backported to the last supported version, but new functionality or other bug fixes won't be.
+
+| Operating system | Last supported agent version | End of Arc Support Date | Notes |
+| -- | -- | -- | -- | 
+| Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 3/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
+
 
 ### Client operating system guidance
 

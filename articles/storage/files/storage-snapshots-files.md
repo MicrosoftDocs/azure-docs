@@ -1,16 +1,16 @@
 ---
-title: Overview of share snapshots for Azure Files
-description: A share snapshot is a read-only version of an Azure file share that's taken at a point in time, as a way to back up the share.
+title: Overview of Azure Files share snapshots
+description: A share snapshot is a read-only version of an Azure file share that's taken as a point in time copy, as a way to back up the share.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 01/26/2024
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
 # Overview of share snapshots for Azure Files
 
-Azure Files provides the capability to take snapshots of file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them in your use case.
+Azure Files provides the capability to take snapshots of file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can take advantage of them.
 
 ## Applies to
 
@@ -62,7 +62,7 @@ To conserve space, you can delete the share snapshot for the period when the chu
 
 Even though share snapshots are saved incrementally, you need to retain only the most recent share snapshot in order to restore the share. When you delete a share snapshot, only the data unique to that share snapshot is removed. Active snapshots contain all the information that you need to browse and restore your data (from the time the share snapshot was taken) to the original location or an alternate location. You can restore at the item level.
 
-Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium file shares and standard file shares with large file shares enabled. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply.
+Snapshots don't count towards the maximum share size limit, which is 100 TiB for premium and standard file shares. There's no limit to how much space share snapshots occupy in total. Storage account limits still apply.
 
 ## Limits
 

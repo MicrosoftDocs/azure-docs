@@ -4,7 +4,7 @@ description: Synchronize authenticated users from Microsoft Entra ID to an HDIns
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/27/2023
+ms.date: 03/15/2024
 ---
 
 # Synchronize Microsoft Entra users to an HDInsight cluster

@@ -13,7 +13,7 @@ An image contains the operating system, software applications, files, and settin
 
 You can use two types of images to set up a new lab:
 
-- Azure Marketplace images are prebuilt by Microsoft for use within Azure. These images have either Windows or Linux installed and may also include software applications. For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes deep learning frameworks and tools.
+- Azure Marketplace images are prebuilt by Microsoft for use within Azure. These images have either Windows or Linux installed and may also include software applications. For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#what-does-the-dsvm-include) includes deep learning frameworks and tools.
 - Custom images are created by your institution’s IT department and\or other educators. You can create both Windows and Linux custom images. You have the flexibility to install Microsoft and third-party applications based on your unique needs. You also can add files, change application settings, and more.
 
 > [!IMPORTANT]

@@ -6,7 +6,7 @@ ms.author: antoniomanug
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 03/25/2024
 ---
 
 # Azure Migrate application and code assessment for Java
@@ -38,6 +38,12 @@ You can use the following services as deployment targets:
 * Azure Spring Apps
 * Azure Kubernetes Service
 * Azure Container Apps
+* cloud-readiness
+* discovery
+* linux
+* openjdk11
+* openjdk17
+* openjdk21
 
 You can use the following services as resource services:
 
@@ -52,12 +58,16 @@ You can use the following services as resource services:
 
 To use `appcat`, you must download the ZIP file described in the next section, and have a compatible JDK 11+ installation on your computer. `appcat` runs on Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. You can use the [Microsoft Build of OpenJDK](/java/openjdk) to run `appcat`.
 
-### Download
+### Download latest release
 
 The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azure-appcat-cli-latest.zip](https://aka.ms/appcat/azure-appcat-cli-latest.zip).
 
 > [!div class="nextstepaction"]
-> [Download Azure Migrate application and code assessment for Java](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+> [Download Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-appcat-cli-latest.zip)
+
+#### Previous release
+
+ - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip)
 
 ### Run appcat
 
@@ -75,9 +85,12 @@ appcat-cli-<version>    # APPCAT_HOME
       ├── airsonic.war
       ├── run-assessment
       ├── run-assessment-custom-rules
+      ├── run-assessment-exclude-packages
       ├── run-assessment-no-code-report
+      ├── run-assessment-openjdk21
       ├── run-assessment-zip-report
       └── run-discovery
+        
 ```
 
 * *docs*: This directory contains the documentation of `appcat`.
@@ -113,11 +126,11 @@ Use the following command to initiate discovery:
 
 The discovery phase is useful when you don't have a specific Azure target in mind. Otherwise, `appcat` runs discovery implicitly for any Azure target.
 
-## Assess a Java application for a specific Azure target
+## Assess a Java application for a specific target
 
-The *assessment* phase is where `appcat` analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target.
+The *assessment* phase is where `appcat` analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected Azure target or OpenJDK target.
 
-To check the available Azure targets, run the following command:
+To check the available targets, run the following command:
 
 ```bash
 ./appcat --listTargetTechnologies
@@ -131,6 +144,12 @@ Available target technologies:
     azure-appservice
     azure-container-apps
     azure-spring-apps
+    cloud-readiness
+    discovery
+    linux
+    openjdk11
+    openjdk17
+    openjdk21
 ```
 
 Then, you can run `appcat` using one of the available Azure targets, as shown in the following example:
@@ -139,6 +158,14 @@ Then, you can run `appcat` using one of the available Azure targets, as shown in
 ./appcat \
     --input ./<my-application-source-path or my-application-jar-war-ear-file> \
     --target azure-appservice
+```
+
+You can run `appcat` using one of the available OpenJDK targets, as shown in the following example:
+
+```bash
+./appcat \
+    --input ./<my-application-source-path or my-application-jar-war-ear-file> \
+    --target openjdk11
 ```
 
 ## Get results from appcat

@@ -18,15 +18,12 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 ## Prerequisites
 - Install [Visual Studio Code with Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial). It's possible to deploy the OSDU Admin UI from your local computer using either Linux or Windows Subsystem for Linux (WSL), we recommend using a Dev Container to eliminate potential conflicts of tooling versions, environments etc. 
 - An [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
-- An [Microsoft Entra ID App Registration](/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance.
-
-  > [!IMPORTANT]
-  > The following API permissions are required on the App Registration for the Admin UI to function properly.
-  >   - [Application.Read.All](/graph/permissions-reference#applicationreadall)
-  >   - [User.Read](/graph/permissions-reference#applicationreadall)
-  >   - [User.Read.All](/graph/permissions-reference#userreadall)
-  > 
-  > Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
+- An [Microsoft Entra ID App Registration](/entra/identity-platform/quickstart-register-app). <br> This App Registration can be the same as the one used for the Azure Data Manager for Energy instance. The following API permissions are required on the App Registration for the Admin UI to function properly.
+    - [Application.Read.All](/graph/permissions-reference#applicationreadall)
+    - [User.Read](/graph/permissions-reference#applicationreadall)
+    - [User.ReadBasic.All](/graph/permissions-reference#userreadbasicall)
+   
+  Upon first login to the Admin UI it will request the necessary permissions. You can also grant the required permissions in advance, see [App Registration API Permission documentation](/entra/identity-platform/quickstart-configure-app-access-web-apis#application-permission-to-microsoft-graph).
 
 ## Environment setup
 1. Use the Dev Container in Visual Studio Code to deploy the OSDU Admin UI to eliminate conflicts from your local machine.
@@ -88,7 +85,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 1. Enter the required environment variables on the terminal.
    ```bash
     export ADMINUI_CLIENT_ID="" ## App Registration to be used by OSDU Admin UI, usually the client ID used to provision ADME
-    export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated
+    export WEBSITE_NAME="" ## Unique name of the static web app or storage account that will be generated. Storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     export RESOURCE_GROUP="" ## Name of resource group
     export LOCATION="" ## Azure region to deploy to, i.e. "westeurope"
    ```
@@ -129,7 +126,7 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
         --public-access blob
     ```
 
-1. Add the redirect URI to the App Registration.
+1. Add the redirect URI to the App Registration. 
     ```azurecli
     export REDIRECT_URI=$(az storage account show --resource-group $RESOURCE_GROUP --name $WEBSITE_NAME --query "primaryEndpoints.web") && \
     echo "Redirect URL: $REDIRECT_URI" && \
@@ -178,6 +175,8 @@ The OSDU Admin UI enables platform administrators to manage the Azure Data Manag
 
    > [!NOTE]
    > [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) is built as an interface between consumers and OSDU APIs wrapping some API chain calls and objects. Currently, it manages all operations and actions on project and scenario objects.
+   
+1. If you are not able to give access to the app as defined in the prerequisite step, remove `User.Read`, `User.ReadBasic.All` and `Application.Read.All` from the `src/config/environments/environment.ts`. Removing these permissions would disable the Admin UI from converting the OIDs of users and applications into the user names and application names respectively and hence would disable the autocomplete feature of resolving OIDs from names.
    
 1. Build the web UI.
     ```bash

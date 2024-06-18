@@ -17,6 +17,20 @@ Azure Database for MySQL flexible server performs periodic maintenance to keep y
 > [!IMPORTANT]
 > Please avoid all server operations (modifications, configuration changes, starting/stopping server) during Azure Database for MySQL flexible server maintenance. Engaging in these activities can lead to unpredictable outcomes, possibly affecting server performance and stability. Wait until maintenance concludes before conducting server operations.
 
+## Maintenance Cycle
+
+### Routine Maintenance
+Our standard maintenance cycle is scheduled no less frequently than every 30 days. This period allows us to ensure system stability and performance while minimizing disruption to your services.
+
+### Critical Maintenance
+In certain scenarios, such as the need to deploy urgent security fixes or updates critical to maintaining availability and data integrity, maintenance may be conducted more frequently. These exceptions are made to safeguard your data and ensure the continuous operation of your services.
+
+### Locating Maintenance Details
+For specific details about what each maintenance update entails, please refer to our release notes. These notes provide comprehensive information about the updates applied during maintenance, allowing you to understand and prepare for any changes impacting your environment.
+
+>[!NOTE]
+> Not all servers will necessarily undergo maintenance during scheduled updates, whether routine or Critical. The Azure MySQL team employs specific criteria to determine which servers require maintenance. This selective approach ensures that maintenance is both efficient and essential, tailored to the unique needs of each server environment, and minimize the downtime of your production. 
+
 ## Select a maintenance window
 
 You can schedule maintenance during a specific day of the week and a time window within that day. Or you can let the system pick a day and a time window time for you automatically. Either way, the system will alert you seven days before running any maintenance. The system will also let you know when maintenance is started, and when it is successfully completed.
@@ -30,11 +44,6 @@ Notifications about upcoming scheduled maintenance can be:
 * Delivered as a voice message
 
 When specifying preferences for the maintenance schedule, you can pick a day of the week and a time window. If you don't specify, the system will pick times between 11pm and 7am in your server's region time. You can define different schedules for each flexible server in your Azure subscription.
-
-> [!IMPORTANT]
-> Normally there are at least 30 days between successful scheduled maintenance events for a server.
->
-> However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than seven days. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
 
 You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current rollout will proceed as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
 

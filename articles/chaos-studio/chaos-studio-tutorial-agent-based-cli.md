@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Create a chaos experiment that uses an agent-based fault with the Azure CLI
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high CPU event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Run this experiment to help you defend against an application from becoming resource starved.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you cause a high % of CPU utilization event on a Linux virtual machine (VM) by using a chaos experiment and Azure Chaos Studio. Run this experiment to help you defend against an application from becoming resource starved.
 
 You can use these same steps to set up and run an experiment for any agent-based fault. An *agent-based* fault requires setup and installation of the chaos agent. A service-direct fault runs directly against an Azure resource without any need for instrumentation.
 
@@ -148,7 +148,7 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
     Windows
 
     ```azurecli-interactive
-    az vm extension set --ids $VM_RESOURCE_ID --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
+    az vm extension set --ids $VM_RESOURCE_ID --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.1 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
     ```
 
     Linux
@@ -162,7 +162,7 @@ The chaos agent is an application that runs in your VM or virtual machine scale 
     Windows
 
     ```azurecli-interactive
-    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.0 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
+    az vmss extension set --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --vmss-name $VMSS_NAME --name ChaosWindowsAgent --publisher Microsoft.Azure.Chaos --version 1.1 --settings '{"profile": "$AGENT_PROFILE_ID", "auth.msi.clientid":"$USER_IDENTITY_CLIENT_ID", "appinsightskey":"$APP_INSIGHTS_KEY"{"Overrides": "CheckCertRevocation" = true}}'
     ```
 
     Linux

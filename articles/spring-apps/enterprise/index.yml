@@ -10,7 +10,6 @@ metadata:
   ms.service: spring-apps
   ms.custom: devx-track-java
   ms.topic: landing-page
-  ms.collection: collection
   author: KarlErickson
   ms.author: karler
   ms.date: 12/14/2023
@@ -20,6 +19,16 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
 
+  # Card (optional)
+  - title: Documentation for other plans
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Basic/Standard plan
+            url: ../basic-standard/index.yml
+          - text: Consumption and dedicated plan
+            url: ../consumption-dedicated/index.yml
+  
   # Card (optional)
   - title: About Azure Spring Apps
     linkLists:
@@ -49,6 +58,8 @@ landingContent:
             url: quickstart-deploy-web-app.md?pivots=sc-enterprise
           - text: Launch your first RESTful API app
             url: quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+          - text: Launch your first Spring Batch app
+            url: quickstart-deploy-spring-batch-app.md
           - text: Launch your first microservice apps
             url: quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
           - text: Launch your first event-driven app

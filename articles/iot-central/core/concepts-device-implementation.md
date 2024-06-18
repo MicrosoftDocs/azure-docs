@@ -33,7 +33,7 @@ The [Azure IoT device SDKs](#device-sdks) include support for the IoT Plug and P
 
 ### Device model
 
-A device model is defined by using the [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) modeling language. This language lets you define:
+For IoT Central, a device model is defined by using the [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) modeling language. This language lets you define:
 
 - The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
 - The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
@@ -128,7 +128,7 @@ If the device gets any of the following errors when it connects, it should use a
 
 To learn more about device error codes, see [Troubleshooting device connections](troubleshooting.md).
 
-To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot-develop/concepts-manage-device-reconnections.md).
+To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot/concepts-manage-device-reconnections.md).
 
 ### Test failover capabilities
 

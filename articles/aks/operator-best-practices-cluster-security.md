@@ -3,8 +3,8 @@ title: Best practices for cluster security
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 03/02/2023
-
 ---
 
 # Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)
@@ -55,7 +55,7 @@ For more information about Microsoft Entra integration, Kubernetes RBAC, and Azu
 
 > [!NOTE]
 > To implement Network Policy, include the attribute `--network-policy azure` when creating the AKS cluster. Use the following command to create the cluster:
-> `az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity --network-plugin azure --network-policy azure`
+> `az aks create -g myResourceGroup -n myManagedCluster --network-plugin azure --network-policy azure --generate-ssh-keys`
 
 ```yaml
 apiVersion: networking.k8s.io/v1

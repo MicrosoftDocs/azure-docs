@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -199,6 +199,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/write | Creates a server with the specified parameters or updates the properties or tags for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/delete | Deletes an existing server. |
 > | Microsoft.DBforMySQL/flexibleServers/validateEstimateHighAvailability/action |  |
+> | Microsoft.DBforMySQL/flexibleServers/detachVNet/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/getReplicationStatusForMigration/action | Return whether the replication is able to migration. |
 > | Microsoft.DBforMySQL/flexibleServers/resetGtid/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/checkServerVersionUpgradeAvailability/action |  |
@@ -384,6 +385,7 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | Gets the properties for the specified migration workflow. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | List of migration workflows for the specified database server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/write | Update the properties for the specified migration. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/migrations/delete | Deletes an existing migration workflow. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/read | Returns the list of private endpoint connection proxies or gets the properties for the specified private endpoint connection proxy. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/delete | Deletes an existing private endpoint connection proxy resource. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/write | Creates a private endpoint connection proxy with the specified parameters or updates the properties or tags for the specified private endpoint connection proxy |
@@ -1109,6 +1111,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/write | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 > | Microsoft.Sql/servers/delete | Deletes an existing server. |
 > | Microsoft.Sql/servers/import/action | Import new Azure SQL Database |
+> | Microsoft.Sql/servers/joinPerimeter/action | Add server to Network Security Perimeter |
 > | Microsoft.Sql/servers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | Microsoft.Sql/servers/refreshExternalGovernanceStatus/action | Refreshes external governance enablemement status |
 > | Microsoft.Sql/servers/administratorOperationResults/read | Gets in-progress operations on server administrators |
@@ -1441,12 +1444,12 @@ Azure service: [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-m
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/write | Create a new or changes properties of existing SQL availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/delete | Delete existing availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/sqlVirtualMachines/read | List Sql virtual machines by a particular sql virtual virtual machine group |
-> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/fetchDCAssessment/action |  |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/startAssessment/action | Start SQL best practices Assessment on SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/redeploy/action | Redeploy existing SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/read | Retrieve details of SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/write | Create a new or change properties of existing SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/delete | Delete existing SQL virtual machine |
-> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/startAssessment/action | Starts SQL best practices Assessment on SQL virtual machine |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/fetchDCAssessment/action | Start SQL best practices Assessment with Disk Config rules on SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/troubleshoot/action | Start SQL virtual machine troubleshooting operation |
 
 ## Next steps

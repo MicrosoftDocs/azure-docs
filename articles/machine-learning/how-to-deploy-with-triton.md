@@ -20,9 +20,17 @@ ms.devlang: azurecli
 
 Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [online endpoints](concept-endpoints-online.md).
 
-Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads. No-code deployment for Triton models is supported in both [managed online endpoints and Kubernetes online endpoints](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
+Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads.
 
-In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
+There are mainly two approaches you can take to leverage Triton models when deploying them to online endpoint: No-code deployment or full-code (Bring your own container) deployment.
+- No-code deployment for Triton models is a simple way to deploy them as you only need to bring Triton models to deploy.
+- Full-code deployment (Bring your own container) for Triton models is more advanced way to deploy them as you have full control on customizing the configurations available for Triton inference server.
+
+For both options, Triton inference server will perform inferencing based on the [Triton model as defined by NVIDIA](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/model_repository.html). For instance, [ensemble models](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/architecture.html#ensemble-models) can be used for more advanced scenarios.
+
+Triton is supported in both [managed online endpoints and Kubernetes online endpoints](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
+
+In this article, you will learn how to deploy a model using no-code deployment for Triton to a [managed online endpoint](concept-endpoints-online.md#online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. If you want to customize further directly using Triton inference server's configuration, refer to [Use a custom container to deploy a model](how-to-deploy-custom-container.md) and the BYOC example for Triton ([deployment definition](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/custom-container/triton/single-model) and [end-to-end script](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-custom-container-triton-single-model.sh)). 
 
 > [!NOTE]
 > Use of the NVIDIA Triton Inference Server container is governed by the [NVIDIA AI Enterprise Software license agreement](https://www.nvidia.com/en-us/data-center/products/nvidia-ai-enterprise/eula/) and can be used for 90 days without an enterprise product subscription. For more information, see [NVIDIA AI Enterprise on Azure Machine Learning](https://www.nvidia.com/en-us/data-center/azure-ml).
@@ -109,7 +117,7 @@ cd azureml-examples/sdk/python/endpoints/online/triton/single-model/
 This section shows how you can deploy to a managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
 > [!IMPORTANT]
-> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-a-local-endpoint)** is currently not supported.
 
 1. To avoid typing in a path for multiple commands, use the following command to set a `BASE_PATH` environment variable. This variable points to the directory where the model and associated YAML configuration files are located:
 
@@ -143,7 +151,7 @@ This section shows how you can deploy to a managed online endpoint using the Azu
 This section shows how you can define a Triton deployment to deploy to a managed online endpoint using the Azure Machine Learning Python SDK (v2).
 
 > [!IMPORTANT]
-> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+> For Triton no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-a-local-endpoint)** is currently not supported.
 
 
 1. To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. 
@@ -313,7 +321,7 @@ This section shows how you can define a Triton deployment on a managed online en
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
 
 > [!TIP]
-> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server.
+> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server. This file runs on the client side.
 
 1. To get the endpoint scoring uri, use the following command:
 

@@ -34,7 +34,7 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Launch Azure Cloud Shell by selecting the icon shown in the following image. Switch to **Bash** mode if the Cloud Shell is in **PowerShell** mode. 
 
-    :::image type="icon" source="~/articles/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
+    :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 3. Run the following command to create an Azure resource group. Update the resource group name and the location if you want. 
 

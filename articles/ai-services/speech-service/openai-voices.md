@@ -7,7 +7,7 @@ ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: overview
-ms.date: 2/1/2024
+ms.date: 4/23/2024
 ms.reviewer: v-baolianzou
 ms.custom: references_regions
 #customer intent: As a user who implements text to speech, I want to understand the options and differences between available OpenAI text to speech voices in Azure AI services.
@@ -55,13 +55,18 @@ Here's a comparison of features between OpenAI text to speech voices in Azure Op
 | **Real-time or batch synthesis** |  Real-time | Real-time and batch synthesis | Real-time and batch synthesis |
 | **Latency** | greater than 500 ms | greater than 500 ms | less than 300 ms |
 | **Sample rate of synthesized audio** | 24 kHz | 8, 16, 24, and 48 kHz | 8, 16, 24, and 48 kHz |
-| **Speech output audio format** | opus, mp3, aac, flac | opus, mp3, pcm, truesilk | opus, mp3, pcm, truesilk | 
+| **Speech output audio format** | opus, mp3, aac, flac | opus, mp3, pcm, truesilk | opus, mp3, pcm, truesilk |
+
+There are additional features and capabilities available in Azure AI Speech that aren't available with OpenAI voices. For example:
+- OpenAI text to speech voices in Azure AI Speech [only support a subset of SSML elements](#ssml-elements-supported-by-openai-text-to-speech-voices-in-azure-ai-speech). Azure AI Speech voices support the full set of SSML elements.
+- Azure AI Speech supports [word boundary events](./how-to-speech-synthesis.md#subscribe-to-synthesizer-events). OpenAI voices don't support word boundary events. 
+
 
 ## SSML elements supported by OpenAI text to speech voices in Azure AI Speech
 
 The [Speech Synthesis Markup Language (SSML)](./speech-synthesis-markup.md) with input text determines the structure, content, and other characteristics of the text to speech output. For example, you can use SSML to define a paragraph, a sentence, a break or a pause, or silence. You can wrap text with event tags such as bookmark or viseme that can be processed later by your application.
 
-The following table outlines the Speech Synthesis Markup Language (SSML) elements supported by OpenAI text to speech voices in Azure AI speech. Only a subset of SSML tags are supported for OpenAI voices. See [SSML document structure and events](speech-synthesis-markup-structure.md) for more information.
+The following table outlines the Speech Synthesis Markup Language (SSML) elements supported by OpenAI text to speech voices in Azure AI speech. Only the following subset of SSML tags are supported for OpenAI voices. See [SSML document structure and events](speech-synthesis-markup-structure.md) for more information.
 
 | SSML element name | Description |
 | --- | --- |

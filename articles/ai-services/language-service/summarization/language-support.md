@@ -9,19 +9,20 @@ ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 12/19/2023
 ms.author: jboback
-ms.custom: language-service-summarization, ignite-2023
+ms.custom: language-service-summarization, ignite-2023, build-2024
 ---
 
 # Language support for document and conversation summarization
 
 Use this article to learn which natural languages are supported by document and conversation summarization.
 
-## Document summarization
+## Text and document summarization
 
-Extractive and abstractive document summarization supports the following languages:
+Extractive and abstractive text summarization as well as document summarization support the following languages:
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
+| Arabic                | `ar`          |                     |
 | Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
 | English               | `en`          |                     |
 | French                | `fr`          |                     |

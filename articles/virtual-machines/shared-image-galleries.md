@@ -99,7 +99,7 @@ The properties of an image version are:
 
 ## Generalized and specialized images
 
-There are two operating system states supported by Azure Compute Gallery. Typically images require that the VM used to create the image has been [generalized](generalize.md) before taking the image. Generalizing is a process that removes machine and user specific information from the VM.  For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters. For Windows, the Sysprep tool is used.
+There are two operating system states supported by Azure Compute Gallery. Typically images require that the VM used to create the image has been [generalized](generalize.yml) before taking the image. Generalizing is a process that removes machine and user specific information from the VM.  For Linux, you can use [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` parameters. For Windows, the Sysprep tool is used.
 
 Specialized VMs haven't been through a process to remove machine specific information and accounts. Also, VMs created from specialized images don't have an `osProfile` associated with them. This means that specialized images will have some limitations in addition to some benefits.
 
@@ -138,6 +138,34 @@ There are three main ways to share images an Azure Compute Gallery, depending on
 | [RBAC Sharing](./share-gallery.md) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](./share-gallery-direct.md)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](./share-gallery-community.md) | Yes | Yes | Yes | No | Yes |
+
+## RBAC Permissions required to create an ACG Image:
+ACG images can be created by users from various sources, including virtual machines, disks/snapshots, and VHDs. The section outlines the various user permissions necessary for creating an Azure Compute Gallery image. Identifies without the necessary permissions will not be able to create ACG images.
+
+### [VM as source](#tab/vmsource)
+- Users will require write permission on the Virtual Machine to create an ACG Image version.
+- For Azure SDK, use the property [properties.storageProfile.source.virtualMachineId](/rest/api/compute/gallery-image-versions/create-or-update), This property requires API version 2023-07-03 or [Version 1.4.0](https://www.nuget.org/packages/Azure.ResourceManager.Compute) (or higher) of .NET SDK
+### [Disk/Snapshot as Source](#tab/disksnapsource)
+- Users will require write permission (contributor) on the source disk/snapshot to create an ACG Image version.
+### [VHD as Source](#tab/vhdsource)
+- Users will require Microsoft.Storage/storageAccounts/listKeys/action (or) Storage Account Contributor on the storage account.
+- For SDK, use the property [properties.storageProfile.osDiskImage.source.storageAccountId](/rest/api/compute/gallery-image-versions/create-or-update), This property requires minimum api-version 2022-03-03.
+### [Managed Image and Gallery Image Version as Source](#tab/managedgallerysource)
+- Users will require read permission on the Managed Image/Gallery Image.
+
+---
+
+|Source type |Permissions Required | 
+|---|---|
+| Virtual machine | Write |
+| Disk/snapshot |	Write |
+| VHD	| Write (listKeys) |
+| Managed Image	| Read|
+| Gallery Image	| Read|
+
+Refer to our documentation for additional information regarding [Azure built-in roles](../role-based-access-control/built-in-roles.md), for [granting RBAC permissions](../role-based-access-control/quickstart-assign-role-user-portal.md)
+
+
 
 ## Shallow replication 
 
@@ -184,6 +212,7 @@ You can create Azure Compute Gallery resource using templates. There are several
 * [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-a-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 * [Can I update my Virtual Machine Scale Set created using managed image to use Azure Compute Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-azure-compute-gallery-images)
 * [How can I update my code to use the new property and ensure permissions are granted accurately during VM image creation?](#how-can-i-update-my-code-to-use-the-new-property-and-ensure-permissions-are-granted-accurately-during-vm-image-creation)
+* [Does deleting the Azure Compute Gallery images affect existing VMs created from it?](#does-deleting-the-azure-compute-gallery-affect-vms-created-from-it)
 
 ### How can I list all the Azure Compute Gallery resources across subscriptions?
 
@@ -193,8 +222,9 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you'd like to list all the resources.
 1. Look for resources of the **Azure Compute Gallery** type.
-  
-### [Azure CLI](#tab/azure-cli)
+
+
+# [Azure CLI](#tab/azure-cli)
 
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
@@ -202,7 +232,7 @@ To list all the Azure Compute Gallery resources, across subscriptions that you h
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure PowerShell:
 
@@ -216,9 +246,9 @@ $params = @{
 Get-AzSubscription | ForEach-Object @params
 ```
 
----
-
 For more information, see [List, update, and delete image resources](update-image-resources.md).
+
+---
 
 ### Can I move my existing image to an Azure Compute Gallery?
  
@@ -275,7 +305,7 @@ There are two ways you can specify the number of image version replicas to be cr
 1. The regional replica count which specifies the number of replicas you want to create per region. 
 2. The common replica count which is the default per region count in case regional replica count isn't specified. 
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2".
 
@@ -283,7 +313,7 @@ If regional replica count isn't specified with each location, then the default n
 
 To specify the common replica count in Azure CLI, use the **--replica-count** argument in the `az sig image-version create` command.
 
-### [Azure PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To specify the regional replica count, pass the location along with the number of replicas you want to create in that region, `@{Name = 'South Central US';ReplicaCount = 2}`, to the **-TargetRegion** parameter in the `New-AzGalleryImageVersion` command.
 
@@ -325,7 +355,7 @@ StorageProfile = new GalleryImageVersionStorageProfile()
             },
 ```
 
-For VHD as a source, use StorageAccountID field under GallerySource under OS disk or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
+For VHD as a source, use StorageAccountID field under GallerySource under OSDiskImage or Data disk Image(GalleryImageVersionStorageProfile.OSDiskImage.GallerySource.StorageAccountId). The new property requires api-version 2022-03-03
 ```
 StorageProfile = new GalleryImageVersionStorageProfile()
             {
@@ -339,6 +369,10 @@ StorageProfile = new GalleryImageVersionStorageProfile()
                 }
             },
 ```
+
+### Does deleting the Azure Compute Gallery affect VMs created from it?
+VMs created from the Azure Compute Gallery image remains unaffected due to their persistent disks. However, VMSS scale out operation will fail as they rely on the source image ID reference which would be lost once the Azure Compute Gallery image is deleted.
+
 ## Troubleshoot
 If you have issues with performing any operations on the gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
 

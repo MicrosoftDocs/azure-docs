@@ -53,19 +53,19 @@ With Azure Virtual Desktop, you can set up a scalable and flexible environment:
 
 You can deploy and manage virtual desktops and applications:
 
-- Use the Azure portal, Azure CLI, PowerShell and REST API to configure the host pools, create application groups, assign users, and publish resources.
+- Use the Azure portal, Azure CLI, PowerShell and REST API to create and configure host pools, application groups, workspaces, assign users, and publish resources.
 
 - Publish a full desktop or individual applications from a single host pool, create individual application groups for different sets of users, or even assign users to multiple application groups to reduce the number of images.
 
 - As you manage your environment, use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
 
-- Use the new diagnostics service to troubleshoot errors.
+- Get key insights and metrics about your environment and the users connecting to it with Azure Virtual Desktop Insights.
 
-- Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
+- Only manage the image and virtual machines you use for the sessions in your Azure subscription, not the infrastructure. You don't need to personally manage the supporting infrastructure roles, such as a gateway or broker, like you do with Remote Desktop Services.
 
 Connect users:
 
-- Once assigned, users can launch any Azure Virtual Desktop client to connect to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Azure Virtual Desktop HTML5 web client.
+- Once assigned, users can connect to their published Windows desktops and applications using Windows App or the Remote Desktop client. Connect from any device through either a native application on your device or using a web browser with the HTML5 web client.
 
 - Securely establish users through reverse connections to the service, so you don't need to open any inbound ports.
 
