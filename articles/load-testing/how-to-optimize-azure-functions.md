@@ -27,6 +27,12 @@ The performance optimizer enables the following capabilities:
 
 * A function app in the Flex Consumption plan with at least one function with an HTTP trigger. If you need to create a function app, see [Create and manage function apps in the Flex Consumption plan](/azure/azure-functions/flex-consumption-how-to).
 
+* To run a test profile, your Azure account must have the following permissions on the app:
+    * Microsoft.Web/sites/read 
+    * Microsoft.Web/sites/write
+    * Microsoft.Web/sites/slots/read
+    * Microsoft.Web/sites/slots/write
+    By default, the [Website Contributor](/azure/role-based-access-control/built-in-roles/web-and-mobile#website-contributor) role have these permissions already.
 
 ## Running Performance Optimizer on your Azure Functions
 
