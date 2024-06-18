@@ -12,9 +12,9 @@ author: JnHs
 
 Microsoft Copilot in Azure (preview) can generate Terraform configurations that you can use to create and manage your Azure infrastructure.
 
-When you tell Microsoft Copilot in Azure about some Azure infrastructure that you want to manage using Terraform, it provides a configuration using resources from the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). In addition to the primary resources, any dependent resources required to accomplish a successful deployment are included in the configuration. You can ask follow-up questions to further customize the configuration. Once you've reviewed the configuration and are happy with it, copy the configuration contents and deploy the configuration using your Terraform deployment method of choice.
+When you tell Microsoft Copilot in Azure about some Azure infrastructure that you want to manage through Terraform, it provides a configuration using resources from the [AzureRM provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs). In addition to the primary resources, any dependent resources required to accomplish a successful deployment are included in the configuration. You can ask follow-up questions to further customize the configuration. Once you've reviewed the configuration and are happy with it, copy the configuration contents and deploy the configuration using your Terraform deployment method of choice.
 
-The requested Azure infrastructure should be limited to fewer than 8 primary resource types. For example, you should see good results when asking for a configuration to manage a resource group that contains Azure Container App, Azure Functions, and Azure Cosmos DB resources. However, requesting configurations to fully address complex architectures may result in inaccurate results and truncated configurations.
+The requested Azure infrastructure should be limited to fewer than eight primary resource types. For example, you should see good results when asking for a configuration to manage a resource group that contains Azure Container App, Azure Functions, and Azure Cosmos DB resources. However, requesting configurations to fully address complex architectures may result in inaccurate results and truncated configurations.
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
