@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-p
 
 # Migrate an application to use passwordless connections with Azure Queue Storage
 
-[!INCLUDE [passwordless-intro](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-intro.md)]
+[!INCLUDE [passwordless-intro](../../../includes/passwordless/migration-guide/passwordless-intro.md)]
 
 ## Configure your local development environment
 
@@ -24,7 +24,7 @@ Passwordless connections can be configured to work for both local and Azure-host
 
 ### Sign-in to Azure locally
 
-[!INCLUDE [default-azure-credential-sign-in](~/reusable-content/ce-skilling/azure/includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
 ### Update the application code to use passwordless connections
 
@@ -190,7 +190,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 ### Create the managed identity
 
-[!INCLUDE [create-user-assigned-managed-identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
+[!INCLUDE [create-user-assigned-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
 #### Associate the managed identity with your web app
 
@@ -217,7 +217,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 
 # [Azure CLI](#tab/azure-cli-associate)
 
-[!INCLUDE [associate-managed-identity-cli](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
+[!INCLUDE [associate-managed-identity-cli](../../../includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
 
 # [Service Connector](#tab/service-connector-associate)
 
@@ -235,7 +235,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. Choose **Add role assignment**
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-add-role.png" :::
+    :::image type="content" source="../../../includes/passwordless/media/migration-add-role-small.png" alt-text="Screenshot showing how to add a role to a managed identity." lightbox="../../../includes/passwordless/media/migration-add-role.png" :::
 
 1. In the **Role** search box, search for *Storage Queue Data Contributor*, which is a common role used to manage data operations for queues. You can assign whatever role is appropriate for your use case. Select the *Storage Queue Data Contributor* from the list and choose **Next**.
 
@@ -243,7 +243,7 @@ Next, you need to grant permissions to the managed identity you created to acces
 
 1. In the flyout, search for the managed identity you created by name and select it from the results. Choose **Select** to close the flyout menu.
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/passwordless/migration-select-identity.png":::
+    :::image type="content" source="../../../includes/passwordless/media/migration-select-identity-small.png" alt-text="Screenshot showing how to select the assigned managed identity." lightbox="../../../includes/passwordless/media/migration-select-identity.png":::
 
 1. Select **Next** a couple times until you're able to select **Review + assign** to finish the role assignment.
 
@@ -273,7 +273,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-[!INCLUDE [Code changes to use user-assigned managed identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
+[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 
