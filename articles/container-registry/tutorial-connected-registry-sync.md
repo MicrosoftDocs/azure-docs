@@ -1,13 +1,13 @@
 ---
 title: "Sync Connected registry with Azure arc"
-description: "Secure the Connected registry extension deployment with HTTPS, TLS encryption, and upgrades/rollbacks."
+description: "Sync the Connected registry extension with Azure Arc to update the Connected registry with synchronization schedule and window."
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 
-#customer intent: Learn how to deploy the Connected registry extension with HTTPS, TLS encryption, and upgrades/rollbacks, and synchronize to secure the extension deployment. 
+#customer intent: Learn how to sync the Connected registry extension with Azure Arc to update the Connected registry with synchronization schedule and window.
 
 
 ---
@@ -71,4 +71,4 @@ The configuration syncs every minute with the connected registry.
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-update]: /cli/azure/acr/connected-registry#az-acr-connected-registry-update
-[quickstart]: quickstart-enable-connected-registry-arc-cli.md
+[quickstart]: quickstart-connected-registry-arc-cli.md

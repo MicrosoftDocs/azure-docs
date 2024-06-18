@@ -24,7 +24,7 @@ In this tutorial, you:
 > [!div class="checklist"]
 > - [Deploy Connected registry extension with HTTPS (TLS encryption)](#deploy-connected-registry-extension-with-https-tls-encryption).
 > - [Deploy Connected registry with kubernetes secret management for TLS encryption.](#deploy-connected-registry-with-kubernetes-secret-management-for-tls-encryption)
-> - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC) for TLS encryption.](#deploy-connected-registry-using-bring-your-own-certificate-byoc-for-tls-encryption)
+> - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC) for TLS encryption.](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc-for-tls-encryption)
 > - [Deploy the Connected registry Arc extension with inherent trust distribution and reject Connected registry trust distribution.](#deploy-the-connected-registry-arc-extension-with-inherent-trust-distribution-and-reject-connected-registry-trust-distribution)
 > - [Deploy the Connected registry Arc extension with HTTP (no TLS encryption)](#deploy-the-connected-registry-arc-extension-with-http-no-tls-encryption).
 
@@ -217,7 +217,7 @@ By deleting the Connected registry extension and the Connected registry, you rem
 [azure-resource-provider-requirements]: /azure/azure-arc/kubernetes/system-requirements#azure-resource-provider-requirements
 [quickstart-connect-cluster]: /azure/azure-arc/kubernetes/quickstart-connect-cluster
 [tutorial-aks-cluster]: /azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli
-[quickstart]: quickstart-enable-connected-registry-arc-cli.md
+[quickstart]: quickstart-connected-registry-arc-cli.md
 
 <!-- LINKS - external -->
 [az-k8s-extension-create]: /cli/azure/k8s-extension#az-k8s-extension-create
