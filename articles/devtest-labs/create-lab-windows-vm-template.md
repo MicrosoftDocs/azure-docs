@@ -17,7 +17,7 @@ In this quickstart, you use an Azure Resource Manager (ARM) template to create a
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-DevTest Labs can use ARM templates for many tasks, from creating and provisioning labs to adding users. This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template from the [Azure Quickstart Templates gallery](https://learn.microsoft.com/samples/browse/?expanded=azure&products=azure-resource-manager).
+DevTest Labs can use ARM templates for many tasks, from creating and provisioning labs to adding users. This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template from the [Azure Quickstart Templates gallery](/samples/browse/?expanded=azure&products=azure-resource-manager).
 
 ## Prerequisites
 

@@ -48,18 +48,15 @@ The following diagram demonstrates the overall flow of function behavior in the 
 
 ## Prerequisites
 
-- To work with the sample in this walkthrough, you need a service principal that has permission to the subscription that contains the lab. The service principal must use password-based authentication.
+- To work with the sample in this walkthrough, you need a service principal that has permission to the subscription that contains the lab. The service principal must use password-based authentication. If you already have a service principal that you can use in this walkthrough, you can continue to the [next section](#download-sample-and-build-solution-in-visual-studio).
 
-   > [!NOTE]
-   > If you already have a service principal that you can use in this walkthrough, you can continue to the [next section](#download-sample-and-build-solution-in-visual-studio).
-
-   1. To get the service principal, you can use the [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps), or the [Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). 
+   1. To get the service principal, you can use the [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps), or the [Azure portal](/entra/identity-platform/howto-create-service-principal-portal). 
 
    1. After you have the service principal, copy and save the application ID, key, and tenant ID values. You use the values later in the walkthrough. 
 
 ## Download sample and build solution in Visual Studio
 
-The source code for the sample is located in the [Azure DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions). Both C# and PowerShell implementations are available.
+The source code for the sample is located in the [DevTest Labs Internal Support Page integration with Azure Functions](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions) GitHub repository. The sample files support both C# and PowerShell implementations.
 
 After you have the service principal, you're ready to get the sample source:
 
@@ -83,7 +80,7 @@ The next step is to deploy the sample Function application to Azure:
 
 1. Complete the Wizard steps to publish a new or existing Azure Function App:
 
-   :::image type="content" source="./media/extend-devtest-labs-azure-functions/publish-dialog.png" border="false" alt-text="Screenshot that shows the Publish dialog for an Azure Function app in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/publish-dialog.png":::
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/publish-dialog.png" border="false" alt-text="Screenshot that shows the Publish dialog for an Azure Function app in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/publish-dialog-large.png":::
 
    For detailed information on developing and deploying Azure Functions applications in Visual Studio, see [Develop Azure Functions by using Visual Studio](../azure-functions/functions-develop-vs.md).
 
@@ -95,13 +92,13 @@ After you publish the Function app, you need to get URLs for the functions from 
 
 1. On the **Overview** page for the Function app, locate the **Functions** section and select one of the functions: **UpdateInternalSupportPage** or **ApplyWindowsUpdateArtifact**:
 
-   :::image type="content" source="./media/extend-devtest-labs-azure-functions/select-function.png" border="false" alt-text="Screenshot that shows how to access the Azure functions for the Function app in the Azure portal." lightbox="./media/extend-devtest-labs-azure-functions/select-function.png":::
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/select-function.png"  alt-text="Screenshot that shows how to access the Azure functions for the Function app in the Azure portal." lightbox="./media/extend-devtest-labs-azure-functions/select-function.png":::
 
 1. On the **Code + Test** page for the Azure function, select **Get function URL**.
 
 1. On the **Get Function URL** pane, use the **Copy** action to copy the desired URL to your clipboard:
 
-    :::image type="content" source="./media/extend-devtest-labs-azure-functions/function-url.png" border="false" alt-text="Screenshot that shows how to copy the URL for the function in the Azure portal." lightbox="./media/extend-devtest-labs-azure-functions/function-url.png":::
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/function-url.png" alt-text="Screenshot that shows how to copy the URL for the function in the Azure portal." lightbox="./media/extend-devtest-labs-azure-functions/function-url.png":::
 
 1. Save the copied URL for later use.
 
@@ -124,7 +121,7 @@ In addition to the URL for each function, you also need information about the se
    - ServicePrincipal_Key
    - ServicePrincipal_Tenant
 
-   :::image type="content" source="./media/extend-devtest-labs-azure-functions/application-settings.png" alt-text="Screenshot that shows how to update the application settings in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/application-settings.png" border="false":::
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/application-settings.png" alt-text="Screenshot that shows how to update the application settings in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/application-settings.png":::
 
 ## Test Azure function
 
@@ -138,14 +135,12 @@ The last step is to test the Azure function:
 
 1. On the **Test / Run** pane, enter values for the route properties: `LABNAME`, `RESOURCEGROUPNAME`, and `SUBSCRIPTIONID`:
 
-   :::image type="content" source="./media/extend-devtest-labs-azure-functions/test-function.png" alt-text="Screenshot that shows how to enter the property values for the function test." lightbox="./media/extend-devtest-labs-azure-functions/test-function.png" border="false":::
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/test-function.png" alt-text="Screenshot that shows how to enter the property values for the function test." lightbox="./media/extend-devtest-labs-azure-functions/test-function.png":::
 
-1. Select **Run** to execute the function.
-
-   The **Test** function updates the internal support page of the specified lab. It also includes an option for users to directly call the function next time:
+1. Select **Run** to execute the function. The function test updates the internal support page of the specified lab. It also includes an option for users to directly call the function next time.
 
 ## Related content
 
-- Review the [DevTest Labs Enterprise Reference Architecture](devtest-lab-reference-architecture.md)
-- [Scale up DevTest Labs](devtest-lab-guidance-scale.md)
+- Explore [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md)
+- [Scale up your DevTest Labs infrastructure](devtest-lab-guidance-scale.md)
 - [Automate DevTest Labs with PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library/Tests)
