@@ -50,6 +50,8 @@ The Instance Readiness Test (IRT) framework is an optional/add-on tool for the N
   Every average metric should be greater than 0.
 - Validate that KubeletRunningPods metric data is present within the last 10 minutes.
   Every average metric should be greater than 0.
+- Validate that ControllerRuntimeReconcileTotal metric data is present within the last 10 minutes.
+  Every average metric should be greater than 0.  
 - Validate that CpuUtilizationMax metric data for fabric network device is present within the last 10 minutes.
   At least one non-zero metric should exist.
 - Validate that MemoryAvailable metric data is present within the last 10 minutes.
