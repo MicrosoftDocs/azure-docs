@@ -29,7 +29,7 @@ This page provides a high-level view of the resources in your subscriptions, whi
 On the subscriptions overview tab, the workbook automatically detects the following resources:
 - Subscriptions 
 - Workspaces
-- Azure Virtual Machiness
+- Azure Virtual Machines
 - Virtual Machine Scale Sets
 - Arc-enabled servers
 - Hybrid machines without Arc where the legacy agent is deployed

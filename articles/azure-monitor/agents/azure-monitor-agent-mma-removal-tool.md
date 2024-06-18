@@ -130,7 +130,7 @@ CD "<LocalExtractedFolderPath>\AzTSMMARemovalUtilityDeploymentFiles"
 
 #### Install required Az PowerShell modules
 
-Az PowerShell modules contain cmdlets to deploy Azure resources. Install the required Az PowerShell module modules by using the following command. For more information about Az PowerShell module modules, see [How to install Azure PowerShell](/powershell/azure/install-az-ps). You must point the current path to the extracted folder location.
+Az PowerShell modules contain cmdlets to deploy Azure resources. Install the required Az PowerShell modules by using the following command. For more information about Az PowerShell module modules, see [How to install Azure PowerShell](/powershell/azure/install-az-ps). You must point the current path to the extracted folder location.
 
 ``` PowerShell
 Set-Prerequisites
