@@ -13,16 +13,18 @@ ms.date: 06/16/2024
 
 To help ensure a successful Azure Cloud Services (extended support) deployment, review the following steps. Complete each prerequisitive before you begin to create a deployment.
 
-## Required service configuration (.cscfg) file updates
+## Required configuration (.cscfg) file updates
+
+Use the information in the following sections to make required updates to the configuration (.cscfg) file for your Cloud Services (extended support) deployment.
 
 ### Virtual network
 
-Cloud Services (extended support) deployments must be in a virtual network. You can create a virtual network by using the [Azure portal](../virtual-network/quick-create-portal.md), [Azure PowerShell](../virtual-network/quick-create-powershell.md), the [Azure CLI](../virtual-network/quick-create-cli.md), or an [Azure Resource Manager template (ARM template)](../virtual-network/quick-create-template.md). The virtual network and subnets must be referenced in the [NetworkConfiguration](schema-cscfg-networkconfiguration.md) section of the .cscfg file.
+Cloud Services (extended support) deployments must be in a virtual network. You can create a virtual network by using the [Azure portal](../virtual-network/quick-create-portal.md), [Azure PowerShell](../virtual-network/quick-create-powershell.md), the [Azure CLI](../virtual-network/quick-create-cli.md), or an [Azure Resource Manager template (ARM template)](../virtual-network/quick-create-template.md). The virtual network and subnets must be referenced in the [NetworkConfiguration](schema-cscfg-networkconfiguration.md) section of the configuration (.cscfg) file.
 
-For a virtual network that is in the same resource group as the cloud service, referencing only the virtual network name in the .cscfg file is sufficient. If the virtual network and cloud service are in two different resource groups, specify the complete Azure Resource Manager ID of the virtual network in the .cscfg file.
+For a virtual network that is in the same resource group as the cloud service, referencing only the virtual network name in the configuration (.cscfg) file is sufficient. If the virtual network and Cloud Services (extended support) are in two different resource groups, specify the complete Azure Resource Manager ID of the virtual network in the configuration (.cscfg) file.
 
 > [!NOTE]
-> If the virtual network and cloud service are located in different resource groups, you can't use Visual Studio 2019 for your deployment. For this scenario, consider using an ARM template or the Azure portal to create your deployment.
+> If the virtual network and Cloud Services (extended support) are located in different resource groups, you can't use Visual Studio 2019 for your deployment. For this scenario, consider using an ARM template or the Azure portal to create your deployment.
 
 #### Virtual network in the same resource group
 
@@ -52,7 +54,7 @@ For a virtual network that is in the same resource group as the cloud service, r
 
 ### Remove earlier versions of plugins
 
-Remove earlier versions of remote desktop settings from the .cscfg file:
+Remove earlier versions of remote desktop settings from the configuration (.cscfg) file:
 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" /> 
@@ -62,16 +64,16 @@ Remove earlier versions of remote desktop settings from the .cscfg file:
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
 
-Remove earlier versions of diagnostics settings for each role in the .cscfg file:
+Remove earlier versions of diagnostics settings for each role in the configuration (.cscfg) file:
 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
 ```
 
-## Required service definition file updates
+## Required definition file updates
 
 > [!NOTE]
-> If you make changes to the service definition (.csdef) file, you must generate the package (.cspkg) file again. Build and repackage your .cspkg file after you make the following changes in the .csdef file to get the latest settings for your cloud service.
+> If you make changes to the definition (.csdef) file, you must generate the package (.cspkg or .zip) file again. Build and repackage your package (.cspkg or .zip) file after you make the following changes in the definition (.csdef) file to get the latest settings for your cloud service.
 
 ### Virtual machine sizes
 
@@ -105,7 +107,7 @@ For example, `<WorkerRole name="WorkerRole1" vmsize="Medium">` becomes `<WorkerR
 
 ### Remove earlier versions of remote desktop plugins
 
-For deployments that use earlier versions of remote desktop plugins, remove the modules from the .csdef file and from any associated certificates:
+For deployments that use earlier versions of remote desktop plugins, remove the modules from the definition (.csdef) file and from any associated certificates:
 
 ```xml
 <Imports> 
@@ -114,7 +116,7 @@ For deployments that use earlier versions of remote desktop plugins, remove the 
 </Imports> 
 ```
 
-For deployments that use earlier versions of diagnostics plugins, remove the settings for each role from the .csdef file:
+For deployments that use earlier versions of diagnostics plugins, remove the settings for each role from the definition (.csdef) file:
 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
@@ -122,11 +124,11 @@ For deployments that use earlier versions of diagnostics plugins, remove the set
 
 ## Access control
 
-The subscription that contains networking resources must have [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) or greater access for Cloud Services (extended support). For more information, see [RBAC built-in roles](../role-based-access-control/built-in-roles.md).
+The subscription that contains networking resources must have the [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) or greater role for Cloud Services (extended support). For more information, see [RBAC built-in roles](../role-based-access-control/built-in-roles.md).
 
 ## Key vault creation
 
-Azure Key Vault is used to store certificates that are associated with Cloud Services (extended support). Add the certificates to Key Vault, and then reference the certificate thumbprints in your service configuration file. You also must enable the Key Vault access policy (in the portal) for *Azure Virtual Machines for deployment* so that the Cloud Services (extended support) resource can retrieve the certificate that's stored as secrets from Key Vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). You must create the key vault in the same region and subscription as the cloud service. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+Azure Key Vault stores certificates that are associated with Cloud Services (extended support). Add the certificates to a key vault, and then reference the certificate thumbprints in the configuration (.cscfg) file for your deployment. You also must enable the key vault access policy (in the portal) for **Azure Virtual Machines for deployment** so that the Cloud Services (extended support) resource can retrieve the certificate that's stored as secrets in the key vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). You must create the key vault in the same region and subscription as the cloud service. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
 
 ## Related content
 

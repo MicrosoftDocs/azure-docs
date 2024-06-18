@@ -1,18 +1,18 @@
 ---
 title: Deploy Azure Cloud Services (extended support) - Azure PowerShell
-description: Deploy an Azure Cloud Service (extended support) using Azure PowerShell
+description: Deploy Azure Cloud Services (extended support) by using Azure PowerShell.
 ms.topic: quickstart
 ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 06/18/2024
 ms.custom: devx-track-azurepowershell
 ---
 
-# Deploy a Cloud Service (extended support) by using Azure PowerShell
+# Deploy Cloud Services (extended support) by using Azure PowerShell
 
-This article shows how to use the Az.CloudService Azure PowerShell module to create an Azure Cloud Services (extended support) deployment that has multiple roles (WebRole and WorkerRole).
+This article shows you how to use the Az.CloudService Azure PowerShell module to create an Azure Cloud Services (extended support) deployment that has multiple roles (WebRole and WorkerRole).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Complete the following steps as prerequisites to creating your deployment by usi
     New-AzResourceGroup -ResourceGroupName “ContosOrg” -Location “East US” 
     ```
 
-1. Create a storage account and container in Azure to store the package (.cspkg) file and configuration (.cscfg) file for the Cloud Services (extended support) deployment. You must use a unique name for the storage account name. This step is optional if you use an existing storage account.
+1. Create a storage account and container in Azure to store the package (.cspkg or .zip) file and configuration (.cscfg) file for the Cloud Services (extended support) deployment. You must use a unique name for the storage account name. This step is optional if you use an existing storage account.
 
     ```azurepowershell-interactive
     $storageAccount = New-AzStorageAccount -ResourceGroupName “ContosOrg” -Name “contosostorageaccount” -Location “East US” -SkuName “Standard_RAGRS” -Kind “StorageV2” 
@@ -45,7 +45,7 @@ Use any of the following Azure PowerShell cmdlets to deploy Cloud Services (exte
 
 - Quick-create a deployment by using a [storage account](#quick-create-a-deployment-by-using-a-storage-account)
 
-  - This parameter set inputs the package (.cspkg) file, configuration (.cscfg) file, and definition (.csdef) file for the deployment as inputs with the storage account.
+  - This parameter set inputs the package (.cspkg or .zip) file, the configuration (.cscfg) file, and the definition (.csdef) file for the deployment as inputs with the storage account.
   - The Cloud Services (extended support) role profile, network profile, and OS profile are created by the cmdlet with minimal input.
   - To input a certificate, you must specify a key vault name. The certificate thumbprints in the key vault are validated against the certificates that you specify in the configuration (.cscfg) file for the deployment.
 
@@ -152,7 +152,7 @@ New-AzCloudService
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
 
-1. Create a key vault. The key vault stores certificates that are associated with Cloud Service (extended support) roles. The key vault must be in the same region and subscription as the Cloud Service (extended support) deployment and have a unique name. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+1. Create a key vault. The key vault stores certificates that are associated with Cloud Services (extended support) roles. The key vault must be in the same region and subscription as the Cloud Services (extended support) deployment and have a unique name. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
 
     ```azurepowershell-interactive
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -171,7 +171,7 @@ New-AzCloudService
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates create,get,list,delete 
     ```
 
-1. In this example, you add a self-signed certificate to a key vault. You must add the certificate thumbprint via the deployment configuration (.cscfg) file for Cloud Services (extended support) roles.
+1. Th following example adds a self-signed certificate to a key vault. You must add the certificate thumbprint via the configuration (.cscfg) file for Cloud Services (extended support) roles.
 
     ```azurepowershell-interactive
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
@@ -223,7 +223,7 @@ New-AzCloudService
     $tag=@{"Owner" = "Contoso"} 
     ```
 
-1. Create the Cloud Service (extended support) deployment by using the profile objects and SAS URIs that you defined:
+1. Create the Cloud Services (extended support) deployment by using the profile objects and SAS URIs that you defined:
 
     ```azurepowershell-interactive
     $cloudService = New-AzCloudService ` 

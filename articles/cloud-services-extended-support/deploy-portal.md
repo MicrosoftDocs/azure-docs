@@ -1,15 +1,15 @@
 ---
 title: Deploy Azure Cloud Services (extended support) - Azure portal
-description: Deploy an Azure Cloud Service (extended support) using the Azure portal.
+description: Deploy Azure Cloud Services (extended support) by using the Azure portal.
 ms.topic: quickstart
 ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 06/18/2024
 ---
 
-# Deploy Azure Cloud Services (extended support) by using the Azure portal
+# Deploy Cloud Services (extended support) by using the Azure portal
 
 This article shows you how to use the Azure portal to create an Azure Cloud Services (extended support) deployment.
 
@@ -41,7 +41,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 
     :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the Cloud Services (extended support) Basics tab.":::
 
-1. On the **Basics** tab under **Cloud service configuration, package, and service definition**, add your package (.cspkg, .zip) file, configuration (.cscfg) file, and definition (.csdef) file for the deployment. You can add existing files from blob storage or upload the files from your local machine. If you upload the files from your local machine, the files are stored in a storage account in Azure.
+1. On the **Basics** tab under **Cloud service configuration, package, and service definition**, add your package (.cspkg or .zip) file, configuration (.cscfg) file, and definition (.csdef) file for the deployment. You can add existing files from blob storage or upload the files from your local machine. If you upload the files from your local machine, the files are stored in a storage account in Azure.
 
     :::image type="content" source="media/deploy-portal-4.png" alt-text="Screenshot that shows the section of the Basics tab where you upload files and select storage.":::
 
