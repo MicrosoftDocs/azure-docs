@@ -6,7 +6,9 @@ manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
 ms.date: 05/02/2024
-ms.reviewer: haelhamm
+ms.author: tgokal
+ms.review: ssalgado
+author: tgokal
 ms.custom: references_regions
 ---
 
@@ -34,8 +36,6 @@ The following models are available in Azure Marketplace for Jamba models when de
 
 * [Jamba-3-8B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-base)
 * [Jamba-3-70B (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-base)
-
-If you need to deploy a different model, [deploy it to managed compute](#deploy-meta-llama-models-to-managed-compute) instead.
 
 
 ### Prerequisites
