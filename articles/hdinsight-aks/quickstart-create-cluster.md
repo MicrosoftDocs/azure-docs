@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Create a cluster pool for HDInsight on AKS'
+title: 'Quickstart: Create an HDInsight on AKS cluster pool using Azure portal'
 description: This quickstart shows you how to create a cluster pool for Azure HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: quickstart
 ms.date: 06/18/2024
 ---
 
-#  Quickstart: Create a cluster pool for HDInsight on AKS
+#  Quickstart: Create an HDInsight on AKS cluster pool using Azure portal
 
 HDInsight on AKS introduces the concept of cluster pools and clusters, which allow you to realize the complete value of data lakehouse.
 
