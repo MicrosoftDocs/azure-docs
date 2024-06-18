@@ -101,7 +101,7 @@ To learn about billing for Jamba Instruct deployed as a serverless API, see [Cos
 1. Copy the **Target** URL and the **Key** token values.
 1. Make an API request: 
 
-For more information on using the APIs, see the [reference](#reference-for-jamba-models-deployed-a-serverless-api) section.
+For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-a-serverless-api) section.
 
 ## Reference for Jamba Instruct deployed a serverless API
 
