@@ -29,8 +29,7 @@ If you need to reset the password, use `az aks update` to change the password.
 az aks update --resource-group myResourceGroup --name myAKSCluster --windows-admin-password $WINDOWS_ADMIN_PASSWORD
 ```
 
-If you need to reset the username and password, see [Reset Remote Desktop Services or its administrator password in a Windows VM
-](/troubleshoot/azure/virtual-machines/reset-rdp).
+If you need to reset the username and password, see [Reset Remote Desktop Services or its administrator password in a Windows VM](/troubleshoot/azure/virtual-machines/reset-rdp).
 
 You also need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 

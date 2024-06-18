@@ -424,6 +424,11 @@
             "source_path_from_root": "/articles/virtual-desktop/fslogix-containers-azure-files.md",
             "redirect_url": "/azure/virtual-desktop/fslogix-profile-containers",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/host-pool-load-balancing.md",
+            "redirect_url": "/azure/virtual-desktop/configure-host-pool-load-balancing",
+            "redirect_document_id": false
         }
     ]
 }

@@ -59,7 +59,7 @@ Before programmatically authenticating to Azure to use Azure Key Vault secrets, 
 
 #### [Developer authentication](#tab/developer-auth)
 
-[!INCLUDE [Azure CLI Login with bash, powershell, and vscode](~/reusable-content/ce-skilling/azure/includes/azure-cli-login.md)]
+[!INCLUDE [Azure CLI Login with bash, powershell, and vscode](../../../includes/azure-cli-login.md)]
 
 #### [Production authentication](#tab/production-auth)
 

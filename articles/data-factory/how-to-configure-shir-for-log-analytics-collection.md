@@ -63,8 +63,9 @@ In the interface, when first configuring it, a suggested counter set will be rec
 
 ## View Events and Performance counter data in Log Analytics
 
-Consult this tutorial on [How to query data in Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
-The two tables where the telemetry is saved are called Perf and Event respectively. The following query will check the row count to see if we have data flowing in. This would confirm if the instrumentation described above is working.
+To learn how to analyze monitoring data in the Azure Monitor Logs / Log Analytics store by using the Kusto query language (KQL), see [Kusto queries](monitor-data-factory.md#kusto-queries).
+
+The two tables where the telemetry is saved are called Perf and Event respectively. The following query checks the row count to see if we have data flowing in. This confirms if the instrumentation described above is working.
 
 ### Sample KQL queries
 
