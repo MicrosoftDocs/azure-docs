@@ -4,8 +4,8 @@ description: This article describes the best practices to monitor Azure Database
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: mksuni 
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.custom:
 ms.date: 01/27/2023
 ---

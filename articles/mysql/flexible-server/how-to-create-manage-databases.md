@@ -4,8 +4,8 @@ description: This article describes how to create and manage databases on Azure 
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: sumuth
-author: mksuni
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 02/17/2022
 ---
 

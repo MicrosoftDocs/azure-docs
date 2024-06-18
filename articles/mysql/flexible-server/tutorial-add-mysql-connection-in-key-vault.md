@@ -4,8 +4,8 @@ description: This tutorial shows how to store and get an Azure Database for MySQ
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: mksuni
-ms.author: sumuth 
+author: SudheeshGH
+ms.author: sunaray 
 ms.date: 06/08/2023
 ---
 

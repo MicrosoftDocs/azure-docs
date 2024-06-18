@@ -4,8 +4,8 @@ description: Create an automated workflow using Azure Logic Apps with Azure Data
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: mksuni
-ms.author: sumuth 
+author: SudheeshGH
+ms.author: sunaray 
 ms.date: 12/15/2022
 ---
 

@@ -5,8 +5,8 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-python
 ms.topic: quickstart
-author: mksuni
-ms.author: sumuth 
+author: SudheeshGH
+ms.author: sunaray 
 ms.date: 12/07/2022
 ---
 

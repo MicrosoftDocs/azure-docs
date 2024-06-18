@@ -5,8 +5,8 @@ ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli
 ms.topic: troubleshooting
-ms.author: sumuth
-author: mksuni
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 08/24/2021
 ---
 

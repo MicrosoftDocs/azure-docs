@@ -1,8 +1,8 @@
 ---
 title: Manage server - Azure CLI
 description: Learn how to manage Azure Database for MySQL - Flexible Server from the Azure CLI.
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.service: mysql
 ms.subservice: flexible-server
 ms.custom: devx-track-azurecli

@@ -4,8 +4,8 @@ description: This article describes the best practices to operate your Azure Dat
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: mksuni 
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

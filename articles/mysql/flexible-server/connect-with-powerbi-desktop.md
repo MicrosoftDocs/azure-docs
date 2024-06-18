@@ -4,8 +4,8 @@ description: This topic shows how to build Power BI reports from data on Azure D
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 05/23/2023
 ---
 
