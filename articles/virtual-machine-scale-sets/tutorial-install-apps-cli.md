@@ -142,7 +142,7 @@ az vmss extension set \
   --settings @customConfigv2.json
 ```
 
-## Update your scale set instances
+## Apply the updates
 Again, upgrade all the instances to apply the custom script. The upgrade may take a couple of minutes.
 
 ```azurecli-interactive

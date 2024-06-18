@@ -178,7 +178,7 @@ Update-AzVmss `
 
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
 ```
-## Update the scale set instances
+## Apply the update
 Perform a manual upgrade to apply the updated extension to all the existing scale set instances. The update may take a couple of minutes to complete. 
 
 ```azurepowershell-interactive
