@@ -230,7 +230,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 ### Hardening Standards
 
-The Azure Monitoring Agents supports most industry standard hardening standards and is repetedely tested and certified against them every release. All Azure Monitor Agent scenarios are designed from the ground up with with security in mind.
+Azure Monitoring Agent supports most industry-standard hardening standards and is continuously tested and certified against these standards every release. All Azure Monitor Agent scenarios are designed from the ground up with with security in mind.
 
 ## Linux Hardening
 
@@ -247,7 +247,7 @@ Currently supported hardening standards:
 
 ## Windows Hardening
 
-The Azure Monitoring Agent supports all standard Windows Hardening standards such as: STIG, FIPs and is FedRamp compliant under Azure Monitor.
+Azure Monitoring Agent supports all standard Windows hardening standards, including STIG and FIPs, and is FedRamp compliant under Azure Monitor.
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Legacy Agent<sup>1</sup> |
 |:---|:---:|:---:|:---:|
