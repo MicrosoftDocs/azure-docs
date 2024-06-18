@@ -258,11 +258,12 @@ Automatic Extension Upgrades can also be applied when a VM or virtual machine sc
 
 ## Difference between enableAutomaticUpgrade and autoUpgradeMinorVersion
 1. AutoUpgradeMinorVersion:
-   - This property is used during VM creation.
-   - When set to “true,” it ensures that the latest minor version of the extension is automatically installed on the new virtual machine.
+   - This property is used during VM creation and while updating the VM with a new configuration.  
+   - When set to “true,” it ensures that the latest minor version of the extension is automatically installed on the virtual machine.
    - It overrides the TypeHandlerVersion with the latest stable minor version available.
+   - While updating the VM configuration, if a new minor version is available, then its considered a configuration change and the extension is reinstalled with latest minor version. 
    - This helps keep newly created VMs up-to-date with the latest stable minor extension version.
-   - If you want to manually specify the extension version during VM creation, set this property to “false.”
+   - If you want to manually set the extension to a specific version, set this property to “false.”
      
 2. EnableAutomaticUpgrade:
    - This property affects existing virtual machines.
