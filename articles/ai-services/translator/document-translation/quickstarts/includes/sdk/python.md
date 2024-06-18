@@ -57,7 +57,7 @@ Install the latest version of the Document Translation client library:
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
-      * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
+      * **targetUri** The SAS URI, with a SAS token appended as a query string, for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
 ## Asynchronous translation code sample

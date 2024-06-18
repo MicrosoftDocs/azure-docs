@@ -30,7 +30,7 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 | Request|Method| Description|API path|
 |---------|:-------:|-------|-----|
 |***Single*** |***Synchronous***|***Document***|***Translation***|
-|[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?api-version={date}`|
+|[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?targetLanguage&api-version={date}`|
 |||||
 |***Batch***|***Asynchronous***|***Documents***| ***Translation***|
 |[**Start translation**](start-translation.md)|POST| Start a batch document translation job.|`{document-translation-endpoint}/translator/document/batches?api-version={date}`|
