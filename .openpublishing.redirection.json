@@ -3044,6 +3044,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
+            "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
             "redirect_document_id": false
