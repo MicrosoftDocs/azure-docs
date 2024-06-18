@@ -1,6 +1,5 @@
 ---
 title: include file
-description: include file
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include

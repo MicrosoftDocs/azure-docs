@@ -23,7 +23,7 @@ The following diagram illustrates cross-region replication between the source an
  ![Diagram that shows cross-region replication between the source and destination HANA servers.](./media/application-volume-group-disaster-recovery/application-cross-region-replication.png) 
 
 > [!NOTE]  
-> When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix will then be changed to `DR2-`. 
+> When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix then changes to `DR2-`. 
 
 > [!IMPORTANT]
 > * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as the [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).
@@ -94,14 +94,14 @@ The following example adds volumes to an SAP HANA system. The system serves as a
 
     * **Proximity placement group (PPG)**:  
         Specifies that the data and shared volumes are to be created close to the disaster recovery VMs.  
-        Even if you don't need the VM’s for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
+        Even if you don't need the VMs for replication, you need to start at least one VM to anchor the PPG while provisioning the volumes.
     * **Capacity pool**:  
-        All volumes will be placed in a single manual QoS capacity pool.   
+        All volumes are placed in a single manual QoS capacity pool.   
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
     * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
-        Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
+        Specify the delegated subnet where the IP addresses for the NFS exports is to be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
     Select **Next: Protocols**. 
 
@@ -164,10 +164,10 @@ The following example adds volumes to an SAP HANA system. The system serves as a
     * **SAP node memory**:  
         This value defines the size of the SAP HANA database on the host. It's used to calculate the required volume size and throughput. 
     * **Capacity overhead (%)**:  
-        When you use snapshots for data protection, you need to plan for extra capacity. This field will add additional size (%) for the data volume.  
+        When you use snapshots for data protection, you need to plan for extra capacity. This field adds additional size (%) for the data volume.  
         You can estimate this value by using `"change rate per day" X "number of days retention"`.
     * **Single-host**:  
-        Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes will be created with the first host.
+        Select this option for an SAP HANA single-host system or the first host for a multiple-host system. Only the shared, log-backup, and data-backup volumes are created with the first host.
     * **Multiple-host**:  
         Select this option if you're adding additional hosts to a multiple-hosts HANA system.
     * **Disaster recover destination**:  
@@ -262,7 +262,7 @@ The following diagram describes this scenario:
 
 In this scenario, a DR setup must include only the volumes of the primary HANA system. With the daily replication of the primary data volume and the log backups of both the primary and secondary systems, the system can be recovered at the DR site. In the diagram, a single volume is used for the log backups of the primary and secondary systems.
 
-In case of a takeover by the secondary HSR host, the backups taken in the secondary system won’t be replicated, but log backups of the secondary will continue to be replicated. If a disaster happens, the system at the DR site can still be recovered using the old snapshot backup from the former primary and the replicated log backups from both hosts. RTO will increase because more logs are to be recovered, depending on how long the HSR pair will run in the takeover mode. If the takeover mode is significantly longer and RTO becomes a problem, you need to set up a new cross-region replication including the data volume of the secondary system.
+In case of a takeover by the secondary HSR host, the backups taken in the secondary system aren't replicated, but log backups of the secondary continue to be replicated. If a disaster happens, the system at the DR site can still be recovered using the old snapshot backup from the former primary and the replicated log backups from both hosts. RTO increases because more logs are to be recovered, depending on how long the HSR pair runs in the takeover mode. If the takeover mode is significantly longer and RTO becomes a problem, you need to set up a new cross-region replication including the data volume of the secondary system.
 
 The workflow for this scenario is identical to the [Add volumes](#add-volumes) workflow.
 
@@ -276,7 +276,7 @@ The following diagram describes this scenario:
 
 In this scenario, you might want to replicate both sets of volumes from the primary and secondary HANA systems as shown in the diagram. 
 
-To create the volumes for the secondary replication target, the naming convention will be adapted. To distinguish between the replication of the primary and secondary database, the prefix will change from `DR` to `DR2` for the secondary HANA system. Except this name change, the workflow is identical to the [Add volumes](#add-volumes) workflow.
+To create the volumes for the secondary replication target, the naming convention will be adapted. To distinguish between the replication of the primary and secondary database, the prefix changes from `DR` to `DR2` for the secondary HANA system. Except this name change, the workflow is identical to the [Add volumes](#add-volumes) workflow.
 
 > [!NOTE]  
 > For a detailed discussion of a disaster recovery solution for HANA with Azure NetApp Files, see [NetApp technical report TR-4891: SAP HANA disaster recovery with Azure NetApp Files](https://docs.netapp.com/us-en/netapp-solutions-sap/backup/saphana-dr-anf_data_protection_overview_overview.html). The technical report provides detailed background and examples about using cross-region replication for SAP HANA on Azure NetApp Files.
