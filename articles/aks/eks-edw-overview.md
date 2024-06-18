@@ -1,37 +1,39 @@
 ---
-title: Replicate the AWS EDW workload with KEDA and Karpenter workload in Azure
-description: Learn how to replicate the AWS EKS Scaling with KEDA and Karpenter event driven workflow (EDW) workload in Azure.
+title: Replicate an AWS EDW workload with KEDA and Karpenter in Azure Kubernetes Service (AKS)
+description: Learn how to replicate an AWS EKS event-driven workflow (EDW) workload with KEDA and Karpenter in AKS.
 ms.topic: how-to
 ms.date: 05/22/2024
 author: JnHs
 ms.author: jenhayes
 ---
 
-# Replicate the AWS event-driven workflow (EDW) workload with KEDA and Karpenter in Azure
+# Replicate an AWS event-driven workflow (EDW) workload with KEDA and Karpenter in Azure Kubernetes Service (AKS)
 
-In this article, you learn how to replicate the Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) scaling with KEDA and Karpenter event-driven workflow (EDW) workload in Azure. This workload is an implementation of the [competing consumers](/azure/architecture/patterns/competing-consumers) pattern using a producer/consumer apps that facilitates efficient data processing by separating data production from data consumption. KEDA is used to scale pods running consumer processing and Karpenter is used to autoscale Kubernetes nodes.
+In this article, you learn how to replicate an Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) event-driven workflow (EDW) workload with KEDA and Karpenter in AKS.
 
-For a more detailed understanding of the AWS workload, see  [Scalable and Cost-Effective Event-Driven Workloads with KEDA and Karpenter on Amazon EKS](https://aws.amazon.com/blogs/containers/scalable-and-cost-effective-event-driven-workloads-with-keda-and-karpenter-on-amazon-eks/).
+This workload is an implementation of the [competing consumers][competing-consumers] pattern using a producer/consumer app that facilitates efficient data processing by separating data production from data consumption. You use KEDA to scale pods running consumer processing and Karpenter to autoscale Kubernetes nodes.
 
-To replicate this workload from AWS to Azure, follow these basic steps:
+For a more detailed understanding of the AWS workload, see [Scalable and Cost-Effective Event-Driven Workloads with KEDA and Karpenter on Amazon EKS][edw-aws-eks].
 
-1. [Understand the conceptual differences](eks-edw-understand.md): Start by gaining a clear understanding of the differences between AWS and Azure for the workload in terms of services, architecture, and deployment.
-1. [Rearchitect the workload](eks-edw-rearchitect.md): Analyze the existing AWS workload architecture and identify the components or services that need to be rearchitected or redesigned to fit Azure. Changes must be made to the workload infrastructure, application architecture, and deployment process.
-1. [Update the application code](eks-edw-refactor.md): Ensure your code is compatible with Azure APIs, services, and authentication models.
-1. [Prepare for deployment](eks-edw-prepare.md): Modify the AWS deployment process to use the Azure CLI.
-1. [Deploy the workload](eks-edw-deploy.md): Deploy the replicated workload in Azure, and test the workload to ensure that it functions as expected.
+## Deployment process
+
+1. [**Understand the conceptual differences**](eks-edw-understand.md): Start by reviewing the differences between AWS and AKS in terms of services, architecture, and deployment.
+1. [**Rearchitect the workload**](eks-edw-rearchitect.md): Analyze the existing AWS workload architecture and identify the components or services that you need to redesign to fit AKS. You need to make changes to the workload infrastructure, application architecture, and deployment process.
+1. [**Update the application code**](eks-edw-refactor.md): Ensure your code is compatible with Azure APIs, services, and authentication models.
+1. [**Prepare for deployment**](eks-edw-prepare.md): Modify the AWS deployment process to use the Azure CLI.
+1. [**Deploy the workload**](eks-edw-deploy.md): Deploy the replicated workload in AKS and test the workload to ensure that it functions as expected.
 
 ## Prerequisites
 
-- An Azure account. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- The **Owner** [Azure built-in role](/azure/role-based-access-control/built-in-roles), or the **User Access Administrator** and **Contributor** built-in roles, on a subscription in your Azure account.
-- [Azure CLI v2.56](/cli/azure/install-azure-cli) or later
-- [Azure Kubernetes Service (AKS) preview extension](/azure/aks/draft#install-the-aks-preview-azure-cli-extension)
-- [jq v1.5](https://jqlang.github.io/jq/) or later
-- [Python 3](https://www.python.org/downloads/) or later
-- [kubectl 1.21.0](https://kubernetes.io/docs/tasks/tools/install-kubectl/) or later
-- [Helm v3.0.0](https://helm.sh/docs/intro/install/) or later
-- [Visual Studio Code](https://code.visualstudio.com/Download) or equivalent
+- An Azure account. If you don't have one, create a [free account][azure-free] before you begin.
+- The **Owner** [Azure built-in role][azure-built-in-roles], or the **User Access Administrator** and **Contributor** built-in roles, on a subscription in your Azure account.
+- [Azure CLI][install-cli] version 2.56 or later.
+- [Azure Kubernetes Service (AKS) preview extension][aks-preview].
+- [jq][install-jq] version 1.5 or later.
+- [Python 3][install-python] or later.
+- [kubectl][install-kubectl] version 1.21.0 or later
+- [Helm][install-helm] version 3.0.0 or later
+- [Visual Studio Code][download-vscode] or equivalent.
 
 ### Download the Azure application code
 
