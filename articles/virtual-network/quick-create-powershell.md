@@ -5,7 +5,7 @@ description: Learn how to use Azure PowerShell to create and connect through an 
 author: asudbring
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 06/09/2023
+ms.date: 05/29/2024
 ms.author: allensu
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a network administrator, I want to use PowerShell to create a virtual network so that virtual machines can communicate privately with each other and with the internet.
@@ -17,7 +17,7 @@ This quickstart shows you how to create a virtual network by using Azure PowerSh
 
 A virtual network is the fundamental building block for private networks in Azure. Azure Virtual Network enables Azure resources like VMs to securely communicate with each other and the internet.
 
-:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart.":::
+:::image type="content" source="./media/quick-create-portal/virtual-network-qs-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-portal/virtual-network-qs-resources.png":::
 
 ## Prerequisites
 

@@ -59,8 +59,7 @@ This article provides two options to deploy the linting engine and event subscri
 * For Azure CLI:
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-    > [!NOTE]
-    > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+    [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
 
     > [!NOTE]
     > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.

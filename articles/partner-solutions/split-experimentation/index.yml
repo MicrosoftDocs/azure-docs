@@ -37,3 +37,10 @@ landingContent:
             url: how-to-set-up-data-access.md
           - text: Troubleshoot
             url: troubleshoot.md
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST API
+            url: /rest/api/splitexperimentation

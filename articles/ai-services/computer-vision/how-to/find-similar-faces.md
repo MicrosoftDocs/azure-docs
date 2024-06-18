@@ -46,17 +46,6 @@ The following code uses the above method to get face data from a series of image
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_loadfaces)]
 
 
-#### [JavaScript](#tab/javascript)
-
-The following face detection method is optimized for comparison operations. It doesn't extract detailed face attributes, and it uses an optimized recognition model.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="recognize":::
-
-The following code uses the above method to get face data from a series of images.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="snippet_loadfaces":::
-
-
 #### [REST API](#tab/rest)
 
 Copy the following cURL command and insert your key and endpoint where appropriate. Then run the command to detect one of the target faces.
@@ -88,12 +77,6 @@ The following code calls the Find Similar API on the saved list of faces.
 The following code prints the match details to the console:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
-
-#### [JavaScript](#tab/javascript)
-
-The following method takes a set of target faces and a single source face. Then, it compares them and finds all the target faces that are similar to the source face. Finally, it prints the match details to the console.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="find_similar":::
 
 
 #### [REST API](#tab/rest)

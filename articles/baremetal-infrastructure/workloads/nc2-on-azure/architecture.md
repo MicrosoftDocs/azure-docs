@@ -6,7 +6,7 @@ description: Learn about the architecture of several configurations of BareMetal
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # Architecture of BareMetal Infrastructure for Nutanix

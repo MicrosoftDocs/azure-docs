@@ -28,7 +28,7 @@ The article doesn't describe every possible type of telemetry, property, and com
 
 Each example shows a snippet from the device model that defines the type and example JSON payloads to illustrate how the device should interact with a Plug and Play aware service such as IoT Central.
 
-The example JSON snippets in this article use [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are also some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
+The example JSON snippets in this article use [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are also some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
 
 For sample device code that shows some of these payloads in use, see the [Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub tutorial](./tutorial-connect-device.md) or the [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md) tutorial.
 

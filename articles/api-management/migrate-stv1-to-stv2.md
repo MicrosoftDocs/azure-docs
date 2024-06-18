@@ -4,7 +4,7 @@ description: Find guidance to migrate your Azure API Management instance from th
 
 author: dlepow
 ms.service: api-management
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: how-to
 ms.date: 03/14/2024
 ms.author: danlep
@@ -39,4 +39,3 @@ The following image shows a high level overview of what happens during side-by-s
 [!INCLUDE [api-management-migration-support](../../includes/api-management-migration-support.md)]
 
 [!INCLUDE [api-management-migration-related-content](../../includes/api-management-migration-related-content.md)]
-

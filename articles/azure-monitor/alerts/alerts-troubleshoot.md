@@ -34,8 +34,8 @@ If you can see a fired alert in the Azure portal, but didn't receive the email t
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
-    This action only looks at Azure Resource Manager role assignments that are at the subscription scope, and of type *User*. Make sure that you assigned the role at the subscription level, and not at the resource level or resource group level.
-
+    This action only looks at Azure Resource Manager role assignments that are at the subscription scope, and of type *User* or *Group*. Make sure that you assigned the role at the subscription level, and not at the resource level or resource group level.
+   
 1. **Are your email server and mailbox accepting external emails?**
 
     Verify that emails from these three addresses aren't blocked:

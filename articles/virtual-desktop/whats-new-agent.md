@@ -40,7 +40,7 @@ In this update, we've made the following changes:
 
 - General improvements and bug fixes.
 
-## Version 1.0.8804.1400 (validation)
+## Version 1.0.8804.1400
 
 *Published: April 2024*
 
@@ -62,7 +62,7 @@ In this update, we've made the following changes:
 
 - General improvements and bug fixes. 
 
-## Version 1.0.8431.1500 (validation)
+## Version 1.0.8431.1500
 
 *Published: March 2024*
 

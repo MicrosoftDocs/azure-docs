@@ -46,7 +46,7 @@ This setting can be found in the following place:
 
 ## ApplicationInsights setting
 
-[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## Billing configuration setting
 
@@ -62,11 +62,11 @@ This setting can be found in the following place:
 
 ## EULA setting
 
-[!INCLUDE [Container shared configuration eula settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+[!INCLUDE [Container shared configuration eula settings](../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## Fluentd settings
 
-[!INCLUDE [Container shared configuration fluentd settings](../../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+[!INCLUDE [Container shared configuration fluentd settings](../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## HTTP/HTTPS proxy credentials settings
 

@@ -34,7 +34,7 @@ An Azure subscription or free Azure Cosmos DB trial account.
 
 ## <a id="create-account"></a>Create an Azure Cosmos DB account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="create-container-database"></a>Add a database and a container
 

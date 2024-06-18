@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 02/09/2024
+ms.date: 05/15/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -21,14 +21,14 @@ Make sure that the latest version of [Python](https://www.python.org/downloads/)
 Install the latest version of the Document Translation client library:
 
 ```console
-pip install azure-ai-translation-document==1.0.0
+  pip install azure-ai-translation-document==1.1.0b1
 ```
 
 ### Translate a document or batch files
 
 1. For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
 
-1. In your Python application file, create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/asynchronous-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In your Python application file, create variables for your resource key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../how-to-guides/use-rest-api-programmatically.md#retrieve-your-key-and-custom-domain-endpoint).
 
   ```python
   key = "<your-key>"

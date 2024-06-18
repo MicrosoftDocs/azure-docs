@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 03/06/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 
@@ -45,7 +45,7 @@ ms.author: lajanuar
 
 The following table shows the available models for each current preview and stable API:
 
-|**Model Type**| **Model**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br> &bullet; [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|**Model Type**| **Model**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br> &bullet; [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
 |Document analysis models|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
 |Document analysis models|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
@@ -73,7 +73,7 @@ The following table shows the available models for each current preview and stab
 
 \* - Contains sub-models. See the model specific information for supported variations and sub-types.
 
-|**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
 |Font property extraction|Add-On| ✔️| ✔️| n/a| n/a|
 |Formula extraction|Add-On| ✔️| ✔️| n/a| n/a|

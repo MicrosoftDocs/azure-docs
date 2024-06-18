@@ -699,11 +699,12 @@ Here's a PowerShell script that completes these steps:
     # Delete previous Tomcat directory if it exists
     # In case previous config isn't completed or a new config should be forcefully installed
     if(Test-Path "$Env:LOCAL_EXPANDED\tomcat"){
-        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" --recurse
+        Remove-Item "$Env:LOCAL_EXPANDED\tomcat" -Recurse
     }
 
     # Copy Tomcat to local
     # Using the environment variable $AZURE_TOMCAT90_HOME uses the 'default' version of Tomcat
+    New-Item "$Env:LOCAL_EXPANDED\tomcat" -ItemType Directory
     Copy-Item -Path "$Env:AZURE_TOMCAT90_HOME\*" -Destination "$Env:LOCAL_EXPANDED\tomcat" -Recurse
 
     # Perform the required customization of Tomcat

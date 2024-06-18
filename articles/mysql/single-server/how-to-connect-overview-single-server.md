@@ -5,8 +5,8 @@ services: mysql
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 
@@ -14,7 +14,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 The following document includes links to examples showing how to connect and query with Azure Database for MySQL single server. This guide also includes TLS recommendations and libraries that you can use to connect to the server in supported languages below.
 

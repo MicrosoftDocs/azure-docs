@@ -143,14 +143,14 @@ You can export an API specification from a definition and then download it as a 
 To export a specification in the extension's tree view:
 
 1. Expand the API Center tree view to show an API definition.    
-1. Right-click on the definition, and select **Export API**. A new tab appears that renders an API specification document.
+1. Right-click on the definition, and select **Export API Specification Document**. A new tab appears that renders an API specification document.
 
     :::image type="content" source="media/use-vscode-extension/export-specification.png" alt-text="Screenshot of exporting API specification in Visual Studio Code." lightbox="media/use-vscode-extension/export-specification.png":::
 
 You can also export a specification using the Command Palette:
 
 1. Type the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
-1. Select **Azure API Center: Export API**.
+1. Select **Azure API Center: Export API Specification Document**.
 1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
 
 ## Related content

@@ -1,7 +1,7 @@
 ---
 title: Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel
 description: Install and learn how to use the Microsoft Sentinel Zero Trust (TIC3.0) solution for an automated visualization of Zero Trust principles, cross-walked to the Trusted Internet Connections framework.
-ms.date: 01/09/2023
+ms.date: 05/21/2024
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
@@ -16,6 +16,9 @@ ms.collection:
 This article describes how to use the Microsoft Sentinel **Zero Trust (TIC 3.0)** solution, which helps governance and compliance teams monitor and respond to Zero Trust requirements according to the [TRUSTED INTERNET CONNECTIONS (TIC) 3.0](https://www.cisa.gov/resources-tools/programs/trusted-internet-connections-tic) initiative. 
 
 [Microsoft Sentinel solutions](sentinel-solutions.md) are sets of bundled content, pre-configured for a specific set of data. The **Zero Trust (TIC 3.0)** solution includes a workbook, analytics rules, and a playbook, which provide an automated visualization of Zero Trust principles, cross-walked to the Trust Internet Connections framework, helping organizations to monitor configurations over time.
+
+> [!NOTE]
+> Get a comprehensive view of your organization's Zero Trust status with the Zero Trust initiative in Microsoft Exposure Management. For more information, see [Rapidly modernize your security posture for Zero Trust | Microsoft Learn](/security/zero-trust/adopt/rapidly-modernize-security-posture#in-product-dashboards-and-reports).
 
 ## The Zero Trust solution and the TIC 3.0 framework
 
@@ -88,7 +91,7 @@ After [installing](#install-the-zero-trust-tic-30-solution) the **Zero Trust (TI
     > Use the **Guide** toggle at the top of the page to display or hide recommendations and guide panes. Make sure that the correct details are selected in the **Subscription**, **Workspace**, and **TimeRange** options so that you can view the specific data you want to find.
     >
 
-1. **Review the control cards displayed**. For example, scroll down to view the **Adaptive Access Control** card:
+1. Select the control cards you want to display. For this procedure, select **Adaptive Access Control**, and then continue scrolling to view the displayed card.
 
     :::image type="content" source="media/sentinel-workbook/review-query-output-sample.png" alt-text="Screenshot of the Adaptive Access Control card.":::
 
@@ -96,7 +99,7 @@ After [installing](#install-the-zero-trust-tic-30-solution) the **Zero Trust (TI
     > Use the **Guides** toggle at the top left to view or hide recommendations and guide panes. For example, these may be helpful when you first access the workbook, but unnecessary once you've understood the relevant concepts.
     >
 
-1. **Explore queries**. For example, at the top right of the **Adaptive Access Control** card, select the **:** *More* button, and then select the :::image type="icon" source="media/sentinel-workbook/icon-open-in-logs.png" border="false"::: **Open the last run query in the Logs view.** option.
+1. **Explore queries**. For example, at the top right of the **Adaptive Access Control** card, select the three dot **Options** menu, and then select **Open the last run query in the Logs view.**
 
     The query is opened in the Microsoft Sentinel **Logs** page:
 

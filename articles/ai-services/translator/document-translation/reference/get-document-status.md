@@ -11,27 +11,24 @@ ms.topic: reference
 ms.date: 02/09/2024
 ---
 
-# Get document status
+# Get status for a specific document
 
 Reference</br>
-Service: **Azure AI Document Translation**</br>
-API Version: **v1.1**</br>
+Feature: **Azure AI Translator → Document Translation**</br>
+API Version: **2024-05-01**</br>
+HTTP method: **GET**
 
-The Get Document Status method returns the status for a specific document. The method returns the translation status for a specific document based on the request ID and document ID.
+This method returns the status for a specific document in a job as indicated in the request by the `id` and `documentId` query parameters.
 
 ## Request URL
 
-Send a `GET` request to:
-```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/batches/{id}/documents/{documentId}
-```
-
-Learn how to find your [custom domain name](../quickstarts/asynchronous-rest-api.md).
-
 > [!IMPORTANT]
 >
-> * **All API requests to the Document Translation service require a custom domain endpoint**.
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> **All API requests to the Document Translation feature require a custom domain endpoint that is located on your resource overview page in the Azure portal**.
+
+```bash
+  curl -i -X GET "{document-translation-endpoint}/translator/document/batches/{id}/documents/{documentId}?api-version={date}"
+```
 
 ## Request parameters
 
@@ -39,8 +36,21 @@ Request parameters passed on the query string are:
 
 |Query parameter|Required|Description|
 |--- |--- |--- |
-|documentId|True|The document ID.|
+|`documentId`|True|The document ID.|
 |`id`|True|The batch ID.|
+
+### Locating  the `id` and `documentId` values
+
+* You can find the job `id`  in the POST `start-batch-translation` method response Header `Operation-Location`  URL value. The last parameter of the URL is the operation's job **`id`**:
+
+|**Response header**|**Result URL**|
+|-----------------------|----------------|
+|`Operation-Location`| {document-translation-endpoint}/translator/document/batches/{id}?api-version={date}/ `9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`/ |
+
+* You can also use a [GET translations status](get-translations-status.md) request to retrieve job `id` parameters for the query string.
+
+* You can find the `documentId` parameter in the [get-documents-status](get-documents-status.md) method [response](get-documents-status.md#example-successful-response).
+
 ## Request headers
 
 Request headers are:
@@ -91,6 +101,7 @@ The following are the possible HTTP status codes that a request returns.
 ## Examples
 
 ### Example successful response
+
 The following JSON object is an example of a successful response.
 
 ```JSON
@@ -132,4 +143,4 @@ Status code: 401
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/asynchronous-rest-api.md)
+> [Get started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)

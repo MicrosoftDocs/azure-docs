@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 06/11/2024
 ---
 
 # Configure an IP firewall for Azure AI Search
@@ -32,7 +32,7 @@ You can set IP rules in the Azure portal, as described in this article, or use t
 
 1. Sign in to Azure portal and go to your Azure AI Search service page.
 
-1. Select **Networking** on the left navigation pane. 
+1. Under **Settings**, select **Networking** on the left navigation pane. If you don't see this option, check your service tier. Networking options are available on Basic tier and higher.
 
 1. Set **Public Network Access** to **Selected Networks**. If your connectivity is set to **Disabled**, you can only access your search service via a [private endpoint](service-create-private-endpoint.md).
 

@@ -14,7 +14,7 @@ ms.custom:
 
 # Geo-replication in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 A read replica can be created in the same region as the primary server and in a different one. Geo-replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 

@@ -6,7 +6,7 @@ ms.author: fisteele
 ms.topic: overview
 ms.service: virtual-machine-scale-sets
 ms.custom: devx-track-azurecli
-ms.date: 06/18/2024
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ---
 
@@ -15,11 +15,11 @@ ms.reviewer: jushiman
 ## Attaching a VM to a Virtual Machine Scale Set
 
 > [!IMPORTANT]
-> You can only attach VMs to a Virtual Machine Scale Set in **Flexible orchestration mode**. For more information, see [Orchestration modes for Virtual Machine Scale Sets](./virtual-machine-scale-sets-orchestration-modes.md).
+> You can only attach Virtual Machines (VMs) to a Virtual Machine Scale Set in **Flexible orchestration mode**. For more information, see [Orchestration modes for Virtual Machine Scale Sets](./virtual-machine-scale-sets-orchestration-modes.md).
 
 There are times where you need to attach a virtual machine to a Virtual Machine Scale Set to benefit from the scale, availability, and flexibility that comes with scale sets. There are two ways to attach VMs to scale sets: manually create a new standalone VM in the scale set or attach an existing VM to the scale set.
 
-You can attach a new standalone VM to a scale set when you need a different configuration on a specific VM than what's defined in the scaling profile, or when the scale set doesn't have a virtual machine scaling profile. Manually attaching VMs gives you full control over instance naming and placement into a specific availability zone or fault domain. The VM doesn't have to match the configuration in the virtual machine scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot, and VM size.
+You can attach a new standalone VM to a scale set when you need a different configuration on a specific VM than what's defined in the scaling profile, or when the scale set doesn't have a scaling profile. Manually attaching VMs gives you full control over instance naming and placement into a specific availability zone or fault domain. The VM doesn't have to match the configuration in the scale set's scaling profile, so you can specify parameters like operating system, networking configuration, on-demand or Spot, and VM size.
 
 You can attach an existing VM to an existing Virtual Machine Scale Set by specifying which scale set you would like to attach to. The VM doesn't have to be the same as the VMs already running in the scale set, meaning it can have a different operating system, network configuration, priority, disk, and more. 
 
@@ -123,7 +123,9 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm  -VirtualMachineScaleS
 - The VM can't be in a `ProximityPlacementGroup`. 
 - The VM can't be in an Azure Dedicated Host. 
 - The VM must have a managed disk. 
-- The scale set must have `properties.singlePlacementGroup` set to `False`.
+- The scale set must have `singlePlacementGroup` set to `False`. 
+- Scale sets created without a scaling profile default to `singlePlacementGroup` set to `null`. To attach VMs to a scale set without a scaling profile, `singlePlacementGroup` needs to be set to `False` at the time of the scale set's creation. 
+- The VM can't be an RDMA capable HB-series or N-series VM.
 
 ## Detaching a VM from a Virtual Machine Scale Set
 Should you need to detach a VM from a scale set, you can follow the below steps to remove the VM from the scale set.
@@ -160,6 +162,9 @@ Update-AzVM -ResourceGroupName $resourceGroupName -VM $vm -VirtualMachin
 ### Limitations for detaching a VM from a scale set
 - The scale set must use Flexible orchestration mode.
 - The scale set must have a `platformFaultDomainCount` of **1**.
+- VMs created by the scale set must be `Stopped` prior to being detached.
+- Scale sets created without a scaling profile default to `singlePlacementGroup` set to `null`. To detach VMs from a scale set without a scaling profile, `singlePlacementGroup` needs to be set to `False`.  
+- The VM can't be an RDMA capable HB-series or N-series VM.
 
 ## Moving VMs between scale sets
 

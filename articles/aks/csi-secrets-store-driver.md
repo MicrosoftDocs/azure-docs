@@ -42,17 +42,21 @@ A container using *subPath volume mount* doesn't receive secret updates when it'
     az group create --name myResourceGroup --location eastus2
     ```
 
-2. Create an AKS cluster with Azure Key Vault provider for Secrets Store CSI Driver capability using the [`az aks create`][az-aks-create] command with the --enable-managed-identity parameter and the `--enable-addons azure-keyvault-secrets-provider` parameter. The add-on creates a user-assigned managed identity you can use to authenticate to your key vault. The following example creates an AKS cluster with the Azure Key Vault provider for Secrets Store CSI Driver enabled.
+2. Create an AKS cluster with Azure Key Vault provider for Secrets Store CSI Driver capability using the [`az aks create`][az-aks-create] command with the `--enable-addons azure-keyvault-secrets-provider` parameter. The add-on creates a user-assigned managed identity you can use to authenticate to your key vault. The following example creates an AKS cluster with the Azure Key Vault provider for Secrets Store CSI Driver enabled.
 
     > [!NOTE]
     > If you want to use Microsoft Entra Workload ID, you must also use the `--enable-oidc-issuer` and `--enable-workload-identity` parameters, such as in the following example:
     >
     > ```azurecli-interactive
-    > az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-oidc-issuer --enable-workload-identity
+    > az aks create --name myAKSCluster --resource-group myResourceGroup --enable-addons azure-keyvault-secrets-provider --enable-oidc-issuer --enable-workload-identity --generate-ssh-keys
     > ```
 
     ```azurecli-interactive
-    az aks create --name myAKSCluster --resource-group myResourceGroup --enable-managed-identity --enable-addons azure-keyvault-secrets-provider
+    az aks create \
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --enable-addons azure-keyvault-secrets-provider \
+        --generate-ssh-keys
     ```
 
 3. The previous command creates a user-assigned managed identity, `azureKeyvaultSecretsProvider`, to access Azure resources. The following example uses this identity to connect to the key vault that stores the secrets, but you can also use other [identity access methods][identity-access-methods]. Take note of the identity's `clientId` in the output.
