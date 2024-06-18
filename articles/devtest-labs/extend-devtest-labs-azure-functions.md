@@ -106,22 +106,26 @@ After you publish the Function app, you need to get URLs for the functions from 
 
 ## Update application settings
 
-In addition to the URL for each function, you also need information about the service principal, such as the application ID, key, and tenant ID. These application settings are available in Visual Studio:
+In addition to the URL for each function, you also need information about the service principal, such as the application ID, key, and tenant ID.
 
-<!-- Rose: I wasn't able to verify the following procedure in VS 2022 -->
+Follow these steps to update the application settings in Visual Studio:
 
-1. In Visual Studio, select **Actions** > **Edit Azure App Service Settings**.
+1. In Visual Studio, return to the **Publish** page for the **AzureFunctions** project.
 
-1. Update the following application settings (remote):
+1. In the **Hosting** section, select **More actions** (...), and then select **Manage Azure App Service settings**:
 
-   - AzureFunctionUrl_ApplyUpdates
-   - AzureFunctionUrl_UpdateSupportPage
-   - WindowsUpdateAllowedDays (default to 7)
-   - ServicePrincipal_AppId
-   - ServicePrincipal_Key
-   - ServicePrincipal_Tenant
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/manage-settings.png" alt-text="Screenshot that shows how to manage the Azure App Service settings from the Publish page for the Function app." lightbox="./media/extend-devtest-labs-azure-functions/manage-settings-large.png":::
 
-   :::image type="content" source="./media/extend-devtest-labs-azure-functions/application-settings.png" alt-text="Screenshot that shows how to update the application settings in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/application-settings.png":::
+1. On the **App Service settings** dialog, update the **Remote** value for the following application settings:
+
+   - **AzureFunctionUrl_ApplyUpdates**
+   - **AzureFunctionUrl_UpdateSupportPage**
+   - **WindowsUpdateAllowedDays** (default to 7)
+   - **ServicePrincipal_AppId**
+   - **ServicePrincipal_Key**
+   - **ServicePrincipal_Tenant**
+
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/application-settings.png" alt-text="Screenshot that shows how to update the Azure App Service Function app settings in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/application-settings-large.png":::
 
 ## Test Azure function
 
