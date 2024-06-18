@@ -85,14 +85,25 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
     :::image type="content" source="media/quickstart-cross-region-replication/configure-cluster.png" alt-text="Screenshot of various configuration options for a cluster.":::
 
+1. Select **Next: Global distribution (preview)**.
+
+1. Select **Enable** for **Read replica in another region (preview)** to create a cluster read replica as a part of this new primary cluster provisioning.
+
+1. In **Read replica name**, enter a name for the cluster read replica. It should be a globally unique cluster name.
+
+1. Select a value from the **Read replica region** drop-down list.
+
 1. Select **Next: Networking**.
 
-1. In the **Networking** section, select **Allow public access from Azure services**. Additionally, add a firewall rule to give your client device or applications access to the cluster.
+1. On the **Networking** tab, select **Add current client IP address** to create a firewall rule with the public IP address of your computer, as perceived by the Azure system. 
 
-    :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
+    :::image type="content" source="media/quickstart-cross-region-replication/networking-adding-firewall-rule.png" alt-text="Screenshot of networking settings.":::
 
-    > [!NOTE]
-    > In many corporate environments, developer machine IPs are hidden due to a VPN. In these cases, it's recommended to start with allowing access to all IPs for connection testing initially before refining the allow-list.
+Verify your IP address before saving this configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the Internet and Azure services. Thus, you may need to change the start IP and end IP to make the rule function as expected. Use a search engine or other online tool to check your own IP address. For example, search for *what is my IP*.
+
+    :::image type="content" source="media/quickstart-cross-region-replication/what-is-my-ip.png" alt-text="Screenshot of a web search result for the current host's public IP address.":::
+
+You can also select add 0.0.0.0 - 255.255.255.255 firewall rule to allow not just your IP, but the whole Internet to access the cluster. In this situation, clients still must log in with the correct username and password to use the cluster. Nevertheless, it's best to allow worldwide access for only short periods of time and for only non-production databases.
 
 1. Select **Review + create**.
 
