@@ -44,7 +44,7 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
     * Enterprise Agreement
     * Microsoft Customer Agreement
 
-* Access to the Azure API including Azure Resource Manager (ARM) API. For a list of fully qualified domain names (FQDNs) required, see [AKS Cost Analysis required FQDN](./outbound-rules-control-egress.md#aks-cost-analysis-addon).
+* Access to the Azure API including Azure Resource Manager (ARM) API. For a list of fully qualified domain names (FQDNs) required, see [AKS Cost Analysis required FQDN](./outbound-rules-control-egress.md#aks-cost-analysis-add-on).
 
 * Virtual nodes aren't supported at this time.
 
@@ -80,9 +80,9 @@ az aks update --resource-group <resource-group> --name <cluster-name> --enable-c
 ```
 
 > [!WARNING]
-> The AKS cost analysis add-on Memory usage is dependent on the number of containers deployed. Memory consumption can be roughly approximated by 200MB + 0.5MB per container. The current memory limit is set to 4GB which will support approximately 7000 containers per cluster. These estimates could be more or less depending on various factors and are subject to change.
+> The AKS cost analysis add-on Memory usage is dependent on the number of containers deployed. Memory consumption can be roughly approximated by 200 MB + 0.5 MB per container. The current memory limit is set to 4 GB which will support approximately 7000 containers per cluster. These estimates could be more or less depending on various factors and are subject to change.
 >
-> If you are experiencing issues such as the add-on pod getting `OOMKilled` or stuck in a `Pending` state, refer to troubleshooting guide [AKS cost analysis add-on issues](/troubleshoot/azure/azure-kubernetes/aks-cost-analysis-add-on-issues).
+> If you are experiencing issues such as the add-on pod getting `OOMKilled` or stuck in a `Pending` state, refer to the [AKS cost analysis add-on issues](/troubleshoot/azure/azure-kubernetes/aks-cost-analysis-add-on-issues) troubleshooting guide.
 
 ## Disable cost analysis
 
