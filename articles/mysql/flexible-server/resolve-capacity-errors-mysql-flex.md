@@ -4,7 +4,7 @@ description: The article describes how you can resolve capacity errors when depl
 author: karla-escobar
 ms.author: karlaescobar
 ms.reviewer: maghan
-ms.date: 02/29/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: troubleshooting

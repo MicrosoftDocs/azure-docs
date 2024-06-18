@@ -16,8 +16,7 @@ ms.subservice: calling
 
 
 # Call Diagnostics
-
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+Azure Communication Services offers call quality analytics and visualizations so you can investigate call metrics, events, and understand detected quality issues in your Communication Services calling solution.
 
 Understanding your call quality and reliability is foundational to
 delivering a great customer calling experience. There are various

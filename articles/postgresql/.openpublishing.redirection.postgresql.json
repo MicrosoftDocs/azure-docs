@@ -1619,6 +1619,26 @@
         "source_path_from_root": "/articles/postgresql/flexible-server/concepts-compute-storage.md",
         "redirect_url": "/azure/postgresql/flexible-server/concepts-compute",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/migration-service/tutorial-migration-service-aws.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/migration-service/tutorial-migration-service-iaas.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-iaas-offline",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/migration-service/concepts-migration-service-postgresql.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/overview-migration-service-postgresql",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/migrate/migration-service/troubleshoot-error-codes-premigration.md",
+        "redirect_url": "/azure/postgresql/migrate/migration-service/troubleshoot-error-codes",
+        "redirect_document_id": true
     }
     ]
 }
