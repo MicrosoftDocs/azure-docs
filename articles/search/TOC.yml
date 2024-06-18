@@ -526,7 +526,7 @@
     href: /legal/search/transparency-note?context=/azure/search/context/context
 - name: Reference
   items:
-  - name: API reference
+  - name: REST API reference
     items:
     - name: Search REST API
       href: /rest/api/searchservice

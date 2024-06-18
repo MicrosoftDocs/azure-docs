@@ -1,7 +1,7 @@
 ---
-title: Configure an IP firewall
+title: Configure network access
 titleSuffix: Azure AI Search
-description: Configure IP control policies to restrict access to your Azure AI Search service to specific IP addresses.
+description: Configure IP control policies to restrict network access to your Azure AI Search service to specific IP addresses.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,41 +10,70 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 06/18/2024
 ---
 
-# Configure an IP firewall for Azure AI Search
+# Configure network access and firewall rules for Azure AI Search
 
-Azure AI Search supports IP rules for inbound access through a firewall, similar to the IP rules found in an Azure virtual network security group. By applying IP rules, you can restrict service access to an approved set of devices and cloud services. An IP rule only allows the request through. Access to data and operations will still require the caller to present a valid authorization token.
+As soon as you install Azure AI Search, you can set up network access to restrict service access to an approved set of devices and cloud services. There are two mechanisms:
 
-You can set IP rules in the Azure portal, as described in this article, or use the [Management REST API](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or [Azure CLI](/cli/azure/search).
++ Inbound rules listing the IP addresses, ranges, or subnets from which requests are admitted
++ Exceptions to network rules, where requests are admitted with no checks, as long as the request originates from a trusted service
 
-> [!NOTE]
-> To access a search service protected by an IP firewall through the portal, [allow access from a specific client and the portal IP address](#allow-access-from-your-client-and-portal-ip).
+This article explains how to configure network access to a search services' public endpoint. To block *all* access through the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
+
+It's scoped to data plane operations. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. They use resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
+
+This article assumes the Azure portal for firewall configuration. You can also use the [Management REST API](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or the [Azure CLI](/cli/azure/search).
+
+<!-- Azure AI Search supports IP rules for inbound access through a firewall, similar to the IP rules found in an Azure virtual network security group. By applying IP rules, you can restrict service access to an approved set of devices and cloud services. An IP rule only allows the request through. Access to data and operations will still require the caller to present a valid authorization token. -->
+
+<!--  Your firewall configuration also enables trusted Azure platform services to access the storage account.
+
+Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service that operates within an Azure virtual network or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, and from logging and metrics services. -->
+
+<!-- ## Limitations of firewall rules
+
+The Import data and Import and vectorize data wizards in the Azure portal require public endpoint connections. -->
 
 ## Prerequisites
 
-+ A search service at the Basic tier or higher
++ A search service, any region, at the Basic tier or higher
+
++ Owner or Contributor permissions
 
 <a id="configure-ip-policy"></a> 
 
-## Set IP ranges in Azure portal
+## Configure network access in Azure portal
 
 1. Sign in to Azure portal and go to your Azure AI Search service page.
 
 1. Under **Settings**, select **Networking** on the left navigation pane. If you don't see this option, check your service tier. Networking options are available on Basic tier and higher.
 
-1. Set **Public Network Access** to **Selected Networks**. If your connectivity is set to **Disabled**, you can only access your search service via a [private endpoint](service-create-private-endpoint.md).
+1. Set **Public Network Access** to **Selected Networks**. Avoid the **Disabled** option unless you're configuring a [private endpoint](service-create-private-endpoint.md).
 
-   :::image type="content" source="media/service-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to configure the IP firewall in the Azure portal." border="true":::
+   :::image type="content" source="media/service-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing the network access options in the Azure portal.":::
+
+1. Under **Firewall**, select **Add your client IP address** to create an inbound rule for the public IP address of your system.
+
+1. Add other client IP addresses for other devices and services that send requests to a search service.
 
    The Azure portal supports IP addresses and IP address ranges in the CIDR format. An example of CIDR notation is 8.8.8.0/24, which represents the IPs that range from 8.8.8.0 to 8.8.8.255.
 
-1. Select **Add your client IP address** under **Firewall** to create an inbound rule for the IP address of your system.
+   If your search client is a static web app on Azure, see [Inbound and outbound IP addresses in Azure App Service](/azure/app-service/overview-inbound-outbound-ips#find-outbound-ips). For Azure functions, see [IP addresses in Azure Functions](/azure/azure-functions/ip-addresses).
 
-1. Add other client IP addresses for other machines, devices, and services that will send requests to a search service.
+1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this search service**. These services must be configured to run under a managed identity (system or user-assigned):
 
-After you enable the IP access control policy for your Azure AI Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected. 
+   + `Microsoft.CognitiveServices` for Azure OpenAI, Azure AI services including Azure AI Vision, Azure AI Studio, Azure OpenAI Studio
+   + `Microsoft.MachineLearningServices` for Azure Machine Learning, including connections from the Azure AI Studio model catalog
+
+   You take a dependency on [Microsoft Entra ID authentication and role assignments](#grant-access-to-trusted-azure-services) if you choose this option.
+
+1. **Save** your changes.
+
+   :::image type="content" source="media/service-configure-firewall/azure-portal-firewall-all.png" alt-text="Screenshot showing how to configure the IP firewall in the Azure portal.":::
+
+After you enable the IP access control policy for your Azure AI Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected.
 
 ### Rejected requests
 
@@ -54,7 +83,9 @@ When requests originate from IP addresses that aren't in the allowed list, a gen
 
 ## Allow access from the Azure portal IP address
 
-When IP rules are configured, some features of the Azure portal are disabled. You can view and manage service level information, but portal access to indexes, indexers, and other top-level resources is restricted. You can restore portal access to the full range of search service operations by allowing access from the portal IP address and your client IP address.
+When IP rules are configured, some features of the Azure portal are disabled. You can view and manage service level information, but portal access to the import wizards, indexes, indexers, and other top-level resources are restricted. 
+
+You can restore portal access to the full range of search service operations by adding the portal IP address.
 
 To get the portal's IP address, perform `nslookup` (or `ping`) on `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. For nslookup, the IP address is visible in the "Non-authoritative answer" portion of the response.
 
@@ -75,16 +106,27 @@ Aliases:  stamp2.ext.search.windows.net
 
 When services run in different regions, they connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
-For ping, the request will time out, but the IP address is visible in the response. For example, in the message `"Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]"`, the IP address is `52.252.175.48`.
+For ping, the request times out, but the IP address is visible in the response. For example, in the message `"Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]"`, the IP address is `52.252.175.48`.
 
-Providing IP addresses for clients ensures that the request isn't rejected outright, but for successful access to content and operations, authorization is also necessary. Use one of the following methodologies to authenticate your request:
+## Grant access to trusted Azure services
 
-+ [Key-based authentication](search-security-api-keys.md), where an admin or query API key is provided on the request
-+ [Role-based authorization](search-security-rbac.md), where the caller is a member of a security role on a search service, and the [registered app presents an OAuth token](search-howto-aad.md) from Microsoft Entra ID.
+Did you select the trusted services exception? If yes, your Azure resource must have a managed identity (either system or user-assigned), and you must use role-based access controls. 
+
+The following articles provide instructions for creating managed identities for Azure OpenAI, Azure Machine Learning, and Azure AI services. 
+
++ [How to configure Azure OpenAI Service with managed identities](/azure/ai-services/openai/how-to/managed-identity)
+
++ [How to set up authentication between Azure Machine Learning and other services](/azure/machine-learning/how-to-identity-based-service-authentication).
+
++ For Azure AI services, [find your multiservice account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.CognitiveServices%2Faccounts/). On the leftmost pane under **Resource management**, select **Identity** and then set **System-assigned** to **On**.
+
+Once your Azure resource has a managed identity, use role-based access to give it permissions on your search service. We recommend Search Index Data Reader.
 
 ## Next steps
 
-If your client application is a static Web app on Azure, learn how to determine its IP range for inclusion in a search service IP firewall rule.
+Once a request is allowed through the firewall, it must be authenticated and authorized. You have two options:
 
-> [!div class="nextstepaction"]
-> [Inbound and outbound IP addresses in Azure App Service](../app-service/overview-inbound-outbound-ips.md)
++ [Key-based authentication](search-security-api-keys.md), where an admin or query API key is provided on the request. This is the default.
++ [Role-based access control (RBAC)](search-security-rbac.md) using Microsoft Entra ID, where the caller is a member of a security role on a search service. This is the most secure option. It uses Microsoft Entra ID for authentication and role assignments on Azure AI Search for permissions to data and operations.
+
+[**Enable role-based access control**](search-security-enable-roles.md) on your search service to use RBAC.
