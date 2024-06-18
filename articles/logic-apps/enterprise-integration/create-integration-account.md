@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 06/31/2024
+ms.date: 06/18/2024
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
@@ -30,16 +30,6 @@ You also need an integration account to electronically exchange B2B messages wit
 * [EDIFACT](../logic-apps-enterprise-integration-edifact.md)
 * [RosettaNet](../logic-apps-enterprise-integration-rosettanet.md)
 * [X12](../logic-apps-enterprise-integration-x12.md)
-
-This guide shows how to complete the following tasks:
-
-* Create an integration account.
-* Set up storage access for a Premium integration account.
-* Link your integration account to a logic app resource.
-* Change the pricing tier for your integration account.
-* Unlink your integration account from a logic app resource.
-* Move an integration account to another Azure resource group or subscription.
-* Delete an integration account.
 
 If you're new to creating B2B enterprise integration workflows in Azure Logic Apps, see [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](../logic-apps-enterprise-integration-overview.md).
 
@@ -62,6 +52,8 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
       If you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option, which also means you don't have to upload maps and schemas to each logic app resource. Either way, you can use these artifacts across all child workflows within the *same logic app resource*.
 
     To create an example Standard logic app workflow, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md).
+
+* The Premium integration account supports using a [private endpoint](../../private-link/private-endpoint-overview.md) to securely communicate with Standard logic app workflows. To enable this capability, you need to have an Azure virtual network. Your integration account, virtual network, and logic app must all use the same Azure region. Both your integration account and logic app must also exist inside the same virtual network. For more information, see [Create a virtual network](../../virtual-network/quick-create-portal.md) and the steps in this guide to set up your Premium integration account. To set up your Standard logic app, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md).
 
 ## Create integration account
 
@@ -209,7 +201,8 @@ To create a private connection between your Premium integration account and Azur
 
 ### Limitations
 
-Only Standard logic app workflows can use private endpoints on a Premium integration account.
+- Only Standard logic app workflows can use private endpoints on a Premium integration account.
+
 
 ### Best practices for private endpoints
 
