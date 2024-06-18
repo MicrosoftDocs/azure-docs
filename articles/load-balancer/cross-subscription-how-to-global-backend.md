@@ -246,7 +246,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 # [Azure CLI](#tab/azurecli/)
 
-With Azure CLI, you add the frontends you placed in variables in the backend pool of the cross-region load balancer with use [`az network cross-region-lb address-pool`](/powershell/module/az.network/cross-region-lb#az-network-cross-region-lb-address-pool).
+With Azure CLI, you add the frontends you placed in variables in the backend pool of the cross-region load balancer with use [`az network cross-region-lb address-pool`](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-address-pool).
 
 ```azurecli
 

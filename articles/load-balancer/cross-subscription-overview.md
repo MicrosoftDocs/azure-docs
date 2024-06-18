@@ -22,7 +22,7 @@ This article provides an overview of cross-subscription load balancing with Azur
 
 Cross-subscription load balancing allows you to deploy Azure Load Balancer resources across multiple subscriptions. This feature enables you to deploy a load balancer in one subscription and have the frontend IP and backend pool instances in a different subscription. This capability is useful for organizations that have separate subscriptions for networking and application resources.
  
-:::image type="content" source="media/cross-subscription-load-balancer-overview/cross-subscription-load-balancer-concept-thumbnail.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources." lightbox="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png":::
+:::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept-thumbnail.png" alt-text="Diagram of cross-subscription load balancer concepts with two subscriptions and resources." lightbox="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png":::
 
 The table below illustrates some of the possible scenarios cross-subscription load balancing supports. 
 
@@ -106,4 +106,4 @@ When working cross-tenant, a user must be assigned to the *Network Contributor* 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [ Create a cross-subscription internal load balancer](./cross-subscription-howto-internal-load-balancer.md)
+> [ Create a cross-subscription internal load balancer](./cross-subscription-how-to-internal-load-balancer.md)
