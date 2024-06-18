@@ -276,7 +276,7 @@ Follow these steps to create your App Service resources and publish your project
     |------------------|--------------------------|-----------------------------------------------------------------------|
     | **Hosting Plan** | *MyFirstAzureWebAppPlan* | Name of the App Service plan.                                         |
     | **Location**     | *West Europe*            | The datacenter where the web app is hosted.                           |
-    | **Size**         | Choose the lowest tier.                   | [Pricing tier][app-service-pricing-tier] determines hosting features. |
+    | **Size**         | Choose the lowest tier.                   | [Pricing tiers][app-service-pricing-tier] define hosting features. |
 
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
 1. Select **Create** to create the Azure resources.
@@ -532,7 +532,7 @@ Follow these steps to create your App Service resources and publish your project
 
     :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot of the next step of going to the resource.":::
 
-1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see the message "Your web app is running and waiting for your content" GitHub deployment is still running. Wait a couple of minutes and refresh the page.
+1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see the message "Your web app is running and waiting for your content", GitHub deployment is still running. Wait a couple of minutes and refresh the page.
 
     ### [.NET 8.0](#tab/net80)
     
@@ -674,9 +674,7 @@ In the local directory, open the *Pages/Index.cshtml* file. Replace the first `<
 </div>
 ```
 
-Save your changes, then redeploy the app using the `az webapp up` command again:
-
-ASP.NET Core 8.0 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
+Save your changes, then redeploy the app using the `az webapp up` command again and replace `<os>` with either `linux` or `windows`.
 
 ```azurecli
 az webapp up --os-type <os>
