@@ -7,7 +7,7 @@ ms.date: 08/17/2023
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
 
-Previously, Azure Service Bus offered namespaces only on the standard tier. Namespaces are multi-tenant setups that are optimized for low throughput and developer environments. The premium tier offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price. The premium tier is optimized for high throughput and production environments that require additional enterprise features.
+Previously, Azure Service Bus offered namespaces only on the standard tier. Namespaces are multitenant setups that are optimized for low throughput and developer environments. The premium tier offers dedicated resources per namespace for predictable latency and increased throughput at a fixed price. The premium tier is optimized for high throughput and production environments that require additional enterprise features.
 
 This article describes how to migrate existing standard tier namespaces to the premium tier.  
 
@@ -123,7 +123,7 @@ Migration by using the Azure portal has the same logical flow as migrating by us
 
 Some of the features provided by Azure Service Bus Standard tier aren't supported by Azure Service Bus Premium tier. These are by design since the premium tier offers dedicated resources for predictable throughput and latency.
 
-Here's a list of features not supported by Premium and their mitigation -
+Here's an overview of features not supported by Premium and their mitigation.
 
 ### Express entities
 

@@ -41,7 +41,7 @@ Service Bus **premium** tier supports Geo-Disaster Recovery, at the namespace le
 
 Service Bus **premium** tier also supports Geo-Replication, at the namespace level. For more information, see [Azure Service Bus Geo-Replication (Public Preview)](service-bus-geo-replication.md). The Geo-Replication feature, available for the [Premium tier](service-bus-premium-messaging.md) only and currently in public preview, implements metadata and data disaster recovery, and relies on primary and secondary regions. With Geo-Replication, **both metadata and data** for entities are replicated between primary and secondary **regions**.
 
-### High level feature differences
+### High-level feature differences
 
 The **Geo-Disaster Recovery (Metadata DR)** feature replicates metadata for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken.  No data is replicated other than metadata nor are RBAC assignments replicated.
 
@@ -49,7 +49,7 @@ The **Geo-Replication** feature replicates metadata and all of the data from a p
 
 ### Availability zones
 
-All Service Bus tiers supports [availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If applications see transient disconnects from Service Bus, the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus) in the SDK automatically reconnects to Service Bus. 
+All Service Bus tiers support [availability zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If applications see transient disconnects from Service Bus, the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus) in the SDK automatically reconnects to Service Bus. 
 
 When you use availability zones, **both metadata and data (messages)** are replicated across data centers in the availability zone. 
 
@@ -59,7 +59,7 @@ When you use availability zones, **both metadata and data (messages)** are repli
 When you create a namespace, the support for availability zones (if available in the selected region) is automatically enabled for the namespace. There's no extra cost for using this feature and you can't disable or enable this feature after namespace creation.
 
 > [!NOTE]
-> Previously it was required to set the property `zoneRedundant` needs to be explicitly set to `true` to enable availability zones, however this behavior has changed to enable availability zones by default. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as `false`, even when availability zones has been enabled.
+> Previously it was required to set the property `zoneRedundant` to `true` to enable availability zones, however this behavior has changed to enable availability zones by default. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as `false`, even when availability zones has been enabled.
 
 ## Protection against disasters - standard tier
 
@@ -92,12 +92,12 @@ When you use passive replication, in the following scenarios, messages can be lo
 - **Message delay or loss**: Assume that the sender successfully sent a message m1 to the primary queue, and then the queue becomes unavailable before the receiver receives m1. The sender sends a subsequent message m2 to the secondary queue. If the primary queue is temporarily unavailable, the receiver receives m1 after the queue becomes available again. When a disaster happens, the receiver might never receive m1.
 - **Duplicate reception**: Assume that the sender sends a message m to the primary queue. Service Bus successfully processes m but fails to send a response. After the send operation times out, the sender sends an identical copy of m to the secondary queue. If the receiver is able to receive the first copy of m before the primary queue becomes unavailable, the receiver receives both copies of m at approximately the same time. If the receiver isn't able to receive the first copy of m before the primary queue becomes unavailable, the receiver initially receives only the second copy of m, but then receives a second copy of m when the primary queue becomes available.
 
-The [Azure Messaging Replication Tasks with .NET Core][https://github.com/Azure-Samples/azure-messaging-replication-dotnet] sample demonstrates replication of messages between namespaces.
+The [Azure Messaging Replication Tasks with .NET Core](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) sample demonstrates replication of messages between namespaces.
 
 ## Next steps
 To learn more about disaster recovery, see these articles:
 
 * [Azure Service Bus Geo-Disaster Recovery](service-bus-geo-dr.md)
 * [Azure Service Bus Geo-Replication (Public Preview)](service-bus-geo-replication.md)
-* [Azure SQL Database Business Continuity][/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview]
-* [Designing resilient applications for Azure][/azure/architecture/framework/resiliency/app-design]
+* [Azure SQL Database Business Continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview)
+* [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/app-design)

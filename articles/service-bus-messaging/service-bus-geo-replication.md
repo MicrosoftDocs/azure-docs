@@ -26,7 +26,7 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 
 > [!IMPORTANT]
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
-> - The below regions are currently supported, with more regions being enabled in the upcoming months.
+> - The below regions are currently supported in the public preview.
 >
 > | US               | Europe        | Asia         |
 > |------------------|---------------|--------------|
@@ -101,7 +101,7 @@ As such, it doesn’t have the absolute guarantee that all regions have the data
 The replication mode can be changed after configuring Geo-Replication. You can go from synchronous to asynchronous or from asynchronous to synchronous. If you go from asynchronous to synchronous, your secondary will be configured as synchronous after lag reaches zero. If you're running with a continual lag for whatever reason, then you may need to pause your publishers in order for lag to reach zero and your mode to be able to switch to synchronous. The reasons to have synchronous replication enabled, instead of asynchronous replication, are tied to the importance of the data, specific business needs, or compliance reasons, rather than availability of your application.
 
 > [!NOTE]
-> In case a secondary region lags or becomes unavailble, the application will no longer be able to replicate to this region and will start throttling once the replication lag is reached. To continue using the namespace in the primary location, the afflicted secondary region can be removed. If no more secondary regions are configured, the namespace will continue without Geo-Replication enabled. It is possible to add additional secondary regions at any time.
+> In case a secondary region lags or becomes unavailable, the application will no longer be able to replicate to this region and will start throttling once the replication lag is reached. To continue using the namespace in the primary location, the afflicted secondary region can be removed. If no more secondary regions are configured, the namespace will continue without Geo-Replication enabled. It is possible to add additional secondary regions at any time.
 
 ## Secondary region selection
 
@@ -112,7 +112,7 @@ To enable the Geo-Replication feature, you need to use primary and secondary reg
 The Geo-Replication feature enables customers to configure a secondary region towards which to replicate metadata and data. As such, customers can perform the following management tasks:
 - Configure Geo-Replication; Secondary regions can be configured on any new or existing namespace in a region with the Geo-Replication feature enabled.
     > [!NOTE]
-    > Currently new namespaces are supported, existing namespaces will be supported later on.
+    > Currently in the public preview only new namespaces are supported.
 - Configure the replication consistency; Synchronous and asynchronous replication is set when Geo-Replication is configured but can also be switched afterwards.
 - Trigger promotion; All promotions are customer initiated.
 - Remove a secondary; If at any time you want to remove a secondary region, you can do so after which the data in the secondary region is deleted.
@@ -120,8 +120,8 @@ The Geo-Replication feature enables customers to configure a secondary region to
 ## Setup
 
 The following section is an overview to set up the Geo-Replication feature on a new namespace.
-    > [!NOTE]
-    > This experience might change during public preview. We'll update this document accordingly.
+> [!NOTE]
+> This experience might change during public preview. We'll update this document accordingly.
 
 1. Create a new premium-tier namespace.
 1. Check the **Enable Geo-replication checkbox** under the *Replication (preview)* section.
@@ -141,7 +141,7 @@ To switch between replication modes, or update the maximum replication lag, clic
 ### Delete secondary region
 
 To remove a secondary region, click on the **...**-ellipsis next to the region, and click **Delete**. To delete the region, follow the instructions in the pop-up blade.
-:::image type="content" source="./media/service-bus-geo-replication/delete-secondary-region-from-geo-replication.png" alt-text="Screenshot showing how to a secondary region.":::
+:::image type="content" source="./media/service-bus-geo-replication/delete-secondary-region-from-geo-replication.png" alt-text="Screenshot showing how to delete a secondary region.":::
 
 ### Promotion flow
 
@@ -152,7 +152,7 @@ When choosing **Planned** promotion, the service waits to catch up the replicati
 > [!IMPORTANT]
 > When using **Forced** promotion, any data that has not been replicated may be lost.
 
-:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Image showing how to promote secondary region.":::
+:::image type="content" source="./media/service-bus-geo-replication/promote-secondary-region.png" alt-text="Screeshot showing the flow to promote secondary region." lightbox="./media/service-bus-geo-replication/promote-secondary-region.png":::
 
 After the promotion is initiated:
 
@@ -162,7 +162,7 @@ After the promotion is initiated:
     > ping *your-namespace-fully-qualified-name*
 
 1. Clients automatically reconnect to the secondary region.
-:::image type="content" source="./media/service-bus-geo-replication/promotion-flow.png" alt-text="Image showing the flow of promotion from primary to secondary region.":::
+:::image type="content" source="./media/service-bus-geo-replication/promotion-flow.png" alt-text="Screenshot of the portal showing the flow of promotion from primary to secondary region." lightbox="./media/service-bus-geo-replication/promotion-flow.png":::
 
 
 You can automate promotion either with monitoring systems, or with custom-built monitoring solutions. However, such automation takes extra planning and work, which is out of the scope of this article.
@@ -188,7 +188,7 @@ Publishing may not be available during the following circumstances:
 Publisher applications can't directly access any namespaces in the secondary regions. 
 
 ### Consuming Data 
-Consuming applications can consume data using the namespace hostname of a Geo-Replication enabled namespace. The consumer operations aren't supported from when the promotion is initiated until it's completed. 
+Consuming applications can consume data using the namespace hostname of a namespace with the Geo-Replication feature enabled. Consumer operations aren't supported from the moment that promotion is initiated until promotion is completed.
 
 ## Considerations
 

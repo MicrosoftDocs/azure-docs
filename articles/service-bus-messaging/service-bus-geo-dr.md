@@ -30,7 +30,7 @@ The Geo-Disaster Recovery feature ensures that the entire configuration of a nam
     - Disable local authentication
     - Azure Event Grid subscriptions
 - Pairing a [partitioned namespace](enable-partitions-premium.md) with a non-partitioned namespace isn't supported.
-- If `AutoDeleteOnIdle` is enabled for an entity, the entity might not be present in the secondary namespace when the failover occurs. When the secondary becomes primary, the last access status, which is not part of the metadata, won't be available to the new primary and entity may be deleted as part of `AutoDeleteOnIdle` clean up.
+- If `AutoDeleteOnIdle` is enabled for an entity, the entity might not be present in the secondary namespace when the failover occurs. When the secondary becomes primary, the last access status, which is not part of the metadata, won't be available to the new primary and entity may be deleted as part of `AutoDeleteOnIdle` cleanup.
 
 > [!TIP]
 > For replicating the contents of queues and topic subscriptions and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-Disaster Recovery feature set, but use the [Geo-Replication feature](service-bus-geo-replication.md) or follow the [replication guidance](service-bus-federation-overview.md).  
@@ -51,7 +51,7 @@ The following terms are used in this article:
 
 The following section is an overview to set up pairing between the namespaces.
 
-:::image type="content" source="./media/service-bus-geo-dr/geodr_setup_pairing.png" alt-text="Image showing how Geo-Disaster Recovery works.":::
+:::image type="content" source="./media/service-bus-geo-dr/geodr_setup_pairing.png" alt-text="Screenshot of screen on setting up pairing with Geo-Disaster Recovery.":::
 
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
@@ -79,7 +79,7 @@ You first create or use an existing primary namespace, and a new secondary names
         1. Turn ON the **Safe Failover** option to safely fail over to the secondary namespace. 
         
             > [!NOTE]
-            > - The safe failover makes sure that pending Geo-Disaster Recovery replications are completed before switching over to the secondary. Whereas forced or manual failover doesn't wait for pending replications to be completed before switching over to the secondary. 
+            > - The safe failover makes sure that pending Geo-Disaster Recovery replications are completed before switching over to the secondary. Alternatively, forced or manual failover doesn't wait for pending replications to be completed before switching over to the secondary. 
             > - Currently, the safe failover fails if the primary and secondary namespaces aren't in the same Azure subscription. 
         1. Then, select **Failover**. 
         
@@ -109,7 +109,7 @@ After the failover is triggered -
 
 1. The ***alias*** connection string is updated to point to the Secondary Premium namespace.
 
-1. Clients(senders and receivers) automatically connect to the Secondary namespace.
+1. Clients (senders and receivers) automatically connect to the Secondary namespace.
 
 1. The existing pairing between Primary and Secondary premium namespace is broken.
 
