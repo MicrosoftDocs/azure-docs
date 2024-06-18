@@ -935,7 +935,7 @@ ms.topic: include
 | Default value  | `100`          |
 | Allowed values | `1-600000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [pgms_wait_sampling.history_period](./concepts-query-store)                                    |
+| Documentation  | [pgms_wait_sampling.history_period](../concepts-query-store.md)                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -952,7 +952,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  | [pgms_wait_sampling.is_enabled_fs](./concepts-query-store)                                     |
+| Documentation  | [pgms_wait_sampling.is_enabled_fs](../concepts-query-store.md)                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -969,7 +969,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `all,none`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [pgms_wait_sampling.query_capture_mode](./concepts-query-store)                                |
+| Documentation  | [pgms_wait_sampling.query_capture_mode](../concepts-query-store.md)                                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1071,7 +1071,7 @@ ms.topic: include
 | Default value  | `15`           |
 | Allowed values | `1-30`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | static         |
-| Documentation  | [pg_qs.interval_length_minutes](./concepts-query-store)                                        |
+| Documentation  | [pg_qs.interval_length_minutes](../concepts-query-store.md)                                        |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1088,7 +1088,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  | [pg_qs.is_enabled_fs](./concepts-query-store)                                                  |
+| Documentation  | [pg_qs.is_enabled_fs](../concepts-query-store.md)                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1105,7 +1105,7 @@ ms.topic: include
 | Default value  | `7500`         |
 | Allowed values | `100-10000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.max_plan_size](./concepts-query-store)                                                  |
+| Documentation  | [pg_qs.max_plan_size](../concepts-query-store.md)                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1122,7 +1122,7 @@ ms.topic: include
 | Default value  | `6000`         |
 | Allowed values | `100-10000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.max_query_text_length](./concepts-query-store)                                          |
+| Documentation  | [pg_qs.max_query_text_length](../concepts-query-store.md)                                          |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1139,7 +1139,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `top,all,none`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.query_capture_mode](./concepts-query-store)                                             |
+| Documentation  | [pg_qs.query_capture_mode](../concepts-query-store.md)                                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1156,7 +1156,7 @@ ms.topic: include
 | Default value  | `7`            |
 | Allowed values | `1-30`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.retention_period_in_days](./concepts-query-store)                                       |
+| Documentation  | [pg_qs.retention_period_in_days](../concepts-query-store.md)                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1173,7 +1173,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.store_query_plans](./concepts-query-store)                                              |
+| Documentation  | [pg_qs.store_query_plans](../concepts-query-store.md)                                              |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1190,7 +1190,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.track_utility](./concepts-query-store)                                                  |
+| Documentation  | [pg_qs.track_utility](../concepts-query-store.md)                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
