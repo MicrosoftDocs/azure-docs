@@ -131,7 +131,7 @@ The parameters in the request body are defined in this table:
 | **qna**       | (Optional) Holds QnA data when the task type is `QnA`.  | String  |
 | - `query`       | (Optional) This represents the question in a QnA task. Character limit: 7,500. | String  |
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
-| **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
+| **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. See [Input requirements](./overview.md#input-requirements) for limits. | String array    |
 | **reasoning**  | (Optional) Specifies whether to use the reasoning feature. The default value is `false`. If `true`, you need to bring your own Azure OpenAI GPT-4 Turbo (1106-preview) resources to provide an explanation. Be careful: using reasoning increases the processing time.| Boolean   |
 
 ### Interpret the API response
@@ -278,7 +278,7 @@ The parameters in the request body are defined in this table:
 | **qna**       | (Optional) Holds QnA data when the task type is `QnA`.  | String  |
 | - `query`       | (Optional) This represents the question in a QnA task. Character limit: 7,500. | String  |
 | **text**   | (Required) The LLM output text to be checked. Character limit: 7,500. |  String  |
-| **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. Up to 55,000 characters of grounding sources can be analyzed in a single request. | String array    |
+| **groundingSources**  | (Required) Uses an array of grounding sources to validate AI-generated text. See [Input requirements](./overview.md#input-requirements) for limits, | String array    |
 | **reasoning**  | (Optional) Set to `true`, the service uses Azure OpenAI resources to provide an explanation. Be careful: using reasoning increases the processing time and incurs extra fees.| Boolean   |
 | **llmResource**  | (Required) If you want to use your own Azure OpenAI GPT4-Turbo (1106-preview) resource to enable reasoning, add this field and include the subfields for the resources used. | String   |
 | - `resourceType `| Specifies the type of resource being used. Currently it only allows `AzureOpenAI`. We only support Azure OpenAI GPT-4 Turbo (1106-preview) resources and do not support other GPT types. | Enum|

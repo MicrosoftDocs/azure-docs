@@ -5,15 +5,13 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 03/22/2024
+ms.date: 06/10/2024
 ms.custom: template-concept
 ---
 
 # Connectivity configuration in Azure Virtual Network Manager
 
 In this article, you learn about the different types of configurations you can create and deploy using Azure Virtual Network Manager. There are two types of configurations currently available: *Connectivity* and *Security Admins*. 
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Connectivity configuration
 

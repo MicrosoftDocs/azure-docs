@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: automatic-os-upgrade
 ms.custom: linux-related-content, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 10/26/2023
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ---
 # Azure Virtual Machine Scale Set automatic OS image upgrades
@@ -35,7 +35,7 @@ Automatic OS upgrade has the following characteristics:
 
 An upgrade works by replacing the OS disk of a VM with a new disk created using the  image version. Any configured extensions and custom data scripts are run on the OS disk, while data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time.
 
-You can integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md) to track the health of the application after an upgrade. We recommend incorporating an application heartbeat to validate upgrade success.
+You must integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md) to track the health of the application after an upgrade. This allows the platform to validate the VM health to ensure updates are applied in a safe manner. We recommend incorporating an application heartbeat to validate upgrade success.
 
 ### Availability-first Updates
 The availability-first model for platform orchestrated updates described below ensures that availability configurations in Azure are respected across multiple availability levels.

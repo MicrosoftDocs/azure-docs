@@ -8,7 +8,7 @@ ms.date: 02/27/2024
 
 # Update or merge records in Azure SQL Database with Azure Functions
 
-Currently, [Azure Stream Analytics](./index.yml) (ASA) supports only inserting (appending) rows to SQL outputs ([Azure SQL Databases](./sql-database-output.md), and [Azure Synapse Analytics](./azure-synapse-analytics-output.md)). This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases, with Azure Functions as the intermediary layer.
+Currently, [Azure Stream Analytics (ASA)](./index.yml) supports only inserting (appending) rows to SQL outputs ([Azure SQL Databases](./sql-database-output.md), and [Azure Synapse Analytics](./azure-synapse-analytics-output.md)). This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases, with Azure Functions as the intermediary layer.
 
 Alternative options to Azure Functions are presented at the end.
 

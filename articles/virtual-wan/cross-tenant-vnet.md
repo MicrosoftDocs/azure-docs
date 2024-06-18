@@ -40,7 +40,7 @@ Make sure that the virtual network address space in the remote tenant doesn't ov
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## <a name="rights"></a>Assign permissions
 

@@ -79,6 +79,8 @@
     displayName: mobile, app, training
   - name: Microsoft Copilot in Azure
     href: mobile-app/microsoft-copilot-in-azure.md
+  - name: Intune MAM
+    href: mobile-app/intune-management.md
 - name: Reference
   items:
   - name: Supported browsers and devices

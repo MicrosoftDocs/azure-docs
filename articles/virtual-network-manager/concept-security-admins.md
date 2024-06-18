@@ -13,8 +13,6 @@ ms.custom: template-concept, engagement-fy23
 
 In this article, you learn about security admin rules in Azure Virtual Network Manager. Security admin rules are used to define global network security rules that apply to all virtual networks within a [network group](concept-network-groups.md). You learn about what security admin rules are, how they work, and when to use them.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## What is a security admin rule?
 
 Security admin rules are global network security rules that enforce security policies defined in the rule collection on virtual networks. These rules can be used to Allow, Always Allow, or Deny traffic across virtual networks within your targeted network groups. These network groups can only consist of virtual networks within the scope of your virtual network manager instance. Security admin rules can't apply to virtual networks not managed by a virtual network manager.
