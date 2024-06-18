@@ -656,7 +656,7 @@ You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .
 <!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="development-environment-cli,development-environment-ps,development-environment-azd"
 > [!TIP]
-> To see how Visual Studio with GitHub Copilot helps improve your web development experience, see the Visual Studio Code steps. 
+> To see how Visual Studio Code with GitHub Copilot helps improve your web development experience, see the Visual Studio Code steps. 
 <!-- markdownlint-enable MD044 -->
 
 :::zone-end
@@ -785,7 +785,7 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
     > 1. Select the entire `<div>` element and click :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
     > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
-3. From the **Source Control** menu, enter a commit message such as `Modify homepage`. Then, select **Commit and Push**. The changes are automatically staged for you, then committed and pushed to your fork.
+3. From the **Source Control** menu, enter a commit message such as `Modify homepage`. Then, select **Commit** and confirm staging the changes by selecting **Yes**.
 
     ### [.NET 8.0](#tab/net80)
 
@@ -798,11 +798,13 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
     -----
 
     > [!TIP]
-    > Try letting GitHub Copilot create a commit message for you selecting :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: in the message box.
+    > Let GitHub Copilot create a commit message for you by selecting :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: in the message box.
 
-4. It takes a few minutes for the deployment to run. To view the progress, navigate to `https://github.com/<your-github-alias>/dotnetcore-docs-hello-world/actions`.
+4. Select **Sync changes 1**, then confirm by selecting **OK**.
 
-5. Return to the browser window that opened during the **Browse to the app** step, and refresh the page.
+5. It takes a few minutes for the deployment to run. To view the progress, navigate to `https://github.com/<your-github-alias>/dotnetcore-docs-hello-world/actions`.
+
+6. Return to the browser window that opened during the **Browse to the app** step, and refresh the page.
     
     ### [.NET 8.0](#tab/net80)
     
