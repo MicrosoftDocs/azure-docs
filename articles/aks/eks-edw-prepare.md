@@ -15,11 +15,11 @@ The Azure workflow uses the [AKS Node Autoprovisioning (NAP)](/azure/aks/node-au
 
 ## Configure Kubernetes deployment manifest
 
-A Kubernetes deployment YAML manifest is used to deploy the AWS Workload to EKS. The deployment YAML has references to SQS and DynamoDB for KEDA scalers, so you need to change them to specify values that KEDA-equivalent Azure scalers can use to connect to the Azure-specific infrastructure. To do so, configure the [Azure Storage Queue KEDA scaler](https://keda.sh/docs/1.4/scalers/azure-storage-queue/).
+AWS uses a Kubernetes deployment YAML manifest to deploy the workload to EKS. The AWS deployment YAML has references to SQS and DynamoDB for KEDA scalers, so we need to change them to specify KEDA-equivalent values for the Azure scalers to use to connect to the Azure infrastructure. To do this, configure the [Azure Storage Queue KEDA scaler][azure-storage-queue-scaler].
 
-The following snippets show the differences in the YAML manifest between AWS and Azure.
+The following code snippets show example YAML manifests for the AWS and Azure implementations.
 
-### AWS workload deployment manifest example
+### AWS implementation
 
 ```yaml
     spec:
@@ -37,7 +37,7 @@ The following snippets show the differences in the YAML manifest between AWS and
           value: <region>
 ```
 
-### Azure workload deployment manifest example
+### Azure implementation
 
 ```yaml
     spec:
@@ -57,24 +57,31 @@ The following snippets show the differences in the YAML manifest between AWS and
 
 ## Set environment variables
 
-Before executing any of the deployment steps, you need to set some configuration information using environment variables. In the `deployment` directory of our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws), a Bash script, `enviromentVariables.sh`, includes the following environment variables:
+Before executing any of the deployment steps, you need to set some configuration information using the following environment variables:
 
-- `K8sversion`: The version of Kubernetes deployed on the AKS cluster
-- `KARPENTER_VERSION`: The version of Karpenter deployed on the AKS cluster
-- `SERVICE_ACCOUNT`: The name of the service account associated with the managed identity
-- `AQS_TARGET_DEPLOYMENT`: Name of the consumer app container deployment
-- `AQS_TARGET_NAMESPACE`: The namespace into which the consumer app is to be deployed
-- `AZURE_QUEUE_NAME`: Name of the Azure Storage Queue
-- `AZURE_TABLE_NAME`: Name of the Table where the processed messages are stored
-- `LOCAL_NAME`: A simple root for resource names constructed in the deployment scripts
-- `LOCATION`: The Azure region where the deployment is to be located
-- `TAGS`: Any user-defined tags along with their associated value
-- `STORAGE_ACCOUNT_SKU`: Azure Storage Account SKU
-- `ACR_SKU`: Azure Container Registry SKU
-- `AKS_NODE_COUNT`: Number of nodes
+- `K8sversion`: The version of Kubernetes deployed on the AKS cluster.
+- `KARPENTER_VERSION`: The version of Karpenter deployed on the AKS cluster.
+- `SERVICE_ACCOUNT`: The name of the service account associated with the managed identity.
+- `AQS_TARGET_DEPLOYMENT`: The name of the consumer app container deployment.
+- `AQS_TARGET_NAMESPACE`: The namespace into which the consumer app will be deployed.
+- `AZURE_QUEUE_NAME`: The name of the Azure Storage Queue.
+- `AZURE_TABLE_NAME`: The name of the Azure Storage Table that stores the processed messages.
+- `LOCAL_NAME`: A simple root for resource names constructed in the deployment scripts.
+- `LOCATION`: The Azure region where the deployment will be located.
+- `TAGS`: Any user-defined tags along with their associated values.
+- `STORAGE_ACCOUNT_SKU`: The Azure Storage Account SKU.
+- `ACR_SKU`: The Azure Container Registry SKU.
+- `AKS_NODE_COUNT`: The number of nodes.
 
-These environment variables have defaults set in the `./deployment/environmentVariables.sh` file, so you don't need to update the file unless you want to change the defaults. The names of the Azure resources created in the `deploy.sh` script are created on the fly and saved in the `deploy.state` file. You can use the `deploy.state` file to create environment variables for Azure resource names, as you'll see later in this workflow.
+You can review the `environmentVariables.sh` Bash script in the `deployment` directory of our [GitHub repository][github-repo]. These environment variables have defaults set, so you don't need to update the file unless you want to change the defaults. The names of the Azure resources are created dynamically in the `deploy.sh` script and are saved in the `deploy.state` file. You can use the `deploy.state` file to create environment variables for Azure resource names.
 
 ## Next steps
+	
+> [!div class="nextstepaction"]
+> [Deploy the EDW workload to Azure][eks-edw-deploy]
+	
+<!-- LINKS -->
+[azure-storage-queue-scaler]: https://keda.sh/docs/1.4/scalers/azure-storage-queue/
+[github-repo]: https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws
+[eks-edw-deploy]: ./eks-edw-deploy.md
 
-- Now that you've configured your manifest and set environment variables, [deploy the EDS workload to Azure](eks-edw-deploy.md).
