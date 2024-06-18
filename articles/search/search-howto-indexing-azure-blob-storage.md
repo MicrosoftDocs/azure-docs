@@ -247,7 +247,9 @@ An indexer runs automatically when it's created. You can prevent this by setting
 
 Keep in mind that an indexer can only index data from a single container. If your requirement is to index data from multiple containers and consolidate it into a single AI Search index, this can be achieved by configuring multiple indexers, all directed to the same index. Please be aware of the [maximum number of indexers available per SKU](search-limits-quotas-capacity.md#indexer-limits). 
 
-To illustrate, let's consider an example of two indexers, pulling data from two distinct data sources, named `my-blob-datasource1` and `my-blob-datasource2`. Each data source points to a separate Azure Blob container, but both direct to the same index named `my-search-index`:
+To illustrate, let's consider an example of two indexers, pulling data from two distinct data sources, named `my-blob-datasource1` and `my-blob-datasource2`. Each data source points to a separate Azure Blob container, but both direct to the same index named `my-search-index`.
+
+First indexer definition example:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
@@ -271,7 +273,7 @@ To illustrate, let's consider an example of two indexers, pulling data from two 
       "fieldMappings" : [ ]
     }
     ```
-
+Second indexer definition that runs in parallel example:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
