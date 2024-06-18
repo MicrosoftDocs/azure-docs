@@ -34,7 +34,7 @@ To see the Custom Script Extension in action, create a scale set that installs t
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
 
-```azurecli-interactive
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location "East US"
 ```
 
@@ -46,7 +46,7 @@ New-AzVmss `
   -VMScaleSetName "myScaleSet" `
   -OrchestrationMode "Flexible" `
   -Location "EastUS" `
-  -UpgradePolicyMode "Automatic" `
+  -UpgradePolicyMode "Manual" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `
