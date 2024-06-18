@@ -4,7 +4,7 @@ description: This article provides information about deploying the extension-bas
 services: automation
 ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, linux-related-content
-ms.date: 05/21/2024
+ms.date: 05/22/2024
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ---
@@ -263,6 +263,7 @@ You can delete the Hybrid Runbook Worker from the portal.
    > [!NOTE]
    > - A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. </br> </br>
    > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - Hybrid Runbook Worker proxy settings can be deleted from  HKLM\SOFTWARE\Microsoft\Azure\HybridWorker\Parameters, "Http Connection Proxy Url".
 
 ## Delete a Hybrid Runbook Worker group
 

@@ -101,6 +101,8 @@ items:
       href: waf-copilot.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
+  - name: JavaScript challenge
+    href: waf-javascript-challenge.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -204,7 +206,7 @@ items:
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
     - name: CDN
-      href: /cli/azure/cdn/waf
+      href: /azure/web-application-firewall/afds/waf-front-door-create-portal
   - name: Azure PowerShell
     items:
     - name: Front Door

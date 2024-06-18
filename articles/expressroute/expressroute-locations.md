@@ -90,6 +90,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Atlanta<br/>Berlin<br/>Canberra2<br/>Chicago<br/>Dallas<br/>Dubai2<br/>Dublin<br/>Frankfurt<br/>Frankfurt2<br/>Geneva<br/>Hong Kong<br/>Hong Kong2<br/>London<br/>London2<br/>Los Angeles*<br/>Los Angeles2<br/>Madrid2<br/>Melbourne<br/>Miami<br/>Milan<br/>Mumbai2<br/>New York<br/>Osaka<br/>Paris<br/>Paris2<br/>Perth<br/>Quebec City<br/>Rio de Janeiro<br/>Sao Paulo<br/>Seattle<br/>Seoul<br/>Silicon Valley<br/>Singapore<br/>Singapore2<br/>Stockholm<br/>Sydney<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Washington DC<br/>Warsaw<br/>Zurich</br>Zurich2</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Create new circuits in Los Angeles2.* |
 | **Etisalat UAE** |Supported |Supported | Dubai |
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** | Supported | Supported | Amsterdam<br/>Amsterdam2<br/>Dublin<br/>Frankfurt<br/>London<br/>Paris |
+| **Exatel** |Supported |Supported | Warsaw |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** | Supported | Supported | Taipei |
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | Supported |Supported | Milan |
 | **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** | Supported | Supported | Montreal<br/>Quebec City<br/>Toronto2 |
@@ -262,7 +263,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Altice Business](https://lightpathfiber.com/applications/cloud-connect)** |Equinix |New York<br/>Washington DC |
 | **[Aptum Technologies](https://aptum.com/services/cloud/managed-azure/)**| Equinix | Montreal<br/>Toronto |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokyo |
-| **[Axtel](https://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
+| **Axtel** |Equinix |Dallas|
 | **[Beanfield Metroconnect](https://www.beanfield.com/business/cloud-exchange)** |Megaport |Toronto|
 | **[Bezeq International Ltd.](https://selfservice.bezeqint.net/english/company-profile)** | euNetworks | London |
 | **[BICS](https://www.bics.com/cloud-connect/)** | Equinix | Amsterdam<br/>Frankfurt<br/>London<br/>Singapore<br/>Washington DC |

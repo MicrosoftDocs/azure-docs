@@ -6,7 +6,7 @@ ms.author: barclayn
 ms.date: 03/14/2024
 ms.service: entra-id
 ms.subservice: managed-identities
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate managed identities for Azure resources to another region.

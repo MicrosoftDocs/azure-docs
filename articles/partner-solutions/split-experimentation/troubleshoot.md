@@ -15,18 +15,7 @@ This document contains information about troubleshooting your Split Experimentat
 
 ## Getting support
 
-To contact support about a Split Experimentation Workspace, follow these steps:
-
-1. Open your Split Experimentation Workspace in the Azure portal.
-
-1. Select **Help** > **Support + Troubleshooting** from the left menu.
-
-1. Under **How can we help you?**, briefly describe the issue and select **Go**.
-
-    :::image type="content" source="media/troubleshoot/support-request.png" alt-text="Screenshot of the Azure platform showing the new support Support + Troubleshooting page.":::
-
-1. Share more information about the issue by answering the questions on screen.
-1. Check the help resources shared on screen. If you need more help, select **Contact support** and select one of the provided options.
+To log a support request about a Split Experimentation Workspace, send an email to <exp_preview@microsoft.com>.
 
 ## Known issues
 

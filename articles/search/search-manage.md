@@ -6,11 +6,9 @@ description: Manage an Azure AI Search resource using the Azure portal.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.custom:
-  - ignite-2023
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/04/2024
+ms.date: 05/23/2024
 ---
 
 # Service administration for Azure AI Search in the Azure portal
@@ -33,7 +31,7 @@ Contributors and Search Service Contributors have the same access as Owner, minu
 
 Readers have access to service information in the Essentials section and in the Monitoring tab. Access is limited. A reader can get basic information about a search service, but not enough to set up a connection or confirm the existence of objects on the service. 
 
-For data plane tasks, such as creating and configuring indexes and indexers: on a default system, the portal attempts admin API keys first, even if there are role assignments. If [keys are disabled](search-security-rbac.md#disable-api-key-authentication), here's the portal experience for the following roles:
+For data plane tasks, such as creating and configuring indexes and indexers: on a default system, the portal attempts admin API keys first, even if there are role assignments. If [keys are disabled](search-security-enable-roles.md#disable-api-key-authentication), here's the portal experience for the following roles:
 
 * Search Index Data Contributor can see the list of indexers, and access an individual one to see its historical runs and status, but cannot run, reset, create, update, or delete it.
 
@@ -87,23 +85,22 @@ By default, a search service accepts authenticated and authorized requests over 
 
 We recommend Log Analytics Workspace for durable storage so that you can run system queries in the portal.
 
-Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
-
-| Monitoring data | Retention |
-|-----------------|-----------|
-| Activity logs | 90 days on a rolling schedule |
-| Platform metrics | 93 days on a rolling schedule, except that portal visualization is limited to a 30 day window |
-| Resource logs | User-managed |
-| Telemetry | One and a half years |
+Internally, Microsoft collects telemetry data about your service and the platform. To learn more about data retention, see [Retention of metrics](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics).
 
 > [!NOTE]
 > See the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article for more information about data location and privacy.
+
+### Enable semantic ranking
+
+Semantic ranking is free for the first 1,000 requests per month, but you must opt-in to get the free quota. 
+
+In Azure portal, under **Settings** on the leftmost pane, select **Semantic ranker** and then choose the Free plan. For more information, see [Enable semantic ranker](semantic-how-to-enable-disable.md).
 
 ### Configure user access
 
 Initially, only an owner has access to search service information and operations. [Assign roles](search-security-rbac.md) to extend access, or provide users with a search endpoint with an API key.
 
-A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. You can't delete admin API keys but you can [disable API keys](search-security-rbac.md#disable-api-key-authentication) if you want all users to access data plane operations through role assignments.
+A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. You can't delete admin API keys but you can [disable API keys](search-security-enable-roles.md#disable-api-key-authentication) if you want all users to access data plane operations through role assignments.
 
 ### Provide connection information to developers
 

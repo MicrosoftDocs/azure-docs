@@ -19,10 +19,6 @@ ms.author: pafarley
 
 This article explains the concept of Face recognition, its related operations, and the underlying data structures. Broadly, face recognition is the process of verifying or identifying individuals by their faces. Face recognition is important in implementing the identification scenario, which enterprises and apps can use to verify that a (remote) user is who they claim to be.
 
-You can try out the capabilities of face recognition quickly and easily using Vision Studio.
-> [!div class="nextstepaction"]
-> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
-
 
 ## Face recognition operations
 

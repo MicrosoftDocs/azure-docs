@@ -13,6 +13,9 @@ ms.date: 05/13/2024
 
 This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
 
+> [!NOTE]
+> Container Insights now supports the automatic collection of Syslog events from Linux nodes in your AKS clusters. To learn more, see [Syslog collection with Container Insights](../azure-monitor/containers/container-insights-syslog.md).
+
 ## Prerequisites
 
 Before you begin, you must have the resources configured and the appropriate permissions described in this section. 
@@ -342,6 +345,8 @@ If you're using a log forwarder, configure the Syslog daemon to listen for messa
     The script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the Syslog daemon configuration file according to the daemon type running on the machine:
     - Rsyslog: `/etc/rsyslog.conf`
     - Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
+
+    If you're using Python 3, and it's not set as the default command on the machine, substitute `python3` for `python` in the pasted command. See [Log forwarder prerequisites](#log-forwarder-prerequisites).
 
     > [!NOTE] 
     > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.

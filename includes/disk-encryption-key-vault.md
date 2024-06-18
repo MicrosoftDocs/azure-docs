@@ -67,7 +67,7 @@ You can also create a key vault by using the [Resource Manager template](https:/
 ## Set key vault advanced access policies
 
 > [!IMPORTANT]
-> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](../articles/key-vault/general/soft-delete-overview.md).
+> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
 
 The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes.
 
@@ -123,11 +123,11 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 3. Select **Azure Virtual Machines for deployment** and/or **Azure Resource Manager for template deployment**, if needed.
 4. Click **Save**.
 
-    ![Azure key vault advanced access policies](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
+    ![Azure key vault advanced access policies](/azure/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
 ## Azure Disk Encryption and auto-rotation
 
-Although Azure Key Vault now has [key auto-rotation](../articles/key-vault/keys/how-to-configure-key-rotation.md), it isn't currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key, even after it has been auto-rotated.
+Although Azure Key Vault now has [key auto-rotation](/azure/key-vault/keys/how-to-configure-key-rotation), it isn't currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key, even after it has been auto-rotated.
 
 Rotating an encryption key won't break Azure Disk Encryption, but disabling the "old" encryption key (in other words, the key Azure Disk Encryption is still using) will.
 
@@ -140,7 +140,7 @@ If you want to use a key encryption key (KEK) for an additional layer of securit
 
 You can generate a new KEK by using the Azure CLI [`az keyvault key create`](/cli/azure/keyvault/key#az-keyvault-key-create) command, the Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet, or the [Azure portal](https://portal.azure.com/). You must generate an RSA key type; Azure Disk Encryption doesn't currently support using Elliptic Curve keys.
 
-You can instead import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](../articles/key-vault/keys/hsm-protected-keys.md).
+You can instead import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](/azure/key-vault/keys/hsm-protected-keys).
 
 Your key vault KEK URLs must be versioned. Azure enforces this restriction of versioning. For valid secret and KEK URLs, see the following examples:
 

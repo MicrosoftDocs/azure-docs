@@ -52,7 +52,6 @@ Multiple Azure resources have been defined in the template:
 - [**Microsoft.Network/natGateways**](/azure/templates/microsoft.network/natgateways): for the NAT gateway.
 
 > [!IMPORTANT]
-
 > [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
 
 

@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 06/11/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
 
 > [!IMPORTANT] 
-> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) provides this feature.
+> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview REST APIs provide this feature.
 
 Integrated vectorization is an extension of the indexing and query pipelines in Azure AI Search. It adds the following capabilities:
 
@@ -102,8 +102,18 @@ Optionally, [create secondary indexes](index-projections-concept-intro.md) for a
 
 > [!TIP]
 > [Try the new **Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) in the Azure portal to explore integrated vectorization before writing any code.
->
-> Or, configure a Jupyter notebook to run the same workflow, cell by cell, to see how each step works.
+
+### Secure connections to vectorizers and models
+
+If your architecture requires private connections that bypass the internet, you can create a [shared private link connection](search-indexer-howto-access-private.md) to the embedding models used by skills during indexing and vectorizers at query time. 
+
+Shared private links only work for Azure-to-Azure connections. If you're connecting to OpenAI or another external model, the connection must be over the public internet.
+
+For vectorization scenarios, you would use:
+
++ `openai_account` for embedding models hosted on an Azure OpenAI resource.
+
++ `sites` for embedding models accessed as a [custom skill](cognitive-search-custom-skill-interface.md) or [custom vectorizer](vector-search-vectorizer-custom-web-api.md). The `sites` group ID is for App services and Azure functions, which you could use to host an embedding model that isn't one of the Azure OpenAI embedding models.
 
 ## Limitations
 
@@ -113,11 +123,9 @@ Azure OpenAI token-per-minute limits are per model, per subscription. Keep this 
 
 On Azure AI Search, remember there are [service limits](search-limits-quotas-capacity.md) by tier and workloads. 
 
-If you need a [shared private link connection](search-indexer-howto-access-private.md) from a vectorizer, you must review the supportability of your setup and follow the respective instructions.
-
 Finally, the following features aren't currently supported: 
 
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md)
++ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) are not supported for vectorizer configuration.
 + Currently, there's no batching for integrated data chunking and vectorization
 
 ## Benefits of integrated vectorization 

@@ -123,14 +123,21 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
       "kind": "AbstractiveSummarization",
       "taskName": "Text Abstractive Summarization Task 1",
       "parameters": {
-        "summaryLength": short
+        "summaryLength": "short"
       }
     }
   ]
 }
 '
 ```
-If you don't specify `sentenceCount`, the model determines the summary length. Note that `sentenceCount` is the approximation of the sentence count of the output summary, range 1 to 20. Using sentenceCount is not recommended for abstractive summarization.
+If you don't specify `summaryLength`, the model determines the summary length.
+
+### Using the summaryLength parameter
+For the `summaryLength` parameter, three values are accepted:
+* oneSentence: Generates a summary of mostly 1 sentence, with around 80 tokens.
+* short: Generates a summary of mostly 2-3 sentences, with around 120 tokens.
+* medium: Generates a summary of mostly 4-6 sentences, with around 170 tokens.
+* long: Generates a summary of mostly over 7 sentences, with around 210 tokens.
 
 2. Make the following changes in the command where needed:
     - Replace the value `your-language-resource-key` with your key.
@@ -255,7 +262,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 '
 ```
 
-### Using the summaryParameter
+### Using the summaryLength parameter
 For the `summaryLength` parameter, three values are accepted:
 * oneSentence: Generates a summary of mostly 1 sentence, with around 80 tokens.
 * short: Generates a summary of mostly 2-3 sentences, with around 120 tokens.

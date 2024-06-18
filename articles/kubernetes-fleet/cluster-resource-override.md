@@ -54,7 +54,18 @@ spec:
       name: secret-reader
 ```
 
-This example selects a `ClusterRole` named `secret-reader` from the `rbac.authorization.k8s.io/v1` API group for overriding.
+This example selects a `ClusterRole` named `secret-reader` from the `rbac.authorization.k8s.io/v1` API group, as shown below, for overriding.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: secret-reader
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "watch", "list"]
+```
 
 ## Policy
 
@@ -152,7 +163,18 @@ spec:
             path: /rules/0/verbs/1
 ```
 
-This example removes the verbs "list" and "watch" in the `ClusterRole` named `secret-reader` on clusters with the label `env: prod`.
+This example removes the verbs "list" and "watch" in the `ClusterRole` named `secret-reader` on clusters with the label `env: prod`, as shown below.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: secret-reader
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "watch", "list"]
+```
 
 `jsonPatchOverrides` apply a JSON patch on the selected resources following [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902).
 

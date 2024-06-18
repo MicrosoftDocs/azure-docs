@@ -1,70 +1,111 @@
 ---
 title: Import virtual machines from another lab
-description: Learn how to import virtual machines from one lab to another in Azure DevTest Labs.
+titleSuffix: Azure DevTest Labs
+description: Learn how to import virtual machines from one lab to another in Azure DevTest Labs by using the REST API or PowerShell.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/08/2021
+ms.date: 05/30/2024
 ms.custom: UpdateFrequency2
+
+#customer intent: As a developer, I want to import VMs from one lab to another in Azure DevTest Labs so I can copy and use existing VM configuration settings and data.
 ---
 
 # Import virtual machines from one lab to another
 
-This article discusses and describes how to import virtual machines (VMs) from one DevTest Labs lab to another lab.
+This article describes the import feature for Azure DevTest Labs and how to import virtual machines (VMs) from a source lab to a destination lab. The import process is currently supported for PowerShell and the REST API.
 
-## Scenarios
-Here are some scenarios where you might need to import VMs from one lab into another lab:
+Some scenarios where you might want to import VMs from one lab to another include:
 
-- An individual is moving from one group to another and wants to take their developer desktop to the new team's lab.
-- The group has hit a [subscription-level quota](../azure-resource-manager/management/azure-subscription-service-limits.md) and wants to split up the teams into more than one Azure subscription.
-- The company is moving to Azure ExpressRoute or some other new networking topology, and the team wants to move the VMs to use the new infrastructure.
+- A user moves to a new team and wants to take their developer desktop to the new team's lab.
+- A team reaches their [subscription-level quota](../azure-resource-manager/management/azure-subscription-service-limits.md) and wants to support membership by using multiple Azure subscriptions.
+- A company transitions to Azure ExpressRoute or other networking topology and a team wants to move their VMs to the new infrastructure.
 
-## Requirements and constraints
+## Prerequisites
 
-The import process imports the VMs from the source lab into the destination lab. You can optionally rename the VM in the process. The import process includes all dependencies like disks, schedules, and network settings.
+- You must be the owner of the virtual machine (VM) in the source lab.
+- You must be the owner of the destination lab.
+- VMs in the source lab can't be in a _claimable_ state. For more information, see [Create and manage claimable VMs in Azure DevTest Labs](devtest-lab-add-claimable-vm.md).
+- To import VMs across subscriptions and across regions, all subscriptions must be associated with the same Microsoft Entra tenant.
 
-The process is a copy operation, not a move operation, and can take a long time. The import time partly depends on the following factors:
+## Explore the import process
 
-- Number and size of the disks attached to the source machine
+The import process is a _copy_ operation, not a move operation. DevTest Labs imports VMs from the source lab to the destination lab.
+
+The import copies all dependencies for the VMs to the destination lab, including disks, schedules, and network settings. During the process, you can specify new names for the VMs in the destination lab. 
+
+The import can take some time to complete. The total time depends in part on the following factors:
+
+- Number and size of disks attached to the source machine
 - Distance between the source and destination regions
 
-When the import finishes, the process shuts down the source VM and starts the new VM running in the destination lab.
+When the import finishes, the process shuts down the source VM and starts the new VM in the destination lab.
 
-There are several requirements and constraints for importing VMs from one lab to another:
+## Use a PowerShell script
 
-- You can import VMs across subscriptions and across regions, but both subscriptions must be associated with the same Microsoft Entra tenant.
-- VMs can't be in a claimable state in the source lab.
-- You must be the owner of the VM in the source lab, and the owner of the destination lab.
-- Currently, this feature is supported only through PowerShell and REST API.
+You can use PowerShell to import one or all VMs in your source lab to your destination lab.
 
-## Use PowerShell to import one or all lab VMs
+Follow these steps to use a PowerShell script:
 
-Download and run [ImportVirtualMachines.ps1](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). You can use the script to import a single VM or all VMs from the source lab into the destination lab.
+1. Download and run the [ImportVirtualMachines.ps1](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) script from the Azure DevTest Labs repository on GitHub.
 
-To run this PowerShell script, identify the source and destination subscriptions and labs, and the source VM. Optionally, supply a new name for the destination VM.
+   The script lets you import a single VM or all VMs from a specified source lab into a designated destination lab.
 
-```powershell
-./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>"`
+1. Gather the following information to use with the script:
+
+   - `SourceDevTestLabName`: Source lab name.
+   - `SourceSubscriptionId`: Source lab subscription ID.
+   - `SourceVirtualMachineName`: Name of VM in source lab to import to destination lab.
+   - `DestinationDevTestLabName`: Destination lab name.
+   - `DestinationSubscriptionId`: Destination lab subscription ID.
+   - `DestinationVirtualMachineName`: (Optional) Name of VM after import to destination lab.
+
+   > [!NOTE]
+   > When you run the script, if you don't specify a new name for the VM (`DestinationVirtualMachineName`) in the destination lab, the import uses the name of the VM in the source lab.
+
+1. Run the script and replace the `<placeholder>` values with your information:
+
+   ```powershell
+   ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source lab>"`
                             -SourceDevTestLabName "<Name of the source lab>"`
                             -SourceVirtualMachineName "<Name of the VM to import from the source lab>" `
                             -DestinationSubscriptionId "<ID of the subscription that contains the destination lab>"`
                             -DestinationDevTestLabName "<Name of the destination lab>"`
-                            -DestinationVirtualMachineName "<Optional: specify a new name for the imported VM in the destination lab>"
-```
-If you don't specify a source VM, the script automatically imports all VMs in the source lab.
+                            -DestinationVirtualMachineName "<Optional: Specify a new name for the imported VM in the destination lab>"
+   ```
 
-## Use HTTP REST to import a VM
+   > [!NOTE]
+   > When you run the script, if you don't specify a source VM name (`SourceVirtualMachineName`), the process imports _all_ VMs in the source lab to the destination lab. In this case, the process uses the names of the VMs in the source lab to name the VMs in the destination lab.
 
-The REST call is simple. You provide the information to identify the source and destination resources. The operation takes place on the destination lab resource.
+## Use the REST API
 
-```http
-POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/resourceGroups/<DestinationResourceGroup>/providers/Microsoft.DevTestLab/labs/<DestinationLab>/ImportVirtualMachine?api-version=2017-04-26-preview
-{
-   sourceVirtualMachineResourceId: "/subscriptions/<SourceSubscriptionID>/resourcegroups/<SourceResourceGroup>/providers/microsoft.devtestlab/labs/<SourceLab>/virtualmachines/<NameofVMTobeImported>",
-   destinationVirtualMachineName: "<NewNameForImportedVM>"
-}
-```
+It's easy to use the REST API to complete the import. The operation runs on the destination lab resource.
 
-## Next steps
+This approach is similar to the process for the PowerShell command. You provide the information to identify the source and destination resources. For the API call, you also need to specify the resource group for both labs. 
+
+Follow these steps to complete the import process by calling the REST API:
+
+1. Gather the following information to use with the API:
+
+   - `<SourceLab>`: Source lab name.
+   - `<SourceSubscriptionID>`: Source lab subscription ID.
+   - `<SourceResourceGroup>`: Resource group for the source lab.
+   - `<NameofVMTobeImported>`: Name of VM in source lab to import to destination lab.
+   - `<DestinationLab>`: Destination lab name.
+   - `<DestinationSubscriptionID>`: Destination lab subscription ID.
+   - `<DestinationResourceGroup>`: Resource group for the destination lab.
+   - `<NewNameForImportedVM>`: (Optional) Name of VM after import to destination lab.
+
+1. Call the HTTP REST API as follows and replace the `<placeholder>` values with your information:
+
+   ```http
+   POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/resourceGroups/<DestinationResourceGroup>/providers/Microsoft.DevTestLab/labs/<DestinationLab>/ImportVirtualMachine?api-version=2017-04-26-preview
+   {
+      sourceVirtualMachineResourceId: "/subscriptions/<SourceSubscriptionID>/resourcegroups/<SourceResourceGroup>/providers/microsoft.devtestlab/labs/<SourceLab>/virtualmachines/<NameofVMTobeImported>",
+      destinationVirtualMachineName: "<NewNameForImportedVM>"
+   }
+   ```
+
+## Related content
 
 - [Set policies for a lab](devtest-lab-set-lab-policy.md)

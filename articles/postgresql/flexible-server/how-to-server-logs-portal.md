@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Enable, list and download server logs for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 You can use server logs to help monitor and troubleshoot an instance of Azure Database for PostgreSQL flexible server, and to gain detailed insights into the activities that have run on your servers.
 

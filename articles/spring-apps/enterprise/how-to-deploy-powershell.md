@@ -35,8 +35,7 @@ The requirements for completing the steps in this article depend on your Azure s
    Install-Module -Name Az.SpringCloud
    ```
 
-* If you have multiple Azure subscriptions, choose the appropriate subscription in which the
-  resources should be billed. Select a specific subscription by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
+* If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
    ```azurepowershell-interactive
    Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -44,9 +43,7 @@ The requirements for completing the steps in this article depend on your Azure s
 
 ## Create a resource group
 
-A resource group is a logical container in which Azure resources are deployed and managed as
-a group. Create an [Azure resource group](../../azure-resource-manager/management/overview.md)
-by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
+A resource group is a logical container in which Azure resources are deployed and managed as a group. Create an [Azure resource group](../../azure-resource-manager/management/overview.md) by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. The following example creates a resource group with a specified name and location.
 
 ```azurepowershell-interactive
@@ -55,9 +52,7 @@ New-AzResourceGroup -Name <resource group name> -Location eastus
 
 ## Provision a new instance
 
-To create a new instance of Azure Spring Apps, you use the
-[New-AzSpringCloud](/powershell/module/az.springcloud/new-azspringcloud) cmdlet. The following
-example creates an Azure Spring Apps service, with the name that you specified in the resource group you created previously.
+To create a new instance of Azure Spring Apps, you use the [New-AzSpringCloud](/powershell/module/az.springcloud/new-azspringcloud) cmdlet. The following example creates an Azure Spring Apps service, with the name that you specified in the resource group you created previously.
 
 ```azurepowershell-interactive
 New-AzSpringCloud -ResourceGroupName <resource group name> -name <service instance name> -Location eastus
@@ -85,9 +80,7 @@ New-AzSpringCloudAppDeployment -ResourceGroupName <resource group name> -Service
 
 ## Get a service and its properties
 
-To get an Azure Spring Apps service and its properties, you use the
-[Get-AzSpringCloud](/powershell/module/az.springcloud/get-azspringcloud) cmdlet. The following
-example retrieves information about the specified Azure Spring Apps service.
+To get an Azure Spring Apps service and its properties, you use the [Get-AzSpringCloud](/powershell/module/az.springcloud/get-azspringcloud) cmdlet. The following example retrieves information about the specified Azure Spring Apps service.
 
 ```azurepowershell-interactive
 Get-AzSpringCloud -ResourceGroupName <resource group name> -ServiceName <service instance name>
