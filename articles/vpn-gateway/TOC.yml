@@ -195,7 +195,7 @@
           href: point-to-site-entra-vpn-client-mac.md
       - name: Generate VPN client profile configuration files
         href: about-vpn-profile-download.md
-      - name: Change Audience values for gateway and VPN clients
+      - name: Change Audience values - gateway and clients
         href: point-to-site-entra-gateway-update.md
     - name: RADIUS authentication
       items:
