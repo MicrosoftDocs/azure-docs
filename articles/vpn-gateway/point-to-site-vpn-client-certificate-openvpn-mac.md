@@ -5,7 +5,7 @@ description: Learn how to configure the VPN client for VPN Gateway P2S configura
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/14/2024
+ms.date: 06/18/2024
 ms.author: cherylmc
 ---
 
@@ -51,7 +51,7 @@ For information about working with certificates, see [Point-to site: Generate ce
 
 ## Configure the OpenVPN client
 
-The following example uses **OpenVPN Connect** from the App store.
+The following example uses **TunnelBlick**.
 
 [!INCLUDE [OpenVPN macOS](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
