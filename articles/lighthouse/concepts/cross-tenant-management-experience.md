@@ -62,7 +62,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 [Azure Backup](../../backup/index.yml):
 
-- Back up and restore customer data using Azure Backup. Currently, the following Azure workloads are supported: Azure Virtual Machines (Azure VM), Azure Files, SQL in Azure VM, SAP HANA in Azure VM. Workloads which leverage [Backup vault](../../backup/backup-vault-overview.md) (such as Azure Database for PostgreSQL, Azure Blob, Azure Managed Disk, and Azure Kubernetes Services) currently aren't fully supported.
+- Back up and restore customer data using Azure Backup. Currently, the following Azure workloads are supported: Azure Virtual Machines (Azure VM), Azure Files, SQL Server on Azure VMs, SAP HANA on Azure VMs. Workloads which leverage [Backup vault](../../backup/backup-vault-overview.md) (such as Azure Database for PostgreSQL, Azure Blob, Azure Managed Disk, and Azure Kubernetes Services) currently aren't fully supported.
 - View data for all delegated customer resources in [Backup center](../../backup/backup-center-overview.md)
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
