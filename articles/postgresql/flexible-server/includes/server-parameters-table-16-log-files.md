@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [logfiles.download_enable](./how-to-server-logs-portal) |
+| Documentation  | [logfiles.download_enable](./how-to-server-logs-portal.md) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `3`           |
 | Allowed values | `1-7`          |
 | Parameter type | dynamic        |
-| Documentation  | [logfiles.retention_days](./how-to-server-logs-portal)  |
+| Documentation  | [logfiles.retention_days](./how-to-server-logs-portal.md)  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
