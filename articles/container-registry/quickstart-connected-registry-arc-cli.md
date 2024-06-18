@@ -69,7 +69,7 @@ Creating the Connected registry to synchronize with ACR is the foundation step f
 
 - The [az acr connected-registry create][az-acr-connected-registry-create] command creates the Connected registry with the specified repository. 
 - The [az acr connected-registry create][az-acr-connected-registry-create] command overwrites actions if the sync scope map named `myconnectedregistry` exists and overwrites properties if the sync token named `myconnectedregistry` exists. 
-- The [az acr connected-registry create][az-acr-connected-registry-create] command validates a dedicated data endpoint during the creation of the Connected registry and provides a command to enable the dedicated data endpoint on the ACR registry if it is not already enabled.
+- The [az acr connected-registry create][az-acr-connected-registry-create] command validates a dedicated data endpoint during the creation of the Connected registry and provides a command to enable the dedicated data endpoint on the ACR registry.
 
 ### Deploy the Connected registry arc extension on the Arc-enabled kubernetes cluster
 
@@ -110,7 +110,7 @@ Deploy the Connected registry arc extension to integrate the registry with your 
     ```
 
 - The [az k8s-extension create][az-k8s-extension-create] command deploys the Connected registry extension on the Kubernetes cluster with the provided configuration parameters and protected settings file. 
-- It ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for TLS encryption.
+- It ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for Transport Layer Security (TLS) encryption.
 
 ### Verify the Connected registry extension deployment
 
@@ -162,7 +162,8 @@ To verify the deployment of the Connected registry extension on the Arc-enabled 
    | myconnectedregistry | ReadWrite | online           | myacrregistry | myacrregistry.azurecr.io | 2024-05-09 12:00:00 | 0 0 * * *     | 00:00:00-23:59:59 |
     ```
 
-- The [az k8s-extension show][az-k8s-extension-show] command will verify the state of the extension deployment and provide details on the Connected registry's connection status, last sync, sync window, sync schedule, and more.
+- The [az k8s-extension show][az-k8s-extension-show] command verifies the state of the extension deployment.
+- The command also provides details on the Connected registry's connection status, last sync, sync window, sync schedule, and more.
 
 ### Pull an image from the Connected registry 
 
