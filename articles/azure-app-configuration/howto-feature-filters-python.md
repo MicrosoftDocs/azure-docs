@@ -34,7 +34,6 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     import random
     from featuremanagement import FeatureFilter
     
-    
     @FeatureFilter.alias("Random")
     class RandomFilter(FeatureFilter):
     
@@ -61,12 +60,15 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     
     # Connect to Azure App Configuration using and Endpoint and Azure Entra ID
     # feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
-    # feature_flag_refresh_enabled makes it so that the provider will refresh feature flags from Azure App Configuration, when the refresh operation is triggered
+    # feature_flag_refresh_enabled makes it so that the provider will refresh feature flags
+    # from Azure App Configuration, when the refresh operation is triggered
     config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flag_enabled=True)
     
     feature_manager = FeatureManager(config, feature_filters=[RandomFilter()])
     
-    print("Beta is ", feature_manager.is_enabled("Beta"))
+    for i in range(0, 10):
+        print("Beta is ", feature_manager.is_enabled("Beta"))
+        sleep(5)
     ```
 
 ## Next steps

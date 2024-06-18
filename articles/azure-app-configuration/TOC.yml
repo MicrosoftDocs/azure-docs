@@ -130,8 +130,6 @@
               href: use-feature-flags-dotnet-core.md
             - name: Spring Boot
               href: use-feature-flags-spring-boot.md
-            - name: Python
-              href: use-feature-flags-python.md
         - name: Enable conditional features with feature filters
           items:
             - name: Overview
@@ -331,6 +329,12 @@
           items:
             - name: API reference
               href: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - name: Python
+          items:
+            - name: Feature reference
+              href: ./feature-management-python-reference.md
+            - name: API reference
+              href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
     - name: Deployment
       items:
       - name: ARM template

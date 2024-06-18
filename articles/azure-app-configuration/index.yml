@@ -154,8 +154,6 @@ landingContent:
           url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
-        - text: Use feature flags in Python
-          url: use-feature-flags-python.md
         - text: Enable conditional features with feature filters
           url: howto-feature-filters.md
         - text: Enable features on a schedule
@@ -172,6 +170,10 @@ landingContent:
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - text: Java Spring feature management API reference
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - text: Python feature management
+          url: feature-management-python-reference.md
+        - text: Python feature management API reference
+          url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
 
   - title: Client libraries and tools
     linkLists:

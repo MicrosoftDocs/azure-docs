@@ -1,38 +1,47 @@
 ---
-title: Tutorial for using feature flags in a Python app | Microsoft Docs
-description: In this tutorial, you learn how to implement feature flags in Python apps.
+title: Python feature management - Azure App Configuration
+description: Overview of Python Feature Management library
 services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/04/2024
+ms.date: 06/18/2024
 ms.author: mametcal
 ms.custom: devx-track-python
 #Customer intent: I want to control feature availability in my app by using the Python Feature Management library.
 ---
 
-# Tutorial: Use feature flags in a Python app
+# Python Feature Management
 
-The Python Feature Management library provides idiomatic support for implementing feature flags in a Python application. This libray allow you to declaratively add feature flags to your code so that you don't have to manually write code to enable or disable features with `if` statements.
+The Python Feature Management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships.
 
-The Feature Management library also manages the feature flag lifecycles behind the scenes. For example, the library refresh and cache flag states.
+Feature flags provide a way for Python applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements. Feature flags are built on top of a Python dictionary and any usage that can result in [Feature Management 2.0 schema](https://github.com/Azure/AppConfiguration/blob/main/docs/FeatureManagement/FeatureManagement.v2.0.0.schema.json) can be used to load feature flags.
 
-For the Python feature management API reference documentation, see [FeatureManagement-Python API Docs](https://microsoft.github.io/FeatureManagement-Python/html/index.html).
+Here are some of the benefits of using .NET feature management library:
 
-In this tutorial, you will learn how to:
+* A common convention for feature management
+* Low barrier-to-entry
+  * Supports JSON file feature flag setup
+* Feature Flag lifetime management
+  * Configuration values can change in real-time; feature flags can be consistent across the entire request
+* Simple to Complex Scenarios Covered
+  * Toggle on/off features through declarative configuration file
+  * Dynamically evaluate state of feature based on call to server
 
-> [!div class="checklist"]
-> * Add feature flags in key parts of your application to control feature availability.
-> * Integrate with App Configuration to manage feature flags.
-
-## Prerequisites
-
-- The [Add feature flags to a Python app quickstart](./quickstart-feature-flag-python.md) shows a simple example of how to use feature flags in a Python application. This tutorial shows additional setup options and capabilities of the Feature Management library. You can use the sample app created in the quickstart to try out the sample code shown in this tutorial.
-
-## Set up feature management
+  The Python feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Python).
 
 To access the Python feature manager, your app must have the Python `FeatureManagement` library installed, `pip install featuremanagement`.
+
+## Feature flags
+Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
+
+### Feature filters
+Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
+
+As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features it's attached to as long as an HTTP request is coming from Microsoft Edge.
+
+## Feature flag configuration
 
 The Python feature manager is configured from a Python `dict`. As a result, you can define your application's feature flag settings by using any configuration source that can be read into a `dict`, such as loading via json or the Azure App Configuration provider.
 
@@ -162,7 +171,6 @@ The `requirement_type` property of a feature flag is used to determine if the fi
 
 A `requirement_type` of `All` changes the traversal. First, if there are no filters, the feature is disabled. Then, the feature filters are traversed until one of the filters decides that the feature should be disabled. If no filter indicates that the feature should be disabled, it's considered enabled.
 
-
 ```json
 {
     "id": "FeatureC",
@@ -189,6 +197,126 @@ A `requirement_type` of `All` changes the traversal. First, if there are no filt
 
 In the above example, `FeatureC` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
 
+## Feature Filters
+
+
+Feature filters enable dynamic evaluation of feature flags. The Python feature management library includes two built-in filters:
+
+- `Microsoft.TimeWindow` - Enables a feature flag based on a time window.
+- `Microsoft.Targeting` - Enables a feature flag based on a list of users, groups, or rollout percentages.
+
+#### Time Window Filter
+
+The Time Window Filter enables a feature flag based on a time window. It has two parameters:
+
+- `Start` - The start time of the time window.
+- `End` - The end time of the time window.
+
+```json
+{
+    "name": "Microsoft.TimeWindow",
+    "parameters": {
+        "Start": "2020-01-01T00:00:00Z",
+        "End": "2020-12-31T00:00:00Z"
+    }
+}
+```
+
+Both parameters are optional, but at least one is required. The time window filter is enabled after the start time and before the end time. If the start time is not specified, it is enabled immediately. If the end time is not specified, it will remain enabled after the start time.
+
+#### Targeting Filter
+
+Targeting is a feature management strategy that enables developers to progressively roll out new features to their user base. The strategy is built on the concept of targeting a set of users known as the target audience. An audience is made up of specific users, groups, excluded users/groups, and a designated percentage of the entire user base. The groups that are included in the audience can be broken down further into percentages of their total members.
+
+The following steps demonstrate an example of a progressive rollout for a new 'Beta' feature:
+
+1. Individual users Jeff and Alicia are granted access to the Beta
+1. Another user, Mark, asks to opt-in and is included.
+1. Twenty percent of a group known as "Ring1" users are included in the Beta.
+1. The number of "Ring1" users included in the beta is bumped up to 100 percent.
+1. Five percent of the user base is included in the beta.
+1. The rollout percentage is bumped up to 100 percent and the feature is completely rolled out.
+
+This strategy for rolling out a feature is built in to the library through the included Microsoft.Targeting feature filter.
+
+##### Defining a Targeting Feature Filter
+
+The Targeting Filter provides the capability to enable a feature for a target audience. The filter parameters include an `Audience` object which describes users, groups, excluded users/groups, and a default percentage of the user base that should have access to the feature. The `Audience` object contains the following fields:
+
+- `Users` - A list of users that the feature flag is enabled for.
+- `Groups` - A list of groups that the feature flag is enabled for and a rollout percentage for each group.
+  - `Name` - The name of the group.
+  - `RolloutPercentage` - A percentage value that the feature flag is enabled for in the given group.
+- `DefaultRolloutPercentage` - A percentage value that the feature flag is enabled for.
+- `Exclusion` - An object that contains a list of users and groups that the feature flag is disabled for.
+  - `Users` - A list of users that the feature flag is disabled for.
+  - `Groups` - A list of groups that the feature flag is disabled for.
+
+```json
+{
+    "name": "Microsoft.Targeting",
+    "parameters": {
+        "Audience": {
+            "Users": ["user1", "user2"],
+            "Groups": [
+                {
+                    "Name": "group1",
+                    "RolloutPercentage": 100
+                }
+            ],
+            "DefaultRolloutPercentage": 50,
+            "Exclusion": {
+                "Users": ["user3"],
+                "Groups": ["group2"]
+            }
+        }
+    }
+}
+```
+
+##### Using Targeting Feature Filter
+
+You can provide the current user info through `kwargs` when calling `isEnabled`.
+
+```python
+from featuremanagement import FeatureManager, TargetingContext
+
+# Returns true, because user1 is in the Users list
+feature_manager.is_enabled("Beta", TargetingContext(user_id="user1", groups=["group1"]))
+
+# Returns false, because group2 is in the Exclusion.Groups list
+feature_manager.is_enabled("Beta", TargetingContext(user_id="user1", groups=["group2"]))
+
+# Has a 50% chance of returning true, but will be conisistent for the same user
+feature_manager.is_enabled("Beta", TargetingContext(user_id="user4"))
+```
+
+## Implementing a Feature Filter
+
+Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `FeatureFilter` abstract class must be use. `FeatureFilter` has a single method named `evaluate`. When a feature specifies that it can be enabled for a feature filter, the `evaluate` method is called. If `evaluate` returns `true`, it means the feature should be enabled.
+
+The following snippet demonstrates how to add a customized feature filter `MyCriteriaFilter`.
+
+```python
+class MyCriteriaFilter(FeatureFilter):
+    def evaluate(self, context, **kwargs):
+        ...
+        return True
+```
+
+``` python
+feature_manager = FeatureManager(feature_flags, feature_filters=[MyCriteriaFilter()])
+```
+
+Feature filters are registered by adding them to the optional `feature_filters` parameter while creating the `FeatureManager`. 
+
+You can modify the name of a feature flag by using the `@FeatureFilter.alias` decorator. The alias overrides the name of the feature filter and needs to match the name of the feature filter in the feature flag json.
+
+```python
+@FeatureFilter.alias("CriteriaFilter")
+class MyCriteriaFilter(FeatureFilter):
+    ...
+```
 
 ## Next steps
 
