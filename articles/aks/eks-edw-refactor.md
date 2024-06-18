@@ -151,15 +151,13 @@ aqs_queue_client.create_queue()
 aqs_queue_client.send_message('messageBody1')
 ```
 
-The code for the queue producer (`aqs-producer.py`) can be found in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
+You can review the code for the queue producer (`aqs-producer.py`) in our [GitHub repository][github-repo].
 
-## Consumer code changes
+## Consumer code
 
-In the original AWS code for DynamoDB access, the AWS boto3 library is used to interact with AWS SQS queues. You will refactor the application code to use the Azure SDK for Python to interact with Azure Storage Tables.
+### AWS implementation
 
-### AWS consumer code implementation
-
-The consumer part of the workload uses the same code as the producer for connecting to the AWS SQS queue to read messages. In addition, the consumer contains Python code similar to the following in order to connect to DynamoDB. This connection is made using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint, using the IAM identity associated with the EKS pod hosting the application.
+The original AWS code for DynamoDB access uses the AWS boto3 Python library to interact with AWS SQS queues. The consumer part of the workload uses the same code as the producer for connecting to the AWS SQS queue to read messages. The consumer also contains Python code to connect to DynamoDB using the AWS IAM `AssumeRole` capability to authenticate to the DynamoDB endpoint using the IAM identity associated with the EKS pod hosting the application.
 
 ```python
 # presumes policy deployment ahead of time such as: aws iam create-policy --policy-name <policy_name> --policy-document <policy_document.json>
@@ -175,11 +173,13 @@ table.put_item(
 }
 ```
 
-#### Azure consumer code implementation
+### Azure implementation
 
-Now you need the producer code to authenticate to Azure Storage Table. As discussed earlier, the schema used in the preceding section with DynamoDB is incompatible with Azure Storage Table. Instead, you'll use a table schema that is compatible with Azure Cosmos DB, which stores the same data as the AWS workload does in DynamoDB.
+The Azure implementation uses the Azure SDK for Python to interact with Azure Storage Tables.
 
-This example shows the code required for Azure:
+Now you need the producer code to authenticate to Azure Storage Table. As discussed earlier, the schema used in the preceding section with DynamoDB is incompatible with Azure Storage Table. You use a table schema that's compatible with Azure Cosmos DB to store the same data as the AWS workload in DynamoDB.
+
+This following example shows the code required for Azure:
 
 ```python
 from azure.storage.queue import QueueClient
@@ -203,15 +203,15 @@ response = table.insert_entity(
     timeout=60)
 ```
 
-Notice that unlike DynamoDB, the Azure Storage Table code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the ID `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Storage Table, while the `RowKey` is a `uniqueidentifier` for all the rows in a given partition. In the case of the AWS workload, each partition will contain at most one row, which doesn't necessitate the use of a `RowKey`.
+Unlike DynamoDB, the Azure Storage Table code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the ID `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Storage Table. The `RowKey` is a `uniqueidentifier` for all the rows in a given partition. 
 
-Completed versions of both the producer and consumer code can be found in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
+You can review the complete producer and consumer code in our [GitHub repository][github-repo].
 
 ## Create container images and push to Azure Container Registry
 
-Next, build the container images and push them to [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro).
+Now, you can build the container images and push them to [Azure Container Registry (ACR)][acr-intro].
 
-In the `app` directory of the cloned repository, a shell script called `docker-command.sh` builds the container images and pushes them to ACR. Open the `.sh` file and review the code. The script builds the producer and consumer container images and pushes them to ACR. For more information, see [Introduction to container registries in Azure](/azure/container-registry/container-registry-intro) and learn how to [push and pull images](/azure/container-registry/container-registry-get-started-docker-cli) from ACR.
+In the `app` directory of the cloned repository, a shell script called `docker-command.sh` builds the container images and pushes them to ACR. Open the `.sh` file and review the code. The script builds the producer and consumer container images and pushes them to ACR. For more information, see [Introduction to container registries in Azure][acr-intro] and [Push and pull images in ACR][push-pull-acr].
 
 To build the container images and push them to ACR, make sure the environment variable `AZURE_CONTAINER_REGISTRY` is set to the name of the registry you want to push the images to, then run the following command:
 
@@ -221,4 +221,19 @@ To build the container images and push them to ACR, make sure the environment va
 
 ## Next steps
 
-- Now that your code is ready, [prepare to deploy the EDW workload to Azure](eks-edw-prepare.md).
+> [!div class="nextstepaction"]
+> [Prepare to deploy the EDW workload to Azure][eks-edw-prepare]
+	
+<!-- LINKS -->
+[map-aws-to-azure]: ./eks-edw-rearchitect.md#map-aws-services-to-azure-services
+[storage-queue-data-contributor]: ../role-based-access-control/built-in-roles.md#storage
+[storage-table-data-contributor]: ../role-based-access-control/built-in-roles.md#storage
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[github-repo]: https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws
+[azure-sdk-python]: https://github.com/Azure/azure-sdk-for-python
+[default-azure-credential]: ../storage/queues/storage-quickstart-queues-python.md#authorize-access-and-create-a-client-object
+[acr-intro]: ../container-registry/container-registry-intro.md
+[push-pull-acr]: ../container-registry/container-registry-get-started-docker-cli.md
+[eks-edw-prepare]: ./eks-edw-prepare.md
+
