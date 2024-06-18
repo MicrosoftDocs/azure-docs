@@ -36,7 +36,7 @@ az webapp update --set clientCertEnabled=true --name <app-name> --resource-group
 ```
 ### [Bicep](#tab/bicep)
 
-For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe Bicep snippet is provided for you:
+For Bicep, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample Bicep snippet is provided for you:
 
 ```bicep
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -57,7 +57,7 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
 
 ### [ARM](#tab/arm)
 
-For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sampe ARM template snippet is provided for you:
+For ARM templates, modify the properties `clientCertEnabled`, `clientCertMode`, and `clientCertExclusionPaths`. A sample ARM template snippet is provided for you:
 
 ```ARM
 {
