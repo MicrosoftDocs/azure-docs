@@ -53,6 +53,8 @@ Here are common limitations that apply to migration scenarios:
 
 - Migration to burstable SKUs isn't supported; databases must first be migrated to a non-burstable SKU and then scaled down if needed.
 
+- The Migration Runtime Server is specifically designed to operate with the default DNS servers/private DNS zones i.e., **privatelink.postgres.database.azure.com**. Custom DNS names/DNS servers are not supported by the migration service when utilizing the migration runtime server feature. When configuring private endpoints for both the source and target databases, it is imperative to use the default private DNS zone provided by Azure for the private link service. The use of custom DNS configurations is not yet supported and may lead to connectivity issues during the migration process.
+
 ## Limitations migrating from Azure Database for PostgreSQL single server
 
 - It's required that both the Azure Database for PostgreSQL single server and the Azure Database for PostgreSQL flexible server are in the same Azure region. Exceptions to this limitation are made for Azure Database for PostgreSQL flexible server situated in India, China, and UAE, where cross-region migrations are permitted.
