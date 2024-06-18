@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  | `md5`          |
 | Allowed values | `md5,scram-sha-256`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  | [azure.accepted_password_auth_method](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-scram)                                  |
+| Documentation  | [azure.accepted_password_auth_method](./how-to-connect-scram)                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -238,7 +238,7 @@ ms.topic: include
 | Default value  |                |
 | Allowed values | `address_standardizer,address_standardizer_data_us,amcheck,azure_ai,azure_storage,bloom,btree_gin,btree_gist,citext,cube,dblink,dict_int,dict_xsyn,earthdistance,fuzzystrmatch,hstore,hypopg,intagg,intarray,isn,lo,login_hook,ltree,orafce,pageinspect,pg_buffercache,pg_cron,pg_freespacemap,pg_hint_plan,pg_partman,pg_prewarm,pg_repack,pg_squeeze,pg_stat_statements,pg_trgm,pg_visibility,pgaudit,pgcrypto,pglogical,pgrouting,pgrowlocks,pgstattuple,plpgsql,plv8,postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,postgres_fdw,postgres_protobuf,semver,session_variable,sslinfo,tablefunc,tds_fdw,timescaledb,tsm_system_rows,tsm_system_time,unaccent,uuid-ossp,vector` |
 | Parameter type | dynamic        |
-| Documentation  | [azure.extensions](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-extensions#extension-versions)                                   |
+| Documentation  | [azure.extensions](./concepts-extensions#extension-versions)                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -510,7 +510,7 @@ ms.topic: include
 | Default value  | `720`          |
 | Allowed values | `60-10080`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.analysis_interval](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)        |
+| Documentation  | [index_tuning.analysis_interval](./how-to-configure-index-tuning#configuration-options)        |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -527,7 +527,7 @@ ms.topic: include
 | Default value  | `2`            |
 | Allowed values | `1-10`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_columns_per_index](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)    |
+| Documentation  | [index_tuning.max_columns_per_index](./how-to-configure-index-tuning#configuration-options)    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -544,7 +544,7 @@ ms.topic: include
 | Default value  | `10`           |
 | Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_index_count](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)          |
+| Documentation  | [index_tuning.max_index_count](./how-to-configure-index-tuning#configuration-options)          |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -561,7 +561,7 @@ ms.topic: include
 | Default value  | `10`           |
 | Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_indexes_per_table](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)    |
+| Documentation  | [index_tuning.max_indexes_per_table](./how-to-configure-index-tuning#configuration-options)    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -578,7 +578,7 @@ ms.topic: include
 | Default value  | `25`           |
 | Allowed values | `5-100`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_queries_per_database](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options) |
+| Documentation  | [index_tuning.max_queries_per_database](./how-to-configure-index-tuning#configuration-options) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -595,7 +595,7 @@ ms.topic: include
 | Default value  | `0.1`          |
 | Allowed values | `0.05-0.2`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_regression_factor](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)    |
+| Documentation  | [index_tuning.max_regression_factor](./how-to-configure-index-tuning#configuration-options)    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -612,7 +612,7 @@ ms.topic: include
 | Default value  | `0.1`          |
 | Allowed values | `0-1.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_total_size_factor](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)    |
+| Documentation  | [index_tuning.max_total_size_factor](./how-to-configure-index-tuning#configuration-options)    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -629,7 +629,7 @@ ms.topic: include
 | Default value  | `0.2`          |
 | Allowed values | `0-20.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.min_improvement_factor](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)   |
+| Documentation  | [index_tuning.min_improvement_factor](./how-to-configure-index-tuning#configuration-options)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -646,7 +646,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `off,report`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.mode](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)                     |
+| Documentation  | [index_tuning.mode](./how-to-configure-index-tuning#configuration-options)                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -663,7 +663,7 @@ ms.topic: include
 | Default value  | `1000`         |
 | Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.unused_dml_per_table](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)     |
+| Documentation  | [index_tuning.unused_dml_per_table](./how-to-configure-index-tuning#configuration-options)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -680,7 +680,7 @@ ms.topic: include
 | Default value  | `35`           |
 | Allowed values | `30-720`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.unused_min_period](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)        |
+| Documentation  | [index_tuning.unused_min_period](./how-to-configure-index-tuning#configuration-options)        |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -697,7 +697,7 @@ ms.topic: include
 | Default value  | `1000`         |
 | Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.unused_reads_per_table](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-configure-index-tuning#configuration-options)   |
+| Documentation  | [index_tuning.unused_reads_per_table](./how-to-configure-index-tuning#configuration-options)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -935,7 +935,7 @@ ms.topic: include
 | Default value  | `100`          |
 | Allowed values | `1-600000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [pgms_wait_sampling.history_period](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                    |
+| Documentation  | [pgms_wait_sampling.history_period](./concepts-query-store)                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -952,7 +952,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  | [pgms_wait_sampling.is_enabled_fs](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                     |
+| Documentation  | [pgms_wait_sampling.is_enabled_fs](./concepts-query-store)                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -969,7 +969,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `all,none`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [pgms_wait_sampling.query_capture_mode](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                |
+| Documentation  | [pgms_wait_sampling.query_capture_mode](./concepts-query-store)                                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1071,7 +1071,7 @@ ms.topic: include
 | Default value  | `15`           |
 | Allowed values | `1-30`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | static         |
-| Documentation  | [pg_qs.interval_length_minutes](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                        |
+| Documentation  | [pg_qs.interval_length_minutes](./concepts-query-store)                                        |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1088,7 +1088,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  | [pg_qs.is_enabled_fs](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                                  |
+| Documentation  | [pg_qs.is_enabled_fs](./concepts-query-store)                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1105,7 +1105,7 @@ ms.topic: include
 | Default value  | `7500`         |
 | Allowed values | `100-10000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.max_plan_size](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                                  |
+| Documentation  | [pg_qs.max_plan_size](./concepts-query-store)                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1122,7 +1122,7 @@ ms.topic: include
 | Default value  | `6000`         |
 | Allowed values | `100-10000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.max_query_text_length](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                          |
+| Documentation  | [pg_qs.max_query_text_length](./concepts-query-store)                                          |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1139,7 +1139,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `top,all,none`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.query_capture_mode](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                             |
+| Documentation  | [pg_qs.query_capture_mode](./concepts-query-store)                                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1156,7 +1156,7 @@ ms.topic: include
 | Default value  | `7`            |
 | Allowed values | `1-30`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.retention_period_in_days](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                       |
+| Documentation  | [pg_qs.retention_period_in_days](./concepts-query-store)                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1173,7 +1173,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.store_query_plans](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                              |
+| Documentation  | [pg_qs.store_query_plans](./concepts-query-store)                                              |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1190,7 +1190,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.track_utility](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-query-store)                                                  |
+| Documentation  | [pg_qs.track_utility](./concepts-query-store)                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
