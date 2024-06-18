@@ -11,27 +11,36 @@ ms.reviewer: jeffwo
 
 # Collect IIS logs with Azure Monitor Agent
 
-This article explains how to configure data collection of Internet Information Service (IIS) logs data from Windows virtual machines, Virtual Machine Scale Sets, and Arc-enabled on-premises servers using Azure Monitor Agent.
+Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor agent and sent to a Log Analytics workspace.
 
-> [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
+IIS logs is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Windows events data source type.
 
 ## Prerequisites
 
+- [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac). Windows events are sent to the [Event](/azure/azure-monitor/reference/tables/event) table.
 - One or two [data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint), depending on whether your virtual machine and Log Analytics workspace are in the same region. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
 
-- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server that runs IIS. 
-    - An IIS log file in W3C format must be stored on the local drive of the machine on which Azure Monitor Agent is running. 
-    - Each entry in the log file must be delineated with an end of line. 
-    - The log file must not allow circular logging, log rotation where the file is overwritten with new entries, or renaming where a file is moved and a new file with the same name is opened. 
 
-## Configure collection of IIS logs
+## Configure collection of IIS logs on client
+Before you can collect IIS logs from the machine, you must ensure that IIS logging has been enabled and is configured correctly.
 
-In the **Collect and deliver** step, select **IIS Logs** from the **Data source type** dropdown.
+- The IIS log file must be in W3C format and stored on the local drive of the machine running the agent. 
+- Each entry in the log file must be delineated with an end of line. 
+- The log file must not use circular logging,, which overwrites old entries.
+- The log file must not use renaming, where a file is moved and a new file with the same name is opened. 
+
+The default location for IIS log files is **C:\\inetpub\\logs\\LogFiles\\W3SVC1**. Verify that log files are being written to this location or check your IIS configuration to identify an alternate location. Check the timestamps of the log files to ensure that they're recent.
+
+:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
+
+
+## Configure IIS log data source
+
+Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **IIS Logs** from the **Data source type** dropdown. Specify a file pattern to identify the directory where the log files are located.
 
     :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
 
-1. Specify a file pattern to identify the directory where the log files are located. 
+
 
 
 ### Sample IIS log queries
@@ -62,67 +71,6 @@ In the **Collect and deliver** step, select **IIS Logs** from the **Data source 
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
-
-## Troubleshoot
-Use the following steps to troubleshoot collection of IIS logs. 
-
-### Check if any IIS logs have been received
-Start by checking if any records have been collected for your IIS logs by running the following query in Log Analytics. If the query doesn't return records, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
-
-``` kusto
-W3CIISLog
-| where TimeGenerated > ago(48h)
-| order by TimeGenerated desc
-```
-
-### Verify that the agent is sending heartbeats successfully
-Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
-
-``` kusto
-Heartbeat
-| where TimeGenerated > ago(24h)
-| where Computer has "<computer name>"
-| project TimeGenerated, Category, Version
-| order by TimeGenerated desc
-```
-
-### Verify that IIS logs are being created
-Look at the timestamps of the log files and open the latest to see that latest timestamps are present in the log files. The default location for IIS log files is C:\\inetpub\\logs\\LogFiles\\W3SVC1.
-<!-- convertborder later -->
-:::image type="content" source="media/data-collection-text-log/iis-log-timestamp.png" lightbox="media/data-collection-text-log/iis-log-timestamp.png" alt-text="Screenshot of an IIS log, showing the timestamp." border="false":::
-
-### Verify that you specified the correct log location in the data collection rule
-The data collection rule will have a section similar to the following. The `logDirectories` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
-
-``` json
-    "dataSources": [
-    {
-            "configuration": {
-                "logDirectories": ["C:\\scratch\\demo\\W3SVC1"]
-            },
-            "id": "myIisLogsDataSource",
-            "kind": "iisLog",
-            "streams": [{
-                    "stream": "ONPREM_IIS_BLOB_V2"
-                }
-            ],
-            "sendToChannels": ["gigl-dce-6a8e34db54bb4b6db22d99d86314eaee"]
-        }
-    ]
-```
-
-This directory should correspond to the location of the IIS logs on the agent machine.
-<!-- convertborder later -->
-:::image type="content" source="media/data-collection-text-log/iis-log-files.png" lightbox="media/data-collection-text-log/iis-log-files.png" alt-text="Screenshot of IIS log files on agent machine." border="false":::
-
-### Verify that the IIS logs are W3C formatted
-Open IIS Manager and verify that the logs are being written in W3C format.
-
-:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
-
-Open the IIS log file on the agent machine to verify that logs are in W3C format.
-<!-- convertborder later -->
-:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log, showing the header, which specifies that the file is in W3C format." border="false":::
 
 > [!NOTE]
 > The X-Forwarded-For custom field is not supported at this time. If this is a critical field, you can collect the IIS logs as a custom text log.

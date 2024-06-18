@@ -101,6 +101,28 @@ The **Collect and deliver** allows you to add and configure data sources and des
 | **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the different data source types, see the articles in [Data type](#types-of-data).|
 | **Destination** | Add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming. See the details for each data type for the different destinations they support. |
 
+## Troubleshoot
+
+**Verify if records are being received**
+Start by checking if any records have been collected for your IIS logs by running the following query in Log Analytics. If the query doesn't return records, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
+
+``` kusto
+W3CIISLog
+| where TimeGenerated > ago(48h)
+| order by TimeGenerated desc
+```
+
+
+**Verify that the agent is sending heartbeats successfully**
+Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
+
+``` kusto
+Heartbeat
+| where TimeGenerated > ago(24h)
+| where Computer has "<computer name>"
+| project TimeGenerated, Category, Version
+| order by TimeGenerated desc
+```
 
 ## Next steps
 
