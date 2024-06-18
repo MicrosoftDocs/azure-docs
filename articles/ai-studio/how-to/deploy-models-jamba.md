@@ -105,11 +105,11 @@ For more information on using the APIs, see the [reference](#reference-for-jamba
 
 ## Reference for Jamba Instruct deployed a serverless API
 
-Since Jamba Instruct is fine-tuned for chat completion, we support the route `/chat/completions` as part of the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) for multi-turn chat or single-turn question-answering. AI21's [Jamba Instruct model](https://docs.ai21.com/reference/jamba-instruct-api) can also be used. For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
+Since Jamba Instruct is fine-tuned for chat completion, we support the route `/chat/completions` as part of the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) for multi-turn chat or single-turn question-answering. [AI21's Azure Client](https://docs.ai21.com/reference/jamba-instruct-api) can also be used. For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
 
-### Azure AI Model Inference API
+### Azure AI model inference API
 
-The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
+The [Azure AI model inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
 Single- and multi-turn chat have the same request and response format, except that question answering (single-turn) involves only a single user message in the request, while multi-turn chat requires that you send the entire chat message history in each request. In a multi-turn chat, the message thread includes all messages from the user and the model, ordered oldest to newest, alternating between `user` and `assistant` role messages, optionally starting with a system
 message to provide context. For example, the message stack for the fourth call in a chat request that includes an initial system message would look like this in pseudocode:
@@ -127,7 +127,7 @@ message to provide context. For example, the message stack for the fourth call i
 ]
 ```
 
-#### Chat API
+### AI21's Azure client
 
 Use the method `POST` to send the request to the `/v1/chat/completions` route:
 
