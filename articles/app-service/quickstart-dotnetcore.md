@@ -40,6 +40,9 @@ In this quickstart, you learn how to create and deploy your first ASP.NET web ap
 
 Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux container in App Service](quickstart-custom-container.md).
 
+> [!TIP]
+> Find GitHub Copilot tips in the Visual Studio, Visual Studio Code, and Azure portal steps.
+
 This video shows you how to deploy an ASP.NET web app.
 > [!VIDEO 31309745-82c2-4208-aed5-7ace0b7f7f4d]
 
@@ -53,15 +56,17 @@ The steps in the video are also described in the following sections.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload.
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload (ensure the optional checkbox **.NET Framework project and item templates** is selected).
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 -----
 
-If you have already installed Visual Studio 2022:
+If you already installed Visual Studio 2022:
 
 1. Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
 1. Add the workload by selecting **Tools** > **Get Tools and Features**.
@@ -74,6 +79,7 @@ If you have already installed Visual Studio 2022:
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
 - The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
 - <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 8.0 SDK.</a>
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 :::zone-end
 
@@ -84,6 +90,7 @@ If you have already installed Visual Studio 2022:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
 - <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">The latest .NET 8.0 SDK.</a>
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 :::zone-end
 
@@ -271,7 +278,7 @@ Follow these steps to create your App Service resources and publish your project
     |------------------|--------------------------|-----------------------------------------------------------------------|
     | **Hosting Plan** | *MyFirstAzureWebAppPlan* | Name of the App Service plan.                                         |
     | **Location**     | *West Europe*            | The datacenter where the web app is hosted.                           |
-    | **Size**         | *Free*                   | [Pricing tier][app-service-pricing-tier] determines hosting features. |
+    | **Size**         | Choose the lowest tier.                   | [Pricing tier][app-service-pricing-tier] determines hosting features. |
 
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
 1. Select **Create** to create the Azure resources.
@@ -312,6 +319,10 @@ Follow these steps to create your App Service resources and publish your project
     code .
     ```
 1. If prompted, select **Yes, I trust the authors.**
+
+    > [!TIP]
+    > If you have a GitHub Copilot account, try [getting GitHub Copilot features for Visual Studio Code](https://code.visualstudio.com/docs/copilot/overview).
+
 1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by selecting **View** > **Command Palette**.
 1. Search for and select "Azure App Service: Create New Web App (Advanced)".
 1. Respond to the prompts as follows:
@@ -326,7 +337,7 @@ Follow these steps to create your App Service resources and publish your project
     1. Select a location near you.
     1. Select **Create new App Service plan**, provide a name, and select the **Free (F1)** [pricing tier][app-service-pricing-tier].
     1. Select **Skip for now** for the Application Insights resource.
-    1. When prompted, click **Deploy**.
+    1. When prompted, select **Deploy**.
     1. Select *MyFirstAzureWebApp* as the folder to deploy.
     1. Select **Add Config** when prompted.
 
@@ -496,17 +507,17 @@ Follow these steps to create your App Service resources and publish your project
 
     ### [.NET 8.0](#tab/net80)
     
-    - For **Organization** select the organization where you have forked the demo project.
+    - For **Organization** select the organization where you forked the demo project.
     - For **Repository** select the *dotnetcore-docs-hello-world* project.
-    - For **Branch** select *master*.
+    - For **Branch** select *main*.
 
     :::image type="content" source="media/quickstart-dotnetcore/app-service-deploy-80.png" lightbox="media/quickstart-dotnetcore/app-service-deploy-80.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET 8 runtime.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
     
-    - For **Organization** select the organization where you have forked the demo project.
+    - For **Organization** select the organization where you forked the demo project.
     - For **Repository** select the *app-service-web-dotnet-get-started* project.
-    - For **Branch** select *master*.
+    - For **Branch** select *main*.
     
     :::image type="content" source="media/quickstart-dotnet/app-service-deploy-48.png" lightbox="media/quickstart-dotnet/app-service-deploy-48.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET Framework 4.8 runtime.":::
     
@@ -539,13 +550,13 @@ Follow these steps to create your App Service resources and publish your project
 
 :::zone target="docs" pivot="development-environment-azd"
 
-The AZD template contains files that will generate the following required resources for your application to run in App service:
+The AZD template contains files that generate the following required resources for your application to run in App service:
 
 - A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
 - A new [App Service plan](overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
 - A new [App Service app](overview-hosting-plans.md) instance to run the deployed application.
 
-1. Sign into your Azure account by using the az login command and following the prompt:
+1. Sign into your Azure account by using the `azd auth login` command and following the prompt:
 
     ```bash
     azd auth login
@@ -569,7 +580,7 @@ The AZD template contains files that will generate the following required resour
 
 ## 3. Update the app and redeploy
 
-You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .NET 8.0 template, it's located in the *Pages* folder. In the .NET Framework 4.8 template, it's in the *Views/Home* folder. Follow these steps to update and redeploy your web app:
+You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .NET 8.0 template, it's in the *Pages* folder. In the .NET Framework 4.8 template, it's in the *Views/Home* folder. Follow these steps to update and redeploy your web app:
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -582,6 +593,12 @@ You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .
         <p class="lead">Example .NET app to Azure App Service.</p>
     </div>
     ```
+
+    > [!TIP]
+    > With GitHub Copilot enabled in Visual Studio, try the following:
+    >
+    > 1. Select the <div> element and type `Alt`+`/`
+    > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
    Save your changes.
 
@@ -618,7 +635,13 @@ You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .
     </div>
     ```
 
-   Save your changes.
+    > [!TIP]
+    > Try this with GitHub Copilot:
+    > 
+    > 1. Select the entire `<div>` element and click :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+    > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
+
+    Save your changes.
 
 1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
 1. Search for and select "Azure App Service: Deploy to Web App".
@@ -655,7 +678,7 @@ az webapp up --os-type <os>
 
 This command uses values that are cached locally in the *.azure/config* file, including the app name, resource group, and App Service plan.
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
+Once deployment completes, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
 You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
@@ -698,7 +721,7 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
     > [!NOTE]
     > `-ArchivePath` needs the full path of the zip file.
 
-1. Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
+1. Once deployment completes, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
     You see the updated ASP.NET Core 8.0 web app displayed in the page.
     
@@ -710,20 +733,20 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
 1. Browse to your GitHub fork of the sample code.
 
-1. On your repo page, press `.` to start Visual Studio Code within your browser.
-
-    > [!NOTE]
-    > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
+1. On your repo page, create a codespace by selecting **Code** > **Create codespace on main**.
 
     ### [.NET 8.0](#tab/net80)
     
-    ![Screenshot of forked dotnetcore-docs-hello-world GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-dotnetcore-docs-hello-world-repo-press-period.png)
+    ![Screenshot showing how to create a codespace in the forked dotnetcore-docs-hello-world GitHub repo.](media/quickstart-dotnetcore/github-forked-dotnetcore-docs-hello-world-repo-create-codespace.png)
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
-    ![Screenshot of forked app-service-web-dotnet-get-started GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-app-service-web-dotnet-get-started-repo-press-period.png)
+    ![Screenshot showing how to create a codespace in the forked app-service-web-dotnet-get-started GitHub repo.](media/quickstart-dotnetcore/github-forked-app-service-web-dotnet-get-started-repo-create-codespace.png)
 
     -----
+
+    > [!TIP]
+    > If you have a GitHub Copilot account, try [getting GitHub Copilot features in your codespace](https://docs.github.com/codespaces/reference/using-github-copilot-in-github-codespaces).
 
 1. Open *Index.cshtml*.
 
@@ -750,7 +773,13 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
     </div>
     ```
 
-   The changes are automatically saved.
+    The changes are automatically saved.
+
+    > [!TIP]
+    > Try this with GitHub Copilot:
+    > 
+    > 1. Select the entire `<div>` element and click :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+    > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
 3. From the **Source Control** menu, enter a commit message such as `Modify homepage`. Then, select **Commit and Push**. The changes are automatically staged for you, then committed and pushed to your fork.
 
@@ -763,6 +792,9 @@ You see the updated ASP.NET Core 8.0 web app displayed in the page.
     ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png)
 
     -----
+
+    > [!TIP]
+    > Try letting GitHub Copilot create a commit message for you selecting :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: in the message box.
 
 4. It takes a few minutes for the deployment to run. To view the progress, navigate to `https://github.com/<your-github-alias>/dotnetcore-docs-hello-world/actions`.
 
@@ -804,9 +836,9 @@ Save your changes, then redeploy the app using the `azd up` command again:
 azd up
 ```
 
-`azd up` will skip the provisioning resources step this time and only redeploy your code, since there have been no changes to the Bicep files.
+`azd up` skips the provisioning resources step this time and only redeploys your code, since there are no changes to the Bicep files.
 
-Once deployment has completed, the browser will open to the updated ASP.NET Core 8.0 web app.
+Once deployment completes, the browser opens to the updated ASP.NET Core 8.0 web app.
 
 :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 8.0 web app in Azure.":::
 
