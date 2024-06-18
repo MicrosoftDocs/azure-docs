@@ -18,8 +18,11 @@ For information about availability zones, see [Use availability zones zonal plac
 
 Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
 
+<<<<<<< HEAD
 [!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
 
+=======
+>>>>>>> 85bf294a679b45f912ec2285de5ca16b1f8dba5b
 ## Create the source volume with an availability zone  
 
 This process requires that your account is subscribed to the [availability zone volume placement feature](use-availability-zones.md).
