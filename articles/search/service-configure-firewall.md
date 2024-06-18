@@ -20,11 +20,11 @@ As soon as you install Azure AI Search, you can set up network access to limit a
 + Inbound rules listing the IP addresses, ranges, or subnets from which requests are admitted
 + Exceptions to network rules, where requests are admitted with no checks, as long as the request originates from a trusted service
 
-Network access and firewall rules aren't required, but it's a security best practice to include the network layer.
+Network rules aren't required, but it's a security best practice to add them.
 
-This article explains how to configure network access to a search service's public endpoint. To block *all* access through the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
+Network rules are scoped to data plane operations. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. Those operations specify resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
 
-Network access rules are scoped to data plane operations. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. Those operations specify resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
+This article explains how to configure network access to a search service's public endpoint. To block *all* access to the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
 
 This article assumes the Azure portal for network access configuration. You can also use the [Management REST API](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or the [Azure CLI](/cli/azure/search).
 
@@ -118,7 +118,7 @@ For managed identities on Azure OpenAI and Azure Machine Learning:
 
 For managed identities on Azure AI services:
 
-1. [Find your multiservice account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.CognitiveServices%2Faccounts/).
+1. [Find your multiservice account](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AIServices).
 1. On the leftmost pane, under **Resource management**, select **Identity**.
 1. Set **System-assigned** to **On**.
 
