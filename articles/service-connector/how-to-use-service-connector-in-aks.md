@@ -185,30 +185,30 @@ If there's an error during the extension installation, and the error message in 
 
 ### Common errors and mitigations
 
-#### 1. Conflict
+#### Conflict
 
 **Error Message:**
 `Operation returned an invalid status code: Conflict`.
 
 **Reason:**
-This error usually occurs when attempting to create a service connector while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connector's update conflicts with the ongoing update.
+This error usually occurs when attempting to create a service connection while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connection update conflicts with the ongoing update.
 
 **Mitigation:**
 Ensure your cluster is in a "Succeeded" state before retrying the creation. It resolves most errors related to conflicts.
 
-#### 2. Timeout
+#### Timeout
 
 **Error Message:**
 - `Long running operation failed with status 'Failed'. Unable to get a response from the Agent in time`.
 - `Timed out waiting for the resource to come to a ready/completed state`
 
 **Reason:**
-This error often happens when the Kubernetes job used to create or update the Service Connector's cluster extension fails to be scheduled due to resource limitations or other issues.
+This error often happens when the Kubernetes job used to create or update the Service Connector cluster extension fails to be scheduled due to resource limitations or other issues.
 
 **Mitigation:**
-Refer to the [Check Kubernetes Cluster Logs](#check-kubernetes-cluster-logs) to identify and resolve the detailed reasons. A common issue is that no nodes are available due to preemption. In this case, consider adding more nodes or enabling auto-scaling for your nodes.
+Refer to [Check Kubernetes cluster logs](#check-kubernetes-cluster-logs) to identify and resolve the detailed reasons. A common issue is that no nodes are available due to preemption. In this case, consider adding more nodes or enabling auto-scaling for your nodes.
 
-#### 3. Unauthorized Resource Access
+#### Unauthorized resource access
 
 **Error Message:**
 `You do not have permission to perform ... If access was recently granted, please refresh your credentials`.
@@ -219,7 +219,7 @@ Service Connector requires permissions to operate the Azure resources you want t
 **Mitigation:**
 Check the permissions on the Azure resources specified in the error message. Obtain the required permissions and retry the creation.
 
-#### Other Issues
+#### Other issues
 
 If the above mitigations don't resolve your issue, try resetting the service connector cluster extension by removing it and then retrying the creation. This method is expected to resolve most issues related to the Service Connector cluster extension.
 
