@@ -221,7 +221,7 @@ ms.topic: include
 | Default value  | `md5`          |
 | Allowed values | `md5,scram-sha-256`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  | [azure.accepted_password_auth_method](https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-scram)                                  |
+| Documentation  | [azure.accepted_password_auth_method](../how-to-connect-scram.md)                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
