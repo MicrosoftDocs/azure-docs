@@ -21,7 +21,7 @@ This article shows how to initiate an account failover for your storage account 
 > [!WARNING]
 > An account failover typically results in some data loss. To understand the implications of an account failover and to prepare for data loss, review [Data loss and inconsistencies](storage-disaster-recovery-guidance.md#anticipate-data-loss-and-inconsistencies).
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
