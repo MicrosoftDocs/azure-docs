@@ -13,7 +13,7 @@ ms.date: 06/16/2024
 
 To help ensure a successful Azure Cloud Services (extended support) deployment, review the following steps. Complete each prerequisitive before you begin to create a deployment.
 
-## Required configuration (.cscfg) file updates
+## Required configuration file updates
 
 Use the information in the following sections to make required updates to the configuration (.cscfg) file for your Cloud Services (extended support) deployment.
 
