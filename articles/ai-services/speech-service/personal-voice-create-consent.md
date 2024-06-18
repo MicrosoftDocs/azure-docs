@@ -16,7 +16,7 @@ ms.author: eur
 
 With the personal voice feature, it's required that every voice be created with explicit consent from the user. A recorded statement from the user is required acknowledging that the customer (Azure AI Speech resource owner) will create and use their voice.
 
-To add user consent to the personal voice project, you provide the prerecorded consent audio file [from a publicly accessible URL](#add-consent-from-a-url) ([Consents_Create](/rest/api/speechapi/consents/create)) or [upload the audio file](#add-consent-from-a-file) (`Consents_Post`).  
+To add user consent to the personal voice project, you provide the prerecorded consent audio file [from a publicly accessible URL](#add-consent-from-a-url) ([Consents_Create](/rest/api/aiservices/speechapi/consents/create)) or [upload the audio file](#add-consent-from-a-file) ([Consents_Post](/rest/api/aiservices/speechapi/consents/post)).  
 
 ## Consent statement
 
@@ -46,7 +46,7 @@ Make an HTTP POST request using the URI as shown in the following `Consents_Post
 - Replace `JessicaConsentId` with a consent ID of your choice. The case sensitive ID will be used in the consent's URI and can't be changed later. 
 
 ```azurecli-interactive
-curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -F 'description="Consent for Jessica voice"' -F 'projectId="ProjectId"' -F 'voiceTalentName="Jessica Smith"' -F 'companyName="Contoso"' -F 'audiodata=@"D:\PersonalVoiceTest\jessica-consent.wav"' -F 'locale="en-US"' "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/consents/JessicaConsentId?api-version=2023-12-01-preview"
+curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourResourceKey" -F 'description="Consent for Jessica voice"' -F 'projectId="ProjectId"' -F 'voiceTalentName="Jessica Smith"' -F 'companyName="Contoso"' -F 'audiodata=@"D:\PersonalVoiceTest\jessica-consent.wav"' -F 'locale="en-US"' "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/consents/JessicaConsentId?api-version=2024-02-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -68,7 +68,7 @@ You should receive a response body in the following format:
 The response header contains the `Operation-Location` property. Use this URI to get details about the `Consents_Post` operation. Here's an example of the response header:
 
 ```HTTP 201
-Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/070f7986-ef17-41d0-ba2b-907f0f28e314?api-version=2023-12-01-preview
+Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/070f7986-ef17-41d0-ba2b-907f0f28e314?api-version=2024-02-01-preview
 Operation-Id: 070f7986-ef17-41d0-ba2b-907f0f28e314
 ```
 
@@ -76,7 +76,7 @@ Operation-Id: 070f7986-ef17-41d0-ba2b-907f0f28e314
 
 In this scenario, the audio files must already be stored in an Azure Blob Storage container. 
 
-To add consent to a personal voice project from the URL of an audio file, use the [Consents_Create](/rest/api/speechapi/consents/create) operation of the custom voice API. Construct the request body according to the following instructions:
+To add consent to a personal voice project from the URL of an audio file, use the [Consents_Create](/rest/api/aiservices/speechapi/consents/create) operation of the custom voice API. Construct the request body according to the following instructions:
 
 - Set the required `projectId` property. See [create a project](./personal-voice-create-project.md).
 - Set the required `voiceTalentName` property. The voice talent name can't be changed later.
@@ -84,7 +84,7 @@ To add consent to a personal voice project from the URL of an audio file, use th
 - Set the required `audioUrl` property. The URL of the voice talent consent audio file. Use a URI with the [shared access signatures (SAS)](/azure/storage/common/storage-sas-overview) token.
 - Set the required `locale` property. This should be the locale of the consent. The locale can't be changed later. You can find the text to speech locale list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
-Make an HTTP PUT request using the URI as shown in the following [Consents_Create](/rest/api/speechapi/consents/create) example. 
+Make an HTTP PUT request using the URI as shown in the following [Consents_Create](/rest/api/aiservices/speechapi/consents/create) example. 
 - Replace `YourResourceKey` with your Speech resource key.
 - Replace `YourResourceRegion` with your Speech resource region.
 - Replace `JessicaConsentId` with a consent ID of your choice. The case sensitive ID will be used in the consent's URI and can't be changed later. 
@@ -97,7 +97,7 @@ curl -v -X PUT -H "Ocp-Apim-Subscription-Key: YourResourceKey" -H "Content-Type:
   "companyName": "Contoso",
   "audioUrl": "https://contoso.blob.core.windows.net/public/jessica-consent.wav?mySasToken",
   "locale": "en-US"
-} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/consents/JessicaConsentId?api-version=2023-12-01-preview"
+} '  "https://YourResourceRegion.api.cognitive.microsoft.com/customvoice/consents/JessicaConsentId?api-version=2024-02-01-preview"
 ```
 
 You should receive a response body in the following format:
@@ -116,10 +116,10 @@ You should receive a response body in the following format:
 }
 ```
 
-The response header contains the `Operation-Location` property. Use this URI to get details about the [Consents_Create](/rest/api/speechapi/consents/create) operation. Here's an example of the response header:
+The response header contains the `Operation-Location` property. Use this URI to get details about the [Consents_Create](/rest/api/aiservices/speechapi/consents/create) operation. Here's an example of the response header:
 
 ```HTTP 201
-Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/070f7986-ef17-41d0-ba2b-907f0f28e314?api-version=2023-12-01-preview
+Operation-Location: https://eastus.api.cognitive.microsoft.com/customvoice/operations/070f7986-ef17-41d0-ba2b-907f0f28e314?api-version=2024-02-01-preview
 Operation-Id: 070f7986-ef17-41d0-ba2b-907f0f28e314
 ```
 

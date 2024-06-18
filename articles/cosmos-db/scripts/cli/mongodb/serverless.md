@@ -13,7 +13,7 @@ ms.date: 02/21/2022
 
 # Create a serverless database and collection for API for MongoDB for Azure Cosmos DB using Azure CLI
 
-[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 The script in this article demonstrates creating a API for MongoDB serverless account database and collection.
 

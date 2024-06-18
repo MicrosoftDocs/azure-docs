@@ -26,7 +26,7 @@ Key Vault partners with the following certificate authorities to simplify certif
 |Provider|Certificate type|Configuration setup  
 |--------------|----------------------|------------------|  
 |DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration guide](./how-to-integrate-certificate-authority.md)
-|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration guide](https://support.globalsign.com/code-signing/Code-Signing-certificate-setup-in-Azure-Key-vault)
 
 ## Add certificates in Key Vault issued by non-partnered CAs
 

@@ -12,7 +12,7 @@ metadata:
   ms.date: 02/23/2024
 title: Frequently asked questions about Azure Cosmos DB for MongoDB in vCore architecture
 summary: |
-  [!INCLUDE[MongoDB (vCore)](../../includes/appliesto-mongodb-vcore.md)]
+  [!INCLUDE[MongoDB (vCore)](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 sections:
   - name: General
     questions:

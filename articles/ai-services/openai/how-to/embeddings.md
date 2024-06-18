@@ -5,12 +5,12 @@ description: Learn how to generate embeddings with Azure OpenAI
 #services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 01/16/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
-
 ---
 # Learn how to generate embeddings with Azure OpenAI
 
@@ -147,5 +147,3 @@ Our embedding models may be unreliable or pose social risks in certain cases, an
   * [Azure Cosmos DB for PostgreSQL](../../../cosmos-db/postgresql/howto-use-pgvector.md)
   * [Azure Database for PostgreSQL - Flexible Server](../../../postgresql/flexible-server/how-to-use-pgvector.md)  
   * [Azure Cache for Redis](../../../azure-cache-for-redis/cache-tutorial-vector-similarity.md)
-
-

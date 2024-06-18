@@ -41,7 +41,7 @@ Before attempting to run a Docker container in an offline environment, make sure
 
 Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) to request access to the containers disconnected from the internet.
 
-[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../includes/cognitive-services-containers-request-access.md)]
 
 Access is limited to customers that meet the following requirements:
 
@@ -104,7 +104,7 @@ This example replaces the default format for the `Mounts:License` and `Mounts:Ou
 
 ## Container image and license updates
 
-[!INCLUDE [License update information](../../../includes/cognitive-services-containers-license-update.md)]
+[!INCLUDE [License update information](../includes/cognitive-services-containers-license-update.md)]
 
 ## Usage records
 

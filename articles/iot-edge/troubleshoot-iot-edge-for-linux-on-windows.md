@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot your IoT Edge for Linux on Windows device | Microsoft Docs 
+title: Troubleshoot your IoT Edge for Linux on Windows device
 description: Learn standard diagnostic skills for troubleshooting Azure IoT Edge for Linux on Windows (EFLOW) like retrieving component status and logs.
 author: PatAltimore
-ms.author: fcabrera
-ms.date: 11/15/2022
-ms.topic: conceptual
+ms.author: patricka
+ms.date: 06/10/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
@@ -40,7 +40,7 @@ When you need to gather logs from an IoT Edge for Linux on Windows device, the m
 - **IoT Edge logs**: includes the output of `iotedge check` the IoT Edge runtime support bundle.
 - **WSSDAgent logs**: includes all the logs related to the *WSSDAgent* service.
 
-After the cmdlet gathers all the required logs, the files are compressed into a single file named _eflowlogs.zip_ under the EFLOW installation path (For example, _C:\Program Files\Azure IoT Edge_).
+After the cmdlet gathers all the required logs, the files are compressed into a single file named *eflowlogs.zip* under the EFLOW installation path (For example, *C:\Program Files\Azure IoT Edge*).
 
 ## Check your IoT Edge version
 
@@ -57,15 +57,15 @@ For instructions on how to update your device, see [Update IoT Edge for Linux on
 
 ## Check the EFLOW VM status
 
-You can verify the EFLOW VM status and information by using the `Get-EflowVm` PowerShell cmdlet. If the EFLOW VM is running, the **VmPowerState** output should be _Running_. Whereas if the VM is stopped, the **VmPowerState** output is _Off_. To start or stop the EFLOW VM, use the `Start-EflowVm` and `Stop-EflowVm` cmdlet. 
+You can verify the EFLOW VM status and information by using the `Get-EflowVm` PowerShell cmdlet. If the EFLOW VM is running, the **VmPowerState** output should be *Running*. Whereas if the VM is stopped, the **VmPowerState** output is *Off*. To start or stop the EFLOW VM, use the `Start-EflowVm` and `Stop-EflowVm` cmdlet. 
 
-If the VM is _Running_ but you can't interact or access the VM, there's probably a networking issue between the VM and the Windows host OS.  Also, make sure that the EFLOW VM has enough memory and storage available to continue with normal execution. Run the `Get-EflowVm` cmdlet to see the memory(_TotalMemMb_, _UsedMemMb_, _AvailableMemMb_) and storage(_TotalStorageMb_, _UsedStorageMb_, _AvailableStorageMb_) information. 
+If the VM is *Running* but you can't interact or access the VM, there's probably a networking issue between the VM and the Windows host OS.  Also, make sure that the EFLOW VM has enough memory and storage available to continue with normal execution. Run the `Get-EflowVm` cmdlet to see the memory(*TotalMemMb*, *UsedMemMb*, *AvailableMemMb*) and storage(*TotalStorageMb*, *UsedStorageMb*, *AvailableStorageMb*) information. 
 
-Finally, if the VM is _Off_ and you can't start it using the `Start-EflowVm` cmdlet, there may be several reasons why the VM can't be started. 
+Finally, if the VM is *Off* and you can't start it using the `Start-EflowVm` cmdlet, there may be several reasons why the VM can't be started. 
 
-First, the issue could be related to the VM lifecycle management service (_WSSDAgent_) not running. Ensure that the _WSSDAgent_ service is running using the following steps: 
+First, the issue could be related to the VM lifecycle management service (*WSSDAgent*) not running. Ensure that the *WSSDAgent* service is running using the following steps: 
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. Check the service status
     ```powershell
     Get-Service -Name WSSDAgent
@@ -76,14 +76,14 @@ First, the issue could be related to the VM lifecycle management service (_WSSDA
     ```
 1. If the service is **Running**, the issue is probably related to a networking misconfiguration or lack of resources to create the VM.
 
-Second, the issue could be related to lack of resources. You can set the _EflowVmAssignedMemory_ (`-memoryInMb`) and _EflowVmAssignedCPUcores_ (`-cpuCount`) assigned to the VM during deployment using the `Deploy-Eflow` PowerShell cmdlet, or after deployment using the `Set-EflowVm` cmdlet. If these resources aren't available when trying to start the VM, the VM fails to start. To check the resources assigned and available, use the following steps:
+Second, the issue could be related to lack of resources. You can set the *EflowVmAssignedMemory* (`-memoryInMb`) and *EflowVmAssignedCPUcores* (`-cpuCount`) assigned to the VM during deployment using the `Deploy-Eflow` PowerShell cmdlet, or after deployment using the `Set-EflowVm` cmdlet. If these resources aren't available when trying to start the VM, the VM fails to start. To check the resources assigned and available, use the following steps:
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
-1. Check the available memory. Ensure that the _FreePhysicalMemory_ is greater than the _EflowVmAssignedMemory_.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
+1. Check the available memory. Ensure that the *FreePhysicalMemory* is greater than the *EflowVmAssignedMemory*.
     ```powershell
     Get-CIMInstance Win32_OperatingSystem | Select FreePhysicalMemory
     ```
-1. Check the available CPU cores. Ensure that  _NumberOfLogicalProcessors_ is greater than _EflowVmAssignedCPUcores_.
+1. Check the available CPU cores. Ensure that  *NumberOfLogicalProcessors* is greater than *EflowVmAssignedCPUcores*.
    ```powershell
     wmic cpu get NumberOfLogicalProcessors
     ```
@@ -94,7 +94,7 @@ Finally, the issue could be related to networking. For more information about EF
 
 The [IoT Edge runtime](./iot-edge-runtime.md) is responsible for receiving the code to run at the edge and communicate the results. If IoT Edge runtime and modules aren't running, no code runs at the edge. You can check the runtime and module status using the following steps:
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. Check the IoT Edge runtime status. In particular, check if the service is **Loaded** and **Active**. 
     ```powershell
     (Get-EflowVm).EdgeRuntimeStatus.SystemCtlStatus | Format-List
@@ -108,10 +108,10 @@ For more information about IoT Edge runtime troubleshooting, see [Troubleshoot y
 
 ## Check TPM passthrough
 
-If you're using TPM provisioning by following the guide [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md), you must enable TPM passthrough. In order to access the physical TPM connected to the Windows host OS, all the EFLOW VM TPM commands are forwarded to the host OS using a Windows service called _EFLOWProxy_. If you experience issues using _DpsTpm_ provisioning, or accessing TPM indexes from the EFLOW VM, check the service status using the following steps:
+If you're using TPM provisioning by following the guide [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md), you must enable TPM passthrough. In order to access the physical TPM connected to the Windows host OS, all the EFLOW VM TPM commands are forwarded to the host OS using a Windows service called *EFLOWProxy*. If you experience issues using *DpsTpm* provisioning, or accessing TPM indexes from the EFLOW VM, check the service status using the following steps:
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
-1. Check the status of the _EFLOWProxy_ service.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
+1. Check the status of the *EFLOWProxy* service.
     ```powershell
     Get-Service -Name EFLOWProxy
     ```
@@ -119,7 +119,7 @@ If you're using TPM provisioning by following the guide [Create and provision an
     ```powershell
     Start-Service -Name EFLOWProxy
     ```
-   If the service won't start, check the _EFLOWProxy_ logs. Go to **Apps** > **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **EFLOW** > **EFLOWProxy** and check the logs. 
+   If the service won't start, check the *EFLOWProxy* logs. Go to **Apps** > **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **EFLOW** > **EFLOWProxy** and check the logs. 
 
 1. If the service is **Running** then check the EFLOW VM proxy services. Start by connecting to the EFLOW VM.
    ```powershell
@@ -141,7 +141,7 @@ If you're using TPM provisioning by following the guide [Create and provision an
    sudo systemctl restart tpm*
    ```
    
-1. Check the communication between the EFLOW VM and the *EFLOWProxy* service. If communication is working, you should see the _RegistrationId_ and the TPM _Endorsement Key_ as output from the following command: 
+1. Check the communication between the EFLOW VM and the *EFLOWProxy* service. If communication is working, you should see the *RegistrationId* and the TPM *Endorsement Key* as output from the following command: 
    ```bash
    sudo /usr/bin/tpm_device_provision
    ```
@@ -158,7 +158,7 @@ First, start by checking your device is available on the Windows host OS.
 1. Check that the driver is correctly installed.
 
 Second, if the GPU is correctly assigned, but still not being able to use it inside the EFLOW VM, use the following steps:
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. Connect to the EFLOW VM
     ```powershell
     Connect-EflowVm
@@ -183,7 +183,7 @@ Second, if the GPU is correctly assigned, but still not being able to use it ins
 
 The first step before checking *WSSDAgent* logs is to check if the VM was created and is running. 
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. On Windows Client SKUs, check the [HCS](https://techcommunity.microsoft.com/t5/containers/introducing-the-host-compute-service-hcs/ba-p/382332) virtual machines.
     ```powershell
     hcsdiag list
@@ -213,7 +213,7 @@ If for some reason the VM isn't listed, that means that VM isn't running or the 
 
 1. Open **File Explorer**.
 1. Go to `C:\ProgramData\wssdagent\log`
-1. Open the _wssdagent.log_ file.
+1. Open the *wssdagent.log* file.
 1. Look for the words **Error** or **Fail**.
 
 ## Reinstall EFLOW

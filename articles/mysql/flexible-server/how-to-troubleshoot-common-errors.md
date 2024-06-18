@@ -16,7 +16,7 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE [azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE [azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL flexible server is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment might differ from running MySQL in your own environment. In this article, you'll see some of the common errors users might encounter while migrating to or developing on Azure Database for MySQL flexible server for the first time.
 

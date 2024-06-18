@@ -242,152 +242,6 @@ tracer = Tracer(
 
 ---
 
-## Disable local authentication
-
-After the Microsoft Entra authentication is enabled, you can choose to disable local authentication. This configuration allows you to ingest telemetry authenticated exclusively by Microsoft Entra ID and affects data access (for example, through API keys).
-
-You can disable local authentication by using the Azure portal or Azure Policy or programmatically.
-
-### Azure portal
-
-1. From your Application Insights resource, select **Properties** under **Configure** in the menu on the left. Select **Enabled (click to change)** if the local authentication is enabled.
-
-   :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot that shows Properties under the Configure section and the Enabled (select to change) local authentication button.":::
-
-1. Select **Disabled** and apply changes.
-
-   :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot that shows local authentication with the Enabled/Disabled button.":::
-
-1. After disabling local authentication on your resource, you'll see the corresponding information in the **Overview** pane.
-
-   :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot that shows the Overview tab with the Disabled (select to change) local authentication button.":::
-
-### Azure Policy
-
-Azure Policy for `DisableLocalAuth` denies users the ability to create a new Application Insights resource without this property set to `true`. The policy name is `Application Insights components should block non-AAD auth ingestion`.
-
-To apply this policy definition to your subscription, [create a new policy assignment and assign the policy](../../governance/policy/assign-policy-portal.md).
-
-The following example shows the policy template definition:
-
-```JSON
-{
-    "properties": {
-        "displayName": "Application Insights components should block non-AAD auth ingestion",
-        "policyType": "BuiltIn",
-        "mode": "Indexed",
-        "description": "Improve Application Insights security by disabling log ingestion that are not AAD-based.",
-        "metadata": {
-            "version": "1.0.0",
-            "category": "Monitoring"
-        },
-        "parameters": {
-            "effect": {
-                "type": "String",
-                "metadata": {
-                    "displayName": "Effect",
-                    "description": "The effect determines what happens when the policy rule is evaluated to match"
-                },
-                "allowedValues": [
-                    "audit",
-                    "deny",
-                    "disabled"
-                ],
-                "defaultValue": "audit"
-            }
-        },
-        "policyRule": {
-            "if": {
-                "allOf": [
-                    {
-                        "field": "type",
-                        "equals": "Microsoft.Insights/components"
-                    },
-                    {
-                        "field": "Microsoft.Insights/components/DisableLocalAuth",
-                        "notEquals": "true"                        
-                    }
-                ]
-            },
-            "then": {
-                "effect": "[parameters('effect')]"
-            }
-        }
-    }
-}
-```
-
-### Programmatic enablement
-
-The property `DisableLocalAuth` is used to disable any local authentication on your Application Insights resource. When this property is set to `true`, it enforces that Microsoft Entra authentication must be used for all access.
-
-The following example shows the Azure Resource Manager template you can use to create a workspace-based Application Insights resource with `LocalAuth` disabled.
-
-```JSON
-{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "name": {
-            "type": "string"
-        },
-        "type": {
-            "type": "string"
-        },
-        "regionId": {
-            "type": "string"
-        },
-        "tagsArray": {
-            "type": "object"
-        },
-        "requestSource": {
-            "type": "string"
-        },
-        "workspaceResourceId": {
-            "type": "string"
-        },
-        "disableLocalAuth": {
-            "type": "bool"
-        }
-     
-    },
-    "resources": [
-        {
-        "name": "[parameters('name')]",
-        "type": "microsoft.insights/components",
-        "location": "[parameters('regionId')]",
-        "tags": "[parameters('tagsArray')]",
-        "apiVersion": "2020-02-02-preview",
-        "dependsOn": [],
-        "properties": {
-            "Application_Type": "[parameters('type')]",
-            "Flow_Type": "Redfield",
-            "Request_Source": "[parameters('requestSource')]",
-            "WorkspaceResourceId": "[parameters('workspaceResourceId')]",
-            "DisableLocalAuth": "[parameters('disableLocalAuth')]"
-            }
-    }
- ]
-}
-
-```
-
-### Token audience
-
-When developing a custom client to obtain an access token from Microsoft Entra ID for submitting telemetry to Application Insights, refer to the following table to determine the appropriate audience string for your particular host environment.
-
-| Azure cloud version | Token audience value |
-| --- | --- |
-| Azure public cloud | `https://monitor.azure.com` |
-| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
-| Azure US Government cloud | `https://monitor.azure.us` |
-
-If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:
-
-*InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}*
-
-The audience parameter, AADAudience, can vary depending on your specific environment.
-
 ## Query Application Insights using Microsoft Entra authentication
 
 You can submit a query request by using the Azure Monitor Application Insights endpoint `https://api.applicationinsights.io`. To access the endpoint, you must authenticate through Microsoft Entra ID.
@@ -824,6 +678,152 @@ A successful request produces a redirect to your redirect URI with the token in 
 ```
 
 This access\_token serves as the `Authorization: Bearer` header value when it passes to the Application Insights API to authorize requests.
+
+## Disable local authentication
+
+After the Microsoft Entra authentication is enabled, you can choose to disable local authentication. This configuration allows you to ingest telemetry authenticated exclusively by Microsoft Entra ID and affects data access (for example, through API keys).
+
+You can disable local authentication by using the Azure portal or Azure Policy or programmatically.
+
+### Azure portal
+
+1. From your Application Insights resource, select **Properties** under **Configure** in the menu on the left. Select **Enabled (click to change)** if the local authentication is enabled.
+
+   :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Screenshot that shows Properties under the Configure section and the Enabled (select to change) local authentication button.":::
+
+1. Select **Disabled** and apply changes.
+
+   :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Screenshot that shows local authentication with the Enabled/Disabled button.":::
+
+1. After disabling local authentication on your resource, you'll see the corresponding information in the **Overview** pane.
+
+   :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot that shows the Overview tab with the Disabled (select to change) local authentication button.":::
+
+### Azure Policy
+
+Azure Policy for `DisableLocalAuth` denies users the ability to create a new Application Insights resource without this property set to `true`. The policy name is `Application Insights components should block non-AAD auth ingestion`.
+
+To apply this policy definition to your subscription, [create a new policy assignment and assign the policy](../../governance/policy/assign-policy-portal.md).
+
+The following example shows the policy template definition:
+
+```JSON
+{
+    "properties": {
+        "displayName": "Application Insights components should block non-AAD auth ingestion",
+        "policyType": "BuiltIn",
+        "mode": "Indexed",
+        "description": "Improve Application Insights security by disabling log ingestion that are not AAD-based.",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Monitoring"
+        },
+        "parameters": {
+            "effect": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Effect",
+                    "description": "The effect determines what happens when the policy rule is evaluated to match"
+                },
+                "allowedValues": [
+                    "audit",
+                    "deny",
+                    "disabled"
+                ],
+                "defaultValue": "audit"
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Insights/components"
+                    },
+                    {
+                        "field": "Microsoft.Insights/components/DisableLocalAuth",
+                        "notEquals": "true"                        
+                    }
+                ]
+            },
+            "then": {
+                "effect": "[parameters('effect')]"
+            }
+        }
+    }
+}
+```
+
+### Programmatic enablement
+
+The property `DisableLocalAuth` is used to disable any local authentication on your Application Insights resource. When this property is set to `true`, it enforces that Microsoft Entra authentication must be used for all access.
+
+The following example shows the Azure Resource Manager template you can use to create a workspace-based Application Insights resource with `LocalAuth` disabled.
+
+```JSON
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "regionId": {
+            "type": "string"
+        },
+        "tagsArray": {
+            "type": "object"
+        },
+        "requestSource": {
+            "type": "string"
+        },
+        "workspaceResourceId": {
+            "type": "string"
+        },
+        "disableLocalAuth": {
+            "type": "bool"
+        }
+     
+    },
+    "resources": [
+        {
+        "name": "[parameters('name')]",
+        "type": "microsoft.insights/components",
+        "location": "[parameters('regionId')]",
+        "tags": "[parameters('tagsArray')]",
+        "apiVersion": "2020-02-02-preview",
+        "dependsOn": [],
+        "properties": {
+            "Application_Type": "[parameters('type')]",
+            "Flow_Type": "Redfield",
+            "Request_Source": "[parameters('requestSource')]",
+            "WorkspaceResourceId": "[parameters('workspaceResourceId')]",
+            "DisableLocalAuth": "[parameters('disableLocalAuth')]"
+            }
+    }
+ ]
+}
+
+```
+
+### Token audience
+
+When developing a custom client to obtain an access token from Microsoft Entra ID for submitting telemetry to Application Insights, refer to the following table to determine the appropriate audience string for your particular host environment.
+
+| Azure cloud version | Token audience value |
+| --- | --- |
+| Azure public cloud | `https://monitor.azure.com` |
+| Microsoft Azure operated by 21Vianet cloud | `https://monitor.azure.cn` |
+| Azure US Government cloud | `https://monitor.azure.us` |
+
+If you're using sovereign clouds, you can find the audience information in the connection string as well. The connection string follows this structure:
+
+*InstrumentationKey={profile.InstrumentationKey};IngestionEndpoint={ingestionEndpoint};LiveEndpoint={liveDiagnosticsEndpoint};AADAudience={aadAudience}*
+
+The audience parameter, AADAudience, can vary depending on your specific environment.
 
 ## Troubleshooting
 

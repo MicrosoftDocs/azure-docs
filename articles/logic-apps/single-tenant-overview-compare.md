@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 05/31/2024
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -71,7 +71,7 @@ When you use the new built-in connector operations, you create connections calle
 
 ### Direct access to resources in Azure virtual networks
 
-Workflows that run in either single-tenant Azure Logic Apps or in an *integration service environment* (ISE) can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
+Workflows that run in either single-tenant Azure Logic Apps or in an *integration service environment (ISE)* can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
 Both single-tenant Azure Logic Apps and an ISE are dedicated instances of the Azure Logic Apps service, use dedicated resources, and run separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
@@ -316,6 +316,8 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 * **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
 
 * **Azure API Management**: You currently can't import a **Standard** logic app resource into Azure API Management. However, you can import a **Consumption** logic app resource.
+
+* **Authentication to backend storage**: Single-tenant Azure Logic Apps relies only on storage access keys to connect with the backend Azure Storage account. Alternative authentication methods, such as Microsoft Entra ID (Enterprise ID) and managed identity, currently aren't supported. So, when you deploy an Azure storage account alongside a **Standard** logic app, make sure that you enable storage access keys.
 
 <a name="firewall-permissions"></a>
 

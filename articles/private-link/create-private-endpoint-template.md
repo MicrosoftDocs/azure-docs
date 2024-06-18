@@ -108,7 +108,7 @@ To connect to the SQL Database server from the VM by using the private endpoint,
       Server:  UnKnown
       Address:  168.63.129.16
       Non-authoritative answer:
-      Name:    sqlserver.server-name.database.windows.net
+      Name:    sqlserver.privatelink.database.windows.net
       Address:  10.0.0.5
       Aliases:  sqlserver.database.windows.net
     ```

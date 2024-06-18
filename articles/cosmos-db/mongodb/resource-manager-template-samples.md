@@ -13,7 +13,7 @@ ms.reviewer: mjbrown
 
 # Manage Azure Cosmos DB for MongoDB resources using Azure Resource Manager templates
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts for API for MongoDB, databases, and collections.
 

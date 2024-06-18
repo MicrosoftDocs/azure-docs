@@ -85,7 +85,7 @@
         href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-delete-vnet-gateway-powershell.md
-  - name: Site-to-site
+  - name: Site-to-site (S2S)
     items:
     - name: Configure site-to-site connections
       items:
@@ -125,101 +125,87 @@
         href: vpn-gateway-connect-different-deployment-models-portal.md
       - name: Azure PowerShell
         href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: Point-to-site
+  - name: Point-to-site (P2S)
     items:
-    - name: Server configuration
+    - name: Certificate authentication
       items:
-      - name: Azure certificate authentication
+      - name: P2S gateway configuration
         items:
-        - name: Configure a point-to-site VPN
+        - name: Azure portal
+          href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-howto-point-to-site-rm-ps.md
+      - name: VPN client configuration
+        items:
+        - name: Windows clients
           items:
-          - name: Azure portal
-            href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
-          - name: Azure PowerShell
-            href: vpn-gateway-howto-point-to-site-rm-ps.md
-        - name: Generate self-signed certificates
+          - name: Native VPN client
+            href: point-to-site-vpn-client-certificate-windows-native.md
+          - name: Azure VPN client
+            href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
+          - name: OpenVPN client
+            href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
+        - name: Linux clients
           items:
-          - name: Azure PowerShell
-            href: vpn-gateway-certificates-point-to-site.md
-          - name: Makecert
-            href: vpn-gateway-certificates-point-to-site-makecert.md
-          - name: Linux - OpenSSL
-            href: point-to-site-certificates-linux-openssl.md
-          - name: Linux - strongSwan
-            href: vpn-gateway-certificates-point-to-site-linux.md
-      - name: RADIUS authentication
+          - name: Azure VPN client
+            href: point-to-site-certificate-client-linux-azure-vpn-client.md
+          - name: OpenVPN client
+            href: point-to-site-vpn-client-certificate-openvpn-linux.md
+          - name: IKEv2 -strongSwan
+            href: point-to-site-vpn-client-certificate-ike-linux.md
+        - name: macOS and iOS clients
+          items:
+          - name: Native VPN client
+            href: point-to-site-vpn-client-cert-mac.md
+          - name: OpenVPN client - macOS
+            href: point-to-site-vpn-client-certificate-openvpn-mac.md
+          - name: OpenVPN client - iOS
+            href: point-to-site-vpn-client-certificate-openvpn-ios.md
+      - name: Generate self-signed certificates
         items:
-        - name: Configure a point-to-site VPN
-          href: point-to-site-how-to-radius-ps.md
-        - name: Integrate point-to-site VPN RADIUS authentication with NPS server
-          href: vpn-gateway-radius-mfa-nsp.md
-      - name: Microsoft Entra ID authentication
+        - name: Azure PowerShell
+          href: vpn-gateway-certificates-point-to-site.md
+        - name: Makecert
+          href: vpn-gateway-certificates-point-to-site-makecert.md
+        - name: Linux - OpenSSL
+          href: point-to-site-certificates-linux-openssl.md
+        - name: Linux - strongSwan
+          href: vpn-gateway-certificates-point-to-site-linux.md
+      - name: Install VPN client certificates
+        href: point-to-site-how-to-vpn-client-install-azure-cert.md
+    - name: Microsoft Entra ID authentication
+      items:
+      - name: P2S gateway configuration
         items:
-        - name: Configure a point-to-site VPN and tenant
+        - name: Configure P2S - Microsoft-registered VPN client
+          href: point-to-site-entra-gateway.md
+        - name: Configure P2S - manually registered VPN client
           href: openvpn-azure-ad-tenant.md
+        - name: Change Audience for P2S gateway
+          href: point-to-site-entra-gateway-update.md
         - name: Configure access based on users and groups
           href: openvpn-azure-ad-tenant-multi-app.md
         - name: Configure Multi-Factor Authentication (MFA)
           href: openvpn-azure-ad-mfa.md
-      - name: Specify multiple authentication types for a P2S connection
+      - name: VPN client configuration
         items:
-        - name: Configure certificate and Microsoft Entra ID authentication
-          href: howto-point-to-site-multi-auth.md          
-      - name: OpenVPN tunnel type
-        items:
-        - name: Configure OpenVPN tunnel type
-          href: vpn-gateway-howto-openvpn.md
-        - name: Move to OpenVPN protocol or IKEv2 from SSTP
-          href: ikev2-openvpn-from-sstp.md
-      - name: Configure Always On tunnels
-        items:
-        - name: Device tunnel
-          href: vpn-gateway-howto-always-on-device-tunnel.md
-        - name: User tunnel
-          href: vpn-gateway-howto-always-on-user-tunnel.md
-      - name: Point-to-site session management
-        href: p2s-session-management.md
-      - name: Advertise custom routes to point-to-site clients
-        href: vpn-gateway-p2s-advertise-custom-routes.md
-      - name: Create custom IPsec policies for point-to-site
-        href: create-custom-policies-p2s-ps.md
-    - name: Client configuration
+        - name: Windows clients
+          href: point-to-site-entra-vpn-client-windows.md
+        - name: Linux clients
+          href: point-to-site-entra-vpn-client-linux.md
+        - name: macOS clients
+          href: point-to-site-entra-vpn-client-mac.md
+      - name: Generate VPN client profile configuration files
+        href: about-vpn-profile-download.md
+    - name: RADIUS authentication
       items:
-      - name: Certificate authentication
+      - name: P2S gateway configuration
         items:
-        - name: Client workflow and configuration files
-          items:
-          - name: Windows computers
-            href: point-to-site-vpn-client-cert-windows.md
-          - name: macOS-iOS
-            href: point-to-site-vpn-client-cert-mac.md
-          - name: Linux
-            href: point-to-site-vpn-client-cert-linux.md
-        - name: Configure VPN clients
-          items:
-          - name: Install client certificates
-            href: point-to-site-how-to-vpn-client-install-azure-cert.md
-          - name: Windows clients
-            items:
-            - name: Native VPN client - Windows
-              href: point-to-site-vpn-client-certificate-windows-native.md
-            - name: Azure VPN client - Windows
-              href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
-          - name: Linux clients
-            items:
-            - name: OpenVPN client
-              href: point-to-site-vpn-client-cert-linux.md#openvpn
-            - name: IKEv2 -strongSwan
-              href: point-to-site-vpn-client-cert-linux.md#ike
-          - name: macOS and iOS clients
-            items:
-            - name: Native VPN client - macOS
-              href: point-to-site-vpn-client-cert-mac.md
-            - name: OpenVPN client - macOS
-              href: point-to-site-vpn-client-cert-mac.md
-            - name: OpenVPN client - iOS
-              href: point-to-site-vpn-client-cert-mac.md
-      - name: RADIUS authentication
+        - name: Configure a point-to-site VPN
+          href: point-to-site-how-to-radius-ps.md
+        - name: Multifactor authentication - P2S RADIUS and NPS server
+          href: vpn-gateway-radius-mfa-nsp.md
+      - name: VPN client configuration
         items:
         - name: Certificate authentication clients
           href: point-to-site-vpn-client-configuration-radius-certificate.md
@@ -227,18 +213,24 @@
           href: point-to-site-vpn-client-configuration-radius-password.md
         - name: Other authentication protocols
           href: point-to-site-vpn-client-configuration-radius-other.md
-      - name: Microsoft Entra ID authentication
-        items:
-        - name: Windows
-          href: openvpn-azure-ad-client.md
-        - name: macOS
-          href: openvpn-azure-ad-client-mac.md
-        - name: Generate profile files
-          href: about-vpn-profile-download.md 
-      - name: Azure VPN Client - optional settings
-        href: azure-vpn-client-optional-configurations.md
-      - name: Azure VPN Client versions
-        href: azure-vpn-client-versions.md
+    - name: Configure Always On tunnels
+      items:
+      - name: Device tunnel
+        href: vpn-gateway-howto-always-on-device-tunnel.md
+      - name: User tunnel
+        href: vpn-gateway-howto-always-on-user-tunnel.md  
+    - name: Move to OpenVPN or IKEv2 from SSTP
+      href: ikev2-openvpn-from-sstp.md
+    - name: P2S session management
+      href: p2s-session-management.md
+    - name: Advertise custom routes to P2S clients
+      href: vpn-gateway-p2s-advertise-custom-routes.md
+    - name: Create custom IPsec policies for P2S
+      href: create-custom-policies-p2s-ps.md
+    - name: Azure VPN Client - optional settings 
+      href: azure-vpn-client-optional-configurations.md
+    - name: Azure VPN Client versions
+      href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
   - name: Manage gateway SKUs

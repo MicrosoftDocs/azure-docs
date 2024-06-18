@@ -5,6 +5,7 @@ author: jefmarti
 ms.author: jefmarti
 ms.date: 04/10/2024
 ms.topic: article
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python, linux-related-content
 zone_pivot_groups: app-service-openai
 ---
 

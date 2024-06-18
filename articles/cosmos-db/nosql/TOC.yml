@@ -613,7 +613,9 @@
           items:
             - name: Use explorer
               href: ../data-explorer.md
-            - name: Keyboard shorcuts
+            - name: Manage multiple items
+              href: ../how-to-data-explorer-manage-items.md
+            - name: Keyboard shortcuts
               href: ../data-explorer-shortcuts.md
         - name: SDK observability
           href: sdk-observability.md
@@ -623,6 +625,8 @@
           items:
             - name: Get query execution metrics
               href: query-metrics-performance.md
+            - name: Get query execution metrics (Python SDK)
+              href: query-metrics-performance-python.md
             - name: Tune query performance
               href: query-metrics.md
             - name: Optimize query performance when using SDK
