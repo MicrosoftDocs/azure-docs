@@ -143,7 +143,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
    | Enable public access | Behavior |
    |----------------------|----------|
-   | **On** | Your logic app has a public endpoint with an inbound address that's open to the internet and can't access an Azure virtual network. |
+   | **On** | Your logic app has a public endpoint with an inbound address that's open to the internet. For clients that are outside an Azure virtual network, they can use this endpoint to access your logic app, but not the virtual network. |
    | **Off** | Your logic app has no public endpoint, but has a private endpoint instead for communication within an Azure virtual network, and is isolated within that virtual network. The private endpoint can communicate with endpoints in the virtual network, but only from clients within that network. This configuration also means that logic app traffic can be governed by network security groups or affected by virtual network routes. |
 
    The following settings control Standard logic app access to endpoints in a virtual network:
