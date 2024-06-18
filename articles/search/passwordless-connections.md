@@ -216,6 +216,7 @@ Local development without passwords includes these steps:
 As a local developer, your Azure identity needs full control of your service. This control is provided with RBAC roles. To manage your resource during development, these are the suggested roles:
 
 |Role name|
+|--|
 |Search Service Contributor|
 |Search Index Data Contributor|
 |Search Index Data Reader|
@@ -327,6 +328,7 @@ Production workload [managed identities](/entra/identity/managed-identities-azur
 The following role is suggested for a production application:
 
 |Role name|Id|
+|--|--|
 |Search Index Data Reader|1407120a-92aa-4202-b7e9-c0e197c71c8f|
 
 ### Authentication for production workloads
