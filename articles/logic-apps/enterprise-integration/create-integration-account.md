@@ -187,7 +187,7 @@ To read artifacts and write any state information, your Premium integration acco
 
 ## Set up private endpoint for Premium integration account (Preview)
 
-To create a private connection between your Premium integration account and Azure services, you can [set up a private endpoint for your integration account](#set-up-private-endpoint). A [private endpoint](../../private-link/private-endpoint-overview.md) is a network interface that uses a private IP address from your Azure virtual network. This way, traffic between your virtual network and Azure services stays on the Azure backbone network and never traverses the public internet. Private endpoints ensure a secure, private communication channel between your resources and Azure services by providing the following benefits:
+To create a secure connection between your Premium integration account and Azure services, you can set up a [private endpoint](../../private-link/private-endpoint-overview.md) for your integration account. This endpoint is a network interface that uses a private IP address from your Azure virtual network. This way, traffic between your virtual network and Azure services stays on the Azure backbone network and never traverses the public internet. Private endpoints ensure a secure, private communication channel between your resources and Azure services by providing the following benefits:
 
 - Eliminates exposure to the public internet and reducing the risks from attacks.
 
