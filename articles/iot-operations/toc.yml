@@ -168,8 +168,6 @@ items:
         href: connect-to-cloud/howto-configure-destination-data-explorer.md
       - name: Send data to Microsoft Fabric from a pipeline
         href: connect-to-cloud/howto-configure-destination-fabric.md
-      - name: Send data to Azure Blob Storage from a pipeline
-        href: connect-to-cloud/howto-configure-destination-blob.md
 
     - name: Monitor service and asset health
       items:

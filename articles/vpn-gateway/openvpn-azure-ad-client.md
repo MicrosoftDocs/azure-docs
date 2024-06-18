@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 This article helps you configure the Azure VPN Client on a Windows computer to connect to a virtual network using a VPN Gateway point-to-site (P2S) VPN and Microsoft Entra authentication. Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md). For more information about point-to-site, see [About point-to-site VPN](point-to-site-about.md). The Azure VPN Client supported with Windows FIPS mode with the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
 
-[!INCLUDE [OpenVPN note](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="workflow"></a>Workflow
 
@@ -27,7 +27,7 @@ After your Azure VPN Gateway P2S configuration is complete, your next steps are 
 
 ## <a name="download"></a>Download the Azure VPN Client
 
-[!INCLUDE [Download Azure VPN Client](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-download-vpn-client.md)]
+[!INCLUDE [Download Azure VPN Client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ## <a name="generate"></a>Generate VPN client profile configuration files
 

@@ -103,8 +103,8 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[HDInsight](/azure/hdinsight/hdinsight-service-tags#get-started-with-service-tags)** | Azure HDInsight. | Inbound | Yes | Yes |
 | **Internet** | The IP address space that's outside the virtual network and reachable by the public internet.<br/><br/>The address range includes the [Azure-owned public IP address space](https://www.microsoft.com/download/details.aspx?id=56519). | Both | No | No |
 | **KustoAnalytics** | Kusto Analytics. | Both | No | No |
-| **LogicApps** | Logic Apps. | Both | No | Yes |
-| **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | Yes |
+| **[LogicApps](/azure/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration-considerations)** | Logic Apps. | Both | No | Yes |
+| **[LogicAppsManagement](/azure/logic-apps/logic-apps-limits-and-config#firewall-ip-configuration-considerations)** | Management traffic for Logic Apps. | Inbound | No | Yes |
 | **[M365ManagementActivityApi](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Microsoft Entra activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **[M365ManagementActivityApiWebhook](/office/office-365-management-api/office-365-management-activity-api-reference#working-with-the-office-365-management-activity-api)** | Notifications are sent to the configured webhook for a subscription as new content becomes available. | Inbound | Yes | Yes |
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Outbound | No | Yes |
