@@ -13,4 +13,5 @@ ms.custom: Include file
 ---
 
 > [!NOTE]
-> For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
+> * The latest workspace features are supported in API Management REST API version 2023-09-01-preview or later. 
+> * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).

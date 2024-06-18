@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 06/10/2024
+ms.date: 06/17/2024
 ms.author: danlep
 ms.custom:
 ---
@@ -15,7 +15,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
-In API Management, *workspaces* allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace in an API Management instance contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. The workspace also has its own gateway for runtime API traffic. Access is controlled through Azure role-based access control (RBAC). 
+In API Management, *workspaces* allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace in an API Management instance contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. The workspace can also have a dedicated gateway for runtime API traffic. Access to the workspace is controlled through Azure role-based access control (RBAC). 
 
 [!INCLUDE [api-management-workspace-intro-note](../../includes/api-management-workspace-intro-note.md)]
 
@@ -25,11 +25,11 @@ An organization that manages APIs using Azure API Management may have multiple d
 
 The following is a sample workflow for creating and using a workspace.
 
-1. A central API platform team that manages the API Management instance creates a workspace and assigns permissions to workspace collaborators using RBAC roles - for example, permissions to create or read resources in the workspace, or to create a workspace gateway.
+1. A central API platform team that manages the API Management instance creates a workspace and assigns permissions to workspace collaborators using RBAC roles - for example, permissions to create or read resources in the workspace, or to create a workspace gateway. Optionally, a dedicated API gateway is also created for the workspace.
 
 1. A central API platform team uses DevOps tools to create a DevOps pipeline for APIs in that workspace. 
 
-1. Workspace members develop, publish, productize, and maintain APIs in the workspace. They also manage their API runtime traffic using the workspace gateway.
+1. Workspace members develop, publish, productize, and maintain APIs in the workspace. 
 
 1. The central API platform team manages the infrastructure of the service, such as monitoring, resiliency, and enforcement of all-APIs policies. 
 
@@ -65,16 +65,17 @@ The following resources can be managed in workspaces.
 
 * Manage administrative email notifications related to resources in the workspace. 
 
-## Runtime isolation with a workspace gateway
+## Workspace gateway
 
-A dedicated gateway is created for each workspace, managed by the workspace collaborators and separate from the service gateway and other workspace gateways. The gateway is used to route API traffic to the backend services for the workspace APIs. The gateway can have either a default or custom hostname.
+A dedicated API gateway can be configured for each workspace, managed by the workspace collaborators and separate from the default service gateway and other workspace gateways. If configured, the gateway is used to route API traffic to the backend services for the workspace's APIs. 
+
+Key features and constraints of workspace gateways are in the following sections. For more information, see [API Management gateways](api-management-gateways-overview.md).
 
 ### Supported gateway features
 
 * Optionally configure the workspace gateway in a private virtual network to isolate inbound and outbound traffic
 * Monitor APIs with workspace-specific configuration
-* Manage API backends and import APIs from Azure services 
-* Support most API types that are can be managed by the service gateway. (Currently, GraphQL and WebSocket APIs aren't supported in workspaces.)
+* Manage API backends and import APIs from Azure services and most sources that can be managed by the service gateway. 
 * Validate client certificates 
 
 ### Gateway constraints
@@ -82,16 +83,18 @@ A dedicated gateway is created for each workspace, managed by the workspace coll
 * A gateway can be associated only with one workspace
 * A workspace can't be associated with a self-hosted gateway
 * Workspace gateways need to be in the same Azure region and subscription as the API Management service
-* Autoscale can't be configured on a workspace gateway
+* Workspace gateways can be scaled to accommodate capacity needs but autoscale isn't supported
+* Workspace gateways can't currently be assigned custom hostnames; only the default hostname is supported
 * APIs in workspaces aren't covered by Defender for APIs
 * Workspace gateways don't support the API Management service's credential manager
 * Workspace gateways support only internal cache; external cache isn't supported 
+* Workspace gateways currently don't support GraphQL APIs and WebSocket APIs
 
 ## RBAC roles for workspaces
 
 Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
-Workspace members must be assigned roles (or equivalent permissions using custom roles) scoped to the API Management service, the workspace, and the workspace gateway. The service-scoped role enables referencing certain service-level resources from workspace-level resources. For example, organize a user into a workspace-level group to control API and product visibility.  
+Workspace members must be assigned roles (or equivalent permissions using custom roles) scoped to the API Management service, the workspace, and (if configured) the workspace gateway. The service-scoped role enables referencing certain service-level resources from workspace-level resources. For example, organize a user into a workspace-level group to control API and product visibility.  
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
@@ -115,7 +118,7 @@ Workspace members must be assigned roles (or equivalent permissions using custom
     > Specifying API authorization server information (for example, for the developer portal) isn't supported in workspaces.
     >    
 
-* **Deleting a workspace** - Deleting a workspace deletes all its child resources (APIs, products, and so on).
+* **Deleting a workspace** - Deleting a workspace deletes all its child resources (APIs, products, and so on). If a workspace gateway is associated with the workspace, it must be deleted separately.
     
 
 ## Related content
