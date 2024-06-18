@@ -32,7 +32,7 @@ The AKS cost analysis addon is built on top of [OpenCost](https://www.opencost.i
 
 ## Prerequisites and limitations
 
-* Cluster must be either `Standard` or `Premium` tier, not the `Free` tier.
+* Your cluster must be either `Standard` or `Premium` tier, not the `Free` tier.
 
 * To view cost analysis information, you must have one of the following roles on the subscription hosting the cluster: Owner, Contributor, Reader, Cost management contributor, or Cost management reader.
 
