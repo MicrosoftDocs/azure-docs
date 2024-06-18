@@ -11,9 +11,9 @@ ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to deploy the Connected registry Arc Extension using the CLI UX with secure-by-default settings, such as using HTTPS, Read Only, Trust Distribution, and Cert Manager service, so that I can ensure the secure and efficient operation of my services."
 ---
 
-# Quickstart: Deploying the Connected registry arc extension 
+# Quickstart: Deploy the Connected registry Arc extension (Preview)
 
-In this quickstart, you learn how to deploy the Connected registry Arc Extension using the CLI UX with secure-by-default settings to ensure robust security and operational integrity. 
+In this quickstart, you learn how to deploy the Connected registry Arc extension using the CLI UX with secure-by-default settings to ensure robust security and operational integrity. 
  
 The Connected registry is a pivotal tool for the edge customers for efficiently managing and accessing their containerized workloads, whether located on-premises or at remote sites. When Connected registry integrates with Azure arc, the service ensures a seamless and unified lifecycle management experience for Kubernetes-based containerized workloads. Deployment of the Connected registry arc extension on arc-enabled kubernetes clusters, simplifies the management and access of containerized workloads. 
 
@@ -42,14 +42,14 @@ The Connected registry is a pivotal tool for the edge customers for efficiently 
     ```
     An Azure resource provider is a set of REST operations that enable functionality for a specific Azure service. 
 
-## Deploy the Connected registry arc extension with secure-by-default settings
+## Deploy the Connected registry Arc extension with secure-by-default settings
 
 Once the prerequisites and necessary conditions and components are in place, follow the streamlined approach and securely deploy a Connected registry extension on an arc-enabled kubernetes cluster using secure-by-default settings. The secure-by-default settings define the following configuration with HTTPS, Read Only, Trust Distribution, Cert Manager service. Follow the steps for a successful deployment: 
 
-1.	[Create the Connected registry.](quickstart-connected-registry-arc-cli.md#create-the-connected-registry-and-synchronize-with-acr)
-1.	[Deploy the Connected registry Arc extension.](quickstart-connected-registry-arc-cli.md#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster)
-1.	[Verify the Connected registry extension deployment is operational.](quickstart-connected-registry-arc-cli.md#verify-the-connected-registry-extension-deployment) 
-1.	[Pull an image from the Connected registry successfully.](quickstart-connected-registry-arc-cli.md#pull-an-image-from-the-connected-registry-successfully)
+1.	[Create the Connected registry.](#create-the-connected-registry-and-synchronize-with-acr)
+1.	[Deploy the Connected registry Arc extension.](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster)
+1.	[Verify the Connected registry extension deployment.](#verify-the-connected-registry-extension-deployment) 
+1.	[Pull an image from the Connected registry.](#pull-an-image-from-the-connected-registry)
 
 
 ### Create the Connected registry and synchronize with ACR
@@ -58,7 +58,7 @@ Creating the Connected registry to synchronize with ACR is the foundation step f
 
 1. Create the Connected registry, which synchronizes with the ACR registry:
 
-    To create a Connected registry `myconnectedregistry` that synchronizes with the ACR registry `myacrregistry` in the resource group `myresourcegroup` and the repository `hello-world`, you can run the [az acr connected-registry create] command:
+    To create a Connected registry `myconnectedregistry` that synchronizes with the ACR registry `myacrregistry` in the resource group `myresourcegroup` and the repository `hello-world`, you can run the [az acr connected-registry create][az-acr-connected-registry-create] command:
     
     ```azurecli
     az acr connected-registry create --registry myacrregistry \ 
@@ -67,18 +67,17 @@ Creating the Connected registry to synchronize with ACR is the foundation step f
     --repository "hello-world"
     ``` 
 
->[!NOTE]
-> The [az acr connected-registry create] command creates the Connected registry with the specified repository. 
-> Overwrites actions if the sync scope map named `myconnectedregistry` exists and overwrites properties if the sync token named `myconnectedregistry` exists. 
-> The [az acr connected-registry create] command validates a dedicated data endpoint during the creation of the Connected registry and provides a command to enable the dedicated data endpoint on the ACR registry if it is not already enabled.
+- The [az acr connected-registry create][az-acr-connected-registry-create] command creates the Connected registry with the specified repository. 
+- The [az acr connected-registry create][az-acr-connected-registry-create] command overwrites actions if the sync scope map named `myconnectedregistry` exists and overwrites properties if the sync token named `myconnectedregistry` exists. 
+- The [az acr connected-registry create][az-acr-connected-registry-create] command validates a dedicated data endpoint during the creation of the Connected registry and provides a command to enable the dedicated data endpoint on the ACR registry if it is not already enabled.
 
-### Deploy the Connected registry arc extension on the arc-enabled kubernetes cluster
+### Deploy the Connected registry arc extension on the Arc-enabled kubernetes cluster
 
 Deploy the Connected registry arc extension to integrate the registry with your AKS cluster, for integration.
 
 1. Generate the Connection String and Protected Settings JSON File
 
-   For secure deployment of the Connected registry extension, generate the connection string, including a new password, transport protocol, and create the `protected-settings-extension.json` file required for the extension deployment:
+   For secure deployment of the Connected registry extension, generate the connection string, including a new password, transport protocol, and create the `protected-settings-extension.json` file required for the extension deployment with [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command:
 
     ```azurecli
     cat << EOF > protected-settings-extension.json
@@ -93,13 +92,12 @@ Deploy the Connected registry arc extension to integrate the registry with your 
     EOF
     ```
 
->[!NOTE]
-> The [az acr connected-registry get-settings] command generates the connection string, including the creation of a new password and the specification of the transport protocol.
-> Creates and injects the contents of the connection string into the `protected-settings-extension.json` file, a necessary step for the extension deployment.
+- The [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command generates the connection string, including the creation of a new password and the specification of the transport protocol.
+- It creates and injects the contents of the connection string into the `protected-settings-extension.json` file, a necessary step for the extension deployment.
 
 2. Deploy the Connected registry extension
 
-   Deploy the Connected registry extension with the specified configuration details using the [az k8s-extension create] command:
+   Deploy the Connected registry extension with the specified configuration details using the [az k8s-extension create][az-k8s-extension-create] command:
 
     ```azurecli
     az k8s-extension create --cluster-name myarck8scluster \ 
@@ -111,16 +109,16 @@ Deploy the Connected registry arc extension to integrate the registry with your 
     --config-protected-file protected-settings-extension.json  
     ```
 
->[!NOTE]
-> The [az k8s-extension create] command deploys the Connected registry extension on the Kubernetes cluster with the provided configuration parameters and protected settings file. It ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for TLS encryption.
+- The [az k8s-extension create][az-k8s-extension-create] command deploys the Connected registry extension on the Kubernetes cluster with the provided configuration parameters and protected settings file. 
+- It ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for TLS encryption.
 
 ### Verify the Connected registry extension deployment
 
-To verify the deployment of the Connected registry extension on the arc-enabled Kubernetes cluster, follow the steps:
+To verify the deployment of the Connected registry extension on the Arc-enabled Kubernetes cluster, follow the steps:
 
 1. Verify the deployment status
 
-    Run the [az k8s-extension show] command to check the deployment status of the Connected registry extension:
+    Run the [az k8s-extension show][az-k8s-extension-show] command to check the deployment status of the Connected registry extension:
 
     ```azurecli
     az k8s-extension show --name myconnectedregistry \ 
@@ -131,7 +129,7 @@ To verify the deployment of the Connected registry extension on the arc-enabled 
 
 2. Verify the Connected registry status and state
 
-    For each Connected registry, you can view the status and state of the Connected registry using the [az acr connected-registry list] command:
+    For each Connected registry, you can view the status and state of the Connected registry using the [az acr connected-registry list][az-acr-connected-registry-list] command:
     
     ```azurecli
         az acr connected-registry list --registry myacrregistry \ 
@@ -149,7 +147,7 @@ To verify the deployment of the Connected registry extension on the arc-enabled 
 
 3. Verify the specific Connected registry details
 
-    For details on a specific Connected registry, use [az acr connected-registry show] command:
+    For details on a specific Connected registry, use [az acr connected-registry show][az-acr-connected-registry-show] command:
 
     ```azurecli
     az acr connected-registry show --registry myacrregistry \
@@ -164,10 +162,9 @@ To verify the deployment of the Connected registry extension on the arc-enabled 
    | myconnectedregistry | ReadWrite | online           | myacrregistry | myacrregistry.azurecr.io | 2024-05-09 12:00:00 | 0 0 * * *     | 00:00:00-23:59:59 |
     ```
 
->[!NOTE] 
-> The [az k8s-extension show] command will verify the state of the extension deployment and provide details on the Connected registry's connection status, last sync, sync window, sync schedule, and more.
+- The [az k8s-extension show][az-k8s-extension-show] command will verify the state of the extension deployment and provide details on the Connected registry's connection status, last sync, sync window, sync schedule, and more.
 
-### Pull an image from the Connected registry successfully
+### Pull an image from the Connected registry 
 
 To authenticate and pull an image from the locally deployed Connected registry within the cluster from a cluster client node, follow the steps:
 
@@ -183,12 +180,15 @@ To authenticate and pull an image from the locally deployed Connected registry w
     crictl pull --creds mytoken:password1 10.10.10.10/hello-world:latest
     ```
 
->[!NOTE]
-> The `crictl pull` command pulls an image from the Connected registry by specifying the desired repository. Lear to create a client token [here.](container-registry-repository-scoped-permissions.md#create-token---cli)
+- The `crictl pull` command pulls an image from the Connected registry by specifying the desired repository. Lear to create a client token [here.](container-registry-repository-scoped-permissions.md#create-token---cli)
 
 ## Clean up resources
 
-1. By deleting the deployed Connected registry extension, you remove the corresponding Connected registry pods and configuration settings.   
+By deleting the deployed Connected registry extension, you remove the corresponding Connected registry pods and configuration settings.  
+
+1. Delete the Connected registry extension
+
+    Run the [az k8s-extension delete][az-k8s-extension-delete] command to delete the Connected registry extension: 
 
     ```azurecli
     az k8s-extension delete --name myconnectedregistry 
@@ -197,7 +197,11 @@ To authenticate and pull an image from the locally deployed Connected registry w
     --cluster-type connectedClusters
     ```   
    
-2. By deleting the deployed Connected registry extension, you remove the Connected registry cloud instance and its configuration details. 
+By deleting the deployed Connected registry extension, you remove the Connected registry cloud instance and its configuration details. 
+
+2. Delete the Connected registry
+
+    Run the [az acr connected-registry delete][az-acr-connected-registry-delete] command to delete the Connected registry: 
 
     ```azurecli
     az acr connected-registry delete --name myarcakscluster \ 
@@ -208,6 +212,8 @@ To authenticate and pull an image from the locally deployed Connected registry w
 
 - [Known issues: Connected registry Arc Extension](troubleshoot-connected-registry-arc.md)
 
+
+<!-- LINKS - internal -->
 [create-acr]: container-registry-get-started-azure-cli.md
 [dedicated data endpoints]: container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints
 [Install Azure CLI]: /cli/azure/install-azure-cli
@@ -215,3 +221,11 @@ To authenticate and pull an image from the locally deployed Connected registry w
 [azure-resource-provider-requirements]: /azure/azure-arc/kubernetes/system-requirements#azure-resource-provider-requirements
 [quickstart-connect-cluster]: /azure/azure-arc/kubernetes/quickstart-connect-cluster
 [tutorial-aks-cluster]: /azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli
+[az-acr-connected-registry-create]: /cli/azure/acr/connected-registry#az-acr-connected-registry-create
+[az-acr-connected-registry-get-settings]: /cli/azure/acr/connected-registry#az-acr-connected-registry-get-settings
+[az-k8s-extension-create]: /cli/azure/k8s-extension#az-k8s-extension-create
+[az-k8s-extension-show]: /cli/azure/k8s-extension#az-k8s-extension-show
+[az-acr-connected-registry-list]: /cli/azure/acr/connected-registry#az-acr-connected-registry-list
+[az-acr-connected-registry-show]: /cli/azure/acr/connected-registry#az-acr-connected-registry-show
+[az-k8s-extension-delete]: /cli/azure/k8s-extension#az-k8s-extension-delete
+[az-acr-connected-registry-delete]: /cli/azure/acr/connected-registry#az-acr-connected-registry-delete
