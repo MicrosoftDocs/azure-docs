@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Optimize Azure Functions for Performance and Costs using Azure Load Testing
 
-In this article, you learn how optimize Azure Functions for performance and costs using Azure Load Testing. The Azure Functions Flex Consumption plan gives you flexibility and custom features that include private networking, fast and large scale-out features, and instance memory size selection based on a serverless model.
+In this article, you learn how to optimize Azure Functions for performance and costs using Azure Load Testing. The Azure Functions Flex Consumption plan gives you flexibility and custom features that include private networking, fast and large scale-out features, and instance memory size selection based on a serverless model.
 
 The Azure Load Testing performance optimizer tool helps you decide which configuration is right your app by running load tests among different Functions configurations. The tool helps you to understand the performance and cost implications of different configurations to help you make more informed decisions.
 
@@ -32,11 +32,11 @@ The performance optimizer enables the following capabilities:
     * Microsoft.Web/sites/write
     * Microsoft.Web/sites/slots/read
     * Microsoft.Web/sites/slots/write
-    By default, the [Website Contributor](/azure/role-based-access-control/built-in-roles/web-and-mobile#website-contributor) role have these permissions already.
+    By default, the [Website Contributor](/azure/role-based-access-control/built-in-roles/web-and-mobile#website-contributor) role has these permissions already.
 
 ## Running Performance Optimizer on your Azure Functions
 
-Performance optimizer allows you to test different configurations to help you find the right balance of performance vs.  cost. For instance, you can test metrics like instance size and HTTP concurrency amounts for you Functions app. The performance optimizer uses Azure Load Testing to help you identify your app's optimal configuration for performance and scalability. You can run the performance optimizer on your functions with HTTP triggers. Once you deploy your code to Azure Functions, use the following steps to run the optimizer.
+Performance optimizer allows you to test different configurations to help you find the right balance of performance vs.  cost. For instance, you can test metrics like instance size and HTTP concurrency amounts for your Functions app. The performance optimizer uses Azure Load Testing to help you identify your app's optimal configuration for performance and scalability. You can run the performance optimizer on your functions with HTTP triggers. Once you deploy your code to Azure Functions, use the following steps to run the optimizer.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
