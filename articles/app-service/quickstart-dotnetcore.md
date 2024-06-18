@@ -23,11 +23,11 @@ should be able to guide .NET devs, whether they're app is .NET Core, .NET, or .N
 
 As a .NET developer, when choosing an IDE and .NET TFM - you map to various OS requirements.
 For example, if you choose Visual Studio - you're developing the app on Windows, but you can still
-target cross-platform with .NET 7.0.
+target cross-platform with .NET 8.0.
 
 | .NET / IDE         | Visual Studio | Visual Studio for Mac | Visual Studio Code | Command line   |
 |--------------------|---------------|-----------------------|--------------------|----------------|
-| .NET 7.0           | Windows       | macOS                 | Cross-platform     | Cross-platform |
+| .NET 8.0           | Windows       | macOS                 | Cross-platform     | Cross-platform |
 | .NET Framework 4.8 | Windows       | N/A                   | Windows            | Windows        |
 
 -->
@@ -49,7 +49,7 @@ The steps in the video are also described in the following sections.
 
 :::zone target="docs" pivot="development-environment-vs"
 
-### [.NET 7.0](#tab/net70)
+### [.NET 8.0](#tab/net80)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload.
@@ -73,7 +73,7 @@ If you have already installed Visual Studio 2022:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
 - The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
-- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 8.0 SDK.</a>
 
 :::zone-end
 
@@ -83,7 +83,7 @@ If you have already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
-- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">The latest .NET 8.0 SDK.</a>
 
 :::zone-end
 
@@ -93,7 +93,7 @@ If you have already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
-- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 7.0 SDK.</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 8.0 SDK.</a>
 
 :::zone-end
 
@@ -108,7 +108,7 @@ If you have already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
-- [The latest .NET 7.0 SDK.](https://dotnet.microsoft.com/download/dotnet/7.0)
+- [The latest .NET 8.0 SDK.](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 :::zone-end
 
@@ -126,22 +126,22 @@ If you have already installed Visual Studio 2022:
 
 :::zone target="docs" pivot="development-environment-vs"
 
-### [.NET 7.0](#tab/net70)
+### [.NET 8.0](#tab/net80)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and select **ASP.NET Core Web App**, then select **Next**.
+1. In **Create a new project**, find, and select **ASP.NET Core Web App (Razor Pages)**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
-   :::image type="content" source="./media/quickstart-dotnetcore/configure-web-app-project.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 7.0 web app." lightbox="media/quickstart-dotnetcore/configure-web-app-project.png" border="true":::
+   :::image type="content" source="./media/quickstart-dotnetcore/configure-web-app-project.png" alt-text="Screenshot of Visual Studio - Configure ASP.NET 8.0 web app." lightbox="media/quickstart-dotnetcore/configure-web-app-project.png" border="true":::
 
-1. Select **.NET 7.0 (Standard-term support)**.
-1. Ensure **Authentication Type** is set to **None**. Select **Create**.
+1. Select **.NET 8.0 (Long Term Support)**.
+1. Ensure **Authentication type** is set to **None**. Select **Create**.
 
-   :::image type="content" source="media/quickstart-dotnetcore/vs-additional-info-net-70.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET 7.0." lightbox="media/quickstart-dotnetcore/vs-additional-info-net-70.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnetcore/vs-additional-info-net-80.png" alt-text="Screenshot of Visual Studio - Additional info when selecting .NET 8.0." lightbox="media/quickstart-dotnetcore/vs-additional-info-net-80.png" border="true":::
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally. If you see a message asking you to trust a self-signed certificate, select **Yes**.
 
-   :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio - ASP.NET Core 7.0 running locally." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio - ASP.NET Core 8.0 running locally." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
@@ -173,7 +173,7 @@ If you have already installed Visual Studio 2022:
     <!-- Please keep the following commands in two lines instead of one && separated line. The latter doesn't work in PowerShell -->
     
     ```dotnetcli
-    dotnet new webapp -n MyFirstAzureWebApp --framework net7.0
+    dotnet new webapp -n MyFirstAzureWebApp --framework net8.0
     cd MyFirstAzureWebApp
     ```
     
@@ -185,9 +185,9 @@ If you have already installed Visual Studio 2022:
 
 1. Open a web browser, and navigate to the app at `https://localhost:5001`.
 
-    You see the template ASP.NET Core 7.0 web app displayed in the page.
+    You see the template ASP.NET Core 8.0 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
+    :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 8.0 in local browser." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
     
 :::zone-end
 
@@ -195,9 +195,9 @@ If you have already installed Visual Studio 2022:
 
 In this step, you fork a demo project to deploy.
 
-### [.NET 7.0](#tab/net70)
+### [.NET 8.0](#tab/net80)
 
-1. Go to the [.NET 7.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
+1. Go to the [.NET 8.0 sample app](https://github.com/Azure-Samples/dotnetcore-docs-hello-world).
 1. Select the **Fork** button in the upper right on the GitHub page.
 1. Select the **Owner** and leave the default **Repository name**.
 1. Select **Create fork**.
@@ -232,9 +232,9 @@ Retrieve and initialize [the ASP.NET Core web app template](https://github.com/A
     dotnet run --project src --urls=https://localhost:5001/
     ```
 
-3. Open a web browser and navigate to the app at `https://localhost:5001`. The ASP.NET Core 7.0 web app template is displayed on the page.
+3. Open a web browser and navigate to the app at `https://localhost:5001`. The ASP.NET Core 8.0 web app template is displayed on the page.
 
-    :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 in local browser." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
+    :::image type="content" source="media/quickstart-dotnetcore/local-web-app-net.png" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 8.0 in local browser." lightbox="media/quickstart-dotnetcore/local-web-app-net.png" border="true":::
     
 :::zone-end
 
@@ -286,11 +286,11 @@ Follow these steps to create your App Service resources and publish your project
 
     Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
 
-    You see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 8.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Core 7.0 web app in Azure." :::
+    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio - ASP.NET Core 8.0 web app in Azure." :::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
@@ -306,6 +306,12 @@ Follow these steps to create your App Service resources and publish your project
 
 <!-- :::image type="content" source="media/quickstart-dotnet/vscode-sign-in-to-Azure.png" alt-text="Screenshot of Visual Studio Code - Sign in to Azure." border="true"::: -->
 
+1. Open Visual Studio Code from your project's root directory.
+
+    ```terminal
+    code .
+    ```
+1. If prompted, select **Yes, I trust the authors.**
 1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by selecting **View** > **Command Palette**.
 1. Search for and select "Azure App Service: Create New Web App (Advanced)".
 1. Respond to the prompts as follows:
@@ -315,10 +321,10 @@ Follow these steps to create your App Service resources and publish your project
     1. Select **Create new Web App... Advanced**.
     1. For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     1. Select **Create new resource group** and provide a name like `myResourceGroup`.
-    1. When prompted to **Select a runtime stack**, select **.NET 7 (STS)**.
+    1. When prompted to **Select a runtime stack**, select **.NET 8 (LTS)**.
     1. Select an operating system (Windows or Linux).
     1. Select a location near you.
-    1. Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
+    1. Select **Create new App Service plan**, provide a name, and select the **Free (F1)** [pricing tier][app-service-pricing-tier].
     1. Select **Skip for now** for the Application Insights resource.
     1. When prompted, click **Deploy**.
     1. Select *MyFirstAzureWebApp* as the folder to deploy.
@@ -327,9 +333,9 @@ Follow these steps to create your App Service resources and publish your project
 1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes** so that Visual Studio Code deploys to the same App Service app every time you're in that workspace.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
-    You see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 8.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio Code - ASP.NET Core 8.0 web app in Azure.":::
 
 :::zone-end
 
@@ -364,9 +370,9 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Open a web browser and navigate to the URL:
 
-    You see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 8.0 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 8.0 web app in Azure.":::
     
 :::zone-end
 
@@ -388,7 +394,7 @@ Follow these steps to create your App Service resources and publish your project
 2. Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
 
     ```azurepowershell-interactive
-    New-AzWebApp -Name <app-name> -Location westeurope
+    New-AzWebApp -ResourceGroupName myResourceGroup -Name <app-name> -Location westeurope
     ```
 
     - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A combination of your company name and an app identifier is a good pattern.
@@ -424,7 +430,7 @@ Follow these steps to create your App Service resources and publish your project
 1. Change to the release directory and create a zip file from the contents:
 
     ```powershell-interactive
-    cd bin\Release\net7.0\publish
+    cd bin\Release\net8.0\publish
     Compress-Archive -Path * -DestinationPath deploy.zip
     ```
 
@@ -439,9 +445,9 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Open a web browser and navigate to the URL:
 
-    You see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 8.0 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - ASP.NET Core 8.0 web app in Azure.":::
     
 :::zone-end
 
@@ -449,23 +455,24 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Type **app services** in the search. Under **Services**, select **App Services**.
 
-     :::image type="content" source="./media/quickstart-dotnet/portal-search.png?text=Azure portal search details" alt-text="Screenshot of portal search in the Azure portal.":::
+     :::image type="content" source="./media/quickstart-dotnetcore/portal-search.png?text=Azure portal search details" alt-text="Screenshot of portal search in the Azure portal.":::
 
-1. In the **App Services** page, select **+ Create**.
+1. In the **App Services** page, select **Create** > **Web App**.
 
 1. In the **Basics** tab:
 
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
     
     - Under **Resource group**, select **Create new**. Type *myResourceGroup* for the name.
     - Under **Name**, type a globally unique name for your web app.
     - Under **Publish**, select *Code*.
-    - Under **Runtime stack** select *.NET 7 (STS)*.
-    - Select an **Operating System**, and a **Region** you want to serve your app from.
+    - Under **Runtime stack** select *.NET 8 (LTS)*.
+    - Under **Operating System**, select **Windows**. If you select **Linux**, you can't configure GitHub deployment in the next step, but you can still do it after creating the app in the **Deployment Center** page.
+    - Select a **Region** you want to serve your app from.
     - Under **App Service Plan**, select **Create new** and type *myAppServicePlan* for the name. 
     - Under **Pricing plan**, select **Free F1**.
     
-    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net-70.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net-70.png" alt-text="Screenshot of new App Service app configuration for .NET 7 in the Azure portal.":::
+    :::image type="content" source="./media/quickstart-dotnetcore/app-service-details-net-80.png" lightbox="./media/quickstart-dotnetcore/app-service-details-net-80.png" alt-text="Screenshot of new App Service app configuration for .NET 8 in the Azure portal.":::
     
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -487,13 +494,13 @@ Follow these steps to create your App Service resources and publish your project
 
 1. Under **GitHub Actions details**, authenticate with your GitHub account, and select the following options:
 
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
     
     - For **Organization** select the organization where you have forked the demo project.
     - For **Repository** select the *dotnetcore-docs-hello-world* project.
     - For **Branch** select *master*.
 
-    :::image type="content" source="media/quickstart-dotnet/app-service-deploy-60.png" lightbox="media/quickstart-dotnet/app-service-deploy-60.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET 6 runtime.":::
+    :::image type="content" source="media/quickstart-dotnetcore/app-service-deploy-80.png" lightbox="media/quickstart-dotnetcore/app-service-deploy-80.png" border="true" alt-text="Screenshot of the deployment options for an app using the .NET 8 runtime.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -516,11 +523,11 @@ Follow these steps to create your App Service resources and publish your project
 
     :::image type="content" source="./media/quickstart-dotnet/next-steps.png" alt-text="Screenshot of the next step of going to the resource.":::
 
-1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
+1. Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`. If you see the message "Your web app is running and waiting for your content" GitHub deployment is still running. Wait a couple of minutes and refresh the page.
 
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
     
-    :::image type="content" source="media/quickstart-dotnetcore/browse-dotnet-70.png" lightbox="media/quickstart-dotnetcore/browse-dotnet-70.png" border="true" alt-text="Screenshot of the deployed .NET 7.0 sample app.":::
+    :::image type="content" source="media/quickstart-dotnetcore/browse-dotnet-80.png" lightbox="media/quickstart-dotnetcore/browse-dotnet-80.png" border="true" alt-text="Screenshot of the deployed .NET 8.0 sample app.":::
         
     ### [.NET Framework 4.8](#tab/netframework48)
        
@@ -554,7 +561,7 @@ The AZD template contains files that will generate the following required resour
 
 3. Open a web browser and navigate to the URL:
 
-    You see the ASP.NET Core 7.0 web app displayed in the page.
+    You see the ASP.NET Core 8.0 web app displayed in the page.
 
     :::image type="content" source="media/quickstart-dotnetcore/browse-dotnet-70.png" lightbox="media/quickstart-dotnetcore/browse-dotnet-70.png" border="true" alt-text="Screenshot of the deployed .NET Framework 4.8 sample app.":::
     
@@ -562,7 +569,7 @@ The AZD template contains files that will generate the following required resour
 
 ## 3. Update the app and redeploy
 
-Follow these steps to update and redeploy your web app:
+You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .NET 8.0 template, it's located in the *Pages* folder. In the .NET Framework 4.8 template, it's in the *Views/Home* folder. Follow these steps to update and redeploy your web app:
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -583,11 +590,11 @@ Follow these steps to update and redeploy your web app:
 
     When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
 
-    You see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio - Updated ASP.NET Core 8.0 web app in Azure.":::
 
     ### [.NET Framework 4.8](#tab/netframework48)
 
@@ -601,7 +608,7 @@ Follow these steps to update and redeploy your web app:
 
 :::zone target="docs" pivot="development-environment-vscode"
 
-1. Open *Index.cshtml*.
+1. Open *Pages/Index.cshtml*.
 1. Replace the first `<div>` element with the following code:
 
     ```razor
@@ -615,12 +622,13 @@ Follow these steps to update and redeploy your web app:
 
 1. In Visual Studio Code, open the [**Command Palette**](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
 1. Search for and select "Azure App Service: Deploy to Web App".
-1. Select **Deploy** when prompted.
-1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
+1. Select the subscription and the web app you used earlier.
+1. When prompted, select **Deploy**.
+1. When publishing completes, select **Browse Website** in the notification.
 
-    You see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
-    :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio Code - Updated ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of Visual Studio Code - Updated ASP.NET Core 8.0 web app in Azure.":::
 
 :::zone-end
 
@@ -628,7 +636,7 @@ Follow these steps to update and redeploy your web app:
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-In the local directory, open the *Index.cshtml* file. Replace the first `<div>` element:
+In the local directory, open the *Pages/Index.cshtml* file. Replace the first `<div>` element:
 
 ```razor
 <div class="jumbotron">
@@ -639,7 +647,7 @@ In the local directory, open the *Index.cshtml* file. Replace the first `<div>` 
 
 Save your changes, then redeploy the app using the `az webapp up` command again:
 
-ASP.NET Core 7.0 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
+ASP.NET Core 8.0 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
 
 ```azurecli
 az webapp up --os-type <os>
@@ -649,9 +657,9 @@ This command uses values that are cached locally in the *.azure/config* file, in
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-You see the updated ASP.NET Core 7.0 web app displayed in the page.
+You see the updated ASP.NET Core 8.0 web app displayed in the page.
 
-:::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
+:::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 8.0 web app in Azure.":::
 
 :::zone-end
 
@@ -659,7 +667,7 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
 :::zone target="docs" pivot="development-environment-ps"
 <!-- markdownlint-enable MD044 -->
 
-1. In the local directory, open the *Index.cshtml* file. Replace the first `<div>` element:
+1. In the local directory, open the *Pages/Index.cshtml* file. Replace the first `<div>` element:
 
     ```razor
     <div class="jumbotron">
@@ -677,7 +685,7 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
 1. Change to the release directory and create a zip file from the contents:
 
     ```powershell-interactive
-    cd bin\Release\net7.0\publish
+    cd bin\Release\net8.0\publish
     Compress-Archive -Path * -DestinationPath deploy.zip
     ```
 
@@ -692,9 +700,9 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
 
 1. Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-    You see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 8.0 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 8.0 web app in Azure.":::
     
 :::zone-end
 
@@ -707,7 +715,7 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
 
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
     
     ![Screenshot of forked dotnetcore-docs-hello-world GitHub repo with an annotation to Press the period key.](media/quickstart-dotnetcore/github-forked-dotnetcore-docs-hello-world-repo-press-period.png)
 
@@ -719,7 +727,7 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
 
 1. Open *Index.cshtml*.
 
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
 
     Index.cshtml is located in the `Pages` folder.
 
@@ -742,23 +750,11 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
     </div>
     ```
 
-   Save your changes.
+   The changes are automatically saved.
 
-3. From the **Source Control** menu, select the **Stage Changes** button to stage the change.
+3. From the **Source Control** menu, enter a commit message such as `Modify homepage`. Then, select **Commit and Push**. The changes are automatically staged for you, then committed and pushed to your fork.
 
-    ### [.NET 7.0](#tab/net70)
-
-    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-dotnetcore/visual-studio-code-in-browser-stage-changes-dotnetcore.png)
-
-    ### [.NET Framework 4.8](#tab/netframework48)
-
-    ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-dotnetcore/visual-studio-code-in-browser-stage-changes-dotnet-framework.png)
-
-    -----
-
-4. Enter a commit message such as `We love Azure`. Then, select **Commit and Push**.
-
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
 
     ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.](media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnetcore.png)
 
@@ -768,13 +764,15 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
 
     -----
 
-5. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
+4. It takes a few minutes for the deployment to run. To view the progress, navigate to `https://github.com/<your-github-alias>/dotnetcore-docs-hello-world/actions`.
+
+5. Return to the browser window that opened during the **Browse to the app** step, and refresh the page.
     
-    ### [.NET 7.0](#tab/net70)
+    ### [.NET 8.0](#tab/net80)
     
-    You see the updated ASP.NET Core 7.0 web app displayed in the page.
+    You see the updated ASP.NET Core 8.0 web app displayed in the page.
     
-    :::image type="content" source="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" lightbox="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
+    :::image type="content" source="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" lightbox="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 8.0 web app in Azure.":::
     
     ### [.NET Framework 4.8](#tab/netframework48)
     
@@ -791,7 +789,7 @@ You see the updated ASP.NET Core 7.0 web app displayed in the page.
 :::zone target="docs" pivot="development-environment-azd"
 <!-- markdownlint-enable MD044 -->
 
-In the local directory, open the *Index.cshtml* file. Replace the first `<div>` element:
+In the local directory, open the *src/Pages/Index.cshtml* file. Replace the first `<div>` element:
 
 ```razor
 <div class="jumbotron">
@@ -808,9 +806,9 @@ azd up
 
 `azd up` will skip the provisioning resources step this time and only redeploy your code, since there have been no changes to the Bicep files.
 
-Once deployment has completed, the browser will open to the updated ASP.NET Core 7.0 web app.
+Once deployment has completed, the browser will open to the updated ASP.NET Core 8.0 web app.
 
-:::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 7.0 web app in Azure.":::
+:::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 8.0 web app in Azure.":::
 
 :::zone-end
 
@@ -843,6 +841,15 @@ The **Overview** page for your web app, contains options for basic management li
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 [!INCLUDE [Clean-up CLI resources](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+
+```azurecli-interactive
+az group delete
+```
+
+For your convenience, the [`az webapp up` command](/cli/azure/webapp#az-webapp-up) you ran earlier in this project saves the resource group name as the default value whenever you run `az` commands from this project.
+
 :::zone-end
 
 :::zone target="docs" pivot="development-environment-ps"
@@ -865,7 +872,7 @@ The **Overview** page for your web app, contains options for basic management li
 
 ## Next steps
 
-### [.NET 7.0](#tab/net70)
+### [.NET 8.0](#tab/net80)
 
 Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
 
