@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/03/2024
+ms.date: 06/30/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -137,18 +137,20 @@ More workflows in your logic app raise the risk of longer load times, which nega
    | **Storage type** | Yes | - **Azure Storage** <br>- **SQL and Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <br><br>- To deploy only to Azure, select **Azure Storage**. <br><br>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <br><br>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The workflow's state, run history, and other runtime artifacts are stored in your SQL database. <br><br>For deployments to a custom location that is hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <br><br>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <br><br>This example creates a storage account named **mystorageacct**. |
 
-1. On the **Networking** tab, you can leave the default options for the example. However, for your specific, real-world scenarios, make sure to review and select the following appropriate options. You can also change this configuration after you deploy your logic app resource. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+1. On the **Networking** tab, you can leave the default options to follow the example. However, for specific, real-world scenarios, make sure to review and select the following appropriate options. You can also change this configuration after you deploy your logic app resource. For more information, see [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+   The following **Enable public access** setting applies to endpoints on your logic app and doesn't affect whether your logic app can communicate with Azure resources in the same virtual network, for example, a Premium integration account with a private endpoint. To access such Azure resources, your logic app must exist in the same virtual network as these resources.
 
    | Enable public access | Behavior |
    |----------------------|----------|
    | **On** | Your logic app has a public endpoint with an inbound address that's open to the internet and can't access an Azure virtual network. |
-   | **Off** | Your logic app has no public endpoint, but has a private endpoint instead for communication within an Azure virtual network, and is isolated within that virtual network. The private endpoint can communicate with endpoints in the virtual network, but only from clients within that network. This configuration also means that logic app traffic can be governed by network security groups or affected by virtual network routes. <br><br>To enable communication between a Standard logic app and a private endpoint on a Premium integration account, select this option, but also make sure to set **Enable network injection** to **On**. |
+   | **Off** | Your logic app has no public endpoint, but has a private endpoint instead for communication within an Azure virtual network, and is isolated within that virtual network. The private endpoint can communicate with endpoints in the virtual network, but only from clients within that network. This configuration also means that logic app traffic can be governed by network security groups or affected by virtual network routes. |
 
    The following settings control Standard logic app access to endpoints in a virtual network:
 
    | Enable network injection | Behavior |
    |--------------------------|----------|
-   | **On** | Your logic app workflows can privately and securely communicate with endpoints in the virtual network. <br><br>To enable communication between a Standard logic app and a private endpoint on a Premium integration account, select this option, which also makes the **Virtual Network** section available. For **Virtual Network**, select the Azure virtual network to use. This choice makes the **Inbound access** and **Outbound access** sections available. |
+   | **On** | Your logic app workflows can privately and securely communicate with endpoints in the virtual network. <br><br>To enable communication between your logic app and a private endpoint on a Premium integration account, select this option, which also makes the **Virtual Network** section available. For **Virtual Network**, select the Azure virtual network to use. This choice makes the **Inbound access** and **Outbound access** sections available. |
    | **Off** | Your logic app workflows can't communicate with endpoints in the virtual network. |
 
    The following sections appear after you select a virtual network when **Enable network injection** is set to **On**.
