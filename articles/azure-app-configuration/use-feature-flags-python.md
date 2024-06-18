@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 06/04/2024
 ms.author: mametcal
 ms.custom: devx-track-python
-#Customer intent: I want to control feature availability in my app by using the Python Feature Manager library.
+#Customer intent: I want to control feature availability in my app by using the Python Feature Management library.
 ---
 
 # Tutorial: Use feature flags in a Python app
