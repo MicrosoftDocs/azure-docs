@@ -5,7 +5,7 @@ description: Learn how to update Audience values for P2S VPN gateway connections
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/24/2024
+ms.date: 06/18/2024
 ms.author: cherylmc
 
 # Customer intent: As an VPN Gateway administrator, I want to update point-to-site Audience values for Microsoft Entra ID authentication.
