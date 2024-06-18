@@ -53,7 +53,15 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
     To create an example Standard logic app workflow, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md).
 
-* The Premium integration account supports using a [private endpoint](../../private-link/private-endpoint-overview.md) to securely communicate with Standard logic app workflows. To enable this capability, you need to have an Azure virtual network. Your integration account, virtual network, and logic app must all use the same Azure region. Both your integration account and logic app must also exist inside the same virtual network. For more information, see [Create a virtual network](../../virtual-network/quick-create-portal.md) and the steps in this guide to set up your Premium integration account. To set up your Standard logic app, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md).
+* A [Premium integration account](#create-integration-account) supports using a [private endpoint](../../private-link/private-endpoint-overview.md) within an Azure virtual network to securely communicate with other Azure resources in the same network. Your integration account, virtual network, and Azure resources must also exist in the same Azure region. For more information, see [Create a virtual network](../../virtual-network/quick-create-portal.md) and the steps in this guide to set up your Premium integration account.
+
+  For example, a Standard logic app can access the private endpoint if they exist in the same virtual network. However, a Consumption logic app doesn't support virtual network integration and can't access the private endpoint.
+
+  - To create a Standard logic app with virtual network integration, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md).
+ 
+  - To set up an existing Standard logic app with virtual network integration, see [Set up virtual network integration](../secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-virtual-network-integration).
+
+<a name="create-integration-account"></a>
 
 ## Create integration account
 
@@ -203,12 +211,6 @@ To create a secure connection between your Premium integration account and Azure
 
 - Saves on costs by reducing extra network infrastructure and avoiding data egress charges through public endpoints.
 
-### Limitations
-
-- Any Azure resource in the same virtual network as the Premium integration account.
-
-- Standard logic app workflows can use private endpoints on
-
 ### Best practices for private endpoints
 
 - Carefully plan your virtual network and subnet architecture to accommodate private endpoints. Make sure to properly segment and secure your subnets.
@@ -295,9 +297,10 @@ For a private endpoint that requires approval, follow these steps:
 
 1. Choose one of the following options:
 
-   - To create a Standard logic app that can communicate through the private endpoint on a Premium integration account, see [Create example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md#create-logic-app-resource).
+  - To create a Standard logic app with virtual network integration, see [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../create-single-tenant-workflows-azure-portal.md).
+ 
+  - To set up an existing Standard logic app with virtual network integration, see [Set up virtual network integration](../secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-virtual-network-integration).
 
-   - To set up an existing Standard logic app that can communicate through the private endpoint on a Premium integration account, see [Set up virtual network integration](../secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-virtual-network-integration).
 
 1. To make calls through the private endpoint, include an **HTTP** action in your Standard logic app workflow where you want to call the integration account.
 
