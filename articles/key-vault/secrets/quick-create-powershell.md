@@ -36,7 +36,7 @@ Connect-AzAccount
 
 ## Give your user account permissions to manage secrets in Key Vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac-powershell.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-powershell.md)]
 
 ## Adding a secret to Key Vault
 
