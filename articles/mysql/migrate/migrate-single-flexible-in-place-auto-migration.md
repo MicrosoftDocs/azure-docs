@@ -94,10 +94,11 @@ Following described are the ways to review your migration schedule once you rece
 
 | **Property** | **Configuration** |
 |---|---|
-| properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). |
-| properties.emailAccountAdmins, properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Quickstart: Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). |
-| properties.retentionDays, properties.storageAccountAccessKey, properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md?tabs=azure-portal). |
-
+| Suppress specific alert types | You can disable specific alert types using the Microsoft Defender for Cloud platform. For more information, see the [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). <br />Single Server users can also achieve this using the API property: properties.disabledAlerts|
+| Email notifications | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). <br />Single Server users can also achieve this using the API properties: 
+properties.emailAccountAdmins, <br />properties.emailAddresses |
+| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through Azure Resource Graph. <br />You can export alerts to a different store and manage retention separately. <br />For more information about continuous export, see [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md). <br />Single Server users can also achieve this using the API properties:
+properties.retentionDays, <br />properties.storageAccountAccessKey, <br />properties.storageEndpoint |
 ## Frequently Asked Questions (FAQs)
 
 **Q. Why am I being auto-migrated​?**
