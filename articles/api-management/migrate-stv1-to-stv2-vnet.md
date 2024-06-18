@@ -73,10 +73,12 @@ You can use the Azure portal to migrate to a new subnet in the same or a differe
 1. In **Step 2**, choose migration settings:
     * Select a location to migrate. 
     * Select the **Virtual network**, **Subnet**, and optional **Public IP address** you want to migrate to. 
+    
         :::image type="content" source="media/migrate-stv1-to-stv2-vnet/select-location.png" alt-text="Screenshot of selecting network migration settings in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/select-location.png":::
 
     * Select either **Return to original subnet as soon as possible** or **Stay in the new subnet and keep stv1 compute around for 48 hours** after migration. If you choose the former, the `stv1` compute will be deleted approximately 15 minutes after migration, allowing you to proceed directly with migration back to the original subnet if desired. If you choose the latter, the `stv1` compute is retained for 48 hours. You can use this period to validate your network settings and connectivity.
-        :::image type="content" source="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png" alt-text="Screenshot of options to retain stv1 compute in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png":::
+
+        :::image type="content" source="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway-small.png" alt-text="Screenshot of options to retain stv1 compute in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png":::
 
 1. In **Step 3**, confirm you want to migrate, and select **Migrate**. 
     The status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
