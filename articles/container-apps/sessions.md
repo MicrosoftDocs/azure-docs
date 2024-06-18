@@ -75,8 +75,14 @@ You pass the session identifier in a query parameter named `identifier` in the U
 
 For code interpreter sessions, you can also use an integration with an [LLM framework](./sessions-code-interpreter.md#llm-framework-integrations). The framework handles the token generation and management for you. Ensure that the application is configured with a managed identity that has the necessary role assignments on the session pool.
 
-> [!IMPORTANT]
-> The session identifier is critical and sensitive information that must be securely created and managed. Secure your application to ensure each user only has access to their own sessions, and a malicious user cannot access another user's session.
+##### Protecting session identifiers
+
+The session identifier is critical and sensitive information that must be securely created and managed. It's important to secure your application to ensure each user or tenant only has access to their own sessions.
+
+The specific strategies to prevent misuse of session identifiers differ depends on the design and architecture of your app. However, your app must always have full control over the creation and use of session identifiers so that a malicious user cannot access another user's session. Some example strategies include:
+
+* If your app uses one session per user, each user must be securely authenticated and your app must use a session identifier that is unique to each logged in user.
+* If your app uses one session per AI agent conversation, ensure your app uses a session identifier that is unique to each conversation and can't be modified by the end user.
 
 ### Authentication
 
