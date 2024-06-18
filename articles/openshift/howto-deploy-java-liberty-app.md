@@ -42,7 +42,7 @@ If you're interested in providing feedback or working closely on your migration 
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx#get-a-red-hat-pull-secret-optional) section of [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster?WT.mc_id=Portal-fx). To get the pull secret for use, follow the steps in this section.
+The Azure Marketplace offer you're going to use in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](create-cluster.md#get-a-red-hat-pull-secret-optional) section of [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md). To get the pull secret for use, follow the steps in this section.
 
 Use your Red Hat account to sign in to the OpenShift cluster manager portal, by visiting the [Red Hat OpenShift Hybrid Cloud Console](https://console.redhat.com/openshift/install/azure/aro-provisioned). You might need to accept more terms and update your account as shown in the following screenshot. Use the same password as when you created the account.
 
@@ -190,7 +190,7 @@ If you navigated away from the **Deployment is in progress** page, the following
 
    Take note if you installed the WebSphere Liberty operator or the Open Liberty operator. The operator variant matches what you selected at deployment time. If you selected **IBM Supported**, you have the WebSphere Liberty operator. Otherwise you have the Open Liberty operator. This information is important to know in later steps.
 
-1. Download and install the OpenShift CLI `oc` by following steps in tutorial [Install the OpenShift CLI](tutorial-connect-cluster.md#install-the-openshift-cli), then return to this documentation.
+1. Download and install the OpenShift CLI `oc` by following steps in tutorial [Install the OpenShift CLI](connect-cluster.md#install-the-openshift-cli), then return to this documentation.
 
 1. Switch to **Outputs** pane, copy the value from the **cmdToLoginWithKubeadmin** field, and then paste it in your terminal. Run the command to sign in to the OpenShift cluster's API server. You should see output similar to the following example in the console:
 

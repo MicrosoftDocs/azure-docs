@@ -43,7 +43,7 @@ sudo apt install mysql-server
 
 ## Get a Red Hat pull secret
 
-The Azure Marketplace offer used in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional) section in [Tutorial: Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/tutorial-create-cluster).
+The Azure Marketplace offer used in this article requires a Red Hat pull secret. This section shows you how to get a Red Hat pull secret for Azure Red Hat OpenShift. To learn about what a Red Hat pull secret is and why you need it, see the [Get a Red Hat pull secret](create-cluster.md#get-a-red-hat-pull-secret-optional) section in [Create an Azure Red Hat OpenShift 4 cluster](/azure/openshift/create-cluster).
 
 Use the following steps to get the pull secret.
 
