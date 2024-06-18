@@ -24,19 +24,19 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 
 Enhancements let you incorporate other Azure AI services (such as Azure AI Vision) to add new functionality to the chat-with-vision experience.
 
-**Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
-
 > [!IMPORTANT]
 > To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
+
+**Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
 
 :::image type="content" source="../media/concepts/gpt-v/object-grounding.png" alt-text="Screenshot of an image with object grounding applied. Objects have bounding boxes with labels.":::
 
 :::image type="content" source="../media/concepts/gpt-v/object-grounding-response.png" alt-text="Screenshot of a chat response to an image prompt about an outfit. The response is an itemized list of clothing items seen in the image.":::
 
 **Optical Character Recognition (OCR)**: Azure AI Vision complements GPT-4 Turbo with Vision by providing high-quality OCR results as supplementary information to the chat model. It allows the model to produce higher quality responses for images with dense text, transformed images, and numbers-heavy financial documents, and increases the variety of languages the model can recognize in text.
-
-> [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 :::image type="content" source="../media/concepts/gpt-v/receipts.png" alt-text="Photo of several receipts.":::
 
@@ -45,9 +45,6 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 **Video prompt**: The **video prompt** enhancement lets you use video clips as input for AI chat, enabling the model to generate summaries and answers about video content. It uses Azure AI Vision Video Retrieval to sample a set of frames from a video and create a transcript of the speech in the video.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1eHRf]
-
-> [!NOTE]
-> In order to use the video prompt enhancement, you need both an Azure AI Vision resource, in the paid (S1) tier, in addition to your Azure OpenAI resource.
 
 ## Special pricing information
 

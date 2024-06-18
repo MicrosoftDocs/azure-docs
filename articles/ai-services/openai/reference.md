@@ -284,7 +284,7 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYM
 **Enhanced chat with vision**
 
 - **Not supported with the GPT-4 Turbo GA model** `gpt-4` **Version:** `turbo-2024-04-09`
-- **Not supported wit the** `2024-02-01` **and** `2024-04-01-preview` and newer API releases.
+- **Not supported with the** `2024-02-01` **and** `2024-04-01-preview` and newer API releases.
 
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/extensions/chat/completions?api-version=2023-12-01-preview \
