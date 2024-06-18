@@ -55,3 +55,4 @@ The active selection provides more options to adjust the verbosity of logs when 
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploying the Connected Registry Arc Extension](quickstart-connected-registry-arc-cli.md)
+> [Glossary of terms](connected-registry-glossary.md)

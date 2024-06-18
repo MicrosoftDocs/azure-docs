@@ -66,6 +66,7 @@ The configuration syncs every minute with the connected registry.
 > [Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
 > [Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
 > [Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
+> [Glossary of terms](connected-registry-glossary.md)
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-update]: /cli/azure/acr/connected-registry#az-acr-connected-registry-update
