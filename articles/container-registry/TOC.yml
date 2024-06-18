@@ -367,6 +367,11 @@
     href: troubleshoot-artifact-streaming.md
   - name: Troubleshoot Artifact cache
     href: troubleshoot-artifact-cache.md
+- name: Glossary
+  expanded: false
+  items:
+  - name: Glossary
+    href: connected-registry-glossary.md
 - name: Resources
   expanded: false
   items:
