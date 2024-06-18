@@ -78,6 +78,7 @@ In this tutorial, you learned how to upgrade the Connected registry extension wi
 > [Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
 > [Sync Connected registry with Azure arc](tutorial-connected-registry-sync.md)
 > [Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
+> [Glossary of terms](connected-registry-glossary.md)
 
 [quickstart]: quickstart-connected-registry-arc-cli.md
 [az-k8s-extension-create]: /cli/azure/k8s-extension#az-k8s-extension-create
