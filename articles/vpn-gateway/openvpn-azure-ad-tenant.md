@@ -1,16 +1,16 @@
 ---
-title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication'
+title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication - manually registered App'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a Microsoft Entra tenant and P2S gateway for P2S Microsoft Entra authentication - OpenVPN protocol.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
 
-# Configure a P2S VPN gateway for Microsoft Entra ID authentication
+# Configure P2S VPN Gateway for Microsoft Entra ID authentication – manually registered app
 
 This article helps you configure your Microsoft Entra tenant and point-to-site (P2S) VPN Gateway settings for Microsoft Entra ID authentication. For more information about point-to-site protocols and authentication, see [About VPN Gateway point-to-site VPN](point-to-site-about.md). To authenticate using Microsoft Entra ID authentication, you must include the OpenVPN tunnel type in your point-to-site configuration.
 
@@ -25,9 +25,9 @@ The steps in this article require a Microsoft Entra tenant. If you don't have a 
 
 If you already have an existing P2S gateway, the steps in this article help you configure the gateway for Microsoft Entra ID authentication. You can also create a new VPN gateway. The link to create a new gateway is included in this article.
 
-<a name='create-azure-ad-tenant-users'></a>
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
-## Create Microsoft Entra tenant users
+## <a name='create-azure-ad-tenant-users'></a>Create Microsoft Entra tenant users
 
 1. Create two accounts in the newly created Microsoft Entra tenant. For steps, see [Add or delete a new user](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
@@ -90,5 +90,5 @@ In this section, you generate and download the Azure VPN Client profile configur
 
 ## Next steps
 
-* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections- Windows](point-to-site-entra-vpn-client-windows.md) or [Configure a VPN client for P2S VPN connections- macOS](point-to-site-entra-vpn-client-mac.md).
 * For frequently asked questions, see the **Point-to-site** section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).
