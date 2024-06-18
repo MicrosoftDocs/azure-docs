@@ -1,5 +1,5 @@
 ---
-title: "Use a template to create a secure workspace"
+title: Use a template to create a secure workspace
 titleSuffix: Azure Machine Learning
 description: Use a template to create an Azure Machine Learning workspace and associated required Azure services inside a secure virtual network.
 services: machine-learning
@@ -33,7 +33,7 @@ The Bicep template also creates an Azure Kubernetes Service (AKS) cluster, and a
 
 [!INCLUDE [managed-vnet-note](includes/managed-vnet-note.md)]
 
-Select the Bicep or Terraform tabs in the following sections to view the Bicep or Terraform information.
+To view either Bicep or Terraform information, select the Bicep or Terraform tabs in the following sections.
 
 ## Prerequisites
 
@@ -41,11 +41,11 @@ Select the Bicep or Terraform tabs in the following sections to view the Bicep o
 
 - Git installed on your development environment to clone the template repository. If you don't have the `git` command, you can install Git from [https://git-scm.com/](https://git-scm.com/).
 
-- Either a Bash or Azure PowerShell command line.
+- A Bash or Azure PowerShell command line.
 
 # [Bicep](#tab/bicep)
 
-- To install the command-line tools, see [Set up Bicep development and deployment environments](../azure-resource-manager/bicep/install.md).
+- To install the command-line tools, see [Set up Bicep development and deployment environments](/azure/azure-resource-manager/bicep/install).
 
 - The Bicep template for this article is at [Azure Machine Learning end-to-end secure setup](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure). To clone the GitHub repo to your development environment and switch to the template directory, run the following commands:
 
@@ -74,34 +74,30 @@ Select the Bicep or Terraform tabs in the following sections to view the Bicep o
 
 # [Bicep](#tab/bicep)
 
-The Bicep template is made up of the [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/main.bicep) and the *.bicep* files in the [modules](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules) subdirectory. The following table describes what each file is responsible for:
+The Bicep template is made up of the [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/main.bicep) and other *\*.bicep* files in the [modules](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules) subdirectory. The following table describes what each file is responsible for:
 
 | File | Description |
 | ----- | ----- |
-| [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/main.bicep) | Parameters and variables. Passing parameters & variables to other modules in the `modules` subdirectory. |
-| [vnet.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/vnet.bicep) | Defines the Azure Virtual Network and subnets. |
-| [nsg.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/nsg.bicep) | Defines the network security group rules for the VNet. |
-| [bastion.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/bastion.bicep) | Defines the Azure Bastion host and subnet. Azure Bastion allows you to easily access a VM inside the VNet using your web browser. |
-| [dsvmjumpbox.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/dsvmjumpbox.bicep) | Defines the Data Science Virtual Machine (DSVM). Azure Bastion is used to access this VM through your web browser. |
+| [main.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/main.bicep) | Passes parameters and variables to other modules in the *modules* subdirectory.|
+| [vnet.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/vnet.bicep) | Defines the Azure virtual network and subnets. |
+| [nsg.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/nsg.bicep) | Defines the network security group rules for the virtual network. |
+| [bastion.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/bastion.bicep) | Defines the Azure Bastion host and subnet. Azure Bastion allows you to easily access a virtual machine (VM) inside the virtual network using your web browser. |
+| [dsvmjumpbox.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/dsvmjumpbox.bicep) | Defines the DSVM. Azure Bastion is used to access this VM through your web browser. |
 | [storage.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/storage.bicep) | Defines the Azure Storage account used by the workspace for default storage. |
 | [keyvault.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/keyvault.bicep) | Defines the Azure Key Vault used by the workspace. |
 | [containerregistry.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/containerregistry.bicep) | Defines the Azure Container Registry used by the workspace. |
 | [applicationinsights.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/applicationinsights.bicep) | Defines the Azure Application Insights instance used by the workspace. |
-| [machinelearningnetworking.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningnetworking.bicep) | Defines the private endpoints and DNS zones for the Azure Machine Learning workspace. |
-| [Machinelearning.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearning.bicep) | Defines the Azure Machine Learning workspace. |
+| [machinelearningnetworking.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningnetworking.bicep) | Defines the private endpoints and Domain Name System (DNS) zones for the workspace. |
+| [machinelearning.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearning.bicep) | Defines the Azure Machine Learning workspace. |
 | [machinelearningcompute.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningcompute.bicep) | Defines an Azure Machine Learning compute cluster and compute instance. |
-| [privateaks.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/privateaks.bicep) | Defines an Azure Kubernetes Services cluster instance. |
+| [privateaks.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/privateaks.bicep) | Defines an AKS cluster instance. |
 
 > [!IMPORTANT]
-> The example templates might not always use the latest API version for Azure Machine Learning. Before using the template, you should modify it to use the latest API versions. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
+> The example templates might not always use the latest API version for Azure Machine Learning. Before using the template, you should modify it to use the latest API version. For information on the latest API version for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
 >
 > Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
 >
-> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure Machine Learning workspace that uses an API version of `2022-05-01`:
->
->```json
->resource machineLearning 'Microsoft.MachineLearningServices/workspaces@2022-05-01' = {
->```
+> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version.
 
 # [Terraform](#tab/terraform)
 
@@ -109,21 +105,21 @@ The template consists of multiple files. The following table describes what each
 
 | File | Description |
 | ----- | ----- |
-| [variables.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/variables.tf) | Variables and default values used by the template.
+| [variables.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/variables.tf) | Defines variables and default values used by the template.
 | [main.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/main.tf) | Specifies the Azure Resource Manager provider and defines the resource group. |
-| [network.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/network.tf) | Defines the Azure Virtual Network, subnets, and network security groups (NSG). |
-| [bastion.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/bastion.tf) | Defines the Azure Bastion host and associated NSG. Azure Bastion allows you to easily access a virtual machine (VM) inside a virtual network by using your web browser. |
+| [network.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/network.tf) | Defines the Azure virtual network, subnets, and network security groups (NSG). |
+| [bastion.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/bastion.tf) | Defines the Azure Bastion host and associated NSG. Azure Bastion allows you to easily access a VM inside a virtual network by using your web browser. |
 | [dsvm.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/dsvm.tf) | Defines the DSVM. Azure Bastion is used to access this VM through your web browser. |
 | [workspace.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/workspace.tf) | Defines the Azure Machine Learning workspace, including dependent resources for Azure Storage, Key Vault, Application Insights, and Container Registry. |
 | [compute.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/compute.tf) | Defines an Azure Machine Learning compute instance and cluster. |
 
 > [!TIP]
-> The [Terraform Azure provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) supports more arguments that aren't used in this tutorial. For example, the [environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#environment) argument allows you to target cloud regions such as Azure Government and Microsoft Azure operated by 21Vianet.
+> The [Terraform Azure provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs) supports more arguments that this tutorial doesn't use. For example, the [environment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#environment) argument lets you target cloud regions such as Azure Government and Microsoft Azure operated by 21Vianet.
 
 ---
 
 > [!IMPORTANT]
-> The DSVM and Azure Bastion are used as easy ways to connect to the secured workspace for this tutorial. In a production environment, it's best to use an [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) to access the resources inside the virtual network directly from your on-premises network.
+> The DSVM and Azure Bastion are easy ways to connect to the secured workspace for this tutorial. In a production environment, it's best to use an [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) to access the resources inside the virtual network directly from your on-premises network.
 
 ## Configure the template
 
@@ -176,6 +172,8 @@ To deploy the Bicep template, run the following commands from the *machine-learn
     > [!WARNING]
     > You should avoid using plain text strings in scripts or from the command line. The plain text can show up in event logs and command history. For more information, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
+    ---
+
 ---
 
 # [Terraform](#tab/terraform)
@@ -212,11 +210,18 @@ To deploy the Terraform template, use the following commands from the *201-machi
 
 ---
 
+> [!IMPORTANT]
+> The DSVM and any compute resources bill you for every hour that they run. To avoid excess charges, you should stop these resources when they're not in use. For more information, see the following articles:
+> 
+> - [Create/manage VMs (Linux)](/azure/virtual-machines/linux/tutorial-manage-vm).
+> - [Create/manage VMs (Windows)](/azure/virtual-machines/windows/tutorial-manage-vm).
+> - [Create compute instance](how-to-create-compute-instance.md).
+
 ## Connect to the workspace
 
 After the deployment completes, use the following steps to connect to the DSVM:
 
-1. From the [Azure portal](https://portal.azure.com), select the Azure Resource Group you used with the template. Then, select the DSVM that the template created. If you have trouble finding it, use the filters section to filter the __Type__ to __virtual machine__.
+1. From the [Azure portal](https://portal.azure.com), select the Azure resource group you used with the template. Then, select the DSVM that the template created. If you have trouble finding it, use the filters section to filter the __Type__ to __virtual machine__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-template/select-vm.png" alt-text="Screenshot of filtering and selecting the vm.":::
 
@@ -235,7 +240,7 @@ After the deployment completes, use the following steps to connect to the DSVM:
 
 The following error can occur when the name for the DSVM jump box is greater than 15 characters or includes one of the following characters: `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `=`, `+`, `_`, `[`, `]`, `{`, `}`, `\`, `|`, `;`, `:`, `.`, `'`, `"`, `,`, `<`, `>`, `/`, or `?`.
 
-**Error: Windows computer name cannot be more than 15 characters long, be entirely numeric, or contain the following characters**
+**Error: Windows computer name cannot be more than 15 characters long, be entirely numeric, or contain the following characters.**
 
 # [Bicep](#tab/bicep)
 
@@ -243,19 +248,10 @@ The Bicep template generates the jump box name programmatically by using the pre
 
 # [Terraform](#tab/terraform)
 
-The Terraform template passes the jump box name by using the `dsvm_name` parameter. To avoid the error, use a name that's not greater than 15 characters and doesn't use the characters `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `=`, `+`, `_`, `[`, `]`, `{`, `}`, `\`, `|`, `;`, `:`, `.`, `'`, `"`, `,`, `<`, `>`, `/`, or `?`.
+The Terraform template passes the jump box name by using the `dsvm_name` parameter. To avoid the error, use a name that's 15 characters or fewer and doesn't use the characters `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `=`, `+`, `_`, `[`, `]`, `{`, `}`, `\`, `|`, `;`, `:`, `.`, `'`, `"`, `,`, `<`, `>`, `/`, or `?`.
 
-> [!IMPORTANT]
-> The DSVM and any compute resources bill you for every hour that they run. To avoid excess charges, you should stop these resources when they're not in use. For more information, see the following articles:
-> 
-> - [Create/manage VMs (Linux)](/azure/virtual-machines/linux/tutorial-manage-vm).
-> - [Create/manage VMs (Windows)](/azure/virtual-machines/windows/tutorial-manage-vm).
-> - [Create compute instance](how-to-create-compute-instance.md).
+## Related content
 
-## Next steps
-
-:::moniker range="azureml-api-2"
-To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
-:::moniker-end
+To continue getting started with Azure Machine Learning, see [Quickstart: Get started with Azure Machine Learning](tutorial-azure-ml-in-a-day.md).
 
 To learn more about common secure workspace configurations and input/output requirements, see [Azure Machine Learning secure workspace traffic flow](concept-secure-network-traffic-flow.md).
