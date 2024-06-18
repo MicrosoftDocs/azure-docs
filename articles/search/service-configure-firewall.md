@@ -24,7 +24,7 @@ Network rules aren't required, but it's a security best practice to add them.
 
 Network rules are scoped to data plane operations. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. Those operations specify resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
 
-This article explains how to configure network access to a search service's public endpoint. To block *all* access to the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
+This article explains how to configure network access to a search service's public endpoint. To block *all* data plane access to the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
 
 This article assumes the Azure portal for network access configuration. You can also use the [Management REST API](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search), or the [Azure CLI](/cli/azure/search).
 
@@ -104,7 +104,7 @@ For ping, the request times out, but the IP address is visible in the response. 
 
 Did you select the trusted services exception? If yes, your Azure resource must have a managed identity (either system or user-assigned, but usually system), and you must use role-based access controls. 
 
-Azure resources on the trusted service list include:
+The trusted service list for Azure AI Search includes:
 
 + `Microsoft.CognitiveServices` for Azure OpenAI and Azure AI services
 + `Microsoft.MachineLearningServices` for Azure Machine Learning
@@ -118,7 +118,7 @@ For managed identities on Azure OpenAI and Azure Machine Learning:
 
 For managed identities on Azure AI services:
 
-1. [Find your multiservice account](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AIServices).
+1. [Find your multiservice account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.cognitiveServices%2Faccounts).
 1. On the leftmost pane, under **Resource management**, select **Identity**.
 1. Set **System-assigned** to **On**.
 
