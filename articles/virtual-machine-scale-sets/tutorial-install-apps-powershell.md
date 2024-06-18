@@ -65,7 +65,7 @@ $customConfig = @{
 }
 ```
 
-Now, apply the Custom Script Extension with [Add-AzVmssExtension](/powershell/module/az.Compute/Add-azVmssExtension). The configuration object previously defined is passed to the extension. Update and run the extension on the VM instances with [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
+Now, apply the Custom Script Extension with [Add-AzVmssExtension](/powershell/module/az.Compute/Add-azVmssExtension). The configuration object previously defined is passed to the extension. Update the extension on the scale set profile instances with [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 ```azurepowershell-interactive
 # Get information about the scale set
@@ -88,9 +88,13 @@ Update-AzVmss `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 
-# Update all of the existing scale set instances
-Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
+```
 
+## Update the scale set instances
+Perform a manual upgrade to apply the updated extension to all the existing scale set instances. The update may take a couple of minutes to complete. 
+
+```azurepowershell-interactive
+Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
 ```
 
 Each VM instance in the scale set downloads and runs the script from GitHub. In a more complex example, multiple application components and files could be installed. If the scale set is scaled up, the new VM instances automatically apply the same Custom Script Extension definition and install the required application.
@@ -147,7 +151,7 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 Leave the web browser open so that you can see an updated version in the next step.
 
 ## Update app deployment
-Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the `-UpgradePolicyMode` was set to *Automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
+Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set.
 
 Create a new config definition named *customConfigv2*. This definition runs an updated *v2* version of the application install script:
 
@@ -158,7 +162,7 @@ $customConfigv2 = @{
 }
 ```
 
-Update the Custom Script Extension configuration to the VM instances in your scale set. The *customConfigv2* definition is used to apply the updated version of the application:
+Update the Custom Script Extension configuration to the VM instances in your scale set. The *customConfigv2* definition is used to apply the updated version of the application to the scale set:
 
 ```azurepowershell-interactive
 $vmss = Get-AzVmss `
@@ -172,6 +176,12 @@ Update-AzVmss `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
 
+Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
+```
+## Update the scale set instances
+Perform a manual upgrade to apply the updated extension to all the existing scale set instances. The update may take a couple of minutes to complete. 
+
+```azurepowershell-interactive
 Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
 ```
 
