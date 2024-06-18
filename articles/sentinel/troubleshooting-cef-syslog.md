@@ -15,13 +15,13 @@ ms.date: 06/18/2024
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 
-For example, if your logs are not appearing in Microsoft Sentinel, either in the Syslog or the Common Security Log tables, your data source may be failing to connect or there may be another reason your data is not being ingested.
+For example, if your log messages aren't appearing in the *Syslog* or *CommonSecurityLog* tables, your data source might not be connecting properly. There might also be another reason your data is not being received.
 
 Other symptoms of a failed connector deployment include when either the **security_events.conf** or the **security-omsagent.config.conf** files are missing, or if the rsyslog server is not listening on port 514.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
 
-If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
+If you deployed your connector using a different method than the documented procedure, and if you're having issues, we recommend that you scrap the deployment and start over, this time following the documented instructions.
 
 This article shows you how to troubleshoot CEF or Syslog connectors with the Log Analytics agent. For troubleshooting information related to ingesting CEF logs via the Azure Monitor Agent (AMA), review the [Common Event Format (CEF) via AMA](connect-cef-ama.md) connector instructions.
 
@@ -31,15 +31,15 @@ This article shows you how to troubleshoot CEF or Syslog connectors with the Log
 
 ## How to use this article
 
-When information in this article is relevant only for Syslog or only for CEF connectors, we've organized the page into tabs. Make sure that you're using the instructions on the correct tab for your connector type.
+When information in this article is relevant only for Syslog or only for CEF connectors, it'll be presented in separate tabs. Make sure that you're using the instructions on the correct tab for your connector type.
 
-For example, if you're troubleshooting a CEF connector, start with [Validate CEF connectivity](#validate-cef-connectivity). If you're troubleshooting a Syslog connector, start below, with [Verify your data connector prerequisites](#verify-your-data-connector-prerequisites).
+For example, if you're troubleshooting a CEF connector, start with [Validate CEF connectivity](#validate-cef-connectivity). If you're troubleshooting a Syslog connector, start with [Verify your data connector prerequisites](#verify-your-data-connector-prerequisites).
 
 # [CEF](#tab/cef)
 
 ### Validate CEF connectivity
 
-After you've [deployed your log forwarder](connect-common-event-format.md) and [configured your security solution to send it CEF messages](./connect-common-event-format.md), use the steps in this section to verify connectivity between your security solution and Microsoft Sentinel.
+After you [deploy your log forwarder](connect-common-event-format.md) and [configure your security solution to send it CEF messages](./connect-common-event-format.md), use the steps in this section to verify connectivity between your security solution and Microsoft Sentinel.
 
 This procedure is relevant only for CEF connections, and is *not* relevant for Syslog connections.
 
@@ -55,7 +55,7 @@ This procedure is relevant only for CEF connections, and is *not* relevant for S
 
     It may take about 20 minutes until your logs start to appear in **Log Analytics**.
 
-1. If you don't see any results from the query, verify that events are being generated from your security solution, or try generating some, and verify they are being forwarded to the Syslog forwarder machine you designated.
+1. If you don't see any results from the query, verify that your security solution is generating log messages. Or, try taking some actions to generate log messages, and verify that the messages are forwarded to your designated Syslog forwarder machine.
 
 1. Run the following script on the log forwarder (applying the Workspace ID in place of the placeholder) to check connectivity between your security solution, the log forwarder, and Microsoft Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
 
@@ -105,7 +105,7 @@ For an rsyslog daemon, the CEF validation script runs the following checks:
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-    - <a name="parsing-command"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
+    - <a name="parsing-command"></a>If there is an issue with the parsing, the script produces an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command ensures the correct parsing and restart the agent.
 
         ```bash
         # Cisco ASA parsing fix
@@ -118,7 +118,7 @@ For an rsyslog daemon, the CEF validation script runs the following checks:
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
 
-    - <a name="mapping-command"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    - <a name="mapping-command"></a>If there is an issue with the mapping, the script produces an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command ensures the correct mapping and restart the agent.
 
         ```bash
         # Computer field mapping fix
@@ -200,7 +200,7 @@ For a syslog-ng daemon, the CEF validation script runs the following checks:
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-    - <a name="parsing-command"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
+    - <a name="parsing-command"></a>If there is an issue with the parsing, the script produces an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command ensures the correct parsing and restart the agent.
 
         ```bash
         # Cisco ASA parsing fix
@@ -213,7 +213,7 @@ For a syslog-ng daemon, the CEF validation script runs the following checks:
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
 
-    - <a name="mapping-command"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    - <a name="mapping-command"></a>If there is an issue with the mapping, the script produces an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command ensures the correct mapping and restart the agent.
 
         ```bash
         # Computer field mapping fix
@@ -266,7 +266,7 @@ For a syslog-ng daemon, the CEF validation script runs the following checks:
 
 ### Troubleshooting Syslog data connectors
 
-If you are troubleshooting a Syslog data connector, start with verifying your prerequisites in the section [below](#verify-your-data-connector-prerequisites), using the information in the **Syslog** tab.
+If you are troubleshooting a Syslog data connector, start with verifying your prerequisites in the [next section](#verify-your-data-connector-prerequisites), using the information in the **Syslog** tab.
 
 ---
 
@@ -421,7 +421,7 @@ This section describes how to troubleshoot issues that are certainly derived fro
     0 127.0.0.1:36120 127.0.0.1:25226 ESTABLISHED 1055/rsyslogd
     ```
 
-    If the connection is blocked, you may have a [blocked SELinux connection to the OMS agent](#selinux-blocking-connection-to-the-oms-agent), or a [blocked firewall process](#blocked-firewall-policy). Use the relevant instructions below to determine the issue.
+    If the connection is blocked, you may have a [blocked SELinux connection to the OMS agent](#selinux-blocking-connection-to-the-oms-agent), or a [blocked firewall process](#blocked-firewall-policy). Use the relevant instructions further on to determine the issue.
 
 
 # [Syslog](#tab/syslog)
