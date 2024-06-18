@@ -43,15 +43,6 @@ Azure Event Hubs collects the same kinds of monitoring data as other Azure resou
 <!-- ## Metrics -->
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
-Platform metrics and the activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
-
-Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
-
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Event Hubs are listed in [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md#resource-logs).
-
-> [!NOTE]
-> Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
-
 
 ### Supported metrics for Microsoft.EventHub/clusters
 
@@ -67,65 +58,64 @@ The following table lists the metrics available for the Microsoft.EventHub/Names
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-eventhub-namespaces-metrics-include.md)]
 
-
-## Metrics
 This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is `Microsoft.EventHub/clusters` or `Microsoft.EventHub/namespaces`.
 
 ### Request metrics
+
 Counts the number of data and management operations requests.
 
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ---------- | ---------- | ----- | --- | --- | --- | 
-| Incoming Requests| Yes | Count | Count |  The number of requests made to the Event Hubs service over a specified period. This metric includes all the data and management plane operations. | Entity name| 
-| Successful Requests| No | Count | Count |  The number of successful requests made to the Event Hubs service over a specified period. |  Entity name<br/><br/>Operation Result | 
-| Throttled Requests| No | Count | Count |   The number of requests that were throttled because the usage was exceeded. | Entity name<br/><br/>Operation Result |
+| Metric name | Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+|:------------|:-----------|:-----|:---|:---|:---|
+| Incoming Requests   | Yes | Count | Count | The number of requests made to the Event Hubs service over a specified period. This metric includes all the data and management plane operations. | Entity name| 
+| Successful Requests | No  | Count | Count | The number of successful requests made to the Event Hubs service over a specified period. |  Entity name<br/><br/>Operation Result | 
+| Throttled Requests  | No  | Count | Count | The number of requests that were throttled because the usage was exceeded. | Entity name<br/><br/>Operation Result |
 
 The following two types of errors are classified as **user errors**:
 
 1. Client-side errors (In HTTP that would be 400 errors).
 2. Errors that occur while processing messages.
 
-
 ### Message metrics
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ---------- | ---------- | ----- | --- | --- | --- | 
-|Incoming Messages|  Yes | Count | Count |  The number of events or messages sent to Event Hubs over a specified period. | Entity name|
-|Outgoing Messages| Yes | Count | Count |  The number of events or messages received from Event Hubs over a specified period. | Entity name | 
-| Captured Messages| No | Count| Count |  The number of captured messages.  |  Entity name | 
-|Incoming Bytes | Yes |  Bytes | Count |  Incoming bytes for an event hub over a specified period.  | Entity name| 
-|Outgoing Bytes | Yes |  Bytes | Count | Outgoing bytes for an event hub over a specified period.  | Entity name | 
-| Size | No |  Bytes | Average |  Size of an event hub in bytes.|Entity name |
 
+| Metric name | Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+|:------------|:-----------|:-----|:---|:---|:---|
+|Incoming Messages  | Yes | Count | Count | The number of events or messages sent to Event Hubs over a specified period. | Entity name |
+|Outgoing Messages  | Yes | Count | Count | The number of events or messages received from Event Hubs over a specified period. | Entity name |
+| Captured Messages | No  | Count  | Count |  The number of captured messages.  |  Entity name | 
+|Incoming Bytes     | Yes |  Bytes | Count |  Incoming bytes for an event hub over a specified period.  | Entity name| 
+|Outgoing Bytes     | Yes |  Bytes | Count | Outgoing bytes for an event hub over a specified period.  | Entity name | 
+| Size              | No  |  Bytes | Average |  Size of an event hub in bytes.|Entity name |
 
 > [!NOTE]
 > - These values are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
 > - The **Incoming requests** metric includes all the data and management plane operations. The **Incoming messages** metric gives you the total number of events that are sent to the event hub. For example, if you send a batch of 100 events to an event hub, it'll count as 1 incoming request and 100 incoming messages. 
 
 ### Capture metrics
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ------------------- | ----------------- | --- | --- | --- | --- | 
-| Captured Messages| No | Count| Count |  The number of captured messages.  | Entity name |
-| Captured Bytes | No | Bytes | Count |  Captured bytes for an event hub | Entity name | 
-| Capture Backlog | No | Count| Count |  Capture backlog for an event hub | Entity name | 
 
+| Metric name | Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+|:------------|:-----------|:-----|:---|:---|:---|
+| Captured Messages | No | Count | Count | The number of captured messages.  | Entity name |
+| Captured Bytes    | No | Bytes | Count | Captured bytes for an event hub | Entity name |
+| Capture Backlog   | No | Count | Count | Capture backlog for an event hub | Entity name |
 
 ### Connection metrics
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
-| ------------------- | ----------------- | --- | --- | --- | --- | 
-|Active Connections| No | Count | Average | The number of active connections on a namespace and on an entity (event hub) in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric.| Entity name | 
-|Connections Opened | No | Count | Average |  The number of open connections. | Entity name | 
-|Connections Closed | No | Count | Average|  The number of closed connections. | Entity name | 
+
+| Metric name | Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+|:------------|:-----------|:-----|:---|:---|:---|
+| Active Connections| No | Count | Average | The number of active connections on a namespace and on an entity (event hub) in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time might not be reflected in the metric.| Entity name | 
+| Connections Opened | No | Count | Average |  The number of open connections. | Entity name | 
+| Connections Closed | No | Count | Average|  The number of closed connections. | Entity name | 
 
 ### Error metrics
-| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
-| ------------------- | ----------------- | --- | --- | --- | --- | 
-|Server Errors| No | Count | Count |  The number of requests not processed because of an error in the Event Hubs service over a specified period. | Entity name<br/><br/>Operation Result |
-|User Errors | No | Count | Count |  The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result|
-|Quota Exceeded Errors | No |Count | Count |  The number of errors caused by exceeding quotas over a specified period. | Entity name<br/><br/>Operation Result|
+
+| Metric name | Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+|:------------|:-----------|:-----|:---|:---|:---|
+| Server Errors | No | Count | Count | The number of requests not processed because of an error in the Event Hubs service over a specified period. | Entity name<br/><br/>Operation Result |
+| User Errors   | No | Count | Count | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result |
+| Quota Exceeded Errors | No | Count | Count | The number of errors caused by exceeding quotas over a specified period. | Entity name<br/><br/>Operation Result |
 
 > [!NOTE]
 > Logic Apps creates epoch receivers and receivers may be moved from one node to another depending on the service load. During those moves, `ReceiverDisconnection` exceptions may occur. They are counted as user errors on the Event Hubs service side. Logic Apps may collect failures from Event Hubs clients so that you can view them in user logs.
-
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -138,10 +128,9 @@ The following two types of errors are classified as **user errors**:
 
 Azure Event Hubs supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you don't add dimensions, metrics are specified at the namespace level. 
 
-|Dimension name|Description|
-| ------------------- | ----------------- |
-|Entity Name| Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension has a value of '-NamespaceOnlyMetric-' in addition to all your event hubs. It represents the requests that were made at the namespace level. Examples include a  request to list all event hubs in the namespace or requests to entities that failed authentication or authorization.|
-
+| Dimension name | Description |
+|:---------------|:------------|
+| Entity Name | Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension has a value of '-NamespaceOnlyMetric-' in addition to all your event hubs. It represents the requests that were made at the namespace level. Examples include a  request to list all event hubs in the namespace or requests to entities that failed authentication or authorization.|
 
 <!-- ## Resource logs -->
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
@@ -159,45 +148,44 @@ Azure Event Hubs now has the capability to dispatch logs to either of two destin
 
 Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
 
-You can view our sample queries to get started with different log categories. 
+You can view our sample queries to get started with different log categories.
 
 > [!IMPORTANT]
-> Dimensions aren't exported to a Log Analytics workspace. 
-
+> Dimensions aren't exported to a Log Analytics workspace.
 
 [!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 ## Runtime audit logs
-Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in Event Hubs. 
+Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in Event Hubs.
 
-> [!NOTE] 
+> [!NOTE]
 > Runtime audit logs are available only in **premium** and **dedicated** tiers.  
 
 Runtime audit logs include the elements listed in the following table:
 
-
 | Name | Description | Supported in Azure Diagnostics | Supported in Resource Specific table |
-| ------- | -------| -----| -----|
+|:------- |:-------|:-----|:-----|
 | `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes  |
 | `ActivityName` | Runtime operation name.| Yes | Yes  |
 | `ResourceId` | Resource associated with the activity. | Yes | Yes |
 | `Timestamp` | Aggregation time. | Yes | No |
-|  `TimeGenerated [UTC]`|Time of executed operation (in UTC)| No | Yes |
+| `TimeGenerated [UTC]`|Time of executed operation (in UTC) | No | Yes |
 | `Status` | Status of the activity (success or failure). | Yes | Yes  |
 | `Protocol` | Type of the protocol associated with the operation. | Yes | Yes  |
-| `AuthType` | Type of authentication (Azure Active Directory or SAS Policy). | Yes | Yes  |
-| `AuthKey` | Azure Active Directory application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes  |
+| `AuthType` | Type of authentication (Microsoft Entra ID or SAS Policy). | Yes | Yes  |
+| `AuthKey` | Microsoft Entra ID application ID or SAS policy name that's used to authenticate to a resource. | Yes | Yes  |
 | `NetworkType` | Type of the network access: `Public` or `Private`. | Yes | Yes |
 | `ClientIP` | IP address of the client application. | Yes | Yes  |
 | `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes  |
 | `Properties` | Metadata that are specific to the data plane operation. | Yes | Yes  |
-| `Category` | Log category | Yes | NO |
+| `Category` | Log category | Yes | No |
 | `Provider`|Name of Service emitting the logs, such as Eventhub | No | Yes  |
 | `Type`  | Type of logs emitted | No | Yes |
 
 Here's an example of a runtime audit log entry:
 
-AzureDiagnostics :
+AzureDiagnostics:
+
 ```json
 {
     "ActivityId": "<activity id>",
@@ -215,7 +203,9 @@ AzureDiagnostics :
  }
 
 ```
+
 Resource specific table entry:
+
 ```json 
 {
     "ActivityId": "<activity id>",
@@ -236,13 +226,14 @@ Resource specific table entry:
 ```
 
 ## Application metrics logs
-Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
 
-> [!NOTE] 
-> Application metrics logs are available only in **premium** and **dedicated** tiers. 
+Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics.
+
+> [!NOTE]
+> Application metrics logs are available only in **premium** and **dedicated** tiers.
 
 | Name | Description |
-| ------- | ------- |
+|:-------|:------- |
 | `ConsumerLag` | Indicate the lag between consumers and producers.  |
 | `NamespaceActiveConnections` | Details of active connections established from a client to the event hub.  |
 | `GetRuntimeInfo` | Obtain run time information from Event Hubs.  |
@@ -255,12 +246,13 @@ Application metrics logs capture the aggregated information on certain metrics r
 | `OffsetFetch` | Number of offset fetch calls made to the event hub. |
 
 ## Diagnostic Error Logs
-Diagnostic error logs capture error messages for any client side, throttling and Quota exceeded errors. They provide detailed diagnostics for error identification.
 
-Diagnostic Error Logs include elements listed in below table:
+Diagnostic error logs capture error messages for any client side, throttling, and Quota exceeded errors. They provide detailed diagnostics for error identification.
+
+Diagnostic Error Logs include elements listed in following table:
 
 | Name | Description | Supported in Azure Diagnostics | Supported in AZMSDiagnosticErrorLogs (Resource specific table) |
-| ---|---|---|--- |
+|:---|:---|:---|:---|
 | `ActivityId` | A randomly generated UUID that ensures uniqueness for the audit activity. | Yes | Yes |
 | `ActivityName` | Operation name  | Yes | Yes |
 | `NamespaceName` | Name of Namespace | Yes | yes |
@@ -294,7 +286,9 @@ Here's an example of Diagnostic error log entry:
  }
 
 ```
+
 Resource specific table entry:
+
 ```json
 {
     "ActivityId": "0000000000-0000-0000-0000-00000000000000",
@@ -311,7 +305,6 @@ Resource specific table entry:
  }
 
 ```
-
 
 ### Event Hubs Microsoft.EventHub/namespaces
 
@@ -335,5 +328,5 @@ Resource specific table entry:
 
 ## Related content
 
-- See [Monitor [TODO-replace-with-service-name]](monitor-[TODO-replace-with-service-filename].md) for a description of monitoring [TODO-replace-with-service-name].
+- See [Monitor Azure Event Hubs](monitor-event-hubs.md) for a description of monitoring Event Hubs.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
