@@ -12,7 +12,7 @@ For more information, see the [open-source iOS UI Library](https://github.com/Az
 
 ### Set up push notifications
 
-A mobile push notification is the pop-up notification that you get in the mobile device. For calling, this article focuses on voice over Internet Protocol (VoIP) push notifications.
+A mobile push notification is the pop-up notification that you get in the mobile device. This article focuses on voice over Internet Protocol (VoIP) push notifications.
 
 The following sections describe how to register for, handle, and unregister push notifications. Before you start those tasks, complete these prerequisites:
 
@@ -45,7 +45,7 @@ To register for push notifications, the application needs to call `registerPushN
     callComposite.unregisterPushNotification()
 ```
 
-### Handle push notifications received from EventGrid or notification hub
+### Handle push notifications received from Event Grid or notification hub
 
 To receive push notifications for incoming calls, call `handlePushNotification()` on a `CallComposite` instance with a dictionary payload.
 
@@ -97,16 +97,16 @@ To receive incoming call notifications after `handlePushNotification`, subscribe
 
 ### Disable internal push for incoming call
 
-To receive push notifications only from `EventGrid` and `APNS` set `disableInternalPushForIncomingCall` to true in `CallCompositeOptions`. If `disableInternalPushForIncomingCall` is true, push notification event from ui library will be received only when `handlePushNotification` will be called. This helps to stop receiving notifications from `CallComposite` in foreground mode. This setting does not control `EventGrid` and `NotificationHub` settings.
+To receive push notifications only from `EventGrid` and `APNS` set `disableInternalPushForIncomingCall` to true in `CallCompositeOptions`. If `disableInternalPushForIncomingCall` is true, push notification event from ui library received only when `handlePushNotification` will be called. The option `disableInternalPushForIncomingCall` helps to stop receiving notifications from `CallComposite` in foreground mode. This setting doesn't control `EventGrid` and `NotificationHub` settings.
 
 ```swift
     let options = CallCompositeOptions(disableInternalPushForIncomingCall: true)
 ```
 
-### Launch composite on incoming call accepted from calling sdk CallKit
+### Launch composite on incoming call accepted from calling SDK CallKit
 The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](../../../calling-sdk/callkit-integration#callkit-integration-within-sdk).
 
-Subscribe to `onIncomingCallAcceptedFromCallKit` if CallKit from calling SDK is enabled. On call accepted, launch `callComposite` with call id.
+Subscribe to `onIncomingCallAcceptedFromCallKit` if CallKit from calling SDK is enabled. On call accepted, launch `callComposite` with call ID.
 
 ```swift
     let onIncomingCallAcceptedFromCallKit: (callId) -> Void = { [] callId in

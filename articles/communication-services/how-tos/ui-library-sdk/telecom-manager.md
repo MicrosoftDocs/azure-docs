@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 12/19/2023
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-ios
+zone_pivot_groups: acs-plat-android
 ---
 
 # Integrate TelecomManager into the UI Library
