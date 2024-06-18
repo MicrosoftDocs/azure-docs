@@ -57,6 +57,11 @@ When deploying Arc resource bridge, you may receive the error: `Deployment of th
 
 This error indicates that the deployment machine is unable to contact the control plane IP for Arc resource bridge within the time limit. Common causes of the error are often networking related, such as communication between the deployment machine and control plane IP being routed through a proxy. Traffic from the deployment machine to the control plane and the appliance VM IPs must not pass through proxy. If traffic is being proxied, then configure the proxy settings on your network or deployment machine to not proxy traffic between the deployment machine to the control plane IP and appliance VM IPs. Another cause for this error is if a firewall is closing access to port 6443 and port 22 between the deployment machine and control plane IP or the deployment machine and appliance VM IPs.
 
+### `UploadError` 403 Forbidden
+When deploying Arc resource bridge, you may receive the error: `{ _errorCode_: _UploadError_, _errorResponse_: _{\n\_message\_: \_Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_403 Forbidden`
+
+This error occurs in the deployment process when images need to be downloaded from Microsoft registries to the deployment machine and the download is being blocked by a proxy or firewall. Review the [network requirements](network-requirements.md#general-network-requirements) and verify that all required URLs are reachable.
+
 ### Arc resource bridge is offline
 
 If the resource bridge is offline, this is typically due to a networking change in the infrastructure, environment or cluster that stops the appliance VM from being able to  communicate with its counterpart Azure resource. If you're unable to determine what changed, you can reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
