@@ -1,14 +1,17 @@
 ---
-title: 'Tutorial: Connect an App Services Web app in a virtual network'
+title: "Tutorial: Connect an App Services Web app in a virtual network"
 description: Tutorial to create and connect a web app to Azure Database for MySQL - Flexible Server in a virtual network.
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 03/18/2021
-ms.custom: mvc, devx-track-azurecli
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Tutorial: Connect an App Services Web app to Azure Database for MySQL - Flexible Server in a virtual network
