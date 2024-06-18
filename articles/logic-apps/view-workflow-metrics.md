@@ -13,7 +13,7 @@ ms.date: 01/10/2024
 
 # View metrics for workflow health and performance in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This guide shows how you can check the health and performance for both Consumption and Standard logic app workflows.
 
