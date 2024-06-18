@@ -129,52 +129,48 @@ To deploy the Bicep template, run the following commands from the *machine-learn
 
 1. To create a new Azure resource group, run the following example command, replacing `exampleRG` with the resource group name and `eastus` with the Azure region you want to use:
 
-    # [Azure CLI](#tab/cli)
+    - **Azure CLI:**
 
-    ```azurecli
-    az group create --name exampleRG --location eastus
-    ```
-    # [Azure PowerShell](#tab/ps1)
+      ```azurecli
+      az group create --name exampleRG --location eastus
+      ```
 
-    ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    ```
+    - **Azure PowerShell:**
 
-    ---
+      ```azurepowershell
+      New-AzResourceGroup -Name exampleRG -Location eastus
+      ```
 
 1. To deploy the template, use the following command, replacing `prefix` with a unique prefix to use when creating required Azure Machine Learning resources. Replace `dsvmpassword` with a secure password for the DSVM jump box sign-in account, `azureadmin` in the following examples.
 
     > [!TIP]
     > The `prefix` must be five or fewer characters, and can't be entirely numeric or contain the characters `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `=`, `+`, `_`, `[`, `]`, `{`, `}`, `\`, `|`, `;`, `:`, `.`, `'`, `"`, `,`, `<`, `>`, `/`, or `?`.
 
-    # [Azure CLI](#tab/cli)
+    - **Azure CLI**:
 
-    ```azurecli
-    az deployment group create \
-        --resource-group exampleRG \
-        --template-file main.bicep \
-        --parameters \
-        prefix=prefix \
-        dsvmJumpboxUsername=azureadmin \
-        dsvmJumpboxPassword=dsvmpassword
-    ```
-    # [Azure PowerShell](#tab/ps1)
+      ```azurecli
+      az deployment group create \
+          --resource-group exampleRG \
+          --template-file main.bicep \
+          --parameters \
+          prefix=prefix \
+          dsvmJumpboxUsername=azureadmin \
+          dsvmJumpboxPassword=dsvmpassword
+      ```
 
-    ```azurepowershell
-    $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG `
-        -TemplateFile ./main.bicep `
-        -prefix "prefix" `
-        -dsvmJumpboxUsername "azureadmin" `
-        -dsvmJumpboxPassword $dsvmPassword
-    ```
+    - **Azure PowerShell**:
 
-    > [!WARNING]
-    > You should avoid using plain text strings in scripts or from the command line. The plain text can show up in event logs and command history. For more information, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
+      ```azurepowershell
+      $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force
+      New-AzResourceGroupDeployment -ResourceGroupName exampleRG `
+          -TemplateFile ./main.bicep `
+          -prefix "prefix" `
+          -dsvmJumpboxUsername "azureadmin" `
+          -dsvmJumpboxPassword $dsvmPassword
+      ```
 
-    ---
-
----
+      > [!WARNING]
+      > You should avoid using plain text strings in scripts or from the command line. The plain text can show up in event logs and command history. For more information, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
 # [Terraform](#tab/terraform)
 
@@ -249,6 +245,8 @@ The Bicep template generates the jump box name programmatically by using the pre
 # [Terraform](#tab/terraform)
 
 The Terraform template passes the jump box name by using the `dsvm_name` parameter. To avoid the error, use a name that's 15 characters or fewer and doesn't use the characters `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `=`, `+`, `_`, `[`, `]`, `{`, `}`, `\`, `|`, `;`, `:`, `.`, `'`, `"`, `,`, `<`, `>`, `/`, or `?`.
+
+---
 
 ## Related content
 
