@@ -1,15 +1,13 @@
 ---
 title: "Sync Connected registry with Azure arc"
-description: "Sync the Connected registry extension with Azure Arc to update the Connected registry with synchronization schedule and window."
+description: "Sync the Connected registry extension with Azure Arc synchronization schedule and window."
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 
-#customer intent: Learn how to sync the Connected registry extension with Azure Arc to update the Connected registry with synchronization schedule and window.
-
-
+#customer intent: Learn how to sync the Connected registry extension with with synchronization schedule and window.
 ---
 
 # Sync Connected registry with Azure Arc in Scheduled window
