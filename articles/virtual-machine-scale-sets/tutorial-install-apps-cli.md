@@ -88,7 +88,7 @@ az vmss extension set \
 > [!CAUTION]
 > File names are case sensitive. Use the exact file name stated in these instructions to avoid failure.
 
-## Update your scale set instances
+##  Apply the extension to the existing scale set instances
 Upgrade all the instances to apply the custom script. The upgrade may take a couple of minutes.
 
 ```azurecli-interactive
@@ -120,6 +120,17 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 
 Leave the web browser open so that you can see an updated version in the next step.
 
+## Change the upgrade policy
+In the previous section, in order to apply the updated application to all the scale set instances, a manual upgrade was needed. To enable updates to be applied automatically to all existing scale set instances, update the upgrade policy from manual to automatic. For more information on upgrade policies, see [Upgrade policies for Virtual Machine Scale Sets](virtual-machine-scale-sets-upgrade-policy.md).
+
+```azurecli-interactive
+az vmss update \
+    --name myScaleSet \
+    --resource-group myResourceGroup \
+    --set upgradePolicy.mode=automatic
+```
+
+
 ## Update app deployment
 In your current shell, create a file named *customConfigv2.json* and paste the following configuration. This definition runs an updated *v2* version of the application install script:
 
@@ -142,14 +153,7 @@ az vmss extension set \
   --settings @customConfigv2.json
 ```
 
-## Apply the updates
-Again, upgrade all the instances to apply the custom script. The upgrade may take a couple of minutes.
-
-```azurecli-interactive
-az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids "*"
-```
-
-Refresh your web browser to see the updated application.
+Because the scale set is now using an automatic upgrade policy, the updated application will automatically be applied to existing scale set instances. Refresh your web browser to see the updated application.
 
 ![Updated web page in Nginx](media/tutorial-install-apps-cli/running-nginx-updated.png)
 

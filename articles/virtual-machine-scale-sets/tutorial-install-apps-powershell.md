@@ -90,7 +90,7 @@ Update-AzVmss `
 
 ```
 
-## Update the scale set instances
+## Add the extension to the existing scale set instances
 Perform a manual upgrade to apply the updated extension to all the existing scale set instances. The update may take a couple of minutes to complete. 
 
 ```azurepowershell-interactive
@@ -150,6 +150,19 @@ Enter the public IP address of the load balancer in to a web browser. The load b
 
 Leave the web browser open so that you can see an updated version in the next step.
 
+## Change the update policy
+In the previous section, in order to apply the updated application to all the scale set instances, a manual upgrade was needed. To enable updates to be applied automatically to all existing scale set instances, update the upgrade policy from manual to automatic. For more information on upgrade policies, see [Upgrade policies for Virtual Machine Scale Sets](virtual-machine-scale-sets-upgrade-policy.md).
+
+```azurepowershell-interactive
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+
+Update-Azvmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -UpgradePolicyMode "Automatic" `
+    -VirtualMachineScaleSet $vmss
+```
+
 ## Update app deployment
 Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set.
 
@@ -175,17 +188,9 @@ Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Name "myScaleSet" `
   -VirtualMachineScaleSet $vmss
-
-Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
-```
-## Apply the update
-Perform a manual upgrade to apply the updated extension to all the existing scale set instances. The update may take a couple of minutes to complete. 
-
-```azurepowershell-interactive
-Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "*"
 ```
 
-All VM instances in the scale set are updated with the latest version of the sample web page. To see the updated version, refresh the web site in your browser:
+Because the scale set is now using an automatic upgrade policy, the updated application will automatically be applied to existing scale set instances. Refresh your web browser to see the updated application. To see the updated version, refresh the web site in your browser:
 
 ![Updated web page in IIS](media/tutorial-install-apps-powershell/running-iis-updated.png)
 
