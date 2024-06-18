@@ -13,15 +13,15 @@ items:
     href: faq.yml
 - name: Quickstarts
   items: 
-  - name: Deploy Cloud Services (extended support) - Portal
+  - name: Deploy the cloud service - Portal
     href: deploy-portal.md
-  - name: Deploy Cloud Services (extended support) - PowerShell
+  - name: Deploy the cloud service - PowerShell
     href: deploy-powershell.md
-  - name: Deploy Cloud Services (extended support) - ARM template
+  - name: Deploy the cloud service - ARM template
     href: deploy-template.md
-  - name: Deploy Cloud Services (extended support) - SDK
+  - name: Deploy the cloud service - SDK
     href: deploy-sdk.md
-  - name: Deploy Cloud Services (extended support) - Visual Studio
+  - name: Deploy the cloud service - Visual Studio
     href: /visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontext
   expanded: true
 - name: Concepts

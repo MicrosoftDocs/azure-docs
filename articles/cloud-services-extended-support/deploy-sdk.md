@@ -14,11 +14,13 @@ ms.custom: devx-track-azurepowershell
 
 This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to create an Azure Cloud Services (extended support) deployment that has multiple roles (WebRole and WorkerRole) and the Remote Desktop Protocol (RDP) extension. Cloud Services (extended support) is a deployment model of Azure Cloud Services that's based on Azure Resource Manager.
 
-## Before you begin
+## Prerequisites
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the required resources.
 
-## Deploy Cloud Services (extended support) by using the SDK
+## Deploy Cloud Services (extended support)
+
+To deploy Cloud Services (extended support) by using the SDK:
 
 1. Install the [Azure Compute SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview) and initialize the client by using a standard authentication method:
 
@@ -67,7 +69,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-1. Create a storage account and container where you'll store the package (.cspkg) file and configuration (.cscfg) file for the deployment. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if you're using an existing storage account. The storage account name must be unique.
+1. Create a storage account and container where you'll store the package (.cspkg or .zip) file and configuration (.cscfg) file for the deployment. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if you're using an existing storage account. The storage account name must be unique.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -208,13 +210,13 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
    New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosoOrg” -Location “East US”
    ```
 
-1. Update the key vault's access policy and grant certificate permissions to your user account.
+1. Update the key vault's access policy and grant certificate permissions to your user account:
 
    ```powershell
    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosoOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete
    ```
 
-    Alternatively, set the access policy via object ID (which you can get by running `Get-AzADUser`).
+    Alternatively, set the access policy via object ID (which you can get by running `Get-AzADUser`):
 
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates create,get,list,delete

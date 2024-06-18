@@ -17,7 +17,9 @@ This article shows you how to use the Azure portal to create an Azure Cloud Serv
 
 Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support) and create the required resources.
 
-## Deploy Cloud Services (extended support) in the portal
+## Deploy Cloud Services (extended support)
+
+To deploy Cloud Services (extended support) by using the portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -25,7 +27,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 
     :::image type="content" source="media/deploy-portal-1.png" alt-text="Screenshot that shows a Cloud Services (extended support) search in the Azure portal, and selecting the result.":::
 
-1. On the **Cloud Services (extended support)** services pane, select **Create**.
+1. On the **Cloud services (extended support)** services pane, select **Create**.
 
     :::image type="content" source="media/deploy-portal-2.png" alt-text="Screenshot that shows selecting Create in the menu to create a new instance of Cloud Services (extended support).":::
 
@@ -41,7 +43,7 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 
     :::image type="content" source="media/deploy-portal-3.png" alt-text="Image shows the Cloud Services (extended support) Basics tab.":::
 
-1. On the **Basics** tab under **Cloud service configuration, package, and service definition**, add your package (.cspkg or .zip) file, configuration (.cscfg) file, and definition (.csdef) file for the deployment. You can add existing files from blob storage or upload the files from your local machine. If you upload the files from your local machine, the files are stored in a storage account in Azure.
+1. On the **Basics** tab under **Cloud service configuration, package, and service definition**, add your package (.cspkg or .zip) file, configuration (.cscfg) file, and definition (.csdef) file for the deployment. You can add existing files from blob storage or upload the files from your local machine. If you upload the files from your local machine, the files are then stored in a storage account in Azure.
 
     :::image type="content" source="media/deploy-portal-4.png" alt-text="Screenshot that shows the section of the Basics tab where you upload files and select storage.":::
 
@@ -54,13 +56,13 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 
     - **Public IP**: Select an existing public IP address to associate with the cloud service, or create a new one.
 
-        - If you have IP input endpoints defined in your service definition (.csdef) file, create a public IP address for your cloud service.
+        - If you have IP input endpoints defined in your definition (.csdef) file, create a public IP address for your cloud service.
         - Cloud Services (extended support) supports only a Basic SKU public IP address.
         - If your configuration (.cscfg) file contains a reserved IP address, set the allocation type for the public IP address to **Static**.
-        - (Optional). You can assign a DNS name for your cloud service endpoint by updating the DNS label property of the public IP address associated with the cloud service.  
+        - (Optional) You can assign a DNS name for your cloud service endpoint by updating the DNS label property of the public IP address that's associated with the cloud service.  
     - (Optional) **Start cloud service**: Select the checkbox if you want to start the service immediately after it's deployed.
     - **Key vault**: Select a key vault.
-        - A key vault is required when you specify one or more certificates in your configuration (.cscfg) file. When you select a key vault, we attempt to find the selected certificates that are defined in your configuration (.cscfg) file based on the certificate thumbprints. If any certificates are missing from your key vault, you can upload them, and then select **Refresh**.  
+        - A key vault is required when you specify one or more certificates in your configuration (.cscfg) file. When you select a key vault, we attempt to find the selected certificates that are defined in your configuration (.cscfg) file based on the certificate thumbprints. If any certificates are missing from your key vault, you can upload them now    , and then select **Refresh**.  
 
    :::image type="content" source="media/deploy-portal-5.png" alt-text="Screenshot that shows the Configuration tab in the Azure portal when you create a Cloud Services (extended support) deployment.":::
 

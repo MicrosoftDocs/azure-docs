@@ -27,12 +27,14 @@ Complete the following steps as prerequisites to creating your deployment by usi
 
 1. (Optional) Create a key vault and upload the certificates.
 
-    - You can attach certificates to your deployment for secure communication to and from the service. If you use certificate, the certificate thumbprints must be specified in your configuration (.cscfg) file and be uploaded to a key vault. You can create a key vault by using the [Azure portal](../key-vault/general/quick-create-portal.md) or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
-    - The associated key vault must be located in the same region and subscription as your Cloud Services (extended support) deployment.
-    - The associated key vault must have the relevant permissions so that Cloud Services (extended support) resources can retrieve certificates from the key vault. For more information, see [Use certificates with Cloud Services (extended support](certificates-and-key-vault.md).
+    - You can attach certificates to your deployment for secure communication to and from the service. If you use certificates, the certificate thumbprints must be specified in your configuration (.cscfg) file and be uploaded to a key vault. You can create a key vault by using the [Azure portal](../key-vault/general/quick-create-portal.md) or [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
+    - The associated key vault must be in the same region and subscription as your Cloud Services (extended support) deployment.
+    - The associated key vault must have the relevant permissions so that Cloud Services (extended support) resources can retrieve certificates from the key vault. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
     - The key vault must be referenced in the `osProfile` section of the ARM template as shown in a later step.
 
-## Deploy Cloud Services (extended support) by using a template
+## Deploy Cloud Services (extended support)
+
+To deploy Cloud Services (extended support) by using a template:
 
 > [!NOTE]
 > An easier and faster way to generate your ARM template and parameter file is by using the [Azure portal](https://portal.azure.com). You can [download the generated ARM template](generate-template-portal.md) in the portal to create your Cloud Services (extended support) via Azure PowerShell.
@@ -73,7 +75,7 @@ Complete the following steps as prerequisites to creating your deployment by usi
      ] 
     ```
 
-1. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you use a static IP address, you must reference it as a reserved IP address in the configuration (.cscfg) file. If you use an existing IP address, skip this step and add the IP address information directly in the load balancer configuration settings of your ARM template.
+1. Create a public IP address and (optionally) set the DNS label property of the public IP address. If you use a static IP address, you must reference it as a reserved IP address in the configuration (.cscfg) file. If you use an existing IP address, skip this step and add the IP address information directly in the load balancer configuration settings in your ARM template.
 
     ```json
     "resources": [ 
@@ -208,11 +210,11 @@ Complete the following steps as prerequisites to creating your deployment by usi
    > [!NOTE]
    > The password for RDP must from 8 to 123 characters and must satisfy at least *three* of the following password-complexity requirements:
    >
-   > Contains an uppercase character.
-   > Contains a lowercase character.
-   > Contains a numeric digit.
-   > Contains a special character.
-   > Cannot contain a control character.
+   > Contains an uppercase character.  
+   > Contains a lowercase character.  
+   > Contains a numeric digit.  
+   > Contains a special character.  
+   > Cannot contain a control character.  
 
     ```json
         "extensionProfile": {

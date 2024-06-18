@@ -39,9 +39,9 @@ Complete the following steps as prerequisites to creating your deployment by usi
     $container = New-AzStorageContainer -Name “contosocontainer” -Context $storageAccount.Context -Permission Blob 
     ```
 
-## Deploy Cloud Services (extended support) by using PowerShell
+## Deploy Cloud Services (extended support)
 
-Use any of the following Azure PowerShell cmdlets to deploy Cloud Services (extended support):
+Use any of the following PowerShell cmdlet options to deploy Cloud Services (extended support):
 
 - Quick-create a deployment by using a [storage account](#quick-create-a-deployment-by-using-a-storage-account)
 
@@ -51,18 +51,18 @@ Use any of the following Azure PowerShell cmdlets to deploy Cloud Services (exte
 
 - Quick-create a deployment by using a [shared access signature URI](#quick-create-a-deployment-by-using-an-sas-uri)
 
-  - This parameter set inputs the shared access signature (SAS) URI of the package (.cspkg) file with the local paths to the configuration (.cscfg) file and definition (.csdef) file. No storage account input is required.
+  - This parameter set inputs the shared access signature (SAS) URI of the package (.cspkg or .zip) file with the local paths to the configuration (.cscfg) file and definition (.csdef) file. No storage account input is required.
   - The cloud service role profile, network profile, and OS profile are created by the cmdlet with minimal input.
   - To input a certificate, you must specify a key vault name. The certificate thumbprints in the key vault are validated against the certificates that you specify in the configuration (.cscfg) file for the deployment.
 
 - Create a deployment by using a [role profile, OS profile, network profile, and extension profile with shared access signature URIs](#create-a-deployment-by-using-profile-objects-and-sas-uris)
 
-  - This parameter set inputs the SAS URIs of the package (.cspkg) file and configuration (.cscfg) file.
+  - This parameter set inputs the SAS URIs of the package (.cspkg or .zip) file and configuration (.cscfg) file.
   - You must specify profile objects: role profile, network profile, OS profile, and extension profile. The profiles must match the values that you set in the configuration (.cscfg) file and definition (.csdef) file.
 
 ### Quick-create a deployment by using a storage account
 
-Create a Cloud Services (extended support) deployment by using the package (.cspkg) file, configuration (.cscfg) file, and definition (.csdef) files:
+Create a Cloud Services (extended support) deployment by using the package (.cspkg or .zip) file, configuration (.cscfg) file, and definition (.csdef) files:
 
 ```azurepowershell-interactive
 $cspkgFilePath = "<Path to .cspkg file>"
@@ -83,7 +83,7 @@ New-AzCloudService
 
 ### Quick-create a deployment by using an SAS URI
 
-1. Upload the package (.cspkg) file for the deployment to the storage account:
+1. Upload the package (.cspkg or .zip) file for the deployment to the storage account:
 
     ```azurepowershell-interactive
     $tokenStartTime = Get-Date 
@@ -95,7 +95,7 @@ New-AzCloudService
     $csdefFilePath = "<Path to csdef file>"
     ```
 
-1. Create the Cloud Services (extended support) deployment by using the package (.cspkg) file, configuration (.cscfg) file, and definition (.csdef) file SAS URI:
+1. Create the Cloud Services (extended support) deployment by using the package (.cspkg or .zip) file, configuration (.cscfg) file, and definition (.csdef) file SAS URI:
 
     ```azurepowershell-interactive
     New-AzCloudService
@@ -118,7 +118,7 @@ New-AzCloudService
     $cscfgUrl = $cscfgBlob.ICloudBlob.Uri.AbsoluteUri + $cscfgToken 
     ```
 
-1. Upload your Cloud Services (extended support) package (.cspkg) file to the storage account:
+1. Upload your Cloud Services (extended support) package (.cspkg or .zip) file to the storage account:
 
     ```azurepowershell-interactive
     $tokenStartTime = Get-Date 
@@ -171,7 +171,7 @@ New-AzCloudService
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -ObjectId 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' -PermissionsToCertificates create,get,list,delete 
     ```
 
-1. Th following example adds a self-signed certificate to a key vault. You must add the certificate thumbprint via the configuration (.cscfg) file for Cloud Services (extended support) roles.
+1. The following example adds a self-signed certificate to a key vault. You must add the certificate thumbprint via the configuration (.cscfg) file for Cloud Services (extended support) roles.
 
     ```azurepowershell-interactive
     $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal 
@@ -187,7 +187,7 @@ New-AzCloudService
     $osProfile = @{secret = @($secretGroup)} 
     ```
 
-1. Create a role profile in-memory object. A role profile defines a role SKU-specific properties such as name, capacity, and tier. In this example, two roles are defined: frontendRole and backendRole. Role profile information must match the role configuration that's defined in the deployment configuration (.cscfg) file and definition (.csdef) file.
+1. Create a role profile in-memory object. A role profile defines a role's SKU-specific properties such as name, capacity, and tier. In this example, two roles are defined: frontendRole and backendRole. Role profile information must match the role configuration that's defined in the deployment configuration (.cscfg) file and definition (.csdef) file.
 
     ```azurepowershell-interactive
     $frontendRole = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2 
