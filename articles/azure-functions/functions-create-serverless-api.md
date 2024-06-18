@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Customize an HTTP endpoint in Azure Functions
 
-In this article, you learn how to build highly scalable APIs with Azure Functions. Azure Functions includes a collection of built-in HTTP triggers and bindings, which make it easy to author an endpoint in various languages, including Node.js, C#, and more. In this article, you customize an HTTP trigger to handle specific actions in your API design. You also prepare for growing your API by integrating it with Azure Functions Proxies and setting up mock APIs. These tasks are accomplished on top of the Functions serverless compute environment, so you don't have to worry about scaling resources. Instead, you can just focus on your API logic.
+In this article, you learn how to build highly scalable APIs with Azure Functions. Azure Functions includes a collection of built-in HTTP triggers and bindings, which make it easy to author an endpoint in various languages, including Node.js, C#, and more. In this article, you customize an HTTP trigger to handle specific actions in your API design. You also prepare for growing your API by integrating it with Azure Functions proxies and setting up mock APIs. These tasks are accomplished on top of the Functions serverless compute environment, so you don't have to worry about scaling resources. Instead, you can just focus on your API logic.
 
 [!INCLUDE [functions-legacy-proxies-deprecation](../../includes/functions-legacy-proxies-deprecation.md)]
 
@@ -43,21 +43,21 @@ By default, you configure your HTTP trigger function to accept any HTTP method. 
     | Authorization level | Anonymous | Optional: Makes your function accessible without an API key |
     | Selected HTTP methods | GET | Allows only selected HTTP methods to be used to invoke this function |
 
-    You didn't include the `/api` base path prefix in the route template because a global setting handles it.
+    Because a global setting handles it the `/api` base path prefix in the route template, you didn't need to include it here.
 
 1. Select **Save**.
 
-For more information about customizing HTTP functions, see [Azure Functions HTTP bindings](./functions-bindings-http-webhook.md).
+For more information about customizing HTTP functions, see [Azure Functions HTTP triggers and bindings overview](./functions-bindings-http-webhook.md).
 
 ### Test your API
 
 Next, test your function to see how it works with the new API surface:
 
-1. On the function page, select **Code + Test** from the left menu.
+1. On the **Function** page, select **Code + Test** from the left menu.
 
-1. Select **Get function URL** from the top menu and copy the URL. Confirm that it now uses the `/api/hello` path.
+1. Select **Get function URL** from the top menu and copy the URL. Confirm that your function now uses the `/api/hello` path.
 
-1. Copy the URL into a new browser tab or your preferred REST client.
+1. Copy the URL to a new browser tab or your preferred REST client.
 
    Browsers use GET by default.
 
@@ -65,13 +65,13 @@ Next, test your function to see how it works with the new API surface:
 
    For example, `/api/hello/?name=John`.
 
-1. Press Enter to confirm that it's working. You should see the response, "*Hello John*."
+1. Press Enter to confirm that your function is working. You should see the response, "*Hello John*."
 
-1. You can also try calling the endpoint with another HTTP method to confirm that the function isn't executed. To do so, use a REST client, such as cURL, Postman, or Fiddler.
+1. You can also call the endpoint with another HTTP method to confirm that the function isn't executed. To do so, use a REST client, such as cURL, Postman, or Fiddler.
 
 ## Proxies overview
 
-In the next section, you surface your API through a proxy. Azure Functions Proxies allows you to forward requests to other resources. You define an HTTP endpoint as you would with an HTTP trigger. However, instead of writing code to execute when that endpoint is called, you provide a URL to a remote implementation. Doing so allows you to compose multiple API sources into a single API surface, which is easy for clients to consume, and is useful if you wish to build your API as microservices.
+In the next section, you surface your API through a proxy. Azure Functions proxies allow you to forward requests to other resources. You define an HTTP endpoint as you would with an HTTP trigger. However, instead of writing code to execute when that endpoint is called, you provide a URL to a remote implementation. Doing so allows you to compose multiple API sources into a single API surface, which is easier for clients to consume, and is useful if you wish to build your API as microservices.
 
 A proxy can point to any HTTP resource, such as:
 
@@ -80,10 +80,10 @@ A proxy can point to any HTTP resource, such as:
 - Docker containers in [App Service on Linux](../app-service/overview.md#app-service-on-linux)
 - Any other hosted API
 
-To learn more about Azure Functions Proxies, see [Work with legacy proxies].
+To learn more about Azure Functions proxies, see [Work with legacy proxies].
 
 > [!NOTE]
-> Azure Functions Proxies is available in Azure Functions versions 1.x to 3.x.
+> Azure Functions proxies is available in Azure Functions versions 1.x to 3.x.
 
 ## Create your first proxy
 
@@ -91,7 +91,7 @@ In this section, you create a new proxy, which serves as a frontend to your over
 
 ### Set up the frontend environment
 
-Repeat the steps to [Create a function app](./functions-get-started.md) to create a new function app in which you create your proxy. This new app's URL serves as the frontend for our API, and the function app you previously edited serves as a backend.
+Repeat the steps in [Create a function app](./functions-create-function-app-portal.md) to create a new function app in which you create your proxy. This new app's URL serves as the frontend for our API, and the function app you previously edited serves as a backend:
 
 1. Navigate to your new frontend function app in the portal.
 1. Expand **Settings**, and then select **Environment variables**.
@@ -99,7 +99,7 @@ Repeat the steps to [Create a function app](./functions-get-started.md) to creat
 1. Create a new setting with the key `HELLO_HOST`. Set its value to the host of your backend function app, such as `<YourBackendApp>.azurewebsites.net`. This value is part of the URL that you copied earlier when you tested your HTTP function. You later reference this setting in the configuration.
 
     > [!NOTE]
-    > App settings are recommended for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
+    > It's recommended that you use app settings for the host configuration to prevent a hard-coded environment dependency for the proxy. Using app settings means that you can move the proxy configuration between environments, and the environment-specific app settings will be applied.
 
 1. Select **Apply**.
 
@@ -119,7 +119,7 @@ Repeat the steps to [Create a function app](./functions-get-started.md) to creat
 
     :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Creating a proxy":::
 
-    Azure Functions Proxies doesn't provide the `/api` base path prefix, which must be included in the route template. The `%HELLO_HOST%` syntax references the app setting you created earlier. The resolved URL points to your original function.
+    Because Azure Functions proxies don't provide the `/api` base path prefix, you must include it in the route template. The `%HELLO_HOST%` syntax references the app setting you created earlier. The resolved URL points to your original function.
 
 1. Try out your new proxy by copying the proxy URL and testing it in the browser or with your favorite HTTP client:
     - For an anonymous function, use:
@@ -129,77 +129,78 @@ Repeat the steps to [Create a function app](./functions-get-started.md) to creat
 
 ## Create a mock API
 
-Next, you use a proxy to create a mock API for your solution. This proxy allows client development to progress, without needing the backend fully implemented. Later in development, you can create a new function app, which supports this logic, and redirect your proxy to it.
+Next, you use a proxy to create a mock API for your solution. This proxy allows client development to progress, without needing to fully implement the backend. Later in development, you can create a new function app that supports this logic, and redirect your proxy to it:
 
-To create this mock API, we create a new proxy, this time using [App Service Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). To get started, navigate to your function app in the portal. Select **Platform features**, and under **Development Tools** find **App Service Editor**. The App Service Editor opens in a new tab.
+1. To create this mock API, create a new proxy, this time using [App Service Editor](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). To get started, navigate to your function app in the Azure portal. Select **Platform features**, and then select **App Service Editor** under **Development Tools**.
 
-Select `proxies.json` in the left navigation. This file stores the configuration for all of your proxies. If you use one of the [Functions deployment methods](./functions-continuous-deployment.md), you maintain this file in source control. To learn more about this file, see [Proxies advanced configuration](./legacy-proxies.md#advanced-configuration).
+   The App Service Editor opens in a new tab.
 
-Your *proxies.json* should appear as follows:
+1. Select `proxies.json` in the left pane. This file stores the configuration for all of your proxies. If you use one of the [Functions deployment methods](./functions-continuous-deployment.md), you maintain this file in source control. For more information about this file, see [Proxies advanced configuration](./legacy-proxies.md#advanced-configuration).
 
-```json
-{
-    "$schema": "http://json.schemastore.org/proxies",
-    "proxies": {
-        "HelloProxy": {
-            "matchCondition": {
-                "route": "/api/remotehello"
-            },
-            "backendUri": "https://%HELLO_HOST%/api/hello"
-        }
-    }
-}
-```
+   Your *proxies.json* should appear as follows:
 
-Next, you add your mock API. Replace your *proxies.json* file with the following code:
+   ```json
+   {
+       "$schema": "http://json.schemastore.org/proxies",
+       "proxies": {
+           "HelloProxy": {
+               "matchCondition": {
+                   "route": "/api/remotehello"
+               },
+               "backendUri": "https://%HELLO_HOST%/api/hello"
+           }
+       }
+   }
+   ```
 
-```json
-{
-    "$schema": "http://json.schemastore.org/proxies",
-    "proxies": {
-        "HelloProxy": {
-            "matchCondition": {
-                "route": "/api/remotehello"
-            },
-            "backendUri": "https://%HELLO_HOST%/api/hello"
-        },
-        "GetUserByName" : {
-            "matchCondition": {
-                "methods": [ "GET" ],
-                "route": "/api/users/{username}"
-            },
-            "responseOverrides": {
-                "response.statusCode": "200",
-                "response.headers.Content-Type" : "application/json",
-                "response.body": {
-                    "name": "{username}",
-                    "description": "Awesome developer and master of serverless APIs",
-                    "skills": [
-                        "Serverless",
-                        "APIs",
-                        "Azure",
-                        "Cloud"
-                    ]
-                }
-            }
-        }
-    }
-}
-```
+1. Add your mock API. Replace your *proxies.json* file with the following code:
 
-This code adds a new proxy, `GetUserByName`, without the `backendUri` property. Instead of calling another resource, it modifies the default response from Azure Functions Proxies using a response override. Request and response overrides can also be used with a backend URL. This technique is useful when you proxy to a legacy system, where you might need to modify headers, query parameters, and so on. For more information about request and response overrides, see [Modifying requests and responses in Proxies](./legacy-proxies.md).
+   ```json
+   {
+       "$schema": "http://json.schemastore.org/proxies",
+       "proxies": {
+           "HelloProxy": {
+               "matchCondition": {
+                   "route": "/api/remotehello"
+               },
+               "backendUri": "https://%HELLO_HOST%/api/hello"
+           },
+           "GetUserByName" : {
+               "matchCondition": {
+                   "methods": [ "GET" ],
+                   "route": "/api/users/{username}"
+               },
+               "responseOverrides": {
+                   "response.statusCode": "200",
+                   "response.headers.Content-Type" : "application/json",
+                   "response.body": {
+                       "name": "{username}",
+                       "description": "Awesome developer and master of serverless APIs",
+                       "skills": [
+                           "Serverless",
+                           "APIs",
+                           "Azure",
+                           "Cloud"
+                       ]
+                   }
+               }
+           }
+       }
+   }
+   ```
 
-Test your mock API by calling the `<YourProxyApp>.azurewebsites.net/api/users/{username}` endpoint using a browser or your favorite REST client. Be sure to replace *{username}* with a string value representing a username.
+   This code adds a new proxy, `GetUserByName`, omitting the `backendUri` property. Instead of calling another resource, it modifies the default response from Azure Functions proxies by using a response override. You can also use request and response overrides with a backend URL. This technique is useful when you proxy to a legacy system, where you might need to modify headers, query parameters, and so on. For more information about request and response overrides, see [Modifying requests and responses in Proxies](./legacy-proxies.md).
+
+1. Test your mock API by calling the `<YourProxyApp>.azurewebsites.net/api/users/{username}` endpoint with a browser or your favorite REST client. Be sure to replace *{username}* with a string value representing a username.
 
 ## Related content
 
-In this article, you learned how to build and customize an API on Azure Functions. You also learned how to bring multiple APIs, including mocks, together as a unified API surface. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
+In this article, you learned how to build and customize an API with Azure Functions. You also learned how to bring multiple APIs, including mock APIS, together as a unified API surface. You can use these techniques to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
 The following references might be helpful as you develop your API further:
 
 - [Azure Functions HTTP triggers and bindings overview](./functions-bindings-http-webhook.md)
-- [Working with Azure Functions Proxies]
+- [Working with Azure Functions proxies]
 - [Expose serverless APIs from HTTP endpoints using Azure API Management](./functions-openapi-definition.md)
 
-[Create your first function]: ./functions-get-started.md
-[Working with Azure Functions Proxies]: ./legacy-proxies.md
+[Work with legacy proxies]: ./legacy-proxies.md
