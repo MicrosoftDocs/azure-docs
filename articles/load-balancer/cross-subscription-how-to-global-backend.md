@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 05/24/2024
+ms.date: 06/18/2024
 ms.author: mbender
 ms.custom: 
 ---
@@ -15,7 +15,7 @@ ms.custom:
 
 In this article, you learn how to create a global load balancer with cross-subscription backends.
 
-A [cross-subscription internal load balancer (ILB)](cross-subscription-load-balancer-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription.
+A [cross-subscription load balancer](cross-subscription-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription.
 
 [!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
@@ -261,7 +261,7 @@ az network cross-region-lb address-pool address add \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a cross-subscription internal load balancer](./cross-subscription-howto-internal-load-balancer.md)
+> [Create a cross-subscription internal load balancer](./cross-subscription-how-to-internal-load-balancer.md)
 
 
 
