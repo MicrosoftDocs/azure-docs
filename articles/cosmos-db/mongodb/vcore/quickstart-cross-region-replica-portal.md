@@ -29,7 +29,7 @@ In this quickstart, you create a cluster replica in another region for an Azure 
 
 ## Create a cluster replica for a new cluster
 
-Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
+Create a MongoDB cluster with a cluster read replica in another region by using Azure Cosmos DB for MongoDB vCore.
 
 > [!TIP]
 > For this guide, we recommend using the resource group name ``msdocs-cosmos-quickstart-rg``.
@@ -48,12 +48,12 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
     :::image type="content" source="media/quickstart-portal/select-resource-type.png" alt-text="Screenshot of the select resource type option page for Azure Cosmos DB for MongoDB.":::
 
-1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Access to global distribution (preview)** option within the **Cluster tier** section.
+1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Access to global distribution (preview)** option within the **Cluster details** section.
 
     :::image type="content" source="media/quickstart-cross-region-replication/select-access-to-cross-region-replication-preview.png" alt-text="Screenshot of the access to global distribution preview.":::
-
-> [!IMPORTANT]
-> You should select **Access to global distribution (preview)** during provisioning to be able to create a preview replica cluster.
+  
+    > [!IMPORTANT]
+  > You should select **Access to global distribution (preview)** during provisioning to be able to create a preview replica cluster.
 
 1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Configure** option within the **Cluster tier** section.
 
@@ -63,11 +63,11 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
     | Setting | Value |
     | --- | --- |
-    | **Shard count** | Single shard |
-    | **Cluster tier** | M30 Tier, 2 vCores, 8-GiB RAM |
-    | **Storage per shard** | 128 GiB |
+    | **Shard count** | 1 shard |
+    | **Cluster tier** | M30 Tier, 2 vCores, 8 GiB RAM |
+    | **Storage** | 128 GiB |
 
-1. Unselect the **High availability** option. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
+1. Unselect the **High availability** option. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster configuration.
 
     :::image type="content" source="media/quickstart-portal/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
 
@@ -75,7 +75,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
     | Setting | Value | Description |
     | --- | --- | --- |
-    | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB for MongoDB cluster. |
+    | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB for MongoDB cluster and its replica cluster. |
     | Resource group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
     | Cluster name | A globally unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *mongodbcluster.cosmos.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3 and 40 characters in length. |
     | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster with read and write capabilities, the primary cluster. Use the location that is closest to your users to give them the fastest access to the data. |
@@ -89,7 +89,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
 1. Select **Enable** for **Read replica in another region (preview)** to create a cluster read replica as a part of this new primary cluster provisioning.
 
-1. In **Read replica name**, enter a name for the cluster read replica. It should be a globally unique cluster name.
+1. In the **Read replica name** field, enter a name for the cluster read replica. It should be a globally unique cluster name.
 
 1. Select a value from the **Read replica region** drop-down list.
 
