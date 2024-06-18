@@ -103,3 +103,8 @@ Wait for the deployment to reach the 'Succeeded' state. After completion, your V
 1. Select the link under **Current State -> Resources**. The link takes you to the managed resource group created by Azure Operator Service Manager.
 
 Congratulations! You have successfully created a Site Network Service for Ubuntu Virtual Machine (VM) as a Virtual Network Function (VNF) in Azure. You can now manage and monitor your Virtual Network Function (VNF) through the Azure portal.
+
+When you have finished, remember to delete the resources. You can do this by:
+
+1. Deleting the Operator Resource Group.
+1. When the above is complete, deleting the Publisher Resource Group.

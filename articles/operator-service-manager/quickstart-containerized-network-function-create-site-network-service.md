@@ -70,10 +70,15 @@ ms.service: azure-operator-service-manager
    > [!TIP]
    > Refer to the Retrieve Custom Location section for config group value for the customlocationID. For more information, see [Quickstart: Prerequisites for Operator and Containerized Network Function (CNF)](quickstart-containerized-network-function-operator.md).
 
-10. Select **Review + Create** then **Create**.
+1. Select **Review + Create** then **Create**.
 1. Allow the deployment state to reach a state of **Succeeded**. This status indicates your CNF is up and running.
 1. Access your CNF by navigating to the **Site Network Service Object** in the Azure portal. Select the **Current State -> Resources** to view the managed resource group created by Azure Operator Service Manager (AOSM).
 
     :::image type="content" source="media/site-network-service-preview.png" alt-text="Screenshot shows an overview of the site network service created." lightbox="media/site-network-service-preview.png":::
 
 You have successfully created a Site Network Service for a Nginx Container as a CNF in Azure. You can now manage and monitor your CNF through the Azure portal.
+
+When you have finished, remember to delete the resources. You can do this by:
+
+1. Deleting the Operator Resource Group.
+1. When the above is complete, deleting the Publisher Resource Group.

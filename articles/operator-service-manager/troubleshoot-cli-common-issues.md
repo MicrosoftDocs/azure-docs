@@ -15,6 +15,24 @@ This document contains a list of common issues when using the Azure CLI AOSM ext
 
 ## Common issues
 
+### Publisher already exists in the region
+
+Publisher names must be unique within an Azure region. If you see the following error, the publisher name you have chosen is already in use:
+
+`Message: A private publisher resource with the name 'nginx-publisher' already exists in the provided region.`
+
+To resolve this error:
+
+**If you own the publisher, it is in your tenant, and you wish to re-use it:**
+
+The publisher is defined in your AOSM CLI extension configuration file. The `publisher_name` and `publisher_resource_group_name` fields must match those of the existing publisher, and it must be in the tenant you are using for this deployment.
+
+Change the `publisher_resource_group_name` in the config file so that it references the existing publisher, re-run the corresponding `build` command, then re-run the `publish` command.
+
+**You do not own the existing publisher:**
+
+Use a new publisher name.
+
 ### Network Service Design (NSD) artifact upload failure
 
 Artifact uploads using `az aosm nsd publish` command can fail on rare occasions. The error output in this case is
