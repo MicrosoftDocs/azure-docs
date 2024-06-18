@@ -169,6 +169,9 @@ If you already installed Visual Studio 2022:
 
 -----
 
+> [!TIP]
+> If you have a GitHub Copilot account, try [getting GitHub Copilot features for Visual Studio](https://visualstudio.microsoft.com/github-copilot/).
+
 :::zone-end
 
 <!-- markdownlint-disable MD044 -->
@@ -597,7 +600,7 @@ You'll make a change to *Index.cshtml* and redeploy to see the changes. In the .
     > [!TIP]
     > With GitHub Copilot enabled in Visual Studio, try the following:
     >
-    > 1. Select the <div> element and type `Alt`+`/`
+    > 1. Select the `<div>` element and type `Alt`+`/`
     > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
    Save your changes.
