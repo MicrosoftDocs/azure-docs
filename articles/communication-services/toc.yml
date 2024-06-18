@@ -436,6 +436,8 @@ items:
           href: how-tos/ui-library-sdk/data-model.md
         - name: Integrate CalllKit
           href: how-tos/ui-library-sdk/callkit.md
+        - name: Integrate TelecomManager
+          href: how-tos/ui-library-sdk/telecom-manager.md
         - name: Set up localization
           href: how-tos/ui-library-sdk/localization.md
         - name: Set up up one-to-one calling and push notifications

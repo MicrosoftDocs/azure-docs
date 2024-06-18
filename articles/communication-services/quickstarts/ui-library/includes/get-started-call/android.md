@@ -33,7 +33,7 @@ In Android Studio, create a new project:
 
 1. Select **Next**.
 
-1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 21: Android 5.0 (Lollipop)** or later.
+1. In **Empty Activity**, name the project **UILibraryQuickStart**. For language, select **Java/Kotlin**. For the minimum SDK, select **API 26: Android 8.0 (Oreo)** or later.
 
 1. Select **Finish**.
 
@@ -145,10 +145,12 @@ class MainActivity : AppCompatActivity() {
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
 
         val locator: CallCompositeJoinLocator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
-        val remoteOptions = CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME")
-
-        val callComposite: CallComposite = CallCompositeBuilder().build()
-        callComposite.launch(this, remoteOptions)
+        val callComposite: CallComposite = CallCompositeBuilder()
+            .applicationContext(this.applicationContext)
+            .credential(communicationTokenCredential)
+            .displayName("DISPLAY_NAME").build()
+        
+        callComposite.launch(this, locator)
     }
 
     private fun fetchToken(): String? {
@@ -191,15 +193,16 @@ public class MainActivity extends AppCompatActivity {
     private void startCallComposite() {
         CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
                 new CommunicationTokenRefreshOptions(this::fetchToken, true);
-        CommunicationTokenCredential communicationTokenCredential = 
+        CommunicationTokenCredential communicationTokenCredential =
                 new CommunicationTokenCredential(communicationTokenRefreshOptions);
-        
-        final CallCompositeJoinLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
-        final CallCompositeRemoteOptions remoteOptions =
-                new CallCompositeRemoteOptions(locator, communicationTokenCredential, "DISPLAY_NAME");
 
-        CallComposite callComposite = new CallCompositeBuilder().build();
-        callComposite.launch(this, remoteOptions);
+        final CallCompositeJoinLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
+
+        CallComposite callComposite = new CallCompositeBuilder()
+                .applicationContext(this.getApplicationContext())
+                .credential(communicationTokenCredential)
+                .displayName("DISPLAY_NAME").build();
+        callComposite.launch(this, locator);
     }
 
     private String fetchToken() {
@@ -236,23 +239,6 @@ The following classes and interfaces handle some key features of the Azure Commu
 
 Get the code to create key communication features for your Android application.
 
-### Create CallComposite
-
-To create `CallComposite`, inside the `startCallComposite` function, initialize a `CallCompositeBuilder` instance and a `CallComposite` instance.
-
-#### [Kotlin](#tab/kotlin)
-
-```kotlin
-val callComposite: CallComposite = CallCompositeBuilder().build()
-```
-
-#### [Java](#tab/java)
-
-```java
-CallComposite callComposite = new CallCompositeBuilder().build();
-```
-
----
 ### Set up authentication
 
 To set up authentication, inside the `startCallComposite` function, initialize a `CommunicationTokenCredential` instance. Replace `"USER_ACCESS_TOKEN"` with your access token.
@@ -283,59 +269,62 @@ CommunicationTokenCredential communicationTokenCredential =
 If you don't already have an access token, [create an Azure Communication Services access token](../../../identity/quick-create-identity.md).
 
 ---
+
+### Create CallComposite
+
+To create `CallComposite`, inside the `startCallComposite` function, initialize a `CallCompositeBuilder` instance with application context, credentials and a display name.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+val callComposite: CallComposite = CallCompositeBuilder()
+            .applicationContext(this.applicationContext)
+            .credential(communicationTokenCredential)
+            .displayName("DISPLAY_NAME").build()
+```
+
+#### [Java](#tab/java)
+
+```java
+CallComposite callComposite = new CallCompositeBuilder()
+                .applicationContext(this.getApplicationContext())
+                .credential(communicationTokenCredential)
+                .displayName("DISPLAY_NAME").build();
+```
+
+---
+
 ### Set up a group call
 
-To set up a group call, initialize a `CallCompositeGroupCallLocator` and supply it to the `CallCompositeRemoteOptions` object.
+To set up a group call, initialize a `CallCompositeGroupCallLocator`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
 val locator = CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"))
-
-val remoteOptions = CallCompositeRemoteOptions(
-    locator,
-    communicationTokenCredential,            
-    "DISPLAY_NAME",
-)
 ```
 
 #### [Java](#tab/java)
 
 ```java
 CallCompositeJoinLocator locator = new CallCompositeGroupCallLocator(UUID.fromString("GROUP_CALL_ID"));
-
-CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
-        locator,
-        communicationTokenCredential,                
-        "DISPLAY_NAME");
 ```
 ---
 
 ### Set up a Teams meeting
 
-To set up a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
+To set up a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
 val locator = CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK")
-
-val remoteOptions = CallCompositeRemoteOptions(
-    locator,
-    communicationTokenCredential,            
-    "DISPLAY_NAME",
-)
 ```
 
 #### [Java](#tab/java)
 
 ```java
 CallCompositeJoinLocator locator = new CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK");
-
-CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
-        locator,
-        communicationTokenCredential,                
-        "DISPLAY_NAME");
 ```
 
 #### Get a Microsoft Teams meeting link
@@ -350,9 +339,7 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator`, supply it to the `CallCompositeRemoteOptions` object and set `CallCompositeParticipantRole` to the `CallCompositeLocalOptions` by `setRoleHint()`.
-`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from Azure Communication Services.
-
+To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator`.
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
 
@@ -360,34 +347,21 @@ For more information about Rooms, how to create and manage one see [Rooms Quicks
 
 ```kotlin
 val locator = CallCompositeRoomLocator("<ROOM_ID>")
-
-val remoteOptions = CallCompositeRemoteOptions(
-    locator,
-    communicationTokenCredential,            
-    "DISPLAY_NAME",
-)
-
-val localOptions = CallCompositeLocalOptions().setRoleHint(participantRole)
-
-val callComposite = CallCompositeBuilder().build()
-callComposite.launch(context, remoteOptions, localOptions)
 ```
 
 #### [Java](#tab/java)
 
 ```java
 CallCompositeJoinLocator locator = new CallCompositeRoomLocator("<ROOM_ID>");
-
-CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
-        locator,
-        communicationTokenCredential,                
-        "DISPLAY_NAME");
-
-CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions().setRoleHint(participantRole);
-
-CallComposite callComposite = new CallCompositeBuilder().build();
-callComposite.launch(context, remoteOptions, localOptions);
 ```
+
+---
+
+### Set up a 1:N Outgoing call and Incoming Call Push Notifications 
+
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../../how-tos/ui-library-sdk/one-to-one-calling.md)
 
 ---
 
@@ -398,13 +372,13 @@ To launch the call UI, inside the `startCallComposite` function, call `launch` o
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-callComposite.launch(context, remoteOptions)
+callComposite.launch(activityContext, locator)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-callComposite.launch(context, remoteOptions);
+callComposite.launch(activityContext, locator);
 ```
 
 ---
