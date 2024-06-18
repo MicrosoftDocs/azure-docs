@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 06/13/2024
+ms.date: 06/18/2024
 recommendations: false
 ---
 
@@ -28,7 +28,7 @@ This article provides a summary of the latest releases and major documentation u
 
 * GPT-4o is now also available in:
     -  Sweden Central for standard regional deployment.
-    -  Japan East, Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
+    -  Australia East, Canada East, Japan East, Korea Central, Sweden Central, Switzerland North, & West US 3 for provisioned deployment.
 
 For the latest information on model availability, see the [models page](./concepts/models.md).
 
