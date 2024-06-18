@@ -7,6 +7,7 @@ ms.author: hariramt
 ms.reviewer: maghan, adityaduvuri
 ms.date: 06/14/2024
 ms.service: postgresql
+ms.subservice: migration-guide
 ms.topic: tutorial
 ms.custom:
   - devx-track-azurecli
