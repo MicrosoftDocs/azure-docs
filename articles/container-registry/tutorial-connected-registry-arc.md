@@ -13,7 +13,7 @@ ms.date: 06/17/2024
 
 # Tutorial: Deploy the Connected registry Arc extension with HTTPS
 
-The Connected registry extension deployment can be secured with HTTPS, TLS encryption, and inherent trust distribution.
+The Connected registry extension deployment can be secured with HTTPS, Transport Layer Security (TLS) encryption, and inherent trust distribution.
 
 The Connected registry is a managed service that enables customers to securely manage and access containerized workloads across multiple locations, including on-premises and remote sites. The Connected registry integrates with Azure Arc, providing a unified lifecycle management experience for Kubernetes-based containerized workloads.
 
