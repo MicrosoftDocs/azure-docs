@@ -263,7 +263,7 @@ Register the `Microsoft.RedHatOpenShift` resource provider. For instructions on 
         *   Select **Worker node count** (i.e., the number of worker nodes to create). 
 
      > [!div class="mx-imgBorder"]
-     > [ ![**Basics** tab on Azure portal](./media/Basics.png) ](./media/Basics.png#lightbox)
+     > [ ![Screenshot of **Basics** tab on Azure portal.](./media/Basics.png) ](./media/Basics.png#lightbox)
     
     > [!NOTE]
     > The **Domain name** field is pre-populated with a random string. You can either specify a domain name (e.g., *example.com*) or a string/prefix (e.g., *abc*) that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs if a resource group name is not specified.
@@ -284,19 +284,21 @@ Register the `Microsoft.RedHatOpenShift` resource provider. For instructions on 
 
 6.	On the **Networking** tab, configure the required options.
 
-       **Note**: Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets: one for the control plane and one for worker nodes.
+       > [!NOTE]
+       > Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets: one for the control plane and one for worker nodes.
+
 
 > [!div class="mx-imgBorder"]
-> [ ![**Networking** tab on Azure portal](./media/Networking.png) ](./media/Networking.png#lightbox)
+> [ ![Screenshot of **Networking** tab on Azure portal.](./media/Networking.png) ](./media/Networking.png#lightbox)
 
 7.	On the **Tags** tab, add tags to organize your resources.
 
 > [!div class="mx-imgBorder"]
-> [ ![**Tags** tab on Azure portal](./media/Tags.png) ](./media/Tags.png#lightbox)
+> [ ![Screenshot of **Tags** tab on Azure portal.](./media/Tags.png) ](./media/Tags.png#lightbox)
  
 8.	Check **Review + create** and then **Create** when validation completes.   
 
-![**Review + create** tab on Azure portal](./media/Review+Create.png)
+![Screenshot of **Review + create** tab on Azure portal.](./media/Review+Create.png)
  
 9.	It takes approximately 35 to 45 minutes to create the Azure Red Hat OpenShift cluster. When your deployment is complete, navigate to your resource by either:
     *	Clicking **Go to resource**, or
