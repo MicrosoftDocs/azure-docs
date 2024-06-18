@@ -92,7 +92,7 @@ To manage dev boxes in a pool, you must access the pool through the associated p
 
 1. Select **Dev box pools**.
  
-1. Select the pool that contains the dev box that you want to manage. Pools that you can manage are displayed as a link. If you don't see the pool name displayed as a link, check that you're a member of the Project Admin role for this project.
+1. Select the pool that contains the dev box that you want to manage. The names of pools that you can manage are displayed as links. If you don't see the pool name displayed as a link, check that you're a member of the Project Admin role for this project.
 
    :::image type="content" source="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png" alt-text="Screenshot showing a list of dev box pools in Azure portal." lightbox="media/how-to-manage-dev-box-pools/manage-dev-box-pool.png":::
  
