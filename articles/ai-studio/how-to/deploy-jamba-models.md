@@ -6,7 +6,9 @@ manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
 ms.date: 05/02/2024
-ms.reviewer: haelhamm
+ms.author: tgokal
+ms.review: ssalgado
+author: tgokal
 ms.custom: references_regions
 ---
 
@@ -38,14 +40,15 @@ On the Azure Marketplace, you'll be able to find:
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An Azure Machine Learning workspace. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them.
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md)
 
     > [!IMPORTANT]
     > The Jamba Instruct PAYGO model deployment offering is only available in workspaces created in **East US 2** and **Sweden Central**. More regions are coming soon.
 
-- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
+- Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
-    - On the Azure subscription—to subscribe the workspace to the Azure Marketplace offering, once for each workspace, per offering:
+    - On the Azure subscription—to subscribe the AI Studio project to the Azure Marketplace offering, once for each project, per offering:
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/read`
       - `Microsoft.MarketplaceOrdering/agreements/offers/plans/sign/action`
       - `Microsoft.MarketplaceOrdering/offerTypes/publishers/offers/plans/agreements/read`
@@ -56,12 +59,11 @@ On the Azure Marketplace, you'll be able to find:
       - `Microsoft.SaaS/resources/read`
       - `Microsoft.SaaS/resources/write`
  
-    - On the workspace—to deploy endpoints (the Azure Machine Learning data scientist role contains these permissions already):
+    - On the AI Studio project—to deploy endpoints (the Azure AI Developer role contains these permissions already):
       - `Microsoft.MachineLearningServices/workspaces/marketplaceModelSubscriptions/*`  
       - `Microsoft.MachineLearningServices/workspaces/serverlessEndpoints/*`
 
-    For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
-
+    For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 ### Create a new deployment
 
@@ -90,7 +92,7 @@ To create a deployment:
 1. You can also take note of the **Target** URL and the **Secret Key** to call the deployment and generate completions.   
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
 
-To learn about billing for Jamba Instruct deployed as a serverless API, see [Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-ai21-jamba-models-deployed-as-a-serverless-api).
+To learn about billing for Jamba Instruct deployed as a serverless API, see [Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API](#cost-and-quotas).
 
 ### Consume Jamba Instruct as a serverless API
 
@@ -99,16 +101,13 @@ To learn about billing for Jamba Instruct deployed as a serverless API, see [Cos
 1. Copy the **Target** URL and the **Key** token values.
 1. Make an API request: 
 
-    - For chat completion, use the [`<target_url>/v1/completions`](#completions-api) API.
-    - For chat, use the [`<target_url>/v1/chat/completions`](#chat-api) API.
-
 For more information on using the APIs, see the [reference](#reference-for-jamba-models-deployed-a-serverless-api) section.
 
-### Reference for Jamba Instruct deployed a serverless API
+## Reference for Jamba Instruct deployed a serverless API
 
-Since Jamba Instruct is fine-tuned for chat completion, we support the route `/chat/completions` as part of the [Azure AI Model Inference API](reference-model-inference-api.md) for multi-turn chat or single-turn question-answering. AI21's [Jamba Instruct model](https://docs.ai21.com/reference/jamba-instruct-api) can also be used. For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
+Since Jamba Instruct is fine-tuned for chat completion, we support the route `/chat/completions` as part of the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) for multi-turn chat or single-turn question-answering. AI21's [Jamba Instruct model](https://docs.ai21.com/reference/jamba-instruct-api) can also be used. For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
 
-The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](reference-model-inference-api.md?tabs=rest#getting-started).
+The [Azure AI Model Inference API](reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
 Single- and multi-turn chat have the same request and response format, except that question answering (single-turn) involves only a single user message in the request, while multi-turn chat requires that you send the entire chat message history in each request. In a multi-turn chat, the message thread includes all messages from the user and the model, ordered oldest to newest, alternating between `user` and `assistant` role messages, optionally starting with a system
 message to provide context. For example, the message stack for the fourth call in a chat request that includes an initial system message would look like this in pseudocode:
@@ -288,9 +287,7 @@ The Jamba Instruct model is deployed as a serverless API and is offered by AI21 
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
-For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](../ai-studio/how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
-
-:::image type="content" source="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png" alt-text="A screenshot showing different resources corresponding to different model offerings and their associated meters." lightbox="media/how-to-deploy-models-llama/costs-model-as-service-cost-details.png":::
+For more information on how to track costs, see [Monitor costs for models offered through the Azure Marketplace](./costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace).
 
 Quota is managed per deployment. Each deployment has a rate limit of 200,000 tokens per minute and 1,000 API requests per minute. However, we currently limit one deployment per model per project. Contact Microsoft Azure Support if the current rate limits aren't sufficient for your scenarios.
 
@@ -300,6 +297,5 @@ Models deployed as a serverless API are protected by Azure AI content safety. Wh
 
 ## Related content
 
-- [Model Catalog and Collections](concept-model-catalog.md)
-- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
-- [Plan and manage costs for Azure AI Studio](../ai-studio/how-to/costs-plan-manage.md)
+- [What is Azure AI Studio?](../what-is-ai-studio.md)
+- [Azure AI FAQ article](../faq.yml)
