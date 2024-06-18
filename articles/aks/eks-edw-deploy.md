@@ -9,272 +9,302 @@ ms.author: jenhayes
 
 # Deploy the AWS event-driven workflow (EDW) workload to Azure
 
-Now that you've set your environment variables and made the necessary code changes, you're ready to deploy the EDW workload to Azure.
+In this article, you deploy the [AWS EDW workload][eks-edw-overview] to Azure.
 
 ## Sign in to Azure
 
-Before running the `deploy.sh` script, sign in to Azure by running the following command:
+1. Sign in to Azure using the [`az login`][az-login] command.
 
-```bash
-az login
-```
+    ```azurecli-interactive
+    az login
+    ```
 
-If your Azure account has multiple subscriptions, make sure to select the correct subscription. To list the names and IDs of your subscriptions, run the following command:
+1. If your Azure account has multiple subscriptions, make sure to select the correct subscription. List the names and IDs of your subscriptions using the [`az account list`][az-account-list] command.
 
-```bash
-az account list --query "[].{id: id, name:name }" --output table
-```
+    ```azurecli-interactive
+    az account list --query "[].{id: id, name:name }" --output table
+    ```
 
-To select a specific subscription, run the following command:
+1. Select a specific subscription using the [`az account set`][az-account-set] command.
 
-```bash
-az account set --subscription <desired-subscription-id>
-```
+    ```azurecli-interactive
+    az account set --subscription $subscriptionId
+    ```
 
-## Run the deployment command
+## EDW workload deployment script
 
-The `deploy.sh` script in the `deployment` directory is used to deploy the application to Azure.
+You use the `deploy.sh` script in the `deployment` directory of the [GitHub repository][github-repo] to deploy the application to Azure.
 
-The deployment scripts used in the workflow are run from the root directory of the project. Deploy the application infrastructure to Azure by running the following command:
+The script first checks that all of the [prerequisite tools][prerequsities] are installed. If not, the script terminates and displays an error message letting you know which prerequisites are missing. If this happens, review the prerequisites, install any missing tools, and then run the script again. You need [Node autoprovisioning (NAP) for AKS] feature flag registered on your Azure subscription. If it isn't already registered, the script executes an Azure CLI command to register the feature flag.
 
-```bash
-cd deployment
-./deploy.sh
-```
+The script records the state of the deployment in a file called `deploy.state`, which is located in the `deployment` directory. You can use this file to set environment variables when deploying the app.
 
-The script first checks that all of the [prerequisite tools](eks-edw-overview.md#prerequisites) are installed. If not, the script terminates and displays an error message letting you know which prerequisites are missing. If this happens, review the prerequisites, install any missing tools, then run the script again.
+As the script executes the commands to configure the infrastructure for the workflow, it checks that each command executes successfully. If any issues occur, an error message is displayed, and the execution stops.
 
-One prerequisite is the [Node autoprovisioning (preview) for AKS)](node-autoprovision.md)d. If the  `NodeAutoProvisioningPreview` feature flag isn't already enabled, the script executes an Azure CLI command to do so.
-
-The script records the state of the deployment in a file called `deploy.state`, which is located in the `deployment` directory. You can use this file to set environment variables  when deploying the app.
-
-As the script executes the commands to stand up the infrastructure for the workflow, it checks that each command executes successfully. If an error is encountered, an error message is displayed, and the execution stops.
-
-The script displays a log as it runs. You can persist the log by redirecting the output of this log information when running the script as shown here
+The script displays a log as it runs. You can persist the log by redirecting the log information output and saving it to the `install.log` file in the `logs` directory using the following command:
 
 ```bash
 ./deployment/infra/deploy.sh | tee ./logs/install.log
 ```
 
-This enables the script to display the log messages and save them to a file called `install.log` in the `logs` directory.
+For more information, see the `./deployment/infra/deploy.sh` script in our [GitHub repository][github-repo].
 
-After confirming that all prerequisites are met, the script creates the [resource group](/azure/azure-resource-manager/management/overview) to contain the resources it creates.
+### Workload resources
 
-The script creates the following Azure resources:
+The deployment script creates the following Azure resources:
 
-- Azure Storage account – Used to contain the queue where messages are sent by the producer app and read by the consumer app. This storage account also contains the table where the processed messages are stored by the consumer app.
-- Azure Container Registry (ACR) – Used to provide a repository for the container used to deploy the refactored consumer app code.
-- Azure Kubernetes Service (AKS) cluster – Used to provide Kubernetes orchestration for the consumer app container. The following AKS features are enabled on the cluster:
+- **Azure resource group**: The [Azure resource group][azure-resource-group] that stores the resources created by the deployment script.
+- **Azure Storage account**: The Azure Storage account that contains the queue where messages are sent by the producer app and read by the consumer app and the table where the consumer app stores the processed messages.
+- **Azure container registry**: The container registry provides a repository for the container that deploys the refactored consumer app code.
+- **Azure Kubernetes Service (AKS) cluster**: The AKS cluster provides Kubernetes orchestration for the consumer app container and has the following features enabled:
 
-  - Node autoprovisioning: Te implementation of Karpenter node autoscaler on AKS.
-  - KEDA: The Azure CLI allows users to enable the Kubernetes Event Driven Autoscaler (KEDA) for pod autoscaling. This allows scaling of pods based on events, such as exceeding a specified queue depth threshold.
-  - Workload identity: Allows users to attach role-based access policies to pod identities for enhanced security, as opposed to using secrets such as access keys.
-  - Attached ACR: This feature allows the AKS cluster to pull images from repositories on the specified ACR instance, allowing users to use a private repository without having to resort to including an `imagePullSecret` in their deployment manifest.
-  - The script also creates an application and a system node pool that has a taint to prevent application pods from being scheduled in the system node pool.
+    - **Node autoprovisioning (NAP)**: The implementation of the Karpenter node autoscaler on AKS.
+    - **Kubernetes Event-driven Autoscaling (KEDA)**: KEDA enables pod scaling based on events, such as exceeding a specified queue depth threshold.
+    - **Workload identity**: Allows you to attach role-based access policies to pod identities for enhanced security.
+    - **Attached Azure container registry**: This feature allows the AKS cluster to pull images from repositories on the specified ACR instance.
 
-In addition to these resources, the script also creates two user assigned managed identities:
+- **Application and system node pool**: The script also creates an application and system node pool in the AKS cluster that has a taint to prevent application pods from being scheduled in the system node pool.
+- **AKS cluster managed identity**: The script assigns the `acrPull` role to this managed identity, which facilitates access to the attached Azure container registry for pulling images.
+- **Workload identity**: The script assigns the **Storage Queue Data Contributor** and **Storage Table Data Contributor** roles to provide role-based access control (RBAC) access to this managed identity, which is associated with the Kubernetes service account used as the identity for pods on which the consumer app containers are deployed.
+- **Two federated credentials**:  One credential enables the managed identity to implement pod identity, and the other credential is used for the KEDA operator service account to provide access to the KEDA scaler to gather the metrics needed to control pod autoscaling.
 
-- AKS cluster managed identity – The deployment script assigns the `acrPull` role to this identity, which is assigned to the AKS cluster when it's created. This managed identity facilitates access to the attached ACR for pulling images.
-- Workload identity – This managed identity is associated with the Kubernetes service account used as the identity for pods on which the consumer app containers are deployed. This provides role-based access control (RBAC) access to Azure resources, based on the level of access granted to the pod, instead of relying on secrets. For this workflow, the managed identity is assigned the **Storage Queue Data Contributor** and **Storage Table Data Contributor** roles.
+## Deploy the EDW workload to Azure
 
-The script also creates two federated credentials. One credential is used for the managed identity used to implement pod identity. The other credential is used for the KEDA operator service account, providing access for the KEDA scaler to gather the metrics needed to control pod autoscaling.
+- Make sure you're in the `deployment` directory of the project and deploy the workload using the following commands:
 
-For more detail, see the `./deployment/infra/deploy.sh` script in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws).
+    ```bash
+    cd deployment
+    ./deploy.sh
+    ```
 
 ## Validate deployment and run the workload
 
-Upon successful completion of the deployment script, you can now deploy the workload on the AKS cluster that was created. Before running the workload deployment scripts, you can use `./deployment/environmentVariables.sh` to set the environment variables. Use this command:
 
-```bash
-source  ./deployment/environmentVariables.sh
-```
+Once the deployment script completes, you can deploy the workload on the AKS cluster.
 
-You'll also need the information contained in the `./deployment/deploy.state` file to set environment variables for the names of the resources created in the deployment. Use the `cat` command to display the file contents:
+1. Set the source for gathering and updating the environment variables for `./deployment/environmentVariables.sh` using the following command:
 
-```bash
-cat ./deployment/deploy.state
-```
+    ```bash
+    source ./deployment/environmentVariables.sh
+    ```
 
-You'll see output showing the following values:
+1. You need the information in the `./deployment/deploy.state` file to set environment variables for the names of the resources created in the deployment. Display the contents of the file using the following `cat` command:
 
-```bash
-SUFFIX=
-RESOURCE_GROUP=
-AZURE_STORAGE_ACCOUNT_NAME=
-AZURE_QUEUE_NAME=
-AZURE_COSMOSDB_TABLE=
-AZURE_CONTAINER_REGISTRY_NAME=
-AKS_MANAGED_IDENTITY_NAME=
-AKS_CLUSTER_NAME=
-WORKLOAD_MANAGED_IDENTITY_NAME=
-SERVICE_ACCOUNT=
-FEDERATED_IDENTITY_CREDENTIAL_NAME=
-KEDA_SERVICE_ACCT_CRED_NAME=
-```
+    ```bash
+    cat ./deployment/deploy.state
+    ```
 
-Use this command to read the file and create environment variables for the names of the Azure resources created by the deployment script:
 
-```bash
-while IFS= read -r; line do \
-echo "export $line" \
-export $line; \
-done < ./deployment/deploy.state
-```
+    Your output should show the following variables:
 
-Before you verify that the KEDA operator is running, get the AKS cluster credentials by using this Azure CLI command:
+    ```output
+    SUFFIX=
+    RESOURCE_GROUP=
+    AZURE_STORAGE_ACCOUNT_NAME=
+    AZURE_QUEUE_NAME=
+    AZURE_COSMOSDB_TABLE=
+    AZURE_CONTAINER_REGISTRY_NAME=
+    AKS_MANAGED_IDENTITY_NAME=
+    AKS_CLUSTER_NAME=
+    WORKLOAD_MANAGED_IDENTITY_NAME=
+    SERVICE_ACCOUNT=
+    FEDERATED_IDENTITY_CREDENTIAL_NAME=
+    KEDA_SERVICE_ACCT_CRED_NAME=
+    ```
 
-```azurecli
-az aks get-credentials –resource-group $RESOURCE_GROUP –name $AKS_CLUSTER_NAME
-```
+1. Read the file and create environment variables for the names of the Azure resources created by the deployment script using the following commands:
 
-The KEDA operator is installed on the AKS cluster in the `kube-system` namespace. Use the kubectl command as follows to verify that the KEDA operator pods are running:
+    ```bash
+    while IFS= read -r; line do \
+    echo "export $line" \
+    export $line; \
+    done < ./deployment/deploy.state
+    ```
 
-```bash
-kubectl get pods –namespace kube-system | grep keda
-```
+1. Get the AKS cluster credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
-You should see a response that looks like this:
+    ```azurecli-interactive
+    az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_CLUSTER_NAME
+    ```
 
-:::image type="content" source="media/eks-edw-deploy/sample-keda-response.png" alt-text="Screenshot showing an example response from the command to verify that KEDA operator pods are running.":::
+1. Verify that the KEDA operator pods are running in the `kube-system` namespace on the AKS cluster using the [`kubectl get`][kubectl-get] command.
 
-### Generate simulated load
+    ```bash
+    kubectl get pods --namespace kube-system | grep keda
+    ```
 
-Use the producer app to populate the queue with messages. In a separate terminal window, navigate to the project directory. Set the environment variables using the method described earlier. Run the producer app using the following command:
+    Your output should look similar to the following example output:
 
-```python
-python3 ./app/keda/aqs-producer.py
-```
+    :::image type="content" source="media/eks-edw-deploy/sample-keda-response.png" alt-text="Screenshot showing an example response from the command to verify that KEDA operator pods are running.":::
 
-Once the app starts sending messages, switch back to the other terminal window. Deploy the consumer app container onto the AKS cluster using the app install script. Before executing the script, remember to make it executable using the `chmod` command as shown here:
+## Generate simulated load
 
-```bash
-chmod +x ./deployment/keda/deploy-keda-app-workload-id.sh
-./deployment/keda/deploy-keda-app-workload-id.sh
-```
+Now, you generate simulated load using the producer app to populate the queue with messages.
 
-The deployment script (`deploy-keda-app-workload-id.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws) performs templating on the application manifest YAML specification to pass environment variables to the pod. Review the following excert from this script:
+1. In a separate terminal window, navigate to the project directory.
+1. Set the environment variables using the steps in the [previous section](#validate-deployment-and-run-the-workload). 1. Run the producer app using the following command:
 
-```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: $AQS_TARGET_DEPLOYMENT
-  namespace: $AQS_TARGET_NAMESPACE
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aqs-reader
-  template:
+    ```python
+    python3 ./app/keda/aqs-producer.py
+    ```
+
+1. Once the app starts sending messages, switch back to the other terminal window. 
+1. Deploy the consumer app container onto the AKS cluster using the following commands:
+
+    ```bash
+    chmod +x ./deployment/keda/deploy-keda-app-workload-id.sh
+    ./deployment/keda/deploy-keda-app-workload-id.sh
+    ```
+
+    The deployment script (`deploy-keda-app-workload-id.sh`) performs templating on the application manifest YAML specification to pass environment variables to the pod. Review the following excerpt from this script:
+
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: apps/v1
+    kind: Deployment
     metadata:
-      labels:
-        app: aqs-reader
-        azure.workload.identity/use: "true"
+      name: $AQS_TARGET_DEPLOYMENT
+      namespace: $AQS_TARGET_NAMESPACE
     spec:
-      serviceAccountName: $SERVICE_ACCOUNT
-      containers:
-      - name: keda-queue-reader
-        image: ${AZURE_CONTAINER_REGISTRY_NAME}.azurecr.io/aws2azure/aqs-consumer
-        imagePullPolicy: Always
-        env:
-        - name: AZURE_QUEUE_NAME
-          value: $AZURE_QUEUE_NAME
-        - name: AZURE_STORAGE_ACCOUNT_NAME
-          value: $AZURE_STORAGE_ACCOUNT_NAME
-        - name: AZURE_TABLE_NAME
-          value: $AZURE_TABLE_NAME
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-EOF
-```
+      replicas: 1
+      selector:
+        matchLabels:
+          app: aqs-reader
+      template:
+        metadata:
+          labels:
+            app: aqs-reader
+            azure.workload.identity/use: "true"
+        spec:
+          serviceAccountName: $SERVICE_ACCOUNT
+          containers:
+          - name: keda-queue-reader
+            image: ${AZURE_CONTAINER_REGISTRY_NAME}.azurecr.io/aws2azure/aqs-consumer
+            imagePullPolicy: Always
+            env:
+            - name: AZURE_QUEUE_NAME
+              value: $AZURE_QUEUE_NAME
+            - name: AZURE_STORAGE_ACCOUNT_NAME
+              value: $AZURE_STORAGE_ACCOUNT_NAME
+            - name: AZURE_TABLE_NAME
+              value: $AZURE_TABLE_NAME
+            resources:
+              requests:
+                memory: "64Mi"
+                cpu: "250m"
+              limits:
+                memory: "128Mi"
+                cpu: "500m"
+    EOF
+    ```
 
-Notice the label `azure.workload.identity/use` in the `spec/template` section, which is the pod template for the deployment. Setting the label to `true` specifies that you're using workload identity. The `serviceAccountName` in the pod specification specifies the Kubernetes service account to associate with the workload identity.
+    The `azure.workload.identity/use` label in the `spec/template` section is the pod template for the deployment. Setting the label to `true` specifies that you're using workload identity. The `serviceAccountName` in the pod specification specifies the Kubernetes service account to associate with the workload identity. While the pod specification contains a reference for an image in a private repository, there's no `imagePullSecret` specified.
 
-Also notice that even though the pod specification contains a reference for an image in a private repository, there's no `imagePullSecret` specified.
+1. Verify that the script ran successfully using the [`kubectl get`][kubectl-get] command.
 
-To verify that the script has run successfully, use the following kubectl command:
+    ```bash
+    kubectl get pods --namespace $AQS_TARGET_NAMESPACE
+    ```
 
-```bash
-kubectl get pods –namespace $AQS_TARGET_NAMESPACE
-```
+    You should see a single pod in the output.
 
-You should see a single pod.
+## Monitor scale out for pods and nodes with k9s
 
-### Monitor scale out for pods and nodes with k9s
+You can use a variety of tools to verify the operation of apps deployed to AKS, including the Azure portal and k9s. For more information on k9s, see the [k9s overview][k9s].
 
-You can use a variety tools to verify the operation of apps deployed to AKS, including the Azure portal.
+1. Install k9s on your AKS cluster using the appropriate guidance for your environment in the [k9s installation overview][k9s-install].
+1. Create two windows, one with a view of the pods and the other with a view of the nodes in the namespace you specified in the `AQS_TARGET_NAMESPACE` environment variable (default value is `aqs-demo`) and start k9s in each window.
 
-[K9s](https://k9scli.io/) is an open source tool that can be used to look at the operation of a Kubernetes cluster. After installing the consumer onto the AKS cluster, if you create two windows, and start k9s in each one, with one having a view of the pods and the other a view of the nodes in the namespace you specified in the `AQS_TARGET_NAMESPACE` environment variable (default value is `aqs-demo`) you should see something like this:
+    You should see something similar to the following:
 
-:::image type="content" source="media/eks-edw-deploy/sample-k9s-view.png" lightbox="media/eks-edw-deploy/sample-k9s-view.png" alt-text="Screenshot showing an example of the K9s view across two windows.":::
+    :::image type="content" source="media/eks-edw-deploy/sample-k9s-view.png" lightbox="media/eks-edw-deploy/sample-k9s-view.png" alt-text="Screenshot showing an example of the K9s view across two windows.":::
 
-After you confirm that the consumer app container is installed and running on the AKS cluster, install the `ScaledObject` and trigger authentication used by KEDA for pod autoscaling by running the scaled object installation script (`keda-scaleobject-workload-id.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws)). Remember to use chmod the first time you run the script. Use these commands:
+1. After you confirm that the consumer app container is installed and running on the AKS cluster, install the `ScaledObject` and trigger authentication used by KEDA for pod autoscaling by running the scaled object installation script (`keda-scaleobject-workload-id.sh`). using the following commands:
 
-```bash
-chmod +x ./deployment/keda/keda-scaleobject-workload-id.sh
-./deployment/keda/keda-scaleobject-workload-id.sh
-```
+    ```bash
+    chmod +x ./deployment/keda/keda-scaleobject-workload-id.sh
+    ./deployment/keda/keda-scaleobject-workload-id.sh
+    ```
 
-The script also performs templating to inject environment variables where needed. The portion of the script that is the manifest for the scaled object is shown here:
+    The script also performs templating to inject environment variables where needed. Review the following excerpt from this script:
 
-```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: keda.sh/v1alpha1
-kind: ScaledObject
-metadata:
-  name: aws2az-queue-scaleobj
-  namespace: ${AQS_TARGET_NAMESPACE}
-spec:
-  scaleTargetRef:
-    name: ${AQS_TARGET_DEPLOYMENT}     #K8s deployement to target
-  minReplicaCount: 0  # We don't want pods if the queue is empty nginx-deployment
-  maxReplicaCount: 15 # We don't want to have more than 15 replicas
-  pollingInterval: 30 # How frequently we should go for metrics (in seconds)
-  cooldownPeriod:  10 # How many seconds should we wait for downscale  
-  triggers:
-  - type: azure-queue
-    authenticationRef:
-      name: keda-az-credentials
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: keda.sh/v1alpha1
+    kind: ScaledObject
     metadata:
-      queueName: ${AZURE_QUEUE_NAME}
-      accountName: ${AZURE_STORAGE_ACCOUNT_NAME}
-      queueLength: '5'
-      activationQueueLength: '20' # threshold for when the scaler is active
-      cloud: AzurePublicCloud
----
-apiVersion: keda.sh/v1alpha1
-kind: TriggerAuthentication
-metadata:
-  name: keda-az-credentials
-  namespace: $AQS_TARGET_NAMESPACE
-spec:
-  podIdentity:
-    provider: azure-workload
-    identityId: '${workloadManagedIdentityClientId}'
-EOF
-```
+      name: aws2az-queue-scaleobj
+      namespace: ${AQS_TARGET_NAMESPACE}
+    spec:
+      scaleTargetRef:
+        name: ${AQS_TARGET_DEPLOYMENT}     #K8s deployement to target
+      minReplicaCount: 0  # We don't want pods if the queue is empty nginx-deployment
+      maxReplicaCount: 15 # We don't want to have more than 15 replicas
+      pollingInterval: 30 # How frequently we should go for metrics (in seconds)
+      cooldownPeriod:  10 # How many seconds should we wait for downscale  
+      triggers:
+      - type: azure-queue
+        authenticationRef:
+          name: keda-az-credentials
+        metadata:
+          queueName: ${AZURE_QUEUE_NAME}
+          accountName: ${AZURE_STORAGE_ACCOUNT_NAME}
+          queueLength: '5'
+          activationQueueLength: '20' # threshold for when the scaler is active
+          cloud: AzurePublicCloud
+    ---
+    apiVersion: keda.sh/v1alpha1
+    kind: TriggerAuthentication
+    metadata:
+      name: keda-az-credentials
+      namespace: $AQS_TARGET_NAMESPACE
+    spec:
+      podIdentity:
+        provider: azure-workload
+        identityId: '${workloadManagedIdentityClientId}'
+    EOF
+    ```
 
-The manifest describes two resources. The `TriggerAuthentication` object specifies to KEDA that the scaled object is using pod identity for authentication. The `identityID` property refers to the managed identity that was to use as the workload identity.
+    The manifest describes two resources: the **`TriggerAuthentication` object**, which specifies to KEDA that the scaled object is using pod identity for authentication, and the **`identityID` property**, which refers to the managed identity used as the workload identity.
 
-When the scaled object is correctly installed and KEDA detects the scaling threshold is exceeded, it begins scheduling pods. If you're using k9s, you should see something like this:
+    When the scaled object is correctly installed and KEDA detects the scaling threshold is exceeded, it begins scheduling pods. If you're using k9s, you should see something like this:
 
-:::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
+    :::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
 
-Finally, if you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes. Using k9s, you should see something like this:
+    If you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes. If you're using k9s, you should see something like this:
 
-:::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" alt-text="Screenshot showing an example of the K9s view with scheduling nodes.":::
+    :::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" alt-text="Screenshot showing an example of the K9s view with scheduling nodes.":::
 
-In these two images, notice how the number of nodes whose name contains `aks-default` node pool has increased from one to three nodes. If you stop the producer app from putting messages on the queue, eventually the consumers will reduce the queue depth below the threshold and both KEDA and Karpenter will scale in. Using k9s, you should see something like this:
+    In these two images, notice how the number of nodes whose names contain `aks-default` increased from one to three nodes. If you stop the producer app from putting messages on the queue, eventually the consumers will reduce the queue depth below the threshold, and both KEDA and Karpenter will scale in. If you're using k9s, you should see something like this:
 
-:::image type="content" source="media/eks-edw-deploy/sample-k9s-reduce.png" alt-text="Screenshot showing an example of the K9s view with reduced queue depth.":::
+    :::image type="content" source="media/eks-edw-deploy/sample-k9s-reduce.png" alt-text="Screenshot showing an example of the K9s view with reduced queue depth.":::
 
 ## Clean up resources
 
-When you're finished, remember to clean up the resources you created. The cleanup script provided at `/deployment/infra/cleanup.sh` in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws)) can be run to delete all of the resources created in this deployment.
+You can use the cleanup script (`/deployment/infra/cleanup.sh`) in our [GitHub repository][github-repo] to remove all the resources you created.
+
+## Next steps
+
+For more information on developing and running applications in AKS, see the following resources:
+
+- [Install existing applications with Helm in AKS][helm-aks]
+- [Deploy and manage a Kubernetes application from Azure Marketplace in AKS][k8s-aks]
+- [Deploy an application that uses OpenAI on AKS][openai-aks]
+
+<!-- LINKS -->
+[eks-edw-overview]: ./eks-edw-overiew.md
+[az-login]: /cli/azure/authenticate-azure-cli-interactively#interactive-login
+[az-account-list]: /cli/azure/account#az_account_list
+[az-account-set]: /cli/azure/account#az_account_set
+[github-repo]: https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws
+[prerequisites]: ./eks-edw-overview.md#prerequisites
+[azure-resource-group]: ../azure-resource-manager/management/overview.md
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[kubectl-get]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/
+[k9s]: https://k9scli.io/
+[k9s-install]: https://k9scli.io/topics/install/
+[helm-aks]: ./kubernetes-helm.md
+[k8s-aks]: ./deploy-marketplace.md
+[openai-aks]: ./open-ai-quickstart.md
+
 
