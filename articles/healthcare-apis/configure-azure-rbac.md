@@ -20,9 +20,9 @@ To grant users, service principals, or groups access to the FHIR data plane, sel
 
 If the role assignment option is grayed out, ask your Azure subscription administrator to grant you with the permissions to the subscription or the resource group, for example, **User Access Administrator**. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-:::image type="content" source="media/rbac/role-assignment.png" alt-text="Screenshot showing role assignment option." lightbox="media/rbac/role-assignment.png":::
+:::image type="content" source="media/rbac/select-role-assignment.png" alt-text="Screenshot showing role assignment selection." lightbox="media/rbac/select-role-assignment.png":::
 
-In the Role selection, search for one of the built-in roles for the FHIR data plane, for example, “FHIR Data Contributor”. You can choose other roles below.
+In the **Role** selection, search for one of the built-in roles for the FHIR data plane. You can choose from these roles:
 
 * **FHIR Data Reader**: Can read (and search) FHIR data.
 * **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
