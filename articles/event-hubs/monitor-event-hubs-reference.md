@@ -1,17 +1,71 @@
 ---
-title: Monitoring Azure Event Hubs data reference
-description: Important reference material needed when you monitor Azure Event Hubs. 
+title: Monitoring data reference for Azure Event Hubs
+description: This article contains important reference material you need when you monitor Azure Event Hubs.
+ms.date: 06/19/2024
+ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-ms.custom: subject-monitoring
-ms.date: 10/06/2022
+ms.service: azure-event-hubs
 ---
 
+<!-- 
+IMPORTANT 
+According to the Content Pattern guidelines all comments must be removed before publication!!!
+To make this template easier to use, first:
+1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
+2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
 
-# Monitoring Azure Event Hubs data reference
-See [Monitoring Azure Event Hubs](monitor-event-hubs.md) for details on collecting and analyzing monitoring data for Azure Event Hubs.
+<!-- VERSION 3.0 2024_01_01
+For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
+
+<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
+Your service should have the following two articles:
+1. The primary monitoring article (based on the template monitor-service-template.md)
+   - Title: "Monitor [TODO-replace-with-service-name]"
+   - TOC title: "Monitor"
+   - Filename: "monitor-[TODO-replace-with-service-filename].md"
+2. A reference article that lists all the metrics and logs for your service (based on this template).
+   - Title: "[TODO-replace-with-service-name] monitoring data reference"
+   - TOC title: "Monitoring data reference"
+   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
+-->
+
+# Azure Event Hubs monitoring data reference
+
+<!-- Intro. -->
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
+
+See [Monitor Azure Event Hubs](monitor-event-hubs.md) for details on the data you can collect for Event Hubs and how to use it.
+
+Azure Event Hubs creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure. Azure Monitor provides a complete set of features to monitor your Azure resources. It can also monitor resources in other clouds and on-premises.
+
+Azure Event Hubs collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
+
+<!-- ## Metrics -->
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+
+Platform metrics and the activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
+
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
+
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Event Hubs are listed in [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md#resource-logs).
 
 > [!NOTE]
 > Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
+
+
+### Supported metrics for Microsoft.EventHub/clusters
+
+The following table lists the metrics available for the Microsoft.EventHub/clusters resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.EventHub/clusters](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-eventhub-clusters-metrics-include.md)]
+
+### Supported metrics for Microsoft.EventHub/Namespaces
+
+The following table lists the metrics available for the Microsoft.EventHub/Namespaces resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-eventhub-namespaces-metrics-include.md)]
 
 
 ## Metrics
@@ -72,7 +126,15 @@ The following two types of errors are classified as **user errors**:
 > [!NOTE]
 > Logic Apps creates epoch receivers and receivers may be moved from one node to another depending on the service load. During those moves, `ReceiverDisconnection` exceptions may occur. They are counted as user errors on the Event Hubs service side. Logic Apps may collect failures from Event Hubs clients so that you can view them in user logs.
 
-## Metric dimensions
+
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+
+- EntityName
+- OperationResult
+- Replica
+- Role
 
 Azure Event Hubs supports the following dimensions for metrics in Azure Monitor. Adding dimensions to your metrics is optional. If you don't add dimensions, metrics are specified at the namespace level. 
 
@@ -81,14 +143,29 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 |Entity Name| Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension has a value of '-NamespaceOnlyMetric-' in addition to all your event hubs. It represents the requests that were made at the namespace level. Examples include a  request to list all event hubs in the namespace or requests to entities that failed authentication or authorization.|
 
 
-## Resource logs
+<!-- ## Resource logs -->
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
+
+### Supported resource logs for Microsoft.EventHub/Namespaces
+
+[!INCLUDE [Microsoft.EventHub/Namespaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-eventhub-namespaces-logs-include.md)]
+
+<!-- ## Log tables -->
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 Azure Event Hubs now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
 
 :::image type="content" source="media/monitor-event-hubs-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-event-hubs-reference/destination-table-toggle.png":::
 
-[!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
+Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
 
+You can view our sample queries to get started with different log categories. 
+
+> [!IMPORTANT]
+> Dimensions aren't exported to a Log Analytics workspace. 
+
+
+[!INCLUDE [event-hubs-diagnostic-log-schema](./includes/event-hubs-diagnostic-log-schema.md)]
 
 ## Runtime audit logs
 Runtime audit logs capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in Event Hubs. 
@@ -235,15 +312,28 @@ Resource specific table entry:
 
 ```
 
-## Azure Monitor Logs tables
-Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
 
-You can view our sample queries to get started with different log categories. 
+### Event Hubs Microsoft.EventHub/namespaces
 
-> [!IMPORTANT]
-> Dimensions aren't exported to a Log Analytics workspace. 
+- [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics#columns)
+- [AZMSApplicationMetricLogs](/azure/azure-monitor/reference/tables/azmsapplicationmetriclogs#columns)
+- [AZMSOperationalLogs](/azure/azure-monitor/reference/tables/azmsoperationallogs#columns)
+- [AZMSRunTimeAuditLogs](/azure/azure-monitor/reference/tables/azmsruntimeauditlogs#columns)
+- [AZMSDiagnosticErrorLogs](/azure/azure-monitor/reference/tables/azmsdiagnosticerrorlogs#columns)
+- [AZMSVnetConnectionEvents](/azure/azure-monitor/reference/tables/azmsvnetconnectionevents#columns)
+- [AZMSArchiveLogs](/azure/azure-monitor/reference/tables/azmsarchivelogs#columns)
+- [AZMSAutoscaleLogs](/azure/azure-monitor/reference/tables/azmsautoscalelogs#columns)
+- [AZMSKafkaCoordinatorLogs](/azure/azure-monitor/reference/tables/azmskafkacoordinatorlogs#columns)
+- [AZMSKafkaUserErrorLogs](/azure/azure-monitor/reference/tables/azmskafkausererrorlogs#columns)
+- [AZMSCustomerManagedKeyUserLogs](/azure/azure-monitor/reference/tables/azmscustomermanagedkeyuserlogs#columns)
 
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 
-## Next steps
-- For details on monitoring Azure Event Hubs, see [Monitoring Azure Event Hubs](monitor-event-hubs.md).
-- For details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
+- [Microsoft.EventHub resource provider operations](/azure/role-based-access-control/permissions/integration#microsofteventhub)
+
+## Related content
+
+- See [Monitor [TODO-replace-with-service-name]](monitor-[TODO-replace-with-service-filename].md) for a description of monitoring [TODO-replace-with-service-name].
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
