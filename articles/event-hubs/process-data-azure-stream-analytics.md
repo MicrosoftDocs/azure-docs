@@ -19,8 +19,8 @@ Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integra
 ## End-to-end flow
 
 > [!IMPORTANT]
-> If you aren't a member of [owner](../role-based-access-control/built-in-roles.md#owner) or [contributor](../role-based-access-control/built-in-roles.md#contributor) roles at the Azure subscription level, you must be a member of the [Stream Analytics Query Tester](../role-based-access-control/built-in-roles.md#stream-analytics-query-tester) role at the Azure subscription level to successfully complete steps in this section. This role allows you to perform testing queries without creating a stream analytics job first. For instructions on assigning a role to a user, see [Assign AD roles to users](../active-directory/roles/manage-roles-portal.md).
-
+> - If you aren't a member of [owner](../role-based-access-control/built-in-roles.md#owner) or [contributor](../role-based-access-control/built-in-roles.md#contributor) roles at the Azure subscription level, you must be a member of the [Stream Analytics Query Tester](../role-based-access-control/built-in-roles.md#stream-analytics-query-tester) role at the Azure subscription level to successfully complete steps in this section. This role allows you to perform testing queries without creating a stream analytics job first. For instructions on assigning a role to a user, see [Assign AD roles to users](../active-directory/roles/manage-roles-portal.md).
+> - If your event hub allows only the private access via private endpoints, you must have the Stream Analytics job joined to the same network so that the job can access events in the event hub. 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your **Event Hubs namespace** and then navigate to the **event hub**, which has the incoming data. 
 1. Select **Process Data** on the event hub page or select **Process data** on the left menu. 
