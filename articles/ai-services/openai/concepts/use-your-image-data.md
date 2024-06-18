@@ -1,6 +1,6 @@
 ---
 title: 'Use your image data with Azure OpenAI Service in Azure OpenAI Studio'
-titleSuffix: Azure OpenAI
+titleSuffix: Azure OpenAI Service
 description: Use this article to learn about using your image data for image generation in Azure OpenAI.
 services: cognitive-services
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 05/09/2024
 recommendations: false
 ---
 
-# Azure OpenAI on your data with images using GPT-4 Turbo with Vision (preview) in Azure OpenAI Studio
+# Use your image data for Azure OpenAI by using GPT-4 Turbo with Vision (preview) in Azure OpenAI Studio
 
 Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, the vison model in Azure OpenAI Service. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers by using Retrieval Augmented Generation (RAG), based on your own images and image metadata.
 
@@ -52,7 +52,7 @@ All three options use an Azure AI Search index to do an image-to-image search an
 
 When you're adding a data source for the first time, you might see a red notice that asks you to turn on cross-origin resource sharing (CORS). To stop the warning, select **Turn on CORS** so that Azure OpenAI can access the data source.
 
-:::image type="content" source="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png" alt-text="Screenshot that shows an error stating that CORS has not been enabled." lightbox="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png":::
+:::image type="content" source="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png" alt-text="Screenshot that shows an error stating that CORS has not been turned on." lightbox="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png":::
 
 ## Add your data by uploading files
 
