@@ -292,7 +292,7 @@ For more information on developing and running applications in AKS, see the foll
 - [Deploy an application that uses OpenAI on AKS][openai-aks]
 
 <!-- LINKS -->
-[eks-edw-overview]: ./eks-edw-overiew.md
+[eks-edw-overview]: ./eks-edw-overview.md
 [az-login]: /cli/azure/authenticate-azure-cli-interactively#interactive-login
 [az-account-list]: /cli/azure/account#az_account_list
 [az-account-set]: /cli/azure/account#az_account_set

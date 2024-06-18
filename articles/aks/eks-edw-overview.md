@@ -37,7 +37,7 @@ For a more detailed understanding of the AWS workload, see [Scalable and Cost-Ef
 
 ### Download the Azure application code
 
-The **completed** application code for this workflow is available in our [GitHub repository](https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws). Clone the repository to a directory called `aws-to-azure-edw-workshop` on your local machine by running the following command:
+The **completed** application code for this workflow is available in our [GitHub repository][github-repo]. Clone the repository to a directory called `aws-to-azure-edw-workshop` on your local machine by running the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws ./aws-to-azure-edw-workshop

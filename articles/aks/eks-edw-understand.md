@@ -52,9 +52,9 @@ The following resources can help you learn more about the differences between AW
 [azure-rbac]: ../role-based-access-control/overview.md
 [entra-workload-id]: /azure/architecture/aws-professional/eks-to-aks/workload-identity#microsoft-entra-workload-id-for-kubernetes
 [service-account-volume-projection]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#serviceaccount-token-volume-projection
-[entra-managed-id]: ../entra/identity/managed-identities-azure-resources/overview.md
+[entra-managed-id]: /entra/identity/managed-identities-azure-resources/overview
 [uami]: /azure/templates/microsoft.managedidentity/userassignedidentities?pivots=deployment-language-bicep
-[use-entra-aks]: ../workload-identity-overview.md#how-it-works
+[use-entra-aks]: ./workload-identity-overview.md#how-it-works
 [aws-azure-services]: /azure/architecture/aws-professional/services
 [aws-azure-identity]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/mapping-aws-iam-concepts-to-similar-ones-in-azure/ba-p/3612216
 [aws-azure-accounts]: /azure/architecture/aws-professional/accounts
