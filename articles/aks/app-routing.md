@@ -35,7 +35,6 @@ With the retirement of [Open Service Mesh][open-service-mesh-docs] (OSM) by the 
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - Azure CLI version 2.54.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-- `aks-preview` Azure CLI extension of version 0.5.171 or later installed
 
 ## Limitations
 

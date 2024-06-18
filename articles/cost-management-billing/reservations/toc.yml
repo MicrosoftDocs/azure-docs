@@ -34,8 +34,6 @@
       href: /azure/postgresql/single-server/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure SQL Edge
       href: discount-sql-edge.md
-    - name: Database for MariaDB
-      href: understand-reservation-charges-mariadb.md
     - name: Database for MySQL
       href: understand-reservation-charges-mysql.md
     - name: Databricks
@@ -100,8 +98,6 @@
       href: /azure/azure-cache-for-redis/cache-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Data Factory
       href: /azure/data-factory/data-flow-reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Database for MariaDB
-      href: /azure/mariadb/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for MySQL
       href: /azure/mysql/concept-reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
