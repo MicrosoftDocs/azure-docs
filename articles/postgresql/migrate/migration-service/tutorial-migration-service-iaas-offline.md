@@ -6,7 +6,7 @@ ms.author: adityaduvuri
 ms.reviewer: maghan
 ms.date: 06/13/2024
 ms.service: postgresql
-ms.subservice: flexible-server
+ms.subservice: migration-guide
 ms.topic: tutorial
 ms.custom:
   - devx-track-azurecli
