@@ -315,6 +315,26 @@ The following sections list the full telemetry automatically collected by Applic
 
 [Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. Although it might take a few minutes before telemetry appears in the portal and analytics, Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
 
+#### Secure the control channel
+
+##### Add an API key to configuration
+
+You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
+
+Add the following namespace:
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+```
+
+Next, add the following line before the call `services.AddApplicationInsightsTelemetryWorkerService`:
+
+```csharp
+    services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+```
+
+For more information on how to configure WorkerService applications, see [Configuring telemetry modules in WorkerServices](#configure-or-remove-default-telemetry-modules).
+
 ### ILogger logs
 
 Logs emitted via `ILogger` with the severity Warning or greater are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights`, as shown in the following code. The following configuration allows Application Insights to capture all `Information` logs and more severe logs.

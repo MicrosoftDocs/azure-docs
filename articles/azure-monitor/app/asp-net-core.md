@@ -227,6 +227,27 @@ while (true)
 
 The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
 
+#### Secure the control channel
+
+##### Add an API key to configuration
+
+You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
+
+In the *Program.cs* file, add the following namespace:
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+```
+
+Then add the following service registration:
+
+```csharp
+// Existing code which includes services.AddApplicationInsightsTelemetry() to enable Application Insights.
+builder.Services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+```
+
+For more information on how to configure ASP.NET Core applications, see [Configuring telemetry modules in ASP.NET Core](#configure-or-remove-default-telemetrymodules).
+
 ### ILogger logs
 
 The default configuration collects `ILogger` `Warning` logs and more severe logs. For more information, see [How do I customize ILogger logs collection?](#how-do-i-customize-ilogger-logs-collection).

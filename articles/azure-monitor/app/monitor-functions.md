@@ -176,6 +176,16 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
       ...
 ```
 
+## Live Metrics
+
+### Secure the control channel
+
+#### Add an API key to configuration
+
+For Azure Functions apps (v2), you can secure the channel with an API key by using an environment variable.
+
+Create an API key from within your Application Insights resource and go to **Settings** > **Configuration** for your Azure Functions app. Select **New application setting**, enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY`, and enter a value that corresponds to your API key.
+
 ## Next steps
 
 * Read more instructions and information about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md).

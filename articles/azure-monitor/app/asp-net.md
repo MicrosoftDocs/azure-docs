@@ -433,6 +433,20 @@ namespace LiveMetricsDemo
 
 The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
 
+### Secure the control channel
+
+#### Add an API key to configuration
+
+You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
+
+In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
+</Add>
+```
+
 ## Frequently asked questions
 
 This section provides answers to common questions.
