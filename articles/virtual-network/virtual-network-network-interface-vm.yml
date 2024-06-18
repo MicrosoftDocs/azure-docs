@@ -153,6 +153,8 @@ procedureSection:
       - |
         In the past, all VMs within the same availability set were required to have a single, or multiple, network interfaces. VMs with any number of network interfaces can now exist in the same availability set, up to the number supported by the VM size. You can only add a VM to an availability set when it's created. To learn more about availability sets, see [Availability options for Azure Virtual Machines](../virtual-machines/availability.md).
       - |
+        You can connect a network interface only to one subnet. Subsequently, if your VM needs to be connected with more subnets, it needs to have more network interfaces.
+      - |      
         You can connect network interfaces in the same VM to different subnets within a virtual network. However, the network interfaces must all be connected to the same virtual network.
       - |
         You can add any IP address for any IP configuration of any primary or secondary network interface to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary network interface could be added to a back-end pool. To learn more about IP addresses and configurations, see [Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md).
