@@ -64,15 +64,15 @@ ms.author: wchi
     ```java
     // Uncomment the following lines according to the authentication type.
     // for system-managed identity
-    // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
+    // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
     // for user-assigned managed identity
-    // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder()
+    // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
     //     .managedIdentityClientId(System.getenv("AZURE_OPENAI_CLIENTID"))
     //     .build();
 
     // for service principal
-    // ClientSecretCredential defaultCredential = new ClientSecretCredentialBuilder()
+    // ClientSecretCredential credential = new ClientSecretCredentialBuilder()
     //   .clientId(System.getenv("AZURE_OPENAI_CLIENTID"))
     //   .clientSecret(System.getenv("AZURE_OPENAI_CLIENTSECRET"))
     //   .tenantId(System.getenv("AZURE_OPENAI_TENANTID"))

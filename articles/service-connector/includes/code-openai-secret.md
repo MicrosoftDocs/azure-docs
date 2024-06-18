@@ -58,7 +58,7 @@ ms.author: wchi
     pip install openai
     pip install azure-core
     ```
-1. Get the App Configuration connection string from the environment variables added by Service Connector.
+1. Get the Azure OpenAI endpoint and API key from the environment variables added by Service Connector.
     ```python
     import os
     from openai import AzureOpenAI
@@ -80,7 +80,7 @@ ms.author: wchi
     npm install @azure/openai
     npm install @azure/core-auth
     ```
-1. Get the App Configuration connection string from the environment variables added by Service Connector.
+1. Get the Azure OpenAI endpoint and API key from the environment variables added by Service Connector.
     
     ```javascript
     import { OpenAIClient } from "@azure/openai";
