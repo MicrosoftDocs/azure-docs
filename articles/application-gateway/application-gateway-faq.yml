@@ -283,7 +283,7 @@ sections:
         answer: |
           Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
 
-          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](../compliance/offerings/offering-fips-140-2) after August 2024. 
+          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](../compliance/offerings/offering-fips-140-2.md) after August 2024. 
           **Steps to enable FIPS Mode in V1 SKU**
           1. Register the **‘AllowApplicationGatewayEnableFIPS’** feature to enroll the subscription for FIPS mode configuration.
           **Azure PowerShell**
@@ -311,7 +311,7 @@ sections:
           # Update the application gateway
           Set-AzApplicationGateway -ApplicationGateway $appgw
           ```
-          Changing FIPS mode doesn't affect the overall availability of cipher suites on V1 gateways. However, when using [elliptic curve cryptography](.../windows/win32/secauthn/tls-elliptic-curves-in-windows-10-1607-and-later) for ciphers, with FIPS mode disabled  you can use curve25519, NistP256, and NistP384 whereas with FIPS mode enabled only NistP256 and NistP384 are allowed and curve25519 is disabled. Since curve25519 becomes unavailable in FIPS mode, make sure your clients support NistP256 or NistP384 for secure communication before enabling FIPS. 
+          Changing FIPS mode doesn't affect the overall availability of cipher suites on V1 gateways. However, when using [elliptic curve cryptography](../../windows/win32/secauthn/tls-elliptic-curves-in-windows-10-1607-and-later) for ciphers, with FIPS mode disabled  you can use curve25519, NistP256, and NistP384 whereas with FIPS mode enabled only NistP256 and NistP384 are allowed and curve25519 is disabled. Since curve25519 becomes unavailable in FIPS mode, make sure your clients support NistP256 or NistP384 for secure communication before enabling FIPS. 
           
       - question: How do I use Application Gateway v2 with only a private frontend IP address?
         answer: |
