@@ -29,7 +29,7 @@ The DCR is applied to a particular agent by creating a [data collection rule ass
 
 A single DCR can contain multiple data sources of different types. Depending on your requirements, you can choose whether to include several data sources in a few DCRs or create separate DCRs for each data source. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
 
-:::image type="content" source="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png" alt-text="Diagram showing data collection rule associations connecting each VM to a single DCR." source="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png":::
+:::image type="content" source="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png" alt-text="Diagram showing data collection rule associations connecting each VM to a single DCR." lightbox="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png":::
 
 
 ## Types of data
