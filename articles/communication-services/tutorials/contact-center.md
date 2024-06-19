@@ -35,8 +35,8 @@ Developers have the option of using Azure Communication Services for all of thes
 
 | Enable customers to initiate messaging via:  | Enable customers to initiate voice and video calling via: | Enable agents to reply to messages and answer voice calls via:   | Integrate services and bots via:  |
 |----|--|---|--|
-| [Desktop & mobile friendly websites](../quickstarts/chat/get-started.md?tabs=windows&pivots=programming-language-javascript) | [Desktop & mobile friendly websites](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-web)   | Desktop & mobile friendly website  | [Chat REST APIs](../quickstarts/chat/quickstart-botframework-integration.md) |
-| [Native apps](../quickstarts/chat/get-started.md?tabs=windows&pivots=programming-language-android) | [Native apps](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-android) | Native apps | [Advanced Messaging (WhatsApp) APIs](../concepts/advanced-messaging/whatsapp/whatsapp-overview.md) |
+| [Desktop & mobile friendly websites](../quickstarts/chat/get-started.md?tabs=windows&pivots=programming-language-javascript) | [Desktop & mobile friendly websites](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-web)   | [Desktop & mobile friendly websites](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-web)  | [Chat REST APIs](../quickstarts/chat/quickstart-botframework-integration.md) |
+| [Native apps](../quickstarts/chat/get-started.md?tabs=windows&pivots=programming-language-android) | [Native apps](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-android) | [Native apps](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-android) | [Advanced Messaging (WhatsApp) APIs](../concepts/advanced-messaging/whatsapp/whatsapp-overview.md) |
 | [SMS](../quickstarts/sms/receive-sms.md?pivots=programming-language-javascript) | [Call an Azure phone number](../quickstarts/telephony/get-phone-number.md?tabs=windows&pivots=platform-azp) | [Teams native apps and call queues](../quickstarts/voice-video-calling/get-started-teams-call-queue.md) | [Call Automation REST & Media APIs](../concepts/call-automation/call-automation.md) |
 | [Meta WhatsApp](../quickstarts/advanced-messaging/whatsapp/get-started.md?tabs=visual-studio%2Cconnection-string&pivots=programming-language-javascript) | [Call your own phone number connected to Microsoft via Direct Routing](../quickstarts/telephony/voice-routing-sdk-config.md?pivots=platform-azp) |   | [Service APIs for Audio Streaming](../quickstarts/voice-video-calling/media-streaming.md?pivots=programming-language-java) |
 | | [Call a Teams Phone number](/microsoftteams/plan-auto-attendant-call-queue) |   | [Direct integration with Azure AI Bot Service](../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md) |
@@ -117,7 +117,7 @@ The following list presents relevant Teams interoperability features available f
 | Teams Capabilities| Audio and video| ✔️|
 |   | Screen sharing| ✔️|
 |   | Record the call| ✔️|
-|   | Park the call | ❌3   |
+|   | Park the call | ✔️  |
 |   | Personal voicemail | ✔️|
 | Teams Auto Attendant  | Answer call   | ✔️|
 |   | Operator routing   | ✔️|
