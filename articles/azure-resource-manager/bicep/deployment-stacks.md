@@ -25,13 +25,13 @@ To create your first deployment stack, work through [Quickstart: create deployme
 Deployment stacks provide the following benefits:
 
 - Streamlined provisioning and management of resources across different scopes as a unified entity.
-- Prevention of undesired modifications to managed resources via [deny settings](#protect-managed-resources-against-deletion).
+- Prevention of undesired modifications to managed resources via [deny settings](#protect-managed-resources).
 - Efficient environment cleanup using delete flags during deployment stack updates.
 - Use of standard templates such as Bicep, ARM templates, or Template specs for your deployment stacks.
 
 ### Known limitations
 
-- Implicitly created resources aren't managed by the stack. Therefore, no deny-assignments or cleanup is possible.
+- Implicitly created resources aren't managed by deployment stack. Therefore, no [deny-assignments](../../role-based-access-control/deny-assignments.md) or cleanup is possible.
 - Deny-assignments don't support tags.
 - Deny-assignments aren't supported at the management group scope. However, they're supported in a management group stack if the deployment is pointed at the subscription scope.
 - Deployment stacks can't delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
@@ -62,7 +62,7 @@ A deployment stack resource can be created at resource group, subscription, or m
 - A stack at subscription scope can deploy the template passed-in to a resource group scope (if specified) or the same subscription scope where the deployment stack exists.
 - A stack at management group scope can deploy the template passed-in to the subscription scope specified.
 
-It's important to note that where a deployment stack exists, so is the deny-assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode `DenyDelete`, you can easily provision managed resources to the specified resource group and block delete attempts to those resources. By using this approach, you also enhance the security of the deployment stack by separating it at the subscription level, as opposed to the resource group level. This separation ensures that the developer teams working with the provisioned resources only have visibility and write access to the resource groups, while the deployment stack remains isolated at a higher level. This minimizes the number of users that can edit a deployment stack and make changes to its deny-assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources-against-deletion).
+It's important to note that where a deployment stack exists, so is the deny-assignment created with the deny settings capability. For example, by creating a deployment stack at subscription scope that deploys the template to resource group scope and with deny settings mode `DenyDelete`, you can easily provision managed resources to the specified resource group and block delete attempts to those resources. By using this approach, you also enhance the security of the deployment stack by separating it at the subscription level, as opposed to the resource group level. This separation ensures that the developer teams working with the provisioned resources only have visibility and write access to the resource groups, while the deployment stack remains isolated at a higher level. This minimizes the number of users that can edit a deployment stack and make changes to its deny-assignment. For more information, see [Protect managed resource against deletion](#protect-managed-resources).
 
 The create-stack commands can also be used to [update deployment stacks](#update-deployment-stacks).
 
