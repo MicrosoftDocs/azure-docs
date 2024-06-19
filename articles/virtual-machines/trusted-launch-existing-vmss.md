@@ -45,9 +45,7 @@ Azure Virtual machine Scale sets supports enabling Trusted launch on existing [U
 
 ### [Template](#tab/template)
 
-This section documents steps for using an ARM template to enable Trusted launch on existing Virtual machine Scale set uniform.
-
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+This section documents steps for using an [ARM template](../azure-resource-manager/templates/overview.md) to enable Trusted launch on existing Virtual machine Scale set uniform.
 
 Make the following modifications to your existing ARM template deployment code. For complete template, refer to [Quickstart Trusted launch Scale set ARM template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vmss-trustedlaunch-windows/azuredeploy.json).
 
