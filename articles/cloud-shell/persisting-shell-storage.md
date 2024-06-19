@@ -58,7 +58,10 @@ If you want to disallow users from creating storage accounts in Cloud Shell, cre
 
 ### Mount a new clouddrive
 
-Follow [these steps to mount an existing storage account][04] or [these steps to mount a new storage account][05].  If you have previously selected to use ephemeral sessions for Cloud Shell, then you must reset your preferences by selecting *Settings* > *Reset User Settings* in Cloud Shell.
+If you have previously selected to use ephemeral sessions for Cloud Shell, then you must reset your
+preferences by selecting **Settings** > **Reset User Settings** in Cloud Shell. Follow the steps to
+mount an [existing storage account][04] or a [new storage account][05].
+
 
 > [!NOTE]
 > If you're mounting a new share, a new user image is created for your `$HOME` directory. Your
