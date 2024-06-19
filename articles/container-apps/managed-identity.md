@@ -349,10 +349,10 @@ Container Apps allows you to specify [init containers](containers.md#init-contai
 
 Starting in API version `2024-02-02-preview`, you can control which managed identities are available to your container app during the init and main phases to follow the security principle of least privilege. The following options are available:
 
-- `Init`: available only to init containers. Use this when you want to perform some intilization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently only supported in [workload profile consumption environments](environment.md#types)
-- `Main`: available only to main containers. Use this if your init container does not need managed identity.
-- `All`: available to all containers. This is the default setting.
-- `None`: not available to any containers. Use this when you have a managed identity that is only used for ACR image pull, scale rules, or Key Vault secrets and does not need to be available to the code running in your containers.
+- `Init`: Available only to init containers. Use this when you want to perform some intilization work that requires a managed identity, but you no longer need the managed identity in the main container. This option is currently only supported in [workload profile consumption environments](environment.md#types)
+- `Main`: Available only to main containers. Use this if your init container does not need managed identity.
+- `All`: Available to all containers. This value is the default setting.
+- `None`: Not available to any containers. Use this when you have a managed identity that is only used for ACR image pull, scale rules, or Key Vault secrets and does not need to be available to the code running in your containers.
 
 The following ARM template example shows how to configure a container app on a workload profile consumption environment that:
 
