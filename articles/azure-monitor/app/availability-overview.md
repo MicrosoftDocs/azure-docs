@@ -38,7 +38,7 @@ You can create up to 100 availability tests per Application Insights resource.
 To provide best-in-class encryption, Availability Tests uses Transport Layer Security (TLS) 1.2 or higher as the encryption mechanism of choice. 
 
 > [!WARNING]
-> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/en-us/updates/azure-support-tls-will-end-by-31-october-2024-2/) TLS 1.0/1.1 protocol versions and TLS 1.2/1.3 legacy Cipher Suites and Elliptical Curves will be retired for Application Insights Availability Tests. 
+> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) TLS 1.0/1.1 protocol versions and TLS 1.2/1.3 legacy Cipher Suites and Elliptical Curves will be retired for Application Insights Availability Tests. 
 
 ### Supported TLS Configurations
 TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availability Tests. In addition, the following Cipher Suites and Elliptical Curves are also supported within each version.
