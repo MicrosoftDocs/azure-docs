@@ -4,7 +4,7 @@ description: Providing the limitations and known issues of the migration service
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 01/30/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---
