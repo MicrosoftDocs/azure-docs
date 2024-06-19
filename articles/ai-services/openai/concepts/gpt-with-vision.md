@@ -68,7 +68,6 @@ If you turn on Enhancements, additional usage applies for using GPT-4 Turbo with
 |-----------------|-----------------|
 | + Enhanced add-on features for OCR | $1.5 per 1000 transactions |
 | + Enhanced add-on features for Object Detection | $1.5 per 1000 transactions |
-| + Enhanced add-on feature for “Add your Image” Image Embeddings | $1.5 per 1000 transactions |
 | + Enhanced add-on feature for “Video Retrieval” integration **<sup>1</sup>** | Ingestion: $0.05 per minute of video <br>Transactions: $0.25 per 1000 queries of the Video Retrieval index |
 
 **<sup>1</sup>** Processing videos involves the use of extra tokens to identify key frames for analysis. The number of these additional tokens will be roughly equivalent to the sum of the tokens in the text input, plus 700 tokens.
