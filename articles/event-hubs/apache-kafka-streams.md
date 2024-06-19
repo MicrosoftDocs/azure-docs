@@ -17,7 +17,7 @@ This article provides details on how to us the [Kafka Streams](https://kafka.apa
 
 Apache Kafka Streams is a Java only client library that provides a framework for processing of streaming data and building real-time applications against the data stored in Kafka topics. All the processing is scoped to the client, while Kafka topics act as the data store for intermediate data, before the output is written to the destination topic.
 
-Event Hubs provides a Kafka endpoint that can be used by your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
+Event Hubs provides a Kafka endpoint to be used with your existing Kafka client applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md).
 
 ## Using Kafka Streams with Azure Event Hubs
 
@@ -26,23 +26,23 @@ Azure Event Hubs natively supports both the AMQP and Kafka protocol. However, to
 | Property | Default behavior for Event Hubs | Modified behavior for Kafka streams | Explanation |
 | ----- | ---- | ----| ---- |
 | `messageTimestampType` | set to `AppendTime` | should be set to `CreateTime` | Kafka Streams relies on creation timestamp rather than append timestamp |
-| `message.timestamp.difference.max.ms` | max allowed value is 90 days | Property is used to govern past timestamps only. Future time is set to 1 hour and cannot be changed. | This is in line with the Kafka protocol specification |
-| `min.compaction.lag.ms` | | max allowed value is 2 days ||
-| Infinite retention topics | | size based truncation of 250GB for each topic-partition||
+| `message.timestamp.difference.max.ms` | max allowed value is 90 days | Property is used to govern past timestamps only. Future time is set to 1 hour and can't be changed. | This is in line with the Kafka protocol specification |
+| `min.compaction.lag.ms` | | max allowed value is two days ||
+| Infinite retention topics | | size based truncation of 250 GB for each topic-partition||
 | Delete record API for infinite retention topics| | Not implemented. As a workaround, the topic can be updated and a finite retention time can be set.| This will be done in GA |
 
 ### Other considerations
 
-Here are some of the additional considerations to keep in mind.
+Here are some of the other considerations to keep in mind.
 
-  * Kafka streams client applications must be granted management, read and write permissions for the entire namespaces to be able to create temporary topics for stream processing.
+  * Kafka streams client applications must be granted management, read, and write permissions for the entire namespaces to be able to create temporary topics for stream processing.
   * Temporary topics and partitions count towards the quota for the given namespace. These should be kept under consideration when provisioning the namespace or cluster.
   * Infinite retention time for "Offset" Store is limited by max message retention time of the SKU. Check [Event Hubs Quotas](event-hubs-quotas.md) for these tier specific values.
 
 
-These include, updating the topic configuration in the `messageTimestampType` to use the `CreateTime` (i.e. Event time) instead of the `AppendTime` (i.e. log append time).
+These include, updating the topic configuration in the `messageTimestampType` to use the `CreateTime` (that is, Event creation time) instead of the `AppendTime` (that is, log append time).
 
-To override the default behavior (required), the below setting must be set in ARM.
+To override the default behavior (required), the below setting must be set in Azure Resource Manager(ARM).
 
 > [!NOTE]
 > Only the specific parts of the ARM template are shown to highlight the configuration that needs to be updated.
@@ -97,7 +97,7 @@ Stream processing topology can be defined either with the [Kafka Streams DSL](ht
 
 ### Stream and Table duality
 
-Streams and tables are 2 different but useful abstractions provided by the [Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html), modeling both time series and relational data formats which must co-exist for stream processing use-cases. 
+Streams and tables are 2 different but useful abstractions provided by the [Kafka Streams DSL](https://kafka.apache.org/37/documentation/streams/developer-guide/dsl-api.html), modeling both time series and relational data formats that must coexist for stream processing use-cases. 
 
 Kafka extends this further and introduces a duality between streams and tables, where a
   * A **stream** can be considered as a changelog of a **table**, and
@@ -108,14 +108,14 @@ This duality allows tables and streams to be used interchangeably as required by
 For example
 
   * Joining static customer data (modeled as a table) with dynamic transactions (modeled as a stream), and
-  * Joining changing portfolio positions in a day traders portfolio (modeled as a stream) with the latest market data feed, i.e. stock prices (modeled as a stream)
+  * Joining changing portfolio positions in a day traders portfolio (modeled as a stream) with the latest market data feed(modeled as a stream).
 
 ### Time
 
 Kafka Streams allows windowing and grace functions to allow for out of order data records to be ingested and still be included in the processing. To ensure that this behavior is deterministic, there are additional notions of time in Kafka streams. These include: 
 
   * Creation time (also known as 'Event time') - This is the time when the event occurred and the data record was created.
-  * Processing time - This is the time when the data record is processed by the stream processing application (or when it is consumed).
+  * Processing time - This is the time when the data record is processed by the stream processing application (or when it's consumed).
   * Append time (also known as 'Creation time') - This is the time when the data is stored and committed to the storage of the Kafka broker. This differs from the creation time because of the time difference between the creation of the event and the actual ingestion by the broker.
 
 
@@ -142,7 +142,7 @@ Applications must utilize the windowing and grace period controls to improve fau
 
 ### Processing guarantees
 
-Business and technical users seek to extract key business insights from the output of stream processing workloads, which translate to high transactional guarantee requirements. Kafka streams works together with Kafka transactions to ensure transactional processing guarantees by integrating with the Kafka compatible brokers (i.e. Azure Event Hubs) underlying storage system to ensure that offset commits and state store updates are written atomically.
+Business and technical users seek to extract key business insights from the output of stream processing workloads, which translate to high transactional guarantee requirements. Kafka streams works together with Kafka transactions to ensure transactional processing guarantees by integrating with the Kafka compatible brokers' (such as Azure Event Hubs) underlying storage system to ensure that offset commits and state store updates are written atomically.
 
 To ensure transactional processing guarantees, the `processing.guarantee` setting in the Kafka Streams configs must be updated from the default value of `at_least_once` to `exactly_once_v2` (for client versions at or after Apache Kafka 2.5) or `exactly_once` (for client versions before Apache Kafka 2.5.x).
 
