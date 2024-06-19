@@ -87,7 +87,7 @@ sections:
       - question: |
           Can I shrink or downsize my managed disks?
         answer: |
-          No.
+          No. While you cannot shrink the operating system (OS) disk, one can descrease the size of a data disk by copying the data from one disk to another and attaching the smaller data disk to the VM.[Decrease the size of an Azure data disk without losing data for Windows](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/windows/downsize-data-disk-without-losing-data?tabs=windows)
 
       - question: |
           Can I change the computer name property when a specialized (not created by using the System Preparation tool or generalized) operating system disk is used to provision a VM?
