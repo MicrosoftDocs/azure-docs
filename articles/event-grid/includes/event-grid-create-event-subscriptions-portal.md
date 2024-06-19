@@ -1,11 +1,11 @@
 ---
- title: include file
- description: include file
+ title: Create a subscription to an Event Grid namespace topic
+ description: Include file with steps to create a subscription to an Azure Event Grid namespace topic. 
  services: event-grid
  author: sonalika-roy
  ms.service: event-grid
  ms.topic: include
- ms.date: 05/30/20223
+ ms.date: 06/19/2024
  ms.author: sonalikaroy
  ms.custom: include file
 ---
