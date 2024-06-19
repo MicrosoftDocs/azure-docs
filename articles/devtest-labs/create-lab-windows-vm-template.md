@@ -96,7 +96,7 @@ When you're done with the lab resources, delete them to avoid further charges. B
    During the deletion, you can select **Notifications** at the top of your screen to view progress.
    
    > [!NOTE]
-   > Deleting the lab can take a while.
+   > Deleting the lab can take several minutes.
 
    After you delete the lab, you can delete the resource group that contained the lab, which deletes all other resources in the resource group.
 
