@@ -62,9 +62,9 @@ To get a static image with custom pins and labels:
 
 1. Select the *Send Request* arrow that appears to the right of the request URL.
 
-The following image is returned:
+    The following image is returned:
 
-:::image type="content" source="./media/how-to-render-custom-data/render-pins.png" alt-text="A custom pushpin with a label.":::
+    :::image type="content" source="./media/how-to-render-custom-data/render-pins.png" alt-text="A custom pushpin with a label.":::
 
 ## Render a polygon with color and opacity
 
@@ -86,9 +86,9 @@ To render a polygon with color and opacity:
     https://atlas.microsoft.com/map/static?subscription-key={Your-Azure-Maps-Subscription-key}&zoom=15&tilesetId=microsoft.base.road&api-version=2024-04-01&language=en-us&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.50||-74.03995513916016 40.70090237454063|-74.04082417488098 40.70028420372218|-74.04113531112671 40.70049568385827|-74.04298067092896 40.69899904076542|-74.04271245002747 40.69879568992435|-74.04367804527283 40.6980961582905|-74.04364585876465 40.698055487620714|-74.04368877410889 40.698022951066996|-74.04168248176573 40.696444909137|-74.03901100158691 40.69837271818651|-74.03824925422668 40.69837271818651|-74.03809905052185 40.69903971085914|-74.03771281242369 40.699340668780984|-74.03940796852112 40.70058515602143|-74.03948307037354 40.70052821920425|-74.03995513916016 40.70090237454063&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27Central Park%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fsamples.azuremaps.com%2Fimages%2Ficons%2Fylw-pushpin.png&center=-74.040701, 40.698666&height=500&Width=500
     ```
 
-The following image is returned:
+    The following image is returned:
 
-:::image type="content" source="./media/how-to-render-custom-data/opaque-polygon.png" alt-text="Render an opaque polygon.":::
+    :::image type="content" source="./media/how-to-render-custom-data/opaque-polygon.png" alt-text="Render an opaque polygon.":::
 
 ## Render a circle and pushpins with custom labels
 
@@ -115,7 +115,7 @@ To render a circle and pushpins with custom labels:
 1. Select the *Send Request* arrow that appears to the right of the request URL.
 
     The following image is returned:
-    
+
     :::image type="content" source="./media/how-to-render-custom-data/circle-custom-pins.png" alt-text="Render a circle with custom pushpins.":::
 
 1. Next, change the color of the pushpins by modifying the `co` style modifier. If you look at the value of the `pins` parameter (`pins=default|la15+50|al0.66|lc003C62|co002D62|`), notice that the current color is `#002D62`. To change  the color to `#41d42a`, replace `#002D62` with `#41d42a`.  Now the `pins` parameter is `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. The request  looks like the following URL:
@@ -128,9 +128,9 @@ To render a circle and pushpins with custom labels:
 
 1. Select the *Send Request* arrow that appears to the right of the request URL.
 
-The following image is returned:
+    The following image is returned:
 
-:::image type="content" source="./media/how-to-render-custom-data/circle-updated-pins.png" alt-text="Render a circle with updated pushpins.":::
+    :::image type="content" source="./media/how-to-render-custom-data/circle-updated-pins.png" alt-text="Render a circle with updated pushpins.":::
 
 Similarly, you can change, add, and remove other style modifiers.
 
@@ -156,9 +156,9 @@ To get a static image with a traffic layer rendered on a roads basemap, use the 
 
 1. Select the *Send Request* arrow that appears to the right of the request URL.
 
-The following image is returned:
+    The following image is returned:
 
-:::image type="content" source="./media/how-to-render-custom-data/rendering-traffic-layer-information.png" alt-text="A screenshot of a map showing the traffic layer, as well as a custom pushpin with the label Westminster Bridge.":::
+    :::image type="content" source="./media/how-to-render-custom-data/rendering-traffic-layer-information.png" alt-text="A screenshot of a map showing the traffic layer, as well as a custom pushpin with the label Westminster Bridge.":::
 
 ## Create a map using the dark gray style
 
@@ -210,9 +210,9 @@ To get a static image with the imagery style appplied, set the `TilesetId` param
 
 1. Select the *Send Request* arrow that appears to the right of the request URL.
 
-The following image is returned:
+    The following image is returned:
 
-:::image type="content" source="./media/how-to-render-custom-data/imagery.png" alt-text="A screenshot of a map showing the imagery style created by setting the tileset ID parameter to microsoft.imagery.":::
+    :::image type="content" source="./media/how-to-render-custom-data/imagery.png" alt-text="A screenshot of a map showing the imagery style created by setting the tileset ID parameter to microsoft.imagery.":::
 
 For more information the different styles available using the TilesetId parameter, see [TilesetId] in the *Render - Get Map Tileset* REST API documentation.
 
