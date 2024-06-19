@@ -8,18 +8,18 @@ author: SnehaSudhir
 ms.author: sudhirsneha
 ---
 
-# About pre and post events
+# About pre and post events (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
-The pre and post events in Azure Update Manager allow you to perform certain tasks automatically before and after a scheduled maintenance configuration. For more information on how to create schedule maintenance configurations, see [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md). For example, using pre and post events, you can execute the following tasks on machines that are part of a schedule. The following list isn't exhaustive, and you can create pre and post events as per your need.
+The pre and post events (preview) in Azure Update Manager allow you to perform certain tasks automatically before and after a scheduled maintenance configuration. For more information on how to create schedule maintenance configurations, see [Schedule recurring updates for machines by using the Azure portal and Azure Policy](scheduled-patching.md). For example, using pre and post events, you can execute the following tasks on machines that are part of a schedule. The following list isn't exhaustive, and you can create pre and post events as per your need.
 
  
 ## Sample tasks
 
 The following are the scenarios where you can define pre and post events:
 
-#### [Pre Events](#tab/preevent)
+#### [Pre-events](#tab/preevent)
 
 | **Scenario**| **Description**|
 |----------|-------------|
@@ -28,7 +28,7 @@ The following are the scenarios where you can define pre and post events:
 |Notification email | Send a notification alert before triggering a patch. |
 |Stop services | Stop services like Gateway services, NPExServices, SQL services etc.| 
 
-#### [Post Events](#tab/postevent)
+#### [Post-events](#tab/postevent)
 
 | **Scenario**| **Description**|
 |----------|-------------|
@@ -82,7 +82,7 @@ For example, if a maintenance schedule is set to start at **3:00 PM**, with the 
 | 2:19 PM     | Since the schedule run starts at 3:00 PM, you can modify the machines or scopes 40 mins before the start time (i.e) at 2:19 PM. </br> **Note** This applies if you're creating a new schedule or editing an existing schedule with a pre-event.
 | 2:20 PM - 2:30 PM     | Since the pre-event gets triggered at least 30 mins prior, it can get triggered anytime between 2:20 PM to 2:30 PM. |
 | 2:30 PM - 2:50 PM    | The pre-event runs from 2:30 PM to 2:50 PM. The pre-event must complete the tasks by 2:50 PM. </br> **Note** If you have more than one pre-event configured, all the events must run within 20 minutes. In case of multiple pre-events, all of them will execute independently of each other. You can customize as per your needs by defining the logic in the pre-events. For example, if you want two pre-events to run sequentially, you can include a delayed start time in your second pre-event’s logic. </br> If the pre-event continues to run beyond 20 mins or fails, you can choose to cancel the schedule run otherwise the patch installation proceeds irrespective of the pre-event run status.|
-| 2:50 PM   | The latest time that can invoke the cancellation API is 2:50 PM. **Note** If cancellation API fails to get invoked or hasn't been set up, the patch installation proceeds to run.|
+| 2:50 PM   | The latest time that can invoke the cancellation API is 2:50 PM. </br> **Note** If cancellation API fails to get invoked or hasn't been set up, the patch installation proceeds to run.|
 | 3:00 PM   | The schedule run is triggered at 3:00 PM. |
 | 6:55 PM   | At 6:55 PM, the schedule completes installing the updates during the 3 hours 55-mins maintenance window. </br> The post event triggers at 6:55 PM once the updates are installed. </br> **Note** If you have defined a shorter maintenance window of 2 hours, the post maintenance event will trigger after 2 hours and if the update installation is completed before the stipulated time of 2 hours (i.e) 1 hours 50 mins, the post event will start immediately.
 
