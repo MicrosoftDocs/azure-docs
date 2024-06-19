@@ -131,6 +131,7 @@ You might consider creating multiple dev centers in the following cases:
 
 - If different people need to own and maintain the dev center resource in Azure.
 
+> [!Note]
 > The Azure region where the dev center is located does not determine the location of the dev boxes.
 
 Learn more about how to [create a dev center for Microsoft Dev Box](./quickstart-configure-dev-box-service.md).
@@ -141,7 +142,7 @@ Network connections control where dev boxes are created and hosted, and enable y
 
 Microsoft-hosted network connections provide network connectivity in a SaaS manner. Microsoft manages the network infrastructure and related services for your dev boxes. Microsoft-hosted networks are a cloud-only deployment with support for Microsoft Entra join. This option isn't compatible with the Microsoft Entra hybrid join model.
 
-A Microsoft-hosted network connection is created and assigned to a specific dev center project. You can create multiple network connections per project. The network connection created in a project are not shared with other projects.
+A Microsoft-hosted network connection is created and assigned to a specific dev center project. You can create multiple network connections per project. The network connections created in a project are not shared with other projects.
 
 You can also use Azure network connections (bring your own network) to connect to Azure virtual networks and optionally connect to corporate resources. With Azure network connections, you manage and control the entire network setup and configuration. You can use either Microsoft Entra join or Microsoft Entra hybrid join options with Azure network connections, enabling you to connect to on-premises Azure Active Directory Domain Services.
 
@@ -167,7 +168,7 @@ Consider using an Azure compute gallery in the following cases:
 - Development teams can choose from images that are preconfigured with software components and configurations for their project or usage scenario. For example, images for data science projects, front-end web development, and more.
 - You want to maintain the images in a single location and use them across dev centers, projects, and pools.
 
-When you create custom VM images, also consider using [dev box customization tasks](#step-7-attach-catalog) to limit the number of VM image variants and enable developers to fine-tune their dev box configuration themselves. For example, you might create a gneral-purpose development image, and use customization to let developers configure it for specific development tasks and preconfigure their source code repository.
+When you create custom VM images, also consider using [dev box customization tasks](#step-7-attach-catalog) to limit the number of VM image variants and enable developers to fine-tune their dev box configuration themselves. For example, you might create a general-purpose development image, and use customization to let developers configure it for specific development tasks and preconfigure their source code repository.
 
 Learn more about how to [configure a compute gallery for a dev center](./how-to-configure-azure-compute-gallery.md).
 
@@ -218,7 +219,7 @@ Consider using a Microsoft Entra ID group for managing access for dev box users 
 Consider creating a dev center project in the following cases:
 
 - You want to provide a development team with a set of standardized cloud developer workstations for their software development project
-- You have multiple development projects that have separate project adminstrators and access permissions
+- You have multiple development projects that have separate project administrators and access permissions
 
 Learn more about [how to create and manage projects](./how-to-manage-dev-box-projects.md).
 
@@ -261,7 +262,7 @@ Some usage scenarios for conditional access in Microsoft Dev Box include:
 
 Learn how you can [configure conditional access policies for Dev Box](./how-to-configure-intune-conditional-access-policies.md).
 
-#### Backup and restore a dev box
+#### Back up and restore a dev box
 
 Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
 
