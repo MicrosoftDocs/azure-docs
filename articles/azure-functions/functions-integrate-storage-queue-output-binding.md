@@ -31,7 +31,7 @@ In this section, you use the portal UI to add an Azure Queue Storage output bind
 
 1. Select **Integration**, and then select **+ Add output**.
 
-   :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png" alt-text="Screenshot that shows how to create an output binding for your function.":::
+   :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png" alt-text="Screenshot that shows how to create an output binding for your function." lightbox="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding.png":::
 
 1. Select the **Azure Queue Storage** binding type and add the settings as specified in the table that follows this screenshot:
 
@@ -92,11 +92,11 @@ In this section, you add code that writes a message to the output queue. The mes
 
 1. Confirm that your test matches this screenshot, and then select **Run**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Screenshot that shows how to test the Queue Storage binding in the Azure portal.":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Screenshot that shows how to test the Queue Storage binding in the Azure portal." lightbox="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png":::
 
     Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message created when the function is invoked.
 
-    As an alternative to selecting **Run**, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. The browser method is shown in [Create your first function from the Azure portal](./functions-get-started.md).
+    As an alternative to selecting **Run**, you can call the function by entering a URL in a browser and specifying the `name` value in the query string. This browser method is shown in [Create your first function from the Azure portal](./functions-get-started.md).
 
 1. Check the logs to make sure that the function succeeded.
 
@@ -108,11 +108,11 @@ In this section, you add code that writes a message to the output queue. The mes
 
 1. In the **App settings** tab, select **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Screenshot that shows the Configuration page with AzureWebJobsStorage selected.":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Screenshot that shows the Configuration page with AzureWebJobsStorage selected." lightbox="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png":::
 
 1. Locate and make note of the account name.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Screenshot that shows how to locate the storage account connected to AzureWebJobsStorage.":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png" alt-text="Screenshot that shows how to locate the storage account connected to AzureWebJobsStorage." lightbox="./media/functions-integrate-storage-queue-output-binding/function-storage-account-name.png":::
 
 ### Examine the output queue
 
