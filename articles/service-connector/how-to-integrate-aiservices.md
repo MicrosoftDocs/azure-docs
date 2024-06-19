@@ -77,7 +77,7 @@ Refer to the steps and code below to connect to Azure AI Services using a user-a
 
 #### Sample Code 
 Refer to the steps and code below to connect to Azure AI Services using a connection string.
-[!INCLUDE [code sample for azure AI Services](./includes/code--aiservices--secret.md)]
+[!INCLUDE [code sample for azure AI Services](./includes/code-aiservices-secret.md)]
 
 
 ### Service principal
