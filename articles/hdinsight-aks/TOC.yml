@@ -18,13 +18,13 @@ items:
     href: quickstart-prerequisites-resources.md
   - name: One click deployment
     href: quickstart-get-started.md
-  - name: Create a cluster pool and cluster
+  - name: Create a cluster pool
     items:
-    - name: Create a cluster pool and cluster - Azure portal
+    - name: Create a cluster pool - Azure portal
       href: quickstart-create-cluster.md
-    - name: Create an HDInsight on AKS cluster pool and cluster - Azure CLI
+    - name: Create a cluster pool - Azure CLI
       href: quickstart-create-cli.md
-    - name: Create an HDInsight on AKS cluster pool and cluster - Azure PowerShell
+    - name: Create a cluster pool - Azure PowerShell
       href: quickstart-create-powershell.md
 - name: Concepts
   items:
