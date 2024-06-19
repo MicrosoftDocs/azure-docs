@@ -14,28 +14,23 @@ ms.custom: references_regions
 
 # How to deploy AI21's Jamba-Instruct model with Azure AI Studio
 
-In this article, you will learn how to deploy AI21's Jamba-Instruct model through [Models-as-a-Service (MaaS)](https://youtu.be/GS5ZIiNqcEY?si=VJnSgICGhv-dq77r), through serverless APIs with pay-as you go billing.
-
-> [!IMPORTANT]
-> See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
-
-The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It is an instruction-tuned version of AI21's hybrid SSM-Transformer Jamba model, and is built for reliable commercial use with respect to quality and performance.
-
-To get started with Jamba Instruct on MaaS, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
-
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
+In this article, you learn how to use Azure AI Studio to deploy AI21's Jamba-Instruct model as a serverless API with pay-as-you-go billing.
+
+The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
 
 ## Deploy the Jamba Instruct model as a serverless API
 
-Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
 
-The Jamba Instruct model is [deployed as a serverless API with pay-as-you-go billing](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct) are [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct). AI21 may add more terms of use and pricing.
+The [AI21-Jamba-Instruct model](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct) deployed as a serverless API with pay-as-you-go billing is [offered by AI21 through Microsoft Azure Marketplace](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct). AI21 can change or update the terms of use and pricing of this model.
 
-### Azure Marketplace model offerings
+To get started with Jamba Instruct deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
 
-On the Azure Marketplace, you'll be able to find:
+> [!ITIP]
+> See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
 
-* [AI21-Jamba-Instruct (preview)](https://aka.ms/azure-marketplace-offer-ai21-jamba-instruct)
 
 ### Prerequisites
 
