@@ -85,7 +85,7 @@ EventGridEvent egEvent = new EventGridEvent(
 await client.SendEventAsync(egEvent);
 ```
 
-### Prerequisites
+### SDKs
 
 Following are the prerequisites to authenticate to Event Grid.
 
@@ -123,61 +123,6 @@ For more information, see the following articles:
 - [Azure Event Grid client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid#authenticate-using-azure-active-directory)
 - [Azure Event Grid client library for JavaScript](/javascript/api/overview/azure/eventgrid-readme)
 - [Azure Event Grid client library for Python](/python/api/overview/azure/eventgrid-readme)
-
-## Disable key and shared access signature authentication
-
-Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. You'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](/entra/identity/conditional-access/overview) that can help you improve your application's security stance. 
-
-Once you decide to use Microsoft Entra authentication, you can disable authentication based on access keys or SAS tokens. 
-
-> [!NOTE]
-> Acess keys or SAS token authentication is a form of **local authentication**. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Microsoft Entra ID. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
-
-### Azure portal
-
-When creating a new topic, you can disable local authentication on the **Advanced** tab of the **Create Topic** page. 
-
-:::image type="content" source="./media/authenticate-with-microsoft-entra-id/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
-
-For an existing topic, following these steps to disable local authentication:
-
-1. Navigate to the **Event Grid Topic** page for the topic, and select **Enabled** under **Local Authentication**
-
-    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
-2. In the **Local Authentication** popup window, select **Disabled**, and select **OK**.
-
-    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
-
-
-### Azure CLI
-The following CLI command shows the way to create a custom topic with local authentication disabled. The disable local auth feature is currently available as a preview and you need to use API version ``2021-06-01-preview``.
-
-```cli
-az resource create --subscription <subscriptionId> --resource-group <resourceGroup> --resource-type Microsoft.EventGrid/topics --api-version 2021-06-01-preview --name <topicName> --location <location> --properties "{ \"disableLocalAuth\": true}"
-```
-
-For your reference, the following are the resource type values that you can use according to the topic you're creating or updating.
-
-| Topic type        | Resource type                        |
-| ------------------| :------------------------------------|
-| Domains           | Microsoft.EventGrid/domains          |
-| Partner Namespace | Microsoft.EventGrid/partnerNamespaces|
-| Custom Topic      | Microsoft.EventGrid/topics           |
-
-### Azure PowerShell
-
-If you're using PowerShell, use the following cmdlets to create a custom topic with local authentication disabled. 
-
-```PowerShell
-
-Set-AzContext -SubscriptionId <SubscriptionId>
-
-New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.EventGrid/topics -ApiVersion 2021-06-01-preview -ResourceName <TopicName> -Location <Location> -Properties @{disableLocalAuth=$true}
-```
-
-> [!NOTE]
-> - To learn about using the access key or shared access signature authentication, see [Authenticate publishing clients with keys or SAS tokens](security-authenticate-publishing-clients.md)
-> - This article deals with authentication when publishing events to Event Grid (event ingress). Authenticating Event Grid when delivering events (event egress) is the subject of article [Authenticate event delivery to event handlers](security-authentication.md). 
 
 ## Resources
 - Data plane SDKs

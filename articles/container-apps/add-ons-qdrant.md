@@ -121,7 +121,7 @@ Now that you have an existing environment and workload profile, you can create y
 1. Create the Qdrant add-on service.
 
     ```azurecli
-    az containerapp service qdrant create \
+    az containerapp add-on qdrant create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $SERVICE_NAME

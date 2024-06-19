@@ -65,6 +65,8 @@ Organizations where sensors are deployed between OT and IT networks deal with ma
 
 To address these challenges, we've updated Defender for IoT's detection policy to automatically trigger alerts based on business impact and network context, and reduce low-value IT related alerts.  
 
+This update is available in sensor version 24.1.3 and later.
+
 For more information, see [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments).
 
 ### Alert ID now aligned on the Azure portal and sensor console
@@ -135,7 +137,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 ### OT network sensors now run on Debian 11
 
-Sensor versions 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
+Sensor version 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
 
 Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
 

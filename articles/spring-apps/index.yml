@@ -70,6 +70,9 @@ conceptualContent:
             - text: Launch your first RESTful API app
               url: enterprise/quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
               itemType: quickstart
+            - text: Launch your first Spring Batch app
+              url: enterprise/quickstart-deploy-spring-batch-app.md
+              itemType: quickstart
             - text: Launch your first microservice apps
               url: enterprise/quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
               itemType: quickstart

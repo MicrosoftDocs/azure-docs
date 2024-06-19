@@ -23,19 +23,6 @@ In this quickstart, you do the following steps:
 5. Write a .NET console application to receive those messages from the topic.
 
 
->[!Important]
-> Namespaces, namespace topics, and event subscriptions associated to namespace topics are initially available in the following regions:
->
->- East US
->- Central US
->- South Central US
->- West US 2
->- East Asia
->- Southeast Asia
->- North Europe
->- West Europe
->- UAE North
-
 > [!NOTE]
 > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to an Event Grid Namespace Topic and then receiving them. For an overview of the .NET client library, see [Azure Event Grid client library for .NET](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.17.0-beta.1/sdk/eventgrid/Azure.Messaging.EventGridV2/src/Generated/EventGridClient.cs). For more samples, see [Event Grid .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/feature/eventgrid/namespaces/sdk/eventgrid/Azure.Messaging.EventGrid/samples).
 

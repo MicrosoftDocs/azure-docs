@@ -78,7 +78,7 @@ $tableParams = @'
                                 "type": "String"
                        },
                       {
-                                "name": `"YourOptionalColumn",
+                                "name": "YourOptionalColumn",
                                 "type": "String"
                      }
               ]

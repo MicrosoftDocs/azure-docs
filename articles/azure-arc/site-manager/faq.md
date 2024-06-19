@@ -1,10 +1,10 @@
 ---
 title: Frequently asked questions
 description: "Frequently asked questions to understand and troubleshoot Azure Arc sites and site manager"
-author: kgremban
-ms.author: kgremban
+author: torreymicrosoft
+ms.author: torreyt
 ms.service: azure-arc
-#ms.subservice: site-manager
+ms.subservice: azure-arc-site-manager
 ms.topic: faq #Don't change
 ms.date: 02/16/2024
 ms.custom: references_regions

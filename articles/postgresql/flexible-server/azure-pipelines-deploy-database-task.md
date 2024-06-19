@@ -4,7 +4,7 @@ description: Enable Azure Database for PostgreSQL - Flexible Server CLI task for
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 04/30/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -14,7 +14,7 @@ ms.custom:
 
 # Azure Pipelines task - Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 You can automatically deploy your database updates to Azure Database for PostgreSQL flexible server after every successful build with **Azure Pipelines**.  You can use Azure CLI task to update the database either with a SQL file or an inline SQL script against the database. This task  can be run on cross-platform agents running on Linux, macOS, or Windows operating systems.
 
@@ -35,6 +35,7 @@ The following example illustrates how to pass database arguments and run `execut
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `
@@ -57,6 +58,7 @@ The following example illustrates how to run an inline SQL script using `execute
   displayName: Azure CLI
   inputs:
     azureSubscription: <Name of the Azure Resource Manager service connection>
+    scriptType: 'pscore'
     scriptLocation: inlineScript
     arguments:
       -SERVERNAME mydemoserver `

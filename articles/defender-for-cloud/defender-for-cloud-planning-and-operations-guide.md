@@ -1,8 +1,9 @@
 ---
 title: Defender for Cloud Planning and Operations Guide
 description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
-ms.topic: conceptual
-ms.date: 02/06/2023
+ms.topic: concept-article
+ms.date: 05/16/2024
+#customer intent: As a reader, I want to understand the planning and operations considerations for adopting Defender for Cloud and how it fits into my organization's security requirements and cloud management model. I also want to learn about the security roles, access controls, security policies, data collection, and storage in Defender for Cloud.
 ---
 
 # Planning and operations guide
@@ -29,7 +30,7 @@ In the next section, you'll learn how to plan for each one of those areas and ap
 
 Depending on the size and structure of your organization, multiple individuals and teams might use Defender for Cloud to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
 
-:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Roles.":::
+:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization.":::
 
 Defender for Cloud enables these individuals to meet these various responsibilities. For example:
 
@@ -228,7 +229,7 @@ Each Security Alert provides information that can be used to better understand t
 
 The following example shows a suspicious RDP activity taking place:
 
-:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Suspicious activity.":::
+:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Screenshot of a suspicious activity report while it is taking place..":::
 
 This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack might be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
 

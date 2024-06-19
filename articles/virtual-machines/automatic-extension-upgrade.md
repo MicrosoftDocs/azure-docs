@@ -46,14 +46,14 @@ For a group of virtual machines undergoing an update, the Azure platform orchest
 **Within a 'set':**
 - All VMs in a common availability set or scale set aren't updated concurrently.  
 - VMs in a common availability set are updated within Update Domain boundaries and VMs across multiple Update Domains aren't updated concurrently.  
-- VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries.
+- VMs in a common virtual machine scale set are grouped in batches and updated within Update Domain boundaries. [Upgrade policies](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md) defined on the scale set are honored during the update. If upgrade policy is set to Manual, VMs won't get updated even if automatic extension upgrade is enabled. 
 
 ### Upgrade process for Virtual Machine Scale Sets
 1. Before the upgrade process starts, the orchestrator ensures that no more than 20% of VMs in the entire scale set are unhealthy (for any reason).
 
-2. The upgrade orchestrator identifies the batch of VM instances to upgrade. An upgrade batch can have a maximum of 20% of the total VM count, subject to a minimum batch size of one virtual machine.
+2. The upgrade orchestrator identifies the batch of VM instances to upgrade. An upgrade batch can have a maximum of 20% of the total VM count, subject to a minimum batch size of one virtual machine. Definition of Upgrade Policy and Availability Zones is considered while identifying the batch.  
 
-3. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy before upgrading the next batch. If a VM doesn't recover its health after an upgrade, then by default the previous extension version on the VM is reinstalled.
+3. After the upgrade, the VM health is always monitored before moving to the next batch. For scale sets with configured application health probes or Application Health extension, application health is also monitored. The upgrade waits up to 5 minutes (or the defined health probe configuration) for the VM to become healthy before upgrading the next batch. If a VM doesn't recover its health after an upgrade, then by default the previous extension version on the VM is reinstalled.
 
 4. The upgrade orchestrator also tracks the percentage of VMs that become unhealthy after an upgrade. The upgrade stops if more than 20% of upgraded instances become unhealthy during the upgrade process.
 
@@ -239,6 +239,14 @@ Use the following example to set automatic extension upgrade on the extension wi
 }
 ```
 
+### Using Azure portal
+You can use Azure portal - Extension blade to enable automatic upgrade of extensions on existing Virtual Machines and Virtual Machine Scale Sets. 
+1. Navigate to [Virtual Machines](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FVirtualMachines) or [Virtual Machines Scale Sets](https://ms.portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Compute%2FvirtualMachineScaleSets) blade and select the resource by clicking on its name.
+2. Navigate to "Extenisons + applications" blade under Settings to view all extensions installed on the resource. The "Automatic Upgrade Status" column tells if Automatic upgrade of the extension is enabled, disabled or not-supported.
+3. Navigate to Extension details blade by clicking on the extension name.
+:::image type="content" source="media/auto-extension.png" alt-text="Screenshot of Azure portal - Extension blade." lightbox="media/auto-extension.png":::
+4. Click "Enable automatic upgrade" to enable automatic upgrade of the extension. This button can also be used to disable automatic upgrade when required.   
+:::image type="content" source="media/auto-extension-upgrade.png" alt-text="Screenshot of Azure portal to enable automatic upgrade of the extension.":::
 
 ## Extension upgrades with multiple extensions
 
@@ -248,6 +256,24 @@ If multiple extension upgrades are available for a virtual machine, the upgrades
 
 Automatic Extension Upgrades can also be applied when a VM or virtual machine scale set has multiple extensions configured with [extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). Extension sequencing is applicable for the first-time deployment of the VM, and any future extension upgrades on an extension are applied independently.
 
+## Difference between enableAutomaticUpgrade and autoUpgradeMinorVersion
+1. AutoUpgradeMinorVersion:
+   - This property is used during VM creation and while updating the VM with a new configuration.  
+   - When set to “true,” it ensures that the latest minor version of the extension is automatically installed on the virtual machine.
+   - It overrides the TypeHandlerVersion with the latest stable minor version available.
+   - While updating the VM configuration, if a new minor version is available, then its considered a configuration change and the extension is reinstalled with latest minor version. 
+   - This helps keep newly created VMs up-to-date with the latest stable minor extension version.
+   - If you want to manually set the extension to a specific version, set this property to “false.”
+     
+2. EnableAutomaticUpgrade:
+   - This property affects existing virtual machines.
+   - It does not impact the version installed during VM creation.
+   - After VM creation, if the VM is not running the latest minor version of the extension, enabling this property triggers an automatic upgrade.
+   - It ensures that existing VMs stay secure and up-to-date by automatically updating them to the latest minor version.
+
+It is recommemded to enable both properties to keep all VMs secure and up-to-date. 
+
+Updates to major extension versions are never performed automatically by either property since they could cause breaking change. You must manually set the TypeHandlerVersion to a major version and manually update each existing VM to the latest major version.
 
 ## Next steps
 > [!div class="nextstepaction"]

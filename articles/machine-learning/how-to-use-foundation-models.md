@@ -93,12 +93,12 @@ To enable users to quickly get started with fine-tuning, we have published sampl
 
 ## Deploying foundation models to endpoints for inferencing
 
-You can deploy foundation models (both pre-trained models from the model catalog, and fine-tuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both real time endpoints and batch endpoints is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
+You can deploy foundation models (both pre-trained models from the model catalog, and fine-tuned models, once they're registered to your workspace) to an endpoint that can then be used for inferencing. Deployment to both serverless APIs and managed compute is supported. You can deploy these models by using either the Deploy UI wizard or by using the code based samples linked from the model card.
 
 
 ### Deploying using the studio
 
-You can invoke the Deploy UI form by selecting the **Deploy** button on the model card for any foundation model, and selecting either Real-time endpoint or Batch endpoint
+You can invoke the Deploy UI form by selecting the **Deploy** button on the model card for any foundation model, and selecting either **Serverless API with Azure AI Content Safety** or **Managed Compute without Azure AI Content Safety**
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-button.png" lightbox="./media/how-to-use-foundation-models/deploy-button.png" alt-text="Screenshot showing the deploy button on the foundation model card.":::
 

@@ -85,6 +85,7 @@ Compression.type = none | gzip
 
 While the feature is only supported for Apache Kafka traffic producer and consumer traffic, AMQP consumer can consume compressed Kafka traffic as decompressed messages.
 
+
 ## Key differences between Apache Kafka and Azure Event Hubs
 
 While [Apache Kafka](https://kafka.apache.org/) is software you typically need to install and operate, Event Hubs is a fully managed, cloud-native service. There are no servers, disks, or networks to manage and monitor and no brokers to consider or configure, ever. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace. 

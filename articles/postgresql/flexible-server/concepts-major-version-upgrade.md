@@ -4,7 +4,7 @@ description: Learn how to use Azure Database for PostgreSQL - Flexible Server to
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: rajsell, maghan
-ms.date: 04/27/2024
+ms.date: 05/21/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.custom:
 
 # Major version upgrades in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server supports PostgreSQL versions 16, 15, 14, 13, 12, and 11. The Postgres community releases a new major version that contains new features about once a year. Additionally, each major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward compatible with existing applications. Azure Database for PostgreSQL flexible server periodically updates the minor versions during a customer's maintenance window.
 
@@ -47,6 +47,15 @@ Here are some of the important considerations with in-place major version upgrad
 - Long-running transactions or high workload before the upgrade might increase the time taken to shut down the database and increase upgrade time.
 
 - After an in-place major version upgrade is successful, there are no automated ways to revert to the earlier version. However, you can perform a point-in-time recovery (PITR) to a time before the upgrade to restore the previous version of the database instance.
+
+## Post upgrade/migrate
+
+After the major version upgrade is complete, we recommend to run the `ANALYZE` command  in each database to refresh the `pg_statistic` table. Otherwise, you may run into performance issues.
+
+```SQL
+postgres=> analyze;
+ANALYZE
+```
 
 ## Major version upgrade logs
 

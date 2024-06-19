@@ -2,7 +2,7 @@
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: include
-ms.date: 03/20/2024
+ms.date: 04/18/2024
 ms.author: anfdocs
 
 # backup-configure-policy-based.md
@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 ## Register the feature
 
-Azure NetApp Files backup is currently in preview. You must register the feature before using it for the first time. 
+Azure NetApp Files backup is generally available (GA). You must register for Azure NetApp Files backup before using it for the first time. 
 
 1.  Register the feature
 

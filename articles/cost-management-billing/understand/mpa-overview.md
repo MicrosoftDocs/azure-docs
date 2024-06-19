@@ -73,7 +73,7 @@ Indirect providers in the CSP [two-tier model](/partner-center) can select a res
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Next steps
+## Related content
 
 See the following articles to learn about your billing account:
 

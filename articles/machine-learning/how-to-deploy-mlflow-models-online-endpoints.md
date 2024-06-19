@@ -579,7 +579,7 @@ The response will be similar to the following text:
 ```
 
 > [!IMPORTANT]
-> For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
+> For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-a-local-endpoint)** is currently not supported.
 
 
 ## Customize MLflow model deployments

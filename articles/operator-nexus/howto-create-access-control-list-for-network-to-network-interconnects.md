@@ -23,20 +23,20 @@ To create an ACL and define its properties, you can utilize the `az networkfabri
  
 If you have multiple subscriptions and need to set one as the default, you can do so with:
  
-```bash
+```Azure CLI
 az account set --subscription <subscription-id>
 ```
 
 2. **Create ACL:**
 
-```bash
+```Azure CLI
     az networkfabric acl create --resource-group "<resource-group>" --location "<location>" --resource-name "<acl-name>" --annotation "<annotation>" --configuration-type "<configuration-type>" --default-action "<default-action>" --match-configurations "[{matchConfigurationName:<match-config-name>,sequenceNumber:<sequence-number>,ipAddressType:<IPv4/IPv6>,matchConditions:[{ipCondition:{type:<SourceIP/DestinationIP>,prefixType:<Prefix/Exact>,ipPrefixValues:['<ip-prefix1>', '<ip-prefix2>', ...]}}],actions:[{type:<Action>}]}]"
 ```
 
 | Parameter            | Description                                                          |
 |----------------------|----------------------------------------------------------------------|
 | Resource Group       | Specify the resource group of your network fabric.                   |
-| Location             | Define the location where the ACL will be created.                   |
+| Location             | Define the location where the ACL is created.                   |
 | Resource Name        | Provide a name for the ACL.                                          |
 | Annotation           | Optionally, add a description or annotation for the ACL.            |
 | Configuration Type   | Specify whether the configuration is inline or by using a file.     |
@@ -151,3 +151,6 @@ az networkfabric acl create --resource-group "example-rg" --location "eastus2eua
 > After creating the ACL, make sure to note down the ACL reference ID for further reference.
 
 
+## Next Steps
+
+[Applying Access Control Lists (ACLs) to NNI in Azure Fabric](howto-apply-access-control-list-to-network-to-network-interconnects.md)

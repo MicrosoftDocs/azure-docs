@@ -2,7 +2,8 @@
 title: Istio service mesh AKS add-on performance
 description: Istio service mesh AKS add-on performance
 ms.topic: article
-ms.custom: devx-track-azurecli
+ms.custom:
+ms.service: azure-kubernetes-service
 ms.date: 03/19/2024
 ms.author: shalierxia
 ---

@@ -215,12 +215,8 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a Azure Communication Services Rooms call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. Initialize a `LocalOptions` instance with `roleHint`.
-
-Replace `<DISPLAY_NAME>` with your name.
-
-`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from Azure Communication Services.
-
+To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
+While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
 
@@ -228,10 +224,12 @@ For more information about Rooms, how to create and manage one see [Rooms Quicks
 let remoteOptions = RemoteOptions(for: .roomCall(roomId: "<ROOM_ID>"),
                                   credential: communicationTokenCredential,
                                   displayName: "<DISPLAY_NAME>")
-let localOptions = LocalOptions(roleHint: participantRole)
 
-let callComposite = CallComposite()
-callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
+// Optionally, if user is a Consumer role, disable camera and microphone buttons on the setup screen:
+let setupScreenOptions = SetupScreenOptions(cameraButtonEnabled: false, microphoneButtonEnabled: false)
+let callCompositeOptions = CallCompositeOptions(setupScreenOptions: setupScreenOptions)
+
+let callComposite = CallComposite(withOptions: callCompositeOptions)
 ```
 
 ### Launch the composite

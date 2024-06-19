@@ -11,6 +11,6 @@ ms.custom: include file
 ---
 
 
-[!INCLUDE [cloudshell powershell](vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [cloudshell powershell](./vpn-gateway-cloud-shell-powershell.md)]
 
-[!INCLUDE [powershell locally](vpn-gateway-powershell-locally.md)]
+[!INCLUDE [powershell locally](./vpn-gateway-powershell-locally.md)]

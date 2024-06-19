@@ -2,15 +2,15 @@
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 02/13/2024
+ms.date: 06/05/2024
 ms.author: kendownie
 ---
 The Azure File Sync agent is updated on a regular basis to add new functionality and to address issues. We recommend updating the Azure File Sync agent as new versions are available.
 
 #### Major vs. minor agent versions
 
-* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: 14.0.0.0
-* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: 14.1.0.0
+* Major agent versions often contain new features and have an increasing number as the first part of the version number. For example: 17.0.0.0
+* Minor agent versions are also called "patches" and are released more frequently than major versions. They often contain bug fixes and smaller improvements but no new features. For example: 17.2.0.0
 
 #### Upgrade paths
 
@@ -35,7 +35,7 @@ There are five approved and tested ways to install the Azure File Sync agent upd
 The Azure File Sync agent will auto-upgrade. You can select either of two modes and specify a maintenance window in which the upgrade shall be attempted on the server. This feature is designed to help you with the agent lifecycle management by either providing a guardrail preventing your agent from expiration or allowing for a no-hassle, stay current setting.
 
 1. The **default setting** will attempt to prevent the agent from expiration. Within 21 days of the posted expiration date of an agent, the agent will attempt to self-upgrade. It will start an attempt to upgrade once a week within 21 days prior to expiration and in the selected maintenance window. **This option doesn't eliminate the need for taking regular Microsoft Update patches.**
-1. Optionally, you can select that the agent will automatically upgrade itself as soon as a new agent version becomes available (currently not applicable to clustered servers). This update will occur during the selected maintenance window and allow your server to benefit from new features and improvements as soon as they become generally available. This is the recommended, worry-free setting that will provide major agent versions as well as regular update patches to your server. Every agent released is at GA quality. If you select this option, Microsoft will flight the newest agent version to you. Clustered servers are excluded. Once flighting is complete, the agent will also become available on [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257) aka.ms/AFS/agent.
+2. Optionally, you can select that the agent will automatically upgrade itself as soon as a new agent version becomes available (currently not applicable to clustered servers). This update will occur during the selected maintenance window and allow your server to benefit from new features and improvements as soon as they become generally available. This is the recommended, worry-free setting that will provide major agent versions as well as regular update patches to your server. Every agent released is at GA quality. If you select this option, Microsoft will flight the newest agent version to you. Clustered servers are excluded. Once flighting is complete, the agent will also become available on Microsoft Update and [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257).
 
 ##### Changing the auto-upgrade setting
 
@@ -61,6 +61,8 @@ To change the current policy setting to the immediate update track, you can use:
 ```powershell
 Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest -Day <day> -Hour <hour>
 ```
+> [!NOTE]
+> If flighting has already completed for the latest agent version and the agent auto update policy is changed to InstallLatest, the agent will not auto-upgrade until the next agent version is flighted. To update to an agent version that has completed flighting, use Microsoft Update or AfsUpdater.exe. To check if an agent version is currently flighting, check the [supported versions](/azure/storage/file-sync/file-sync-release-notes#supported-versions) section in the release notes.
 
 #### Agent lifecycle and change management guarantees
 
@@ -69,7 +71,7 @@ Azure File Sync is a cloud service which continuously introduces new features an
 - Major agent versions are supported for at least six months from the date of initial release.
 - We guarantee there is an overlap of at least three months between the support of major agent versions.
 - Warnings are issued for registered servers using a soon-to-be expired agent at least three months prior to expiration. You can check if a registered server is using an older version of the agent under the registered servers section of a Storage Sync Service.
-- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 14.0.0.0 is set to expire, agent versions 14.\*.\*.\* will all be set to expire together.
+- The lifetime of a minor agent version is bound to the associated major version. For example, when agent version 17.0.0.0 is set to expire, agent versions 17.\*.\*.\* will all be set to expire together.
 
 > [!NOTE]
 > Installing an agent version with an expiration warning will display a warning but succeed. Attempting to install or connect with an expired agent version isn't supported and will be blocked.

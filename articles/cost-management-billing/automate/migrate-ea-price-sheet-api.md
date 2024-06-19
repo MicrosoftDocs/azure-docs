@@ -16,7 +16,7 @@ ms.reviewer: jojoh
 EA customers who were previously using the Enterprise Reporting consumption.azure.com API to get their price sheet need to migrate to a replacement Azure Resource Manager API. The following instructions help you  migrate and they also describe any contract differences between the old API and the new API.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
 ## Assign permissions to a service principal to call the API
 
@@ -128,6 +128,6 @@ The price sheet properties are as follows:
 | unitOfMeasure | string | How usage is measured for the service |
 | unitPrice | string | The per-unit price at the time of billing for a given product or service, inclusive of any negotiated discounts on top of the market price.<br><br>For PriceType ReservedInstance, unit price reflects the total cost of the one or three-year commitment including discounts.<br><br>Note: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers.<br><br>If services are multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers (where each tier has a specific unit price). |
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

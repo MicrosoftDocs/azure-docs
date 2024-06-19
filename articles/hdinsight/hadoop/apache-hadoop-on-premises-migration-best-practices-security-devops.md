@@ -4,7 +4,7 @@ description: Learn security and DevOps best practices for migrating on-premises 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/26/2023
+ms.date: 05/22/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - security and DevOps best practices

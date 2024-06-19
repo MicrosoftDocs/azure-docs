@@ -82,9 +82,18 @@ const avatarConfig = new SpeechSDK.AvatarConfig(
 
 Real-time avatar uses WebRTC protocol to output the avatar video stream. You need to set up the connection with the avatar service through WebRTC peer connection.
 
-First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Azure provides [Communication Services](../../../communication-services/overview.md), which can provide network relay function. Therefore, we recommend you fetch the ICE server from the Azure Communication resource, which is mentioned in the [prerequisites section](#prerequisites). You can also choose to use your own ICE server.
+First, you need to create a WebRTC peer connection object. WebRTC is a P2P protocol, which relies on ICE server for network relay. Speech service provides network relay function and exposes a REST API to issue the ICE server information. Therefore, we recommend you fetch the ICE server from the speech service. You can also choose to use your own ICE server.
 
-The following code snippet shows how to create the WebRTC peer connection. The ICE server URL, ICE server username, and ICE server credential can all be fetched from the network relay token you prepared in the [prerequisites section](#prerequisites) or from the configuration of your own ICE server.
+Here is a sample request to fetch ICE information from the speech service endpoint:
+
+```HTTP
+GET /cognitiveservices/avatar/relay/token/v1 HTTP/1.1
+
+Host: westus2.tts.speech.microsoft.com
+Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY
+```
+
+The following code snippet shows how to create the WebRTC peer connection. The ICE server URL, ICE server username, and ICE server credential can all be fetched from the payload of above HTTP request.
 
 ```JavaScript
 // Create WebRTC peer connection
@@ -140,6 +149,8 @@ avatarSynthesizer.startAvatarAsync(peerConnection).then(
     (error) => { console.log("Avatar failed to start. Error: " + error) }
 );
 ```
+
+Our real-time API disconnects after 5 minutes of avatar's idle state. Even if the avatar is not idle and functioning normally, the real-time API will disconnect after a 10-minute connection. To ensure continuous operation of the real-time avatar for more than 10 minutes, you can enable auto-reconnect. For how to set up auto-reconnect, refer to this [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/js/browser/avatar/README.md) (search "auto reconnect").
 
 ## Synthesize talking avatar video from text input
 

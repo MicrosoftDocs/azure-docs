@@ -41,7 +41,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label so it's publicly reachable. In this guide, we'll do both, but first, you need to create a port object in PowerShell for your container instance to use.
 
 ```azurepowershell-interactive
-$port = New-AzContainerInstancePortOject -Port 80 -Protocol TCP
+$port = New-AzContainerInstancePortObject -Port 80 -Protocol TCP
 ```
 
 ## Create a container group
