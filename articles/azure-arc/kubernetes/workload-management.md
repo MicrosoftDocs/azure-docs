@@ -563,4 +563,6 @@ To understand the underlying concepts and mechanics deeper, refer to the followi
 > [!div class="nextstepaction"]
 > - [Concept: Workload Management in Multi-cluster environment with GitOps](conceptual-workload-management.md)
 > - [Sample implementation: Workload Management in Multi-cluster environment with GitOps](https://github.com/microsoft/kalypso)
+> - [Concept: CD process with GitOps](https://github.com/microsoft/kalypso/blob/main/docs/cd-concept.md)
+> - [Sample implementation: Explore CI/CD flow with GitOps](https://github.com/microsoft/kalypso/blob/main/cicd/tutorial/cicd-tutorial.md)
 

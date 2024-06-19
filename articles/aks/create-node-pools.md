@@ -61,7 +61,8 @@ The following limitations apply when you create AKS clusters that support multip
         --vm-set-type VirtualMachineScaleSets \
         --node-count 2 \
         --generate-ssh-keys \
-        --load-balancer-sku standard
+        --load-balancer-sku standard \
+        --generate-ssh-keys
     ```
 
     It takes a few minutes to create the cluster.
@@ -125,7 +126,7 @@ The ARM64 processor provides low power compute for your Kubernetes workloads. To
 
 ### Limitations
 
-* ARM64 node pools aren't supported on Defender-enabled clusters.
+* ARM64 node pools aren't supported on Defender-enabled clusters with Kubernetes version less than 1.29.0.
 * FIPS-enabled node pools aren't supported with ARM64 SKUs.
 
 ### Add an ARM64 node pool

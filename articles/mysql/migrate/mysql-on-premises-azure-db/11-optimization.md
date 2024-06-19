@@ -1,25 +1,24 @@
 ---
 title: "Migrate MySQL on-premises to Azure Database for MySQL: Optimization"
 description: "In addition to the audit and activity logs, server performance can also be monitored with Azure Metrics."
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: rothja 
-ms.author: jroth
-ms.reviewer: maghan
-ms.custom:
-ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Optimization
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
 [Post migration management](10-post-migration-management.md)
 
-## Monitoring hardware and query performance
+## Monitor hardware and query performance
 
 In addition to the audit and activity logs, the server performance can also be monitored with [Azure Metrics.](../../../azure-monitor/essentials/data-platform-metrics.md) Azure metrics are provided in a one-minute frequency and alerts can be configured from them. For more information, reference [Monitoring in Azure Database for MySQL](../../concepts-monitoring.md) for specifics on what kind of metrics that can be monitored.
 
@@ -33,8 +32,8 @@ To find poor performing queries, run the following:
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.DBFORMYSQL"
 | where Category == 'MySqlSlowLogs'
-| project TimeGenerated, LogicalServerName\_s, 
-event\_class\_s, start\_time\_t , q uery\_time\_d, 
+| project TimeGenerated, LogicalServerName\_s,
+event\_class\_s, start\_time\_t , q uery\_time\_d,
 sql\_text\_s| top 5 by query\_time\_d desc
 ```
 
@@ -44,17 +43,17 @@ In addition to the basic server monitoring aspects, Azure provides tools to moni
 
 The `slow\_query\_log` can be set to show slow queries in the MySQL log files (default is OFF). The `long\_query\_time` server parameter can alert users for long query times (default is 10 sec).
 
-## Upgrading the tier
+## Upgrade the tier
 
 The Azure portal can be used to scale between from `General Purpose` and `Memory Optimized`. If a `Basic` tier is chosen, there is no option to upgrade the tier to `General Purpose` or `Memory Optimized` later. However, it's possible to utilize other techniques to perform a migration/upgrade to a new Azure Database for MySQL instance.
 
-For an example of a script that migrates from basic to another server tier, reference [Upgrade from Basic to General Purpose or Memory Optimized tiers in Azure Database for MySQL.](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404)
+For an example of a script that migrates from basic to another server tier, reference [Upgrade from Basic to General Purpose or Memory Optimized tiers in Azure Database for MySQL.](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404)
 
 ## Scale the server
 
-Within the tier, it's possible to scale cores and memory to the minimum and maximum limits allowed in that tier. If monitoring shows a continual maxing out of CPU or memory, follow the steps to [scale-up to meet your demand. ](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404)
+Within the tier, it's possible to scale cores and memory to the minimum and maximum limits allowed in that tier. If monitoring shows a continual maxing out of CPU or memory, follow the steps to [scale-up to meet your demand. ](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/upgrade-from-basic-to-general-purpose-or-memory-optimized-tiers/ba-p/830404)
 
-## Moving regions
+## Move regions
 
 Moving a database to a different Azure region depends on the approach and architecture. Depending on the approach, it could cause system downtime.
 
@@ -78,10 +77,9 @@ They elected to monitor any potential issues for now and implement Azure Automat
 
   - Utilize monitoring to drive tier upgrades and scale decisions.
 
-  - Consider moving regions of the users or application needs change.  
+  - Consider moving regions of the users or application needs change.
 
-
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Business Continuity and Disaster Recovery (BCDR)](./12-business-continuity-and-disaster-recovery.md)
+> [Business Continuity and Disaster Recovery (BCDR)](12-business-continuity-and-disaster-recovery.md)

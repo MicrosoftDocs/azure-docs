@@ -1,6 +1,6 @@
 ---
 description: Learn how to use the Calling composite on Android.
-author: jorgegarc
+author: garchiro7
 
 ms.author: jorgegarc
 ms.date: 04/03/2022
@@ -16,20 +16,38 @@ The following table lists `CallCompositeSupportedLocale` IDs for out-of-the-box 
 
 |Language| CallCompositeSupportedLocale|
 |---------|---------|
-|German| `CallCompositeSupportedLocale.DE`|
-|Japanese| `CallCompositeSupportedLocale.JA`|
-|English| `CallCompositeSupportedLocale.EN_US`|
-|Chinese (Traditional)| `CallCompositeSupportedLocale.ZH_TW`|
-|Spanish |`CallCompositeSupportedLocale.ES`|
-|Chinese (Simplified) |`CallCompositeSupportedLocale.ZH_CN`|
-|Italian |`CallCompositeSupportedLocale.IT`|
-|English (United Kingdom) |`CallCompositeSupportedLocale.EN_UK`|
-|Korean |`CallCompositeSupportedLocale.KO`|
-|Turkish |`CallCompositeSupportedLocale.TR`|
-|Russian |`CallCompositeSupportedLocale.RU`|
-|French |`CallCompositeSupportedLocale.FR`|
-|Dutch |`CallCompositeSupportedLocale.NL`|
-|Portuguese |`CallCompositeSupportedLocale.PT_BR`|
+| Arabic (Saudi Arabia) | `CallCompositeSupportedLocale.AR_SA`     |
+| German (Germany)      | `CallCompositeSupportedLocale.DE_DE`     |
+| English (US)          | `CallCompositeSupportedLocale.EN_US`     |
+| English (UK)          | `CallCompositeSupportedLocale.EN_UK`     |
+| Spanish (Spain)       | `CallCompositeSupportedLocale.ES_ES`     |
+| Spanish               | `CallCompositeSupportedLocale.ES`        |
+| Finnish (Finland)     | `CallCompositeSupportedLocale.FI_FI`     |
+| French (France)       | `CallCompositeSupportedLocale.FR_FR`     |
+| French                | `CallCompositeSupportedLocale.FR`        |
+| Hebrew (Israel)       | `CallCompositeSupportedLocale.IW_IL`     |
+| Italian (Italy)       | `CallCompositeSupportedLocale.IT_IT`     |
+| Italian               | `CallCompositeSupportedLocale.IT`        |
+| Japanese (Japan)      | `CallCompositeSupportedLocale.JA_JP`     |
+| Japanese              | `CallCompositeSupportedLocale.JA`        |
+| Korean (Korea)        | `CallCompositeSupportedLocale.KO_KR`     |
+| Korean                | `CallCompositeSupportedLocale.KO`        |
+| Dutch (Netherlands)   | `CallCompositeSupportedLocale.NL_NL`     |
+| Dutch                 | `CallCompositeSupportedLocale.NL`        |
+| Norwegian (Bokmål)    | `CallCompositeSupportedLocale.NB_NO`     |
+| Polish (Poland)       | `CallCompositeSupportedLocale.PL_PL`     |
+| Polish                | `CallCompositeSupportedLocale.PL`        |
+| Portuguese (Brazil)   | `CallCompositeSupportedLocale.PT_BR`     |
+| Portuguese            | `CallCompositeSupportedLocale.PT`        |
+| Russian (Russia)      | `CallCompositeSupportedLocale.RU_RU`     |
+| Russian               | `CallCompositeSupportedLocale.RU`        |
+| Swedish (Sweden)      | `CallCompositeSupportedLocale.SV_SE`     |
+| Turkish (Turkey)      | `CallCompositeSupportedLocale.TR_TR`     |
+| Turkish               | `CallCompositeSupportedLocale.TR`        |
+| Chinese (Simplified)  | `CallCompositeSupportedLocale.ZH_CN`     |
+| Chinese (Traditional) | `CallCompositeSupportedLocale.ZH_TW`     |
+| Chinese               | `CallCompositeSupportedLocale.ZH`        |
+
 
 ### Localization provider
 

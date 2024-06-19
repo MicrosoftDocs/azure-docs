@@ -52,7 +52,7 @@ AutoML forecasting jobs require that your training data is represented as an **M
 
 # [Python SDK](#tab/python)
 
-You can create an MLTable using the [mltable Python SDK](/python/api/mltable) as in the following example:
+You can create an MLTable using the [mltable Python SDK](/python/api/mltable/mltable) as in the following example:
 
 ```python
 import mltable

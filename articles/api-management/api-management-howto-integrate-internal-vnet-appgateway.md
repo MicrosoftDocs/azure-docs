@@ -68,7 +68,7 @@ In the first setup example, all your APIs are managed only from within your virt
 
 ### Expose the developer portal and management endpoint externally through Application Gateway
 
-In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps.
+In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps. If you need to expose the *v2 configuration endpoint* of the [self-hosted gateway](self-hosted-gateway-overview.md#fqdn-dependencies), follow similar steps (not shown).
 
 If you use Microsoft Entra ID or third-party authentication, enable the [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
 

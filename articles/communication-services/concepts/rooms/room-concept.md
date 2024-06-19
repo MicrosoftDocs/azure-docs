@@ -56,7 +56,6 @@ Use rooms when you need any of the following capabilities:
 | Allow/disallow dial-out to a PSTN user at virtual Rooms level            | ❌ | ✔️ |
 | Create room                                  | ❌ | ✔️ |
 | List all participants that are invited to the room | ❌ | ✔️ |
-| Start, pause, stop call recording | ✔️ | ❌|
 | Add or remove a VoIP participant             |  ❌ | ✔️ |
 | Assign roles to room participants            |  ❌ | ✔️ |
 

@@ -1,7 +1,7 @@
 ---
 title: PublicIpAddressCombo UI element
 description: Describes the Microsoft.Network.PublicIpAddressCombo UI element for Azure portal.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 06/28/2018
 ---
 

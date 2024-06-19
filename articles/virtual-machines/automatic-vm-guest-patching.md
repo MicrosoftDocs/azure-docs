@@ -99,7 +99,7 @@ As a new rollout is triggered every month, a VM will receive at least one patch 
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2 |
 | microsoftcblmariner  | cbl-mariner | cbl-mariner-2-gen2 |
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
-| Redhat  | RHEL | 8, 8.1, 81gen2, 8.2, 82gen2, 8_3, 83-gen2, 8_4, 84-gen2, 8_5, 85-gen2, 8_6, 86-gen2, 8_7, 8-lvm, 8-lvm-gen2 |
+| Redhat  | RHEL | 8, 8.1, 81gen2, 8.2, 82gen2, 8_3, 83-gen2, 8_4, 84-gen2, 8_5, 85-gen2, 8_6, 86-gen2, 8_7, 8_8, 8-lvm, 8-lvm-gen2 |
 | Redhat  | RHEL | 9_0, 9_1, 9-lvm, 9-lvm-gen2 |
 | Redhat  | RHEL-RAW | 8-raw, 8-raw-gen2 |
 | OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7_9-gen2 |
@@ -436,7 +436,7 @@ Example to install all Critical and Security patches on a Windows VM, while excl
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
-## Strict Safe Deployment on Canonical Images (Preview)
+## Strict Safe Deployment on Canonical Images
 
 [Microsoft and Canonical have partnered](https://ubuntu.com/blog/ubuntu-snapshots-on-azure-ensuring-predictability-and-consistency-in-cloud-deployments) to make it easier for our customers to stay current with Linux OS updates and increase the security and resiliency of their Ubuntu workloads on Azure. By leveraging Canonical’s snapshot service, Azure will now apply the same set of Ubuntu updates consistently to your fleet across regions.
 

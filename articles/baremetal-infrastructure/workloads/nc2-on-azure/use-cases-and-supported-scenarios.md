@@ -6,7 +6,7 @@ description: Learn about use cases and supported scenarios for NC2 on Azure, inc
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: "references_regions, engagement-fy23" 
-ms.date: 04/01/2023
+ms.date: 05/21/2024
 ---
 
 # Use cases and supported scenarios

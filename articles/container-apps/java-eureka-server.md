@@ -17,8 +17,8 @@ Eureka Server for Spring is a service registry that allows microservices to regi
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Create a Spring Cloud Eureka Java component
-> * Bind your container app to Spring Cloud Eureka Java component
+> * Create a Eureka Server for Spring Java component
+> * Bind your container app to Eureka Server for Spring Java component
 
 > [!IMPORTANT]
 > This tutorial uses services that can affect your Azure bill. If you decide to follow along step-by-step, make sure you delete the resources featured in this article to avoid unexpected billing.
@@ -38,11 +38,11 @@ When running in Eureka Server for Spring in Azure Container Apps, be aware of th
 
 | Item | Explanation |
 |---|---|
-| **Scope** | The Spring Cloud Eureka component runs in the same environment as the connected container app. |
-| **Scaling** | The Spring Cloud Eureka can’t scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
-| **Resources** | The container resource allocation for Spring Cloud Eureka is fixed. The number of the CPU cores is 0.5, and the memory size is 1Gi. |
-| **Pricing** | The Spring Cloud Eureka billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing. |
-| **Binding** | Container apps connect to a Spring Cloud Eureka component via a binding. The bindings inject configurations into container app environment variables. Once a binding is established, the container app can read the configuration values from environment variables and connect to the Spring Cloud Eureka. |
+| **Scope** | The Eureka Server for Spring component runs in the same environment as the connected container app. |
+| **Scaling** | The Eureka Server for Spring can’t scale. The scaling properties `minReplicas` and `maxReplicas` are both set to `1`. |
+| **Resources** | The container resource allocation for Eureka Server for Spring is fixed. The number of the CPU cores is 0.5, and the memory size is 1Gi. |
+| **Pricing** | The Eureka Server for Spring billing falls under consumption-based pricing. Resources consumed by managed Java components are billed at the active/idle rates. You can delete components that are no longer in use to stop billing. |
+| **Binding** | Container apps connect to a Eureka Server for Spring component via a binding. The bindings inject configurations into container app environment variables. Once a binding is established, the container app can read the configuration values from environment variables and connect to the Eureka Server for Spring. |
 
 ## Setup
 
@@ -66,7 +66,7 @@ Execute the following commands to create your resource group, container apps env
     | `LOCATION` | The Azure region location where you create your container app and Java component. |
     | `ENVIRONMENT` | The Azure Container Apps environment name for your demo application. |
     | `RESOURCE_GROUP` | The Azure resource group name for your demo application. |
-    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Cloud Eureka Server Java component.  |
+    | `JAVA_COMPONENT_NAME` | The name of the Java component created for your container app. In this case, you create a Eureka Server for Spring Java component.  |
     | `IMAGE` | The container image used in your container app. |
 
 1. Log in to Azure with the Azure CLI.
@@ -90,23 +90,23 @@ Execute the following commands to create your resource group, container apps env
       --location $LOCATION
     ```
 
-## Use the Spring Cloud Eureka Java component
+## Use the Eureka Server for Spring Java component
 
-Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Spring Cloud Eureka.
+Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Eureka Server for Spring.
 
-1. Create the Spring Cloud Eureka Java component.
+1. Create the Eureka Server for Spring Java component.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-eureka create \
+    az containerapp env java-component eureka-server-for-spring create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME
     ```
 
-1. Update the Spring Cloud Eureka Java component configuration.
+1. Update the Eureka Server for Spring Java component configuration.
 
     ```azurecli
-    az containerapp env java-component spring-cloud-eureka update \
+    az containerapp env java-component eureka-server-for-spring update \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME 
@@ -146,7 +146,7 @@ Now that you have an existing environment, you can create your container app and
 
     The `eureka.instance.prefer-ip-address` is set to `true` due to the specific DNS resolution rule in the container app environment. Don't modify this value so you don't break the binding.
 
-    You can also [remove a binding](spring-cloud-eureka-server-usage.md#unbind) from your application.
+    You can also [remove a binding](java-eureka-server-usage.md#unbind) from your application.
 
 ## Clean up resources
 

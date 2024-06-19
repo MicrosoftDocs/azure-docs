@@ -1,6 +1,6 @@
 ---
 title: "Artifact streaming in Azure Container Registry (Preview)"
-description: "Artifact streaming is a feature in Azure Container Registry to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
+description: "Artifact streaming is a feature in Azure Container Registry to enhance managing, scaling, and deploying artifacts through containerized platforms."
 author: tejaswikolli-web
 ms.service: container-registry
 ms.custom: devx-track-azurecli
@@ -95,7 +95,7 @@ Start artifact streaming, by following these general steps:
 
     ```azurecli-interactive
     az configure --defaults acr="mystreamingtest"
-    az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
+    az acr import --source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
     ```
 
 3. Create an artifact streaming from the Image

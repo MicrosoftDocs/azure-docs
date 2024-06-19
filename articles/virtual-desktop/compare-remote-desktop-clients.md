@@ -27,7 +27,7 @@ The following table compares the features of each Remote Desktop client when con
 | Dynamic resolution | X | X |  |  | X | X | Resolution and orientation of local monitors is dynamically reflected in the remote session. If the client is running in windowed mode, the remote desktop is resized dynamically to the size of the client window. |
 | Smart sizing | X | X |  |  | X |  | Remote Desktop in Windowed mode is dynamically scaled to the window's size. |
 | Localization | X | X | English only | X |  | X | Client user interface is available in multiple languages. |
-| Multi-factor authentication | X | X | X | X | X | X | Supports multi-factor authentication for remote connections. |
+| Multifactor authentication | X | X | X | X | X | X | Supports multifactor authentication for remote connections. |
 | Teams optimization for Azure Virtual Desktop | X |  |  |  | X |  | Media optimizations for Microsoft Teams to provide high quality calls and screen sharing experiences. Learn more at [Use Microsoft Teams on Azure Virtual Desktop](./teams-on-avd.md). |
 
 ## Redirections comparison
@@ -81,3 +81,14 @@ The following table shows which other devices can be redirected with each Remote
 \* Limited to uploading and downloading files through the Remote Desktop Web client.
 
 \*\* For printer redirection, the macOS app supports the Publisher Imagesetter printer driver by default. The app doesn't support the native printer drivers.
+
+### Client device redirection management
+
+The following table shows which platforms you can manage device redirections using Microsoft Intune:
+
+| Redirection | Windows Desktop<br />&<br />Azure Virtual Desktop Store app | Remote Desktop app | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
+|--|--|--|--|--|--|--|
+| Camera |  |  | X | X |  |  |
+| Clipboard |  |  | X | X |  |  |
+| Local drive/storage |  |  | X | X |  |  |
+| Microphones |  |  | X | X |  |  |

@@ -52,13 +52,21 @@ If you don't yet have a workspace, create one now:
    Field|Description 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others. The workspace name is case-insensitive.
+   Friendly name | This name is not restricted by Azure naming rules. You can use spaces and special characters in this name.
+   Hub | A hub allows you to group related workspaces together and share resources. If you have access to a hub, select it here.  If you don't have access to a hub, leave this blank.
+
+1. If you did not select a hub, provide the advanced information.  If you selected a hub, these values are taken from the hub.
+
+    Field|Description
+    ---|---
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. You need *contributor* or *owner* role to use an existing resource group. For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
+
 1. Select **Create** to create the workspace
 
 > [!NOTE]
-> This creates a workspace along with all required resources. If you would like to reuse resources, such as Storage Account, Azure Container Registry, Azure KeyVault, or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
+> This creates a workspace along with all required resources. If you would like to more customization, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.  See [Create a workspace](how-to-manage-workspace.md) for more information.
 
 ## Create a compute instance
 
@@ -122,7 +130,7 @@ But you could also create a new, empty notebook, then copy/paste code from a tut
 
 ## Clean up resources
 
-If you plan to continue now to other tutorials, skip to [Next steps](#next-steps).
+If you plan to continue now to other tutorials, skip to [Next step](#next-step).
 
 ### Stop compute instance
 
@@ -137,11 +145,11 @@ If you're not going to use it now, stop the compute instance:
 
 [!INCLUDE [aml-delete-resource-group](includes/aml-delete-resource-group.md)]
 
-## Next steps
+## Next step
 
 You now have an Azure Machine Learning workspace, which contains a compute instance to use for your development environment.
 
-Continue on to learn how to use the compute instance to run notebooks and scripts in the Azure Machine Learning cloud. 
+Continue on to learn how to use the compute instance to run notebooks and scripts in the Azure Machine Learning cloud.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Get to know Azure Machine Learning](tutorial-azure-ml-in-a-day.md) 
@@ -155,3 +163,5 @@ Use your compute instance with the following tutorials to train and deploy a mod
 | [Train a model in Azure Machine Learning](tutorial-train-model.md) |    Dive in to the details of training a model     |
 | [Deploy a model as an online endpoint](tutorial-deploy-model.md)  |   Dive in to the details of deploying a model      |
 | [Create production machine learning pipelines](tutorial-pipeline-python-sdk.md) | Split a complete machine learning task into a multistep workflow. |
+
+Want to jump right in? [Browse code samples](/samples/browse/?expanded=azure&products=azure-machine-learning).

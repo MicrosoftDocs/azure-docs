@@ -9,6 +9,10 @@ ms.service: azure-communication-services
 
 In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for Android.
 
+## Sample Code
+
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/join-chat-to-teams-meeting).
+
 ## Prerequisites 
 
 - A [Teams deployment](/deployoffice/teams-install). 

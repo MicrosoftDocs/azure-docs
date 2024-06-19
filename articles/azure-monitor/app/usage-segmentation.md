@@ -2,7 +2,7 @@
 title: User, session, and event analysis in Application Insights
 description: Demographic analysis of users of your web app.
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 07/01/2024
 ms.reviewer: mmcc
 ---
 

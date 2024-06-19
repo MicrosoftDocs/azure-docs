@@ -238,7 +238,7 @@ With Private Link, you can access Azure Health Data Services securely from your 
 ### FHIR service
 
 #### FHIRPath Patch operation available
-|This feature enables you to use the FHIRPath Patch operation on FHIR resources. For more information, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](./../healthcare-apis/fhir/fhir-rest-api-capabilities.md). 
+|This feature enables you to use the FHIRPath Patch operation on FHIR resources. For more information, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](./../healthcare-apis/fhir/rest-api-capabilities.md). 
 
 #### Bug fixes
 

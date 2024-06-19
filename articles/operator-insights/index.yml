@@ -50,6 +50,8 @@ landingContent:
         links:
           - text: Set up the Azure Operator Insights ingestion agent
             url: set-up-ingestion-agent.md
+          - text: Use Azure Data Factory to ingest data
+            url: ingestion-with-data-factory.md
 
   # Card
   - title: Upload data to Azure Operator Insights

@@ -45,12 +45,16 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 This section provides answers to common questions.
 
-### Can I run Availability web tests on an intranet server?
+### Can I run Availability tests on an intranet server?
 
 Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
           
 * **Firewall door**: Allow requests to your server from [the long and changeable list of web test agents](../ip-addresses.md).
 * **Custom code**: Write your own code to send periodic requests to your server from inside your intranet. You could run Visual Studio web tests for this purpose. The tester could send the results to Application Insights by using the `TrackAvailability()` API.
+
+### What is the user agent string for availability tests?
+
+The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; AppInsights**
 
 ## Next steps
 

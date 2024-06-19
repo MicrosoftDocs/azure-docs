@@ -16,10 +16,11 @@ ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-con
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+- If you haven't already created an AKS cluster, follow the instructions for [Installing an AKS Cluster](install-container-storage-aks.md).
 
 ## Getting started
 
-- Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need an [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription. Owner-level access grants the Azure Container Storage extension the proper permissions to interact with Elastic SAN's API. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
+- Take note of your Azure subscription ID. If you want to use Azure Elastic SAN as data storage, you'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription. Owner-level access allows you to install the Azure Container Storage extension, grants access to its storage resources, and gives you permission to configure your Azure Elastic SAN resource. Contributor-level access allows you to install the extension and grants access to its storage resources. If you're planning on using Azure Disks or Ephemeral Disk as data storage, you don't need special permissions on your subscription.
 
 - [Launch Azure Cloud Shell](https://shell.azure.com), or if you're using a local installation, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
@@ -41,36 +42,36 @@ Set your Azure subscription context using the `az account set` command. You can 
 az account set --subscription <subscription-id>
 ```
 
-## Create a resource group
+## Connect to the cluster
 
-An Azure resource group is a logical group that holds your Azure resources that you want to manage as a group. If you already have a resource group you want to use, you can skip this section.
+To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
 
-When you create a resource group, you're prompted to specify a location. This location is:
+1. Configure `kubectl` to connect to your cluster using the `az aks get-credentials` command. The following command:
 
-- The storage location of your resource group metadata.
-- Where your resources will run in Azure if you don't specify another region during resource creation.
+    * Downloads credentials and configures the Kubernetes CLI to use them.
+    * Uses `~/.kube/config`, the default location for the Kubernetes configuration file. You can specify a different location for your Kubernetes configuration file using the *--file* argument.
 
-Create a resource group using the `az group create` command. Replace `<resource-group>` with the name of the resource group you want to create, and replace `<location>` with an Azure region such as *eastus*, *westus2*, *westus3*, or *westeurope*. See this [list of Azure regions](container-storage-introduction.md#regional-availability) where Azure Container Storage is available.
+    ```azurecli-interactive
+    az aks get-credentials --resource-group <resource-group> --name <cluster-name>
+    ```
 
-```azurecli-interactive
-az group create --name <resource-group> --location <location>
-```
+2. Verify the connection to your cluster using the `kubectl get` command. This command returns a list of the cluster nodes.
 
-If the resource group was created successfully, you'll see output similar to this:
+    ```azurecli-interactive
+    kubectl get nodes
+    ```
 
-```output
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myContainerStorageRG",
-  "location": "eastus",
-  "managedBy": null,
-  "name": "myContainerStorageRG",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null
-}
-```
+3. The following output example shows the nodes in your cluster. Make sure the status for all nodes shows *Ready*:
 
+    ```output
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-nodepool1-34832848-vmss000000   Ready    agent   80m   v1.25.6
+    aks-nodepool1-34832848-vmss000001   Ready    agent   80m   v1.25.6
+    aks-nodepool1-34832848-vmss000002   Ready    agent   80m   v1.25.6
+    ```
+    
+    Take note of the name of your node pool. In this example, it would be **nodepool1**.
+   
 ## Choose a data storage option for your storage pool
 
 Before deploying Azure Container Storage, you'll need to decide which back-end storage option you want to use to create your storage pool and persistent volumes. Three options are currently available:
@@ -82,7 +83,7 @@ Before deploying Azure Container Storage, you'll need to decide which back-end s
 - **Ephemeral Disk**: This option uses local NVMe drives or temp SSD on the AKS cluster nodes. It's extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. AKS discovers the available ephemeral storage on AKS nodes and acquires the drives for volume deployment.
 
 > [!NOTE]
-> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk. In order to use Elastic SAN, you'll need an [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles.md#owner) role on the Azure subscription.
+> For Azure Elastic SAN and Azure Disks, Azure Container Storage will deploy the backing storage for you as part of the installation. You don't need to create your own Elastic SAN or Azure Disk. In order to use Elastic SAN, you'll need either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role on the Azure subscription.
 
 ### Resource consumption
 
@@ -99,52 +100,19 @@ The resources consumed are per node, and will be consumed for each node in the n
 
 \*In a storage pool type Ephemeral Disk - Local NVMe, if you're using multiple VM SKU types for your cluster nodes, the 25% of CPU cores consumed applies to the smallest SKU used. For example, if you're using a mix of 8-core and 16-core VM types, resource consumption is 2 cores.
 
-## Choose a VM type for your cluster
+## Ensure VM type for your cluster meets the following criteria
 
-You'll specify the VM type when you create the cluster in the next section. Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
+To use Azure Container Storage, you'll need a node pool of at least three Linux VMs. Each VM should have a minimum of four virtual CPUs (vCPUs). Azure Container Storage will consume one core for I/O processing on every VM the extension is deployed to.
+
+Follow these guidelines when choosing a VM type for the cluster nodes. You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
 
 - If you intend to use Azure Elastic SAN or Azure Disks as backing storage, choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5**.
 - If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**.
 - If you intend to use Ephemeral Disk with temp SSD, choose a VM that has a temp SSD disk such as [Ev3 and Esv3-series](../../virtual-machines/ev3-esv3-series.md).
 
-## Create a new AKS cluster and install Azure Container Storage
+## Install Azure Container Storage on your AKS cluster
 
-If you already have an AKS cluster deployed, skip this section and go to [Install Azure Container Storage on an existing AKS cluster](#install-azure-container-storage-on-an-existing-aks-cluster).
-
-Run the following command to create a new AKS cluster, install Azure Container Storage, and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use. Replace `<storage-pool-type>` with `azureDisk`, `ephemeralDisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
-
-Running this command will enable Azure Container Storage on the system node pool\* with three Linux VMs. By default, the system node pool is named `nodepool1`. If you want to enable Azure Container Storage on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters with this command, see [this table](container-storage-faq.md#storage-pool-parameters).
-
-\*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label then Azure Container Storage will be installed there by default. Otherwise, it's installed on the system node pool.
-
-```azurecli-interactive
-az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_D4s_v3 --node-count 3 --enable-azure-container-storage <storage-pool-type>
-```
-
-The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](#enable-additional-storage-pool-types).
-
-> [!IMPORTANT]
-> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have owner-level access to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
-
-## Display available storage pools
-
-To get the list of available storage pools, run the following command:
-
-```azurecli-interactive
-kubectl get sp -n acstor
-```
-
-To check the status of a storage pool, run the following command:
-
-```azurecli-interactive
-kubectl describe sp <storage-pool-name> -n acstor
-```
-
-If the `Message` doesn't say `StoragePool is ready`, then your storage pool is still creating or ran into a problem. See [Troubleshoot Azure Container Storage](troubleshoot-container-storage.md).
-
-## Install Azure Container Storage on an existing AKS cluster
-
-If you already have an AKS cluster that meets the [VM requirements](#choose-a-vm-type-for-your-cluster), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`.
+If your AKS cluster meets the [VM requirements](#ensure-vm-type-for-your-cluster-meets-the-following-criteria), run the following command to install Azure Container Storage on the cluster and create a storage pool. Replace `<cluster-name>` and `<resource-group>` with your own values. Replace `<storage-pool-type>` with `azureDisk`, `ephemeraldisk`, or `elasticSan`. If you select `ephemeralDisk`, you can also specify `--storage-pool-option`, and the values can be `NVMe` or `Temp`.
 
 Running this command will enable Azure Container Storage on the system node pool, which by default is named `nodepool1`\*. If you want to enable it on other node pools, see [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools). If you want to specify additional storage pool parameters, see [this table](container-storage-faq.md#storage-pool-parameters).
 
@@ -157,7 +125,10 @@ Running this command will enable Azure Container Storage on the system node pool
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type>
 ```
 
-The deployment will take 10-15 minutes to complete.
+The deployment will take 10-15 minutes. When it completes, you'll have an AKS cluster with Azure Container Storage installed, the components for your chosen storage pool type enabled, and a default storage pool. If you want to enable additional storage pool types to create additional storage pools, see [Enable additional storage pool types](#enable-additional-storage-pool-types).
+
+> [!IMPORTANT]
+> If you specified Azure Elastic SAN as backing storage for your storage pool and you don't have either [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role assigned to the Azure subscription, only Azure Container Storage will be installed and a storage pool won't be created. In this case, you'll have to [create an Elastic SAN storage pool manually](use-container-storage-with-elastic-san.md).
 
 ### Install Azure Container Storage on specific node pools
 
@@ -189,6 +160,22 @@ If the new storage pool type that you've enabled takes up more resources than th
 
 > [!TIP]
 > If you've added a new node pool to your cluster and want to run Azure Container Storage on that node pool, you can specify the node pool with `--azure-container-storage-nodepools <nodepool-name>` when running the `az aks update` command.
+
+## Display available storage pools
+
+To get the list of available storage pools, run the following command:
+
+```azurecli-interactive
+kubectl get sp -n acstor
+```
+
+To check the status of a storage pool, run the following command:
+
+```azurecli-interactive
+kubectl describe sp <storage-pool-name> -n acstor
+```
+
+If the `Message` doesn't say `StoragePool is ready`, then your storage pool is still creating or ran into a problem. See [Troubleshoot Azure Container Storage](troubleshoot-container-storage.md).
 
 ## Disable storage pool types
 

@@ -2,7 +2,7 @@
 description: This article describes a scenario for using Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
 ms.date: 04/22/2024
-ms.topic: article
+ms.topic: conceptual
 title: Use Cloud Shell in an Azure virtual network
 ---
 
