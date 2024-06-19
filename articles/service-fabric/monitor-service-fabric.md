@@ -52,7 +52,7 @@ Some products automatically instrument your code. Although these solutions can w
 
 - **Application Insights SDK**: Application Insights has a rich integration with Service Fabric out of the box. Users can add the AI Service Fabric nuget packages and receive data and logs created and collected viewable in the Azure portal. Additionally, users are encouraged to add their own telemetry in order to diagnose and debug their applications and track which services and parts of their application are used the most. The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) class in the SDK provides many ways to track telemetry in your applications. For more information, see [Event analysis and visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 
-    Check out an example of how to instrument and add application insights to your application in our tutorial for [monitoring and diagnosing a .NET application](service-fabric-tutorial-monitoring-aspnet.md)
+    Check out an example of how to instrument and add application insights to your application in our tutorial for [monitoring and diagnosing a .NET application](service-fabric-tutorial-monitoring-aspnet.md).
 
 - **EventSource**: When you create a Service Fabric solution from a template in Visual Studio, an **EventSource**-derived class (**ServiceEventSource** or **ActorEventSource**) is generated. A template is created, in which you can add events for your application or service. The **EventSource** name **must** be unique, and should be renamed from the default template string MyCompany-&lt;solution&gt;-&lt;project&gt;. Having multiple **EventSource** definitions that use the same name causes an issue at run time. Each defined event must have a unique identifier. If an identifier is not unique, a runtime failure occurs. Some organizations preassign ranges of values for identifiers to avoid conflicts between separate development teams. For more information, see [Vance's blog](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) or the [MSDN documentation](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
 
@@ -64,19 +64,21 @@ For examples on how to use these suggestions, see [Add logging to your Service F
 
 A user is in control over what telemetry comes from their application since a user writes the code itself, but what about the diagnostics from the Service Fabric platform? One of Service Fabric's goals is to keep applications resilient to hardware failures. This goal is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to deploy or move a workload, rules for the placement of services are violated? Service Fabric provides diagnostics for these and more to make sure you are informed about activity taking place in your cluster. Some sample scenarios for cluster monitoring include:
 
-Service Fabric provides a comprehensive set of events out of the box. These [Service Fabric events](service-fabric-diagnostics-events.md) can be accessed through the EventStore or the operational channel (event channel exposed by the platform).
+For more information on platform (cluster) monitoring, see [Monitoring the cluster](service-fabric-diagnostics-event-generation-infra.md).
 
-* Service Fabric event channels - On Windows, Service Fabric events are available from a single ETW provider with a set of relevant `logLevelKeywordFilters` used to pick between Operational and Data & Messaging channels - this is the way in which we separate out outgoing Service Fabric events to be filtered on as needed. On Linux, Service Fabric events come through LTTng and are put into one Storage table, from where they can be filtered as needed. These channels contain curated, structured events that can be used to better understand the state of your cluster. Diagnostics are enabled by default at the cluster creation time, which create an Azure Storage table where the events from these channels are sent for you to query in the future.
+### Service Fabric events
 
-* [EventStore](service-fabric-diagnostics-eventstore.md) is a feature that shows Service Fabric platform events in Service Fabric Explorer and programmatically through the [Service Fabric Client Library](/dotnet/api/overview/azure/service-fabric#client-library) REST API. You can see a snapshot view of what's going on in your cluster for each node, service, and application, and query based on the time of the event. The EventStore APIs are available only for Windows clusters running on Azure. On Windows machines, these events are fed into the Event Log, so you can see Service Fabric Events in Event Viewer.
+Service Fabric provides a comprehensive set of diagnostics events out of the box, which you can access through the EventStore or the operational event channel the platform exposes. These [Service Fabric events](service-fabric-diagnostics-events.md) illustrate actions done by the platform on different entities such as nodes, applications, services, and partitions. The same events are available on both Windows and Linux clusters.
+
+- **Service Fabric event channels**: On Windows, Service Fabric events are available from a single ETW provider with a set of relevant `logLevelKeywordFilters` used to pick between Operational and Data & Messaging channels. This is the way in which we separate out outgoing Service Fabric events to be filtered on as needed. On Linux, Service Fabric events come through LTTng and are put into one Storage table, from where they can be filtered as needed. These channels contain curated, structured events that can be used to better understand the state of your cluster. Diagnostics are enabled by default at the cluster creation time, which create an Azure Storage table where the events from these channels are sent for you to query in the future.
+
+- [EventStore](service-fabric-diagnostics-eventstore.md) is a feature that shows Service Fabric platform events in Service Fabric Explorer and programmatically through the [Service Fabric Client Library](/dotnet/api/overview/azure/service-fabric#client-library) REST API. You can see a snapshot view of what's going on in your cluster for each node, service, and application, and query based on the time of the event. The EventStore APIs are available only for Windows clusters running on Azure. On Windows machines, these events are fed into the Event Log, so you can see Service Fabric Events in Event Viewer.
 
 ![Screenshot shows the EVENTS tab of the Nodes pane several events, including a NodeDown event.](media/service-fabric-diagnostics-overview/eventstore.png)
 
 The diagnostics provided are in the form of a comprehensive set of events out of the box. These [Service Fabric events](service-fabric-diagnostics-events.md) illustrate actions done by the platform on different entities such as Nodes, Applications, Services, Partitions etc. In the last scenario above, if a node were to go down, the platform would emit a `NodeDown` event and you could be notified immediately by your monitoring tool of choice. Other common examples include `ApplicationUpgradeRollbackStarted` or `PartitionReconfigured` during a failover. **The same events are available on both Windows and Linux clusters.**
 
 The events are sent through standard channels on both Windows and Linux and can be read by any monitoring tool that supports these. The Azure Monitor solution is Azure Monitor logs. Feel free to read more about our [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md) which includes a custom operational dashboard for your cluster and some sample queries from which you can create alerts. More cluster monitoring concepts are available at [Platform level event and log generation](service-fabric-diagnostics-event-generation-infra.md).
-
-For more information on platform (cluster) monitoring, see [Monitoring the cluster](service-fabric-diagnostics-event-generation-infra.md).
 
 ### Health monitoring
 
@@ -137,21 +139,11 @@ Service Fabric can collect the following logs:
 - You can write Service Fabric container logs to *stdout* or *stderr* so they're available in Azure Monitor Logs.
 - You can set up the [container monitoring solution](service-fabric-diagnostics-oms-containers.md) for Azure Monitor Logs to view container events.
 
-### Service Fabric events
+### Other logging solutions
 
-Service Fabric provides a comprehensive set of diagnostics events out of the box, which you can access through the EventStore or the operational event channel the platform exposes. These [Service Fabric events](service-fabric-diagnostics-events.md) illustrate actions done by the platform on different entities such as nodes, applications, services, and partitions. The same events are available on both Windows and Linux clusters.
+Although the two solutions we recommended, [Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), have built in integration with Service Fabric, many events are written out through ETW providers and are extensible with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Dynatrace](https://www.dynatrace.com/), or any other platform of your preference. For a list of integrated partners, see [Azure Service Fabric Monitoring Partners](service-fabric-diagnostics-partners.md).
 
-On Windows, Service Fabric events are available from a single Event Tracing for Windows (ETW) provider with a set of relevant `logLevelKeywordFilters` used to pick between Operational and Data & Messaging channels. On Linux, Service Fabric events come through LTTng and are put into one Azure Storage table, from where they can be filtered as needed. Diagnostics can be enabled at cluster creation time, which creates a Storage table where the events from these channels are sent.
-
-The events are sent through standard channels on both Windows and Linux and can be read by any monitoring tool that supports them, including Azure Monitor Logs. For more information, see [Azure Monitor logs integration](service-fabric-diagnostics-event-analysis-oms.md).
-
-### Health monitoring
-
-The Service Fabric platform includes a health model, which provides extensible health reporting for the status of entities in a cluster. Each node, application, service, partition, replica, or instance has a continuously updatable health status. Each time the health of a particular entity transitions, an event is also emitted. You can set up queries and alerts for health events in your monitoring tool, just like any other event.
-
-## Partner logging solutions
-
-Many events are written out through ETW providers and are extensible with other logging solutions. Examples are [Elastic Stack](https://www.elastic.co/products), especially if you're running a cluster in an offline environment, or [Dynatrace](https://www.dynatrace.com/). For a list of integrated partners, see [Azure Service Fabric Monitoring Partners](service-fabric-diagnostics-partners.md).
+The key points for any platform you choose should include how comfortable you are with the user interface, the querying capabilities, the custom visualizations and dashboards available, and the additional tools they provide to enhance your monitoring experience.
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -233,12 +225,6 @@ Now that we've gone over each area of monitoring and example scenarios, here is 
 * Infrastructure monitoring with [Azure Monitor logs](service-fabric-diagnostics-oms-agent.md)
 
 You can also use and modify the [sample ARM template](service-fabric-diagnostics-oms-setup.md#deploy-azure-monitor-logs-with-azure-resource-manager) to automate deployment of all necessary resources and agents.
-
-## Other logging solutions
-
-Although the two solutions we recommended, [Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md) and [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) have built in integration with Service Fabric, many events are written out through ETW providers and are extensible with other logging solutions. You should also look into the [Elastic Stack](https://www.elastic.co/products) (especially if you are considering running a cluster in an offline environment), [Dynatrace](https://www.dynatrace.com/), or any other platform of your preference. We have a list of integrated partners available [here](service-fabric-diagnostics-partners.md).
-
-The key points for any platform you choose should include how comfortable you are with the user interface, the querying capabilities, the custom visualizations and dashboards available, and the additional tools they provide to enhance your monitoring experience.
 
 ## Related content
 
