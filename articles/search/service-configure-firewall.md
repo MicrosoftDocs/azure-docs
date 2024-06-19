@@ -18,11 +18,11 @@ ms.date: 06/18/2024
 As soon as you install Azure AI Search, you can set up network access to limit access to an approved set of devices and cloud services. There are two mechanisms:
 
 + Inbound rules listing the IP addresses, ranges, or subnets from which requests are admitted
-+ Exceptions to network rules, where requests are admitted with no checks, as long as the request originates from a trusted service
++ Exceptions to network rules, where requests are admitted with no checks, as long as the request originates from a [trusted service](#grant-access-to-trusted-azure-services)
 
 Network rules aren't required, but it's a security best practice to add them.
 
-Network rules are scoped to data plane operations. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. Those operations specify resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
+Network rules are scoped to data plane operations against the search service's public endpoint. Data plane operations include creating or querying indexes, and all other actions described by the [Search REST APIs](/rest/api/searchservice/). Control plane operations target service administration. Those operations specify resource provider endpoints, which are subject to the [network protections supported by Azure Resource Manager](/security/benchmark/azure/baselines/azure-resource-manager-security-baseline).
 
 This article explains how to configure network access to a search service's public endpoint. To block *all* data plane access to the public endpoint, use [private endpoints](service-create-private-endpoint.md) and an Azure virtual network.
 
@@ -63,7 +63,7 @@ This article assumes the Azure portal for network access configuration. You can 
    + `Microsoft.CognitiveServices` for Azure OpenAI and Azure AI services
    + `Microsoft.MachineLearningServices` for Azure Machine Learning
 
-   When you enable this exception, you take a dependency on Microsoft Entra ID authentication, managed identities, and role assignments if you choose the trusted service exception. Any Azure AI service or AML feature that has a valid role assignment can pass the firewall. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for more details.
+   When you enable this exception, you take a dependency on Microsoft Entra ID authentication, managed identities, and role assignments. Any Azure AI service or AML feature that has a valid role assignment can pass the firewall. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for more details.
 
 1. **Save** your changes.
 

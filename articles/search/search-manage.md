@@ -53,9 +53,9 @@ On a new search service, we recommend these configuration tasks.
 
 ### Enable role-based access
 
-A search service is always created with [API keys](search-security-api-keys.md). An admin API key grants read-write access to all data plane operations. You can't delete admin API keys but you can [disable API keys](search-security-enable-roles.md#disable-api-key-authentication) if you want all users to access data plane operations through role assignments.
+A search service is always created with [API keys](search-security-api-keys.md) and uses key-based authentication by default. However, using Microsoft Entra ID and role assignments is a more secure option because it eliminates storing and passing keys in plain text.
 
-1. [Enable roles](search-security-enable-roles.md) on your search service.
+1. [Enable roles](search-security-enable-roles.md) on your search service. We recommend the roles-only option.
 
 1. For administration, [assign data plane roles](search-security-rbac.md) to replace the functionality lost when you disable API keys. Role assignments include Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader. You need all three.
 
@@ -63,11 +63,11 @@ A search service is always created with [API keys](search-security-api-keys.md).
 
    :::image type="content" source="media/search-security-rbac/you-do-not-have-access.png" alt-text="Screenshot of portal message indicating insufficient permissions.":::
 
-1. [Add more role assignments](search-security-rbac.md) for developers and apps.
+1. Continue to [add more role assignments](search-security-rbac.md) for solution developers and apps.
 
 ### Configure a managed identity
 
-If you plan to use indexers for automated indexing, applied AI, or integrated vectorization, you should [configure the search service to use a managed identity](search-howto-managed-identities-data-sources.md). You can then add role assignments on other Azure services that authorize your search service for access to data and operations.
+If you plan to use indexers for automated indexing, applied AI, or integrated vectorization, you should [configure the search service to use a managed identity](search-howto-managed-identities-data-sources.md). You can then add role assignments on other Azure services that authorize your search service to access data and operations.
 
 For integrated vectorization, a search service identity needs:
 
