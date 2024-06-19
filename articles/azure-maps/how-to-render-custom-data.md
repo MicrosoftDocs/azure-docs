@@ -92,9 +92,6 @@ The following image is returned:
 
 ## Render a circle and pushpins with custom labels
 
-> [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
-
 You can modify the appearance of the pins by adding style modifiers. For example, to make pushpins and their labels larger or smaller, use the `sc` "scale style" modifier. This modifier takes a value that's greater than zero. A value of 1 is the standard scale. Values larger than 1 makes the pins larger, and values smaller than 1 makes them smaller. For more information about style modifiers, see the [Path] parameter of the [Get Map Static Image] command.
 
 To render a circle and pushpins with custom labels:
@@ -117,9 +114,9 @@ To render a circle and pushpins with custom labels:
 
 1. Select the *Send Request* arrow that appears to the right of the request URL.
 
-The following image is returned:
-
-:::image type="content" source="./media/how-to-render-custom-data/circle-custom-pins.png" alt-text="Render a circle with custom pushpins.":::
+    The following image is returned:
+    
+    :::image type="content" source="./media/how-to-render-custom-data/circle-custom-pins.png" alt-text="Render a circle with custom pushpins.":::
 
 1. Next, change the color of the pushpins by modifying the `co` style modifier. If you look at the value of the `pins` parameter (`pins=default|la15+50|al0.66|lc003C62|co002D62|`), notice that the current color is `#002D62`. To change  the color to `#41d42a`, replace `#002D62` with `#41d42a`.  Now the `pins` parameter is `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. The request  looks like the following URL:
 
