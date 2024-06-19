@@ -35,11 +35,11 @@ Developers have the option of using Azure Communication Services for all of thes
 
 | Enable customers to initiate messaging via:  | Enable customers to initiate voice and video calling via: | Enable agents to reply to messages and answer voice calls via:   | Integrate services and bots via:  |
 |----|--|---|--|
-| [Desktop & mobile friendly websites](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/get-started?tabs=windows&pivots=programming-language-javascript)  | [Desktop & mobile friendly websites](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?tabs=uwp&pivots=platform-web)   | Desktop & mobile friendly website  | [Chat REST APIs](https://learn.microsoft.com/en-us/azure/communication-services/quickstarts/chat/quickstart-botframework-integration)   |
+| [Desktop & mobile friendly websites](../quickstarts/chat/get-started.md?tabs=windows&pivots=programming-language-javascript) | [Desktop & mobile friendly websites](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-web)   | Desktop & mobile friendly website  | [Chat REST APIs](../quickstarts/chat/quickstart-botframework-integration.md) |
 | [Native apps](../quickstarts/chat/get-started.md?tabs=windows&pivots=programming-language-android) | [Native apps](../quickstarts/voice-video-calling/getting-started-with-calling.md?tabs=uwp&pivots=platform-android) | Native apps | [Advanced Messaging (WhatsApp) APIs](../concepts/advanced-messaging/whatsapp/whatsapp-overview.md) |
 | [SMS](../quickstarts/sms/receive-sms.md?pivots=programming-language-javascript) | [Call an Azure phone number](../quickstarts/telephony/get-phone-number.md?tabs=windows&pivots=platform-azp) | [Teams native apps and call queues](../quickstarts/voice-video-calling/get-started-teams-call-queue.md) | [Call Automation REST & Media APIs](../concepts/call-automation/call-automation.md) |
 | [Meta WhatsApp](../quickstarts/advanced-messaging/whatsapp/get-started.md?tabs=visual-studio%2Cconnection-string&pivots=programming-language-javascript) | [Call your own phone number connected to Microsoft via Direct Routing](../quickstarts/telephony/voice-routing-sdk-config.md?pivots=platform-azp) |   | [Service APIs for Audio Streaming](../quickstarts/voice-video-calling/media-streaming.md?pivots=programming-language-java) |
-| | Call a Teams phone number   |   | [Direct integration with Azure AI Bot Service](https://learn.microsoft.com/en-us/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration) |
+| | [Call a Teams Phone number](/microsoftteams/plan-auto-attendant-call-queue) |   | [Direct integration with Azure AI Bot Service](../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md) |
 
 
 ## Continuously improving customer experiences
@@ -50,30 +50,32 @@ Many contact center applications are continuously changing to improve customer e
 
 ## Teams interoperability 
 
-Azure Communication Services can be used to implement contact center applications without Microsoft Teams integration or licences. However Azure and Microsoft Teams are interoperable, and this optional capability can be useful for many sceanrios. Business-to-customer (B2C) contact center apps use Azure's generic chat and VOIP SDKs to build tailored customer experiences. Developers can then connect those branded customer experiences to Microsoft Teams apps and phone system, experiences which are familiar to many employees and citizen agents already. Permutations of Azure and Teams components in a contact center setting are illustrated below.
+You can use Azure Communication Services to implement contact center applications without Microsoft Teams integration or licenses. However, Azure and Microsoft Teams are interoperable, and this optional capability can be useful in many scenarios. Business-to-customer (B2C) contact center apps can use Azure's generic chat and VOIP SDKs to provide tailored customer experiences. Developers can connect these branded customer experiences to Microsoft Teams apps and phone system, experiences which are already familiar to many employees and citizen agents.
+
+The following diagram shows some Azure and Teams components connected in a contact center setting.
 
 ![Data flow diagram for chat with a bot agent](media/contact-center/potential-flows-azure-teams.svg)
 
 
 ## Architecture diagrams
-The rest of this article provides the high-level architecture and data flows for two different contact center designs:
+The rest of this article provides the high-level architecture and data flows for some different contact center designs:
 
-1.  Customers going to a website (or mobile app) and talking to a chat bot.
-1.  Customer calling a voice channel, that is routed by Teams queues to a Teams based agent.
-1.  Customer calling a PSTN number, routed by Azure, that is connected to a Teams based agent.
+1. [Customer going to a website (or mobile app) and talking to a chat bot](#chat-on-a-website-with-a-bot-agent).
+2. [Customer calling a voice channel that is routed by Teams queues to a Teams based agent](#chat-on-a-website-that-escalates-to-a-voice-call-answered-by-a-teams-agent).
+3. [Customer calling a PSTN number, routed by Azure, that is connected to a Teams based agent](#connect-azure-managed-phone-calls-to-teams).
 
 ### Chat on a website with a bot agent
-Azure Communication Services provides multiple patterns for connecting customers to chat bots and services. For rich text chat in a web site or native app, using built-in integration with Azure AI Bot Services is especially straightforward. The Bot Service needs to be linked to a Communication Services resource using a channel in the Azure portal. To learn more about this scenario, see [Add a bot to your chat app - An Azure Communication Services quickstart](/azure/communication-services/quickstarts/chat/quickstart-botframework-integration).
+Azure Communication Services provides multiple patterns for connecting customers to chat bots and services. You can easily ass rich text chat in a web site or native app using built-in integration with Azure AI Bot Services. You need to link the Bot Service to a Communication Services resource using a channel in the Azure portal. For more information about this scenario, see [Add a bot to your chat app - An Azure Communication Services quickstart](../quickstarts/chat/quickstart-botframework-integration.md).
 
 ![Data flow diagram for chat with a bot agent](media/contact-center/data-flow-diagram-chat-bot.png)
 
 #### Dataflow
 
-1.  An Azure Communication Services Chat channel is connected to an Azure Bot Service in Azure portal by an administrator.
-2.  A user clicks a widget in a client application to contact an agent.
-3.  The Contact Center Service creates a Chat thread and adds the user ID for the bot to the thread.
-4.  A user sends and receives messages to the bot using the Azure Communication Services Chat SDK.
-5.  The bot sends and receives messages to the user using the Azure Communication Services Chat Channel.
+1. An administrator connects an Azure Communication Services Chat channel to an Azure Bot Service in Azure portal.
+2. The customer clicks a widget in a client application to contact an agent.
+3. The Contact Center Service creates a Chat thread and adds the bot's user ID to the thread.
+4. The customer sends and receives messages to the bot using the Azure Communication Services Chat SDK.
+5. The bot sends and receives messages to and from the customer using the Azure Communication Services Chat Channel.
 
 SMS, email, and Meta WhatsApp are three other channels available for text-based communication.
 
@@ -85,27 +87,29 @@ Text chat may not be sufficient to meet your customer experience objectives. A c
 
 #### Dataflow
 
-1.  A user clicks a widget in the client application to contact an agent.
+1. The customer clicks a widget in the client application to contact to an agent.
 2.  The Contact Center Service creates a Chat thread and adds an Azure Bot to the thread.
-3.  The user interacts with the Azure Bot by sending and receiving Chat messages.
-4.  The Contact Center Service hands the user off to a Teams Call Queue or Auto Attendant.
-5.  The Microsoft Teams Voice Apps hands the user off to an employee acting as an agent using Teams. The user and the employee interact using audio, video, and screen share.
+3. The customer interacts with the Azure Bot by sending and receiving Chat messages.
+4. The Contact Center Service hands the customer off to a Teams Call Queue or Auto Attendant.
+5. The Microsoft Teams Voice App hands the customer off to an employee acting as an agent using Teams. The customer and the employee interact using audio, video, and screen share.
 
-#### Additional Resources
+#### Related articles
 
--   [Quickstart: Join your calling app to a Teams call queue](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-call-queue)
--   [Quickstart - Teams Auto Attendant on Azure Communication Services](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-auto-attendant)
+- [Quickstart: Join your calling app to a Teams call queue](../quickstarts/voice-video-calling/get-started-teams-call-queue.md)
+- [Quickstart: Teams Auto Attendant on Azure Communication Services](../quickstarts/voice-video-calling/get-started-teams-auto-attendant.md)
 
 ### Connect Azure managed phone calls to Teams
-This last data flow diagram shows a customer calling a phone number that is managed by Azure Communication Services. Using Azure Communication Services Call Automation APIs, an agent or subject matter expert hosted out of Teams can be added to the call. This interoperability is offered over VoIP and makes it easy for developers to implement per-region multitenant trunks that maximize value and reduce telephony infrastructure overhead.
+This last data flow diagram shows a customer calling a phone number managed by Azure Communication Services. You can use Azure Communication Services Call Automation APIs to add an agent or subject matter expert to a call hosted by Teams. This interoperability works over VoIP and makes it easy for developers to implement per-region multitenant trunks, maximizing value and reducing telephony infrastructure overhead.
 
 ![Data flow diagram for adding a Teams user to a call](media/contact-center/data-flow-diagram-add-teams-user-to-call.png)  
-To learn more about Call Automation API and how a contact center can leverage this interoperability with Teams, see [Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows](/azure/communication-services/concepts/call-automation/call-automation-teams-interop).
+
+To learn more about the Call Automation API and how a contact center can use this interoperability with Teams, see [Deliver expedient customer service by adding Microsoft Teams users in Call Automation workflows](../concepts/call-automation/call-automation-teams-interop.md).
 
 
 ### Detailed Teams interoperability capabilities for contact center apps
 
-The following list presents relevant Teams interoperability features available for contact centers in Azure Communication Services. For additional capability information, see [Azure Communication Services Calling SDK overview](/azure/communication-services/concepts/voice-video-calling/calling-sdk-features). Azure Communication Services Calling to Teams, including Teams Auto Attendant and Call Queue, requires setup to be completed as described in [Teams Call Queue on Azure Communication Services](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-call-queue).
+The following list presents relevant Teams interoperability features available for contact centers in Azure Communication Services. For more information, see [Azure Communication Services Calling SDK overview](../concepts/voice-video-calling/calling-sdk-features.md). To use Azure Communication Services Calling to Teams interop, including Teams Auto Attendant and Call Queue, you need to set up your environment as described in [Teams Call Queue on Azure Communication Services](..//quickstarts/voice-video-calling/get-started-teams-call-queue.md).
+
 
 |Group of features |Capability | Status |
 |-- | -- | -- |
