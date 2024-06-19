@@ -25,8 +25,8 @@ zone_pivot_groups: b2c-policy-type
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-1. Approved Weixin Open Platform account ([https://kf.qq.com](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html))
-1. Approved application on Weixin Open Platform
+* Get an approved Weixin Open Platform account at [https://kf.qq.com](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
+* Get an approved application on Weixin Open Platform.
 
 ## Create a WeChat application
 
@@ -37,7 +37,7 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 1. Sign in to [https://open.weixin.qq.com/](https://open.weixin.qq.com/) with your WeChat credentials.
 1. Select **管理中心** (management center).
 1. Follow the steps to register a new application.
-1. Under the **Development information** section, set the "Authorization callback domain" to `your-tenant-name.b2clogin.com`.
+1. In the **Development information** section, set the "Authorization callback domain" to `your-tenant-name.b2clogin.com`.
 1. Ensure that the application status is "Approved".
 1. At the top of **Application details**, copy the **APP ID** and **APP KEY**. You need both of them to configure the identity provider to your tenant.
 
@@ -54,7 +54,7 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 1. For the **Client secret**, enter the APP KEY that you recorded.
 1. Select **Save**.
 
-    ![Screenshot showing popup titled Configure social identity provider with completed form fields for social identity provider name, WeChat client ID and app secret.](media/identity-provider-azure-ad-b2c/wechat-client-configuration.png)
+    :::image type="content" source="media/identity-provider-azure-ad-b2c/wechat-client-configuration.png" alt-text="Screenshot that shows the Configure social identity provider window, with completed form fields for social identity provider name, WeChat client ID, and app secret." lightbox="media/identity-provider-azure-ad-b2c/wechat-client-configuration.png":::
 
 ## Add WeChat identity provider to a user flow 
 
@@ -63,7 +63,7 @@ To enable sign-in for users with a WeChat account in Azure Active Directory B2C 
 1. Under the **Social identity providers**, select **WeChat**.
 1. Select **Save**.
 
-   ![Screenshot showing WeChat as a selected identity provider in Identity Providers blade.](media/identity-provider-azure-ad-b2c/link-wechat-identity-provider.png)
+   :::image type="content" source="media/identity-provider-azure-ad-b2c/link-wechat-identity-provider.png" alt-text="Screenshot showing WeChat as a selected identity provider in the Identity Providers section." lightbox="media/identity-provider-azure-ad-b2c/link-wechat-identity-provider.png":::
 
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
