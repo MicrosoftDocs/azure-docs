@@ -5,7 +5,7 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.reviewer: yalavi
 ms.topic: conceptual
-ms.date: 05/28/2023
+ms.date: 06/19/2024
 ---
 
 # Create a metric alert with dynamic thresholds

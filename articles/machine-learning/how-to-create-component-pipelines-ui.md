@@ -37,7 +37,7 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 >[!Note]
 > Designer supports two types of components, classic prebuilt components（v1） and custom components(v2). These two types of components are NOT compatible.
 >
->Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. This type of component continues to be supported but will not have any new components added. 
+>Classic prebuilt components provide prebuilt components majorly for data processing and traditional machine learning tasks like regression and classification. Classic prebuilt components continue to be supported but won't have any new components added. Also, deployment of classic prebuilt (v1) components doesn't support managed online endpoints (v2).
 >
 >Custom components allow you to wrap your own code as a component. It supports sharing components across workspaces and seamless authoring across studio, CLI v2, and SDK v2 interfaces.
 >

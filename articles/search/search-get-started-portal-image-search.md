@@ -44,7 +44,9 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
 All of the above resources must have public access enabled for the portal nodes to be able to access them. Otherwise, the wizard fails. After the wizard runs, firewalls and private endpoints can be enabled on the different integration components for security.
 
-A free search service supports role-based access control on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This means you must use key-based authentication on free search service connections to other Azure services. For more secure connections, use basic tier or above and [configure a managed identity](search-howto-managed-identities-data-sources.md) and role assignments to admit requests from Azure AI Search on other Azure services. 
+If private endpoints are already present and can't be disabled, the alternative option is to run the respective end-to-end flow from a script or program from a virtual machine within the same virtual network as the private endpoint. Here's a [Python code sample](https://github.com/Azure/azure-search-vector-samples/tree/main/demo-python/code/integrated-vectorization) for integrated vectorization. In the same [GitHub repo](https://github.com/Azure/azure-search-vector-samples/tree/main) are samples in other programming languages. 
+
+A free search service supports role-based access control on connections to Azure AI Search, but it doesn't support managed identities on outbound connections to Azure Storage or Azure AI Vision. This means you must use key-based authentication on free search service connections to other Azure services. For more secure connections, use basic tier or higher and [configure a managed identity](search-howto-managed-identities-data-sources.md) and role assignments to admit requests from Azure AI Search on other Azure services. 
 
 ## Check for space
 
