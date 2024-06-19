@@ -63,7 +63,7 @@ This article assumes the Azure portal for network access configuration. You can 
    + `Microsoft.CognitiveServices` for Azure OpenAI and Azure AI services
    + `Microsoft.MachineLearningServices` for Azure Machine Learning
 
-   When you enable this exception, you take a dependency on Microsoft Entra ID authentication, managed identities, and role assignments. Any Azure AI service or AML feature that has a valid role assignment can pass the firewall. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for more details.
+   When you enable this exception, you take a dependency on Microsoft Entra ID authentication, managed identities, and role assignments. Any Azure AI service or AML feature that has a valid role assignment on your search service can bypass the firewall. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for more details.
 
 1. **Save** your changes.
 
