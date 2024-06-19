@@ -64,7 +64,7 @@ Learn more about [built-in roles](../role-based-access-control/built-in-roles.md
 1. On the **Add peering** page, configure the values for **Remote virtual network peering settings**.
 
     * Allow 'Spoke-RM' to access 'Hub-RM': **Leave the default of selected**.
-    * Allow 'Spoke-RM' to receive forwarded traffic from 'Hub-RM': 
+    * Allow 'Spoke-RM' to receive forwarded traffic from 'Hub-RM': **Select the checkbox.**
     * Allow gateway or route server in the peered virtual network to forward traffic to 'Hub-RM': **Leave the default of un-selected**.
     * Enable 'SpokeRM' to use 'Hub-RM's' remote gateway or route server: **Select the checkbox.**
 
