@@ -57,12 +57,12 @@ A resource group is a container for related resources. All resources must be pla
 az group create --name $RecourceGroup --location $Region
 ```
 
-Results:
+Output:
 
 <!-- expected_similarity=0.3 -->
 ```json
 {
-  "id": "/subscriptions/00000000-0000-0000-XXXX-XXXXXXXXX/resourceGroups/HDIonAKSCLI",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSCLI",
   "location": "eastus",
   "managedBy": null,
   "name": "HDIonAKSCLI",
@@ -108,9 +108,9 @@ Output:
     "aksClusterAgentPoolIdentityProfile": {
       "msiClientId": "00000000-0000-0000-0000-XXXXXXXX1",
       "msiObjectId": "00000000-0000-0000-0000-XXXXXXX11",
-      "msiResourceId": "/subscriptions/00000000-0000-0000-XXXX-XXXXXXXXX/resourcegroups/MC_hdi-00000000000000000000XXXX_contosopool_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contosopool-agentpool"
+      "msiResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/MC_hdi-00000000000000000000XXXX_contosopool_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contosopool-agentpool"
     },
-    "aksClusterResourceId": "/subscriptions/00000000-0000-0000-XXXX-XXXXXXXXX/resourceGroups/hdi-00000000000000000000XXXX/providers/Microsoft.ContainerService/managedClusters/contosopool",
+    "aksClusterResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hdi-00000000000000000000XXXX/providers/Microsoft.ContainerService/managedClusters/contosopool",
     "aksVersion": "1.27.9"
   },
   "aksManagedResourceGroupName": "MC_hdi-00000000000000000000XXXX_contosopool_eastus",
@@ -122,7 +122,7 @@ Output:
     "vmSize": "Standard_E4s_v3"
   },
   "deploymentId": "00000000000000000000XXXX",
-  "id": "/subscriptions/00000000-0000-0000-XXXX-XXXXXXXXX/resourceGroups/HDIonAKSCLI/providers/Microsoft.HDInsight/clusterpools/contosopool",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HDIonAKSCLI/providers/Microsoft.HDInsight/clusterpools/contosopool",
   "location": "EastUS",
   "managedResourceGroupName": "hdi-00000000000000000000XXXX",
   "name": "contosopool",
@@ -145,7 +145,7 @@ For more information about cluster pool CLI commands, refer to these [commands](
 
 ## Clean up resources
 
-When no longer needed, clean up unnecessary resources to avoid Azure charges. You can remove the resource group, cluster pool, and all other resources in the resource group.
+When no longer needed, clean up unnecessary resources to avoid Azure charges. You can remove the resource group, cluster pool, and all other resources in the resource group using the [`az group delete`][az-group-delete] command.
 
 > [!NOTE]
 > To delete a cluster pool, ensure there are no active clusters in the cluster pool.
