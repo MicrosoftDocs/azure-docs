@@ -170,7 +170,7 @@ Runtime audit logs include the elements listed in the following table:
 | `Count` | Total number of operations performed during the aggregated period of 1 minute. | Yes | Yes  |
 | `Properties` | Metadata that are specific to the data plane operation. | Yes | Yes  |
 | `Category` | Log category | Yes | No |
-| `Provider`|Name of Service emitting the logs, such as Eventhub | No | Yes  |
+| `Provider`|Name of Service emitting the logs, such as EventHubs | No | Yes  |
 | `Type`  | Type of logs emitted | No | Yes |
 
 Here's an example of a runtime audit log entry:

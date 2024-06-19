@@ -107,9 +107,9 @@ Once runtime logs are enabled, Event Hubs start collecting and storing them acco
 
 ### Publish and consume sample data
 
-To collect sample runtime audit logs in your Event Hubs namespace, you can publish and consume sample data using client applications, which are based on [Event Hubs SDK](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md), which uses Advanced Message Queuing Protocol (AMQP) or using any [Apache Kafka client application](../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md).
+To collect sample runtime audit logs in your Event Hubs namespace, you can publish and consume sample data using client applications that are based on the [Event Hubs SDK](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md). That SDK uses Advanced Message Queuing Protocol (AMQP). Or you can use any [Apache Kafka client application](../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
-Application metrics include the following runtime metrics. 
+Application metrics include the following runtime metrics.
 
 :::image type="content" source="./media/monitor-event-hubs/application-metrics-logs.png" alt-text="Image showing the result of a sample query to analyze application metrics." lightbox="./media/monitor-event-hubs/application-metrics-logs.png":::
 
