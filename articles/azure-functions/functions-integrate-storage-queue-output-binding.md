@@ -19,11 +19,11 @@ In Azure Functions, input and output bindings provide a declarative way to make 
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Follow the directions in [Create your first function from the Azure portal](./functions-get-started.md), omitting the **Clean up resources** step, to create the function app and function to use in this article.
+- Follow the directions in [Create your first function in the Azure portal](./functions-create-function-app-portal.md), omitting the **Clean up resources** step, to create the function app and function to use in this article.
 
 ## Add an output binding
 
-In this section, you use the portal UI to add a queue storage output binding to the function you created in the prerequisites. This binding makes it possible to write minimal code to create a message in a queue. You don't need to write code for such tasks as opening a storage connection, creating a queue, or getting a reference to a queue. the Azure Functions runtime and queue output binding take care of those tasks for you.
+In this section, you use the portal UI to add an Azure Queue Storage output binding to the function you created in the prerequisites. This binding makes it possible to write minimal code to create a message in a queue. You don't need to write code for such tasks as opening a storage connection, creating a queue, or getting a reference to a queue. The Azure Functions runtime and queue output binding take care of those tasks for you.
 
 1. In the Azure portal, search for and select the function app that you created in [Create your first function from the Azure portal](./functions-get-started.md).
 
@@ -35,13 +35,13 @@ In this section, you use the portal UI to add a queue storage output binding to 
 
 1. Select the **Azure Queue Storage** binding type and add the settings as specified in the table that follows this screenshot:
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Screenshot that shows how to add a queue storage output binding to a function in the Azure portal.":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Screenshot that shows how to add a Queue Storage output binding to a function in the Azure portal.":::
 
-    | Setting      |  Suggested value   | Description                              |
+    | Setting      |  Suggested value   | description                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Message parameter name** | outputQueueItem | The name of the output binding parameter. |
     | **Queue name**   | outqueue  | The name of the queue to connect to in your storage account. |
-    | **Storage account connection** | AzureWebJobsStorage | You can use the existing storage account connection used by your function app, or create a new one.  |
+    | **Storage account connection** | AzureWebJobsStorage | You can use the existing storage account connection used by your function app or create a new one.  |
 
 1. Select **OK** to add the binding.
 
@@ -92,7 +92,7 @@ In this section, you add code that writes a message to the output queue. The mes
 
 1. Confirm that your test matches this screenshot, and then select **Run**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Screenshot that shows how to test the queue storage binding in the Azure portal.":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png" alt-text="Screenshot that shows how to test the Queue Storage binding in the Azure portal.":::
 
     Notice that the **Request body** contains the `name` value *Azure*. This value appears in the queue message created when the function is invoked.
 
@@ -126,12 +126,10 @@ In this section, you add code that writes a message to the output queue. The mes
 
    A new message appears in the queue.  
 
-## Clean up resources
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+## Related content
 
-## Next steps
-
-In this quickstart, you added an output binding to an existing function. For more information about binding to Queue storage, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
+In this article, you added an output binding to an existing function. For more information about binding to Queue Storage, see [Queue Storage trigger and bindings](functions-bindings-storage-queue.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]
