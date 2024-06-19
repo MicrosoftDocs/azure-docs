@@ -57,7 +57,12 @@ Repeat to add more rules.
 Use the following Azure PowerShell commands to [create]() and [configure]() Log Scrubbing rules for Sensitive Data Protection:
 
 ```azurepowershell
-text
+New-AzFrontDoorWafLogScrubbingRuleObject -MatchVariable <String> -SelectorMatchOperator <String>
+ -State <String> [-Selector <String>] [-DefaultProfile <IAzureContextContainer>]
+ [<CommonParameters>]
+
+New-AzFrontDoorWafLogScrubbingSettingObject -ScrubbingRule <PSFrontDoorWafLogScrubbingRule[]> -State <String>
+ [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
 #### [CLI](#tab/cli)
