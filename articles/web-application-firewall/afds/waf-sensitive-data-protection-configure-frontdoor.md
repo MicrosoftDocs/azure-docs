@@ -54,7 +54,7 @@ Repeat to add more rules.
 
 #### [PowerShell](#tab/powershell)
 
-Use the following Azure PowerShell commands to [create]() and [configure]() Log Scrubbing rules for Sensitive Data Protection:
+Use the following Azure PowerShell commands to create and configure Log Scrubbing rules for Sensitive Data Protection:
 
 ```azurepowershell
 New-AzFrontDoorWafLogScrubbingRuleObject -MatchVariable <String> -SelectorMatchOperator <String>
