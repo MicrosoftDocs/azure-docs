@@ -3,7 +3,7 @@ title: Create & deploy deployment stacks in Bicep
 description: Describes how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 05/31/2024
+ms.date: 06/19/2024
 ---
 
 # Deployment stacks
@@ -47,7 +47,7 @@ Deployment stacks provide the following benefits:
 ## Built-in roles
 
 > [!WARNING]
-> Enforcement of the RBAC permission [Microsoft.Resources/deploymentStacks/manageDenySetting/action](/azure/role-based-access-control/permissions/management-and-governance) is rolling out across regions, including Government Clouds. 
+> Enforcement of the RBAC permission [Microsoft.Resources/deploymentStacks/manageDenySetting/action](/azure/role-based-access-control/permissions/management-and-governance) is rolling out across regions, including Government Clouds.
 
 There are two built-in roles for deployment stack:
 
@@ -664,24 +664,29 @@ To add a managed resource, add the resource definition to the underlying Bicep f
 
 To delete a managed resource, remove the resource definition from the underlying Bicep files, and then run the update command or rerun the create command. For more information, see [Update deployment stacks](#update-deployment-stacks).
 
-## Protect managed resources against deletion
+## Protect managed resources
 
-When creating a deployment stack, it's possible to assign a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. These settings are referred to as deny settings. You want to store the stack at a parent scope.
+You can assign specific permissions to the managed resources of a deployment stack to prevent unauthorized security principals from deleting or updating them. These permissions are referred to as deny settings. You want to store stacks at parent scope. For example, to protect resources in a subscription, you must place the stack at the parent scope, which is the immediate parent management group.
+
+The deny setting only applies to the [control plane operations](../management/control-plane-and-data-plane.md#control-plane), not the [data plane operations](../management/control-plane-and-data-plane.md#data-plane). For example, storage accounts and key vaults are created through the control plane, allowing them to be managed by a deployment stack. However, child resources like secrets or blob containers, which are created through the data plane, cannot be managed by a deployment stack.
+
+The deny setting only applies to explicitly created resources, not implicitly created ones. For example, a managed AKS cluster creates multiple other services to support it, such as a virtual machine. In this case, since the virtual machine is not defined in the Bicep file and is an implicitly created resource, it is not subject to the deployment stack deny settings.
 
 > [!NOTE]
 > The latest release requires specific permissions at the stack scope in order to:
 >
-> - Create or update a deployment stack and set the deny setting to a value other than "None".
-> - Update or delete a deployment stack with an existing deny setting of something other than "None"
+> - Create or update a deployment stack and configure deny setting to a value other than `None`.
+> - Update or delete a deployment stack with an existing deny setting of a value other than `None`.
 >
-> Use the [built-in roles](#built-in-roles) to grant the permissions.
+> Use the deployment stack [built-in roles](#built-in-roles) to grant permissions.
 
 # [PowerShell](#tab/azure-powershell)
 
 The Azure PowerShell includes these parameters to customize the deny-assignment:
 
 - `DenySettingsMode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `None`, `DenyDelete`, and `DenyWriteAndDelete`.
-- `DenySettingsApplyToChildScopes`: Deny settings are applied to nested resources under managed resources.
+- `DenySettingsApplyToChildScopes`: When specified, the deny setting mode configuration also applies to the child scope of the managed resources. For example, a
+Bicep file defines a _Microsoft.Sql/servers_ resource (parent) and a _Microsoft.Sql/servers/databases_ resource (child). If a deployment stack is created using the Bicep file with the `DenySettingsApplyToChildScopes` setting enabled and the `DenySettingsMode` set to `DenyWriteAndDelete`, you can't add any additional child resources to either the _Microsoft.Sql/servers_ resource or the _Microsoft.Sql/servers/databases_ resource.
 - `DenySettingsExcludedAction`: List of role-based management operations that are excluded from the deny settings. Up to 200 actions are permitted.
 - `DenySettingsExcludedPrincipal`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are permitted.
 
@@ -690,7 +695,8 @@ The Azure PowerShell includes these parameters to customize the deny-assignment:
 The Azure CLI includes these parameters to customize the deny-assignment:
 
 - `deny-settings-mode`: Defines the operations that are prohibited on the managed resources to safeguard against unauthorized security principals attempting to delete or update them. This restriction applies to everyone unless explicitly granted access. The values include: `none`, `denyDelete`, and `denyWriteAndDelete`.
-- `deny-settings-apply-to-child-scopes`: Deny settings are applied to nested resources under managed resources.
+- `deny-settings-apply-to-child-scopes`: When specified, the deny setting mode configuration also applies to the child scope of the managed resources. For example, a
+Bicep file defines a _Microsoft.Sql/servers_ resource (parent) and a _Microsoft.Sql/servers/databases_ resource (child). If a deployment stack is created using the Bicep file with the `deny-settings-apply-to-child-scopes` setting enabled and the `deny-settings-mode` set to `denyWriteAndDelete`, you can't add any additional child resources to either the _Microsoft.Sql/servers_ resource or the _Microsoft.Sql/servers/databases_ resource. 
 - `deny-settings-excluded-actions`: List of role-based access control (RBAC) management operations excluded from the deny settings. Up to 200 actions are allowed.
 - `deny-settings-excluded-principals`: List of Microsoft Entra principal IDs excluded from the lock. Up to five principals are allowed.
 
