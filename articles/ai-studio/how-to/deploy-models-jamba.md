@@ -1,6 +1,6 @@
 ---
 title: How to deploy AI21's Jamba-Instruct model with Azure AI Studio
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure AI Studio
 description: How to deploy AI21's Jamba-Instruct model with Azure AI Studio
 manager: scottpolly
 ms.service: machine-learning
@@ -287,7 +287,7 @@ data: [DONE]
 
 ### Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API
 
-The Jamba Instruct model is deployed as a serverless API and is offered by AI21 through Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
+The Jamba Instruct model is deployed as a serverless API and is offered by AI21 through Azure Marketplace and integrated with Azure AI studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
 Each time a workspace subscribes to a given model offering from Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference and fine-tuning; however, multiple meters are available to track each scenario independently.
 
@@ -297,7 +297,7 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 ## Content filtering
 
-Models deployed as a serverless API are protected by Azure AI content safety. When deployed to managed compute, you can opt out of this capability. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
+Models deployed as a serverless API are protected by Azure AI content safety. With Azure AI content safety enabled, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [Azure AI Content Safety](/azure/ai-services/content-safety/overview).
 
 ## Related content
 
