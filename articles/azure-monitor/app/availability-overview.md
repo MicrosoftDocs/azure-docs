@@ -23,7 +23,7 @@ There are four types of availability tests:
 * [Standard test](availability-standard-tests.md): This single request test is similar to the URL ping test. It includes TLS/SSL certificate validity, proactive lifetime check, HTTP request verb (for example, `GET`, `HEAD`, or `POST`), custom headers, and custom data associated with your HTTP request.
 * [Custom TrackAvailability test](availability-azure-functions.md): If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.
 * Classic tests (**older versions of availability tests**)
-    * [URL ping test](monitor-web-app-availability.md): You can create this test through the Azure portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
+    * [URL ping test (deprecated)](monitor-web-app-availability.md): You can create this test through the Azure portal to validate whether an endpoint is responding and measure performance associated with that response. You can also set custom success criteria coupled with more advanced features, like parsing dependent requests and allowing for retries.
     * [Multi-step web test (deprecated)](availability-multistep.md): You can play back this recording of a sequence of web requests to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal, where you can run them.
 
 > [!IMPORTANT]
@@ -34,19 +34,19 @@ You can create up to 100 availability tests per Application Insights resource.
 > [!NOTE]
 > Availability tests are stored encrypted, according to [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
 
-## Availability Test TLS Support
+## Availability test TLS support
 To provide best-in-class encryption, Availability Tests uses Transport Layer Security (TLS) 1.2 or higher as the encryption mechanism of choice. 
 
 > [!WARNING]
-> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) TLS 1.0/1.1 protocol versions and TLS 1.2/1.3 legacy Cipher Suites and Elliptical Curves will be retired for Application Insights Availability Tests. 
+> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) TLS 1.0/1.1 protocol versions and TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights Availability Tests. 
 
-### Supported TLS Configurations
-TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availability Tests. In addition, the following Cipher Suites and Elliptical Curves are also supported within each version.
+### Supported TLS configurations
+TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availability Tests. In addition, the following Cipher suites and Elliptical curves are also supported within each version.
 > [!NOTE]
 > TLS 1.3 is currently only available in these Availability Test regions: NorthCentralUS, CentralUS, EastUS, SouthCentralUS, WestUS 
 
 #### TLS 1.2
-**Cipher Suites**
+**Cipher suites**
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 
@@ -56,25 +56,25 @@ TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availa
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 
 
-**Elliptical Curves**
+**Elliptical curves**
 - NistP384 
 - NistP256 
 
 #### TLS 1.3
-**Cipher Suites**
+**Cipher suites**
 - TLS_AES_256_GCM_SHA384 
 - TLS_AES_128_GCM_SHA256 
 
-**Elliptical Curves:** 
+**Elliptical curves:** 
 - NistP384 
 - NistP256 
 
-### Deprecating TLS Configuration
+### Deprecating TLS configuration
 > [!WARNING]
-> After 31 October 2024, protocol versions TLS 1.0 and 1.1 support will be completely removed. In addition, the following Cipher Suites and Elliptical Curves will be retired.
+> After 31 October 2024, protocol versions TLS 1.0 and 1.1 support will be completely removed. In addition, the following Cipher suites and Elliptical curves will be retired.
 
 #### TLS 1.0
-**Cipher Suites** 
+**Cipher suites** 
 - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA 
 - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA 
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA 
@@ -82,11 +82,11 @@ TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availa
 - TLS_RSA_WITH_AES_256_CBC_SHA 
 - TLS_RSA_WITH_AES_128_CBC_SHA 
 
-**Elliptical Curves** 
+**Elliptical curves** 
 - curve25519 
 
 #### TLS 1.1
-**Cipher Suites:**
+**Cipher suites:**
 - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA 
 - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA 
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA 
@@ -94,14 +94,14 @@ TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availa
 - TLS_RSA_WITH_AES_256_CBC_SHA 
 - TLS_RSA_WITH_AES_128_CBC_SHA 
 
-**Elliptical Curves** 
+**Elliptical curves** 
 - curve25519 
 
 > [!NOTE]
-> After 31 October 2024, only the listed Cipher Suites and Elliptical Curves within these TLS 1.2 and TLS 1.3 will be retired.
+> After 31 October 2024, only the listed Cipher suites and Elliptical curves within these TLS 1.2 and TLS 1.3 will be retired.
 
 #### TLS 1.2
-**Cipher Suites**
+**Cipher suites**
 - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA 
 - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA 
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA 
@@ -113,11 +113,11 @@ TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availa
 - TLS_RSA_WITH_AES_256_CBC_SHA 
 - TLS_RSA_WITH_AES_128_CBC_SHA 
 
-**Elliptical Curves:** 
+**Elliptical curves:** 
 - curve25519 
 
 #### TLS 1.3
-**Elliptical Curves**
+**Elliptical curves**
 - curve25519 
 
 ## Frequently asked questions
