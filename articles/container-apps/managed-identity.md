@@ -384,15 +384,15 @@ This approach limits the resources that can be accessed if a malicious actor wer
             "identitySettings":[
             {
                 "identity": "ACR_IMAGEPULL_IDENTITY_RESOURCE_ID",
-                "lifecycle": "none"
+                "lifecycle": "None"
             },
             {
                 "identity": "<IDENTITY1_RESOURCE_ID>",
-                "lifecycle": "init"
+                "lifecycle": "Init"
             },
             {
                 "identity": "system",
-                "lifecycle": "main"
+                "lifecycle": "Main"
             }]
         },
         "template": {
