@@ -34,7 +34,7 @@ When your application requests a session, an instance is instantly allocated fro
 
 To create a custom container session pool, you need to provide a container image and pool configuration settings.
 
-You invoke/communicate with each session using HTTP requests. The custom container must expose an HTTP server on a port that you specify to respond to these requests.
+You invoke or communicate with each session using HTTP requests. The custom container must expose an HTTP server on a port that you specify to respond to these requests.
 
 # [Azure CLI](#tab/azure-cli)
 
