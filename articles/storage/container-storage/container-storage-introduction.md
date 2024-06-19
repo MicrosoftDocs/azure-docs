@@ -73,7 +73,7 @@ Feature support depends on which backing storage option you select. The followin
 Based on feedback from customers, we've included the following capabilities with the latest preview update:
 
 - Improve stateful application availability by using [multi-zone storage pools and ZRS disks](enable-multi-zone-redundancy.md).
-- Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#enable-server-side-encryption-with-customer-managed-keys) (Azure Disks only).
+- Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional) (Azure Disks only).
 - Scale up by dynamically expanding [volumes](resize-volume.md) and storage pools backed by Azure Disks and Ephemeral Disk without downtime.
 - [Clone persistent volumes](clone-volume.md) within a storage pool.
 - Optimize applications with Azure Linux Container Host.
