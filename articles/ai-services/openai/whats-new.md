@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 06/18/2024
+ms.date: 06/19/2024
 recommendations: false
 ---
 
@@ -19,6 +19,14 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## June 2024
+
+### Retirement date updates
+
+* Updated `gpt-35-turbo` 0301 retirement date to no earlier than October 1, 2024.
+* Updated `gpt-35-turbo` & `gpt-35-turbo-16k`0613 retirement date to October 1, 2024.
+* Updated `gpt-4` & `gpt-4-32k` 0314 deprecation date to October 1, 2024, and retirement date to June 6, 2025.  
+
+Refer to our [model retirement guide](./concepts/model-retirements.md) for the latest information on model deprecation and retirement.
 
 ### Token based billing for fine-tuning
 

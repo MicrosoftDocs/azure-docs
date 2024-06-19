@@ -1082,7 +1082,8 @@
       },
       "search.appverid": {
         "articles/sentinel/**/*.md": "met150",
-        "articles/sentinel/**/*yml": "met150"
+        "articles/sentinel/**/*yml": "met150",
+        "articles/private-5g-core/**/*.md": "ap5gc"
       },
       "ms.subservice": {
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
