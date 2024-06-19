@@ -1027,8 +1027,6 @@ In addition to the default `context.log` method, the following methods are avail
 
 Azure Functions lets you define the threshold level to be used when tracking and viewing logs. To set the threshold, use the `logging.logLevel` property in the `host.json` file. This property lets you define a default level applied to all functions, or a threshold for each individual function. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
-::: zone pivot="nodejs-model-v3"
-
 ## Track custom data
 
 By default, Azure Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom data to your Application Insights instance.
@@ -1080,8 +1078,6 @@ export default httpTrigger;
 ---
 
 The `tagOverrides` parameter sets the `operation_Id` to the function's invocation ID. This setting enables you to correlate all of the automatically generated and custom logs for a given function invocation.
-
-::: zone-end
 
 <a name="http-triggers-and-bindings"></a>
 
