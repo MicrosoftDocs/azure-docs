@@ -15,7 +15,7 @@ ms.date: 06/12/2024
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-In this quickstart, you create a cluster replica in another region for an Azure Cosmos DB for MongoDB vCore cluster for disaster recovery (DR) purposes. This replica cluster stores a copy of all of your MongoDB resources - databases, collections, and documents - in another Azure region. The replica cluster provides a unique endpoint for various tools and SDKs to connect to and could be promoted to become available for writes in case of the primary region outage.
+In this quickstart, you create a cluster replica in another region for an Azure Cosmos DB for MongoDB vCore cluster for disaster recovery (DR) purposes. This replica cluster stores a copy of all of your MongoDB resources - databases, collections, and documents - in another Azure region. The replica cluster provides a unique endpoint for various tools and SDKs to connect to and could be promoted to become available for writes if there's a primary region outage.
 
 > [!IMPORTANT]
 > Cross-region replication in Azure Cosmos DB for MongoDB vCore is currently in preview.
@@ -122,7 +122,7 @@ Get the connection string you need to connect to the primary (read-write) cluste
 
 1. From the Azure Cosmos DB for MongoDB vCore primary cluster page, select the **Connection strings** navigation menu option under **Settings**.
 
-   :::image type="content" source="media/quickstart-cross-region-replication/select-connection-strings-option.png" alt-text="Screenshot of the connection strings page in the cluster propteries.":::
+   :::image type="content" source="media/quickstart-cross-region-replication/select-connection-strings-option.png" alt-text="Screenshot of the connection strings page in the cluster properties.":::
 
 1. Copy the value from the **Connection string** field.
    
@@ -195,15 +195,27 @@ db.dogs.find();
 db.cats.find();
 ```
     
-## Connect to read replica cluster in another region and read data
-
-Get the connection string for the read cluster replica in another region.
+## Enable access to replica cluster
 
 1. From the Azure Cosmos DB for MongoDB vCore *primary* cluster page, select the **Global distribution (preview)** page under **Settings**.
 
-   :::image type="content" source="media/quickstart-cross-region-replication/global-distribution-page-on-primary-cluster.png" alt-text="Screenshot of the global distribution preview page in the primary cluster propteries.":::
+   :::image type="content" source="media/quickstart-cross-region-replication/global-distribution-page-on-primary-cluster.png" alt-text="Screenshot of the global distribution preview page in the primary cluster properties.":::
 
 1. Select *cluster replica name* to open the read cluster replica properties in the Azure portal.
+ 
+1. On the MongoDB vCore replica cluster page, under **Settings**, select **Networking**.
+
+1. On the **Networking** page, select **Add current client IP address** to create a firewall rule with the public IP address of your computer, as perceived by the Azure system. 
+
+    :::image type="content" source="media/quickstart-cross-region-replication/cluster-networking-adding-firewall-rule.png" alt-text="Screenshot of the networking page on read replica cluster.":::
+
+Verify your IP address before saving this configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the Internet and Azure services. You can also select add 0.0.0.0 - 255.255.255.255 firewall rule to allow not just your IP, but the whole Internet to access the cluster. In this situation, clients still must log in with the correct username and password to use the cluster.
+
+1. Select Save on the toolbar to save the settings. It might take a few minutes for the updated networking settings to become effective.
+
+## Connect to read replica cluster in another region and read data
+
+Get the connection string for the read cluster replica in another region.
 
 1. On the replica cluster sidebar, under **Cluster management**, select **Connection strings**.
 
