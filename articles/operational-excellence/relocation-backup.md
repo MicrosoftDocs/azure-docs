@@ -83,7 +83,7 @@ In order to continue to protect your resources, you must register and back them 
 
 - Azure Virtual Machines
 - Azure File Share
-- 
+- SQL Server/SAP HANA in Azure VM
 
 ### Back up Azure Virtual Machine
 
@@ -114,8 +114,6 @@ https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaul
 
 1. Redeploy Azure VMs by using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md) to relocate your VM to the new region.
 
-1. Start protecting your VM in a new or existing Recovery Services vault in the new region. When you need to restore from your older backups, you can still do it from your old Recovery Services vault if you chose to retain the backup data. 
-
 
 ### Back up Azure File Share
 
@@ -134,29 +132,23 @@ https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaul
 
 When you relocate a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, see the follow sections.
 
-Before you relocate SQL Server/SAP HANA running in a VM to a new region, ensure the following prerequisites are met:
+1. Before you relocate SQL Server/SAP HANA running in a VM to a new region, ensure the following prerequisites are met:
+    
+    1. See the [prerequisites associated with VM relocate](../resource-mover/tutorial-relocate-region-virtual-machines.md#prerequisites) and ensure that the VM is eligible for relocate. 
+    1. Select the VM on the [Backup Items tab](.,.backup/backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures that you always have your backup data ready for restore.
+       >[!Note]
+       >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](../backup/backup-azure-manage-vms.md#delete-backup-data).
+    1. Ensure that the VMs to be moved are turned on. All VMs disks that need to be available in the destination region are attached and initialized in the VMs.
+    1. Ensure that VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do so:
+       - On Windows VMs, install the latest Windows updates.
+       - On Linux VMs, refer to the distributor guidance and ensure that machines have the latest certificates and CRL.
+    1. Allow outbound connectivity from VMs:
+       - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](../resource-mover/support-matrix-relocate-region-azure-vm.md#url-access).
+       - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
+    
+1. Relocate your VM to the new region using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
 
-1. See the [prerequisites associated with VM relocate](../resource-mover/tutorial-relocate-region-virtual-machines.md#prerequisites) and ensure that the VM is eligible for relocate. 
-1. Select the VM on the [Backup Items tab](.,.backup/backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures that you always have your backup data ready for restore.
-   >[!Note]
-   >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](../backup/backup-azure-manage-vms.md#delete-backup-data).
-1. Ensure that the VMs to be moved are turned on. All VMs disks that need to be available in the destination region are attached and initialized in the VMs.
-1. Ensure that VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do so:
-   - On Windows VMs, install the latest Windows updates.
-   - On Linux VMs, refer to the distributor guidance and ensure that machines have the latest certificates and CRL.
-1. Allow outbound connectivity from VMs:
-   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](../resource-mover/support-matrix-relocate-region-azure-vm.md#url-access).
-   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
-#### Relocate SQL Server/SAP HANA in Azure VM
-
-Move your VM to the new region using [Azure Resource Mover](../resource-mover/tutorial-move-region-virtual-machines.md).
-
-### Protect SQL Server/SAP HANA in Azure VM using Azure Backup
-
-Start protecting the VM in a new/existing Recovery Services vault in the new region. When you need to restore from your older backups, you can still do it from your old Recovery Services vault.
- 
-The above steps should help ensure that your resources are being backed up in the new region as well.
 
 ### Back up services for on-premise resources
 
