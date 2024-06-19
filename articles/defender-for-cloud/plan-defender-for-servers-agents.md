@@ -4,8 +4,9 @@ description: Plan for agent deployment to protect Azure, AWS, GCP, and on-premis
 ms.topic: conceptual
 ms.author: dacurwin
 author: dcurwin
-ms.date: 03/12/2024
+ms.date: 06/19/2024
 ---
+
 # Plan agents, extensions, and Azure Arc for Defender for Servers
 
 This article helps you plan your agents, extensions, and Azure Arc resources for your Microsoft Defender for Servers deployment.
@@ -94,6 +95,9 @@ Learn more about the Azure Policy [guest configuration extension](../virtual-mac
 ## Defender for Endpoint extensions
 
 When you enable Defender for Servers, Defender for Cloud automatically deploys a Defender for Endpoint extension. The extension is a management interface that runs a script inside the operating system to deploy and integrate the Defender for Endpoint sensor on the machine.
+
+> [NOTE!]
+> Before you deploy the Defender for Servers plan, you should review the Defender for Endpoint extension [network connectivity requirements](/defender-endpoint/configure-environment).
 
 - Windows machines extension: `MDE.Windows`
 - Linux machines extension: `MDE.Linux`
