@@ -62,7 +62,7 @@ The following steps explain the cluster pool creation independently. The same op
      |---|---|
      |Virtual network (VNet) | From the drop-down list, select a virtual network, which is in the same region as the cluster pool.|
      |Subnet | From the drop-down list, select the name of the subnet that you plan to associate with the cluster pool.|
-     |Egress path | From the drop down list, select the egress path for your cluster.|
+     |Egress path | From the drop-down list, select the egress path for your cluster.|
      |Private AKS | Enable private AKS to ensure that network traffic between the AKS Control plane / Kube API server and Clusters remains on a private network.|
 
     Select **Next: Integrations** to continue.

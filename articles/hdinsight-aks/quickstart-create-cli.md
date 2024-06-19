@@ -51,7 +51,7 @@ In order to run commands in Azure using the CLI, you need to log in first. Log i
 
 ## Create a resource group
 
-A resource group is a container for related resources. All resources must be placed in a resource group. The [az group create](/cli/azure/group) command creates a resource group with the previously defined $MY_RESOURCE_GROUP_NAME and $Region parameters.
+A resource group is a container for related resources. All resources must be placed in a resource group. The [az group create](/cli/azure/group) command creates a resource group with the previously defined `$MY_RESOURCE_GROUP_NAME` and `$Region` parameters.
 
 ```bash
 az group create --name $RecourceGroup --location $Region
@@ -93,12 +93,12 @@ az hdinsight-on-aks clusterpool create --cluster-pool-name
                                        [--tags]
                                        [--workernode-size]
 ```
-Here is an example:
+Here's an example:
 ```bash
 az hdinsight-on-aks clusterpool create --resource-group $RecourceGroup --cluster-pool-name $HDIonAKSClusterPoolName --location $Region --workernode-size $NodeType --cluster-pool-version $ClusterVersion
 ```
 
-It takes a few minutes to create the HDInsight on AKS cluster pool. The following example output shows the create operation was successful.
+It takes a few minutes to create the HDInsight on AKS cluster pool. The following example output shows the created operation was successful.
 
 Output:
 <!-- expected_similarity=0.3 -->
@@ -141,7 +141,7 @@ Output:
 }
 ```
 
-For more information about cluster pool CLI commands, refer to these [commands](/azure/hdinsight-on-aks/clusterpool).
+For more information about cluster pool CLI commands, see [commands](/cli/azure/hdinsight-on-aks/clusterpool).
 
 ## Clean up resources
 

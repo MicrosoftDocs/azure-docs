@@ -29,7 +29,7 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 - For ease of use, try the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 - If you want to use PowerShell locally, then install the [Az PowerShell](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. Make sure that you run the commands with administrative privileges. For more information, see [Install Azure PowerShell][install-azure-powershell].
-     * The commands used in this article are part of Azure PowerShell module **Az.HdInsightOnAks** and, Run **Install-Module Az.HdInsightOnAks** to install it.
+     * The commands used in this article are part of Azure PowerShell module    `Az.HdInsightOnAks` and, Run `Install-Module Az.HdInsightOnAks` to install it.
 
 - If you have more than one Azure subscription, set the subscription that you wish to use for the quickstart by calling the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet. For more information, see [Manage Azure subscriptions with Azure PowerShell](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
