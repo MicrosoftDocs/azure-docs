@@ -188,10 +188,10 @@ az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-st
 > [!NOTE]
 > If you have an existing storage pool of the type that you're trying to disable, the storage pool type won't be disabled.
 
-## Next steps
+## Next step
 
 To create persistent volumes, select the link for the backing storage type you selected.
 
-- [Create persistent volume claim with Azure managed disks](use-container-storage-with-managed-disks.md#create-a-persistent-volume-claim)
+- [Create persistent volume claim with Azure managed disks](use-container-storage-with-managed-disks.md#3-create-a-persistent-volume-claim)
 - [Create persistent volume claim with Ephemeral Disk](use-container-storage-with-local-disk.md#create-a-persistent-volume-claim)
-- [Create persistent volume claim with Azure Elastic SAN](use-container-storage-with-elastic-san.md#create-a-persistent-volume-claim)
+- [Create persistent volume claim with Azure Elastic SAN](use-container-storage-with-elastic-san.md#3-create-a-persistent-volume-claim)
