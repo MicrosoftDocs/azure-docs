@@ -99,7 +99,7 @@ sections:
           What are the resource limits on Network Watcher?
         answer: |
           Network Watcher has the following limits:
-          [!INCLUDE [network-watcher-limits](~/reusable-content/ce-skilling/azure/includes/network-watcher-limits.md)]
+          [!INCLUDE [network-watcher-limits](../../includes/network-watcher-limits.md)]
 
   - name: Service availability and redundancy
     questions:
@@ -128,7 +128,7 @@ sections:
       - question: |
           What is the latest version of the Network Watcher Agent?
         answer: |
-          [!INCLUDE [Network Watcher Agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+          [!INCLUDE [Network Watcher Agent version](../../includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
 
       - question: |
           What ports does the Network Watcher Agent use?

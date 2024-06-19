@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 06/19/2024
 ms.custom: references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -14,7 +14,7 @@ recommendations: false
 
 # Azure OpenAI Service models
 
-Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region. For GPT-3 and other models retiring in July 2024, see [Azure OpenAI Service legacy models](./legacy-models.md).
+Azure OpenAI Service is powered by a diverse set of models with different capabilities and price points. Model availability varies by region.
 
 | Models | Description |
 |--|--|
@@ -74,9 +74,6 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 > [!CAUTION]
 > We don't recommend using preview models in production. We will upgrade all deployments of preview models to either future preview versions or to the latest stable/GA version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
-
-> [!NOTE]
-> Version `0314` of `gpt-4` and `gpt-4-32k` will be retired no earlier than July 5, 2024.  Version `0613` of `gpt-4` and `gpt-4-32k` will be retired no earlier than September 30, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
 
 - GPT-4 version 0125-preview is an updated version of the GPT-4 Turbo preview previously released as version 1106-preview.  
 - GPT-4 version 0125-preview completes tasks such as code generation more completely compared to gpt-4-1106-preview. Because of this, depending on the task, customers may find that GPT-4-0125-preview generates more output compared to the gpt-4-1106-preview.  We recommend customers compare the outputs of the new model.  GPT-4-0125-preview also addresses bugs in gpt-4-1106-preview with UTF-8 handling for non-English languages. 
@@ -216,9 +213,6 @@ GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 
 
 See [model versions](../concepts/model-versions.md) to learn about how Azure OpenAI Service handles model version upgrades, and [working with models](../how-to/working-with-models.md) to learn how to view and configure the model version settings of your GPT-3.5 Turbo deployments.
 
-> [!NOTE]
-> Version `0613` of `gpt-35-turbo` and `gpt-35-turbo-16k` will be retired no earlier than August 1, 2024. Version `0301` of `gpt-35-turbo` will be retired no earlier than August 1, 2024.  See [model updates](../how-to/working-with-models.md#model-updates) for model upgrade behavior.
-
 ### GPT-3.5-Turbo model availability
 
 #### Public cloud regions
@@ -316,9 +310,13 @@ For Assistants you need a combination of a supported model, and a supported regi
 | West US |  | ✅ | | | ✅ | | 
 | West US 3 |  |  | | |✅ | | 
 
+## Model retirement
+
+For the latest information on model retirements, refer to the [model retirement guide](./model-retirements.md).
 
 ## Next steps
 
+- [Model retirement and deprecation](./model-retirements.md)
 - [Learn more about working with Azure OpenAI models](../how-to/working-with-models.md)
 - [Learn more about Azure OpenAI](../overview.md)
 - [Learn more about fine-tuning Azure OpenAI models](../how-to/fine-tuning.md)

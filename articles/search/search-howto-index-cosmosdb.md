@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/18/2024
+ms.date: 06/18/2024
 ---
 
 # Index data from Azure Cosmos DB for NoSQL for queries in Azure AI Search
@@ -302,6 +302,9 @@ The following example shows a [data source definition](#define-the-data-source) 
 "  highWaterMarkColumnName": "_ts"
 },
 ```
+
+> [!NOTE]
+> When you assign a `null` value to a field in your Azure Cosmos DB, the AI Search indexer is unable to distinguish between `null` and a missing field value. Therefore, if a field in the index is empty, it will not be substituted with a `null` value, even if that modification was specifically made in your database.
 
 <a name="IncrementalProgress"></a>
 

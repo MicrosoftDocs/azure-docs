@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/13/2024
+ms.date: 06/14/2024
 ms.custom:
   - references_regions
 ---
@@ -18,6 +18,12 @@ ms.custom:
 
 > [!NOTE]
 > Preview features are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+
+## June 2024
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+| [Image search in the Azure portal](search-get-started-portal-image-search.md) | Feature | Search explorer now supports image search. In a vector index that has vectorized image content, you can drop images into Search Explorer to query for a match.
 
 ## May 2024
 

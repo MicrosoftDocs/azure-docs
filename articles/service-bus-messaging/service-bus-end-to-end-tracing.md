@@ -194,7 +194,7 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 | Property Name        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
