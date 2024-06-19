@@ -194,12 +194,11 @@ az containerapp sessionpool show \
 
 All requests to the pool management endpoint must include an `Authorization` header with a bearer token. To learn how to authenticate with the pool management API, see [Authentication](sessions.md#authentication).
 
-Each API request must also include a query string parameter `identifier` with the session ID. This unique session ID enables you to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions.md#session-identifiers).
+Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions.md#session-identifiers).
 
 > [!IMPORTANT]
 > The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
-> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. Please read [Session identifiers](sessions.md#session-identifiers)
-
+> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
 
 #### Forwarding Requests to the Session's Container:
 
