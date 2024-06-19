@@ -58,9 +58,9 @@ import redis
 from azure.identity import DefaultAzureCredential
 
 scope = "https://redis.azure.com/.default"
-host = "<Your Host Name>"  # Required
-port = 6380  # Required
-user_name = "<Your Username>"  # Required
+host = "<Your Host Name>"
+port = 6380
+user_name = "<Your Username>"
 
 
 def hello_world():
@@ -94,6 +94,82 @@ Run `PythonApplication1.py` with Python. You should see results like the followi
 
 :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
+## Create a sample python app with re-authentication
+EntraID access tokens have limited lifespans, [averaging 75 minutes](../../entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python. 
+
+Create a new text file, add the following script, and save the file as `PythonApplication2.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your EntraID user.
+
+```python
+import time
+import logging
+import redis
+from azure.identity import DefaultAzureCredential
+
+scope = "https://redis.azure.com/.default"
+host = "<Your Host Name>"
+port = 6380
+user_name = "<Your Username>"
+
+def re_authentication():
+    _LOGGER = logging.getLogger(__name__)
+    cred = DefaultAzureCredential()
+    token = cred.get_token(scope)
+    r = redis.Redis(host=host,
+                    port=port,
+                    ssl=True,   # ssl connection is required.
+                    username=user_name,
+                    password=token.token,
+                    decode_responses=True)
+    max_retry = 3
+    for index in range(max_retry):
+        try:
+            if _need_refreshing(token):
+                _LOGGER.info("Refreshing token...")
+                tmp_token = cred.get_token(scope)
+                if tmp_token:
+                    token = tmp_token
+                r.execute_command("AUTH", user_name, token.token)
+            result = r.ping()
+            print("Ping returned : " + str(result))
+
+            result = r.set("Message", "Hello!, The cache is working with Python!")
+            print("SET Message returned : " + str(result))
+
+            result = r.get("Message")
+            print("GET Message returned : " + result)
+
+            result = r.client_list()
+            print("CLIENT LIST returned : ")
+            for c in result:
+                print(f"id : {c['id']}, addr : {c['addr']}")
+            break
+        except redis.ConnectionError:
+            _LOGGER.info("Connection lost. Reconnecting.")
+            token = cred.get_token(scope)
+            r = redis.Redis(host=host,
+                            port=port,
+                            ssl=True,   # ssl connection is required.
+                            username=user_name,
+                            password=token.token,
+                            decode_responses=True)
+        except Exception:
+            _LOGGER.info("Unknown failures.")
+            break
+
+
+def _need_refreshing(token, refresh_offset=300):
+    return not token or token.expires_on - time.time() < refresh_offset
+
+if __name__ == '__main__':
+    re_authentication()
+```
+
+Run `PythonApplication2.py` with Python. You should see results like the following example:
+
+:::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+
+Unlike the first example, If your token has expired, this example will automatically refersh it. 
+
 ## [Access Key Authentication](#tab/accesskey)
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
@@ -111,9 +187,6 @@ True
 >>> r.get('foo')
 b'bar'
 ```
-
-> [!IMPORTANT]
-> For Azure Cache for Redis version 3.0 or higher, TLS/SSL certificate check is enforced. `ssl_ca_certs` must be explicitly set when connecting to Azure Cache for Redis. For RedHat Linux, `ssl_ca_certs` are in the `/etc/pki/tls/certs/ca-bundle.crt` certificate module.
 
 ## Create a Python sample app
 
@@ -135,7 +208,7 @@ result = r.set("Message", "Hello!, The cache is working with Python!")
 print("SET Message returned : " + str(result))
 
 result = r.get("Message")
-print("GET Message returned : " + result.decode("utf-8"))
+print("GET Message returned : " + result)
 
 result = r.client_list()
 print("CLIENT LIST returned : ")
