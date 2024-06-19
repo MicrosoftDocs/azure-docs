@@ -252,7 +252,7 @@ The following example creates an OpenAI (not Azure OpenAI) connection:
 from azure.ai.ml.entities import OpenAIConnection
 
 name = "my_oai_apk"
-api_key = "XXXXXXXX
+api_key = "XXXXXXXX"
 
 wps_connection = OpenAIConnection(
     name=name,
