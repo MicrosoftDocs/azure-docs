@@ -82,10 +82,10 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 
 Migration from Application Gateway Ingress Controller to Application Gateway for Containers is designed to be a four step process:
 
-1) [Step 1](#step-1-install-alb-controller): Install Application Gateway for Containers' ALB Controller
-2) [Step 2](#step-2-translate-ingress): Translate AGIC Ingress to Application Gateway for Containers Ingress
-3) [Step 3](#step-3-perform-end-to-end-validation): Perform end-to-end testing against Application Gateway for Containers
-4) [Step 4](#step-4-direct-traffic-to-application-gateway-for-containers): Direct traffic from AGIC to Application Gateway for Containers
+[Step 1](#step-1-install-alb-controller): Install Application Gateway for Containers' ALB Controller
+[Step 2](#step-2-translate-ingress): Translate AGIC Ingress to Application Gateway for Containers Ingress
+[Step 3](#step-3-perform-end-to-end-validation): Perform end-to-end testing against Application Gateway for Containers
+[Step 4](#step-4-direct-traffic-to-application-gateway-for-containers): Direct traffic from AGIC to Application Gateway for Containers
 
 Steps 2 through 4 will be repeated for each service you plan to migrate.
 
