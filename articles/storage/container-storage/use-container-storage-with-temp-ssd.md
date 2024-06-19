@@ -1,6 +1,6 @@
 ---
-title: Use Azure Container Storage Preview with local NVMe
-description: Configure Azure Container Storage for use with Ephemeral Disk using local NVMe on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod with a generic ephemeral volume.
+title: Use Azure Container Storage Preview with temp SSD
+description: Configure Azure Container Storage for use with Ephemeral Disk using temp SSD on the Azure Kubernetes Service (AKS) cluster nodes. Create a storage pool, select a storage class, and deploy a pod with a generic ephemeral volume.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
@@ -9,20 +9,20 @@ ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage Preview with local NVMe
+# Use Azure Container Storage Preview with temp SSD
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with local NVMe as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using local NVMe as its storage.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with temp SSD as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using temp SSD as its storage.
 
 > [!IMPORTANT]
-> Local disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. Therefore, you can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from an Ephemeral Disk storage pool unless you [use local NVMe with volume replication](use-container-storage-with-local-nvme-replication.md).
+> Local disks are ephemeral, meaning that they're created on the local virtual machine (VM) storage and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. You can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from a temp SSD storage pool. If you want to create a persistent volume using Ephemeral Disk, you have to [use local NVMe with volume replication](use-container-storage-with-local-nvme-replication.md).
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-## Choose a VM type that supports local NVMe
+## Choose a VM type that supports temp SSD
 
-Ephemeral Disk is only available in certain types of VMs. If you plan to use local NVMe, a [storage optimized VM](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3** is required.
+Ephemeral Disk is only available in certain types of VMs. If you plan to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
 You can run the following command to get the VM type that's used with your node pool.
 
@@ -50,7 +50,7 @@ First, create a storage pool, which is a logical grouping of storage for your Ku
 
 If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#2-display-the-available-storage-classes).
 
-Follow these steps to create a storage pool using local NVMe.
+Follow these steps to create a storage pool using temp SSD.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -64,7 +64,8 @@ Follow these steps to create a storage pool using local NVMe.
      namespace: acstor
    spec:
      poolType:
-       ephemeralDisk: {}
+       ephemeralDisk:
+         diskType: temp
    ```
 
 1. Apply the YAML manifest file to create the storage pool.
@@ -89,7 +90,7 @@ When the storage pool is created, Azure Container Storage will create a storage 
 
 ### 2. Display the available storage classes
 
-When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating and deploying volumes.
+When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
 
 Run `kubectl get sc` to display the available storage classes. You should see a storage class called `acstor-<storage-pool-name>`.
 
@@ -167,15 +168,15 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
    kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
    ```
 
-You've now deployed a pod that's using local NVMe as its storage, and you can use it for your Kubernetes workloads.
+You've now deployed a pod that's using temp SSD as its storage, and you can use it for your Kubernetes workloads.
 
 ## Manage storage pools
 
 Now that you've created your storage pool, you can expand or delete it as needed.
 
-### Expand a storage pool
+## Expand a storage pool
 
-You can expand storage pools backed by local NVMe to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
+You can expand storage pools backed by temp SSD to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
 
 Because a storage pool backed by Ephemeral Disk uses local storage resources on the AKS cluster nodes (VMs), expanding the storage pool requires adding another node to the cluster. Follow these instructions to expand the storage pool.
 
@@ -189,7 +190,7 @@ Because a storage pool backed by Ephemeral Disk uses local storage resources on 
 
 1. Run `kubectl get sp -A` and you should see that the capacity of the storage pool has increased.
 
-### Delete a storage pool
+## Delete a storage pool
 
 If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
 
