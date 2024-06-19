@@ -34,7 +34,7 @@ You have the following options for creating a storage pool:
 - [Create a pre-provisioned storage pool](#create-a-pre-provisioned-storage-pool) using pre-provisioned Azure managed disks
 - [Create a dynamic storage pool using your own encryption key (optional)](#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional)
 
-If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this step and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this step and proceed to [Display the available storage classes](#2-display-the-available-storage-classes).
 
 #### Create a dynamic storage pool
 
@@ -77,7 +77,7 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
-When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`. Now you can [display the available storage classes](#display-the-available-storage-classes) and [create a persistent volume claim](#create-a-persistent-volume-claim).
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`. Now you can [display the available storage classes](#2-display-the-available-storage-classes) and [create a persistent volume claim](#3-create-a-persistent-volume-claim).
 
 #### Create a pre-provisioned storage pool
 
@@ -125,7 +125,7 @@ Follow these steps to create a pre-provisioned storage pool for Azure Disks.
    kubectl describe sp <storage-pool-name> -n acstor
    ```
 
-When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`. Now you can [display the available storage classes](#display-the-available-storage-classes) and [create a persistent volume claim](#create-a-persistent-volume-claim).
+When the storage pool is created, Azure Container Storage will create a storage class on your behalf, using the naming convention `acstor-<storage-pool-name>`. Now you can [display the available storage classes](#2-display-the-available-storage-classes) and [create a persistent volume claim](#3-create-a-persistent-volume-claim).
 
 #### Create a dynamic storage pool using your own encryption key (optional)
 
@@ -308,7 +308,7 @@ To detach a persistent volume, delete the pod that the persistent volume is atta
 kubectl delete pods <pod-name>
 ```
 
-To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
+To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#4-deploy-a-pod-and-attach-a-persistent-volume).
 
 To check which persistent volume a persistent volume claim is bound to, run `kubectl get pvc <persistent-volume-claim-name>`.
 
