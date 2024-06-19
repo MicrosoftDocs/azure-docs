@@ -33,7 +33,7 @@ By default, you configure your HTTP trigger function to accept any HTTP method. 
 
 1. Navigate to your function in the Azure portal. Select **Integration** in the left menu, and then select **HTTP (req)** under **Trigger**.
 
-    :::image type="content" source="./media/functions-create-serverless-api/customizing-http.png" alt-text="Customizing an HTTP function":::
+    :::image type="content" source="./media/functions-create-serverless-api/customizing-http.png" alt-text="Screenshot that shows how to edit the HTTP trigger settings of a function." lightbox="./media/functions-create-serverless-api/customizing-http.png":::
 
 1. Use the HTTP trigger settings as specified in the following table.
 
@@ -113,7 +113,7 @@ Repeat the steps in [Create a function app](./functions-create-function-app-port
     | Route template | /api/remotehello | Determines what route is used to invoke this proxy |
     | Backend URL | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
 
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Creating a proxy":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Screenshot that shows the settings in the New proxy page." lightbox="./media/functions-create-serverless-api/creating-proxy.png":::
 
     Because Azure Functions proxies don't provide the `/api` base path prefix, you must include it in the route template. The `%HELLO_HOST%` syntax references the app setting you created earlier. The resolved URL points to your original function.
 
@@ -196,7 +196,5 @@ In this article, you learned how to build and customize an API with Azure Functi
 For more information about developing your API:
 
 - [Azure Functions HTTP triggers and bindings overview](./functions-bindings-http-webhook.md)
-- [Working with Azure Functions proxies]
+- [Work with legacy proxies](./legacy-proxies.md)
 - [Expose serverless APIs from HTTP endpoints using Azure API Management](./functions-openapi-definition.md)
-
-[Work with legacy proxies]: ./legacy-proxies.md
