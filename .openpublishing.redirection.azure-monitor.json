@@ -1201,11 +1201,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/agents/agents-overview.md",
-            "redirect_url": "/azure/azure-monitor/agents/azure-monitor-agent-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-monitor/agents/use-azure-monitor-agent-troubleshooter.md",
             "redirect_url": "/azure/azure-monitor/agents/troubleshooter-ama-windows",
             "redirect_document_id": false
