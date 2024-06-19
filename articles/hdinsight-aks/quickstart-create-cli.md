@@ -141,11 +141,11 @@ Output:
 }
 ```
 
-For more information about cluster pool CLI commands, refer to these [commands](https://learn.microsoft.com/en-us/cli/azure/hdinsight-on-aks/clusterpool?view=azure-cli-latest).
+For more information about cluster pool CLI commands, refer to these [commands](/azure/hdinsight-on-aks/clusterpool).
 
 ## Clean up resources
 
-When no longer needed, clean up unnecessary resources to avoid Azure charges. You can remove the resource group, cluster pool, and all other resources in the resource group using the [`az group delete`][az-group-delete] command.
+When no longer needed, clean up unnecessary resources to avoid Azure charges. You can remove the resource group, cluster pool, and all other resources in the resource group using the `az group delete` command.
 
 > [!NOTE]
 > To delete a cluster pool, ensure there are no active clusters in the cluster pool.
