@@ -6,7 +6,7 @@ ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 04/01/2024
-ms.custom: template-tutorial
+ms.custom: template-tutorial, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-aks
 ---
 

@@ -170,6 +170,25 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 
 ![Enable admin user UI in the Azure portal][auth-portal-01]
 
+## Log in with an alternative container tool instead of Docker
+In some scenarios, you need to use alternative container tools like `podman` instead of the common container tool `docker`. For example: [Docker is no longer available in RHEL 8 and 9][docker-deprecated-redhat-8-9], so you have to switch your container tool.  
+
+The default container tool is set to `docker` for `az acr login` commands. If you don't set the default container tool and the `docker` command is missing in your environment, the following error will be popped:
+```bash
+az acr login --name <acrName>
+2024-03-29 07:30:10.014426 An error occurred: DOCKER_COMMAND_ERROR
+Please verify if Docker client is installed and running.
+```
+
+To change the default container tool that the `az acr login` command uses, you can set the environment variable `DOCKER_COMMAND`. For example: 
+```azurecli
+DOCKER_COMMAND=podman \
+az acr login --name <acrName>
+```
+
+> [!NOTE]
+> You need the Azure CLI version 2.59.0 or later installed and configured to use this feature. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
 ## Next steps
 
 * [Push your first image using the Azure CLI](container-registry-get-started-azure-cli.md)
@@ -178,3 +197,9 @@ You can enable the admin user in the Azure portal by navigating your registry, s
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
+
+<!-- EXTERNAL LINKS -->
+[docker-deprecated-redhat-8-9]: https://access.redhat.com/solutions/3696691
+
+<!-- INTERNAL LINKS -->
+[install-azure-cli]: /cli/azure/install-azure-cli

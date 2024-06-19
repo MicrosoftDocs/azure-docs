@@ -45,8 +45,8 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
         retry-after-variable-name="policy expression variable name"
         remaining-tokens-header-name="header name"  
         remaining-tokens-variable-name="policy expression variable name"
-        consumed-tokens-header-name="header name"
-        consumed-tokens-variable-name="policy expression variable name" />
+        tokens-consumed-header-name="header name"
+        tokens-consumed-variable-name="policy expression variable name" />
 ```
 ## Attributes
 
@@ -59,8 +59,8 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified `tokens-per-minute` is exceeded. Policy expressions aren't allowed. |  No | N/A  |
 | remaining-tokens-header-name    | The name of a response header whose value after each policy execution is the number of remaining tokens allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
 | remaining-tokens-variable-name    | The name of a variable that after each policy execution stores the number of remaining tokens allowed for the time interval. Policy expressions aren't allowed.|  No | N/A  |
-| consumed-tokens-header-name    | The name of a response header whose value is the number of tokens consumed by both prompt and completion. The header is added to response only after the response is received from backend. Policy expressions aren't allowed.|  No | N/A  |
-| consumed-tokens-variable-name    | The name of a variable initialized to the estimated number of tokens in the prompt in `backend` section of pipeline if `estimate-prompt-tokens` is `true` and zero otherwise. The variable is updated with the reported count upon receiving the response in `outbound` section.|  No | N/A  |
+| tokens-consumed-header-name    | The name of a response header whose value is the number of tokens consumed by both prompt and completion. The header is added to response only after the response is received from backend. Policy expressions aren't allowed.|  No | N/A  |
+| tokens-consumed-variable-name    | The name of a variable initialized to the estimated number of tokens in the prompt in `backend` section of pipeline if `estimate-prompt-tokens` is `true` and zero otherwise. The variable is updated with the reported count upon receiving the response in `outbound` section.|  No | N/A  |
 
 ## Usage
 
@@ -72,6 +72,7 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
 
 * This policy can be used multiple times per policy definition.
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
+* Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 
 ## Example

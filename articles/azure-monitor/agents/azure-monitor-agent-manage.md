@@ -78,6 +78,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
 | Agent Cache | Windows (Azure VM) | C:\WindowsAzure\Resources\AMADataStore.{DataStoreName} | 10.5 GB |
 | Agent Cache | Windows (Azure Arc) | C:\Resources\Directory\AMADataStore. {DataStoreName} | 10.5 GB |
 | Event Cache | Linux | /var/opt/microsoft/azuremonitoragent/events | 10 GB |
+| Event Cache | Linux | /var/lib/rsyslog | 1 GB |
 
 > [!NOTE]
 > This article only pertains to agent installation or management. After you install the agent, you must review the next article to [configure data collection rules and associate them with the machines](./data-collection-rule-azure-monitor-agent.md) with agents installed. *Azure Monitor Agents can't function without being associated with data collection rules.*

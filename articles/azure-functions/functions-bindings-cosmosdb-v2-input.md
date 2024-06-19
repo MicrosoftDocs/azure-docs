@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 03/02/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -35,7 +35,7 @@ Unless otherwise noted, examples in this article target version 3.x of the [Azur
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 

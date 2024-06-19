@@ -17,8 +17,6 @@ ms.custom:
 
 This article answers frequently asked questions about Azure Virtual Network Manager.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
-
 ## General
 
 ### Which Azure regions support Azure Virtual Network Manager?

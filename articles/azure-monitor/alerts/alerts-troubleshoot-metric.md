@@ -148,7 +148,7 @@ If you want to alert on [specific dimension values of a metric](./alerts-metric-
 - The displayed dimension values are based on metric data collected in the last day.
 - If the dimension value isn't yet emitted or isn't shown, you can use the **Add custom value** option to add a custom dimension value.
 - If you want to alert on all possible values of a dimension and even include future values, choose the **Select all current and future values** option.
-- Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- Custom metrics dimensions of Application Insights resources are turned off by default. To turn on the collection of dimensions for these custom metrics, see [Log-based and preaggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-preaggregation).
 
 ### You want to configure an alert rule on a custom metric that isn't emitted yet
 

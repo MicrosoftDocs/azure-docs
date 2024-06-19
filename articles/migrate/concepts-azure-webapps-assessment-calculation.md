@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.topic: conceptual
 ms.service: azure-migrate
 ms.date: 04/01/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-extended-java
 ---
 
 # Assessment overview (migrate to Azure App Service)

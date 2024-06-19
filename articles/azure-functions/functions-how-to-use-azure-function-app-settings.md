@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 12/28/2023
+ms.date: 06/15/2024
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -159,7 +159,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` with the resource group and function app names, respective. 
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 Run the following Azure PowerShell command to get your hosting plan type:
 
@@ -176,7 +176,7 @@ In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wit
 
 ## Plan migration
 
-You can use either the Azure portal or Azure CLI commands to migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
+You can migrate a function app between a Consumption plan and a Premium plan on Windows. When migrating between plans, keep in mind the following considerations:
 
 + Direct migration to a Dedicated (App Service) plan isn't currently supported.
 + Migration isn't supported on Linux. 
@@ -185,15 +185,45 @@ You can use either the Azure portal or Azure CLI commands to migrate a function 
 + Downtime in your function executions occurs as the function app is migrated between plans.
 + State and other app-specific content is maintained, since the same Azure Files share is used by the app both before and after migration.
 
-### Migration in the portal
+You can migrate your plan using these tools:
 
-In the Azure portal, navigate to your Consumption or Premium plan app and choose **Change App Service plan** under **App Service plan**. Select the other **Plan type**, create a new App Service plan of the new type, and select **OK**. For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
+### [Portal](#tab/portal)
 
-### Consumption to Premium
+You can use the [Azure portal](https://portal.azure.com) to switch to a different plan.
+
+### [Azure CLI](#tab/azure-cli)
+
+You can use the Azure CLI commands to manually create a new plan, switch your app to use the new plan, and delete the original plan.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+You can use Azure PowerShell commands to manually create a new plan, switch your app to use the new plan, and delete the original plan.
+
+---
+
+Choose the direction of the migration for your app on Windows.
+
+### [Consumption-to-Premium](#tab/to-premium/portal)
+
+1. In the Azure portal, navigate to your Consumption plan app and choose **Change App Service plan** under **App Service plan**.
+
+1. Select **Premium** under **Plan type**, create a new Premium plan, and select **OK**.
+
+For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
+
+### [Premium-to-Consumption](#tab/to-consumption/portal)
+
+1. In the Azure portal, navigate to your Premium plan app and choose **Change App Service plan** under **App Service plan**.
+
+1. Select **Consumption** under **Plan type**, create a new Consumption plan, and select **OK**.
+
+For more information, see [Move an app to another App Service plan](../app-service/app-service-plan-manage.md#move-an-app-to-another-app-service-plan).
+
+### [Consumption-to-Premium](#tab/to-premium/azure-cli)
 
 Use the following procedure to migrate from a Consumption plan to a Premium plan on Windows:
 
-1. Run the [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) command as follows to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app: 
+1. Run the [az functionapp create](/cli/azure/functionapp/plan#az-functionapp-plan-create) command as follows to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app: 
 
     ```azurecli-interactive
     az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
@@ -205,7 +235,7 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
     ```
 
-1. If you no longer need your previous Consumption function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Consumption plans in your resource group:
+1. When you no longer need the Consumption plan originally used by the app, delete your original plan after confirming you have successfully migrated to the new one. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Consumption plans in your resource group:
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
@@ -219,45 +249,102 @@ Use the following procedure to migrate from a Consumption plan to a Premium plan
     az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-### Premium to Consumption
+### [Premium-to-Consumption](#tab/to-consumption/azure-cli)
 
 Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
 
-1. Run the [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) command as follows to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs.
+1. Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command as follows to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs:
 
     ```azurecli-interactive
-    az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime <LANGUAGE_RUNTIME> --functions-version 4 --storage-account <STORAGE_NAME>
     ```
+    
+1. Run the [az functionapp show](/cli/azure/functionapp#az-functionapp-show) command as follows to get the name of the Consumption plan created with the new function app:
 
-1. Run the [az functionapp update](/cli/azure/functionapp#az-functionapp-update) command as follows to migrate the existing function app to the new Consumption plan.
+    ```azurecli-interactive
+    az functionapp show --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --query "{appServicePlanId}" -o tsv
+    ```
+    The Consumption plan name is the final segment of the fully-qualified resource ID that's returned. 
+    
+1. Run the [az functionapp update](/cli/azure/functionapp#az-functionapp-update) command as follows to migrate the existing function app to the new Consumption plan:
 
     ```azurecli-interactive
     az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN> --force
     ```
 
-1. Run the [az functionapp delete](/cli/azure/functionapp#az-functionapp-delete) command as follows to delete the function app you created in step 1, since you only need the plan that was created to run the existing function app.
+1. Run the [az functionapp delete](/cli/azure/functionapp#az-functionapp-delete) command as follows to delete the function app you created in step 1, since you only need the plan that was created to run the existing function app:
 
     ```azurecli-interactive
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Until the Premium plan is deleted, you continue to be charged for it. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
+1. When you no longer need the Premium plan originally used by the app, delete your original plan after confirming you have successfully migrated to the new one. Until the Premium plan is deleted, you continue to be charged for it. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group:
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
     ```
 
-1. Run the [az functionapp plan delete](/cli/azure/functionapp/plan#az-functionapp-plan-delete) command as follows  to delete the Premium plan you migrated from.
+1. Run the [az functionapp plan delete](/cli/azure/functionapp/plan#az-functionapp-plan-delete) command as follows to delete the Premium plan you migrated from:
 
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
     ```
+### [Consumption-to-Premium](#tab/to-premium/azure-powershell)
+
+Use the following procedure to migrate from a Consumption plan to a Premium plan on Windows:
+
+1. Run the [New-AzFunctionAppPlan](/powershell/module/az.functions/new-azfunctionappplan) command as follows to create a new App Service plan (Elastic Premium) in the same region and resource group as your existing function app: 
+
+    ```powershell-interactive
+    New-AzFunctionAppPlan -Name <NEW_PREMIUM_PLAN_NAME> -ResourceGroupName <MY_RESOURCE_GROUP> -Location <REGION> -Sku EP1 -WorkerType Windows
+    ```
+
+1. Run the [Update-AzFunctionApp](/powershell/module/az.functions/update-azfunctionapp) command as follows to migrate the existing function app to the new Premium plan:
+
+    ```powershell-interactive
+    Update-AzFunctionApp -Name <MY_APP_NAME> -ResourceGroupName <MY_RESOURCE_GROUP> -PlanName <NEW_PREMIUM_PLAN> -Force
+    ```
+
+1. When you no longer need the Consumption plan originally used by the app, you can run the [Remove-AzFunctionAppPlan](/powershell/module/az.functions/remove-azfunctionappplan) command as follows to delete the Consumption plan you migrated from:
+
+    ```powershell-interactive
+    Remove-AzFunctionAppPlan -Name <CONSUMPTION_PLAN_NAME> -ResourceGroupName <MY_RESOURCE_GROUP> -Force
+    ```
+
+### [Premium-to-Consumption](#tab/to-consumption/azure-powershell)
+
+Use the following procedure to migrate from a Premium plan to a Consumption plan on Windows:
+
+1. Run the [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) command as follows to create a new function app (Consumption) in the same region and resource group as your existing function app. This command also creates a new Consumption plan in which the function app runs: 
+
+    ```powershell-interactive
+    New-AzFunctionApp -Name <NEW_CONSUMPTION_APP_NAME> -StorageAccountName <STORAGE_NAME> -Location <REGION> -ResourceGroupName <MY_RESOURCE_GROUP> -Runtime <LANGUAGE_RUNTIME> -RuntimeVersion <LANGUAGE_VERSION> -FunctionsVersion 4 -OSType Windows
+    ```
+1. Run the [Get-AzFunctionApp](/powershell/module/az.functions/get-azfunctionapp) command as follows to get the name of the Consumption plan created with the new function app:
+
+    ```powershell-interactive
+    Get-AzFunctionApp -ResourceGroupName <MY_RESOURCE_GROUP> -Name <NEW_CONSUMPTION_APP_NAME> | Select-Object -Property AppServicePlan | Format-List
+    ```
+   
+1. Run the [Update-AzFunctionApp](/powershell/module/az.functions/update-azfunctionapp) command as follows to migrate the existing function app to the new Consumption plan:
+
+    ```powershell-interactive
+    Update-AzFunctionApp -Name <MY_APP_NAME> -ResourceGroupName <MY_RESOURCE_GROUP> -PlanName <NEW_CONSUMPTION_PLAN> -Force
+    ```
+
+1. When you no longer need the Consumption plan originally used by the app, you can run the [Remove-AzFunctionAppPlan](/powershell/module/az.functions/remove-azfunctionappplan) command as follows to delete the Consumption plan you migrated from:
+
+    ```powershell-interactive
+    Remove-AzFunctionAppPlan -Name <CONSUMPTION_PLAN_NAME> -ResourceGroupName <MY_RESOURCE_GROUP> -Force
+    ```
+
+---
 
 ## Get your function access keys
 
 HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization to your function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). There are several ways to get your  access keys. 
 
-# [Portal](#tab/portal)
+### [Portal](#tab/portal)
 
 1. Sign in to the Azure portal, then search for and select **Function App**.
 
@@ -269,7 +356,7 @@ HTTP triggered functions can generally be called by using a URL in the format: `
 
 You can also practice least privilege by using the key just for the specific function key by selecting **Function keys** under **Developer** in your HTTP triggered function. 
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Run the following script in Azure Cloud Shell, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app.
 
@@ -283,7 +370,7 @@ az rest --method POST --uri $path --query functionKeys.default --output tsv
 
 In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. This script runs on Bash in Cloud Shell. It must be modified to run in a Windows command prompt.  
 
-# [Azure PowerShell](#tab/azure-powershell)
+### [Azure PowerShell](#tab/azure-powershell)
 
 Run the following script, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app. 
 
@@ -303,11 +390,11 @@ In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your
 
 You must consider these limitations when developing your functions in the [Azure portal](https://portal.azure.com):
 
-+ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
-+ Python in-portal editing is only supported when running in the Consumption plan.       
 + In-portal editing is currently only supported for functions that were created or last modified in the portal.
++ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
++ In-portal editing isn't currently supported in the preview release of the [Flex Consumption plan](flex-consumption-plan.md#considerations).   
 + When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md). 
-+ For compiled C# functions, Java functions, and some Python functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
++ For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
@@ -395,13 +482,15 @@ When you use a source control solution to develop and maintain your functions co
 
 To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain. [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints on your function app.
 
-#### Portal
+#### [Portal](#tab/portal)
 
 When you configure the **Allowed origins** list for your function app, the `Access-Control-Allow-Origin` header is automatically added to all responses from HTTP endpoints in your function app. 
 
 ![Configure function app's CORS list](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
 The wildcard (\*) is ignored if there's another domain entry.
+
+#### [Azure CLI](#tab/azure-cli)
 
 Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
 
@@ -412,6 +501,12 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 ```
 
 Use the [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) command to list the current allowed origins.
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+You can't currently update CORS settings using Azure PowerShell.
+
+---
 
 ### <a name="auth"></a>Authentication
 

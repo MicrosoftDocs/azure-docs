@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Create a hierarchy of Azure IoT Edge devices
-description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices with secure communication. This IoT Edge configuration is also known as nested edge.
+title: Create a hierarchy of Azure IoT Edge devices
+description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices with secure communication. The configuration is also known as nested edge.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/10/2023
+ms.date: 06/10/2024
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: devx-track-azurecli

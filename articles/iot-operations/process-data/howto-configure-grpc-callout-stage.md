@@ -27,7 +27,7 @@ Use the _gRPC call out_ stage to call an external [gRPC](https://grpc.io/docs/wh
 
 To configure and use a gRPC cal lout pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor Preview.
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor instance.
 - The `protoc` tool to generate the descriptor.
 
