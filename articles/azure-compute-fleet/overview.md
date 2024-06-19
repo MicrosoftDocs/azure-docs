@@ -7,7 +7,7 @@ ms.topic: overview
 ms.service: azure-compute-fleet
 ms.custom:
   - build-2024
-ms.date: 05/21/2024
+ms.date: 06/19/2024
 ms.reviewer: jushiman
 ---
 
