@@ -1,6 +1,6 @@
 ---
 title: Concepts - Small and large language models
-description: Learn about small and large language models, including when and how you can use them with your Azure Kubernetes Service (AKS) AI and machine learning workloads.
+description: Learn about small and large language models, including when and how you can use them with your AI and machine learning workloads on Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 06/19/2024
 author: schaffererin
