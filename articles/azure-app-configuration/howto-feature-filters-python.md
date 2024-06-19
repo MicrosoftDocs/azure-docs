@@ -71,6 +71,10 @@ You've added a custom feature filter named **Random** with a **Percentage** para
         sleep(5)
     ```
 
+## Feature filter in action
+
+When you run the application the configuration provider will load the `Beta` feature flag from Azure App Configuration. Then every 5 seconds the result of the `is_enabled("Beta")` method will be printed to the console. As the `RandomFilter` is implemented and used by the `Beta` feature flag, the result will be `True` 50 percent of the time and `False` the other 50 percent of the time.
+
 ## Next steps
 
 To learn more about the built-in feature filters, continue to the following tutorials.
