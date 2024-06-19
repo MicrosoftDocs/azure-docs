@@ -15,22 +15,21 @@ ms.author: lajanuar
 
 Reference</br>
 Feature: **Azure AI Translator → Document Translation**</br>
-API Version: **2024-05-01**</br>
 
 Document Translation is a cloud-based feature of the Azure AI Translator service and is part of the Azure AI service family of REST APIs. The Batch Document Translation API translates documents across all [supported languages and dialects](../../language-support.md) while preserving document structure and data format. The available methods are listed in the following tables:
 
-## Current (preview)
+## API Version: **2024-05-01**
 
 > [!NOTE]
 >
-> * The current version is backward compatible with the stable version. You can use either version's operations to translate documents.
+> * The current version is backward compatible with the legacy version.
 >
 > * Starting with this current version, the `get supported storage sources` method is longer supported. The Translator service only supports Azure Blob storage.
 
 | Request|Method| Description|API path|
 |---------|:-------:|-------|-----|
 |***Single*** |***Synchronous***|***Document***|***Translation***|
-|[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?targetLanguage&api-version={date}`|
+|[**Translate document**](translate-document.md)|POST|Synchronously translate a single document.|`{document-translation-endpoint}/translator/document:translate?targetLanguage={target_language}&api-version={date}`|
 |||||
 |***Batch***|***Asynchronous***|***Documents***| ***Translation***|
 |[**Start translation**](start-translation.md)|POST| Start a batch document translation job.|`{document-translation-endpoint}/translator/document/batches?api-version={date}`|
@@ -42,7 +41,13 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 |[**Get supported document formats**](get-supported-document-formats.md)|GET| Request a list of supported document formats.|`{document-translation-endpoint}/translator/document/formats?api-version={date}&type=document`|
 |[**Get supported glossary formats**](get-supported-glossary-formats.md)|GET|Request a list of supported glossary formats.|`{document-translation-endpoint}/translator/document/formats?api-version={date}&type=glossary`|
 
-## Stable
+## Legacy
+
+> [!NOTE]
+>
+> * The legacy version is backward compatible with the current version. You can use either version's operations to translate documents.
+> * We recommend migrating your applications to the newest version to benefit from an enhanced experience and advanced capabilities.
+>
 
 | Request|Method| Description|API path|
 |---------|:-------|-------|-----|
@@ -59,9 +64,6 @@ Document Translation is a cloud-based feature of the Azure AI Translator service
 | [**Get supported document formats**](get-supported-document-formats.md)|GET| Request a list of supported document formats.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/documents/formats`|
 |[**Get supported glossary formats**](get-supported-glossary-formats.md)|GET|Request a list of supported glossary formats.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/glossaries/formats`|
 |[**Get supported storage sources**](get-supported-storage-sources.md)|GET|Request a list of supported storage sources/options. Currently, Translator service only supports Azure Blob storage.|`{document-translation-endpoint}.cognitiveservices.azure.com/translator/text/batch/v1.1/storagesources`|
-
-
-
 
 > [!div class="nextstepaction"]
 > [Explore our client libraries and SDKs for C# and Python programming languages.](../quickstarts/client-library-sdks.md).
