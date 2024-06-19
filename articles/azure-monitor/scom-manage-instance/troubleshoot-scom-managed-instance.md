@@ -96,10 +96,11 @@ This article describes the errors that might occur when you deploy or use Azure 
 
 **Cause**: Occurs due to the following reasons:
 
-             1.	User Managed Identity isn’t SQL Admin on the SQL MI.
-             2.	User Managed Identity is confirmed as SQL Admin on the SQL MI, and this is deployed using ARM, BICEP, Terraform or other deployment solution.
+         1.	User Managed Identity isn’t SQL Admin on the SQL MI.
+         2.	User Managed Identity is confirmed as SQL Admin on the SQL MI, and this is deployed using ARM, BICEP, Terraform or other deployment solution.
 
 **Resolution**: Ensure that the User Managed Identity is deployed using the AppId and not the ObjectId. You can confirm if this is applicable by navigating to the SQL MI, Microsoft Entra ID admin pane. Check if the guid that is listed with the User Managed Identity is the ObjectId or AppId of the Service Principal. When this is the ObjectId:
+
 - Set it using the portal
 - Redeploy with your preferred solution using the AppId.
 
