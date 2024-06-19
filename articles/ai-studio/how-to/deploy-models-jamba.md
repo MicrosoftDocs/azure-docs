@@ -76,10 +76,10 @@ These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deplo
 1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you,  there's a **Continue to deploy** option to select.
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
-1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-as-a-serverless-api) section.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-AI21-Jamba-Instruct-deployed-as-a-serverless-api).
+To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-ai21-jamba-instruct-deployed-as-a-serverless-api).
 
 ### Consume Jamba Instruct as a serverless API
 
