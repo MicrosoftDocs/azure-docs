@@ -821,10 +821,10 @@ The following list shows the supported add-on configurations for the add-on key 
   - Key name: `PodOverrides`, which is used to specify overrides for the default pod configuration.
   - Value type: Object
   - Properties
-    - `Containers`: This array contains the configuration for individual containers within the pod, only container named "gateway" is supported now.
-      - `Name`: Specifies the name of the container. The container should be named "gateway".
-      - `Lifecycle`: `PreStop` is a lifecycle hook that is executed when a container is about to be terminated. It allows you to perform any necessary cleanup before the container stops.
-    - `TerminationGracePeriodSeconds`: Specify the amount of time Kubernetes will wait for a pod to terminate gracefully before forcibly killing it.
+    - `Containers`: This array contains the configuration for individual containers within the pod. Only the container named `gateway` is supported currently.
+      - `Name`: Specifies the name of the container. The container should be named `gateway`.
+      - `Lifecycle`: `PreStop` is a lifecycle hook that's executed when a container is about to be terminated. This hook enables you to perform any necessary cleanup before the container stops.
+    - `TerminationGracePeriodSeconds`: Specifies the amount of time Kubernetes waits for a pod to terminate gracefully before forcibly killing it.
   - Example:
 
     ```json
@@ -853,9 +853,9 @@ The following list shows the supported add-on configurations for the add-on key 
     }
     ```
     
-    When a pod containing this container is being terminated, the `PreStop` hook will execute the command `/bin/sh -c 'sleep 20'`, causing the container to sleep for 20 seconds. This gives the container some time to complete any ongoing tasks or cleanup before it actually stops.
+    When a pod containing this container is being terminated, the `PreStop` hook executes the command `/bin/sh -c 'sleep 20'`, causing the container to sleep for 20 seconds. This pause gives the container some time to complete any ongoing tasks or cleanup before it actually stops.
     
-    The `TerminationGracePeriodSeconds` setting provides a total of 120 seconds for the pod to terminate gracefully, including the time taken by any lifecycle hooks such as `PreStop`.
+    The `TerminationGracePeriodSeconds` setting provides a total of 120 seconds for the pod to terminate gracefully, including the time taken by any lifecycle hooks, such as `PreStop`.
 
 Use the following steps to update the add-on configuration.
 
