@@ -4,7 +4,7 @@ description: "Concepts about the migration runtime server in migration service A
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/13/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---
