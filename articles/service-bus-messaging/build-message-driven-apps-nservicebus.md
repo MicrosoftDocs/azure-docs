@@ -302,7 +302,7 @@ In this sample, the Sender and Receiver endpoints are configured to run as conso
 [assembly: NServiceBusTriggerFunction("Sender")]
 public class Program
 {
-    public static Task Main()
+    public static async Task Main()
     {
         var host = new HostBuilder()
             .ConfigureFunctionsWorkerDefaults()
@@ -312,7 +312,7 @@ public class Program
             })
             .Build();
 
-        return host.RunAsync();
+        await host.RunAsync();
     }
 }
 ```
