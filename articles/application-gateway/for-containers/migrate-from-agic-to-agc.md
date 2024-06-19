@@ -12,8 +12,6 @@ ms.author: greglin
 
 # Migrate from Application Gateway Ingress Controller (AGIC) to Application Gateway for Containers
 
-## Overview
-
 Application Gateway Ingress Controller (AGIC) and Application Gateway for Containers are two solutions that enable application load balancing for Azure Kubernetes Service (AKS) services. In 2018, Application Gateway started Application Gateway Ingress Controller, which translated Kubernetes Ingress configuration to Application Gateway configuration. Over time, Kubernetes has pushed the requirements of scale, performance, and introduced a successor API to Ingress called Gateway API; which has lead to the introduction of Application Gateway for Containers.
 
 Application Gateway for Containers is the next evolution to Application Gateway Ingress Controller, providing benefits such as:
@@ -24,6 +22,8 @@ Application Gateway for Containers is the next evolution to Application Gateway 
 - Configuration via Azure or Kubernetes
 
 With the improvements provided, we recommended you begin the transition from Application Gateway Ingress Controller to Application Gateway for Containers.
+
+## Migration objectives
 
 Migration to Application Gateway for Containers is designed to meet three objectives:
 
@@ -37,7 +37,7 @@ This article provides an overview of migration strategy. See the following diagr
 
 In the example depicted, Application Gateway for Containers and Application Gateway Ingress Controller both service backend targets using unique frontends. After validation that Application Gateway for Containers is functioning as expected, traffic can be solely directed to the Application Gateway for Containers frontend and the configuration to Application Gateway Ingress Controller may be retired.
 
-## Features of AGIC that aren't currently available in Application Gateway for Containers
+## Feature dependencies and mappings
 
 Prior to migration, it is important to identify any dependencies on Application Gateway Ingress Controller that may not yet be available in Application Gateway for Containers. Workloads with dependency on these features should be prioritized later in your migration strategy until such capabilities are unblocked in Application Gateway for Containers.
 
