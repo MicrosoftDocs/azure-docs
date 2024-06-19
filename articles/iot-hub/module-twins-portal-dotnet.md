@@ -78,7 +78,7 @@ To create an app that updates the module twin, reported properties, follow these
 
 ### Install the latest Azure IoT Hub .NET device SDK
 
-Module identity and module twin is only available in the IoT Hub pre-release device SDKs. To install it, follow these steps:
+The module identity and module twin features are only available in the IoT Hub pre-release device SDKs. To install it, follow these steps:
 
 1. In Visual Studio, open **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**.
 

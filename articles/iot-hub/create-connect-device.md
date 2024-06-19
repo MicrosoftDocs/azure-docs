@@ -40,7 +40,7 @@ When you register a device, you choose its authentication method. IoT Hub suppor
 
 * **X.509 CA signed** - *This option is recommended for production scenarios.*
 
-  If your device has a CA-signed X.509 certificate, then you upload a root or intermediate certificate authority (CA) certificate in the signing chain to IoT Hub before you register the device.The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA. For more information, see [Authenticate identities with X.509 certificates](./authenticate-authorize-x509.md).
+  If your device has a CA-signed X.509 certificate, then you upload a root or intermediate certificate authority (CA) certificate in the signing chain to IoT Hub before you register the device. The device has an X.509 certificate with the verified X.509 CA in its certificate chain of trust. When the device connects, it presents its full certificate chain and the IoT hub can validate it because it knows the X.509 CA. Multiple devices can authenticate against the same verified X.509 CA. For more information, see [Authenticate identities with X.509 certificates](./authenticate-authorize-x509.md).
 
 ### Prepare certificates
 
@@ -66,7 +66,7 @@ Create a device identity in your IoT hub.
 
 1. Select **Add Device** to add a device in your IoT hub.
 
-   :::image type="content" source="./media/create-connect-device/add-device.png" alt-text="Screenshot that shows adding a new device in the Azure portal.":::
+   :::image type="content" source="./media/create-connect-device/add-device.png" alt-text="Screenshot that shows adding a new device in the Azure portal." lightbox="./media/create-connect-device/add-device.png":::
 
 1. In **Create a device**, provide the information for your new device identity:
 
