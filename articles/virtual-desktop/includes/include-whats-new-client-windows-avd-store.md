@@ -1,8 +1,8 @@
 ---
 ms.topic: include
-author: heidilohr
-ms.author: helohr
-ms.date: 06/11/2024 
+author: sipastak
+ms.author: sipastak
+ms.date: 06/19/2024 
 ---
 
 ## Supported client versions
@@ -11,40 +11,41 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5405  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5454  | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5454 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5454 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
+## Updates for version 1.2.5454
 
-## Updates for version 1.2.5454 (Insider)  
 *Date published: June 11, 2024* 
 
 In this release, we made the following changes:
 
 - Fixed an issue where the client crashed when a session is disconnected. 
 
->[!NOTE]
->This Insider release was originally version 1.2.5453, but we made a change to fix an issue with the client crashing when a session is disconnected and re-released as version 1.2.5454. This version contains all the changes made in 1.2.5450, 1.2.5452, and 1.2.5453. 
-
+> [!NOTE]
+> This Insider release was originally version 1.2.5453, but we made a change to fix an issue with the client crashing when a session is disconnected and re-released as version 1.2.5454. This version contains all the changes made in 1.2.5450, 1.2.5452, and 1.2.5453. 
 
 ## Updates for version 1.2.5453 
+
 *Date published: June 4, 2024* 
 
 In this release, we made the following changes:
 
 - Fixed an issue where the client crashed when responding to an incoming Teams call.  
 
->[!NOTE]
->This Insider release was originally version 1.2.5452, but we made a change to improve graphics and re-released as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
+> [!NOTE]
+> This Insider release was originally version 1.2.5452, but we made a change to improve graphics and re-released as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
 
 ## Updates for version 1.2.5452 
+
 *Date published: May 29, 2024* 
 
 In this release, we made the following changes:
 
 - Improve graphics presentation latency  
 
->[!NOTE]
->This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
+> [!NOTE]
+> This Insider release was originally version 1.2.5450, but we made a change to improve graphics and re-released as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
 
 ## Updates for version 1.2.5450 
 
