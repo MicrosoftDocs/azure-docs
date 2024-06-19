@@ -99,9 +99,9 @@
       href: key-vault-certs.md
     - name: SSL certificate management
       href: ssl-certificate-management.md
-  - name: Monitoring
+  - name: Health monitoring
     items:
-    - name: Overview of monitoring
+    - name: Monitor Application Gateway
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
