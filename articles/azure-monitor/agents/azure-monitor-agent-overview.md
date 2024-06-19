@@ -105,22 +105,7 @@ The following tables identify the different environments and features that are c
 
 
 
-## Install the agent and configure data collection
-
-
-> [!NOTE]
-> To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
-> Cloning a machine with Azure Monitor Agent installed is not supported. The best practice for these situations is to use [Azure Policy](../../azure-arc/servers/deploy-ama-policy.md) or an Infrastructure as a code tool to deploy AMA at scale.
-
-**To collect data using Azure Monitor Agent:**
-
-1. Install the agent on the resource.
-
-    | Resource type | Installation method | More information |
-    |:---|:---|:---|
-    | Virtual machines and VM scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent by using Azure extension framework. |
-    | On-premises Arc-enabled servers | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing the [Azure Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent by using Azure extension framework, provided for on-premises by first installing [Azure Arc agent](../../azure-arc/servers/deployment-options.md). |
-    | Windows 10, 11 Client Operating Systems | [Client installer](./azure-monitor-agent-windows-client.md) | Installs the agent by using a Windows MSI installer. The installer works on laptops, but the agent *isn't optimized yet* for battery or network consumption. |
+#
 
 1. Define a data collection rule and associate the resource to the rule.
 
