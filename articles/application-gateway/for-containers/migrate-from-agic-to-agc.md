@@ -82,10 +82,10 @@ Here's a summarized list of AGIC annotations and whether Application Gateway for
 
 Migration from Application Gateway Ingress Controller to Application Gateway for Containers is designed to be a four step process:
 
-[Step 1](#step-1-install-alb-controller): Install Application Gateway for Containers' ALB Controller<br>
-[Step 2](#step-2-translate-ingress): Translate AGIC Ingress to Application Gateway for Containers Ingress<br>
-[Step 3](#step-3-perform-end-to-end-validation): Perform end-to-end testing against Application Gateway for Containers<br>
-[Step 4](#step-4-direct-traffic-to-application-gateway-for-containers): Direct traffic from AGIC to Application Gateway for Containers
+1) [Step 1](#step-1-install-alb-controller): Install Application Gateway for Containers' ALB Controller
+2) [Step 2](#step-2-translate-ingress): Translate AGIC Ingress to Application Gateway for Containers Ingress
+3) [Step 3](#step-3-perform-end-to-end-validation): Perform end-to-end testing against Application Gateway for Containers
+4) [Step 4](#step-4-direct-traffic-to-application-gateway-for-containers): Direct traffic from AGIC to Application Gateway for Containers
 
 Steps 2 through 4 will be repeated for each service you plan to migrate.
 
@@ -112,9 +112,10 @@ Check the Ingress and Gateway setup by using a host file or DNS record to test t
 Once you've completed end-to-end testing, direct traffic to Application Gateway for Containers. Update public DNS records to point to the Application Gateway for Containers' frontend A record. In most cases, this would be in the form of a CNAME record or, if specifying an apex domain name, an alias record. Allow time for traffic to naturally flow to the Application Gateway for Containers frontend.
 
 > [!TIP]
-> 1) Prior to migration, identify the time to live (TTL) value of the DNS record currently serving traffic to the frontend of Application Gateway. Ensure the same amount of time and time configured in Application Gateway for connection draining to pass to ensure all clients have resolved the new DNS record to Application Gateway for Containers prior to retiring the Ingress / Gateway configuration to AGIC.
-> 2) Consider migration during a time of low-peak traffic to validate
-> 3) In the event migration does not behavior the way you anticipated, revert the DNS record to point back to the Application Gateway frontend and repeat the process.
+>
+> - Prior to migration, identify the time to live (TTL) value of the DNS record currently serving traffic to the frontend of Application Gateway. Ensure the same amount of time and time configured in Application Gateway for connection draining to pass to ensure all clients have resolved the new DNS record to Application Gateway for Containers prior to retiring the Ingress / Gateway configuration to AGIC.
+> - Consider migration during a time of low-peak traffic to validate
+> - In the event migration does not behavior the way you anticipated, revert the DNS record to point back to the Application Gateway frontend and repeat the process.
 
 ### Step 5: Deprecate Application Gateway Ingress Controller
 
@@ -148,7 +149,7 @@ helm uninstall ingress-azure
 
 After the ingress controller is removed, you will need to delete the Application Gateway resource.
 
->![Note]
+>[!Note]
 >If the aks add-on was provisioned in the context of referencing a previously deployed Application Gateway in Azure, you will need to delete the Application Gateway resource manually.
 
 ## Annotations
@@ -253,14 +254,14 @@ Application Gateway for Containers allows customers to reference prebuild TLS po
 
 To leverage this feature, you must leverage Gateway API. More details on TLS Policy are found [here](tls-policy.md).
 
->![Note]
+>[!Note]
 >The Predefined policy names and cipher suites are different from Application Gateway Ingress Controller. Please refer to the [predefined TLS policy table](tls-policy.md#predefined-tls-policy).
 
 #### Frontend TLS Policy in Ingress API
 
 Custom TLS policy isn't supported by Application Gateway for Containers today.
 
-### Session Affinity
+### Session affinity
 
 AGIC annotation
 
@@ -349,9 +350,9 @@ Connection draining is enabled by default for all Application Gateway for Contai
 
 Scenarios:
 
-1) Scale-in: When autoscaling scales in, connections are drained for 5 minutes. After 5 minutes, connections are closed and clients must initiate a new connection.
-2) Unhealthy health probe: When an unhealthy health probe is detected, connections persist until the client disconnects.
-3) Pod is removed from backend: When a pod is removed in AKS, Application Gateway for Containers continues to persist open connections until the client disconnects.
+- Scale-in: When autoscaling scales in, connections are drained for 5 minutes. After 5 minutes, connections are closed and clients must initiate a new connection.
+- Unhealthy health probe: When an unhealthy health probe is detected, connections persist until the client disconnects.
+- Pod is removed from backend: When a pod is removed in AKS, Application Gateway for Containers continues to persist open connections until the client disconnects.
 
 ### Request timeout
 
