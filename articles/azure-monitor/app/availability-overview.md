@@ -34,16 +34,16 @@ You can create up to 100 availability tests per Application Insights resource.
 > [!NOTE]
 > Availability tests are stored encrypted, according to [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) policies.
 
-## Availability test TLS support
-To provide best-in-class encryption, Availability Tests uses Transport Layer Security (TLS) 1.2 or higher as the encryption mechanism of choice. 
+## TLS support
+To provide best-in-class encryption, all availability tests use Transport Layer Security (TLS) 1.2 or higher as the encryption mechanism of choice.
 
 > [!WARNING]
-> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) TLS 1.0/1.1 protocol versions and TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights Availability Tests. 
+> On 31 October 2024, in alignment with the [Azure wide legacy TLS deprecation](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) TLS 1.0/1.1 protocol versions and TLS 1.2/1.3 legacy Cipher suites and Elliptical curves will be retired for Application Insights availability tests. 
 
 ### Supported TLS configurations
-TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for Availability Tests. In addition, the following Cipher suites and Elliptical curves are also supported within each version.
+TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for availability tests. In addition, the following Cipher suites and Elliptical curves are also supported within each version.
 > [!NOTE]
-> TLS 1.3 is currently only available in these Availability Test regions: NorthCentralUS, CentralUS, EastUS, SouthCentralUS, WestUS 
+> TLS 1.3 is currently only available in these availability test regions: NorthCentralUS, CentralUS, EastUS, SouthCentralUS, WestUS 
 
 #### TLS 1.2
 **Cipher suites**
@@ -126,7 +126,7 @@ This section provides answers to common questions.
 
 ### General
 
-#### Can I run Availability tests on an intranet server?
+#### Can I run availability tests on an intranet server?
 
 Our [web tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) run on points of presence that are distributed around the globe. There are two solutions:
           
@@ -140,10 +140,10 @@ The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Tr
 ### TLS Support 
 
 #### How does this deprecation impact my web test behavior?
-Availability Tests acts as a distributed client in each of the supported web test locations. Every time a web test is executed the Availability Test service attempts to reach out to the remote endpoint defined in the web test configuration. A TLS Client Hello message is sent which contains all the currently supported TLS configuration. If the remote endpoint shares a common TLS configuration with the Availability Test client, then the TLS handshake succeeds. Otherwise, the web test fails with a TLS handshake failure. 
+Availability tests act as a distributed client in each of the supported web test locations. Every time a web test is executed the availability test service attempts to reach out to the remote endpoint defined in the web test configuration. A TLS Client Hello message is sent which contains all the currently supported TLS configuration. If the remote endpoint shares a common TLS configuration with the availability test client, then the TLS handshake succeeds. Otherwise, the web test fails with a TLS handshake failure. 
 
 #### How do I ensure my web test isn't impacted?
-To avoid any impact, each remote endpoint (including dependent requests) your web test interacts with needs to support at least one combination of the same Protocol Version, Cipher Suite, and Elliptical Curve that Availability Test does. If the remote endpoint doesn't support the needed TLS configuration, it needs to be updated with support for some combination of the above-mentioned post-deprecation TLS configuration. These endpoints can be discovered through viewing the [Transaction Details](/azure/azure-monitor/app/availability-standard-tests) of your web test (ideally for a successful web test execution). 
+To avoid any impact, each remote endpoint (including dependent requests) your web test interacts with needs to support at least one combination of the same Protocol Version, Cipher Suite, and Elliptical Curve that availability test does. If the remote endpoint doesn't support the needed TLS configuration, it needs to be updated with support for some combination of the above-mentioned post-deprecation TLS configuration. These endpoints can be discovered through viewing the [Transaction Details](/azure/azure-monitor/app/availability-standard-tests) of your web test (ideally for a successful web test execution). 
 
 > [!NOTE]
 > For steps to enable the needed TLS configuration on your web server, it is best to reach out to the team that owns the hosting platform your web server runs on if the process is not known. 
@@ -155,10 +155,10 @@ There's no one exception type that all TLS handshake failures impacted by this d
 There are several tools available to test what TLS configuration an endpoint supports. One way would be to follow the example detailed on this [page](/security/engineering/solving-tls1-problem). If your remote endpoint isn't available via the Public internet, you need to ensure you validate the TLS configuration supported on the remote endpoint from a machine that has access to call your endpoint. 
 
 #### Can I view what TLS configuration is currently in use by my web test?
-The TLS configuration negotiated during a web test execution can't be viewed. As long as the remote endpoint supports common TLS configuration with Availability Tests, no impact should be seen post-deprecation. 
+The TLS configuration negotiated during a web test execution can't be viewed. As long as the remote endpoint supports common TLS configuration with availability tests, no impact should be seen post-deprecation. 
 
-#### Which components does the deprecation affect in the Availability Test Service?
-The TLS deprecation detailed in this document should only affect the Availability Test web test execution behavior after October 31, 2024. For more information about interacting with the Availability Test service for CRUD operations, see [Azure Resource Manager TLS Support](/azure/azure-resource-manager/management/tls-support). This resource provides more details on TLS support and deprecation timelines.
+#### Which components does the deprecation affect in the availability test service?
+The TLS deprecation detailed in this document should only affect the availability test web test execution behavior after October 31, 2024. For more information about interacting with the availability test service for CRUD operations, see [Azure Resource Manager TLS Support](/azure/azure-resource-manager/management/tls-support). This resource provides more details on TLS support and deprecation timelines.
 
 #### Where can I get TLS support?
 For any general questions around the legacy TLS problem, see [Solving TLS problems](/security/engineering/solving-tls1-problem).
@@ -166,7 +166,7 @@ For any general questions around the legacy TLS problem, see [Solving TLS proble
 ## Troubleshooting
 
 > [!WARNING]
-> We have recently enabled TLS 1.3 in Availability Tests. If you are seeing new error messages as a result, please ensure that clients running on Windows Server 2022 with TLS 1.3 enabled can connect to your endpoint. If you are unable to do this, you may consider temporarily disabling TLS 1.3 on your endpoint so that Availability Tests will fall back to older TLS versions.  
+> We have recently enabled TLS 1.3 in availability tests. If you are seeing new error messages as a result, please ensure that clients running on Windows Server 2022 with TLS 1.3 enabled can connect to your endpoint. If you are unable to do this, you may consider temporarily disabling TLS 1.3 on your endpoint so that availability tests will fall back to older TLS versions.  
 > For additional information, please check the  [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/troubleshoot-availability).
 
