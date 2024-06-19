@@ -26,6 +26,7 @@ In this quickstart, you create a cluster replica in another region for an Azure 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- [MongoDB shell](https://www.mongodb.com/try/download/shell)
 
 ## Create a cluster replica for a new cluster
 
@@ -53,7 +54,7 @@ Create a MongoDB cluster with a cluster read replica in another region by using 
     :::image type="content" source="media/quickstart-cross-region-replication/select-access-to-cross-region-replication-preview.png" alt-text="Screenshot of the access to global distribution preview.":::
   
     > [!IMPORTANT]
-  > You should select **Access to global distribution (preview)** during provisioning to be able to create a preview replica cluster.
+   > You should select **Access to global distribution (preview)** during provisioning to be able to create a preview replica cluster.
 
 1. On the **Create Azure Cosmos DB for MongoDB cluster** page, select the **Configure** option within the **Cluster tier** section.
 
@@ -87,7 +88,7 @@ Create a MongoDB cluster with a cluster read replica in another region by using 
 
 1. Select **Next: Global distribution (preview)**.
 
-1. Select **Enable** for **Read replica in another region (preview)** to create a cluster read replica as a part of this new primary cluster provisioning.
+1. On the **Global distribution (preview)** tab, select **Enable** for **Read replica in another region (preview)** to create a cluster read replica as a part of this new primary cluster provisioning.
 
 1. In the **Read replica name** field, enter a name for the cluster read replica. It should be a globally unique cluster name.
 
@@ -109,26 +110,30 @@ You can also select add 0.0.0.0 - 255.255.255.255 firewall rule to allow not jus
 
 1. Select **Review + create**.
 
-1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the cluster. Wait for the portal page to display **Your deployment is complete** before moving on.
+1. Review the settings you provided, and then select **Create**. It takes a few minutes to create the cluster. Wait for the portal page to display **Your deployment is complete** before moving on.
 
 1. Select **Go to resource** to go to the Azure Cosmos DB for MongoDB cluster page.
 
    :::image type="content" source="media/quickstart-portal/deployment-complete.png" alt-text="Screenshot of the deployment page for a cluster.":::
 
-## Get cluster credentials
+## Connect to the cluster and ingest data
 
-Get the connection string you need to connect to this cluster using your application code.
+Get the connection string you need to connect to this primary cluster using your application code.
 
-1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **Connection strings** navigation menu option.
+1. From the Azure Cosmos DB for MongoDB vCore primary cluster page, select the **Connection strings** navigation menu option under **Settings**.
 
-   :::image type="content" source="media/quickstart-portal/select-connection-strings-option.png" alt-text="Screenshot of the connection strings option on the page for a cluster.":::
+   :::image type="content" source="media/quickstart-cross-region-replication/select-connection-strings-option.png" alt-text="Screenshot of the connection strings page in the cluster propteries.":::
 
 1. Record the value from the **Connection string** field.
-
-   :::image type="content" source="media/quickstart-portal/connection-string-value.png" alt-text="Screenshot of the connection string credential for a cluster.":::
-
+   
     > [!IMPORTANT]
-    > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you used when you originally created the cluster.
+    > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you entered when you created the cluster.
+
+1. In MongoDB shell, connect to the primary cluster using the connection string.
+
+```Mongo Shell
+mongosh mongodb+srv://`<user>`@`<cluster_name>`.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
+```
 
 ## Clean up resources
 
