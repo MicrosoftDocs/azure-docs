@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > - Create an instance of Azure Database Migration Service
 > - Start your migration and monitor progress to completion
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 > [!IMPORTANT]  
 > Currently, *online* migrations for Azure SQL Database targets aren't available.

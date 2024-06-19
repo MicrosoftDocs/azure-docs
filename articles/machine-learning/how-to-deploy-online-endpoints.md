@@ -11,7 +11,7 @@ ms.reviewer: mopeakande
 ms.date: 04/30/2024
 reviewer: msakande
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, sdkv2, update-code
+ms.custom: how-to, devplatv2, cliv2, sdkv2, update-code, devx-track-azurecli
 ---
 
 # Deploy and score a machine learning model by using an online endpoint

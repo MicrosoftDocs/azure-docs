@@ -41,7 +41,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Any unsupported persistent volume type is skipped while a backup is being created for the AKS cluster.
 
-- Currently, AKS clusters using a Service Principal aren't supported. If your AKS cluster uses a Service Principal, you can [update your AKS cluster to use a System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- Currently, AKS clusters using a service principal aren't supported. If your AKS cluster uses a service principal for authorization, you can update the cluster to use a [system-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
 - You can only install the Backup Extension on agent nodes with Ubuntu and Azure Linux as Operating System. AKS Clusters with Windows based agent nodes do not allow Backup Extension installation.
 
