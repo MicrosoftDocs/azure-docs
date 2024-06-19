@@ -57,7 +57,7 @@ A search service is always created with [API keys](search-security-api-keys.md).
 
 1. [Enable roles](search-security-enable-roles.md) on your search service.
 
-1. For administration, [assign data plane roles](search-security-rbac.md). Role assignments that include Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader replace the functionality lost when you disable API keys.
+1. For administration, [assign data plane roles](search-security-rbac.md) to replace the functionality lost when you disable API keys. Role assignments include Search Service Contributor, Search Index Data Contributor, and Search Index Data Reader. You need all three.
 
    Sometimes it can take five to ten minutes for role assignments to take effect. Until that happens, the following message appears in the portal pages used for data plane operations.
 
