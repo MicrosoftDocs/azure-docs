@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
+      "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
+      "redirect_document_id": false
+    },
         {
              "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-cli.md",
              "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-cli",
