@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-This topic describes the basic requirements for installing the Connected Machine agent to onboard a physical server or virtual machine to Azure Arc-enabled servers. Some [onboarding methods](deployment-options.md) may have more requirements.
+This article describes the basic requirements for installing the Connected Machine agent to onboard a physical server or virtual machine to Azure Arc-enabled servers. Some [onboarding methods](deployment-options.md) may have more requirements.
 
 ## Supported environments
 
@@ -97,13 +97,13 @@ Linux operating systems:
 
 ## Local user logon right for Windows systems
 
-The Azure Hybrid Instance Metadata Service runs under a low-privileged virtual account, `NT SERVICE\himds`. This account needs the "log on as a service" right in Windows to run. In most cases, there's nothing you need to do because this right is granted to virtual accounts by default. However, if your organization uses Group Policy to customize this setting, you will need to add `NT SERVICE\himds` to the list of accounts allowed to log on as a service.
+The Azure Hybrid Instance Metadata Service runs under a low-privileged virtual account, `NT SERVICE\himds`. This account needs the "log on as a service" right in Windows to run. In most cases, there's nothing you need to do because this right is granted to virtual accounts by default. However, if your organization uses Group Policy to customize this setting, you'll need to add `NT SERVICE\himds` to the list of accounts allowed to log on as a service.
 
 You can check the current policy on your machine by opening the Local Group Policy Editor (`gpedit.msc`) from the Start menu and navigating to the following policy item:
 
 Computer Configuration > Windows Settings > Security Settings > Local Policies > User Rights Assignment > Log on as a service
 
-Check if any of `NT SERVICE\ALL SERVICES`, `NT SERVICE\himds`, or `S-1-5-80-4215458991-2034252225-2287069555-1155419622-2701885083` (the static security identifier for NT SERVICE\\himds) are in the list. If none are in the list, you'll need to work with your Group Policy administrator to add `NT SERVICE\himds` to any policies that configure user rights assignments on your servers. The Group Policy administrator will need to make the change on a computer with the Azure Connected Machine agent installed so the object picker resolves the identity correctly. The agent doesn't need to be configured or connected to Azure to make this change.
+Check if any of `NT SERVICE\ALL SERVICES`, `NT SERVICE\himds`, or `S-1-5-80-4215458991-2034252225-2287069555-1155419622-2701885083` (the static security identifier for NT SERVICE\\himds) are in the list. If none are in the list, you'll need to work with your Group Policy administrator to add `NT SERVICE\himds` to any policies that configure user rights assignments on your servers. The Group Policy administrator needs to make the change on a computer with the Azure Connected Machine agent installed so the object picker resolves the identity correctly. The agent doesn't need to be configured or connected to Azure to make this change.
 
 :::image type="content" source="media/prerequisites/arc-server-user-rights-assignment.png" alt-text="Screen capture of the Local Group Policy Editor showing which users have permissions to log on as a service." border="true":::
 
@@ -117,7 +117,7 @@ You'll need the following Azure built-in roles for different aspects of managing
 
 ## Azure subscription and service limits
 
-There are no limits to the number of Azure Arc-enabled servers you can register in any single resource group, subscription or tenant.
+There are no limits to the number of Azure Arc-enabled servers you can register in any single resource group, subscription, or tenant.
 
 Each Azure Arc-enabled server is associated with a Microsoft Entra object and counts against your directory quota. See [Microsoft Entra service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) for information about the maximum number of objects you can have in a Microsoft Entra directory.
 
