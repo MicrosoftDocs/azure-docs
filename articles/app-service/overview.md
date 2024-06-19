@@ -40,10 +40,6 @@ Azure App Service is a fully managed platform as a service (PaaS) offering for d
 
 Besides App Service, Azure offers other services that can be used for hosting websites and web applications. For most scenarios, App Service is the best choice.  For microservice architecture, consider [Azure Spring Apps](../spring-apps/index.yml) or [Service Fabric](../service-fabric/index.yml).  If you need more control over the VMs on which your code runs, consider [Azure Virtual Machines](../virtual-machines/index.yml). For more information about how to choose between these Azure services, see [Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-## App Service Environments
-
-An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service offering where supporting ingfrastructure is shared, compute is dedicated to a single customer with App Service Environment. For more information on the differences between App Service Environment and App Service, see the [comparison](ase-multi-tenant-comparison.md).
-
 ## App Service on Linux
 
 App Service can also host web apps natively on Linux for supported application stacks. It can also run custom Linux containers (also known as Web App for Containers).
@@ -64,6 +60,9 @@ If you need to create another web app with an outdated runtime version that is n
 * The Azure portal shows only features that currently work for Linux apps. As features are enabled, they're activated on the portal.
 * When deployed to built-in images, your code and content are allocated a storage volume for web content, backed by Azure Storage. The disk latency of this volume is higher and more variable than the latency of the container filesystem. Apps that require heavy read-only access to content files may benefit from the custom container option, which places files in the container filesystem instead of on the content volume.
 
+## App Service Environments
+
+An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service offering where supporting ingfrastructure is shared, compute is dedicated to a single customer with App Service Environment. For more information on the differences between App Service Environment and App Service, see the [comparison](ase-multi-tenant-comparison.md).
 
 ## Next steps
 
