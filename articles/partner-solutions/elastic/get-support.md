@@ -4,7 +4,7 @@ description: This article describes how to contact support for an Elastic resour
 author: flang-msft
 ms.author: franlanglois
 ms.topic: conceptual
-ms.date: 20/06/2024
+ms.date: 06/20/2024
 
 ---
 
