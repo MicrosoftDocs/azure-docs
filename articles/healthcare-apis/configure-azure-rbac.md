@@ -1,22 +1,21 @@
 ---
 title: Configure Azure RBAC role for the FHIR service in Azure Health Data Services
-description: This article describes how to configure Azure RBAC role for FHIR.
+description: Learn how to configure Azure RBAC for the FHIR service in Azure Health Data Services. Assign roles, manage access, and safeguard your data plane.
 author: chachachachami
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
 ms.author: chrupa
 --- 
-
 # Configure Azure RBAC roles for Azure Health Data Services
 
-In this article, you learn how to use [Azure role-based access control (Azure RBAC role)](../role-based-access-control/index.yml) to assign access to the Azure Health Data Services data plane. Azure RBAC role is the preferred method for assigning data plane access when data plane users are managed in the Microsoft Entra tenant associated with your Azure subscription.
+In this article, you learn how to use [Azure role-based access control (RBAC)](../role-based-access-control/index.yml) to assign access to the Azure Health Data Services data plane. Using Azure RBAC roles is the preferred method for assigning data plane access when data plane users are managed in the Microsoft Entra tenant associated with your Azure subscription.
 
-You can complete role assignments in the Azure portal. The FHIR service and DICOM&reg; service define application roles differently. Add or remove one or more roles to manage user access controls.
+You can complete role assignments in the Azure portal. The FHIR&reg; service and DICOM&reg; service define application roles differently. Add or remove one or more roles to manage user access controls.
 
 ## Assign roles for the FHIR service
 
-To grant users, service principals, or groups access to the FHIR data plane, select the FHIR service from the Azure portal. Select **Access control (IAM)**, and then select the **Role assignments** tab. Select **+Add**, and then select **Add role assignment**.
+To grant users, service principals, or groups access to the FHIR data plane, go to the FHIR service in the Azure portal. Select **Access control (IAM)**, and then select the **Role assignments** tab. Select **+Add**, and then select **Add role assignment**.
 
 If the role assignment option is grayed out, ask your Azure subscription administrator to grant you with the permissions to the subscription or the resource group, for example, **User Access Administrator**. For more information, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
