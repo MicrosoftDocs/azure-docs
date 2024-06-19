@@ -43,7 +43,7 @@ Create a VM with trusted launch enabled. Choose one of the following options.
 1. On the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
 1. Under **Project details**, make sure the correct subscription is selected.
 1. Under **Resource group**, select **Create new**. Enter a name for your resource group or select an existing resource group from the dropdown list.
-1. Under **Instance details**, enter a name for the VM name and choose a region that supports [trusted launch](trusted-launch.md#additional-information).
+1. Under **Instance details**, enter a name for the VM name and choose a region that supports [trusted launch](trusted-launch.md#more-information).
 1. For **Security type**, select **Trusted launch virtual machines**. When the options **Secure boot**, **vTPM**, and **Integrity Monitoring** appear, select the appropriate options for your deployment. For more information, see [Trusted launch-enabled security features](trusted-launch.md#microsoft-defender-for-cloud-integration).
 
     :::image type="content" source="./media/trusted-launch/tvm-popup.png" alt-text="Screenshot that shows the options for trusted launch.":::
@@ -53,7 +53,7 @@ Create a VM with trusted launch enabled. Choose one of the following options.
    > If you don't see the Gen 2 version of the image that you want in the dropdown list, select **See all images**. Then change the **Security type** filter to **Trusted Launch**.
 1.	Select a VM size that supports trusted launch. For more information, see the list of [supported sizes](trusted-launch.md#virtual-machines-sizes).
 1.	Fill in the **Administrator account** information and then **Inbound port rules**.
-1.	At the bottom of the page, select **Review + Create**
+1.	At the bottom of the page, select **Review + Create**.
 1.	On the **Create a virtual machine** page, you can see the information about the VM you're about to deploy. After validation shows as passed, select **Create**.
 
    :::image type="content" source="./media/trusted-launch/tvm-complete.png" alt-text="Sceenshot that shows the validation page with the trusted launch options.":::
@@ -86,7 +86,7 @@ Make sure that you're running the latest version of the Azure CLI.
        --enable-vtpm true 
     ```
 
-1. For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the VM with secure boot and vTPM settings trigger auto-reboot.
+1. For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the VM with secure boot and vTPM settings triggers auto-reboot.
 
     ```azurecli-interactive
     az vm update \
@@ -385,7 +385,7 @@ You can use the resulting image version to create Azure trusted launch VMs only.
 1. Under **Instance details**, enter a name for the VM name and choose a region that supports [trusted launch](trusted-launch.md#virtual-machines-sizes).
 1. The image and the security type are already populated based on the selected image version. The **Secure Boot** and **vTPM** checkboxes are enabled by default.
 1. Fill in the **Administrator account** information and then **Inbound port rules**.
-1. At the bottom of the page, select **Review + Create**
+1. At the bottom of the page, select **Review + Create**.
 1. On the validation page, review the details of the VM.
 1. After the validation succeeds, select **Create** to finish creating the VM.
 

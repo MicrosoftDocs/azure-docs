@@ -108,7 +108,7 @@ HVCI is a powerful system mitigation that protects Windows kernel-mode processes
 
 With trusted launch and VBS, you can enable Windows Defender Credential Guard. Credential Guard isolates and protects secrets so that only privileged system software can access them. It helps prevent unauthorized access to secrets and credential theft attacks, like Pass-the-Hash attacks. For more information, see [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
-## Defender for Cloud integration
+## Microsoft Defender for Cloud integration
 
 Trusted launch is integrated with Defender for Cloud to ensure that your VMs are properly configured. Defender for Cloud continually assesses compatible VMs and issues relevant recommendations:
 
