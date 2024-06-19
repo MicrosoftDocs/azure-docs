@@ -50,7 +50,7 @@ This article assumes the Azure portal for network access configuration. You can 
 
    :::image type="content" source="media/service-configure-firewall/azure-portal-firewall-all.png" alt-text="Screenshot showing how to configure the IP firewall in the Azure portal.":::
 
-1. Under **IP Firewall**, select **Add your client IP address** to create an inbound rule for the public IP address of your system.
+1. Under **IP Firewall**, select **Add your client IP address** to create an inbound rule for the public IP address of your system. See [Allow access from the Azure portal IP address](#allow-access-from-the-azure-portal-ip-address) for details.
 
 1. Add other client IP addresses for other devices and services that send requests to a search service.
 
@@ -63,13 +63,16 @@ This article assumes the Azure portal for network access configuration. You can 
    + `Microsoft.CognitiveServices` for Azure OpenAI and Azure AI services
    + `Microsoft.MachineLearningServices` for Azure Machine Learning
 
-   You take a dependency on Microsoft Entra ID authentication, managed identities, and role assignments if you choose the trusted service exception. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for details.
+   When you enable this exception, you take a dependency on Microsoft Entra ID authentication, managed identities, and role assignments if you choose the trusted service exception. Any Azure AI service or AML feature that has a valid role assignment can pass the firewall. See [Grant access to trusted services](#grant-access-to-trusted-azure-services) for more details.
 
 1. **Save** your changes.
 
 After you enable the IP access control policy for your Azure AI Search service, all requests to the data plane from machines outside the allowed list of IP address ranges are rejected.
 
 When requests originate from IP addresses that aren't in the allowed list, a generic **403 Forbidden** response is returned with no other details.
+
+> [!IMPORTANT]
+> It can take several minutes for changes to take effect. Wait at least 15 minutes before troubleshooting any problems related to network configuration.
 
 <a id="allow-access-from-your-client-and-portal-ip"></a>
 
@@ -99,6 +102,10 @@ Aliases:  stamp2.ext.search.windows.net
 When services run in different regions, they connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
 For ping, the request times out, but the IP address is visible in the response. For example, in the message `"Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]"`, the IP address is `52.252.175.48`.
+
+A banner informs you that IP rules affect the portal experience. This banner remains visible even after you add the portal's IP address. Remember to wait several minutes for network rules to take effect before testing.
+
+:::image type="content" source="media/service-configure-firewall/restricted-access.png" alt-text="Screenshot showing the restricted access banner.":::
 
 ## Grant access to trusted Azure services
 
