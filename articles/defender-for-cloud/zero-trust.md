@@ -9,7 +9,7 @@ ms.collection:
 
 # Zero Trust infrastructure and integrations
 
-[!INCLUDE [zero-trust-principles](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles.md)]
+[!INCLUDE [zero-trust-principles](../../includes/security/zero-trust-principles.md)]
 
 Infrastructure comprises the hardware, software, micro-services, networking infrastructure, and facilities required to support IT services for an organization. Zero Trust infrastructure solutions assess, monitor, and prevent security threats to these services.
 

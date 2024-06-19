@@ -20,12 +20,12 @@ In this article, you'll configure the built-in container image registry for an A
 
 ## Before you begin
 
-This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./tutorial-create-cluster.md)). If you would like to configure Microsoft Entra integration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
+This article assumes you have an existing ARO cluster (see [Create an Azure Red Hat OpenShift 4 cluster](./create-cluster.md)). If you would like to configure Microsoft Entra integration, make sure to create the cluster with the `--pull-secret` argument to `az aro create`.
 
 > [!NOTE]
 > [Configuring Microsoft Entra authentication](./configure-azure-ad-ui.md#configure-openshift-openid-authentication) for your cluster is the easiest way to interact with the internal registry from outside the cluster.
 
-Once you have your cluster, [connect to the cluster](./tutorial-connect-cluster.md) by authenticating as the `kubeadmin` user.
+Once you have your cluster, [connect to the cluster](./connect-cluster.md) by authenticating as the `kubeadmin` user.
 
 ## Configure authentication to the registry
 
