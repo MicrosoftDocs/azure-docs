@@ -101,11 +101,11 @@ You can consume Jamba Instruct models as follows:
 1. Copy the **Target** URL and the **Key** token values.
 1. Make an API request using either the [Azure AI Model Inference API](reference-model-inference-api.md) on the route `/chat/completions` or the [AI21's Azure Client](https://docs.ai21.com/reference/jamba-instruct-api) on `/v1/chat/completions`.
 
-For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-a-serverless-api) section.
+For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-as-a-serverless-api) section.
 
 
 
-### Reference for Jamba Instruct deployed a serverless API
+## Reference for Jamba Instruct deployed as a serverless API
 
 Jamba Instruct models accept both of these APIs:
 
