@@ -31,14 +31,14 @@ Before you can collect IIS logs from the machine, you must ensure that IIS loggi
 
 The default location for IIS log files is **C:\\inetpub\\logs\\LogFiles\\W3SVC1**. Verify that log files are being written to this location or check your IIS configuration to identify an alternate location. Check the timestamps of the log files to ensure that they're recent.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
+:::image type="content" source="media/data-collection-iis/iis-log-format-setting.png" lightbox="media/data-collection-iis/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
 
 
 ## Configure IIS log data source
 
 Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **IIS Logs** from the **Data source type** dropdown. Specify a file pattern to identify the directory where the log files are located.
 
-    :::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
+:::image type="content" source="media/data-collection-iis/iis-data-collection-rule.png" lightbox="media/data-collection-iis/iis-data-collection-rule.png" alt-text="Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.":::
 
 
 

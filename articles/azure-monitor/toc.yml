@@ -712,26 +712,28 @@ items:
         - name: Virtual machines
           href: agents/azure-monitor-agent-manage.md
         - name: Windows clients
-          href: agents/azure-monitor-agent-windows-client.md
+          href: agents/azure-monitor-agent-windows-client.md   
       - name: Configure data collection
-        displayName: Azure Monitor agent, AMA
-        href: agents/azure-monitor-agent-data-collection.md      
-      - name: Data sources
         items:
-        - name: Windows events
-          displayName: data collection rule,Azure Monitor agent
-          href: agents/data-collection-windows-event.md
-        - name: Syslog events
-          href: agents/data-collection-syslog.md        
-        - name: IIS logs
-          displayName: data collection rule,Azure Monitor Agent,IIS logs
-          href: agents/data-collection-iis.md
-        - name: Performance data
-          displayName: data collection rule,Azure Monitor agent
-          href: agents/data-collection-performance.md          
-        - name: Text logs and JSON files
-          displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
-          href: agents/data-collection-text-log.md
+        - name: Create data collection rule
+          displayName: Azure Monitor agent, AMA
+          href: agents/azure-monitor-agent-data-collection.md 
+        - name: Data sources
+          items:
+          - name: Windows events
+            displayName: data collection rule,Azure Monitor agent
+            href: agents/data-collection-windows-event.md
+          - name: Syslog events
+            href: agents/data-collection-syslog.md        
+          - name: IIS logs
+            displayName: data collection rule,Azure Monitor Agent,IIS logs
+            href: agents/data-collection-iis.md
+          - name: Performance data
+            displayName: data collection rule,Azure Monitor agent
+            href: agents/data-collection-performance.md          
+          - name: Text logs and JSON files
+            displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
+            href: agents/data-collection-text-log.md
         - name: SNMP traps
           displayName: data collection rule,Azure Monitor agent
           href: agents/data-collection-snmp-data.md

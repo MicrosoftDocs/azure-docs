@@ -64,11 +64,11 @@ You can use any method to create a DCR for the Azure Monitor agent, but you must
 
 On the **Monitor** menu, select **Data Collection Rules** > **Create** to open the create a new data collection rule management wizard.
 
-:::image type="content" source="media/data-collection-portal/create-data-collection-rule.png" lightbox="media/data-collection-portal/create-data-collection-rule.png" alt-text="Screenshot that shows Create button for a new data collection rule.":::
+:::image type="content" source="media/azure-monitor-agent-data-collection/create-data-collection-rule.png" lightbox="media/azure-monitor-agent-data-collection/create-data-collection-rule.png" alt-text="Screenshot that shows Create button for a new data collection rule.":::
 
 The **Basic** page includes basic information about the DCR.
 
-:::image type="content" source="media/data-collection-portal/basics-tab.png" lightbox="media/data-collection-portal/basics-tab.png" alt-text="Screenshot that shows the Basic tab for a new data collection rule.":::
+:::image type="content" source="media/azure-monitor-agent-data-collection/basics-tab.png" lightbox="media/azure-monitor-agent-data-collection/basics-tab.png" alt-text="Screenshot that shows the Basic tab for a new data collection rule.":::
 
 | Setting | Description |
 |:---|:---|
@@ -84,9 +84,11 @@ The **Basic** page includes basic information about the DCR.
 ## Add resources
 The **Resources** page allows you to add resources that will be associated with the DCR. Click **+ Add resources** to select resources. The Azure Monitor agent will automatically be installed on any resources that don't already have it.
 
-[!IMPORTANT] The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
+> [!IMPORTANT] 
+> The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
 
-:::image type="content" source="media/data-collection-portal/resources-tab.png" lightbox="media/data-collection-portal/basics-tab.png" alt-text="Screenshot that shows the Resources tab for a new data collection rule.":::
+
+:::image type="content" source="media/azure-monitor-agent-data-collection/resources-tab.png" lightbox="media/azure-monitor-agent-data-collection/basics-tab.png" alt-text="Screenshot that shows the Resources tab for a new data collection rule.":::
 
  If the machine you're monitoring is not in the same region as your destination Log Analytics workspace and you're collecting data types that require a DCE, select **Enable Data Collection Endpoints** and select an endpoint in the region of each monitored machine. If the monitored machine is in the same region as your destination Log Analytics workspace, or if you don't require a DCE, don't select a data collection endpoint on the **Resources** tab.
  
