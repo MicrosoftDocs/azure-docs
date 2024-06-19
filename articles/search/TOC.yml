@@ -332,7 +332,7 @@
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
-    - name: Index binary data for vector search
+    - name: Index binary data for vector search (preview)
       href: vector-search-how-to-index-binary-data.md
     - name: Query vectors
       href: vector-search-how-to-query.md
