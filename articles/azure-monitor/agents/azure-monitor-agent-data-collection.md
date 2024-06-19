@@ -18,32 +18,6 @@ If you're new to Azure Monitor or have basic data collection requirements, then 
 > [!NOTE]
 > To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
-## Concepts
-All data collected by the Azure Monitor agent is done with a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) where you define the following:
-
-- Data type being collected.
-- Configuration of the data including filtering for required data.
-- Destination for collected data.
-
-The DCR is applied to a particular agent by creating a [data collection rule association (DCRA)](../essentials/data-collection-rule-overview.md#data-collection-rule-associations-dcra) between the DCR and the agent. One DCR can be associated with multiple agents, and each agent can be associated with multiple DCRs. If you modify a DCR, the changes are automatically applied to all agents associated with it.
-
-A single DCR can contain multiple data sources of different types. Depending on your requirements, you can choose whether to include several data sources in a few DCRs or create separate DCRs for each data source. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
-
-:::image type="content" source="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png" alt-text="Diagram showing data collection rule associations connecting each VM to a single DCR." lightbox="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png":::
-
-
-## Types of data
-The following table lists the types of data that you can collect using the Azure portal. The same process can be used to create DCRs for each data type, and multiple types may be used in the same DCR, although the configuration details of each data type will vary. A separate article is available to describe the particular details of each type. 
-
-| Data | Client operating system |
-|:---|:---|
-| [Windows events](./data-collection-windows-event.md) | Windows |
-| [Syslog events](./data-collection-syslog.md) | Linux |
-| [Performance counters](./data-collection-performance.md) | Windows and Linux |
-| [Text and JSON logs](./data-collection-text-log.md) | Windows and Linux |
-| [IIS logs](./data-collection-iis.md) | Windows |
-
-A DCR can contain multiple different data sources up to a limit of 10 data sources in a single DCR. You can combine different data sources in the same DCR, but you will typically want to create different DCRs for different data collection scenarios. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
 
 > [!WARNING]
 > The following cases may collect duplicate data which may result in additional charges.
@@ -103,20 +77,20 @@ The **Collect and deliver** allows you to add and configure data sources and des
 | **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the different data source types, see the articles in [Data type](#types-of-data).|
 | **Destination** | Add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming. See the details for each data type for the different destinations they support. |
 
-## Troubleshoot
+The following table lists the types of data that you can collect using the Azure portal. The same process can be used to create DCRs for each data type, and multiple types may be used in the same DCR, although the configuration details of each data type will vary. A separate article is available to describe the particular details of each type. 
 
-**Verify if records are being received**
-Start by checking if any records have been collected for your IIS logs by running the following query in Log Analytics. If the query doesn't return records, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
+| Data | Client operating system |
+|:---|:---|
+| [Windows events](./data-collection-windows-event.md) | Windows |
+| [Syslog events](./data-collection-syslog.md) | Linux |
+| [Performance counters](./data-collection-performance.md) | Windows and Linux |
+| [Text and JSON logs](./data-collection-text-log.md) | Windows and Linux |
+| [IIS logs](./data-collection-iis.md) | Windows |
 
-``` kusto
-W3CIISLog
-| where TimeGenerated > ago(48h)
-| order by TimeGenerated desc
-```
+A DCR can contain multiple different data sources up to a limit of 10 data sources in a single DCR. You can combine different data sources in the same DCR, but you will typically want to create different DCRs for different data collection scenarios. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
 
-
-**Verify that the agent is sending heartbeats successfully**
-Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
+## Verify that the agent operation
+If you installed the agent on new machines, then you can verify that the agent is operational and communicating properly by running the following query in Log Analytics to check if there are any records in the [Heartbeat]() table. A record should be sent to this table from each agent every minute.
 
 ``` kusto
 Heartbeat
@@ -125,6 +99,18 @@ Heartbeat
 | project TimeGenerated, Category, Version
 | order by TimeGenerated desc
 ```
+
+## Verify if records are being received
+A few minutes after saving the DCR, you can verify that records are being received from each of your data sources by checking the table that each writes to in the Log Analytics workspace. For example, the following query checks for Windows events in the [Event]() table.
+
+``` kusto
+Event
+| where TimeGenerated > ago(48h)
+| order by TimeGenerated desc
+```
+
+
+
 
 ## Next steps
 

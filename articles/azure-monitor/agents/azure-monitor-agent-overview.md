@@ -24,13 +24,23 @@ Here's a short **introduction to Azure Monitor agent video**, which includes a q
 ## Basic operation
 The Azure Monitor agent is one method of [data collection for Azure Monitor](../data-sources.md). It's installed on virtual machines running in Azure, in other clouds, or on-premises where it has access to local logs and performance data. Without the agent, you could only collect data from the host machine since you would have no access to the client operating system and running processes.
 
+### Installation
 The agent can be installed using different methods as described in [Manage Azure Monitor Agent](./azure-monitor-agent-manage.md). You can install the agent on a single machine or at scale using Azure Policy or other tools. In some cases, the agent will be automatically installed when you enable a feature that requires it, such as Microsoft Sentinel.
 
-Data to collect from the agent is defined in one or more [data collection rules (DCR)](../essentials/data-collection-rule-overview.md). The DCR defines what data to collect and where that data should be sent. A single DCR and be associated with multiple machines, and a single machine can be associated with multiple DCRs. This allows you to centrally define the logic for different data collection scenarios and apply them to different sets of machines.
+### Data collection
+All data collected by the Azure Monitor agent is done with a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) where you define the following:
 
-When an agent is installed, it connects to Azure Monitor to retrieve any DCRs that are associated with it. The agent periodically checks back with Azure Monitor to determine if there are any changes to existing DCRs or associations with new ones.
+- Data type being collected.
+- Configuration of the data including filtering for required data.
+- Destination for collected data.
 
-There are multiple methods for creating DCRs and associating them with machines. 
+The DCR is applied to a particular agent by creating a [data collection rule association (DCRA)](../essentials/data-collection-rule-overview.md#data-collection-rule-associations-dcra) between the DCR and the agent. One DCR can be associated with multiple agents, and each agent can be associated with multiple DCRs. When an agent is installed, it connects to Azure Monitor to retrieve any DCRs that are associated with it. The agent periodically checks back with Azure Monitor to determine if there are any changes to existing DCRs or associations with new ones.
+
+A single DCR can contain multiple data sources of different types. Depending on your requirements, you can choose whether to include several data sources in a few DCRs or create separate DCRs for each data source. This allows you to centrally define the logic for different data collection scenarios and apply them to different sets of machines. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
+
+:::image type="content" source="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png" alt-text="Diagram showing data collection rule associations connecting each VM to a single DCR." lightbox="media/azure-monitor-agent-data-collection/data-collection-rule-associations.png" border="false":::
+
+
 
 ## Supported regions
 
