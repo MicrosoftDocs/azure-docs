@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 07/06/2022
+ ms.date: 06/19/2024
  ms.author: cherylmc
 
  # this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
