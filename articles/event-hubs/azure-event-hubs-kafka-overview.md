@@ -31,6 +31,14 @@ Conceptually, Kafka and Event Hubs are very similar. They're both partitioned lo
 | Consumer Group | Consumer Group |
 | Offset | Offset|
 
+## Apache Kafka features supported on Azure Event Hubs
+
+### Compression
+
+The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature in Apache Kafka clients conserves compute resources and bandwidth by compressing a batch of multiple messages into a single message on the producer side and decompressing the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.
+
+Kafka producer application developers can enable message compression by setting the compression.type property. Azure Event Hubs currently supports `gzip` compression.
+
 ## Key differences between Apache Kafka and Azure Event Hubs
 
 While [Apache Kafka](https://kafka.apache.org/) is software you typically need to install and operate, Event Hubs is a fully managed, cloud-native service. There are no servers, disks, or networks to manage and monitor and no brokers to consider or configure, ever. You create a namespace, which is an endpoint with a fully qualified domain name, and then you create Event Hubs (topics) within that namespace. 
