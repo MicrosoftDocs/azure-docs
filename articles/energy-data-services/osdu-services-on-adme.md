@@ -1,5 +1,5 @@
 ---
-title: OSDU Concepts - Available and Exclusive Services
+title: OSDU Concepts - Available and Unavailable Services
 description: This article provides an overview of the OSDU services available on Azure Data Manager for Energy and the OSDU services that are exclusively available in the community version.
 author: bananibrahim
 ms.service: energy-data-services
@@ -10,47 +10,52 @@ ms.date: 06/14/2024
 ms.custom: template-concept
 ---
 
-# OSDU&reg; concepts: available and exclusive services
+# OSDU&reg; concepts: available and unavailable services
 Azure Data Manager for Energy is currently compliant with the M18 OSDU® milestone release. 
 ## OSDU&reg; M18 services available on Azure Data Manager for Energy 
 Below you'll find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. Note that this page will be regularly updated as service versions and availability evolve. 
 ### Core and helper services
-- **Indexer**: Provides an endpoint to create aliases for existing indices and features flag index extended properties.
-- **Indexer Queue**: Manages the queuing of indexing tasks and logs important identifiers.
-- **Schema**: Manages OSDU data definition deliverables, including new schemas and schema versions.
-- **Search**: Handles search functionality within the OSDU platform.
-- **Storage**: Manages the storage of records and includes a "Frame of Reference" header for batch records.
-- **Notification**: Manages global exception API responses and notifications within the OSDU platform.
-- **Register**: Handles the registration of entity types with consistent entityType regex patterns.
-- **Secret**: Manages secret names and handles unknown Secret Manager errors.
-- **File**: Manages file-related operations, including default TTL expiry time changes for downloadURL and uploadURL APIs.
-- **CRS Conversion**: Manages the conversion of coordinate reference systems.
-- **CRS Catalog**: Provides a comprehensive listing of coordinate reference systems for geospatial data management.
-- **Unit**: Manages units of measurement.
-- **Legal**: Managing legal tags associated with datasets.
-- **Partition**: Manages logical divisions of data for efficient access and governance.
+- **CRS Catalog**: Provides API endpoints to work with geodetic reference data, allowing developers to retrieve CRS definitions, select appropriate CRSs for data ingestion, and search for CRSs based on various constraints. 
+- **CRS Conversion**: Enables the conversion of coordinates from one cooridante reference system (CRS) to another.
+- **CSV Parser DAG**: Helps in parsing CSV files into a format for ingestion and processing. 
+- **Dataset**: Provides internal and external API endpoints to allow and application or user fetch storage/retrieval instructions for various types of datasets.
+- **Entitlements**: Used to enable authorization in OSDU Data Ecosystem. The service allows for the creation of groups. A group name defines a permission. Users who are added to that group obtain that permission. The main motivation for entitlements service is data authorization, but the functionality enables three use cases: Data groups used for data authorization, Service groups used for service authorization, User groups used for hierarchical grouping of user and service identities.
+- **File**: Provides internal and external API endpoints to let the application or user fetch any records from the system or request file location data. 
+- **Indexer**: Provides a mechanism for indexing documents that contain structured or unstructured data. Documents and indices are saved in a separate persistent store optimized for search operations. The indexer API can index any number of documents.
+- **Indexer Queue**: Pprovides a set of APIs that help in forwarding the messages to and from storage service to indexer service.
+- **Legal**: Managing LegalTags associated with datasets. A LegalTag is the entity that represents the legal status of data in the Data Ecosystem. It is a collection of properties that governs how the data can be consumed and ingested.
+- **Notification**: Allows for interested consumers to subscribe to data and metadata changes using a publish/subscriber pattern.
+- **Partition**: Creates and retrieves the partition specific properties (secret and non-secret) on behalf of other services
 - **Python SDK**: Offers tools and libraries for developers to interact with OSDU services using Python.
-- **Dataset**: Supports various data operations.
-- **CSV Parser**: Helps in parsing CSV files into a format for ingestion and processing. 
-- **Entitlements**: Enables authorization by allowing the creation and management of groups that define user permissions.
+- **Register**: Allow an application to register an action (the function to be triggered). It will expect data (context) to come from OSDU to enable the action, and the application can register a filter (enable/disable) to say what data can be used with this action.
+- **Schema**: Enables a centralized governance and management of schema in the Data Ecosystem. It offers an implementation of the schema standard. Schema Service provides all necessary APIs to Fetch, create, update and mark a schema obsolete.
+- **Search**: Provides a mechanism for searching indexes. Supports full-text search on string fields, range queries on dates, numeric or string fields, etc., along with geo-spatial search.
+- **Secret**: Facilitates the storage and retrieval of various types of secrets in a specified repository(ies) so that secrets can be secure, separated from the secrets in the infrastructure repository, and be managed easily be interfacing applications.
+- **Seismic File Metadata**: Manages metadata associated with seismic data. It annotates dimensions, value channels, and generic key/value pairs.
+- **Storage**: Provides a set of APIs to manage the entire metadata life-cycle such as ingestion (persistence), modification, deletion, versioning and data schema.
+- **Unit**: Provides dimension/measurement and unit definitions.
 
 ### Ingestion services
-- **Ingestion Workflow**: Manages the workflow for data ingestion, including user ID configuration.
+- **EDS DMS [[Preview]](how-to-enable-external-data-sources.md)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
+- **EDS Fetch & Ingest DAG**: Facilitates fetching data from external providers and ingesting it into the OSDU platform. It involves steps like registering with providers, creating data jobs, and triggering ingestion.
+- **EDS Scheduler**: Automates data fetching based on predefined schedules and sends emails to recipients as needed. It ensures data remains current without manual intervention
+-  **Ingestion Workflow**: Initiates business processes within the system. During the prototype phase, it facilitates CRUD operations on workflow metadata and triggers workflows in Apache Airflow. Additionally, the service manages process startup records, acting as a wrapper around Airflow functions.
 - **osdu-airflow-lib**: A library that enables user context ingestion within the Airflow workflows.
 - **osdu-ingestion-lib**: A library that supports user context ingestion and includes various fixes related to Python versioning and authority replacement.
-- **Segy to Zgy Conversion**: Converts SEGY file formats to ZGY.
-- **Segy to oVDS Conversion**: Converts SEGY files to oVDS format.
-- **External Data Services [[Preview]](how-to-enable-external-data-sources.md)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
+- **SegY-to-oVDS DAG**: Converts SegY file formats to oVDS.
+- **SegY-to-oZGY DAG**: Converts SrgY file formats to ZGY.
 
 ### Domain data management services (DDMS)
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
 - **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 
-## OSDU&reg; services exclusive to M18 community version
-NOTE: The following OSDU&reg; services aren't currently available on Azure Data Manager for Energy.
-- **WITSML Parser**
-- **Reservoir DDMS**
-- **Policy Service**
+## OSDU&reg; services unavailable on Azure Data Manager for Energy
+NOTE: The following OSDU&reg; services are currently unavailable on Azure Data Manager for Energy.
+- **EDS Naturalization DAG**
+- **Energistics Parser DAG**
 - **Geospatial Consumption Zone**
-- **Manifest Ingestion by Reference**
+- **Manifest Ingestion by Reference DAG**
+- **Policy Service**
+- **Reservoir DDMS**
+- **WITSML Parser DAG**
