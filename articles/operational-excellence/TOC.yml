@@ -38,8 +38,8 @@
         href: ../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json
       - name: Azure App Service
         href: ../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json
-      - name: Azure Backup (Recovery Services vault)
-        href: ../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure Backup
+        href: relocation-backup.md
       - name: Azure Batch
         href: ../batch/account-move.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Cache for Redis

@@ -10,6 +10,8 @@ ms.custom: subject-relocation
 # Customer intent: As ant administrator, I want to relocate Azure Backup to another region.
 ---
 
+<!-- remove ../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json -->
+
 # Relocate Azure Backup to another region
 
 This article covers relocation guidance for [Azure Backup](../backup/backup-overview.md) across regions. 
