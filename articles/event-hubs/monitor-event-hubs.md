@@ -7,28 +7,6 @@ ms.topic: conceptual
 ms.service: azure-event-hubs
 ---
 
-<!-- 
-According to the Content Pattern guidelines all comments must be removed before publication!!!
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_07
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
-Your service should have the following two articles:
-1. The overview monitoring article (based on this template)
-   - Title: "Monitor [TODO-replace-with-service-name]"
-   - TOC title: "Monitor"
-   - Filename: "monitor-[TODO-replace-with-service-filename].md"
-2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
-   - Title: "[TODO-replace-with-service-name] monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
--->
-
 # Monitor Azure Event Hubs
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
@@ -45,9 +23,6 @@ The following sections describe the specific data gathered for Azure Event Hubs.
 
 > [!TIP]
 > To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
-
-<!-- ## Insights. OPTIONAL. If your service has Azure Monitor insights, add the following include and add information about what your insights provide. You can refer to another article that gives details or add a screenshot. 
-[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Event Hubs, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
@@ -72,17 +47,12 @@ For more information about the resource types for Event Hubs, see [Azure Event H
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
 
-<!-- ## Azure Monitor platform metrics -->
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-Platform metrics and the activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
-
-Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
-
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Event Hubs are listed in [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md#resource-logs).
+Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Event Hubs are listed in [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md#resource-logs).
 
 > [!NOTE]
-> Azure Monitor doesn't include dimensions in the exported metrics data, that's sent to a destination like Azure Storage, Azure Event Hubs, Log Analytics, etc.
+> Azure Monitor doesn't include dimensions in the exported metrics data that's sent to a destination like Azure Storage, Azure Event Hubs, and Log Analytics.
 
 For a list of available metrics for Event Hubs, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md#metrics).
 
@@ -103,17 +73,13 @@ For metrics that support dimensions, you can apply filters using a dimension val
 
 :::image type="content" source="./media/monitor-event-hubs/metrics-filter-split.png" alt-text="Screenshot showing the Metrics Explorer for an Event Hubs namespace with a filter." lightbox="./media/monitor-event-hubs/metrics-filter-split.png":::
 
-<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
-If your service uses any non-Azure Monitor based metrics, add the following include and more information.
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
-
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Event Hubs, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md#resource-logs).
 
 ### Analyze logs
 
-Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see [Metrics](#metrics) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs has the capability to dispatch logs to either of two destination tables: Azure Diagnostic or Resource specific tables in Log Analytics. For a detailed reference of the logs and metrics, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
+Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Metrics](#azure-monitor-platform-metrics) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs has the capability to dispatch logs to either of two destination tables: Azure Diagnostic or Resource specific tables in Log Analytics. For a detailed reference of the logs and metrics, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Event Hubs menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
@@ -219,7 +185,7 @@ Following are sample queries that you can use to help you monitor your Azure Eve
   | where resourceId == "<Resource Id>" // Replace your resource Id
   ```
 
-- Get capture logs for event hub for last seven days 
+- Get capture logs for event hub for last seven days.
 
   ```Kusto
   AZMSArchiveLogs
@@ -284,12 +250,6 @@ AZMSApplicationMetricLogs
 
 You can access alerts for Azure Event Hubs by selecting **Alerts** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
 
-<!-- OPTIONAL. ONLY if your service (Azure VMs, AKS, or Log Analytics workspaces) offer out-of-the-box recommended alerts, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-recommended-alert-rules.md)]
-<!-- OPTIONAL. ONLY if applications run on your service that work with Application Insights, add the following include. 
-[!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
-<!-- ### [TODO-replace-with-service-name] alert rules. REQUIRED. -->
-
 ### Event Hubs alert rules
 
 The following table lists some suggested alert rules for Event Hubs. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
@@ -299,7 +259,6 @@ The following table lists some suggested alert rules for Event Hubs. These alert
 | | | |
 | | | |
 
-<!-- ### Advisor recommendations -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content

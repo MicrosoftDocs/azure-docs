@@ -308,7 +308,7 @@
           href: event-hubs-management-libraries.md
     - name: Monitor
       items:
-        - name: Monitor Azure Event Hubs
+        - name: Monitor Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
