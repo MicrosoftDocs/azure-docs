@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 06/18/2024
+ms.date: 06/19/2024
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp
@@ -917,7 +917,7 @@ func main() {
 
 ### Brief overview
 
-Retrieve the status of a  in a Document Translation request. If successful, this method returns a `200 OK` response code.
+Retrieve the status for a specific document in a Document Translation request. If successful, this method returns a `200 OK` response code.
 
 ### [C#](#tab/csharp)
 

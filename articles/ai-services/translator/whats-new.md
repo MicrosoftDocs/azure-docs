@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: overview
-ms.date: 06/18/2024
+ms.date: 06/19/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -24,7 +24,7 @@ Translator service supports language translation for more than 100 languages. If
 
 ## May 2024
 
-A [single API](document-translation/reference/rest-api-guide.md) is now available for both batch and single document translation operations.
+A [single API](document-translation/reference/rest-api-guide.md) is now available for both [asynchronous batch](document-translation/overview.md#asynchronous-batch-translation) and [synchronous single document](document-translation/overview.md#synchronous-translation) translation operations.
 
 ## February 2024
 
@@ -237,7 +237,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Text and document translation support for Inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
 
-* Translator service has [text and document translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
+* Translator service has [text and document translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official Aboriginal languages in the Northwest Territories.
 
 ## November 2020
 

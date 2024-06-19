@@ -7,7 +7,7 @@ ms.author: lajanuar
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 06/14/2024
+ms.date: 06/19/2024
 ---
 
 # Get started: Document Translation REST APIs
