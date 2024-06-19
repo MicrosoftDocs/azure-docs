@@ -52,12 +52,12 @@ The Windows App shows all your available virtual desktops, including your dev bo
  
 ## Configure multiple monitors
 
-Maikng the most of your multiple monitors can enhance your productivity. In the Windows App, you can configure your dev box to use all available displays, a single display, or select displays.
+Making the most of your multiple monitors can enhance your productivity. In the Windows App, you can configure your dev box to use all available displays, a single display, or select displays.
 
 1. Open the Windows App. 
 1. For the dev box you want to configure, select **(...)** > **Settings**.
 
-    :::image type="content" source="media/how-to-connect-to-dev-box-with-windows-app/windows-app-options-settings.png" alt-text="Screenshot of the dev box options menu with Settings highighted." lightbox="media/how-to-connect-to-dev-box-with-windows-app/windows-app-options-settings.png"::: 
+    :::image type="content" source="media/how-to-connect-to-dev-box-with-windows-app/windows-app-options-settings.png" alt-text="Screenshot of the dev box options menu with Settings highlighted." lightbox="media/how-to-connect-to-dev-box-with-windows-app/windows-app-options-settings.png"::: 
  
 1. On the settings pane, turn off **Use default settings**. 
 
