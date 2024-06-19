@@ -37,21 +37,21 @@ The following example used `pip3` for Python 3 to install `redis-py` on Windows 
 
 :::image type="content" source="media/cache-python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
 
-## [EntraID Authentication (recommended)](#tab/entraid)
+## [Microsoft EntraID Authentication (recommended)](#tab/entraid)
 
-## Enable EntraID and add a User or Service Principal
+## Enable Microsoft EntraID and add a User or Service Principal
 <--Fran, we probably need an include file on enabling EntraID-->
-Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication.md)
+Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication)
 
 ## Install the Microsoft Authentication Library
-The [Microsoft Authentication Library (MSAL)](../../entra/identity-platform/msal-overview.md) allows you to acquire security tokens from Microsoft identity to authenticate users. There is a [Python Azure idenitty client library](../../python/api/overview/azure/identity-readme.md) available that uses MSAL to provide token authentication support. Install this library using `pip`:
+The [Microsoft Authentication Library (MSAL)](../../entra/identity-platform/msal-overview) allows you to acquire security tokens from Microsoft identity to authenticate users. There's a [Python Azure identity client library](../../python/api/overview/azure/identity-readme) available that uses MSAL to provide token authentication support. Install this library using `pip`:
 
 ```python
 pip install azure-identity
 ```
 
 ## Create a sample python app
-Create a new text file, add the following script, and save the file as `PythonApplication1.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your EntraID user.
+Create a new text file, add the following script, and save the file as `PythonApplication1.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your Microsoft EntraID user.
 
 ```python
 import redis
@@ -94,10 +94,10 @@ Run `PythonApplication1.py` with Python. You should see results like the followi
 
 :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
-## Create a sample python app with re-authentication
-EntraID access tokens have limited lifespans, [averaging 75 minutes](../../entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python. 
+## Create a sample python app with reauthentication
+Microsoft EntraID access tokens have limited lifespans, [averaging 75 minutes](../../entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using Python. 
 
-Create a new text file, add the following script, and save the file as `PythonApplication2.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your EntraID user.
+Create a new text file, add the following script, and save the file as `PythonApplication2.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your Microsoft EntraID user.
 
 ```python
 import time
@@ -168,7 +168,7 @@ Run `PythonApplication2.py` with Python. You should see results like the followi
 
 :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
 
-Unlike the first example, If your token has expired, this example will automatically refersh it. 
+Unlike the first example, If your token expires, this example automatically refreshes it. 
 
 ## [Access Key Authentication](#tab/accesskey)
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
