@@ -24,7 +24,7 @@ Auto-migrations are done using the [in-place migration feature](migrate.md). The
 
 ## Auto-migration limitations
 
-Auto-migrations are done using the [in-place migration feature](migrate.md). The following limitations apply to auto-migrations, similar to [limitations of in-place migrations](migrate.md#limitations):
+Auto-migrations are done using the [in-place migration feature](migrate.md). The following limitations apply to auto-migrations, similar to [limitations of in-place migrations](migrate.md#in-place-migration-feature-limitations):
 
 - The new App Service Environment v3 is in the existing subnet that was used for your old environment.
 - The new App Service Environment v3 is in the same region as your old environment.
