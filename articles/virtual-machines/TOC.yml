@@ -2057,7 +2057,7 @@
         href: ./windows/tutorial-config-management.md
 - name: Monitoring
   items:
-  - name: Monitor
+  - name: Monitor Virtual Machines
     href: monitor-vm.md?toc=/azure/virtual-machines/toc.json
   - name: Monitoring data reference
     href: monitor-vm-reference.md?toc=/azure/virtual-machines/toc.json
