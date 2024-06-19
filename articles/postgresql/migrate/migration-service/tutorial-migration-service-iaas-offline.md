@@ -4,7 +4,7 @@ description: "Learn to migrate seamlessly from Azure VM or an on-premises Postgr
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/13/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: tutorial
