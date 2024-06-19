@@ -66,6 +66,8 @@ items:
   items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
+  - name: Connect with Windows App Development
+    href: how-to-connect-to-dev-box-with-windows-app.md  
   - name: Connect with Remote Desktop App
     displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
