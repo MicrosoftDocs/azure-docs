@@ -56,7 +56,7 @@ To enable automatic scaling, navigate to the web app's left menu and select **sc
 #### [Azure CLI](#tab/azure-cli)
 
 The following command enables automatic scaling for your existing App Service Plan and web apps within this plan:
-chat.
+
 ```azurecli-interactive
 az appservice plan update --name <APP_SERVICE_PLAN> --resource-group <RESOURCE_GROUP> --elastic-scale true --max-elastic-worker-count <YOUR_MAX_BURST> 
 ```
