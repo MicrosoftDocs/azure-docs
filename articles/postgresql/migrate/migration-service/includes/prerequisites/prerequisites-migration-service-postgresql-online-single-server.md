@@ -4,7 +4,7 @@ description: Providing the prerequisites of the migration service in Azure Datab
 author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan
-ms.date: 03/19/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: include
 ---
@@ -30,7 +30,7 @@ Ensure that there are no **long running transactions**. Long running transaction
 > [!NOTE]
 > For online migration with Azure Database for PostgreSQL single server, the Azure replication support is set to logical under the replication settings of the single server page in the Azure portal.
 
-### Target setup
+### Set up target
 
 - Azure Database for PostgreSQL must be set up in Azure before migration.
 
@@ -42,35 +42,15 @@ Ensure that there are no **long running transactions**. Long running transaction
 
 - ALTER SYSTEM SET max_replication_slots = `number of databases to migrate` + 1;
 
-### Network setup
+### Set up Network
 
 Network setup is crucial for the migration service to function correctly. Ensure that the source PostgreSQL server can communicate with the target Azure Database for PostgreSQL server. The following network configurations are essential for a successful migration.
 
 For information about network setup, visit [Network guide for migration service](../../how-to-network-setup-migration-service.md).
 
-### Extensions
+### Enable extensions
 
-Extensions are extra features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL but must be enabled manually. To enable extensions, follow these steps:
-
-- Use the select command in the source to list all the extensions that are being used - `select extname,extversion from pg_extension;`
-
-- Search for azure.extensions server parameter on the Server parameter page on your Azure Database for PostgreSQL. Enable the extensions found in the source within PostgreSQL.
-
-- Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
-
-  :::image type="content" source="../../media/concepts-prerequisites-migration-service/extensions-enable-flexible-server.png" alt-text="Screenshot of extensions.":::
-
-- Check if the list contains any of the following extensions:
-    - PG_CRON
-    - PG_HINT_PLAN
-    - PG_PARTMAN_BGW
-    - PG_PREWARM
-    - PG_STAT_STATEMENTS
-    - PG_AUDIT
-    - PGLOGICAL
-    - WAL2JSON
-
-If yes, search the server parameters page for the shared_preload_libraries parameter. This parameter indicates the set of extension libraries that are preloaded at the server restart.
+[!INCLUDE [prerequisites-migration-service-extensions](../prerequisites/prerequisites-migration-service-extensions.md)]
 
 ### Server parameters
 
