@@ -19,7 +19,7 @@ ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 
 ## Prerequisites
 
-- We recommend that you [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Microsoft Defender for Cloud has a free tier, which offers useful insights for various Azure and hybrid resources. With the absence of Microsoft Defender for Cloud, trusted launch VM users can't monitor [boot integrity](boot-integrity-monitoring-overview.md) of VM.
+- We recommend that you [onboard your subscription to Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/?&ef_id=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE:G:s&gclid=CjwKCAjwwsmLBhACEiwANq-tXHeKhV--teH6kIijnBTmP-PgktfvGr5zW9TAx00SR7xsGUc3sTj5sBoCkEoQAvD_BwE#overview) if it isn't already. Defender for Cloud has a free tier, which offers useful insights for various Azure and hybrid resources. With the absence of Defender for Cloud, trusted launch VM users can't monitor [boot integrity](boot-integrity-monitoring-overview.md) of VM.
 - Assign Azure policy initiatives to your subscription. These policy initiatives need to be assigned only once per subscription. Policies will help deploy and audit for trusted launch VMs while automatically installing all required extensions on all supported VMs.
    - Configure the trusted launch VMs' [built-in policy initiative](trusted-launch-portal.md#trusted-launch-built-in-policies).
    - Configure prerequisites to enable Guest Attestation on trusted launch-enabled VMs.
@@ -62,7 +62,7 @@ It takes a few minutes for your VM to be deployed.
 
 ### [CLI](#tab/cli)
 
-Make sure you're running the latest version of the Azure CLI.
+Make sure that you're running the latest version of the Azure CLI.
 
 1. Sign in to Azure by using `az login`.  
 
@@ -148,15 +148,15 @@ New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 
 ### [Template](#tab/template)
 
-You can deploy trusted launch VMs by using a quickstart template:
+You can deploy trusted launch VMs by using a quickstart template.
 
-**Linux**
+#### Linux
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
-**Windows**
+#### Windows
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ---
 
@@ -165,7 +165,7 @@ You can deploy trusted launch VMs by using a quickstart template:
 [Azure trusted launch VMs](trusted-launch.md) support the creation and sharing of custom images by using Azure Compute Gallery. There are two types of images that you can create, based on the security types of the image:
 
 - **Recommended**: [Trusted launch VM supported (`TrustedLaunchSupported`) images](#trusted-launch-vm-supported-images) are images where the source doesn't have VM Guest state information and can be used to create either [Generation 2 VMs](generation-2.md) or [Trusted launch VMs](trusted-launch.md).
-- [Trusted launch VM (`TrustedLaunch`) images](#trusted-launch-vm-images) are images where the source usually has [VM Guest state information](trusted-launch-faq.md#what-is-vm-guest-state-vmgs) and can be used to create only [trusted launch VMs](trusted-launch.md).
+- [Trusted launch VM (`TrustedLaunch`) images](#trusted-launch-vm-images) are images where the source usually has [VM Guest State information](trusted-launch-faq.md#what-is-vm-guest-state-vmgs) and can be used to create only [trusted launch VMs](trusted-launch.md).
 
 ### Trusted launch VM supported images
 
@@ -216,7 +216,7 @@ These images can be shared by using [Azure Compute Gallery - Direct Shared Galle
 
 #### [CLI](#tab/cli3)
 
-Make sure you're running the latest version of Azure CLI.
+Make sure that you're running the latest version of the Azure CLI.
 
 1. Sign in to Azure by using `az login`.  
 
@@ -407,7 +407,7 @@ If you want to use either a managed disk or a managed disk snapshot as a source 
 
 #### [CLI](#tab/cli2)
 
-Make sure you're running the latest version of the Azure CLI.
+Make sure that you're running the latest version of the Azure CLI.
 
 1. Sign in to Azure by using `az login`.  
 
@@ -438,19 +438,19 @@ Make sure you're running the latest version of the Azure CLI.
    If a managed disk or a managed disk snapshot needs to be used as the image source for the image version, replace `--managed-image` in the preceding command with `--os-snapshot` and provide the disk or the snapshot resource name.
 
 1. Create a trusted launch VM from the preceding image version.
-
-```azurecli-interactive
-adminUsername=linuxvm
-az vm create --resource-group MyResourceGroup \
-    --name myTrustedLaunchVM \
-    --image "/subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/MyGallery/images/MyImageDef" \
-    --size Standard_D2s_v5 \
-    --security-type TrustedLaunch \
-    --enable-secure-boot true \ 
-    --enable-vtpm true \
-    --admin-username $adminUsername \
-    --generate-ssh-keys
-```
+    
+    ```azurecli-interactive
+    adminUsername=linuxvm
+    az vm create --resource-group MyResourceGroup \
+        --name myTrustedLaunchVM \
+        --image "/subscriptions/00000000-0000-0000-0000-00000000xxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/MyGallery/images/MyImageDef" \
+        --size Standard_D2s_v5 \
+        --security-type TrustedLaunch \
+        --enable-secure-boot true \ 
+        --enable-vtpm true \
+        --admin-username $adminUsername \
+        --generate-ssh-keys
+    ```
 
 #### [PowerShell](#tab/powershell2)
 
@@ -551,7 +551,11 @@ az vm create --resource-group MyResourceGroup \
 ---
 ## Trusted launch built-in policies
 
-To help users adopt trusted launch, Azure policies are available to help resource owners adopt trusted launch. The main objective is to help convert Generation 1 and 2 VMs that are trusted launch capable. The **Virtual machine should have trusted launch enabled** single policy checks if the VM is currently enabled with trusted launch security configurations. The **Disks and OS supported for trusted launch** policy checks if previously created VMs have the [capable Generation 2 OS and VM size](trusted-launch.md#virtual-machines-sizes) to deploy a trusted launch VM. These two policies come together to make the trusted launch policy initative. This initiative enables you to group several related policy definitions to simplify assignments and management resources to include trusted launch configuration.
+To help users adopt trusted launch, Azure policies are available to help resource owners adopt trusted launch. The main objective is to help convert Generation 1 and 2 VMs that are trusted launch capable.
+
+The **Virtual machine should have trusted launch enabled** single policy checks if the VM is currently enabled with trusted launch security configurations. The **Disks and OS supported for trusted launch** policy checks if previously created VMs have the [capable Generation 2 OS and VM size](trusted-launch.md#virtual-machines-sizes) to deploy a trusted launch VM.
+
+These two policies come together to make the trusted launch policy initative. This initiative enables you to group several related policy definitions to simplify assignments and management resources to include trusted launch configuration.
 
 To learn more and start deploying, see [Trusted launch built-in policies](../governance/policy/samples/built-in-policies.md#trusted-launch).
 
