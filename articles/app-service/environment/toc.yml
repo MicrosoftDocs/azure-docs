@@ -55,8 +55,8 @@
       href: side-by-side-migrate.md
     - name: Manually migrate to App Service Environment v3
       href: migration-alternatives.md
-    - name: Recover from forced migration
-      href: forced-ase-migration.md
+    - name: Recover from auto-migration
+      href: auto-ase-migration.md
 - name: Reference
   items:
   - name: Management addresses
