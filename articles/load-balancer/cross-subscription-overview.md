@@ -67,7 +67,7 @@ In addition, cross-subscription load balancing is supported for Azure global Loa
 
 :::image type="content" source="media/cross-subscription-load-balancer-overview/global-load-balancer-cross-subscription-concept.png" alt-text="Diagram of cross subscription global load balancer concept.":::
 > [!NOTE]
->  cross-subscription frontends aren't supported on Azure global Load Balancer today. 
+>  Cross-subscription frontends aren't supported on Azure global Load Balancer today. 
  
 ## Authorization
 
