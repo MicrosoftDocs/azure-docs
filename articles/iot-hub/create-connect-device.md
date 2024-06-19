@@ -1,13 +1,13 @@
 ---
 title: Register and connect an IoT device
 titleSuffix: Azure IoT Hub
-description: How to create, manage, and delete Azure IoT devices and how to retrieve their connection information.
+description: How to create, manage, and delete Azure IoT devices and how to retrieve the device connection string.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 06/19/2024
 ---
 
 # Create and manage device identities
@@ -16,9 +16,11 @@ Create a device identity for your device to connect to Azure IoT Hub. This artic
 
 ## Prerequisites
 
-* An IoT hub in your subscription. If you don't have an IoT hub, follow the steps in [Create an IoT hub](./iot-hub-create-through-portal.md)
+* An IoT hub in your subscription. If you don't have an IoT hub, follow the steps in [create an IoT hub](./iot-hub-create-through-portal.md).
 
 * Depending on which tool you use, either have access to the [Azure portal](https://portal.azure.com) or [install the Azure CLI](/cli/azure/install-azure-cli).
+
+* If your IoT hub is managed with role-based access control (RBAC), then you need **Read/Write/Delete Device/Module** permissions for the steps in this article. Those permissions are included in [IoT Hub Registry Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#iot-hub-registry-contributor) role.
 
 ## Register a device
 
@@ -42,15 +44,15 @@ When you register a device, you choose its authentication method. IoT Hub suppor
 
 ### Prepare certificates
 
-If you're using either of the X.509 certificate authentication methods, make sure your certificates are ready before registering a device.
+If you're using either of the X.509 certificate authentication methods, make sure your certificates are ready before registering a device:
 
-The tutorial [Create and upload certificates for testing](./tutorial-x509-test-certs.md) provides a good introduction for how to create CA-signed certificates and upload them to IoT Hub. After completing that tutorial, you're ready to register a device with **X.509 CA signed** authentication.
+* For CA-signed certificates, the tutorial [Create and upload certificates for testing](./tutorial-x509-test-certs.md) provides a good introduction for how to create CA-signed certificates and upload them to IoT Hub. After completing that tutorial, you're ready to register a device with **X.509 CA signed** authentication.
 
-If your device uses self-signed certificates, then you need two device certificates (a primary and a secondary certificate) on the device and thumbprints for both to upload to IoT Hub. One way to retrieve the thumbprint from a certificate is with the following OpenSSL command:
+* For self-signed certificates, you need two device certificates (a primary and a secondary certificate) on the device and thumbprints for both to upload to IoT Hub. One way to retrieve the thumbprint from a certificate is with the following OpenSSL command:
 
-```bash
-openssl x509 -in <certificate filename>.pem -text -fingerprint
-```
+  ```bash
+  openssl x509 -in <certificate filename>.pem -text -fingerprint
+  ```
 
 ### Add a device
 
@@ -63,6 +65,8 @@ Create a device identity in your IoT hub.
 1. Select **Device management** > **Devices**.
 
 1. Select **Add Device** to add a device in your IoT hub.
+
+   :::image type="content" source="./media/create-connect-device/add-device.png" alt-text="Screenshot that shows adding a new device in the Azure portal.":::
 
 1. In **Create a device**, provide the information for your new device identity:
 
@@ -95,25 +99,17 @@ The following table describes common parameters used with this command.
 
 ---
 
-## Retrieve device connection information
+## Retrieve device connection string
 
-Registered devices have multiple ways to connect to IoT Hub, depending on the SDK and authentication method. For specific information, refer to the [Azure IoT Hub device SDKs](./iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks).
+For samples and test scenarios, the most common connection method is to use symmetric key authentication and connect with a *device connection string*. A device connection string contains the name of the IoT hub, the name of the device, and the device's authentication information. 
 
-For samples and test scenarios, the most common connection method is to use a *device connection string*. A device connection string contains the name of the IoT hub, the name of the device, and the device's authentication information. 
+For information about other methods for connecting devices, particularly for X.509 authentication, refer to the [Azure IoT Hub device SDKs](./iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks).
 
-Device with symmetric key authentication have a connection string with the following pattern:
-
-`HostName=<IOT_HUB_NAME>;DeviceId=<DEVICE_NAME>;SharedAccessKey=<PRIMARY_OR_SECONDARY_KEY>`
-
-Devices with X.509 authentication, either self-signed or CA-signed, usually don't use connection strings for authentication. When they do, their connection strings take the following pattern:
-
-`HostName=<IOT_HUB_NAME>;DeviceId=<DEVICE_NAME>;x509=true`
-
-You can build a connection string yourself with those three pieces of connection information, or you can retrieve it with the following steps.
+Use the following steps to retrieve a device connection string.
 
 ### [Azure portal](#tab/portal)
 
-The Azure portal only lists connection strings for devices that use symmetric key authentication.
+The Azure portal provides device connection strings only for devices that use symmetric key authentication.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 
@@ -122,6 +118,8 @@ The Azure portal only lists connection strings for devices that use symmetric ke
 1. Select your device from the list in the **Devices** pane.
 
 1. Copy the value of **Primary connection string**.
+
+   :::image type="content" source="./media/create-connect-device/copy-connection-string.png" alt-text="Screenshot that shows copying the value of the primary connection string from the Azure portal.":::
 
    By default, the keys and connection strings are masked because they're sensitive information. If you click the eye icon, they're revealed. It's not necessary to reveal them to copy them with the copy button.
 
@@ -134,6 +132,14 @@ az iot hub device-identity connection-string show --device-id <DEVICE_NAME> --hu
 ```
 
 ---
+
+Devices with symmetric key authentication have a device connection string with the following pattern:
+
+`HostName=<IOT_HUB_NAME>;DeviceId=<DEVICE_NAME>;SharedAccessKey=<PRIMARY_OR_SECONDARY_KEY>`
+
+Devices with X.509 authentication, either self-signed or CA-signed, usually don't use device connection strings for authentication. When they do, their connection strings take the following pattern:
+
+`HostName=<IOT_HUB_NAME>;DeviceId=<DEVICE_NAME>;x509=true`
 
 ## Disable or delete a device
 
