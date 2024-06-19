@@ -5,10 +5,10 @@ description: How to deploy AI21's Jamba-Instruct model with Azure AI Studio
 manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
-ms.date: 05/02/2024
+ms.date: 06/19/2024
 ms.author: ssalgado
 ms.reviewer: tgokal
-author: tgokal
+reviewer: tgokal
 ms.custom: references_regions
 ---
 
@@ -97,14 +97,24 @@ For more information on using the APIs, see the [reference](#reference-for-jamba
 
 ## Reference for Jamba Instruct deployed a serverless API
 
-Since Jamba Instruct is fine-tuned for chat completion, we support the route `/chat/completions` as part of the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) for multi-turn chat or single-turn question-answering. [AI21's Azure Client](https://docs.ai21.com/reference/jamba-instruct-api) can also be used. For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
+Jamba Instruct models accept both of these APIs:
+
+- The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` for multi-turn chat or single-turn question-answering. This API is supported because Jamba Instruct is fine-tuned for chat completion.
+- [AI21's Azure Client](https://docs.ai21.com/reference/jamba-instruct-api). For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
 
 ### Azure AI model inference API
 
 The [Azure AI model inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
-Single- and multi-turn chat have the same request and response format, except that question answering (single-turn) involves only a single user message in the request, while multi-turn chat requires that you send the entire chat message history in each request. In a multi-turn chat, the message thread includes all messages from the user and the model, ordered oldest to newest, alternating between `user` and `assistant` role messages, optionally starting with a system
-message to provide context. For example, the message stack for the fourth call in a chat request that includes an initial system message would look like this in pseudocode:
+Single-turn and multi-turn chat have the same request and response format, except that question answering (single-turn) involves only a single user message in the request, while multi-turn chat requires that you send the entire chat message history in each request. 
+
+In a multi-turn chat, the message thread has the following attributes:
+
+- Includes all messages from the user and the model, ordered from oldest to newest.
+- Messages alternate between `user` and `assistant` role messages
+- Optionally, the message thread starts with a system message to provide context. 
+
+The following pseudocode is an example of the message stack for the fourth call in a chat request that includes an initial system message.
 
 ```json
 [
@@ -199,15 +209,15 @@ __Chat example (fourth request containing third user response)__
 
 The response depends slightly on whether the result is streamed or not.
 
-**In a non-streamed result**, all responses are delivered together in a single response, which also includes a `usage` property.
+In a _non-streamed result_, all responses are delivered together in a single response, which also includes a `usage` property.
 
-**In a streamed result:**
+In a _streamed result_,
 
-* Each response includes a single token in the `choices` field
-* The `choices` object structure is different
-* Only the last response includes a `usage` object
-* The entire response is wrapped in a `data` object
-* The final response object is `data: [DONE]` 
+* Each response includes a single token in the `choices` field.
+* The `choices` object structure is different.
+* Only the last response includes a `usage` object.
+* The entire response is wrapped in a `data` object.
+* The final response object is `data: [DONE]`.
 
 The response payload is a dictionary with the following fields.
 
