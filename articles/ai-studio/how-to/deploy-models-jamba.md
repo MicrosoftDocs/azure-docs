@@ -35,12 +35,8 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [AI Studio hub](../how-to/create-azure-ai-resource.md)
-
-    > [!IMPORTANT]
-    > The Jamba Instruct PAYGO model deployment offering is only available in workspaces created in **East US 2** and **Sweden Central**. More regions are coming soon.
-
-- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
+- An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Jamba Instruct is only available with hubs created in **East US 2** and **Sweden Central**.
+- An Azure [AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
     - On the Azure subscription—to subscribe the AI Studio project to the Azure Marketplace offering, once for each project, per offering:
@@ -62,39 +58,40 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 
 ### Create a new deployment
 
-To create a deployment:
+These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deployment:
 
-1. Go to [Azure Machine Learning studio](https://ml.azure.com/home).
-1. Select the workspace in which you want to deploy your models. To use the pay-as-you-go model deployment offering, your workspace must belong to the **East US 2** or **Sweden Central** region.
-1. Choose **AI21-Jamba-Instruct** as the model to deploy from the [model catalog](https://aka.ms/aistudio/landing/ai21-labs-jamba-instruct).
-
-   Alternatively, you can initiate deployment by going to your workspace and selecting **Endpoints** > **Serverless endpoints** > **Create**.
-
-1. On the model's overview page, select **Deploy** and then **Serverless API with Azure AI Content Safety**.
-
-1. On the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for Jamba Instruct.
-1. If this is your first time deploying Jamba Instruct in the workspace, you have to subscribe your workspace for Jamba Instruct from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each workspace has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and Deploy**.
-
-    > [!NOTE]
-    > Subscribing a workspace to Jamba Instruct requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
-
-1. Once you sign up the workspace for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ workspace don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent deployments. If this scenario applies to you, select **Continue to deploy**.
-
+1. Sign in to [Azure AI Studio](https://ai.azure.com).
+1. Select **Model catalog** from the left sidebar.
+1. Search for and select **AI21-Jamba-Instruct** to open its Details page.
+1. Select **Deploy** to open a serverless API deployment window for the model.
+1. Alternatively, you can initiate a deployment by starting from your project in AI Studio.
+    1. From the left sidebar of your project, select **Components** > **Deployments**.
+    1. Select **+ Create deployment**.
+    1. Search for and select **AI21-Jamba-Instruct**. to open the Model's Details page.
+    1. Select **Confirm** to open a serverless API deployment window for the model.
+1. Select the project in which you want to deploy your model. To deploy the AI21-Jamba-Instruct model, your project must be in one of the regions listed in the [Prerequisites](#prerequisites) section.
+1. In the deployment wizard, select the link to **Azure Marketplace Terms**, to learn more about the terms of use.
+1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
+1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the [Prerequisites](#prerequisites). Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
+1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you,  there's a **Continue to deploy** option to select.
 1. Give the deployment a name. This name becomes part of the deployment API URL. This URL must be unique in each Azure region.
-1. Select **Deploy**. Wait until the deployment is finished and you're redirected to the serverless endpoints page.
-1. Select the endpoint to open its Details page.
-1. Select the **Test** tab to start interacting with the model.
-1. You can also take note of the **Target** URL and the **Secret Key** to call the deployment and generate completions.   
-1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
+1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-timegen-1-deployed-as-a-serverless-api) section.
+1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for Jamba Instruct deployed as a serverless API, see [Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API](#cost-and-quotas).
+To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-AI21-Jamba-Instruct-deployed-as-a-serverless-api).
 
 ### Consume Jamba Instruct as a serverless API
 
-1. In the **workspace**, select **Endpoints** > **Serverless endpoints**.
+You can consume Jamba Insruct models as follows:
+
+1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
+
 1. Find and select the deployment you created.
-1. Copy the **Target** URL and the **Key** token values.
-1. Make an API request: 
+
+1. Copy the **Target** URL and the **Key** value.
+
+1. Make an API request.
 
 For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-a-serverless-api) section.
 
