@@ -91,7 +91,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, which deletes the cluster pool and all of the resources in the resource group.
+When no longer needed, clean up unnecessary resources to avoid Azure charges. You can remove the resource group, cluster pool, and all other resources in the resource group.
 
 1. Select the Resource group.
 1. On the page for the resource group, select Delete resource group.
