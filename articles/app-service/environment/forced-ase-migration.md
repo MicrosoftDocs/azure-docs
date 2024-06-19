@@ -71,17 +71,17 @@ To address this incompatibility, you must [update the configuration to use Azure
 
 IP-based TLS/SSL bindings aren't supported in App Service Environment v3. You must remove the bindings once the migration is complete. Your apps don't work until you remove the bindings.
 
-### Issue: Dependent resources haven't been updated to use the new inbound IP address
+### Issue: Dependent resources are't updated to use the new inbound IP address
 
 ILB App Service Environment migrations preserve the inbound IP address, so no action is needed. 
 
 ELB App Service Environment migrations change the inbound IP address. If you use A records to point to the inbound IP address of your App Service Environment, you must update the A records to point to the new inbound IP address after the migration process is complete. If you use CNAME records, you likely don't need to make any DNS changes. If you have any other dependencies on the inbound IP address, you must update them accordingly. The old inbound IP address is no longer valid after the migration process is complete.
 
-### Issue: Dependent resources haven't been updated to use the new outbound IP address
+### Issue: Dependent resources aren't updated to use the new outbound IP address
 
 App Service Environment v3 has two outbound IP addresses. After the migration process, your existing outbound IP address is preserved, but another outbound IP is created. In general, you don't need to account for this new IP address. However, if you have a custom domain suffix configuration and connect to your Azure Key Vault over the public internet, you need to account for the other new outbound IP address.
 
-### Issue: Feature incompatibility or change with App Service Environment v3
+### Issue: Feature change or incompatibility with App Service Environment v3
 
 In general, App Service Environment v3 is compatible with App Service Environment v1 and v2. However, there are some differences. To see the differences between the versions, review the [App Service Environment version comparison](version-comparison.md). If you're using a feature that isn't supported or behaves differently on App Service Environment v3, you must update your apps accordingly.
 
@@ -114,14 +114,14 @@ The App Service plan SKUs available for App Service Environment v3 run on the Is
 
 ## Frequently asked questions
 
-- **Why was my App Service Environment auto-migrated?**
+- **Why was my App Service Environment auto-migrated?**  
   App Service Environment v1 and v2 are retired and no longer supported. The supporting infrastructure for App Service Environment v1 and v2 is being decommissioned. To ensure that your App Service Environment is running on a supported platform, Microsoft initiates auto-migrations to App Service Environment v3.
-- **What is the downtime during the migration process?**
+- **What is the downtime during the migration process?**  
   There's about one hour of downtime during the migration process. The inbound and outbound IP addresses of your App Service Environment might change during the migration process. Downtime might be longer if you have dependencies on these IP addresses. Downtime might also be longer if you use features that aren't supported in App Service Environment v3.
-- **Will I be charged for auto-migrations?**
+- **Will I be charged for auto-migrations?**  
   There's no cost associated with migrating your App Service Environment. You stop being charged for your previous App Service Environment as soon as it shuts down during the migration process. You begin getting charged for your new App Service Environment v3 as soon as it gets deployed.
-
+<!-- 
 TODO: what if there is an azure policy blocking migration?
 TODO: what if there is a lock blocking migration?
 TODO: how do we handle subnet delegation? do we automatically delegate the subnet?
-TODO: how do we handle "Subscription has too many App Service Environments. Please remove some before trying to create more."?
+TODO: how do we handle "Subscription has too many App Service Environments. Please remove some before trying to create more."? -->
