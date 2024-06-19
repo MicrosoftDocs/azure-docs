@@ -63,10 +63,10 @@ Learn more about [built-in roles](../role-based-access-control/built-in-roles.md
 
 1. On the **Add peering** page, configure the values for **Remote virtual network peering settings**.
 
-    * Allow the peered virtual network to access 'Hub-RM': **Leave the default of selected**.
-    * Allow the peered virtual network to receive forwarded traffic from 'Hub-RM': 
+    * Allow 'Spoke-RM' to access 'Hub-RM': **Leave the default of selected**.
+    * Allow 'Spoke-RM' to receive forwarded traffic from 'Hub-RM': 
     * Allow gateway or route server in the peered virtual network to forward traffic to 'Hub-RM': **Leave the default of un-selected**.
-    * Enable the peered virtual network to use 'Hub-RM's' remote gateway or route server: **Select the checkbox.**
+    * Enable 'SpokeRM' to use 'Hub-RM's' remote gateway or route server: **Select the checkbox.**
 
      :::image type="content" source="./media/vpn-gateway-peering-gateway-transit/peering-remote.png" alt-text="Screenshot shows add peering." lightbox="./media/vpn-gateway-peering-gateway-transit/peering-remote.png":::
 
