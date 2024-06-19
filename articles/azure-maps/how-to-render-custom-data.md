@@ -1,8 +1,8 @@
 ---
 title: Render custom data on a raster map in Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros 
 ms.date: 06/19/2024
 ms.topic: how-to
 ms.service: azure-maps
@@ -215,7 +215,7 @@ To get a static image with the imagery style appplied, set the `TilesetId` param
 
 The following image is returned:
 
-:::image type="content" source="./media/how-to-render-custom-data/imagery.png" alt-text="A screenshot of a map showing the dark gray style created by setting the tileset ID parameter to microsoft.base.darkgrey.":::
+:::image type="content" source="./media/how-to-render-custom-data/imagery.png" alt-text="A screenshot of a map showing the imagery style created by setting the tileset ID parameter to microsoft.imagery.":::
 
 For more information the different styles available using the TilesetId parameter, see [TilesetId] in the *Render - Get Map Tileset* REST API documentation.
 
