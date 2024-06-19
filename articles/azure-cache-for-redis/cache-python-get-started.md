@@ -29,9 +29,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 ## Create an Azure Cache for Redis instance
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
-
-## Install redis-py
+## Install redis-py library
 
 [Redis-py](https://pypi.org/project/redis/) is a Python interface to Azure Cache for Redis. Use the Python packages tool, `pip`, to install the `redis-py` package from a command prompt. 
 
@@ -39,7 +37,68 @@ The following example used `pip3` for Python 3 to install `redis-py` on Windows 
 
 :::image type="content" source="media/cache-python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
 
-## Read and write to the cache
+## [EntraID Authentication (recommended)](#tab/entraid)
+
+## Enable EntraID and add a User or Service Principal
+<--Fran, we probably need an include file on enabling EntraID-->
+Blah blah blah, do the steps listed [here](cache-azure-active-directory-for-authentication.md)
+
+## Install the Microsoft Authentication Library
+The [Microsoft Authentication Library (MSAL)](../../entra/identity-platform/msal-overview.md) allows you to acquire security tokens from Microsoft identity to authenticate users. There is a [Python Azure idenitty client library](../../python/api/overview/azure/identity-readme.md) available that uses MSAL to provide token authentication support. Install this library using `pip`:
+
+```python
+pip install azure-identity
+```
+
+## Create a sample python app
+Create a new text file, add the following script, and save the file as `PythonApplication1.py`. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. Replace `<Your Username>` with the values from your EntraID user.
+
+```python
+import redis
+from azure.identity import DefaultAzureCredential
+
+scope = "https://redis.azure.com/.default"
+host = "<Your Host Name>"  # Required
+port = 6380  # Required
+user_name = "<Your Username>"  # Required
+
+
+def hello_world():
+    cred = DefaultAzureCredential()
+    token = cred.get_token(scope)
+    r = redis.Redis(host=host,
+                    port=port,
+                    ssl=True,    # ssl connection is required.
+                    username=user_name,
+                    password=token.token,
+                    decode_responses=True)
+    result = r.ping()
+    print("Ping returned : " + str(result))
+
+    result = r.set("Message", "Hello!, The cache is working with Python!")
+    print("SET Message returned : " + str(result))
+
+    result = r.get("Message")
+    print("GET Message returned : " + result)
+
+    result = r.client_list()
+    print("CLIENT LIST returned : ")
+    for c in result:
+        print(f"id : {c['id']}, addr : {c['addr']}")
+
+if __name__ == '__main__':
+    hello_world()
+```
+
+Run `PythonApplication1.py` with Python. You should see results like the following example:
+
+:::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+
+## [Access Key Authentication](#tab/accesskey)
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
+
+## Read and write to the cache from the command line
+
 
 Run [Python from the command line](https://docs.python.org/3/faq/windows.html#id2) to test your cache. First, initiate the python interpreter in your command line by typing `py`, and then use the following code. Replace `<Your Host Name>` and `<Your Access Key>` with the values from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
 
@@ -87,6 +146,8 @@ for c in result:
 Run `PythonApplication1.py` with Python. You should see results like the following example:
 
 :::image type="content" source="media/cache-python-get-started/cache-python-completed.png" alt-text="Screenshot of a terminal showing a Python script to test cache access.":::
+
+---
 
 ## Clean up resources
 
