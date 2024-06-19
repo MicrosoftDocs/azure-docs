@@ -59,11 +59,11 @@ Instead, you'll need to redeploy the Recovery Service vault and reconfigure the 
 
 1. Update the parameter of the Recovery Vault by changing the value properties under parameters, such as  Recovery Vault name, replication type, sku, target location etc.
 
-## Redeploy without data migration
+## Redeploy without data 
 
 To relocate an Azure recovery service vault that doesn't have any client specific data/backup and can be moved alone, you can simply [redeploy the Storage Account using an ARM template](/azure/templates/microsoft.recoveryservices/vaults?tabs=json&pivots=deployment-language-arm-template).
 
-## Redeploy with data migration
+## Redeploy with data 
 
 [Create and reconfigure the Recovery Service vault](/azure/backup/backup-create-recovery-services-vault) in the target region. 
 
