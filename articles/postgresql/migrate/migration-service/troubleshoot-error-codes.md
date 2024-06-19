@@ -4,11 +4,12 @@ description: Error codes for troubleshooting and resolving issues during the mig
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 05/07/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: error-reference
-ms.custom: troubleshooting
+ms.custom:
+  - troubleshooting
 ---
 
 #  Known errors in the migration service for Azure Database for PostgreSQL
