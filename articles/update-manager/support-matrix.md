@@ -203,6 +203,9 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftcblmariner | cbl-mariner | cbl-mariner-1 </br> 1-gen2 </br> cbl-mariner-2 </br> cbl-mariner-2-gen2. | |
 |microsoft-aks | aks |aks-engine-ubuntu-1804-202112 | |
 |microsoft-dsvm |aml-workstation |  ubuntu-20, ubuntu-20-gen2 | |
+|microsoft-dsvm | aml-workstation | ubuntu |
+|| ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
+|| ubuntu-2004 | 2004, 2004-gen2 |
 |redhat | rhel| 7*,8*,9* | 74-gen2 |
 |redhat | rhel-ha | 8* | 8.1, 81_gen2 |
 |redhat | rhel-raw | 7*,8*,9* | |
@@ -212,6 +215,10 @@ Following is the list of supported images and no other marketplace images releas
 |redhat | rhel-sap-ha| 7*, 8* | 7.5|
 |redhat | rhel-sap-apps | 90sapapps-gen2 |
 |redhat | rhel-sap-ha | 90sapha-gen2 |
+|redhat | rhel-byos | rhel-lvm88, rhel-lvm88-gent2, rhel-lvm92, rhel-lvm92-gen2 |
+|| rhel-ha | 9_2, 9_2-gen2 |
+|| rhel-sap-apps | 9_0, 90sapapps-gen2, 9_2, 92sapapps-gen2 | 
+|| rhel-sap-ha |  9_2, 92sapha-gen2 |
 |suse | opensuse-leap-15-* | gen* |
 |suse | sles-12-sp5-* | gen* |
 |suse | sles-sap-12-sp5* |gen*  |
@@ -230,6 +237,22 @@ Following is the list of supported images and no other marketplace images releas
 | | sles-sap-byos | 12-sp4, 12-sp4-gen2, gen2-12-sp4 |
 | | sles-sapcal | 12-sp3 |
 | | sles-standard | 12-sp4-gen2 |
+|| sle-hpc-15-sp4-byos | gen1, gen2 |
+|| sle-hpc-15-sp5-byos | gen1, gen 2 |
+|| sle-hpc-15-sp5 |  gen1, gen 2 |
+|| sles-15-sp4-byos | gen1, gen2 | 
+|| sles-15-sp4-chost-byos | gen1, gen 2|
+|| sles-15-sp4-hardened-byos | gen1, gen2 | 
+|| sles-15-sp5-basic | gen1, gen2 |
+|| sles-15-sp5-byos | gen1, gen2| 
+|| sles-15-sp5-chost-byos | gen1, gen2 |
+|| sles-15-sp5-hardened-byos | gen1, gen2 |
+|| sles-15-sp5-sapcal | gen1, gen2 |
+|| sles-15-sp5 | gen1, gen2 |
+|| sles-sap-15-sp4-byos | gen1, gen2 |
+|| sles-sap-15-sp4-hardened-byos | gen1, gen2 |
+|| sles-sap-15-sp5-byos | gen1, gen2 |
+|| sles-sap-15-sp5-hardened-byos| gen1, gen2 |
 |oracle | oracle-linux | 7*, ol7*, ol8*, ol9*, ol9-lvm*, 8, 8-ci, 81, 81-ci, 81-gen2 |
 | | oracle-database | oracle_db_21 |
 | | oracle-database-19-3 | oracle-database-19-0904 |
@@ -256,29 +279,6 @@ Following is the list of supported images and no other marketplace images releas
 || debian-10-daily | 10, 10-gen2,</br> 10-backports,</br> 10-backports-gen2|
 || debian-11 | 11, 11-gen2,</br> 11-backports, </br> 11-backports-gen2 |
 || debian-11-daily | 11, 11-gen2,</br>  11-backports, </br> 11-backports-gen2 |
-| microsoft-dsvm | aml-workstation | ubuntu |
-|| ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
-|| ubuntu-2004 | 2004, 2004-gen2 |
-| redhat | rhel-byos | rhel-lvm88, rhel-lvm88-gent2, rhel-lvm92, rhel-lvm92-gen2 |
-|| rhel-ha | 9_2, 9_2-gen2 |
-|| rhel-sap-apps | 9_0, 90sapapps-gen2, 9_2, 92sapapps-gen2 | 
-|| rhel-sap-ha |  9_2, 92sapha-gen2 |
-| suse | sles-standard | 12-sp4-gen2 |
-|| sle-hpc-15-sp4-byos | gen1, gen2 |
-|| sle-hpc-15-sp5-byos | gen1, gen 2 |
-|| sle-hpc-15-sp5 |  gen1, gen 2 |
-|| sles-15-sp4-byos | gen1, gen2 | 
-|| sles-15-sp4-chost-byos | gen1, gen 2|
-|| sles-15-sp4-hardened-byos | gen1, gen2 | 
-|| sles-15-sp5-basic | gen1, gen2 |
-|| sles-15-sp5-byos | gen1, gen2| 
-|| sles-15-sp5-chost-byos | gen1, gen2 |
-|| sles-15-sp5-sapcal | gen1, gen2 |
-|| sles-15-sp5 | gen1, gen2 |
-|| sles-sap-15-sp4-byos | gen1, gen2 |
-|| sles-sap-15-sp4-hardened-byos | gen1, gen2 |
-|| sles-sap-15-sp5-byos | gen1, gen2 |
-|| sles-sap-15-sp5-hardened-byos| gen1, gen2 |
 
 
 ### Custom images
