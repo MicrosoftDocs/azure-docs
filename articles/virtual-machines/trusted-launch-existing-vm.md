@@ -37,7 +37,7 @@ Azure Virtual Machines supports enabling trusted launch on existing [Azure Gener
 ## Best practices
 
 - Enable trusted launch on a test Generation 2 VM. Determine if any changes are required to meet the prerequisites before you enable trusted launch on Generation 2 VMs associated with production workloads.
-- [Create restore point](create-restore-points.md) for Azure Generation 2 VMs associated with production workloads before you enable the trusted launch security type. You can use the restore point to re-create the disks and the Generation 2 VM with the previous well-known state.
+- [Create restore points](create-restore-points.md) for Azure Generation 2 VMs associated with production workloads before you enable the trusted launch security type. You can use restore points to re-create the disks and the Generation 2 VM with the previous well-known state.
 
 ## Enable trusted launch on an existing VM
 
@@ -49,7 +49,7 @@ Azure Virtual Machines supports enabling trusted launch on existing [Azure Gener
 
 ### [Portal](#tab/portal)
 
-Follow the steps to use the Azure portal to enable trusted launch on an existing Azure Generation 2 VM.
+To use the Azure portal to enable trusted launch on an existing Azure Generation 2 VM:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Confirm that the VM generation is **V2** and select **Yes** to stop the VM.

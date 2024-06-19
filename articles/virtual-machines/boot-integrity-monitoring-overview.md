@@ -22,7 +22,7 @@ Your [Azure trusted VM](trusted-launch.md) needs Secure Boot and virtual Trusted
 
 ## Prerequisites
 
-An active Azure subscription and a trusted launch VM.
+You need an active Azure subscription and a trusted launch VM.
 
 ## Enable integrity monitoring
 
