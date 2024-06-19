@@ -2,23 +2,22 @@
 title: Concepts - Small and large language models
 description: Learn about small and large language models, including when and how you can use them with your Azure Kubernetes Service (AKS) AI and machine learning workloads.
 ms.topic: conceptual
-ms.date: 06/17/2024
+ms.date: 06/19/2024
 author: schaffererin
 ms.author: schaffererin
 ---
 
 # Concepts - Small and large language models
 
-In this article, you learn about small and large language models, including when to use them and how you can use them with your Azure Kubernetes Service (AKS) AI and machine learning workloads.
-
+In this article, you learn about small and large language models, including when to use them and how you can use them with your AI and machine learning workloads on Azure Kubernetes Service (AKS).
 
 ## What are language models?
 
 Language models are powerful machine learning models used for natural language processing (NLP) tasks, such as text generation and sentiment analysis. These models represent natural language based on the probability of words or sequences of words occurring in a given context.
 
-*Conventional language models* are used in supervised settings where they're trained on well-labeled text datasets for specific tasks. *Pretrained language models* are trained on large-scale text corpora from the internet using deep neural networks and can be fine-tuned on smaller datasets for specific tasks.
+*Conventional language models* have been used in supervised settings for research purposes where the models are trained on well-labeled text datasets for specific tasks. *Pre-trained language models* have become more widely used in recent years. These modes are trained on large-scale text corpora from the internet using deep neural networks and can be fine-tuned on smaller datasets for specific tasks.
 
-The size of a language model is determined by the number of parameters it has, which is the number of weights that determine how the model processes input data and generates output. Parameters are learned during the training process by adjusting the weights to minimize the difference between the model's predictions and the actual data. The more parameters a model has, the more complex and expressive it is, but also the more computationally expensive it is to train and use.
+The size of a language model is determined by the its number of parameters, or *weights*, that determine how the model processes input data and generates output. Parameters are learned during the training process by adjusting the weights within layers of the model to minimize the difference between the model's predictions and the actual data. The more parameters a model has, the more complex and expressive it is, but also the more computationally expensive it is to train and use.
 
 In general, **small language models** have *fewer than 100 million parameters*, and **large language models** have *more than 100 million parameters*. For example, GPT-2 has four versions with different sizes: small (124 million parameters), medium (355 million parameters), large (774 million parameters), and extra-large (1.5 billion parameters).
 
@@ -77,12 +76,20 @@ The following table lists some popular, high-performance large language models:
 | | | |
 | | | |
 
-## X
+## Use language models with AKS
 
-## Y
+The Kubernetes AI Toolchain Operator (KAITO) is a Kubernetes operator that automates AI and machine learning model deployments in Kubernetes clusters. The KAITO add-on for AKS simplifies the experience of running OSS AI models on your AKS clusters. The add-on automatically provisions the necessary GPU nodes and sets up the associated interference server as an endpoint server to your AI models.
 
-## Z
+For more information, [Deploy an AI model on AKS with the AI toolchain operator][ai-toolchain-operator].
 
 ## Next steps
 
-XYZ
+To learn more about AI and machine learning with AKS, see the following articles:
+
+* [Deploy an application that uses OpenAI on AKS][openai-aks]
+* [Build and deploy data and machine learning pipelines with Flyte on AKS][flyte-aks]
+
+<!-- LINKS -->
+[ai-toolchain-operator]: ./ai-toolchain-operator.md
+[openai-aks]: ./open-ai-quickstart.md
+[flyte-aks]: ./use-flyte.md
