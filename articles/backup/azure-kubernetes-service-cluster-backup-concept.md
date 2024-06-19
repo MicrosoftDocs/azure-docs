@@ -33,7 +33,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - Before you install an extension in an AKS cluster, you must register the `Microsoft.KubernetesConfiguration` resource provider at the subscription level. Learn how to [register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#resource-provider-registrations).
 
-- Extension agent and extension operator are the core platform components in AKS, which are installed when an extension of any type is installed for the first time in an AKS cluster. These provide capabilities to deploy *1P* and *3P* extensions. The backup extension also relies on them for installation and upgrades.
+- Extension agent and extension operator are the core platform components in AKS, which are installed when an extension of any type is installed for the first time in an AKS cluster. These provide capabilities to deploy first-party and third-party extensions. The backup extension also relies on them for installation and upgrades.
 
   >[!Note]
   >Both of these core components are deployed with aggressive hard limits on CPU and memory, with CPU *less than 0.5% of a core* and memory limit ranging from *50-200 MB*. So, the *COGS impact* of these components is very low. Because they are core platform components, there is no workaround available to remove them once installed in the cluster.
@@ -48,7 +48,7 @@ Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly access
 
 Your Azure resources access AKS clusters through the AKS regional gateway using system-assigned managed identity authentication. The managed identity must have the appropriate Kubernetes permissions assigned via an Azure resource role.
 
-For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access to configure backups and restores. The Backup vault is assigned a pre-defined role **Microsoft.DataProtection/backupVaults/backup-operator** in the AKS cluster, allowing it to only perform specific backup operations. 
+For AKS backup, the Backup vault accesses your AKS clusters via Trusted Access to configure backups and restores. The Backup vault is assigned a predefined role **Microsoft.DataProtection/backupVaults/backup-operator** in the AKS cluster, allowing it to only perform specific backup operations. 
 
 To enable Trusted Access between a Backup vault and an AKS cluster, you must register the `TrustedAccessPreview`  feature flag on `Microsoft.ContainerService` at the subscription level. Learn more [to register the resource provider](azure-kubernetes-service-cluster-manage-backups.md#enable-the-feature-flag).
 
@@ -63,7 +63,7 @@ Learn [how to enable Trusted Access](azure-kubernetes-service-cluster-manage-bac
 
 To enable backup for an AKS cluster, see the following prerequisites: .
 
-- AKS backup uses CSI drivers snapshot capabilities to perform backups of persistent volumes. CSI Driver support is available for AKS clusters with Kubernetes version *1.21.1* or later. 
+- AKS backup uses Container Storage Interface (CSI) drivers snapshot capabilities to perform backups of persistent volumes. CSI Driver support is available for AKS clusters with Kubernetes version *1.21.1* or later. 
 
   >[!Note]
   >- Currently, AKS backup only supports backup of Azure Disk-based persistent volumes (enabled by CSI driver). If you're using Azure File Share and Azure Blob type persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
