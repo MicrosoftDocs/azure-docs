@@ -5,8 +5,8 @@ ms.date: 04/12/2024
 ms.topic: overview
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 keywords: "VMM, Arc, Azure"
 ms.custom: references_regions
