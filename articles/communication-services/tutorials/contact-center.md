@@ -46,7 +46,7 @@ Developers have the option of using Azure Communication Services for all of thes
 
 Many contact center applications are continuously changing to improve customer experience and meet new business needs. This ongoing evolution can be modeled as a cycle of customer interaction design, implementing that design, and using data to gain insight on potential improvements:
 
-![Data flow diagram for chat with a bot agent](media/contact-center/ccaas-cycle.png)
+![Cycle diagram showing the different activities for a contact center app.](media/contact-center/app-cycle.png)
 
 ## Teams interoperability 
 
@@ -54,7 +54,7 @@ You can use Azure Communication Services to implement contact center application
 
 The following diagram shows some Azure and Teams components connected in a contact center setting.
 
-![Data flow diagram for chat with a bot agent](media/contact-center/potential-flows-azure-teams.svg)
+![Diagram showing various options for using Azure and Teams in a contact center setting.](media/contact-center/potential-flows-azure-teams.svg)
 
 
 ## Architecture diagrams
@@ -65,7 +65,7 @@ The rest of this article provides the high-level architecture and data flows for
 3. [Customer calling a PSTN number, routed by Azure, that is connected to a Teams based agent](#connect-azure-managed-phone-calls-to-teams).
 
 ### Chat on a website with a bot agent
-Azure Communication Services provides multiple patterns for connecting customers to chat bots and services. You can easily ass rich text chat in a web site or native app using built-in integration with Azure AI Bot Services. You need to link the Bot Service to a Communication Services resource using a channel in the Azure portal. For more information about this scenario, see [Add a bot to your chat app - An Azure Communication Services quickstart](../quickstarts/chat/quickstart-botframework-integration.md).
+Azure Communication Services provides multiple patterns for connecting customers to chat bots and services. You can easily add rich text chat in a web site or native app using built-in integration with Azure AI Bot Services. You need to link the Bot Service to a Communication Services resource using a channel in the Azure portal. For more information about this scenario, see [Add a bot to your chat app - An Azure Communication Services quickstart](../quickstarts/chat/quickstart-botframework-integration.md).
 
 ![Data flow diagram for chat with a bot agent](media/contact-center/data-flow-diagram-chat-bot.png)
 
@@ -83,7 +83,7 @@ SMS, email, and Meta WhatsApp are three other channels available for text-based 
 ### Chat on a website that escalates to a voice call answered by a Teams agent
 Text chat may not be sufficient to meet your customer experience objectives. A chat conversation between a user and a bot can be handed off to an agent in Microsoft Teams. To learn more about bot handoff integration models, see [Transition conversations from bot to human - Bot Service](/azure/bot-service/bot-service-design-pattern-handoff-human?view=azure-bot-service-4.0&preserve-view=true). To learn more about Teams Auto Attendants and Call Queues, see [Plan for Teams Auto attendants and Call queues - Microsoft Teams](/microsoftteams/plan-auto-attendant-call-queue).
 
-![Data flow diagram for chat escalating to a call](media/contact-center/data-flow-diagram-escalate-to-call.png)
+![Data flow diagram for chat escalating to a call.](media/contact-center/data-flow-diagram-escalate-to-call.png)
 
 #### Dataflow
 
