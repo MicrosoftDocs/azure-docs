@@ -1,11 +1,12 @@
 ---
 title: Post event to custom Azure Event Grid topic
-description: This article describes how to post an event to a custom topic using Azure PowerShell or Azure CLI. It shows the format of the post and event data.
-ms.topic: conceptual
+description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
+ms.topic: concept-article
 ms.date: 06/18/2024 
+#customer intent: As a developer, I want to know how to publish events to an Azure Event Grid custom topic
 ---
 
-# Publish events to Azure Event Grid custom topics using access keys using PowerShell and CLI
+# Publish events to Azure Event Grid custom topics using access keys
 
 This article describes how to post an event to a custom topic using an access key. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
 
@@ -20,7 +21,7 @@ When sending the HTTP POST to a custom topic, use the URI format: `https://<topi
 # [Azure portal](#tab/azure-portal)
 You can find the topic's endpoint on the **Overview** tab of the **Event Grid Topic** page in the Azure portal. 
 
-:::image type="content" source="./media/post-to-custom-topic/topic-endpoint.png" alt-text="Screenshot that shows the Event Grid Topic page on the Azure portal with the topic endpoint highlighted." lightbox="./media/post-to-custom-topic/topic-endpoint.png":::
+:::image type="content" source="./media/post-to-custom-topic/topic-endpoint.png" alt-text="Screenshot that shows the Event Grid topic page on the Azure portal with the topic endpoint highlighted." lightbox="./media/post-to-custom-topic/topic-endpoint.png":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -43,7 +44,7 @@ In the request, include a header value named `aeg-sas-key` that contains a key f
 # [Azure portal](#tab/azure-portal)
 To get the access key for the custom topic, select **Access keys** tab on the **Event Grid Topic** page in the Azure portal. 
 
-:::image type="content" source="./media/post-to-custom-topic/custom-topic-access-keys.png" alt-text="Screenshot that shows the Access Keys tab of the Event Grid Topic page on the Azure portal." lightbox="./media/post-to-custom-topic/custom-topic-access-keys.png":::
+:::image type="content" source="./media/post-to-custom-topic/custom-topic-access-keys.png" alt-text="Screenshot that shows the Access Keys tab of the Event Grid topic page on the Azure portal." lightbox="./media/post-to-custom-topic/custom-topic-access-keys.png":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -97,6 +98,7 @@ For example, a valid event data schema is:
 ```
 
 ## Send the sample event 
+This section shows how to send a sample event to the custom topic. 
 
 # [Azure portal](#tab/azure-portal)
 
@@ -181,7 +183,7 @@ For errors, the message body has the following format:
 }
 ```
 
-## Next steps
+## Related content
 
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
