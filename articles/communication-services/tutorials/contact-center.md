@@ -113,7 +113,6 @@ The following list presents relevant Teams interoperability features available f
 
 |Group of features |Capability | Status |
 |-- | -- | -- |
-
 | DTMF Support in Azure Communication Services UI SDK | Allows touch tone entry | ✔️|
 | Teams Capabilities| Audio and video| ✔️|
 |   | Screen sharing| ✔️|
@@ -151,4 +150,3 @@ The following list presents relevant Teams interoperability features available f
 
 1.  Teams Auto Attendant must be voice enabled.
 2.  Licensing required.
-3.  Teams Call Parking becomes available with general availability.
