@@ -28,7 +28,7 @@ In this quickstart, you create a cluster replica in another region for an Azure 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - [MongoDB shell](https://www.mongodb.com/try/download/shell)
 
-## Create a cluster replica for a new cluster
+## Create a new cluster and its replica in another region
 
 Create a MongoDB cluster with a cluster read replica in another region by using Azure Cosmos DB for MongoDB vCore.
 
@@ -116,7 +116,7 @@ You can also select add 0.0.0.0 - 255.255.255.255 firewall rule to allow not jus
 
    :::image type="content" source="media/quickstart-portal/deployment-complete.png" alt-text="Screenshot of the deployment page for a cluster.":::
 
-## Connect to the cluster and ingest data
+## Connect to primary cluster and ingest data
 
 Get the connection string you need to connect to this primary cluster using your application code.
 
@@ -124,16 +124,96 @@ Get the connection string you need to connect to this primary cluster using your
 
    :::image type="content" source="media/quickstart-cross-region-replication/select-connection-strings-option.png" alt-text="Screenshot of the connection strings page in the cluster propteries.":::
 
-1. Record the value from the **Connection string** field.
+1. Copy the value from the **Connection string** field.
    
     > [!IMPORTANT]
-    > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you entered when you created the cluster.
+   > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you entered when you created the cluster.
 
 1. In MongoDB shell, connect to the primary cluster using the connection string.
 
-```Mongo Shell
-mongosh mongodb+srv://`<user>`@`<cluster_name>`.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
+```cmd
+mongosh mongodb+srv://<user>@<cluster_name>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
 ```
+
+1. Create a *my_script.js* script file to run from the MongoDB shell. This script file creates two collections and inserts documents with data into those collections.
+
+```JavaScript
+let dogDocs = [
+  {
+    name: "pooch",
+    breed: "poodle",
+    weight: "6 lbs"
+  },
+  {
+    name: "mutt",
+    breed: "bulldog",
+    weight: "10 lbs"
+  }
+];
+
+let catDocs = [
+  {
+    name: "minni", 
+    breed: "persian",
+    color: "white"
+  },
+  {
+    name: "tinkle",
+    breed: "bombay",
+    color: "black"
+  }
+];
+
+let dogIndex = { name : 1 };
+let catIndex = { name : 1 };
+
+let collInfoObjs = [ 
+  { coll: "dogs", data: dogDocs, index: dogIndex }, 
+  { coll: "cats", data: catDocs, index: catIndex } 
+];
+
+for (obj of collInfoObjs) {
+    db[obj.coll].insertMany(obj.data);
+    db[obj.coll].createIndex(obj.index);
+}
+```
+
+1. Run the script from the MongoDB shell.
+
+```MongoDB Shell
+load(my_script.js);
+```
+
+1. In the MongoDB shell, read data from the database.
+
+```MongoDB Shell
+db.dogs.find();
+db.cats.find();
+```
+
+## Connect to read replica cluster in another region and read data
+
+Get the connection string for the read cluster replica in another region.
+
+1. From the Azure Cosmos DB for MongoDB vCore *primary* cluster page, select the **Global distribution (preview)** page under **Settings**.
+
+   :::image type="content" source="media/quickstart-cross-region-replication/global-distribution-page-on-primary-cluster.png" alt-text="Screenshot of the global distribution preview page in the primary cluster propteries.":::
+
+1. Select the cluster replica name to open the read cluster replica properties in the Azure portal.
+
+1. On the replica cluster sidebar, under **Cluster management**, select **Connection strings**.
+
+1. Copy the value from the **Connection string** field.
+   
+    > [!IMPORTANT]
+   > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you entered when you created the cluster.
+
+1. In MongoDB shell, connect to the read replica cluster using its connection string.
+
+```cmd
+mongosh mongodb+srv://<user>@<cluster_replica_name>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
+```
+  
 
 ## Clean up resources
 
