@@ -3,7 +3,7 @@ title: Render custom data on a raster map in Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: eriklindeman
 ms.author: eriklind
-ms.date: 10/28/2021
+ms.date: 06/19/2024
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Render custom data on a raster map
 
-This article describes how to use the [Get Map Static Image] command with image composition functionality. Image composition functionality supports the retrieval of static raster tiles that contain custom data.
+This article describes how to use the [Get Map Static Image] command with image composition functionality. Image composition functionality supports the retrieval of static raster tiles that contain custom data and different styles.
 
 The following are examples of custom data:
 
@@ -28,21 +28,19 @@ The following are examples of custom data:
 - [Azure Maps account]
 - [Subscription key]
 
-This article uses the [Bruno] application, but you may use a different API development environment.
-
->[!IMPORTANT]
+> [!IMPORTANT]
 > In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-## Render pushpins with labels and a custom image
+This article uses the [Bruno] application, but you may use a different API development environment.
 
 > [!NOTE]
-> The procedure in this section requires an Azure Maps account in the Gen2 pricing tier.
+> The examples in this article require an Azure Maps account in the Gen2 pricing tier.
 >
 > **Azure Maps Gen1 pricing tier retirement**
 >
 > Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
-### Get static image with custom pins and labels
+## Get static image with custom pins and labels
 
 To get a static image with custom pins and labels:
 
@@ -69,9 +67,6 @@ The following image is returned:
 :::image type="content" source="./media/how-to-render-custom-data/render-pins.png" alt-text="A custom pushpin with a label.":::
 
 ## Render a polygon with color and opacity
-
-> [!NOTE]
-> The procedure in this section requires an Azure Maps account Gen1 (S1) or Gen2 pricing tier.
 
 You can modify the appearance of a polygon by using style modifiers with the [path] parameter.
 
@@ -142,7 +137,7 @@ The following image is returned:
 
 Similarly, you can change, add, and remove other style modifiers.
 
-### Add a traffic layer
+## Add a traffic layer
 
 To get a static image with a traffic layer rendered on a roads basemap, use the `trafficLayer` parameter. The following example shows a map with a traffic layer as well as a pin with a label:
 
@@ -168,7 +163,7 @@ The following image is returned:
 
 :::image type="content" source="./media/how-to-render-custom-data/rendering-traffic-layer-information.png" alt-text="A screenshot of a map showing the traffic layer, as well as a custom pushpin with the label Westminster Bridge.":::
 
-### Create a map using the dark gray style
+## Create a map using the dark gray style
 
 To get a static image with the dark gray style appplied, set the `TilesetId` parameter to `microsoft.base.darkgrey`:
 
@@ -196,8 +191,7 @@ The following image is returned:
 
 For more information the different styles available using the TilesetId parameter, see [TilesetId] in the *Render - Get Map Tileset* REST API documentation.
 
-
-### Create a map using the imagery style
+## Create a map using the imagery style
 
 To get a static image with the imagery style appplied, set the `TilesetId` parameter to `microsoft.imagery`:
 
@@ -212,7 +206,7 @@ To get a static image with the imagery style appplied, set the `TilesetId` param
 1. Enter the following URL:
 
     ```HTTP
-    https://atlas.microsoft.com/map/static?subscription-key={Your-Azure-Maps-Subscription-key}&zoom=16&tilesetId=microsoft.base.darkgrey&api-version=2024-04-01&language=en-us&center=-95.360200,29.753452&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27Westminster Bridge%27-0.122427+51.500867%7C%7Chttps%3A%2F%2Fsamples.azuremaps.com%2Fimages%2Ficons%2Fylw-pushpin.png&height=700&Width=700 
+    https://atlas.microsoft.com/map/static?subscription-key={Your-Azure-Maps-Subscription-key}&zoom=16&tilesetId=microsoft.imagery&api-version=2024-04-01&language=en-us&center=-43.176141,-22.965458&height=700&Width=700
     ```
 
 1. Select **Create**.
@@ -221,10 +215,9 @@ To get a static image with the imagery style appplied, set the `TilesetId` param
 
 The following image is returned:
 
-:::image type="content" source="./media/how-to-render-custom-data/darkgray.png" alt-text="A screenshot of a map showing the dark gray style created by setting the tileset ID parameter to microsoft.base.darkgrey.":::
+:::image type="content" source="./media/how-to-render-custom-data/imagery.png" alt-text="A screenshot of a map showing the dark gray style created by setting the tileset ID parameter to microsoft.base.darkgrey.":::
 
 For more information the different styles available using the TilesetId parameter, see [TilesetId] in the *Render - Get Map Tileset* REST API documentation.
-
 
 ## Next steps
 
@@ -233,12 +226,10 @@ For more information the different styles available using the TilesetId paramete
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Bruno]: https://www.usebruno.com/
-[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-
 [Get Map Static Image]: /rest/api/maps/render/get-map-static-image
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [path]: /rest/api/maps/render/get-map-static-image#uri-parameters
-[pins]: /rest/api/maps/render/get-map-static-image#uri-parameters
-[Render]: /rest/api/maps/render/get-map-static-image
 [Render - Get Map Static Image]: /rest/api/maps/render/get-map-static-image
+[Render]: /rest/api/maps/render/get-map-static-image
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [TilesetId]: /rest/api/maps/render/get-map-tileset#tilesetid
