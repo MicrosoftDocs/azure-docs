@@ -1,7 +1,7 @@
 ---
 author: backwind1233
 ms.author: zhihaoguo
-ms.date: 05/30/2024
+ms.date: 06/19/2024
 ---
 
 ## Create a Red Hat Container Registry service account
