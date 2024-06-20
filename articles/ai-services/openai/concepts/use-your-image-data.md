@@ -14,7 +14,7 @@ recommendations: false
 
 # Use your image data for Azure OpenAI by using GPT-4 Turbo with Vision (preview) in Azure OpenAI Studio
 
-Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, the vison model in Azure OpenAI Service. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers by using Retrieval Augmented Generation (RAG), based on your own images and image metadata.
+Use this article to learn how to provide your own image data for GPT-4 Turbo with Vision, the vision model in Azure OpenAI Service. GPT-4 Turbo with Vision on your data allows the model to generate more customized and targeted answers by using Retrieval Augmented Generation (RAG), based on your own images and image metadata.
 
 > [!IMPORTANT]
 > After the GPT4-Turbo with Vision preview model is deprecated, you'll no longer be able to use Azure OpenAI on your image data. To implement a RAG solution with image data, see the [sample on GitHub](https://github.com/Azure-Samples/azure-search-openai-demo/).
@@ -52,7 +52,7 @@ All three options use an Azure AI Search index to do an image-to-image search an
 
 When you're adding a data source for the first time, you might see a red notice that asks you to turn on cross-origin resource sharing (CORS). To stop the warning, select **Turn on CORS** so that Azure OpenAI can access the data source.
 
-:::image type="content" source="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png" alt-text="Screenshot that shows an error stating that CORS has not been turned on." lightbox="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png":::
+:::image type="content" source="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png" alt-text="Screenshot that shows an error stating that CORS is not turned on." lightbox="../media/use-your-image-data/cross-origin-resource-sharing-requirement.png":::
 
 ## Add your data by uploading files
 
@@ -114,7 +114,7 @@ The option of using a Blob Storage container is especially useful if you have a 
 
 If you don't already have a Blob Storage container populated with these files, and you want to upload your files one by one, you can upload the files by using Azure OpenAI Studio instead.
 
-Before you start adding your Blob Storage container as your data source, make sure that it contains all the images that you want to ingest, along with a JSON file that contains the image file paths and metadata.
+Before you start adding your Blob Storage container as your data source, make sure that it contains all the images that you want to ingest. Also make sure that it contains a JSON file that includes the image file paths and metadata.
 
 > [!IMPORTANT]
 > Your metadata JSON file must:
