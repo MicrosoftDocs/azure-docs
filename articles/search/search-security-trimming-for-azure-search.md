@@ -39,7 +39,7 @@ A better solution is using the `search.in` function for security filters, as des
 
 ## Prerequisites
 
-* A string field containing a group or user identity. It must have the filterable attribute. It should be a collection. It shouldn't allow nulls.
+* A string field containing a group or user identity, such as a Microsoft Entra object identifier.
 
 * Other fields in the same document should provide the content that's accessible to that group or user. In the following JSON documents, the "security_id" fields contain identities used in a security filter, and the name, salary, and marital status are included if the identity of the caller matches the "security_id" of the document.
 
@@ -50,14 +50,14 @@ A better solution is using the `search.in` function for security filters, as des
             "name": "Abram",   
             "salary": 75000,   
             "married": true,
-            "security_id": "10011"
+            "security_id": "alphanumeric-object-id-for-employee-1"
         },
         "Employee-2": {  
             "employee_id": "200-2000-20-2-20000-2",
             "name": "Adams",   
             "salary": 75000,   
             "married": true,
-            "security_id": "20022"
+            "security_id": "alphanumeric-object-id-for-employee-2"
         } 
     }  
     ```
@@ -66,7 +66,9 @@ A better solution is using the `search.in` function for security filters, as des
 
 In the search index, within the fields collection, you need one field that contains the group or user identity, similar to the fictitious "security_id" field in the previous example.
 
-1. Add a security field as a `Collection(Edm.String)`. Make sure it has a `filterable` attribute set to `true`. In this example, the security field is `group_ids`. It's populated with the string `["group_id1, group_id2"]`. 
+1. Add a security field as a `Collection(Edm.String)`.
+
+1. Set the field's `filterable` attribute set to `true`.
 
 1. Set the field's `retrievable` attribute to `false` so that it isn't returned as part of the search request.
 
@@ -187,7 +189,6 @@ This article describes a pattern for filtering results based on user identity an
 
 For more examples, demos, and videos:
 
-* [Configure document security for a chat app in Python](/azure/developer/python/get-started-app-chat-document-security-trim)
-* [Set up a security filter using Microsoft Entra ID](search-security-trimming-for-azure-search-with-aad.md)
+* [Get started with chat document security in Python](/azure/developer/python/get-started-app-chat-document-security-trim)
 * [Set up optional sign in and document level access control (modifications to the AzureOpenAIDemo app)](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/docs/login_and_acl.md)
 * [Video: Secure your Intelligent Applications with Microsoft Entra](https://build.microsoft.com/en-US/sessions/b5636ca7-64c2-493c-9b30-4a35852acfbe?source=/speakers/cc9b56a0-4af0-4b60-a2f3-8312c5b35ca2)
