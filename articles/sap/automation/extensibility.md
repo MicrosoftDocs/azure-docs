@@ -8,7 +8,7 @@ ms.date: 10/29/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, linux-related-content
 ---
 
 # Extending the SAP Deployment Automation Framework
@@ -145,7 +145,6 @@ custom_scs_virtual_hostname:   "myscshostname"
 custom_ers_virtual_hostname:   "myershostname"
 custom_db_virtual_hostname:    "mydbhostname"
 custom_pas_virtual_hostname:   "mypashostname"
-custom_app_virtual_hostname:   "myapphostname"
 ```
 
 You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
@@ -155,8 +154,8 @@ configuration_settings = {
   custom_scs_virtual_hostname        = "myscshostname",
   custom_ers_virtual_hostname        = "myershostname",
   custom_db_virtual_hostname         = "mydbhostname",
-  custom_pas_virtual_hostname        = "mypashostname",
-  custom_app_virtual_hostname        = "myapphostname"
+  custom_pas_virtual_hostname        = "mypashostname"
+
 }
 
 ```

@@ -4,7 +4,7 @@ titleSuffix: Azure OpenAI
 description: Learn about managing model deployment life cycle, updates, & retirement.
 ms.service: azure-ai-openai
 ms.topic: conceptual
-ms.date: 10/04/2023
+ms.date: 06/18/2023
 ms.custom: references_regions, build-2023, build-2023-dataai, devx-track-azurepowershell
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
@@ -75,7 +75,7 @@ There are three distinct model deployment upgrade options:
 |`NoAutoUpgrade` | The model deployment never automatically upgrades. Once the retirement date is reached the model deployment stops working. You need to update your code referencing that deployment to point to a nonexpired model deployment. |
 
 > [!NOTE]
-> `null` is equivalent to `AutoUpgradeWhenExpired`. If the **Version update policy** option is not present in the properties for a model that supports model upgrades this indicates the value is currently `null`. Once you explicitly modify this value, the property is visible in the studio properties page as well as via the REST API.
+> `null` is equivalent to `OnceCurrentVersionExpired`. If the **Version update policy** option is not present in the properties for a model that supports model upgrades this indicates the value is currently `null`. Once you explicitly modify this value, the property is visible in the studio properties page as well as via the REST API.
 
 ### Examples
 
@@ -122,7 +122,7 @@ New-AzCognitiveServicesAccountDeployment -ResourceGroupName {ResourceGroupName} 
 
 # [REST](#tab/rest)
 
-To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/cognitiveservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null, you won't see a `versionUpgradeOption` property.
+To query the current model deployment settings including the deployment upgrade configuration for a given resource use [`Deployments List`](/rest/api/aiservices/accountmanagement/deployments/list?tabs=HTTP#code-try-0). If the value is null, you won't see a `versionUpgradeOption` property.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/deployments?api-version=2023-05-01
@@ -221,7 +221,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **Request body**
 
-This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/cognitiveservices/accountmanagement/deployments/create-or-update).
+This is only a subset of the available request body parameters. For the full list of the parameters, you can refer to the [REST API reference documentation](/rest/api/aiservices/accountmanagement/deployments/create-or-update).
 
 |Parameter|Type| Description |
 |--|--|--|

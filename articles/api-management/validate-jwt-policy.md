@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/05/2024
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Validate JWT
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `validate-jwt` policy enforces existence and validity of a supported JSON web token (JWT) extracted from a specified HTTP header, extracted from a specified query parameter, or matching a specific value.
 
@@ -109,7 +111,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -165,7 +167,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration" />
     <audiences>
-        <audience>25eef6e4-c905-4a07-8eb4-0d08d5df8b3f</audience>
+        <audience>00001111-aaaa-2222-bbbb-3333cccc4444</audience>
     </audiences>
     <required-claims>
         <claim name="id" match="all">
@@ -194,7 +196,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
     <openid-config url="https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/b2c_1_signin/v2.0/.well-known/openid-configuration" />
     <audiences>
-        <audience>d313c4e4-de5f-4197-9470-e509a2f0b806</audience>
+        <audience>11112222-bbbb-3333-cccc-4444dddd5555</audience>
     </audiences>
     <required-claims>
         <claim name="id" match="all">
@@ -237,7 +239,7 @@ This example shows how to use the `validate-jwt` policy to authorize access to o
 ```
 
 ## Related policies 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 
 

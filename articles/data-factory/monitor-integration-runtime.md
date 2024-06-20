@@ -4,7 +4,7 @@ description: Learn how to monitor different types of integration runtime in Azur
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 author: nabhishek
 ms.author: abnarain
 ms.custom:

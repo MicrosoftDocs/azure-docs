@@ -7,7 +7,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/17/2023
+ms.date: 04/01/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -103,7 +103,7 @@ Configuration for SAP **/hana/data** volume:
 
 For the **/hana/log** volume. the configuration would look like:
 
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | Max VM IOPS | **/hana/log** capacity | **/hana/log** throughput | **/hana/log** IOPS | **/hana/shared** capacity <br />using default IOPS <br /> and throughput |
+| VM SKU | RAM | Max. VM I/O<br /> Throughput | Max VM IOPS | **/hana/log** capacity | **/hana/log** throughput | **/hana/log** IOPS | **/hana/shared**<sup>2</sup> capacity <br />using default IOPS <br /> and throughput |
 | --- | --- | --- | --- | --- | --- | --- | 
 | E20ds_v4 | 160 GiB | 480 MBps | 32,000 | 80 GB | 275 MBps | 3,000 | 160 GB |
 | E20(d)s_v5 | 160 GiB | 750 MBps | 32,000 | 80 GB | 275 MBps | 3,000 | 160 GB |
@@ -136,7 +136,8 @@ For the **/hana/log** volume. the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Please contact your Microsoft account team  
+<sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system)   
 
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase either IOPS, and/or throughput on the individual disks you're using. 

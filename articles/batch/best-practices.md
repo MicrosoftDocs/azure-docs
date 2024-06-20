@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 02/29/2024
+ms.date: 05/31/2024
 ms.topic: conceptual
 ---
 
@@ -120,6 +120,19 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
 
+### Container pools
+
+When specifying a Batch pool with a [virtual network](batch-virtual-network.md), there can be interaction
+side effects between the specified virtual network and the default Docker bridge. Docker, by default, will
+create a network bridge with a subnet specification of `172.17.0.0/16`. Ensure that there are no conflicting
+IP ranges between the Docker network bridge and your virtual network.
+
+Docker Hub limits the number of image pulls. Ensure that your workload doesn't
+[exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
+Hub-based images. It's recommended to use
+[Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
+[Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
+
 ### Azure region dependency
 
 You shouldn't rely on a single Azure region if you have a time-sensitive or production workload. While rare, there are issues that can affect an entire region. For example, if your processing needs to start at a specific time, consider scaling up the pool in your primary region *well before your start time*. If that pool scale fails, you can fall back to scaling up a pool in a backup region (or regions).
@@ -144,6 +157,11 @@ A job doesn't automatically move to completed state unless explicitly terminated
 
 There's a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state don't count towards this quota.
 
+Delete jobs when they're no longer needed, even if in completed state. Although completed jobs don't count towards
+active job quota, it's beneficial to periodically clean up completed jobs. For example,
+[listing jobs](/rest/api/batchservice/job/list) will be more efficient when the total number of jobs is a smaller
+set (even if proper filters are applied to the request).
+
 ## Tasks
 
 [Tasks](jobs-and-tasks.md#tasks) are individual units of work that comprise a job. Tasks are submitted by the user and scheduled by Batch on to compute nodes. The following sections provide suggestions for designing your tasks to handle issues and perform efficiently.
@@ -167,7 +185,7 @@ Deleting tasks accomplishes two things:
 > For tasks just submitted to Batch, the DeleteTask API call takes up to 10 minutes to take effect. Before it takes effect,
 > other tasks might be prevented from being scheduled. It's because Batch Scheduler still tries to schedule the tasks just
 > deleted. If you wanted to delete one task shortly after it's submitted, please terminate the task instead (since the
-> terminate task will take effect immediately). And then delete the task 10 minutes later.
+> terminate task request will take effect immediately). And then delete the task 10 minutes later.
 
 ### Submit large numbers of tasks in collection
 

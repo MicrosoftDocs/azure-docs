@@ -350,15 +350,24 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator`, supply it to the `CallCompositeRemoteOptions` object and set `CallCompositeParticipantRole` to the `CallCompositeLocalOptions` by `setRoleHint()`.
-`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from Azure Communication Services.
-
+To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
+While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
+// Optionally, if user is a Consumer role, disable camera and microphone buttons on the setup screen:
+val setupScreenOptions = CallCompositeSetupScreenOptions()
+            .setCameraButtonEnabled(false)
+            .setMicrophoneButtonEnabled(false)
+        
+
+val callComposite = CallCompositeBuilder()
+                        .setupScreenOptions(setupScreenOptions)
+                        .build()
+
 val locator = CallCompositeRoomLocator("<ROOM_ID>")
 
 val remoteOptions = CallCompositeRemoteOptions(
@@ -367,26 +376,28 @@ val remoteOptions = CallCompositeRemoteOptions(
     "DISPLAY_NAME",
 )
 
-val localOptions = CallCompositeLocalOptions().setRoleHint(participantRole)
-
-val callComposite = CallCompositeBuilder().build()
-callComposite.launch(context, remoteOptions, localOptions)
+callComposite.launch(context, remoteOptions)
 ```
 
 #### [Java](#tab/java)
 
 ```java
+// Optionally, if user is a Consumer role, disable camera and microphone buttons on the setup screen:
+CallCompositeSetupScreenOptions setupScreenOptions = new CallCompositeSetupScreenOptions()
+                                .setCameraButtonEnabled(false)
+                                .setMicrophoneButtonEnabled(false);
+
+CallComposite callComposite = new CallCompositeBuilder()
+                                .setupScreenOptions(setupScreenOptions)
+                                .build();
+
 CallCompositeJoinLocator locator = new CallCompositeRoomLocator("<ROOM_ID>");
 
 CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
         locator,
         communicationTokenCredential,                
         "DISPLAY_NAME");
-
-CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions().setRoleHint(participantRole);
-
-CallComposite callComposite = new CallCompositeBuilder().build();
-callComposite.launch(context, remoteOptions, localOptions);
+callComposite.launch(context, remoteOptions);
 ```
 
 ---

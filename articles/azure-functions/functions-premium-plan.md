@@ -3,9 +3,9 @@ title: Azure Functions Premium plan
 description: Details and configuration options (virtual network, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: nzthiago
 ms.topic: conceptual
-ms.date: 11/07/2023
+ms.date: 04/07/2024
 ms.author: thalme
-ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell
+ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
 
 # Azure Functions Premium plan
@@ -22,6 +22,7 @@ Premium plan hosting provides the following benefits to your functions:
 * [Choice of Premium instance sizes](#available-instance-skus).
 * More predictable pricing, compared with the Consumption plan.
 * High-density app allocation for plans with multiple function apps.
+* Supports [Linux container deployments](./container-concepts.md).
 
 When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events, just like the [Consumption plan](consumption-plan.md). Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.
 
@@ -36,9 +37,8 @@ Billing for the Premium plan is based on the number of core seconds and memory a
 
 When you create a function app in the Azure portal, the Consumption plan is the default. To create a function app that runs in a Premium plan, you must explicitly create or choose an Azure Functions Premium hosting plan using one of the _Elastic Premium_ SKUs. The function app you create is then hosted in this plan. The Azure portal makes it easy to create both the Premium plan and the function app at the same time. You can run more than one function app in the same Premium plan, but they must both run on the same operating system (Windows or Linux).
 
-The following articles show you how to create a function app with a Premium plan, either programmatically or in the Azure portal:
+The following articles show you how to programmatically create a function app with a Premium plan:
 
-+ [Azure portal](create-premium-plan-function-app-portal.md)
 + [Azure CLI](scripts/functions-cli-create-premium-plan.md)
 + [Azure Resource Manager template](functions-infrastructure-as-code.md?pivots=premium-plan)
 

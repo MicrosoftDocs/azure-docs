@@ -10,10 +10,10 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 01/18/2024
+ms.date: 06/18/2024
 ---
 
-# Import data from Azure Cosmos DB for NoSQL for queries in Azure AI Search
+# Index data from Azure Cosmos DB for NoSQL for queries in Azure AI Search
 
 In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from [Azure Cosmos DB for NoSQL](../cosmos-db/nosql/index.yml) and makes it searchable in Azure AI Search.
 
@@ -204,7 +204,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 | GeoJSON objects such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
-## Configure and run the Azure Cosmos DB indexer
+## Configure and run the Azure Cosmos DB for NoSQL indexer
 
 Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
@@ -303,6 +303,9 @@ The following example shows a [data source definition](#define-the-data-source) 
 },
 ```
 
+> [!NOTE]
+> When you assign a `null` value to a field in your Azure Cosmos DB, the AI Search indexer is unable to distinguish between `null` and a missing field value. Therefore, if a field in the index is empty, it will not be substituted with a `null` value, even if that modification was specifically made in your database.
+
 <a name="IncrementalProgress"></a>
 
 ### Incremental indexing and custom queries
@@ -311,7 +314,7 @@ If you're using a [custom query to retrieve documents](#flatten-structures), mak
 
 In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure AI Search might not infer that the query is ordered by the `_ts`. You can tell Azure AI Search that results are ordered by setting the `assumeOrderByHighWaterMarkColumn` configuration property. 
 
-To specify this hint, [create or update your indexer definition](#configure-and-run-the-azure-cosmos-db-indexer) as follows: 
+To specify this hint, [create or update your indexer definition](#configure-and-run-the-azure-cosmos-db-for-nosql-indexer) as follows: 
 
 ```http
 {

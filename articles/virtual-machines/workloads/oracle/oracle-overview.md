@@ -3,8 +3,8 @@ title: Overview of Oracle Applications and solutions on Azure | Microsoft Docs
 description: Learn about deploying Oracle Applications and solutions on Azure. Run entirely on Azure infrastructure or use cross-cloud connectivity with OCI.
 author: jjaygbay1
 tags: azure-resource-management
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.custom: linux-related-content
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -84,7 +84,7 @@ With Oracle Active Data Guard, you can achieve high availability with a primary 
 
 To walk through the basic setup procedure on Azure, see [Implement Oracle Golden Gate on an Azure Linux VM](configure-oracle-golden-gate.md).
 
-You can effectively achieve high availability for your Oracle databases by using the storage-based replication functionality of Azure NetApp Files, which is one of the added data management values of this service. Azure NetApp Files volumes can be replicated to another region using [cross-region replication](../../../azure-netapp-files/cross-region-replication-introduction.md) or to another zone within the region using [cross-zone replication](../../../azure-netapp-files/cross-zone-replication-introduction.md).
+You can effectively achieve high availability for your Oracle databases by using Azure NetApp Files [availability zone volume placement](../../../azure-netapp-files/use-availability-zones.md) in combination with Oracle Data Guard for an HA architecture across zones. Alternatively, to eliminate the cost of Data Guard licenses and running VMs in the secondary zone, you can use the storage-based replication functionality of Azure NetApp Files. Azure NetApp Files volumes can be placed in the availability zone of your choice the same way and can then be replicated between zones within the region by using [cross-zone replication](../../../azure-netapp-files/cross-zone-replication-introduction.md) (or to another region using [cross-region replication](../../../azure-netapp-files/cross-region-replication-introduction.md)). 
 
 In addition to having a high availability and disaster recovery solution architected in Azure, you should have a backup strategy in place to restore your database. 
 ## Backup Oracle workloads

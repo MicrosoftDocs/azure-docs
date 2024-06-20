@@ -14,8 +14,14 @@ param tags object = {}
 @description('The username for the administrative account on the cluster')
 param adminUsername string = 'azureuser'
 
-@description('The SSH public key that will be associated with the "azureuser" user for secure remote login')
-param sshPublicKey string = ''
+@description('The agent pool SSH public key that will be associated with the given user for secure remote login')
+param agentPoolSshKeys array = []
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// },
+// {
+//   keyData: "ssh-rsa AAAAA...."
+// }
 
 // Cluster Configuration Parameters
 @description('Number of nodes in the agent pool')
@@ -86,14 +92,10 @@ resource agentPools 'Microsoft.NetworkCloud/kubernetesClusters/agentPools@2023-0
     type: 'CustomLocation'
   }
   properties: {
-    administratorConfiguration: sshPublicKey != '' ? {
+    administratorConfiguration: {
       adminUsername: adminUsername
-      sshPublicKeys: [
-        {
-          keyData: sshPublicKey
-        }
-      ]
-    }: {}
+      sshPublicKeys: empty(agentPoolSshKeys) ? null : agentPoolSshKeys
+    }
     attachedNetworkConfiguration: {
       l2Networks: empty(l2Networks) ? null : l2Networks
       l3Networks: empty(l3Networks) ? null : l3Networks

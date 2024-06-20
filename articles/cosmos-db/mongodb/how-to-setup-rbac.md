@@ -11,7 +11,7 @@ ms.subservice: mongodb
 ---
 
 # Configure role-based access control in Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This article is about role-based access control for data plane operations in Azure Cosmos DB for MongoDB.
 

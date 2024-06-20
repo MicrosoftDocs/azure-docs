@@ -4,7 +4,7 @@ description: Learn how to use the Apache Kafka Producer and Consumer APIs with K
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-extended-java
 ms.topic: tutorial
-ms.date: 04/24/2023
+ms.date: 05/10/2024
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 

@@ -2,7 +2,7 @@
 ms.author: dbasantes
 title: Azure Communication Services Call Recording Bring Your Own Storage
 titleSuffix: An Azure Communication Services document
-description: Private Preview quickstart for Bring your own storage
+description: Quickstart for Bring your own storage
 author: dbasantes
 services: azure-communication-services
 ms.date: 03/17/2023
@@ -14,25 +14,21 @@ ms.custom: mode-api, devx-track-extended-java
 ---
 # Call recording: Bring your own Azure storage quickstart
 
-[!INCLUDE [Private Preview](../../../includes/private-preview-include-section.md)]
-
 This quickstart gets you started with Bring your own Azure storage for Call Recording. To start using Bring your own Azure Storage functionality, make sure you're familiar with the [Call Recording APIs](../../voice-video-calling/get-started-call-recording.md).
 
-You need to be part of the Azure Communication Services TAP program. It's likely that you’re already part of this program, and if you aren't, sign-up using https://aka.ms/acs-tap-invite. Bring your own Azure Storage uses Managed Identities, to access to this functionality for Call Recording, submit your Azure Communication Services Resource IDs by filling this - [Registration form](https://forms.office.com/r/njact5SiVJ). You need to fill the form every time you need a new resource ID allow-listed.
-
-## Pre-requisite: Setting up Managed Identity and RBAC role assignments
+## Pre-requisite: Setting up Managed Identity and Role Based Access Controls(RBAC) role assignments
 
 ### 1. Enable system assigned managed identity for Azure Communication Services
 
 ![Diagram showing a communication service resource with managed identity disabled](../media/byos-managed-identity-1.png)
 
 1. Open your Azure Communication Services resource. Navigate to *Identity* on the left.
-2. System Assigned Managed Identity is disabled by default. Enable it and click on *Save*
+2. Enabled System Assigned Managed Identity and click on *Save*.
 3. Once completed, you're able to see the Object principal ID of the newly created identity.
 
 ![Diagram showing a communication service resource with managed identity enabled](../media/byos-managed-identity-2.png)
 
-4. Now that identity has been successfully created, click on *Azure role assignments* to start adding role assignments.
+4. Once the identity has been successfully created, click on *Azure role assignments* to start adding role assignments.
 
 ### 2. Add role assignment
 
@@ -67,7 +63,7 @@ Use the server call ID received during initiation of the call.
 
 ### Notification on successful export
 
-Use an [Azure Event Grid](../../../../event-grid/overview.md) web hook, or other triggered action, to notify your services when the recorded media is ready and have been exported to the external storage location.
+Use an [Azure Event Grid](../../../../event-grid/overview.md) web hook, or other triggered action, to notify your services when the recorded media is ready and exported to the external storage location.
 
 Refer to this example of the event schema.
 
@@ -77,7 +73,7 @@ Refer to this example of the event schema.
     "topic": "string", // /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}
     "subject": "string", // /recording/call/{call-id}/serverCallId/{serverCallId}
     "data": {
-        "storageType": "string", // acsstorage, blobstorage etc.
+        "storageType": "string", // AzureBlob etc.
         "recordingId": "string", // unique id for recording
         "recordingStorageInfo": {
             "recordingChunks": [
@@ -101,6 +97,13 @@ Refer to this example of the event schema.
     "eventTime": "string" // ISO 8601 date time for when the event was created
 }
 ```
+### Folder Structure for Call Recording
+
+Recordings are stored in the following format as shown in the diagram.
+-   /YYYYMMDD/callId/first_8_of_recordingId + '-' + unique guid/[chunk-id]-acsmetadata.documentId.json
+-   /YYYYMMDD/callId/first_8_of_recordingId + '-' + unique guid/[chunk-id]-audiomp3.documentId.mp3
+
+![Diagram showing a Call Recording Folder structure](../media/call-recording-folder.png)
 
 ## Next steps
 

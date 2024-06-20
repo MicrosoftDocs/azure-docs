@@ -1,7 +1,7 @@
 ---
 title: Zero Trust and your OT networks - Microsoft Defender for IoT
 description: Learn about how implementing a Zero Trust security strategy with Microsoft Defender for IoT can protect your operational technology (OT) networks.
-ms.date: 02/15/2023
+ms.date: 05/22/2024
 ms.topic: conceptual
 ms.collection:
   -       zerotrust-services

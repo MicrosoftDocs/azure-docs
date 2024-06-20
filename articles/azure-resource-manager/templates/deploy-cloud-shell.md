@@ -1,9 +1,9 @@
 ---
 title: Deploy templates with Cloud Shell
 description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 05/23/2023
+ms.date: 03/20/2024
 ---
 
 # Deploy ARM templates from Azure Cloud Shell

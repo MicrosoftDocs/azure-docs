@@ -12,6 +12,8 @@ ms.author: duau
 
 # Tutorial: Quickly scale and protect a web application by using Azure Front Door and Azure Web Application Firewall (WAF)
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 Many web applications experience a rapid increase of traffic over time. These web applications are also experiencing a surge in malicious traffic, including denial-of-service attacks. There's an effective way to both scale out your application for traffic surges and protect yourself from attacks: configure Azure Front Door with Azure WAF as an acceleration, caching, and security layer in front of your web app. This article provides guidance on how to get Azure Front Door with Azure WAF configured for any web app that runs inside or outside of Azure. 
 
 We're using the Azure CLI to configure the WAF in this tutorial. You can accomplish the same thing by using the Azure portal, Azure PowerShell, Azure Resource Manager, or the Azure REST APIs. 

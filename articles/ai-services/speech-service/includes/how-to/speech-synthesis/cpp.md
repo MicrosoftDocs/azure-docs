@@ -22,7 +22,7 @@ void synthesizeSpeech()
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
     speechConfig->SetSpeechSynthesisLanguage("en-US"); 
-    speechConfig->SetSpeechSynthesisVoiceName("en-US-JennyNeural");
+    speechConfig->SetSpeechSynthesisVoiceName("en-US-AvaMultilingualNeural");
 }
 ```
 
@@ -157,7 +157,7 @@ To start using SSML for customization, make a minor change that switches the voi
 
    ```xml
    <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-JennyNeural">
+     <voice name="en-US-AvaMultilingualNeural">
        When you're on the freeway, it's a good idea to use a GPS.
      </voice>
    </speak>
@@ -188,7 +188,7 @@ To start using SSML for customization, make a minor change that switches the voi
    ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.SetSpeechSynthesisVoiceName("en-US-ChristopherNeural")`.
+> To change the voice without using SSML, you can set the property on `SpeechConfig` by using `SpeechConfig.SetSpeechSynthesisVoiceName("en-US-AndrewMultilingualNeural")`.
 
 ## Subscribe to synthesizer events
 
@@ -227,7 +227,7 @@ int main()
     speechConfig->SetProperty(PropertyId::SpeechServiceResponse_RequestSentenceBoundary, "true");
 
     const auto ssml = R"(<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
-        <voice name = 'en-US-JennyNeural'>
+        <voice name = 'en-US-AvaMultilingualNeural'>
             <mstts:viseme type = 'redlips_front' />
             The rainbow has seven colors : <bookmark mark = 'colors_list_begin' />Red, orange, yellow, green, blue, indigo, and violet.<bookmark mark = 'colors_list_end' />.
         </voice>

@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Transform data in delta lake using mapping data flows
@@ -104,7 +104,7 @@ You will generate two data flows in this tutorial. The first data flow is a simp
 
    :::image type="content" source="media/data-flow/data-flow-tutorial-2.png" alt-text="Derived column":::
    
-1. ```Update, insert, delete, and upsert``` policies are created in the alter Row transform. Add an alter row transformation after your derived column.
+1. `Update, insert, delete, and upsert` policies are created in the alter Row transform. Add an alter row transformation after your derived column.
 1. Your alter row policies should look like this.
 
    :::image type="content" source="media/data-flow/data-flow-tutorial-3.png" alt-text="Alter row":::

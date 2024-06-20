@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Use custom allocation policies with Azure IoT Hub Device Provisioning Service
+title: Tutorial - Assign devices to multiple hubs using DPS
 description: This tutorial shows how to provision devices using a custom allocation policy in your Azure IoT Hub Device Provisioning Service (DPS) instance.
 author: kgremban
 ms.author: kgremban
-ms.date: 09/13/2022
+ms.date: 03/21/2024
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -12,24 +12,24 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 # Tutorial: Use custom allocation policies with Device Provisioning Service (DPS)
 
-Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. A custom allocation policy is implemented in a webhook hosted in [Azure functions](../azure-functions/functions-overview.md) and configured on one or more individual enrollments and/or enrollment groups. When a device registers with DPS using a configured enrollment entry, DPS calls the webhook to find out which IoT hub the device should be registered to and, optionally, its initial state. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
+Custom allocation policies give you more control over how devices are assigned to your IoT hubs. With custom allocation policies, you can define your own allocation policies when the policies provided by the Azure IoT Hub Device Provisioning Service (DPS) don't meet the requirements of your scenario. A custom allocation policy is implemented in a webhook hosted in [Azure Functions](../azure-functions/functions-overview.md) and configured on one or more individual enrollments and/or enrollment groups. When a device registers with DPS using a configured enrollment entry, DPS calls the webhook to find out which IoT hub the device should be registered to and, optionally, its initial state. To learn more, see [Understand custom allocation policies](concepts-custom-allocation.md).
 
 This tutorial demonstrates a custom allocation policy using an Azure Function written in C#. Devices are assigned to one of two IoT hubs representing a *Contoso Toasters Division* and a *Contoso Heat Pumps Division*. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:
 
 * **-contoso-tstrsd-007** for the Contoso Toasters Division
 * **-contoso-hpsd-088** for the Contoso Heat Pumps Division
 
-Devices will be simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
+Devices are simulated using a provisioning sample included in the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 In this tutorial, you'll do the following:
 
 > [!div class="checklist"]
-> * Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it
-> * Create an Azure Function that implements the custom allocation policy
-> * Create a new enrollment group uses the Azure Function for the custom allocation policy
-> * Create device symmetric keys for two simulated devices
-> * Set up the development environment for the Azure IoT C SDK
-> * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy
+> * Use the Azure CLI to create a DPS instance and to create and link two Contoso division IoT hubs (**Contoso Toasters Division** and **Contoso Heat Pumps Division**) to it.
+> * Create an Azure Function that implements the custom allocation policy.
+> * Create a new enrollment group uses the Azure Function for the custom allocation policy.
+> * Create device symmetric keys for two simulated devices.
+> * Set up the development environment for the Azure IoT C SDK.
+> * Simulate the devices and verify that they are provisioned according to the example code in the custom allocation policy.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,117 +39,134 @@ The following prerequisites are for a Windows development environment. For Linux
 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
-- Latest version of [Git](https://git-scm.com/download/) installed.
+- Git installed. For more information, see [Git downloads](https://git-scm.com/download/).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+- Azure CLI installed. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). Or, you can run the commands in this tutorial in the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview).
 
-## Create the provisioning service and two divisional IoT hubs
+## Create the provisioning service and two IoT hubs
 
 In this section, you use the Azure Cloud Shell to create a provisioning service and two IoT hubs representing the **Contoso Toasters Division** and the **Contoso Heat Pumps division**.
 
-> [!TIP]
-> The commands used in this tutorial create the provisioning service and other resources in the West US location. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `-- location "West US"`.
->
+1. First, set environment variables in your workspace to simplify the commands in this tutorial.
 
-1. Use the Azure Cloud Shell to create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+   The DPS and IoT Hub names must be globally unique. Replace the `SUFFIX` placeholder with your own value.
 
-    The following example creates a resource group named *contoso-us-resource-group* in the *westus* region. We recommend that you use this group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
+   Also, the Azure Function code you create later in this tutorial looks for IoT hubs that have either `-toasters-` or `-heatpumps-` in their names. If you change the suggested values, make sure to use names that contain the required substrings.
 
-    ```azurecli-interactive
-    az group create --name contoso-us-resource-group --location westus
-    ```
+   ```bash
+   #!/bin/bash
+   export RESOURCE_GROUP="contoso-us-resource-group"
+   export LOCATION="westus"
+   export DPS="contoso-provisioning-service-SUFFIX"
+   export TOASTER_HUB="contoso-toasters-hub-SUFFIX"
+   export HEATPUMP_HUB="contoso-heatpumps-hub-SUFFIX"
+   ```
 
-2. Use the Azure Cloud Shell to create a device provisioning service (DPS) with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command. The provisioning service will be added to *contoso-us-resource-group*.
+   ```powershell
+   # PowerShell
+   $env:RESOURCE_GROUP = "contoso-us-resource-group"
+   $env:LOCATION = "westus"
+   $env:DPS = "contoso-provisioning-service-SUFFIX"
+   $env:TOASTER_HUB = "contoso-toasters-hub-SUFFIX"
+   $env:HEATPUMP_HUB = "contoso-heatpumps-hub-SUFFIX"
+   ```
 
-    The following example creates a provisioning service named *contoso-provisioning-service-1098* in the *westus* location. You must use a unique service name. Make up your own suffix in the service name in place of **1098**.
+   > [!TIP]
+   > The commands used in this tutorial create resources in the West US location by default. We recommend that you create your resources in the region nearest you that supports Device Provisioning Service. You can view a list of available locations by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive.
 
-    ```azurecli-interactive
-    az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
-    ```
+1. Use the [az group create](/cli/azure/group#az-group-create) command to create an Azure resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-    This command may take a few minutes to complete.
+   The following example creates a resource group. We recommend that you use a single group for all resources created in this tutorial. This approach will make clean up easier after you're finished.
 
-3. Use the Azure Cloud Shell to create the **Contoso Toasters Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. The IoT hub will be added to *contoso-us-resource-group*.
+   ```azurecli-interactive
+   az group create --name $RESOURCE_GROUP --location $LOCATION
+   ```
 
-    The following example creates an IoT hub named *contoso-toasters-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**.
-
-    > [!CAUTION]
-    > The example Azure Function code for the custom allocation policy requires the substring `-toasters-` in the hub name. Make sure to use a name containing the required toasters substring.
-
-    ```azurecli-interactive
-    az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
-    ```
-
-    This command may take a few minutes to complete.
-
-4. Use the Azure Cloud Shell to create the **Contoso Heat Pumps Division** IoT hub with the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command. This IoT hub will also be added to *contoso-us-resource-group*.
-
-    The following example creates an IoT hub named *contoso-heatpumps-hub-1098* in the *westus* location. You must use a unique hub name. Make up your own suffix in the hub name in place of **1098**.
-
-    > [!CAUTION]
-    > The example Azure Function code for the custom allocation policy requires the substring `-heatpumps-` in the hub name. Make sure to use a name containing the required heatpumps substring.
+1. Use the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command to create an instance of the Device Provisioning Service (DPS). The provisioning service is added to *contoso-us-resource-group*.
 
     ```azurecli-interactive
-    az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
+    az iot dps create --name $DPS --resource-group $RESOURCE_GROUP --location $LOCATION
     ```
 
-    This command may take a few minutes to complete.
+    This command might take a few minutes to complete.
 
-5. The IoT hubs must be linked to the DPS resource.
+1. Use the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create the **Contoso Toasters Division** IoT hub. The IoT hub is added to *contoso-us-resource-group*.
 
-    Run the following two commands to get the connection strings for the hubs you created. Replace the hub resource names with the names you chose in each command:
-
-    ```azurecli-interactive 
-    hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
-    hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
+    ```azurecli-interactive
+    az iot hub create --name $TOASTER_HUB --resource-group $RESOURCE_GROUP --location $LOCATION --sku S1
     ```
 
-    Run the following commands to link the hubs to the DPS resource. Replace the DPS resource name with the name you chose in each command:
+    This command might take a few minutes to complete.
 
-    ```azurecli-interactive 
-    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
-    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubHeatpumpsConnectionString --location westus
+1. Use the [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) command to create the **Contoso Heat Pumps Division** IoT hub. This IoT hub also is added to *contoso-us-resource-group*.
+
+    ```azurecli-interactive
+    az iot hub create --name $HEATPUMP_HUB --resource-group $RESOURCE_GROUP --location $LOCATION --sku S1
     ```
 
+    This command might take a few minutes to complete.
 
+1. Run the following two commands to get the connection strings for the hubs you created.
 
+    ```azurecli-interactive
+    az iot hub connection-string show --hub-name $TOASTER_HUB --key primary --query connectionString -o tsv
+    az iot hub connection-string show --hub-name $HEATPUMP_HUB --key primary --query connectionString -o tsv
+    ```
+
+1. Run the following commands to link the hubs to the DPS resource. Replace the placeholders with the hub connection strings from the previous step.
+
+    ```azurecli-interactive
+    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --location $LOCATION --connection-string <toaster_hub_connection_string>
+    az iot dps linked-hub create --dps-name $DPS --resource-group $RESOURCE_GROUP --location $LOCATION --connection-string <heatpump_hub_connection_string>
+    ```
 
 ## Create the custom allocation function
 
 In this section, you create an Azure function that implements your custom allocation policy. This function decides which divisional IoT hub a device should be registered to based on whether its registration ID contains the string **-contoso-tstrsd-007** or **-contoso-hpsd-088**. It also sets the initial state of the device twin based on whether the device is a toaster or a heat pump.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). From your home page, select **+ Create a resource**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the *Search the Marketplace* search box, type "Function App". From the drop-down list select **Function App**, and then select **Create**.
+1. In the search box, search for and select **Function App**.
 
-3. On the **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
+1. Select **Create** or **Create Function App**.
 
-    **Resource Group**: Select the **contoso-us-resource-group** to keep all resources created in this tutorial together.
+1. On the **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and select **Review + create**:
 
-    **Function App name**: Enter a unique function app name. This example uses **contoso-function-app-1098**.
+   | Parameter          | Value |
+   |--------------------|-------|
+   | **Subscription**   | Make sure that the subscription where you created the resources for this tutorial is selected. |
+   | **Resource Group** | Select the resource group that you created in the previous section. The default provided in the previous section is **contoso-us-resource-group**. |
+   | **Function App name** | Provide a name for your function app.|
+   | **Do you want to deploy code or container image?** | **Code** |
+   | **Runtime Stack**  | **.NET** |
+   | **Version**        | Select any **in-process model** version. |
+   | **Region**         | Select a region close to you. |
 
-    **Publish**: Verify that **Code** is selected.
+   > [!NOTE]
+   > By default, Application Insights is enabled. Application Insights is not necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
 
-    **Runtime Stack**: Select **.NET** from the drop-down.
+   :::image type="content" source="./media/tutorial-custom-allocation-policies/create-function-app.png" alt-text="Screenshot that shows the Create Function App form in the Azure portal.":::
 
-    **Version**: Select **3.1** from the drop-down.
+1. On the **Review + create** tab, select **Create** to create the function app.
 
-    **Region**: Select the same region as your resource group. This example uses **West US**.
+1. Deployment might take several minutes. When it completes, select **Go to resource**.
 
-    > [!NOTE]
-    > By default, Application Insights is enabled. Application Insights is not necessary for this tutorial, but it might help you understand and investigate any issues you encounter with the custom allocation. If you prefer, you can disable Application Insights by selecting the **Monitoring** tab and then selecting **No** for **Enable Application Insights**.
+1. On the left pane of the function app **Overview** page, select **Create function**.
 
-    ![Create an Azure Function App to host the custom allocation function](./media/tutorial-custom-allocation-policies/create-function-app.png)
+   :::image type="content" source="./media/tutorial-custom-allocation-policies/create-function-in-portal.png" alt-text="Screenshot that shows selecting the option to create function in the Azure portal.":::
 
-4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
+1. On the **Create function** page, select the **HTTP Trigger** template then select **Next**.
 
-5. On the left pane of the function app **Overview** page, select **Functions** and then **+ Create** to add a new function.
+1. On the **Template details** tab, select **Anonymous** as the **Authorization level** then select **Create**.
 
-6. On the **Create function** page, make sure that **Development environment** is set to **Develop in portal**. Then select the **HTTP Trigger** template followed by the **Create** button.
+   :::image type="content" source="./media/tutorial-custom-allocation-policies/function-authorization-level.png" alt-text="Screenshot that shows setting the authorization level as anonymous.":::
 
-7. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
+   >[!TIP]
+   >If you keep the authorization level as **Function**, then you'll need to configure your DPS enrollments with the function API key. For more information, see [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
-8. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.proj* file. In this step, you save and upload a *function.proj* file for the required assemblies.  For more information, see [Using NuGet packages with Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
+1. When the **HttpTrigger1** function opens, select **Code + Test** on the left pane. This allows you to edit the code for the function. The **run.csx** code file should be opened for editing.
+
+1. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.proj* file. In this step, you save and upload a *function.proj* file for the required assemblies.  For more information, see [Using NuGet packages with Azure Functions](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
     1. Copy the following lines into your favorite editor and save the file on your computer as *function.proj*.
 
@@ -165,11 +182,11 @@ In this section, you create an Azure function that implements your custom alloca
         </Project>
         ```
 
-    2. Select the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
+    1. Select the **Upload** button located above the code editor to upload your *function.proj* file. After uploading, select the file in the code editor using the drop-down box to verify the contents.
 
-    3. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the lines above into the file and save it. (Sometimes the upload will create the file without uploading the contents.)
+    1. Select the *function.proj* file in the code editor and verify its contents. If the *function.proj* file is empty copy the lines above into the file and save it. (Sometimes the upload creates the file without uploading the contents.)
 
-9. Make sure *run.csx* for **HttpTrigger1** is selected in the code editor. Replace the code for the **HttpTrigger1** function with the following code and select **Save**:
+1. Make sure *run.csx* for **HttpTrigger1** is selected in the code editor. Replace the code for the **HttpTrigger1** function with the following code and select **Save**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -310,7 +327,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 ## Create the enrollment
 
-In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
+In this section, you create a new enrollment group that uses the custom allocation policy. For simplicity, this tutorial uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-x509-attestation.md) with a chain of trust.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
@@ -340,35 +357,29 @@ In this section, you'll create a new enrollment group that uses the custom alloc
 
 1. On the **Review + create** tab, verify all of your values then select **Create**.
 
-After saving the enrollment, reopen it and make a note of the **Primary key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
+After saving the enrollment, reopen it and make a note of the **Primary key**. You must save the enrollment first to have the keys generated. This key is used to generate unique device keys for simulated devices in the next section.
 
 ## Derive unique device keys
 
-Devices don't use the enrollment group's primary symmetric key directly. Instead, you use the primary key to derive a device key for each device. In this section, you create two unique device keys. One key will be used for a simulated toaster device. The other key will be used for a simulated heat pump device.
+Devices don't use the enrollment group's primary symmetric key directly. Instead, you use the primary key to derive a device key for each device. In this section, you create two unique device keys. One key is used for a simulated toaster device. The other key is used for a simulated heat pump device.
 
-To derive the device key, you use the enrollment group **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base64 format. For more information on creating derived device keys with enrollment groups, see the group enrollments section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
+To derive the device key, you use the enrollment group **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base 64 format. For more information on creating derived device keys with enrollment groups, see the group enrollments section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
 For the example in this tutorial, use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
 
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-# [Azure CLI](#tab/azure-cli)
-
-The IoT extension for the Azure CLI provides the [`iot dps enrollment-group compute-device-key`](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [iot dps enrollment-group compute-device-key](/cli/azure/iot/dps/enrollment-group#az-iot-dps-enrollment-group-compute-device-key) command for generating derived device keys. This command can be used on Windows-based or Linux systems, from PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 
 ```azurecli
-az iot dps enrollment-group compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id breakroom499-contoso-tstrsd-007
-
-"JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs="
+az iot dps enrollment-group compute-device-key --key <ENROLLMENT_GROUP_KEY> --registration-id breakroom499-contoso-tstrsd-007
 ```
 
 ```azurecli
-az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA== --registration-id mainbuilding167-contoso-hpsd-088
-
-"6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg="
+az iot dps enrollment-group compute-device-key --key <ENROLLMENT_GROUP_KEY> --registration-id mainbuilding167-contoso-hpsd-088
 ```
 
 > [!NOTE]
@@ -378,60 +389,7 @@ az iot dps compute-device-key --key oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOt
 > az iot dps enrollment-group compute-device-key -g contoso-us-resource-group --dps-name contoso-provisioning-service-1098 --enrollment-id contoso-custom-allocated-devices --registration-id breakroom499-contoso-tstrsd-007
 > ```
 
-# [PowerShell](#tab/powershell)
-
-If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
-
-Replace the value of **KEY** with the **Primary Key** you noted earlier.
-
-```powershell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
-
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
-
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($KEY)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
-
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
-
-```powershell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
-
-# [Bash](#tab/bash)
-
-If you're using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
-
-Replace the value of **KEY** with the **Primary Key** you noted earlier.
-
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
-
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
-
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
-
----
-
-The simulated devices will use the derived device keys with each registration ID to perform symmetric key attestation.
+The simulated devices use the derived device keys with each registration ID to perform symmetric key attestation.
 
 ## Prepare an Azure IoT C SDK development environment
 
@@ -470,7 +428,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
 
     If `cmake` doesn't find your C++ compiler, you might see build errors while running the command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-    Once the build succeeds, the last few output lines will look similar to the following output:
+    Once the build succeeds, the last few output lines look similar to the following output:
 
     ```cmd/sh
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -490,21 +448,17 @@ This section is oriented toward a Windows-based workstation. For a Linux example
 
 In this section, you update a provisioning sample named **prov\_dev\_client\_sample** located in the Azure IoT C SDK you set up previously.
 
-This sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence will cause the toaster device to be recognized and assigned to the IoT hub using the custom allocation policy.
+This sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence causes the toaster device to be recognized and assigned to the IoT hub using the custom allocation policy.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note down the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note down the **ID Scope** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/copy-id-scope.png)
 
-2. In Visual Studio, open the **azure_iot_sdks.sln** solution file that was generated by running CMake earlier. The solution file should be in the following location:
-
-    ```
-    azure-iot-sdk-c\cmake\azure_iot_sdks.sln
-    ```
+2. In Visual Studio, open the **azure_iot_sdks.sln** solution file that was generated by running CMake earlier. The solution file should be in the following location: `azure-iot-sdk-c\cmake\azure_iot_sdks.sln`.
 
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
-4. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier. 
+4. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier.
 
     ```c
     static const char* id_scope = "0ne00002193";
@@ -584,8 +538,6 @@ This sample code simulates a device boot sequence that sends the provisioning re
     2022-08-03T20:34:41.399 [Information] Executed 'Functions.HttpTrigger1' (Succeeded, Id=12950752-6d75-4f41-844b-c253a6653d4f, Duration=227ms)
     ```
 
-
-
 ### Simulate the Contoso heat pump device
 
 1. To simulate the heat pump device, update the call to `prov_dev_set_symmetric_key_info()` in **prov\_dev\_client\_sample.c** again with the heat pump registration ID and derived device key you generated earlier. The key value **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** shown below is also only given as an example.
@@ -615,7 +567,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     Press enter key to exit:
     ```
 
-## Troubleshooting custom allocation policies
+## Troubleshoot custom allocation policies
 
 The following table shows expected scenarios and the results error codes you might receive. Use this table to help troubleshoot custom allocation policy failures with your Azure Functions.
 
@@ -636,13 +588,12 @@ The steps here assume you created all resources in this tutorial as instructed i
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
->
 
 To delete the resource group by name:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
-2. In the **Filter by name...** textbox, type the name of the resource group containing your resources, **contoso-us-resource-group**. 
+2. In the **Filter by name...** textbox, type the name of the resource group containing your resources, **contoso-us-resource-group**.
 
 3. To the right of your resource group in the result list, select **...** then **Delete resource group**.
 

@@ -1,14 +1,11 @@
 ---
 title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
-ms.date: 02/28/2024
+ms.date: 06/10/2024
 ms.topic: how-to
 ---
 
 # Azure Batch rendering capabilities
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Standard Azure Batch capabilities are used to run rendering workloads and applications. Batch also includes specific features to support rendering workloads.
 

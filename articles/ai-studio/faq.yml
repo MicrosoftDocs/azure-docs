@@ -5,8 +5,10 @@ metadata:
   description: Get answers to the most popular questions about Azure AI services.
   manager: nitinme
   ms.service: azure-ai-studio
+  ms.custom:
+    - build-2024
   ms.topic: faq
-  ms.date: 2/6/2024
+  ms.date: 5/21/2024
   ms.reviewer: eur
   ms.author: eur
   author: eric-urban
@@ -41,17 +43,13 @@ sections:
         answer: |
           The playground experiences in both Azure AI Studio and Azure OpenAI Studio are similar; however, Azure AI Studio provides playground experience for models in addition to those provisioned via Azure OpenAI Studio.
       - question: |
-          What is the plan for plugin support? 
-        answer: |
-          Plugins are available today in preview. For more information, see [Plugins for Azure OpenAI Service - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-azure-netherlands/how-to-leverage-plugins-for-azure-openai-service/m-p/3863986).
-      - question: |
           Will there be multiple varying model benchmarks in Azure AI Studio based on individual projects and data sources? 
         answer: |
           In the model benchmarks view, customers can view varying model benchmarks published by Azure AI. 
       - question: |
           Is prompt flow Microsoft's equivalent to LangChain? 
         answer: |
-          Prompt flow is complementary to LangChain and Semantic Kernel - and it can work with either. Prompt flow supports LLMOps for generative AI solutions, providing evaluation, connection management, and flow logic to help debug applications, manage deployment and monitor at scale.
+          Prompt flow is complementary to LangChain and Semantic Kernel and it can work with either. Prompt flow supports LLMOps for generative AI solutions, providing evaluation, connection management, and flow logic to help debug applications, manage deployment and monitor at scale.
       - question: |
           How is prompt injection handled, and how do we ensure no malicious code is running from prompt injection? 
         answer: |
@@ -90,5 +88,3 @@ additionalContent: |
   ## Next steps
   - [Azure AI Studio](what-is-ai-studio.md)
   - [Plan and manage costs](./how-to/costs-plan-manage.md)
-
-

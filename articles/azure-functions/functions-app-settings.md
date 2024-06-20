@@ -2,10 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.custom:
-  - devx-track-extended-java
-  - devx-track-python
-  - ignite-2023
+ms.custom: devx-track-extended-java, devx-track-python, ignite-2023, build-2024, linux-related-content
 ms.date: 12/28/2023
 ---
 
@@ -393,6 +390,16 @@ The following major runtime version values are supported:
 | `~2` | 2.x | No longer supported |
 | `~1` | 1.x | Support ends September 14, 2026 |
 
+## FUNCTIONS\_INPROC\_NET8\_ENABLED
+
+Indicates whether to an app can use .NET 8 on the in-process model. To use .NET 8 on the in-process model, this value must be set to `1`. See [Updating to target .NET 8](./functions-dotnet-class-library.md#updating-to-target-net-8) for complete instructions, including other required configuration values.
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS_INPROC_NET8_ENABLED|`1`|
+
+Set to `0` to disable support for .NET 8 on the in-process model.
+
 ## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
 
 This app setting is a temporary way for Node.js apps to enable a breaking change that makes entry point errors easier to troubleshoot on Node.js v18 or lower. It's highly recommended to use `true`, especially for programming model v4 apps, which always use entry point files. The behavior without the breaking change (`false`) ignores entry point errors and doesn't log them in Application Insights.
@@ -408,11 +415,6 @@ For Node.js v18 or lower, the app setting can be used and the default behavior d
 |FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Block on entry point errors and log them in Application Insights.|
 |FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Ignore entry point errors and don't log them in Application Insights.|
 
-## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
-
->[!IMPORTANT]
-> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
-
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
 Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104857600 bytes. 
@@ -420,6 +422,11 @@ Overrides the default limit on the body size of requests sent to HTTP endpoints.
 |Key|Sample value|
 |---|------------|
 |FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`250000000`|
+
+## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
+
+>[!IMPORTANT]
+> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
@@ -704,13 +711,15 @@ By default, the version settings for function apps are specific to each slot. Th
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 
-Enables your function app to run from a mounted package file.
+Enables your function app to run from a package file, which can be locally mounted or deployed to an external URL. 
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+
+When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
 
 ## WEBSITE\_SKIP\_CONTENTSHARE\_VALIDATION
 
@@ -771,7 +780,7 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 ## WEBSITES_ENABLE_APP_SERVICE_STORAGE
 
-Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. d 
+Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container.
 
 ## App Service site settings
 
@@ -818,11 +827,51 @@ Sets the specific version of PowerShell on which your functions run. For more in
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
-### vnetrouteallenabled
+### vnetRouteAllEnabled
 
 Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
 This site setting replaces the legacy [WEBSITE\_VNET\_ROUTE\_ALL](#website_vnet_route_all) setting.
+
+## Flex Consumption plan deprecations
+
+In the [Flex Consumption plan](./flex-consumption-plan.md), these site properties and application settings are deprecated and shouldn't be used when creating function app resources:
+
+| Setting/property | Reason | 
+| ----- | ----- | 
+| `ENABLE_ORYX_BUILD` |Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
+| `FUNCTIONS_EXTENSION_VERSION` |App Setting is set by the backend. A value of ~1 can be ignored. |
+| `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_MAX_HTTP_CONCURRENCY` |Replaced by scale and concurrency's trigger section|
+| `FUNCTIONS_WORKER_PROCESS_COUNT` |Setting not valid|
+| `FUNCTIONS_WORKER_DYNAMIC_CONCURRENCY_ENABLED` |Setting not valid|
+| `SCM_DO_BUILD_DURING_DEPLOYMENT`|Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
+| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
+| `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated VNet in Flex|
+| `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|
+| `WEBSITE_VNET_ROUTE_ALL` |Not used for networking in Flex Consumption|
+| `properties.alwaysOn` |Not valid|
+| `properties.containerSize` |Renamed as `instanceMemoryMB`|
+| `properties.ftpsState` | FTPS not supported | 
+| `properties.isReserved` |Not valid|
+| `properties.IsXenon` |Not valid|
+| `properties.javaVersion` | Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.LinuxFxVersion` |Replaced by `properties.functionAppConfig.runtime`|
+| `properties.netFrameworkVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.powerShellVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.siteConfig.functionAppScaleLimit` |Renamed as `maximumInstanceCount`|
+| `properties.siteConfig.preWarmedInstanceCount` | Renamed as `alwaysReadyInstances` |
+| `properties.use32BitWorkerProcess` |32-bit not supported |
+| `properties.vnetBackupRestoreEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetContentShareEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetImagePullEnabled` |Not used for networking in Flex Consumptionlid|
+| `properties.vnetRouteAllEnabled` |Not used for networking in Flex Consumption|
+| `properties.windowsFxVersion` |Not valid|
 
 ## Next steps
 

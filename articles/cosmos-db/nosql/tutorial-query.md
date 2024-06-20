@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 03/16/2023
+ms.date: 06/05/2024
 ---
 
 # Tutorial: Query data in Azure Cosmos DB for NoSQL
@@ -34,7 +34,7 @@ Don't have any of those resources? Complete this quickstart: [Create an Azure Co
 
 You can run the queries using the [Azure Cosmos DB Explorer](../data-explorer.md) in the Azure portal. You can also run queries by using the [REST API](/rest/api/cosmos-db/) or [various SDKs](sdk-dotnet-v3.md).
 
-For more information about queries, see [setting started with queries](query/getting-started.md).
+For more information about queries, see [getting started with queries](query/getting-started.md).
 
 ## Sample document
 

@@ -2,9 +2,8 @@
 title: Oracle solutions on Azure virtual machines | Microsoft Docs
 description: Learn about supported configurations and limitations of Oracle virtual machine images on Microsoft Azure.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
-ms.custom: linux-related-content
+ms.service: oracle-on-azure
+ms.custom:
 ms.collection: linux
 ms.topic: article
 ms.date: 04/11/2023

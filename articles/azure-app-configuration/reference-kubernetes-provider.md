@@ -12,7 +12,7 @@ ms.author: junbchen
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v1.2.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v1.3.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -22,6 +22,7 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |---|---|---|---|
 |endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from.|alternative|string|
 |connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string.|alternative|string|
+|replicaDiscoveryEnabled|The setting that determines whether replicas of Azure App Configuration are automatically discovered and used for failover. If the property is absent, a default value of `true` is used.|false|bool|
 |target|The destination of the retrieved key-values in Kubernetes.|true|object|
 |auth|The authentication method to access Azure App Configuration.|false|object|
 |configuration|The settings for querying and processing key-values in Azure App Configuration.|false|object|
@@ -73,12 +74,13 @@ The `spec.configuration` has the following child properties.
 |trimKeyPrefixes|The list of key prefixes to be trimmed.|false|string array|
 |refresh|The settings for refreshing key-values from Azure App Configuration. If the property is absent, key-values from Azure App Configuration are not refreshed.|false|object|
 
-If the `spec.configuration.selectors` property isn't set, all key-values with no label are downloaded. It contains an array of *selector* objects, which have the following child properties.
+If the `spec.configuration.selectors` property isn't set, all key-values with no label are downloaded. It contains an array of *selector* objects, which have the following child properties. Note that the key-values of the last selector take precedence and override any overlapping keys from the previous selectors.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying key-values.|true|string|
-|labelFilter|The label filter for querying key-values.|false|string|
+|keyFilter|The key filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
+|labelFilter|The label filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|snapshotName|The name of a snapshot from which key-values are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.configuration.refresh` property has the following child properties.
 
@@ -95,7 +97,7 @@ The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, wh
 |key|The key of a key-value.|true|string|
 |label|The label of a key-value.|false|string|
 
-The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded.
+The `spec.secret` property has the following child properties. It is required if any Key Vault references are expected to be downloaded. To learn more about the support for Kubernetes built-in types of Secrets, see [Types of Secret](#types-of-secret).
 
 |Name|Description|Required|Type|
 |---|---|---|---|
@@ -141,12 +143,13 @@ The `spec.featureFlag` property has the following child properties. It is requir
 |selectors|The list of selectors for feature flag filtering.|false|object array|
 |refresh|The settings for refreshing feature flags from Azure App Configuration. If the property is absent, feature flags from Azure App Configuration are not refreshed.|false|object|
 
-If the `spec.featureFlag.selectors` property isn't set, feature flags are not downloaded. It contains an array of *selector* objects, which have the following child properties.
+If the `spec.featureFlag.selectors` property isn't set, feature flags are not downloaded. It contains an array of *selector* objects, which have the following child properties. Note that the feature flags of the last selector take precedence and override any overlapping keys from the previous selectors.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|keyFilter|The key filter for querying feature flags.|true|string|
-|labelFilter|The label filter for querying feature flags.|false|string|
+|keyFilter|The key filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
+|labelFilter|The label filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|snapshotName|The name of a snapshot from which feature flags are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.featureFlag.refresh` property has the following child properties.
 
@@ -324,6 +327,24 @@ spec:
         labelFilter: development
 ```
 
+A snapshot can be used alone or together with other key-value selectors. In the following sample, you load key-values of common configuration from a snapshot and then override some of them with key-values for development.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - snapshotName: app1_common_configuration
+      - keyFilter: app1*
+        labelFilter: development
+```
+
 ### Key prefix trimming
 
 The following sample uses the `trimKeyPrefixes` property to trim two prefixes from key names before adding them to the generated ConfigMap.
@@ -371,6 +392,8 @@ spec:
 
 ### Key Vault references
 
+#### Authentication
+
 In the following sample, one Key Vault is authenticated with a service principal, while all other Key Vaults are authenticated with a user-assigned managed identity.
 
 ``` yaml
@@ -395,7 +418,15 @@ spec:
           servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
 ```
 
-### Refresh of secrets from Key Vault
+#### Types of Secret
+
+Two Kubernetes built-in [types of Secrets](https://kubernetes.io/docs/concepts/configuration/secret/#secret-types), Opaque and TLS, are currently supported. Secrets resolved from Key Vault references are saved as the [Opaque Secret](https://kubernetes.io/docs/concepts/configuration/secret/#opaque-secrets) type by default. If you have a Key Vault reference to a certificate and want to save it as the [TLS Secret](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets) type, you can add a **tag** with the following name and value to the Key Vault reference in Azure App Configuration. By doing so, a Secret with the `kubernetes.io/tls` type will be generated and named after the key of the Key Vault reference.
+
+|Name|Value|
+|---|---|
+|.kubernetes.secret.type|kubernetes.io/tls|
+
+#### Refresh of secrets from Key Vault
 
 Refreshing secrets from Key Vaults usually requires reloading the corresponding Key Vault references from Azure App Configuration. However, with the `spec.secret.refresh` property, you can refresh the secrets from Key Vault independently. This is especially useful for ensuring that your workload automatically picks up any updated secrets from Key Vault during secret rotation. Note that to load the latest version of a secret, the Key Vault reference must not be a versioned secret.
 
@@ -426,7 +457,7 @@ spec:
 
 ### Feature Flags
 
-In the following sample, feature flags with keys starting with `app1` and labels equivalent to `common` are downloaded and refreshed every 10 minutes.
+In the following sample, feature flags with keys starting with `app1` and labels equivalent to `common` are downloaded and refreshed every 10 minutes. Note that to populate feature flags in the generated ConfigMap, the `configMapData.type` property must be `json` or `yaml`.
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -437,6 +468,9 @@ spec:
   endpoint: <your-app-configuration-store-endpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
+    configMapData:
+      type: json
+      key: appSettings.json
   featureFlag:
     selectors:
       - keyFilter: app1*
@@ -565,3 +599,5 @@ data:
     key2=value2
     key3=value3
 ```
+
+---

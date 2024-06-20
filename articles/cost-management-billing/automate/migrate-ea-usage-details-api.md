@@ -18,7 +18,7 @@ EA customers who were previously using the Enterprise Reporting APIs behind the 
 The dataset is referred to as *cost details* instead of *usage details*.
 
 > [!NOTE]
-> On May 1, 2024, Azure Enterprise Reporting APIs will be retired. [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) before then.
+> All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
 
 ## New solutions generally available
 
@@ -88,7 +88,7 @@ The following table provides a summary of the old fields available in the soluti
 | cost | CostInBillingCurrency |     |
 | costCenter | CostCenter |     |
 | date | Date | The format in the old field was yyyy-mm-dd, while the new field is in the format mm/dd/yyyy. |
-| departmentId | InvoiceSectionId |     |
+| departmentId | InvoiceSectionId |  The field is currently empty. Use `DepartmentName` to get the department information.   |
 | departmentName | InvoiceSectionName |     |
 | extendedCost | CostInBillingCurrency |     |
 | instanceId | ResourceId |     |
@@ -121,6 +121,6 @@ The following table provides a summary of the old fields available in the soluti
 | tags | Tags | The new field doesn't have the enclosing `{}` around the key-value pairs. |
 | unitOfMeasure | UnitOfMeasure |     |
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to Azure Resource Manager APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

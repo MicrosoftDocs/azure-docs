@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/12/2023
-ms.custom: MVC, engagement-fy23
+ms.date: 06/17/2024
+ms.custom: MVC, engagement-fy24
 ---
 
 # Migrate machines as physical servers to Azure
@@ -77,7 +77,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 > [!IMPORTANT]
 > Virtual networks are a regional service, so make sure you create your virtual network in the desired target Azure region. For example, if you're planning on replicating and migrating VMs from your on-premises environment to the East US Azure Region, your target virtual network *must be created* in the East US Region. To connect virtual networks in different regions, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
-[Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, Azure VMs are created and joined to the Azure virtual network that you specified when you set up migration.
+[Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, Azure VMs are created and joined to the Azure virtual network that you specified when you set up migration.
 
 ## Prepare for migration
 
@@ -121,9 +121,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project, select **Servers** > **Migration and modernization** > **Discover**.
-
-    ![Screenshot that shows discovering VMs.](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
 
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
@@ -190,7 +188,7 @@ Now, select machines for migration.
 > [!NOTE]
 > You can replicate up to 10 machines together. If you need to replicate more, replicate them simultaneously in batches of 10.
 
-1. In the Azure Migrate project, select **Servers** > **Migration and modernization** > **Replicate**.
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replicate.png" alt-text="Screenshot that shows selecting Replicate.":::
 
@@ -225,7 +223,7 @@ Now, select machines for migration.
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
 
