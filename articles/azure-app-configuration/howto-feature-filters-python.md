@@ -48,7 +48,7 @@ You've added a custom feature filter named **Random** with a **Percentage** para
 
     You decorated a `FeatureFilter.alias` to the `RandomFilter` to give your filter an alias **Random**, which matches the filter name you set in the *Beta* feature flag in Azure App Configuration.
 
-1. Open the *app.py* file and register the `RandomFilter` when creating the `FeatureManager`. Also, modify the code to not automatically refresh as seen below so you can see the *Beta* feature flag is sometimes enabled and and to also access the *Beta* feature flag a few times.
+1. Open the *app.py* file and register the `RandomFilter` when creating the `FeatureManager`. Also, modify the code to not automatically refresh and to also access the *Beta* feature flag a few times, as seen below.
 
     ```python
     from featuremanagement import FeatureManager
