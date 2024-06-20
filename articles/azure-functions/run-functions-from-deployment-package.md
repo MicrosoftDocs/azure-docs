@@ -85,7 +85,7 @@ This section provides information about how to run your function app from a pack
 
 <a name="troubleshooting"></a>
 
-+ When running a function app on Windows, the app setting `WEBSITE_RUN_FROM_PACKAGE = <URL>` gives worse cold-start performance and isn't recommended.
++ Function apps running on Windows experience a slight increase in [cold start time](event-driven-scaling.md#cold-start) when the application package is deployed to a URL endpoint via `WEBSITE_RUN_FROM_PACKAGE = <URL>`.
 + When you specify a URL, you must also [manually sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package.
 + The Functions runtime must have permissions to access the package URL.
 + You shouldn't deploy your package to Azure Blob Storage as a public blob. Instead, use a private container with a [Shared Access Signature (SAS)](../storage/common/storage-sas-overview.md) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the Functions runtime to access the package.
