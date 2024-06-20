@@ -344,7 +344,7 @@ The queue storage account uses the `accountName` property to identify the storag
 }
 ```
 
-To learn more about using managed identity with scale rules, see [Set scaling rules in Azure Container Apps](scale-app.md&pivots=azure-portal#authentication-2).
+To learn more about using managed identity with scale rules, see [Set scaling rules in Azure Container Apps](scale-app.md?pivots=azure-portal#authentication-2).
 
 ## Control managed identity availability
 
