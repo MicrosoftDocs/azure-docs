@@ -21,7 +21,7 @@ In this quickstart, you learn how to create a cluster pool using the Azure Power
 
 ## Prerequisites
 
-Ensure that you completed the [subscription prerequisites](./quickstart-prerequisites-subscription.md).
+Ensure that you complete the [subscription prerequisites](./quickstart-prerequisites-subscription.md) before creating a cluster pool.
 
 ## Launch Azure Cloud Shell
 
