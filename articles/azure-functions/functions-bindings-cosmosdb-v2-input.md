@@ -1288,8 +1288,6 @@ app = func.FunctionApp()
 def test_function(msg: func.QueueMessage,
                   inputDocument: func.DocumentList, 
                   outputDocument: func.Out[func.Document]):
-     document = documents[id]
-     document["text"] = "This was updated!"
      doc = inputDocument[0]
      doc["text"] = "This was updated!"
      outputDocument.set(doc)
