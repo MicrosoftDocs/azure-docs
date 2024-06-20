@@ -85,7 +85,7 @@ To get alerts from the Microsoft Defender plan, you'll first need to **enable it
 The best way to manage Azure Database for PostgreSQL - Flexible Server database access permissions at scale is using the concept of [roles](https://www.postgresql.org/docs/current/user-manag.html). A role can be either a database user or a group of database users. Roles can own the database objects and assign privileges on those objects to other roles to control who has access to which objects. It's also possible to grant membership in a role to another role, thus allowing the member role to use privileges assigned to another role.
 Azure Database for PostgreSQL - Flexible Server lets you grant permissions directly to the database users. **As a good security practice, it can be recommended that you create roles with specific sets of permissions based on minimum application and access requirements. You can then assign the appropriate roles to each user. Roles are used to enforce a *least privilege model* for accessing database objects.**
 
-The Azure Database for PostgreSQL - Flexible Server instance is created with the three default roles defined. You can see these roles by running the command:
+The Azure Database for PostgreSQL - Flexible Server instance is created with the three default roles defined, in addition to built-in roles PostgreSQL creates. You can see these roles by running the command:
 
 ```sql
 SELECT rolname FROM pg_roles;
