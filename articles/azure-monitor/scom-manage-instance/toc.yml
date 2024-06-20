@@ -81,7 +81,7 @@
    - name: Troubleshoot commonly encountered errors while validating input parameters
      href: troubleshooting-input-parameters-scom-managed-instance.md
    - name: FAQs
-     href: common-questions.md
+     href: scom-managed-instance-faq.yml
 - name: Security
   items:
    - name: Managed Identity
