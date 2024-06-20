@@ -30,7 +30,7 @@ In this release, we made the following changes:
 In this release, we made the following changes:
 
 - Resolved issues with connections that were routed via a Remote Desktop Services gateway behind an F5 web app filter.
-- Fixed bugs in the SSO protocol connection sequence that were breaking connectivity.
+- Fixed bugs in the single sign-on protocol connection sequence that were breaking connectivity.
 - Improved diagnostics sent during connections to Azure Virtual Desktop.
 
 ## Updates for version 10.9.6
