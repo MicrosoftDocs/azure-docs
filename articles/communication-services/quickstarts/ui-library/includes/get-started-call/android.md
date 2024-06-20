@@ -339,7 +339,8 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator`.
+To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
+While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
 
@@ -355,15 +356,9 @@ val locator = CallCompositeRoomLocator("<ROOM_ID>")
 CallCompositeJoinLocator locator = new CallCompositeRoomLocator("<ROOM_ID>");
 ```
 
----
-
 ### Set up a 1:N Outgoing call and Incoming Call Push Notifications 
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
 UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../../how-tos/ui-library-sdk/one-to-one-calling.md)
-
----
 
 ### Launch the composite
 

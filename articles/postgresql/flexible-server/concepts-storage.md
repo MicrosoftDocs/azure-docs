@@ -61,7 +61,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 - During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Auto-grow features.
 
-- During early preview, it is not possible to switch between Premium SSD V2 and Premium SSD storage types.
+- During early preview, online migration from PV1 to PV2 is not supported, customers can perform PITR to migrate from PV1 to PV2.
 
 - You can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported..
 

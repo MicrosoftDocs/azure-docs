@@ -4,12 +4,12 @@ description: This article describes the compute and storage options in Azure Dat
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 05/21/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
+ms.topic: concept-article
 ms.custom:
   - build-2024
-ms.topic: concept-article
 # customer intent: As a reader, I want to understand the service tiers and compute options available in Azure Database for MySQL - Flexible Server.
 ---
 

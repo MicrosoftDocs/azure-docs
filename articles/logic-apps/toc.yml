@@ -125,7 +125,7 @@ items:
         href: rules-engine/test-rulesets.md
       - name: Create a rules engine project
         href: rules-engine/create-rules-engine-project.md
-    - name: Create and run .NET Framework code
+    - name: Create and run .NET code
       href: create-run-custom-code-functions.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
