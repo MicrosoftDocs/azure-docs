@@ -197,6 +197,9 @@ db.cats.find();
     
 ## Enable access to replica cluster
 
+> [!IMPORTANT]
+> Replica clusters are always created with networking access disabled. You should add firewall rules on the replica cluster after it is created to enable read operations.
+
 1. From the Azure Cosmos DB for MongoDB vCore *primary* cluster page, select the **Global distribution (preview)** page under **Settings**.
 
    :::image type="content" source="media/quickstart-cross-region-replication/global-distribution-page-on-primary-cluster.png" alt-text="Screenshot of the global distribution preview page in the primary cluster properties.":::
@@ -231,15 +234,40 @@ mongosh mongodb+srv://<user>@<cluster_replica_name>.mongocluster.cosmos.azure.co
 ```
 ### Read data from replica cluster
 
-In the MongoDB shell, read data from the database.
+In the MongoDB shell, read data from the database on the replica cluster.
 
 ```MongoDB Shell
 db.dogs.find();
 db.cats.find();
 ```
 
+## Promote replica cluster
 
-  
+To promote a cluster read replica to a read-write cluster, follow these steps:
+
+1. Select the *read replica cluster* in the portal.
+
+1. On the cluster sidebar, under **Cluster management**, select **Global distribution (preview)**.
+
+1. On the **Global distribution (preview)** page, select **Promote** on the toolbar to initiate read replica promotion to read-write cluster. 
+
+1. In the **Promote cluster** pop-up window, confirm that you understand how replica promotion works, and select **Promote**. Replica promotion might take a few minutes to complete.
+
+### Write to promoted cluster replica
+
+Once replica promotion is completed, the promote replica becomes available for writes and the former primary cluster is set to read-only.
+
+Go back to the MongoDB shell session for the promoted replica and perform a write operation.
+
+```MongoDB Shell
+db.createCollection('foxes')
+```
+
+Go beck to the MongoDB shell session for the former primary cluster to confirm that writes are now disabled.
+
+```MongoDB Shell
+db.createCollection('bears')
+```
 
 ## Clean up resources
 
