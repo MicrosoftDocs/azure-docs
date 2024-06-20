@@ -1,19 +1,18 @@
 ---
-title: "Prompt Shields in Azure AI Content Safety"
+title: "Protected material detection in Azure AI Content Safety"
 titleSuffix: Azure AI services
-description: Learn about User Prompt injection attacks and the Prompt Shields feature that helps prevent them.
+description: Learn about detecting Protected material in your model's output.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
-ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 03/15/2024
+ms.date: 06/24/2024
 ms.author: pafarley
 ---
 
 
-
+# Protected material detection
 
 
 Refer to this table tbd
@@ -28,8 +27,8 @@ Refer to this table tbd
 
 ---
 
-table: 
 
+<!--
 <table>
 <colgroup>
 <col style="width: 16%" />
@@ -182,3 +181,4 @@ table:
 </tr>
 </tbody>
 </table>
+-->
