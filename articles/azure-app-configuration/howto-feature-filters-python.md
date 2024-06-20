@@ -68,7 +68,6 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     
     for i in range(0, 10):
         print("Beta is", feature_manager.is_enabled("Beta"))
-        sleep(5)
     ```
 
 ## Feature filter in action
