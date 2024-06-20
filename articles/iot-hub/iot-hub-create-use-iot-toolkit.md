@@ -7,6 +7,7 @@ ms.author: junhan
 ms.service: iot-hub
 ms.topic: how-to
 ms.date: 01/04/2019
+robots: NOINDEX
 ---
 
 # Create an IoT hub using the Azure IoT Hub extension for Visual Studio Code
@@ -57,13 +58,3 @@ The following steps show how to create an IoT hub in Visual Studio Code (VS Code
 
 > [!TIP]
 > There is no option to delete your IoT hub in Visual Studio Code, however you can [delete your hub in the Azure portal](iot-hub-create-through-portal.md#delete-an-iot-hub).
-
-## Next steps
-
-Now that you've deployed an IoT hub using the Azure IoT Hub extension for Visual Studio Code, explore these articles:
-
-- [Use the Azure IoT Hub extension for Visual Studio Code to send and receive messages between your device and an IoT hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
-
-- [Use the Azure IoT Hub extension for Visual Studio Code for Azure IoT Hub device management](iot-hub-device-management-iot-toolkit.md)
-
-- [See the Azure IoT Hub extension for Visual Studio Code wiki page](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
