@@ -1,11 +1,11 @@
 ---
 title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
-author: dzsquared
+author: JetterMcTedder
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 4/17/2023
-ms.author: drskwier
+ms.date: 6/20/2024
+ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -860,6 +860,35 @@ The examples refer to a database table:
 
 The following example shows a SQL output binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
+# [v2](#tab/python-v2)
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="AddToDo")
+@app.route(route="addtodo")
+@app.sql_output(arg_name="todo",
+                        command_text="[dbo].[ToDo]",
+                        connection_string_setting="SqlConnectionString")
+def add_todo(req: func.HttpRequest, todo: func.Out[func.SqlRow]) -> func.HttpResponse:
+    body = json.loads(req.get_body())
+    row = func.SqlRow.from_dict(body)
+    todo.set(row)
+
+    return func.HttpResponse(
+        body=req.get_body(),
+        status_code=201,
+        mimetype="application/json"
+    )
+```
+
+# [v1](#tab/python-v1)
+
 The following is binding data in the function.json file:
 
 ```json
@@ -918,6 +947,8 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow]) -> func.HttpRe
         )
 ```
 
+---
+
 <a id="http-trigger-write-to-two-tables-python"></a>
 ### HTTP trigger, write to two tables
 
@@ -932,6 +963,12 @@ CREATE TABLE dbo.RequestLog (
     ItemCount int not null
 )
 ```
+
+# [v2](#tab/python-v2)
+
+No equivalent sample for v2 at this time.
+
+# [v1](#tab/python-v1)
 
 The following is binding data in the function.json file:
 
@@ -1004,6 +1041,7 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: fu
         )
 ```
 
+---
 
 ::: zone-end
 
