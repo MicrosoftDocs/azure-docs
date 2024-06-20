@@ -259,7 +259,7 @@ To promote a cluster read replica to a read-write cluster, follow these steps:
 
 ### Write to promoted cluster replica
 
-Once replica promotion is completed, the promote replica becomes available for writes and the former primary cluster is set to read-only.
+Once replica promotion is completed, the promoted replica becomes available for writes and the former primary cluster is set to read-only.
 
 Go back to the MongoDB shell session for the promoted replica and perform a write operation.
 
