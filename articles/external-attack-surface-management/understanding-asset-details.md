@@ -229,7 +229,7 @@ For more information on observations, see [Understanding dashboards](understandi
 
 Connected Assets empowers users to graphically link and gather information about assets for investigative analysis. You can explore your environment and its intricate relationships through relationship mappings, which offer clear and concise views. This helps you identify hidden connections and potential attack paths. By visually mapping out the relationships between assets and vulnerabilities, you can comprehend your environment's complexity and make well-informed decisions to enhance your security posture and apply choke points effectively. 
 
-![Screenshot that shows the Connected assets tab.](media/connected-1.png)
+[![Screenshot that shows the Connected assets tab.](media/connected-1.png)](media/connected-1.png#lightbox)
 
 
 On this page, all the assets that are connected to the specified asset are identified in a list. The list provides key information about each policy including:  
