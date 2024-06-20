@@ -188,7 +188,7 @@ Thus, during the canary upgrade, when two revisions exist simultaneously on the 
 
 ## Next steps
 
-* [General troubleshooting of the Istio service mesh add-on][upgrade-istio-service-mesh-tsg]
+* [Troubleshoot upgrades for the Istio service mesh add-on][upgrade-istio-service-mesh-tsg]
 
 
 [aks-release-notes]: https://github.com/Azure/AKS/releases
