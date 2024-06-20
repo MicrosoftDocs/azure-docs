@@ -130,7 +130,7 @@ The following shows a function app configured to run from a .zip file hosted in 
 
 ### Fetch a package from Azure Blob Storage using a managed identity
 
-[!INCLUDE [Run from package via Identity](~/reusable-content/ce-skilling/azure/includes/app-service-run-from-package-via-identity.md)]
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Use this Quickstart to enable Azure Operator Service Manager on you
 author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-service-manager
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: quickstart
 ms.date: 03/19/2023
 ---

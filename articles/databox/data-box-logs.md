@@ -200,7 +200,10 @@ During the data upload to Azure, a copy log is created.
 
 For each order that is processed, the Data Box service creates a copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
 
-A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
+> [!NOTE]
+> A Cyclic Redundancy Check (CRC) computation is completed during the upload to Azure. The CRCs from the data copy and data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
+> 
+> You can use the CRC checksum tool script to compare the checksums of the on-premises source data with the data uploaded to Azure. The script can be downloaded from [Azure Samples](https://github.com/Azure-Samples/data-box-samples/tree/main/JavaToolforCRC). See the [README file](https://github.com/Azure-Samples/data-box-samples/blob/main/JavaToolforCRC/README.md) for more information.
 
 By default, logs are written to a container named `copylog`. The logs are stored with the following naming convention:
 

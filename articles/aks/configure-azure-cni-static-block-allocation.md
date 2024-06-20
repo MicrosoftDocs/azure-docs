@@ -76,9 +76,9 @@ where N is any positive integer greater than 0
 
 Ideal values with no IP wastage would require the max pods value to conform to the above expression.
 
-**Example 1:** max_pods = 30, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 30 = 1 **[Low wastage - Acceptable Case]**
-**Example 2:** max_pods = 31, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 31 = 0 **[Ideal Case]**
-**Example 3:** max_pods = 32, CIDR Blocks allocated per node = 3, Total IPs available for pods = (16 * 3) - 1 = 48 - 1 = 47, IP wastage per node = 47 - 32 = 15 **[High Wastage - Not Recommended Case]**
+- **Example 1:** max_pods = 30, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 30 = 1 **[Low wastage - Acceptable Case]**
+- **Example 2:** max_pods = 31, CIDR Blocks allocated per node = 2, Total IPs available for pods = (16 * 2) - 1 = 32 - 1 = 31, IP wastage per node = 31 - 31 = 0 **[Ideal Case]**
+- **Example 3:** max_pods = 32, CIDR Blocks allocated per node = 3, Total IPs available for pods = (16 * 3) - 1 = 48 - 1 = 47, IP wastage per node = 47 - 32 = 15 **[High Wastage - Not Recommended Case]**
 
 The planning of IPs for Kubernetes services remain unchanged.
 
@@ -87,7 +87,7 @@ The planning of IPs for Kubernetes services remain unchanged.
 
 ## Deployment parameters
 
-The [deployment parameters][azure-cni-deployment-parameters]for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
+The [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
 
 - The **vnet subnet id** parameter now refers to the subnet related to the cluster's nodes.
 - The parameter **pod subnet id** is used to specify the subnet whose IP addresses will be statically or dynamically allocated to pods in the node pool.
@@ -204,7 +204,7 @@ az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepoo
 
 - **Can some node pools in a cluster use Dynamic IP allocation while others use the new Static Block allocation?**
 
-Yes, different node pools can use different allocation modes. However, once a subnet is used in one allocation mode it can only be used in the same allocation mode across all the node pools it is associated.
+  Yes, different node pools can use different allocation modes. However, once a subnet is used in one allocation mode it can only be used in the same allocation mode across all the node pools it is associated.
 
 ## Next steps
 
@@ -221,4 +221,8 @@ Learn more about networking in AKS in the following articles:
 [azure-cni-prereq]: ./configure-azure-cni.md#prerequisites
 [azure-cni-deployment-parameters]: ./azure-cni-overview.md#deployment-parameters
 [az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
-
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register

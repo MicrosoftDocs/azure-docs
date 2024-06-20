@@ -102,7 +102,7 @@
   - name: Rate limit for service provider ports
     href: provider-rate-limit.md
   - name: Routing Microsoft 365 traffic over ExpressRoute 
-    href: using-expressroute-for-microsoft365.md
+    href: /microsoft-365/enterprise/azure-expressroute?toc=/azure/expressroute/TOC.json
   - name: Routing Microsoft PSTN traffic over ExpressRoute
     href: using-expressroute-for-microsoft-pstn.md
   - name: High Availability - Design

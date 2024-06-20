@@ -1,11 +1,11 @@
 ---
-title: HX sub-family VM size series
+title: HX family VM size series
 description: List of sizes in the HX family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 06/06/2024
 ms.author: mattmcinnes
 ---
 

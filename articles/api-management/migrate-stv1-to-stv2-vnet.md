@@ -4,7 +4,7 @@ description: Migrate your Azure API Management instance in-place from stv1 to st
 
 author: dlepow
 ms.service: api-management
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: danlep
@@ -241,4 +241,3 @@ After you update the VNet configuration, the status of your API Management insta
    - Microsoft.Network/publicIPAddresses/join/action
 
 [!INCLUDE [api-management-migration-related-content](../../includes/api-management-migration-related-content.md)]
-

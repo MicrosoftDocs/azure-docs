@@ -5,12 +5,12 @@ ms.author: schaffererin
 author: schaffererin
 ms.topic: quickstart
 ms.date: 03/22/2024
-ms.custom: devx-track-terraform, devx-track-extended-azdevcli
+ms.custom: devx-track-terraform, devx-track-extended-azdevcli, devx-track-azurecli
 content_well_notification: 
   - AI-contribution
-#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ai-usage: ai-assisted
 zone_pivot_groups: aks-azure-developer-cli
+#Customer intent: As a developer or cluster operator, I want to quickly deploy an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Terraform
@@ -688,4 +688,3 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 [azd-hooks]: /azure/developer/azure-developer-cli/reference#azd-hooks
 [azd-overview]: /azure/developer/azure-developer-cli
 [aks-home]: /azure/aks
-
