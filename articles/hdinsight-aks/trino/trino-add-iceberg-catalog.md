@@ -34,7 +34,6 @@ This article provides an overview of how to configure Iceberg catalog in your Tr
                             "fileName": "config.properties",
                             "values": {
                                 "hive.metastore.hdi.metastoreDbConnectionURL": "jdbc:sqlserver://{{DATABASE_SERVER}}.database.windows.net;database={{DATABASE_NAME}};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
-                                "hive.metastore.hdi.metastoreDbConnectionAuthenticationMode": "SqlAuth",
                                 "hive.metastore.hdi.metastoreDbConnectionUserName": "{{DATABASE_USER_NAME}}",
                                 "hive.metastore.hdi.metastoreDbConnectionPasswordSecret": "{{SECRET_REFERENCE_NAME}}",
                                 "hive.metastore.hdi.metastoreWarehouseDir": "abfs://{{AZURE_STORAGE_CONTAINER}}@{{AZURE_STORAGE_ACCOUNT_NAME}}.dfs.core.windows.net/hive/warehouse"
@@ -65,7 +64,7 @@ This article provides an overview of how to configure Iceberg catalog in your Tr
     |-|-|-|
     |fileName|iceberg.properties|Name of the catalog file. If the file is called iceberg.properties, then `iceberg` becomes the catalog name.|
     |connector.name|iceberg|The type of the catalog. For Iceberg, catalog type must be `iceberg`|
-    |hive.metastore|hdi|Type of hive metastore to use for this catalog. Type `hdi` instructs cluster to use built-in Hive Metastore service, configured above.|
+    |hive.metastore|hdi|Type of hive metastore to use for this catalog. Type `hdi`, it instructs cluster to use in-cluster Hive Metastore service, configured above.|
     |iceberg.register-table-procedure.enabled|true|Required to allow external tables to be registered.|
 
     Refer to [Trino documentation](https://trino.io/docs/current/connector/iceberg.html#general-configuration) for other iceberg configuration options.
