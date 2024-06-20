@@ -41,10 +41,6 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 > [!TIP]
 > You can also create registry diagnostic settings by navigating to your registry in the portal. In the menu, select **Diagnostic settings** under **Monitoring**.
 
-The following image shows the options when you enable diagnostic settings for a registry.
-
-:::image type="content" source="media/monitor-service/diagnostic-settings.png" alt-text="Screenshot shows the diagnostic settings for container registry.":::
-
 The metrics and logs you can collect are discussed in the following sections.
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
@@ -173,8 +169,6 @@ The following table lists some suggested alert rules for Container Registry. The
 |:---|:---|:---|
 | metric | Signal: Storage used<br/>Operator: Greater than<br/>Aggregation type: Average<br/>Threshold value: 5 GB|  Alerts if the registry storage used exceeds a specified value.|
 
-[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
-
 ### Example: Send email alert when registry storage used exceeds a value
 
 1. In the Azure portal, navigate to your registry.
@@ -192,6 +186,8 @@ The following table lists some suggested alert rules for Container Registry. The
     1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter a recipient such as *admin@contoso.com*. Select **Review + create**.
 1. Enter a name and description of the alert rule, and select the severity level.
 1. Select **Create alert rule**.
+
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
