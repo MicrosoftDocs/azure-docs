@@ -3,7 +3,7 @@ title: Render custom data on a raster map in Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: faterceros
 ms.author: aterceros 
-ms.date: 06/19/2024
+ms.date: 06/20/2024
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -21,7 +21,7 @@ The following are examples of custom data:
 - Geometry overlays
 
 > [!TIP]
-> To show a simple map on a web page, it's often more cost effective to use the Azure Maps Web SDK, rather than to use the static image service. The web SDK uses map tiles; and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load. The Azure Maps Web SDK has options for disabling panning and zooming. Also, the Azure Maps Web SDK provides a richer set of data visualization options than a static map web service does.  
+> To show a simple map on a web page, it's often more cost effective to use the Azure Maps Web SDK, rather than to use the static image service. The web SDK uses map tiles; and unless the user pans and zooms the map, they will often generate only a fraction of a transaction per map load using browser caching. The Azure Maps Web SDK has options for disabling panning and zooming. Also, the Azure Maps Web SDK provides a richer set of data visualization options than a static map web service does.
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ To render a circle and pushpins with custom labels:
 1. Enter the following URL to the [Render] service:
 
     ```HTTP
-    https://atlas.microsoft.com/map/static?subscription-key={Your-Azure-Maps-Subscription-key}&zoom=14&tilesetId=microsoft.base.road&api-version=2024-04-01&language=en-us&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&height=700&Width=700
+    https://atlas.microsoft.com/map/static?subscription-key={Your-Azure-Maps-Subscription-key}&zoom=14&tilesetId=microsoft.base.road&api-version=2024-04-01&language=en-us&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|sc1|al0.66|lc003C62|co002D62||'Microsoft Corporate Headquarters'-122.14131832122801 47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935 47.64452336193245&height=700&Width=700
     ```
 
 1. Select **Create**.
@@ -162,7 +162,7 @@ To get a static image with a traffic layer rendered on a roads basemap, use the 
 
 ## Create a map using the dark gray style
 
-To get a static image with the dark gray style appplied, set the `TilesetId` parameter to `microsoft.base.darkgrey`:
+To get a static image with the dark gray style applied, set the `TilesetId` parameter to `microsoft.base.darkgrey`:
 
 1. In the Bruno app, select **New Request**.
 
