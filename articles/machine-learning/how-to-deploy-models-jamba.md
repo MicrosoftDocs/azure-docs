@@ -29,7 +29,7 @@ The AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go bi
 
 To get started with Jamba Instruct deployed as a serverless API, explore our integrations with [LangChain](https://aka.ms/ai21-jamba-instruct-langchain-sample), [LiteLLM](https://aka.ms/ai21-jamba-instruct-litellm-sample), [OpenAI](https://aka.ms/ai21-jamba-instruct-openai-sample) and the [Azure API](https://aka.ms/ai21-jamba-instruct-azure-api-sample).
 
-> [!ITIP]
+> [!TIP]
 > See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
 
 
@@ -175,7 +175,7 @@ The `messages` object has the following fields:
   - `content`: [_string, required_] The content of the message.
 
 
-#### Request Example
+#### Request example
 
 __Single-turn example__
 
