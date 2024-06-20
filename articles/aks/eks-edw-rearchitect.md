@@ -25,7 +25,7 @@ The following diagram represents the architecture of the EDW workload in AWS:
 
 ## Map AWS services to Azure services
 
-To recreate the AWS workload in Azure with minimal changes, use an Azure equivalent for each AWS service and keep authentication methods similar to the original. This example doesn't require the [advanced features][advanced-features-service-bus-event-hub] of Azure Service Bus or Azure Event Hubs, so you can use [Azure Queue Storage][azure-queue-storage] to queue up work, and [Azure Table storage][azure-table-storage] to store results.
+To recreate the AWS workload in Azure with minimal changes, use an Azure equivalent for each AWS service and keep authentication methods similar to the original. This example doesn't require the [advanced features][advanced-features-service-bus-event-hub] of Azure Service Bus or Azure Event Hubs. Instead, you can use [Azure Queue Storage][azure-queue-storage] to queue up work, and [Azure Table storage][azure-table-storage] to store results.
 
 The following table summarizes the service mapping:
 

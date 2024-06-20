@@ -69,4 +69,3 @@ code .
 [download-vscode]: https://code.visualstudio.com/Download
 [github-repo]: https://github.com/Azure-Samples/aks-event-driven-replicate-from-aws
 [eks-edw-understand]: ./eks-edw-understand.md
-

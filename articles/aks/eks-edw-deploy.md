@@ -35,7 +35,7 @@ In this article, you deploy the [AWS EDW workload][eks-edw-overview] to Azure.
 
 You use the `deploy.sh` script in the `deployment` directory of the [GitHub repository][github-repo] to deploy the application to Azure.
 
-The script first checks that all of the [prerequisite tools][prerequsities] are installed. If not, the script terminates and displays an error message letting you know which prerequisites are missing. If this happens, review the prerequisites, install any missing tools, and then run the script again. You need [Node autoprovisioning (NAP) for AKS] feature flag registered on your Azure subscription. If it isn't already registered, the script executes an Azure CLI command to register the feature flag.
+The script first checks that all of the [prerequisite tools][prerequisites] are installed. If not, the script terminates and displays an error message letting you know which prerequisites are missing. If this happens, review the prerequisites, install any missing tools, and then run the script again. You need [Node autoprovisioning (NAP) for AKS] feature flag registered on your Azure subscription. If it isn't already registered, the script executes an Azure CLI command to register the feature flag.
 
 The script records the state of the deployment in a file called `deploy.state`, which is located in the `deployment` directory. You can use this file to set environment variables when deploying the app.
 
@@ -54,14 +54,14 @@ For more information, see the `./deployment/infra/deploy.sh` script in our [GitH
 The deployment script creates the following Azure resources:
 
 - **Azure resource group**: The [Azure resource group][azure-resource-group] that stores the resources created by the deployment script.
-- **Azure Storage account**: The Azure Storage account that contains the queue where messages are sent by the producer app and read by the consumer app and the table where the consumer app stores the processed messages.
+- **Azure Storage account**: The Azure Storage account that contains the queue where messages are sent by the producer app and read by the consumer app, and the table where the consumer app stores the processed messages.
 - **Azure container registry**: The container registry provides a repository for the container that deploys the refactored consumer app code.
 - **Azure Kubernetes Service (AKS) cluster**: The AKS cluster provides Kubernetes orchestration for the consumer app container and has the following features enabled:
 
-    - **Node autoprovisioning (NAP)**: The implementation of the Karpenter node autoscaler on AKS.
-    - **Kubernetes Event-driven Autoscaling (KEDA)**: KEDA enables pod scaling based on events, such as exceeding a specified queue depth threshold.
-    - **Workload identity**: Allows you to attach role-based access policies to pod identities for enhanced security.
-    - **Attached Azure container registry**: This feature allows the AKS cluster to pull images from repositories on the specified ACR instance.
+  - **Node autoprovisioning (NAP)**: The implementation of the Karpenter node autoscaler on AKS.
+  - **Kubernetes Event-driven Autoscaling (KEDA)**: KEDA enables pod scaling based on events, such as exceeding a specified queue depth threshold.
+  - **Workload identity**: Allows you to attach role-based access policies to pod identities for enhanced security.
+  - **Attached Azure container registry**: This feature allows the AKS cluster to pull images from repositories on the specified ACR instance.
 
 - **Application and system node pool**: The script also creates an application and system node pool in the AKS cluster that has a taint to prevent application pods from being scheduled in the system node pool.
 - **AKS cluster managed identity**: The script assigns the `acrPull` role to this managed identity, which facilitates access to the attached Azure container registry for pulling images.
@@ -79,7 +79,6 @@ The deployment script creates the following Azure resources:
 
 ## Validate deployment and run the workload
 
-
 Once the deployment script completes, you can deploy the workload on the AKS cluster.
 
 1. Set the source for gathering and updating the environment variables for `./deployment/environmentVariables.sh` using the following command:
@@ -93,7 +92,6 @@ Once the deployment script completes, you can deploy the workload on the AKS clu
     ```bash
     cat ./deployment/deploy.state
     ```
-
 
     Your output should show the following variables:
 
@@ -148,7 +146,7 @@ Now, you generate simulated load using the producer app to populate the queue wi
     python3 ./app/keda/aqs-producer.py
     ```
 
-1. Once the app starts sending messages, switch back to the other terminal window. 
+1. Once the app starts sending messages, switch back to the other terminal window.
 1. Deploy the consumer app container onto the AKS cluster using the following commands:
 
     ```bash
@@ -210,7 +208,7 @@ Now, you generate simulated load using the producer app to populate the queue wi
 
 ## Monitor scale out for pods and nodes with k9s
 
-You can use a variety of tools to verify the operation of apps deployed to AKS, including the Azure portal and k9s. For more information on k9s, see the [k9s overview][k9s].
+You can use various tools to verify the operation of apps deployed to AKS, including the Azure portal and k9s. For more information on k9s, see the [k9s overview][k9s].
 
 1. Install k9s on your AKS cluster using the appropriate guidance for your environment in the [k9s installation overview][k9s-install].
 1. Create two windows, one with a view of the pods and the other with a view of the nodes in the namespace you specified in the `AQS_TARGET_NAMESPACE` environment variable (default value is `aqs-demo`) and start k9s in each window.
@@ -271,7 +269,7 @@ You can use a variety of tools to verify the operation of apps deployed to AKS, 
 
     :::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-pods.png" alt-text="Screenshot showing an example of the K9s view with scheduling pods.":::
 
-    If you allow the producer to fill the queue with enough messages, KEDA will need to schedule more pods than there are nodes to serve. This is when Karpenter will kick in and start scheduling nodes. If you're using k9s, you should see something like this:
+    If you allow the producer to fill the queue with enough messages, KEDA might need to schedule more pods than there are nodes to serve. To accommodate this, Karpenter will kick in and start scheduling nodes. If you're using k9s, you should see something like this:
 
     :::image type="content" source="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" lightbox="media/eks-edw-deploy/sample-k9s-scheduling-nodes.png" alt-text="Screenshot showing an example of the K9s view with scheduling nodes.":::
 
@@ -306,5 +304,3 @@ For more information on developing and running applications in AKS, see the foll
 [helm-aks]: ./kubernetes-helm.md
 [k8s-aks]: ./deploy-marketplace.md
 [openai-aks]: ./open-ai-quickstart.md
-
-
