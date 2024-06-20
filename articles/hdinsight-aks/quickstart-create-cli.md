@@ -38,7 +38,7 @@ The Azure Cloud Shell is an interactive shell that you can use to run the steps 
 The first step is to define the environment variables. Environment variables are commonly used in Linux to centralize configuration data to improve consistency and maintainability of the system. Create the following environment variables to specify the names of resources that you create later in this tutorial:
 
 ```bash
-export RecourceGroup="HDIonAKSCLI"
+export ResourceGroup="HDIonAKSCLI"
 export Region=EastUS
 export HDIonAKSClusterPoolName="contosopool"
 export NodeType="Standard_E4s_v3"
@@ -51,10 +51,10 @@ In order to run commands in Azure using the CLI, you need to log in first. Log i
 
 ## Create a resource group
 
-A resource group is a container for related resources. All resources must be placed in a resource group. The [az group create](/cli/azure/group) command creates a resource group with the previously defined `$MY_RESOURCE_GROUP_NAME` and `$Region` parameters.
+A resource group is a container for related resources. All resources must be placed in a resource group. The [az group create](/cli/azure/group) command creates a resource group with the previously defined `$ResourceGroup` and `$Region` parameters.
 
 ```bash
-az group create --name $RecourceGroup --location $Region
+az group create --name $ResourceGroup --location $Region
 ```
 
 Output:
@@ -95,7 +95,7 @@ az hdinsight-on-aks clusterpool create --cluster-pool-name
 ```
 Here's an example:
 ```bash
-az hdinsight-on-aks clusterpool create --resource-group $RecourceGroup --cluster-pool-name $HDIonAKSClusterPoolName --location $Region --workernode-size $NodeType --cluster-pool-version $ClusterVersion
+az hdinsight-on-aks clusterpool create --resource-group $ResourceGroup --cluster-pool-name $HDIonAKSClusterPoolName --location $Region --workernode-size $NodeType --cluster-pool-version $ClusterVersion
 ```
 
 It takes a few minutes to create the HDInsight on AKS cluster pool. The following example output shows the created operation was successful.
