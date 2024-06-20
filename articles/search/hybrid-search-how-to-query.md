@@ -350,7 +350,7 @@ Both "k" and "top" are optional. Unspecified, the default number of results in a
 > If you're using hybrid search in 2024-05-01-preview API, you can control the number of results from the keyword query using [maxTextRecallSize](#set-maxtextrecallsize-and-countandfacetmode-preview). Combine this with a setting for "k" to control the representation from each search subsystem (keyword and vector).
 
 > [!TIP]
-> If you're using semantic ranking, it's a best practice to set "k" and "maxTextRecallSize" to sum to at least 50 total. The semantic ranker can take up to 50 results. You can then restrict the results returned to the user with the "top" parameter.
+> If you're using semantic ranking in 2024-05-01-preview API, it's a best practice to set "k" and "maxTextRecallSize" to sum to at least 50 total. The semantic ranker can take up to 50 results. You can then restrict the results returned to the user with the "top" parameter.
 
 ### Ranking
 
