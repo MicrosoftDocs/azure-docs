@@ -2059,40 +2059,12 @@
         href: ./windows/tutorial-config-management.md
 - name: Monitoring
   items:
-  - name: Monitor
+  - name: Monitor Virtual Machines
     href: monitor-vm.md?toc=/azure/virtual-machines/toc.json
   - name: Monitoring data reference
     href: monitor-vm-reference.md?toc=/azure/virtual-machines/toc.json
   - name: Availability with Resource Graph
     href: resource-graph-availability.md
-  - name: Tutorials
-    items:
-    - name: Enable recommended alerts
-      href: /azure/azure-monitor/vm/tutorial-monitor-vm-alert-recommended?toc=/azure/virtual-machines/toc.json
-    - name: Create availability alert
-      href: /azure/azure-monitor/vm/tutorial-monitor-vm-alert-availability?toc=/azure/virtual-machines/toc.json
-    - name: Enable VM insights
-      href: /azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights?toc=/azure/virtual-machines/toc.json
-    - name: Collect guest logs and metrics
-      href: /azure/azure-monitor/vm/tutorial-monitor-vm-guest?toc=/azure/virtual-machines/toc.json
-  - name: Monitor virtual machines guide
-    items:
-    - name: Overview
-      href: /azure/azure-monitor/vm/monitor-virtual-machine
-    - name: Deploy agents
-      href: /azure/azure-monitor/vm/monitor-virtual-machine-agent
-    - name: Collect data
-      href: /azure/azure-monitor/vm/monitor-virtual-machine-data-collection
-    - name: Analyze data
-      href: /azure/azure-monitor/vm/monitor-virtual-machine-analyze
-    - name: Create alerts
-      href: /azure/azure-monitor/vm/monitor-virtual-machine-alerts
-    - name: Migrate management pack logic
-      href: /azure/azure-monitor/vm/monitor-virtual-machine-management-packs
-  - name: VM insights
-    href: /azure/azure-monitor/vm/vminsights-overview
-  - name: Azure Monitor Agent
-    href: /azure/azure-monitor/agents/agents-overview
   - name: Monitor availability
     items:
     - name: Overview
