@@ -137,7 +137,7 @@ Artificial Intelligence can help app developers across every step of the develop
 - What are the common causes of poor media streams in Azure Communication calls?
 - The video on my call didn’t work, how do I fix the subcode 41048?
 
-![Screenshot of the Call Diagnostics Call Timeline tab showing you the detailed events in a timeline view for the call you selected.](media/call-diagnostics-all-calls-copilot.png)
+![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource and the response from Copilot.](media/call-diagnostics-all-calls-copilot.png)
 
 <!-- > [!NOTE]
 > You can explore information icons and links within Call Diagnostics to learn functionality, definitions, and helpful tips. -->
