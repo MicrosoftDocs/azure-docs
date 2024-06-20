@@ -409,8 +409,12 @@ To access resource health from the VM configuration page, go to **Resource Healt
 If you verified that the no-boot was caused by a Secure Boot failure:
 
 1. The image you're using is an older version that might have one or more untrusted boot components and is on a deprecation path. To remedy an outdated image, update to a supported newer image version.
-1. The image you're using might have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components.
+1. The image you're using might have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify whether your image has unsigned or untrusted boot components, see the following section, "Verify Secure Boot failures."
 1. If the preceding two scenarios don't apply, the VM is potentially infected with malware (bootkit/rootkit). Consider deleting the VM and re-creating a new VM from the same source image while you evaluate all the software being installed.
+
+## Verify Secure Boot failures
+
+This section helps you verify Secure Boot failures.
 
 ### Linux virtual machines
 
