@@ -58,19 +58,25 @@ You can create multiple exports of various data types using the following steps.
 ### Choose a scope and navigate to Exports
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
-2. Search for **Cost Management**.
-3. Select a billing scope.
-4. In the left navigation menu, select **Exports**.
-    - **For Partners**: Sign in as a partner at the billing account scope or on a customer's tenant. Then you can export data to an Azure Storage account that is linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
-5. Set the schedule frequency.
+1. Search for **Cost Management**.
+1. Select a billing scope.
+1. In the left navigation menu, select **Exports**.
 
+> [!NOTE]
+> - You can create exports on subscription, resource group, management group, department, and enrollment scopes. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+> - When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
+   
+
+   
 ### Create new exports
 
 On the Exports page, at the top of the page, select **+ Create**.
 
 ### Select the export template
 
-1. On the Basics page, select a template that meets your scenario and then select **Next**. A template simplifies export creation by preselecting a set of commonly used datasets and their configurations.  
+1. On the **Basics** tab, select a template that meets your scenario and then select **Next**.   
+Note: A template simplifies export creation by preselecting a set of commonly used datasets and their configurations.  
+
    1. The eight most common templates are always shown. If you don't find a suitable template, select **Show more** to see more options. If none of these templates meet your needs, you can select **Create your own export** to build your custom combination. 
     :::image type="content" source="./media/tutorial-improved-exports/improved-exports-basics-tab.png" border="true" alt-text="Screenshot showing the Basics tab and list of export templates." lightbox="./media/tutorial-improved-exports/improved-exports-basics-tab.png" :::
 1. Once you select a template, you see the **Datasets** tab where you can customize your export name by entering a common **Export prefix**, edit the preselected configuration, and add or remove exports from the list. 
