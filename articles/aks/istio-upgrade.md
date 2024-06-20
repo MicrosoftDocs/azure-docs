@@ -188,12 +188,12 @@ Thus, during the canary upgrade, when two revisions exist simultaneously on the 
 
 ## Next steps
 
-* [General troubleshooting of the Istio service mesh add-on][istio-service-mesh-tsg]
+* [General troubleshooting of the Istio service mesh add-on][upgrade-istio-service-mesh-tsg]
 
 
 [aks-release-notes]: https://github.com/Azure/AKS/releases
 [istio-canary-upstream]: https://istio.io/latest/docs/setup/upgrade/canary/
 [meshconfig]: ./istio-meshconfig.md
 [meshconfig-canary-upgrade]: ./istio-meshconfig.md#mesh-configuration-and-upgrades
-[istio-service-mesh-tsg]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-general-troubleshooting
+[upgrade-istio-service-mesh-tsg]: /troubleshoot/azure/azure-kubernetes/extensions/istio-add-on-minor-revision-upgrade
 
