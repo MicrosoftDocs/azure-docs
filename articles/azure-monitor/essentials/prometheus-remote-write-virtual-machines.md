@@ -1,14 +1,15 @@
 ---
-title: Send Prometheus metrics from Virtual Machines to an Azure Monitor workspace
+title: Send Prometheus metrics from virtual machines, scale sets, or Kubernetes clusters to an Azure Monitor workspace
 description: How to configure remote-write to send data from self-managed Prometheus to an Azure Monitor managed service for Prometheus
-author: bwren 
+author: EdB-MSFT
+ms.author: edbaynash 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 06/20/2024
 #customer intent: As an azure administrator, I want to send Prometheus metrics from my self-managed Prometheus instance to an Azure Monitor workspace.
 ---
 
-# Send Prometheus metrics from Virtual Machines to an Azure Monitor workspace
+# Send Prometheus metrics from virtual machines, scale sets, or Kubernetes clusters to an Azure Monitor workspace
 
 Prometheus isn't limited to monitoring Kubernetes clusters. Use Prometheus to monitor applications and services running on your servers, wherever they're running. For example, you can monitor applications running on Virtual Machines, Virtual Machine Scale Sets, or even on-premises servers. You can also send Prometheus metrics to an Azure Monitor workspace from your self-managed cluster and Prometheus server. Install prometheus on your servers and configure remote-write to send metrics to an Azure Monitor workspace.
 
@@ -19,16 +20,16 @@ This article explains how to configure remote-write to send data from a self-man
 
 Self-managed Prometheus can run on Azure and non-Azure environments. The following are authentication options for remote-write to Azure Monitor workspace based on the environment where Prometheus is running.
 
-## Azure managed Virtual Machines and Virtual Machine Scale Sets
+## Azure-managed Virtual Machines, Virtual Machine Scale Sets, and Kubernetes clusters
 
-Use user-assigned managed identity authentication for services running self managed Prometheus in an Azure environment. Azure managed services include:
+Use user-assigned managed identity authentication for services running self managed Prometheus in an Azure environment. Azure-managed services include:
 
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
 - Azure Arc-enabled Virtual Machines
 - Azure Kubernetes Service (AKS)
 
-To set up remote write for Azure managed resources, see [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication).
+To set up remote write for Azure-managed resources, see [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication).
 
 
 ## Virtual machines and Kubernetes clusters running on non-Azure environments.
@@ -59,7 +60,10 @@ Depending on the environment where Prometheus is running, you can configure remo
 Use the Azure portal or CLI to create a user-assigned managed identity or Microsoft Entra ID application.
 
 ### [Remote-write using user-assigned managed identity](#tab/managed-identity)
+
 ### Remote-write using user-assigned managed identity authentication
+
+User-assigned managed identity authentication can be used in any Azure-managed environment. If your Prometheus service is running in a non-Azure environment, you can use Entra ID application authentication.
 
 To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
@@ -104,7 +108,7 @@ On the workspace's data collection rule, assign the `Monitoring Metrics Publishe
 1. Select **Add**.
 1. Select the user assigned managed identity that you created, then select **Add**.
 
-    :::image type="content" source="media/prometheus-remote-write-virtual-machines/assign-user-identity.png" lightbox="media/prometheus-remote-write-virtual-machines/assign-user-identity.png" alt-text="A screenshot showing the Add user assigned managed identity page.":::
+    :::image type="content" source="media/prometheus-remote-write-virtual-machines/assign-user-identity.png" lightbox="media/prometheus-remote-write-virtual-machines/assign-user-identity.png" alt-text="A screenshot showing the add user assigned managed identity page.":::
 
 #### Assign the managed identity for an Azure Kubernetes Service
 
@@ -117,6 +121,8 @@ For each Virtual Machine Scale Set in the resource group, assign the managed ide
 
 ### [Microsoft Entra ID application](#tab/entra-application)
 ### Remote-write using Microsoft Entra ID application authentication
+
+Microsoft Entra ID application authentication can be used in any environment. If your Prometheus service is running in an Azure-managed environment consider using user-assigned managed identity authentication.
 
 To configure remote-write to Azure Monitor workspace using a Microsoft Entra ID application, create an Entra application. On Azure Monitor workspace's data collection rule, assign the `Monitoring Metrics Publisher` role to the Entra application.
 
@@ -351,7 +357,7 @@ For more information, see [Prometheus explorer](/azure/azure-monitor/essentials/
 
 ### Grafana
 
-Use PromQL queries in Grafana to verify that the results return the expected data. See [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) to configure Grafana.
+Use PromQL queries in Grafana to verify that the results return the expected data. To configure Grafana, see [getting Grafana setup with Managed Prometheus](../essentials/prometheus-grafana.md) 
 
 
 ## Troubleshoot remote write 
