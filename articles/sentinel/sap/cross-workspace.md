@@ -29,7 +29,7 @@ This article discusses how to work with the Microsoft Sentinel solution for SAP 
 
 If your SAP and SOC teams have separate Microsoft Sentinel workspaces where team data is kept, we recommend that you provide some or all SOC team members with the **Sentinel Reader** role for the SAP team's workspace. This enables both teams to see SAP data by using cross-workspace queries.
 
-:::image type="content" source="media/cross-workspace/sap-cross-workspace-separate.png" alt-text="Diagram of separate workspaces for your SAP and SOC teams.":::
+:::image type="content" source="media/cross-workspace/sap-cross-workspace-separate.png" alt-text="Diagram of separate workspaces for your SAP and SOC teams." border="false":::
 
 Maintaining separate workspaces for the SAP and SOC data has the following benefits:
 
