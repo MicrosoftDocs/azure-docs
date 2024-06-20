@@ -1,6 +1,6 @@
 ---
 title: Get support for Azure Native Dynatrace Service
-description: This article provides information about troubleshooting Dynatrace for Azure 
+description: This article provides information about support process for Dynatrace for Azure 
 
 ms.topic: conceptual
 ms.date: 06/20/2024
