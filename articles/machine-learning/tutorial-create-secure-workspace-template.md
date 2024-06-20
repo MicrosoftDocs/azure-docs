@@ -41,13 +41,13 @@ To view either Bicep or Terraform information, select the Bicep or Terraform tab
 
 - Git installed on your development environment to clone the template repository. If you don't have the `git` command, you can install Git from [https://git-scm.com/](https://git-scm.com/).
 
-- A Bash or Azure PowerShell command line.
+- An Azure CLI or Azure PowerShell command line. The following examples use Azure CLI.
 
 # [Bicep](#tab/bicep)
 
-- To install the command-line tools, see [Set up Bicep development and deployment environments](/azure/azure-resource-manager/bicep/install).
+- Either the Azure CLI or Azure PowerShell Bicep command-line tools installed according to [Set up Bicep development and deployment environments](/azure/azure-resource-manager/bicep/install).
 
-- The Bicep template for this article is at [Azure Machine Learning end-to-end secure setup](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure). To clone the GitHub repo to your development environment and switch to the template directory, run the following commands:
+- The GitHub repo containing the Bicep template [Azure Machine Learning end-to-end secure setup](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure), cloned locally and switched to by running the following commands:
 
   ```bash
   git clone https://github.com/Azure/azure-quickstart-templates
@@ -56,13 +56,13 @@ To view either Bicep or Terraform information, select the Bicep or Terraform tab
 
 # [Terraform](#tab/terraform)
 
-- To install, configure, and authenticate Terraform to your Azure subscription, use the steps in one of the following articles:
+- Terraform installed, configured, and authenticated to your Azure subscription by using the steps in one of the following articles:
 
   - [Azure Cloud Shell](/azure/developer/terraform/get-started-cloud-shell-bash)
   - [Windows with Bash](/azure/developer/terraform/get-started-windows-bash)
   - [Windows with Azure PowerShell](/azure/developer/terraform/get-started-windows-powershell)
 
-- The Terraform template for this article is at [Azure Machine Learning workspace (moderately secure network set up)](https://github.com/Azure/terraform/tree/master/quickstart/201-machine-learning-moderately-secure). To clone the repo locally and switch to the template directory, run the following commands:
+- The GitHub repo containing the Terraform template [Azure Machine Learning workspace (moderately secure network set up)](https://github.com/Azure/terraform/tree/master/quickstart/201-machine-learning-moderately-secure), cloned locally and switched to by running the following commands:
 
   ```bash
   git clone https://github.com/Azure/terraform
@@ -101,7 +101,7 @@ The Bicep template is made up of the [main.bicep](https://github.com/Azure/azure
 
 # [Terraform](#tab/terraform)
 
-The template consists of multiple files. The following table describes what each file is responsible for:
+The Terraform template consists of multiple files. The following table describes what each file is responsible for:
 
 | File | Description |
 | ----- | ----- |
@@ -125,46 +125,46 @@ The template consists of multiple files. The following table describes what each
 
 # [Bicep](#tab/bicep)
 
-To deploy the Bicep template, run the following commands from the *machine-learning-end-to-end-secure* directory where the *main.bicep* file is located.
+To deploy the Bicep template, make sure you're in the *machine-learning-end-to-end-secure* directory where the *main.bicep* file is located, and run the following commands:
 
-1. To create a new Azure resource group, run the following example command, replacing `exampleRG` with the resource group name and `eastus` with the Azure region you want to use:
+1. To create a new Azure resource group, run the following example command, replacing `<myrgname>` with a resource group name and `<location>` with the Azure region you want to use.
 
-    - **Azure CLI:**
+    - Azure CLI:
 
       ```azurecli
-      az group create --name exampleRG --location eastus
+      az group create --name <myrgname> --location <location>
       ```
 
-    - **Azure PowerShell:**
+    - Azure PowerShell:
 
       ```azurepowershell
-      New-AzResourceGroup -Name exampleRG -Location eastus
+      New-AzResourceGroup -Name <myrgname> -Location <location>
       ```
 
-1. To deploy the template, use the following command, replacing `prefix` with a unique prefix to use when creating required Azure Machine Learning resources. Replace `dsvmpassword` with a secure password for the DSVM jump box sign-in account, `azureadmin` in the following examples.
+1. To deploy the template, use the following command, replacing `<myrgname>` with the name of the resource group you created, and `<pref>` with a unique prefix to use when creating required resources. Replace `<mydsvmpassword>` with a secure password for the DSVM jump box sign-in account, which is `azureadmin` in the following examples.
 
     > [!TIP]
     > The `prefix` must be five or fewer characters, and can't be entirely numeric or contain the characters `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `=`, `+`, `_`, `[`, `]`, `{`, `}`, `\`, `|`, `;`, `:`, `.`, `'`, `"`, `,`, `<`, `>`, `/`, or `?`.
 
-    - **Azure CLI**:
+    - Azure CLI:
 
       ```azurecli
       az deployment group create \
-          --resource-group exampleRG \
+          --resource-group <myrgname> \
           --template-file main.bicep \
           --parameters \
-          prefix=prefix \
+          prefix=<pref> \
           dsvmJumpboxUsername=azureadmin \
-          dsvmJumpboxPassword=dsvmpassword
+          dsvmJumpboxPassword=<mydsvmpassword>
       ```
 
-    - **Azure PowerShell**:
+    - Azure PowerShell:
 
       ```azurepowershell
-      $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force
-      New-AzResourceGroupDeployment -ResourceGroupName exampleRG `
+      $dsvmPassword = ConvertTo-SecureString "<mydsvmpassword>" -AsPlainText -Force
+      New-AzResourceGroupDeployment -ResourceGroupName <myrgname> `
           -TemplateFile ./main.bicep `
-          -prefix "prefix" `
+          -prefix "<pref>" `
           -dsvmJumpboxUsername "azureadmin" `
           -dsvmJumpboxPassword $dsvmPassword
       ```
@@ -174,7 +174,7 @@ To deploy the Bicep template, run the following commands from the *machine-learn
 
 # [Terraform](#tab/terraform)
 
-To deploy the Terraform template, use the following commands from the *201-machine-learning-moderately-secure* directory where the template files are located.
+To deploy the Terraform template, make sure you're in the *201-machine-learning-moderately-secure* directory where the template files are located, and run the following commands.
 
 1. To initialize the directory for working with Terraform, use the following command:
 
