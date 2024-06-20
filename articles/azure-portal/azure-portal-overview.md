@@ -1,7 +1,7 @@
 ---
 title: What is the Azure portal?
 description: The Azure portal is a graphical user interface that you can use to manage your Azure services. Learn how to navigate and find resources in the Azure portal.
-ms.date: 06/14/2024
+ms.date: 06/20/2024
 ms.topic: overview
 ---
 
@@ -29,15 +29,16 @@ The illustration below labels the basic elements of the Azure portal, each of wh
 
 |Key|Description |
 |:---:|---|
-|1|**Page header**. Appears at the top of every portal page and holds global elements.|
-|2|**Global search**. Use the search bar to quickly find a specific resource, a service, or documentation.|
-|3|**Global controls**. Like all global elements, these controls persist across the portal. Global controls include Cloud Shell, Notifications, Settings, Support + Troubleshooting, and Feedback.|
-|4|**Your account**. View information about your account, switch directories, sign out, or sign in with a different account.|
-|5|**Portal menu**. This global element can help you to navigate between services. Sometimes referred to as the sidebar.|
-|6|**Service menu**. Many services include a menu with commands that are contextual to the service or resource that you're working with. You may see also this element referred to as the resource menu, or sometimes as the left pane.|
-|7|**Command bar**. These controls are contextual to your current focus.|
-|8|**Working pane**. Displays details about the resource that is currently in focus.|
-|9|**Breadcrumb**. Use the breadcrumb links to move back a level in your workflow.|
+|1|**Portal menu**. This global element can help you to navigate between services. Sometimes referred to as the sidebar.|
+|2|**Breadcrumb**. Use the breadcrumb links to move back a level in your workflow.|
+|3|**Page header**. Appears at the top of every portal page and holds global elements.|
+|4|**Global search**. Use the search bar in the page header to quickly find a specific resource, a service, or documentation.|
+|5|**Copilot**. Quick access to [Microsoft Copilot in Azure (preview)](/azure/copilot/).|
+|6|**Global controls**. Controls that persist in the page header for common tasks: Cloud Shell, Notifications, Settings, Support + Troubleshooting, and Feedback.|
+|7|**Your account**. View information about your account, switch directories, sign out, or sign in with a different account.|
+|8|**Command bar**. A group of controls that are contextual to your current focus.|
+|9|**Service menu**. A menu with commands that are contextual to the service or resource that you're working with. You may see also this element referred to as the resource menu, or sometimes as the left pane.|
+|10|**Working pane**. Displays details about the resource or service that is currently in focus.|
 
 ## Portal menu
 
