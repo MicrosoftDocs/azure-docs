@@ -34,7 +34,6 @@ This article provides an overview of how to configure Delta Lake catalog in your
                             "fileName": "config.properties",
                             "values": {
                                 "hive.metastore.hdi.metastoreDbConnectionURL": "jdbc:sqlserver://{{DATABASE_SERVER}}.database.windows.net;database={{DATABASE_NAME}};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=30",
-                                "hive.metastore.hdi.metastoreDbConnectionAuthenticationMode": "SqlAuth",
                                 "hive.metastore.hdi.metastoreDbConnectionUserName": "{{DATABASE_USER_NAME}}",
                                 "hive.metastore.hdi.metastoreDbConnectionPasswordSecret": "{{SECRET_REFERENCE_NAME}}",
                                 "hive.metastore.hdi.metastoreWarehouseDir": "abfs://{{AZURE_STORAGE_CONTAINER}}@{{AZURE_STORAGE_ACCOUNT_NAME}}.dfs.core.windows.net/hive/warehouse"
@@ -66,7 +65,7 @@ This article provides an overview of how to configure Delta Lake catalog in your
     |-|-|-|
     |fileName|delta.properties|Name of the catalog file. If the file is called delta.properties, `delta` becomes the catalog name.|
     |connector.name|delta_lake|The type of the catalog. For Delta Lake, catalog type must be `delta_lake`|
-    |hive.metastore|hdi|Type of hive metastore to use for this catalog. Type `hdi` instructs cluster to use built-in Hive Metastore service, configured above.|
+    |hive.metastore|hdi|Type of hive metastore to use for this catalog. Type `hdi`, it instructs cluster to use in-cluster Hive Metastore service, configured above.|
     |delta.register-table-procedure.enabled|true|Required to allow external tables to be registered.|
 
     See [Trino documentation](https://trino.io/docs/current/connector/delta-lake.html#general-configuration) for other delta lake configuration options.
