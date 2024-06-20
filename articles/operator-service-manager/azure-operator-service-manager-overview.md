@@ -49,6 +49,11 @@ SLA (Service Level Agreement) information can be found on the [Service Level Agr
 
 Azure Operator Service Manager is often deployed in combination with the following Azure services.
 
+- [Azure Operator Nexus](/azure/operator-nexus)
+- [Azure DevOps](/azure/devops)
+- [Microsoft Fabric](/fabric)
+- [Microsoft Copilot](/copilot)
+
 ## Get access to Azure Operator Service Manager (AOSM) for your Azure subscription
 
 Contact your Microsoft account team to register your Azure subscription for access to Azure Operator Service Manager (AOSM) or express your interest through the [partner registration form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR7lMzG3q6a5Hta4AIflS-llUMlNRVVZFS00xOUNRM01DNkhENURXU1o2TS4u).
