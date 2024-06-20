@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Event Hubs
-description: This article contains important reference material you need when you monitor Azure Event Hubs.
-ms.date: 06/19/2024
+description: This article contains important reference material you need when you monitor Azure Event Hubs by using Azure Monitor.
+ms.date: 06/20/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 ms.service: azure-event-hubs
@@ -33,9 +33,9 @@ The following table lists the metrics available for the Microsoft.EventHub/Names
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-eventhub-namespaces-metrics-include.md)]
 
-This section lists all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is `Microsoft.EventHub/clusters` or `Microsoft.EventHub/namespaces`.
+The following tables list all the automatically collected platform metrics collected for Azure Event Hubs. The resource provider for these metrics is `Microsoft.EventHub/clusters` or `Microsoft.EventHub/namespaces`.
 
-Request metrics count the number of data and management operations requests. This table provides more information about values from the preceding tables.
+*Request metrics* count the number of data and management operations requests. This table provides more information about values from the preceding tables.
 
 | Metric name         | Description |
 |:--------------------|:------------|
@@ -55,8 +55,8 @@ This table provides more information for message metrics from the preceding tabl
 | Size              | Size of an event hub in bytes. |
 
 > [!NOTE]
-> - These values are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
-> - The **Incoming requests** metric includes all the data and management plane operations. The **Incoming messages** metric gives you the total number of events that are sent to the event hub. For example, if you send a batch of 100 events to an event hub, it'll count as 1 incoming request and 100 incoming messages. 
+> - These values are point-in-time values. Incoming messages that are consumed immediately after that point-in-time might not be reflected in these metrics.
+> - The Incoming Requests metric includes all the data and management plane operations. The Incoming Messages metric gives you the total number of events that are sent to the event hub. For example, if you send a batch of 100 events to an event hub, it'll count as 1 incoming request and 100 incoming messages.
 
 This table provides more information for capture metrics from the preceding tables.
 
@@ -82,13 +82,13 @@ This table provides more information for error metrics from the preceding tables
 | User Errors           | The number of requests not processed because of user errors over a specified period. |
 | Quota Exceeded Errors | The number of errors caused by exceeding quotas over a specified period. |
 
-The following two types of errors are classified as **user errors**:
+The following two types of errors are classified as *user errors*:
 
 1. Client-side errors (In HTTP that would be 400 errors).
 2. Errors that occur while processing messages.
 
 > [!NOTE]
-> Logic Apps creates epoch receivers and receivers may be moved from one node to another depending on the service load. During those moves, `ReceiverDisconnection` exceptions may occur. They are counted as user errors on the Event Hubs service side. Logic Apps may collect failures from Event Hubs clients so that you can view them in user logs.
+> Logic Apps creates epoch receivers and receivers may be moved from one node to another depending on the service load. During those moves, `ReceiverDisconnection` exceptions may occur. They are counted as user errors on the Event Hubs service side. Logic Apps can collect failures from Event Hubs clients so that you can view them in user logs.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -96,7 +96,7 @@ The following two types of errors are classified as **user errors**:
 
 | Dimension name  | Description |
 |:----------------|:------------|
-| EntityName      | Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension has a value of '-NamespaceOnlyMetric-' in addition to all your event hubs. It represents the requests that were made at the namespace level. Examples include a  request to list all event hubs in the namespace or requests to entities that failed authentication or authorization. |
+| EntityName      | Name of the event hub. With the 'Incoming Requests' metric, the Entity Name dimension has a value of `-NamespaceOnlyMetric-` in addition to all your event hubs. It represents the requests that were made at the namespace level. Examples include a  request to list all event hubs in the namespace or requests to entities that failed authentication or authorization. |
 | OperationResult | |
 | Replica         | |
 | Role            | |
