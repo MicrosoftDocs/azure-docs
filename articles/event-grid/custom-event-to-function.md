@@ -103,7 +103,7 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
 1. Now, on the **Event Grid Topic** page for your custom topic, select **+ Event Subscription** on the toolbar.
 
-    :::image type="content" source="./media/custom-event-to-function/new-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription on the toolbar.":::
+    :::image type="content" source="./media/custom-event-to-function/new-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription on the toolbar." lightbox="./media/custom-event-to-function/new-event-subscription.png":::
 2. On the **Create Event Subscription** page, follow these steps:
     1. Enter a **name** for the event subscription.
     1. For **Event Schema**, select **Cloud Event Schema v1.0**.
@@ -172,7 +172,7 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
     ```
 5. Confirm that you see the message from the Azure function in the **Logs** tab of your Azure function in the Azure portal.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/function-log-output.png" alt-text="Screenshot that shows the Logs tab of an Azure function.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/function-log-output.png" alt-text="Screenshot that shows the Logs tab of an Azure function." lightbox="./media/custom-event-quickstart-portal/function-log-output.png":::
 
 ### Azure PowerShell
 The second example uses PowerShell to perform similar steps.
@@ -225,7 +225,7 @@ The second example uses PowerShell to perform similar steps.
     ```
 5. Confirm that you see the message from the Azure function in the **Logs** tab of your Azure function in the Azure portal.
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/function-log-output.png" alt-text="Screenshot that shows the Logs tab of an Azure function.":::
+    :::image type="content" source="./media/custom-event-quickstart-portal/function-log-output.png" alt-text="Screenshot that shows the Logs tab of an Azure function." lightbox="./media/custom-event-quickstart-portal/function-log-output.png":::
 
 ### Verify that function received the event
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing.
