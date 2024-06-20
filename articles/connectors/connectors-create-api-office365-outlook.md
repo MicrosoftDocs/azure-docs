@@ -10,7 +10,7 @@ ms.date: 01/10/2024
 
 # Connect to Office 365 Outlook from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To automate tasks for your Office 365 Outlook account in workflows using Azure Logic Apps, you can add operations from the [Office 365 Outlook connector](/connectors/office365connector/) to your workflow. For example, your workflow can perform the following tasks:
 

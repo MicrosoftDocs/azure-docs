@@ -21,7 +21,7 @@ This article describes the benefits, constraints, and supported configurations o
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking.
 
-:::image type="content" source="./media/create-vm-accelerated-networking/accelerated-networking.png" alt-text="Screenshot that shows communication between Azure VMs with and without Accelerated Networking.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-network/accelerated-networking.png" alt-text="Screenshot that shows communication between Azure VMs with and without Accelerated Networking.":::
 
 **Without Accelerated Networking**, all networking traffic in and out of the VM traverses the host and the virtual switch. The [virtual switch](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch) provides all policy enforcement to network traffic. Policies include network security groups, access control lists, isolation, and other network virtualized services.
 

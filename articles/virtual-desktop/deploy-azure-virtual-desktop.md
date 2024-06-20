@@ -398,7 +398,7 @@ Here's how to create a workspace using the [Az.DesktopVirtualization](/powershel
 1. In the same PowerShell session, use the `New-AzWvdWorkspace` cmdlet with the following example to create a workspace. More parameters are available, such as to register existing application groups. For more information, see the [New-AzWvdWorkspace PowerShell reference](/powershell/module/az.desktopvirtualization/new-azwvdworkspace).
 
    ```azurepowershell
-   New-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName>
+   New-AzWvdWorkspace -Name <Name> -ResourceGroupName <ResourceGroupName> -Location <Location>
    ```
 
 1. You can view the properties of your new workspace by running the following command:
@@ -763,7 +763,7 @@ Once you've deployed Azure Virtual Desktop, your users can connect. There are se
 
 Here are some extra tasks you might want to do:
 
-- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+- Configure profile management with FSLogix. To learn more, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 - [Add session hosts to a host pool](add-session-hosts-host-pool.md).
 
@@ -775,7 +775,7 @@ Once you've deployed a host pool, workspace, and application group, you'll need 
 
 Here are some extra tasks you might want to do:
 
-- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+- Configure profile management with FSLogix. To learn more, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
 
@@ -785,6 +785,6 @@ Once you've deployed a host pool, workspace, and application group, you'll need 
 
 Here are some extra tasks you might want to do:
 
-- Configure profile management with FSLogix. To learn more, see [FSLogix profile containers](fslogix-containers-azure-files.md).
+- Configure profile management with FSLogix. To learn more, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 - [Enable diagnostics settings](diagnostics-log-analytics.md).
