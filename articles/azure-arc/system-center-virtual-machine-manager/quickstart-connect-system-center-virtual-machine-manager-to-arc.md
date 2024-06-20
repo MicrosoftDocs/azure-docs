@@ -44,11 +44,11 @@ This Quickstart shows you how to connect your SCVMM management server to Azure A
 1. Search and select **Azure Arc**.
 1. In the **Overview** page, select **Add resources** on the **Manage resources across environments** tab.
 
-    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-inline.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-expanded.png":::
+    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure.png":::
 
 1. In the **Host environments** section, in **System Center VMM** select **Add**.
 
-    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-inline.png" alt-text="Screenshot of how to select System Center V M M platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm-expanded.png":::
+    :::image type="content" source="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm.png" alt-text="Screenshot of how to select System Center V M M platform." lightbox="media/quick-start-connect-scvmm-to-azure/platform-add-system-center-vmm.png":::
 
 1. Select **Create a new resource bridge** and select **Next : Basics >**.
 1. Provide a name for **Azure Arc resource bridge**. For example: *contoso-nyc-resourcebridge*.
