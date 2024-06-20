@@ -90,7 +90,7 @@ These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deplo
 1. You can always find the endpoint's details, URL, and access keys by navigating to **Workspace** > **Endpoints** > **Serverless endpoints**.
 
 
-To learn about billing for Jamba models deployed as a serverless API, see [Cost and quota considerations for Jamba models deployed as a serverless API](#cost-and-quota-considerations-for-jamba-models-deployed-as-a-serverless-api).
+To learn about billing for Jamba models deployed as a serverless API, see [Cost and quota considerations for Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-jamba-instruct-deployed-as-a-serverless-api).
 
 ### Consume Jamba Instruct as a service
 
@@ -109,7 +109,7 @@ For more information on using the APIs, see the [reference](#reference-for-jamba
 
 Jamba Instruct models accept both of these APIs:
 
-- The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` for multi-turn chat or single-turn question-answering. This API is supported because Jamba Instruct is fine-tuned for chat completion.
+- The [Azure AI model inference API](reference-model-inference-api.md) [Azure AI Model Inference API] on the route `/chat/completions` for multi-turn chat or single-turn question-answering. This API is supported because Jamba Instruct is fine-tuned for chat completion.
 - [AI21's Azure Client](https://docs.ai21.com/reference/jamba-instruct-api). For more information about the REST endpoint being called, visit [AI21's REST documentation](https://docs.ai21.com/reference/jamba-instruct-api).
 
 ### Azure AI model inference API
@@ -295,7 +295,7 @@ data: [DONE]
 
 ## Cost and quotas
 
-### Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API
+### Cost and quota considerations for Jamba Instruct deployed as a serverless API
 
 Jamba models deployed as a serverless API are offered by AI21 through Azure Marketplace and integrated with Azure Machine Learning studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 

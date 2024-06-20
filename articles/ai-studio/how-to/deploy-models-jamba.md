@@ -79,7 +79,7 @@ These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deplo
 1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [Reference](#reference-for-jamba-instruct-deployed-as-a-serverless-api) section.
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-ai21-jamba-instruct-deployed-as-a-serverless-api).
+To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-jamba-instruct-deployed-as-a-serverless-api).
 
 ### Consume Jamba Instruct as a serverless API
 
@@ -93,7 +93,7 @@ You can consume Jamba Insruct models as follows:
 
 1. Make an API request.
 
-For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-a-serverless-api) section.
+For more information on using the APIs, see the [reference](#reference-for-jamba-instruct-deployed-as-a-serverless-api) section.
 
 ## Reference for Jamba Instruct deployed as a serverless API
 
@@ -285,7 +285,7 @@ data: [DONE]
 
 ## Cost and quotas
 
-### Cost and quota considerations for AI21 Jamba Instruct deployed as a serverless API
+### Cost and quota considerations for Jamba Instruct deployed as a serverless API
 
 The Jamba Instruct model is deployed as a serverless API and is offered by AI21 through Azure Marketplace and integrated with Azure AI studio for use. You can find Azure Marketplace pricing when deploying or fine-tuning models.
 
