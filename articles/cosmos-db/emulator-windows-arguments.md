@@ -2,12 +2,12 @@
 title: Windows emulator command-line and PowerShell reference
 titleSuffix: Azure Cosmos DB 
 description: Manage the Azure Cosmos DB emulator with the command line or PowerShell and change the configuration of the emulator.   
-author: sajeetharan
-ms.author: sasinnat
-ms.reviewer: sidandrews
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: sasinnat
 ms.service: cosmos-db
 ms.topic: reference
-ms.date: 09/11/2023
+ms.date: 06/20/2024
 ---
 
 # Command-line and PowerShell reference for Windows (local) emulator
