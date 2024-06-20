@@ -24,7 +24,7 @@ Ensure that you completed the [subscription prerequisites](./quickstart-prerequi
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+The Azure Cloud Shell is an interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 - [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -141,7 +141,8 @@ Output:
 }
 ```
 
-For more information about cluster pool CLI commands, see [commands](/cli/azure/hdinsight-on-aks/clusterpool).
+> [!NOTE]
+> For more information about cluster pool CLI commands, see [commands](/cli/azure/hdinsight-on-aks/clusterpool).
 
 ## Clean up resources
 
