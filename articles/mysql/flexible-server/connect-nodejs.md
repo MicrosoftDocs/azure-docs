@@ -18,9 +18,6 @@ ms.devlang: javascript
 
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL - Flexible Server
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 In this quickstart, you connect to Azure Database for MySQL flexible server by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Linux, and Windows platforms.
@@ -81,18 +78,18 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### [Linux (RHEL/CentOS)](#tab/rhel)
+### [Linux (RHEL)](#tab/rhel)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
-    **RHEL/CentOS 7.x**
+    **RHEL 7.x**
 
     ```bash
     sudo yum install -y rh-nodejs8
     scl enable rh-nodejs8 bash
    ```
 
-    **RHEL/CentOS 8.x**
+    **RHEL 8.x**
 
    ```bash
     sudo yum install -y nodejs
