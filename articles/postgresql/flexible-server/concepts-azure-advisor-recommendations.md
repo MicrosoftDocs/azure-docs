@@ -28,9 +28,9 @@ Recommendations are available from the **Overview** navigation sidebar in the Az
 :::image type="content" source="../media/concepts-azure-advisor-recommendations/advisor-example.png" alt-text="Screenshot of the Azure portal showing an Azure Advisor recommendation.":::
 ## Recommendation types
 Azure Database for PostgreSQL flexible server prioritizes the following types of recommendations:
-* **Performance**: To improve the speed of your Azure Database for PostgreSQL flexible server instance. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see [Advisor Performance recommendations](../../advisor/advisor-performance-recommendations.md).
-* **Reliability**: To ensure and improve the continuity of your business-critical databases. This includes storage limits, and connection limits. For more information, see [Advisor Reliability recommendations](../../advisor/advisor-high-availability-recommendations.md).
-* **Cost**: To optimize and reduce your overall Azure spending. This includes server right-sizing recommendations. For more information, see [Advisor Cost recommendations](../../advisor/advisor-cost-recommendations.md).
+* **Performance**: To improve the speed of your Azure Database for PostgreSQL flexible server instance. This includes CPU usage, memory pressure, connection pooling, disk utilization, and product-specific server parameters. For more information, see [Advisor Performance recommendations](../../advisor/advisor-reference-performance-recommendations.md).
+* **Reliability**: To ensure and improve the continuity of your business-critical databases. This includes storage limits, and connection limits. For more information, see [Advisor Reliability recommendations](../../advisor/advisor-reference-reliability-recommendations.md).
+* **Cost**: To optimize and reduce your overall Azure spending. This includes server right-sizing recommendations. For more information, see [Advisor Cost recommendations](../../advisor/advisor-reference-cost-recommendations.md).
 
 ## Understanding your recommendations
 * **Daily schedule**: For Azure Database for PostgreSQL flexible server databases, we check server telemetry and issue recommendations on a twice a day schedule. If you make a change to your server configuration, existing recommendations will remain visible until we re-examine telemetry at either 7PM or 7AM according to PST. 

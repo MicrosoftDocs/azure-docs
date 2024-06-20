@@ -4,7 +4,7 @@ description: Learn about how to connect and authenticate using managed identity 
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 05/24/2024
+ms.date: 06/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -105,9 +105,16 @@ psql -h SERVER --user USER DBNAME
 
 You're now connected to the database you configured earlier.
 
-## Connect using Managed Identity in C#
+## Connect using Managed Identity
 
 This section shows how to get an access token using the VM's user-assigned managed identity and use it to call Azure Database for PostgreSQL flexible server. Azure Database for PostgreSQL flexible server natively supports Microsoft Entra authentication, so it can directly accept access tokens obtained using managed identities for Azure resources. When creating a connection to Azure Database for PostgreSQL flexible server, you pass the access token in the password field.
+
+## Connect using Managed Identity in Python
+
+For a Python code example, please refer to the [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server
+](./connect-python.md)
+
+## Connect using Managed Identity in C#
 
 Here's a .NET code example of opening a connection to Azure Database for PostgreSQL flexible server using an access token. This code must run on the VM to use the system-assigned managed identity to obtain an access token from Microsoft Entra ID. Replace the values of HOST, USER (with `<identity_name>`), and DATABASE.
 
