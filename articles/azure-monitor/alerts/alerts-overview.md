@@ -41,7 +41,7 @@ Alerts consist of:
      - Webhooks.
      - Event hubs.
 - **Alert conditions**: These conditions are set by the system. When an alert fires, the alert condition is set to **fired**. After the underlying condition that caused the alert to fire clears, the alert condition is set to **resolved**.
-- **User response**: The response is set by the user and doesn't change until the user changes it.
+- **User response**: The response is set by the user and doesn't change until the user changes it. The User response can be **New**, **Acknowledged**, or **Closed**. 
 - **Alert processing rules**: You can use alert processing rules to make modifications to triggered alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.
 ## Types of alerts
 

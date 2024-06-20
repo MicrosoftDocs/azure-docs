@@ -9,7 +9,7 @@
 ms.custom: include, build-2024
 ---
 
-[!INCLUDE [Feature preview](../../../ai-studio/includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 ## Prerequisites
 

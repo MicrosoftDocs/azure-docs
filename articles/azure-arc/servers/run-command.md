@@ -34,7 +34,7 @@ You can use one of the [built-in roles](/azure/role-based-access-control/built-i
 
 ## Blocking run commands locally
 
-The Connected Machine agent supports local configurations that allow you to set an allowlist or a blocklist. See [Extension allowlists and blocklists](security-overview.md#extension-allowlists-and-blocklists) to learn more.
+The Connected Machine agent supports local configurations that allow you to set an allowlist or a blocklist. See [Extension allowlists and blocklists](security-extensions.md#allowlists-and-blocklists) to learn more.
 
 For Windows:
 

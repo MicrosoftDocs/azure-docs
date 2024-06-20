@@ -10,7 +10,7 @@ ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 04/16/2024
 ms.reviewer: nachakra
-ms.custom: devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -314,7 +314,7 @@ To verify that Shared Key authorization is no longer permitted, you can query th
 az storage account show \
     --name <storage-account-name> \
     --resource-group <resource-group-name> \
-    --query "allow-shared-key-access"
+    --query "allowSharedKeyAccess"
 ```
 
 The command returns **false** if Shared Key authorization is disallowed for the storage account.

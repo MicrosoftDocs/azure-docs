@@ -5,7 +5,7 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: ignite-2023, devx-track-azurepowershell
+ms.custom: ignite-2023
 ms.topic: how-to
 ms.date: 04/26/2024
 ms.author: duau
@@ -32,7 +32,7 @@ The following SKUs are available for ExpressRoute virtual network gateways:
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

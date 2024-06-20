@@ -20,7 +20,7 @@ This article describes the issues you see when you upload data in the Azure data
 
 When the data from a Data Box Disk is uploaded in the Azure datacenter, a copy/error log and a verbose log are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data. 
 
-[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](~/reusable-content/ce-skilling/azure/includes/storage-import-export-verbose-log-copy-log-descriptions.md)]
+[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](../../includes/storage-import-export-verbose-log-copy-log-descriptions.md)]
 
 ## Locate the logs
 
@@ -103,7 +103,7 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 
 #### Sample verbose log
 
-[!INCLUDE [data-box-disk-sample-verbose-log.md](~/reusable-content/ce-skilling/azure/includes/data-box-disk-sample-verbose-log.md)]
+[!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
 
 ### Copy log
 
@@ -128,7 +128,7 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 
 #### Sample copy log
 
-[!INCLUDE [data-box-disk-sample-copy-log.md](~/reusable-content/ce-skilling/azure/includes/data-box-disk-sample-copy-log.md)]
+[!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
 
 ### [Log version: 2018-10-01](#tab/log-version-2018-10-01)
 

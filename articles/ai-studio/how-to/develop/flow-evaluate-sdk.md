@@ -15,7 +15,7 @@ author: eric-urban
 
 # Evaluate with the prompt flow SDK
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 To thoroughly assess the performance of your generative AI application when applied to a substantial dataset, you can evaluate in your development environment with the prompt flow SDK. Given either a test dataset or a target, your generative AI application generations are quantitatively measured with both mathematical based metrics and AI-assisted quality and safety evaluators. Built-in or custom evaluators can provide you with comprehensive insights into the application's capabilities and limitations. 
 
