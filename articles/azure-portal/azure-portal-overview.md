@@ -57,7 +57,7 @@ When the portal menu is in flyout mode, it's hidden until you need it. Select th
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-menu-flyout.png" alt-text="Screenshot of the Azure portal menu in flyout mode.":::
 
-If you choose docked mode for the portal menu, it will always be visible. You can collapse the menu to provide more working space.
+If you choose docked mode for the portal menu, it's always be visible. You can manually collapse the menu to provide more working space.
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-menu-expandcollapse.png" alt-text="Screenshot of the Azure portal menu in docked mode.":::
 
@@ -65,7 +65,7 @@ If you choose docked mode for the portal menu, it will always be visible. You ca
 
 The service menu appears when you're working with an Azure service or resource. Commands in this menu are contextual to the service or resource that you're working with. You can use the search box at the top of the service menu to quickly find commands.
 
-By default, menu items appeear collapsed within menu groups. If you prefer to have all menu items expanded by default, you can set **Service menu behavior** to **Expanded** in your [portal settings](set-preferences.md#service-menu-behavior).
+By default, menu items appear collapsed within menu groups. If you prefer to have all menu items expanded by default, you can set **Service menu behavior** to **Expanded** in your [portal settings](set-preferences.md#service-menu-behavior).
 
 When you're working within a service, you can select any top-level menu item to expand it and see the available commands within that menu group. Select that top-level item again to collapse that menu group.
 
@@ -77,7 +77,7 @@ If you use certain service menu commands frequently, you may want to save them a
 
 :::image type="content" source="media/azure-portal-overview/service-menu-add-favorite.png" alt-text="Screenshot showing the star icon to add a service menu command to favorites.":::
 
-When you save a command as a favorite, it will appear in a **Favorites** folder near the top of the service menu.
+When you save a command as a favorite, it appears in a **Favorites** folder near the top of the service menu.
 
 :::image type="content" source="media/azure-portal-overview/service-menu-favorites.png" alt-text="Screenshot of the Favorites folder in a service menu.":::
 
@@ -85,7 +85,7 @@ Your menu group selections are preserved by resource type and throughout session
 
 ## Dashboard
 
-Dashboards provide a focused view of the resources in your subscription that matter most to you. We've given you a default dashboard to get you started. You can customize this dashboard to bring the resources you use frequently into a single view.
+Dashboards provide a focused view of the resources in your subscription that matter most to you. We give you a default dashboard to get you started. You can customize this dashboard to bring resources you use frequently into a single view, or to display other information.
 
 You can create other dashboards for your own use, or publish customized dashboards and share them with other users in your organization. For more information, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
