@@ -7,13 +7,13 @@ ms.author: amagginetti
 manager: chpalm
 
 services: azure-communication-services
-ms.date: 11/21/2023
+ms.date: 06/20/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-newpictures
+
 
 # Call Diagnostics
 Azure Communication Services offers call quality analytics and visualizations so you can investigate call metrics, events, and understand detected quality issues in your Communication Services calling solution.
