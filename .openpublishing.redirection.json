@@ -1,5 +1,10 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
+      "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
+      "redirect_document_id": false
+    },
         {
              "source_path_from_root": "/articles/application-gateway/scripts/create-vmss-waf-cli.md",
              "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-waf-cli",
@@ -265,6 +270,26 @@
             "redirect_url": "/azure/advisor/advisor-alerts-portal",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/advisor/advisor-operational-excellence-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-operational-excellence-recommendations",
+            "redirect_document_id": false
+        },
+	            {
+            "source_path_from_root": "/articles/advisor/advisor-performance-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-performance-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/advisor/advisor-cost-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-cost-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
+            "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
+            "redirect_document_id": false
+        },	    
         {
             "source_path_from_root": "/articles/network-functions-manager/index.yml",
             "redirect_url": "/azure/network-function-manager",
