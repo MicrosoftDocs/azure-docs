@@ -71,9 +71,12 @@ The default content filtering configuration for the GPT model series is set to f
 <sup>1</sup> For Azure OpenAI models, only customers who have been approved for modified content filtering have full content filtering control and can turn content filters off. Apply for modified content filters via this form: [Azure OpenAI Limited Access Review: Modified Content Filters](https://ncv.microsoft.com/uEfCgnITdR)
 
 This preview feature is available for the following Azure OpenAI models:
-* GPT model series (text) 
-* GPT-4 Turbo Vision 2024-04-09 (multi-modal text/image)
-* DALL-E 2 and 3 (image)
+* GPT model series  
+* GPT-4 Turbo Vision GA* (turbo-2024-04-09)
+* GPT-4o
+* DALL-E 2 and 3 
+
+*Only available for GPT-4 Turbo with Vision GA, does not apply to GPT-4 Turbo with Vision preview.
 
 Content filtering configurations are created within a Resource in Azure AI Studio, and can be associated with Deployments. [Learn more about configurability here](../how-to/content-filters.md).  
 
