@@ -43,6 +43,8 @@ items:
     href: /legal/cognitive-services/content-safety/data-privacy?context=/azure/ai-services/content-safety/context/context
 - name: How-to guides
   items:
+  - name: Use custom categories
+    href: how-to/custom-categories.md
   - name: Use a blocklist
     href: how-to/use-blocklist.md
   - name: Handle harmful content incidents

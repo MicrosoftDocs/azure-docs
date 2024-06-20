@@ -18,6 +18,9 @@ Learn what's new in the service. These items might be release notes, videos, blo
 
 ## May 2024
 
+### Custom category support in Content Safety moderation APIs
+
+The custom categories API lets you create and train your own custom content categories and scan text for matches. See [Custom categories](./concepts/custom-categories.md) to learn more.
 
 ### Custom categories (rapid) API
 
