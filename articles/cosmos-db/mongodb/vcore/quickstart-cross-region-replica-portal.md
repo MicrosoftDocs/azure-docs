@@ -137,7 +137,7 @@ mongosh mongodb+srv://<user>@<primary_cluster_name>.mongocluster.cosmos.azure.co
 
 ### Ingest data
 
-Create a *my_script.js* script file to run from the MongoDB shell. 
+Create a *my_script.js* script file to run it from the MongoDB shell. 
 
 ```JavaScript
     let dogDocs = [
@@ -181,14 +181,15 @@ Create a *my_script.js* script file to run from the MongoDB shell.
 ```
 
 This script file creates two collections and inserts documents with data into those collections.
+Save my_script.js file in a folder accessible to the MongoDB shell session.
 
-Run the script from the MongoDB shell.
+Run the script from the MongoDB shell connected to the primary MongoDB cluster.
 
 ```MongoDB Shell
 load(my_script.js);
 ```
 
-In the MongoDB shell, read data from the database.
+In the MongoDB shell connected to the primary MongoDB cluster, read data from the database.
 
 ```MongoDB Shell
 db.dogs.find();
@@ -204,7 +205,7 @@ db.cats.find();
 
    :::image type="content" source="media/quickstart-cross-region-replication/global-distribution-page-on-primary-cluster.png" alt-text="Screenshot of the global distribution preview page in the primary cluster properties.":::
 
-1. Select *cluster replica name* to open the read cluster replica properties in the Azure portal.
+1. Select *cluster replica name* in the **Read replica** field to open the read cluster replica properties in the Azure portal.
  
 1. On the MongoDB vCore replica cluster page, under **Settings**, select **Networking**.
 
@@ -225,16 +226,17 @@ Get the connection string for the read cluster replica in another region.
 1. Copy the value from the **Connection string** field.
    
     > [!IMPORTANT]
-   > The connection string of the read replica cluster in the portal contains unique replica cluster name that you selected during replica creation. The username and password values for the read replica cluster are always the same as the ones on its primary cluster.
+   > The connection string of the read replica cluster contains unique *replica cluster name* that you selected during replica creation. The username and password values for the read replica cluster are always the same as the ones on its primary cluster.
 
 1. In command line, use the MongDB shell to connect to the read replica cluster using its connection string.
 
 ```cmd
 mongosh mongodb+srv://<user>@<cluster_replica_name>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
 ```
+
 ### Read data from replica cluster
 
-In the MongoDB shell, read data from the database on the replica cluster.
+In the MongoDB shell connected to the replica cluster, read data from the database.
 
 ```MongoDB Shell
 db.dogs.find();
@@ -261,13 +263,25 @@ To promote a cluster read replica to a read-write cluster, follow these steps:
 
 Once replica promotion is completed, the promoted replica becomes available for writes and the former primary cluster is set to read-only.
 
-Go back to the MongoDB shell session for the promoted replica and perform a write operation.
+Use the MongDB shell in command line to connect to *the promoted replica cluster* using its connection string.
+
+```cmd
+mongosh mongodb+srv://<user>@<promoted_replica_cluster_name>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
+```
+
+In the MongoDB shell session, perform a write operation.
 
 ```MongoDB Shell
 db.createCollection('foxes')
 ```
 
-Go back to the MongoDB shell session for the former primary cluster to confirm that writes are now disabled.
+Use the MongDB shell in command line to connect to *the new replica cluster* (former primary cluster) using its connection string.
+
+```cmd
+mongosh mongodb+srv://<user>@<new_replica_cluster_name>.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000
+```
+
+In the MongoDB shell, confirm that writes are now disabled on the new replica (former primary cluster).
 
 ```MongoDB Shell
 db.createCollection('bears')
