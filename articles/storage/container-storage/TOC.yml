@@ -13,14 +13,20 @@
   items:
   - name: Create AKS cluster and install Azure Container Storage
     href: install-container-storage-aks.md
-- name: How-to guides
+- name: Storage options
   items:
   - name: Use with Azure Disks
     href: use-container-storage-with-managed-disks.md
-  - name: Use with Ephemeral Disk
-    href: use-container-storage-with-local-disk.md
   - name: Use with Azure Elastic SAN
     href: use-container-storage-with-elastic-san.md
+  - name: Use with local NVMe
+    href: use-container-storage-with-local-disk.md
+  - name: Use with local NVMe replication
+    href: use-container-storage-with-local-nvme-replication.md
+  - name: Use with temp SSD
+    href: use-container-storage-with-temp-ssd.md    
+- name: How-to guides
+  items:
   - name: Use volume snapshot and restore
     href: volume-snapshot-restore.md
   - name: Expand a persistent volume
