@@ -150,7 +150,7 @@ $LB = New-AzLoadBalancer @loadbalancer
  
 $LBinfo = @{
     ResourceGroupName = 'myResourceGroupLB'
-    Name = 'myLoadBalancer’
+    Name = 'myLoadBalancer'
 }
 
 
