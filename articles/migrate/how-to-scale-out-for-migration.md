@@ -155,7 +155,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     
             `PS .\ExportConfigFiles.ps1 `
 
-    > [!Note] Install PowerShell 7.x in the appliance and execute the script ExportConfigFiles.ps1. The script execution is only supported with PowerShell 7.x. 
+> [!Note] Install PowerShell 7.x in the appliance and execute the script ExportConfigFiles.ps1. The script execution is only supported with PowerShell 7.x. 
 
          1. Copy the zip file created by running the above commands to the scale-out appliance. The zip file contains configuration files needed to register the scale-out appliance.
 
