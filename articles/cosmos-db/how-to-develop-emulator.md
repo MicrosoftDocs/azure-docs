@@ -249,9 +249,17 @@ The Docker container variant of the emulator doesn't support the API for Table.
     docker run \
         --publish 8081:8081 \
         --publish 10250-10255:10250-10255 \
-        --interactive \
-        --tty \
+        --detach \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest    
+    ```
+
+    ```powershell
+    $parameters = @(
+        "--publish", "8081:8081"
+        "--publish", "10250-10255:10250-10255"
+        "--detach"
+    )
+    docker run @parameters mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest 
     ```
 
 1. Navigate to `https://localhost:8081/_explorer/index.html` to access the data explorer.
@@ -266,9 +274,7 @@ The Docker container variant of the emulator doesn't support the API for Table.
     $parameters = @(
         "--publish", "8081:8081"
         "--publish", "10250-10255:10250-10255"
-        "--memory", "2GB"
-        "--interactive"
-        "--tty"
+        "--detach"
     )
     docker run @parameters mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     ```
@@ -318,9 +324,18 @@ The Docker container variant of the emulator doesn't support the API for Table.
         --publish 8081:8081 \
         --publish 10250:10250 \
         --env AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT=4.0 \
-        --interactive \
-        --tty \
+        --detach \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
+    ```
+
+    ```powershell
+    $parameters = @(
+        "--publish", "8081:8081"
+        "--publish", "10250:10250"
+        "--env", "AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT=4.0"
+        "--detach"
+    )
+    docker run @parameters mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
     ```
 
 1. Navigate to `https://localhost:8081/_explorer/index.html` to access the data explorer.
