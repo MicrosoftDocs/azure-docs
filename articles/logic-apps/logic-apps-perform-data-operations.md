@@ -199,11 +199,11 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    :::image type="content" source="media/logic-apps-perform-data-operations/send-email-compose-action-standard.png" alt-text="Screenshot shows Consumption workflow designer, the action named Send an email, and output from the preceding Compose action." lightbox="media/logic-apps-perform-data-operations/send-email-compose-action-standard.png":::
 
-1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
+1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
 
 ---
 
-If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+If you used the Office 365 Outlook action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/compose-email-results.png" alt-text="Screenshot shows email with results from the Compose action.":::
 
@@ -221,27 +221,21 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
-   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png)
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
 
-1. In your workflow where you want to create the CSV table, follow one of these steps: 
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png" alt-text="Screenshot shows Consumption workflow designer with action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png":::
 
-   * To add an action under the last step, select **New step**.
+1. [Follow these general steps to add the **Data Operations** action named **Create CSV table**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
+1. On the designer, select the **Create CSV table** action, if not already selected. In the **From** box, enter the array or expression to use for creating the table.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create csv table**.
+   For this example, select inside the **From** box, and select the dynamic content list (lightning icon). From that list, select the **myJSONArray** variable:
 
-1. From the actions list, select the action named **Create CSV table**.
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png" alt-text="Screenshot shows Consumption workflow designer, action named Create CSV table, and the selected input to use." lightbox="media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png":::
 
-   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box with "create csv table" entered, and the "Create CSV table" action selected.](./media/logic-apps-perform-data-operations/select-create-csv-table-action-consumption.png)
-
-1. In the **From** box, enter the array or expression to use for creating the table.
-
-   For this example, select inside the **From** box, which opens the dynamic content list. From that list, select the previously created variable:
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Create CSV table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-csv-table-action-consumption.png)
-
-   > [!NOTE]
+   > [!TIP]
    >
    > To create user-friendly tokens for the properties in JSON objects so that you can select 
    > those properties as inputs, use the action named [Parse JSON](#parse-json-action) 
@@ -249,7 +243,7 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
    The following screenshot shows the finished example **Create CSV table** action:
 
-   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Create CSV table" action.](./media/logic-apps-perform-data-operations/finished-create-csv-table-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-create-csv-table-action-consumption.png" alt-text="Screenshot shows Consumption workflow designer and finished example Create CSV table action." lightbox="media/logic-apps-perform-data-operations/finished-create-csv-table-action-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -451,7 +445,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 ---
 
-If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+If you used the Office 365 Outlook action, the following example shows the result:
 
 ![Screenshot showing an email with the "Create CSV table" action results.](./media/logic-apps-perform-data-operations/create-csv-table-email-results.png)
 
@@ -705,7 +699,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
 ---
 
-If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+If you used the Office 365 Outlook action, the following example shows the result:
 
 ![Screenshot showing an email with the "Create HTML table" results.](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
@@ -857,7 +851,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 ---
 
-If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+If you used the Office 365 Outlook action, the following example shows the result:
 
 ![Screenshot showing an email with the "Filter array" action results.](./media/logic-apps-perform-data-operations/filter-array-email-results.png)
 
@@ -979,7 +973,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 ---
 
-If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+If you used the Office 365 Outlook action, the following example shows the result:
 
 ![Screenshot showing an email with the "Join" action results.](./media/logic-apps-perform-data-operations/join-email-results.png)
 
@@ -1214,7 +1208,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 ---
 
-If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+If you used the Office 365 Outlook action, the following example shows the result:
 
 ![Screenshot showing an email with the "Parse JSON" action results.](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
@@ -1376,7 +1370,7 @@ To confirm whether the **Select** action creates the expected results, send your
 
 ---
 
-If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
+If you used the Office 365 Outlook action, the following example shows the result:
 
 ![Screenshot showing an email with the "Select" action results.](./media/logic-apps-perform-data-operations/select-email-results.png)
 
