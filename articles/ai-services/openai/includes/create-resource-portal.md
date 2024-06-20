@@ -15,6 +15,8 @@ ms.date: 05/20/2024
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - Access permissions to [create Azure OpenAI resources and to deploy models](../how-to/role-based-access-control.md).
 
+> [!NOTE]
+> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repository to contact Microsoft.
 
 ## Create a resource
 
