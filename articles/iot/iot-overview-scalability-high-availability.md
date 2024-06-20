@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 05/18/2023
+ms.date: 06/20/2024
 ms.custom: template-overview
 # Customer intent: As a solution builder, I want a high-level overview of the options for scalability, high availability, and disaster recovery in an IoT solution so that I can easily find relevant content for my scenario.
 ---
@@ -21,7 +21,7 @@ The following diagram shows a high-level view of the components in a typical IoT
 
 ## IoT solution scalability
 
-An IoT solution may need to support millions of connected devices. You need to ensure that the components in your solution can scale to meet the demands.
+An IoT solution might need to support millions of connected devices. You need to ensure that the components in your solution can scale to meet the demands.
 
 Use the Device Provisioning Service (DPS) to provision devices at scale. DPS is a helper service for IoT Hub and IoT Central that enables zero-touch device provisioning at scale. To learn more, see [Best practices for large-scale IoT device deployments](../iot-dps/concepts-deploy-at-scale.md).
 
@@ -50,7 +50,7 @@ Service limits and quotas:
 
 ## High availability and disaster recovery
 
-IoT solutions are often business-critical. You need to ensure that your solution can continue to operate in the event of a failure. You also need to ensure that you can recover your solution in the event of a disaster.
+IoT solutions are often business-critical. You need to ensure that your solution can continue to operate if a failure occurs. You also need to ensure that you can recover your solution following a disaster.
 
 To learn more about the high availability and disaster recovery capabilities the IoT services in your solution, see the following articles:
 
