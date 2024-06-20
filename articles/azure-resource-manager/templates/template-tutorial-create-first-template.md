@@ -203,7 +203,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 
     :::image type="content" source="./media/template-tutorial-create-first-template/select-from-deployment-history.png" alt-text="Screenshot of Azure portal displaying the deployment history with the blanktemplate deployment selected.":::
 
-1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and  the template that the deployment used.
+1. You see a summary of the deployment. In this case, there's not a lot to see because no resources are deployed. Later in this series you might find it helpful to review the summary in the deployment history. Notice on the left you can see inputs, outputs, and the template that the deployment used.
 
     :::image type="content" source="./media/template-tutorial-create-first-template/view-deployment-summary.png" alt-text="Screenshot of Azure portal showing the deployment summary for the blanktemplate deployment.":::
 

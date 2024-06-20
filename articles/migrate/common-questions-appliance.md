@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.custom: engagement-fy24
-ms.date: 04/04/2024
+ms.date: 05/02/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -182,11 +182,11 @@ To fix this issue, follow these steps to ensure that your appliance can validate
 
 1. To ensure that your appliance is ready to validate Azure Migrate MSIs, follow these steps:
     1. Download a sample MSI from [Microsoft Download Center](https://download.microsoft.com/download/9/b/8/9b8abdb7-a784-4a25-9da7-31ce4d80a0c5/MicrosoftAzureAutoUpdate.msi) on the appliance.
-    1. Right-click on it and go to Digital Signatures tab. 
+    1. Right-click on it and go to **Digital Signatures** tab. 
         
         :::image type="content" source="./media/common-questions-appliance/digital-sign-inline.png" alt-text="Screenshot of digital signature tab." lightbox="./media/common-questions-appliance/digital-sign-expanded.png":::
 
-    1. Select Details and check that the Digital Signature Information for the certificate is OK as highlighted in the following screenshot: 
+    1. Select **Details** and check that the **Digital Signature Information** for the certificate is **OK** as highlighted in the following screenshot: 
     
         :::image type="content" source="./media/common-questions-appliance/digital-sign-inline.png" alt-text="Screenshot of digital signature tab." lightbox="./media/common-questions-appliance/digital-sign-expanded.png":::
 
@@ -217,7 +217,7 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
     ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation ```
 
-1. Execute the following script to rotate the AAD app certificate and extend its validity for an additional 6 months:
+1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
     ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1```
 

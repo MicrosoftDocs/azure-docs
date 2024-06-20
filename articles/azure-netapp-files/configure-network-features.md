@@ -15,8 +15,6 @@ The **Network Features** functionality enables you to indicate whether you want 
 
 This article helps you understand the options and shows you how to configure network features.
 
-See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
-
 ## Options for network features 
 
 Two settings are available for network features: 
@@ -35,8 +33,6 @@ Two settings are available for network features:
 
 * Regardless of the network features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
  
-* You can create or modify volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
-
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability isn't available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you can't modify the setting.
 
@@ -76,8 +72,6 @@ This section shows you how to set the network features option when you create a 
 ## Edit network features option for existing volumes
 
 You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same NIC for mounting the volume to the client or connecting to the SMB share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible. 
-
-The edit network features option is available in [all regions that support Standard network features](azure-netapp-files-network-topologies.md#supported-regions). 
 
 >[!IMPORTANT]
 >It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).

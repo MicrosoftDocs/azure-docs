@@ -365,6 +365,6 @@ When you work with Cost Management APIs, knowing the scope is critical. Use the 
 
 Cost Management is currently supported in Azure Global with `https://management.azure.com` and Azure Government with `https://management.usgovcloudapi.net`. For more information about Azure Government, see [Azure Global and Government API endpoints](../../azure-government/documentation-government-developer-guide.md#endpoint-mapping).
 
-## Next steps
+## Related content
 
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).

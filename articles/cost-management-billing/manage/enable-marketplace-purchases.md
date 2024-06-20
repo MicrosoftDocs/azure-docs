@@ -93,7 +93,7 @@ To set permission for a subscription:
 1. Enter the email address of the user to whom you want to give access.
 1. Select **Save** to assign the role.
 
-For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
+For more information about assigning roles, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml) and [Privileged administrator roles](../../role-based-access-control/role-assignments-steps.md#privileged-administrator-roles).
 
 
 ## Set user permission to accept private offers
@@ -190,7 +190,7 @@ For more information about setting up and configuring Marketplace product collec
 
 :::image type="content" source="./media/enable-marketplace-purchases/azure-portal-private-marketplace-manage-collection-rules-select.png" alt-text="Screenshot showing the Collection items." lightbox="./media/enable-marketplace-purchases/azure-portal-private-marketplace-manage-collection-rules-select.png" :::
 
-## Next steps
+## Related content
 
 - To learn more about creating the private marketplace, see [Create private Azure Marketplace](/marketplace/create-manage-private-azure-marketplace-new#create-private-azure-marketplace).
 - To learn more about setting up and configuring Marketplace product collections, see [Collections overview](/marketplace/create-manage-private-azure-marketplace-new#collections-overview).

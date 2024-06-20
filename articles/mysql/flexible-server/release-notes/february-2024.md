@@ -3,7 +3,8 @@ title: Release notes for Azure Database for MySQL Flexible Server - February 202
 description: Learn about the release notes for Azure Database for MySQL Flexible Server February 2024.
 author: xboxeer
 ms.author: yuzheng1
-ms.date: 02/09/2024
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual

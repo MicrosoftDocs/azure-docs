@@ -62,6 +62,8 @@ Azure NAT Gateway simplifies outbound-only Internet connectivity for virtual net
 
 Using a NAT gateway is the best method for outbound connectivity. A NAT gateway is highly extensible, reliable, and doesn't have the same concerns of SNAT port exhaustion.
 
+NAT gateway takes precedence over other outbound connectivity methods, including a load balancer, instance-level public IP addresses, and Azure Firewall.
+
 For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md).
 
 ##  3. Assign a public IP to the virtual machine
@@ -74,7 +76,7 @@ For more information about Azure NAT Gateway, see [What is Azure NAT Gateway](..
 
 Traffic returns to the requesting client from the virtual machine's public IP address (Instance Level IP).
  
-Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
+Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others, except for NAT Gateway. 
 
 A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
@@ -148,11 +150,19 @@ For more information about connection pooling with Azure App Service, see [Troub
 
 New outbound connections to a destination IP fail when port exhaustion occurs. Connections succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the [troubleshooting guide](./troubleshoot-outbound-connection.md).  
 
-For TCP connections, the load balancer uses a single SNAT port for every destination IP and port. This multiuse enables multiple connections to the same destination IP with the same SNAT port. This multiuse is limited if the connection isn't to different destination ports.
+### Port reuse
+For TCP connections, the load balancer uses a single SNAT port for every destination IP and port. For connections to the same destination IP, a single SNAT port can be reused as long as the destination port differs. Reuse is not possible when there already exists a connection to the same destination IP and port.
 
-For UDP connections, the load balancer uses a **port-restricted cone NAT** algorithm, which consumes one SNAT port per destination IP whatever the destination port. 
+For UDP connections, the load balancer uses a **port-restricted cone NAT** algorithm, which consumes one SNAT port per destination IP, regardless of the destination port. 
 
-A port is reused for an unlimited number of connections. The port is only reused if the destination IP or port is different.
+Individual ports can be reused for an unlimited number of connections where reuse is permitted (when the destination IP or port is different).
+
+In the example in the following table, a backend instance with private IP 10.0.0.1 is making TCP connections to destination IPs 23.53.254.142 and 26.108.254.155, while the load balancer is configured with frontend IP address 192.0.2.0. Because the destination IPs are different, the same SNAT port can be reused for multiple connections.
+
+| Flow | Source tuple | Source tuple after SNAT | Destination tuple |
+| --- | --- | --- | --- |
+| 1 | 10.0.0.1:80 | 192.0.2.0:1 | 23.53.254.142:80 |
+| 2 | 10.0.0.1:80 | 192.0.2.0:1 | 26.108.254.155:80 |
 
 ## Constraints
 

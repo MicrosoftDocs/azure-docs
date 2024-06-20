@@ -1,10 +1,10 @@
 ---
-title: What is a watchlist
+title: Watchlists in Microsoft Sentinel
 titleSuffix: Microsoft Sentinel
 description: Learn how watchlists allow you to correlate data with events and when to use them in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 3/14/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 ---
 
-# Use watchlists in Microsoft Sentinel
+# Watchlists in Microsoft Sentinel
 
 Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high-value assets, terminated employees, or service accounts in your environment.
 

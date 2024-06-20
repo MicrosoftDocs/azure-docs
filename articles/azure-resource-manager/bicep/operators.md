@@ -1,7 +1,7 @@
 ---
 title: Bicep operators
 description: Describes the Bicep operators available for Azure Resource Manager deployments.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep, devx-track-arm-template
 ms.date: 05/16/2023
 ---
@@ -16,6 +16,7 @@ This article describes the Bicep operators. Operators are used to calculate valu
 - [null-forgiving](#null-forgiving)
 - [numeric](#numeric)
 - [safe-dereference](#safe-dereference)
+- [spread](#spread)
 
 ## Operator precedence and associativity
 
@@ -108,6 +109,14 @@ The safe-dereference operator helps to prevent errors that can occur when attemp
 | Operator | Name | Description |
 | ---- | ---- | ---- |
 | `<base>.?<property>`, `<base>[?<index>]` | [Safe-dereference](./operator-safe-dereference.md#safe-dereference) | Applies an object member access or an array element access operation to its operand only if that operand evaluates to non-null, otherwise, it returns `null`. |
+
+## Spread
+
+The spread operator is used to expand an iterable array or object into individual elements. The spread operator allows you to easily manipulate arrays or objects by spreading their elements or properties into new arrays or objects.
+
+| Operator | Name | Description |
+| ---- | ---- | ---- |
+| `...` | [Spread](./operator-spread.md#spread) | Allows for the expansion of iterable arrays and objects into individual elements or properties. |
 
 ## Next steps
 

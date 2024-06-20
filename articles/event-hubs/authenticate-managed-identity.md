@@ -42,7 +42,7 @@ Once the application is created, follow these steps:
     Now, assign this service identity to a role in the required scope in your Event Hubs resources.
 
 ### To Assign Azure roles using the Azure portal
-Assign one of the [Event Hubs roles](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) to the managed identity at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Assign one of the [Event Hubs roles](authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) to the managed identity at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 > [!NOTE]
 > For a list of services that support managed identities, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).

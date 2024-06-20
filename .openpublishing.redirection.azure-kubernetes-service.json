@@ -81,6 +81,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/learn/tutorial-kubernetes-workload-identity.md",
+            "redirect_url": "/azure/aks/workload-identity-deploy-cluster",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
             "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
             "redirect_document_id": false
@@ -351,12 +356,6 @@
             "redirect_url": "/cli/azure/aks#az_aks_create",
             "redirect_document_id": false
         },
-        {
-            "source_path_from_root": "/articles/aks/delete-cluster.md",
-            "redirect_url": "/cli/azure/aks#az_aks_delete",
-            "redirect_document_id": false
-        },
-
         {
             "source_path": "articles/aks/view-master-logs.md",
             "redirect_url": "/azure/aks/view-control-plane-logs",

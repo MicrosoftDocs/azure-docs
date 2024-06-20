@@ -11,9 +11,9 @@ ms.custom: template-how-to
 
 # How to manage data partitions?
 
-The concept of "data partitions" is picked from [OSDU&trade;](https://osduforum.org/) where single deployment can contain multiple partitions. In the following how-to article, you learn about how to add new data partitions to an existing Azure Data Manager for Energy instance. 
+The concept of "data partitions" is picked from [OSDU&reg;](https://osduforum.org/) where single deployment can contain multiple partitions. In the following how-to article, you learn about how to add new data partitions to an existing Azure Data Manager for Energy instance. 
 
-Each partition provides the highest level of data isolation within a single deployment. All access rights are governed at a partition level. Data is separated in a way that allows for the partition's life cycle and deployment to be handled independently. (See [Partition Service](https://community.opengroup.org/osdu/platform/home/-/issues/31) in OSDU&trade;)
+Each partition provides the highest level of data isolation within a single deployment. All access rights are governed at a partition level. Data is separated in a way that allows for the partition's life cycle and deployment to be handled independently. (See [Partition Service](https://community.opengroup.org/osdu/platform/home/-/issues/31) in OSDU&reg;)
 
 You can create up to 10 data partitions in one Azure Data Manager for Energy instance. Once a data partition is created successfully, it can't be renamed or deleted.
 
@@ -54,7 +54,7 @@ The status of such data partitions shows as "Creation Failed." You can delete th
 
 [![Screenshot for the deleting failed instances page. The button to delete an incorrectly created data partition is available next to the partition's name.](media/how-to-add-more-data-partitions/delete-failed-instances.png)](media/how-to-add-more-data-partitions/delete-failed-instances.png#lightbox)
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 

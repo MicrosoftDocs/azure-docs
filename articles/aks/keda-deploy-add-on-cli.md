@@ -45,9 +45,10 @@ To install the KEDA add-on, use `--enable-keda` when creating or updating a clus
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --enable-keda 
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --enable-keda \
+        --generate-ssh-keys
     ```
 
 ### Enable the KEDA add-on on an existing AKS cluster
@@ -56,9 +57,9 @@ To install the KEDA add-on, use `--enable-keda` when creating or updating a clus
 
     ```azurecli-interactive
     az aks update \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --enable-keda 
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --enable-keda 
     ```
 
 ## Get the credentials for your cluster
@@ -74,7 +75,7 @@ To install the KEDA add-on, use `--enable-keda` when creating or updating a clus
 - Verify the KEDA add-on is installed on your cluster using the [`az aks show`][az-aks-show] command and set the `--query` parameter to `workloadAutoScalerProfile.keda.enabled`.
 
     ```azurecli-interactive
-    az aks show -g myResourceGroup --name myAKSCluster --query "workloadAutoScalerProfile.keda.enabled" 
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query "workloadAutoScalerProfile.keda.enabled" 
     ```
 
     The following example output shows the KEDA add-on is installed on the cluster:

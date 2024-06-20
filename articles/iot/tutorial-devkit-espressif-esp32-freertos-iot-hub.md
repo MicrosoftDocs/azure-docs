@@ -1,18 +1,18 @@
 ---
-title: Connect an ESPRESSIF ESP-32 to Azure IoT Hub quickstart
+title: Connect an ESPRESSIF ESP-32 to Azure IoT Hub tutorial
 description: Use Azure IoT middleware for FreeRTOS to connect an ESPRESSIF ESP32-Azure IoT Kit device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot
 ms.devlang: c
 ms.topic: tutorial
-ms.date: 04/04/2024
+ms.date: 06/11/2024
 #Customer intent: As a device builder, I want to see a working IoT device sample using FreeRTOS to connect to Azure IoT Hub.  The device should be able to send telemetry and respond to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect an ESPRESSIF ESP32-Azure IoT Kit to IoT Hub
+# Tutorial: Connect an ESPRESSIF ESP32-Azure IoT Kit to IoT Hub
 
-In this quickstart, you use the Azure IoT middleware for FreeRTOS to connect the ESPRESSIF ESP32-Azure IoT Kit (from now on, the ESP32 DevKit) to Azure IoT.
+In this tutorial, you use the Azure IoT middleware for FreeRTOS to connect the ESPRESSIF ESP32-Azure IoT Kit (from now on, the ESP32 DevKit) to Azure IoT.
 
 You complete the following tasks:
 
@@ -67,7 +67,7 @@ To connect the ESP32 DevKit to Azure, you modify configuration settings, build t
 
 ### Set up the environment
 To launch the ESP-IDF environment:
-1. Select Windows **Start**, find **ESP-IDF 5.0 CMD** and run it. 
+1. Select Windows **Start**, find **ESP-IDF 5.0 CMD**, and run it. 
 1. In **ESP-IDF 5.0 CMD**, navigate to the *iot-middleware-freertos-samples* directory that you cloned previously.
 1. Navigate to the ESP32-Azure IoT Kit project directory *demos\projects\ESPRESSIF\aziotkit*.
 1. Run the following command to launch the configuration menu:
@@ -177,7 +177,7 @@ To confirm that the device connects to Azure IoT Central:
 
 ## View device properties
 
-You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the ESP32 DevKit. These capabilities rely on the device model published for the ESP32 DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this quickstart. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
+You can use Azure IoT Explorer to view and manage the properties of your devices. In the following sections, you use the Plug and Play capabilities that are visible in IoT Explorer to manage and interact with the ESP32 DevKit. These capabilities rely on the device model published for the ESP32 DevKit in the public model repository. You configured IoT Explorer to search this repository for device models earlier in this tutorial. In many cases, you can perform the same action without using plug and play by selecting IoT Explorer menu options. However, using plug and play often provides an enhanced experience. IoT Explorer can read the device model specified by a plug and play device and present information specific to that device.  
 
 To access IoT Plug and Play components for the device in IoT Explorer:
 
@@ -211,7 +211,7 @@ To view and edit device properties using Azure IoT Explorer:
  
 To use Azure CLI to view device properties:
 
-1. In your CLI console, run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
+1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
 
     ```azurecli
     az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
@@ -267,17 +267,17 @@ To use Azure CLI to view device telemetry:
 
 ## Call a direct method on the device
 
-You can also use Azure IoT Explorer to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can do the same task using Azure CLI.
+You can also use Azure IoT Explorer to call a direct method that you implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can do the same task using Azure CLI.
 
 To call a method in Azure IoT Explorer:
 
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
-1. For the **ToggleLed1** command, select **Send command**. The LED on the ESP32 DevKit toggles on or off.  You should also see a notification in IoT Explorer. 
+1. For the **ToggleLed1** command, select **Send command**. The LED on the ESP32 DevKit toggles on or off. You should also see a notification in IoT Explorer. 
 
     :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling a method in IoT Explorer.":::
 
 1. For the **DisplayText** command, enter some text in the **content** field. 
-1. Select **Send command**.  The text displays on the ESP32 DevKit screen. 
+1. Select **Send command**. The text displays on the ESP32 DevKit screen. 
 
 
 To use Azure CLI to call a method:
@@ -302,7 +302,7 @@ To use Azure CLI to call a method:
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](../iot-develop/troubleshoot-embedded-device-quickstarts.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](./troubleshoot-embedded-device-tutorials.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -310,11 +310,9 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 ## Next steps
 
-In this quickstart, you built a custom image that contains the Azure IoT middleware for FreeRTOS sample code, and then you flashed the image to the ESP32 DevKit device. You connected the ESP32 DevKit to Azure IoT Hub, and carried out tasks such as viewing telemetry and calling methods on the device.
+In this tutorial, you built a custom image that contains the Azure IoT middleware for FreeRTOS sample code, and then you flashed the image to the ESP32 DevKit device. You connected the ESP32 DevKit to Azure IoT Hub, and carried out tasks such as viewing telemetry and calling methods on the device.
 
-As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
+As a next step, explore the following article to learn more about embedded development options.  
 
-> [!div class="nextstepaction"]
-> [Connect a simulated general device to IoT Hub](./tutorial-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Learn more about connecting embedded devices using C SDK and Embedded C SDK](./concepts-using-c-sdk-and-embedded-c-sdk.md)

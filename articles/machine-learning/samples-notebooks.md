@@ -25,6 +25,7 @@ This article shows you how to access the repository from the following environme
 - Your own compute resource
 - Data Science Virtual Machine
 
+You can also [browse code samples](/samples/browse/?expanded=azure&products=azure-machine-learning) for more examples.
 
 ## Option 1: Access on Azure Machine Learning compute instance (recommended)
 

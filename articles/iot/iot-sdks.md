@@ -20,7 +20,7 @@ The following tables list the various SDKs you can use to build IoT solutions.
 
 Use the device SDKs to develop code to run on IoT devices that connect to IoT Hub or IoT Central.
 
-To learn more about how to use the device SDKs, see [What is Azure IoT device and application development?](../iot-develop/about-iot-develop.md).  
+To learn more about how to use the device SDKs, see [What is Azure IoT device and application development?](./concepts-iot-device-development.md).  
 
 ### Embedded device SDKs
 

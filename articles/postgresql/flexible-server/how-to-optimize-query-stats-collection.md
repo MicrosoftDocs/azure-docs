@@ -1,17 +1,18 @@
 ---
 title: Optimize query stats collection
 description: This article describes how you can optimize query stats collection on Azure Database for PostgreSQL - Flexible Server.
+author: assaff
+ms.author: assaff
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: assaff
-author: assaff
-ms.date: 01/23/2024
 ---
 
 # Optimize query statistics collection on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes how to optimize query statistics collection on an Azure Database for PostgreSQL flexible server instance.
 

@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.reviewer: maghan
 ms.date: 02/14/2024
 ms.service: postgresql
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 ---
@@ -33,6 +33,12 @@ Prerequisites only apply to [redeployment with data](#redeploy-with-data). To mo
     - [Azure Private Link](./relocation-private-link.md)
     - [Virtual Network](./relocation-virtual-network.md)
     - [Network Peering](/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks)
+
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
 
 ## Prepare
 

@@ -1,7 +1,7 @@
 ---
 title: Create UI definition referencing functions
 description: Describes the functions to use when constructing UI definitions for Azure portal that reference other objects.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/13/2020
 ---
 

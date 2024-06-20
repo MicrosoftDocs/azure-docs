@@ -302,7 +302,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or [Intel TDX](https://accpublicdocshare.blob.core.windows.net/tdxpublicpreview/TDXpreviewtemplateCMK.json) and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>
