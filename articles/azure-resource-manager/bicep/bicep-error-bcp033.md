@@ -1,6 +1,6 @@
 ---
 title: BCP033
-description: Expected a value of type "{expectedType}" but the provided value is of type "{actualType}".
+description: Error - Expected a value of type "{expectedType}" but the provided value is of type "{actualType}".
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 05/30/2024

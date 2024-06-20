@@ -1,6 +1,6 @@
 ---
 title: BCP035
-description: The specified <data-type> declaration is missing the following required properties: <name-of-the-property>.
+description: Error - The specified <data-type> declaration is missing the following required properties.
 ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 05/30/2024
