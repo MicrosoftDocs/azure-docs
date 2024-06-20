@@ -358,8 +358,8 @@ If you're using semantic ranking in 2024-05-01-preview API, it's a best practice
 
 If you're using semantic ranking in previous APIs do the following:
 
-- if doing keyword-only search (no vector) set "top" to 50
-- if doing hybrid search set "k" to 50, to ensure that the semantic ranker gets at least 50 results. 
++ if doing keyword-only search (no vector) set "top" to 50
++ if doing hybrid search set "k" to 50, to ensure that the semantic ranker gets at least 50 results. 
 
 ### Ranking
 
