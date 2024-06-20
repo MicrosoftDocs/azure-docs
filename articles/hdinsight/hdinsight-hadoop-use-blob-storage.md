@@ -36,7 +36,7 @@ Sharing one blob container as the default file system for multiple clusters isn'
 ## Access files from within cluster
 
 > [!NOTE]
-> We have discontinued all active developments on WASB and recommend all customers to use the ABFS driver to interact with Blob and ADLS gen2. For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](/azure/storage/blobs/data-lake-storage-abfs-driver)
+> Azure storage team has discontinued all active developments on WASB and recommend all customers to use the ABFS driver to interact with Blob and ADLS gen2. For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](/azure/storage/blobs/data-lake-storage-abfs-driver)
 
 * **Using the fully qualified name**. With this approach, you provide the full path to the file that you want to access.
 
