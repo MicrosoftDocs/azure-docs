@@ -101,8 +101,6 @@ Here's an example:
 
 It takes a few minutes to create the HDInsight on AKS cluster pool. The following example output shows the created operation was successful.
 
-Results:
-<!-- expected_similarity=0.3 -->
 ```output
 AkClusterProfileAkClusterAgentPoolIdentityProfileMsiClientId   : 00000000-0000-0000-0000-XXXXXXXX1
 AkClusterProfileAkClusterAgentPoolIdentityProfileMsiObjectId   : 00000000-0000-0000-0000-XXXXXXX11
