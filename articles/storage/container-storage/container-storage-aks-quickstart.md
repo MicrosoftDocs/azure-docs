@@ -4,7 +4,7 @@ description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, instal
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 03/21/2024
+ms.date: 06/19/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
 ---
@@ -74,7 +74,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
    
 ## Choose a data storage option for your storage pool
 
-Before deploying Azure Container Storage, you'll need to decide which back-end storage option you want to use to create your storage pool and persistent volumes. Three options are currently available:
+Before deploying Azure Container Storage, you'll need to decide which back-end storage option you want to use to create your storage pool and volumes. Three options are currently available:
 
 - **Azure Elastic SAN**: Azure Elastic SAN is a good fit for general purpose databases, streaming and messaging services, CI/CD environments, and other tier 1/tier 2 workloads. Storage is provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
 
@@ -190,8 +190,10 @@ az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-st
 
 ## Next step
 
-To create persistent volumes, select the link for the backing storage type you selected.
+To create volumes, select the link for the backing storage type you selected.
 
-- [Create persistent volume claim with Azure managed disks](use-container-storage-with-managed-disks.md#3-create-a-persistent-volume-claim)
-- [Create persistent volume claim with Ephemeral Disk](use-container-storage-with-local-disk.md#create-a-persistent-volume-claim)
-- [Create persistent volume claim with Azure Elastic SAN](use-container-storage-with-elastic-san.md#3-create-a-persistent-volume-claim)
+- [Create persistent volume with Azure managed disks](use-container-storage-with-managed-disks.md#3-create-a-persistent-volume-claim)
+- [Create persistent volume with Azure Elastic SAN](use-container-storage-with-elastic-san.md#3-create-a-persistent-volume-claim)
+- [Create generic ephemeral volume with local NVMe](use-container-storage-with-local-disk.md#create-and-attach-generic-ephemeral-volumes)
+- [Create generic ephemeral volume with temp SSD](use-container-storage-with-temp-ssd.md#create-and-attach-generic-ephemeral-volumes)
+- [Create persistent volume with local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md#create-and-attach-persistent-volumes)
