@@ -495,7 +495,7 @@ As the application is scaled up, it can be processing dozens, hundreds, or thous
 
 As sampling rates increase, log based queries accuracy decrease and are inflated. It only impacts the accuracy of log-based queries when sampling is enabled and the sample rates are in a higher range (~ 60%). The impact varies based on telemetry types, telemetry counts per operation and other factors.
 
-SDKs use preaggregated metrics to solve problems caused by sampling. For more information on these metrics, see [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-pre-aggregated-metrics-table). The SDKs identify relevant properties of logged data and extract statistics before sampling. To minimize resource use and costs, metrics are aggregated. This process results in a few metric telemetry items per minute, rather than thousands of event telemetry items. For example, these metrics might report “this web app processed 25 requests” to the MDM account, with an `itemCount` of 100 in the sent request telemetry record. These preaggregated metrics provide accurate numbers and are reliable even when sampling impacts log-based query results. You can view them in the Metrics pane of the Application Insights portal.
+SDKs use preaggregated metrics to solve problems caused by sampling. For more information on these metrics, see [Azure Application Insights - Azure Monitor | Microsoft Docs](./pre-aggregated-metrics-log-metrics.md#sdk-supported-preaggregated-metrics-table). The SDKs identify relevant properties of logged data and extract statistics before sampling. To minimize resource use and costs, metrics are aggregated. This process results in a few metric telemetry items per minute, rather than thousands of event telemetry items. For example, these metrics might report “this web app processed 25 requests” to the MDM account, with an `itemCount` of 100 in the sent request telemetry record. These preaggregated metrics provide accurate numbers and are reliable even when sampling impacts log-based query results. You can view them in the Metrics pane of the Application Insights portal.
 
 ## Frequently asked questions
 
@@ -537,6 +537,11 @@ Use the [examples in the earlier section of this page](#configuring-adaptive-sam
 *What happens if I configure the sampling percentage to be too high?*
 
 * Configuring too high a sampling percentage (not aggressive enough) results in an insufficient reduction in the volume of the collected telemetry. You can still experience telemetry data loss related to throttling, and the cost of using Application Insights might be higher than you planned due to overage charges.
+
+*What happens if I configure both IncludedTypes and ExcludedTypes settings?*
+
+* It's best not to set both `ExcludedTypes` and `IncludedTypes` in your configuration to prevent any conflicts and ensure clear telemetry collection settings.
+* Telemetry types that are listed in `ExcludedTypes` are excluded even if they are also set in `IncludedTypes` settings. ExcludedTypes will take precedence over IncludedTypes.
 
 *On what platforms can I use sampling?*
 

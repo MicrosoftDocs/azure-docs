@@ -10,7 +10,7 @@ ms.date: 09/30/2023
 
 # Move DevTest Labs and schedules to another region
 
-You can move DevTest Labs and their associated schedules to another reason. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules.
+You can move DevTest Labs and their associated schedules to another region. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules.
 
 In this article, you learn how to:
 > [!div class="checklist"]

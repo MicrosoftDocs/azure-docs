@@ -4,7 +4,7 @@ description: Learn how to remotely run MapReduce jobs with Apache Hadoop on HDIn
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/28/2023
+ms.date: 05/09/2024
 ---
 
 # Run MapReduce jobs with Apache Hadoop on HDInsight using REST

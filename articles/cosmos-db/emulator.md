@@ -23,7 +23,7 @@ The Azure Cosmos DB emulator provides a local environment that emulates the Azur
 The emulator provides an environment on your developer workspace that isn't capable of emulating every aspect of the Azure Cosmos DB service. Here are a few key differences in functionality between the emulator and the equivalent cloud service.
 
 > [!IMPORTANT]
-> The Linux emulator currently has limited support for developer machines running on M1 and M2 chips. A temporary workaround is to install a Windows virtual machine and run the emulator on that platform.
+> The Linux emulator currently doesn't support developer machines running on Apple silicon series or Microsoft ARM chips. A temporary workaround is to install a Windows virtual machine and run the emulator on that platform.
 
 - The emulator's **Data Explorer** pane is only supported in the API for NoSQL and API for MongoDB.
 - The emulator only supports **provisioned throughput**. The emulator doesn't support **serverless** throughput.
@@ -51,7 +51,7 @@ Every request made against the emulator must be authenticated using a key over T
 
 ## Import emulator certificate
 
-In some cases, you may wish to manually import the TLS/SS certificate from the emulator's running container into your host machine. This step avoids bad practices like disabling TLS/SSL validation in the SDK. For more information, see [import certificate](how-to-develop-emulator.md#export-the-emulators-tlsssl-certificate).
+In some cases, you may wish to manually import the TLS/SS certificate from the emulator's running container into your host machine. This step avoids bad practices like disabling TLS/SSL validation in the SDK. For more information, see [import certificate](how-to-develop-emulator.md#import-the-emulators-tlsssl-certificate).
 
 ## Next step
 

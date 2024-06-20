@@ -16,7 +16,7 @@ ms.reviewer: padmalathas, mattmcinnes
 # Install NVIDIA GPU drivers on N-series VMs running Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -59,6 +59,7 @@ Ubuntu packages NVIDIA proprietary drivers. Those drivers come directly from NVI
    ```bash
    sudo ubuntu-drivers install
    ```
+   Reboot the VM after the GPU driver is installed.
 3. Download and install the CUDA toolkit from NVIDIA:
     > [!NOTE]
    >  The example shows the CUDA package path for Ubuntu 22.04 LTS. Replace the path specific to the version you plan to use.
@@ -74,7 +75,7 @@ Ubuntu packages NVIDIA proprietary drivers. Those drivers come directly from NVI
 
    The installation can take several minutes.
 
-4. Verify that the GPU is correctly recognized:
+4. Verify that the GPU is correctly recognized (you may need to reboot your VM for system changes to take effect):
    ```bash
    nvidia-smi
    ```

@@ -9,7 +9,7 @@ ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, linux-related-content
 ---
 
 # SAP HANA Azure virtual machine storage configurations
@@ -129,7 +129,7 @@ For detailed HANA storage configuration recommendations using Azure premium ssd 
 For detailed HANA storage configuration recommendations using Azure Ultra Disk, read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md).  
 
 ## NFS v4.1 volumes on Azure NetApp Files
-For detail on ANF for HANA, read the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).  
+For detail on Azure NetApp Files for HANA, read the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).  
 
 ## Next steps
 For more information, see:

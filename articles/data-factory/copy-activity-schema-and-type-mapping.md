@@ -278,17 +278,17 @@ Copy activity currently supports the following interim data types: Boolean, Byte
 
 The following data type conversions are supported between the interim types from source to sink.
 
-| Source\Sink | Boolean | Byte array | Decimal | Date/Time (1) | Float-point (2) | GUID | Integer (3) | String | TimeSpan |
-| ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Byte array  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
-| Date/Time   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
-| Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Float-point | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
-| TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
+| Source\Sink | Boolean | Byte array | Date/Time | Decimal | Float-point | GUID | Integer | String | TimeSpan |
+| ----------- | ------- | ---------- | ------------- | ------- | --------------- | ---- | ------------ | ------ | -------- |
+| Boolean     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Byte array  |         | ✓          |               |         |                 |      |              | ✓      |          |
+| Date/Time   |         |            | ✓             |         |                 |      |              | ✓      |          |
+| Decimal     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Float-point | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| GUID        |         |            |               |         |                 | ✓    |              | ✓      |          |
+| Integer     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| String      | ✓       | ✓          | ✓             | ✓       |                 | ✓    | ✓            | ✓      | ✓        |
+| TimeSpan    |         |            |               |         |                 |      |              | ✓      | ✓        |
 
 (1) Date/Time includes DateTime and DateTimeOffset.
 

@@ -26,9 +26,9 @@ You'll need an Azure account with an active subscription. [Create one for free](
 You create an Azure Database for MariaDB server with a defined set of compute and storage resources. To learn more, see [Azure Database for MariaDB pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/managed-mariadb-with-vnet/).
-
+<!--
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.dbformariadb/managed-mariadb-with-vnet/main.bicep":::
-
+-->
 The Bicep file defines five Azure resources:
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)

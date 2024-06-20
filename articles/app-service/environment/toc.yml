@@ -4,6 +4,8 @@
   items:
   - name: About App Service Environment
     href: overview.md
+  - name: Compare with App Service
+    href: ase-multi-tenant-comparison.md
   - name: Version comparison
     href: version-comparison.md
   - name: Upgrade to App Service Environment v3
@@ -31,12 +33,6 @@
     href: overview-certificates.md
   - name: Diagnostics
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-  - name: Migration
-    items:
-    - name: In-place migration feature
-      href: migrate.md
-    - name: Side-by-side migration feature
-      href: side-by-side-migrate.md
 - name: How-To guides
   items:
   - name: Using App Service Environment
@@ -53,10 +49,10 @@
     href: how-to-upgrade-preference.md
   - name: Migrate to App Service Environment v3
     items:
-    - name: Use the in-place migration feature
-      href: how-to-migrate.md
-    - name: Use the side-by-side migration feature
-      href: how-to-side-by-side-migrate.md
+    - name: In-place migration feature
+      href: migrate.md
+    - name: Side-by-side migration feature
+      href: side-by-side-migrate.md
     - name: Manually migrate to App Service Environment v3
       href: migration-alternatives.md
 - name: Reference
@@ -91,8 +87,6 @@
       href: intro.md
     - name: Create ASE v2 from template
       href: create-from-template.md
-    - name: Create external ASE v2
-      href: create-external-ase.md
     - name: Create internal ASE v2
       href: create-ilb-ase.md
     - name: Use an ASE v2

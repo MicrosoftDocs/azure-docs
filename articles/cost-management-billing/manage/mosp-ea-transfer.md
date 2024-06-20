@@ -6,14 +6,14 @@ ms.reviewer: sgautam
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2023
+ms.date: 03/21/2024
 ms.author: banders
 ms.custom:
 ---
 
 # Transfer an Azure subscription to an Enterprise Agreement (EA)
 
-This article helps you understand the steps needed to transfer an individual Microsoft Online Service Program (MOSP) subscription (Azure offer MS-AZR-003P pay-as-you-go) to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
+This article helps you understand the steps needed to transfer an individual Microsoft Online Service Program (MOSP) subscription (Azure offer MS-AZR-0003P pay-as-you-go) to an EA. The transfer has no downtime, however there are many steps to follow to enable the transfer.
 
 [!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 

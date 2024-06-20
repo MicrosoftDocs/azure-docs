@@ -15,7 +15,7 @@ ms.date: 02/08/2024
 [Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including log search alert rules. When a log search alert rule is healthy, the rule runs and the query executes successfully. This article explains how to view the health status of your log search alert rule, and tells you what to do if there are issues affecting your log search alert rules.
 
 Azure Service Health monitors:
-- [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific log search alert rule. 
+- [Resource health](../../service-health/resource-health-overview.md): information about the health of your individual cloud resources, such as a specific log search alert rule. See [here](../../service-health/resource-health-checks-resource-types.md) for the resource health checks performed on log search alert rules.
 - [Service health](../../service-health/service-health-overview.md): information about the health of the Azure services and regions you're using, which might affect your log search alert rule, including communications about outages, planned maintenance activities, and other health advisories.
 
  > [!NOTE]
@@ -49,10 +49,11 @@ To view the health of your log search alert rule and set up health status alerts
 
 This table describes the possible resource health status values for a log search alert rule:
 
-| Resource health status | Description |Recommended steps|
-|---|---|
-|Available|There are no known issues affecting this log search alert rule.|     |
-|Unknown|This log search alert rule is currently disabled or in an unknown state.|[Log alert was disabled](alerts-troubleshoot-log.md).|
+|Resource health status|Description|Recommended steps|
+|----|----|----|
+|Available|There are no known issues affecting this log search alert rule.|  |
+|Unknown|This log search alert rule is currently disabled or in an unknown state.|Check if this log alert rule has been disabled. See [Log alert was disabled](alerts-troubleshoot-log.md) for more information. <br>|
+|Unavailable|If your rule runs less frequently than every 15 minutes (for example, if it is set to run every 30 minutes or 1 hour), it won’t provide health status updates. An ‘unavailable’ status is to be expected and is not indicative of an issue.|To get the health status of an alert rule, set the frequency of the alert rule to 15 min or less.|
 |Unknown reason|This log search alert rule is currently unavailable due to an unknown reason.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|
 |Degraded due to unknown reason|This log search alert rule is currently degraded due to an unknown reason.|     |
 |Setting up resource health|Setting up Resource health for this resource.|Check if the alert rule was recently created. Health status is updated after the rule completes its first evaluation.|

@@ -50,6 +50,8 @@ landingContent:
              url: whisper-quickstart.md
            - text: Text to speech (preview)
              url: text-to-speech-quickstart.md
+           - text: Assistants
+             url: assistants-quickstart.md 
       - linkListType: tutorial
         links:
          - text: Embeddings
@@ -74,6 +76,8 @@ landingContent:
             url: ./concepts/prompt-engineering.md
           - text: Fine-tuning
             url: ./concepts/fine-tuning-considerations.md
+          - text: Assistants
+            url: ./concepts/assistants.md
 
   #Card 3
    - title: Azure OpenAI getting started
@@ -85,7 +89,7 @@ landingContent:
              - text: Manage models
                url: ./how-to/working-with-models.md
              - text: OpenAI versus Azure OpenAI (Python)
-               url: ./how-to/switching-endpoints.md
+               url: ./how-to/switching-endpoints.yml
              - text: Role-based access control (Azure RBAC)
                url: ./how-to/role-based-access-control.md 
              - text: GPT-3.5 Turbo & GPT-4
@@ -133,7 +137,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Asynchronous content filtering
-            url: ./concepts/content-filter.md#asynchronous-modified-filter
+            url: ./concepts/content-filter.md#asynchronous-filter
           - text: Red teaming large language models (LLMs)
             url: ./concepts/red-teaming.md
           - text: System message templates

@@ -99,6 +99,8 @@
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux
       href: performance-benchmarks-linux.md
+    - name: Large volume performance benchmarks for Linux
+      href: performance-large-volumes-linux.md
     - name: Performance impact of Kerberos on NFSv4.1
       href: performance-impact-kerberos.md
     - name: Oracle database performance on Azure NetApp Files single volumes
@@ -127,12 +129,20 @@
         href: performance-virtual-machine-sku.md 
   - name: Application volume groups 
     items:
+      - name: Understand application volume groups
+        href: application-volume-group-concept.md 
       - name: Application volume groups for SAP HANA
         items: 
         - name: Understand application volume group for SAP HANA
           href: application-volume-group-introduction.md
         - name: Requirements and considerations for application volume group for SAP HANA
           href: application-volume-group-considerations.md
+      - name: Application volume groups for Oracle
+        items: 
+        - name: Understand application volume group for Oracle
+          href: application-volume-group-oracle-introduction.md
+        - name: Requirements and considerations for application volume group for Oracle
+          href: application-volume-group-oracle-considerations.md
   - name: Data protection and resiliency
     items:
     - name: Understand data protection and disaster recovery options
@@ -185,7 +195,7 @@
       items:
       - name: Benefits of using Azure NetApp Files with Oracle Database
         href: solutions-benefits-azure-netapp-files-oracle-database.md
-      - name: Benefits of using Azure NetApp Files for electronic design automation
+      - name: Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
         href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
       - name: Benefits of using Azure NetApp Files with Azure Virtual Desktop
         href: solutions-windows-virtual-desktop.md
@@ -305,12 +315,22 @@
           href: application-volume-group-add-volume-secondary.md
         - name: Add volumes for an SAP HANA system as a DR system
           href: application-volume-group-disaster-recovery.md
-        - name: Manage volumes in an application volume group
+        - name: Manage volumes in an application volume group for SAP HANA
           href: application-volume-group-manage-volumes.md
-        - name: Delete an application volume group
-          href: application-volume-group-delete.md
-        - name: Configure application volume groups using REST API
+        - name: Configure application volume groups for SAP HANA using REST API
           href: configure-application-volume-group-sap-hana-api.md
+      - name: Manage application volume groups for Oracle
+        items: 
+        - name: Deploy application volume group for Oracle
+          href: application-volume-group-oracle-deploy-volumes.md
+        - name: Manage volumes in an application volume group for Oracle
+          href: application-volume-group-manage-volumes-oracle.md
+        - name: Configure application volume group for Oracle using REST API
+          href: configure-application-volume-oracle-api.md 
+        - name: Deploy application volume group for Oracle using Azure Resource Manager
+          href: configure-application-volume-oracle-azure-resource-manager.md 
+      - name: Delete an application volume group
+        href: application-volume-group-delete.md
   - name: Manage data protection  
     items:
     - name: Manage volume snapshots
@@ -347,8 +367,6 @@
         href: backup-search.md 
       - name: Restore a backup
         href: backup-restore-new-volume.md 
-      - name: Disable backup functionality
-        href: backup-disable.md
       - name: Delete backups 
         href: backup-delete.md 	
     - name: Manage replication

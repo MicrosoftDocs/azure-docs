@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 04/25/2024
 ms.custom:
   - devx-track-python
   - devx-track-azurecli

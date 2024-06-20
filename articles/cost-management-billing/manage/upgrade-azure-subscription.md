@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -58,6 +58,6 @@ If you're eligible, use the following steps to upgrade to an Azure free account.
 1. In the subscription overview, select **Upgrade** in the command bar.  
     :::image type="content" source="./media/upgrade-azure-subscription/student-upgrade.png" alt-text="Screenshot that shows upgrade option for students." lightbox="./media/upgrade-azure-subscription/student-upgrade.png" :::
 
-## Next steps
+## Related content
 
 - Now that you've upgraded your account, see [Plan to manage Azure costs](../understand/plan-manage-costs.md).

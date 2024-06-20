@@ -115,7 +115,7 @@ Alerts are designed to be self-contained, with detailed remediation steps and in
 
 - To improve your security posture, use Defender for Cloud's recommendations for the host machine indicated in each alert to reduce the risks of future attacks.
   
-[Learn more about managing and responding to alerts](managing-and-responding-alerts.md).
+[Learn more about managing and responding to alerts](managing-and-responding-alerts.yml).
 
 ## Next steps
 

@@ -218,7 +218,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
     > [!TIP] 
     > In Process Monitor, you can set filters as shown in following screenshot.
     >
-    > The preceding error message says that the DLL System.ValueTuple is not located in the related *Global Assembly Cache* (GAC) folder, in the *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* folder, or in the *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* folder.
+    > The preceding error message says that the DLL System.ValueTuple is not located in the related *Global Assembly Cache (GAC)* folder, in the *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* folder, or in the *C:\Program Files\Microsoft Integration Runtime\4.0\Shared* folder.
     >
     > Basically, the process loads the DLL first from the *GAC* folder, then from the *Shared* folder, and finally from the *Gateway* folder. Therefore, you can load the DLL from any path that's helpful.
     
@@ -417,7 +417,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
             > [!NOTE]
             > The folder is not `C:\Program Files (x86)\Java\`
         
-        - JRE 7 and JRE 8 are both compatible for this copy activity. JRE 6 and versions that are earlier than JRE 6 have not been validated for this use.
+        - Java Runtime (JRE) is version 11 or greater, from a JRE provider such as [Microsoft OpenJDK 11](https://aka.ms/download-jdk/microsoft-jdk-11.0.19-windows-x64.msi) or [Eclipse Temurin 11](https://adoptium.net/temurin/releases/?version=11). Ensure that the JAVA_HOME system environment variable is set to the JDK folder (not just the JRE folder) you may also need to add the bin folder to your system's PATH environment variable.
     
     2. Check the registry for the appropriate settings. To do this, follow these steps:
     

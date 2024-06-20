@@ -165,7 +165,7 @@ spx translate --microphone --source en-US --target ru-RU
 When you're translating into multiple languages, separate the language codes with a semicolon (`;`).
 
 ```console
-spx translate --microphone --source en-US --target ru-RU;fr-FR;es-ES
+spx translate --microphone --source en-US --target 'ru-RU;fr-FR;es-ES'
 ```
 
 If you want to save the output of your translation, use the `--output` flag. In this example, you also read from a file.

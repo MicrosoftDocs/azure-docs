@@ -1,19 +1,20 @@
 ---
 title: Overview of Azure and standalone Service Fabric clusters 
-description: You can create Service Fabric clusters on any VMs or computers running Windows Server or Linux. This means you are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected- on-premises, Microsoft Azure, or with any cloud provider.
+description: Analysis of differences between Azure and standalone Service Fabric clusters on Windows Server and Linux machines.
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: linux-related-content
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 05/13/2024
 ---
 
 # Comparing Azure and standalone Service Fabric clusters on Windows Server and Linux
 
-A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that is part of a cluster is called a cluster node. Clusters can scale to thousands of nodes. If you add new nodes to the cluster, Service Fabric rebalances the service partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.
+A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or virtual machine (VM) that is part of a cluster is called a cluster node. Clusters can scale to thousands of nodes. If you add new nodes to the cluster, Service Fabric rebalances the service partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster aren't being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.
 
-Service Fabric allows for the creation of Service Fabric clusters on any VMs or computers running Windows Server or Linux. This means you are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected, be it on-premises, Microsoft Azure, or with any cloud provider.
+Service Fabric allows for the creation of Service Fabric clusters on any VMs or computers running Windows Server or Linux. However, [standalone clusters](service-fabric-standalone-clusters-overview.md) aren't available on Linux. For more information about the differences in feature support for Windows and Linux, see [Differences between Service Fabric on Linux and Windows](service-fabric-linux-windows-differences.md).
 
 ## Benefits of clusters on Azure
 
@@ -28,7 +29,7 @@ On Azure, we provide integration with other Azure features and services, which m
 
 ## Benefits of standalone clusters
 
-* You are free to choose any cloud provider to host your cluster.
+* You're free to choose any cloud provider to host your cluster.
 * Service Fabric applications, once written, can be run in multiple hosting environments with minimal to no changes.
 * Knowledge of building Service Fabric applications carries over from one hosting environment to another.
 * Operational experience of running and managing Service Fabric clusters carries over from one environment to another.

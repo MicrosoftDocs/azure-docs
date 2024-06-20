@@ -6,7 +6,7 @@ ms.author: barclayn
 ms.date: 03/14/2024
 ms.service: entra-id
 ms.subservice: managed-identities
-ms.topic: concept
+ms.topic: concept-article
 ms.custom:
   - subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate managed identities for Azure resources to another region.
@@ -30,6 +30,12 @@ Managed identities for Azure resources is a feature of Azure Entra ID. Each of t
 - Permissions to grant a new user-assigned managed identity the required permissions.
 - Permissions to assign a new user-assigned identity to the Azure resources.
 - Permissions to edit Group membership, if your user-assigned managed identity is a member of one or more groups.
+
+
+## Downtime
+
+To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
 
 ## Prepare and move
 

@@ -27,7 +27,7 @@ The following are known limitations in Chaos Studio.
 - **Azure CLI** - Chaos Studio doesn't have dedicated AzCLI modules at this time. Use our REST API from AzCLI
 - **Azure Policy** - Chaos Studio doesn't support the applicable built-in policies for our service (audit policy for customer-managed keys and Private Link) at this time. 
 - **Private Link** - We don't support Azure portal UI experiments for Agent-based experiments using Private Link. These restrictions do NOT apply to our Service-direct faults
-- **Customer-Managed Keys** You need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We don't support portal UI experiments using CMK at this time.
+- **Customer-Managed Keys** You need to use our 2023-10-27-preview REST API via a CLI to create CMK-enabled experiments. We don't support portal UI experiments using CMK at this time. Experiment info will appear in ARG within the subscription - this is a known issue today, but is limited to only ARG and only viewable by the subscription. 
 - **Java SDK** At present, we don't have a dedicated Java SDK. If this is something you would use, reach out to us with your feature request. 
 - **Built-in roles** - Chaos Studio doesn't currently have its own built-in roles. Permissions can be attained to run a chaos experiment by either assigning an [Azure built-in role](chaos-studio-fault-providers.md) or a created custom role to the experiment's identity.
 - **Agent Service Tags** Currently we don't have service tags available for our Agent-based faults.
@@ -36,7 +36,9 @@ The following are known limitations in Chaos Studio.
 ## Known issues
 - When selecting target resources for an agent-based fault in the experiment designer, it's possible to select virtual machines or virtual machine scale sets with an operating system not supported by the fault selected.
 - When running in a Linux environment, the agent-based network latency fault (NetworkLatency-1.1) can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
-- When filtering by Azure subscriptions from the Targets and/or Experiments page, you may experience long load times if you have many subscriptions with large numbers of Azure resources. As a workaround, filter down to the single specific subscription in question to quickly find your desired Targets and/or Experiments. 
+- When filtering by Azure subscriptions from the Targets and/or Experiments page, you may experience long load times if you have many subscriptions with large numbers of Azure resources. As a workaround, filter down to the single specific subscription in question to quickly find your desired Targets and/or Experiments.
+- The NSG Security Rule **version 1.1** fault supports an additional `flushConnection` parameter. This functionality has an **active known issue**: if `flushConnection` is enabled, the fault may result in a "FlushingNetworkSecurityGroupConnectionIsNotEnabled" error. To avoid this error temporarily, disable the `flushConnection` parameter or use the NSG Security Rule version **1.0** fault.
+
 
 ## Next steps
 Get started creating and running chaos experiments to improve application resilience with Chaos Studio by using the following links:

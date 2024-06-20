@@ -59,7 +59,7 @@ For cross-region DR, Microsoft is responsible. The Recovery Time Objective (RTO)
 Cross region disaster recovery for non-paired region geography only pertains to Singapore. If there's a region-wide service outage in Singapore and you have chosen to keep your data only within Singapore and not replicated to regional pair Hong Kong SAR, you have two options:
 
 - Wait for the Singapore region to be restored.
-- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md).
+- Create a resource in another region, reset the device, and manage your device via the new resource. For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.yml).
 
 In this case, the customer is responsible for DR and must set up a new device and then deploy all the workloads. 
 
@@ -82,10 +82,10 @@ For the single-region disaster recovery for which the customer is responsible:
 Here are the high-level steps to set up disaster recovery using Azure portal for Azure Stack Edge: 
 
 - Create a resource in another region. For more information, see how to [Create a management resource for Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device).
-- [Reset the device](azure-stack-edge-reset-reactivate-device.md#reset-device). When the device is reset, the local data on the device is lost. It's necessary that you back up the device prior to the reset. Use a third-party backup solution provider to back up the local data on your device. For more information, see how to [Protect data in Edge cloud shares, Edge local shares, VMs and folders for disaster recovery](azure-stack-edge-gpu-prepare-device-failure.md#protect-device-data). 
-- [Reactivate device against a new resource](azure-stack-edge-reset-reactivate-device.md#reactivate-device). When you move to the new resource, you'll also need to restore data on the new resource. For more information, see how to [Restore Edge cloud shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-cloud-shares), [Restore Edge local shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-local-shares) and [Restore VM files and folders](azure-stack-edge-gpu-recover-device-failure.md#restore-vm-files-and-folders).
+- [Reset the device](azure-stack-edge-reset-reactivate-device.yml#reset-device). When the device is reset, the local data on the device is lost. It's necessary that you back up the device prior to the reset. Use a third-party backup solution provider to back up the local data on your device. For more information, see how to [Protect data in Edge cloud shares, Edge local shares, VMs and folders for disaster recovery](azure-stack-edge-gpu-prepare-device-failure.md#protect-device-data). 
+- [Reactivate device against a new resource](azure-stack-edge-reset-reactivate-device.yml#reactivate-device). When you move to the new resource, you'll also need to restore data on the new resource. For more information, see how to [Restore Edge cloud shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-cloud-shares), [Restore Edge local shares](azure-stack-edge-gpu-recover-device-failure.md#restore-edge-local-shares) and [Restore VM files and folders](azure-stack-edge-gpu-recover-device-failure.md#restore-vm-files-and-folders).
 
-For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.md). 
+For detailed instructions, see [Reset and reactivate your Azure Stack Edge device](azure-stack-edge-reset-reactivate-device.yml). 
 
 ## Planning disaster recovery
 

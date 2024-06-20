@@ -516,7 +516,15 @@ Virtual Network flow log allows you to record IP traffic flowing in a virtual ne
 
 Learn more about [Resource - UpgradeNSGToVnetFlowLog (Upgrade NSG flow logs to VNet flow logs)](https://aka.ms/vnetflowlogspreviewdocs).
 
+### Migrate Azure Front Door (classic) to Standard/Premium tier
 
+On 31 March 2027, Azure Front Door (classic) will be retired for the public cloud, and you’ll need to migrate to Front Door Standard or Premium by that date.
+
+Beginning 1 April 2025, you’ll no longer be able to create new Front Door (classic) resources via the Azure portal, Terraform, or any command line tools. However, you can continue to make modifications to existing resources until Front Door (classic) is fully retired.
+
+Azure Front Door Standard and Premium combine the capabilities of static and dynamic content delivery with turnkey security, enhanced DevOps experiences, simplified pricing, and better Azure integrations
+
+Learn more about [Azure Front Door (classic) will be retired on 31 March 2027](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/).
 
 
 
@@ -735,7 +743,7 @@ Learn more about [Volume - Azure NetApp Files AZ Volume SDK version recommendati
 
 The minimum SDK version of 2022-05-01 is recommended for the Azure NetApp Files Cross Zone Replication feature, to enable you to replicate volumes across availability zones within the same region.
 
-Learn more about [Volume - Azure NetApp Files Cross Zone Replication SDK recommendation (Cross Zone Replication SDK recommendation)](https://aka.ms/anf-sdkversion).
+Learn more about [Volume - Azure NetApp Files Cross Zone Replication SDK recommendation](https://aka.ms/anf-sdkversion).
 
 ### Volume Encryption using Customer Managed Keys with Azure Key Vault SDK Recommendation
 
@@ -753,7 +761,7 @@ Learn more about [Capacity Pool - Azure NetApp Files Cool Access SDK version rec
 
 The minimum SDK version of 2022-xx-xx is recommended for automation of large volume creation, resizing and deletion.
 
-Learn more about [Volume - Large Volumes SDK Recommendation (Large Volumes SDK Recommendation)](/azure/azure-netapp-files/azure-netapp-files-resource-limits).
+Learn more about [Volume - Large Volumes SDK Recommendation](/azure/azure-netapp-files/azure-netapp-files-resource-limits).
 
 ### Prevent hitting subscription limit for maximum storage accounts
 
