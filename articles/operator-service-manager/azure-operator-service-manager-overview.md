@@ -25,11 +25,11 @@ Managing complex network services efficiently and reliably can be a challenge. A
 
 Consolidate software management tasks into a single set of end-to-end Azure operations to seamlessly compose, deploy, and update complex multi-vendor multi-region services. Model network services using Azure Resource Manager (ARM), just like other Azure resources and drive run-time operations via any Azure interfaces, such as portal, CLI, API, or SDK.
 
-### Operations at Scale
+### Operations at scale
 
 Azure Operator Service Manager is built to scale using the same underlying databases, analytics and cloud-native foundational engineering as Azure itself. Core and edge workloads can be managed together, as complete network deployments ranging in scale from private 5G to national networks. Alternatively use Azure subscription or role-based separation of different parts of your network to segregate management by operational team or service type.
 
-### Telco-grade Security
+### Telco-grade security
 
 Azure Operator Service Manager works seamlessly with Azure security features including Private Link, embedded registries, artifact stores and secret management options to ensure that the operator has confidence that what is deployed matches what was on-boarded by each publisher.
 
@@ -45,7 +45,7 @@ By unifying service management, facilitating deployments at national scale and e
 
 SLA (Service Level Agreement) information can be found on the [Service Level Agreements SLA for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1)).
 
-### Related Azure Services
+### Related Azure services
 
 Azure Operator Service Manager is often deployed in combination with the following Azure services.
 
