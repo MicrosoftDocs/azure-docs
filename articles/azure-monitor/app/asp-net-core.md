@@ -227,11 +227,12 @@ while (true)
 
 The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
 
-#### Secure the control channel
+#### Add an API key to configuration
 
-##### Add an API key to configuration
+If you set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section in [Live metrics: Monitor and diagnose with 1-second latency](./live-stream.md#legacy-option-create-an-api-key), you can add it to configuration.
 
-You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
+> [!NOTE]
+> Setting up an authenticated channel by configuring a secret API key is no longer recommended. Instead, we recommend securing the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
 
 In the *Program.cs* file, add the following namespace:
 

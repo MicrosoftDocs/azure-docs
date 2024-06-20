@@ -315,11 +315,12 @@ The following sections list the full telemetry automatically collected by Applic
 
 [Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. Although it might take a few minutes before telemetry appears in the portal and analytics, Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
 
-#### Secure the control channel
+#### Add an API key to configuration
 
-##### Add an API key to configuration
+If you set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section in [Live metrics: Monitor and diagnose with 1-second latency](./live-stream.md#legacy-option-create-an-api-key), you can add it to configuration.
 
-You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
+> [!NOTE]
+> Setting up an authenticated channel by configuring a secret API key is no longer recommended. Instead, we recommend securing the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
 
 Add the following namespace:
 
