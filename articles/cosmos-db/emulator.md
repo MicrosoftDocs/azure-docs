@@ -29,7 +29,7 @@ The emulator provides an environment on your developer workspace that isn't capa
 - The emulator only supports **provisioned throughput**. The emulator doesn't support **serverless** throughput.
 - The emulator uses a well-known key when it starts. You can't regenerate the key for the running emulator. To use a different key, you must [start the emulator with the custom key specified](#authentication).
 - The emulator can't be replicated across geographical regions or multiple instances. Only a single running instance of the emulator is supported. The emulator can't be scaled out.
-- The emulator only supports up to 10 fixed-size containers at 400 RU/s or 5 unlimited-size containers.
+- The emulator ideally supports up to 10 fixed-size containers at 400 RU/s or 5 unlimited-size containers. Theoretically, you can create more containers, but you could experience performance degradation with the emulator.
 - The emulator only supports the [Session](consistency-levels.md#session-consistency) and [Strong](consistency-levels.md#strong-consistency) consistency levels. The emulator isn't a scalable service and doesn't actually implement the consistency levels. The emulator only flags the configured consistency level for testing purposes.
 - The emulator constraints the unique identifier of items to a size of **254** characters.
 - The emulator supports a maximum of five `JOIN` statements per query.
