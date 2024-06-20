@@ -466,9 +466,9 @@
         href: search-security-get-encryption-keys.md
     - name: Document-level security
       items:
-      - name: Security filters
+      - name: Security filter pattern
         href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Microsoft Entra ID
+      - name: Set up a security filter using Microsoft Entra ID
         href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
