@@ -401,21 +401,47 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 The certificate for the emulator is available at the path `_explorer/emulator.pem` on the running container. Use `curl` to download the certificate from the running container to your local machine.
 
-For Linux systems, use:
+1. Get the certificate from the running container.
 
-```bash
-curl --insecure https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
-```
+    For Linux systems, use:
 
-```powershell
-$parameters = @{
-    Uri = 'https://localhost:8081/_explorer/emulator.pem'
-    Method = 'GET'
-    OutFile = 'emulatorcert.crt'
-    SkipCertificateCheck = $True
-}
-Invoke-WebRequest @parameters
-```
+    ```bash
+    curl --insecure https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    $parameters = @{
+        Uri = 'https://localhost:8081/_explorer/emulator.pem'
+        Method = 'GET'
+        OutFile = 'emulatorcert.crt'
+        SkipCertificateCheck = $True
+    }
+    Invoke-WebRequest @parameters
+    ```
+
+1. Regenerate the certificate bundle by using the appropriate command for your operating system.
+
+    For **Debian-based** Linux systems (for example, Ubuntu), use:
+
+    ```bash
+    sudo update-ca-certificates
+    ```
+
+    For **Red Hat-based** Linux systems (for example, CentOS, Fedora), use:
+
+    ```bash
+    sudo update-ca-trust
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    certutil -f -addstore "Root" ~/emulatorcert.crt
+    ```
+
+    For more detailed instructions, consult the documentation specific to your operating system.
 
 ### [Docker (Windows container)](#tab/docker-windows)
 
