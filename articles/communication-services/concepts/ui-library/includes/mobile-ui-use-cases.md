@@ -17,7 +17,7 @@ You can use the call composite in Communication Services to create these use cas
 | Call types                                                                                      | Join a Microsoft Teams meeting                                     |
 |                                                                                                 | Join a call by using a group ID                                  |
 |                                                                                                 | Join a call by using a room  ID                                  |
-|                                                                                                 | Dial participants and receive incoming call                      |
+|                                                                                                 | Make and Receive 1:1 Calls                      |
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
 |                                                                                                 | Admit/Decline lobby participants                                 |

@@ -37,7 +37,7 @@ In Xcode, create a new project:
 
 ### Install the package and dependencies
 
-1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 
@@ -58,7 +58,7 @@ In Xcode, create a new project:
 
 ### Request access to device hardware
 
-To access the device's hardware, including the microphone and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
+To access the device's hardware, including the microphone, and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
 
 1. Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines to the top level `<dict>` section, and then save the file.
 
@@ -205,11 +205,11 @@ You can get a Microsoft Teams meeting link by using Graph APIs. This process is 
 
 The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
-### Set up a Rooms call
+### Set up a Room call
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a Azure Communication Services Rooms call, inside the `startCallComposite` function, initialize a `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. 
+To set up an Azure Communication Services Rooms call, inside the `startCallComposite` function, initialize a `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. 
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
 
