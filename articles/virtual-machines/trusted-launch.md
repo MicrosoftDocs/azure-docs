@@ -15,12 +15,13 @@ ms.custom: template-concept; references_regions
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure offers trusted launch as a seamless way to improve the security of [Generation 2](generation-2.md) VMs. Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
+Azure offers trusted launch as a seamless way to improve the security of [Generation 2](generation-2.md) virtual machines (VMs). Trusted launch protects against advanced and persistent attack techniques. Trusted launch is composed of several coordinated infrastructure technologies that can be enabled independently. Each technology provides another layer of defense against sophisticated threats.
 
 > [!IMPORTANT]
-> - Trusted launch is selected as the default state for newly created Azure virtual machines (VMs). If your new VM requires features that aren't supported by trusted launch, see the [Trusted launch FAQs](trusted-launch-faq.md).
-> - Existing [Azure Generation 2 VMs](generation-2.md) can have trusted launch enabled after being created. For more information, see [Enable trusted launch on existing VMs](trusted-launch-existing-vm.md).
-> - You can't enable trusted launch on an existing instance of Azure Virtual Machine Scale Sets that was initially created without it. Trusted launch requires the creation of a new virtual machine scale set.
+>
+> - Trusted launch is selected as the default state for newly created Azure VMs. If your new VM requires features that aren't supported by trusted launch, see the [trusted launch FAQs](trusted-launch-faq.md).
+> - Existing [VMs](overview.md) can have trusted launch enabled after being created. For more information, see [Enable trusted launch on existing VMs](trusted-launch-existing-vm.md).
+> - Existing [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) can have trusted launch enabled after being created. For more information, see [Enable trusted launch on existing scale sets](trusted-launch-existing-vmss.md).
 
 ## Benefits
 
@@ -79,10 +80,10 @@ Trusted launch doesn't increase existing VM pricing costs.
 
 > [!NOTE]
 > Currently, the following VM features aren't supported with trusted launch:
-
-- [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (currently in preview).
-- [Managed image](capture-image-resource.yml) (customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images)).
-- Nested virtualization (most v5 VM size families are supported).
+>
+>- [Azure Site Recovery](../site-recovery/concepts-trusted-vm.md) (currently in preview).
+>- [Managed Image](capture-image-resource.yml) (customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images)).
+>- Nested virtualization (v5 VM size families supported).
 
 ## Secure Boot
 
