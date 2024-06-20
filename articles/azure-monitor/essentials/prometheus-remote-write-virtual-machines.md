@@ -10,7 +10,7 @@ ms.date: 04/15/2024
 
 # Send Prometheus metrics from Virtual Machines to an Azure Monitor workspace
 
-Prometheus isn't limited to monitoring Kubernetes clusters. Use Prometheus to monitor applications and services running on your servers, wherever they're running. For example, you can monitor applications running on Virtual Machines, Virtual Machine Scale Sets, or even on-premises servers. Install prometheus on your servers and configure remote-write to send metrics to an Azure Monitor workspace.
+Prometheus isn't limited to monitoring Kubernetes clusters. Use Prometheus to monitor applications and services running on your servers, wherever they're running. For example, you can monitor applications running on Virtual Machines, Virtual Machine Scale Sets, or even on-premises servers. You can also send Prometheus metrics to an Azure Monitor workspace from your self-managed cluster and Prometheus server. Install prometheus on your servers and configure remote-write to send metrics to an Azure Monitor workspace.
 
 This article explains how to configure remote-write to send data from a self-managed Prometheus instance to an Azure Monitor workspace.
 
@@ -26,15 +26,17 @@ Use user-assigned managed identity authentication for services running self mana
 - Azure Virtual Machines
 - Azure Virtual Machine Scale Sets
 - Azure Arc-enabled Virtual Machines
+- Azure Kubernetes Service (AKS)
 
 To set up remote write for Azure managed resources, see [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication).
 
 
-## Virtual machines running on non-Azure environments.
+## Virtual machines and Kubernetes clusters running on non-Azure environments.
 
-Onboarding to Azure Arc-enabled services, allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). 
+If you have virtual machines, or a Kubernetes cluster in non-Azure environments, and you don't want to onboard to Azure Arc, install self-managed Prometheus, and configure remote-write using Microsoft Entra ID application authentication. For more information, see [Remote-write using Microsoft Entra ID application authentication](#remote-write-using-microsoft-entra-id-application-authentication).
 
-If you have virtual machines in non-Azure environments, and you don't want to onboard to Azure Arc, install self-managed Prometheus and configure remote-write using Microsoft Entra ID application authentication. For more information, see [Remote-write using Microsoft Entra ID application authentication](#remote-write-using-microsoft-entra-id-application-authentication).
+Onboarding to Azure Arc-enabled services allows you to manage and configure non-Azure virtual machines in Azure. Once onboarded, configure [Remote-write using user-assigned managed identity](#remote-write-using-user-assigned-managed-identity-authentication) authentication. For more Information on onboarding Virtual Machines to Azure Arc-enabled servers, see [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
+
 
 ## Prerequisites
 
@@ -69,7 +71,7 @@ Note the value of the `clientId` of the managed identity that you created. This 
 
 #### Assign the Monitoring Metrics Publisher role to the application
 
-Assign the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the managed identity. 
+On the workspace's data collection rule, assign the `Monitoring Metrics Publisher` role to the managed identity. 
 
 1. On the Azure Monitor workspace Overview page, select the **Data collection rule** link.
 
@@ -91,7 +93,7 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
     
     :::image type="content" source="media/prometheus-remote-write-virtual-machines/select-members.png" lightbox="media/prometheus-remote-write-virtual-machines/select-members.png" alt-text="A screenshot showing the select members menu for a data collection rule.":::
 
-#### Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set.
+#### Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set
 
 > [!IMPORTANT]
 > To complete the steps in this section, you must have owner or user access administrator permissions for the Virtual Machine or Virtual MAchine Scale Set.
@@ -104,11 +106,19 @@ Assign the `Monitoring Metrics Publisher` role on the workspace's data collectio
 
     :::image type="content" source="media/prometheus-remote-write-virtual-machines/assign-user-identity.png" lightbox="media/prometheus-remote-write-virtual-machines/assign-user-identity.png" alt-text="A screenshot showing the Add user assigned managed identity page.":::
 
+#### Assign the managed identity for an Azure Kubernetes Service
+
+For Azure Kubernetes services (AKS), the managed identity must be assigned to the virtual machine scale sets.
+
+AKS creates a resource group containing the virtual machine scale sets. The resource group name is in the format `MC_<resource group name>_<AKS cluster name>_<region>`. 
+For each Virtual Machine Scale Set in the resource group, assign the managed identity according to the steps in the previous section, [Assign the managed identity to a Virtual Machine or Virtual Machine Scale Set](#assign-the-managed-identity-to-a-virtual-machine-or-virtual-machine-scale-set).
+
+
 
 ### [Microsoft Entra ID application](#tab/entra-application)
 ### Remote-write using Microsoft Entra ID application authentication
 
-To configure remote-write to Azure Monitor workspace using a Microsoft Entra ID application, create an Entra application and assign it the `Monitoring Metrics Publisher` role on the workspace's data collection rule to the application. 
+To configure remote-write to Azure Monitor workspace using a Microsoft Entra ID application, create an Entra application. On Azure Monitor workspace's data collection rule, assign the `Monitoring Metrics Publisher` role to the Entra application.
 
 > [!NOTE]
 > Your Azure Entra application uses a client secret or password. Client secrets have an expiration date. Make sure to create a new client secret before it expires so you don't lose authenticated access
