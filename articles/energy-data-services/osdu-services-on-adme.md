@@ -25,7 +25,6 @@ Below you'll find an overview of the OSDU&reg; services that are currently avail
 - **Indexer Queue**: Pprovides a set of APIs that help in forwarding the messages to and from storage service to indexer service.
 - **Legal**: Managing LegalTags associated with datasets. A LegalTag is the entity that represents the legal status of data in the Data Ecosystem. It is a collection of properties that governs how the data can be consumed and ingested.
 - **Notification**: Allows for interested consumers to subscribe to data and metadata changes using a publish/subscriber pattern.
-- **Partition**: Creates and retrieves the partition specific properties (secret and non-secret) on behalf of other services
 - **Python SDK**: Offers tools and libraries for developers to interact with OSDU services using Python.
 - **Register**: Allow an application to register an action (the function to be triggered). It will expect data (context) to come from OSDU to enable the action, and the application can register a filter (enable/disable) to say what data can be used with this action.
 - **Schema**: Enables a centralized governance and management of schema in the Data Ecosystem. It offers an implementation of the schema standard. Schema Service provides all necessary APIs to Fetch, create, update and mark a schema obsolete.
@@ -51,11 +50,12 @@ Below you'll find an overview of the OSDU&reg; services that are currently avail
 - **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 
 ## OSDU&reg; services unavailable on Azure Data Manager for Energy
-NOTE: The following OSDU&reg; services are currently unavailable on Azure Data Manager for Energy.
+Note: The following OSDU&reg; services are currently unavailable on Azure Data Manager for Energy.
 - **EDS Naturalization DAG**
 - **Energistics Parser DAG**
 - **Geospatial Consumption Zone**
 - **Manifest Ingestion by Reference DAG**
+- **Partition** Note: Operations can still be performed using the available data partition APIs or through Azure Portal.
 - **Policy Service**
 - **Reservoir DDMS**
 - **WITSML Parser DAG**
