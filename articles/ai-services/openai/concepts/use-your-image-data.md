@@ -30,7 +30,7 @@ Use this article to learn how to provide your own image data for GPT-4 Turbo wit
 
 ## Add your data source
 
-Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with your credentials. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. 
+Navigate to [Azure OpenAI Studio](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource. 
 
 :::image type="content" source="../media/use-your-image-data/chat-playground.png" alt-text="A screenshot showing the chat playground in Azure OpenAI studio." lightbox="../media/use-your-image-data/chat-playground.png":::
 
