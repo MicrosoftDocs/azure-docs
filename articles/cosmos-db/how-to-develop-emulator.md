@@ -2,9 +2,9 @@
 title: Use the emulator for development and CI
 titleSuffix: Azure Cosmos DB
 description: Use the Azure Cosmos DB emulator to develop your applications locally and test then with a working database.
-author: seesharprun
-ms.author: sidandrews
-ms.reviewer: sasinnat
+author: sajeetharan
+ms.author: sasinnat
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/20/2024
@@ -18,7 +18,7 @@ A common use case for the emulator is to serve as a development database while y
 
 ## Prerequisites
 
-- [.NET 6 or later](https://dotnet.microsoft.com/download), [Node.js LTS](https://nodejs.org/en/download/), or [Python 3.7 or later](https://www.python.org/downloads/)
+- [.NET 6 or later](https://dotnet.microsoft.com/download), [Node.js v20 or later](https://nodejs.org/en/download/), or [Python 3.7 or later](https://www.python.org/downloads/)
   - Ensure that all required executables are available in your `PATH`.
 - **Windows emulator**
   - 64-bit Windows Server 2016, 2019, Windows 10, or Windows 11.
@@ -44,7 +44,7 @@ To get started, get the Linux-variant of the container image from the [Microsoft
     docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
     ```
 
-1. Check to make sure that the emulator image has been pulled to your local Docker host.
+1. Check to make sure that the emulator image is available on your local Docker host.
 
     ```bash
     docker images
@@ -60,7 +60,7 @@ To get started, get the Windows-variant of the container image from the [Microso
     docker pull mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
     ```
 
-1. Check to make sure that the emulator image has been pulled to your local Docker host.
+1. Check to make sure that the emulator image is available on your local Docker host.
 
     ```powershell
     docker images
@@ -95,7 +95,7 @@ To get started, get the Linux-variant of the container image from the [Microsoft
     docker pull mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
     ```
 
-1. Check to make sure that the emulator image has been pulled to your local Docker host.
+1. Check to make sure that the emulator image is available on your local Docker host.
 
     ```bash
     docker images
@@ -407,15 +407,17 @@ The certificate for the emulator is available at the path `_explorer/emulator.pe
     ```bash
     cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
     ```
-1. Update CA certificates and regenerate the certificate bundle by using the appropriate command for your Linux distribution.
-    
-    For **Debian-based** systems (e.g., Ubuntu), use:
+
+1. Regenerate the certificate bundle by using the appropriate command for your Linux distribution.
+
+    For **Debian-based** systems (for example, Ubuntu), use:
 
     ```bash
     sudo update-ca-certificates
     ```
 
-    For **Red Hat-based** systems (e.g., CentOS, Fedora), use:
+    For **Red Hat-based** systems (for example, CentOS, Fedora), use:
+
     ```bash
     sudo update-ca-trust
     ```
@@ -541,7 +543,7 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     ```
 
     > [!WARNING]
-    > If you get a SSL error, you may need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
+    > If you get a SSL error, you might need to disable TLS/SSL for your application. This commonly occurs if you are developing on your local machine, using the Azure Cosmos DB emulator in a container, and have not [imported the container's SSL certificate](#import-the-emulators-tlsssl-certificate). To resolve this, configure the application to disable TLS/SSL validation before creating the client:
     >
     > ```python
     > import urllib3
@@ -550,28 +552,31 @@ Use the [Azure Cosmos DB API for NoSQL Python SDK](nosql/quickstart-python.md) t
     > ```
     >
 
-    If you are still facing SSL errors, it is possible that Python is retrieving the certificates from a different certificate store. To determine the path where Python is looking for the certificates, follow these steps:
+    If you're still facing SSL errors, it's possible that Python is retrieving the certificates from a different certificate store. To determine the path where Python is looking for the certificates, follow these steps:
     >[!IMPORTANT]
     >If you are using a Python **virtual environment** (venv) ensure it is **activated** before running the commands!
     1. Open a terminal
     1. Start the Python interpreter by typing python or python3, depending on your Python version.
     1. In the Python interpreter, run the following commands:
+
         ```python
         from requests.utils import DEFAULT_CA_BUNDLE_PATH
         print(DEFAULT_CA_BUNDLE_PATH)
         ```
 
-        **Inside a virtual environment**, the path may be (at least in Ubuntu):
+        **Inside a virtual environment**, the path might be (at least in Ubuntu):
+
         ```bash
         path/to/venv/lib/pythonX.XX/site-packages/certifi/cacert.pem
         ```
 
-        **Outside of a virtual environment**, the path may be (at least in Ubuntu):
+        **Outside of a virtual environment**, the path might be (at least in Ubuntu):
+
         ```bash
         /etc/ssl/certs/ca-certificates.crt
         ```
 
-    1. Once you have identified the DEFAULT_CA_BUNDLE_PATH, open a **new terminal** and run the following commands to append the emulator certificate to the certificate bundle:
+    1. Once you identified the DEFAULT_CA_BUNDLE_PATH, open a **new terminal** and run the following commands to append the emulator certificate to the certificate bundle:
         > [!IMPORTANT]
         > If DEFAULT_CA_BUNDLE_PATH variable points to a **system directory**, you might encounter a **"Permission denied"** error. In this case, you will need to run the commands with elevated privileges (as root). Also, you will need to [update and regenerate the certificate bundle](#import-the-emulators-tlsssl-certificate) after executing the provided commands.
 
@@ -1204,7 +1209,7 @@ Use the [Azure Tables JavaScript SDK](cassandra/manage-data-nodejs.md) to use th
 
 ## Use the emulator in a GitHub Actions CI workflow
 
-Use the Azure Cosmos DB emulator with a test suite from your framework of choice to run a continuous integration workload that automatically validates your application. The Azure Cosmos DB emulator is preinstalled in the `windows-latest` variant of GitHub Action's hosted runners.
+To run a continuous integration workload that automatically validates your application, use the Azure Cosmos DB emulator with a test suite from your framework of choice. The Azure Cosmos DB emulator is preinstalled in the `windows-latest` variant of GitHub Action's hosted runners.
 
 ### [C#](#tab/csharp)
 
