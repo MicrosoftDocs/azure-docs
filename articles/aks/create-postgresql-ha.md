@@ -17,6 +17,7 @@ In this article, you create the infrastructure needed to deploy a highly availab
 * Review the prerequisites and deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview].
 * [Set environment variables](#set-environment-variables) for use throughout this guide.
 * [Install the required extensions](#install-required-extensions).
+
 ### Set environment variables
 
 Set the following environment variables for use throughout this guide:
@@ -55,14 +56,14 @@ az extension add --upgrade --name amg --yes --allow-preview false
 
 Create a resource group for the resources you'll create in this guide using the [`az group create`][az-group-create] command.
 
-    ```azurecli-interactive
-    az group create \
-      --name $RESOURCE_GROUP_NAME \
-      --location $PRIMARY_CLUSTER_REGION \
-      --tags $TAGS \
-      --query 'properties.provisioningState' \
-      --output tsv
-    ```
+```azurecli-interactive
+az group create \
+--name $RESOURCE_GROUP_NAME \
+--location $PRIMARY_CLUSTER_REGION \
+--tags $TAGS \
+--query 'properties.provisioningState' \
+--output tsv
+```
 
 ## Create a user assigned managed identity
 

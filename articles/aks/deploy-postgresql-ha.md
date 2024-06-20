@@ -33,7 +33,7 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
         --context $AKS_PRIMARY_CLUSTER_NAME
     ```
 
-2. Validate the secret was successfully created using the [`kubectl get`][kubectl-get] command.
+1. Validate the secret was successfully created using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get secret db-user-pass --namespace $PG_NAMESPACE --context $AKS_PRIMARY_CLUSTER_NAME
@@ -65,7 +65,7 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
       https://prometheus-community.github.io/helm-charts
     ```
 
-2. Upgrade the Prometheus Community Helm repo and install it on the primary cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
+1. Upgrade the Prometheus Community Helm repo and install it on the primary cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
 
     ```azurecli-interactive
     helm upgrade --install \
@@ -95,7 +95,7 @@ In this section, you create a federated identity credential for Postgres backup 
         --output tsv)"
         ```
 
-2. Create a federated identity credential using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
+1. Create a federated identity credential using the [`az identity federated-credential create`][az-identity-federated-credential-create] command.
 
     ```azurecli-interactive
     az identity federated-credential create \
@@ -227,7 +227,7 @@ The following table outlines the key properties set in the YAML deployment manif
     EOF
     ```
 
-2. Validate that the primary Postgres cluster was successfully created using the [`kubectl get`][kubectl-get] command. The CNPG Cluster CRD specified three instances, which can be validated by viewing running pods once each instance is brought up and joined for replication. Be patient as it can take some time for all three instances to come online and join the cluster.
+1. Validate that the primary Postgres cluster was successfully created using the [`kubectl get`][kubectl-get] command. The CNPG Cluster CRD specified three instances, which can be validated by viewing running pods once each instance is brought up and joined for replication. Be patient as it can take some time for all three instances to come online and join the cluster.
 
     ```azurecli-interactive
     kubectl get pods --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
@@ -364,7 +364,7 @@ In this section, you create a table and insert some data into the app database t
     Last Archived WAL:              000000010000000000000009   @   2024-06-05T13:39:23.597668Z
     ```
 
-2. Deploy an on-demand backup to Azure Storage, which uses the AKS workload identity integration, using the YAML file with the [`kubectl apply`][kubectl-apply] command.
+1. Deploy an on-demand backup to Azure Storage, which uses the AKS workload identity integration, using the YAML file with the [`kubectl apply`][kubectl-apply] command.
 
     ```azurecli-interactive
     export BACKUP_ONDEMAND_NAME="on-demand-backup-1"
@@ -381,7 +381,7 @@ In this section, you create a table and insert some data into the app database t
     EOF
     ```
 
-3. Validate the status of the on-demand backup using the [`kubectl describe`][kubectl-describe] command.
+1. Validate the status of the on-demand backup using the [`kubectl describe`][kubectl-describe] command.
 
     ```azurecli-interactive
     kubectl describe backup $BACKUP_ONDEMAND_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
@@ -395,7 +395,7 @@ In this section, you create a table and insert some data into the app database t
     Normal  Completed  1s    instance-manager       Backup completed
     ```
 
-4. Validate that the cluster has a first point of recoverability using the following command:
+1. Validate that the cluster has a first point of recoverability using the following command:
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
@@ -407,7 +407,7 @@ In this section, you create a table and insert some data into the app database t
     Working WAL archiving:          OK
     ```
 
-5. Configure a scheduled backup for *every hour at 15 minutes past the hour* using the YAML file with the [`kubectl apply`][kubectl-apply] command.
+1. Configure a scheduled backup for *every hour at 15 minutes past the hour* using the YAML file with the [`kubectl apply`][kubectl-apply] command.
 
     ```azurecli-interactive
     export BACKUP_SCHEDULED_NAME="scheduled-backup-1"
@@ -426,13 +426,13 @@ In this section, you create a table and insert some data into the app database t
     EOF
     ```
 
-7. Validate the status of the scheduled backup using the [`kubectl describe`][kubectl-describe] command.
+1. Validate the status of the scheduled backup using the [`kubectl describe`][kubectl-describe] command.
 
     ```azurecli-interactive
     kubectl describe scheduledbackup $BACKUP_SCHEDULED_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
-8. View the backup files stored on Azure blob storage for the primary cluster using the [`az storage blob list`][az-storage-blob-list] command.
+1. View the backup files stored on Azure blob storage for the primary cluster using the [`az storage blob list`][az-storage-blob-list] command.
 
     ```azurecli-interactive
     az storage blob list --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME --container-name backups --query "[*].name" --only-show-errors 
@@ -478,7 +478,7 @@ You also create a second federated credential to map the new recovery cluster se
         --audience api://AzureADTokenExchange
       ```
 
-2. Restore the on-demand backup using the Cluster CRD with the [`kubectl apply`][kubectl-apply] command.
+1. Restore the on-demand backup using the Cluster CRD with the [`kubectl apply`][kubectl-apply] command.
 
     ```azurecli-interactive
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE -v 9 -f -
@@ -546,7 +546,7 @@ You also create a second federated credential to map the new recovery cluster se
     EOF
     ```
 
-2. Connect to the recovered instance and validate the dataset created on the original cluster where the full backup was taken is present using the following command:
+1. Connect to the recovered instance and validate the dataset created on the original cluster where the full backup was taken is present using the following command:
 
     ```azurecli-interactive
     kubectl cnpg psql $PG_PRIMARY_CLUSTER_NAME_RECOVERED --namespace $PG_NAMESPACE
@@ -560,13 +560,13 @@ You also create a second federated credential to map the new recovery cluster se
     # Type \q to exit psql
     ```
 
-3. You can now delete the recovered cluster using the following command:
+1. You can now delete the recovered cluster using the following command:
 
     ```azurecli-interactive
     kubectl cnpg destroy $PG_PRIMARY_CLUSTER_NAME_RECOVERED 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
-4. You can now delete the federated identity credential using the [`az identity federated-credential delete`][az-identity-federated-credential-delete] command.
+1. You can now delete the federated identity credential using the [`az identity federated-credential delete`][az-identity-federated-credential-delete] command.
 
     ```azurecli-interactive
     az identity federated-credential delete \
@@ -602,7 +602,7 @@ You also retrieve the following endpoints from the Cluster IP service:
     > [!NOTE]
     > We have three services: `namespace/cluster-name-ro` mapped to port 5433, `namespace/cluster-name-rw`, and `namespace/cluster-name-r` mapped to port 5433. It’s important to avoid using the same port as the read/write node of the PostgreSQL database cluster. If you want applications to access only the read-only replica of the PostgreSQL database cluster, direct them to port 5433. The final service is typically used for data backups but can also function as a read-only node.
 
-2. Get the service details using the [`kubectl get`][kubectl-get] command.
+1. Get the service details using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     export PG_PRIMARY_CLUSTER_RW_SERVICE=$(kubectl get services \
@@ -622,7 +622,7 @@ You also retrieve the following endpoints from the Cluster IP service:
     echo $PG_PRIMARY_CLUSTER_RO_SERVICE
     ```
 
-3. Configure the load balancer service with the following YAML files using the [`kubectl apply`][kubectl-apply] command.
+1. Configure the load balancer service with the following YAML files using the [`kubectl apply`][kubectl-apply] command.
 
     ```azurecli-interactive
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -f -
@@ -749,13 +749,13 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
     pg-primary-cnpg-sryti1qf-3  0/9000060   Standby (sync)  OK      aks-postgres-32388626-vmss000002
     ```
 
-2. Delete the primary pod using the [`kubectl delete`][kubectl-delete] command.
+1. Delete the primary pod using the [`kubectl delete`][kubectl-delete] command.
 
     ```azurecli-interactive
     kubectl delete pod pg-primary-cnpg-sryti1qf-1 --grace-period=1 --namespace $PG_NAMESPACE
     ```
 
-3. Validate that the `pg-primary-cnpg-sryti1qf-2` pod instance is now the primary using the following command:
+1. Validate that the `pg-primary-cnpg-sryti1qf-2` pod instance is now the primary using the following command:
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
@@ -767,13 +767,13 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
     pg-primary-cnpg-sryti1qf-3  0/9000060   Standby (sync)  OK      aks-postgres-32388626-vmss000002
     ```
 
-4. Reset the `pg-primary-cnpg-sryti1qf-1` pod instance as the primary using the following command:
+1. Reset the `pg-primary-cnpg-sryti1qf-1` pod instance as the primary using the following command:
 
     ```azurecli-interactive
     kubectl cnpg promote $PG_PRIMARY_CLUSTER_NAME 1 --namespace $PG_NAMESPACE
     ```
 
-5. Validate that the pod instances have returned to their original state before the unplanned failover test using the following command:
+1. Validate that the pod instances have returned to their original state before the unplanned failover test using the following command:
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
@@ -819,7 +819,7 @@ To learn more about how you can leverage AKS for your workloads, see [What is Az
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az_identity_federated_credential_create
 [cluster-crd]: https://cloudnative-pg.io/documentation/1.23/cloudnative-pg.v1/#postgresql-cnpg-io-v1-ClusterSpec
 [kubectl-describe]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_describe/
-[az-storage-blob-list]: /cli/azure/storage/blog/#az_storage_blob_list
+[az-storage-blob-list]: /cli/azure/storage/blob/#az_storage_blob_list
 [az-identity-federated-credential-delete]: /cli/azure/identity/federated-credential#az_identity_federated_credential_delete
 [kubectl-delete]: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_delete/
 [az-group-delete]: /cli/azure/group#az_group_delete
