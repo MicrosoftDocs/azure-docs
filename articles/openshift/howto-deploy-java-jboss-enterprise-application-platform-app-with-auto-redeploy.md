@@ -1,16 +1,18 @@
 ---
-title: "Quickstart: Deploy a Jboss EAP Java App From Source Code With Automatic Deployment"
+title: Auto-redeploy JBoss EAP with Source-2-Image
+titleExtension: Azure Red Hat OpenShift
 description: Shows you how to quickly set up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal and deploy an app with the Source-2-Image (S2I) feature.
 author: KarlErickson
 ms.author: zhihaoguo
 ms.topic: quickstart
-ms.date: 06/19/2024
+ms.date: 06/21/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
+# customer intent: As a developer, I want to learn how to auto redeploy JBoss EAP on Azure Red Hat OpenShift using Source-2-Image (S2I) so that I can quickly deploy and update my application.
 ---
 
-# Quickstart: Auto redeploy JBoss EAP on Azure Red Hat OpenShift with Source-2-Image (S2I)
+# Quickstart: Auto-redeploy JBoss EAP on Azure Red Hat OpenShift with Source-2-Image (S2I)
 
-This article shows you how to quickly set up JBoss Enterprise Application Platform (EAP) on Azure Red Hat OpenShift (ARO) using the Azure portal and deploy an app with the Source-2-Image (S2I) feature. The Source-2-Image feature enables you to build container images from source code without having to write Dockerfiles. The article uses a sample application that you can fork from GitHub and deploy to Azure Red Hat OpenShift. The article also shows you how to set up a webhook in GitHub to trigger a new build in OpenShift every time you push a change to the repository.
+This article shows you how to quickly set up JBoss Enterprise Application Platform (EAP) on Azure Red Hat OpenShift (ARO) and deploy an app with the Source-2-Image (S2I) feature. The Source-2-Image feature enables you to build container images from source code without having to write Dockerfiles. The article uses a sample application that you can fork from GitHub and deploy to Azure Red Hat OpenShift. The article also shows you how to set up a webhook in GitHub to trigger a new build in OpenShift every time you push a change to the repository.
 
 This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't use the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
 
@@ -22,7 +24,7 @@ This article uses the Azure Marketplace offer for JBoss EAP to accelerate your j
 
 - A local developer command line with a UNIX-like command environment - for example, Ubuntu, macOS, or Windows Subsystem for Linux - and Azure CLI installed. To learn how to install the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-- Ensure the Azure identity you use to sign in has either the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role and the [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role or the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md)
+- An Azure identity that you use to sign in that has either the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role and the [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role or the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md)
 
 [!INCLUDE [jboss-eap-aro-minimum-cores.md](./includes/jboss-eap-aro-minimum-cores.md)]
 
@@ -41,7 +43,22 @@ Use the following steps to create a service principal:
    az ad sp create-for-rbac --sdk-auth
    ```
 
-   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/create-service-principal-with-azure-cli.png" alt-text="Screenshot of Azure Cloud Shell that shows to create a service principal with Azure CLI." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/create-service-principal-with-azure-cli.png":::
+   This command produces output similar to the following example:
+
+   ```output
+   {
+     "clientID": <client-ID>,
+     "clientSecret": <client-secret>,
+     "subscriptionID": <subscription-ID>,
+     "tenantID": <tenant-ID>,
+     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+     "resourceManagerEndpointUrl": "https://management.azure.com/",
+     "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+     "galleryEndpointUrl": "https://gallery.azure.com/",
+     "managementEndpointUrl": "https://management.core.windows.net/"
+   }
+   ```
 
 1. Copy the value of the **clientId** and **clientSecret** fields. You use these values later in the deployment process.
 
@@ -49,7 +66,7 @@ Use the following steps to create a service principal:
 
 Use the following steps to fork the sample repo:
 
-1. Open the repository https://github.com/redhat-mw-demos/eap-on-aro-helloworld in your browser.
+1. Open the repository <https://github.com/redhat-mw-demos/eap-on-aro-helloworld> in your browser.
 1. Fork the repository to your GitHub account.
 1. Copy the URL of the forked repository.
 
@@ -95,8 +112,8 @@ The following steps show you how to fill out the **EAP Application** pane shown 
 
 1. Select **YES** for **Deploy an application to OpenShift using Source-to-Image (S2I)?**.
 1. For **Deploy your own application or a sample application?**, select **Your own application**.
-1. For **Application source code repository URL**, use the URL of the forked repository that you created in the [Fork repository from GitHub](#fork-repository-from-github) section.
-1. For **Red Hat Container Registry Service account username**, use  withthe username of the Red Hat Container Registry service account that you created in the [Create a Red Hat Container Registry service account](#create-a-red-hat-container-registry-service-account) section.
+1. For **Application source code repository URL**, use the URL of the forked repository that you created in the [Fork repository from GitHub](#fork-the-repository-on-github) section.
+1. For **Red Hat Container Registry Service account username**, use the username of the Red Hat Container Registry service account that you created in the [Create a Red Hat Container Registry service account](#create-a-red-hat-container-registry-service-account) section.
 1. For **Red Hat Container Registry Service account password**, use the password of the Red Hat Container Registry service account that you created in the [Create a Red Hat Container Registry service account](#create-a-red-hat-container-registry-service-account) section.
 1. For **Confirm password**, use the same value as in the previous step.
 1. Leave other fields with default values.
@@ -111,7 +128,7 @@ While you wait, you can set up the database.
 
 ## Verify the functionality of the deployment
 
-This section show you how to verify that the deployment completed successfully.
+This section shows you how to verify that the deployment completed successfully.
 
 If you navigated away from the **Deployment is in progress** page, use the following steps to get back to that page. If you're still on the page that shows **Your deployment is complete**, you can skip to step 5.
 
@@ -152,7 +169,7 @@ If you navigated away from the **Deployment is in progress** page, use the follo
 
 1. Paste the value from the **appEndpoint** field into an Internet-connected web browser, and then press <kbd>Enter</kbd>. You see the JBoss EAP application running on Azure Red Hat OpenShift, as shown in the following screenshot:
 
-   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application.png" alt-text="Screenshot of JBoss EAP application running on Azure Red Hat OpenShift." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application.png":::
+   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application.png" alt-text="Screenshot of the JBoss EAP application running on Azure Red Hat OpenShift." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application.png":::
 
 
 ## Set up webhooks with OpenShift
@@ -167,7 +184,7 @@ Use the following steps to get the webhook URL:
 1. Navigate to **Builds** > **BuildConfigs** > **eap-app-build-artifacts**.
 1. Select **Copy URL with Secret**, as shown in the following screenshot:
 
-   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-url.png" alt-text="Screenshot of how to copy the GitHub Webhook URL with Secret." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-url.png":::
+   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-url.png" alt-text="Screenshot of the Red Hat OpenShift cluster console portal BuildConfig details page with the Copy URL with Secret link highlighted." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-url.png":::
 
 ### Configure GitHub webhooks
 
@@ -179,10 +196,10 @@ Use the following steps to configure webhooks:
 1. Select **Add webhook**.
 1. Paste the **URL with Secret** value into the **Payload URL** field.
 1. Change the **Content type** value to **application/json**.
-1. In the **Which events would you like to trigger this webhook?** section, select **Just the push event**.
+1. For **Which events would you like to trigger this webhook?**, select **Just the push event**.
 1. Select **Add webhook**.
 
-   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-settings.png" alt-text="Screenshot of how to configure GitHub Webhook settings." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-settings.png":::
+   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-settings.png" alt-text="Screenshot of GitHub that shows the Settings tab and Webhooks pane." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/github-webhook-settings.png":::
 
 From now on, every time you push a change to the repository, the webhook triggers a new build in OpenShift.
 
@@ -196,7 +213,7 @@ Use the following steps to test the webhooks:
 1. Change the line 38 from `<h1 class="display-4">JBoss EAP on Azure Red Hat OpenShift</h1>` to `<h1 class="display-4">JBoss EAP on Azure Red Hat OpenShift - Updated - 01 </h1>`.
 1. Select **Commit changes**.
 
-After you commit the changes, the webhook triggers a new build in OpenShift. From Openshift Web Console, navigate to **Builds** > **Builds** to see a new build in **Running** status.
+After you commit the changes, the webhook triggers a new build in OpenShift. From the OpenShift Web Console, navigate to **Builds** > **Builds** to see a new build in **Running** status.
 
 ### Verify the update
 
@@ -207,7 +224,7 @@ Use the following steps to verify the update:
 
    You should see the updated message on the screen.
 
-   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application-with-updated-info.png" alt-text="Screenshot of the application with updated information." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application-with-updated-info.png":::
+   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application-with-updated-info.png" alt-text="Screenshot of the JBoss EAP sample application with updated information." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/jboss-eap-application-with-updated-info.png":::
 
 [!INCLUDE [jboss-eap-aro-cleanup](./includes/jboss-eap-aro-cleanup.md)]
 

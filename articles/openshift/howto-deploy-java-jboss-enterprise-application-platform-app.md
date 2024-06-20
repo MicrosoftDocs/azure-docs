@@ -1,11 +1,12 @@
 ---
 title: "Quickstart: JBoss EAP on Azure Red Hat OpenShift"
-description: Shows you how to quickly stand up Red Hat JBoss EAP on Azure Red Hat OpenShift.
+description: Shows you how to quickly set up Red Hat JBoss EAP on Azure Red Hat OpenShift using the Azure portal.
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 06/19/2024
+ms.date: 06/21/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
+#customer intent: As a developer, I want to learn how to deploy JBoss EAP on Azure Red Hat OpenShift quickly.
 ---
 
 # Quickstart: Deploy JBoss EAP on Azure Red Hat OpenShift
@@ -36,7 +37,7 @@ If you're interested in providing feedback or working closely on your migration 
   sudo apt install mysql-server
   ```
 
-- Ensure the Azure identity you use to sign in has either the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role and the [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role or the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md)
+- An Azure identity that you use to sign in that has either the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role and the [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) role or the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the current subscription. For an overview of Azure roles, see [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md)
 
 [!INCLUDE [jboss-eap-aro-minimum-cores.md](./includes/jboss-eap-aro-minimum-cores.md)]
 
@@ -65,7 +66,7 @@ Use the following steps to deploy a service principal and get its Application (c
 
 1. Save the Application (client) ID from the overview page, as shown in the following screenshot. Hover the pointer over the value, which is redacted in the screenshot, and select the copy icon that appears. The tooltip says **Copy to clipboard**. Be careful to copy the correct value, since the other values in that section also have copy icons. Save the Application ID to a file so you can use it later.
 
-   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/obtain-service-principal-client-id.png" alt-text="Screenshot of the Azure portal that shows service principal client ID." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/obtain-service-principal-client-id.png":::
+   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/obtain-service-principal-client-id.png" alt-text="Screenshot of the Azure portal that shows the Overview page with the Application (client) ID highlighted." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/obtain-service-principal-client-id.png":::
 
 1. Create a new client secret by following these steps:
 
@@ -102,7 +103,7 @@ The following steps show you how to find the offer and fill out the **Basics** p
 
 The following steps show you how to fill out the **ARO** pane shown in the following screenshot:
 
-:::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/configure-cluster.png" alt-text="Screenshot of the Azure portal that shows JBoss EAP on Azure Red Hat OpenShift ARO pane." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/configure-cluster.png":::
+:::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/configure-cluster.png" alt-text="Screenshot of the Azure portal that shows the JBoss EAP on Azure Red Hat OpenShift ARO pane." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/configure-cluster.png":::
 
 1. Under **Create a new cluster**, select **Yes**.
 
@@ -116,7 +117,7 @@ The following steps show you how to fill out the **ARO** pane shown in the follo
 
 The following steps show you how to fill out the **EAP Application** pane shown in the following screenshot, and then start the deployment.
 
-:::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application.png" alt-text="Screenshot of the Azure portal that shows JBoss EAP on Azure Red Hat OpenShift EAP Application pane." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application.png":::
+:::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application.png" alt-text="Screenshot of the Azure portal that shows the JBoss EAP on Azure Red Hat OpenShift EAP Application pane." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application.png":::
 
 1. Leave the default option of **No** for **Deploy an application to OpenShift using Source-to-Image (S2I)?**.
 
@@ -471,7 +472,7 @@ Next, use the following steps to create a secret:
 
 1. Paste the output into an Internet-connected web browser, and then press <kbd>Enter</kbd>. You should see the UI of **Java EE Cafe** app similar to the following screenshot:
 
-   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/javaee-cafe-ui.png" alt-text="Screenshot of Java EE Cafe app UI." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/javaee-cafe-ui.png":::
+   :::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/javaee-cafe-ui.png" alt-text="Screenshot of the Java EE Cafe sample app UI." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/javaee-cafe-ui.png":::
 
 1. Add and delete some rows to verify the database connectivity is correctly functioning.
 
