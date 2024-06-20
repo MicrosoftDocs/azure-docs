@@ -31,7 +31,6 @@ The Operator Nexus Platform offers a managed credential rotation process that au
 - Baseboard Management Controller (BMC)
 - Pure Storage Array Administrator
 - Console User for emergency access
-- etcd
 - Local path storage
 
 When a new Cluster is created, the credentials are automatically rotated during deployment. The managed credential process then automatically rotates these credentials every 60 days. The updated credentials are written to the key vault associated with the Cluster resource. The last rotation timestamps are currently not visible to users, but is a planned enhancement to the Operator Nexus Platform.
