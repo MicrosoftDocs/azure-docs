@@ -72,9 +72,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 > [!NOTE]
 > The Basic gateway SKU does not support IKEv2 or RADIUS authentication. If you plan on having Mac clients connect to your VNet, do not use the Basic SKU.
->
 
-[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
