@@ -251,7 +251,11 @@ To promote a cluster read replica to a read-write cluster, follow these steps:
 
 1. On the **Global distribution (preview)** page, select **Promote** on the toolbar to initiate read replica promotion to read-write cluster. 
 
+:::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote button.":::
+
 1. In the **Promote cluster** pop-up window, confirm that you understand how replica promotion works, and select **Promote**. Replica promotion might take a few minutes to complete.
+
+:::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion-confirmation.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote confirmation pop-up window.":::
 
 ### Write to promoted cluster replica
 
@@ -263,7 +267,7 @@ Go back to the MongoDB shell session for the promoted replica and perform a writ
 db.createCollection('foxes')
 ```
 
-Go beck to the MongoDB shell session for the former primary cluster to confirm that writes are now disabled.
+Go back to the MongoDB shell session for the former primary cluster to confirm that writes are now disabled.
 
 ```MongoDB Shell
 db.createCollection('bears')
