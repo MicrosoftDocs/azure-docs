@@ -15,7 +15,7 @@ Azure Operator Service Manager is an Azure service specifically designed to assi
 
 ## Technical overview
 
-Managing complex network services efficiently and reliably can be a challenge. Azure Operator Service Manager’s unique role-based approach introduces curated experiences for publishers, designers, and operators.  The following diagram illustrates the Azure Operator Service Manager (AOSM) deployment workflow.
+Managing complex network services efficiently and reliably can be a challenge. Azure Operator Service Manager’s unique role-based approach introduces curated experiences for publishers, designers, and operators. The following diagram illustrates the Azure Operator Service Manager (AOSM) deployment workflow.
 
 :::image type="content" source="media/overview-deployment-workflows.png" alt-text="Illustration that shows the Azure Operator Service Manager (AOSM) deployment workflow." lightbox="media/overview-deployment-workflows-lightbox.png":::
 
@@ -31,11 +31,11 @@ Azure Operator Service Manager is built to scale using the same underlying datab
 
 ### Telco-grade Security
 
-Azure Operator Service Manager works seamlessly with Azure security features including Private Link, embedded registries, artefact stores and secret management options to ensure that the operator has confidence that what is deployed matches what was on-boarded by each publisher.
+Azure Operator Service Manager works seamlessly with Azure security features including Private Link, embedded registries, artifact stores and secret management options to ensure that the operator has confidence that what is deployed matches what was on-boarded by each publisher.
 
 ### Automation and AI
 
-Accelerate your journey towards autonomous operations using Azure Operator Service Manager in combination with Azure DevOps for Continuous Integtation / Continuous Delivery (CICD) automation.  Go further with data-driven insights and actions derived from any Azure analytics and AI services, including Azure Operator Insights, Fabric, Azure Data Explorer (ADX), LogicApps, and Copilot.
+Accelerate your journey towards autonomous operations using Azure Operator Service Manager in combination with Azure DevOps for Continuous Integration / Continuous Delivery (CICD) automation.  Go further with data-driven insights and actions derived from any Azure analytics and AI services, including Azure Operator Insights, Fabric, Azure Data Explorer (ADX), LogicApps, and Copilot.
 
 ## Conclusion
 
