@@ -31,7 +31,7 @@ The following are examples of custom data:
 > [!IMPORTANT]
 > In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-This article uses the [Bruno] application, but you may use a different API development environment.
+This article uses the [Bruno] application, but you can use a different API development environment.
 
 > [!NOTE]
 > The examples in this article require an Azure Maps account in the Gen2 pricing tier.
@@ -136,7 +136,7 @@ Similarly, you can change, add, and remove other style modifiers.
 
 ## Add a traffic layer
 
-To get a static image with a traffic layer rendered on a roads basemap, use the `trafficLayer` parameter. The following example shows a map with a traffic layer as well as a pin with a label:
+To get a static image with a traffic layer rendered on a roads basemap, use the `trafficLayer` parameter. The following example shows a map with a traffic layer and a pin with a label:
 
 1. In the Bruno app, select **New Request**.
 
@@ -190,7 +190,7 @@ For more information the different styles available using the TilesetId paramete
 
 ## Create a map using the imagery style
 
-To get a static image with the imagery style appplied, set the `TilesetId` parameter to `microsoft.imagery`:
+To get a static image with the imagery style applied, set the `TilesetId` parameter to `microsoft.imagery`:
 
 1. In the Bruno app, select **New Request**.
 
