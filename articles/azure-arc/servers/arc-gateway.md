@@ -1,7 +1,7 @@
 ---
 title: How to simplify network configuration requirements through Azure Arc gateway (Limited preview)
 description: Learn how to simplify network configuration requirements through Azure Arc gateway (Limited preview).
-ms.date: 06/14/2024
+ms.date: 06/20/2024
 ms.topic: how-to
 ---
 
@@ -42,9 +42,9 @@ Azure Arc gateway consists of two main components:
 
 **The Arc gateway resource:** An Azure resource that serves as a common front-end for Azure traffic. This gateway resource is served on a specific domain. Once the Arc gateway resource is created, the domain is returned to you in the success response.
 
-**The gateway router:** A new component added to Arc agentry. This component runs as a service called "Azure Arc Proxy" and acts as a forward proxy used by the Azure Arc agents and extensions. No configuration is required on your part for the gateway router. This router is part of Arc core agentry and runs within the context of an Arc-enabled resource.
+**The Arc Proxy:** A new component added to Arc agentry. This component runs as a service called "Azure Arc Proxy" and acts as a forward proxy used by the Azure Arc agents and extensions. No configuration is required on your part for the gateway router. This router is part of Arc core agentry and runs within the context of an Arc-enabled resource.
 
-When the gateway is in place, traffic flows via the following hops: **Arc agentry → gateway router → Enterprise proxy → Arc gateway  → Target service**
+When the gateway is in place, traffic flows via the following hops: **Arc agentry → Arc Proxy → Enterprise proxy → Arc gateway  → Target service**
 
 :::image type="content" source="media/arc-gateway/arc-gateway-overview.png" alt-text="Diagram showing the route of traffic flow for Azure Arc gateway.":::
 
@@ -236,9 +236,9 @@ For **Microsoft Defender for Endpoint**, run the following command:
 
 `mdatp config proxy set --value http://127.0.0.1:403` 
 
-## Delete an Arc gateway resource
+## Cleanup instructions
 
-To delete an Arc gateway resource, detach the resource from the applicable server(s); the resource can then be deleted safely:
+To clean up your gateway, detach the gateway resource from the applicable server(s); the resource can then be deleted safely:
 
 1. Set the connection type of the Azure Arc-enabled server to "direct" instead of "gateway":  
 
