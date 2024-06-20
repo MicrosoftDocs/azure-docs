@@ -1,7 +1,7 @@
 ---
 title: Best practices for using Azure OpenAI On Your Data
 titleSuffix: Azure OpenAI Service
-description: Learn about the best practices for using Azure OpenAI On Your Data.
+description: Learn about the best practices for using Azure OpenAI On Your Data, along with how to fix common problems.
 ms.service: azure-ai-openai
 ms.topic: conceptual
 ms.date: 04/08/2024
@@ -20,13 +20,13 @@ This article can help guide you through the common problems in developing a solu
 
 The workflow for Azure OpenAI On Your Data has two major parts:
 
-* **Data ingestion**: This is the stage where you connect your data with Azure OpenAI On Your Data. In this stage, user documents are processed and broken down into smaller chunks (1,024 tokens by default, but there are more chunking options available) and then indexed.
+* **Data ingestion**: This is the stage where you connect your data with Azure OpenAI On Your Data. In this stage, user documents are processed and broken down into smaller chunks and then indexed. The chunks are 1,024 tokens by default, but more chunking options are available.
 
-  This is the stage where you can choose an embedding model to use for creation of embeddings or preferred search type. Embeddings are representations of values or objects (like text, images, and audio) that are designed to be consumed by machine learning models and semantic search algorithms.
+  Also in this stage, you can choose an embedding model to use for creation of embeddings or preferred search type. Embeddings are representations of values or objects (like text, images, and audio) that are designed to be consumed by machine learning models and semantic search algorithms.
   
-  The output of this process is an index that will later be used to retrieve documents from during inference.
+  The output of this process is an index that will later be used for retrieving documents during inference.
 
-* **Inferencing**: This is the stage where users chat with their data by using a studio, deployed web app, or direct API calls. In this stage, users can set various model parameters (such as `temperature`, or `top_P` ) and system parameters (such as `strictness` and `topNDocuments`).
+* **Inferencing**: This is the stage where users chat with their data by using a studio, a deployed web app, or direct API calls. In this stage, users can set various model parameters (such as `temperature` and `top_P` ) and system parameters (such as `strictness` and `topNDocuments`).
 
 Think of ingestion as a separate process before inferencing. After the index is created, Azure OpenAI On Your Data goes through the following steps to generate a good response to user questions:
 
@@ -34,8 +34,8 @@ Think of ingestion as a separate process before inferencing. After the index is 
 2. **Retrieval**: By using the search type provided during the ingestion, Azure OpenAI On Your Data retrieves a list of relevant document chunks that correspond to each of the search intents.
 3. **Filtration**: Azure OpenAI On Your Data uses the strictness setting to filter out the retrieved documents that are considered irrelevant according to the strictness threshold. The `strictness` parameter controls how aggressive the filtration is.
 4. **Re-ranking**: Azure OpenAI On Your Data re-ranks the remaining document chunks retrieved for each of the search intents. The purpose of re-ranking is to produce a combined list of the most relevant documents retrieved for all search intents.
-5. **TopNDocuments**: The `topNDocuments` parameter from this reranked list is included in the prompt sent to the model, along with the question, the conversation history, and the role information/system message.
-6. **Response Generation**: The model uses the provided context to generate the final response along with citations.
+5. **Parameter inclusion**: The `topNDocuments` parameter from the re-ranked list is included in the prompt sent to the model, along with the question, the conversation history, and the role information or system message.
+6. **Response generation**: The model uses the provided context to generate the final response along with citations.
 
 ## How to structure debugging investigation
 
@@ -45,7 +45,7 @@ When you see an unfavorable response to a query, it might be the result of diffe
 
 Use the REST API to check if the correct document chunks are present in the retrieved documents. In the API response, check the citations in the `tool` message.
 
-### Step 2: Check for generation problem
+### Step 2: Check for generation problems
 
 If the correct document chunks appear in the retrieved documents, you're likely encountering a problem with content generation. Consider using a more powerful model through one of these methods:
 
@@ -56,76 +56,78 @@ You can also tune the finer aspects of the response by changing the role informa
 
 ### Step 3: Check the rest of the funnel
 
-If the correct document chunks don't appear in the retrieved documents, you need to dig further down the funnel:
+If the correct document chunks don't appear in the retrieved documents, you need to dig farther down the funnel:
 
-* It's possible that a correct document chunk was retrieved but was filtered out based on `strictness`. In this case, try reducing the `strictness` parameter.
+* It's possible that a correct document chunk was retrieved but was filtered out based on strictness. In this case, try reducing the `strictness` parameter.
 
-* It's possible that a correct document chunk wasn't part of the `topNDocuments` paramater. In this case, increase the parameter.
+* It's possible that a correct document chunk wasn't part of the `topNDocuments` parameter. In this case, increase the parameter.
 
-* It's possible that your index fields are not correctly mapped, so retrieval might not work well. This mapping is particularly relevant if you're using a pre-existing data source (that is, you didn't create the index by using the studio or offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). For more information on mapping index fields, see the [how-to article](../concepts/use-your-data.md?tabs=ai-search#index-field-mapping).
+* It's possible that your index fields are incorrectly mapped, so retrieval might not work well. This mapping is particularly relevant if you're using a pre-existing data source. (That is, you didn't create the index by using the studio or offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts).) For more information on mapping index fields, see the [how-to article](../concepts/use-your-data.md?tabs=ai-search#index-field-mapping).
 
 * It's possible that the intent generation step isn't working well. In the API response, check the `intents` fields in the `tool` message.
 
-   Some models are known to not work well for intent generation. For example, if you're using the `GPT-35-turbo-1106` model version, consider using a later model, such as `gpt-35-turbo` (0125) or `GPT-4-1106-preview`.
+   Some models don't work well for intent generation. For example, if you're using the `GPT-35-turbo-1106` model version, consider using a later model, such as `gpt-35-turbo` (0125) or `GPT-4-1106-preview`.
 
-* Do you have semistructured data in your documents, such as numerous tables? There might be an ingestion problem. Your data might need special handling during ingestion:
+* Do you have semistructured data in your documents, such as numerous tables? There might be an ingestion problem. Your data might need special handling during ingestion.
 
-  * If the file format is PDF, we offer optimized ingestion for tables using the offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). to use the scripts, you need to have a [Document Intelligence](../../document-intelligence/overview.md) resource and use the `Layout` [model](../../document-intelligence/concept-layout.md). You can also:
-  * Adjust your chunk size to make sure your largest table fits within the specified [chunk size](../concepts/use-your-data.md#chunk-size-preview).
+  * If the file format is PDF, we offer optimized ingestion for tables by using the offline scripts available on [GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts). To use the scripts, you need to have a [Document Intelligence](../../document-intelligence/overview.md) resource and use the [layout model](../../document-intelligence/concept-layout.md).
+  
+  * You can adjust your [chunk size](../concepts/use-your-data.md#chunk-size-preview) to make sure your largest table fits within it.
 
-* Are you converting a semistructured data type such as json/xml to a PDF document? This might cause an **ingestion issue** because structured information needs a chunking strategy that is different from purely text content.
+* Are you converting a semistructured data type, such as JSON or XML, to a PDF document? This conversion might cause an ingestion problem because structured information needs a chunking strategy that's different from purely text content.
 
-* If none of the above apply, you might be encountering a **retrieval issue**. Consider using a more powerful `query_type`. Based on our benchmarking, `semantic` and `vectorSemanticHybrid` are preferred.
+* If none of the preceding items apply, you might be encountering a retrieval problem. Consider using a more powerful `query_type` value. Based on our benchmarking, `semantic` and `vectorSemanticHybrid` are preferred.
 
 ## Common problems
 
-**Issue 1**: _The model responds with "The requested information isn't present in the retrieved documents. Please try a different query or topic" even though that's not the case._
+The following sections list possible solutions to problems that you might encounter when you're developing a solution by using Azure OpenAI Service On Your Data.
 
-See [Step 3](#step-3-check-the-rest-of-the-funnel) in the above debugging process.
+### The information is correct, but the model responds with "The requested information isn't present in the retrieved documents. Please try a different query or topic."
 
-**Issue 2**: _The response is from my data, but it isn't relevant/correct in the context of the question._
+See [step 3](#step-3-check-the-rest-of-the-funnel) in the preceding debugging process.
 
-See the debugging process starting at [Step 1](#step-1-check-for-retrieval-issues).
+### A response is from your data, but it isn't relevant or correct in the context of the question
 
-**Issue 3**: _The role information / system message isn't being followed by the model._
+See the preceding debugging process, starting at [step 1](#step-1-check-for-retrieval-problems).
 
-* Instructions in the role information might contradict with our [Responsible AI guidelines](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext), in which case it won't likely be followed.
+### The model isn't following the role information or system message
 
-* For each model, there is an implicit token limit for the role information, beyond which it is truncated. Ensure your role information follows the established [limits](../concepts/use-your-data.md#token-usage-estimation-for-azure-openai-on-your-data).
+* Make sure that instructions in the role information are consistent with the [Responsible AI guidelines](/legal/cognitive-services/openai/overview?context=%2Fazure%2Fai-services%2Fopenai%2Fcontext%2Fcontext). The model likely won't follow role information if it contradicts those guidelines.
 
-* A prompt engineering technique you can use is to repeat an important instruction at the end of the prompt. Surrounding the important instruction with `**` on both side of it can also help.
+* Ensure that your role information follows the [established limits](../concepts/use-your-data.md#token-usage-estimation-for-azure-openai-on-your-data) for it. Each model has an implicit token limit for the role information. Beyond that limit, the information is truncated.
 
-* Upgrade to a newer GPT-4 model as it's likely to follow your instructions better than GPT-35.
+* Use the prompt engineering technique of repeating an important instruction at the end of the prompt. Putting a double asterisk (`**`) on both sides of the important information can also help.
 
-**Issue 4**: _There are inconsistencies in responses._
+* Upgrade to a newer GPT-4 model, because it's likely to follow your instructions better than GPT-3.5.
 
-* Ensure you're using a low `temperature`. We recommend setting it to `0`.
+### Responses have inconsistencies
 
-* Although the question is the same, the conversation history gets added to the context and affects how the model responds to same question over a long session.
+* Ensure that you're using a low `temperature` value. We recommend setting it to `0`.
 
-* Using the REST API, check if the search intents generated are the same both times or not. If they are very different, try a more powerful model such as GPT-4 to see if the problem is affected by the chosen model.
+* By using the REST API, check if the generated search intents are the same both times. If the intents are different, try a more powerful model such as GPT-4 to see if the chosen model affects the problem. If the intents are the same or similar, try reducing `strictness` or increasing `topNDocuments`.
 
-* If the intents are same or similar, try reducing `strictness` or increasing `topNDocuments`.
+> [!NOTE]
+> Although the question is the same, the conversation history is added to the context and affects how the model responds to the same question over a long session.
 
-**Issue 5**: _Intents are empty or wrong._
+### Intents are empty or wrong
 
-* Refer to [Step 3](#step-3-check-the-rest-of-the-funnel) in the above debugging process.
+* Refer to [Step 3](#step-3-check-the-rest-of-the-funnel) in the preceding debugging process.
 
-* If intents are irrelevant, the issue might be that the intent generation step lacks context. It only considers the user question and conversation history. It does not look at the role information or the document chunks. You might want to consider adding a prefix to each user question with a short context string to help the intent generation step.
+* If intents are irrelevant, the problem might be that the intent generation step lacks context. Intent generation considers only the user question and conversation history. It doesn't consider the role information or the document chunks. You might consider adding a prefix to each user question with a short context string to help the intent generation step.
 
-**Issue 6**: _I have set inScope=true or checked "Restrict responses to my data" but it still responds to Out-Of-Domain questions._
+### You set inScope=true or selected the checkbox for restricting responses to data, but the model still responds to out-of-domain questions
 
 * Consider increasing `strictness`.
 
-* Add the following instruction in your role information / system message:
+* Add the following instruction in your role information or system message:
 
-  "You are also allowed to respond to questions based on the retrieved documents."
-* The `inscope` parameter isn't a hard switch, but setting it to `true` encourages the model to stay restricted.
+  `You are also allowed to respond to questions based on the retrieved documents.`
+* Set the `inScope` parameter to `true`. The parameter isn't a hard switch, but setting it to `true` encourages the model to stay restricted.
 
-**Issue 7**: _The response is correct but occasionally missing document references/citations._
+### A response is correct but is occasionally missing document references or citations
 
 * Consider upgrading to a GPT-4 model if you're already not using it. GPT-4 is generally more consistent with citation generation.
 
-* You can try to emphasize citation generation in the response by adding `**You must generate citation based on the retrieved documents in the response**` in the role information.
+* Try to emphasize citation generation in the response by adding `You must generate citation based on the retrieved documents in the response` in the role information.
 
-* Or you can add a prefix in the user query `**You must generate citation to the retrieved documents in the response to the user question \n User Question: {actual user question}**`
+* Try adding a prefix in the user query `You must generate citation to the retrieved documents in the response to the user question \n User Question: {actual user question}`.
