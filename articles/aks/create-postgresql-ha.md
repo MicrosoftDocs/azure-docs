@@ -19,41 +19,41 @@ In this article, you create the infrastructure needed to deploy a highly availab
 * [Install the required extensions](#install-required-extensions).
 ### Set environment variables
 
-* Set the following environment variables for use throughout this guide:
+Set the following environment variables for use throughout this guide:
 
-    ```azurecli-interactive
-    export SUFFIX=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
-    export LOCAL_NAME="cnpg"
-    export TAGS="owner=user"
-    export RESOURCE_GROUP_NAME="rg-${LOCAL_NAME}-${SUFFIX}"
-    export PRIMARY_CLUSTER_REGION="eastus"
-    export AKS_PRIMARY_CLUSTER_NAME="aks-primary-${LOCAL_NAME}-${SUFFIX}"
-    export AKS_PRIMARY_MANAGED_RG_NAME="rg-${LOCAL_NAME}-primary-aksmanaged-${SUFFIX}"
-    export AKS_PRIMARY_CLUSTER_FED_CREDENTIAL_NAME="pg-primary-fedcred1-${LOCAL_NAME}-${SUFFIX}"
-    export AKS_PRIMARY_CLUSTER_PG_DNSPREFIX=$(echo $(echo "a$(openssl rand -hex 5 | cut -c1-11)"))
-    export AKS_UAMI_CLUSTER_IDENTITY_NAME="mi-aks-${LOCAL_NAME}-${SUFFIX}"
-    export AKS_CLUSTER_VERSION="1.27"
-    export PG_NAMESPACE="cnpg-database"
-    export PG_SYSTEM_NAMESPACE="cnpg-system"
-    export PG_PRIMARY_CLUSTER_NAME="pg-primary-${LOCAL_NAME}-${SUFFIX}"
-    export PG_PRIMARY_STORAGE_ACCOUNT_NAME="hacnpgpsa${SUFFIX}"
-    export PG_STORAGE_BACKUP_CONTAINER_NAME="backups"
-    export ENABLE_AZURE_PVC_UPDATES="true"
-    export MY_PUBLIC_CLIENT_IP=$(dig +short myip.opendns.com @resolver3.opendns.com)
-    ```
+azurecli-interactive
+export SUFFIX=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
+export LOCAL_NAME="cnpg"
+export TAGS="owner=user"
+export RESOURCE_GROUP_NAME="rg-${LOCAL_NAME}-${SUFFIX}"
+export PRIMARY_CLUSTER_REGION="eastus"
+export AKS_PRIMARY_CLUSTER_NAME="aks-primary-${LOCAL_NAME}-${SUFFIX}"
+export AKS_PRIMARY_MANAGED_RG_NAME="rg-${LOCAL_NAME}-primary-aksmanaged-${SUFFIX}"
+export AKS_PRIMARY_CLUSTER_FED_CREDENTIAL_NAME="pg-primary-fedcred1-${LOCAL_NAME}-${SUFFIX}"
+export AKS_PRIMARY_CLUSTER_PG_DNSPREFIX=$(echo $(echo "a$(openssl rand -hex 5 | cut -c1-11)"))
+export AKS_UAMI_CLUSTER_IDENTITY_NAME="mi-aks-${LOCAL_NAME}-${SUFFIX}"
+export AKS_CLUSTER_VERSION="1.27"
+export PG_NAMESPACE="cnpg-database"
+export PG_SYSTEM_NAMESPACE="cnpg-system"
+export PG_PRIMARY_CLUSTER_NAME="pg-primary-${LOCAL_NAME}-${SUFFIX}"
+export PG_PRIMARY_STORAGE_ACCOUNT_NAME="hacnpgpsa${SUFFIX}"
+export PG_STORAGE_BACKUP_CONTAINER_NAME="backups"
+export ENABLE_AZURE_PVC_UPDATES="true"
+export MY_PUBLIC_CLIENT_IP=$(dig +short myip.opendns.com @resolver3.opendns.com)
+```
 
 ### Install required extensions
 
 Install the following extensions using the [`az extension add`][az-extension-add] command to provide more functionality to the Azure CLI for managing Kubernetes clusters and querying Azure resources using the resource graph:
 
-    ```azurecli-interactive
-    az extension add --upgrade --name k8s-extension --yes --allow-preview false
-    az extension add --upgrade --name amg --yes --allow-preview false
-    ```
+```azurecli-interactive
+az extension add --upgrade --name k8s-extension --yes --allow-preview false
+az extension add --upgrade --name amg --yes --allow-preview false
+```
 
 ## Create a resource group
 
-* Create a resource group for the resources you'll create in this guide using the [`az group create`][az-group-create] command.
+Create a resource group for the resources you'll create in this guide using the [`az group create`][az-group-create] command.
 
     ```azurecli-interactive
     az group create \
@@ -77,7 +77,7 @@ In this section, you create a user assigned managed identity (UAMI) to allow the
         --output json)
     ```
 
-2. Use the following commands to enable AKS workload identity and generate a service account to use later in this guide:
+1. Use the following commands to enable AKS workload identity and generate a service account to use later in this guide:
 
     ```azurecli-interactive
     export AKS_UAMI_WORKLOAD_OBJECTID=$( \
@@ -111,7 +111,7 @@ The CNPG operator automatically generates a service account called *postgres* th
       --output tsv
       ````
 
-2. Create the storage container to store the Write Ahead Logs (WAL) and regular Postgres on-demand and scheduled backups using the [`az storage container create`][az-storage-container-create] command.
+1. Create the storage container to store the Write Ahead Logs (WAL) and regular Postgres on-demand and scheduled backups using the [`az storage container create`][az-storage-container-create] command.
 
     ```azurecli-interactive
     az storage container create \
@@ -136,7 +136,7 @@ To enable backups, the Postgres cluster needs to read and write to an object sto
     echo $STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID
     ````
 
-2. Assign the built-in Azure RBAC Role "Storage Blob Data Contributor" to the object ID using the storage account resource ID scope for the UAMI associated with the managed identity for each AKS cluster using the [`az role assignment create`][az-role-assignment-create] command.
+1. Assign the built-in Azure RBAC Role "Storage Blob Data Contributor" to the object ID using the storage account resource ID scope for the UAMI associated with the managed identity for each AKS cluster using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create \
@@ -171,7 +171,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     echo $GRAFANA_RESOURCE_ID
     ```
 
-2. Create an Azure Monitor workspace using the [`az monitor account create`][az-monitor-account-create] command.
+1. Create an Azure Monitor workspace using the [`az monitor account create`][az-monitor-account-create] command.
 
     ```azurecli-interactive
     export AMW_PRIMARY="amw-${LOCAL_NAME}-${SUFFIX}"
@@ -186,7 +186,7 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     echo $AMW_RESOURCE_ID
     ```
 
-3. Create an Azure Monitor Log Analytics workspace using the [`az monitor log-analytics workspace create`][az-monitor-log-analytics-workspace-create] command.
+1. Create an Azure Monitor Log Analytics workspace using the [`az monitor log-analytics workspace create`][az-monitor-log-analytics-workspace-create] command.
 
     ```azurecli-interactive
     export ALA_PRIMARY="ala-${LOCAL_NAME}-${SUFFIX}"
@@ -236,7 +236,7 @@ You also add a user node pool to the AKS cluster to host the Postgres cluster. U
         --zones 1 2 3
     ```
 
-2. Add a user node pool to the AKS cluster using the [`az aks nodepool add`][az-aks-node-pool-add] command.
+1. Add a user node pool to the AKS cluster using the [`az aks nodepool add`][az-aks-node-pool-add] command.
 
     ```azurecli-interactive
     az aks nodepool add \
@@ -264,7 +264,7 @@ In this section, you get the AKS cluster credentials, which serve as the keys th
         --name $AKS_PRIMARY_CLUSTER_NAME
      ```      
 
-2. Create the namespace for the CNPG controller manager services and the Postgres cluster and its related services using the [`kubectl create namespace`][kubectl-create-namespace] command.
+1. Create the namespace for the CNPG controller manager services and the Postgres cluster and its related services using the [`kubectl create namespace`][kubectl-create-namespace] command.
 
     ```azurecli-interactive
     kubectl create namespace $PG_NAMESPACE --context $AKS_PRIMARY_CLUSTER_NAME
@@ -285,7 +285,7 @@ The Azure Monitor workspace for Managed Prometheus and Azure Managed Grafana are
         --workspace-resource-id $ALA_RESOURCE_ID
     ```
 
-2. Validate that Managed Prometheus is scraping metrics and Container insights is ingesting logs from the AKS cluster by inspecting the DaemonSet using the [`kubectl get`][kubectl-get] command and the [`az aks show`][az-aks-show] command.
+1. Validate that Managed Prometheus is scraping metrics and Container insights is ingesting logs from the AKS cluster by inspecting the DaemonSet using the [`kubectl get`][kubectl-get] command and the [`az aks show`][az-aks-show] command.
 
     ```azurecli-interactive
     kubectl get ds ama-metrics-node \
@@ -339,7 +339,7 @@ To validate deployment of the Postgres cluster and use client Postgres tooling, 
     echo $AKS_PRIMARY_CLUSTER_NODERG_NAME
     ```
 
-2. Create the public IP address using the [`az network public-ip create`][az-network-public-ip-create] command.
+1. Create the public IP address using the [`az network public-ip create`][az-network-public-ip-create] command.
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_PUBLICIP_NAME="$AKS_PRIMARY_CLUSTER_NAME-pip"
@@ -352,7 +352,7 @@ To validate deployment of the Postgres cluster and use client Postgres tooling, 
         --allocation-method static
     ```
 
-3. Get the newly created public IP address using the [`az network public-ip show`][az-network-public-ip-show] command.
+1. Get the newly created public IP address using the [`az network public-ip show`][az-network-public-ip-show] command.
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_PUBLICIP_ADDRESS=$(az network public-ip show \
@@ -364,7 +364,7 @@ To validate deployment of the Postgres cluster and use client Postgres tooling, 
     echo $AKS_PRIMARY_CLUSTER_PUBLICIP_ADDRESS
     ```
 
-4. Get the resource ID of the node resource group using the [`az group show`][az-group-show] command.
+1. Get the resource ID of the node resource group using the [`az group show`][az-group-show] command.
 
     ```azurecli-interactive
     export AKS_PRIMARY_CLUSTER_NODERG_NAME_SCOPE=$(az group show --name \
@@ -375,7 +375,7 @@ To validate deployment of the Postgres cluster and use client Postgres tooling, 
     echo $AKS_PRIMARY_CLUSTER_NODERG_NAME_SCOPE
     ```
 
-5. Assign the "Network Contributor" role to the UAMI object ID using the node resource group scope using the [`az role assignment create`][az-role-assignment-create] command.
+1. Assign the "Network Contributor" role to the UAMI object ID using the node resource group scope using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     az role assignment create \
@@ -397,7 +397,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
     helm repo add cnpg https://cloudnative-pg.github.io/charts
     ```
 
-2. Upgrade the CNPG Helm repo and install it on the AKS cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
+1. Upgrade the CNPG Helm repo and install it on the AKS cluster using the [`helm upgrade`][helm-upgrade] command with the `--install` flag.
 
     ```azurecli-interactive
     helm upgrade --install cnpg \
@@ -407,7 +407,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
       cnpg/cloudnative-pg
     ```
 
-3. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
+1. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get deployment \
@@ -426,7 +426,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
         https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.23/releases/cnpg-1.23.1.yaml
     ```
 
-2. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
+1. Verify the operator installation on the AKS cluster using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get deployment \

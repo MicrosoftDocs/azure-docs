@@ -432,7 +432,7 @@ In this section, you create a table and insert some data into the app database t
     kubectl describe scheduledbackup $BACKUP_SCHEDULED_NAME --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
     ```
 
-8. View the backup files stored on Azure blob storage for the primary cluster using the [`az storage blog list`][az-storage-blob-list] command.
+8. View the backup files stored on Azure blob storage for the primary cluster using the [`az storage blob list`][az-storage-blob-list] command.
 
     ```azurecli-interactive
     az storage blob list --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME --container-name backups --query "[*].name" --only-show-errors 
