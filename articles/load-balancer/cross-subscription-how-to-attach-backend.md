@@ -48,7 +48,7 @@ $LB = New-AzLoadBalancer @loadbalancer
 
 $LBinfo = @{
     ResourceGroupName = 'resource group B'
-    Name = 'my-lb’
+    Name = 'my-lb'
 }
 
 # Create a public IP address
