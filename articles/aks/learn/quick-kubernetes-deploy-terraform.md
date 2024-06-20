@@ -49,7 +49,12 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 First, log into your Azure account and authenticate using one of the methods described in the following section.
 
-[!INCLUDE [authenticate-to-azure.md](~/azure-dev-docs-pr/articles/terraform/includes/authenticate-to-azure.md)]
+Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure using the Azure CLI.
+
+- [Authenticate with a Microsoft account using Cloud Shell (with Bash or PowerShell](./authenticate-to-azure-with-microsoft-account.md)
+- [Authenticate with a Microsoft account using Windows (with Bash or PowerShell](./authenticate-to-azure-with-microsoft-account.md)
+- [Authenticate with a service principal](./authenticate-to-azure-with-service-principle.md)
+- [Authenticate with a managed identity for Azure services](./authenticate-to-azure-with-managed-identity-for-azure-services.md)
 
 ## Implement the Terraform code
 
