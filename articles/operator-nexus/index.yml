@@ -105,7 +105,7 @@ landingContent:
            - text: List of metrics collected
              url: List-of-metrics-collected.md
            - text: List of logs available
-             url: list-of-logs-available.md
+             url: list-logs-available.md
            - text: Near-edge Compute
              url: reference-near-edge-compute.md
            - text: Near-edge BMM roles

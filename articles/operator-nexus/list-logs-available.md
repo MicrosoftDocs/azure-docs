@@ -1,6 +1,6 @@
 ---
 title: List of logs available in Azure Operator Nexus
-description: List of logs available in Azure Operator Nexus.
+description: List of logs available in Azure Operator Nexus for streaming to customer's subscription by creating diagnostic settings.
 author: neilverse
 ms.author: soumyamaitra
 ms.service: azure-operator-nexus
@@ -15,21 +15,21 @@ Logs emitted by Nexus Resources provide insight in the detailed operations of Ne
 
 ## Nexus Cluster
 
-| Log Categories              | Description                              |
+| Log categories              | Description                              |
 |-----------------------|:-----------------------------------------|
 | Kubernetes Logs       | Logs emitted by the Kubernetes containers|
 | VM Orchestration Logs | Logs emitted by the hypervisor service   |
 
 ## Bare metal servers
 
-| Log Categories      | Categories | Description |
+| Log categories      | Categories | Description |
 |-------------|:--------------|:--------------|
 | System | Debug, Info, Notice, Warning, Error, Critical | System logs from the Bare metal server |
 | Security | Debug, Info, Notice, Warning, Error, Critical, Defender, BreakGlass Audit | Security logs from the Bare metal server |
 
 ## Storage appliance
 
-| Log Categories      | Description |
+| Log categories      | Description |
 |-------------|:--------------|
 | Storage Appliance logs | System Logs from Storage Appliance |
 | Storage Appliance audits | Audit Logs from Storage Appliance |
@@ -37,7 +37,7 @@ Logs emitted by Nexus Resources provide insight in the detailed operations of Ne
 
 ## Cluster Manager
 
-| Log Categories      | Description |
+| Log categories      | Description |
 |-------------|:--------------|
 | Cluster Manager Deploy or Upgrade Logs | Logs emitted during the deployment or upgrade of the Cluster from Cluster Manager |
 

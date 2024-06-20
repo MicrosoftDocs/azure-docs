@@ -298,7 +298,7 @@
     - name: List of metrics collected
       href: List-of-metrics-collected.md
     - name: List of logs available for streaming
-      href: list-of-logs-available.md
+      href: list-logs-available.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
     - name: BareMetal Machine roles
