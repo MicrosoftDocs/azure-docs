@@ -21,7 +21,6 @@ Adding or editing scaling rules creates a new revision of your container app. A 
 
 ## Scale definition
 
-
 Scaling is the combination of limits, rules, and behavior.
 
 - **Limits** define the minimum and maximum possible number of replicas per revision as your container app scales.
