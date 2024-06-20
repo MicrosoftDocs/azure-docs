@@ -105,7 +105,7 @@ UI Library supports CallKit Integration to handle interaction with CallKit for c
 
 ### Telecom Manager support
 
-UI Library supports Telecom Manager Integration to handle interaction with calls. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecom-manager.md)
+The UI Library now supports integration with the Telecom Manager, allowing for handling of call hold and resume functions. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecom-manager.md)
 
 ### One-to-one call and PUSH notification support
 
