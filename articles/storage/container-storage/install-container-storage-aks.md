@@ -223,8 +223,10 @@ Congratulations, you've successfully installed Azure Container Storage. You now 
 
 ## Next step
 
-Now you can create a storage pool and persistent volume claim, and then deploy a pod and attach a persistent volume. Follow the steps in the appropriate how-to article.
+Now you can create a storage pool and volumes. Follow the steps in the appropriate article depending on the backing storage type you want to use.
 
-* [Use Azure Container Storage with Azure Elastic SAN](use-container-storage-with-elastic-san.md)
-* [Use Azure Container Storage with Azure Disks](use-container-storage-with-managed-disks.md)
-* [Use Azure Container Storage with Ephemeral Disk (local NVMe or temp SSD)](use-container-storage-with-local-disk.md)
+- [Use Azure managed disks](use-container-storage-with-managed-disks.md)
+- [Use Azure Elastic SAN](use-container-storage-with-elastic-san.md)
+- [Use local NVMe](use-container-storage-with-local-disk.md)
+- [Use temp SSD](use-container-storage-with-temp-ssd.md)
+- [Use local NVMe and volume replication](use-container-storage-with-local-nvme-replication.md)
