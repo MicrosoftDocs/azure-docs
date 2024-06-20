@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Create an Azure private DNS zone using the Azure portal
-description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
+description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
 services: dns
 author: greg-lindsay
 ms.author: greglin
@@ -13,18 +13,23 @@ ms.custom: mode-ui
 
 # Quickstart: Create an Azure private DNS zone using the Azure portal
 
-This quickstart walks you through the steps to create your first private DNS zone and record using the Azure portal.
+This quickstart walks you through the steps to create your first private DNS zone and record using the Azure portal. 
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your private domain in Azure Private DNS, you need to create a DNS zone for that domain name. All the DNS records for your domain is then created inside this DNS zone. 
-
-To can enable devices on a virtual network to resolve DNS records in a private DNS zone by linking the private zone to a virtual network. This is called a *virtual network link*. For more information, see [What is a virtual network link](private-dns-virtual-network-links.md). 
-
-When you create a virtual network link, you can optionally enable autoregistration of DNS records for devices in the virtual network. If autoregistration is enabled, Azure private DNS updates the private DNS records whenever a virtual machine inside that virtual network is created, changes its IP address, or is deleted. For more informatio, see [What is the autoregistration feature in Azure DNS private zones](private-dns-autoregistration.md).
+A DNS zone is used to host the DNS records for a particular domain. Public DNS zones have unique names and are visible on the Internet. However, a private DNS zone name must only be unique within its resource group and the DNS records are not visible on the Internet. To start hosting your private domain in Azure Private DNS, you first need to create a DNS zone for that domain name. Next, the DNS records for your private domain are created inside this DNS zone. 
 
 > [!IMPORTANT]
-> When you create a private DNS zone, Azure stores the zone data as a global resource. This means that the private zone is not dependent on a single VNet or region. You can link the same private zone to multiple VNets in different regions. If service is interrupted in one VNet, your private zone is still available. For more information, see [Azure Private DNS zone resiliency](private-dns-resiliency.md). 
+> When you create a private DNS zone, Azure stores the zone data as a global resource. This means that the private zone isn't dependent on a single virtual network or region. You can link the same private zone to multiple virtual networks in different regions. If service is interrupted in one virtual network, your private zone is still available. For more information, see [Azure Private DNS zone resiliency](private-dns-resiliency.md). 
 
-In this article, two VMs are used in a single VNet linked to your private DNS zone with autoregistration enabled. The setup is summarized in the following figure.
+## Virtual private links
+
+To resolve DNS records in a private DNS zone, resources must typically be *linked* to the private zone. Linking is accomplished by creating a [virtual network link](private-dns-virtual-network-links.md) that associates the virtual network to the private zone.
+
+When you create a virtual network link, you can (optionally) enable autoregistration of DNS records for devices in the virtual network. If autoregistration is enabled, Azure private DNS updates DNS records whenever a virtual machine inside the linked virtual network is created, changes its IP address, or is deleted. For more information, see [What is the autoregistration feature in Azure DNS private zones](private-dns-autoregistration.md).
+
+> [!NOTE]
+> Other methods are available for resolving DNS records in private DNS zones that don't always require a virtual network link. These methods are beyond the scope of this quickstart article. For more information, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+
+In this article, a virtual machines is used in a single virtual network. The virtual network is linked to your private DNS zone with autoregistration enabled. The setup is summarized in the following figure.
 
 :::image type="content" source="media/private-dns-portal/private-dns-quickstart-summary.png" alt-text="Summary diagram of the quickstart setup." border="false" lightbox="media/private-dns-portal/private-dns-quickstart-summary.png":::
 
@@ -50,9 +55,7 @@ The following example creates a DNS zone called **private.contoso.com** in a res
 
   ![Screenshot of creating a private DNS zone.](./media/private-dns-portal/create-private-zone.png)
 
-5. Select **Review + Create** and then select **Create**.
-
-It might take a few minutes to create the zone.
+5. Select **Review + Create** and then select **Create**. It might take a few minutes to create the zone.
 
 ## Create the virtual network and subnet
 
@@ -109,7 +112,7 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 11. Accept the other defaults for the page, and then click **Next: Management >**.
 12. For **Boot diagnostics**, select **Disable**, accept the other defaults, and then select **Review + create**.
 13. Review the settings and then click **Create**. It will take a few minutes for the virtual machine allocation to complete.
-14. Search for and select **Virtual machines** and then verify that the VM status is **Running**. If it is not running, start the virtual machine.
+14. Search for and select **Virtual machines** and then verify that the VM status is **Running**. If it isn't running, start the virtual machine.
 
 ## Review autoregistion
 
@@ -119,9 +122,9 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 
   ![Screenshot of an auto registered DNS record.](./media/private-dns-portal/create-dns-record.png)
 
-## Create an additional DNS record
+## Create another DNS record
 
- You can also add records to the private DNS zone manually. The following example creates a record with the hostname **db** in the DNS Zone **private.contoso.com**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is **A**, with an IP address corresponding to the auto-registered IP address of  **myVM01.private.contoso.com**.
+ You can also add records to the private DNS zone manually. The following example creates a record with the hostname **db** in the DNS Zone **private.contoso.com**. The fully qualified name of the record set is **db.private.contoso.com**. The record type is **A**, with an IP address corresponding to the autoregistered IP address of  **myVM01.private.contoso.com**.
 
 1. Search for or select **Private DNS zones** and then select the **private.contoso.com** zone.
 2. Under **DNS Management**, select **Recordsets**.
@@ -134,11 +137,11 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 
 Now you can test the name resolution for your **private.contoso.com** private zone. 
 
-You can use the ping command to test name resolution. You can do this by connecting to the VM and opening a command prompt, or by using the **Run command** on this VM.
+You can use the ping command to test name resolution. You can do this by connecting to the virtual machine and opening a command prompt, or by using the **Run command** on this virtual machine.
 
 To use the Run command:
 
-1. Select **Virtual machines**, select your VM, and then under **Operations** select **Run command**.
+1. Select **Virtual machines**, select your virtual machine, and then under **Operations** select **Run command**.
 2. Select **RunPowerShellScript**, under **Run Command Script** enter **ping myvm01.private.contoso.com** and then select **Run**. See the following example:
 
   [ ![Screenshot of the ping command.](./media/private-dns-portal/ping-vm.png) ](./media/private-dns-portal/ping-vm.png#lightbox)
