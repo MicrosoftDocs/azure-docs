@@ -48,7 +48,7 @@ You've added a custom feature filter named **Random** with a **Percentage** para
 
     You decorated a `FeatureFilter.alias` to the `RandomFilter` to give your filter an alias **Random**, which matches the filter name you set in the *Beta* feature flag in Azure App Configuration.
 
-1. Open the *app.py* file and register the `RandomFilter` when creating the `FeatureManager`. Also, update the code to not automatically refresh as seen below so you can see the *Beta* feature flag is sometimes enabled and sometimes not by running the application multiple times.
+1. Open the *app.py* file and register the `RandomFilter` when creating the `FeatureManager`. Also, modify the code to not automatically refresh as seen below so you can see the *Beta* feature flag is sometimes enabled and and to also access the *Beta* feature flag a few times.
 
     ```python
     from featuremanagement import FeatureManager
@@ -67,13 +67,28 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     feature_manager = FeatureManager(config, feature_filters=[RandomFilter()])
     
     for i in range(0, 10):
-        print("Beta is ", feature_manager.is_enabled("Beta"))
+        print("Beta is", feature_manager.is_enabled("Beta"))
         sleep(5)
     ```
 
 ## Feature filter in action
 
-When you run the application the configuration provider will load the `Beta` feature flag from Azure App Configuration. Then every 5 seconds the result of the `is_enabled("Beta")` method will be printed to the console. As the `RandomFilter` is implemented and used by the `Beta` feature flag, the result will be `True` 50 percent of the time and `False` the other 50 percent of the time.
+When you run the application the configuration provider will load the *Beta* feature flag from Azure App Configuration. Then every 5 seconds the result of the `is_enabled("Beta")` method will be printed to the console. As the `RandomFilter` is implemented and used by the *Beta* feature flag, the result will be `True` 50 percent of the time and `False` the other 50 percent of the time.
+
+Running the application multiple times will show that the *Beta* feature flag is sometimes enabled and sometimes not.
+
+```bash
+Beta is True
+Beta is False
+Beta is True
+Beta is True
+Beta is True
+Beta is False
+Beta is False
+Beta is False
+Beta is True
+Beta is True
+```
 
 ## Next steps
 
