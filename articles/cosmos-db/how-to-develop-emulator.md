@@ -245,18 +245,24 @@ The Docker container variant of the emulator doesn't support the API for Table.
     | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
     | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
 
+    For Linux systems, use:
+
     ```bash
     docker run \
         --publish 8081:8081 \
         --publish 10250-10255:10250-10255 \
+        --name linux-emulator \
         --detach \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest    
     ```
+
+    For Windows systems, use:
 
     ```powershell
     $parameters = @(
         "--publish", "8081:8081"
         "--publish", "10250-10255:10250-10255"
+        "--name", "windows-emulator"
         "--detach"
     )
     docker run @parameters mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest 
@@ -274,6 +280,7 @@ The Docker container variant of the emulator doesn't support the API for Table.
     $parameters = @(
         "--publish", "8081:8081"
         "--publish", "10250-10255:10250-10255"
+        "--name", "windows-emulator"
         "--detach"
     )
     docker run @parameters mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
@@ -319,20 +326,26 @@ The Docker container variant of the emulator doesn't support the API for Table.
     | **`AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE` *(Optional)*** | *Enable data persistence between emulator runs.* |
     | **`AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE` *(Optional)*** | *Override the emulator's default IP address.* |
 
+    For Linux systems, use:
+
     ```bash
     docker run \
         --publish 8081:8081 \
         --publish 10250:10250 \
         --env AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT=4.0 \
+        --name linux-emulator \
         --detach \
         mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
     ```
+
+    For Windows systems, use:
 
     ```powershell
     $parameters = @(
         "--publish", "8081:8081"
         "--publish", "10250:10250"
         "--env", "AZURE_COSMOS_EMULATOR_ENABLE_MONGODB_ENDPOINT=4.0"
+        "--name", "windows-emulator"
         "--detach"
     )
     docker run @parameters mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:mongodb
@@ -388,8 +401,20 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 The certificate for the emulator is available at the path `_explorer/emulator.pem` on the running container. Use `curl` to download the certificate from the running container to your local machine.
 
+For Linux systems, use:
+
 ```bash
-curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+curl --insecure https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+```
+
+```powershell
+$parameters = @{
+    Uri = 'https://localhost:8081/_explorer/emulator.pem'
+    Method = 'GET'
+    OutFile = 'emulatorcert.crt'
+    SkipCertificateCheck = $True
+}
+Invoke-WebRequest @parameters
 ```
 
 ### [Docker (Windows container)](#tab/docker-windows)
@@ -404,14 +429,28 @@ The Windows local installation of the emulator automatically imports the TLS/SSL
 
 ::: zone pivot="api-nosql"
 
-### [Docker (Linux container) / Docker (Windows container)](#tab/docker-linux+docker-windows)
+### [Docker (Linux container)](#tab/docker-linux)
 
-The certificate for the emulator is available at the path `_explorer/emulator.pem` on the running container.
+The certificate for the emulator is available at the path `/_explorer/emulator.pem` on the running container.
 
-1. Use `curl` to download the certificate from the running container to your local machine.
+1. Download the certificate from the running container to your local machine.
+
+    For Linux systems, use:
 
     ```bash
-    curl -k https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    curl --insecure https://localhost:8081/_explorer/emulator.pem > ~/emulatorcert.crt
+    ```
+
+    For Windows systems, use:
+
+    ```powershell
+    $parameters = @{
+        Uri = 'https://localhost:8081/_explorer/emulator.pem'
+        Method = 'GET'
+        OutFile = 'emulatorcert.crt'
+        SkipCertificateCheck = $True
+    }
+    Invoke-WebRequest @parameters
     ```
 
     > [!NOTE]
@@ -419,25 +458,53 @@ The certificate for the emulator is available at the path `_explorer/emulator.pe
 
 1. Install the certificate according to the process typically used for your operating system. For example, in Linux you would copy the certificate to the  `/usr/local/share/ca-certificates/` path.
 
+    For Linux systems, use:
+
     ```bash
     cp ~/emulatorcert.crt /usr/local/share/ca-certificates/
     ```
 
-1. Regenerate the certificate bundle by using the appropriate command for your Linux distribution.
+    For Windows systems, use:
 
-    For **Debian-based** systems (for example, Ubuntu), use:
+    ```powershell
+    $parameters = @{
+        FilePath = 'emulatorcert.crt'
+        CertStoreLocation = 'Cert:\CurrentUser\Root'
+    }
+    Import-Certificate @parameters
+    ```
+
+1. For linux systems, regenerate the certificate bundle by using the appropriate command for your Linux distribution.
+
+    For **Debian-based** Linux systems (for example, Ubuntu), use:
 
     ```bash
     sudo update-ca-certificates
     ```
 
-    For **Red Hat-based** systems (for example, CentOS, Fedora), use:
+    For **Red Hat-based** Linux systems (for example, CentOS, Fedora), use:
 
     ```bash
     sudo update-ca-trust
     ```
 
-    For more detailed instructions, consult the documentation specific to your Linux distribution.
+    For more detailed instructions, consult the documentation specific to your operating system.
+
+### [Docker (Windows container)](#tab/docker-windows)
+
+The certificate for the emulator is available at the folder `C:\CosmosDB.Emulator\bind-mount` on the running container. The folder also contains a script to automatically install the certificate.
+
+1. Use `docker cp` to copy the entire folder to your local machine.
+
+    ```powershell
+    docker cp windows-emulator:C:\CosmosDB.Emulator\bind-mount .
+    ```
+
+1. Run the *importcert.ps1* script in the folder.
+
+    ```powershell
+    .\bind-mount\importcert.ps1
+    ```
 
 ### [Windows (local)](#tab/windows)
 
