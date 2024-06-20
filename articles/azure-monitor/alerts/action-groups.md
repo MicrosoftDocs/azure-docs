@@ -25,6 +25,10 @@ Global requests from clients can be processed by action group services in any re
 - Multiple alert rules can use the same action group.
 - Action Groups are defined by the unique set of actions and the users to be notified. For example, if you want to notify User1, User2 and User3 by email for two different alert rules, you only need to create one action group which you can apply to both alert rules.
 
+> [!NOTE]  
+> Alert rule is different from alert processing rule. You can use alert rules to e.g. send an email to the administrator for metric-based changes. You can read about their difference in [alert processing rules](./alerts-processing-rules.md)
+
+
 ## Create an action group in the Azure portal
 1. Go to the [Azure portal](https://portal.azure.com/).
 
