@@ -11,20 +11,20 @@ ms.reviewer: glinuxagent
 
 Syslog is an event logging protocol that's common to Linux. You can use the Syslog daemon that's built into Linux devices and appliances to collect local events of the types you specify. Applications send messages that are either stored on the local machine or delivered to a Syslog collector.
 
-When you create a DCR for Linux Syslog, the Azure Monitor Agent configures the local Syslog daemon to forward messages to the agent. The agent then sends that data to the [Syslog table](/azure/azure-monitor/reference/tables/syslog) in your Log Analytics workspace.
+Syslog events is one of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the Syslog events data source type.
 
 > [!TIP]
 > To collect data from devices that don't allow local installation of Azure Monitor Agent, [configure a dedicated Linux-based log forwarder](../../sentinel/forward-syslog-monitor-agent.md).
- 
+
+## Prerequisites
+
+- [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac). Syslog events are sent to the [Syslog](/azure/azure-monitor/reference/tables/event) table.
+
 ## Configure collection of Syslog data
 
-You can filter the Syslog event facilities and severities that are collected either in the DCR or the configuration files for your Linux agents.
+Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **Linux Syslog** from the **Data source type** dropdown. 
 
-### Configure Syslog in the Azure portal
-
-Use the guidance in []()
-
-Select **Linux syslog** from the **Data source type** dropdown. 
+When you create a DCR for Linux Syslog, the Azure Monitor Agent configures the local Syslog daemon to forward messages to the agent. You can filter the Syslog event facilities and severities that are collected either in the DCR or the configuration files for your Linux agents.
 
 :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
 
@@ -133,6 +133,14 @@ log {
 
 If you edit the Syslog configuration, you must restart the Syslog daemon for the changes to take effect.
 
+## Destinations
+
+**Azure Monitor Logs** is the only destination allowed for Syslog events, which allows you to send data to a Log Analytics workspace. Data is sent to the [Syslog table](/azure/azure-monitor/reference/tables/syslog) table. You can only modify the destination table mby manually editing the DCR.
+
+:::image type="content" source="media/data-collection-windows-event/destination-workspace.png" lightbox="media/data-collection-windows-event/destination-workspace.png" alt-text="Screenshot that shows configuration of an Azure Monitor Logs destination in a data collection rule." border="false":::
+
+
+
 ## Supported facilities
 
 The following facilities are supported with the Syslog collector:
@@ -180,6 +188,9 @@ The following table provides different examples of log queries that retrieve Sys
 | Syslog &#124; where SeverityLevel == "error" |All Syslog records with severity of error |
 | Syslog &#124; where Facility == "auth" |All Syslog records with auth facility type  |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility |
+
+
+
 
 ## Next steps
 

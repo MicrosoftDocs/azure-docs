@@ -60,10 +60,7 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
     | summarize sum(csBytes) by Computer
     ```
 
-
-## Sample IIS alert rule
-
-- **Create an alert rule on any record with a return status of 500.**
+- **Identify any records with a return status of 500.**
     
     ```kusto
     W3CIISLog 

@@ -10,7 +10,9 @@ ms.reviewer: jeffwo
 
 # Collect logs from a text or JSON file with Azure Monitor Agent 
 
-This article explains how to configure data collection from applications that log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. 
+Many applications and services will log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. This data can be collected with [Azure Monitor Agent](azure-monitor-agent-overview.md) and stored in a Log Analytics workspace with data collected from other sources.
+
+**Custom Text Logs** and **Custom JSON Logs** are two of the data sources used in a [data collection rule (DCR)](../essentials/data-collection-rule-create-edit.md). Details for the creation of the DCR are provided in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). This article provides additional details for the text and JSON logs type.
 
 > [!Note]
 > JSON ingestion is currently in Preview.
@@ -21,28 +23,26 @@ To complete this procedure, you need:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - One or two [data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint), depending on whether your virtual machine and Log Analytics workspace are in the same region.
 
-    For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).
-
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
-
-
 ## Text or JSON file requirements and best practices
+The file that the Azure Monitor Agent is monitoring must meet the following requirements:
 
-
-- JSON text must be contained in a single row. The JSON body format is not supported.
+- The file must be stored on the local drive of the machine with the Azure Monitor Agent in the directory that is being monitored.
 - Each record must be delineated with an end of line. 
 - The file must use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
+- JSON text must be contained in a single row. The JSON body format is not supported.
+- New records should be appended to the end of the file and not overwrite old records. Overwriting will cause data loss.
 
-- Store files on the local drive of the machine with the Azure Monitor Agent and in the directory that is being monitored.
+Adhere to the following recommendations to ensure that you don't experience data loss or performance issues:
+
 - Create a new log file every day so that you can easily clean up old files.
-- Do clean up all log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
-- Do Not overwrite an existing file with new records. You should only append new records to the end of the file. Overwriting will cause data loss.
-- Do Not rename a file to a new name and then open a new file with the same name. This could cause data loss.
-- Do Not rename or copy large log files that match the file scan pattern in to the monitored directory. If you must, do not exceed 50MB per minute.
-- Do Not rename a file that matches the file scan pattern to a new name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
+- Continuously clean up log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
+- Don't rename a monitored file and then open a new file with the same name. This could cause data loss.
+- Don't rename a file that matches the file scan pattern to another name that also matches the file scan pattern. This will cause duplicate data to be ingested. 
+- Don't rename or copy large log files that match the file scan pattern into the monitored directory. If you must, do not exceed 50MB per minute.
 
 
 ## Create a custom table
+Before you can collect log data from a text or JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the data you are collecting.
 
 The table created in the script has two columns: 
 
@@ -97,24 +97,16 @@ You should receive a 200 response and details about the table you just created.
 
 ### [Portal](#tab/portal)
 
-1. Create a data collection rule, as described in [Create a data collection rule](../essentials/data-collection-rule-create-edit.md).
-1. In the **Collect and deliver** step, select **Custom Text Logs** or **JSON Logs** from the **Data source type** dropdown.
-1. Specify the following information:
+Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **Custom Text Logs** or **JSON Logs**  from the **Data source type** dropdown. 
  
-    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns).
-    
-        Examples of valid inputs: 
-        - 20220122-MyLog.txt 
-        - ProcessA_MyLog.txt  
-        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
-    
-        > [!NOTE]
-        > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
-    
-    
-    - **Table name** - The name of the destination table you created in your Log Analytics Workspace. For more information, see [Create a custom table](#create-a-custom-table).     
-    - **Record delimiter** - Will be used in the future to allow delimiters other than the currently supported end of line (`/r/n`). 
-    - **Transform** - Add an [ingestion-time transformation](../essentials/data-collection-transformations.md) or leave as **source** if you don't need to transform the collected data.
+
+| Setting | Description |
+|:---|:---|
+| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames vary, for example when the filename includes a date. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.txt<br>- C:\Logs\MyLog*.txt<br>- C:\App01\AppLog.txt, C:\App02\AppLog.txt<br>- /var/mylog.log<br>- /var/mylog*.log |
+| Table name | Name of the destination table in your Log Analytics Workspace. |     
+| Record delimiter | Not currently used but reserved for future potential use allowing delimiters other than the currently supported end of line (`/r/n`). | 
+| Transform | Use an [ingestion-time transformation](../essentials/data-collection-transformations.md) to filter records or to format the incoming data for the destination table. Use `source` to leave the incoming data unchanged. |
+
  
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
     <!-- convertborder later -->
@@ -122,241 +114,208 @@ You should receive a 200 response and details about the table you just created.
 
 ### [Resource Manager template](#tab/arm)
 
-
-1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
-
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows the Azure portal with template entered in the search box and Deploy a custom template highlighted in the search results.":::
-
-1. Select **Build your own template in the editor**.
-
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal screen to build template in the editor.":::
-
-1. Paste this Resource Manager template into the editor:
-
-    - To collect data from a text file, use this template:
-    
-    
-        ```json
+### Text file
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
         {
-            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "resources": [
-                {
-                    "type": "Microsoft.Insights/dataCollectionRules",
-                    "name": "dataCollectionRuleName",
-                    "location": "location",
-                    "apiVersion": "2022-06-01",
-                    "properties": {
-                        "dataCollectionEndpointId":  "endpointResourceId",
-                        "streamDeclarations": {
-                            "Custom-MyLogFileFormat": {
-                                "columns": [
-                                    {
-                                        "name": "TimeGenerated",
-                                        "type": "datetime"
-                                    },
-                                    {
-                                        "name": "RawData",
-                                        "type": "string"
-                                    },
-                                    {
-                                        "name": "FilePath",
-                                        "type": "String"
-                                    },
-                                    {
-                                        "name": "YourOptionalColumn" ,
-                                        "type": "string"
-                                    }
-                                ]
-                            }
-                        },
-                        "dataSources": {
-                            "logFiles": [
-                                {
-                                    "streams": [
-                                        "Custom-MyLogFileFormat"
-                                    ],
-                                    "filePatterns": [
-                                        "filePatterns"
-                                    ],
-                                    "format": "text",
-                                    "settings": {
-                                        "text": {
-                                            "recordStartTimestampFormat": "ISO 8601"
-                                        }
-                                    },
-                                    "name": "myLogFileFormat-Windows"
-                                }
-                            ]
-                        },
-                        "destinations": {
-                            "logAnalytics": [
-                                {
-                                    "workspaceResourceId": "workspaceResourceId",
-                                    "name": "workspaceName"
-                                }
-                            ]
-                        },
-                        "dataFlows": [
+            "type": "Microsoft.Insights/dataCollectionRules",
+            "name": "dataCollectionRuleName",
+            "location": "location",
+            "apiVersion": "2022-06-01",
+            "properties": {
+                "dataCollectionEndpointId":  "endpointResourceId",
+                "streamDeclarations": {
+                    "Custom-MyLogFileFormat": {
+                        "columns": [
                             {
-                                "streams": [
-                                    "Custom-MyLogFileFormat"
-                                ],
-                                "destinations": [
-                                    "workspaceName"
-                                ],
-                                "transformKql": "source",
-                                "outputStream": "tableName"
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "RawData",
+                                "type": "string"
+                            },
+                            {
+                                "name": "FilePath",
+                                "type": "String"
+                            },
+                            {
+                                "name": "YourOptionalColumn" ,
+                                "type": "string"
                             }
                         ]
                     }
-                }
-            ],
-            "outputs": {
-                "dataCollectionRuleId": {
-                    "type": "string",
-                    "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
-                }
+                },
+                "dataSources": {
+                    "logFiles": [
+                        {
+                            "streams": [
+                                "Custom-MyLogFileFormat"
+                            ],
+                            "filePatterns": [
+                                "filePatterns"
+                            ],
+                            "format": "text",
+                            "settings": {
+                                "text": {
+                                    "recordStartTimestampFormat": "ISO 8601"
+                                }
+                            },
+                            "name": "myLogFileFormat-Windows"
+                        }
+                    ]
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "workspaceResourceId",
+                            "name": "workspaceName"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-MyLogFileFormat"
+                        ],
+                        "destinations": [
+                            "workspaceName"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "tableName"
+                    }
+                ]
             }
         }
-        ```
+    ],
+    "outputs": {
+        "dataCollectionRuleId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
+        }
+    }
+}
+```
 
-    - To collect data from a JSON file, use this template:
+### JSON file
 
-        ```json
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
         {
-            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-            "contentVersion": "1.0.0.0",
-            "resources": [
-                {
-                    "type": "Microsoft.Insights/dataCollectionRules",
-                    "name": "dataCollectionRuleName",
-                    "location":  `location` ,
-                    "apiVersion": "2022-06-01",
-                    "properties": {
-                        "dataCollectionEndpointId":  "endpointResourceId" ,
-                        "streamDeclarations": {
-                            "Custom-JSONLog": {
-                                "columns": [
-                                    {
-                                        "name": "TimeGenerated",
-                                        "type": "datetime"
-                                    },
-                                    {
-                                        "name": "FilePath",
-                                        "type": "String"
-                                    },
-                                    {
-                                        "name": "YourFirstAttribute",
-                                        "type": "string"
-                                    },
-                                    {
-                                        "name": "YourSecondAttribute",
-                                        "type": "string"
-                                    }
-                                ]
-                            }
-                        },
-                        "dataSources": {
-                            "logFiles": [
-                                {
-                                    "streams": [
-                                        "Custom-JSONLog"
-                                    ],
-                                    "filePatterns": [
-                                        "filePatterns"
-                                    ],
-                                    "format": "json",
-                                    "settings": {
-                                    },
-                                    "name": "myLogFileFormat"
-                                }
-                            ]
-                        },
-                        "destinations": {
-                            "logAnalytics": [
-                                {
-                                    "workspaceResourceId":  "workspaceResourceId" ,
-                                    "name": "workspaceName"
-                                }
-                            ]
-                        },
-                        "dataFlows": [
+            "type": "Microsoft.Insights/dataCollectionRules",
+            "name": "dataCollectionRuleName",
+            "location":  `location` ,
+            "apiVersion": "2022-06-01",
+            "properties": {
+                "dataCollectionEndpointId":  "endpointResourceId" ,
+                "streamDeclarations": {
+                    "Custom-JSONLog": {
+                        "columns": [
                             {
-                                "streams": [
-                                    "Custom-JSONLog"
-                                ],
-                                "destinations": [
-                                    "workspaceName"
-                                ],
-                                "transformKql": "source",
-                                "outputStream": "tableName"
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "FilePath",
+                                "type": "String"
+                            },
+                            {
+                                "name": "YourFirstAttribute",
+                                "type": "string"
+                            },
+                            {
+                                "name": "YourSecondAttribute",
+                                "type": "string"
                             }
                         ]
                     }
-                }
-            ],
-            "outputs": {
-                "dataCollectionRuleId": {
-                    "type": "string",
-                    "value": "[resourceId('Microsoft.Insights/dataCollectionRules',  `dataCollectionRuleName`"
-                }
+                },
+                "dataSources": {
+                    "logFiles": [
+                        {
+                            "streams": [
+                                "Custom-JSONLog"
+                            ],
+                            "filePatterns": [
+                                "filePatterns"
+                            ],
+                            "format": "json",
+                            "settings": {
+                            },
+                            "name": "myLogFileFormat"
+                        }
+                    ]
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId":  "workspaceResourceId" ,
+                            "name": "workspaceName"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-JSONLog"
+                        ],
+                        "destinations": [
+                            "workspaceName"
+                        ],
+                        "transformKql": "source",
+                        "outputStream": "tableName"
+                    }
+                ]
             }
         }
-        ```
+    ],
+    "outputs": {
+        "dataCollectionRuleId": {
+            "type": "string",
+            "value": "[resourceId('Microsoft.Insights/dataCollectionRules',  `dataCollectionRuleName`"
+        }
+    }
+}
+```
 
 
-1. Update the following values in the Resource Manager template:
-   - `workspaceResorceId`: The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID**.
+Update the following values in the Resource Manager template:
 
-    :::image type="content" source="../logs/media/tutorial-logs-ingestion-api/workspace-resource-id.png" lightbox="../logs/media/tutorial-logs-ingestion-api/workspace-resource-id.png" alt-text="Screenshot showing workspace resource ID.":::
-  
-   - `dataCollectionRuleName`: The name that you define for the data collection rule. Example "AwesomeDCR"
-     
-   - `location`: The data center that the rule will be located in. Must be the same data center as the Log Analytics Workspace. Example "WestUS2"
-     
-   - `endpointResourceId`: This is the ID of the DCRE. Example "/subscriptions/63b9abf1-7648-4bb2-996b-023d7aa492ce/resourceGroups/Awesome/providers/Microsoft.Insights/dataCollectionEndpoints/AwesomeDCE"
-  
-   - `workspaceName`: This is the name of your workspace. Example `AwesomeWorkspace`
-     
-   - `tableName`: The name of the destination table you created in your Log Analytics Workspace. For more information, see [Create a custom table](#create-a-custom-table). Example `AwesomeLogFile_CL`
-       
-   - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file. Your columns names and JSON attributes must exactly match to automatically parse into the table. Both column names and JSON attribute are case sensitive. For example, `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column.
-  
-        > [!NOTE]
-        > A custom stream name in the stream declaration must have a prefix of *Custom-*; for example, *Custom-JSON*.
-     
-    - `filePatterns`: Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns). Examples of valid inputs: 20220122-MyLog.txt, ProcessA_MyLog.txt, ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt
-    
-        > [!NOTE]
-        > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
-    
-    - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or leave as **source** if you don't need to transform the collected data.
+| Parameter | Description |
+|:---|:---|
+| `workspaceResorceId`:| The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID**. |
+| `dataCollectionRuleName` | The name that you define for the data collection rule. Example "AwesomeDCR" |
+| `location` | The data center that the rule will be located in. Must be the same data center as the Log Analytics Workspace. Example "WestUS2" |
+| `endpointResourceId` | This is the ID of the DCRE. Example "/subscriptions/63b9abf1-7648-4bb2-996b-023d7aa492ce/resourceGroups/Awesome/providers/Microsoft.Insights/dataCollectionEndpoints/AwesomeDCE" |
+| `workspaceName` | This is the name of your workspace. Example `AwesomeWorkspace` |
+| `tableName` | The name of the destination table you created in your Log Analytics Workspace. For more information, see [Create a custom table](#create-a-custom-table). Example `AwesomeLogFile_CL` |
+| `streamDeclarations` | Defines the columns of the incoming data. This must match the structure of the log file. Your columns names and JSON attributes must exactly match to automatically parse into the table. Both column names and JSON attribute are case sensitive. For example, `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. |
+| `filePatterns` | Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns). Examples of valid inputs: 20220122-MyLog.txt, ProcessA_MyLog.txt, ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt |
+| `transformKql` | Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or leave as **source** if you don't need to transform the collected data. |
 
-       > [!NOTE]
-       > JSON text must be contained on a single line. For example {"Element":"Gold","Symbol":"Au","NobleMetal":true,"AtomicNumber":79,"MeltingPointC":1064.18}. To transfom the data into a table with columns TimeGenerated, Element, Symbol, NobleMetal, AtomicNumber and Melting point use this transform:  "transformKql": "source|extend d=todynamic(RawData)|project TimeGenerated, Element=tostring(d.Element), Symbol=tostring(d.Symbol), NobleMetal=tostring(d.NobleMetal), AtomicNumber=tostring(d.AtommicNumber), MeltingPointC=tostring(d.MeltingPointC)
+> [!NOTE]
+> JSON text must be contained on a single line. For example {"Element":"Gold","Symbol":"Au","NobleMetal":true,"AtomicNumber":79,"MeltingPointC":1064.18}. To transfom the data into a table with columns TimeGenerated, Element, Symbol, NobleMetal, AtomicNumber and Melting point use this transform:  "transformKql": "source|extend d=todynamic(RawData)|project TimeGenerated, Element=tostring(d.Element), Symbol=tostring(d.Symbol), NobleMetal=tostring(d.NobleMetal), AtomicNumber=tostring(d.AtommicNumber), MeltingPointC=tostring(d.MeltingPointC)
      
 
 
-    See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md) if you want to modify the data collection rule.
+See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md) if you want to modify the data collection rule.
     
 
-1. Select **Save**.
+When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
 
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows portal screen to edit Resource Manager template.":::
+:::image type="content" source="media/data-collection-text-log/data-collection-rule-details.png" lightbox="media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot that shows the Overview pane in the portal with data collection rule details.":::
 
+Change the API version to **2022-06-01**.
 
-1. Select **Review + create** and then **Create** when you review the details.
+:::image type="content" source="media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot that shows JSON view for data collection rule.":::
 
-1. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
-
-    :::image type="content" source="media/data-collection-text-log/data-collection-rule-details.png" lightbox="media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot that shows the Overview pane in the portal with data collection rule details.":::
-
-1. Change the API version to **2022-06-01**.
-
-    :::image type="content" source="media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot that shows JSON view for data collection rule.":::
-
-1. Associate the data collection rule to the virtual machine you want to collect data from. You can associate the same data collection rule with multiple machines:
+Associate the data collection rule to the virtual machine you want to collect data from. You can associate the same data collection rule with multiple machines:
 
     1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you created.
     

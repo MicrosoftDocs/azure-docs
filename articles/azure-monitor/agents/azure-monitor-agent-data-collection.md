@@ -50,10 +50,11 @@ The **Basic** page includes basic information about the DCR.
 | Subscription | Subscription to store the DCR. This does not need to be the same subscription as the virtual machines. |
 | Resource group | Resource group to store the DCR. This does not need to be the same resource group as the virtual machines. |
 | Region | Region to store the DCR. The virtual machines and their associations must be in the same region. |
-| Platform Type | Specifies the type of data sources that will be available for the DCR. The Custom option allows for both Windows and Linux types. |
-| Data Collection Endpoint | Specifies the data collection endpoint (DCE) used to collect data if one is required for any of the data sources in this DCR<sup>1</sup>. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](data-collection-endpoints.md). |
+| Platform Type | Specifies the type of data sources that will be available for the DCR, either **Windows** or **Linux**. **None** allows for both. <sup>1</sup> |
+| Data Collection Endpoint | Specifies the data collection endpoint (DCE) used to collect data if one is required for any of the data sources in this DCR<sup>2</sup>. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](data-collection-endpoints.md). |
 
-<sup>1</sup> Currently, all data source types require a DCE except for Windows events and performance counters. 
+<sup>1</sup> This option sets the `kind` attribute in the DCR. There are other values that can be set for this attribute, but they are not available in the portal.
+<sup>2</sup> Currently, all data source types require a DCE except for Windows events and performance counters. 
 
 ## Add resources
 The **Resources** page allows you to add resources that will be associated with the DCR. Click **+ Add resources** to select resources. The Azure Monitor agent will automatically be installed on any resources that don't already have it.
@@ -66,16 +67,16 @@ The **Resources** page allows you to add resources that will be associated with 
 
  If the machine you're monitoring is not in the same region as your destination Log Analytics workspace and you're collecting data types that require a DCE, select **Enable Data Collection Endpoints** and select an endpoint in the region of each monitored machine. If the monitored machine is in the same region as your destination Log Analytics workspace, or if you don't require a DCE, don't select a data collection endpoint on the **Resources** tab.
  
- The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint).<br>If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
+ The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint). If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
 
 ## Add data sources
-The **Collect and deliver** allows you to add and configure data sources and destinations for the DCR.
+The **Collect and deliver** allows you to add and configure data sources and destinations for the DCR and a destination for each.
 
 | Screen element | Description |
 |:---|:---|
 | **Data source** | Select a **Data source type** and define related fields based on the data source type you select. For more information about collecting data from the different data source types, see the articles in [Data type](#types-of-data).|
-| **Destination** | Add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming. See the details for each data type for the different destinations they support. |
+| **Destination** | Add one or more destinations for each data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming. See the details for each data type for the different destinations they support. |
 
 The following table lists the types of data that you can collect using the Azure portal. The same process can be used to create DCRs for each data type, and multiple types may be used in the same DCR, although the configuration details of each data type will vary. A separate article is available to describe the particular details of each type. 
 
@@ -89,7 +90,9 @@ The following table lists the types of data that you can collect using the Azure
 
 A DCR can contain multiple different data sources up to a limit of 10 data sources in a single DCR. You can combine different data sources in the same DCR, but you will typically want to create different DCRs for different data collection scenarios. See [Best practices for data collection rule creation and management in Azure Monitor](../essentials/data-collection-rule-best-practices.md) for recommendations on how to organize your DCRs.
 
-## Verify that the agent operation
+## Verify operation
+
+### Verify agent operation
 If you installed the agent on new machines, then you can verify that the agent is operational and communicating properly by running the following query in Log Analytics to check if there are any records in the [Heartbeat]() table. A record should be sent to this table from each agent every minute.
 
 ``` kusto
@@ -100,7 +103,7 @@ Heartbeat
 | order by TimeGenerated desc
 ```
 
-## Verify if records are being received
+### Verify that records are being received
 A few minutes after saving the DCR, you can verify that records are being received from each of your data sources by checking the table that each writes to in the Log Analytics workspace. For example, the following query checks for Windows events in the [Event]() table.
 
 ``` kusto

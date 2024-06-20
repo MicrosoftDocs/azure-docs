@@ -44,7 +44,10 @@ The following table lists the different options for installing the Azure Monitor
 
 
 
-## Install
+## Install agent extension
+This section provides details on installing Azure Monitor agent using the VM extension.
+
+### [Portal](#tab/azure-portal)
 
 
 ### [PowerShell](#tab/azure-powershell)

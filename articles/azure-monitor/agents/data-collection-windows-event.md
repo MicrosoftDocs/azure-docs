@@ -27,8 +27,13 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 Select **Custom** to [filter events by using XPath queries](#filter-events-using-xpath-queries). You can then specify an [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) to collect any specific values.
 
-For examples of DCRs, see [Sample data collection rules (DCRs) in Azure Monitor](data-collection-rule-sample-agent.md).
-   
+:::image type="content" source="media/data-collection-windows-event/data-source-windows-event-custom.png" lightbox="media/data-collection-windows-event/data-source-windows-event-custom.png" alt-text="Screenshot that shows custom configuration of a Windows event data source in a data collection rule." border="false":::
+
+### Security events
+There are two methods you can use to collect security events with Azure Monitor agent:
+
+- Select the security event log in your DCR just like the System and Application logs. These events are sent to the [Event](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace with other events. 
+- Enable Microsoft Sentinel on the workspace which also uses Azure Monitor agent to collect events. Security events are sent to the [SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent).
 
 ## Filter events using XPath queries
 
@@ -73,15 +78,10 @@ Examples of using a custom XPath to filter events:
 > For a list of limitations in the XPath supported by Windows event log, see [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitations).  
 > For instance, you can use the "position", "Band", and "timediff" functions within the query but other functions like "starts-with" and "contains" are not currently supported.
 
-## Security events
-There are two methods you can use to collect security events with Azure Monitor agent:
-
-- Select the security event log in your DCR just like the System and Application logs. These events are sent to the [Event](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace with other events. 
-- Enable Microsoft Sentinel on the workspace which also uses Azure Monitor agent to collect events. Security events are sent to the [SecurityEvent](/azure/azure-monitor/reference/tables/SecurityEvent).
 
 ## Destinations
 
-**Azure Monitor Logs** is the only destination allowed for Windows events, which allows you to send data to a Log Analytics workspace. Data is sent to the [Event]() table. You can only modify the destination table mby manually editing the DCR.
+**Azure Monitor Logs** is the only destination allowed for Windows events, which allows you to send data to a Log Analytics workspace. Data is sent to the [Event](/azure/azure-monitor/reference/tables/event) table. You can only modify the destination table mby manually editing the DCR.
 
 :::image type="content" source="media/data-collection-windows-event/destination-workspace.png" lightbox="media/data-collection-windows-event/destination-workspace.png" alt-text="Screenshot that shows configuration of an Azure Monitor Logs destination in a data collection rule." border="false":::
 
