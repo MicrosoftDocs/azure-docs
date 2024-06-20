@@ -73,23 +73,23 @@ Secure Boot isn't enabled by default, but we recommend that you enable it if you
 
 This section discusses trusted launch supported features and deployments.
 
-### Is the Azure Compute Gallery supported by trusted launch?
+### Is Azure Compute Gallery supported by trusted launch?
 
 Trusted launch now allows images to be created and shared through the [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images) (formerly Shared Image Gallery). The image source can be:
 
-- An existing Azure VM that's either generalized or specialized.
+- An existing Azure VM that is either generalized or specialized.
 - An existing managed disk or a snapshot.
-- A virtual hard disk or an image version from another gallery.
+- A VHD or an image version from another gallery.
 
 For more information about deploying a trusted launch VM by using the Azure Compute Gallery, see [Deploy trusted launch VMs](trusted-launch-portal.md#deploy-a-trusted-launch-vm-from-an-azure-compute-gallery-image).
 
 ### Is Azure Backup supported by trusted launch?
 
-Trusted launch now supports Azure Backup. For more information, see [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
+Trusted launch now supports Azure Backup. For more information, see  [Support matrix for Azure VM backup](../backup/backup-support-matrix-iaas.md#vm-compute-support).
 
-### Will Azure Backup continue working after trusted launch is enabled?
+### Will Azure Backup continue working after I enable trusted launch?
 
-Backups configured with the [Enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) continue to take backups of the VM after trusted launch is enabled.
+Backups configured with the [Enhanced policy](../backup/backup-azure-vms-enhanced-policy.md) continue to take backups of VMs after you enable trusted launch.
 
 ### Are ephemeral OS disks supported by trusted launch?
 
@@ -100,7 +100,7 @@ Trusted launch supports ephemeral OS disks. For more information, see [Trusted l
 
 ### Can a VM be restored by using backups taken before trusted launch was enabled?
 
-Backups taken before you [upgrade an existing Generation 2 VM to trusted launch](trusted-launch-existing-vm.md) can be used to restore an entire VM or individual data disks. They can't be used to restore or replace the OS disk only.
+Backups taken before you [upgrade an existing Generation 2 VM to trusted launch](trusted-launch-existing-vm.md) can be used to restore the entire VM or individual data disks. They can't be used to restore or replace the OS disk only.
 
 ### How can I find VM sizes that support trusted launch?
 
@@ -126,7 +126,7 @@ $vmSize = "Standard_M64"
 (Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) })[0].Capabilities
 ```
 
-The response is similar to the following form. Output that includes `TrustedLaunchDisabled True` indicates that the Generation 2 VM size doesn't support trusted launch. If it's a Generation 2 VM size and if `TrustedLaunchDisabled` isn't part of the output, trusted launch is supported for that VM size.
+The response is similar to the following form. Output that includes `TrustedLaunchDisabled True` indicates that the Generation 2 VM size doesn't support trusted launch. If it's a Generation 2 VM size and `TrustedLaunchDisabled` isn't part of the output, trusted launch is supported for that VM size.
 
 ```
 Name                                         Value
@@ -177,7 +177,7 @@ Use the following commands to check if an Azure Marketplace OS image supports tr
 az vm image show --urn "MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition:latest"
 ```
 
-The response is similar to the following form. If `hyperVGeneration` is `v2` and if `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
+The response is similar to the following form. If `hyperVGeneration` is `v2` and `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
 
 ```json
 {
@@ -232,7 +232,7 @@ The response is similar to the following form. If `hyperVGeneration` is `v2` and
 Get-AzVMImage -Skus 22_04-lts-gen2 -PublisherName Canonical -Offer 0001-com-ubuntu-server-jammy -Location westus3 -Version latest
 ```
 
-You can use the output of the command with [Virtual machines - Get API](/rest/api/compute/virtual-machine-images/get). The response is similar to the following form. If `hyperVGeneration` is `v2` and if `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
+You can use the output of the command with [Virtual machines - Get API](/rest/api/compute/virtual-machine-images/get). The response is similar to the following form. If `hyperVGeneration` is `v2` and `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
 
 ```json
 {
@@ -295,7 +295,7 @@ az sig image-definition show `
     --resource-group myImageGalleryRg
 ```
 
-The response is similar to the following form. If `hyperVGeneration` is `v2` and if `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
+The response is similar to the following form. If `hyperVGeneration` is `v2` and `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
 
 ```json
 {
@@ -341,7 +341,7 @@ Get-AzGalleryImageDefinition -ResourceGroupName myImageGalleryRg `
     -GalleryName myImageGallery -GalleryImageDefinitionName myImageDefinition
 ```
 
-The response is similar to the following form. If `hyperVGeneration` is `v2` and if `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
+The response is similar to the following form. If `hyperVGeneration` is `v2` and `SecurityType` contains `TrustedLaunch` in the output, the Generation 2 OS image supports trusted launch.
 
 ```
 ResourceGroupName : myImageGalleryRg
@@ -377,19 +377,17 @@ Architecture      : x64
 
 Adding COM ports requires that you disable Secure Boot. COM ports are disabled by default in trusted launch VMs.
 
-## Power states
+## Troubleshooting boot issues
 
 This section answers questions about specific states, boot types, and common boot issues.
 
 ### What is VM Guest State (VMGS)?
 
-VM Guest State (VMGS) is specific to trusted launch VMs. It's a blob managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS disk.
+VM Guest State (VMGS) is specific to trusted launch VMs. It's a blob managed by Azure and contains the unified extensible firmware interface (UEFI) Secure Boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS disk.
 
 ### What are the differences between Secure Boot and measured boot?
 
 In a Secure Boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature doesn't match and the VM doesn't boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot).
-
-Measured boot doesn't halt the boot process. It measures or computes the hash of the next objects in the chain and stores the hashes in the Platform Configuration Registers on the vTPM. Measured boot records are used for boot integrity monitoring.
 
 ### Why is the trusted launch VM not booting correctly?
 
@@ -402,31 +400,25 @@ If unsigned components are detected from the UEFI (guest firmware), bootloader, 
 
 ### How would I verify a no-boot scenario in the Azure portal?
 
-When a VM becomes unavailable from a Secure Boot failure, "no-boot" means that the VM has an OS component that's signed by a trusted authority, which blocks booting a trusted launch VM. On VM deployment, you might see information from resource health within the Azure portal stating that there's a validation error in Secure Boot.
+When a VM becomes unavailable from a Secure Boot failure, "no-boot" means that VM has an OS component that's signed by a trusted authority, which blocks booting a trusted launch VM. On VM deployment, you might see information from resource health within the Azure portal stating that there's a validation error in Secure Boot.
 
 To access resource health from the VM configuration page, go to **Resource Health** under the **Help** pane.
 
 :::image type="content" source="./media/trusted-launch/resource-health-error.png" lightbox="./media/trusted-launch/resource-health-error.png" alt-text="Screenshot that shows a resource health error message alerting a failed Secure Boot.":::
 
-Follow the recommended steps outlined on the **Resource Health** pane. Instructions include a screenshot and downloadable serial log from the boot diagnostics of the VM.
-
-If you verified that a Secure Boot failure caused the no-boot:
+If you verified that the no-boot was caused by a Secure Boot failure:
 
 1. The image you're using is an older version that might have one or more untrusted boot components and is on a deprecation path. To remedy an outdated image, update to a supported newer image version.
-1. The image you're using might have been built outside of an Azure Marketplace source or the boot components have been modified and contain unsigned or untrusted boot components. To verify whether your image has unsigned or untrusted boot components, see the following section, "Verify Secure Boot failures."
-1. If the preceding two scenarios don't apply, the VM is potentially infected with malware (boot kit/rootkit). Consider deleting the VM and re-creating a new VM from the same source image while you evaluate all the software that's being installed.
-
-## Verify Secure Boot failures
-
-This section helps you verify Secure Boot failures.
+1. The image you're using might have been built outside of a marketplace source or the boot components have been modified and contain unsigned or untrusted boot components.
+1. If the preceding two scenarios don't apply, the VM is potentially infected with malware (bootkit/rootkit). Consider deleting the VM and re-creating a new VM from the same source image while you evaluate all the software being installed.
 
 ### Linux virtual machines
 
-To verify which boot components are responsible for Secure Boot failures within an Azure Linux VM, you can use the SBInfo tool from the Linux Security Package:
+To verify which boot components are responsible for Secure Boot failures within an Azure Linux VM, you can use the SBInfo tool from the Linux Security Package.
 
 1. Turn off Secure Boot.
 1. Connect to your Azure Linux trusted launch VM.
-1. Install the SBInfo tool for the distro that your VM is running. It resides within the Linux Security Package.
+1. Install the SBInfo tool for the distro your VM is running. It resides within the Linux Security Package.
 
 #### [Debian-based distros](#tab/debianbased)
 
