@@ -6,7 +6,7 @@ ms.author: ajaypar
 ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 06/20/2024
 ms.custom: engagement-fy24
 ---
 
@@ -154,6 +154,8 @@ In the configuration manager, select **Set up prerequisites**, and then complete
             `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
     
             `PS .\ExportConfigFiles.ps1 `
+
+    > [!Note] Install PowerShell 7.x in the appliance and execute the script ExportConfigFiles.ps1. The script execution is only supported with PowerShell 7.x. 
 
          1. Copy the zip file created by running the above commands to the scale-out appliance. The zip file contains configuration files needed to register the scale-out appliance.
 
