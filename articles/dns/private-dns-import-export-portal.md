@@ -5,7 +5,7 @@ description: Learn how to import and export a private DNS (Domain Name System) z
 services: dns
 author: greg-lindsay
 ms.service: dns
-ms.date: 06/07/2024
+ms.date: 06/20/2024
 ms.author: greglin
 ms.topic: how-to
 ---
