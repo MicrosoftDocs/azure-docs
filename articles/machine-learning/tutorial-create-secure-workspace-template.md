@@ -119,7 +119,7 @@ The template consists of multiple files. The following table describes what each
 ---
 
 > [!IMPORTANT]
-> The DSVM and Azure Bastion are easy ways to connect to the secured workspace for this tutorial. In a production environment, it's best to use an [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) to access the resources inside the virtual network directly from your on-premises network.
+> The DSVM and Azure Bastion are easy ways to connect to the secured workspace for this tutorial. In a production environment, it's better to use an [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) to access the resources inside the virtual network directly from your on-premises network.
 
 ## Configure the template
 
@@ -236,7 +236,7 @@ After the deployment completes, use the following steps to connect to the DSVM:
 
 The following error can occur when the name for the DSVM jump box is greater than 15 characters or includes one of the following characters: `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `=`, `+`, `_`, `[`, `]`, `{`, `}`, `\`, `|`, `;`, `:`, `.`, `'`, `"`, `,`, `<`, `>`, `/`, or `?`.
 
-**Error: Windows computer name cannot be more than 15 characters long, be entirely numeric, or contain the following characters.**
+**Error: Windows computer name cannot be more than 15 characters long, be entirely numeric, or contain the following characters ~ ! @ # $ % ^ & \* ( ) = + \_ [ ] { } \\ \| ; : . ' " , \< > / ?.**
 
 # [Bicep](#tab/bicep)
 
