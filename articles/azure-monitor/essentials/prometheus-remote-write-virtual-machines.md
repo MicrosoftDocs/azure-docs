@@ -4,7 +4,7 @@ description: How to configure remote-write to send data from self-managed Promet
 author: bwren 
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 04/15/2024
+ms.date: 06/20/2024
 #customer intent: As an azure administrator, I want to send Prometheus metrics from my self-managed Prometheus instance to an Azure Monitor workspace.
 ---
 
