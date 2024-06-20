@@ -3,21 +3,11 @@ title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
 
 ms.topic: conceptual
-ms.date: 02/02/2023
+ms.date: 06/20/2024
 
 ---
 
 # Troubleshoot Azure Native Dynatrace Service
-
-In this article, you learn how to contact support when working with an Azure Native Dynatrace Service resource. Before contacting support, see [Fix common errors](#fix-common-errors).
-
-## Contact support
-
-To contact support about the Azure Native Dynatrace Service, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
-
-:::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support request selected in resource menu.":::
-
-## Fix common errors
 
 This document contains information about troubleshooting your solutions that use Dynatrace.
 

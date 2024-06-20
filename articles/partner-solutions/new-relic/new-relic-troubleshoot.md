@@ -11,16 +11,6 @@ ms.date: 01/16/2023
 
 This article describes how to fix common problems when you're working with Azure Native New Relic Service resources.
 
-Try the troubleshooting information in this article first. If that doesn't work, contact New Relic support:
-
-1. In the Azure portal, go to the resource.
-1. On the left pane, under **Support + troubleshooting**, select **New Support Request**.
-1. Select the link to go to the [New Relic support website](https://support.newrelic.com/) and raise a request.
-
-:::image type="content" source="media/new-relic-troubleshoot/new-relic-support.png" alt-text="Screenshot that shows the pane for a New Relic support request.":::
-
-## Fix common errors
-
 ### Marketplace purchase errors
 
 [!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
