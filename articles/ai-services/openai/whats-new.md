@@ -20,9 +20,7 @@ This article provides a summary of the latest releases and major documentation u
 
 ## June 2024
 
-### Limited Access removed for all base models
 
-tbd
 ### Customer-managed key (CMK) support for Assistants
 
 Threads and Files in Assistants now supports CMK in the following region:

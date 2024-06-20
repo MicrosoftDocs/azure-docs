@@ -22,6 +22,9 @@ Use this article to learn how to provide your own image data for GPT-4 Turbo wit
 ## Prerequisites 
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
+- Access granted to Azure OpenAI in the desired Azure subscription.
+
+    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI resource with the GPT-4 Turbo with Vision model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 - Be sure that you're assigned at least the [Cognitive Services Contributor role](../how-to/role-based-access-control.md#cognitive-services-contributor) for the Azure OpenAI resource. 
 

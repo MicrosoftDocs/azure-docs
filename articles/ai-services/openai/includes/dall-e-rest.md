@@ -18,6 +18,7 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 #### [DALL-E 3](#tab/dalle3)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access granted to DALL-E in the desired Azure subscription.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries installed: `os`, `requests`, `json`.
 - An Azure OpenAI resource created in the `EastUS`, `AustraliaEast`, or `SwedenCentral` region.
@@ -26,6 +27,7 @@ Use this guide to get started calling the Azure OpenAI Service image generation 
 #### [DALL-E 2 (preview)](#tab/dalle2)
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/ai-services" target="_blank">Create one for free</a>.
+- Access granted to DALL-E in the desired Azure subscription.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>.
 - The following Python libraries installed: `os`, `requests`, `json`.
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
