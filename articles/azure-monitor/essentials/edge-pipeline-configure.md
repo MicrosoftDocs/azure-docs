@@ -384,10 +384,9 @@ Replace the properties in the following table before deploying the template.
             "type": "Microsoft.monitor/pipelineGroups",
             "location": "eastus",
             "apiVersion": "2023-10-01-preview",
-             "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ExtendedLocation/customLocations/my-custom-location",
-        
+            "name": "my-pipeline-group-name",
             "extendedLocation": {
-                "name": "my-custom-location",
+                "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ExtendedLocation/customLocations/my-custom-location",
                 "type": "CustomLocation"
             },
             "properties": {
@@ -417,10 +416,6 @@ Replace the properties in the following table before deploying the template.
                                 "dataCollectionEndpointUrl": "https://my-dce-4agr.eastus-1.ingest.monitor.azure.com",
                                 "dataCollectionRule": "dcr-00000000000000000000000000000000",
                                 "stream": "Custom-OTLP",
-                                "cache": {
-                                    "maxStorageUsage": "10000",
-                                    "retentionPeriod": "60"
-                                },
                                 "schema": {
                                     "recordMap": [
                                         {
@@ -437,6 +432,10 @@ Replace the properties in the following table before deploying the template.
                                         }
                                     ]
                                 }
+                            },
+                            "cache": {
+                                "maxStorageUsage": 10000,
+                                "retentionPeriod": 60
                             }
                         }
                     }
@@ -467,7 +466,7 @@ Replace the properties in the following table before deploying the template.
                         }
                     ],
                     "persistence": {
-                        "persistentVolume": "my-persistent-volume"
+                        "persistentVolumeName": "my-persistent-volume"
                     }
                 },
                 "networkingConfigurations": [
@@ -482,7 +481,7 @@ Replace the properties in the following table before deploying the template.
                             }
                         ]
                     }
-                 ]
+                ]
             }
         }
     ]
