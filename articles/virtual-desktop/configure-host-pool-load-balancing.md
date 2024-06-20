@@ -1,14 +1,14 @@
 ---
-title: Configure Azure Virtual Desktop load-balancing - Azure
-description: How to configure the load-balancing method for an Azure Virtual Desktop environment.
-author: Heidilohr
-ms.topic: how-to
-ms.date: 06/11/2024
-ms.author: helohr 
+title: Configure host pool load balancing in Azure Virtual Desktop
+description: How to configure the load balancing method for pooled host pools in Azure Virtual Desktop.
 ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+author: sipastak
+ms.author: sipastak 
+ms.date: 06/11/2024
 ---
 
-# Host pool load balancing algorithms in Azure Virtual Desktop
+# Configure host pool load balancing in Azure Virtual Desktop
 
 Azure Virtual Desktop supports two load balancing algorithms for pooled host pools. Each algorithm determines which session host is used when a user starts a remote session. Load balancing doesn't apply to personal host pools because users always have a 1:1 mapping to a session host within the host pool.
 
@@ -18,7 +18,7 @@ The following load balancing algorithms are available for pooled host pools:
 
 - **Depth-first**, which keeps starting new user sessions on one session host until the maximum session limit is reached. Once the session limit is reached, any new user connections are directed to the next session host in the host pool until it reaches its session limit, and so on.
 
-You can only configure one of the load balancing at a time per pooled host pool, but you can change which one is used after a host pool is created. However, both load balancing algorithms share the following behaviors:
+You can only configure one of the load balancing algorithms at a time per pooled host pool, but you can change which one is used at any time. Both load balancing algorithms share the following behaviors:
 
 - If a user already has an active or disconnected session in the host pool and signs in again, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if [drain mode](drain-mode.md) has been enabled for that session host.
 
@@ -34,15 +34,14 @@ The breadth-first algorithm first queries session hosts in a host pool that allo
 
 ## Depth-first load balancing algorithm
 
-The depth-first load balancing algorithm aims to saturate one session host at a time. This algorithm is ideal for cost-conscious organizations that want more granular control on the number of session hosts available in a host pool, enabling you to more easily scale down when there are fewer users.
+The depth-first load balancing algorithm aims to saturate one session host at a time. This algorithm is ideal for cost-conscious organizations that want more granular control on the number of session hosts available in a host pool, enabling you to more easily scale down the number of session hosts powered on when there are fewer users.
 
 The depth-first algorithm first queries session hosts that allow new connections and haven't reached their maximum session limit. The algorithm then selects the session host with most sessions. If there's a tie, the algorithm selects the first session host from the query.
 
-You must [set a maximum session limit](configure-host-pool-load-balancing.md#configure-load-balancing) when using the depth-first algorithm. You can use Azure Virtual Desktop Insights to monitor [the number of sessions on each session host](insights-use-cases.md#session-host-utilization) and [session host performance](insights-use-cases.md#session-host-performance) to help determine the best maximum session limit for your environment.
+You must [set a maximum session limit](configure-host-pool-load-balancing.md#configure-load-balancing) when using the depth-first algorithm. You can use Azure Virtual Desktop Insights to [monitor the number of sessions on each session host](insights-use-cases.md#session-host-utilization) and review [session host performance](insights-use-cases.md#session-host-performance) to help determine the best maximum session limit for your environment.
 
 > [!IMPORTANT]
 > Once all session hosts have reached the maximum session limit, you need to increase the limit or [add more session hosts to the host pool](add-session-hosts-host-pool.md).
-
 
 ## Prerequisites
 
@@ -59,26 +58,23 @@ To configure load balancing for a pooled host pool, you need:
 
 ### [Azure portal](#tab/portal) 
 
-To configure load balancing with the Azure portal:
+Here's how to configure load balancing with the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search for and select **Azure Virtual Desktop** under Services.
+1. In the search bar, enter *Azure Virtual Desktop* and select the matching service entry
 
-3. In the Azure Virtual Desktop page, select **Host pools**.
+1. Select **Host pools**, then select the name of the host pool you want to configure.
 
-4. Select the name of the host pool you want to edit.
+1. Select **Properties**.
 
-5. Select **Properties**.
+1. For **Load balancing algorithm**, select which type you want to use for this host pool from the drop-down menu, then for **Max session limit**, enter a value.
 
-6. Enter the **Max session limit** into the field and select the **load balancing algorithm** you want for this host pool in the drop-down menu.
-
-7. Select **Save**. This applies the new load balancing settings.
-
+1. Select **Save** to apply the new load balancing settings.
 
 ### [Azure PowerShell](#tab/powershell)
 
-Here's how to configure load balancing with Azure PowerShell.
+Here's how to configure load balancing with Azure PowerShell:
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -87,31 +83,50 @@ Here's how to configure load balancing with Azure PowerShell.
    - To set breadth-first without adjusting the maximum session limit, run the following command:
 
    ```powershell
-   Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'BreadthFirst' 
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       LoadBalancerType = 'BreadthFirst'
+   }
+   
+   Update-AzWvdHostPool @parameters 
    ```
 
    - To set depth-first and adjust the maximum session limit to 10, run the following command:
 
    ```powershell
-   Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -LoadBalancerType 'DepthFirst' -MaxSessionLimit 10
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+       LoadBalancerType = 'DepthFirst'
+       MaxSessionLimit = '10'
+   }
+   
+   Update-AzWvdHostPool @parameters 
    ```
 
-3. To make sure the setting has updated, run this cmdlet:
+3. To make sure the setting has updated, run this command:
 
-```powershell
-Get-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> | format-list Name, LoadBalancerType, MaxSessionLimit
-```
+   ```powershell
+   $parameters = @{
+       Name = '<HostPoolName>'
+       ResourceGroupName = '<ResourceGroupName>'
+   }
+   
+   Get-AzWvdHostPool @parameters | Format-Table Name, LoadBalancerType, MaxSessionLimit
+   ```
 
-```Output
-Name             : hostpoolname
-LoadBalancerType : DepthFirst
-MaxSessionLimit  : 6
-```
+   The output should be similar to the following output:
 
+   ```output
+   Name        LoadBalancerType MaxSessionLimit
+   ----------- ---------------- ---------------
+   contosohp01 DepthFirst                    10
+   ```
 
 ### [Azure CLI](#tab/cli)
 
-Here's how to configure load balancing with Azure CLI.
+Here's how to configure load balancing with Azure CLI:
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 
@@ -121,38 +136,44 @@ Here's how to configure load balancing with Azure CLI.
 
    ```azurecli
    az desktopvirtualization hostpool update \
-    --resource-group $resourceGroupName \
-    --name $hostPoolName \
-    --load-balancer-type BreadthFirst
+       --resource-group <ResourceGroupName> \
+       --name <HostPoolName> \
+       --load-balancer-type BreadthFirst
    ```
 
    - To set depth-first and adjust the maximum session limit to 10, run the following command:
 
    ```azurecli
    az desktopvirtualization hostpool update \
-       --resource-group $resourceGroupName \
-       --name $hostPoolName \
+       --resource-group <ResourceGroupName> \
+       --name <HostPoolName> \
        --load-balancer-type DepthFirst \
        --max-session-limit 10
    ```
 
-4. To make sure the setting has updated, run this cmdlet:
+3. To make sure the setting has updated, run this command:
 
-```azurecli
-az desktopvirtualization hostpool show 
-    --resource-group $resourceGroupName 
-    --name $hostPoolName
-```
+   ```azurecli
+   az desktopvirtualization hostpool show \
+       --resource-group <ResourceGroupName> \
+       --name <HostPoolName> \
+       --query "{name:name,loadBalancerType:loadBalancerType,maxSessionLimit:maxSessionLimit}" \
+       --output table
+   ```
+
+   The output should be similar to the following output:
+
+   ```output
+   Name         LoadBalancerType    MaxSessionLimit
+   -----------  ------------------  -----------------
+   contosohp01  DepthFirst          10
+   ```
 
 ---
 
->[!IMPORTANT]
->When configuring depth-first load balancing, you must set a maximum session limit per session host in the host pool.
+> [!NOTE]
+> The depth-first load balancing algorithm distributes sessions to session hosts up to the maximum session limit. If you use breadth-first when first creating a host pool, the default value for the maximum session limit is set to `999999`, which is also the highest possible number you can set this parameter to. For the best possible user experience when using depth-first load balancing, make sure to change the maximum session limit parameter to a number that best suits your requirements.
 
->[!NOTE]
-> The depth-first load balancing algorithm distributes sessions to session hosts based on the maximum session host limit (`-MaxSessionLimit`). When you set breadth-first, the parameter's default value is `999999`, which is also the highest possible number you can set this variable to. For the best possible user experience, make sure to change the maximum session host limit parameter to a number that best suits your environment.
-
-
-## Next steps
+## Related content
 
 - Understand how [autoscale](autoscale-scenarios.md) can automatically scale the number of available session hosts in a host pool.

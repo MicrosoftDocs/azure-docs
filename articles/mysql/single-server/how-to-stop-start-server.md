@@ -3,8 +3,8 @@ title: Stop/start - Azure portal - Azure Database for MySQL server
 description: This article describes how to stop/start operations in Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---

@@ -1,7 +1,7 @@
 ---
 title: How Azure Resource Graph uses alerts to monitor resources
 description: In this quickstart, you learn how to create monitoring alerts for Azure resources using an Azure Resource Graph query and a Log Analytics workspace.
-ms.date: 05/16/2024
+ms.date: 06/18/2024
 ms.topic: quickstart
 ---
 

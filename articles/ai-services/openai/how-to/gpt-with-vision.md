@@ -47,6 +47,9 @@ The following is a sample request body. The format is the same as the chat compl
 > [!IMPORTANT]
 > Remember to set a `"max_tokens"` value, or the return output will be cut off.
 
+> [!IMPORTANT]
+> When uploading images, there is a limit of 10 images per chat request.
+
 ```json
 {
     "messages": [ 

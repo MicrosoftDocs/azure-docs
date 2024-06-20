@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 06/14/2024
 ---
 
 # Field mappings and transformations using Azure AI Search indexers
@@ -135,6 +135,8 @@ A field mapping function transforms the contents of a field before it's stored i
 + [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
 + [urlEncode](#urlEncodeFunction)
 + [urlDecode](#urlDecodeFunction)
+
+Note that these functions are exclusively supported for parent indexes at this time. They are not compatible with chunked index mapping, therefore, these functions can't be used for [index projections](index-projections-concept-intro.md).
 
 <a name="base64EncodeFunction"></a>
 
