@@ -119,8 +119,8 @@ You can deploy the Guest Attestation extension for trusted launch VMs by using a
 
 ### [CLI](#tab/cli)
 
-1. Create a VM with trusted launch that has Secure Boot and vTPM capabilities through initial deployment of a trusted launch VM. To deploy the Guest Attestation extension, use `--enable_integrity_monitoring`. As the VM owner, you can customize VM configuration by using `az vm create`.
-1. For existing VMs, you can enable boot integrity monitoring settings by updating. To enable integrity monitoring, use `--enable_integrity_monitoring`.
+1. Create a VM with trusted launch that has Secure Boot and vTPM capabilities through initial deployment of a trusted launch VM. To deploy the Guest Attestation extension, use `--enable-integrity-monitoring`. As the VM owner, you can customize VM configuration by using `az vm create`.
+1. For existing VMs, you can enable boot integrity monitoring settings by updating to make sure that integrity monitoring is turned on. You can use `--enable-integrity-monitoring`.
 
 > [!NOTE]
 > The Guest Attestation extension must be configured explicitly.
