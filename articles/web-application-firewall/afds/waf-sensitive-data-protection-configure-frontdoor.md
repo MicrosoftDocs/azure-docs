@@ -73,6 +73,9 @@ Use the following Command Line Interface commands to [create and configure](cli/
 az network front-door waf-policy update -g <MyResourceGroup> -n <MyPolicyName> --log-scrubbing "{scrubbing-rules:[{match-variable:<MatchVariable>,selector-match-operator:<Operator>}],state:<Enabled/Disabled>}"
 ```
 
+
+---
+
 ## Verify Sensitive Data Protection
 
 To verify your Sensitive Data Protection rules, open the Front Door firewall log and search for _******_ in place of the sensitive fields.
