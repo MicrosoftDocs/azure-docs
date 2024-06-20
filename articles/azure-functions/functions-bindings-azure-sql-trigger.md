@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 11/27/2023
+ms.date: 6/20/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -437,6 +437,27 @@ The SQL trigger binds to a variable `todoChanges`, a list of objects each with t
 
 The following example shows a Python function that is invoked when there are changes to the `ToDo` table.
 
+# [v2](#tab/python-v2)
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="ToDoTrigger")
+@app.sql_trigger(arg_name="todo",
+                        table_name="ToDo",
+                        connection_string_setting="SqlConnectionString")
+def todo_trigger(todo: str) -> None:
+    logging.info("SQL Changes: %s", json.loads(todo))
+```
+
+# [v1](#tab/python-v1)
+
+
 The following is binding data in the function.json file:
 
 ```json
@@ -461,6 +482,8 @@ import logging
 def main(changes):
     logging.info("SQL Changes: %s", json.loads(changes))
 ```
+
+---
 
 ::: zone-end
 
