@@ -23,7 +23,7 @@ The [portal menu](#portal-menu) and page header are global elements that are alw
 
 The working pane for a resource or service may also have a [service menu](#service-menu) with commands specific to that area.
 
-The illustration below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine, but the same elements generally apply, no matter what type of resource or service you're working with.
+The illustration below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine (VM), but the same elements generally apply, no matter what type of resource or service you're working with.
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-callouts.png" alt-text="Screenshot showing the full screen portal view and a key to UI elements." lightbox="media/azure-portal-overview/azure-portal-overview-portal-callouts.png":::
 
@@ -38,7 +38,7 @@ The illustration below labels the basic elements of the Azure portal, each of wh
 |7|**Your account**. View information about your account, switch directories, sign out, or sign in with a different account.|
 |8|**Command bar**. A group of controls that are contextual to your current focus.|
 |9|**Service menu**. A menu with commands that are contextual to the service or resource that you're working with. You may see also this element referred to as the resource menu, or sometimes as the left pane.|
-|10|**Working pane**. Displays details about the resource or service that is currently in focus.|
+|10|**Working pane**. Displays details about the resource or service that's currently in focus.|
 
 ## Portal menu
 
@@ -63,7 +63,25 @@ If you choose docked mode for the portal menu, it will always be visible. You ca
 
 ## Service menu
 
-The service menu appears when you're working with an Azure service or resource. Commands in this menu 
+The service menu appears when you're working with an Azure service or resource. Commands in this menu are contextual to the service or resource that you're working with. You can use the search box at the top of the service menu to quickly find commands.
+
+By default, menu items appeear collapsed within menu groups. If you prefer to have all menu items expanded by default, you can set **Service menu behavior** to **Expanded** in your [portal settings](set-preferences.md#service-menu-behavior).
+
+When you're working within a service, you can select any top-level menu item to expand it and see the available commands within that menu group. Select that top-level item again to collapse that menu group.
+
+To toggle all folders in a service menu between collapsed and expanded, select the expand/collapse icon near the service icon search box.
+
+:::image type="content" source="media/azure-portal-overview/service-menu-toggle.png" alt-text="Screenshot showing the icon to toggle service menu items between collapsed and expanded.":::
+
+If you use certain service menu commands frequently, you may want to save them as favorites for that service. To do so, hover over the command and then select the star icon.
+
+:::image type="content" source="media/azure-portal-overview/service-menu-add-favorite.png" alt-text="Screenshot showing the star icon to add a service menu command to favorites.":::
+
+When you save a command as a favorite, it will appear in a **Favorites** folder near the top of the service menu.
+
+:::image type="content" source="media/azure-portal-overview/service-menu-favorites.png" alt-text="Screenshot of the Favorites folder in a service menu.":::
+
+Your menu group selections are preserved by resource type and throughout sessions. For example, if you add a favorite command while working with a VM, that command will appear in your **Favorites** if you later work with a different VM. Menu groups will also appear collapsed or expanded based on your previous selections.
 
 ## Dashboard
 
