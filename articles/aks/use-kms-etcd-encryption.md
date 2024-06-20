@@ -4,7 +4,7 @@ description: Learn how to use Key Management Service (KMS) etcd encryption with 
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 05/24/2024
+ms.date: 06/19/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -36,7 +36,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 
 * Deleting the key, the key vault, or the associated identity isn't supported.
 * KMS etcd encryption doesn't work with system-assigned managed identity. The key vault access policy must be set before the feature is turned on. System-assigned managed identity isn't available until after the cluster is created. Consider the cycle dependency.
-* Azure Key Vault with a firewall to allow public access isn't supported because it blocks traffic from the KMS plugin to the key vault.
+* Azure Key Vault with a firewall setting "allow public access from specific virtual networks and IP addresses" or "disable public access" isn't supported because it blocks traffic from the KMS plugin to the key vault.
 * The maximum number of secrets that are supported by a cluster that has KMS turned on is 2,000. However, it's important to note that [KMS v2][kms-v2-support] isn't limited by this restriction and can handle a higher number of secrets.
 * Bring your own (BYO) Azure key vault from another tenant isn't supported.
 * With KMS turned on, you can't change the associated key vault mode (public versus private). To [update a key vault mode][update-a-key-vault-mode], you must first turn off KMS, and then turn it on again.
@@ -445,6 +445,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [turn-on-kms-for-a-public-key-vault]: #turn-on-kms-for-a-public-key-vault
+[azure-keyvault-firewall]:../key-vault/general/how-to-azure-key-vault-network-security.md
 [turn-on-kms-for-a-private-key-vault]: #turn-on-kms-for-a-private-key-vault
 [update-a-key-vault-mode]: #update-a-key-vault-mode
 [api-server-vnet-integration]: api-server-vnet-integration.md
