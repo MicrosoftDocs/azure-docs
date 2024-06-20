@@ -2,7 +2,7 @@
 title: Rearchitect the event-driven workflow (EDW) workload for Azure Kubernetes Service (AKS)
 description: Learn about architectural differences for replicating the AWS EKS scaling with KEDA and Karpenter event-driven workflow (EDW) workload in AKS.
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/20/2024
 author: JnHs
 ms.author: jenhayes
 ---
@@ -67,4 +67,3 @@ In AWS, you can choose between on-demand compute (more expensive but no eviction
 [on-demand-node-pool]: ./create-node-pools.md
 [spot-node-pool]: ./spot-node-pool.md
 [eks-edw-refactor]: ./eks-edw-refactor.md
-

@@ -2,7 +2,7 @@
 title: Understand platform differences for the event-driven workflow (EDW) workload
 description: Learn about the key differences between the AWS and Azure platforms related to the EDW scaling workload.
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/20/2024
 author: JnHs
 ms.author: jenhayes
 ---
@@ -45,6 +45,7 @@ The following resources can help you learn more about the differences between AW
 | Kubernetes | [AKS for Amazon EKS professionals][aws-azure-kubernetes]   |
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Rearchitect the event-driven workflow (EDW) scaling workload for AKS][eks-edw-rearchitect]
 
@@ -59,7 +60,6 @@ The following resources can help you learn more about the differences between AW
 [aws-azure-identity]: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/mapping-aws-iam-concepts-to-similar-ones-in-azure/ba-p/3612216
 [aws-azure-accounts]: /azure/architecture/aws-professional/accounts
 [aws-azure-resources]: /azure/architecture/aws-professional/resources
-[aws-azure-messaging: /azure/architecture/aws-professional/messaging#simple-queue-service
+[aws-azure-messaging]: /azure/architecture/aws-professional/messaging#simple-queue-service
 [aws-azure-kubernetes]: /azure/architecture/aws-professional/eks-to-aks/
 [eks-edw-rearchitect]: ./eks-edw-rearchitect.md
-

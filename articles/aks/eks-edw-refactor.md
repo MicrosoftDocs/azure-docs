@@ -2,7 +2,7 @@
 title: Update application code for the event-driven workflow (EDW) workload
 description: Learn how to update the application code of the AWS EKS event-driven workflow (EDW) workload to replicate it in AKS.
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/20/2024
 author: JnHs
 ms.author: jenhayes
 ---
@@ -90,7 +90,7 @@ The following steps show how to create a managed identity and assign the **Stora
 
    For convenience, save the JSON object produced by the `az identity create` command in a shell variable for later use.
 
-1. Assign the **Storage Queue Data Contributor** role to the managed identity using the [`az role assignment create`][az-role-assigment-create] command.
+1. Assign the **Storage Queue Data Contributor** role to the managed identity using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     principalId=$(echo $managedIdentity | jq -r `.principalId`)
@@ -133,7 +133,7 @@ response = sqs_client.send_message(
 
 ### Azure implementation
 
-The Azure implementation uses the [Azure SDK for Python][azure-dsk-python] and passwordless OAuth authentication to interact with Azure Storage Queue services. The [`DefaultAzureCredential`][default-azure-credential] Python class is workload identity aware and uses the managed identity associated with workload identity to authenticate to the storage queue.
+The Azure implementation uses the [Azure SDK for Python][azure-sdk-python] and passwordless OAuth authentication to interact with Azure Storage Queue services. The [`DefaultAzureCredential`][default-azure-credential] Python class is workload identity aware and uses the managed identity associated with workload identity to authenticate to the storage queue.
 
 The following example shows how to authenticate to an Azure Storage Queue using the `DefaultAzureCredential` class:
 
@@ -203,7 +203,7 @@ response = table.insert_entity(
     timeout=60)
 ```
 
-Unlike DynamoDB, the Azure Storage Table code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the ID `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Storage Table. The `RowKey` is a `uniqueidentifier` for all the rows in a given partition. 
+Unlike DynamoDB, the Azure Storage Table code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the ID `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Storage Table. The `RowKey` is a `uniqueidentifier` for all the rows in a given partition.
 
 You can review the complete producer and consumer code in our [GitHub repository][github-repo].
 
@@ -223,7 +223,7 @@ To build the container images and push them to ACR, make sure the environment va
 
 > [!div class="nextstepaction"]
 > [Prepare to deploy the EDW workload to Azure][eks-edw-prepare]
-	
+
 <!-- LINKS -->
 [map-aws-to-azure]: ./eks-edw-rearchitect.md#map-aws-services-to-azure-services
 [storage-queue-data-contributor]: ../role-based-access-control/built-in-roles.md#storage
@@ -236,4 +236,3 @@ To build the container images and push them to ACR, make sure the environment va
 [acr-intro]: ../container-registry/container-registry-intro.md
 [push-pull-acr]: ../container-registry/container-registry-get-started-docker-cli.md
 [eks-edw-prepare]: ./eks-edw-prepare.md
-

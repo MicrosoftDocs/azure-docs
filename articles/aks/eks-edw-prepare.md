@@ -2,7 +2,7 @@
 title: Prepare to deploy the event-driven workflow (EDW) workload to Azure
 description: Take the necessary steps so you can deploy the EDW workload in Azure.
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 06/20/2024
 author: JnHs
 ms.author: jenhayes
 ---
