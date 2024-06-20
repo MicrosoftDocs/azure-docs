@@ -148,7 +148,7 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 
 1. Under the **Privileged administrator roles**, category pick *Contributor* then proceed with **Next**.
 
-    :::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the Add role assignment window and Contributor with description." lightbox="media/privileged-admin-roles-contributor-ubuntu.png":::
+    :::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' window and Contributor with description." lightbox="media/privileged-admin-roles-contributor-ubuntu.png":::
 
 1. Select **Managed identity**.
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
@@ -174,7 +174,7 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
 1. Select **Review and assign**.
 
-    :::image type="content" source="media/managed-identity-resource-group-select-members-ubuntu.png" alt-text="Screenshot showing the add role assignment screen with review + assign highlighted." lightbox="media/managed-identity-resource-group-select-members-ubuntu.png":::
+    :::image type="content" source="media/managed-identity-resource-group-select-members-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' screen with review + assign highlighted." lightbox="media/managed-identity-resource-group-select-members-ubuntu.png":::
 
 ### Grant Managed Identity Operator role to itself
 
@@ -193,7 +193,7 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. Select **Managed identity**.
 1. Select **+ Select members** and navigate to the user-assigned managed identity called *identity-for-ubuntu-vm-sns* and proceed with the assignment.
 
-    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected." lightbox="media/managed-identity-user-assigned-ubuntu.png":::
+    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' screen with Managed identity selected." lightbox="media/managed-identity-user-assigned-ubuntu.png":::
 
 1. Select **Review and assign**.
 

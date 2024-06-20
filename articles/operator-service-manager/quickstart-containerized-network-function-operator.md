@@ -20,7 +20,7 @@ This quickstart contains the prerequisite tasks for Operator and Containerized N
 
 You need an Azure subscription with an existing Resource Group over which you have the _Contributor_ role and the _User Access Administrator_ role.
 
-Alternatively you need the _Contributor_ role over this subscription so that the AOSM CLI extension can create the Resource Group, but you will then need to add  to your user the _User Access Administrator_ role with scope of this newly created Resource Group.
+Alternatively the AOSM CLI extension can create the Resource Group for you, in which case you need the _Contributor_ role over this subscription. If you use this feature, you will need to add to your user the _User Access Administrator_ role with scope of this newly created Resource Group.
 
 You also need the _User Access Administrator_ role over the Network Function Definition Publisher Resource Group. The Network Function Definition Publisher Resource Group was used in [Quickstart: Publish Nginx container as Containerized Network Function (CNF)](quickstart-publish-containerized-network-function-definition.md). Check the input-cnf-nfd.jsonc file for the Resource Group name.
 
@@ -219,7 +219,7 @@ In prior steps, you created a Managed Identity labeled identity-for-nginx-sns in
 
 1. Choose **Add Role Assignment**.
 
-   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing identity for nginx sns add role assignment." lightbox="media/how-to-create-user-assigned-managed-identity-operator.png":::
+   :::image type="content" source="media/how-to-create-user-assigned-managed-identity-operator.png" alt-text="Screenshot showing identity for nginx SNS add role assignment." lightbox="media/how-to-create-user-assigned-managed-identity-operator.png":::
 
 1. Select the **Managed Identity Operator** role then proceed with **Next**.
 

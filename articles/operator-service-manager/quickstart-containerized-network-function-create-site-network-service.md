@@ -39,7 +39,7 @@ ms.service: azure-operator-service-manager
     |User Assigned Identity | Select **identity-for-nginx**
 
 
-    :::image type="content" source="media/create-site-network-service-basic-containerized.png" alt-text="Screenshot showing the basics tab to input project, instance and identity details." lightbox="media/create-site-network-service-basic-containerized.png":::
+    :::image type="content" source="media/create-site-network-service-basic-containerized.png" alt-text="Screenshot showing the basics tab to input project, instance, and identity details." lightbox="media/create-site-network-service-basic-containerized.png":::
 
 1. Select **Next: Choose a Network Site Design >**.
 1. On this screen, select the **Publisher**, **Network Service Design Resource**, and the **Network Service Design Version** you published earlier.
@@ -78,7 +78,7 @@ ms.service: azure-operator-service-manager
 
 You have successfully created a Site Network Service for a Nginx Container as a CNF in Azure. You can now manage and monitor your CNF through the Azure portal.
 
-When you have finished, remember to delete the resources. You can do this by:
+When you have finished, remember to delete the resources. To do this:
 
-1. Deleting the Operator Resource Group.
-1. When the above is complete, deleting the Publisher Resource Group.
+1. Delete the Operator Resource Group.
+1. When step 1 is complete, delete the Publisher Resource Group.
