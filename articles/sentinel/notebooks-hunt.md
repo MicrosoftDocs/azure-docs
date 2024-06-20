@@ -145,7 +145,7 @@ If you have multiple notebooks, make sure to select a default AML workspace to u
 
 ## Launch a notebook in your Azure Machine Learning workspace
 
-After you create an Azure Machine Learning workspace, launch your notebooks in that workspace from Microsoft Sentinel. Be aware that if you have private endpoints enabled in your Azure storage account, you can't launch notebooks in the Azure Machine Learning workspace from Microsoft Sentinel. You must manually transfer the Microsoft Sentinel notebooks to Azure Machine Learning.
+After you create an Azure Machine Learning workspace, launch your notebooks in that workspace from Microsoft Sentinel. Be aware that if you have private endpoints enabled in your Azure storage account, you can't launch notebooks in the Azure Machine Learning workspace from Microsoft Sentinel. You must copy the notebook template from Microsoft Sentinel and upload the notebook to the Azure Machine Learning studio.
 
 1.  For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Notebooks**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Notebooks**.
 1. Select the **Templates** tab to see the notebooks that Microsoft Sentinel provides.
