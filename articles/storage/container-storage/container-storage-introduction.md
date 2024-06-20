@@ -77,7 +77,7 @@ Based on feedback from customers, we've included the following capabilities with
 - Scale up by dynamically expanding [volumes](resize-volume.md) and storage pools backed by Azure Disks and Ephemeral Disk without downtime.
 - [Clone persistent volumes](clone-volume.md) within a storage pool.
 - Optimize applications with Azure Linux Container Host.
-- Increase resiliency for applications using [local NVMe volumes with replication](use-container-storage-with-local-disk.md#create-storage-pool-with-volume-replication-nvme-only).
+- Increase resiliency for applications using [local NVMe volumes with replication](use-container-storage-with-local-nvme-replication.md).
 
 For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
 
