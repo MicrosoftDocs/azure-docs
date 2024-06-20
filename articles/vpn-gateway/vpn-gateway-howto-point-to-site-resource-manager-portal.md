@@ -5,7 +5,7 @@ description: Learn how to configure VPN Gateway server settings for P2S configur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/20/2024
+ms.date: 06/20/2024
 ms.author: cherylmc
 
 ---
@@ -59,6 +59,12 @@ In this section, you create a VNet. Refer to the [Example values](#example) sect
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Basic point-to-site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+
+## Create a gateway subnet
+
+The virtual network gateway requires a specific subnet named **GatewaySubnet**. The gateway subnet is part of the IP address range for your virtual network and contains the IP addresses that the virtual network gateway resources and services use. Specify a gateway subnet that's /27 or larger.
+
+[!INCLUDE [Create gateway subnet](../../includes/vpn-gateway-create-gateway-subnet-portal-include.md)]
 
 ## <a name="creategw"></a>Create the VPN gateway
 
