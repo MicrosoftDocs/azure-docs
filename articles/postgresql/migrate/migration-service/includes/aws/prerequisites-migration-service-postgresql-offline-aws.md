@@ -4,7 +4,7 @@ description: Providing the offline prerequisites for the migration service in Az
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
-ms.date: 06/20/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: include
 ---
@@ -39,27 +39,7 @@ For information about network setup, visit [Network guide for migration service]
 
 ### Enable extensions
 
-Extensions are extra features that can be added to PostgreSQL to enhance its functionality. Extensions are supported in Azure Database for PostgreSQL but must be enabled manually. To enable extensions, follow these steps:
-
-Use the select command in the source to list all the extensions that are being used - `select extname,extversion from pg_extension;`
-
-Search for the Azure.extensions server parameter on the Server parameter page on your Azure Database for PostgreSQL. Enable the extensions found in the source within PostgreSQL.
-
-- Save the parameter changes and restart the Azure Database for PostgreSQL to apply the new configuration if necessary.
-
-:::image type="content" source="../../media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png" alt-text="Screenshot of extensions in the Azure portal." lightbox="../../media/tutorial-migration-service-aws-offline/extensions-enable-flexible-server.png":::
-
-- Check if the list contains any of the following extensions:
-    - PG_CRON
-    - PG_HINT_PLAN
-    - PG_PARTMAN_BGW
-    - PG_PREWARM
-    - PG_STAT_STATEMENTS
-    - PG_AUDIT
-    - PGLOGICAL
-    - WAL2JSON
-
-If yes, search the server parameters page for the shared_preload_libraries parameter. This parameter indicates the set of extension libraries that are preloaded when the server restarts.
+[!INCLUDE [prerequisites-migration-service-extensions](../prerequisites/prerequisites-migration-service-extensions.md)]
 
 ### Check server parameters
 

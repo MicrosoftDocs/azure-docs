@@ -5,7 +5,7 @@ description: "Learn about migrating your Single Server databases to Azure Databa
 author: hariramt
 ms.author: hariramt
 ms.reviewer: maghan, adityaduvuri
-ms.date: 06/14/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: tutorial
