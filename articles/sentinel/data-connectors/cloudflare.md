@@ -124,6 +124,7 @@ If you're already signed in, go to the next step.
 		WORKSPACE_ID
 		SHARED_KEY
 		logAnalyticsUri (Optional)
+		
  - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://WORKSPACE_ID.ods.opinsights.azure.us`. 
 4. Once all application settings have been entered, click **Save**.
 
@@ -132,3 +133,7 @@ If you're already signed in, go to the next step.
 ## Next steps
 
 For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudflare.cloudflare_sentinel?tab=Overview) in the Azure Marketplace.
+
+## Troubleshooting 
+
+1. If JSONDecode error occurs, Try decreasing the value of MAX_CONCURRENT_PROCESSING_FILES and increasing the value of MAX_CHUNK_SIZE_MB. This will help function app to process larger files. For example, If you see files larger than 2Mb, increasing the value of MAX_CHUNK_SIZE_MB to 5mb will help the app to process the files effeciently. 
