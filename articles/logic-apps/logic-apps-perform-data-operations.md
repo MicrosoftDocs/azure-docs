@@ -73,37 +73,51 @@ and creates the following output:
 
 `{"age":35,"fullName":"Owens,Sophia"}`
 
-To try the **Compose** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Compose** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Compose](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example). For more information about the **Compose** action in the underlying JSON workflow definition, see the [Compose action](logic-apps-workflow-actions-triggers.md#compose-action).
+To try the **Compose** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Compose** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Compose](logic-apps-data-operations-code-samples.md#compose-action-example). For more information about the **Compose** action in the underlying JSON workflow definition, see the [Compose action](logic-apps-workflow-actions-triggers.md#compose-action).
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), Visual Studio, or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Initialize variable** actions. These actions are set up to create two string variables and an integer variable.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Variables** actions named **Initialize variable**. These actions are set up to create two string variables and an integer variable.
 
-   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the Compose action.](./media/logic-apps-perform-data-operations/sample-start-compose-action-consumption.png)
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: firstNameVar <br>- **Type**: String <br>- **Value**: Sophia |
+   | **Initialize variable** | - **Name**: lastNameVar <br>- **Type**: String <br>- **Value**: Owens |
+   | **Initialize variable** | - **Name**: ageVar <br>- **Type**: Integer <br>- **Value**: 35 |
 
-1. In your workflow where you want to create the output, follow one of these steps: 
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-compose-action-consumption.png" alt-text="Screenshot shows Azure portal and designer for example Consumption workflow with Compose action." lightbox="media/logic-apps-perform-data-operations/sample-start-compose-action-consumption.png":::
 
-   * To add an action under the last step, select **New step**.
+1. [Follow these general steps to add the **Data Operations** action named **Compose**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
+1. On the designer, select the **Compose** action, if not already selected. In the **Inputs** box, enter the inputs to use for creating the output.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **compose**.
+   For this example, follow these steps:
 
-1. From the actions list, select the action named **Compose**.
+   1. In the **Inputs** box, enter the following sample JSON object, including the spacing as shown:
 
-   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box with "compose" entered, and the "Compose" action selected.](./media/logic-apps-perform-data-operations/select-compose-action-consumption.png)
+      ```json
+      {
+          "age": ,
+          "fullName": " , "
+      }
+      ```
 
-1. In the **Inputs** box, enter the inputs to use for creating the output.
+   1. In the JSON object, put your cursor in the corresponding locations, select the dynamic content list (lightning icon), and then select the corresponding variable from the list:
 
-   For this example, select inside the **Inputs** box, which opens the dynamic content list. From that list, select the previously created variables:
+      | JSON property | Variable |
+      |---------------|----------|
+      | **`age`** | **ageVar** |
+      | **`fullName`** | "**lastNameVar**, **firstNameVar**" |
 
-   ![Screenshot showing the designer for a Consumption workflow, the "Compose" action, and the selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-consumption.png)
+      The following example shows both added and not yet added variables:
 
-   The following screenshot shows the finished example **Compose** action: 
+      :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action-consumption.png" alt-text="Screenshot shows Consumption workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action-consumption.png":::
 
-   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Compose" action.](./media/logic-apps-perform-data-operations/finished-compose-action-consumption.png)
+      The following example shows the finished sample **Compose** action: 
+
+      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action-consumption.png" alt-text="Screenshot shows Consumption workflow with complete Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action-consumption.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -111,33 +125,45 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Initialize variable** actions. These actions are set up to create two string variables and an integer variable.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Variables** actions named **Initialize variable**. These actions are set up to create two string variables and an integer variable.
 
-   ![Screenshot showing the Azure portal and the designer for a sample Standard workflow for the Compose action.](./media/logic-apps-perform-data-operations/sample-start-compose-action-standard.png)
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: firstNameVar <br>- **Type**: String <br>- **Value**: Sophia |
+   | **Initialize variable** | - **Name**: lastNameVar <br>- **Type**: String <br>- **Value**: Owens |
+   | **Initialize variable** | - **Name**: ageVar <br>- **Type**: Integer <br>- **Value**: 35 |
 
-1. In your workflow where you want to create the output, follow one of these steps: 
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-compose-action-standard.png" alt-text="Screenshot shows Azure portal and designer for example Standard workflow with Compose action." lightbox="media/logic-apps-perform-data-operations/sample-start-compose-action-standard.png":::
 
-   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+1. [Follow these general steps to add the **Data Operations** action named **Compose**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+1. On the designer, select the **Compose** action, if not already selected. In the **Inputs** box, enter the inputs to use for creating the output.
 
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Compose**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
+   For this example, follow these steps:
 
-   > [!NOTE]
-   >
-   > If the connector results box shows the message that **We couldn't find any results for compose**, 
-   > you get this result because the connector name is actually **Data Operations**, not **Compose**, 
-   > which is the action name.
+   1. In the **Inputs** box, enter the following sample JSON object, including the spacing as shown:
 
-1. After the action information box opens, in the **Inputs** box, enter the inputs to use for creating the output.
+      ```json
+      {
+          "age": ,
+          "fullName": " , "
+      }
+      ```
 
-   For this example, select inside the **Inputs** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variables:
+   1. In the JSON object, put your cursor in the corresponding locations, select the dynamic content list (lightning icon), and then select the corresponding variable from the list:
 
-   ![Screenshot showing the designer for a Standard workflow, the "Compose" action, and the selected inputs to use.](./media/logic-apps-perform-data-operations/configure-compose-action-standard.png)
+      | JSON property | Variable |
+      |---------------|----------|
+      | **`age`** | **ageVar** |
+      | **`fullName`** | "**lastNameVar**, **firstNameVar**" |
 
-   The following screenshot shows the finished example **Compose** action: 
+      The following example shows both added and not yet added variables:
 
-   ![Screenshot showing the designer for a Standard workflow and the finished example for the "Compose" action.](./media/logic-apps-perform-data-operations/finished-compose-action-standard.png)
+      :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action-standard.png" alt-text="Screenshot shows Standard workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action-standard.png":::
+
+      The following example shows the finished sample **Compose** action: 
+
+      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action-standard.png" alt-text="Screenshot shows Standard workflow with complete Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action-standard.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -153,13 +179,13 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Compose** action, select **Outputs**.
+1. In this action, for each box where you want the results to appear, select inside each box, and then select the dynamic content list. From that list, under the **Compose** action, select **Outputs**.
 
    For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
-   ![Screenshot showing the Azure portal, designer for an example Consumption workflow, and the "Send an email" action with the output from the preceding "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-compose-action-consumption.png" alt-text="Screenshot shows Consumption workflow designer, the action named Send an email, and output from the preceding Compose action." lightbox="media/logic-apps-perform-data-operations/send-email-compose-action-consumption.png":::
 
-1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
+1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
 #### [Standard](#tab/standard)
 
@@ -167,18 +193,11 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Compose** action, select **Outputs**.
-
-   > [!NOTE]
-   >
-   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
-   > select **See more** next to the **Compose** label in the list.
-   >
-   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-see-more.png)
+1. In this action, for each box where you want the results to appear, select inside each box, and then select the dynamic content list. From that list, under the **Compose** action, select **Outputs**.
 
    For this example, the result appears in the email's body, so add the **Outputs** field to the **Body** box.
 
-   ![Screenshot showing the Azure portal, designer for an example Standard workflow, and the "Send an email" action with the output from the preceding "Compose" action.](./media/logic-apps-perform-data-operations/send-email-compose-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-compose-action-standard.png" alt-text="Screenshot shows Consumption workflow designer, the action named Send an email, and output from the preceding Compose action." lightbox="media/logic-apps-perform-data-operations/send-email-compose-action-standard.png":::
 
 1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
 
@@ -186,7 +205,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
 If you used the Office 365 Outlook action, you get a result similar to the following screenshot:
 
-![Screenshot showing an email with the "Compose" action results.](./media/logic-apps-perform-data-operations/compose-email-results.png)
+:::image type="content" source="media/logic-apps-perform-data-operations/compose-email-results.png" alt-text="Screenshot shows email with results from the Compose action.":::
 
 <a name="create-csv-table-action"></a>
 
