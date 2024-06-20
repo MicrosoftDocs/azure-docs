@@ -132,7 +132,7 @@ The [Usage Details](/rest/api/consumption/usagedetails/list) API version `2021-1
 
 However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
 
-If you have cost allocation rules enabled, the `UnitPrice` field in your usage details file is 0. We recommend that you use price sheet data to get unit price information until it's available in the usage details file.
+If you have cost allocation rule(s) enabled, the unit price for the reserved instance (RI) purchase will show up as 0 in the usage details file. To work around this limitation, you could use the pricesheet data. 
 
 Cost allocation to a target doesn't happen if that target doesn't have any costs associated with it.
 

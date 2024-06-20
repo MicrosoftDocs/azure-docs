@@ -27,7 +27,7 @@ We use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If yo
 
 An [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. For more information, see [OpenTelemetry overview](opentelemetry-overview.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!NOTE]
 > If you want to use standalone ILogger provider, use [Microsoft.Extensions.Logging.ApplicationInsight](./ilogger.md).
@@ -801,7 +801,7 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Open-source SDK
 

@@ -83,6 +83,8 @@
       items: 
       - name: SSH connection
         href: bastion-connect-vm-ssh-linux.md
+      - name: RDP connection
+        href: bastion-connect-vm-linux-rdp.md
   - name: Connect to a VM - native client
     items:
     - name: Connect from Windows client
