@@ -79,7 +79,7 @@ selected call.
 
 The search field allows you to search by callID. See our documentation to [access your client call ID.](../troubleshooting-info.md#access-your-client-call-id)
 
-![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource.](media/call-diagnostics-all-calls-2.png)
+![Screenshot of the Call Diagnostics Call Search showing recent calls for your Azure Communications Services Resource.](media/call-diagnostics-all-calls-3.png)
 
 
 > [!NOTE]
