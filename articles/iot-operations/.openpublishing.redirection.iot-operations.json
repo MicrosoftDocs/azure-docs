@@ -234,6 +234,11 @@
             "source_path_from_root": "/articles/iot-operations/develop/tutorial-event-driven-with-dapr.md",
             "redirect_url": "/azure/iot-operations/create-edge-apps/tutorial-event-driven-with-dapr",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-blob.md",
+            "redirect_url": "/azure/iot-operations/process-data/overview-data-processor",
+            "redirect_document_id": false
         }
     ]
 }

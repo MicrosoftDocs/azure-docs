@@ -21,7 +21,7 @@ You can also publish your functions to an Azure Arc-enabled Kubernetes cluster w
 
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
-[!INCLUDE [app-service-arc-cli-install-extensions](~/reusable-content/ce-skilling/azure/includes/app-service-arc-cli-install-extensions.md)]
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## Create Azure resources 
 

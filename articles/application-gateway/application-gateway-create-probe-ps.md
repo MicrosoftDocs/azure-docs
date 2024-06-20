@@ -19,9 +19,9 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 In this article, you add a custom probe to an existing application gateway with PowerShell. Custom probes are useful for applications that have a specific health check page or for applications that do not provide a successful response on the default web application.
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [azure-ps-prerequisites-include.md](~/reusable-content/ce-skilling/azure/includes/azure-ps-prerequisites-include.md)]
+[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Create an application gateway with a custom probe
 
