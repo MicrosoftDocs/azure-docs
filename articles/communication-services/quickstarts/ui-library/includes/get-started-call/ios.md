@@ -209,7 +209,8 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up an Azure Communication Services Rooms call, inside the `startCallComposite` function, initialize a `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. 
+To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
+While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
 

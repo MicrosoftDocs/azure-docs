@@ -20,7 +20,7 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | Make and Receive 1:1 Calls                      |
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
-|                                                                                                 | Admit/Decline lobby participants                                 |
+|                                                                                                 | Admit/Reject lobby participants                                 |
 | Participant gallery                                                                   | Show remote participants on a grid              |
 |                                                                                                 | Make video preview available throughout a call for a local user |
 |                                                                                                 | Make default avatars available when video is off            |
