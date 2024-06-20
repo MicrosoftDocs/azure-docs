@@ -100,7 +100,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
-| - Mute remote user | ✔️ | ❌ | ❌ |
+| - Mute remote user | ✔️ <br>private preview</br> | ❌ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
 | - Active speaker | ✔️ | ✔️ | ✔️ |
 | - Choose speaker for calls | ✔️ | ✔️ | ✔️ |
