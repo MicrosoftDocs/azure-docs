@@ -99,7 +99,7 @@
         - name: Reliability guide
           href: reliability-cosmos-db-nosql.md
       - name: Azure Event Hubs
-        href: ../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-event-hubs.md
       - name: Azure ExpressRoute
         items:
         - name: Availability zones

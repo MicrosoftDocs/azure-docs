@@ -4147,7 +4147,12 @@
            "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/event-hubs/event-hubs-geo-dr.md",
+            "redirect_url": "/azure/reliability/reliability-event-hubs",
+            "redirect_document_id": false
         }
-       
+
     ]
 }

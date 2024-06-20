@@ -44,10 +44,10 @@ The Azure portal doesn't support disabling availability zones. To disable availa
 
 ### Availability zone migration
 
-Need Info. What is the process for migrating service from non-availability zone to availability zone?
+
 
 ### Fault tolerance
-Need Info. Are there any recommendations for fault tolerance? 
+
 
 ### Zone down experience
 

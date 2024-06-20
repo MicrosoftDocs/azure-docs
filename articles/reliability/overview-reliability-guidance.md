@@ -25,7 +25,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 | Product| Availability zone guide | Disaster recovery guide |
 |----------|----------|----------|
 |Azure Cosmos DB for NoSQL|[Reliability in Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md)| [Reliability in Cosmos DB for NoSQL](reliability-cosmos-db-nosql.md) |
-|Azure Event Hubs| [Availability Zones](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zones)| [Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Event Hubs| [Reliability in Event Hubs](./reliability-event-hubs.md)| [Reliability in Event Hubs](./reliability-event-hubs.md) |
 |Azure ExpressRoute| [Designing for high availability with ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|[Designing for disaster recovery with ExpressRoute private peering](../expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Key Vault|[Azure Key Vault failover within a region](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-within-a-region)| [Azure Key Vault](../key-vault/general/disaster-recovery-guidance.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#failover-across-regions) |
 |Azure Load Balancer|[Reliability in Load Balancer](./reliability-load-balancer.md)| [Reliability in Load Balancer](./reliability-load-balancer.md)|
