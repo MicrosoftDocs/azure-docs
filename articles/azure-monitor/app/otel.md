@@ -59,6 +59,11 @@ The **.NET** OpenTelemetry implementation uses logging, metrics, and activity AP
 - [Azure Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-overview)
 - [Real-Time Intelligence](/fabric/real-time-intelligence/overview)
 
+**Azure Functions** allows exporting log and trace data in OTLP format. It supports telemetry from both the host process and the worker process. When enabled, the data can be sent to any OpenTelemetry-compliant endpoints.
+
+- [Use OpenTelemetry with Azure Functions](/azure/azure-functions/opentelemetry-howto)
+- [Monitor Azure Functions](/azure/azure-functions/monitor-functions)
+
 ## Data Platform and Consumption
 
 **.NET Aspire** is an opinionated cloud-native stack that includes observability by default with OpenTelemetry. Part of it's a "Developer Dashboard" to observe OpenTelemetry signals in real-time during debugging. It collects logs, metrics, and traces using OTLP from applications of any OpenTelemetry-supported languages besides .NET.
