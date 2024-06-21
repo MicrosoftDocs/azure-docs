@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 > [!VIDEO https://www.youtube.com/embed/Aq5VTLfXU_4]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application for this [QuickStart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
@@ -227,15 +227,13 @@ let locator = .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode: 
 To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
 While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 
-For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
+For more information about Rooms, how to create and manage one see [Rooms QuickStart](../../../rooms/get-started-rooms.md)
 
 ```swift
 let locator = .roomCall(roomId: "<ROOM_ID>")
 ```
 
 ### Set up a 1:N Outgoing call and Incoming Call Push Notifications 
-
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
 UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../../how-tos/ui-library-sdk/one-to-one-calling.md)
 
