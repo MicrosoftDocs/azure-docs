@@ -189,6 +189,151 @@ Azure Application Insights is an optional dependency for Azure AI Studio hub. Th
 | `Microsoft.Insights/Components/Write` | Write to an application insights component configuration. |
 | `Microsoft.OperationalInsights/workspaces/write` | Create a new workspace or links to an existing workspace by providing the customer ID from the existing workspace. |
 
+## Scenario: Provisioned throughput unit procurer
+
+```json
+{
+    "properties": {
+        "roleName": "PTU procurer",
+        "description": "Custom role to purchase PTU",
+        "assignableScopes": [
+            "/subscriptions/<your-subscription-id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/read",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/write",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/delete",
+                    "Microsoft.CognitiveServices/locations/commitmentTiers/read",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/read",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/write",
+                    "Microsoft.CognitiveServices/accounts/commitmentplans/delete",
+                    "Microsoft.Features/features/read",
+                    "Microsoft.Features/providers/features/read",
+                    "Microsoft.Features/providers/features/register/action",
+                    "Microsoft.Insights/logDefinitions/read",
+                    "Microsoft.Insights/metricdefinitions/read",
+                    "Microsoft.Insights/metrics/read",
+                    "Microsoft.ResourceHealth/availabilityStatuses/read",
+                    "Microsoft.Resources/deployments/operations/read",
+                    "Microsoft.Resources/subscriptions/operationresults/read",
+                    "Microsoft.Resources/subscriptions/read",
+                    "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+## Scenario: Azure OpenAI assistant API developer
+
+```json
+{
+    "id": "",
+    "properties": {
+        "roleName": "CognitiveServices OpenAI Assistants API Developer",
+        "description": "Custom role to work with AOAI Assistants API",
+        "assignableScopes": [
+            "<your-scope>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.CognitiveServices/*/read",
+                    "Microsoft.Authorization/roleAssignments/read",
+                    "Microsoft.Authorization/roleDefinitions/read"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.CognitiveServices/accounts/OpenAI/*/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/delete",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/files/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/files/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/files/delete",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/delete",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/messages/files/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/write",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/assistants/threads/runs/steps/read"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+## Scenario: Custom at subscription level
+
+```json
+{
+    "properties": {
+        "roleName": "AI Studio Developer",
+        "description": "Custom role for AI Studio. At subscription level",
+        "assignableScopes": [
+            "/subscriptions/<your-subscription-id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/write",
+                    "Microsoft.MachineLearningServices/workspaces/endpoints/write",
+                    "Microsoft.Storage/storageAccounts/write",
+                    "Microsoft.Resources/deployments/validate/action",
+                    "Microsoft.KeyVault/vaults/write",
+                    "Microsoft.Authorization/roleAssignments/read",
+                    "Microsoft.Authorization/roleDefinitions/read",
+                    "Microsoft.CognitiveServices/*/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/delete",
+                    "Microsoft.MachineLearningServices/workspaces/write",
+                    "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+                    "Microsoft.MachineLearningServices/workspaces/hubs/write",
+                    "Microsoft.MachineLearningServices/workspaces/hubs/delete",
+                    "Microsoft.MachineLearningServices/workspaces/featurestores/write",
+                    "Microsoft.MachineLearningServices/workspaces/featurestores/delete"
+                ],
+                "dataActions": [
+                    "Microsoft.CognitiveServices/accounts/OpenAI/*/read",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
+                    "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## Next steps
 
 - [How to create an Azure AI Studio hub](../how-to/create-azure-ai-resource.md)
