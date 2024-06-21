@@ -1,7 +1,7 @@
 ---
 title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
 description: This article helps you create a virtual machine using Azure portal. 
-ms.date: 11/15/2023
+ms.date: 06/24/2024
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -26,19 +26,19 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 ## How to create a VM in Azure portal
 
 1. Go to Azure portal.
-2. Select **Azure Arc** as the service and then select **Azure Arc virtual machine** from the left blade.
-3. Select **+ Create**, **Create an Azure Arc virtual machine** page opens.
+2. Select **Azure Arc** as the service and then select **Machine** under **Azure Arc resources** from the left blade.
+3. Select **Add/Create** and select **Create a machine in a connected host environment** from the dropdown.
 
-3. Under **Basics** > **Project details**, select the **Subscription** and **Resource group** where you want to deploy the VM.
+3. **Create an Azure Arc virtual machine** page opens. Under **Basics** > **Project details**, select the **Subscription** and **Resource group** where you want to deploy the VM.
 4. Under **Instance details**, provide the following details:
-   - Virtual machine name - Specify the name of the virtual machine.
-   - Custom location - Select the custom location that your administrator has shared with you.
-   - Virtual machine kind – Select **System Center Virtual Machine Manager**.
-   - Cloud – Select the target VMM private cloud.
-   - Availability set - (Optional) Use availability sets to identify virtual machines that you want VMM to keep on separate hosts for improved continuity of service.
+   - **Virtual machine name** - Specify the name of the virtual machine.
+   - **Custom location** - Select the custom location that your administrator has shared with you.
+   - **Virtual machine kind** - Select **System Center Virtual Machine Manager**.
+   - **Cloud** - Select the target VMM private cloud.
+   - **Availability set** - (Optional) Use availability sets to identify virtual machines that you want VMM to keep on separate hosts for improved continuity of service.
 5. Under **Template details**, provide the following details:
-   - Template – Choose the VM template for deployment.
-   - Override template details - Select the checkbox to override the default CPU cores and memory on the VM templates.
+   - **Template** - Choose the VM template for deployment.
+   - **Override template defaults** - Select the checkbox to override the default CPU cores and memory on the VM templates.
    - Specify computer name for the VM, if the VM template has computer name associated with it.
 6. Under **Administrator account**, provide the following details and select **Next : Disks >**.
    - Username
