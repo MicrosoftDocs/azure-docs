@@ -16,11 +16,16 @@ ms.date: 06/12/2024
 
 This article describes reliability support in [Azure Event Hubs](../event-hubs/event-hubs-about.md), and covers both intra-regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
+
+
+
 ## Availability zone support
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Event Hubs supports [availability zones](../availability-zones/az-overview.md) with [zone redundancy](./availability-zones-overview.md#zonal-and-zone-redundant-services), providing fault-isolated locations within an Azure region. Both metadata and data (events) are replicated across data centers in each availability zone. 
+
+Event Hubs implements transparent failure detection and failover mechanisms so that, when failure occurs, the service continues to operate within the assured service-levels and without noticeable interruptions. If you create an Event Hubs namespace in a region that supports availability zones, [zone redundancy](./availability-zones-overview.md#zonal-and-zone-redundant-services) is automatically enabled. With zone-redundancy, fault tolerance is increased and the service has enough capacity reserves to cope with the outage of an entire facility.  Both metadata and data (events) are replicated across data centers in each zone. 
+
 
 ### Prerequisites
 
@@ -44,12 +49,15 @@ The Azure portal doesn't support disabling availability zones. To disable availa
 
 ### Availability zone migration
 
+You can't disable or enable availability zones for Event Hubs. When you create availability zones in the a region that supports them, availability zones are automatically enabled. 
 
 
-### Fault tolerance
 
 
 ### Zone down experience
+
+
+
 
 When a client application sends events to an event hub without specifying a partition, events are automatically distributed among partitions in your event hub. If a partition isn't available for some reason, events are distributed among the remaining partitions. This behavior allows for the greatest amount of up time. For use cases that require the maximum up time, this model is preferred instead of sending events to a specific partition.
 
