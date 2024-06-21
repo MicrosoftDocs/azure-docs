@@ -91,8 +91,6 @@ landingContent:
             url: creator-qgis-plugin.md
           - text: Create dataset using GeoJson package
             url: how-to-dataset-geojson.md
-          - text: Create a feature stateset
-            url: how-to-creator-feature-stateset.md
       - linkListType: reference
         links:
             - text: Drawing package requirements

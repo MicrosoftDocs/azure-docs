@@ -701,6 +701,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-maps/how-to-creator-feature-stateset.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/how-to-request-elevation-data.md",
             "redirect_url": "https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023",
             "redirect_document_id": false
