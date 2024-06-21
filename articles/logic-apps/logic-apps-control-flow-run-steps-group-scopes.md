@@ -137,10 +137,10 @@ so save your work often.
 
       ![Finished condition](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. In the **If true** branch, add a "send email" action for your email provider. 
+1. In the **True** branch, add a "send email" action for your email provider. 
    Set up this action by following the steps under this image:
 
-   ![Add "Send an email" action to "If true" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+   ![Add "Send an email" action to "True" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
    1. In the **To** field, enter your email address for testing purposes.
 
@@ -270,7 +270,7 @@ the scope's status is equal to "Failed" or "Aborted".
    1. When you're finished, select **Done**. 
    The condition now shows an "information" icon.
 
-1. In the **If true** and **If false** branches, 
+1. In the **True** and **False** branches, 
 add the actions that you want to perform based on 
 each scope status, for example, send an email or message.
 
@@ -284,7 +284,7 @@ Your finished logic app now looks like this example:
 
 ## Test your work
 
-On the designer toolbar, select **Run**. If all the scoped actions succeed, 
+On the designer toolbar, select **Run** > **Run**. If all the scoped actions succeed, 
 you get a "Scope succeeded" message. If any scoped actions don't succeed, 
 you get a "Scope failed" message. 
 
@@ -445,13 +445,6 @@ here is the JSON definition for trigger and actions in the previous logic app:
   }
 },
 ```
-
-## Get support
-
-* For questions, visit the 
-[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
-* To submit or vote on features and suggestions, 
-visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 
