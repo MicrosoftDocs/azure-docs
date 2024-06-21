@@ -48,14 +48,14 @@ Live metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
   
   # [Classic API](#tab/classic)
   
-   * [ASP.NET](./asp-net.md): Enabled by default but can also be [enabled manually using code](./asp-net#enable-live-metrics-by-using-code-for-any-net-application).
-   * [ASP.NET Core](./asp-net-core.md): Enabled by default but can also be [enabled manually using code](./asp-net-core#enable-live-metrics-by-using-code-for-any-net-application).
+   * [ASP.NET](./asp-net.md): Enabled by default but can also be [enabled manually using code](asp-net.md#enable-live-metrics-by-using-code-for-any-net-application).
+   * [ASP.NET Core](./asp-net-core.md): Enabled by default but can also be [enabled manually using code](asp-net-core.md#enable-live-metrics-by-using-code-for-any-net-application).
    * [.NET/.NET Core Console/Worker](./worker-service.md): Enabled by default.
    * [Node.js](./nodejs.md#live-metrics): *Not enabled by default*.
 
 ---
 
-2. Open the Application Insights resource for your application in the [Azure portal](https://portal.azure.com). Select **Live metrics**, which is listed under **Investigate** in the left hand menu.
+2. Open the Application Insigwhts resource for your application in the [Azure portal](https://portal.azure.com). Select **Live metrics**, which is listed under **Investigate** in the left hand menu.
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
