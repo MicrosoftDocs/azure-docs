@@ -7,6 +7,7 @@ author: kenkilty
 ms.author: kkilty
 ms.custom: innovation-engine, aks-related-content
 ---
+
 # Deploy a highly available PostgreSQL database on AKS
 
 In this article, you deploy a highly available PostgreSQL database on AKS.
