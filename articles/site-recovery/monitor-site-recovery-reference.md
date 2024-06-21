@@ -29,6 +29,15 @@ Note that some of the following logs apply to Azure Backup and others apply to A
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
+### Recovery Services Vaults
+
+Microsoft.RecoveryServices/Vaults
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
+- [ASRJobs](/azure/azure-monitor/reference/tables/ASRJobs#columns)
+- [ASRReplicatedItems](/azure/azure-monitor/reference/tables/ASRReplicatedItems#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
+
 ### Event logs available for Azure Site Recovery
 
 Azure Site Recovery provides the following resource-specific and legacy tables. Each event provides detailed data on a specific set of site recovery related artifacts.
@@ -36,7 +45,7 @@ Azure Site Recovery provides the following resource-specific and legacy tables. 
 **Resource-specific tables**:
 
 - [AzureSiteRecoveryJobs](/azure/azure-monitor/reference/tables/asrjobs)
-- [Azure Site Recovery Replicated Items Details](/azure/azure-monitor/reference/tables/ASRReplicatedItems)
+- [ASRReplicatedItems](/azure/azure-monitor/reference/tables/ASRReplicatedItems)
 
 **Legacy tables**:
 
@@ -48,19 +57,11 @@ Azure Site Recovery provides the following resource-specific and legacy tables. 
 - Azure Site Recovery Protected Disk Data Churn
 - Azure Site Recovery Replicated Item Details
 
-### Recovery Services Vaults
-Microsoft.RecoveryServices/Vaults
-
-- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
-- [ASRJobs](/azure/azure-monitor/reference/tables/ASRJobs#columns)
-- [ASRReplicatedItems](/azure/azure-monitor/reference/tables/ASRReplicatedItems#columns)
-- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
-
 ## Log Analytics data model
 
 This section describes the Log Analytics data model for Azure Site Recover that's added to the Azure Diagnostics table (if your vaults are configured with diagnostics settings to send data to a Log Analytics workspace in Azure Diagnostics mode). You can use this data model to write queries on Log Analytics data to create custom alerts or reporting dashboards.
 
-To understand the fields of each Site Recovery table in Log Analytics, review the details for the Azure Site Recovery Replicated Item Details and Azure Site Recovery Jobs tables. You can find information about the diagnostic tables [here](/azure/azure-monitor/reference/tables/azurediagnostics).
+To understand the fields of each Site Recovery table in Log Analytics, review the details for the Azure Site Recovery Replicated Item Details and Azure Site Recovery Jobs tables. You can find information about the [diagnostic tables](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 > [!TIP]
 > Expand this table for better readability.
