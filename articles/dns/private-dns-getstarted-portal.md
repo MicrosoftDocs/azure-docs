@@ -46,14 +46,14 @@ The following example creates a DNS zone called **private.contoso.com** in a res
 1. On the portal search bar, type **private dns zones** in the search text box and press **Enter**.
 2. Under **Marketplace**, select **Private DNS zone**. The **Create Private DNS Zone** page opens.
 
-  ![Screenshot of private DNS zones search.](./media/private-dns-portal/search-private-dns.png)
+    ![Screenshot of private DNS zones search.](./media/private-dns-portal/search-private-dns.png)
 
 3. On the **Create Private DNS Zone** page, type or select the following values:
    - **Resource group**: Select an existing resource group, or choose **Create new**. Enter a resource group name, and then select **OK**. For example: **MyResourceGroup**. The resource group name must be unique within the Azure subscription.
    -  **Name**: Type **private.contoso.com** for this example.
 4. The **Resource group location** is selected already if you use an existing resource group. If you created a new resource group, choose a location, for example: **(US) West US**.
 
-  ![Screenshot of creating a private DNS zone.](./media/private-dns-portal/create-private-zone.png)
+    ![Screenshot of creating a private DNS zone.](./media/private-dns-portal/create-private-zone.png)
 
 5. Select **Review + Create** and then select **Create**. It might take a few minutes to create the zone.
 
@@ -70,12 +70,12 @@ The following example creates a DNS zone called **private.contoso.com** in a res
 
 3. Select the **IP addresses** tab, and under **Add IPv4 address space** edit the default address space by entering **10.2.0.0/16**.
 
-  ![Screenshot of specifying VNet IPv4 address space.](./media/private-dns-portal/vnet-ipv4-space.png)
+    ![Screenshot of specifying VNet IPv4 address space.](./media/private-dns-portal/vnet-ipv4-space.png)
 
 4. In the subnets area, select the pen icon to edit the name of the default subnet, or delete the default subnet and select **+ Add a subnet**. The **Edit subnet** or **Add a subnet** pane opens, respectively. The Edit subnet pane is shown in this example.
 5. Next to Name, enter mySubnet and verify that the **Subnet address range** is **10.2.0.0 - 10.2.0.255**. The **Size** should be **/24 (256 addresses)**. These values are set by default based on the parent VNet address range.
 
-  ![Screenshot of specifying subnet IPv4 address space.](./media/private-dns-portal/subnet-ipv4-space.png)
+    ![Screenshot of specifying subnet IPv4 address space.](./media/private-dns-portal/subnet-ipv4-space.png)
 
 6. Select **Save**, select **Review + create**, and then select **Create**.
 
@@ -91,7 +91,7 @@ Next, link the private DNS zone to the virtual network by adding a virtual netwo
 - **Virtual Network**: Select the virtual network that you created, for example: **MyVNet**.
 4. Under **Configuration**, select the checkbox next to **Enable auto registration**.
 
-  ![Screenshot of adding a virtual network link.](./media/private-dns-portal/dns-add-virtual-network-link.png)
+    ![Screenshot of adding a virtual network link.](./media/private-dns-portal/dns-add-virtual-network-link.png)
 
 5. Select **Create**, wait until the virtual link is created, and then verify that it is listed on the **Virtual Network Links** page.
 
@@ -120,7 +120,7 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 2. Under DNS Management, select Recordsets.
 3. Verify that a DNS record exists of **Type** **A** with an **Auto registered** value of **True**. See the following example:
 
-  ![Screenshot of an auto registered DNS record.](./media/private-dns-portal/create-dns-record.png)
+    ![Screenshot of an auto registered DNS record.](./media/private-dns-portal/create-dns-record.png)
 
 ## Create another DNS record
 
@@ -133,6 +133,14 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 4. Next to **IP Address**, type the IP address you see for **myVM01**.
 5. Select **OK**.
 
+## Search and display records
+
+You can also search and display specific DNS resource records in the zone by entering a value in the search box. In the following example, only records with the name **db** are displayed.
+
+  ![Screenshot of searching for a DNS record.](./media/private-dns-portal/search-for-record.png)
+
+You can search by name, type, TTL, value, or autoregistration status. For example, the record **db** in this zone is also displayed by searching for **A** (display all records of type A), **3600** (the TTL value), **10.2.0.5** (the IP address of the A record), or **False** (non-autoregistered records). All records in the zone that match the search criteria are displayed.
+
 ## Test the private zone
 
 Now you can test the name resolution for your **private.contoso.com** private zone. 
@@ -144,7 +152,7 @@ To use the Run command:
 1. Select **Virtual machines**, select your virtual machine, and then under **Operations** select **Run command**.
 2. Select **RunPowerShellScript**, under **Run Command Script** enter **ping myvm01.private.contoso.com** and then select **Run**. See the following example:
 
-  [ ![Screenshot of the ping command.](./media/private-dns-portal/ping-vm.png) ](./media/private-dns-portal/ping-vm.png#lightbox)
+    [ ![Screenshot of the ping command.](./media/private-dns-portal/ping-vm.png) ](./media/private-dns-portal/ping-vm.png#lightbox)
 
 3. Now ping the **db** name you created previously:
    ```
