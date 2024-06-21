@@ -217,20 +217,20 @@ To deploy the Terraform template, make sure you're in the *201-machine-learning-
 
 After the deployment completes, use the following steps to connect to the DSVM:
 
-1. From the [Azure portal](https://portal.azure.com), select the Azure resource group you used with the template. Then, select the DSVM that the template created. If you have trouble finding it, use the filters section to filter the __Type__ to __virtual machine__.
+1. From the [Azure portal](https://portal.azure.com), select the Azure resource group you used with the template. Then, select the DSVM that the template created. If you have trouble finding it, use the filters section to filter the **Type** to **virtual machine**.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace-template/select-vm.png" alt-text="Screenshot of filtering and selecting the vm.":::
+    :::image type="content" source="./media/tutorial-create-secure-workspace-template/select-vm.png" alt-text="Screenshot of filtering and selecting the VM.":::
 
-1. From the DSVM __Overview__ page, select __Connect__, and then select __Bastion__ from the dropdown list.
+1. From the DSVM **Overview** page, select **Connect**, and then select **Connect via Bastion** from the dropdown list.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-template/connect-bastion.png" alt-text="Screenshot of selecting to connect using Bastion.":::
 
-1. When prompted, provide the __username__ and __password__ you specified when configuring the template, and then select __Connect__.
+1. When prompted, provide the **Username** and **VM password** you specified when configuring the template, and then select **Connect**.
 
     > [!IMPORTANT]
     > The first time you connect to the DSVM desktop, a PowerShell window opens and runs a script. Allow the script to complete before continuing with the next step.
 
-1. From the DSVM desktop, start __Microsoft Edge__ and enter *https://ml.azure.com* as the address. Sign in to your Azure subscription, and then select the workspace the template created. The studio for your workspace appears.
+1. From the DSVM desktop, start **Microsoft Edge** and enter *https://ml.azure.com* as the address. Sign in to your Azure subscription, and then select the workspace the template created. The studio for your workspace appears.
 
 ## Troubleshooting
 
