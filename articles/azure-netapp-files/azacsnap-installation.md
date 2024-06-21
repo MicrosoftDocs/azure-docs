@@ -103,7 +103,7 @@ With the [prerequisite steps](#prerequisites-for-installation) completed, the st
 Performing the following steps to get azacsnap running:
 
 - For Linux via a shell session:
-  1. As the root superuser create a Linux User
+  1. As the root superuser, create a Linux User
      1. `useradd -m azacsnap`
   1. Log in as the user
      1. `su – azacsnap`
@@ -127,7 +127,7 @@ The user running AzAcSnap needs to have any environment variables updated to ens
 
 - SAP HANA requires `hdbuserstore` and `hdbsql`.
 - OracleDB requires `sqlplus`.
-- IBM Db2 requires `db2` and `ssh` (for remote access to Db2 when doing a centtralized installation).
+- IBM Db2 requires `db2` and `ssh` (for remote access to Db2 when doing a centralized installation).
 
 ### Linux
 
