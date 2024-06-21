@@ -27,6 +27,9 @@ The Copy activity is executed on an [integration runtime](concepts-integration-r
 
 An integration runtime needs to be associated with each source and sink data store. For information about how the Copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
+> [!NOTE]
+> One cannot use two self-hosted integration runtime within the Same Copy activity.The Source and Sink must be connected via the same self-hosted integration runtime if used in a Copy activity.
+
 To copy data from a source to a sink, the service that runs the Copy activity performs these steps:
 
 1. Reads data from a source data store.
