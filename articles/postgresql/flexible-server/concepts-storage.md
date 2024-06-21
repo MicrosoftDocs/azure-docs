@@ -130,7 +130,7 @@ Remember that storage can only be scaled up, not down.
 - Storage autogrow isn't triggered when you have high WAL usage.
 
 > [!NOTE]  
-> Storage auto-grow never triggers an offline increase.
+> Storage auto-grow depends on online disk scaling, so it never causes downtime.
 
 ## IOPS scaling
 
