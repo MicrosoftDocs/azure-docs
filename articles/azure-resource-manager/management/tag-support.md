@@ -1839,7 +1839,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | privateLinkScopes / privateEndpointConnections | No | No |
 > | privateLinkScopes / scopedResources | No | No |
 > | rollbackToLegacyPricingModel | No | No |
-> | scheduledqueryrules | Yes | Yes |
+> | scheduledqueryrules | Yes | No |
 > | scheduledqueryrules / networkSecurityPerimeterAssociationProxies | No | No |
 > | scheduledqueryrules / networkSecurityPerimeterConfigurations | No | No |
 > | topology | No | No |
@@ -3440,4 +3440,3 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Next steps
 
 To learn how to apply tags to resources, see [Use tags to organize your Azure resources](tag-resources.md).
-
