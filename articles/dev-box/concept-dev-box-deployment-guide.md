@@ -5,8 +5,8 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.topic: conceptual
-ms.date: 02/02/2024
+ms.topic: concept-article
+ms.date: 06/20/2024
 ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand the process, considerations, and configuration options so that I can successfully plan and implement a Microsoft Dev Box deployment.
 ---
