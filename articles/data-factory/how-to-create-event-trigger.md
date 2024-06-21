@@ -18,11 +18,11 @@ ms.date: 05/24/2024
 
 This article describes the Storage Event Triggers that you can create in your Data Factory or Synapse pipelines.
 
-Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require customers to trigger pipelines that is triggered from events on a storage account, such as the arrival or deletion of a file in Azure Blob Storage account. Data Factory and Synapse pipelines natively integrate with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), which lets you trigger pipelines on such events.
+Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require customers to trigger pipelines that are triggered from events on a storage account, such as the arrival or deletion of a file in Azure Blob Storage account. Data Factory and Synapse pipelines natively integrate with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), which lets you trigger pipelines on such events.
 
 ## Storage event trigger considerations
 
-There are a several things to consider when using storage event triggers:
+There are several things to consider when using storage event triggers:
 
 - The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the *Microsoft.EventGrid/eventSubscriptions/** action. This action is part of the EventGrid EventSubscription Contributor built-in role.
 - If you're using this feature in Azure Synapse Analytics, ensure that you also register your subscription with the Data Factory resource provider. Otherwise you get an error stating that _the creation of an "Event Subscription" failed_.
@@ -141,7 +141,7 @@ Two noticeable call outs from the work flows:
 
 ### Storage event trigger pipeline run
 
-This high-level work flows describe how Storage event triggers pipeline run through Event Grid. For Azure Synapse the data flow is the same, with Synapse pipelines taking the role of the Data Factory in the diagram below.
+This high-level work flow describes how storage event trigger pipelines run through Event Grid. For Azure Synapse the data flow is the same, with Synapse pipelines taking the role of the Data Factory in the diagram below.
 
 :::image type="content" source="media/how-to-create-event-trigger/storage-event-trigger-6-trigger-pipeline.png" alt-text="Workflow of storage event triggering pipeline runs.":::
 
