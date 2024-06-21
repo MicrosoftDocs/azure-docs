@@ -24,7 +24,7 @@ For the Android application to receive notification messages from FCM, it needs 
 
 ### Add incoming notifications to your mobile app
 
-Azure Communication Services integrates with [Azure Event Grid](../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. 
+Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. 
 
 ### Register/Unregister for notification hub push notifications
 

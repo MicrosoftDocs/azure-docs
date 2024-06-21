@@ -30,7 +30,7 @@ For more information, see the [open-source iOS UI Library](https://github.com/Az
 
 ### Set up CallKit integration
 
-The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](../calling-sdk/callkit-integration#callkit-integration-within-sdk).
+The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](../calling-sdk/callkit-integration.md).
 
 ### Specify call recipient info for outgoing calls
 

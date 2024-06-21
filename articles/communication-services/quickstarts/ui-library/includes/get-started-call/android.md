@@ -394,6 +394,7 @@ val locator = CallCompositeRoomLocator("<ROOM_ID>")
 ```java
 CallCompositeJoinLocator locator = new CallCompositeRoomLocator("<ROOM_ID>");
 ```
+---
 
 ### Set up a 1:N Outgoing call and Incoming Call Push Notifications 
 

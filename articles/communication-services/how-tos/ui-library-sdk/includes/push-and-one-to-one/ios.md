@@ -22,7 +22,7 @@ The following sections describe how to register for, handle, and unregister push
 
 ### Add incoming notifications to your mobile app
 
-Azure Communication Services integrates with [Azure Event Grid](../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. 
+Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. 
 
 ### Register/Unregister for notification hub push notifications
 
@@ -104,7 +104,7 @@ To receive push notifications only from `EventGrid` and `APNS` set `disableInter
 ```
 
 ### Launch composite on incoming call accepted from calling SDK CallKit
-The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](../../../calling-sdk/callkit-integration#callkit-integration-within-sdk).
+The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](../../../calling-sdk/callkit-integration.md).
 
 Subscribe to `onIncomingCallAcceptedFromCallKit` if CallKit from calling SDK is enabled. On call accepted, launch `callComposite` with call ID.
 
