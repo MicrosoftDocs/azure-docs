@@ -20,7 +20,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 
 - An Azure subscription and resource group where you have *Arc SCVMM VM Contributor* role.
 - A cloud resource on which you have *Arc SCVMM Private Cloud Resource User* role.
-- A virtual machine template resource on which you have *Arc SCVMM Private Cloud Resource User role*.
+- A virtual machine template resource on which you have *Arc SCVMM Private Cloud Resource User* role.
 - A virtual network resource on which you have *Arc SCVMM Private Cloud Resource User* role.
 
 ## How to create a VM in Azure portal
@@ -39,7 +39,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 5. Under **Template details**, provide the following details:
    - **Template** - Choose the VM template for deployment.
    - **Override template defaults** - Select the checkbox to override the default CPU cores and memory on the VM templates.
-   - Specify computer name for the VM, if the VM template has computer name associated with it.
+   - Specify computer name for the VM if the VM template has computer name associated with it.
 6. Under **Administrator account**, provide the following details and select **Next : Disks >**.
    - Username
    - Password
