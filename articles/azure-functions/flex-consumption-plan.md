@@ -82,7 +82,7 @@ Concurrency has a direct effect on how your app scales because at lower concurre
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behaviour.
+Deployments in the Flex Consumption plan follow a single path. After your project code is built and zipped into an application package, it is deployed to a blob storage container. Upon startup, your app will retrieve the package and run from it. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) is also used as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings). In streamlining the deployment path, there is no longer the need for app settings to influence deployment behavior.
 
 ## Billing
 
@@ -128,6 +128,7 @@ In Flex Consumption, many of the standard application settings and site configur
 
 Keep these other considerations in mind when using Flex Consumption plan during the current preview:
 
++ **VNet Integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: All triggers are fully supported except for Kafka, Azure SQL, and SignalR triggers. The Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
 + **Regions**: Not all regions are currently supported. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
 + **Deployments**: These deployment-related features aren't currently supported:
