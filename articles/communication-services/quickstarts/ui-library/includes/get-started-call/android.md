@@ -128,7 +128,6 @@ import com.azure.android.communication.ui.calling.CallComposite
 import com.azure.android.communication.ui.calling.CallCompositeBuilder
 import com.azure.android.communication.ui.calling.models.CallCompositeGroupCallLocator
 import com.azure.android.communication.ui.calling.models.CallCompositeJoinLocator
-import com.azure.android.communication.ui.calling.models.CallCompositeRemoteOptions
 import java.util.UUID
 
 class MainActivity : AppCompatActivity() {
@@ -173,7 +172,6 @@ import com.azure.android.communication.ui.calling.CallComposite;
 import com.azure.android.communication.ui.calling.CallCompositeBuilder;
 import com.azure.android.communication.ui.calling.models.CallCompositeGroupCallLocator;
 import com.azure.android.communication.ui.calling.models.CallCompositeJoinLocator;
-import com.azure.android.communication.ui.calling.models.CallCompositeRemoteOptions;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
@@ -325,7 +323,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 #### Join via Teams meeting URL
 
-To join a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
+To join a Microsoft Teams meeting, initialize a `CallCompositeTeamsMeetingLinkLocator`.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -351,25 +349,12 @@ A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is ca
 
 ```kotlin
 val locator = CallCompositeTeamsMeetingIdLocator("TEAMS_MEETING_ID", "TEAMS_MEETING_PASSCODE")
-
-val remoteOptions = CallCompositeRemoteOptions(
-    locator,
-    communicationTokenCredential,            
-    "DISPLAY_NAME",
-)
-
 ```
 
 #### [Java](#tab/java)
 
 ```java
 CallCompositeJoinLocator locator = new CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_ID", "TEAMS_MEETING_PASSCODE");
-
-CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
-        locator,
-        communicationTokenCredential,                
-        "DISPLAY_NAME");
-
 ```
 
 ---

@@ -147,7 +147,6 @@ The following classes and interfaces handle some key features of the Azure Commu
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-callcomposite) | Component that renders a call experience that has a participant gallery and controls |
 | [CallCompositeOptions](#create-callcomposite) | Settings for options like themes and event handling |
-| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#join-a-teams-meeting). |
 | [ThemeOptions](#apply-theme-options) | Customization options for the composite theme |
 | [LocalizationOptions](#apply-localization-options) | Language options for the composite |
 
@@ -205,7 +204,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 #### Join via Teams meeting URL
 
-To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
+To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
 let locator = .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>")
@@ -218,10 +217,7 @@ A Teams meeting ID is 12 characters long and consists of numeric digits grouped 
 A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
 
 ```swift
-let remoteOptions = RemoteOptions(for: .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode:  "<TEAMS_MEETING_PASSCODE>" ),
-                                  credential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>")
-
+let locator = .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode:  "<TEAMS_MEETING_PASSCODE>" )
 ```
 
 ### Set up a Room call
