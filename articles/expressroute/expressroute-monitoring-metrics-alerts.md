@@ -4,7 +4,7 @@ description: Learn about Azure ExpressRoute monitoring, metrics, and alerts usin
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 03/31/2024
+ms.date: 06/24/2024
 ms.author: duau
 ---
 
@@ -24,10 +24,12 @@ Once a metric is selected, the default aggregation is applied. Optionally, you c
 
 > [!IMPORTANT]
 > When viewing ExpressRoute metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
-> 
+>
 > :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metric-granularity.png" alt-text="Screenshot of time granularity options.":::
 
-### Aggregation Types:
+For the ExpressRoute metrics, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md).
+
+### Aggregation Types
 
 Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
 
@@ -36,67 +38,6 @@ Metrics explorer supports sum, maximum, minimum, average and count as [aggregati
 * Average: The average of the metric values captured during the aggregation interval. 
 * Min: The smallest value captured during the aggregation interval. 
 * Max: The largest value captured during the aggregation interval. 
-
-### ExpressRoute circuit
-
-| Metric | Category | Unit | Aggregation Type | Description | Dimensions |  Exportable via Diagnostic Settings? | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| [ARP Availability](#arp) | Availability | Percent | Average | ARP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
-| [BGP Availability](#bgp) | Availability | Percent | Average | BGP Availability from MSEE towards all peers. | Peering Type, Peer |  Yes | 
-| [BitsInPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | Peering Type | Yes | 
-| [BitsOutPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | Peering Type | Yes | 
-| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Peering Type | Yes | 
-| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Peering Type | Yes | 
-| GlobalReachBitsInPerSecond | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeredCircuitSKey | Yes | 
-| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | Yes |
-| [FastPathRoutesCount](#fastpath-routes-count-at-circuit-level) | Fastpath | Count | Maximum | Count of FastPath routes configured on the circuit | None | Yes |
-
->[!NOTE]
->Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
->
-
-### ExpressRoute gateways
-
-| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| [Bits received per second](#gwbits) | Performance | BitsPerSecond | Average | Total bits received on ExpressRoute gateway per second | roleInstance | Yes |
-| [CPU utilization](#cpu) | Performance | Count | Average | CPU Utilization of the ExpressRoute Gateway | roleInstance | Yes | 
-| [Packets per second](#packets) | Performance | CountPerSecond | Average | Total Packets received on ExpressRoute Gateway per second | roleInstance | Yes | 
-| [Count of routes advertised to peer](#advertisedroutes) | Availability | Count | Maximum | Count Of Routes Advertised To Peer by ExpressRouteGateway | roleInstance | Yes | 
-| [Count of routes learned from peer](#learnedroutes)| Availability | Count | Maximum | Count Of Routes Learned From Peer by ExpressRouteGateway | roleInstance | Yes | 
-| [Frequency of routes changed](#frequency) | Availability | Count | Total | Frequency of Routes change in ExpressRoute Gateway | roleInstance | Yes | 
-| [Number of VMs in virtual network](#vm) | Availability | Count | Maximum | Estimated number of VMs in the virtual network | No Dimensions | Yes |
-| [Active flows](#activeflows) | Scalability | Count | Average | Number of active flows on ExpressRoute Gateway | roleInstance | Yes |
-| [Max flows created per second](#maxflows) | Scalability | FlowsPerSecond | Maximum | Maximum number of flows created per second on ExpressRoute Gateway | roleInstance, direction | Yes |
-
-### ExpressRoute Gateway connections
-
-| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| [BitsInPerSecond](#connectionbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second through ExpressRoute gateway | ConnectionName | Yes | 
-| [BitsOutPerSecond](#connectionbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second through ExpressRoute gateway | ConnectionName | Yes |
-
-### ExpressRoute Direct
-
-| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| [BitsInPerSecond](#directin) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | Link | Yes | 
-| [BitsOutPerSecond](#directout) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | Link | Yes | 
-| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Link | Yes | 
-| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Link  | Yes | 
-| [AdminState](#admin) | Physical Connectivity | Count | Average | Admin state of the port | Link | Yes | 
-| [LineProtocol](#line) | Physical Connectivity | Count | Average | Line protocol status of the port | Link | Yes | 
-| [RxLightLevel](#rxlight) | Physical Connectivity | Count | Average | Rx Light level in dBm | Link, Lane | Yes | 
-| [TxLightLevel](#txlight) | Physical Connectivity | Count | Average | Tx light level in dBm | Link, Lane | Yes |
-| [FastPathRoutesCount](#fastpath-routes-count-at-port-level) | FastPath | Count | Maximum | Count of FastPath routes configured on the port | None | Yes |
-
-### ExpressRoute Traffic Collector
-
-| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? |
-| --- | --- | --- | --- | --- | --- | --- |
-| CPU utilization | Performance | Count | Average | CPU Utilization of the ExpressRoute Traffic Collector | roleInstance | Yes |
-| Memory Utilization | Performance | CountPerSecond | Average | Memory Utilization of the ExpressRoute Traffic Collector | roleInstance | Yes |
-| Count of flow records processed | Availability | Count | Maximum | Count of number of flow records processed or ingested | roleInstance, ExpressRoute Circuit | Yes |
 
 ## Circuits metrics
 
