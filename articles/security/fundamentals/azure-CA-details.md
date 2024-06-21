@@ -4,9 +4,8 @@ description: Certificate Authority details for Azure services that utilize x509 
 services: security
 ms.service: security
 ms.subservice: security-fundamentals
-ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 06/23/2024
 ms.author: sarahlipsey
 author: shlipsey3
 manager: amycolannino
@@ -44,22 +43,16 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 |---- |---- |
 | [DigiCert Basic RSA CN CA G2](https://crt.sh/?d=2545289014) | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 |
 | [DigiCert Cloud Services CA-1](https://crt.sh/?d=12624881) | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 |
+| [DigiCert Cloud Services CA-1](https://crt.sh/?q=B3F6B64A07BB9611F47174407841F564FB991F29) | 0f171a48c6f223809218cd2ed6ddc0e8<br>b3f6b64a07bb9611f47174407841f564fb991f29 |
 | [DigiCert SHA2 Secure Server CA](https://crt.sh/?d=3422153451) | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C |
 | [DigiCert TLS Hybrid ECC SHA384 2020 CA1](https://crt.sh/?d=3422153452) | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 |
 | [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?d=4385364571) | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD |
+| [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?q=6938FD4D98BAB03FAADB97B34396831E3780AEA1) | 0a3508d55c292b017df8ad65c00ff7e4<br>6938fd4d98bab03faadb97b34396831e3780aea1 |
 | [GeoTrust Global TLS RSA4096 SHA256 2022 CA1](https://crt.sh/?d=6670931375) | 0x0f622f6f21c2ff5d521f723a1d47d62d<br>7E6DB7B7584D8CF2003E0931E6CFC41A3A62D3DF |
-| [Microsoft Azure ECC TLS Issuing CA 01](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2001.cer) | 0x09dc42a5f574ff3a389ee06d5d4de440<br>92503D0D74A7D3708197B6EE13082D52117A6AB0 |
-| [Microsoft Azure ECC TLS Issuing CA 01](https://crt.sh/?d=2616305805) | 0x330000001aa9564f44321c54b900000000001a<br>CDA57423EC5E7192901CA1BF6169DBE48E8D1268 |
-| [Microsoft Azure ECC TLS Issuing CA 02](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2002.cer) | 0x0e8dbe5ea610e6cbb569c736f6d7004b<br>1E981CCDDC69102A45C6693EE84389C3CF2329F1 |
-| [Microsoft Azure ECC TLS Issuing CA 02](https://crt.sh/?d=2616326233) | 0x330000001b498d6736ed5612c200000000001b<br>489FF5765030EB28342477693EB183A4DED4D2A6 |
 | [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003%20-%20xsign.crt) | 0x01529ee8368f0b5d72ba433e2d8ea62d<br>56D955C849887874AA1767810366D90ADF6C8536 |
 | [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003.crt) | 0x330000003322a2579b5e698bcc000000000033<br>91503BE7BF74E2A10AA078B48B71C3477175FEC3 |
 | [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004%20-%20xsign.crt) | 0x02393d48d702425a7cb41c000b0ed7ca<br>FB73FDC24F06998E070A06B6AFC78FDF2A155B25 |
 | [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004.crt) | 0x33000000322164aedab61f509d000000000032<br>406E3B38EFF35A727F276FE993590B70F8224AED |
-| [Microsoft Azure ECC TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2005.cer) | 0x0ce59c30fd7a83532e2d0146b332f965<br>C6363570AF8303CDF31C1D5AD81E19DBFE172531 |
-| [Microsoft Azure ECC TLS Issuing CA 05](https://crt.sh/?d=2616326161) | 0x330000001cc0d2a3cd78cf2c1000000000001c<br>4C15BC8D7AA5089A84F2AC4750F040D064040CD4 |
-| [Microsoft Azure ECC TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2006.cer) | 0x066e79cd7624c63130c77abeb6a8bb94<br>7365ADAEDFEA4909C1BAADBAB68719AD0C381163 |
-| [Microsoft Azure ECC TLS Issuing CA 06](https://crt.sh/?d=2616326228) | 0x330000001d0913c309da3f05a600000000001d<br>DFEB65E575D03D0CC59FD60066C6D39421E65483 |
 | [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007%20-%20xsign.crt) | 0x0f1f157582cdcd33734bdc5fcd941a33<br>3BE6CA5856E3B9709056DA51F32CBC8970A83E28 |
 | [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007.crt) | 0x3300000034c732435db22a0a2b000000000034<br>AB3490B7E37B3A8A1E715036522AB42652C3CFFE |
 | [Microsoft Azure ECC TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008%20-%20xsign.crt) | 0x0ef2e5d83681520255e92c608fbc2ff4<br>716DF84638AC8E6EEBE64416C8DD38C2A25F6630 |
@@ -117,21 +110,13 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | └ [Microsoft Azure TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2005.cer) | 0x0d7bede97d8209967a52631b8bdd18bd<br>6C3AF02E7F269AA73AFD0EFF2A88A4A1F04ED1E5 |
 | └ [Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer) | 0x02e79171fb8021e93fe2d983834c50c0<br>30E01761AB97E59A06B41EF20AF6F2DE7EF4F7B0 |
 | [**DigiCert Global Root G3**](https://cacerts.digicert.com/DigiCertGlobalRootG3.crt) | 0x055556bcf25ea43535c3a40fd5ab4572<br>7E04DE896A3E666D00E687D33FFAD93BE83D349E |
-| └ [Microsoft Azure ECC TLS Issuing CA 01](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2001.cer) | 0x09dc42a5f574ff3a389ee06d5d4de440<br>92503D0D74A7D3708197B6EE13082D52117A6AB0 |
-| └ [Microsoft Azure ECC TLS Issuing CA 02](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2002.cer) | 0x0e8dbe5ea610e6cbb569c736f6d7004b<br>1E981CCDDC69102A45C6693EE84389C3CF2329F1 |
 | └ [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003%20-%20xsign.crt) | 0x01529ee8368f0b5d72ba433e2d8ea62d<br>56D955C849887874AA1767810366D90ADF6C8536 |
 | └ [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004%20-%20xsign.crt) | 0x02393d48d702425a7cb41c000b0ed7ca<br>FB73FDC24F06998E070A06B6AFC78FDF2A155B25 |
-| └ [Microsoft Azure ECC TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2005.cer) | 0x0ce59c30fd7a83532e2d0146b332f965<br>C6363570AF8303CDF31C1D5AD81E19DBFE172531 |
-| └ [Microsoft Azure ECC TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2006.cer) | 0x066e79cd7624c63130c77abeb6a8bb94<br>7365ADAEDFEA4909C1BAADBAB68719AD0C381163 |
 | └ [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007%20-%20xsign.crt) | 0x0f1f157582cdcd33734bdc5fcd941a33<br>3BE6CA5856E3B9709056DA51F32CBC8970A83E28 |
 | └ [Microsoft Azure ECC TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008%20-%20xsign.crt) | 0x0ef2e5d83681520255e92c608fbc2ff4<br>716DF84638AC8E6EEBE64416C8DD38C2A25F6630 |
 | [**Microsoft ECC Root Certificate Authority 2017**](https://www.microsoft.com/pkiops/certs/Microsoft%20ECC%20Root%20Certificate%20Authority%202017.crt) | 0x66f23daf87de8bb14aea0c573101c2ec<br>999A64C37FF47D9FAB95F14769891460EEC4C3C5 |
-| └ [Microsoft Azure ECC TLS Issuing CA 01](https://crt.sh/?d=2616305805) | 0x330000001aa9564f44321c54b900000000001a<br>CDA57423EC5E7192901CA1BF6169DBE48E8D1268 |
-| └ [Microsoft Azure ECC TLS Issuing CA 02](https://crt.sh/?d=2616326233) | 0x330000001b498d6736ed5612c200000000001b<br>489FF5765030EB28342477693EB183A4DED4D2A6 |
 | └ [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003.crt) | 0x330000003322a2579b5e698bcc000000000033<br>91503BE7BF74E2A10AA078B48B71C3477175FEC3 |
 | └ [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004.crt) | 0x33000000322164aedab61f509d000000000032<br>406E3B38EFF35A727F276FE993590B70F8224AED |
-| └ [Microsoft Azure ECC TLS Issuing CA 05](https://crt.sh/?d=2616326161) | 0x330000001cc0d2a3cd78cf2c1000000000001c<br>4C15BC8D7AA5089A84F2AC4750F040D064040CD4 |
-| └ [Microsoft Azure ECC TLS Issuing CA 06](https://crt.sh/?d=2616326228) | 0x330000001d0913c309da3f05a600000000001d<br>DFEB65E575D03D0CC59FD60066C6D39421E65483 |
 | └ [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007.crt) | 0x3300000034c732435db22a0a2b000000000034<br>AB3490B7E37B3A8A1E715036522AB42652C3CFFE |
 | └ [Microsoft Azure ECC TLS Issuing CA 08](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008.crt) | 0x3300000031526979844798bbb8000000000031<br>CF33D5A1C2F0355B207FCE940026E6C1580067FD |
 | └ [Microsoft ECC TLS Issuing AOC CA 01](https://crt.sh/?d=4789656467) |33000000282bfd23e7d1add707000000000028<br>30ab5c33eb4b77d4cbff00a11ee0a7507d9dd316 |
@@ -281,6 +266,15 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 
 ### Article change log
 
+- June 27, 2024: Removed the following CAs, which were replaced by both versions of Microsoft Azure ECC TLS Issuing CAs 03, 04, 07, 08.
+    - [Microsoft Azure ECC TLS Issuing CA 01](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2001.cer)<br>Serial number: 0x09dc42a5f574ff3a389ee06d5d4de440<br>Thumbprint: 92503D0D74A7D3708197B6EE13082D52117A6AB0
+    - [Microsoft Azure ECC TLS Issuing CA 01](https://crt.sh/?d=2616305805)<br>Serial number: 0x330000001aa9564f44321c54b900000000001a<br>Thumbrint: CDA57423EC5E7192901CA1BF6169DBE48E8D1268
+    - [Microsoft Azure ECC TLS Issuing CA 02](https://www.microsoft.com/pki/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2002.cer)<br>Serial number: 0x0e8dbe5ea610e6cbb569c736f6d7004b<br>Thumbprint: 1E981CCDDC69102A45C6693EE84389C3CF2329F1
+    - [Microsoft Azure ECC TLS Issuing CA 02](https://crt.sh/?d=2616326233)<br>Serial number: 0x330000001b498d6736ed5612c200000000001b<br>Thumbprint: 489FF5765030EB28342477693EB183A4DED4D2A6
+    - [Microsoft Azure ECC TLS Issuing CA 05](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2005.cer)<br>Serial number: 0x0ce59c30fd7a83532e2d0146b332f965<br>Thumbprint: C6363570AF8303CDF31C1D5AD81E19DBFE172531
+    - [Microsoft Azure ECC TLS Issuing CA 05](https://crt.sh/?d=2616326161)<br>Serial number: 0x330000001cc0d2a3cd78cf2c1000000000001c<br>Thumbprint: 4C15BC8D7AA5089A84F2AC4750F040D064040CD4
+    - [Microsoft Azure ECC TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2006.cer)<br>0x066e79cd7624c63130c77abeb6a8bb94<br>Thumbprint: 7365ADAEDFEA4909C1BAADBAB68719AD0C381163
+    - [Microsoft Azure ECC TLS Issuing CA 06](https://crt.sh/?d=2616326228)<br>Serial number: 0x330000001d0913c309da3f05a600000000001d<br>Thumbprint: DFEB65E575D03D0CC59FD60066C6D39421E65483 
 - July 17, 2023: Added 16 new subordinate Certificate Authorities
 - February 7, 2023: Added eight new subordinate Certificate Authorities
 
