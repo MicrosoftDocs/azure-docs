@@ -1,9 +1,8 @@
 ---
-title: Host developer portal on Wordpress - Azure API Management
-description: Configure a Wordpress plugin (preview) for the developer portal in your API Management instance. Use Wordpress customizations to enhance the developer portal.
+title: Host developer portal on WordPress - Azure API Management
+description: Configure a WordPress plugin (preview) for the developer portal in your API Management instance. Use WordPress customizations to enhance the developer portal.
 services: api-management
 author: dlepow
-
 ms.service: api-management
 ms.custom: 
 ms.topic: how-to
@@ -11,7 +10,7 @@ ms.date: 06/18/2024
 ms.author: danlep
 ---
 
-# Host the API Management developer portal on Wordpress
+# Host the API Management developer portal on WordPress
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
@@ -19,199 +18,129 @@ Azure API management customers increasingly require advanced customizations for 
 
 Hence, Azure API management is providing native plugins for building developer portals with popular CMS solutions (e.g., WordPress), which will provide integration with API Management. Through this, customers will be able to leverage the power of CMS for customizations. WordPress on Azure App Service offers managed hosting and is an established, supported, well-documented solution that’s easy to install and maintain.  
 
-<!-- Is WP on App Service the only supported scenario? App Service on Linux? -->
-
 ## Prerequisites
 
-* ? 
+* An API Management instance in which the developer portal is created and enabled. If needed, [create an instance](get-started-create-service-instance.md).
+* Download the developer portal WordPress plugin from the [plugin repo](https://aka.ms/apim/wpplugin).
 
-## Steps to enable APIM developer portal on Wordpress   
 
-### Step 1: Create a new App service  
+## Step 1: Create WordPress on App Service  
 
-Navigate to portal.azure.com, select app service and create a new Wordpress on App Service. For details, see [Create a Wordpress site on Azure App Service](../app-service/quickstart-wordpress.md). 
+For details, see [Create a WordPress site on Azure App Service](../app-service/quickstart-wordpress.md).
 
- 
 
-### Step 2: Deploy Wordpress on a new app service  
+1. In the Azure portal, navigate to [https://portal.azure.com/#create/WordPress.WordPress](https://portal.azure.com/#create/WordPress.WordPress) portal.azure.com, select app service and create a new WordPress on App Service.  
 
-In this step, please note down the admin user name and password for Wordpress setup. This is required to login into WP-ADMIN site and install plugin in later step 
+1. On the **Basics** tab, enter project details. 
 
-Select the recommended default values for Email services, CDN and Blob storage as shown below. 
+    Note the admin username and password for WordPress setup. This is required to login into WP-ADMIN site and install the plugin in a later step.
 
-We have disabled CI/CD deployment and staging environment option. In addition, we did not add any tags. 
+1. On the **Add-ins** tab:
 
-A screenshot of a application
+    1. Select the recommended default values for **Email with Azure Communication Services**, **Azure CDN**, and **Azure Blob Storage**.
+    1. In **Virtual network**, select either the *New** value or an existing virtual network. 
+1. On the **Deployment** tab, leave **Add staging slot** unselected.
+1. Select **Review + create** to run final validation.
+1. Select **Create** to complete app service deployment.
 
-Description automatically generated 
+It can take several minutes for WordPress on the app service to deploy. You can begin the next steps while the deployment is in progress.
 
-A screenshot of a computer application
+## Step 2: Create a new Microsoft Entra app registration  
 
-Description automatically generated  
+In this step, create a new Microsoft Entra app and use this to authenticate to App Service. 
 
-And finally click on review+create to run final validation and complete app service deployment. 
+1. In the [Azure portal](https://portal.azure.com), navigate to **App registrations** > **+ New registration**.
+1.  Provide the new app name, and in **Supported account types**, select **Accounts in this organizational directory only**. Select **Register**.
+1. On the **Overview** page, copy the **Application (client) Id** and **Directory (tenant) Id**. You need these values in later steps to add the application to your API Management instance and app service for authentication.
+    :::image type="content" source="media/developer-portal-wordpress-plugin/app-registration-overview.png" alt-text="Screenshot of Overview page of app registration in the portal.":::
 
- 
+1. In the left menu, select **Authentication** > **+ Add a platform**.
+1. On the **Configure platforms** page, select **Web**.
+1. On the **Configure Web** page, enter the following redirect URI, substituting the name of your app service, and select **Configure**:
 
-A screenshot of a computer
+    `https://nameofappservice>.azurewebsites.net/.auth/login/aad/callback`
+    
+1. Select **+ Add a platform** again. Select **Single-page application**.
+1. On the **Configure single-page application** page, enter the following redirect URI, substituting the name of your API Management instance, and select **Configure**:
+    
+    `https://<apiminstancename>.developer.azure-api.net/signin`
+    
+1. On the **Authentication** page, under **Single-page application**, select **Add URI** and enter the following URI, substituting the name of your API Management instance:
+    
+    `https://<apiminstancename>.developer.azure-api.net/`
 
-Description automatically generated 
+1. Under **Implicit grant and hybrid flows**, select **ID tokens** and select **Save**.
+1. In the left menu, select **Token configuration** > **+ Add optional claim**>
+1. On the **Add optional claim** page, select **ID** and select the following claims: **email, family_name, given_name, onprem_sid, preferred_username, upn**. Select **Add**. 
+1. When prompted, select **Turn on the Microsoft Graph email, profile permission**. Select **Add**.
+1. In the left menu, select **API permissions** and confirm that the following Microsoft Graph permissions are present: **email, profile, User.Read**.
 
-### Step 3: Create a new AAD app registration  
+    :::image type="content" source="media/developer-portal-wordpress-plugin/required-api-permissions.png" alt-text="Screenshot of API permissions in the portal.":::
 
-In this step, we will create a new AAD app and use this to authenticate to App Service. 
+1. In the left menu, select **Certificates & secrets** > **+ New client secret**. 
+1. Configure settings for the secret and select **Add**. Be sure to copy and safely store the secret's **Value** immediately after it's generated. You need this value in later steps to add the application to you API Management instance and app service for authentication. 
+1. In the left menu, select **Expose an API** > **+ Add a scope**. 
 
-1. Navigate to App registrations and click on New App registration 
+    1. Accept the default **Application ID URI** and select **Save and continue**.
+    1. Enter a descriptive **Scope name**.
+    1. Under **Who can consent?**, select **Admins and users**.
+    1. Enter a descriptive **Admin consent display name** and **Admin consent description**. 
+    1. Confirm that **State** is set to **Enabled**, and select **Add scope**. 
 
-A screenshot of a computer
+## Step 3: Enable authentication to the app service using app registration
 
-Description automatically generated 
+1. In the [portal](https://portal.azure.com), navigate to the WordPress app service.
+1. In the left menu, under **Settings**, select **Authentication** > **Add identity provider**.
+1. On the **Basics** tab, in **Identity provider**, select **Microsoft**.
+1. Under **App registration**, select **Provide the details of an existing app registration**. Enter the **Application (client) Id** and **Client secret** from the app registration you created in the previous step.
+1. In **Allowed token audiences**, enter the **Application ID URI** from the app registration. Example: `api://<app-id>`.
+1. Under **Additional checks**:
+    1. In **Client application requirement**, select **Allow requests from specific client applications**.
+    1. In **Tenant requirement**, select **Use default restrictions based on issuer**.
+1. Accept the default values for the remaining settings and select **Add**.
 
-1. Provide the new app name and select “Accounts in this organizations directory” as account type as shown below. Click on Register. 
+The identity provider is added to the app service.
 
- 
+## Step 4: Enable authentication to the API Management developer portal using app registration 
 
-A screenshot of a computer
+Configure the same Microsoft Entra app registration as an identity provider for the API Management developer portal. For details, see [Authorize developer accounts by using Microsoft Entra ID in Azure API Management](api-management-howto-aad.md).
 
-Description automatically generated 
+1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Developer portal**, select **Identities** > **+ Add**.
+1. On the **Add identity provider** page, select **Azure Active Directory** (Microsoft Entra ID).
+1. Enter the **Client Id**, **Client secret**, and **Signin tenant** from the app registration you created in a previous step.
+1. In **Client library**, select **MSAL**.
+1. Accept default values for the remaining settings and select **Add**.
+1. [Republish the developer portal](developer-portal-overview.md#publish-the-portal) to apply the changes.
 
-1. Navigate to Authentication left navigation menu item for newly created AAD app and add platform configurations 
+Test the authentication by signing into the developer portal at the following URL, substituting the name of your API Management instance: `https://<apiminstancename>.developer.azure-api.net/signin`. Select the **Azure Active Directory** (Microsoft Entra ID) button to sign in.
 
-1. Select Web option under Web apps. 
+## Step 6: Navigate to WordPress admin site and upload the customized theme 
 
-A screenshot of a computer
+<!-- essential or just an example? THeme Twenty Twenty-Four was already active in my installation...-->
 
-Description automatically generated 
+1. Open the WordPress admin website at the following URL, substituting the name of your app service:  `http://<appservicename>.azurewebsites.net/wp-admin` 
 
-1. Provide the redirect URI as shown below. 
+    When you open it for the first time, it will seek consent of specific permissions.
 
-https://<nameofappservice>.azurewebsites.net/.auth/login/aad/callback 
+1. Sign into the WordPress admin site using the username and password you entered while creating WordPress on App Service. 
+1. In the left menu, select **Appearance** > **Themes** and then **Add New Theme** 
+1. In the next screen, select **Upload Theme**. 
+1. Upload a customized theme by choosing the file `twentytwentyfour.zip` and select **Install Now**. This should load the customized theme. 
 
-A screenshot of a computer
+## Step 7: Install the developer portal plugin 
 
-Description automatically generated 
+1. In the WordPress admin site, in the left menu, select **Plugins** > **Add New Plugin**.
+1. Select **Upload Plugin**. Select **Choose File** to upload the API Management developer portal plugin zipfile that you downloaded previously. Select **Install Now**.
+1. After successful installation, select **Activate Plugin**.
+1. In the left menu, select **Azure API Management Developer Portal**.
+1. On the **APIM Settings** page, enter the following settings and select **Save Changes**:
+    * Name of your API Management instance
+    * Enable **Create default pages** and **Create navigation menu**.
 
-1. Click on Add a platform again and this time select Single page application. Provide redirect URI as https://<apimservicename>.developer.azure-api.net/signin and https://<apimservicename>.developer.azure-api.net/ as shown below 
+## Step 8: Add a custom stylesheet 
 
-A screenshot of a computer
-
-Description automatically generated 
-
-1. Select “ID Tokens” checkbox in the Implicit grant and hybrid flows section. Click on Save. 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-1. Add optional claims by select Token configuration in left navigation menu. Select the following: email. Family_name, given_name, onprem_sid, preferred_username, upn. Click on Add. 
-
-A white background with black text
-
-Description automatically generated 
-
- 
-
-1. When prompted to turn on Microsoft Graph – select Yes 
-
-A screenshot of a computer error
-
-Description automatically generated 
-
-1. Navigate to API permissions menu to see the appropriate graph permissions are present as shown below 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-1. Generate a new client app secret and copy client secret when generated. This is required to add application to APIM service and App service for authentication. 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-1. Click on “Expose a API” in left navigation and add a scope as shown below 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-### Step 4: Add the newly created AAD app to the App Service 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-Provide the AAD app registration client id and secret. Select rest of values as shown here 
-
-ShapeA screenshot of a computer
-
-Description automatically generated 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-### Step 5: Enable authentication to the APIM service using the same AAD app. 
-
-Navigate to APIM service for which you are setting up the APIM developer portal. Click on Identities and select Azure AD as identity provider. Update the client id and client secret as shown here. 
-
- 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-### Step 6: Navigate to Wordpress admin site and upload the customized theme 
-
-Open the website: http://<appservicename>.azurewebsites.net/wp-admin 
-
-When you open it for first time, it will seek consent of specific permissions 
-
-A screenshot of a computer screen
-
-Description automatically generated 
-
-1. Login to WP-Admin site using the user name and password you provided while creating the Wordpress site. 
-
-1. Click on Appearance -> Themes and Add New Theme 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-1. In the next screen, click on Upload Theme 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-1. Upload a customized theme by choosing the file “twentytwentyfour.zip” and click on Install now. This should load the customized theme. 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-### Step 7: Navigate to Wordpress admin site and install the APIM dev portal plugin 
-
-Click on Plugins -> Add new plugin -> Upload new plugin and upload the APIM dev portal plugin zip file 
-
-1. Click on Install Now and Activate plugin. 
-
- 
-
-A screenshot of a computer error
-
-Description automatically generated 
-
- 
-
-1. Navigate to plugin settings and provide APIM service name 
-
-A screenshot of a computer
-
-Description automatically generated 
-
-### Step 8: Add a custom stylesheet 
+<!-- essential or just an example? -->
 
 Navigate to Appearance -> Themes and customize the stylesheet. Click on Customize and then navigate to Styles. Click on Edit Styles and add additional CSS as shown below (follow below screenshots to get to custom stylesheet page). The custom stylesheet has been provided to you as a separate CSS file.  
 
@@ -221,68 +150,49 @@ Description automatically generated
 
 A screenshot of a black screen
 
-Description automatically generated 
 
-A screenshot of a computer screen
 
-Description automatically generated 
+1. Copy the contents from “WordPress - Custom stylesheet.css” stylesheet in additional CSS. Sample screenshot below 
 
- 
 
-A screenshot of a computer
+## Step 9: Add the WordPress site to the list of origins on the API Management instance 
 
-Description automatically generated 
+1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Developer portal**, select **Portal settings**.
+1. On the **Self-hosted portal configuration** tab, enter the hostname of your WordPress on App Service site as a portal origin: `https://<yourappservicename>.azurewebsites.net`
+1. [Republish the developer portal](developer-portal-overview.md#publish-the-portal) to apply the changes.
 
-1. Copy the contents from “Wordpress - Custom stylesheet.css” stylesheet in additional CSS. Sample screenshot below 
 
-A screenshot of a phone
+## Step 10: Sign into your new API Management developer portal deployed on WordPress 
 
-Description automatically generated 
+Sign into the WordPress site as a developer to see your new API Management developer portal deployed on WordPress and hosted on App Service.
 
-### Step 9: Add the Wordpress site to the list of origins on the APIM service 
-
-1. Navigate to the APIM service -> Click on Portal Settings -> Self hosted portal configuration tab and then add the Wordpress site as a origin as shown below. 
-
-A screenshot of a computer
-
-Description automatically generated 
+1. Navigate to your WordPress site in a new browser window: `https://<yourappservicename>.azurewebsites.net` 
+1. When prompted, sign in using Microsoft Entra credentials for a developer account.
 
  
 
-### Step 10: Navigate to the Wordpress site and login as a developer to see your new APIM developer portal deployed on Wordpress and hosted on App Service 
 
-1. Navigate to your wordpress site in a new browser window – https://<yourappservicename>.azurewebsites.net 
+You can now use the following features of the API Management developer portal: 
 
- 
+* Sign into the portal
 
-A screenshot of a computer
+* See list of APIs 
 
-Description automatically generated 
+* Navigate to API details page and see list of operations 
 
- 
+* Test the API using valid API keys 
 
-You can now use the following features of the APIM developer portal: 
+* See list of products 
 
-Login using AAD credentials 
+* Subscribe to a product and generate subscription keys 
 
-See list of APIs 
+* Navigate to Profile tab with account and subscription details 
 
-Navigate to API details page and see list of operations 
+* Sign out of the portal 
 
-Test the API using the right API keys 
-
-See list of products 
-
-Subscribe to a product and generate subscription keys 
-
-Navigate to Profile tab with account and subscription details 
-
-Logout 
-
- 
 
        
 ## Related content
 
 - [Customize the developer portal](api-management-howto-developer-portal-customize.md) 
-
