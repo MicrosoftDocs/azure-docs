@@ -82,8 +82,12 @@ To learn more about using the Blob Storage client library for specific data acce
 
 The following table shows the Azure Storage client libraries for data access:
 
-| Library | Reference | Package | Source |
+| Module | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
+| **azblob** | [Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section_documentation) | [pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob) | [GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azblob) |
+| **azdatalake** | [Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake#section_documentation) | [pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake) | [GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azdatalake) |
+| **azfile** | [Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azfile#section_documentation) | [pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azfile) | [GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azfile) |
+| **azqueue** | [Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue#section_documentation) | [pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azqueue) | [GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/storage/azqueue) |
 
 To learn more about using the Blob Storage client library for specific data access scenarios, see the [Blob Storage developer guide for Go](../blobs/storage-blob-go-get-started.md).
 
@@ -133,7 +137,11 @@ The following table shows the Azure Storage client libraries for resource manage
 
 The following table shows the Azure Storage client libraries for resource management:
 
-| Library | Reference | Package | Source |
+| Module | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
+
+[Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage#section_documentation)
+[pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage)
+[GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storage/armstorage)
 
 ---
