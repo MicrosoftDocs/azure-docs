@@ -139,9 +139,6 @@ The following table shows the Azure Storage client libraries for resource manage
 
 | Module | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
-
-[Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage#section_documentation)
-[pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage)
-[GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storage/armstorage)
+| **resourcemanager/storage/armstorage** | [Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage#section_documentation) | [pkg.go.dev](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage) | [GitHub](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/storage/armstorage) |
 
 ---
