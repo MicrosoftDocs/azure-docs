@@ -287,7 +287,7 @@ There are a few steps to creating the indexer:
     }
     ```
 
-If you're using application permissions, it's necessary to wait until the initial run is complete before starting to query your index. The following instructions provided in this step pertain specifically to delegated permissions, and are not applicable to application permissions.
+   If you're using application permissions, it's necessary to wait until the initial run is complete before starting to query your index. The following instructions provided in this step pertain specifically to delegated permissions, and are not applicable to application permissions.
 
 1. When you create the indexer for the first time, the [Create Indexer (preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) request waits until you complete the next step. You must call [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) to get the link and enter your new device code. 
 
@@ -299,7 +299,7 @@ If you're using application permissions, it's necessary to wait until the initia
 
     If you don’t run the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) within 10 minutes, the code expires and you’ll need to recreate the [data source](#create-data-source).
 
- 1. Copy the device login code from the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) response. The device login can be found in the "errorMessage".
+1. Copy the device login code from the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) response. The device login can be found in the "errorMessage".
 
     ```http
     {
@@ -309,6 +309,7 @@ If you're using application permissions, it's necessary to wait until the initia
         }
     }
     ```
+
 1. Provide the code that was included in the error message.
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Screenshot showing how to enter a device code.":::
