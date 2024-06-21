@@ -132,7 +132,6 @@ Use the `app` expression to retrieve data from a specific classic Application In
 
 `app(`*Identifier*`)`
 
-
 ### Arguments
 
 `*Identifier*`: Identifies the app using one of the formats in the table below.
@@ -166,7 +165,6 @@ union
 
 The `resource` expression is used in a Azure Monitor query [scoped to a resource](scope.md#query-scope) to retrieve data from other resources. 
 
-
 ### Syntax
 
 `resource(`*Identifier*`)`
@@ -179,7 +177,6 @@ The `resource` expression is used in a Azure Monitor query [scoped to a resource
 |:---|:---|:---|
 | Resource | Includes data for the resource. | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
 | Resource Group or Subscription | Includes data for the resource and all resources that it contains.  | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
-
 
 ### Examples
 
