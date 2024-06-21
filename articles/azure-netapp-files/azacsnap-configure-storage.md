@@ -17,7 +17,7 @@ Select the storage you're using with AzAcSnap.
 
 # [Azure NetApp Files](#tab/azure-netapp-files)
 
-Either set up a system-managed identity (resommended) or generate the service principal's authentication file.
+Either set up a system-managed identity (recommended) or generate the service principal's authentication file.
 
 When you're validating communication with Azure NetApp Files, communication might fail or time out. Check that firewall rules aren't blocking outbound traffic from the system running AzAcSnap to the following addresses and TCP/IP ports:
 
