@@ -22,6 +22,7 @@ In this article, you create the infrastructure needed to deploy a highly availab
 
 Set the following environment variables for use throughout this guide:
 
+```
 azurecli-interactive
 export SUFFIX=$(cat /dev/urandom | LC_ALL=C tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
 export LOCAL_NAME="cnpg"
