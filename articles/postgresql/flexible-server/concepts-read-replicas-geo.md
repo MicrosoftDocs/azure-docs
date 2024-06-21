@@ -28,6 +28,8 @@ You can have a primary server in any [Azure Database for PostgreSQL flexible ser
 - **Microsoft Azure operated by 21Vianet regions**:
   - China North 3
   - China East 3
+  - China North 2
+  - China East 2
 
 > [!NOTE]
 > [Virtual endpoints](concepts-read-replicas-virtual-endpoints.md) and [promote to primary server features](concepts-read-replicas-promote.md) - are not currently supported in the special regions listed above.
