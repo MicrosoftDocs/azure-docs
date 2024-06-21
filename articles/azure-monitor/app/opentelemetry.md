@@ -20,7 +20,7 @@ For more information about OpenTelemetry on Azure, see [our OpenTelemetry Roadma
 
 ## Data collection
 
-The **Azure Monitor OpenTelemetry Distro** is Microsoft’s customized, supported, and open-sourced version of the OpenTelemetry software development kits (SDKs). It supports .NET, Java, JavaScript (Node.js), and Python. The Azure Monitor OpenTelemetry Distro replaces the Application Insights SDK.
+The **Azure Monitor OpenTelemetry Distro** is Microsoft’s customized, supported, and open-sourced version of the OpenTelemetry software development kits (SDKs). It supports .NET, Java, JavaScript (Node.js), and Python. We recommend the Azure Monitor OpenTelemetry Distro for most customers, and we continue to invest in adding new capabilities to it.
 
 It focuses on ease-of-enablement by bundling together:
 
