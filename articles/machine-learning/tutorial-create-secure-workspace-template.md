@@ -41,7 +41,7 @@ To view either Bicep or Terraform information, select the Bicep or Terraform tab
 
 - Git installed on your development environment to clone the template repository. If you don't have the `git` command, you can install Git from [https://git-scm.com/](https://git-scm.com/).
 
-- An Azure CLI or Azure PowerShell command line. The following examples use Azure CLI.
+- An Azure CLI or Azure PowerShell command line.
 
 # [Bicep](#tab/bicep)
 
@@ -93,10 +93,10 @@ The Bicep template is made up of the [main.bicep](https://github.com/Azure/azure
 | [privateaks.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/privateaks.bicep) | Defines an AKS cluster instance. |
 
 > [!IMPORTANT]
-> The example templates might not always use the latest API version for Azure Machine Learning. Before using the template, you should modify it to use the latest API version. For information on the latest API version for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
->
-> Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
->
+> Each Azure service has its own set of API versions. The example templates might not use the latest API versions for Azure Machine Learning and other resources. Before using the template, you should modify it to use the latest API versions.
+> 
+> For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/). For information on the latest Azure Machine Learning API version, see the [Azure Machine Learning REST API](/rest/api/azureml/).
+> 
 > To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version.
 
 # [Terraform](#tab/terraform)
