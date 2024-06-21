@@ -25,7 +25,7 @@ To achieve these goals, Contoso needs to:
 
 ## Prerequisites
 
-- Follow the steps in [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to install Azure IoT operations Preview on an Azure Arc-enabled Kubernetes cluster. Add the `--include-dp` argument to the `az iot ops init` command to include the optional Data Processor component in your deployment.
+- Follow the steps in [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to install Azure IoT operations Preview on an Azure Arc-enabled Kubernetes cluster. Add the `--include-dp` argument to the `az iot ops init` command to include the optional Data Processor component in your deployment.
 
     > [!IMPORTANT]
     > You must use the `--include-dp` argument to include the Data Processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.

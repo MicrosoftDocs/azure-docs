@@ -23,7 +23,7 @@ These operations are the last steps in the sample end-to-end quickstart experien
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](quickstart-deploy.md)
+- [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
 - [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](quickstart-upload-telemetry-to-cloud.md)
 

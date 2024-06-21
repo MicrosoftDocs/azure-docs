@@ -18,7 +18,7 @@ ms.date: 05/02/2024
 An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md) to run your own workloads. This article includes guidance for both Ubuntu, Windows, and cloud environments.
 
 > [!TIP]
-> If you want to deploy Azure IoT Operations and run a sample workload, see the [Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+> If you want to deploy Azure IoT Operations and run a sample workload, see the [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 [!INCLUDE [validated-environments](../includes/validated-environments.md)]
 

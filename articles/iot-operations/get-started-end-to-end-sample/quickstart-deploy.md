@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Configure Github Codespaces and K3s"
-description: "Quickstart: Use Azure IoT Orchestrator to configure Azure IoT Operations Preview in Github Codespaces with Kubernetes."
+title: "Quickstart: Run Azure IoT Operations in Codespaces"
+description: "Quickstart: Use Azure IoT Orchestrator to run Azure IoT Operations Preview in Github Codespaces with Kubernetes."
 author: kgremban
 ms.author: kgremban
 ms.subservice: orchestrator
@@ -11,7 +11,7 @@ ms.date: 05/02/2024
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# Quickstart: Configure Azure IoT Operations Preview in Github Codespaces with K3s
+# Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
