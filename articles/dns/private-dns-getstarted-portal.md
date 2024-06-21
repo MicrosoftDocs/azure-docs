@@ -135,11 +135,13 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 
 ## Search and display records
 
-You can also search and display specific DNS resource records in the zone by entering a value in the search box. In the following example, only records with the name **db** are displayed.
+By default, the **Recordsets** node displays all record sets in the zone. A record set is a collection of records that have the same name and are the same type. Record sets are automatically fetched in batches of 100 as you scroll through the list.
+
+You can also search and display specific DNS record sets in the zone by entering a value in the search box. In the following example, one record with the name **db** is displayed:
 
   ![Screenshot of searching for a DNS record.](./media/private-dns-portal/search-for-record.png)
 
-You can search by name, type, TTL, value, or autoregistration status. For example, the record **db** in this zone is also displayed by searching for **A** (display all records of type A), **3600** (the TTL value), **10.2.0.5** (the IP address of the A record), or **False** (non-autoregistered records). All records in the zone that match the search criteria are displayed.
+You can search by name, type, TTL, value, or autoregistration status. For example, the record **db** in this example is also displayed by searching for **A** (display all records of type A), **3600** (the record's TTL value), **10.2.0.5** (the IP address of the A record), or **False** (non-autoregistered records). All records in the zone that match the search criteria are displayed in batches of 100.
 
 ## Test the private zone
 
