@@ -5,8 +5,8 @@ services: mysql
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/20/2022
 ---
 

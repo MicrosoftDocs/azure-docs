@@ -15,7 +15,7 @@ Azure confidential ledger is a cloud service that provides a high integrity stor
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 In this quickstart, you create a confidential ledger with [Azure PowerShell](/powershell/azure/). If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
@@ -25,7 +25,7 @@ In this quickstart, you create a confidential ledger with [Azure PowerShell](/po
 
 ## Create a resource group
 
-[!INCLUDE [Create resource group](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create resource group](../../includes/powershell-rg-create.md)]
 
 ## Get your principal ID and tenant ID
 
@@ -72,7 +72,7 @@ If you again run [Get-AzConfidentialLedger](/powershell/module/az.confidentialle
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
+[!INCLUDE [Clean up resources](../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 
