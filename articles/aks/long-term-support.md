@@ -136,6 +136,11 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 ### Community support for AKS 1.27 ends expires in July 2024. Can I create a new AKS cluster with version 1.27 after that date?
 Yes, as long as LTS is enabled on the cluster, you can create a new AKS cluster with version 1.27 after the community support window has ended.
 
-
 ### Can I enable and disable LTS on AKS 1.27 after the end of community support?
 You can enable the LTS support plan on AKS 1.27 after the end of community support. However, you can't disable LTS on AKS 1.27 after the end of community support.
+
+### I have a cluster running on version 1.27. Does it mean it is automatically in LTS?
+No, you need to explicitly enable LTS on the cluster to receive LTS support. Enabling LTS also requires being on the Premium tier.
+
+### What is the pricing model for LTS?
+LTS is available on the Premium tier, please refer to the [Premium tier pricing](https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/) for more information.
