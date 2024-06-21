@@ -14,7 +14,7 @@ Azure's integration with OpenTelemetry provides a suite of products for:
 > - Collection of telemetry data in a standardized way
 > - Consumption of data using curated experiences on Azure Monitor and local tools
 
-This article guides you through our OpenTelemetry offerings, from data collection to consumption, to help you understand Microsoft’s strategic investments in OpenTelemetry.
+This article guides you through our OpenTelemetry offerings to help you understand Microsoft’s strategic investments.
 
 For more information about OpenTelemetry on Azure, see [our OpenTelemetry Roadmap](https://techcommunity.microsoft.com/t5/azure-observability-blog/making-azure-the-best-place-to-observe-your-apps-with/ba-p/3995896).
 
@@ -45,7 +45,7 @@ In addition, Azure Monitor OpenTelemetry distro-based automatic instrumentation 
 
 The **.NET** OpenTelemetry implementation uses logging, metrics, and activity APIs in the framework for instrumentation. The OpenTelemetry SDK collects telemetry from those APIs and other sources (via instrumentation libraries) and then exports the data to an application performance monitoring (APM) system for storage and analysis.
 
-- [].NET Observability with OpenTelemetry](/dotnet/core/diagnostics/observability-with-otel)
+- [.NET Observability with OpenTelemetry](/dotnet/core/diagnostics/observability-with-otel)
 
 **Azure Monitor pipeline at edge** is a powerful solution designed to facilitate high-scale data ingestion and routing from edge environments to seamlessly enable observability across cloud, edge, and multicloud. It uses the OpenTelemetry Collector. Currently, in public preview, it can be deployed on a single Arc-enabled Kubernetes cluster, and it can collect OpenTelemetry Protocol (OTLP) logs.
 
