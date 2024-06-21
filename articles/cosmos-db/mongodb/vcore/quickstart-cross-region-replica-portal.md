@@ -69,6 +69,7 @@ Create a MongoDB cluster with a cluster read replica in another region by using 
     | **Storage** | 128 GiB |
 
 1. Unselect the **High availability** option. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster configuration.
+In-region high availablity provides an in-region solution where a copy of data from each shard in a cluster is streamed to its standby counterpart located in the same region but in a different availability zone (AZ). High availability uses synchronous replication with zero data loss and automatic failure detection and failover while preserving the connection string intact after failover. High availability might be enabled on the primary cluster for an additional layer of protection from failures.
 
     :::image type="content" source="media/quickstart-portal/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
 
