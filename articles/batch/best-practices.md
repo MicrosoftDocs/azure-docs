@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 04/02/2024
+ms.date: 05/31/2024
 ms.topic: conceptual
 ---
 
@@ -119,6 +119,19 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 ### Third-party images
 
 Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
+
+### Container pools
+
+When specifying a Batch pool with a [virtual network](batch-virtual-network.md), there can be interaction
+side effects between the specified virtual network and the default Docker bridge. Docker, by default, will
+create a network bridge with a subnet specification of `172.17.0.0/16`. Ensure that there are no conflicting
+IP ranges between the Docker network bridge and your virtual network.
+
+Docker Hub limits the number of image pulls. Ensure that your workload doesn't
+[exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
+Hub-based images. It's recommended to use
+[Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
+[Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
 
 ### Azure region dependency
 

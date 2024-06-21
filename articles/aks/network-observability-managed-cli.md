@@ -29,7 +29,7 @@ For more information about AKS Network Observability, see [What is Azure Kuberne
 - Minimum version of **Azure CLI** required for the steps in this article is **2.44.0**. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 ### Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ```azurecli-interactive
 # Install the aks-preview extension

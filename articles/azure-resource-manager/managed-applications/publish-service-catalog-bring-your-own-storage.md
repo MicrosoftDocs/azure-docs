@@ -3,7 +3,7 @@ title: Bring your own storage to create and publish an Azure Managed Application
 description: Describes how to bring your own storage to create and publish an Azure Managed Application definition in your service catalog.
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
-ms.date: 05/24/2024
+ms.date: 05/29/2024
 ---
 
 # Quickstart: Bring your own storage to create and publish an Azure Managed Application definition
@@ -268,12 +268,12 @@ Upload _app.zip_ to an Azure storage account so you can use it when you deploy t
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name packageStorageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus
 
 $pkgstorageparms = @{
   ResourceGroupName = "packageStorageGroup"
   Name = "<pkgstorageaccountname>"
-  Location = "westus3"
+  Location = "westus"
   SkuName = "Standard_LRS"
   Kind = "StorageV2"
   MinimumTlsVersion = "TLS1_2"
@@ -314,12 +314,12 @@ $packageuri=(Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $p
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name packageStorageGroup --location westus3
+az group create --name packageStorageGroup --location westus
 
 az storage account create \
   --name <pkgstorageaccountname> \
   --resource-group packageStorageGroup \
-  --location westus3 \
+  --location westus \
   --sku Standard_LRS \
   --kind StorageV2 \
   --min-tls-version TLS1_2 \
@@ -384,12 +384,12 @@ This example creates a new resource group named `byosDefinitionStorageGroup`. In
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name byosDefinitionStorageGroup -Location westus3
+New-AzResourceGroup -Name byosDefinitionStorageGroup -Location westus
 
 $byostorageparms = @{
   ResourceGroupName = "byosDefinitionStorageGroup"
   Name = "<byosaccountname>"
-  Location = "westus3"
+  Location = "westus"
   SkuName = "Standard_LRS"
   Kind = "StorageV2"
   MinimumTlsVersion = "TLS1_2"
@@ -417,12 +417,12 @@ $byosstorageid = (Get-AzStorageAccount -ResourceGroupName $byosstorageaccount.Re
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name byosDefinitionStorageGroup --location westus3
+az group create --name byosDefinitionStorageGroup --location westus
 
 az storage account create \
   --name <byosaccountname> \
   --resource-group byosDefinitionStorageGroup \
-  --location westus3 \
+  --location westus \
   --sku Standard_LRS \
   --kind StorageV2 \
   --min-tls-version TLS1_2 \
@@ -606,7 +606,7 @@ Create a resource group named _byosAppDefinitionGroup_ and deploy the managed ap
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name byosAppDefinitionGroup -Location westus3
+New-AzResourceGroup -Name byosAppDefinitionGroup -Location westus
 
 $deployparms = @{
   ResourceGroupName = "byosAppDefinitionGroup"
@@ -621,7 +621,7 @@ New-AzResourceGroupDeployment @deployparms
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name byosAppDefinitionGroup --location westus3
+az group create --name byosAppDefinitionGroup --location westus
 
 az deployment group create \
   --resource-group byosAppDefinitionGroup \

@@ -128,8 +128,8 @@ Here's what's included in a business case:
 
 Cost components for running on-premises servers. For TCO calculations, an annual cost is computed for the following heads:
 
-**Cost heads** | **Category** | **Component** | **Logic** |
- --- | --- | --- | --- |
+| **Cost heads** | **Category** | **Component** | **Logic** |
+| --- | --- | --- | --- |
 | Compute | Hardware | Server Hardware (Host machines) | Total hardware acquisition cost is calculated using a cost per core linear regression formula: Cost per core = 16.232*(Hyperthreaded core: memory in GB ratio) + 113.87. Hyperthreaded cores = 2*(cores) 
 |     | Software - SQL Server licensing | License cost | Calculated per two core pack license pricing of 2019 Enterprise or Standard. |
 |     | SQL Server - Extended Security Update (ESU) | License cost | Calculated for 3 years after the end of support of SQL server license as follows:<br/><br/> ESU (Year 1) – 75% of the license cost <br/><br/> ESU (Year 2) – 100% of the license cost <br/><br/> ESU (Year 3) – 125% of the license cost <br/><br/> |

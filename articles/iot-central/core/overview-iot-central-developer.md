@@ -139,7 +139,7 @@ The following options support ephemeral device connections:
 
 - Connect devices and send telemetry by using HTTP:
 
-  IoT Central supports device clients that use the HTTP API to send telemetry. To learn more, see the [Send Device Event](/rest/api/iothub/device/send-device-event) API documentation.
+  IoT Central supports device clients that use the HTTP API to send telemetry. To learn more, see the [Send Device Event](/rest/api/iothub/device/device/send-device-event) API documentation.
 
   > [!NOTE]
   > Use DPS to provision and register your device with IoT Central before you use the HTTP API to send telemetry.

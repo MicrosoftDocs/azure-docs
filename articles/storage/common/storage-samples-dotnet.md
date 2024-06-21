@@ -9,6 +9,7 @@ ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
+ai-usage: ai-assisted
 ---
 
 # Azure Storage samples using .NET client libraries

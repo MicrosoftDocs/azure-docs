@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 You can use various utilities, such as MySQL Workbench Export/Import, Azure Database Migration Service (DMS), and MySQL dump and restore, to migrate Amazon RDS for MySQL to Azure Database for MySQL. However, using the MySQL Workbench Migration Wizard provides an easy and convenient way to move your Amazon RDS for MySQL databases to Azure Database for MySQL.
 

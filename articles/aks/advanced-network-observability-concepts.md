@@ -124,7 +124,7 @@ Azure managed Prometheus and Grafana impose service-specific scale limitations. 
 
 ## Next steps
 
-* For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Network Observability for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
+* For more information about Advanced Container Networking Services for Azure Kubernetes Service (AKS), see [What is Advanced Container Networking Services for Azure Kubernetes Service (AKS)?](advanced-container-networking-services-overview.md).
 
 * To create an AKS cluster with Advanced Network Observability and Azure managed Prometheus and Grafana, see [Setup Advanced Network Observability for Azure Kubernetes Service (AKS) Azure managed Prometheus and Grafana](advanced-network-observability-cli.md).
 

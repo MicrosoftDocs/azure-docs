@@ -104,6 +104,12 @@ This section outlines variations and considerations when using Azure Container A
 |---------|--------|------------|
 | Azure Monitor| The Azure Monitor integration isn't supported for Azure in China |
 
+### Azure Managed Grafana
+
+| Product               | Unsupported, limited, and/or modified features                                                                                                            | Notes |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
+| Azure Managed Grafana | See [Azure Managed Grafana: Feature availability in sovereign clouds](../managed-grafana/known-limitations.md?#feature-availability-in-sovereign-clouds). |       |
+
 ### Azure China Commercial Marketplace operated by 21Vianet
  
 To learn which commercial marketplace features are available in Azure China Commercial Marketplace operated by 21Vianet, as compared to the Azure global commercial marketplace, see [Feature availability for Azure China Commercial Marketplace operated by 21Vianet](/partner-center/marketplace/azure-in-china-feature-availability).

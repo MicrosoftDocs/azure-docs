@@ -18,3 +18,7 @@ items:
     href: how-to-set-up-data-access.md
   - name: Troubleshoot
     href: troubleshoot.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/splitexperimentation

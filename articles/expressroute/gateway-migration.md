@@ -5,7 +5,7 @@ description: This article explains how to seamlessly migrate from Standard/HighP
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: ignite-2023, devx-track-azurepowershell
+ms.custom: ignite-2023
 ms.topic: conceptual
 ms.date: 04/26/2024
 ms.author: duau
@@ -77,11 +77,7 @@ In the gateway migration experience, you need to validate if your resource is ca
 * Gateway Subnet needs two or more prefixes for migration.
 * MaxGatewayCountInVnetReached – Reached maximum number of gateways that can be created in a Virtual Network. 
 
-If your first address prefix is large enough for the second gateway creation and deployment, such as /24, you won't need to add a second prefix. 
-
-### Connection 
-
-The virtual network gateway connection resource isn't in a succeed state. 
+ You must create a second prefix in your Gateway Subnet for migration.
 
 ## Next steps
 

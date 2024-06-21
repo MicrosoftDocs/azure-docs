@@ -20,7 +20,7 @@ This article describes the lambda functions to use in Bicep. [Lambda expressions
 
 Bicep lambda function has these limitations:
 
-- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`map()`](#map), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
+- Lambda expression can only be specified directly as function arguments in these functions: [`filter()`](#filter), [`groupBy()`](#groupby), [`map()`](#map), [`mapValues()`](#mapvalues), [`reduce()`](#reduce), [`sort()`](#sort), and [`toObject()`](#toobject).
 - Using lambda variables (the temporary variables used in the lambda expressions) inside resource or module array access isn't currently supported.
 - Using lambda variables inside the [`listKeys`](./bicep-functions-resource.md#list) function isn't currently supported.
 - Using lambda variables inside the [reference](./bicep-functions-resource.md#reference) function isn't currently supported.
@@ -66,20 +66,24 @@ var dogs = [
     interests: ['Butter']
   }
   {
-    name: 'Kira'
+    name: 'Cira'
     age: 8
     interests: ['Rubs']
   }
 ]
 
 output oldDogs array = filter(dogs, dog => dog.age >=5)
+output dogNameIndex array = filter(dogs, (val, i) => i < 2 && substring(val.name, 0, 1) == 'C')
 ```
 
-The output from the preceding example shows the dogs that are five or older:
+The outputs from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | oldDogs | Array | [{"name":"Evie","age":5,"interests":["Ball","Frisbee"]},{"name":"Kira","age":8,"interests":["Rubs"]}] |
+| dogNameIndex | Array | [{"name":"Casper","age":3,"interests":["Other dogs"]}] |
+
+**oldDogs** lists the dogs that are five or older; **dogNameIndex** identifies the dogs whose index number is less than two and whose name starts with the letter "C". 
 
 ```bicep
 var itemForLoop = [for item in range(0, 10): item]
@@ -88,7 +92,7 @@ output filteredLoop array = filter(itemForLoop, i => i > 5)
 output isEven array = filter(range(0, 10), i => 0 == i % 2)
 ```
 
-The output from the preceding example:
+The outputs from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -118,7 +122,7 @@ An object.
 
 ### Examples
 
-The following examples show how to use the `groupBy` function.
+The following example shows how to use the `groupBy` function.
 
 ```bicep
 var inputArray = ['foo', 'bar', 'baz']
@@ -126,7 +130,7 @@ var inputArray = ['foo', 'bar', 'baz']
 output outObject object = groupBy(inputArray, x => substring(x, 0, 1)) 
 ```
 
-The output from the preceding example shows the dogs that are five or older:
+The output from the preceding example:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -183,22 +187,24 @@ var dogs = [
 
 output dogNames array = map(dogs, dog => dog.name)
 output sayHi array = map(dogs, dog => 'Hello ${dog.name}!')
-output mapObject array = map(range(0, length(dogs)), i => {
+output mapArray array = map(range(0, length(dogs)), i => {
   i: i
   dog: dogs[i].name
   greeting: 'Ahoy, ${dogs[i].name}!'
 })
+output mapArrayIndex array = map(dogs, (x, i) => { index: i, val: x.name})
 ```
 
-The output from the preceding example is:
+The outputs from the preceding example are:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | dogNames | Array | ["Evie","Casper","Indy","Kira"]  |
 | sayHi | Array | ["Hello Evie!","Hello Casper!","Hello Indy!","Hello Kira!"] |
-| mapObject | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArray | Array | [{"i":0,"dog":"Evie","greeting":"Ahoy, Evie!"},{"i":1,"dog":"Casper","greeting":"Ahoy, Casper!"},{"i":2,"dog":"Indy","greeting":"Ahoy, Indy!"},{"i":3,"dog":"Kira","greeting":"Ahoy, Kira!"}] |
+| mapArrayIndex | Array | [{"index":0,"val":"Evie"},{"index":1,"val":"Casper"},{"index":2,"val":"Indy"},{"index":3,"val":"Kira"}] |
 
-**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; and **mapObject** creates another array of objects.
+**dogNames** shows the dog names from the array of objects; **sayHi** concatenates "Hello" and each of the dog names; **mapArray** and **mapArrayIndex** create another two arrays of objects.
 
 ## mapValues
 
@@ -287,16 +293,18 @@ var dogs = [
 var ages = map(dogs, dog => dog.age)
 output totalAge int = reduce(ages, 0, (cur, next) => cur + next)
 output totalAgeAdd1 int = reduce(ages, 1, (cur, next) => cur + next)
+output oddAge int = reduce(ages, 0, (cur, next, i) => (i % 2 == 0) ? cur + next : cur)
 ```
 
-The output from the preceding example is:
+The outputs from the preceding example are:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | totalAge | int | 18 |
 | totalAgeAdd1 | int | 19 |
+| oddAge | int | 7 |
 
-**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values.
+**totalAge** sums the ages of the dogs; **totalAgeAdd1** has an initial value of 1, and adds all the dog ages to the initial values. **oddAge** sums the ages of dogs that are located at even indices, specifically **5** (Evie) and **2** (Indy).
 
 ```bicep
 output reduceObjectUnion object = reduce([
@@ -477,4 +485,4 @@ The preceding example generates an object based on an array.
 
 ## Next steps
 
-- See [Bicep functions - arrays](./bicep-functions-array.md) for additional array related Bicep functions.
+- See [Bicep functions - arrays](./bicep-functions-array.md) for more array-related Bicep functions.

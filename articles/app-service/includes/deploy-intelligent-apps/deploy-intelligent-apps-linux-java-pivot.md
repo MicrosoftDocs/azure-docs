@@ -2,6 +2,7 @@
 author: jefmarti
 ms.service: app-service
 ms.devlang: java
+ms.custom: linux-related-content
 ms.topic: article
 ms.date: 04/10/2024
 ms.author: jefmarti
@@ -65,7 +66,7 @@ For OpenAI, use the following settings:
 | `OPENAI_API_KEY` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 | `OPENAI_MODEL_NAME` | @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/) |
 
-Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following code in the *[Application.java](http://Application.java)* file:
+Once your app settings are saved, you can access the app settings in your code by referencing them in your application. Add the following code in the *Application.java `http://Application.java`* file:
 
 For Azure OpenAI:
 
@@ -131,7 +132,7 @@ OpenAIClient client = new OpenAIClientBuilder()
     .buildClient();
 ```
 
-Once added, you see the following imports are added to the [Application.java](http://Application.java) file:
+Once added, you see the following imports are added to the Application.java `http://Application.java` file:
 
 ```java
 import com.azure.ai.openai.OpenAIClient;

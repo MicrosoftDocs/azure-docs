@@ -6,8 +6,8 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/06/2023
-ms.custom: engagement-fy23
+ms.date: 03/18/2024
+ms.custom: engagement-fy24
 ---
 
 # Migration and modernization: Common questions

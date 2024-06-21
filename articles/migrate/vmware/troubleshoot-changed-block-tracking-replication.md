@@ -308,7 +308,7 @@ This issue occurs when vCenter Server management agents stop working. To resolve
 
 ### Error Message: An internal error occurred. [Snapshot Disk size invalid]
 
-This is a known VMware issue in which the disk size indicated by snapshot becomes zero. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/).
+This is a known VMware issue in which the disk size indicated by snapshot becomes zero.
 
 ### Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
 

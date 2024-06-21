@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 You'll now deploy a new AKS cluster, to simulate having an existing AKS cluster that you want to enable the AGIC add-on for.  
 
-In the following example, you'll be deploying a new AKS cluster named **myCluster** using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [Managed Identities](../aks/use-managed-identity.md) in the resource group you created, **myResourceGroup**.
+In the following example, you'll be deploying a new AKS cluster named **myCluster** using [Azure CNI](../aks/concepts-network-cni-overview.md) and [Managed Identities](../aks/use-managed-identity.md) in the resource group you created, **myResourceGroup**.
 
 ```azurecli-interactive
 az aks create --name myCluster --resource-group myResourceGroup --network-plugin azure --enable-managed-identity --generate-ssh-keys
