@@ -66,7 +66,7 @@ After the GitHub Azure Resource Manager template completes, you'll find a resour
 
 Before you sign in and use the management tool, you must provide consent for the new Microsoft Entra application associated with the management tool. Providing consent lets the management tool make Azure Virtual Desktop management calls on behalf of the user currently signed in to the tool.
 
-:::image type="content" source="../media/management-ui-delegated-permissions-inline.png" alt-text="A screenshot showing the permissions being provided when you consent to the UI management tool" lightbox="../media/management-ui-delegated-permissions-expanded.png":::
+:::image type="content" source="../media/management-ui-delegated-permissions-inline.png" alt-text="A screenshot showing the permissions being provided when you consent to the UI management tool." lightbox="../media/management-ui-delegated-permissions-expanded.png":::
 
 To determine which user you can use to sign in to the tool, go to your [Microsoft Entra user settings page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) and take note of the value for **Users can consent to apps accessing company data on their behalf**.
 
