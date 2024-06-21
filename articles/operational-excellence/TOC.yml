@@ -47,7 +47,7 @@
       - name: Azure Container Registry
         href: ../container-registry/manual-regional-move.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Cosmos DB
-        href: ../cosmos-db/how-to-move-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-cosmos-db.md
       - name: Azure Database for MariaDB Server
         href: ../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Database for MySQL Server

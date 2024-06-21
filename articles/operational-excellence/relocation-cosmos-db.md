@@ -1,6 +1,6 @@
 ---
-title: Relocate an Azure Cosmos DB account to another region
-description: Learn how to relocate an Azure Cosmos DB account to another region.
+title: Relocate an Azure Cosmos DB NoSQL account to another region
+description: Learn how to relocate an Azure Cosmos DB NoSQL account to another region.
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -12,8 +12,8 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
 
-# Relocate an Azure Cosmos DB account to another region
-[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](../cosmos-db/includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+# Relocate an Azure Cosmos DB NoSQL account to another region
+
 
 This article describes how to either:
 

@@ -4147,6 +4147,11 @@
            "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
+        },
+        {
+           "source_path_from_root": "/articles/cosmos-db/how-to-move-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-cosmos-db",
+            "redirect_document_id": false
         }
        
     ]

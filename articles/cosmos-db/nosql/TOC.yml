@@ -767,8 +767,8 @@
         - name: Using Terraform
           href: manage-with-terraform.md
           displayName: Terraform
-        - name: Move between regions
-          href: ../how-to-move-regions.md
+        - name: Relocate to another region
+          href: ../../operational-excellence/relocation-cosmos-db.md?toc=/azure/cosmosdb/nosql/toc.json
         - name: Prevent changes or deletion
           href: ../resource-locks.md
     - name: Global distribution
