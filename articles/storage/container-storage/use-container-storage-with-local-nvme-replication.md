@@ -11,11 +11,11 @@ ms.custom: references_regions
 
 # Use Azure Container Storage Preview with local NVMe and volume replication
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with local NVMe and volume replication as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using local NVMe as its storage. Replication copies data across volumes on different nodes and restores a volume when a replica is lost, providing data durability for Ephemeral Disk.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Ephemeral Disk with local NVMe and volume replication as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using local NVMe as its storage. Replication copies data across volumes on different nodes and restores a volume when a replica is lost, providing resiliency for Ephemeral Disk.
 
 ## What is Ephemeral Disk?
 
-When your application needs sub-millisecond storage latency, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM. Therefore, you can only create [Kubernetes generic ephemeral volumes](https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes) from an Ephemeral Disk storage pool unless you use local NVMe with volume replication as described in this article.
+When your application needs sub-millisecond storage latency, you can use Ephemeral Disk with Azure Container Storage to meet your performance requirements. Ephemeral means that the disks are deployed on the local virtual machine (VM) hosting the AKS cluster and not saved to an Azure storage service. Data will be lost on these disks if you stop/deallocate your VM.
 
 There are two types of Ephemeral Disk available: NVMe and [temp SSD](use-container-storage-with-temp-ssd.md). NVMe is designed for high-speed data transfer between storage and CPU. Choose NVMe when your application requires higher IOPS and throughput than temp SSD, or if your workload requires replication. Replication isn't currently supported for temp SSD.
 
