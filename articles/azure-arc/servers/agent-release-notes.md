@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 04/09/2024
+ms.date: 06/19/2024
 ms.custom: references_regions
 ---
 
@@ -19,6 +19,16 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 > [!WARNING]
 > Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
 > 
+
+## Version 1.43 - June 2024 
+
+Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Fix for OpenSSL Vulnerability for Linux (Upgrading OpenSSL version from 3.0.13 to 3.014)
+- Added Server Name Indicator (SNI) to our service calls, fixing Proxy and Firewall scenarios
+- Skipped lockdown policy on the downloads directory under Guest Configuration
 
 ## Version 1.42 - May 2024 (Second Release)
 

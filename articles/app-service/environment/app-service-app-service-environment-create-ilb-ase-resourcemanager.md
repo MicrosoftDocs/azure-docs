@@ -16,6 +16,8 @@ ms.custom: devx-track-arm-template
 >
 > As of 29 January 2024, you can no longer create new App Service Environment v1 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
+>
 
 ## Overview
 App Service Environments can be created with a virtual network internal address instead of a public VIP. This internal address is provided by an Azure component called the internal load balancer (ILB). An ILB ASE can be created using the Azure portal. It can also be created using automation by way of Azure Resource Manager templates. This article walks through the steps and syntax needed to create an ILB ASE with Azure Resource Manager templates.

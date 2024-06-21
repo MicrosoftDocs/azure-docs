@@ -405,6 +405,27 @@ var translationRecognizer = new TranslationRecognizer(speechTranslationConfig, a
 
 For a complete code sample with the Speech SDK, see [speech translation samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/translation_samples.cs#L472).
 
+## Using custom translation in speech translation
+The custom translation feature in speech translation seamlessly integrates with the Azure Custom Translation service, allowing you to achieve more accurate and tailored translations. As the integration directly harnesses the capabilities of the Azure custom translation service, you need to use a multi-service resource to ensure the correct functioning of the complete set of features. For detailed instructions, please consult the guide on [Create a multi-service resource for Azure AI services](/azure/ai-services/multi-service-resource?tabs=windows&pivots=azportal).
+
+Additionally, for offline training of a custom translator and obtaining a "Category ID," please refer to the step-by-step script provided in the [Quickstart: Build, deploy, and use a custom model - Custom Translator](/azure/ai-services/translator/custom-translator/quickstart).
+
+```csharp
+// Creates an instance of a translation recognizer using speech translation configuration
+// You should use the same subscription key, which you used to generate the custom model before.
+// V2 endpoint is required for the “Custom Translation” feature. Example: "wss://westcentralus.stt.speech.microsoft.com/speech/universal/v2"
+
+try (SpeechTranslationConfig config = SpeechTranslationConfig.fromEndpoint(URI.create(endpointUrl), speechSubscriptionKey)) {
+
+            // Sets source and target language(s).
+           ….
+
+            // Set the category id
+            config.setCustomModelCategoryId("yourCategoryId");
+
+       ….
+}
+```
 
 [speechtranslationconfig]: /dotnet/api/microsoft.cognitiveservices.speech.speechtranslationconfig
 [audioconfig]: /dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig

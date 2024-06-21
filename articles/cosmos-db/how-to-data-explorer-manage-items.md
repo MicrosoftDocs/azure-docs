@@ -43,7 +43,7 @@ First, use the multiple selection feature to perform a delete operation over mul
     > Alternatively, you can either select multiple items using the <kbd>Shift</kbd> or <kbd>Ctrl</kbd> keys. You can also use the checkbox in the table header to automatically select all items in the current view.
 
     > [!NOTE]
-    > By default, the items view only includes 100 matching items. Select **Load more** to include more items within the current view.
+    > By default, the items view only includes 100 matching items. Select **Load more** to include more items within the current view. Please be aware if you are using a legacy Azure Cosmos DB collection without a partition key the bulk delete feature is currently temporarily unavailable.  You many still delete items individually as needed.
 
 1. In the command bar, select **Delete**.
 
@@ -66,7 +66,7 @@ Now, use the adjustment features in the Data Explorer to adjust the viewport of 
 
 ## Comments
 
-Use the **Feedback** icon in the command bar of the Data Explorer to give the product team any comments you have about the keyboard shortcuts.
+Use the **Feedback** icon in the command bar of the Data Explorer to give the product team any comments you have about the bulk delete experience.
 
 ## Related content
 

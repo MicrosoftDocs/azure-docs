@@ -149,7 +149,7 @@ There are some limitations with using virtual network:
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager virtual network.
 * The app and the virtual network must be in the same region.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
-* You can have only one regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
+* You can have up to two regional virtual network integrations per App Service plan. Multiple apps in the same App Service plan can use the same integration subnet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional virtual network integration.
 
 ### Subnets
@@ -303,6 +303,18 @@ When testing functions in a function app with private endpoints, you must do you
 * `https://functions-staging.azure.com`
 * `https://functions.azure.com`
 * `https://portal.azure.com`
+
+If you've restricted access to your function app with private endpoints or any other access restriction, you also must add the service tag `AzureCloud` to the allow-list. To update the allow-list:
+
+1. Navigate to your function app and select **Settings** > **Networking** and then select **Inbound access configuration** > **Public network access**. 
+
+1. Make sure that **Public network access** is set to **Enabled from select virtual networks and IP addresses**. 
+
+1. **Add a rule** under Site access and rules: 
+
+    1. Select `Service Tag` as the Source settings **Type** and `AzureCloud` as the **Service Tag**. 
+    
+    1. Make sure the action is **Allow**, and set your desired name and priority.
 
 ## Troubleshooting
 

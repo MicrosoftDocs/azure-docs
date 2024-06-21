@@ -23,7 +23,7 @@ In the support table, **NA** indicates that the feature isn't available.
 |[Security alerts](alerts-overview.md)<br/> Generated when one or more Defender for Cloud plans is enabled. | GA | GA | GA|
 |[Alert email notifications](configure-email-notifications.md) | GA | GA | GA|
 |[Alert suppression rules](alerts-suppression-rules.md) | GA | GA | GA|
-|[Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md) | Preview | NA | NA|
+|[Alert bi-directional synchronization with Microsoft Sentinel](../sentinel/connect-azure-security-center.md) | GA | GA | NA|
 |[Azure Workbooks integration for reporting](custom-dashboards-azure-workbooks.md) | GA | GA | GA|
 |[Automatic component/agent/extension provisioning](monitoring-components.md) | GA | GA | GA|
 |[Copilot for Security in Defender for Cloud](copilot-security-in-defender-for-cloud.md) | Preview | NA | NA |

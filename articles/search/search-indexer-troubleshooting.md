@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 01/11/2024
+ms.date: 06/17/2024
 ---
 
 # Indexer troubleshooting guidance for Azure AI Search
@@ -266,6 +266,11 @@ Conditions under which a document is processed twice is explained in the followi
 
 In practice, this scenario only happens when on-demand indexers are manually invoked within minutes of each other, for certain data sources. It can result in mismatched numbers (like the indexer processed 345 documents total according to the indexer execution stats, but there are 340 documents in the data source and index) or potentially increased billing if you're running the same skills for the same document multiple times. Running an indexer using a schedule is the preferred recommendation.
 
+## Parallel indexing
+
+When multiple indexers are operating simultaneously, it's typical for some to enter a queue, waiting for available resources to begin execution. The number of indexers that can run concurrently depends on several factors. If the indexers are not linked with [skillsets](cognitive-search-working-with-skillsets.md), the capacity to run in parallel relies on the number of [replicas and partitions](search-capacity-planning.md#concepts-search-units-replicas-partitions) set up in the AI Search service.
+
+On the other hand, if an indexer is associated with a skillset, it operates within the AI Search's internal clusters. The ability to run concurrently in this case is determined by the complexity of the skillset and whether other skillsets are running simultaneously. Built-in indexers are designed to reliably extract data from the source, so no data is missed if running on a schedule. However, it is expected that the indexer processes of parallelization and scaling out may require some time. 
 
 ## Indexing documents with sensitivity labels
 
