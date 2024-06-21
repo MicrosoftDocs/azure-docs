@@ -120,7 +120,7 @@ const map = new atlas.Map("map-id", {
 
 ## Instantiate the Indoor Manager
 
-To load the indoor map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object*. If you wish to support [dynamic map styling], you must pass the `statesetId`. The `statesetId` variable name is case-sensitive. Your code should look like the following JavaScript code snippet:
+To load the indoor map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object*. Your code should look like the following JavaScript code snippet:
 
 ```javascriptf
 const statesetId = "<statesetId>";
@@ -304,9 +304,6 @@ Read about the APIs that are related to the *Azure Maps Indoor* module:
 Learn more about how to add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Indoor Maps dynamic styling]
-
-> [!div class="nextstepaction"]
 > [Code samples]
 
 [Azure Content Delivery Network]: #embed-the-indoor-maps-module
@@ -320,8 +317,6 @@ Learn more about how to add more data to your map:
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator Indoor Maps]: https://samples.azuremaps.com/?sample=creator-indoor-maps
 [Drawing package requirements]: drawing-requirements.md
-[dynamic map styling]: indoor-map-dynamic-styling.md
-[Indoor Maps dynamic styling]: indoor-map-dynamic-styling.md
 [map configuration API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [map configuration]: creator-indoor-maps.md#map-configuration
 [Style Rest API]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true

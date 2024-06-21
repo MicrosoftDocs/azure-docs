@@ -98,9 +98,6 @@ Learn how to use the Creator services to render indoor maps in your application:
 > [Azure Maps Creator tutorial]
 
 > [!div class="nextstepaction"]
-> [Indoor map dynamic styling]
-
-> [!div class="nextstepaction"]
 > [Use the Indoor Maps module]
 
 [Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control
@@ -111,7 +108,6 @@ Learn how to use the Creator services to render indoor maps in your application:
 [Data conversion]: creator-indoor-maps.md#convert-a-drawing-package
 [Dataset]: creator-indoor-maps.md#datasets
 [Feature State set]: creator-indoor-maps.md#feature-statesets
-[Indoor map dynamic styling]: indoor-map-dynamic-styling.md
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [see Creator service geographic scope]: creator-geographic-scope.md
 [Tileset]: creator-indoor-maps.md#tilesets
