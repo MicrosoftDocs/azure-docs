@@ -17,7 +17,7 @@ In this article, you learn about the process, configuration options, and conside
 
 The deployment of Microsoft Dev Box requires the [involvement of different roles](#roles-and-responsibilities) within your organization. Each role has particular responsibilities and requirements. Before you start the implementation of Microsoft Dev Box, it's important to [collect all requirements](#define-your-requirements-for-microsoft-dev-box) from the different roles, as they influence the configuration settings for the different components in Microsoft Dev Box. Once you have outlined your requirements, you can then go through the [deployment steps to roll out Dev Box](#deploy-microsoft-dev-box) in your organization.
 
-## Roles and responsibilities
+## Organizational roles and responsibilities
 
 The Dev Box service was designed with three organizational roles in mind: platform engineers, development team leads, and developers. Depending on the size and structure of your organization, some of these roles might be combined by a person or team.
 
@@ -157,7 +157,7 @@ Consider creating a separate network connection in the following scenarios:
 
 ### Step 6: Create compute galleries
 
-By default, dev box definitions can use any virtual machine (VM) image from the Azure Marketplace. You can assign one or more Azure compute galleries to the dev center to control the VM images that are available across all dev center projects.
+By default, dev box definitions can use any virtual machine (VM) image that is Dev Box compatible from the Azure Marketplace. You can assign one or more Azure compute galleries to the dev center to control the VM images that are available across all dev center projects.
 
 Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources.
 
