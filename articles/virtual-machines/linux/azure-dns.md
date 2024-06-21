@@ -12,9 +12,6 @@ ms.collection: linux
 ---
 # DNS Name Resolution options for Linux virtual machines in Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 Azure provides DNS name resolution by default for all virtual machines that are in a single virtual network. You can implement your own DNS name resolution solution by configuring your own DNS services on your virtual machines that Azure hosts. The following scenarios should help you choose the one that works for your situation.
@@ -114,7 +111,7 @@ sudo systemctl start dnsmasq.service
 sudo netconfig update
 ```
 
-# [CentOS/RHEL](#tab/rhel)
+# [RHEL](#tab/rhel)
 
 1. Install the dnsmasq package:
 
@@ -179,11 +176,6 @@ The `/etc/resolv.conf` file is auto-generated and should not be edited. The spec
 
 1. Add `timeout:1 attempts:5` to the `NETCONFIG_DNS_RESOLVER_OPTIONS=""` parameter in `/etc/sysconfig/network/config`.
 2. Run `sudo netconfig update` to update.
-
-**CentOS by Rogue Wave Software (formerly OpenLogic)** (uses NetworkManager)
-
-1. Add `RES_OPTIONS="timeout:1 attempts:5"` to `/etc/sysconfig/network`.
-2. Run `systemctl restart NetworkManager` to update.
 
 ## Name resolution using your own DNS server
 
