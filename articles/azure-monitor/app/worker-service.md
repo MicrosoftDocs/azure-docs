@@ -313,7 +313,7 @@ The following sections list the full telemetry automatically collected by Applic
 
 ### Live metrics
 
-[Live metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. Although it might take a few minutes before telemetry appears in the portal and analytics, Live metrics shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
+[Live metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. Although it might take a few minutes before telemetry appears in the portal and analytics, The live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
 
 ### ILogger logs
 

@@ -9,7 +9,7 @@ ms.devlang: csharp
 
 # Live metrics: Monitor and diagnose with 1-second latency
 
-Monitor your live, in-production web application by using live metrics (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). You can select and filter metrics and performance counters to watch in real time, without any disturbance to your service. You can also inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot Debugger](./snapshot-debugger.md), live metrics provides a powerful and noninvasive diagnostic tool for your live website.
+Monitor your live, in-production web application by using live metrics (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). You can select and filter metrics and performance counters to watch in real time, without any disturbance to your service. You can also inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot Debugger](./snapshot-debugger.md), live metrics provide a powerful and noninvasive diagnostic tool for your live website.
 
 > [!NOTE]
 > Live metrics only supports TLS 1.2. For more information, see [Troubleshooting](#troubleshooting).
@@ -26,32 +26,32 @@ With live metrics, you can:
 
 :::image type="content" source="./media/live-stream/live-metric.png" lightbox="./media/live-stream/live-metric.png" alt-text="Screenshot that shows the live metrics tab.":::
 
-Live metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
+Live metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
 > [!NOTE]
-> The number of monitored server instances displayed by live metrics might be lower than the actual number of instances allocated for the application. This mismatch is because many modern web servers will unload applications that don't receive requests over a period of time to conserve resources. Because live metrics only counts servers that are currently running the application, servers that have already unloaded the process won't be included in that total.
+> The number of monitored server instances displayed by live metrics might be lower than the actual number of instances allocated for the application. This mismatch is because many modern web servers will unload applications that don't receive requests over a period of time to conserve resources. Because live metrics only count servers that are currently running the application, servers that have already unloaded the process won't be included in that total.
 
 ## Get started
 
 > [!IMPORTANT]
-> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) or Classic [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in live metrics.
+> To enable Application Insights, ensure that it's activated in the Azure portal and your app is using a recent version of the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md) or Classic [Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) NuGet package. Without the NuGet package, some telemetry is sent to Application Insights, but that telemetry won't show in the live metrics pane.
 
 1. Follow language-specific guidelines to enable live metrics:
 
   # [OpenTelemetry (Recommended)](#tab/otel)
 
-   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live metrics *is not supported*.
-   * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Live metrics is enabled by default.
-   * [Java](./opentelemetry-enable.md?tabs=java): Live metrics is enabled by default.
-   * [Node.js](opentelemetry-enable.md?tabs=nodejs): Live metrics is enabled by default.
-   * [Python](opentelemetry-enable.md?tabs=python): Live metrics is enabled by default.
+   * [ASP.NET](opentelemetry-enable.md?tabs=net): *Not supported*.
+   * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Enabled by default.
+   * [Java](./opentelemetry-enable.md?tabs=java): Enabled by default.
+   * [Node.js](opentelemetry-enable.md?tabs=nodejs): Enabled by default.
+   * [Python](opentelemetry-enable.md?tabs=python): Enabled by default.
   
   # [Classic API](#tab/classic)
   
-   * [ASP.NET](./asp-net.md): Live metrics is enabled by default but can also be [enabled manually using code](./asp-net.md#enable-live-metrics-by-using-code-for-any-.net-application).
-   * [ASP.NET Core](./asp-net-core.md): Live metrics is enabled by default but can also be [enabled manually using code](./asp-net-core.md#enable-live-metrics-by-using-code-for-any-.net-application).
-   * [.NET/.NET Core Console/Worker](./worker-service.md): Live metrics is enabled by default.
-   * [Node.js](./nodejs.md#live-metrics): Live metrics *is not enabled by default*.
+   * [ASP.NET](./asp-net.md): Enabled by default but can also be [enabled manually using code](./asp-net.md#enable-live-metrics-by-using-code-for-any-.net-application).
+   * [ASP.NET Core](./asp-net-core.md): Enabled by default but can also be [enabled manually using code](./asp-net-core.md#enable-live-metrics-by-using-code-for-any-.net-application).
+   * [.NET/.NET Core Console/Worker](./worker-service.md): Enabled by default.
+   * [Node.js](./nodejs.md#live-metrics): *Not enabled by default*.
 
 ---
 
@@ -61,7 +61,7 @@ Live metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## How does live metrics differ from metrics explorer and Log Analytics?
+## How do live metrics differ from metrics explorer and Log Analytics?
 
 | Capabilities |Live Stream | Metrics explorer and Log Analytics |
 |---|---|---|
@@ -146,9 +146,9 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 ## Troubleshooting
 
-Live metrics uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../ip-addresses.md) are open in your firewall. Also check that [outgoing ports for live metrics](../ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
+Live metrics use different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../ip-addresses.md) are open in your firewall. Also check that [outgoing ports for live metrics](../ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
-As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), live metrics now only supports TLS 1.2. If you're using an older version of TLS, live metrics doesn't display any data. For applications based on .NET Framework 4.5.1, see [Enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support the newer TLS version.
+As described in the [Azure TLS 1.2 migration announcement](https://azure.microsoft.com/updates/azuretls12/), live metrics now only support TLS 1.2. If you're using an older version of TLS, the live metrics pane doesn't display any data. For applications based on .NET Framework 4.5.1, see [Enable Transport Layer Security (TLS) 1.2 on clients - Configuration Manager](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client#bkmk_net) to support the newer TLS version.
 
 ### Missing configuration for .NET
 
@@ -181,7 +181,7 @@ Follow the link to the *Azure status* page and check if there's an activate outa
 
 Application Insights SDKs use a REST API to communicate with QuickPulse endpoints, which provide live metrics for your web application. By default, the SDKs poll the endpoints once every five seconds to check if you are viewing the live metrics pane in the Azure portal.
 
-If you open the live metrics pane, the SDKs switch to a higher frequency mode and send new metrics to QuickPulse every second. This allows you to monitor and diagnose your live application with 1-second latency, but also generates more network traffic. To restore normal flow of traffic, naviage away from the live metrics pane.
+If you open live metrics, the SDKs switch to a higher frequency mode and send new metrics to QuickPulse every second. This allows you to monitor and diagnose your live application with 1-second latency, but also generates more network traffic. To restore normal flow of traffic, naviage away from the live metrics pane.
 
 > [!NOTE]
 > The REST API calls made by the SDKs to QuickPulse endpoints are not tracked by Application Insights and do not affect your dependency calls or other metrics. However, you may see them in other network monitoring tools.
