@@ -40,7 +40,7 @@ Live metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
   # [OpenTelemetry (Recommended)](#tab/otel)
 
-   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live metrics is not supported.
+   * [ASP.NET](opentelemetry-enable.md?tabs=net): Live metrics *is not supported*.
    * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Live metrics is enabled by default.
    * [Java](./opentelemetry-enable.md?tabs=java): Live metrics is enabled by default.
    * [Node.js](opentelemetry-enable.md?tabs=nodejs): Live metrics is enabled by default.
@@ -51,12 +51,11 @@ Live metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
    * [ASP.NET](./asp-net.md): Live metrics is enabled by default but can also be [enabled manually using code](./asp-net.md#enable-live-metrics-by-using-code-for-any-.net-application).
    * [ASP.NET Core](./asp-net-core.md): Live metrics is enabled by default but can also be [enabled manually using code](./asp-net-core.md#enable-live-metrics-by-using-code-for-any-.net-application).
    * [.NET/.NET Core Console/Worker](./worker-service.md): Live metrics is enabled by default.
-   * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
-   * [Node.js](./nodejs.md#live-metrics)
+   * [Node.js](./nodejs.md#live-metrics): Live metrics *is not enabled by default*.
 
 ---
 
-2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your application. Under **Investigate**, open **Live metrics**.
+2. Open the Application Insights resource for your application in the [Azure portal](https://portal.azure.com). Select **Live metrics**, which is listed under **Investigate** in the left hand menu.
 
 3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data like customer names in your filters.
 
