@@ -7,7 +7,8 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 21/06/2024
+ms.date: 06/21/2024
+
 ms.author: gasinh
 ms.subservice: B2C
 

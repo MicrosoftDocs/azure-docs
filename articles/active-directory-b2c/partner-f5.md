@@ -9,7 +9,8 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 21/06/2024
+ms.date: 06/21/2024
+
 
 # Customer intent: As an IT admin responsible for securing applications, I want to integrate Azure Active Directory B2C with F5 BIG-IP Access Policy Manager. I want to expose legacy applications securely to the internet with preauthentication, Conditional Access, and single sign-on (SSO) capabilities.
 ---
