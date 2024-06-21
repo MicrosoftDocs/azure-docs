@@ -38,7 +38,7 @@ Live metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 
 1. Follow language-specific guidelines to enable live metrics:
 
-  Using OpenTelemetry (Recommended):
+  # [OpenTelemetry (Recommended)](#tab/otel)
 
    * [ASP.NET](opentelemetry-enable.md?tabs=net): Live metrics is not supported.
    * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore): Live metrics is enabled by default.
@@ -46,13 +46,15 @@ Live metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
    * [Node.js](opentelemetry-enable.md?tabs=nodejs): Live metrics is enabled by default.
    * [Python](opentelemetry-enable.md?tabs=python): Live metrics is enabled by default.
   
-  Using Classic API:
+  # [Classic API](#tab/classic)
   
-   * [ASP.NET](./asp-net.md): Live metrics is enabled by default but can also be enabled manually using code, see [Configure monitoring for ASP.NET with Azure Application Insights](./asp-net.md#enable-live-metrics-by-using-code-for-any-.net-application).
-   * [ASP.NET Core](./asp-net-core.md): Live metrics is enabled by default but can also be enabled manually using code, see [Application Insights for ASP.NET Core applications](./asp-net-core.md#enable-live-metrics-by-using-code-for-any-.net-application).
+   * [ASP.NET](./asp-net.md): Live metrics is enabled by default but can also be [enabled manually using code](./asp-net.md#enable-live-metrics-by-using-code-for-any-.net-application).
+   * [ASP.NET Core](./asp-net-core.md): Live metrics is enabled by default but can also be [enabled manually using code](./asp-net-core.md#enable-live-metrics-by-using-code-for-any-.net-application).
    * [.NET/.NET Core Console/Worker](./worker-service.md): Live metrics is enabled by default.
    * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
    * [Node.js](./nodejs.md#live-metrics)
+
+---
 
 2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your application. Under **Investigate**, open **Live metrics**.
 
@@ -111,10 +113,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 ## Secure the control channel
 
-Live metrics custom filters allow you to control which of your application's telemetry is streamed to the live metrics view in the Azure portal. The filters criteria are sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
-
-- **Recommended:** Secure the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
-- **Legacy (no longer recommended):** Set up an authenticated channel by configuring a secret API key as explained in the [Legacy option section](#legacy-option-create-an-api-key) below.
+Live metrics custom filters allow you to control which of your application's telemetry is streamed to the live metrics view in the Azure portal. The filters criteria are sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, secure the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
 
 > [!NOTE]
 > On September 30, 2025, API keys used to stream live metrics telemetry into Application Insights will be retired. After that date, applications that use API keys won't be able to send live metrics data to your Application Insights resource. Authenticated telemetry ingestion for live metrics streaming to Application Insights will need to be done with [Microsoft Entra authentication for Application Insights](./azure-ad-authentication.md).
@@ -125,25 +124,6 @@ It's possible to try custom filters without having to set up an authenticated ch
 > We strongly discourage the use of unsecured channels and will disable this option six months after you start using it. The **Authorize connected servers** dialog displays the date after which this option will be disabled.
 
 :::image type="content" source="media/live-stream/live-stream-auth.png" alt-text="Screenshot that shows the Authorize connected servers dialog." lightbox="media/live-stream/live-stream-auth.png":::
-
-### Legacy option: Create an API key
-
-1. Select the **API Access** tab and then select **Create API key**.
-
-   :::image type="content" source="./media/live-stream/api-key.png" lightbox="./media/live-stream/api-key.png" alt-text="Screenshot that shows selecting the API Access tab and the Create API key button.":::
-
-1. Select the **Authenticate SDK control channel** checkbox and then select **Generate key**.
-
-   :::image type="content" source="./media/live-stream/create-api-key.png" lightbox="./media/live-stream/create-api-key.png" alt-text="Screenshot that shows the Create API key pane. Select Authenticate SDK control channel checkbox and then select Generate key.":::
-
-### Add an API key to configuration
-
-For ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps, you can add an API key to configuration:
-
-- [.NET Core](./asp-net-core.md#add-an-api-key-to-configuration)
-- [.NET Framework](./asp-net.md#add-an-api-key-to-configuration)
-- [WorkerService](./worker-service.md#add-an-api-key-to-configuration)
-- [Azure Functions apps](./monitor-functions.md#add-an-api-key-to-configuration)
 
 ## Supported features table
 

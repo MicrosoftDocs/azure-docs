@@ -361,19 +361,19 @@ Although it's possible to manually add the JavaScript (Web) SDK Loader Script to
 
 For the template-based ASP.NET MVC app from this article, the file that you need to edit is *_Layout.cshtml*. You can find it under **Views** > **Shared**. To add client-side monitoring, open *_Layout.cshtml* and follow the [JavaScript (Web) SDK Loader Script-based setup instructions](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#get-started) from the article about client-side JavaScript SDK configuration.
 
-## Live Metrics
+## Live metrics
 
-[Live Metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but Live Metrics shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
+[Live metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but live metrics shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
 
-### Enable Live Metrics by using code for any .NET application
+### Enable live metrics by using code for any .NET application
 
 > [!NOTE]
-> Live Metrics is enabled by default when you onboard it by using the recommended instructions for .NET applications.
+> Live metrics is enabled by default when you onboard it by using the recommended instructions for .NET applications.
 
-To manually configure Live Metrics:
+To manually configure live metrics:
 
 1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
-1. The following sample console app code shows setting up Live Metrics:
+1. The following sample console app code shows setting up live metrics:
 
 ```csharp
 using Microsoft.ApplicationInsights;
@@ -410,14 +410,14 @@ namespace LiveMetricsDemo
 
             // Create a TelemetryClient instance. It is important
             // to use the same TelemetryConfiguration here as the one
-            // used to set up Live Metrics.
+            // used to set up live metrics.
             TelemetryClient client = new TelemetryClient(config);
 
             // This sample runs indefinitely. Replace with actual application logic.
             while (true)
             {
                 // Send dependency and request telemetry.
-                // These will be shown in Live Metrics.
+                // These will be shown in live metrics.
                 // CPU/Memory Performance counter is also shown
                 // automatically without any additional steps.
                 client.TrackDependency("My dependency", "target", "http://sample",
@@ -431,22 +431,7 @@ namespace LiveMetricsDemo
 }
 ```
 
-The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
-
-### Add an API key to configuration
-
-If you [create a secret API key](./live-stream.md#legacy-option-create-an-api-key) to set up an authenticated channel, you can add it to configuration.
-
-> [!NOTE]
-> Setting up an authenticated channel by configuring a secret API key is no longer recommended. Instead, we recommend securing the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
-
-In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
-
-```xml
-<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
-      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add>
-```
+The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the live metrics module.
 
 ## Frequently asked questions
 
