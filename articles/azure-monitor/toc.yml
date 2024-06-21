@@ -46,7 +46,7 @@ items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: OpenTelemetry on Azure
-      href: app/otel.md
+      href: app/opentelemetry.md
     - name: Enable Application Insights
       items:
       - name: Data Collection Basics
