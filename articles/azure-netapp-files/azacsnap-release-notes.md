@@ -33,7 +33,7 @@ AzAcSnap 10 is being released with the following fixes and improvements:
     - This allows the use of Consistency Group snapshots on supported Azure Large Instance storage.
 - Fixes and Improvements:
   - New `--flush` option which will flush in memory file buffers for local storage, useful for Azure Large Instance and Azure Managed Disk when connected as block storage.
-  - Logging improvments.
+  - Logging improvements.
 - Features removed:
   - AzAcSnap installer for Linux.
     - AzAcSnap is now downloadable as a binary for supported versions of Linux and Windows.  This simplifies access to the AzAcSnap program allowing you to get started quickly.
