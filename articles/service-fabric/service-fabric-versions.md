@@ -20,7 +20,7 @@ If you want to find a list of all the available Service Fabric runtime versions 
 ### Current versions
 | Service Fabric runtime |Can upgrade directly from|Can downgrade to*|Compatible SDK or NuGet package version|Supported .NET runtimes** |OS Version |End of support |
 | --- | --- | --- | --- | --- | --- | --- |
-| 10.1 CU3<br>10.1.2175.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 7, .NET 6, All, <br> >= .NET Framework 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
+| 10.1 CU3<br>10.1.2175.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 8, .NET 7, .NET 6, All, <br> >= .NET Framework 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 10.1 CU2<br>10.1.1951.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 7, .NET 6, All, <br> >= .NET Framework 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 10.1 RTO<br>10.1.1541.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 7, .NET 6, All, <br> >= .NET Framework 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version |
 | 10.0 CU4<br>10.0.2382.9590 | 9.0 CU10<br>9.0.1553.9590 | 9.0 | Less than or equal to version 7.0 | .NET 7, .NET 6, All, <br> >= .NET Framework 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 |
