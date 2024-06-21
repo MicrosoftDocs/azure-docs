@@ -14,7 +14,9 @@ Azure's integration with OpenTelemetry provides a suite of products for:
 > - Collection of telemetry data in a standardized way
 > - Consumption of data using curated experiences on Azure Monitor and local tools
 
-This article guides you through our OpenTelemetry offerings on and beyond Azure, from data collection to data consumption, to help you understand Microsoft’s strategic investments in OpenTelemetry.
+This article guides you through our OpenTelemetry offerings, from data collection to consumption, to help you understand Microsoft’s strategic investments in OpenTelemetry.
+
+For more information about OpenTelemetry on Azure, see [our OpenTelemetry Roadmap](https://techcommunity.microsoft.com/t5/azure-observability-blog/making-azure-the-best-place-to-observe-your-apps-with/ba-p/3995896).
 
 ## Data Collection
 
@@ -41,7 +43,7 @@ In addition, Azure Monitor OpenTelemetry distro-based automatic instrumentation 
 - [Tracing in the Azure SDK for Java](/azure/developer/java/sdk/tracing)
 - [Azure Cosmos DB SDK observability](/azure/cosmos-db/nosql/sdk-observability)
 
-**.NET** has OpenTelemetry APIs as part of the runtime. The .NET OpenTelemetry implementation uses logging, metrics, and activity APIs in the framework for instrumentation. OpenTelemetry collects telemetry from those APIs and other sources (via instrumentation libraries) and then exports the data to an application performance monitoring (APM) system for storage and analysis.
+The **.NET** OpenTelemetry implementation uses logging, metrics, and activity APIs in the framework for instrumentation. The OpenTelemetry SDK collects telemetry from those APIs and other sources (via instrumentation libraries) and then exports the data to an application performance monitoring (APM) system for storage and analysis.
 
 - [].NET Observability with OpenTelemetry](/dotnet/core/diagnostics/observability-with-otel)
 
@@ -49,6 +51,13 @@ In addition, Azure Monitor OpenTelemetry distro-based automatic instrumentation 
 
 - [Accelerate your observability journey with Azure Monitor pipeline (preview)](https://devblogs.microsoft.com/dotnet/introducing-dotnet-aspire-simplifying-cloud-native-development-with-dotnet-8/)
 - [Configure Azure Monitor pipeline for edge and multicloud](/dotnet/aspire/fundamentals/dashboard/overview)
+
+**OpenTelemetry Collector Azure Data Explorer Exporter** is a data exporter component that can be plugged into the OpenTelemetry Collector. It supports ingestion of data from many receivers into to Azure Data Explorer, Azure Synapse Data Explorer, and Real-Time Analytics in Fabric. 
+
+- [Data ingestion from OpenTelemetry to Azure Data Explorer](/azure/data-explorer/open-telemetry-connector)
+- [GitHub repository of Azure Data Explorer Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuredataexplorerexporter)
+- [Azure Synapse Data Explorer](/azure/synapse-analytics/data-explorer/data-explorer-overview)
+- [Real-Time Intelligence](/fabric/real-time-intelligence/overview)
 
 ## Data Platform and Consumption
 
