@@ -133,7 +133,7 @@ Use the following steps to add a custom certificate to your Microsoft Entra ID a
 
     In the secret URI, specify the key vault name and certificate name. If you want to pin to a version, include the certificate version, otherwise omit the version to allow the runtime to select the newest version of the certificate.
 
-    Always set `clientSecretCertificateThumbprint` to `*`.
+    Set `clientSecretCertificateThumbprint` equal to `*` to always pull the latest version of the certificates thumbprint.
 
 # [Apple](#tab/apple)
 
