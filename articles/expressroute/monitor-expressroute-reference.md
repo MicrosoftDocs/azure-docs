@@ -46,7 +46,7 @@ The following table lists the metrics available for the microsoft.network/expres
 The following table lists the metrics available for the Microsoft.Network/expressRoutePorts resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [<ResourceType/namespace>](~/reusuable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressrouteports-metrics-include.md)]
+[!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressrouteports-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -103,7 +103,7 @@ The following table lists the operations related to ExpressRoute that may be cre
 | Create or update ExpressRoute circuit | An ExpressRoute circuit was created or updated. |
 | Deletes ExpressRoute circuit | An ExpressRoute circuit was deleted.|
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md).
+For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
 ## Schemas
 

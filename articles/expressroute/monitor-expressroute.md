@@ -31,7 +31,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-For a list of available metrics for ExpressRoute, see [Azure ExpressRoute monitoring data reference](monitor-[TODO-replace-with-service-filename]-reference.md#metrics).
+For a list of available metrics for ExpressRoute, see [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#metrics).
 
 <!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
 If your service uses any non-Azure Monitor based metrics, add the following include and more information.
@@ -57,6 +57,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
+<a name="collection-and-routing"></a>
 ## Analyzing logs
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
@@ -181,5 +182,5 @@ The following table lists some suggested alert rules for ExpressRoute. These ale
 
 ## Related content
 
-- See [Azure ExpressRoute monitoring data reference](monitor-[TODO-replace-with-service-filename]-reference.md) for a reference of the metrics, logs, and other important values created for ExpressRoute.
+- See [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md) for a reference of the metrics, logs, and other important values created for ExpressRoute.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
