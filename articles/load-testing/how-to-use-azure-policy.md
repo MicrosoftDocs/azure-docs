@@ -12,7 +12,7 @@ ms.topic: how-to
   
 # Secure your Azure Load Testing resources with Azure Policy
 
-[Azure Policy](../governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy helps you place guardrails on Azure resources to ensure they are compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits that are performed by policy are available to users in a compliance dashboard. In the compliance dashboard, you can see a drill down of the resources and components that are compliant and noncompliant. For more information, see the [Overview of the Azure Policy service](../governance/policy/overview.md).
+[Azure Policy](../governance/policy/overview.md) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy helps you place guardrails on Azure resources to ensure they are compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits that are performed by policy are available to users in a compliance dashboard. In the compliance dashboard, you can see a drill down of the resources and components that are compliant and noncompliant. For more information, see the [Overview of the Azure Policy service](../governance/policy/overview.md).
 
 Example Usage Scenarios:
 
