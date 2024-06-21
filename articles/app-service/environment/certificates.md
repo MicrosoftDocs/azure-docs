@@ -14,6 +14,8 @@ ms.author: madsd
 >
 > As of 29 January 2024, you can no longer create new App Service Environment v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
 >
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
+>
 
 The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](./create-ilb-ase.md) document.
 

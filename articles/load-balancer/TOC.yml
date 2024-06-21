@@ -106,6 +106,8 @@
     href: distribution-mode-concepts.md
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
+  - name: Cross-subscription load balancer
+    href: cross-subscription-overview.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
   - name: Administrative state
@@ -232,6 +234,17 @@
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md
+  - name: Cross-subscription load balancing
+    items:
+    - name: Attach a cross-subscription backend to an Azure Load Balancer
+      href: cross-subscription-how-to-attach-backend.md
+    - name: Attach a cross-subscription frontend to an Azure Load Balancer
+      href: cross-subscription-how-to-attach-frontend.md
+    - name: Create a global load balancer with cross-subscription backends
+      href: cross-subscription-how-to-global-backend.md
+    - name: Create a cross-subscription internal load balancer
+      href: cross-subscription-how-to-internal-load-balancer.md
+    
   - name: IPv6
     items:
     - name: Configure DHCPv6 for Linux VMs
