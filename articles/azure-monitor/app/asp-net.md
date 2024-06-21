@@ -435,7 +435,7 @@ The preceding sample is for a console app, but the same code can be used in any 
 
 ### Add an API key to configuration
 
-If you set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section in [Live metrics: Monitor and diagnose with 1-second latency](./live-stream.md#legacy-option-create-an-api-key), you can add it to configuration.
+If you [create a secret API key](./live-stream.md#legacy-option-create-an-api-key) to set up an authenticated channel, you can add it to configuration.
 
 > [!NOTE]
 > Setting up an authenticated channel by configuring a secret API key is no longer recommended. Instead, we recommend securing the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).

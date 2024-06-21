@@ -180,12 +180,10 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
 
 ### Add an API key to configuration
 
-If you set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section in [Live metrics: Monitor and diagnose with 1-second latency](./live-stream.md#legacy-option-create-an-api-key), you can add it to configuration.
+For Azure Functions apps (v2), you can secure the channel with an API key by using an environment variable.
 
 > [!NOTE]
 > Setting up an authenticated channel by configuring a secret API key is no longer recommended. Instead, we recommend securing the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
-
-For Azure Functions apps (v2), you can secure the channel with an API key by using an environment variable.
 
 Create an API key from within your Application Insights resource and go to **Settings** > **Configuration** for your Azure Functions app. Select **New application setting**, enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY`, and enter a value that corresponds to your API key.
 
