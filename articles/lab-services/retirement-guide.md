@@ -26,27 +26,27 @@ There are various Microsoft solutions that you might consider as a direct replac
 [Azure Virtual Desktop](https://azure.microsoft.com/products/virtual-desktop/) is a comprehensive desktop and app virtualization service running in the cloud, offering secure, and scalable virtual desktop experiences with usage-based pricing. It’s ideal for providing full desktop and app delivery scenarios for Windows 10/11 with maximum control to any device from a flexible cloud virtual desktop infrastructure (VDI) platform on your Azure infrastructure and by using Microsoft Entra ID for user identities. Azure Virtual Desktop supports CPU/GPU-based Microsoft Entra ID joined virtual machines, content filtering, image management from Azure Marketplace or Azure compute gallery, centralized end-to-end management with Intune, and multi-session capabilities. 
 
 #### How can I get started with Azure Virtual Desktop?
-- [What is Azure Virtual Desktop?](https://learn.microsoft.com/azure/virtual-desktop/overview)
-- [Azure landing zones for Azure Virtual Desktop instances](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready)
+- [What is Azure Virtual Desktop?](/azure/virtual-desktop/overview)
+- [Azure landing zones for Azure Virtual Desktop instances](/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/ready)
 
 ### Azure DevTest Labs
 [Azure DevTest Labs](https://azure.microsoft.com/products/devtest-lab/) simplifies creation, usage, and management of infrastructure-as-a-service (IaaS) virtual machines within a lab context with usage-based pricing. It’s ideal for computer programming related courses and those users familiar with the Azure portal. Azure DevTest Labs supports Linux and Windows CPU/GPU-based virtual machines, student admin access, network isolated labs, nested virtualization, and image management from Azure Marketplace or Azure compute gallery.
 
 #### How can I get started with Azure DevTest Labs?
-- [What is Azure DevTest Labs?](https://learn.microsoft.com/azure/devtest-labs/devtest-lab-overview)
-- [Popular scenarios for using Azure DevTest Labs](https://learn.microsoft.com/azure/devtest-labs/devtest-lab-guidance-get-started)
+- [What is Azure DevTest Labs?](/azure/devtest-labs/devtest-lab-overview)
+- [Popular scenarios for using Azure DevTest Labs](/azure/devtest-labs/devtest-lab-guidance-get-started)
 
 ### Windows 365 Cloud PC
 [Windows 365 Cloud PC](https://www.microsoft.com/windows-365) is a highly available, optimized, and scalable virtual machine that provides end users with a rich Windows desktop experience, hosted in the Windows 365 service and is accessible from anywhere, on any device with predictable subscription pricing. Cloud PC virtual machines are Microsoft Entra ID joined and support centralized end-to-end management using Microsoft Intune. 
 
 #### How can I get started with Windows 365 Cloud PC?
-- [What is Windows 365?](https://learn.microsoft.com/windows-365/enterprise/overview)
+- [What is Windows 365?](/windows-365/enterprise/overview)
 
 ### Microsoft Dev Box 
 [Microsoft Dev Box](https://azure.microsoft.com/products/dev-box/) offers cloud-based workstations preconfigured with tools and environments for developer workflow-specific tasks with usage-based pricing. It’s ideal for facilitating hands-on learning where training leaders can use Dev Box supported images to create identical virtual machines for trainees. Dev Box virtual machines are Microsoft Entra ID joined and support centralized end-to-end management with Microsoft Intune.
 
 #### How can I get started with Microsoft Dev Box?
-- [What is Microsoft Dev Box?](https://learn.microsoft.com/azure/dev-box/overview-what-is-microsoft-dev-box)
+- [What is Microsoft Dev Box?](/azure/dev-box/overview-what-is-microsoft-dev-box)
 
 ### Partner solutions
 
@@ -101,7 +101,7 @@ If you have questions about how to transition to one of the partner’s solution
 
 ### Can I automatically migrate my existing lab resources from Azure Lab Services to Microsoft and partner solutions?
 Partners might provide migration tooling to automatically migrate labs from Azure Lab Services. However, early customer pilots show that it’s often more efficient to recreate new labs using the optimizations offered by Microsoft and partner solutions, such as multi-session, dynamic virtual machine creation, and changing the storage type to a lower tier when a virtual machine is shut down. In certain situations, reusing custom images exported from your labs to an Azure compute gallery might be beneficial. Microsoft and partner solutions all support the use of or migration of images from your Azure compute gallery. We recommend evaluating whether existing lab images should be recreated when you're:
-- Upgrading from [Generation 1](https://learn.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) to [Generation 2](https://learn.microsoft.com/azure/virtual-machines/generation-2) VM image, which might have improved boot and installation times.
+- Upgrading from [Generation 1](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) to [Generation 2](/azure/virtual-machines/generation-2) VM image, which might have improved boot and installation times.
 - Restructuring disk size to optimize lab requirements. 
 - Generalizing image as appropriate, such as AVD (Azure Lab Services only exports specialized images).
 - Using a supported base Azure Marketplace image.
