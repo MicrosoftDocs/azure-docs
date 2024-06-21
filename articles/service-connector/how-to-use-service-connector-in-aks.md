@@ -227,7 +227,7 @@ Check the permissions on the Azure resources specified in the error message. Obt
 Service Connector requires the subscription to be registered for `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
 
 **Mitigation:**
-To resolve errors related to resource provider registration, follow this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-cli).
+To resolve errors related to resource provider registration, follow this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
 
 #### Other issues
 
