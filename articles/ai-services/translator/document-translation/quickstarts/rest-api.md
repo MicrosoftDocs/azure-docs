@@ -164,4 +164,4 @@ That's it, congratulations! You just learned to translate documents using the Az
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Document Translation REST API guide](../reference/rest-api-guide.md "Learn more about Document Translation REST API operations)
+> [Document Translation REST API guide](../reference/rest-api-guide.md)

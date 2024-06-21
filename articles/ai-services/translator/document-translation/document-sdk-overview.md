@@ -187,7 +187,6 @@ Document Translation batch interfaces require the following input:
 1. Upload your files to an Azure Blob Storage source container (sourceUri).
 1. Provide a target container where the translated documents can be written (targetUri).
 1. Include the target language code (targetLanguage).
-1. 
 
 ```python
 sourceUrl = "<your-source container-url>"
