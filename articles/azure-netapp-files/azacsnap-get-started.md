@@ -34,7 +34,7 @@ This workflow provides the main steps to install, setup and configure AzAcSnap a
 
 ## Technical articles
 
-The following technical articles describe how to setup AzAcSnap as part of a data protection strategy:
+The following technical articles describe how to set up AzAcSnap as part of a data protection strategy:
 
 - [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
 - [Manual Recovery Guide for SAP HANA on Azure Large Instance from storage snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-large-instance-from/ba-p/3242347)
