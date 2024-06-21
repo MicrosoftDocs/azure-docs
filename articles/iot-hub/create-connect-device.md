@@ -16,7 +16,7 @@ Create a device identity for your device to connect to Azure IoT Hub. This artic
 
 ## Prerequisites
 
-* An IoT hub in your subscription. If you don't have an IoT hub, follow the steps in [create an IoT hub](./iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * Depending on which tool you use, either have access to the [Azure portal](https://portal.azure.com) or [install the Azure CLI](/cli/azure/install-azure-cli).
 

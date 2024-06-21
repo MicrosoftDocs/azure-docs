@@ -131,9 +131,9 @@ az iot hub delete --name {your iot hub name} -\
 
 ---
 
-## Next steps
+## Other tools for managing IoT hubs
 
-Learn more about managing Azure IoT Hub:
-
-* [Message routing with IoT Hub](how-to-routing-portal.md)
-* [Monitor your IoT hub](monitor-iot-hub.md)
+* **PowerShell cmdlets**: Use the [Az.IoTHub](/powershell/module/az.iothub) set of commands to create and manage IoT hubs.
+* **IoT Hub resource provider REST API**: Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations to create and manage IoT hubs.
+* **Azure resource manager templates, Bicep, or Terraform**: Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type to create and manage IoT hubs. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson)
+* **Visual Studio Code**: Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) to create and manage IoT hubs.

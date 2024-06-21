@@ -24,7 +24,7 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or use the portal to [Create an IoT hub](iot-hub-create-through-portal.md).
+* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or follow the steps in [Create an IoT hub](create-hub.md).
 
 * An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-account-create.md)
 
