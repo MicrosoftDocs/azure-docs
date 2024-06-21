@@ -151,7 +151,7 @@ items:
       - name: Translate a single document
         href: document-translation/reference/translate-document.md
       - name: Start a batch translation
-        href: document-translation/reference/start-translation.md
+        href: document-translation/reference/start-batch-translation.md
       - name: Get status of all translation jobs
         href: document-translation/reference/get-translations-status.md
       - name: Get status of a specific translation job
