@@ -18,7 +18,7 @@ This article guides you through our OpenTelemetry offerings to help you understa
 
 For more information about OpenTelemetry on Azure, see [our OpenTelemetry Roadmap](https://techcommunity.microsoft.com/t5/azure-observability-blog/making-azure-the-best-place-to-observe-your-apps-with/ba-p/3995896).
 
-## Data Collection
+## Data collection
 
 The **Azure Monitor OpenTelemetry distro** is Microsoft’s customized, supported, and open-sourced version of the OpenTelemetry software development kits (SDKs). It supports .NET, Java, JavaScript (Node.js), and Python. The Azure Monitor OpenTelemetry distro replaces the Application Insights SDK.
 
@@ -64,7 +64,7 @@ The **.NET** OpenTelemetry implementation uses logging, metrics, and activity AP
 - [Use OpenTelemetry with Azure Functions](/azure/azure-functions/opentelemetry-howto)
 - [Monitor Azure Functions](/azure/azure-functions/monitor-functions)
 
-## Data Platform and Consumption
+## Data platform and consumption
 
 **.NET Aspire** is an opinionated cloud-native stack that includes observability by default with OpenTelemetry. Part of it's a "Developer Dashboard" to observe OpenTelemetry signals in real-time during debugging. It collects logs, metrics, and traces using OTLP from applications of any OpenTelemetry-supported languages besides .NET.
 
