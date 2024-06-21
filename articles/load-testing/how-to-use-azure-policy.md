@@ -12,11 +12,11 @@ ms.topic: how-to
   
 # Secure your Azure Load Testing resources with Azure Policy
 
-[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they are compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
+[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy helps you place guardrails on Azure resources to ensure they are compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits that are performed by policy are available to users in a compliance dashboard. In the compliance dashboard, you can see a drill down of the resources and components that are compliant and noncompliant. For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
 
 Example Usage Scenarios:
 
-- You want to ensure that the Azure resources such as virtual machines, Network Security Group (NSG), Azure load balancer etc. created by the Azure Load Testing service, to run a load test, get created only in a set of virtual networks in your subscription. 
+- Azure Load Testing service creates Azure resources like virtual machines, Network Security Group (NSG), Azure load balancer in your subscription to run a load test. You want to ensure that these resources get created only in a set of virtual networks in your subscription. 
 - You want to ensure that load tests in Azure Load Testing can be created only in private test traffic mode. 
 - You want to use customer-managed keys(CMK) to manage the encryption at rest for your Azure Load Testing resource. 
 
@@ -24,11 +24,11 @@ Example Usage Scenarios:
 
 When enforcing a policy, you can determine its effect over the resulting evaluation. Each policy definition allows you to choose one of multiple effects. Therefore, policy enforcement may behave differently depending on the type of operation you are evaluating. In general, the effects for policies that integrate with Azure Load Testing include:
 
-- [**Audit**](../../governance/policy/concepts/effects.md#audit): when the effect of a policy is set to `Audit`, the policy won't cause any breaking changes to your environment. It will only alert you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
+- [**Audit**](../../governance/policy/concepts/effects.md#audit): when the effect of a policy is set to `Audit`, the policy doesn't cause any breaking changes to your environment. It only alerts you to Azure Load Testing resources that don't comply with the policy definitions within a specified scope, by marking these components as noncompliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
-- [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of a new resource or new test runs that don't comply with the policy definition. Existing non-compliant test runs are not affected. The 'audit' capabilities will continue to operate.
+- [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy blocks the creation of a new resource or new test runs that don't comply with the policy definition. Existing noncompliant test runs are not affected. The 'audit' capabilities continue to operate.
 
-- [**Disabled**](../../governance/policy/concepts/effects.md#disabled): when the effect of a policy is set to `Disabled`, the policy will still be evaluated but enforcement won't take effect, thus being compliant for the condition with `Disabled` effect. This is useful to disable the policy for a specific condition as opposed to all conditions.
+- [**Disabled**](../../governance/policy/concepts/effects.md#disabled): when the effect of a policy is set to `Disabled`, the policy gets evaluated but enforcement doesn't take effect, thus being compliant for the condition with `Disabled` effect. This effect is useful to disable the policy for a specific condition as opposed to all conditions.
 
 ## Available Built-In Policy Definitions
 
@@ -51,7 +51,7 @@ Predetermined policies, referred to as 'built-ins', facilitate governance over y
 
     ![Screenshot that shows the Category Filter and the selected Azure Load Testing category.](media/how-to-use-azure-policy/select-category.png)
 
-1. Now you should be able to see all the policies available for Azure Load Testing. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
+1. Now you should be able to see all the policies available for Azure Load Testing. Make sure you read and understand the [policy guidance](#types-of-policy-effects-and-guidance) and select a policy you want to assign to a scope.  
 
     ![Screenshot that shows the available policies.](media/how-to-use-azure-policy/search-policy.png)
 
@@ -65,7 +65,7 @@ Predetermined policies, referred to as 'built-ins', facilitate governance over y
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](media/how-to-use-azure-policy/select-policy-scope.png)
 
-1. To specify the policy effect, click on the parameters tab at the top of the screen. Uncheck 'Only show parameters that need input or review' option. Select **Audit** or **Deny** or **Disabled** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
+1. To specify the policy effect, click on the parameters tab at the top of the screen. Uncheck 'Only show parameters that need input or review' option. Select **Audit** or **Deny** or **Disabled** for the effect of the policy following the [policy guidance](#types-of-policy-effects-and-guidance). Then select the review + create button. 
 
     ![Screenshot that shows the Parameters tab where you can specify the policy effect.](media/how-to-use-azure-policy/select-policy-effect.png)
 
@@ -80,7 +80,7 @@ The policy evaluation of existing components in an Azure Load Testing resource m
 
 If the compliance results show up as "Not Started" it may be due to the following reasons:
 
-- The policy evaluation hasn't completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario.
+- The policy evaluation is not completed. Initial evaluation latency can take up to 2 hours in the worst-case scenario.
 - There are no Azure Load Testing resources in the scope of the policy assignment.
 
 ## Next Steps
