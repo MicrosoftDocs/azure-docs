@@ -16,8 +16,8 @@ ms.topic: how-to
 
 Example Usage Scenarios:
 
-- You want to ensure that load tests can only be run against private endpoints that are behind a firewall or accessible from within a virtual network, and block load tests against publicly accessible endpoints. 
-- You want to ensure that the resources created by the Azure Load Testing, to run a load test, get created only in a set of virtual networks in your subscription. 
+- You want to ensure that the Azure resources such as virtual machines, Network Security Group (NSG), Azure load balancer etc. created by the Azure Load Testing service, to run a load test, get created only in a set of virtual networks in your subscription. 
+- You want to ensure that load tests in Azure Load Testing can be created only in private test traffic mode. 
 - You want to use customer-managed keys(CMK) to manage the encryption at rest for your Azure Load Testing resource. 
 
 ## Types of policy effects and guidance
