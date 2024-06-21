@@ -231,6 +231,9 @@ The following properties are supported for file system under `storeSettings` set
 
 [!INCLUDE [data-factory-v2-file-sink-formats](includes/data-factory-v2-file-sink-formats.md)]
 
+> [!NOTE]
+> The _MergeFiles_ **copyBehavior** option is only available in Azure Data Factory pipelines and not Synapse Analytics pipelines.
+
 The following properties are supported for file system under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
