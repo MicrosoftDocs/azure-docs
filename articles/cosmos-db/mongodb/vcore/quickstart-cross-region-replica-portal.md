@@ -253,7 +253,7 @@ To promote a cluster read replica to a read-write cluster, follow these steps:
 
 1. On the **Global distribution (preview)** page, select **Promote** on the toolbar to initiate read replica promotion to read-write cluster. 
 
-:::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote button.":::
+  :::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote button.":::
 
 1. In the **Promote cluster** pop-up window, confirm that you understand how replica promotion works, and select **Promote**. Replica promotion might take a few minutes to complete.
 
@@ -305,9 +305,9 @@ When you're done with Azure Cosmos DB for MongoDB vCore cluster, you can delete 
 
     :::image type="content" source="media/quickstart-portal/delete-resource-group-dialog.png" alt-text="Screenshot of the delete resource group confirmation dialog with the name of the group filled out.":::
 
-## Next step
+## Related content
 
-In this guide, you learned how to create an Azure Cosmos DB for MongoDB vCore cluster. You can now migrate data to your cluster.
+In this guide, you learned how to create a cluster read replica for an Azure Cosmos DB for MongoDB vCore cluster and use it for disaster recovery and cross-region read scalability purposes. 
 
-> [!div class="nextstepaction"]
-> [Migrate data to Azure Cosmos DB for MongoDB vCore](migration-options.md)
+- [Learn about cross-region replication in Azure Cosmos DB for MongoDB vCore](./cross-region-replication.md)
+- [Migrate data to Azure Cosmos DB for MongoDB vCore](./migration-options.md)
