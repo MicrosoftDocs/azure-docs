@@ -125,15 +125,15 @@ items:
     href: document-translation/reference/rest-api-guide.md
   - name: Quickstarts
     items:
-    - name: "🆕 Quickstart: Document Translation client libraries"
+    - name: "Quickstart: Document Translation client libraries"
       displayName: batch,c#,dotnet,.net,python,blob,set up,install,cli,storage,domain,custom domain
       href: document-translation/quickstarts/client-library-sdks.md
-    - name: "🆕 Quickstart: Document Translation REST APIs"
+    - name: "Quickstart: Document Translation REST APIs"
       displayName: get,post,cancel,delete
       href: document-translation/quickstarts/rest-api.md
   - name: How-to guides
     items:
-    - name: 🆕 Use Document Translation APIs programmatically
+    - name: Use Document Translation APIs programmatically
       displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
       href: document-translation/how-to-guides/use-rest-api-programmatically.md
   - name: Authentication and authorization
@@ -146,7 +146,7 @@ items:
       href: document-translation/how-to-guides/create-sas-tokens.md
   - name: Reference
     items:
-      - name: 🆕 Document Translation operations
+      - name: Document Translation operations
         href: document-translation/reference/rest-api-guide.md
       - name: Translate a single document
         href: document-translation/reference/translate-document.md

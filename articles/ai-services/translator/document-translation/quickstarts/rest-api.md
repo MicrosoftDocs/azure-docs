@@ -92,13 +92,13 @@ Before you run the **POST** request, replace `{your-document-translator-endpoint
 ***PowerShell***
 
 ```powershell
-cmd /c curl "{your-document-translator-endpoint}/translator/text/batch/v1.1/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+cmd /c curl "{document-translation-endpoint}/translator/document/batches?api-version={date}" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
 ```
 
 ***command prompt / terminal***
 
-```curl
-curl "{your-document-translator-endpoint}/translator/text/batch/v1.1/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```bash
+curl "{document-translation-endpoint}/translator/document/batches?api-version={date}" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
 ```
 
 Upon successful completion:
@@ -142,13 +142,13 @@ To call the synchronous translation feature via the [REST API](../reference/sync
 
     ```bash
 
-    curl -i -X POST "{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
+    curl -i -X POST "{document-translation-endpoint}/translator/document:translate?targetLanguage={target_language}&api-version={date}" -H "Ocp-Apim-Subscription-Key:{your-key}"  -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -F "glossary={path-to-your-glossary-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file}"
     ```
 
     ***PowerShell***
 
     ```powershell
-    cmd /c curl "{your-document-translation-endpoint}/translator/document:translate?sourceLanguage=en&targetLanguage=es&api-version=2023-11-01-preview" -i -X POST  -H "Ocp-Apim-Subscription-Key: {your-key}" -F "{path-to-your-document-with-file-extension};type=text/{file-extension}" -o "{path-to-output-file}
+    cmd /c curl "{document-translation-endpoint}/translator/document:translate?targetLanguage={target_language}&api-version={date}" -i -X POST  -H "Ocp-Apim-Subscription-Key: {your-key}" -F "{path-to-your-document-with-file-extension};type=text/{file-extension}" -o "{path-to-output-file}
 
     ```
 
@@ -164,4 +164,4 @@ That's it, congratulations! You just learned to translate documents using the Az
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Document Translation REST API guide](../reference/rest-api-guide.md "Learn more about Document Translation REST API operations).
+> [Document Translation REST API guide](../reference/rest-api-guide.md "Learn more about Document Translation REST API operations)

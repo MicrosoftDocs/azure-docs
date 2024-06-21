@@ -176,7 +176,7 @@ DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetU
 
 ***Synchronous single document translation***
 
-[Single document translation](/dotnet/api/overview/azure/ai.translation.document-readme?view=azure-dotnet-preview#single-document-translation&preserve-view=true)
+[Single document translation](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Document/samples/Sample5_SynchronousTranslation.md)
 
 ### [Python](#tab/python)
 
