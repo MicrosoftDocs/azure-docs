@@ -41,7 +41,7 @@ AzAcSnap uses the volume snapshot and replication functionalities in Azure NetAp
 
 - **Ad hoc volume protection**
 
-  This capability is helpful for non-database volumes that don't need application quiescing before the tool takes a storage snapshot.  These can be any unstructured file-system, which include database files like SAP HANA log-backup volumes and shared file systems, or SAPTRANS volumes.
+  This capability is helpful for non-database volumes that don't need application quiescing before the tool takes a storage snapshot.  These can be any unstructured file-system, which includes database files like SAP HANA log-backup volumes and shared file systems, or SAPTRANS volumes.
 
 - **Cloning of storage volumes**
 
