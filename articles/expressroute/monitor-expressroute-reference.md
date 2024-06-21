@@ -1,75 +1,99 @@
 ---
-title: Monitoring ExpressRoute data reference 
-description: Important reference material needed when you monitor ExpressRoute 
-author: duongau
+title: Monitoring data reference for Azure ExpressRoute
+description: This article contains important reference material you need when you monitor Azure ExpressRoute by using Azure Monitor.
+ms.date: 06/24/2024
+ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
+author: duongau
 ms.author: duau
 ms.service: expressroute
-ms.custom: subject-monitoring
-ms.date: 06/22/2021
 ---
+# Azure ExpressRoute monitoring data reference
 
-# Monitoring ExpressRoute data reference
+[!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-This article provides a reference of log and metric data collected to analyze the performance and availability of ExpressRoute.
-See [Monitoring ExpressRoute](monitor-expressroute.md) for details on collecting and analyzing monitoring data for ExpressRoute.
+See [Monitor Azure ExpressRoute](monitor-expressroute.md) for details on the data you can collect for ExpressRoute and how to use it.
 
-## Metrics
-
-This section lists all the automatically collected platform metrics for ExpressRoute. For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
-
-| Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| ExpressRoute circuit | [Microsoft.Network/expressRouteCircuits](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
-| ExpressRoute circuit peering | [Microsoft.Network/expressRouteCircuits/peerings](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkexpressroutecircuitspeerings) |
-| ExpressRoute Gateways | [Microsoft.Network/expressRouteGateways](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkexpressroutegateways) |
-| ExpressRoute Direct | [Microsoft.Network/expressRoutePorts](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkexpressrouteports) |
+[!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
 >[!NOTE]
-> Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
+> Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* are only visible if at least one Global Reach connection is established.
 >
 
-## Metric dimensions
+### Supported metrics for Microsoft.Network/expressRouteCircuits
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+The following table lists the metrics available for the Microsoft.Network/expressRouteCircuits resource type.
 
-ExpressRoute has the following dimensions associated with its metrics.
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [Microsoft.Network/expressRouteCircuits](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressroutecircuits-metrics-include.md)]
 
-### Dimension for ExpressRoute circuit
+### Supported metrics for Microsoft.Network/expressRouteCircuits/peerings
+
+The following table lists the metrics available for the Microsoft.Network/expressRouteCircuits/peerings resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressroutecircuits-peerings-metrics-include.md)]
+
+### Supported metrics for microsoft.network/expressroutegateways
+
+The following table lists the metrics available for the microsoft.network/expressroutegateways resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressroutegateways-metrics-include.md)]
+
+### Supported metrics for Microsoft.Network/expressRoutePorts
+
+The following table lists the metrics available for the Microsoft.Network/expressRoutePorts resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+[!INCLUDE [<ResourceType/namespace>](~/reusuable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-expressrouteports-metrics-include.md)]
+
+[!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
+
+[!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
+
+Dimension for ExpressRoute circuit:
 
 | Dimension Name | Description |
-| ------------------- | ----------------- |
-| **PeeringType** | The type of peering configured. The supported values are Microsoft and Private peering. |
-| **Peering** | The supported values are Primary and Secondary. |
-| **PeeredCircuitSkey** | The remote ExpressRoute circuit service key connected using Global Reach. |
+|:---------------|:------------|
+| PeeringType | The type of peering configured. The supported values are Microsoft and Private peering. |
+| Peering | The supported values are Primary and Secondary. |
+| DeviceRole | |
+| PeeredCircuitSkey | The remote ExpressRoute circuit service key connected using Global Reach. |
 
-### Dimension for ExpressRoute gateway
-
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| **roleInstance** | The gateway instance. Each ExpressRoute gateway is comprised of multiple instances, and the supported values are GatewayTenantWork_IN_X (where X is a minimum of 0 and a maximum of the number of gateway instances -1). |
-
-### Dimension for Express Direct
+Dimension for ExpressRoute gateway:
 
 | Dimension Name | Description |
-| ------------------- | ----------------- |
-| **Link** | The physical link. Each ExpressRoute Direct port pair is comprised of two physical links for redundancy, and the supported values are link1 and link2. |
+|:-------------- |:----------- |
+| BgpPeerAddress | |
+| ConnectionName | |
+| direction | |
+| roleInstance | The gateway instance. Each ExpressRoute gateway is comprised of multiple instances, and the supported values are GatewayTenantWork_IN_X (where X is a minimum of 0 and a maximum of the number of gateway instances -1). |
 
-## Resource logs
+Dimension for Express Direct:
 
-This section lists the types of resource logs you can collect for ExpressRoute. 
+| Dimension Name | Description |
+|:---------------|:------------|
+| Lane | |
+| Link | The physical link. Each ExpressRoute Direct port pair is comprised of two physical links for redundancy, and the supported values are link1 and link2. |
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| ExpressRoute Circuit | [Microsoft.Network/expressRouteCircuits](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworkexpressroutecircuits) |
+[!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
+### Supported resource logs for Microsoft.Network/expressRouteCircuits
 
-## Azure Monitor Logs tables
+[!INCLUDE [<ResourceType/namespace>](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-expressroutecircuits-logs-include.md)]
 
-Azure ExpressRoute uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+[!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
-## Activity log
+### ExpressRoute Microsoft.Network/expressRouteCircuits
+
+- [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
+- [AzureMetrics](/azure/azure-monitor/reference/tables/AzureMetrics#columns)
+- [AzureDiagnostics](/azure/azure-monitor/reference/tables/AzureDiagnostics#columns)
+
+[!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
+
+- [Microsoft.Network resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftnetwork)
 
 The following table lists the operations related to ExpressRoute that may be created in the Activity log.
 
@@ -87,16 +111,16 @@ For detailed description of the top-level diagnostic logs schema, see [Supported
 
 When reviewing any metrics through Log Analytics, the output will contain the following columns:
 
-|**Column**|**Type**|**Description**|
-| --- | --- | --- |
-|TimeGrain|string|PT1M (metric values are pushed every minute)|
-|Count|real|Usually equal to 2 (each MSEE pushes a single metric value every minute)|
-|Minimum|real|The minimum of the two metric values pushed by the two MSEEs|
-|Maximum|real|The maximum of the two metric values pushed by the two MSEEs|
-|Average|real|Equal to (Minimum + Maximum)/2|
-|Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
+| Column | Type | Description |
+|:-------|:-----|:------------|
+| TimeGrain | string | PT1M (metric values are pushed every minute) |
+| Count     | real   | Usually equal to 2 (each MSEE pushes a single metric value every minute) |
+| Minimum   | real   | The minimum of the two metric values pushed by the two MSEEs |
+| Maximum   | real   | The maximum of the two metric values pushed by the two MSEEs |
+| Average   | real   | Equal to (Minimum + Maximum)/2 |
+| Total     | real   | Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried) |
 
-## See also
+## Related content
 
-- See [Monitoring Azure ExpressRoute](monitor-expressroute.md) for a description of monitoring Azure ExpressRoute.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitor Azure ExpressRoute](monitor-expressroute.md) for a description of monitoring ExpressRoute.
+- See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
