@@ -30,7 +30,7 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 
 The firewall now directs DNS traffic to the specified DNS servers for name resolution.
 
-:::image type="content" source="../firewall/media/dns-settings/dns-servers.png" alt-text="Screenshot showing settings for D N S servers.":::
+:::image type="content" source="../firewall/media/dns-settings/dns-servers.png" alt-text="Screenshot showing settings for DNS servers.":::
 
 #### [CLI](#tab/azure-devops-cli)
 
@@ -65,7 +65,7 @@ You can configure Azure Firewall to act as a DNS proxy. A DNS proxy is an interm
 
 If you want to enable FQDN (fully qualified domain name) filtering in network rules, enable DNS proxy and update the virtual machine configuration to use the firewall as a DNS proxy.
 
-:::image type="content" source="../firewall/media/dns-settings/dns-proxy-2.png" alt-text="D N S proxy configuration using a custom D N S server.":::
+:::image type="content" source="../firewall/media/dns-settings/dns-proxy-2.png" alt-text="Diagram showing DNS proxy configuration using a custom DNS server.":::
 
 If you enable FQDN filtering in network rules, and you don't configure client virtual machines to use the firewall as a DNS proxy, then DNS requests from these clients might travel to a DNS server at a different time or return a different response compared to that of the firewall. It’s recommended to configure client virtual machines to use the Azure Firewall as their DNS proxy. This puts Azure Firewall in the path of the client requests to avoid inconsistency.
 
@@ -111,7 +111,7 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 4. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
 5. Select **Save**.
 
-:::image type="content" source="../firewall/media/dns-settings/dns-proxy.png" alt-text="Screenshot showing settings for the D N S proxy.":::
+:::image type="content" source="../firewall/media/dns-settings/dns-proxy.png" alt-text="Screenshot showing settings for the DNS proxy.":::
 
 #### [CLI](#tab/azure-devops-cli)
 
