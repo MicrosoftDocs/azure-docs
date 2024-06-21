@@ -54,7 +54,7 @@ In Xcode, create a new project:
 
 1. Run `pod install --repo-update`.
 
-1. In Xcode, open the generated *.xcworkspace* file.
+1. In Xcode, open the generated.xcworkspace* file.
 
 ### Request access to device hardware
 
@@ -147,7 +147,7 @@ The following classes and interfaces handle some key features of the Azure Commu
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-callcomposite) | Component that renders a call experience that has a participant gallery and controls |
 | [CallCompositeOptions](#create-callcomposite) | Settings for options like themes and event handling |
-| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#set-up-a-teams-meeting). |
+| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#join-a-teams-meeting). |
 | [ThemeOptions](#apply-theme-options) | Customization options for the composite theme |
 | [LocalizationOptions](#apply-localization-options) | Language options for the composite |
 
@@ -191,19 +191,38 @@ let locator = .groupCall(groupId: uuid)
 
 For more information about using a group ID for calls, see [Manage calls](../../../../how-tos/calling-sdk/manage-calls.md).
 
-### Set up a Teams meeting
+### Join a Teams meeting
 
-To set up a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `.teamsMeeting` locator.  Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. 
+You can join to a Teams meeting using two mechanisms:
+
+- Teams meeting URL or Teams meeting short URL
+- Teams Meeting ID and Passcode
+
+The Teams meeting link can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+#### Join via Teams meeting URL
+
+To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
 let locator = .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>")
 ```
 
-#### Get a Teams meeting link
+#### Join via Teams Meeting ID and Passcode
 
-You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
+The `teamMeetingId` locates a meeting using a meeting ID and passcode. These can be found under a Teams meeting's join info.
+A Teams meeting ID is 12 characters long and consists of numeric digits grouped in threes (i.e. `000 000 000 000`).
+A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
 
-The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+```swift
+let remoteOptions = RemoteOptions(for: .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode:  "<TEAMS_MEETING_PASSCODE>" ),
+                                  credential: communicationTokenCredential,
+                                  displayName: "<DISPLAY_NAME>")
+
+```
 
 ### Set up a Room call
 
@@ -289,7 +308,7 @@ For more information about localization and for a list of supported languages, s
 
 ### Subscribe to CallComposite call state changed event
 
-You can implement closures to act on composite events. The call states will be sent to the call state changed handler.
+You can implement closures to act on composite events. The call states are sent to the call state changed handler.
 
 The following example shows an event for a call state changed.
 

@@ -15,6 +15,7 @@ You can use the call composite in Communication Services to create these use cas
 | Area                                                                                            | Use cases                                              |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | Call types                                                                                      | Join a Microsoft Teams meeting                                     |
+|                                                                                                 | Join a Microsoft Teams meeting using Meeting ID and Passcode      |
 |                                                                                                 | Join a call by using a group ID                                  |
 |                                                                                                 | Join a call by using a room  ID                                  |
 |                                                                                                 | Make and Receive 1:1 Calls                      |
