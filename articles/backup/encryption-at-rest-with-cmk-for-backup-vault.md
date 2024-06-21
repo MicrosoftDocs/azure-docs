@@ -462,15 +462,15 @@ This section lists the various troubleshooting scenarios that you might encounte
 
 **Causes**:
 
-1. If there's an issue with your **Backup vault Encryption Settings**, such as you have removed Key Vault permissions from Encryption Settings’ managed identity, disabled system-assigned identity, or detached/deleted the managed identity from the Backup vault that you're using for encryption settings, then *backup* and *restore* jobs fail. 
+- **Cause 1**: If there's an issue with your **Backup vault Encryption Settings**, such as you have removed Key Vault permissions from Encryption Settings’ managed identity, disabled system-assigned identity, or detached/deleted the managed identity from the Backup vault that you're using for encryption settings, then *backup* and *restore* jobs fail. 
 
-2. Tiering of restore points and restore-points expiration jobs will fail without showing errors in the Azure portal or other interfaces (for example, REST API or CLI). These operations will continue to fail and incur costs.
+- **Cause 2**: Tiering of restore points and restore-points expiration jobs will fail without showing errors in the Azure portal or other interfaces (for example, REST API or CLI). These operations will continue to fail and incur costs.
 
 **Recommended actions**:
 
-1. Restore the permissions, update the managed identity details that have access to the key vault.
+- **Recommendation 1**: Restore the permissions, update the managed identity details that have access to the key vault.
 
-2.  Restore the required encryption settings to the Backup vault.
+- **Recommendation 2**:  Restore the required encryption settings to the Backup vault.
 
 
 ### Missing permissions for a managed identity
