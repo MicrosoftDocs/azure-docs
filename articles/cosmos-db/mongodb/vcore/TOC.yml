@@ -14,7 +14,7 @@
       href: quickstart-bicep.md
     - name: Create resources - Terraform
       href: quickstart-terraform.md
-    - name: Create and use a cross-region replica - Azure portal
+    - name: Create cross-region replica - Azure portal
       href: quickstart-cross-region-replica-portal.md
 - name: Tutorials
   items:
