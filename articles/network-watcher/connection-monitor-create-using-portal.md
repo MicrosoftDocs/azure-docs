@@ -69,6 +69,9 @@ To create a connection monitor by using the Azure portal, do the following:
 
    :::image type="content" source="./media/connection-monitor-2-preview/create-cm-basics.png" alt-text="Screenshot that shows the 'Basics' pane in Connection Monitor.":::
 
+> [!NOTE]  
+> For cross-region usage of Connection Monitor, you need to deploy it on both regions.
+
 1. Select **Next: Test groups**.
 
 1. Add sources, destinations, and test configurations in your test groups. To learn about setting up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor).
