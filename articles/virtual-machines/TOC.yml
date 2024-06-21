@@ -2067,6 +2067,8 @@
     href: monitor-vm.md?toc=/azure/virtual-machines/toc.json
   - name: Monitoring data reference
     href: monitor-vm-reference.md?toc=/azure/virtual-machines/toc.json
+  - name: Monitoring VMs with Prometheus
+    href: /azure/azure-monitor/essentials/prometheus-remote-write-virtual-machines?toc=/azure/virtual-machines/toc.json
   - name: Availability with Resource Graph
     href: resource-graph-availability.md
   - name: Monitor availability
