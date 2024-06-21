@@ -183,6 +183,8 @@
               href: howto-delete-layer-3-isolation-domains.md
             - name: How to put a device into maintenance mode
               href: howto-put-device-in-maintenance-mode.md
+            - name: How to upgrade Network Fabric
+              href: howto-upgrade-nexus-fabric.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
@@ -295,6 +297,8 @@
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
       href: List-of-metrics-collected.md
+    - name: List of logs available for streaming
+      href: list-logs-available.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
     - name: BareMetal Machine roles

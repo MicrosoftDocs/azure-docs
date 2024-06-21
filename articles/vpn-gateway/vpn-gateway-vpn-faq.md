@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for VPN Gateway cross-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 06/19/2024
 ms.author: cherylmc
 ---
 
@@ -290,7 +290,7 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 
 ## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
 
-[!INCLUDE [customer-controlled network gateway maintenance](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
+[!INCLUDE [customer-controlled network gateway maintenance](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-faq.md)]
 
 ### How do I find out more about customer-controlled gateway maintenance?
 

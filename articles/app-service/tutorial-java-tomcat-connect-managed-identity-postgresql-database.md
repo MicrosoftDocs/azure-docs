@@ -19,7 +19,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 > * Configure a Tomcat web application to use Microsoft Entra authentication with PostgreSQL Database.
 > * Connect to PostgreSQL Database with Managed Identity using Service Connector.
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -198,7 +198,7 @@ curl https://${WEBAPP_URL}/checklist
 curl https://${WEBAPP_URL}/checklist/1
 ```
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
