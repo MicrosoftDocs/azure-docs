@@ -12,9 +12,9 @@ ms.date: 11/06/2023
 
 # Tutorial: Detect liveness in faces
 
-Face Liveness detection can be used to determine if a face in an input video stream is real (live) or fake (spoofed). It is an important building block in a biometric authentication system to prevent imposters from gaining access to the system using a photograph, video, mask, or other means to impersonate another person.
+Face Liveness detection can be used to determine if a face in an input video stream is real (live) or fake (spoofed). It's an important building block in a biometric authentication system to prevent imposters from gaining access to the system using a photograph, video, mask, or other means to impersonate another person.
 
-The goal of liveness detection is to ensure that the system is interacting with a physically present live person at the time of authentication. Such systems have become increasingly important with the rise of digital finance, remote access control, and online identity verification processes.
+The goal of liveness detection is to ensure that the system is interacting with a physically present live person at the time of authentication. Such systems are increasingly important with the rise of digital finance, remote access control, and online identity verification processes.
 
 The Azure AI Face liveness detection solution successfully defends against various spoof types ranging from paper printouts, 2d/3d masks, and spoof presentations on phones and laptops. Liveness detection is an active area of research, with continuous improvements being made to counteract increasingly sophisticated spoofing attacks over time. Continuous improvements will be rolled out to the client and the service components over time as the overall solution gets more robust to new types of attacks.
 
@@ -34,7 +34,7 @@ The liveness solution integration involves two distinct components: a frontend m
 Additionally, we combine face verification with liveness detection to verify whether the person is the specific person you designated. The following table help describe details of the liveness detection features:
 
 | Feature | Description |
-| -- | -- |
+| -- |--|
 | Liveness detection | Determine an input is real or fake, and only the app server has the authority to start the liveness check and query the result. |
 | Liveness detection with face verification | Determine an input is real or fake and verify the identity of the person based on a reference image you provided. Either the app server or the frontend application can provide a reference image. Only the app server has the authority to initial the liveness check and query the result. |
 
@@ -52,14 +52,14 @@ This tutorial demonstrates how to operate a frontend application and an app serv
 
 ## Set up frontend applications and app servers to perform liveness detection
 
-We provide SDKs in different languages for frontend applications and app servers. See the following instructions to setup your frontend applications and app servers.
+We provide SDKs in different languages for frontend applications and app servers. See the following instructions to set up your frontend applications and app servers.
 
 Once you have access to the SDK, follow instructions in the [azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) GitHub repository to integrate the UI and the code into your native mobile application. The liveness SDK supports Java/Kotlin for Android mobile applications, Swift for iOS mobile applications and JavaScript for web applications:
 - For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme) 
 - For Kotlin/Java Android, follow the instructions in the [Android sample](https://aka.ms/liveness-sample-java) 
 - For JavaScript Web, follow the instructions in the [Web sample](https://aka.ms/liveness-sample-web) 
 
-Once you've added the code into your application, the SDK handles starting the camera, guiding the end-user to adjust their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
+Once you've added the code into your application, the SDK handles starting the camera, guiding the end-user in adjusting their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
 
 ### Download Azure AI Face client library for an app server
 
@@ -226,7 +226,7 @@ The high-level steps involved in liveness orchestration are illustrated below:
 
     ---
 
-1. The SDK then starts the camera, guides the user to position correctly and then prepares the payload to call the liveness detection service endpoint. 
+1. The SDK then starts the camera, guides the user to position correctly, and then prepares the payload to call the liveness detection service endpoint. 
  
 1. The SDK calls the Azure AI Vision Face service to perform the liveness detection. Once the service responds, the SDK notifies the frontend application that the liveness check has been completed.
 
