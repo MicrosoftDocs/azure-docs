@@ -12,6 +12,7 @@ ms.date: 02/15/2024
 ms.custom:
   - devx-track-csharp
   - ignite-2023
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Security filters for trimming Azure AI Search results using Microsoft Entra tenants and identities
 

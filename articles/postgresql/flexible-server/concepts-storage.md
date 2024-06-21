@@ -125,12 +125,10 @@ Remember that storage can only be scaled up, not down.
 
   This limitation is due to the underlying Azure Managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
 
--  Storage autogrow currently doesn't work with read-replica-enabled servers.
-
 - Storage autogrow isn't triggered when you have high WAL usage.
 
 > [!NOTE]  
-> Storage auto-grow never triggers an offline increase.
+> Storage auto-grow depends on online disk scaling, so it never causes downtime.
 
 ## IOPS scaling
 
