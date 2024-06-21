@@ -69,7 +69,8 @@ Create a MongoDB cluster with a cluster read replica in another region by using 
     | **Storage** | 128 GiB |
 
 1. Unselect the **High availability** option. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster configuration.
-In-region high availablity provides an in-region solution where a copy of data from each shard in a cluster is streamed to its standby counterpart located in the same region but in a different availability zone (AZ). High availability uses synchronous replication with zero data loss and automatic failure detection and failover while preserving the connection string intact after failover. High availability might be enabled on the primary cluster for an additional layer of protection from failures.
+    
+    In-region high availablity provides an in-region solution where a copy of data from each shard in a cluster is streamed to its standby counterpart located in the same region but in a different availability zone (AZ). High availability uses synchronous replication with zero data loss and automatic failure detection and failover while preserving the connection string intact after failover. High availability might be enabled on the primary cluster for an additional layer of protection from failures.
 
     :::image type="content" source="media/quickstart-portal/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
 
@@ -214,9 +215,9 @@ db.cats.find();
 
     :::image type="content" source="media/quickstart-cross-region-replication/cluster-networking-adding-firewall-rule.png" alt-text="Screenshot of the networking page on read replica cluster.":::
 
-Verify your IP address before saving this configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the Internet and Azure services. You can also select add 0.0.0.0 - 255.255.255.255 firewall rule to allow not just your IP, but the whole Internet to access the cluster. In this situation, clients still must log in with the correct username and password to use the cluster.
+    Verify your IP address before saving this configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the Internet and Azure services. You can also select add 0.0.0.0 - 255.255.255.255 firewall rule to allow not just your IP, but the whole Internet to access the cluster. In this situation, clients still must log in with the correct username and password to use the cluster.
 
-1. Select Save on the toolbar to save the settings. It might take a few minutes for the updated networking settings to become effective.
+1. Select **Save** on the toolbar to save the settings. It might take a few minutes for the updated networking settings to become effective.
 
 ## Connect to read replica cluster in another region and read data
 
@@ -254,11 +255,11 @@ To promote a cluster read replica to a read-write cluster, follow these steps:
 
 1. On the **Global distribution (preview)** page, select **Promote** on the toolbar to initiate read replica promotion to read-write cluster. 
 
-  :::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote button.":::
+      :::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote button.":::
 
 1. In the **Promote cluster** pop-up window, confirm that you understand how replica promotion works, and select **Promote**. Replica promotion might take a few minutes to complete.
 
-:::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion-confirmation.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote confirmation pop-up window.":::
+    :::image type="content" source="media/quickstart-cross-region-replication/replica-cluster-promotion-confirmation.png" alt-text="Screenshot of the read replica cluster global distribution preview page with the promote confirmation pop-up window.":::
 
 ### Write to promoted cluster replica
 
