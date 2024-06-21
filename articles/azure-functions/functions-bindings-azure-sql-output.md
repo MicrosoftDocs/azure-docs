@@ -966,7 +966,46 @@ CREATE TABLE dbo.RequestLog (
 
 # [v2](#tab/python-v2)
 
-No equivalent sample for v2 at this time.
+```python
+from datetime import datetime
+import json
+import logging
+import azure.functions as func
+
+@app.function_name(name="PostToDo")
+@app.route(route="posttodo")
+@app.sql_output(arg_name="todoItems",
+                        command_text="[dbo].[ToDo]",
+                        connection_string_setting="SqlConnectionString")
+@app.sql_output(arg_name="requestLog",
+                        command_text="[dbo].[RequestLog]",
+                        connection_string_setting="SqlConnectionString")
+def add_todo(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: func.Out[func.SqlRow]) -> func.HttpResponse:
+    logging.info('Python HTTP trigger and SQL output binding function processed a request.')
+    try:
+        req_body = req.get_json()
+        rows = func.SqlRowList(map(lambda r: func.SqlRow.from_dict(r), req_body))
+    except ValueError:
+        pass
+
+    requestLog.set(func.SqlRow({
+        "RequestTimeStamp": datetime.now().isoformat(),
+        "ItemCount": 1
+    }))
+
+    if req_body:
+        todoItems.set(rows)
+        return func.HttpResponse(
+            "OK",
+            status_code=201,
+            mimetype="application/json"
+        )
+    else:
+        return func.HttpResponse(
+            "Error accessing request body",
+            status_code=400
+        )
+```
 
 # [v1](#tab/python-v1)
 
