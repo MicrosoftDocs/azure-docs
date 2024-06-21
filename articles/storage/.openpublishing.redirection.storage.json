@@ -266,6 +266,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2",
+            "redirect_document_id": false
+        },       
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-blob-service-sas-create-dotnet.md",
             "redirect_url": "/azure/storage/blobs/sas-service-create",
             "redirect_document_id": true
