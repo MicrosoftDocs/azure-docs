@@ -73,9 +73,9 @@ Keep in mind the following considerations when creating this storage account:
 
 + To reduce latency, create the storage account in the same region as the function app.
 
-+ To improve performance in production, use a separate storage account for each function app. This is especially true with Durable Functions and Event Hub triggered functions. 
++ To improve performance in production, use a separate storage account for each function app. This is especially true with Durable Functions and Event Hubs triggered functions. 
 
-+ For Event Hub triggered functions, don't use an account with [Data Lake Storage enabled](https://github.com/Azure/azure-functions-eventhubs-extension/issues/81).
++ For Event Hubs triggered functions, don't use an account with [Data Lake Storage enabled](https://github.com/Azure/azure-functions-eventhubs-extension/issues/81).
 
 ### Handling large data sets
 
@@ -112,7 +112,7 @@ Consider these options for a successful deployment:
 
 ## Write robust functions
 
-There are several design principles you can following when writing your function code that help with general performance and availability of your functions. These principles include:
+There are several design principles you can follow when writing your function code that help with general performance and availability of your functions. These principles include:
  
 + [Avoid long running functions.](performance-reliability.md#avoid-long-running-functions) 
 + [Plan cross-function communication.](performance-reliability.md#cross-function-communication) 
