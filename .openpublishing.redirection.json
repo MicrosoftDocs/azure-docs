@@ -687,7 +687,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-maps/tutorial-creator-feature-stateset.md",
-            "redirect_url": "/azure/azure-maps/how-to-creator-feature-stateset",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/schema-stateset-stylesobject.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/indoor-map-dynamic-styling.md",
+            "redirect_url": "/azure/azure-maps/about-creator",
             "redirect_document_id": false
         },
         {
