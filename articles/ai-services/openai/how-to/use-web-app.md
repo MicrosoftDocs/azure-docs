@@ -23,7 +23,7 @@ Along with Azure OpenAI Studio, APIs, and SDKs, you can use the available standa
 - Publishing creates an Azure App Service instance in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) that you select. When you're done with your app, you can delete it from the Azure portal.
 - GPT-4 Turbo with Vision models are not supported.
 - By default, the app is deployed with the Microsoft identity provider already configured. The identity provider restricts access to the app to members of your Azure tenant. To add or modify authentication:
-    1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name that you specified during publishing. Select the web app, and then select **Authentication** on the left menu. Then select **Add an identity provider**.
+    1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name that you specified during publishing. Select the web app, and then select **Authentication** on the left menu. Then select **Add identity provider**.
 
         :::image type="content" source="../media/quickstarts/web-app-authentication.png" alt-text="Screenshot of the authentication pane in the Azure portal." lightbox="../media/quickstarts/web-app-authentication.png":::
 
@@ -55,7 +55,7 @@ We recommend pulling changes from the `main` branch for the web app's source cod
 If you haven't customized the web app, you can use these steps to synchronize it:
 
 1. Go to your web app in the [Azure portal](https://portal.azure.com/).
-1. On the left menu, under **Deployment**, select **Deployment center**.
+1. On the left menu, under **Deployment**, select **Deployment Center**.
 1. Select **Sync** at the top of the pane, and confirm that the app will be redeployed.
 
     :::image type="content" source="../media/use-your-data/sync-app.png" alt-text="A screenshot of the web app synchronization button on the Azure portal." lightbox="../media/use-your-data/sync-app.png":::
@@ -74,9 +74,9 @@ To turn on chat history, deploy or redeploy your model as a web app by using [Az
 :::image type="content" source="../media/use-your-data/enable-chat-history.png" alt-text="Screenshot of the checkbox for enabling chat history in Azure OpenAI Studio." lightbox="../media/use-your-data/enable-chat-history.png":::
 
 > [!IMPORTANT]
-> Turning on chat history creates a [Cosmos DB](/azure/cosmos-db/introduction) instance in your resource group, and it incurs [additional charges](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/) for the storage that you use.
+> Turning on chat history creates an [Azure Cosmos DB](/azure/cosmos-db/introduction) instance in your resource group, and it incurs [additional charges](https://azure.microsoft.com/pricing/details/cosmos-db/autoscale-provisioned/) for the storage that you use.
 
-After you turn on chat history, your users can show and hide it in the upper-right corner of the app. When users show chat history, they can rename or delete conversations. Because they're signed in to the app, conversations are automatically ordered from newest to oldest. Conversations are named based on the first query in the conversation.
+After you turn on chat history, your users can show and hide it in the upper-right corner of the app. When users show chat history, they can rename or delete conversations. Because the users are signed in to the app, conversations are automatically ordered from newest to oldest. Conversations are named based on the first query in the conversation.
 
 :::image type="content" source="../media/use-your-data/web-app-chat-history.png" alt-text="Screenshot of the chat history in the web app." lightbox="../media/use-your-data/web-app-chat-history.png":::
 

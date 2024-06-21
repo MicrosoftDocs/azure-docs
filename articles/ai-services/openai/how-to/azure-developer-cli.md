@@ -13,7 +13,7 @@ recommendations: false
 
 # Use the Azure Developer CLI to deploy resources for Azure OpenAI On Your Data 
 
-Use this article to learn how to automate resource deployment for Azure OpenAI Service On Your Data. The Azure Developer CLI (`azd`) is an open-source command-line tool that streamlines provisioning and deploying resources to Azure by using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations, and it includes the completed sample app code.
+Use this article to learn how to automate resource deployment for Azure OpenAI Service On Your Data. The Azure Developer CLI (`azd`) is an open-source command-line tool that streamlines provisioning and deploying resources to Azure by using a template system. The template contains infrastructure files to provision the necessary Azure OpenAI resources and configurations. It also includes the completed sample app code.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Use this article to learn how to automate resource deployment for Azure OpenAI S
     azd up
     ```
 
-1. `azd` prompts you for the following information:
+1. The Azure Developer CLI prompts you for the following information:
 
     - `Subscription`: The Azure subscription that your resources are deployed to.
     - `Location`: The Azure region where your resources are deployed.
@@ -60,7 +60,7 @@ Use this article to learn how to automate resource deployment for Azure OpenAI S
     > [!NOTE]
     > The sample `azd` template uses the `gpt-35-turbo-16k` model. A recommended region for this template is East US, because different Azure regions support different OpenAI models. For more details about model support by region, go to the [Azure OpenAI Service Models](/azure/ai-services/openai/concepts/models) support page.
 
-    The provisioning process might take several minutes to complete. Wait for the task to finish before you proceed to the next steps.
+    The provisioning process might take several minutes. Wait for the task to finish before you proceed to the next steps.
 
 1. Select the link in the `azd` outputs to go to the new resource group in the Azure portal. The following top-level resources should appear:
 
@@ -83,4 +83,4 @@ The `azd` template provisioned all of the required resources for you to chat wit
 
 ## Connect or create an application
 
-After you run the `azd` template and upload your data, you're ready to start using Azure OpenAI On Your Data. See the [quickstart article](../use-your-data-quickstart.md) for code samples that you can use to build your applications.
+After you run the `azd` template and upload your data, you're ready to start using Azure OpenAI On Your Data. For code samples that you can use to build your applications, see the [quickstart article](../use-your-data-quickstart.md).

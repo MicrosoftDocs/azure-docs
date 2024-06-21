@@ -157,11 +157,11 @@ After you have a Blob Storage container that's populated with image files and at
 
 1. Review the details, and then select **Save and close**.
 
-## Using your ingested data with your GPT-4 Turbo with Vision model
+## Use your ingested data with your GPT-4 Turbo with Vision model
 
 After you connect your data source by using any of the three methods listed earlier, the data ingestion process takes some time to finish. An icon and a **Ingestion in progress** message appear as the process progresses.
 
-After the ingestion finishes, confirm that a data source is created. The details of your data source appear, along with the image search index name.
+After the ingestion finishes, confirm that a data source is created. The details of your data source appear, along with the name of your image search index.
 
 :::image type="content" source="../media/use-your-image-data/completed-data-source.png" alt-text="Screenshot that shows a completed data source ingestion." lightbox="../media/use-your-image-data/completed-data-source.png":::
 

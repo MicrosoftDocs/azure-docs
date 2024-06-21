@@ -14,7 +14,7 @@ recommendations: false
 
 # Troubleshooting and best practices for Azure OpenAI On Your Data
 
-This article can help guide you through the common problems in developing a solution by using Azure OpenAI Service On Your Data, a feature that allows you to use the power of OpenAI models with your own data. By following the best practices and tips in this article, you can optimize your output with Azure OpenAI On Your Data and achieve the best AI quality possible.
+This article can help guide you through common problems in developing a solution by using Azure OpenAI Service On Your Data, a feature that allows you to use the power of OpenAI models with your own data. By following the best practices and tips in this article, you can optimize your output with Azure OpenAI On Your Data and achieve the best AI quality possible.
 
 ## Azure OpenAI On Your Data: Workflow
 
@@ -24,22 +24,22 @@ The workflow for Azure OpenAI On Your Data has two major parts:
 
   Also in this stage, you can choose an embedding model to use for creation of embeddings or preferred search type. Embeddings are representations of values or objects (like text, images, and audio) that are designed to be consumed by machine learning models and semantic search algorithms.
   
-  The output of this process is an index that will later be used for retrieving documents during inference.
+  The output of this process is an index that will later be used for retrieving documents during inferencing.
 
 * **Inferencing**: This is the stage where users chat with their data by using a studio, a deployed web app, or direct API calls. In this stage, users can set various model parameters (such as `temperature` and `top_P` ) and system parameters (such as `strictness` and `topNDocuments`).
 
 Think of ingestion as a separate process before inferencing. After the index is created, Azure OpenAI On Your Data goes through the following steps to generate a good response to user questions:
 
-1. **Intent generation**: Azure OpenAI On Your Data generates multiple search intents by using user questions and conversation history. It generates multiple search intents to address any ambiguity in the users' questions, add more context by using the conversation history to retrieve holistic information in the retrieval stage, and provide any additional information to make the final response thorough and useful.
+1. **Intent generation**: Azure OpenAI On Your Data generates multiple search intents by using user questions and conversation history. It generates multiple search intents to address any ambiguity in users' questions, add more context by using the conversation history to retrieve holistic information in the retrieval stage, and provide any additional information to make the final response thorough and useful.
 2. **Retrieval**: By using the search type provided during the ingestion, Azure OpenAI On Your Data retrieves a list of relevant document chunks that correspond to each of the search intents.
 3. **Filtration**: Azure OpenAI On Your Data uses the strictness setting to filter out the retrieved documents that are considered irrelevant according to the strictness threshold. The `strictness` parameter controls how aggressive the filtration is.
-4. **Re-ranking**: Azure OpenAI On Your Data re-ranks the remaining document chunks retrieved for each of the search intents. The purpose of re-ranking is to produce a combined list of the most relevant documents retrieved for all search intents.
-5. **Parameter inclusion**: The `topNDocuments` parameter from the re-ranked list is included in the prompt sent to the model, along with the question, the conversation history, and the role information or system message.
+4. **Reranking**: Azure OpenAI On Your Data reranks the remaining document chunks retrieved for each of the search intents. The purpose of reranking is to produce a combined list of the most relevant documents retrieved for all search intents.
+5. **Parameter inclusion**: The `topNDocuments` parameter from the reranked list is included in the prompt sent to the model, along with the question, the conversation history, and the role information or system message.
 6. **Response generation**: The model uses the provided context to generate the final response along with citations.
 
 ## How to structure debugging investigation
 
-When you see an unfavorable response to a query, it might be the result of different outputs from various components not working as expected. You can debug the outputs of each component by using the following steps.
+When you see an unfavorable response to a query, it might be the result of outputs from various components not working as expected. You can debug the outputs of each component by using the following steps.
 
 ### Step 1: Check for retrieval problems
 
@@ -111,7 +111,7 @@ See the preceding debugging process, starting at [step 1](#step-1-check-for-retr
 
 ### Intents are empty or wrong
 
-* Refer to [Step 3](#step-3-check-the-rest-of-the-funnel) in the preceding debugging process.
+* See [Step 3](#step-3-check-the-rest-of-the-funnel) in the preceding debugging process.
 
 * If intents are irrelevant, the problem might be that the intent generation step lacks context. Intent generation considers only the user question and conversation history. It doesn't consider the role information or the document chunks. You might consider adding a prefix to each user question with a short context string to help the intent generation step.
 
