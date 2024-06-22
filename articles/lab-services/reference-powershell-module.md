@@ -32,13 +32,9 @@ Some example commands:
 
 ```powershell
 # To list all the labs in your subscription:
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 Get-AzLabAccount | Get-AzLab
 
 # To stop all running VMs in all labs
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
 ```
 
