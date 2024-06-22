@@ -33,6 +33,9 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 [!INCLUDE [create-two-virtual-machines.md](../../includes/create-two-virtual-machines.md)]
 
+> [!NOTE]  
+> To move a virtual machine from one virtual network to another, you need to delete and recreate the virtual machine in the new virtual network. However, you can keep its disks. 
+
 ## Connect to a virtual machine
 
 1. In the portal, search for and select **Virtual machines**.
