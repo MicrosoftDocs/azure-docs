@@ -82,7 +82,7 @@ az stack group create \
   --deny-settings-mode 'none'
 ```
 
-Use the `action-on-unmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion). The `deny-settings-mode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+Use the `action-on-unmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion). The `deny-settings-mode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -99,7 +99,7 @@ New-AzResourceGroupDeploymentStack `
   -DenySettingsMode "none"
 ```
 
-Use the `ActionOnUnmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion). The `DenySettingsMode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+Use the `ActionOnUnmanage` switch to define what happens to resources that are no longer managed after a stack is updated or deleted. For more information, see [Control detachment and deletion](./deployment-stacks.md#control-detachment-and-deletion). The `DenySettingsMode` switch assigns a specific type of permissions to the managed resources, which prevents their deletion by unauthorized security principals. For more information, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources).
 
 ---
 
@@ -677,7 +677,7 @@ The Azure CLI includes these parameters to customize the deny assignment:
 
 ---
 
-In this tutorial, you configure the deny settings mode. For more information about other deny settings, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources-against-deletion).
+In this tutorial, you configure the deny settings mode. For more information about other deny settings, see [Protect managed resources against deletion](./deployment-stacks.md#protect-managed-resources).
 
 At the end of the previous step, you have one stack with two managed resources.
 
