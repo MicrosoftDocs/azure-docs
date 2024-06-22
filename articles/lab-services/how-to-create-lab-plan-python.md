@@ -28,20 +28,10 @@ The following steps will show you how to create a lab plan.  Any properties set 
 
 ```python
 # --------------------------------------------------------------------------
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Copyright (c) Microsoft Corporation. All rights reserved.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Licensed under the MIT License. See License.txt in the project root for
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # license information.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # --------------------------------------------------------------------------
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 import os
 import time
@@ -130,20 +120,10 @@ If you're not going to continue to use this application, delete the lab with the
 
 ```python
 # --------------------------------------------------------------------------
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Copyright (c) Microsoft Corporation. All rights reserved.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Licensed under the MIT License. See License.txt in the project root for
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # license information.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # --------------------------------------------------------------------------
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 from datetime import timedelta
 import time
@@ -152,11 +132,7 @@ from azure.mgmt.labservices import LabServicesClient
 from azure.mgmt.resource import ResourceManagementClient
 
 # - other dependence -
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # - end -
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 #
 
 def main():
