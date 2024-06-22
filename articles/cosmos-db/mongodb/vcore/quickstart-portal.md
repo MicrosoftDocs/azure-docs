@@ -59,7 +59,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
     :::image type="content" source="media/quickstart-portal/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
     
-    You can always turn HA on after cluster creation for additional layer of protection from failures.
+    You can always turn HA on after cluster creation for another layer of protection from failures.
 
 1. Back on the cluster page, enter the following information:
 
