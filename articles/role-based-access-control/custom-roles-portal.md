@@ -36,6 +36,9 @@ There are three ways that you can start to create a custom role. You can clone a
 
 If an existing role does not quite have the permissions you need, you can clone it and then modify the permissions. Follow these steps to start cloning a role.
 
+> [!NOTE]  
+> You can only clone Microsoft Entra ID built-in roles but you cant clone Microsoft Entra ID custom roles.
+
 1. In the Azure portal, open a management group, subscription, or resource group where you want the custom role to be assignable and then open **Access control (IAM)**.
 
     The following screenshot shows the Access control (IAM) page opened for a subscription.
