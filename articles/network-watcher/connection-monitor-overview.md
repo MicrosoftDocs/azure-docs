@@ -19,6 +19,7 @@ Connection monitor provides unified, end-to-end connection monitoring in Network
 
 Here are some use cases for Connection monitor:
 
+- You want to find out whether there is outbound connectivity between a VM and an (external) destination. 
 - Your front-end web server virtual machine (VM) or virtual machine scale set communicates with a database server VM in a multi-tier application. You want to check network connectivity between the two VM/or scale sets.
 - You want VMs/scale sets in, for example, the East US region to ping VMs/scale sets in the Central US region, and you want to compare cross-region network latencies.
 - You have multiple on-premises office sites, one in Seattle, Washington, for example, and another in Ashburn, Virginia. Your office sites connect to Microsoft 365 URLs. For your users of Microsoft 365 URLs, you want to compare the latencies between Seattle and Ashburn.
