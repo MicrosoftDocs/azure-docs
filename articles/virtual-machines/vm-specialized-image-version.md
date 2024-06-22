@@ -24,6 +24,9 @@ This article shows how to create a VM from a specialized image:
 - [Shared to everyone in a community gallery](#community-gallery)
 - [Directly shared to your subscription or tenant](#direct-shared-gallery)
 
+> [!NOTE]  
+> Specialized VM image contains operating system disk and all the attached disks.
+
 > [!IMPORTANT]
 > 
 > When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information, like the CMID, is also kept. This duplicate information can cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
