@@ -1,7 +1,7 @@
 ---
-title: Create an IoT hub
+title: Create an Azure IoT hub
 titleSuffix: Azure IoT Hub
-description: How to create, manage, and delete Azure IoT hubs through the Azure portal and CLI. Includes information about pricing tiers, scaling, security, and messaging configuration.
+description: How to create, manage, and delete Azure IoT hubs through the Azure portal and CLI. Includes information about retrieving the service connection string.
 author: kgremban
 
 ms.author: kgremban
@@ -11,7 +11,7 @@ ms.date: 06/10/2024
 ms.custom: ['Role: Cloud Development']
 ---
 
-# Create an IoT hub using the Azure portal
+# Create and manage Azure IoT hubs
 
 This article describes how to create and manage an IoT hub.
 
@@ -39,24 +39,6 @@ az iot hub create --name <NEW_NAME_FOR_YOUR_IOT_HUB> \
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 The previous command creates an IoT hub in the S1 pricing tier for which you're billed. For more information, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
-
----
-
-## Update an IoT hub
-
-You can change the settings of an existing IoT hub after it's created. Here are some properties you can set for an IoT hub:
-
-* **Pricing and scale**: Migrate to a different tier or set the number of IoT Hub units.
-
-* **IP Filter**: Specify a range of IP addresses for the IoT hub to accept or reject.
-
-* **Properties**: A list of properties that you can copy and use elsewhere, such as the resource ID, resource group, location, and so on.
-
-### [Azure portal](#tab/portal)
-
-### [Azure CLI](#tab/cli)
-
-Use the [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update) command to make changes to an existing IoT hub.
 
 ---
 
@@ -114,11 +96,13 @@ In production scenarios, we recommend using Microsoft Entra ID and Azure role-ba
 
 ## Delete an IoT hub
 
+When you delete an IoT hub, you lose the associated device identity registry. Any registered devices will need to be registered to a new IoT hub to continue sending data. If you want to move or upgrade an IoT hub, or delete an IoT hub but keep the devices, consider [migrating an IoT hub using the Azure CLI](./migrate-hub-state-cli.md).
+
 ### [Azure portal](#tab/portal)
 
 To delete an IoT hub, open your IoT hub in the Azure portal, then choose **Delete**.
 
-:::image type="content" source="./media/iot-hub-create-through-portal/delete-iot-hub.png" alt-text="Screenshot showing where to find the delete button for an IoT hub in the Azure portal." lightbox="./media/iot-hub-create-through-portal/delete-iot-hub.png":::
+:::image type="content" source="./media/create-hub/delete-iot-hub.png" alt-text="Screenshot showing where to find the delete button for an IoT hub in the Azure portal." lightbox="./media/create-hub/delete-iot-hub.png":::
 
 ### [Azure CLI](#tab/cli)
 
@@ -133,7 +117,20 @@ az iot hub delete --name {your iot hub name} -\
 
 ## Other tools for managing IoT hubs
 
-* **PowerShell cmdlets**: Use the [Az.IoTHub](/powershell/module/az.iothub) set of commands to create and manage IoT hubs.
-* **IoT Hub resource provider REST API**: Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations to create and manage IoT hubs.
-* **Azure resource manager templates, Bicep, or Terraform**: Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type to create and manage IoT hubs. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson)
-* **Visual Studio Code**: Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) to create and manage IoT hubs.
+In addition to the Azure portal and CLI, the following tools are available to help you work with IoT hubs in whichever way supports your scenario:
+
+* **PowerShell cmdlets**
+
+  Use the [Az.IoTHub](/powershell/module/az.iothub) set of commands to create and manage IoT hubs.
+
+* **IoT Hub resource provider REST API**
+
+  Use the [IoT Hub Resource](/rest/api/iothub/iot-hub-resource) set of operations to create and manage IoT hubs.
+
+* **Azure resource manager templates, Bicep, or Terraform**    
+
+  Use the [Microsoft.Devices/IoTHubs](/azure/templates/microsoft.devices/iothubs) resource type to create and manage IoT hubs. For examples, see [IoT Hub sample templates](/samples/browse/?terms=iot%20hub&languages=bicep%2Cjson)
+
+* **Visual Studio Code**
+
+  Use the [Azure IoT Hub extension for Visual Studio Code](./reference-iot-hub-extension.md) to create and manage IoT hubs.

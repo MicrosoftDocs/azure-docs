@@ -157,7 +157,11 @@ If you want to keep a device in your IoT hub's identity registry, but want to pr
 
    * To prevent a device from connecting, set the **Enable connection to IoT Hub** parameter to **Disable**.
 
+     :::image type="content" source="./media/create-connect-device/disable-device.png" alt-text="screenshot that shows disabling a device in the Azure portal.":::
+
    * To completely remove a device from your IoT hub's identity registry, select **Delete**.
+
+     :::image type="content" source="./media/create-connect-device/delete-device.png" alt-text="screenshot that shows deleting a device in the Azure portal.":::
 
 ### [Azure CLI](#tab/cli)
 
