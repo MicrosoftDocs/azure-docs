@@ -92,8 +92,6 @@ We need to add the CRAN repository. Commands are modified from instructions avai
 #download helper packages
 sudo apt install --no-install-recommends software-properties-common dirmngr
 # download and add the signing key (by Michael Rutter) for these repos
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 sudo wget -q "https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc" -O /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 #add repository
 sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/"
