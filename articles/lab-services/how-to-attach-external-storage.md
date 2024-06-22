@@ -76,18 +76,12 @@ For file share with a public endpoint:
 #!/bin/bash
 
 # Assign variables values for your storage account and file share
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 STORAGE_ACCOUNT_NAME=""
 STORAGE_ACCOUNT_KEY=""
 FILESHARE_NAME=""
 
 # Do not use 'mnt' for mount directory.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Using ‘mnt’ will cause issues on lab VMs.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 MOUNT_DIRECTORY="prm-mnt" 
 
 sudo mkdir /$MOUNT_DIRECTORY/$FILESHARE_NAME
@@ -110,19 +104,13 @@ For file share with a private endpoint:
 #!/bin/bash
 
 # Assign variables values for your storage account and file share
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 STORAGE_ACCOUNT_NAME=""
 STORAGE_ACCOUNT_IP=""
 STORAGE_ACCOUNT_KEY=""
 FILESHARE_NAME=""
 
 # Do not use 'mnt' for mount directory.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 # Using ‘mnt’ will cause issues on lab VMs.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 MOUNT_DIRECTORY="prm-mnt" 
 
 sudo mkdir /$MOUNT_DIRECTORY/$FILESHARE_NAME
