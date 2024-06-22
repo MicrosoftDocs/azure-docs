@@ -141,8 +141,6 @@ The following example PowerShell script shows how to set Microsoft 365 to use th
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"
