@@ -71,8 +71,6 @@ We're now ready to create a lab based of our lab plan with the Window 11 Pro ima
 
 ``` powershell
 # $plan and $image are from the Create LabPlan QuickStart.
-
-[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 $password = "<custom password>"
 
 $lab = New-AzLabServicesLab -Name "ContosoLab" `
