@@ -274,9 +274,9 @@ sections:
           * Temporarily scale up your Azure SQL Database target instance to the Premium tier SKU during the data migration operation to minimize Azure SQL Database throttling that may affect data transfer activities when using lower-level SKUs.
 
           For DMS-
-          * DMS uses SHIR node as its compute, if you are copying backups from local file share to Azure blob storage OR while performing migration to Target Azure SQL DB. So ensure to monitor the resrouce usage of SHIR node.
+          * If you are copying backups from local fileshare to Azure blob storage OR while performing migration to Target Azure SQL DB, DMS uses SHIR node as its compute. So ensure to monitor the resource usage of that SHIR node.
           * Temporarily scale up your Azure SQL Database target instance to the Premium tier SKU during the data migration operation to minimize Azure SQL Database disk throttling that may affect data transfer activities when using lower-level SKUs.
-          * For more detailed information, refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/improving-sql-db-migration-performance-azure-database-migration/ba-p/3968094)
+          * For more detailed information, refer [blog](https://techcommunity.microsoft.com/t5/microsoft-data-migration-blog/improving-sql-db-migration-performance-azure-database-migration/ba-p/3968094).
           
 additionalContent: |
 
