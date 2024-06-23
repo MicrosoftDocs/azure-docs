@@ -8,13 +8,13 @@ ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
 ms.reviewer: larryfr
-ms.date: 09/13/2022
+ms.date: 12/06/2023
 ms.topic: how-to
 ms.custom: github-actions-azure
 ---
 
 # Use GitHub Actions with Azure Machine Learning
-[!INCLUDE [v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [v2](includes/machine-learning-dev-v2.md)]
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
 
 This article will teach you how to create a GitHub Actions workflow that builds and deploys a machine learning model to [Azure Machine Learning](./overview-what-is-azure-machine-learning.md). You'll train a [scikit-learn](https://scikit-learn.org/) linear regression model on the NYC Taxi dataset. 
@@ -24,11 +24,11 @@ GitHub Actions uses a workflow YAML (.yml) file in the `/.github/workflows/` pat
 
 ## Prerequisites
 
-[!INCLUDE [sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+[!INCLUDE [sdk](includes/machine-learning-sdk-v2-prereqs.md)]
 
 * A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
-## Step 1. Get the code
+## Step 1: Get the code
 
 Fork the following repo at GitHub:
 
@@ -36,23 +36,30 @@ Fork the following repo at GitHub:
 https://github.com/azure/azureml-examples
 ```
 
-## Step 2. Authenticate with Azure
+Clone your forked repo locally. 
+
+```
+git clone https://github.com/YOUR-USERNAME/azureml-examples
+```
+
+
+## Step 2: Authenticate with Azure
 
 You'll need to first define how to authenticate with Azure. You can use a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or [OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect). 
 
 ### Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-deployment-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-deployment-credentials.md)]
 
 ### Create secrets
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-with-openid.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
-## Step 3. Update `setup.sh` to connect to your Azure Machine Learning workspace
+## Step 3: Update `setup.sh` to connect to your Azure Machine Learning workspace
 
 You'll need to update the CLI setup file variables to match your workspace. 
 
-1. In your cloned repository, go to `azureml-examples/cli/`. 
+1. In your forked repository, go to `azureml-examples/cli/`. 
 1. Edit `setup.sh` and update these variables in the file. 
    
     |Variable  | Description  |
@@ -61,11 +68,11 @@ You'll need to update the CLI setup file variables to match your workspace.
     |LOCATION     |    Location of your workspace (example: `eastus2`)    |
     |WORKSPACE     |     Name of Azure Machine Learning workspace     | 
 
-## Step 4. Update `pipeline.yml` with your compute cluster name
+## Step 4: Update `pipeline.yml` with your compute cluster name
 
 You'll use a `pipeline.yml` file to deploy your Azure Machine Learning pipeline. This is a machine learning pipeline and not a DevOps pipeline. You only need to make this update if you're using a name other than `cpu-cluster` for your computer cluster name. 
 
-1. In your cloned repository, go to `azureml-examples/cli/jobs/pipelines/nyc-taxi/pipeline.yml`. 
+1. In your forked repository, go to `azureml-examples/cli/jobs/pipelines/nyc-taxi/pipeline.yml`. 
 1. Each time you see `compute: azureml:cpu-cluster`, update the value of `cpu-cluster` with your compute cluster name. For example, if your cluster is named `my-cluster`, your new value would be `azureml:my-cluster`. There are five updates.
 
 ## Step 5: Run your GitHub Actions workflow
@@ -83,7 +90,7 @@ Your workflow file is made up of a trigger section and jobs:
 
 ### Enable your workflow
 
-1. In your cloned repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this. 
+1. In your forked repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this. 
 
     ```yaml
     name: cli-jobs-pipelines-nyc-taxi-pipeline
@@ -109,7 +116,7 @@ Your workflow file is made up of a trigger section and jobs:
         - name: azure login
           uses: azure/login@v1
           with:
-            creds: ${{secrets.AZ_CREDS}}
+            creds: ${{secrets.AZURE_CREDENTIALS}}
         - name: setup
           run: bash setup.sh
           working-directory: cli
@@ -135,7 +142,7 @@ Your workflow file is made up of a trigger section and jobs:
 
 ### Enable your workflow
 
-1. In your cloned repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this.
+1. In your forked repository, open `.github/workflows/cli-jobs-pipelines-nyc-taxi-pipeline.yml` and verify that your workflow looks like this.
 
     ```yaml
     name: cli-jobs-pipelines-nyc-taxi-pipeline

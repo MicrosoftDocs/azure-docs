@@ -4,8 +4,8 @@ description: Tooling support for using configuration files with Azure App Config
 author: zhenlan
 ms.author: zhenlwa
 ms.service: azure-app-configuration
-ms.topic: conceptual
-ms.date: 10/28/2022
+ms.topic: concept-article
+ms.date: 05/30/2024
 ---
 
 # Azure App Configuration support for configuration files
@@ -55,7 +55,7 @@ Key Vault references require a particular content type during importing, so you 
 Run the following CLI command to import it with the `test` label and the Key Vault reference content type.
 
 ```azurecli-interactive
-az appconfig kv import --label test --content-type application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 --name <your store name> --source file --path keyvault-refs.json --format json
+az appconfig kv import --label test --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --name <your store name> --source file --path keyvault-refs.json --format json
 ```
 
 The following table shows all the imported data in your App Configuration store.
@@ -102,9 +102,11 @@ The following example is a file based upon the KVSet file content profile, named
 
 > [!TIP]
 > If you followed the example in the previous section and have the data in your App Configuration store, you can export it to a file using the CLI command:
+
 > ```azurecli-interactive
 > az appconfig kv export --profile appconfig/kvset --label * --name <your store name> --destination file --path appconfigdata.json --format json 
 > ```
+
 > After the file is exported, update the `Beta` feature flag `enabled` property to `true` and change the `Logging:LogLevel:Default` to `Debug`.
 
 Run the following CLI command with the parameter "**--profile appconfig/kvset**" to import the file to your App Configuration store. You don't need to specify any data transformation rules such as separator, label, or content type like you did in the default file content profile section because all information is already in the file.

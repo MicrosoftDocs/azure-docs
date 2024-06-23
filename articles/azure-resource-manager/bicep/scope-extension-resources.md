@@ -2,7 +2,8 @@
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.custom: devx-track-bicep
+ms.date: 03/20/2024
 ---
 
 # Set scope for extension resources in Bicep

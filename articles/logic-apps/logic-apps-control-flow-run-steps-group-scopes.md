@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 01/04/2024
 ---
 
 # Run actions based on group status by using scopes in Azure Logic Apps

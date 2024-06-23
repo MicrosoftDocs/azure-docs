@@ -67,7 +67,7 @@ You can also create a key vault by using the [Resource Manager template](https:/
 ## Set key vault advanced access policies
 
 > [!IMPORTANT]
-> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](../articles/key-vault/general/soft-delete-overview.md).
+> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
 
 The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes.
 
@@ -123,11 +123,11 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 3. Select **Azure Virtual Machines for deployment** and/or **Azure Resource Manager for template deployment**, if needed.
 4. Click **Save**.
 
-    ![Azure key vault advanced access policies](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
+    ![Azure key vault advanced access policies](/azure/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
 ## Azure Disk Encryption and auto-rotation
 
-Although Azure Key Vault now has [key auto-rotation](../articles/key-vault/keys/how-to-configure-key-rotation.md), it isn't currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key, even after it has been auto-rotated.
+Although Azure Key Vault now has [key auto-rotation](/azure/key-vault/keys/how-to-configure-key-rotation), it isn't currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key, even after it has been auto-rotated.
 
 Rotating an encryption key won't break Azure Disk Encryption, but disabling the "old" encryption key (in other words, the key Azure Disk Encryption is still using) will.
 
@@ -140,7 +140,7 @@ If you want to use a key encryption key (KEK) for an additional layer of securit
 
 You can generate a new KEK by using the Azure CLI [`az keyvault key create`](/cli/azure/keyvault/key#az-keyvault-key-create) command, the Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet, or the [Azure portal](https://portal.azure.com/). You must generate an RSA key type; Azure Disk Encryption doesn't currently support using Elliptic Curve keys.
 
-You can instead import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](../articles/key-vault/keys/hsm-protected-keys.md).
+You can instead import a KEK from your on-premises key management HSM. For more information, see [Key Vault Documentation](/azure/key-vault/keys/hsm-protected-keys).
 
 Your key vault KEK URLs must be versioned. Azure enforces this restriction of versioning. For valid secret and KEK URLs, see the following examples:
 
@@ -167,7 +167,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 
 Use the Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to generate a new KEK and store it in your key vault.
 
- ```powershell-interactive
+```powershell-interactive
 Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM" -Size 4096
 ```
 
@@ -175,9 +175,9 @@ You may instead import a private key using the Azure PowerShell [`az keyvault ke
 
 In either case, you will supply the ID of your KEK key Vault and the URL of your KEK to the Azure PowerShell [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) -KeyEncryptionKeyVaultId and -KeyEncryptionKeyUrl parameters. This example assumes that you are using the same key vault for both the disk encryption key and the KEK.
 
- ```powershell-interactive
+```powershell-interactive
 $KeyVault = Get-AzKeyVault -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup"
 $KEK = Get-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "myKEK"
 
 Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName "MyVM" -DiskEncryptionKeyVaultUrl $KeyVault.VaultUri -DiskEncryptionKeyVaultId $KeyVault.ResourceId -KeyEncryptionKeyVaultId $KeyVault.ResourceId -KeyEncryptionKeyUrl $KEK.Id -SkipVmBackup -VolumeType All
- ```
+```

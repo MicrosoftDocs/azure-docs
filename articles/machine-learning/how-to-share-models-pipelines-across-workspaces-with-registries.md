@@ -1,21 +1,21 @@
 ---
-title: Share models, components, and environments across workspaces with registries (preview)
+title: Share models, components, and environments across workspaces with registries
 titleSuffix: Azure Machine Learning
 description: Learn how practice cross-workspace MLOps and collaborate across teams buy sharing models, components and environments through registries.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: mabables
-author: ManojBableshwar
+ms.author: kritifaujdar
+author: fkriti
 ms.reviewer: larryfr
-ms.date: 09/21/2022
+ms.date: 04/09/2024
 ms.topic: how-to
-ms.custom: devx-track-python, ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2023
 ---
 
-# Share models, components and environments across workspaces with registries (preview)
+# Share models, components, and environments across workspaces with registries
 
-Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
+Azure Machine Learning registry enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  
 There are two scenarios where you'd want to use the same set of models, components and environments in multiple workspaces:
 
@@ -29,15 +29,13 @@ In this article, you'll learn how to:
 * Register the trained model in the registry.
 * Deploy the model from the registry to an online-endpoint in the workspace, then submit an inference request.
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-- An Azure Machine Learning registry (preview) to share models, components and environments. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
+- An Azure Machine Learning registry to share models, components and environments. To create a registry, see [Learn how to create a registry](how-to-manage-registries.md).
 
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
@@ -70,7 +68,7 @@ Before following the steps in this article, make sure you have the following pre
     To install the Python SDK v2, use the following command:
 
     ```bash
-    pip install --pre azure-ai-ml
+    pip install --pre --upgrade azure-ai-ml azure-identity
     ```
 
     ---
@@ -82,8 +80,6 @@ The code examples in this article are based on the `nyc_taxi_data_regression` sa
 ```bash
 git clone https://github.com/Azure/azureml-examples
 cd azureml-examples
-# changing branch is temporary until samples merge to main
-git checkout mabables/registry
 ```
 
 # [Azure CLI](#tab/cli)
@@ -213,6 +209,9 @@ For more information on components, see the following articles:
 * [How to use components in pipelines (CLI)](how-to-create-component-pipelines-cli.md)
 * [How to use components in pipelines (SDK)](how-to-create-component-pipeline-python.md)
 
+  > [!IMPORTANT]
+  > Registry only support to have named assets (data/model/component/environment). If you to reference an asset in a registry, you need to create it in the registry first. Especially for pipeline component case, if you want reference component or environment in pipeline component, you need first create the component or environment in the registry.
+
 # [Azure CLI](#tab/cli)
 
 Make sure you are in the folder `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. You'll find the component definition file `train.yml` that packages a Scikit Learn training script `train_src/train.py` and the [curated environment](resource-curated-environments.md) `AzureML-sklearn-0.24-ubuntu18.04-py37-cpu`. We'll use the Scikit Learn environment created in pervious step instead of the curated environment. You can edit `environment` field in the `train.yml` to refer to your Scikit Learn environment. The resulting component definition file `train.yml` will be similar to the following example: 
@@ -295,9 +294,9 @@ ml_client_registry.components.create_or_update(train_model)
 > [!TIP]
 > If you get an error that the name of the component already exists in the registry, you can either update the version with `train_model.version=<unique_version_number>` before creating the component. 
 
-Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.component.get()` method to fetch the component from registry. 
+Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.components.get()` method to fetch the component from registry. 
 
-You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.components.list()` to list all components in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
@@ -342,7 +341,7 @@ jobs:
 The key aspect is that this pipeline is going to run in a workspace using a component that isn't in the specific workspace. The component is in a registry that can be used with any workspace in your organization. You can run this training job in any workspace you have access to without having worry about making the training code and environment available in that workspace. 
 
 > [!WARNING]
-> * Before running the pipeline job, confirm that the workspace in which you will run the job is in a Azure region that is supported by the registry in which you created the component.
+> * Before running the pipeline job, confirm that the workspace in which you will run the job is in an Azure region that is supported by the registry in which you created the component.
 > * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or edit the `compute` field under `jobs.train_job.compute` with the name of your compute.
 
 Run the pipeline job with the `az ml job create` command.
@@ -391,7 +390,7 @@ print(pipeline_job)
 ```
 
 > [!WARNING]
-> * Confirm that the workspace in which you will run this job is in a Azure location that is supported by the registry in which you created the component before you run the pipeline job.
+> * Confirm that the workspace in which you will run this job is in an Azure location that is supported by the registry in which you created the component before you run the pipeline job.
 > * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or update it `pipeline_job.settings.default_compute=<compute-cluster-name>`.
 
 Run the pipeline job and wait for it to complete. 
@@ -522,7 +521,7 @@ Note down the `name` and `version` of the model from the output of the `az ml mo
 az ml model show --name <model_name> --version <model_version> --registry-name <registry-name>
 ```
 
-You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 # [Python SDK](#tab/python)
 
@@ -572,7 +571,7 @@ Note down the `name` and `version` of the model from the output and use them wit
 mlflow_model_from_registry = ml_client_registry.models.get(name="nyc-taxi-model", version=str(1))
 print(mlflow_model_from_registry)
 ```
-You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
@@ -614,7 +613,7 @@ Fetch the scoring URI and submit a sample scoring request. Sample data for the s
 
 ```azurecli
 ENDPOINT_KEY=$(az ml online-endpoint get-credentials -n reg-ep-1234 -o tsv --query primaryKey)
-SCORING_URI=$(az ml online-endpoint show -n $ep_name -o tsv --query scoring_uri)
+SCORING_URI=$(az ml online-endpoint show -n reg-ep-1234 -o tsv --query scoring_uri)
 curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_KEY" --header 'Content-Type: application/json' --data @./scoring-data.json
 ```
 
@@ -685,6 +684,7 @@ ml_client_workspace.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ## Next steps
 
+* [How to share data assets using registries](how-to-share-data-across-workspaces-with-registries.md)
 * [How to create and manage registries](how-to-manage-registries.md)
 * [How to manage environments](how-to-manage-environments-v2.md)
 * [How to train models](how-to-train-cli.md)

@@ -1,12 +1,12 @@
 ---
-title: Set up an Azure-SSIS Integration Runtime with PowerShell 
+title: Set up an Azure-SSIS Integration Runtime with PowerShell
 description: Learn how to set up an Azure-SSIS Integration Runtime in Azure Data Factory with PowerShell so you can deploy and run SSIS packages in Azure.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 09/26/2022
+ms.custom: devx-track-azurepowershell
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---
@@ -55,11 +55,11 @@ In this tutorial, you will:
 
   - Add the IP address of the client machine, or a range of IP addresses that includes the IP address of the client machine, to the client IP address list in the firewall settings for the database server. For more information, see [Azure SQL Database server-level and database-level firewall rules](/azure/azure-sql/database/firewall-configure).
 
-  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Azure AD authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into an Azure AD group with access permissions to the database server. For more information, see [Create an Azure-SSIS IR with Azure AD authentication](./create-azure-ssis-integration-runtime.md).
+  - You can connect to the database server by using SQL authentication with your server admin credentials, or by using Microsoft Entra authentication with the specified system/user-assigned managed identity for your data factory. For the latter, you need to add the specified system/user-assigned managed identity for your data factory into a Microsoft Entra group with access permissions to the database server. For more information, see [Create an Azure-SSIS IR with Microsoft Entra authentication](./create-azure-ssis-integration-runtime.md).
 
   - Confirm that your database server does not have an SSISDB instance already. The provisioning of an Azure-SSIS IR does not support using an existing SSISDB instance.
 
-- **Azure PowerShell**. To run a PowerShell script to set up your Azure-SSIS IR, follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell**. To run a PowerShell script to set up your Azure-SSIS IR, follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!NOTE]
 > For a list of Azure regions in which Azure Data Factory and Azure-SSIS IR are currently available, see [Azure Data Factory and Azure-SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
@@ -598,7 +598,7 @@ For more SSIS documentation, see:
 - [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
 - [Schedule package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages)
 
-## Next steps
+## Related content
 
 In this tutorial, you learned how to: 
 

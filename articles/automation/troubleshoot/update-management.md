@@ -3,12 +3,15 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 02/23/2023
+ms.date: 05/26/2023
 ms.topic: troubleshooting
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, linux-related-content
 ---
 
 # Troubleshoot Update Management issues
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article discusses issues that you might run into when using the Update Management feature to assess and manage updates on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to help determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
 

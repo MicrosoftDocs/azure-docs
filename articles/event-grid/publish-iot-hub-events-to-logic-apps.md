@@ -22,13 +22,13 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 * An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. This email account is used to send the event notifications.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 
 You can quickly create a new IoT hub using the Azure Cloud Shell terminal in the portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the upper right of the page, select the Cloud Shell button.
 
@@ -215,8 +215,8 @@ Test your logic app by quickly simulating a device connection using the Azure CL
 1. Select the Cloud Shell button to reopen your terminal.
 
 1. Run the following command to create a simulated device identity:
-    
-     ```azurecli 
+
+    ```azurecli 
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName}
     ```
 

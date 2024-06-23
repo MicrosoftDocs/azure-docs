@@ -1,12 +1,12 @@
 ---
-title: Monitoring Load Balancer data reference
+title: Load balancer metrics and log definitions
 titleSuffix: Azure Load Balancer
 description: Important reference material needed when you monitor Load Balancer.
 author: mbender-ms
 ms.topic: reference
 ms.author: mbender
 ms.service: load-balancer
-ms.date: 06/29/2021
+ms.date: 05/24/2024
 ms.custom: subject-monitoring
 ---
 
@@ -18,16 +18,23 @@ See [Monitoring Load Balancer](monitor-load-balancer.md) for details on collecti
 
 ### Load balancer metrics 
 
-| Metric | Resource type | Description | Recommended aggregation |
+| **Metric** | **Resource type** | **Description** | **Recommended aggregation** |
 | ------ | ------------- | ----------- | ----------------------- |
-| Data path availability | Public and internal load balancer |  Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customers use is also validated. The measurement is invisible to your application and does not interfere with other operations. | Average |
+| Data path availability | Public and internal load balancer |  Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. | Average |
 | Health probe status | Public and internal load balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. | Average |
 | SYN (synchronize) count | Public and internal load balancer | Standard Load Balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how Load Balancer views the health of your application, as indicated by your health probe configuration. | Average |
 | SNAT connection count | Public load balancer | Standard Load Balancer reports the number of outbound flows that are masqueraded to the Public IP address front end. Source network address translation (SNAT) ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported and can be used to troubleshoot and understand the health of your outbound flows. | Sum |
 | Allocated SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports allocated per backend instance. | Average |
 | Used SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports that are utilized per backend instance. | Average |
-| Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes are not distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
+| Byte count | Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes aren't distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows. | Sum |
 | Packet count | Public and internal load balancer | Standard Load Balancer reports the packets processed per front end. | Sum |
+
+### Global load balancer metrics
+
+| **Metric** | **Resource type** | **Description** | **Recommended aggregation** |
+| ------ | ------------- | ----------- | ----------------------- |
+| Data path availability | Public global load balancer|  Global load balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. | Average |
+| Health probe status | Public global load balancer | Global load balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance regional load balancer in the global load balancer's backend pool. You can see how global load balancer views the health of your application, as indicated by your health probe configuration. | Average |
 
 For more information, see a list of [all platform metrics supported in Azure Monitor for load balancer](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkloadbalancers).
 
@@ -35,31 +42,31 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-Load Balancer has the following dimensions associated with its metrics.
+Load Balancer has the following **dimensions** associated with its metrics.
 
-| Dimension Name | Description |
+| **Dimension Name** | **Description** |
 | -------------- | ----------- |
-| Frontend IP | The frontend IP address of the relevant load balancing rule(s) |
-| Frontend Port | The frontend port of the relevant load balancing rule(s) | 
-| Backend IP | The backend IP address of the relevant load balancing rule(s) |
-| Backend Port | The backend port of the relevant load balancing rule(s) |
-| Protocol Type | The protocol of the relevant load balancing rule, this can be TCP or UDP |
+| Frontend IP | The frontend IP address of one or more relevant load balancing rules |
+| Frontend Port | The frontend port of one or more relevant load balancing rules | 
+| Backend IP | The backend IP address of one or more relevant load balancing rules |
+| Backend Port | The backend port of one or more relevant load balancing rules |
+| Protocol Type | The protocol of the relevant load balancing rule. The protocol can be TCP or UDP |
 | Direction | The direction traffic is flowing. This can be inbound or outbound. | 
-| Connection state | The state of SNAT connection, this can be pending, successful, or failed | 
+| Connection state | The state of SNAT connection. The state can be pending, successful, or failed | 
 
 ## Resource logs
 
-Resource logs are currently unsupported by Azure Load Balancer
+Azure Load Balancer supports Azure Activity logs and the LoadBalancerHealthEvent log category.
 
-## Azure Monitor logs tables
-### Diagnostics tables
+### LoadBalancerHealthEvent logs
 
-Diagnostics tables are currently unsupported by Azure Load Balancer.
-## Activity log
+For more information on the LoadBalancerHealthEvent log category, see [Azure Load Balancer health event logs](load-balancer-health-event-logs.md).
 
-The following table lists the operations related to Load Balancer that may be created in the Activity log.
+### Azure Activity logs
 
-| Operation | Description |
+The following table lists the **operations** related to Load Balancer that may be created in the Activity log.
+
+| **Operation** | **Description** |
 | --- | --- |
 | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 | Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |

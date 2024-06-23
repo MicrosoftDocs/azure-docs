@@ -2,15 +2,14 @@
 title: azcopy set-properties
 description: This article provides reference information for the azcopy set-properties command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 07/21/2022
+ms.date: 05/31/2024
 ms.author: normesta
-ms.subservice: common
-ms.reviewer: zezha-msft
+ms.subservice: storage-common-concepts
 ---
 
-# azcopy set-properties (preview)
+# azcopy set-properties
 
 Given a location, change all the valid system properties of that storage (blob or file).
 
@@ -34,7 +33,7 @@ Refer to the examples for more information.
 ## Related conceptual articles
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
-- [Replace blob properties and metadata by using AzCopy v10 (preview)](storage-use-azcopy-blobs-properties-metadata.md)
+- [Replace blob properties and metadata by using AzCopy v10](storage-use-azcopy-blobs-properties-metadata.md)
 
 
 ## Examples
@@ -43,13 +42,29 @@ Change tier of blob to hot:
 
 `azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --block-blob-tier=hot`
 
+Change tier of blob to cold:
+
+`azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --block-blob-tier=cold`
+
+Change tier of blob from hot to archive:
+
+`azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --block-blob-tier=archive`
+
 Change tier of blob from archive to cool with rehydrate priority set to high:
 
 `azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --block-blob-tier=cool --rehydrate-priority=high`
 
+Change tier of blob from cool to hot with rehydrate priority set to standard: 
+
+`azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --block-blob-tier=hot --rehydrate-priority=standard`
+
 Change tier of all files in a directory to archive:
 
 `azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --block-blob-tier=archive --recursive=true`
+
+Change tier of a page blob:
+
+`azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --page-blob-tier=[P10/P15/P20/P30/P4/P40/P50/P6]--rehydrate-priority=[Standard/High]`
 
 Change metadata of blob to {key = "abc", val = "def"} and {key = "ghi", val = "jkl"}:
 
@@ -62,6 +77,10 @@ Change metadata of all files in a directory to {key = "abc", val = "def"} and {k
 Clear all existing metadata of blob:
 
 `azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --metadata=clear`
+
+Clear all existing metadata from all files:
+
+`azcopy set-properties "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --recursive --metadata=clear`
 
 Change blob-tags of blob to {key = "abc", val = "def"} and {key = "ghi", val = "jkl"}:
 
@@ -116,7 +135,7 @@ While setting tags on the blobs, there are other permissions('t' for tags) with 
 
 `--output-level`  (string)     Define the output verbosity. Available levels: essential, quiet. (default "default")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Azure Active Directory log in tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Microsoft Entra ID log in tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

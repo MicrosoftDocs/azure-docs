@@ -4,25 +4,23 @@ titleSuffix: Azure Storage
 description: Optimize the performance of your SSH File Transfer Protocol (SFTP) requests by using the recommendations in this article.
 author: normesta
 
-ms.subservice: blobs
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta
-ms.reviewer: ylunagaria
 
 ---
 
 # SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This article contains recommendations that will help you to optimize the performance of your storage requests. To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 ## Use concurrent connections to increase throughput
 
 Azure Blob Storage scales linearly until it reaches the maximum storage account egress and ingress limit. Therefore, your applications can achieve higher throughput by using more client connections. To view storage account egress and ingress limits, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
 
-For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files. Other common SFTP clients such as FileZilla have similar options.
+For WinSCP, you can use a maximum of nine concurrent connections to upload multiple files. Other common SFTP clients such as FileZilla have similar options.
 
 > [!IMPORTANT]
 > Concurrent uploads will only improve performance when uploading multiple files at the same time. Using multiple connections to upload a single file is not supported.
@@ -38,7 +36,7 @@ For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple
 
 ## Reduce the impact of network latency
 
-Network latency has a large impact on SFTP performance due to its reliance on small messages. By default, most clients use a message size of around 32KB.
+Network latency has a large impact on SFTP performance due to its reliance on small messages. By default, most clients use a message size of around 32 KB.
 
 - Increase default message size to achieve better performance
   

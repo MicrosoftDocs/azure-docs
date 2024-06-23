@@ -5,9 +5,9 @@ ms.service: mysql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.devlang: cpp
-author: savjani
-ms.author: pariks
-ms.custom: mvc, mode-api
+author: SudheeshGH
+ms.author: sunaray
+ms.custom: mvc, mode-api, devx-track-dotnet
 ms.date: 06/20/2022
 ---
 
@@ -15,7 +15,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This quickstart demonstrates how to connect to an Azure Database for MySQL by using a C++ application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes you're familiar with developing using C++ and you're new to working with Azure Database for MySQL.
 

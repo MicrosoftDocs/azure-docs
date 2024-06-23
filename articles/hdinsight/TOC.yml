@@ -73,10 +73,10 @@ items:
       href: ./hdinsight-capacity-planning.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
-    - name: Business continuity
+    - name: Reliability and Business continuity
       items:
-        - name: Business continuity overview
-          href: hdinsight-business-continuity.md
+        - name: Reliability in HDInsight
+          href: ../reliability/reliability-hdinsight.md?toc=/azure/hdinsight/toc.json&bc=/azure/hdinsight/breadcrumb/toc.json
         - name: Business continuity architecture
           href: ./hdinsight-business-continuity-architecture.md
         - name: High availability case study
@@ -205,8 +205,12 @@ items:
         href: ./hdinsight-delete-cluster.md
       - name: Manually scale a cluster
         href: ./hdinsight-scaling-best-practices.md
-      - name: Autoscale clusters
-        href: ./hdinsight-autoscale-clusters.md
+      - name: Autoscale
+        items:
+        - name: Autoscale clusters
+          href: ./hdinsight-autoscale-clusters.md
+        - name: Custom configure Autoscale
+          href: ./how-to-custom-configure-hdinsight-autoscale.md 
       - name: Use external metadata stores
         href: ./hdinsight-use-external-metadata-stores.md
       - name: Custom Ambari DB
@@ -241,8 +245,6 @@ items:
         href: ./hdinsight-use-oozie-linux-mac.md
       - name: Cluster and service ports and URIs
         href: ./hdinsight-hadoop-port-settings-for-services.md
-      - name: Migrate to Resource Manager development tools
-        href: ./hdinsight-hadoop-development-using-azure-resource-manager.md
       - name: Upgrade HDInsight cluster to newer version
         href: ./hdinsight-upgrade-cluster.md
       - name: OS patching for HDInsight cluster
@@ -257,6 +259,8 @@ items:
         href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
+      - name: Monitor
+        href: monitor-hdinsight.md
       - name: Use Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
       - name: Use selective logging to monitor logs
@@ -269,10 +273,24 @@ items:
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
-      - name: Azure Monitor table updates
+      - name: Enable new Azure Monitor integration
         href: ./log-analytics-migration.md
+      - name: Monitoring data reference
+        href: monitor-hdinsight-reference.md
     - name: Troubleshoot
       items:
+      - name: Known issues 
+        items:
+        - name: Known issues in HDInsight
+          href: ./hdinsight-known-issues.md
+        - name: Conda version regression in a recent HDInsight release
+          href: ./hdinsight-known-issues-conda-version-regression.md
+        - name: Cluster Reliability Issues
+          href: ./cluster-reliability-issues.md
+        - name: Component version validation error in ARM templates
+          href: ./component-version-validation-error-arm-templates.md
+        - name: Switch Users in Ambari UI
+          href: ./hdinsight-known-issues-ambari-users-cache.md
       - name: Request increase for CPU core quota
         href: ./quota-increase-request.md
       - name: Troubleshoot Apache Ambari Metrics Collector
@@ -633,6 +651,8 @@ items:
         href: ./hadoop/troubleshoot-wasbs-storage-exception.md
       - name: Manage disk space
         href: ./hadoop/troubleshoot-disk-space.md
+      - name: Ambari user configs migration
+        href: ./migrate-ambari-recent-version-hdinsight.md  
 - name: Apache Kafka
   items:
   - name: Overview
@@ -665,6 +685,8 @@ items:
       href: ./kafka/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
+    - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
+      href: ./kafka/migrate-5-1-versions.md
     - name: Migrate Kafka workloads to 4.0
       href: ./kafka/migrate-versions.md
     - name: Storage and scalability
@@ -691,7 +713,7 @@ items:
           href: ./apache-kafka-spark-structured-streaming-cosmosdb.md
         - name: Apache Kafka and Apache Spark (DStream)
           href: ./hdinsight-apache-spark-with-kafka.md
-        - name: Use Apache Kafka with Azure Container Service
+        - name: Use Apache Kafka with Azure Kubernetes Service
           href: ./kafka/apache-kafka-azure-container-services.md
     - name: Manage
       items:
@@ -710,7 +732,9 @@ items:
       - name: SSL Encryption and Authentication for ESP Kafka cluster
         href: ./kafka/apache-esp-kafka-ssl-encryption-authentication.md  
       - name: Kafka MirrorMaker 2.0 guide
-        href: ./kafka/kafka-mirrormaker-2-0-guide.md  
+        href: ./kafka/kafka-mirrormaker-2-0-guide.md
+      - name: Connect HDInsight Kafka cluster with client VM in different VNet
+        href: ./kafka/connect-kafka-with-vnet.md 
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains
@@ -769,12 +793,18 @@ items:
         href: ./hbase/apache-hbase-backup-replication.md
       - name: Migrate Apache HBase cluster to newer version
         href: ./hbase/apache-hbase-migrate-new-version.md
+      - name: Migrate an Apache HBase cluster to an HDInsight 5.1
+        href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
       - name: Migrate Apache HBase version and storage account
         href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
+      - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
+        href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
       - name: Apache Phoenix performance best practices
         href: ./hbase/apache-hbase-phoenix-performance.md
       - name: Create Apache HBase cluster in Azure VNet
         href: ./hbase/apache-hbase-provision-vnet.md
+      - name: Use Apache HBase HBCK2 Tool
+        href: ./hbase/how-to-use-hbck2-tool.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Apache HBase performance issues
@@ -947,6 +977,8 @@ items:
       href: ./domain-joined/apache-domain-joined-run-kafka.md
     - name: Use Apache Oozie in ESP clusters
       href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
+    - name: Use Apache Spark-SQL RBAC with Apache Ranger
+      href: ./spark/ranger-policies-for-spark.md
   - name: Concepts
     items:
     - name: Security baseline
@@ -989,9 +1021,9 @@ items:
       href: ./hdinsight-create-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ./connect-on-premises-network.md
-    - name: Configure ESP clusters using Azure AD DS
+    - name: Configure ESP clusters using Microsoft Entra Domain Services
       href: ./domain-joined/apache-domain-joined-configure-using-azure-adds.md
-    - name: Synchronize Azure AD users to an HDInsight cluster
+    - name: Synchronize Microsoft Entra users to an HDInsight cluster
       href: ./hdinsight-sync-aad-users-to-cluster.md
     - name: Manage clusters with enterprise security
       href: ./domain-joined/apache-domain-joined-manage.md

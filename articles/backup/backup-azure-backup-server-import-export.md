@@ -2,27 +2,18 @@
 title: Offline seeding workflow for DPM and MABS using customer-owned disks with Azure Import/Export - Azure Backup
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 05/24/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Offline seeding for DPM/MABS using customer-owned disks with Azure Import/Export
 
 This article describes how to send the initial full backup data from DPM/MABS to Azure using customer-owned disks instead of sending it via the network. Learn about [sending the initial full backup data from MARS to Azure using customer-owned disks](backup-azure-backup-import-export.md).
 
 System Center Data Protection Manager and Azure Backup Server (MABS) integrate with Azure Backup and use several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.
 
-In this article, you'll learn about:
-
-> [!div class="checklist"]
-> - Offline-seeding process
-> - Supported capabilities
-> - Prerequisites
-> - Workflow
-> - How to initiate offline backup
-> - How to prepare SATA drives and ship to Azure
-> - How to update the tracking and shipping details on the Azure import job
 
 >[!IMPORTANT]
 > These steps are applicable for DPM 2019 UR1 (or above) and MABS v3 UR1 (or higher). Ensure that you've the latest MARS agent (version 2.0.9250.0 or higher) before following the below section. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-customer-owned-disks-importexport-is-not-working).
@@ -55,11 +46,11 @@ Ensure that the following prerequisites are met before you start the offline bac
 * Update Rollup 1 is installed on SC DPM 2019 or MABS v3, along with the [latest MARS agent](https://aka.ms/azurebackup_agent).
 
   > [!NOTE]
-  > With DPM 2019 UR1 and MABS v3 UR1 the offline seeding authenticates using Azure Active Directory.
+  > With DPM 2019 UR1 and MABS v3 UR1 the offline seeding authenticates using Microsoft Entra ID.
 
 * On the DPM or MABS server, make sure Microsoft Edge or Internet Explorer 11 is installed, and JavaScript is enabled.
 * Create an Azure Storage account in the same subscription as the Recovery Services vault.
-* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The Offline Backup workflow creates an Azure Active Directory application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow.
+* Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 * Register the Microsoft.DataBox resource provider with the subscription containing the Azure Storage account. To register the resource provider:
     1. In the main menu, select **Subscriptions**.
     2. If you're subscribed to multiple subscriptions, select the subscription you're using for the offline backup. If you use only one subscription, then your subscription appears.
@@ -88,7 +79,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 3. Provide the inputs on the **Use your Own Disk** page.
 
-   ![Screenshot shows how how to add details to use your own disk.](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
+   ![Screenshot shows how to add details to use your own disk.](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
 
    The description of the inputs is as follows:
 

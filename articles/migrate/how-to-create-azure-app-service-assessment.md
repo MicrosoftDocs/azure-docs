@@ -4,22 +4,23 @@ description: Learn how to assess web apps for migration to Azure App Service
 author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
-ms.date: 03/03/2023
+ms.service: azure-migrate
+ms.date: 04/01/2024
 ms.custom: engagement-fy23
 ---
 
 # Create an Azure App Service assessment
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
-This article shows you how to assess discovered ASP.NET web apps for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool.
+This article shows you how to assess discovered ASP.NET/Java web apps for migration to Azure App Service, using the Azure Migrate: Discovery and assessment tool.
 
 > [!Note]
-> Discovery and assessment of ASP.NET web apps is now in preview. If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
+> Discovery and assessment of ASP.NET/Java web apps is now in preview. If you want to try out this feature in an existing project, please ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Before you start
 
 - Make sure you've [created](./create-manage-projects.md) an Azure Migrate project and have the Azure Migrate: Discovery and assessment tool added.
-- To create an assessment, you need to set up an Azure Migrate appliance. The [appliance](migrate-appliance.md) discovers on-premises servers, and sends metadata and performance data to Azure Migrate. The same appliance discovers ASP.NET web apps running in your environment.
+- To create an assessment, you need to set up an Azure Migrate appliance. The [appliance](migrate-appliance.md) discovers on-premises servers, and sends metadata and performance data to Azure Migrate. The same appliance discovers ASP.NET/Java web apps running in your environment.
 
 ## Azure App Service assessment overview
 

@@ -3,14 +3,14 @@ title: Configure cross-tenant customer-managed keys for a new storage account
 titleSuffix: Azure Storage
 description: Learn how to configure Azure Storage encryption with customer-managed keys in an Azure key vault that resides in a different tenant than the tenant where the storage account will be created. Customer-managed keys allow a service provider to encrypt the customer's data using an encryption key that is managed by the service provider's customer and that isn't accessible to the service provider.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 10/31/2022
-ms.author: tamram
+ms.author: normesta
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -25,9 +25,9 @@ To learn how to configure customer-managed keys for an existing storage account,
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](../../../includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../../includes/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../../includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Create a new storage account encrypted with a key from a different tenant
 
@@ -80,6 +80,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -UserAssignedIdentityId $userIdentity.Id `
     -IdentityType SystemAssignedUserAssigned `
     -KeyName $keyName `
@@ -114,6 +115,7 @@ az storage account create \
     --location $isvLocation \
     --sku Standard_LRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --identity-type SystemAssigned,UserAssigned \
     --user-identity-id $identityResourceId \
     --encryption-key-vault $kvUri \

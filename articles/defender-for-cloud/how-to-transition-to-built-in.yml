@@ -1,0 +1,169 @@
+### YamlMime:HowTo
+
+metadata:
+  title: Transition to Microsoft Defender Vulnerability Management for servers
+  description: Learn how to transition to the Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
+  ms.date: 01/09/2024
+  ms.service: defender-for-cloud
+  ms.topic: how-to
+  ms.custom:
+    - ge-structured-content-pilot
+title: |
+  Transition to Microsoft Defender Vulnerability Management for servers
+introduction: |
+
+  With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using a vulnerability assessment solution other than the Microsoft Defender Vulnerability Management vulnerability assessment solution, this article provides instructions on transitioning to the integrated Defender Vulnerability Management solution.
+
+  To transition to the integrated Defender Vulnerability Management solution, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
+
+  - [Transition with Azure policy for Azure VMs](#transition-with-azure-policy-for-azure-vms)
+  - [Transition with Defender for Cloud's portal](#transition-with-defender-for-clouds-portal)
+  - [Transition with REST API](#transition-with-rest-api)
+prerequisites:
+  summary: |
+    For prerequisites and other requirements, see [Support for the Defender for Servers plan](support-matrix-defender-for-servers.md).
+procedureSection:
+  - title: |
+      Transition with Azure policy for Azure VMs 
+    summary: |
+      Follow these steps:
+    steps:
+      - |
+        Sign in to the [Azure portal](https://portal.azure.com/).
+      - |
+        Navigate to **Policy** > **Definitions**.
+      - |
+        Search for `Setup subscriptions to transition to an alternative vulnerability assessment solution`. 
+      - |
+        Select **Assign**.
+      - |
+        Select a scope and enter an assignment name.
+      - |
+        Select **Review + create**.
+      - |
+        Review the information you entered and select **Create**.
+        
+        This policy ensures that all Virtual Machines (VM) within a selected subscription are safeguarded with the built-in Defender Vulnerability Management solution.
+
+        Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
+  - title: |
+      Transition with Defender for Cloud's portal 
+    summary: |
+      In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in Defender Vulnerability Management solution. 
+    steps:
+      - |
+        Sign in to the [Azure portal](https://portal.azure.com/).
+      - |
+        Navigate to **Microsoft Defender for Cloud** > **Environment settings** 
+      - |
+        Select the relevant subscription.
+      - |
+        Locate the Defender for Servers plan and select **Settings**.
+
+          :::image type="content" source="media/how-to-migrate-to-built-in/settings-server.png" alt-text="Screenshot of the Defender for Cloud plan page that shows where to locate and select the settings button under the servers plan." lightbox="media/how-to-migrate-to-built-in/settings-server.png":::
+      - |
+        Toggle `Vulnerability assessment for machines` to **On**.
+
+          If `Vulnerability assessment for machines` was already set to on, select **Edit configuration**
+
+          :::image type="content" source="media/how-to-migrate-to-built-in/edit-configuration.png" alt-text="Screenshot of the servers plan that shows where the edit configuration button is located." lightbox="media/how-to-migrate-to-built-in/edit-configuration.png":::
+      - |
+        Select **Microsoft Defender Vulnerability Management**.
+      - |
+        Select **Apply**. 
+      - |
+        Ensure that `Endpoint protection` or `Agentless scanning for machines` are toggled to **On**.
+
+          :::image type="content" source="media/how-to-migrate-to-built-in/two-to-one.png" alt-text="Screenshot that shows where to turn on endpoint protection and agentless scanning for machines is located." lightbox="media/how-to-migrate-to-built-in/two-to-one.png":::
+      - |
+        Select **Continue**.
+      - |
+        Select **Save**.
+
+        Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
+  - title: |
+      Transition with REST API
+    summary: |
+      ### REST API for Azure VMs
+
+      Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to the Defender Vulnerability Management solution.
+
+      `PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/AzureServersSetting?api-version=2022-01-01-preview`
+    code: |
+      ```json
+      {
+        "kind": "AzureServersSetting",
+        "properties": {
+          "selectedProvider": "MdeTvm"
+        }
+      }
+      ```
+
+      Once you complete the transition to the Defender Vulnerability Management solution, you need to [remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution).
+
+      ### REST API for multicloud VMs
+
+      Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to the Defender Vulnerability Management solution.
+
+      `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/securityconnectors/{connectorName}?api-version=2022-08-01-preview`
+
+      ```json
+      {
+        "properties": {
+        "hierarchyIdentifier": "{GcpProjectNumber}",
+        "environmentName": "GCP",
+        "offerings": [
+      ​    {
+      ​     "offeringType": "CspmMonitorGcp",
+      ​     "nativeCloudConnection": {
+      ​      "workloadIdentityProviderId": "{cspm}",
+      ​      "serviceAccountEmailAddress": "{emailAddressRemainsAsIs}"
+      ​     }
+      ​    },
+      ​    {
+      ​     "offeringType": "DefenderCspmGcp"
+      ​    },
+      ​    {
+      ​     "offeringType": "DefenderForServersGcp",
+      ​     "defenderForServers": {
+      ​      "workloadIdentityProviderId": "{defender-for-servers}",
+      ​      "serviceAccountEmailAddress": "{emailAddressRemainsAsIs}"
+      ​     },
+      ​     "arcAutoProvisioning": {
+      ​      "enabled": true,
+      ​      "configuration": {}
+      ​     },
+      ​     "mdeAutoProvisioning": {
+      ​      "enabled": true,
+      ​      "configuration": {}
+      ​     },
+      ​     "vaAutoProvisioning": {
+      ​      "enabled": true,
+      ​      "configuration": {
+      ​       "type": "TVM"
+      ​      }
+      ​     },
+      ​     "subPlan": "{P1/P2}"
+      ​    }
+        ],
+        "environmentData": {
+      ​    "environmentType": "GcpProject",
+      ​    "projectDetails": {
+      ​     "projectId": "{GcpProjectId}",
+      ​     "projectNumber": "{GcpProjectNumber}",
+      ​     "workloadIdentityPoolId": "{identityPoolIdRemainsTheSame}"
+      ​    }
+        }
+        },
+        "location": "{connectorRegion}"
+      }
+      ```
+  
+      ## Remove the old vulnerability assessment solution
+    
+      After migrating to the built-in Defender Vulnerability Management solution in Defender for Cloud, offboard each VM from their old vulnerability assessment solution. To delete the VM extension, you can use the [Remove-AzVMExtension PowerShell cmdlet](/powershell/module/az.compute/remove-azvmextension) or a [REST API Delete request](/rest/api/compute/virtual-machine-extensions/delete?tabs=HTTP).
+
+nextStep:
+  text: Common questions about vulnerability scanning questions
+  url: faq-scanner-detection.yml
+

@@ -27,7 +27,7 @@ This migration guidance focuses mainly on the infrastructure and availability co
 
 To provide full workload support for availability zones, each service dependency in the workload must support availability zones. 
 
-There are two approaches types of availability zone supported services: [zonal or zone-redundant](availability-zones-service-support.md#azure-services-with-availability-zone-support). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We'll indicate which services zonal and zone-redundant resources n the recommendations below.  We'll also indicate which services are global and regional.
+There are two approaches types of availability zone supported services: [zonal or zone-redundant](availability-zones-service-support.md#azure-services-with-availability-zone-support). Most services support one or the other. However, in some cases, there are options for choosing either a zonal or zone-redundant resource for that service. We indicate which services support zonal and zone-redundant resources in the following recommendations.  We also indicate which services are global and regional.
 
 The AKS and MySQL workload architecture consists of the following component dependencies:
 
@@ -72,7 +72,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 #### Azure Firewall 
 
-*Zonal*: To use the benefits of availability zones, we recommend that the Application Gateway resource be created in multiple zones, such as zone 1, 2, and 3. We recommend that you select all three zones for best intra-region resiliency strategy.  
+*Zonal*: To use the benefits of availability zones, we recommend that the Azure Firewall resource be created in multiple zones, such as zone 1, 2, and 3. We recommend that you select all three zones for the best intra-region resiliency strategy.  
 
 #### Azure Bastion 
 
@@ -86,9 +86,11 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
 *Zone-redundant*: Azure Cache for Redis supports zone-redundant configurations in the Premium and Enterprise tiers. A zone-redundant cache places its nodes across different availability zones in the same region. 
 
-#### Azure Active Directory (AD)
+<a name='azure-active-directory-ad'></a>
 
-*Global*: Azure AD is a global service with multiple levels of internal redundancy and automatic recoverability. Azure AD is deployed in over 30 datacenters around the world that provide  availability zones where present. This number is growing rapidly as more regions are deployed. 
+#### Microsoft Entra ID
+
+*Global*: Microsoft Entra ID is a global service with multiple levels of internal redundancy and automatic recoverability. Microsoft Entra ID is deployed in over 30 datacenters around the world that provide  availability zones where present. This number is growing rapidly as more regions are deployed. 
 
 #### Azure Key Vault 
 
@@ -112,7 +114,7 @@ Using the Application Gateway Ingress Controller add-on with your AKS cluster is
 
     For example, you may decide to use the `Standard_M32ms` under the `M-series` for your user nodes because the microservices in your application require high throughput, low latency, and memory optimized VM sizes that provide high vCPU counts and large amounts of memory. Depending on the deployment region, when you select the VM size in the Azure portal, you may see that this VM size is supported only in zone 1 and 2. You can accept this resiliency configuration as a trade-off for high performance.  
 
-- You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/use-multiple-node-pools.md#limitations). 
+- You can't change the VM size of a node pool after you create it. For more information on node pool limitations, see [Limitations](../aks/create-node-pools.md#limitations).
 
 ### Azure Database for MySQL Flexible Server 
 

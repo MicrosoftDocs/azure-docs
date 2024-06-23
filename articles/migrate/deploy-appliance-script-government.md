@@ -4,9 +4,10 @@ description: Learn how to set up an Azure Migrate appliance in Azure Government
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 03/16/2023
-ms.custom: engagement-fy23 
+ms.date: 02/06/2024
+ms.custom: engagement-fy24
 ---
 
 
@@ -27,7 +28,7 @@ If you want to set up  an appliance in the public cloud, follow [this article](d
 
 You can use the script to deploy the Azure Migrate appliance on an existing physical or a virtualized server.
 
-- The server that will act as the appliance must be running Windows Server 2016 and meet other requirements for [VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
+- The server that will act as the appliance must be running Windows Server 2019 or Windows Server 2022 and meet other requirements for [VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v), and [physical servers](migrate-appliance.md#appliance---physical).
 - If you run the script on a server with Azure Migrate appliance already set up, you can choose to clean up the existing configuration and set up a fresh appliance of the desired configuration. When you execute the script, you will get a notification as shown below:
   
     :::image type="content" source="./media/deploy-appliance-script/script-reconfigure-appliance.png" alt-text="Screenshot that shows how to reconfigure an appliance.":::
@@ -56,9 +57,7 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-    **Download** | **Hash value**
-    --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC 
+[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]  
 
 
 ### Run the script
@@ -119,7 +118,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC 
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
 
 ### Run the script
 
@@ -177,9 +176,9 @@ Check that the zipped file is secure, before you deploy it.
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 3.  Verify the latest appliance version and hash value:
 
-    **Download** | **Hash value**
-    --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | CE63463B3CE07D7500F0A34F9CAFF0AB939368E5DB320F9F05EE45A386A49CDC 
+[!INCLUDE [security-hash-value.md](
+includes/security-hash-value.md
+)]
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for Azure Government cloud with either public or private endpoint connectivity.

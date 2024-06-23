@@ -1,8 +1,9 @@
 ---
 title: Create Bicep files by using Visual Studio Code
 description: Describes how to create Bicep files by using Visual Studio Code
-ms.topic: conceptual
-ms.date: 03/03/2023
+ms.topic: how-to
+ms.custom: devx-track-bicep
+ms.date: 05/10/2024
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -69,7 +70,7 @@ You can deploy Bicep files directly from Visual Studio Code. Select **Deploy Bic
 
 ### Generate parameters file
 
-This command creates a parameter file in the same folder as the Bicep file. The new parameter file name is `<bicep-file-name>.parameters.json`.
+This command creates a parameter file in the same folder as the Bicep file. You can choose to create a Bicep parameter file or a JSON parameter file. The new Bicep parameter file name is `<bicep-file-name>.bicepparam`, while the new JSON parameter file name is `<bicep-file-name>.parameters.json`.
 
 ### Import Kubernetes manifest (Preview)
 
@@ -120,21 +121,17 @@ When your Bicep file uses modules that are published to a registry, the restore 
 
 ## View type document
 
-From Visual Studio Code, you can easily open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
+From Visual Studio Code, you can open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
 
+## Go to definition
+
+When defining a [module](./modules.md), regardless of the types of the referenced file - whether it is a local file, module registry file, template spec, you can open the referenced file by selecting or highlighting the module path and then press **[F12]**. If the referenced file is an [Azure Verified Modules(AVM)](https://aka.ms/avm), you can toggle between compiled JSON or Bicep file. To be able to open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). The Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep file from private module registry.
+
 ## Paste as Bicep
 
-You can paste a JSON snippet from an ARM template to Bicep file. Visual Studio Code automatically decompiles the JSON to Bicep. This feature is only available with the Bicep extension version 0.14.0 or newer.
-
-To enable the feature:
-
-1. In Visual Studio Code, select **Manage** (gear icon) in the side menu. Select **Settings**.  You can also use <kbd>Ctrl+,</kbd> to open settings.
-1. Expand **Extensions** and then select **Bicep**.
-1. Select **Decompile on Paste**.
-
-    :::image type="content" source="./media/visual-studio-code/enable-paste-json.png" alt-text="Screenshot of Visual Studio Code Paste as Bicep.":::
+You can paste a JSON snippet from an ARM template to Bicep file. Visual Studio Code automatically decompiles the JSON to Bicep. This feature is only available with the Bicep extension version 0.14.0 or newer. This feature is enabled by default. To disable the feature, see [VS Code and Bicep extension](./install.md#visual-studio-code-and-bicep-extension).
 
 By using this feature, you can paste:
 

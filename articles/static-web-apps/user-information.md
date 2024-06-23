@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Accessing user information in Azure Static Web Apps
@@ -22,10 +22,10 @@ Client principal data object exposes user-identifiable information to your app. 
 
 | Property           | Description                                                                                                                                                                                                                                                                                                                                                        |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `identityProvider` | The name of the [identity provider](authentication-authorization.md).                                                                                                                                                                                                                                                                                              |
+| `identityProvider` | The name of the [identity provider](authentication-authorization.yml).                                                                                                                                                                                                                                                                                              |
 | `userId`           | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul> |
-| `userDetails`      | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md).                                                                                                                                                                    |
-| `userRoles`        | An array of the [user's assigned roles](authentication-authorization.md).                                                                                                                                                                                                                                                                                          |
+| `userDetails`      | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.yml), while others send the [user handle](authentication-authorization.yml).                                                                                                                                                                    |
+| `userRoles`        | An array of the [user's assigned roles](authentication-authorization.yml).                                                                                                                                                                                                                                                                                          |
 | `claims`        | An array of claims returned by your [custom authentication provider](authentication-custom.md). Only accessible in the direct-access endpoint.                                                                                                                                                                                                                                                                       |
 
 The following example is a sample client principal object:
@@ -59,7 +59,9 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
+(async () => {
 console.log(await getUserInfo());
+})();
 ```
 
 ## API functions
@@ -74,7 +76,7 @@ The following example function shows how to read and return user information.
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers['x-ms-client-principal'];
+  const header = req.headers.get('x-ms-client-principal');
   const encoded = Buffer.from(header, 'base64');
   const decoded = encoded.toString('ascii');
 
@@ -163,4 +165,4 @@ When a user is logged in, the `x-ms-client-principal` header is added to the req
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [Configure app settings](application-settings.yml)

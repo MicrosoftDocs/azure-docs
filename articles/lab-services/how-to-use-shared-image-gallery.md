@@ -2,7 +2,7 @@
 title: Use an Azure compute gallery in Azure Lab Services
 description: Learn how to use an Azure compute gallery in a lab plan. A compute gallery lets you share a VM image, which can be reused to create new labs.
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 03/06/2022
 author: ntrogh
 ms.author: nicktrog
 ---
@@ -13,7 +13,7 @@ An image contains the operating system, software applications, files, and settin
 
 You can use two types of images to set up a new lab:
 
-- Azure Marketplace images are prebuilt by Microsoft for use within Azure. These images have either Windows or Linux installed and may also include software applications. For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes deep learning frameworks and tools.
+- Azure Marketplace images are prebuilt by Microsoft for use within Azure. These images have either Windows or Linux installed and may also include software applications. For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#what-does-the-dsvm-include) includes deep learning frameworks and tools.
 - Custom images are created by your institution’s IT department and\or other educators. You can create both Windows and Linux custom images. You have the flexibility to install Microsoft and third-party applications based on your unique needs. You also can add files, change application settings, and more.
 
 > [!IMPORTANT]
@@ -33,8 +33,8 @@ Here are the couple of scenarios supported by this feature:
 - Image must be replicated to the same region as the lab plan.
 
 ## Save an image to a compute gallery
-
-After a compute gallery is attached, an educator can save an image to the compute gallery so that it can be reused by other educators.
+> [!IMPORTANT]
+> Images can only be saved from labs that were created in the same region as their lab plan.
 
 1. On the **Template** page for the lab, select **Export to Azure Compute Gallery** on the toolbar.
 
@@ -57,7 +57,7 @@ After you save the image to the compute gallery, you can use that image from the
 
 ## Use a custom image from the compute gallery
 
-An educator can pick a custom image available in the compute gallery for the template VM when creating a new lab.  Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
+An educator can pick a custom image available in the compute gallery for the template VM when creating a new lab. Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
 
 :::image type="content" source="./media/how-to-use-shared-image-gallery/use-shared-image.png" alt-text="Screenshot that shows the list of virtual machine images in the Create a new lab page.":::
 
@@ -71,13 +71,29 @@ For more information about replicating images, see  [replication in Azure Comput
 
 ### Resave a custom image to compute gallery
 
-After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery.  When you reexport, you can either create a new image or update the original image.
+After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery. When you reexport, you can either create a new image or update the original image.
 
-If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  Creating a new image allows you to save an entirely new custom image without changing the original custom image that already exists in compute gallery.
+If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created. Creating a new image allows you to save an entirely new custom image without changing the original custom image that already exists in compute gallery.
 
-If instead you choose **Update existing image**, the original custom image's definition is updated with a new [version](../virtual-machines/shared-image-galleries.md#image-versions).  Lab Services automatically will use the most recent version the next time a lab is created using the custom image.
+If instead you choose **Update existing image**, the original custom image's definition is updated with a new [version](../virtual-machines/shared-image-galleries.md#image-versions). Lab Services automatically will use the most recent version the next time a lab is created using the custom image.
 
 ## Troubleshooting
+
+### Unable to save image to the Azure Compute Gallery
+
+Ensure the image name provided during the Export to Azure Compute Gallery request is valid. The virtual machine image name must consist of alpha-numeric characters, hyphens, and periods and no longer than 80 characters.
+
+:::image type="content" source="./media/how-to-use-shared-image-gallery/unable-to-save-image-error.png" alt-text="Screenshot that shows the error message 'Unable to save the image because an error has occurred.'":::
+
+### Export to gallery not supported across regions
+
+Verify that the lab and lab plan are located in the same region. An image can only be exported from a lab that's located in the same region as the lab plan. 
+
+:::image type="content" source="./media/how-to-use-shared-image-gallery/export-image-cross-region-error.png" alt-text="Screenshot that shows the error message 'Exporting to a gallery doesn't currently support region mismatches between the lab and the lab plan. Deploy them in the same regions to use this feature.'" lightbox="./media/how-to-use-shared-image-gallery/export-image-cross-region-error.png"::: 
+
+### Unable to see images from gallery
+
+Images aren't listed in Azure Lab Services unless the appropriate permissions are assigned on an attached compute gallery. Ensure sufficient permissions are configured on an [existing compute gallery](how-to-attach-detach-shared-image-gallery.md#attach-an-existing-compute-gallery-to-a-lab-plan).
 
 ### Unable to login with the credentials you used for creating the lab
 

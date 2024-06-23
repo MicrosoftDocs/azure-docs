@@ -1,10 +1,10 @@
 ---
-title: Java developer reference for Azure Functions 
+title: Java developer reference for Azure Functions
 description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.devlang: java
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Azure Functions Java developer guide
@@ -15,7 +15,7 @@ As a Java developer, if you're new to Azure Functions, consider first reading on
 
 | Getting started | Concepts| Scenarios/samples |
 | -- | -- | -- |
-| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hubs trigger and Azure Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li></ul> |
+| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hubs trigger and Azure Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li><li>[Dependency injection samples](https://github.com/Azure/azure-functions-java-worker/tree/dev/samples/dependency-injection-example)</li></ul> |
 
 ## Java function basics
 
@@ -150,7 +150,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
-| 4.x |17 <br/>11 <br/>8 |17 <br/>11 <br/>8 |
+| 4.x | 17 <br/>11 <br/>8 | 21 (Preview) <br/>17 <br/>11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -158,14 +158,14 @@ Unless you specify a Java version for your deployment, the Maven archetype defau
 
 ### Specify the deployment version
 
-You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be either `8` or `11`. 
+You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be either `8`, `11`, `17` or `21`. 
 
 The Maven archetype generates a pom.xml that targets the specified Java version. The following elements in pom.xml indicate the Java version to use:
 
-| Element |  Java 8 value | Java 11 value | Java 17 value | Description |
-| ---- | ---- | ---- | ---- | --- |
-| **`Java.version`** | 1.8 | 11 | 17 | Version of Java used by the maven-compiler-plugin. |
-| **`JavaVersion`** | 8 | 11 | 17 | Java version hosted by the function app in Azure. |
+| Element |  Java 8 value | Java 11 value | Java 17 value | Java 21 value (Preview, Linux) | Description |
+| ---- | ---- | ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | 17 | 21 | Version of Java used by the maven-compiler-plugin. |
+| **`JavaVersion`** | 8 | 11 | 17 | 21 | Java version hosted by the function app in Azure. |
 
 The following examples show the settings for Java 8 in the relevant sections of the pom.xml file:
 
@@ -192,7 +192,7 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 (Adoptium), 11 (MSFT) and 17(MSFT). These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. 
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 (Adoptium), Java 11, 17 and 21 (MSFT). These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. 
 
 For local development or testing, you can download the [Microsoft build of OpenJDK](/java/openjdk/download) or [Adoptium Temurin](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot) binaries for free. [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
@@ -550,6 +550,54 @@ public class Function {
 }
 
 ```
+## Use dependency injection in Java Functions
+
+Azure Functions Java supports the dependency injection (DI) software design pattern, which is a technique to achieve [Inversion of Control (IoC)](/dotnet/architecture/modern-web-apps-azure/architectural-principles#dependency-inversion) between classes and their dependencies. Java Azure Functions provides a hook to integrate with popular Dependency Injection frameworks in your Functions Apps.  [Azure Functions Java SPI](https://github.com/Azure/azure-functions-java-additions/tree/dev/azure-functions-java-spi) contains an interface [FunctionInstanceInjector](https://github.com/Azure/azure-functions-java-additions/blob/dev/azure-functions-java-spi/src/main/java/com/microsoft/azure/functions/spi/inject/FunctionInstanceInjector.java). By implementing this interface, you can return an instance of your function class and your functions will be invoked on this instance. This gives frameworks like [Spring](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=%2Fazure%2Fazure-functions%2Ftoc.json), [Quarkus](/azure/azure-functions/functions-create-first-quarkus), Google Guice, Dagger, etc. the ability to create the function instance and register it into their IOC container. This means you can use those Dependency Injection frameworks to manage your functions naturally. 
+
+> [!NOTE]
+> Microsoft Azure Functions Java SPI Types ([azure-function-java-spi](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-spi/1.0.0)) is a package that contains all SPI interfaces for third parties to interact with Microsoft Azure functions runtime.
+
+### Function instance injector for dependency injection
+[azure-function-java-spi](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-spi/1.0.0) contains an interface FunctionInstanceInjector
+
+```java
+package com.microsoft.azure.functions.spi.inject; 
+
+/** 
+
+ * The instance factory used by DI framework to initialize function instance. 
+
+ * 
+
+ * @since 1.0.0 
+
+ */ 
+
+public interface FunctionInstanceInjector { 
+
+    /** 
+
+     * This method is used by DI framework to initialize the function instance. This method takes in the customer class and returns 
+
+     * an instance create by the DI framework, later customer functions will be invoked on this instance. 
+
+     * @param functionClass the class that contains customer functions 
+
+     * @param <T> customer functions class type 
+
+     * @return the instance that will be invoked on by azure functions java worker 
+
+     * @throws Exception any exception that is thrown by the DI framework during instance creation 
+
+     */ 
+
+    <T> T getInstance(Class<T> functionClass) throws Exception; 
+
+} 
+
+```
+
+For more examples that use FunctionInstanceInjector to integrate with Dependency injection frameworks refer to [this](https://github.com/Azure/azure-functions-java-worker/tree/dev/samples/dependency-injection-example) repository. 
 
 ## Next steps
 

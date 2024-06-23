@@ -4,26 +4,31 @@ titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2023
+ms.date: 01/24/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Get small cost datasets on demand
 
-Use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if want to analyze smaller cost data sets of 2 GB (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
+Use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if you want to analyze smaller cost data sets of 2 GB (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
 
 If you want to get large amounts of exported data regularly, see [Retrieve large cost datasets recurringly with exports](../costs/ingest-azure-usage-at-scale.md).
 
 To learn more about the data in cost details (formerly referred to as *usage details*), see [Ingest cost details data](automation-ingest-usage-details-overview.md).
 
-The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, Pay-As-You-Go or Visual Studio customer, see [Get cost details for a pay-as-you-go subscription](get-usage-details-legacy-customer.md).
+The [Cost Details](/rest/api/cost-management/generate-cost-details-report) report is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you're an MSDN, pay-as-you-go or Visual Studio customer, see [Get cost details for a pay-as-you-go subscription](get-usage-details-legacy-customer.md).
 
 ## Permissions
 
-To use the Cost Details API, you need read only permissions for supported features and scopes. For more information, see: 
+To use the Cost Details API, you need read only permissions for supported features and scopes.
+
+>[!NOTE]
+> The [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) doesn't support management groups for either EA or MCA customers.
+
+For more information, see: 
 
 - [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role)
 - [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-1)
@@ -35,7 +40,7 @@ Microsoft recommends the following best practices as you use the Cost Details AP
 
 ### Request schedule
 
-If you want to get the latest cost data, we recommend you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data. Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on your side to prevent repeated calls for identical data.
+If you want to get the latest cost data, we recommend you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you receive identical data. Once you download your cost data for historical invoices, the charges don't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on your side to prevent repeated calls for identical data.
 
 ### Chunk your requests 
 
@@ -51,13 +56,13 @@ On demand calls to the API are rate limited. The time it takes to generate your 
 
 ### Supported dataset time ranges
 
-The Cost Details API supports a maximum data set time range of one month per report. Historical data can be retrieved for up to 13 months back from the current date. If you're looking to seed a 13 month historical dataset, we recommend placing 13 calls for one month datasets going back 13 months.
+The Cost Details API supports a maximum data set time range of one month per report. Historical data can be retrieved for up to 13 months before the current date. If you want to seed a 13-month historical dataset, we recommend placing 13 calls in one month datasets for the past 13 months. To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
 
 ## Example Cost Details API requests
 
-The following example requests are used by Microsoft customers to address common scenarios. The data that's returned by the request corresponds to the date when the cost was received by the billing system. It might include costs from multiple invoices. It's an asynchronous API. As such, you place an initial call to request your report and receive a polling link in the response header. From there, you can poll the link provided until the report is available for you.
+The following example requests are used by Microsoft customers to address common scenarios. The data returned by the request corresponds to the date when the cost got received by the billing system. It might include costs from multiple invoices. It's an asynchronous API. As such, you place an initial call to request your report and receive a polling link in the response header. From there, you can poll the link provided until the report is available for you.
 
-Use the `retry-after` header in the API response to dictate when to poll the API next. The header provides an estimated minimum time that your report will take to generate.
+Use the `retry-after` header in the API response to dictate when to poll the API next. The header provides an estimated minimum time that your report takes to generate.
 
 To learn more about the API contract, see [Cost Details](/rest/api/cost-management/generate-cost-details-report) API.
 
@@ -67,7 +72,7 @@ To control whether you would like to see an actual cost or amortized cost report
 
 Amortized cost breaks down your reservation purchases into daily chunks and spreads them over the duration of the reservation term. For example, instead of seeing a $365 purchase on January 1, you'll see a $1.00 purchase every day from January 1 to December 31. In addition to basic amortization, the costs are also reallocated and associated by using the specific resources that used the reservation. For example, if the $1.00 daily charge was split between two virtual machines, you'd see two $0.50 charges for the day. If part of the reservation isn't utilized for the day, you'd see one $0.50 charge associated with the applicable virtual machine and another $0.50 charge with a charge type of `UnusedReservation`. Unused reservation costs are seen only when viewing amortized cost.
 
-Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views will show different total numbers. In general, the total cost of months over time for a reservation purchase will decrease when viewing amortized costs. The months following a reservation purchase will increase. Amortization is available only for reservation purchases and doesn't currently apply to Azure Marketplace purchases.
+Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views show different total numbers. In general, the total cost of months over time for a reservation purchase will decrease when viewing amortized costs. The cost of months following a reservation purchase increase. Amortization is available only for reservation purchases and doesn't currently apply to Azure Marketplace purchases.
 
 ### Initial request to create report
 
@@ -77,7 +82,7 @@ POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/gen
 
 **Request body:**
 
-An example request for an ActualCost dataset for a specified date range is provided below.
+Here's an example request for an ActualCost dataset for a specified date range.
 
 ```json
 {
@@ -92,16 +97,16 @@ An example request for an ActualCost dataset for a specified date range is provi
 
 Available *{scope}* options to build the proper URI are documented at [Identify the resource ID for a scope](../costs/understand-work-scopes.md#identify-the-resource-id-for-a-scope).
 
-The available fields you can provide in the report request body are summarized below.
+Here are the available fields you can provide in the report request body.
 
-- **metric** - The type of report requested. It can be either ActualCost or AmortizedCost. Not required. If the field isn't specified, the API will default to an ActualCost report.
-- **timePeriod** - The requested date range for your data. Not required. This parameter can't be used alongside either the invoiceId or billingPeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API will return the current month's cost.
-- **invoiceId** - The requested invoice for your data. This parameter can only be used by Microsoft Customer Agreement customers. Additionally, it can only be used at the Billing Profile or Customer scope. This parameter can't be used alongside either the billingPeriod or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API will return the current month's cost.
-- **billingPeriod** - The requested billing period for your data. This parameter can be used only by Enterprise Agreement customers. Use the YearMonth format. For example, 202008. This parameter can't be used alongside either the invoiceId or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API will return the current month's cost.
+- **metric** - The type of report requested. It can be either ActualCost or AmortizedCost. Not required. If the field isn't specified, the API defaults to an ActualCost report.
+- **timePeriod** - The requested date range for your data. Not required. This parameter can't be used alongside either the invoiceId or billingPeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API returns the current month's cost.
+- **invoiceId** - The requested invoice for your data. This parameter is only used by Microsoft Customer Agreement customers. Additionally, it can only be used at the Billing Profile or Customer scope. This parameter can't be used alongside either the billingPeriod or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API returns the current month's cost.
+- **billingPeriod** - The requested billing period for your data. This parameter is only used by Enterprise Agreement customers. Use the YearMonth format. For example, 202008. This parameter can't be used alongside either the invoiceId or timePeriod parameters. If a timePeriod, invoiceId or billingPeriod parameter isn't provided in the request body the API returns the current month's cost.
 
 **API response:**
 
-`Response Status: 202 – Accepted` : Indicates that the request will be processed. Use the `Location` header to check the status.
+`Response Status: 202 – Accepted` : Indicates that the request was accepted. Use the `Location` header to check the status.
 
 Response headers:
 
@@ -112,7 +117,7 @@ Response headers:
 
 ### Report polling and download
 
-Once you've requested to create a Cost Details report, poll for the report using the endpoint provided in the `location` header of the API response. An example polling request is below.
+Poll for the report using the endpoint provided in the `location` header of the API response after you make a request to create a Cost Details report. Here's an example polling request.
 
 Report polling request:
 
@@ -120,7 +125,7 @@ Report polling request:
 GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/costDetailsOperationStatus/{operationId}?api-version=2022-05-01
 ```
 
-`Response Status 200 – Succeeded`: Indicates that the request has succeeded.
+`Response Status 200 – Succeeded`: Indicates that the request succeeded.
 
 ```JSON
 {
@@ -154,20 +159,20 @@ GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/cost
 }
 ```
 
-A summary of the key fields in the API response is below:
+Here's a summary of the key fields in the API response:
 
-- **manifestVersion** - The version of the manifest contract that is used in the response. At this time, the manifest version will remain the same for a given API version.
+- **manifestVersion** - The version of the manifest contract that is used in the response. At this time, the manifest version remains the same for a given API version.
 - **dataFormat** - CSV is the only supported file format provided by the API at this time.
-- **blobCount** - Represents the number of individual data blobs present in the report dataset. It's important to note that this API may provide a partitioned dataset of more than one file in the response. Design your data pipelines to be able to handle partitioned files accordingly. Partitioning will allow you to be able to ingest larger datasets more quickly moving forward.
+- **blobCount** - Represents the number of individual data blobs present in the report dataset. It's important to note that this API might provide a partitioned dataset of more than one file in the response. Design your data pipelines to be able to handle partitioned files accordingly. Partitioning allows you to be able to ingest larger datasets more quickly moving forward.
 - **byteCount** - The total byte count of the report dataset across all partitions.
 - **compressData** - Compression is always set to false for the first release. The API will support compression in the future, however.
 - **requestContext** - The initial configuration requested for the report.
 - **blobs** - A list of n blob files that together comprise the full report.
   - **blobLink** - The download URL of an individual blob partition.
   - **byteCount** - The byte count of the individual blob partition.
-- **validTill** - The date at which the report will no longer be accessible.
+- **validTill** - The date when the report is no longer accessible.
 
-## Next steps
+## Related content
 
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).

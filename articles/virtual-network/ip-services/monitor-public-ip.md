@@ -2,13 +2,13 @@
 title: Monitoring Public IP addresses
 titleSuffix: Azure Virtual Network
 description: Start here to learn how to monitor Public IP addresses
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
+ms.date: 08/24/2023
 ms.topic: how-to
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.custom: subject-monitoring, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 06/29/2022
 ---
 
 # Monitoring Public IP addresses
@@ -272,7 +272,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for *Public IP Addresses* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
+You can analyze metrics for *Public IP Addresses* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. 
 
 For a list of the platform metrics collected for Public IP Address, see [Monitoring *Public IP Addresses* data reference](monitor-public-ip-reference.md#metrics) .
 

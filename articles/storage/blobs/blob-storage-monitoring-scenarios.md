@@ -3,11 +3,10 @@ title: Best practices for monitoring Azure Blob Storage
 description: Learn best practice guidelines and how to them when using metrics and logs to monitor your Azure Blob Storage.
 recommendations: false
 author: normesta
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 07/30/2021
+ms.date: 05/10/2023
 ms.custom: "monitoring"
 ---
 
@@ -49,7 +48,7 @@ To examine the blobs associated with this used capacity, you can use Storage Exp
 
 ## Monitor the use of a container
 
-If you partition your customer's data by container, then can monitor how much capacity is used by each customer. You can use Azure Storage blob inventory to take an inventory of blobs with size information. Then, you can aggregate the size and count at the container level. For an example, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
+If you partition your customer's data by container, then can monitor how much capacity is used by each customer. You can use Azure Storage blob inventory to take an inventory of blobs with size information. Then, you can aggregate the size and count at the container level. For an example, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml).
 
 You can also evaluate traffic at the container level by querying logs. To learn more about writing Log Analytic queries, see [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md). To learn more about the storage logs schema, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -101,12 +100,12 @@ Open any log entry to view JSON that describes the activity. The following JSON 
 > [!div class="mx-imgBorder"]
 > ![Activity Log JSON](./media/blob-storage-monitoring-scenarios/activity-log-json.png)
 
-The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by an Azure AD security principal, the object identifier of that security principal would also appear in this JSON output (For example: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal.
+The availability of the  "who" information depends on the method of authentication that was used to perform the control plane operation. If the authorization was performed by a Microsoft Entra security principal, the object identifier of that security principal would also appear in this JSON output (For example: `"http://schemas.microsoft.com/identity/claims/objectidentifier": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`). Because you might not always see other identity-related information such as an email address or name, the object identifier is always the best way to uniquely identify the security principal.
 
-You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
+You can find the friendly name of that security principal by taking the value of the object identifier, and searching for the security principal in Microsoft Entra ID page of the Azure portal. The following screenshot shows a search result in Microsoft Entra ID.
 
 > [!div class="mx-imgBorder"]
-> ![Search Azure Active Directory](./media/blob-storage-monitoring-scenarios/search-azure-active-directory.png)
+> ![Search Microsoft Entra ID](./media/blob-storage-monitoring-scenarios/search-azure-active-directory.png)
 
 ### Auditing data plane operations
 
@@ -125,17 +124,20 @@ For the "when" portion of your audit, the `TimeGenerated` field shows when the l
 For the "what" portion of your audit, the `Uri` field shows the item was modified or read.
 
 For the "how" portion of your audit, the `OperationName` field shows which operation was executed.
+> [!TIP] 
+> For example, if you suspect that a blob or container has been deleted by mistake, then add a `where` clause that returns only log entries where the `OperationName` is set to either [Delete blob](/rest/api/storageservices/delete-blob) or [Delete Container](/rest/api/storageservices/delete-container).
+For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports including the use of an account key, a SAS token, or Microsoft Entra authentication.
 
-For the "who" portion of your audit, `AuthenticationType` shows which type of authentication was used to make a request. This field can show any of the types of authentication that Azure Storage supports including the use of an account key, a SAS token, or Azure Active Directory (Azure AD) authentication.
+If the request is authorized by using Microsoft Entra ID, you can use the `RequestObjectId` field to identify the "who". Shared Key and SAS authentication provide no means of auditing individual identities. In those cases, the `callerIPAddress` and `userAgentHeader` fields might help you to identify the source of the operation. If a SAS token was used to authorize an operation, you can identify that token, and if you've mapped tokens to token recipients at your end, you can identify which user, organization, or application has performed the operation. See [Identifying the SAS token used to authorize a request](#identifying-the-sas-token-used-to-authorize-a-request).
 
 #### Identifying the security principal used to authorize a request
 
-If a request was authenticated by using Azure AD, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Azure AD page of the Azure portal. The following screenshot shows a search result in Azure AD.
+If a request was authenticated by using Microsoft Entra ID, the `RequesterObjectId` field provides the most reliable way to identify the security principal. You can find the friendly name of that security principal by taking the value of the `RequesterObjectId` field, and searching for the security principal in Microsoft Entra ID page of the Azure portal. The following screenshot shows a search result in Microsoft Entra ID.
 
 > [!div class="mx-imgBorder"]
-> ![Search Azure Active Directory](./media/blob-storage-monitoring-scenarios/search-azure-active-directory.png)
+> ![Search Microsoft Entra ID](./media/blob-storage-monitoring-scenarios/search-azure-active-directory.png)
 
-In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is an Azure AD user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Azure AD tenant authentication, the UPN will not appear in logs.
+In some cases, a user principal name or *UPN* might appear in logs. For example, if the security principal is a Microsoft Entra user, the UPN will likely appear. For other types of security principals such as user assigned managed identities, or in certain scenarios such as cross Microsoft Entra tenant authentication, the UPN will not appear in logs.
 
 This query shows all read operations performed by OAuth security principals.
 
@@ -147,7 +149,7 @@ StorageBlobLogs
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=/azure/storage/blobs/toc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
+Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Microsoft Entra ID, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=/azure/storage/blobs/toc.json&tabs=portal). To get started with Microsoft Entra ID, see [Authorize access to blobs using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 #### Identifying the SAS token used to authorize a request
 
@@ -161,19 +163,23 @@ StorageBlobLogs
 | project TimeGenerated, AuthenticationType, AuthenticationHash, OperationName, Uri
 ```
 
-For security reasons, SAS tokens don't appear in logs. However, the SHA-256 hash of the SAS token will appear in the `AuthenticationHash` field that is returned by this query. 
+For security reasons, SAS tokens don't appear in logs. However, the SHA-256 hash of the SAS token signature will appear in the `AuthenticationHash` field that is returned by this query.
 
-If you've distributed several SAS tokens, and you want to know which SAS tokens are being used, you'll have to convert each of your SAS tokens to an SHA-256 hash, and then compare that hash to the hash value that appears in logs.
+If you've distributed several SAS tokens, and you want to know which SAS tokens are being used, you'll have to convert the signature portion of each of your SAS tokens to an SHA-256 hash, and then compare that hash to the hash value that appears in logs.
 
-First decode each SAS token string. The following example decodes a SAS token string by using PowerShell.
+First decode each SAS token string. The following example decodes the signature portion of the SAS token string by using PowerShell.
 
 ```powershell
-[uri]::UnescapeDataString("<SAS token goes here>")
+[uri]::UnescapeDataString("<SAS signature here>")
 ```
 
-Then, you can pass that string to the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) PowerShell cmdlet. For an example, see [Example 4: Compute the hash of a string](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string).
+You can use any tool or SDK to convert the decoded signature to the SHA-256 has of that signature. For example, on a Linux system, you could use the following command:
 
-Alternatively, you can pass the decoded string to the [hash_sha256()](/azure/data-explorer/kusto/query/sha256hashfunction) function as part of a query when you use Azure Data Explorer.
+```bash
+echo -n "<Decoded SAS signature>" | python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()), end='');"  | sha256sum
+```
+
+Another way to convert the decoded signature is to pass the decoded string to the [hash_sha256()](/azure/data-explorer/kusto/query/sha256hashfunction) function as part of a query when you use Azure Data Explorer.
 
 SAS tokens do not contain identity information. One way to track the activities of users or organizations, is to keep a mapping of users or organizations to various SAS token hashes.
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description:  This article helps you customize views in cost analysis to understand how you're being charged and to investigate unexpected changes.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -37,7 +37,7 @@ Here's a view of Azure service costs for the current month, grouped by Service n
 
 The following image shows resource group names. You can group by tag to view total costs per tag or group by **Resource group name**.
 
-:::image type="content" source="./media/customize-cost-analysis-views/accumulated-costs-resource-group-daily-area.png" alt-text="Screenshot showing resource group names. " lightbox="./media/customize-cost-analysis-views/accumulated-costs-resource-group-daily-area.png" :::
+:::image type="content" source="./media/customize-cost-analysis-views/accumulated-costs-resource-group-daily-area.png" alt-text="Screenshot showing resource group names." lightbox="./media/customize-cost-analysis-views/accumulated-costs-resource-group-daily-area.png" :::
 
 When you're grouping costs by a specific attribute, the top 10 cost contributors are shown from highest to lowest. If there are more than 10, the top nine cost contributors are shown with an **Others**  group that represents all remaining groups combined. When you're grouping by tags, an **Untagged** group appears for costs that don't have the tag key applied. **Untagged** is always last, even if untagged costs are higher than tagged costs. Untagged costs will be part of **Others**, if 10 or more tag values exist. To view what's grouped into **Others** , either select that segment to apply a filter or switch to the table view and change granularity to **None** to see all values ranked from highest to lowest cost.
 
@@ -81,13 +81,13 @@ Because of the change in how costs are represented, it's important to note that 
 
 Costs are shown in your billing currency by default. If you have charges in multiple currencies, costs will automatically be converted to USD. If you have any non-USD charges, you can switch between currencies in the total KPI menu. You may see options like **GBP only** to view only the charges in that one currency or **All costs in USD** to view the normalized costs in USD. You can't view costs normalized to other currencies today.
 
-:::image type="content" source="./media/customize-cost-analysis-views/currency-costs.png" alt-text="Screenshot showing the currency selector. " lightbox="./media/customize-cost-analysis-views/currency-costs.png" :::
+:::image type="content" source="./media/customize-cost-analysis-views/currency-costs.png" alt-text="Screenshot showing the currency selector." lightbox="./media/customize-cost-analysis-views/currency-costs.png" :::
 
 ## Select a budget
 
 When you view a chart, it can be helpful to visualize your charges against a budget. It's especially helpful when showing accumulated daily costs with a forecast trending towards your budget. If your costs go over your budget, you'll see a red critical icon next to your budget. If your forecast goes over your budget, you'll see a yellow warning icon.
 
-When you view daily or monthly costs, your budget may be estimated for the period. For instance, a monthly budget of $31 will be shown as `$1/day (est)`. Note your budget won't be shown as red when it exceeds this estimated amount on a specific day or month.
+When you view daily or monthly costs, your budget may be estimated for the period. For instance, a monthly budget of $31 are shown as `$1/day (est)`. Note your budget won't be shown as red when it exceeds this estimated amount on a specific day or month.
 
 Budgets that have filters aren't currently supported in cost analysis. You won't see them in the list. Budgets on lower-level scopes are also not shown in cost analysis today. To view a budget for a specific scope, change scope using the scope picker.
 
@@ -98,6 +98,13 @@ Use **Granularity** to indicate how you want to view cost over time. The lowest 
 If you'd like to view a running total of charges on either a daily or monthly basis, select **Accumulated**. Accumulated is especially helpful when you view your forecast as it helps you see the trend over time.
 
 If you'd like to view the total for the entire period (no granularity), select **None**. Selecting no granularity is helpful when grouping costs by a specific attribute in either a chart or table.
+
+| Granularity | Description |
+|-------------|-------------|
+| None        | Shows the total cost for the entire date range. |
+| Daily       | Shows cost per day (UTC). |
+| Monthly     | Shows cost per calendar month (UTC). |
+| Accumulated | Shows the running total for each day including the total of all previous days in the selected date range. |
 
 ## Visualize costs in a chart
 
@@ -114,6 +121,6 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 :::image type="content" source="./media/customize-cost-analysis-views/accumulated-costs-resource-chart.png" alt-text="Screenshot showing the table view." lightbox="./media/customize-cost-analysis-views/accumulated-costs-resource-chart.png" :::
 
-## Next steps
+## Related content
 
 - Learn about [Saving and sharing customized views](save-share-views.md).

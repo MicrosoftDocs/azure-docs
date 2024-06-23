@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Configure Azure-SSIS integration runtime to join a virtual network
@@ -105,7 +105,7 @@ After you've configured a virtual network, you can join your Azure-SSIS IR to th
 
 1. Start your Azure-SSIS IR by selecting the **Start** button in **Actions** column for your Azure-SSIS IR. It takes about 5 minutes to start your Azure-SSIS IR that joins a virtual network with express injection method.
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

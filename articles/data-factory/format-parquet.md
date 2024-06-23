@@ -5,9 +5,9 @@ description: This topic describes how to deal with Parquet format in Azure Data 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, contperf-fy22q2
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -187,7 +187,7 @@ ParquetSource sink(
 
 Parquet complex data types (e.g. MAP, LIST, STRUCT) are currently supported only in Data Flows, not in Copy Activity. To use complex types in data flows, do not import the file schema in the dataset, leaving schema blank in the dataset. Then, in the Source transformation, import the projection.
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)

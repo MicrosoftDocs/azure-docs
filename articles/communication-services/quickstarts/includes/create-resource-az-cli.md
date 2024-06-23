@@ -1,6 +1,7 @@
 ---
 author: probableprime
 ms.service: azure-communication-services
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 06/30/2021
 ms.author: rifox
@@ -15,7 +16,7 @@ If you're planning on using phone numbers, you can't use the free trial account.
 
 ## Create Azure Communication Services resource
 
-To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials. Run the following command to create the resource:
+To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and provide your credentials. Run the following command to create the resource:
 
 ```azurepowershell-interactive
 az communication create --name "<acsResourceName>" --location "Global" --data-location "United States" --resource-group "<resourceGroup>"
@@ -30,9 +31,9 @@ You can configure your Communication Services resource with the following option
 
 * The [resource group](../../../azure-resource-manager/management/manage-resource-groups-cli.md)
 * The name of the Communication Services resource
-* The geography the resource will be associated with
+* The geography associated with the resource
 
-In the next step, you can assign tags to the resource. Tags can be used to organize your Azure resources. For more information about tags, see the [resource tagging documentation](../../../azure-resource-manager/management/tag-resources.md).
+In the next step, you can assign tags to the resource. You can use tags to organize your Azure resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../../azure-resource-manager/management/tag-resources.md).
 
 ## Manage your Communication Services resource
 

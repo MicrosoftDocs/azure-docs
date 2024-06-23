@@ -19,6 +19,63 @@ This article provides the properties and schema for Azure Data Box events. For 
 
 ### Example events
 
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+### Microsoft.DataBox.CopyStarted event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.DataBox/jobs/{your-resource}",
+  "subject": "/jobs/{your-resource}",
+  "type": "Microsoft.DataBox.CopyStarted",
+  "time": "2022-10-16T02:51:26.4248221Z",
+  "id": "049ec3f6-5b7d-4052-858e-6f4ce6a46570",
+  "data": {
+    "serialNumber": "SampleSerialNumber",
+    "stageName": "CopyStarted",
+    "stageTime": "2022-10-12T19:38:08.0218897Z"
+  },
+  "specVersion": "1.0"
+}]
+```
+
+### Microsoft.DataBox.CopyCompleted event
+
+```json
+{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.DataBox/jobs/{your-resource}",
+  "subject": "/jobs/{your-resource}",
+  "type": "Microsoft.DataBox.CopyCompleted",
+  "time": "2022-10-16T02:51:26.4248221Z",
+  "id": "759c892a-a628-4e48-a116-2e1d54c555ce",
+  "data": {
+    "serialNumber": "SampleSerialNumber",
+    "stageName": "CopyCompleted",
+    "stageTime": "2022-10-12T19:38:08.0218897Z"
+  },
+  "specVersion": "1.0"
+}
+```
+
+### Microsoft.DataBox.OrderCompleted event
+
+```json
+[{
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.DataBox/jobs/{your-resource}",
+  "subject": "/jobs/{your-resource}",
+  "type": "Microsoft.DataBox.OrderCompleted",
+  "time": "2022-10-16T02:51:26.4248221Z",
+  "id": "5eb07c79-39a8-439c-bb4b-bde1f6267c37",
+  "data": {
+    "serialNumber": "SampleSerialNumber",
+    "stageName": "OrderCompleted",
+    "stageTime": "2022-10-12T19:38:08.0218897Z"
+  },
+  "specVersion": "1.0"
+}]
+```
+
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
 ### Microsoft.DataBox.CopyStarted event
@@ -78,61 +135,6 @@ This article provides the properties and schema for Azure Data Box events. For 
 }
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-### Microsoft.DataBox.CopyStarted event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.DataBox/jobs/{your-resource}",
-  "subject": "/jobs/{your-resource}",
-  "type": "Microsoft.DataBox.CopyStarted",
-  "time": "2022-10-16T02:51:26.4248221Z",
-  "id": "049ec3f6-5b7d-4052-858e-6f4ce6a46570",
-  "data": {
-    "serialNumber": "SampleSerialNumber",
-    "stageName": "CopyStarted",
-    "stageTime": "2022-10-12T19:38:08.0218897Z"
-  },
-  "specVersion": "1.0"
-}]
-```
-
-### Microsoft.DataBox.CopyCompleted event
-
-```json
-{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.DataBox/jobs/{your-resource}",
-  "subject": "/jobs/{your-resource}",
-  "type": "Microsoft.DataBox.CopyCompleted",
-  "time": "2022-10-16T02:51:26.4248221Z",
-  "id": "759c892a-a628-4e48-a116-2e1d54c555ce",
-  "data": {
-    "serialNumber": "SampleSerialNumber",
-    "stageName": "CopyCompleted",
-    "stageTime": "2022-10-12T19:38:08.0218897Z"
-  },
-  "specVersion": "1.0"
-}
-```
-
-### Microsoft.DataBox.OrderCompleted event
-
-```json
-[{
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.DataBox/jobs/{your-resource}",
-  "subject": "/jobs/{your-resource}",
-  "type": "Microsoft.DataBox.OrderCompleted",
-  "time": "2022-10-16T02:51:26.4248221Z",
-  "id": "5eb07c79-39a8-439c-bb4b-bde1f6267c37",
-  "data": {
-    "serialNumber": "SampleSerialNumber",
-    "stageName": "OrderCompleted",
-    "stageTime": "2022-10-12T19:38:08.0218897Z"
-  },
-  "specVersion": "1.0"
-}]
-```
 ---
 
 

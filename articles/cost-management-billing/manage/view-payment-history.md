@@ -3,11 +3,10 @@ title:  View payment history
 description: This article describes how to view your payment history for a Microsoft Customer Agreement.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -25,9 +24,17 @@ To view the payment history for your billing account, you must have at least the
 
 ## View your payment history
 
-To view your payment history, you can navigate to the Payment history page under a specific billing profile.
+To view your payment history, you can navigate to the Payment history page under a billing account or a specific billing profile.
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+To vew payment history at billing account level:
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Search for **Cost Management + Billing** and select it.
+3. Select a Billing scope, if necessary.
+4. In the left menu under **Billing**, select **Payment history**.
+
+To view payment history at a billing profile level:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing** and select it.
 3. Select a Billing scope, if necessary.
 4. In the left menu under **Billing**, select **Billing profiles**.

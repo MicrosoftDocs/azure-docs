@@ -2,7 +2,7 @@
 title: Use Windows HostProcess containers
 description: Learn how to use HostProcess & Privileged containers for Windows workloads on AKS
 ms.topic: article
-ms.date: 4/6/2022
+ms.date: 05/09/2023
 ms.author: juda
 
 ---
@@ -12,7 +12,6 @@ ms.author: juda
 HostProcess / Privileged containers extend the Windows container model to enable a wider range of Kubernetes cluster management scenarios. HostProcess containers run directly on the host and maintain behavior and access similar to that of a regular process. HostProcess containers allow users to package and distribute management operations and functionalities that require host access while retaining versioning and deployment methods provided by containers.
 
 A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernetes but not Windows hosts. HostProcess containers are the Windows equivalent of host elevation.
-
 
 ## Limitations
 
@@ -26,7 +25,6 @@ A privileged DaemonSet can carry out changes or monitor a Linux host on Kubernet
 * Resource limits such as disk, memory, and cpu count, work the same way as fashion as processes on the host.
 * Named pipe mounts and Unix domain sockets aren't directly supported, but can be accessed on their host path, for example `\\.\pipe\*`.
 
-
 ## Run a HostProcess workload
 
 To use HostProcess features with your deployment, set *hostProcess: true* and *hostNetwork: true*:  
@@ -34,13 +32,12 @@ To use HostProcess features with your deployment, set *hostProcess: true* and *h
 ```yaml
     spec:
       ...
-      containers:
-          ...
-          securityContext:
-            windowsOptions:
-              hostProcess: true
-              ...
+      securityContext:
+         windowsOptions:
+           hostProcess: true
+           ...
       hostNetwork: true
+      containers:
       ...
 ```
 
@@ -65,21 +62,18 @@ spec:
     spec:
       nodeSelector:
         kubernetes.io/os: windows
+      securityContext:
+        windowsOptions:
+          hostProcess: true
+          runAsUserName: "NT AUTHORITY\\SYSTEM"
+      hostNetwork: true
       containers:
         - name: powershell
-          image: mcr.microsoft.com/powershell:lts-nanoserver-1809
-          securityContext:
-            windowsOptions:
-              hostProcess: true
-              runAsUserName: "NT AUTHORITY\\SYSTEM"
+          image: mcr.microsoft.com/powershell:lts-nanoserver-1809 # or lts-nanoserver-ltsc2022
           command:
             - powershell.exe
-            - -command
-            - |
-              $AdminRights = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")
-              Write-Host "Process has admin rights: $AdminRights"
-              while ($true) { Start-Sleep -Seconds 2147483 }
-      hostNetwork: true
+            - -Command
+            - Start-Sleep -Seconds 2147483
       terminationGracePeriodSeconds: 0
 ```
 
@@ -119,7 +113,6 @@ Process has admin rights:
 ## Next steps
 
 For more information on HostProcess containers and Microsoft's contribution to Kubernetes upstream, see the [Alpha in v1.22: Windows HostProcess Containers][blog-post].
-
 
 <!-- LINKS - External -->
 [blog-post]: https://kubernetes.io/blog/2021/08/16/windows-hostprocess-containers/

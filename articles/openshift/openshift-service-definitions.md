@@ -5,7 +5,7 @@ ms.service: azure-redhat-openshift
 ms.topic: article
 author: johnmarco
 ms.author: johnmarc
-ms.date: 02/01/2022
+ms.date: 04/15/2024
 keywords: azure, openshift, aro, red hat, service, definition
 #Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.
 ---
@@ -37,6 +37,10 @@ You can perform all other Azure Red Hat OpenShift cluster actions, such as scali
 An Azure Red Hat OpenShift deployment requires two resource groups within an Azure subscription. The first resource group is created by the customer and contains the virtual networking components for the cluster. Keeping the networking elements separate allows the customer to configure Azure Red Hat OpenShift to meet requirements and to add any peering options.
 
 The second resource group is created by the Azure Red Hat OpenShift resource provider. It contains Azure Red Hat OpenShift cluster components, including virtual machines, network security groups, and load balancers. Azure Red Hat OpenShift cluster components located within this resource group aren't modifiable by the customer. Cluster configuration must be performed via interactions with the OpenShift API using the OpenShift web console or OpenShift CLI or similar tools.
+
+> [!NOTE]
+> The service principal for the ARO resource provider requires the Network Contributor role on the VNet of the ARO cluster. This is required for the ARO resource provider to create resources such as the ARO Private Link service and load balancers.
+> 
 
 ## Red Hat operators
 
@@ -172,6 +176,10 @@ No monitoring of these private network connections is provided by Red Hat SRE. M
 
 Azure Red Hat OpenShift customers can specify their own DNS servers. For more information, see [Configure custom DNS for your Azure Red Hat OpenShift cluster](./howto-custom-dns.md).
 
+### Container Network Interface
+
+Azure Red Hat OpenShift comes with OVN (Open Virtual Network) as the Container Network Interface (CNI). Replacing the CNI is not a supported operation. For more information, see [OVN-Kubernetes network provider for Azure Red Hat OpenShift clusters](concepts-ovn-kubernetes.md).
+
 ## Storage
 
 The following sections provide information about Azure Red Hat OpenShift storage.
@@ -209,11 +217,11 @@ Application and application data backups aren't an automated part of the Azure R
 ### DaemonSets
 Customers can create and run DaemonSets on Azure Red Hat OpenShift. To restrict DaemonSets to only running on worker nodes, use the following nodeSelector:
 
-...
+```
 spec:
   nodeSelector:
     node-role.kubernetes.io/worker: ""
-...
+```
 
 ### Azure Red Hat OpenShift version
 
@@ -230,6 +238,7 @@ Azure Red Hat OpenShift runs on OpenShift 4 and uses the CRI-O implementation of
 ### Operating system
 
 Azure Red Hat OpenShift runs on OpenShift 4 using Red Hat Enterprise Linux CoreOS (RHCOS) as the operating system for all control plane and worker nodes.
+Windows workloads are not supported on Azure OpenShift as the platform does not currently support Windows worker nodes.
 
 ### Kubernetes operator support
 
@@ -245,9 +254,9 @@ The following sections provide information about Azure OpenShift security.
 
 Azure Red Hat OpenShift clusters aren't configured with any authentication providers.
 
-Customers need to configure their own providers, such as Azure Active Directory. For information about configuring providers, see the following articles:
+Customers need to configure their own providers, such as Microsoft Entra ID. For information about configuring providers, see the following articles:
 
-* [Azure Active Directory Authentication](./configure-azure-ad-cli.md)
+* [Microsoft Entra authentication](./configure-azure-ad-cli.md)
 * [OpenShift identity providers](https://docs.openshift.com/container-platform/4.7/authentication/understanding-identity-provider.html)
 
 ### Regulatory compliance

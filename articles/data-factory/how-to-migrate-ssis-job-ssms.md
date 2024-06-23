@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 05/15/2024
 ---
 # Migrate SQL Server Agent jobs to ADF with SSMS
 
@@ -70,6 +70,6 @@ The feature described in this article requires SQL Server Management Studio vers
 1. Migrate, then check results.
 :::image type="content" source="media/how-to-migrate-ssis-job-ssms/step5.png" alt-text="Screenshot shows the Migration Result page, which displays the progress of the migration.":::
 
-## Next steps
+## Related content
 
 [Run and monitor pipeline](how-to-invoke-ssis-package-ssis-activity.md)

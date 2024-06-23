@@ -14,6 +14,10 @@ ms.author: alkohli
 
 # Install GPU extension on VMs for your Azure Stack Edge Pro GPU device
 
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+
 [!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 This article describes how to install GPU driver extension to install appropriate Nvidia drivers on the GPU VMs running on your Azure Stack Edge device. The article covers installation steps for installing a GPU extension using Azure Resource Manager templates on both Windows and Linux VMs.
@@ -49,21 +53,21 @@ To deploy Nvidia GPU drivers for an existing VM, edit the `addGPUExtWindowsVM.pa
 The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 
 ```json
-"parameters": {	
+"parameters": {
 	"vmName": {
-	"value": "<name of the VM>" 
+	"value": "<name of the VM>"
 	},
 	"extensionName": {
-	"value": "<name for the extension. Example: windowsGpu>" 
+	"value": "<name for the extension. Example: windowsGpu>"
 	},
 	"publisher": {
-	"value": "Microsoft.HpcCompute" 
+	"value": "Microsoft.HpcCompute"
 	},
 	"type": {
-	"value": "NvidiaGpuDriverWindows" 
+	"value": "NvidiaGpuDriverWindows"
 	},
 	"typeHandlerVersion": {
-	"value": "1.5" 
+	"value": "1.5"
 	},
 	"settings": {
 	"value": {
@@ -76,25 +80,25 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 ```
 
 #### Versions lower than 2205
- 
+
 The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 
 ```json
-"parameters": {	
+"parameters": {
 	"vmName": {
-	"value": "<name of the VM>" 
+	"value": "<name of the VM>"
 	},
 	"extensionName": {
-	"value": "<name for the extension. Example: windowsGpu>" 
+	"value": "<name for the extension. Example: windowsGpu>"
 	},
 	"publisher": {
-	"value": "Microsoft.HpcCompute" 
+	"value": "Microsoft.HpcCompute"
 	},
 	"type": {
-	"value": "NvidiaGpuDriverWindows" 
+	"value": "NvidiaGpuDriverWindows"
 	},
 	"typeHandlerVersion": {
-	"value": "1.3" 
+	"value": "1.3"
 	},
 	"settings": {
 	"value": {
@@ -115,21 +119,21 @@ To deploy Nvidia GPU drivers for an existing Linux VM, edit the `addGPUExtWindow
 If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parameters.json` file takes the following parameters:
 
 ```powershell
-"parameters": {	
+"parameters": {
 	"vmName": {
-	"value": "<name of the VM>" 
+	"value": "<name of the VM>"
 	},
 	"extensionName": {
-	"value": "<name for the extension. Example: linuxGpu>" 
+	"value": "<name for the extension. Example: linuxGpu>"
 	},
 	"publisher": {
-	"value": "Microsoft.HpcCompute" 
+	"value": "Microsoft.HpcCompute"
 	},
 	"type": {
-	"value": "NvidiaGpuDriverLinux" 
+	"value": "NvidiaGpuDriverLinux"
 	},
 	"typeHandlerVersion": {
-	"value": "1.8" 
+	"value": "1.8"
 	},
 	"settings": {
 	}
@@ -142,21 +146,21 @@ If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parame
 If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parameters.json` file takes the following parameters:
 
 ```powershell
-"parameters": {	
+"parameters": {
 	"vmName": {
-	"value": "<name of the VM>" 
+	"value": "<name of the VM>"
 	},
 	"extensionName": {
-	"value": "<name for the extension. Example: linuxGpu>" 
+	"value": "<name for the extension. Example: linuxGpu>"
 	},
 	"publisher": {
-	"value": "Microsoft.HpcCompute" 
+	"value": "Microsoft.HpcCompute"
 	},
 	"type": {
-	"value": "NvidiaGpuDriverLinux" 
+	"value": "NvidiaGpuDriverLinux"
 	},
 	"typeHandlerVersion": {
-	"value": "1.3" 
+	"value": "1.3"
 	},
 	"settings": {
 	}
@@ -172,19 +176,19 @@ Here's a sample Ubuntu parameter file that was used in this article:
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
-            "value": "VM1" 
+            "value": "VM1"
         },
         "extensionName": {
-            "value": "gpuLinux" 
+            "value": "gpuLinux"
         },
         "publisher": {
-            "value": "Microsoft.HpcCompute" 
+            "value": "Microsoft.HpcCompute"
         },
         "type": {
-            "value": "NvidiaGpuDriverLinux" 
+            "value": "NvidiaGpuDriverLinux"
         },
         "typeHandlerVersion": {
-            "value": "1.3" 
+            "value": "1.3"
         },
         "settings": {
         }
@@ -196,13 +200,13 @@ Here's a sample Ubuntu parameter file that was used in this article:
 
 If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscription image (RHEL BYOS), make sure that:
 
-- You've followed the steps in [using RHEL BYOS image](azure-stack-edge-gpu-create-virtual-machine-image.md). 
+- You've followed the steps in [using RHEL BYOS image](azure-stack-edge-gpu-create-virtual-machine-image.md).
 - After you created the GPU VM, register and subscribe the VM with the Red Hat Customer portal. If your VM isn't properly registered, installation doesn't proceed as the VM isn't entitled. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows the installation script to download relevant packages for the GPU driver.
-- You either manually install the `vulkan-filesystem` package or add CentOS7 repo to your yum repo list. When you install the GPU extension, the installation script looks for a `vulkan-filesystem` package that is on CentOS7 repo (for RHEL7). 
+- You either manually install the `vulkan-filesystem` package or add CentOS7 repo to your yum repo list. When you install the GPU extension, the installation script looks for a `vulkan-filesystem` package that is on CentOS7 repo (for RHEL7).
 
 ---
 
-## Deploy template 
+## Deploy template
 
 ### [Windows](#tab/windows)
 
@@ -211,8 +215,8 @@ Deploy the template `addGPUextensiontoVM.json` to install the extension on an ex
 Run the following command:
 
 ```powershell
-$templateFile = "<Path to addGPUextensiontoVM.json>" 
-$templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
+$templateFile = "<Path to addGPUextensiontoVM.json>"
+$templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>"
 RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
 ```
@@ -257,16 +261,16 @@ Here's a sample output:
 
 ### [Linux](#tab/linux)
 
-Deploy the template `addGPUextensiontoVM.json` to install the extension to an existing VM. 
+Deploy the template `addGPUextensiontoVM.json` to install the extension to an existing VM.
 
 Run the following command:
 
 ```powershell
-$templateFile = "Path to addGPUextensiontoVM.json" 
-$templateParameterFile = "Path to addGPUExtLinuxVM.parameters.json" 
-$RGName = "<Name of your resource group>" 
+$templateFile = "Path to addGPUextensiontoVM.json"
+$templateParameterFile = "Path to addGPUExtLinuxVM.parameters.json"
+$RGName = "<Name of your resource group>"
 New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
-```	
+```
 
 > [!NOTE]
 > The extension deployment is a long running job and takes about 10 minutes to complete.
@@ -350,7 +354,7 @@ ForceUpdateTag          :
 PS C:\WINDOWS\system32>
 ```
 
-Extension execution output is logged to the following file. Refer to this file `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status` to track the status of installation. 
+Extension execution output is logged to the following file. Refer to this file `C:\Packages\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\1.3.0.0\Status` to track the status of installation.
 
 
 A successful install is indicated by a `message` as `Enable Extension` and `status` as `success`.
@@ -367,13 +371,13 @@ A successful install is indicated by a `message` as `Enable Extension` and `stat
 
 ### [Linux](#tab/linux)
 
-To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator), and then run the following command: 
+To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator), and then run the following command:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
 ```
 
-Here's a sample output: 
+Here's a sample output:
 
 ```powershell
 Copyright (C) Microsoft Corporation. All rights reserved.
@@ -417,7 +421,7 @@ The extension execution output is logged to the following file: `/var/log/azure/
 
 ### [Windows](#tab/windows)
 
-Sign in to the VM and run the nvidia-smi command-line utility installed with the driver. 
+Sign in to the VM and run the nvidia-smi command-line utility installed with the driver.
 
 #### Version 2205 and higher
 
@@ -473,7 +477,7 @@ For more information, see [Nvidia GPU driver extension for Windows](../virtual-m
 
 Follow these steps to verify the driver installation:
 
-1. Connect to the GPU VM. Follow the instructions in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
+1. Connect to the GPU VM. Follow the instructions in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm).
 
     Here's a sample output:
 
@@ -485,38 +489,39 @@ Follow these steps to verify the driver installation:
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
       System information as of Thu Dec 10 22:57:01 UTC 2020
-    
+
       System load:  0.0                Processes:           133
       Usage of /:   24.8% of 28.90GB   Users logged in:     0
       Memory usage: 2%                 IP address for eth0: 10.57.50.60
       Swap usage:   0%
-    
+
     249 packages can be updated.
     140 updates are security updates.
-    
-    Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 5.0.0-1031-azure x86_64)    
+
+    Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 5.0.0-1031-azure x86_64)
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
-     * Support:        https://ubuntu.com/advantage    
-      System information as of Thu Dec 10 22:57:01 UTC 2020    
+     * Support:        https://ubuntu.com/advantage
+      System information as of Thu Dec 10 22:57:01 UTC 2020
       System load:  0.0                Processes:           133
       Usage of /:   24.8% of 28.90GB   Users logged in:     0
       Memory usage: 2%                 IP address for eth0: 10.57.50.60
       Swap usage:   0%
-        
+
     249 packages can be updated.
     140 updates are security updates.
-    
+
     New release '20.04.1 LTS' available.
     Run 'do-release-upgrade' to upgrade to it.
-        
+
     *** System restart required ***
     Last login: Thu Dec 10 21:49:29 2020 from 10.90.24.23
     To run a command as administrator (user "root"), use "sudo <command>".
     See "man sudo_root" for details.
-    
+
     Administrator@VM1:~$
-	```
+    ```
+
 2. Run the nvidia-smi command-line utility installed with the driver. If the driver is successfully installed, you'll be able to run the utility and see the following output:
 
     ```powershell
@@ -533,7 +538,7 @@ Follow these steps to verify the driver installation:
     | N/A   48C    P0    27W /  70W |      0MiB / 15109MiB |      5%      Default |
     |                               |                      |                  N/A |
     +-------------------------------+----------------------+----------------------+
-    
+
     +-----------------------------------------------------------------------------+
     | Processes:                                                                  |
     |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
@@ -564,7 +569,7 @@ PS C:\azure-stack-edge-deploy-vms> Remove-AzureRmVMExtension -ResourceGroupName 
 Virtual machine extension removal operation
 This cmdlet will remove the specified virtual machine extension. Do you want to continue? [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 Requestld IsSuccessStatusCode StatusCode ReasonPhrase
---------- ------------------- ---------- ------------    
+--------- ------------------- ---------- ------------
           True                OK         OK
 ```
 

@@ -1,52 +1,91 @@
 ---
 ms.topic: include
-ms.date: 10/26/2022
+ms.date: 04/25/2024
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ---
 
-Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app and the Function app.  
+Deploy the search-enabled website as an Azure Static Web Apps site. This deployment includes both the React app for the web pages, and the Function app for search operations.  
 
-The Static Web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
+The static web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
 
 ## Create a Static Web App in Visual Studio Code
 
-1. Select **Azure** from the Activity Bar, then open **Resources** from the Side bar. 
+1. In Visual Studio Code, make sure you're at the repository root, and not the bulk-insert folder (for example, `azure-search-javascript-samples`).
 
-1. Right-click **Static Web Apps** and then select **Create Static Web App (Advanced)**.
+1. Select **Azure** from the Activity Bar, then open **Resources** from the side bar. 
+
+1. Right-click **Static Web Apps** and then select **Create Static Web App (Advanced)**. If you don't see this option, verify that you have the Azure Functions extension for Visual Studio Code.
 
     :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Screenshot of Visual Studio Code, with the Azure Static Web Apps explorer showing the option to create an advanced static web app.":::
 
-1. If you see a pop-up window in VS Code asking which branch you want to deploy from, select the default branch, usually **master** or **main**. 
+1. If you see a pop-up window in Visual Studio Code asking which branch you want to deploy from, select the default branch, usually **main**. 
 
     This setting means only changes you commit to that branch are deployed to your static web app. 
 
 1. If you see a pop-up window asking you to commit your changes, don't do this. The secrets from the bulk import step shouldn't be committed to the repository. 
 
-    To roll back the changes, in VS Code select the Source Control icon in the Activity bar, then select each changed file in the Changes list and select the **Discard changes** icon.
+    To roll back the changes, in Visual Studio Code select the Source Control icon in the Activity bar, then select each changed file in the Changes list and select the **Discard changes** icon.
 
-1. Follow the prompts to provide the following information:
+1. Follow the prompts to create the static web app:
 
     |Prompt|Enter|
     |--|--|
-    |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
-    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-dotnet-samples`. |
-    |Select a SKU| Select the free SKU for this tutorial.|
-    |Select a location for new resources.|Select a region close to you.|
-    |Choose build preset to configure default project structure.|Select **Custom**|
-    |Select the location of your application code|`search-website-functions-v4/client`<br><br>This is the path, from the root of the repository, to your static web app. |
-    |Enter the path of your build output...|`build`<br><br>This is the path, from your static web app, to your generated files.|
+    |Select a resource group for new resources. | Use the resource group you created for this tutorial.|
+    |Enter the name for the new Static Web App. | Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `my-demo-static-web-app`. |
+    |Select a SKU | Select the free SKU for this tutorial.|
+    |Select a location for new resources. | For Node.js: Select `West US 2` during the Azure Function programming model (PM) v4 preview. For C# and Python, select a region near you. |
+    |Choose build preset to configure default project structure. |Select **Custom**. |
+    |Select the location of your client application code | `search-website-functions-v4/client`<br><br>This is the path, from the root of the repository, to your static web app. |
+    |Select the location of your Azure Functions code | `search-website-functions-v4/api`<br><br>This is the path, from the root of the repository, to your static web app. If there are no other functions in the repository, you won't be prompted for the function code location. *Currently, you'll need to perform extra steps to ensure the function code location is correct. These steps are performed after the resource is created and are documented in this article.* |
+    |Enter the path of your build output... | `build`<br><br>This is the path, from your static web app, to your generated files.|
 
-1. The resource is created and a notification window appears. 
+    If you get an error about an incorrect region, make sure the resource group and static web app resource are in one of the supported regions listed in the error response. 
 
-     When the resource is created, it creates a GitHub action file on GitHub.
+1. When the static web app is created, a GitHub workflow YML file is also created locally and on GitHub in your fork. This workflow executes in your fork, building and deploying the static web app and functions.
 
-1. Select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
+   Check the status of static web app deployment using any of these approaches:
 
-    Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
+   * Select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo.
+   * Select the **Actions** tab in your forked repository. You should see a list of all workflows on your fork.
+   * Select the **Azure: Activity Log** in Visual Code. You should see a message similar to the following screenshot.
 
-1. Pull the new GitHub action file to your local computer by synchronizing your local fork with your remote fork:
+     :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-azure-activity-log.png" alt-text="Screenshot of the Activity Log in Visual Studio Code." border="true":::
+
+1. *Currently, the YML file is created with erroneous path syntax for the Azure function code*. Use this workaround to correct the syntax and rerun the workflow. You can perform this step as soon as the YML file is created. A new workflow launches as soon as you push the updates:
+
+   1. In Visual Studio Code explorer, open the `./.github/workflows/` directory.
+
+   1. Open the YML file.
+
+   1. Scroll to the `api-location` path (on or near line 31).
+
+   1. Change the path syntax to use a forward slash (only `api_location` needs editing, other locations are here for context):
+
+      ```yml
+      app_location: "search-website-functions-v4/client" # App source code path
+      api_location: "search-website-functions-v4/api" # Api source code path - optional
+      output_location: "build" # Built app content directory - optional
+      ```
+
+   1. Save the file.
+
+   1. Open an integrated terminal and issue the following GitHub commands to send the updated YML to your fork:
+
+      ```bash
+      git add -A
+      git commit -m "fix path"
+      git push origin main
+      ```
+
+     :::image type="content" source="../media/tutorial-javascript-static-web-app/git-yml-path-workaround.png" alt-text="Screenshot of the GitHub commands in Visual Studio Code." border="true":::
+
+    Wait until the workflow execution completes before continuing. This may take a minute or two to finish. 
+
+<!-- 1. Pull the new GitHub action file to your local computer by synchronizing your local fork with your remote fork:
 
     ```bash
     git pull origin main
@@ -54,75 +93,61 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     * _origin_ refers to your forked repo. 
     * _main_ refers to the default branch.
+ -->
 
-1. In Visual Studio file explorer, find and open the workflow file in the `./.github/workflows/` directory. The file path and name looks _something_ `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
+<!-- 1. In Visual Studio file explorer, find and open the workflow file in the `./.github/workflows/` directory. The file path and name looks _something_ `.github\workflows\azure-static-web-apps-lemon-mushroom-0e1bd060f.yml`.
 
     The _part_ of the YAML file relevant to the static web app is shown below:
 
-    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action.yml" highlight="28-33":::
+    :::code language="yml" source="~/azure-search-javascript-samples/search-website-functions-v4/example-github-action-v4.yml"::: -->
 
-1. Edit your action file to contain the `api_location` property. If your local file doesn't have the property, add it below the `app_location` property.
+## Get the Azure AI Search query key in Visual Studio Code
 
-    ```yml
-    api_location: "search-website-functions-v4/api"
+1. In Visual Studio Code, open a new terminal window.
+
+1. Get the query API key with this Azure CLI command:
+
+    ```azurecli
+    az search query-key list --resource-group cognitive-search-demo-rg --service-name my-cog-search-demo-svc
     ```
 
-1. Commit changes to your local repository.
+1. Keep this query key to use in the next section. The query key authorizes read access to a search index. 
 
-    ```bash
-    git add *.yml && git commit -m "update action for static web app" 
-    ```
+## Add environment variables in Azure portal
 
-1. Push changes to GitHub.
-
-    ```bash
-    git push origin main 
-    ```
-
-    The updated action in your remote fork creates a new build and deploy to your static web app. Wait until the _workflow_ completes before continuing. This may take a minute or two to finish. 
-
-## Get Cognitive Search query key in Visual Studio Code
-
-1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
-
-1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
-
-    :::image type="content" source="../media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="Screenshot of Visual Studio Code showing the Azure Cognitive Search explorer, with the Copy Query Key option shown.":::
-
-1. Keep this query key, you'll need to use it in the next section. The query key is able to query your Index. 
-
-## Add configuration settings in Azure portal
-
-The Azure Function app won't return Search data until the Search secrets are in settings. 
+The Azure Function app won't return search data until the search secrets are in settings. 
 
 1. Select **Azure** from the Activity Bar. 
 1. Right-click on your Static Web Apps resource then select **Open in Portal**.
 
     :::image type="content" source="../media/tutorial-javascript-static-web-app/open-static-web-app-in-azure-portal.png" alt-text="Screenshot of Visual Studio Code showing Azure Static Web Apps explorer with the Open in Portal option shown.":::
 
-1. Select **Configuration** then select **+ Add**.
+1. Select **Environment variables** then select **+ Add application setting**.
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer with the Configuration option shown.":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/add-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of the static web app's environment variables page in the Azure portal.":::
 
 1. Add each of the following settings:
 
     |Setting|Your Search resource value|
     |--|--|
-    |SearchApiKey|Your Search query key|
-    |SearchServiceName|Your Search resource name|
+    |SearchApiKey|Your search query key|
+    |SearchServiceName|Your search resource name|
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
-    Azure Cognitive Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
+    Azure AI Search requires different syntax for filtering collections than it does for strings. Add a `*` after a field name to denote that the field is of type `Collection(Edm.String)`. This allows the Azure Function to add filters correctly to queries.
 
-1. Select **Save** to save the settings. 
+1. Check your settings to make sure they look like the following screenshot.
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of browser showing Azure portal with the button to save the settings for your app..":::
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/save-new-application-setting-to-static-web-app-in-portal.png" alt-text="Screenshot of browser showing Azure portal with the button to save the settings for your app.":::
 
-1. Return to VS Code. 
-1. Refresh your static web app to see the application settings. 
+1. Return to Visual Studio Code. 
 
-    :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer with the new application settings.":::
+1. Refresh your static web app to see the application settings and functions.
+
+    :::image type="content" source="../media/tutorial-javascript-static-web-app/visual-studio-code-extension-fresh-resource-2.png" alt-text="Screenshot of Visual Studio Code showing the Azure Static Web Apps explorer with the new application settings." border="true":::
+
+If you don't see the application settings, revisit the steps for updating and relaunching the GitHub workflow.
 
 ## Use search in your static web app
 
@@ -135,7 +160,6 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. Select **Open** in the pop-up dialog.
 1. In the website search bar, enter a search query such as `code`, so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
 1. Review the results then select one of the books to see more details. 
-
 
 ## Troubleshooting
 

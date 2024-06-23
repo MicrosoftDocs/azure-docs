@@ -5,7 +5,7 @@ description: Learn about how to generate and download global and hub-level User 
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/08/2022
+ms.date: 11/21/2023
 ms.author: cherylmc
 ---
 
@@ -28,7 +28,7 @@ To generate and download VPN client profile configuration files, use the followi
 
 1. Go to the **Virtual WAN**.
 1. In the left pane, select **User VPN configurations**.
-1. On the **User VPN configurations** page you'll see all of the User VPN configurations that you've created for your virtual WAN. In the **Hub** column, you'll see the hubs that are associated to each User VPN configuration. Click the **>** to expand and view the hub names.
+1. On the **User VPN configurations** page, you'll see all of the User VPN configurations that you've created for your virtual WAN. In the **Hub** column, you'll see the hubs that are associated to each User VPN configuration. Click the **>** to expand and view the hub names.
 
    :::image type="content" source="./media/global-hub-profile/expand.png" alt-text="Screenshot that shows hubs list expanded." lightbox="./media/global-hub-profile/expand.png":::
 
@@ -66,21 +66,22 @@ By default, every hub that uses the same User VPN Configuration is included in t
 
 ### Global profile best practices
 
-#### Add multiple server validation certificates
+#### Add Multiple server validation certificates
 
 This section pertains connections using the OpenVPN tunnel type and the Azure VPN Client version 2.1963.44.0 or higher.
 
 When you configure a hub P2S gateway, Azure assigns an internal certificate to the gateway. This is different than the root certificate information that you specify when you want to use Certificate Authentication as your authentication method. The internal certificate that is assigned to the hub is used for all authentication types. This value is represented in the profile configuration files that you generate as *servervalidation/cert/hash*. The VPN client uses this value as part of the connection process.
 
-If you have multiple hubs in different geographic regions, each hub may use a different Azure-level server validation certificate. However, the global profile only contains the server validation certificate hash value for 1 of the hubs. This means that if the certificate for that hub isn't working properly for any reason, the client doesn't have the necessary server validation certificate hash value for the other hubs.
+If you have multiple hubs in different geographic regions, each hub can use a different Azure-level server validation certificate. The global profile contains the server validation certificate hash value for all of the hubs. This means that if the certificate for that hub isn't working properly for any reason, the client will still have the necessary server validation certificate hash value for the other hubs.
+
+> [!IMPORTANT]
+> Configuring the Azure VPN client with certificate hash value of all the hubs is required only if the hubs have different server root issuers.
 
 As a best practice, we recommend that you update your VPN client profile configuration file to include the certificate hash value of all the hubs that are attached to the global profile, and then configure the Azure VPN Client using the updated file.
 
-1. To view the server validation certificate hash for each hub, generate and download the [hub profile](#hub) files for each of the hubs that are part of the global profile. Use a text editor to view profile information contained in the **azurevpnconfig.xml** file. This file is typically found in the **AzureVPN** folder. Note the server validation certificate hash for each hub.
-
 1. Generate and download the [global profile](#global) files. Use a text editor to open the **azurevpnconfig.xml** file.
 
-1. Using the following xml example, configure the global profile file to include the server validation certificate hashes from the hubs that you want to include. Configure the Azure VPN Client using the edited profile configuration file.
+1. Given the following xml example, configure the Azure VPN Client using the global profile configuration file that contains server validation certificate hash for each hub.
 
    ```xml
      </protocolconfig>

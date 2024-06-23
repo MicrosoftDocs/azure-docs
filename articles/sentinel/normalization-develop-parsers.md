@@ -347,7 +347,7 @@ let parseLogsWithUrls = AzureFirewallNetworkRuleLogs
         msg_s with           networkProtocol:string 
         " request from "     srcIpAddr:string
         " to "               dstIpAddr:string
-    …
+    ...
 union parseLogs,  parseLogsWithUrls…
 ```
 
@@ -425,7 +425,7 @@ Handle the results as follows:
 To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
 
   ```KQL
-  <parser name> | limit <X> | invoke ASimDataTester ( ['<schema>'] )
+  <parser name> | limit <X> | invoke ASimDataTester ('<schema>')
   ```
 
 Specifying a schema is optional. If a schema is not specified, the `EventSchema` field is used to identify the schema the event should adhere to. Ig an event does not include an `EventSchema` field, only common fields will be verified. If a schema is specified as a parameter, this schema will be used to test all records. This is useful for older parsers that do not set the `EventSchema` field. 
@@ -477,7 +477,7 @@ If warnings listed by the ASIM testing tools are considered valid for a parser, 
 Exceptions:
 - Field: DnsQuery 
   Warning: Invalid value
-  Exception: May have values such as "1164-ms-7.1440-9fdc2aab.3b2bd806-978e-11ec-8bb3-aad815b5cd42" which are not valid domains names. Those are are related to TKEY RR requests.
+  Exception: May have values such as "1164-ms-7.1440-9fdc2aab.3b2bd806-978e-11ec-8bb3-aad815b5cd42" which are not valid domains names. Those are related to TKEY RR requests.
 - Field: DnsQuery
   Warning: Empty value in mandatory field
   Exception: May be empty for requests for root servers and for requests for RR type DNSKEY

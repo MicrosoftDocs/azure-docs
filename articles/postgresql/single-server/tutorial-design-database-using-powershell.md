@@ -17,9 +17,7 @@ ms.date: 06/24/2022
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
-Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on PostgreSQL
-Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn
-how to:
+Azure Database for PostgreSQL is a relational database service in the Microsoft cloud based on PostgreSQL Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure Database for PostgreSQL
@@ -32,14 +30,12 @@ how to:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
-module and connect to your Azure account using the
+If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.PostgreSql PowerShell module is in preview, you must install it separately from the Az
@@ -56,8 +52,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
-should be billed. Select a specific subscription ID using the
+If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription ID using the
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
@@ -67,11 +62,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ## Create a resource group
 
 Create an
-[Azure resource group](../../azure-resource-manager/management/overview.md)
-using the
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
-cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
-a group.
+[Azure resource group](../../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named **myresourcegroup** in the **West US** region.
 
@@ -81,14 +72,9 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 ## Create an Azure Database for PostgreSQL server
 
-Create an Azure Database for PostgreSQL server with the `New-AzPostgreSqlServer` cmdlet. A server can manage
-multiple databases. Typically, a separate database is used for each project or for each user.
+Create an Azure Database for PostgreSQL server with the `New-AzPostgreSqlServer` cmdlet. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates a PostgreSQL server in the **West US** region named **mydemoserver** in the
-**myresourcegroup** resource group with a server admin login of **myadmin**. It is a Gen 5 server in
-the general-purpose pricing tier with 2 vCores and geo-redundant backups enabled. Document the
-password used in the first line of the example as this is the password for the PostgreSQL server admin
-account.
+The following example creates a PostgreSQL server in the **West US** region named **mydemoserver** in the **myresourcegroup** resource group with a server admin login of **myadmin**. It is a Gen 5 server in the general-purpose pricing tier with 2 vCores and geo-redundant backups enabled. Document the password used in the first line of the example as this is the password for the PostgreSQL server admin account.
 
 > [!TIP]
 > A server name maps to a DNS name and must be globally unique in Azure.
@@ -98,8 +84,7 @@ $Password = Read-Host -Prompt 'Please enter your password' -AsSecureString
 New-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_Gen5_2 -GeoRedundantBackup Enabled -Location westus -AdministratorUsername myadmin -AdministratorLoginPassword $Password
 ```
 
-The **Sku** parameter value follows the convention **pricing-tier\_compute-generation\_vCores** as
-shown in the following examples.
+The **Sku** parameter value follows the convention **pricing-tier\_compute-generation\_vCores** as shown in the following examples.
 
 - `-Sku B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
 - `-Sku GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
@@ -117,13 +102,9 @@ Consider using the basic pricing tier if light compute and I/O are adequate for 
 ## Configure a firewall rule
 
 Create an Azure Database for PostgreSQL server-level firewall rule using the `New-AzPostgreSqlFirewallRule`
-cmdlet. A server-level firewall rule allows an external application, such as the `psql`
-command-line tool or PostgreSQL Workbench to connect to your server through the Azure Database for PostgreSQL
-service firewall.
+cmdlet. A server-level firewall rule allows an external application, such as the `psql` command-line tool or PostgreSQL Workbench to connect to your server through the Azure Database for PostgreSQL service firewall.
 
-The following example creates a firewall rule named **AllowMyIP** that allows connections from a
-specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that correspond
-to the location that you are connecting from.
+The following example creates a firewall rule named **AllowMyIP** that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that correspond to the location that you are connecting from.
 
 ```azurepowershell-interactive
 New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -136,9 +117,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 
 ## Get the connection information
 
-To connect to your server, you need to provide host information and access credentials. Use the
-following example to determine the connection information. Make a note of the values for
-**FullyQualifiedDomainName** and **AdministratorLogin**.
+To connect to your server, you need to provide host information and access credentials. Use the following example to determine the connection information. Make a note of the values for **FullyQualifiedDomainName** and **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -154,11 +133,7 @@ mydemoserver.postgresql.database.azure.com       myadmin
 ## Connect to PostgreSQL database using psql
 
 If your client computer has PostgreSQL installed, you can use a local instance of
-[psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure
-PostgreSQL server. You can also access a pre-installed version of the `psql` command-line tool in
-Azure Cloud Shell by selecting the **Try It** button on a code sample in this article. Other ways to
-access Azure Cloud Shell are to select the **>_** button on the upper-right toolbar in the Azure
-portal or by visiting [shell.azure.com](https://shell.azure.com/).
+[psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. You can also access a pre-installed version of the `psql` command-line tool in Azure Cloud Shell by selecting the **Try It** button on a code sample in this article. Other ways to access Azure Cloud Shell are to select the **>_** button on the upper-right toolbar in the Azure portal or by visiting [shell.azure.com](https://shell.azure.com/).
 
 1. Connect to your Azure PostgreSQL server using the `psql` command-line utility.
 
@@ -166,9 +141,7 @@ portal or by visiting [shell.azure.com](https://shell.azure.com/).
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   For example, the following command connects to the default database called **postgres** on your
-   PostgreSQL server `mydemoserver.postgres.database.azure.com` using access credentials. Enter
-   the `<server_admin_password>` you chose when prompted for password.
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server `mydemoserver.postgres.database.azure.com` using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
 
    ```azurepowershell-interactive
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -193,11 +166,9 @@ portal or by visiting [shell.azure.com](https://shell.azure.com/).
 
 ## Create tables in the database
 
-Now that you know how to connect to the Azure Database for PostgreSQL database, complete some basic
-tasks.
+Now that you know how to connect to the Azure Database for PostgreSQL database, complete some basic tasks.
 
-First, create a table and load it with some data. Let's create a table that stores inventory
-information.
+First, create a table and load it with some data. Let's create a table that stores inventory information.
 
 ```sql
 CREATE TABLE inventory (
@@ -209,8 +180,7 @@ CREATE TABLE inventory (
 
 ## Load data into the tables
 
-Now that you have a table, insert some data into it. At the open command prompt window, run the
-following query to insert some rows of data.
+Now that you have a table, insert some data into it. At the open command prompt window, run the following query to insert some rows of data.
 
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150);
@@ -241,10 +211,7 @@ SELECT * FROM inventory;
 
 ## Restore a database to a previous point in time
 
-You can restore the server to a previous point-in-time. The restored data is copied to a new server,
-and the existing server is left unchanged. For example, if a table is accidentally dropped, you can
-restore to the time just the drop occurred. Then, you can retrieve the missing table and data from
-the restored copy of the server.
+You can restore the server to a previous point-in-time. The restored data is copied to a new server, and the existing server is left unchanged. For example, if a table is accidentally dropped, you can restore to the time just the drop occurred. Then, you can retrieve the missing table and data from the restored copy of the server.
 
 To restore the server, use the `Restore-AzPostgreSqlServer` PowerShell cmdlet.
 
@@ -258,19 +225,13 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzPostgreSqlServer -Name mydemoserver-restored -ResourceGroupName myresourcegroup -RestorePointInTime $restorePointInTime -UsePointInTimeRestore
 ```
 
-When you restore a server to an earlier point-in-time, a new server is created. The original server
-and its databases from the specified point-in-time are copied to the new server.
+When you restore a server to an earlier point-in-time, a new server is created. The original server and its databases from the specified point-in-time are copied to the new server.
 
 The location and pricing tier values for the restored server remain the same as the original server.
 
-After the restore process finishes, locate the new server and verify that the data is restored as
-expected. The new server has the same server admin login name and password that was valid for the
-existing server at the time the restore was started. The password can be changed from the new
-server's **Overview** page.
+After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was started. The password can be changed from the new server's **Overview** page.
 
-The new server created during a restore does not have the VNet service endpoints that existed on the
-original server. These rules must be set up separately for the new server. Firewall rules from the
-original server are restored.
+The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules must be set up separately for the new server. Firewall rules from the original server are restored.
 
 ## Clean up resources
 

@@ -6,7 +6,7 @@ ms.author: mijacobs
 ms.date: 06/12/2022
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create and deploy Azure Functions resources using Bicep
@@ -37,6 +37,8 @@ The following four Azure resources are created by this Bicep file:
 + [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create a serverless Consumption hosting plan for the function app.
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): create an Application Insights instance for monitoring.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
 ## Deploy the Bicep file
 

@@ -4,7 +4,7 @@ description: "This article describes the features of Enterprise Edition for the 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---
@@ -37,7 +37,7 @@ Some of these features require you to install additional components to customize
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1.  Download and install [Azure PowerShell](/powershell/azure/install-az-ps).
+1.  Download and install [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 2.  When you provision or reconfigure the Azure-SSIS IR with PowerShell, run `Set-AzDataFactoryV2IntegrationRuntime` with **Enterprise** as the value for the **Edition** parameter before you start the Azure-SSIS IR. Here is a sample script:
 
@@ -54,7 +54,7 @@ Some of these features require you to install additional components to customize
                                                  -ResourceGroupName $MyResourceGroupName
     ```
 
-## Next steps
+## Related content
 
 -   [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
 

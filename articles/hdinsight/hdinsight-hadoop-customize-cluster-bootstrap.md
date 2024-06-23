@@ -3,8 +3,8 @@ title: Customize Azure HDInsight cluster configurations using bootstrap
 description: Learn how to customize HDInsight cluster configuration programmatically using .NET, PowerShell, and Resource Manager templates.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurepowershell
-ms.date: 11/17/2022
+ms.custom: hdinsightactive, devx-track-azurepowershell, devx-track-dotnet
+ms.date: 12/08/2023
 ---
 
 # Customize HDInsight clusters using Bootstrap
@@ -35,18 +35,18 @@ For example, using these programmatic methods, you can configure options in thes
 * yarn-site.xml
 * server.properties (kafka-broker configuration)
 
-For information on installing additional components on HDInsight cluster during the creation time, see [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
+For information on installing more components on HDInsight cluster during the creation time, see [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## Prerequisites
 
-* If using PowerShell, you'll need the [Az Module](/powershell/azure/).
+* If using PowerShell, you need the [Az Module](/powershell/azure/).
 
 ## Use Azure PowerShell
 
 The following PowerShell code customizes an [Apache Hive](https://hive.apache.org/) configuration:
 
 > [!IMPORTANT]  
-> The parameter `Spark2Defaults` may need to be used with [Add-AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). You can pass empty values to the parameter as shown in the code example below.
+> The parameter `Spark2Defaults` may need to be used with [Add-AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). You can pass empty values to the parameter as shown in the following code example.
 
 ```powershell
 # hive-site.xml configuration
@@ -115,9 +115,9 @@ You can use bootstrap in Resource Manager template:
 }
 ```
 
-:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="Hadoop customizes cluster bootstrap Azure Resource Manager template":::
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="Hadoop customizes cluster bootstrap Azure Resource Manager template.":::
 
-Sample Resource Manager template snippet to switch configuration in spark2-defaults to periodically clean up event logs from storage.  
+Sample Resource Manager template snippet to switch configuration in spark2-defaults to periodically clean-up event logs from storage.  
 
 ```json
 "configurations": {

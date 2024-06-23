@@ -4,9 +4,8 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/28/2023
+ms.date: 05/27/2024
 ---
-
 
 # Azure HDInsight release notes
 
@@ -15,80 +14,60 @@ This article provides information about the **most recent** Azure HDInsight rele
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
-[Subscribe to our release notes](./subscribe-to-hdi-release-notes-repo.md) and watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
+Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-repo.md) for up-to-date information on HDInsight and all HDInsight versions.
 
-## Release date: February 28, 2023
+To subscribe, click the **watch** button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
-This release applies to HDInsight 4.0. and 5.0, 5.1. HDInsight release will be available to all regions over several days. This release is applicable for image number **2302250400**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+## Release Information
 
-HDInsight uses safe deployment practices, which involve gradual region deployment. it may take up to 10 business days for a new release or a new version to be available in all regions.
+### Release date: May 16, 2024
+
+This release note applies to 
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.0 version.
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 4.0 version. 
+
+
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2405081840**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
 
 **OS versions**
 
-* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 * HDInsight 5.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
-
-For workload specific versions, see 
-
-* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
-* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
-
-> [!IMPORTANT] 
-> Microsoft has issued [CVE-2023-23408](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-23408), which is fixed on the current release and customers are advised to upgrade their clusters to latest image. 
-
-![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
-
-**HDInsight 5.1**
-
-We have started rolling out a new version of HDInsight 5.1. All new open-source releases added as incremental releases on HDInsight 5.1.
-
-For more information, see [HDInsight 5.1.0 version](./hdinsight-51-component-versioning.md)
-
-![Icon showing update with text.](media/hdinsight-release-notes/new-icon-for-updated.png)
-
-**Kafka 3.2.0 Upgrade (Preview)** 
-
-* Kafka 3.2.0 includes several significant new features/improvements.
-	* Upgraded Zookeeper to 3.6.3
-	* Kafka Streams support
-	* Stronger delivery guarantees for the Kafka producer enabled by default.
-	* log4j 1.x replaced with reload4j.
-	* Send a hint to the partition leader to recover the partition.
-	* `JoinGroupRequest` and `LeaveGroupRequest` have a reason attached.
-	* Added Broker count metrics8. 
-	* Mirror Maker2 improvements.
-
-**HBase 2.4.11 Upgrade (Preview)**
-* This version has new features such as the addition of new caching mechanism types for block cache, the ability to alter `hbase:meta table` and view the `hbase:meta` table from the HBase WEB UI. 
-
-**Phoenix 5.1.2 Upgrade (Preview)**
- * Phoenix version upgraded to 5.1.2 in this release. This upgrade includes the Phoenix Query Server. The Phoenix Query Server proxies the standard Phoenix JDBC driver and provides a backwards-compatible wire protocol to invoke that JDBC driver.
- 
-**Ambari CVEs**
-  * Multiple Ambari CVEs are fixed.
+* HDInsight 4.0: Ubuntu 18.04.5 LTS Linux Kernel 5.4
 
 > [!NOTE]
-> ESP isn't supported for Kafka and HBase in this release.
->
+> Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
 
-![Icon showing end of support with text.](media/hdinsight-release-notes/new-icon-for-end-of-support.png)
+For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For more information, see [Spark versions supported in Azure HDInsight](./hdinsight-40-component-versioning.md#spark-versions-supported-in-azure-hdinsight)
+## Fixed issues
 
-## Upcoming Changes
+* Added API in gateway to get token for Keyvault, as part of the SFI initiative.
+* In the new Log monitor `HDInsightSparkLogs` table, for log type `SparkDriverLog`, some of the fields were missing. For example, `LogLevel & Message`. This release adds the missing fields to schemas and fixed formatting for `SparkDriverLog`.
+* Livy logs not available in Log Analytics monitoring `SparkDriverLog` table, which was due to an issue with Livy log source path and log parsing regex in `SparkLivyLog` configs.
+* Any HDInsight cluster, using ADLS Gen2 as a primary storage account can leverage MSI based access to any of the Azure resources (for example, SQL, Keyvaults) which is used within the application code. 
 
-* Cluster name change limitation 
-  * The max length of cluster name will be changed to 45 from 59 in Public, Mooncake and Fairfax. 
-* Cluster permissions for secure storage  
-  * Customers can specify (during cluster creation) whether a secure channel should be used for HDInsight cluster nodes to contact the storage account. 
-* Non-ESP ABFS clusters [Cluster Permissions for World Readable] 
-  * Plan to introduce a change in non-ESP ABFS clusters, which restricts non-Hadoop group users from executing Hadoop commands for storage operations. This change to improve cluster security posture. Customers need to plan for the updates.
-* Open-source upgrades
-  * Apache Spark 3.3.0 and Hadoop 3.3.4 are under development on HDInsight 5.1 and will include several significant new features, performance and other improvements.
+  
+## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
- > [!NOTE]
- > We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes.
+* [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
+   * On August 31, 2024, we'll retire Basic and Standard A-series VMs. Before that date, you need to migrate your workloads to Av2-series VMs, which provide more memory per vCPU and faster storage on solid-state drives (SSDs).
+   * To avoid service disruptions, [migrate your workloads](https://aka.ms/Av1retirement) from Basic and Standard A-series VMs to Av2-series VMs before August 31, 2024.
+* Retirement Notifications for [HDInsight 4.0](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/) and  [HDInsight 5.0](https://azure.microsoft.com/updates/hdinsight5retire/).
+ 
+If you have any more questions, contact [Azure Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
+You can always ask us about HDInsight on [Azure HDInsight - Microsoft Q&A](/answers/tags/168/azure-hdinsight).
+
+We're listening: You’re welcome to add more ideas and other topics here and vote for them - [HDInsight Ideas](https://feedback.azure.com/d365community/search/?q=HDInsight) and follow us for more updates on [AzureHDInsight Community](https://www.linkedin.com/groups/14313521/).
+
+> [!NOTE]
+> We advise customers to use to latest versions of HDInsight [Images](./view-hindsight-cluster-image-version.md) as they bring in the best of open source updates,  Azure updates and security fixes. For more information, see [Best practices](./hdinsight-overview-before-you-start.md).
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
 * [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)
+* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive#release-date--january-10-2024)

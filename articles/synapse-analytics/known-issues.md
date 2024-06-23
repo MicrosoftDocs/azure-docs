@@ -1,45 +1,124 @@
 ---
 title: Known issues
 titleSuffix: Azure Synapse Analytics
-description: Learn about the currently known issues with Azure Synapse Analytics, and their possible workarounds or resolutions.
+description: Learn about the currently known issues with Azure Synapse Analytics and their possible workarounds or resolutions.
 author: charithdilshan
 ms.author: ccaldera
-ms.date: 3/9/2023
+ms.reviewer: wiassaf, joanpo
+ms.date: 04/08/2024
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
-ms.reviewer: wiassaf
 ---
 
 # Azure Synapse Analytics known issues
 
-This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), as well as their resolution date or possible workaround. 
-Before submitting a Support request, please review this list to see if the issue that you're experiencing is already known and being addressed.
+This page lists the known issues in [Azure Synapse Analytics](overview-what-is.md), and their resolution date or possible workaround. Before submitting [an Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), review this list to see if the issue that you're experiencing is already known and being addressed.
 
-To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Overview](index.yml), and [What's new in Azure Synapse Analytics?](whats-new.md). 
+To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Overview](index.yml), and [What's new in Azure Synapse Analytics?](whats-new.md)
 
-## Active Known issues
+## Active known issues
 
 |Azure Synapse Component|Status|Issue|
-|---------|---------|---------|
-|Azure Synapse serverless SQL pool|[Queries using Azure AD authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Has Workaround|
-|Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has Workaround|
-|Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has Workaround|
-|Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has Workaround|
-|Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
-|Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
+|:---------|:---------|:---------|
+|Azure Synapse dedicated SQL pool|[Customers are unable to monitor their usage of dedicated SQL pool by using metrics](#customers-are-unable-to-monitor-their-usage-of-dedicated-sql-pool-by-using-metrics)|Has workaround|
+|Azure Synapse dedicated SQL pool|[Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'](#query-failure-when-ingesting-a-parquet-file-into-a-table-with-auto_create_tableon)|Has workaround|
+|Azure Synapse dedicated SQL pool|[Queries failing with Data Exfiltration Error](#queries-failing-with-data-exfiltration-error)|Has workaround|
+|Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has workaround|
+|Azure Synapse serverless SQL pool|[Query failures from serverless SQL pool to Azure Cosmos DB analytical store](#query-failures-from-serverless-sql-pool-to-azure-cosmos-db-analytical-store)|Has workaround|
+|Azure Synapse serverless SQL pool|[Azure Cosmos DB analytical store view propagates wrong attributes in the column](#azure-cosmos-db-analytical-store-view-propagates-wrong-attributes-in-the-column)|Has workaround|
+|Azure Synapse serverless SQL pool|[Query failures in serverless SQL pools](#query-failures-in-serverless-sql-pools)|Has workaround|
+|Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
+|Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
+|Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
+|Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
+|Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
+|Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
+
+
+
+## Azure Synapse Analytics dedicated SQL pool active known issues summary
+
+### Customers are unable to monitor their usage of dedicated SQL pool by using metrics
+
+An internal upgrade of our telemetry emission logic, which was meant to enhance the performance and reliability of our telemetry data, caused an unexpected issue that affected some customers' ability to monitor their dedicated SQL pool, `tempdb`, and Data Warehouse Data IO metrics.
+
+**Workaround**: Upon identifying the issue, our team took action to identify the root cause and update the configuration in our system. Customers can fix the issue by pausing and resuming their instance, which will restore the normal state of the instance and the telemetry data flow.
+
+### Query failure when ingesting a parquet file into a table with AUTO_CREATE_TABLE='ON'
+
+Customers who try to ingest a parquet file into a hash distributed table with `AUTO_CREATE_TABLE='ON'` can receive the following error:
+
+`COPY statement using Parquet and auto create table enabled currently cannot load into hash-distributed tables`
+
+[Ingestion into an auto-created hash-distributed table using AUTO_CREATE_TABLE is unsupported](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#auto_create_table---on--off-). Customers that have previously loaded using this unsupported scenario should CTAS their data into a new table and use it in place of the old table.
+
+### Queries failing with Data Exfiltration Error
+
+Synapse workspaces created from an existing dedicated SQL Pool report query failure related to [Data Exfiltration Protection](security/workspace-data-exfiltration-protection.md) with generic error message while Data Exfiltration Protection is turned off in Synapse Analytics: 
+
+`Data exfiltration to '{****}' is blocked. Add destination to allowed list for data exfiltration and try again.`
+
+**Workaround**: If you encountered a similar error, engage Microsoft Support Team for assistance.
+
+### UPDATE STATISTICS failure
+
+Some dedicated SQL Pools can encounter an exception when executing an `UPDATE STATISTICS` statement. The command results in the message "The provided statistics stream is corrupt" and fails to update your statistics.
+ 
+When a new constraint is added to a table, a related statistic is created in the distributions. If a clustered index is also created on the table, it must include the same columns (in the same order) as the constraint, otherwise `UPDATE STATISTICS` commands on those columns might fail.
+
+**Workaround**: Identify if a constraint and clustered index exist on the table. If so, DROP both the constraint and clustered index. After that, recreate the clustered index and then the constraint *ensuring that both include the same columns in the same order.* If the table does not have a constraint and clustered index, or if the above step results in the same error, contact the Microsoft Support Team for assistance.
+
+### Tag updates appear to fail
+
+When making a change to the [tags](../azure-resource-manager/management/tag-resources-portal.md) of a dedicated SQL pool through Azure portal or other methods, an error message can appear even though the change is made successfully.
+
+**Workaround**: You can confirm that the change to the tags was successful and ignore/suppress the error message as needed.
+
+## Azure Synapse workspace active known issues summary
+
+The following are known issues with the Synapse workspace.
+
+### Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed
+
+The linked service might not be visible under the **Data Hub** -> **Linked** -> **Azure Blob Storage** after configuring the blob storage linked service to use "User Assigned Managed Identity" authentication in Azure Synapse Analytics.
+
+**Workaround**: The engineering team is currently aware of this behavior and working on a fix. As an alternative, use "System Assigned Managed Identity" authentication method instead of "User Assigned Managed Identity".
+
+### Failed to delete Synapse workspace & Unable to delete virtual network
+
+Deleting a Synapse workspace fails with the error message:
+
+`Failed to delete Synapse workspace '[Workspace Name]'. Unable to delete virtual network. The correlationId is ********-****-****-****-************;`
+
+**Workaround**: The problem can be mitigated by retrying the delete operation. The engineering team is aware of this behavior and working on a fix.
+
+### REST API PUT operations or ARM/Bicep templates to update network settings fail
+
+When using an ARM template, Bicep template, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
+
+**Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
+
+### Known issue incorporating square brackets [] in the value of Tags
+
+In the context of updating tag values within an Azure Synapse workspace, the inclusion of square brackets (`[]`) will result in an unsuccessful update operation.
+
+**Workaround**: The current workaround is to abstain from using the square brackets (`[]`) in Azure Synapse workspace tag values.
+
+### Deployment failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates
+
+The failure occurs during the deployment to production and is related to a trigger that contains a host name with a double backslash. 
+
+The error message displayed is `Action failed - Error: Orchestrate failed - SyntaxError: Unexpected token in JSON at position 2057`.
+
+**Workaround**: Following actions can be taken as quick mitigation:
+
+- **Remove escape characters:** Manually remove any escape characters (`\`) from the parameters file before deployment. This means editing the file to eliminate these characters that could be causing issues during the parsing or processing stage of the deployment.
+- **Replace escape characters with Forward Slashes:** Replace the escape characters (`\`) with forward slashes (`/`). This can be particularly useful in file paths, where many systems accept forward slashes as valid path separators. This replacement might help in bypassing the problem with escape characters, allowing the deployment process to succeed.
+
+After applying either of these workarounds and successfully deploying, manually update the necessary configurations within the workspace to ensure everything is set up correctly. This might involve editing configuration files, adjusting settings, or performing other tasks relevant to the specific environment or application being deployed.
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
-
-### Queries using Azure AD authentication fails after 1 hour
-
-SQL connections using Azure AD authentication that remain active for more than 1 hour will start to fail. This includes querying storage using Azure AD pass-through authentication and statements that interact with Azure AD, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
-
-**Workaround**: The engineering team is currently aware of this behavior and working on a fix. <br>
-Following steps can be followed to work around the problem. 
-
-1) It's recommended switching to Service Principal, Managed Identity or Shared Access Signature instead of using user identity for long running queries. 
-2) Restarting client (SSMS/ADS) acquires new token to establish the connection.
 
 ### Query failures from serverless SQL pool to Azure Cosmos DB analytical store
 
@@ -60,48 +139,89 @@ The following conditions must be true to confirm this issue:
 
 ### Azure Cosmos DB analytical store view propagates wrong attributes in the column
 
-While using views in Azure Synapse serverless pool over Cosmos DB analytical store, If there is a change on files in the Cosmos DB analytical store, the change does not get propagated correctly to the SELECT statements, the customer is using on the view. As a result of that, the attributes get incorrectly mapped to a different column in the results.
+While using views in Azure Synapse serverless pool over Cosmos DB analytical store, if there is a change on files in the Cosmos DB analytical store, the change does not get propagated correctly to the SELECT statements, the customer is using on the view. As a result, the attributes get incorrectly mapped to a different column in the results.
 
 **Workaround**: The engineering team is aware of this behavior and following actions can be taken as quick mitigation:
 
 1) Recreate the view by renaming the columns.
-2) Avoid using views if possible. 
+2) Avoid using views if possible.
 
-## Azure Synapse Analytics Dedicated SQL pool active known issues summary
+### Alter database-scoped credential fails if credential has been used
 
-### Queries failing with Data Exfiltration Error
+Sometimes you might not be able to execute the `ALTER DATABASE SCOPED CREDENTIAL` query. The root cause of this issue is the credential was cached after its first use making it inaccessible for alteration. The error returned is:
 
-Synapse workspaces created from an existing dedicated SQL Pool report query failures related to [Data Exfiltration Protection](security/workspace-data-exfiltration-protection.md) with generic error message while Data Exfiltration Protection is turned off in Synapse Analytics: 
+- `Failed to modify the identity field of the credential '{credential_name}' because the credential is used by an active database file.`
 
-`Data exfiltration to '{****}' is blocked. Add destination to allowed list for data exfiltration and try again.`
+**Workaround**: The engineering team is currently aware of this behavior and is working on a fix. As a workaround you can DROP and CREATE the credentials, which would also mean recreating external tables using the credentials. Alternatively, you can engage Microsoft Support Team for assistance.
 
-**Workaround**: If you encountered a similar error, engage Microsoft Support Team for assistance.
+### Query failures in serverless SQL pools
 
-## Azure Synapse workspace active known issues summary
+Token expiration can lead to errors during their query execution, despite having the necessary permissions for the user over the storage. These error messages can also occur due to common user errors, such as when role-based access control (RBAC) roles are not assigned to the storage account.
 
-The following are known issues with the Synapse workspace.
+Example error messages:
 
-### Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed
+- `WaitIOCompletion call failed. HRESULT = 0x80070005'. File/External table name: {path}`
+- `Unable to resolve path '%' Error number 13807, Level 16, State 1, Message "Content of directory on path '%' cannot be listed.`
+- `Error 16561: External table '<table_name>' is not accessible because content of directory cannot be listed.`
+- `Error 13822: File {path} cannot be opened because it does not exist or it is used by another process.`
+- `Error  16536:  Cannot bulk load because the file "%ls" could not be opened.`
 
-The linked service may not be visible under the **Data Hub** -> **Linked** -> **Azure Blob Storage** after configuring the blob storage linked service to use "User Assigned Managed Identity" authentication in Azure Synapse Analytics.
+**Workaround**: 
 
-**Workaround**: The engineering team is currently aware of this behavior and working on a fix. As an alternative, use "System Assigned Managed Identity" authentication method instead of "User Assigned Managed Identity".
+The resolution is different depending on the authentication, [Microsoft Entra (formerly Azure Active Directory)](security/synapse-workspace-access-control-overview.md) or [managed service identity (MSI)](synapse-service-identity.md):
 
-### Failed to delete Synapse workspace & Unable to delete virtual network
+For Microsoft Entra token expiration:
 
-Deleting a Synapse workspace fails with the error message:
+- For long-running queries, switch to service principal, managed identity, or shared access signature (SAS) instead of using a user identity. For more information, see [Control storage account access for serverless SQL pool in Azure Synapse Analytics](sql/develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types).
 
-`Failed to delete Synapse workspace '[Workspace Name]'. Unable to delete virtual network. The correlationId is ********-****-****-****-************;`
+- Restart client (SSMS/ADS) to acquire a new token to establish the connection.
 
-**Workaround**: The problem can be mitigated by retrying the delete operation. The engineering team is aware of this behavior and working on a fix.
+For MSI token expiration:
 
-## Recently Closed Known issues
+- Deactivate then activate the pool in order to clear the token cache. Engage Microsoft Support Team for assistance.
 
-|Synapse Component|Issue|Status|Date Resolved
+### Storage access issues due to authorization header being too long
+
+Example error messages in serverless SQL pools:
+
+- `File {path} cannot be opened because it does not exist or it is used by another process.`
+- `Content of directory on path {path} cannot be listed.`
+- `WaitIOCompletion call failed. HRESULT = {code}'. File/External table name: {path}`
+
+These generic storage access errors appear when running a query. The issue might occur for a user in one workspace but would work properly in other workspaces. This behavior is expected due to token size.
+
+Check the Microsoft Entra token length by running the following command in PowerShell. The `-ResourceUrl` parameter value will be different for nonpublic clouds. If the token length is close to 11000 or longer, see **Mitigation** section.
+
+```azurepowershell-interactive
+(Get-AzAccessToken -ResourceUrl https://database.windows.net).Token.Length
+```
+
+**Workaround**: 
+
+Suggested workarounds are:
+
+- Switch to Managed Identity storage authorization as described in the [storage access control](sql/develop-storage-files-storage-access-control.md?tabs=managed-identity).
+- Decrease number of security groups (having 90 or fewer security groups results with a token that is of compatible length).
+- Increase number of security groups over 200 (as that changes how token is constructed, it will contain an MS Graph API URI instead of a full list of groups). It could be achieved by adding dummy/artificial groups by following [managed groups](sql/develop-storage-files-storage-access-control.md?tabs=managed-identity), after you would need to add users to newly created groups.
+  
+## Recently closed known issues
+
+|Synapse Component|Issue|Status|Date Resolved|
 |---------|---------|---------|---------|
-|Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023
+|Azure Synapse serverless SQL pool|[Queries using Microsoft Entra authentication fails after 1 hour](#queries-using-azure-ad-authentication-fails-after-1-hour)|Resolved|August 2023|
+|Azure Synapse serverless SQL pool|[Query failures while reading Cosmos DB data using OPENROWSET](#query-failures-while-reading-azure-cosmos-db-data-using-openrowset)|Resolved|March 2023|
+|Azure Synapse Apache Spark pool|[Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse dedicated SQL pool Connector for Apache Spark when using notebooks in pipelines](#failed-to-write-to-sql-dedicated-pool-from-synapse-spark-using-azure-synapse-dedicated-sql-pool-connector-for-apache-spark-when-using-notebooks-in-pipelines)|Resolved|June 2023|
+|Azure Synapse Apache Spark pool|[Certain spark job or task fails too early with Error Code 503 due to storage account throttling](#certain-spark-job-or-task-fails-too-early-with-error-code-503-due-to-storage-account-throttling)|Resolved|November 2023|
 
 ## Azure Synapse Analytics serverless SQL pool recently closed known issues summary
+
+<a name='queries-using-azure-ad-authentication-fails-after-1-hour'></a>
+
+### Queries using Microsoft Entra authentication fails after 1 hour
+
+SQL connections using Microsoft Entra authentication that remain active for more than 1 hour starts to fail. This includes querying storage using Microsoft Entra pass-through authentication and statements that interact with Microsoft Entra ID, like CREATE EXTERNAL PROVIDER. This affects every tool that keeps connections active, like query editor in SSMS and ADS. Tools that open new connection to execute queries aren't affected, like Synapse Studio.
+
+**Status**: Resolved
 
 ### Query failures while reading Azure Cosmos DB data using OPENROWSET
 
@@ -111,8 +231,23 @@ Queries from serverless SQL pool to Cosmos DB Analytical Store using OPENROWSET 
 
 **Status**: Resolved
 
+## Azure Synapse Analytics Apache Spark pool recently closed known issues summary
 
-## Next steps
+### Failed to write to SQL Dedicated Pool from Synapse Spark using Azure Synapse dedicated SQL pool connector for Apache Spark when using notebooks in pipelines
+
+While using Azure Synapse dedicated SQL pool Connector for Apache Spark to write Azure Synapse Dedicated pool using Notebooks in pipelines, we would see an error message:
+
+`com.microsoft.spark.sqlanalytics.SQLAnalyticsConnectorException: COPY statement input file schema discovery failed: Cannot bulk load. The file does not exist or you don't have file access rights.`
+
+**Status**: Resolved
+
+### Certain spark job or task fails too early with Error Code 503 due to storage account throttling
+
+Between October 3, 2023 and November 16, 2023, few Azure Synapse Analytics Apache Spark pools could have experienced spark job/task failures due to storage API limit threshold being exceeded.
+
+**Status**: Resolved
+
+## Related content
 
 - [Synapse Studio troubleshooting](troubleshoot/troubleshoot-synapse-studio.md)
 - [Troubleshoot serverless SQL pool in Azure Synapse Analytics](sql/resources-self-help-sql-on-demand.md)

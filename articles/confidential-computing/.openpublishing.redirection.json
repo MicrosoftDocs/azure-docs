@@ -1,14 +1,75 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/confidential-computing/virtual-machine-solutions.md",
-            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions-sgx",
+            "source_path_from_root": "/articles/confidential-computing/virtual-machine-solutions-amd.md",
+            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/confidential-computing/faq.md",
             "redirect_url": "/azure/confidential-computing/faq-application-enclaves",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/confidential-vm-faq-amd.md",
+            "redirect_url": "/azure/confidential-computing/confidential-vm-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/quick-create-confidential-vm-arm-amd.md",
+            "redirect_url": "/azure/confidential-computing/quick-create-confidential-vm-arm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/quick-create-confidential-vm-portal-amd.md",
+            "redirect_url": "/azure/confidential-computing/quick-create-confidential-vm-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/quick-create-confidential-vm-azure-cli-amd.md",
+            "redirect_url": "/azure/confidential-computing/quick-create-confidential-vm-azure-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/tdx-confidential-vm-overview.md",
+            "redirect_url": "/azure/virtual-machines/dcesv5-dcedsv5-series",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/confidential-computing/how-to-fortanix-enclave-manager.md",
+            "redirect_url": "/azure/confidential-computing/how-to-fortanix-confidential-computing-manager-node-agent"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/create-managed-airflow-environment.md",
+            "redirect_url": "/azure/data-factory/create-airflow-environment"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/airflow-create-private-requirement-package.md",
+            "redirect_url": "/azure/data-factory/airflow-install-private-package"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/concept-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/concepts-workflow-orchestration-manager"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/delete-dags-in-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/delete-dags-in-workflow-orchestration-manager"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/enable-azure-key-vault-for-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/enable-azure-key-vault"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/get-started-with-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/get-started-with-workflow-orchestration-manager"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/how-does-managed-airflow-work.md",
+            "redirect_url": "/azure/data-factory/how-does-workflow-orchestration-manager-work"
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/how-to-diagnostic-logs-and-metrics-for-managed-airflow.md",
+            "redirect_url": "/azure/data-factory/diagnostic-logs-and-metrics-for-workflow-orchestration-manager"
         }
     ]
 }

@@ -7,9 +7,8 @@ author: asudbring
 manager: mtillman
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 03/22/2023
-ms.author: allensu 
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -61,7 +60,7 @@ You can use the [Azure portal](#azure-portal), [Azure PowerShell](#azure-powersh
 
 You can run the commands that in this section in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account.
 
-If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you run PowerShell locally, you also need to run the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you run PowerShell locally, you also need to run the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
 To enable resource logging, you need the ID of an existing NSG. If you don't have an existing NSG, create one by using the [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) cmdlet.
 

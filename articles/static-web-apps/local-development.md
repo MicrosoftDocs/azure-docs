@@ -5,9 +5,9 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 02/05/2024
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Set up local development for Azure Static Web Apps
@@ -21,7 +21,7 @@ When published to the cloud, an Azure Static Web Apps site links together many s
 
 These services must communicate with each other, and Azure Static Web Apps handles this integration for you in the cloud.
 
-Running locally, however, these services aren't automatically tied together.
+However, when you run your application locally these services aren't automatically tied together.
 
 To provide a similar experience as to what you get in Azure, the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) provides the following services:
 
@@ -34,34 +34,9 @@ To provide a similar experience as to what you get in Azure, the [Azure Static W
 > [!NOTE]
 > Often sites built with a front-end framework require a proxy configuration setting to correctly handle requests under the `api` route. When using the Azure Static Web Apps CLI the proxy location value is `/api`, and without the CLI the value is `http://localhost:7071/api`.
 
-## How it works
+[!INCLUDE [Local development overview](../../includes/static-web-apps-local-dev-overview.md)]
 
-The following chart shows how requests are handled locally.
-
-:::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI request and response flow":::
-
-> [!IMPORTANT]
-> Go to `http://localhost:4280` to access the application served by the CLI.
-
-- **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
-
-- **Static content** requests, such as HTML or CSS,  are either handled by the internal CLI static content server, or by the front-end framework server for debugging.
-
-- **Authentication and authorization** requests are handled by an emulator, which provides a fake identity profile to your app.
-
-- **Functions Core Tools runtime**<sup>1</sup> handles requests to the site's API.
-
-- **Responses** from all services are returned to the browser as if they were all a single application.
-
-The following article details the steps for running a node-based application, but the process is the same for any language or environment. Once you start the UI and the Azure Functions API apps independently, then start the Static Web Apps CLI and point it to the running apps using the following command:
-
-```console
-swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
-```
-
-Optionally, if you use the `swa init` command, the Static Web Apps CLI looks at your application code and build a _swa-cli.config.json_ configuration file for the CLI. When you use the _swa-cli.config.json_ file, you can run `swa start` to launch your application locally.
-
-<sup>1</sup> The Azure Functions Core Tools are automatically installed by the CLI if they aren't already on your system.
+The following article details the steps for running a node-based application, but the process is the same for any language or environment.
 
 ## Prerequisites
 
@@ -76,8 +51,11 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 1. Install the CLI.
 
     ```console
-    npm install @azure/static-web-apps-cli
+    npm install -D @azure/static-web-apps-cli
     ```
+
+    > [!TIP]
+    > If you want to install the SWA CLI globally, use `-g` in place of `-D`. It is highly recommended, however, to install SWA as a development dependency.
 
 1. Build your app if required by your application.
 
@@ -105,12 +83,12 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 |--|--|--|
 | Serve a specific folder | `swa start ./<OUTPUT_FOLDER_NAME>` | Replace `<OUTPUT_FOLDER_NAME>` with the name of your output folder. |
 | Use a running framework development server | `swa start http://localhost:3000` | This command works when you have an instance of your application running under port `3000`. Update the port number if your configuration is different. |
-| Start a Functions app in a folder | `swa start ./<OUTPUT_FOLDER_NAME> --api-location ./api` | Replace `<OUTPUT_FOLDER_NAME>` with the name of your output folder. This command expects your application's API to have files in the _api_ folder. Update this value if your configuration is different. |
+| Start a Functions app in a folder | `swa start ./<OUTPUT_FOLDER_NAME> --api-location ./api` | Replace `<OUTPUT_FOLDER_NAME>` with the name of your output folder. This command expects your application's API to have files in the `api` folder. Update this value if your configuration is different. |
 | Use a running Functions app | `swa start ./<OUTPUT_FOLDER_NAME> --api-location http://localhost:7071` | Replace `<OUTPUT_FOLDER_NAME>` with the name of your output folder. This command expects your Azure Functions application to be available through port `7071`. Update the port number if your configuration is different. |
 
 ## Authorization and authentication emulation
 
-The Static Web Apps CLI emulates the [security flow](./authentication-authorization.md) implemented in Azure. When a user logs in, you can define a fake identity profile returned to the app.
+The Static Web Apps CLI emulates the [security flow](./authentication-authorization.yml) implemented in Azure. When a user logs in, you can define a fake identity profile returned to the app.
 
 For instance, when you try to go to `/.auth/login/github`, a page is returned that allows you to define an identity profile.
 
@@ -132,7 +110,7 @@ Once logged in:
 
 - You can use the `/.auth/me` endpoint, or a function endpoint to retrieve the user's [client principal](./user-information.md).
 
-- Navigating to `/.auth/logout` clears the client principal and logs out the mock user.
+- Navigating to `/.auth/logout` clears the client principal and signs out the mock user.
 
 ## Debugging
 

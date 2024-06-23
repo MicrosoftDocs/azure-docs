@@ -3,7 +3,7 @@ title: Use Logstash to stream logs with HTTP Data Collection API (legacy)
 description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel using the HTTP Data Collection API.
 author: yelevin
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 11/09/2021
 ms.author: yelevin
 ---
@@ -37,7 +37,8 @@ The Logstash engine is comprised of three components:
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions 7.0 to 7.17.6, and versions 8.0 to 8.5.1**.
+> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions 7.0 to 7.17.10, and versions 8.0 to 8.9 and 8.11**.
+> If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
@@ -92,8 +93,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key => "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }
@@ -112,8 +113,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key =>  "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }

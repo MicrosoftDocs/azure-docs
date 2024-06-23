@@ -2,13 +2,14 @@
 title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
 description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
 ms.date: 09/09/2022
-ms.author: alkohli
+ms.author: shaas
+ms.custom: references_regions
 # Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
 
@@ -22,11 +23,11 @@ If you want to import data to Azure Blob storage and Azure Files, you can use Az
 
 ## Use cases
 
-Use Data Box Disk to transfer TBs of data in scenarios with no to limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
+Use Data Box Disk to transfer terabytes of data in scenarios with limited network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers.
 
 - **One time migration** - when large amount of on-premises data is moved to Azure. For example, moving data from offline tapes to archival data in Azure cool storage.
 - **Incremental transfer** - when an initial bulk transfer is done using Data Box Disk (seed) followed by incremental transfers over the network. For example, Commvault and Data Box Disk are used to move backup copies to Azure. This migration is followed by copying incremental data using network to Azure Storage.
-- **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms.
+- **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. One possible example might include the transfer of video content is generated on oil rigs and windmill farms for energy exploration. Additionally, periodic uploads can be useful for advanced driver assist system (ADAS) data collection campaigns, where data is collected from test vehicles.
 
 ### Ingestion of data from Data Box
 
@@ -36,16 +37,13 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 
 - **Azure File Sync** -  replicates files from your Data Box to an Azure file share, enabling you to centralize your file services in Azure while maintaining local access to your data. For more information, see [Deploy Azure File Sync](../storage/file-sync/file-sync-deployment-guide.md).
 
-- **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage using Data Box. For more information, see [Migrate from on-prem HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+- **HDFS stores** - migrate data from an on-premises Hadoop Distributed File System (HDFS) store of your Hadoop cluster into Azure Storage using Data Box. For more information, see [Migrate from on-premises HDFS store to Azure Storage with Azure Data Box](../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 - **Azure Backup** - allows you to move large backups of critical enterprise data through offline mechanisms to an Azure Recovery Services Vault. For more information, see [Azure Backup overview](../backup/backup-overview.md).
 
 You can use your Data Box data with many non-Azure service providers. For instance:
 
-- **[Commvault](http://documentation.commvault.com/commvault/v11/article?p=97276.htm)** - allows you to migrate large volumes of data to Microsoft Azure using the Azure Data Box.
-- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to backup and replicated large amounts of data from your Hyper-V machine to your Data Box.
-
-For a list of other non-Azure service providers that integrate with Data Box, see [Azure Data Box Partners](https://cloudchampions.blob.core.windows.net/db-partners/PartnersTable.pdf).
+- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
 
 ## The workflow
 
@@ -72,7 +70,7 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
 
 - **Speed** - Data Box Disk uses a USB 3.0 connection to move up to 35 TB of data into Azure in less than a week.
 
-- **Easy to use** - Data Box is an easy to use solution.
+- **Ease of use** - Data Box is an easy to use solution.
 
   - The disks use USB connectivity with almost no setup time.
   - The disks have a small form factor that makes them easy to handle.
@@ -80,9 +78,10 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
   - The disks can be used with a datacenter server, desktop, or a laptop.
   - The solution provides end-to-end tracking using the Azure portal.
 
-- **Secure** - Data Box Disk has built-in security protections for the disks, data, and the service.
+- **Security** - Data Box Disk has built-in security protections for the disks, data, and the service.
   - The disks are tamper-resistant and support secure update capability.
-  - The data on the disks is secured with an AES 128-bit encryption at all times.
+  - The data on software encrypted disks is secured with an AES 128-bit encryption at all times.
+  - The data on hardware encrypted disks is secured at rest by the AES 256-bit hardware encryption engine with no loss of performance.
   - The disks can only be unlocked with a key provided in the Azure portal.
   - The service is protected by the Azure security features.
   - Once your data is uploaded to Azure, the disks are wiped clean, in accordance with NIST 800-88r1 standards.  
@@ -91,15 +90,19 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 
 ## Features and specifications
 
+[!INCLUDE [data-box-cross-region](../../includes/data-box-cross-region.md)]
+
+The Data Box Heavy device has the following features in this release.
+
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | < 2 lbs. per box. Up to 5 disks in the box                |
 | Dimensions                                              | Disk - 2.5" SSD |
-| Cables                                                  | 1 USB 3.1 cable per disk|
+| Cables                                                  | SATA 3<br>SATA to USB 3.1 converter cable provided for software encrypted disks |
 | Storage capacity per order                              | 40 TB (usable ~ 35 TB)|
 | Disk storage capacity                                   | 8 TB (usable ~ 7 TB)|
-| Data interface                                          | USB   |
-| Security                                                | Pre-encrypted using BitLocker and secure update <br> Passkey protected disks <br> Data encrypted at all times  |
+| Data interface                                          | Software encryption: USB<br>Hardware encryption: SATA 3 |
+| Security                                                | Hardware encrypted disks: AES 256-bit hardware encryption engine<br>Software encrypted disks: Pre-encrypted using BitLocker AES 128-bit encryption and secure update <br> Passkey protected disks <br> Data encrypted at all times  |
 | Data transfer rate                                      | up to 430 MBps depending on the file size      |
 |Management                                               | Azure portal |
 

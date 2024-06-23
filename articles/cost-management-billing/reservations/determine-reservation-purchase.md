@@ -2,11 +2,11 @@
 title: Determine what Azure reservation you should purchase
 description: This article helps you determine which reservation you should purchase.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 01/04/2024
 ms.author: banders
 ---
 
@@ -38,7 +38,7 @@ Here's an example of the usage file showing the usage file with filters applied.
 
 :::image type="content" source="./media/determine-reservation-purchase/example-usage-file-details.png" alt-text="Screenshot showing the usage file with filters applied." lightbox="./media/determine-reservation-purchase/example-usage-file-details.png" :::
 
-If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+If you want to analyze at the instance size family level, you can get the instance size flexibility values from [Instance size flexibility ratios](https://aka.ms/isf). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 
@@ -90,7 +90,7 @@ Note the following points:
 
 Reservation purchases calculated by the recommendations engine are shown on the **Recommended** tab in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs). Here's an example image.
 
-![Image showing recommendations](./media/determine-reservation-purchase/select-product-ri.png)
+:::image type="content" border="true" source="./media/determine-reservation-purchase/select-product-ri.png" alt-text="Screenshot showing reservation purchase recommendations.":::
 
 Learn more about [recommendations](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
 
@@ -106,9 +106,12 @@ Enterprise Agreement customers can use the VM RI Coverage reports for VMs and pu
 
 Reservation purchase recommendations are available in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
 
-- Advisor has only single-subscription scope recommendations.
-- Advisor recommendations are calculated using 30-day look-back period. The projected savings are for a three-year reservation term.
-- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to 30 days to disappear.
+- Advisor has only single-subscription scope recommendations. If you want to see recommendations for the entire billing scope (Billing account or billing profile), then:
+- In the Azure portal, navigate to Reservations > Add and then select the type that you want to see the recommendations for.
+- The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
+- The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
+- If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to five days to disappear.
+- Azure classic compute resources such as classic VMs are explicitly excluded from reservation recommendations. Microsoft recommends that users avoid making long-term commitments to legacy services that are being deprecated.
 
 ## Recommendations using APIs
 

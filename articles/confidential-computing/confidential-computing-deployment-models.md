@@ -1,14 +1,12 @@
 ---
 title: Choose Between Deployment Models
 description: Choose Between Deployment Models
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 11/04/2021
-ms.author: mamccrea
-ms.custom: ignite-fall-2021
+ms.date: 4/30/2024
+ms.author: jushiman
 ---
 
 # Confidential computing deployment models
@@ -17,7 +15,17 @@ Azure confidential computing supports multiple deployment models. These differen
 
 ## Infrastructure as a Service (IaaS)
 
-For Infrastructure as a Service (IaaS), you can use confidential virtual machines (VMs) in confidential computing. You can use VMs based on [Intel Software Guard Extensions (SGX) application enclaves](confidential-computing-enclaves.md) or AMD SEV-SNP technology.
+Under Infrastructure as a Service (IaaS) deployment model, you can use **Confidential VMs** (CVMs) based on [AMD SEV-SNP](confidential-vm-overview.md) or [Intel TDX](tdx-confidential-vm-overview.md) for VM isolation or **Application Enclaves** with [Intel SGX](confidential-computing-enclaves.md) for App isolation. These options provide organizations with differing deployment models depending your trust boundary, or desired ease of deployment.
+
+![Diagram showing the customer trust boundary of confidential computing technologies.](./media/confidential-computing-deployment-models/cloud-trust-boundary.png)
+
+Infrastructure as a Service (IaaS) is a cloud computing deployment model that grants access to scalable computing resources, such as servers, storage, networking, and virtualization, on demand. By adopting IaaS deployment model, organizations can forego the process of procuring, configuring, and managing their own infrastructure, instead only paying for the resources they utilize. This makes it a cost-effective solution.
+
+In the domain of cloud computing, IaaS deployment model enables businesses to rent individual services from cloud service providers like Azure. Azure assumes responsibility for managing and maintaining the infrastructure, empowering organizations to concentrate on installing, configuring, and managing their software. Azure also offers supplementary services such as comprehensive billing management, logging, monitoring, storage resiliency, and security.
+
+Scalability constitutes another significant advantage of IaaS deployment model in cloud computing. Enterprises can swiftly scale their resources up and down according to their requirements. This flexibility facilitates faster development life cycles, accelerating time to market for new products and ideas. Additionally, IaaS deployment model ensures reliability by eliminating single points of failure. Even in the event of a hardware component failure, the service remains accessible.
+
+In conclusion, IaaS deployment model in combination with Azure Confidential Computing offers benefits, including cost savings, increased efficiency, innovation opportunities, reliability, high scalability, and all secured by a robust and comprehensive security solution designed specifically to protect highly sensitive data.
 
 ## Platform as a Service (PaaS)
 
@@ -49,25 +57,25 @@ You might opt for a confidential container-based approach when:
 - You're building a modern cloud-native solution. You also have full control of source code and the deployment process.
 - You need multi-cloud support.
 
-Both options offer the highest security level for Azure services. There are some differences in the security postures of [confidential VMs](#confidential-vms-on-amd-sev-snp) and [confidential containers](#secure-enclaves-on-intel-sgx) as follows.
+Both options offer the highest security level for Azure services. 
 
-### Confidential VMs on AMD SEV-SNP
+There are some differences in the security postures of [confidential VMs](#confidential-vms) and [confidential containers](#application-enclaves) as follows.
 
-**Confidential VMs on AMD SEV-SNP** offer hardware-encrypted protection of the entire VM from unauthorized access by the host administrator. This level typically includes the hypervisor, which the cloud service provider (CSP) manages. You can use this type of confidential VM to prevent the CSP accessing data and code executed within the VM.
+### Confidential VMs
+
+**Confidential VMs** offer hardware-encrypted protection of the entire VM from unauthorized access by the host administrator. This level typically includes the hypervisor, which the cloud service provider (CSP) manages. You can use this type of confidential VM to prevent the CSP accessing data and code executed within the VM.
 
 VM admins or any other app or service running inside the VM, operate beyond the protected boundaries. These users and services can access data and code within the VM.
 
-AMD SEV-SNP technology provides VM isolation from the hypervisor. The hardware-based memory integrity protection helps prevent malicious hypervisor-based attacks. The SEV-SNP model trusts the AMD Secure Processor and the VM. The model doesn't trust any other hardware and software components. Untrusted components include the BIOS, and the hypervisor on the host system.
+![Diagram showing the customer trust boundary of confidential VM technologies.](./media/confidential-computing-deployment-models/cvm-architecture.png)
 
-:::image type="content" source="media/confidential-computing-deployment-models/amd-sev-snp-vm.png" alt-text="Diagram of AMD SEV-SNP VM architecture, defining trusted and untrusted components.":::
+### Application Enclaves
 
-### Secure enclaves on Intel SGX
+**Application Enclaves** protects memory spaces inside a VM with hardware-based encryption. The security boundary of application enclaves is more restricted than confidential VMs. For Intel SGX, the security boundary applies to portions of memory within a VM. Guest admins, apps, and services running inside the VM can't access any data and code in execution inside the enclave.
 
-**Secure enclaves on Intel SGX** protect memory spaces inside a VM with hardware-based encryption. The security boundary of application enclaves is more restricted than confidential VMs on AMD SEV-SNP. For Intel SGX, the security boundary applies to portions of memory within a VM. Users, apps, and services running inside the Intel SGX-powered VM can't access any data and code in execution inside the enclave.
+Intel SGX enhances application security by isolating data in use. It creates secure enclaves that prevent modifications to selected code and data, ensuring that only authorized code can access them. Even with high-level permissions, entities outside the enclave, including the OS and hypervisor, cannot access enclave memory through standard calls. Accessing enclave functions requires specific Intel SGX CPU instructions, which include multiple security checks.
 
-Intel SGX helps protect data in use by application isolation. By protecting selected code and data from modification, developers can partition their application into hardened enclaves or trusted execution modules to help increase application security. Entities outside the enclave can't read or write the enclave memory, whatever their permissions levels. The hypervisor or the operating system also can't obtain this access through normal OS-level calls. To call an enclave function, you have to use a new set of instructions in the Intel SGX CPUs. This process includes several protection checks.
-
-:::image type="content" source="media/confidential-computing-deployment-models/intel-sgx-enclave.png" alt-text="Diagram of Intel SGX enclaves architecture, showing secure information inside app enclave.":::
+![Diagram showing the customer trust boundary of App Enclaves technologies.](./media/confidential-computing-deployment-models/enclaves-architecture.png)
 
 ## Next steps
 

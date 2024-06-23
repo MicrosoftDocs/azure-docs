@@ -6,17 +6,17 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment, ignite-2022
+ms.custom: mode-other, devx-track-azurecli, kr2b-contr-experiment
 ms.devlang: azurecli
 ---
 
 # Quickstart: Create a multi-region cluster with Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
+Azure Managed Instance for Apache Cassandra is a fully managed service for pure open-source Apache Cassandra clusters. The service also allows configurations to be overridden, depending on the specific needs of each workload, allowing maximum flexibility and control where needed.
 
 This quickstart demonstrates how to use the Azure CLI commands to configure a multi-region cluster in Azure.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This article requires the Azure CLI version 2.30.0 or higher. If you're using Azure Cloud Shell, the latest version is already installed.
 
@@ -174,7 +174,7 @@ If you encounter errors when you run `az role assignment create`, you might not 
       --sku $virtualMachineSKU \
       --disk-capacity $noOfDisksPerNode \
       --availability-zone false
-   ```
+   ```  
 
    > [!NOTE]
    > The value for `--sku` can be chosen from the following available SKUs:
@@ -207,17 +207,23 @@ If you encounter errors when you run `az role assignment create`, you might not 
        --resource-group $resourceGroupName
     ```
 
-1. Finally, [connect to your cluster](create-cluster-cli.md#connect-to-your-cluster) using CQLSH, and use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
+1. Then [connect to your cluster](create-cluster-cli.md#connect-to-your-cluster) using CQLSH, and use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster (system tables will be updated automatically):
 
    ```bash
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'dc-eastus2': 3, 'dc-eastus': 3};
    ```
+   
+1. Finally, if you are adding a data center to a cluster where there is already data, you will need to run `rebuild` in order to replicate the historical data. In this case, we'll assume that the `dc-eastus2` data center already has data. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new `dc-eastus` data center, replacing `<ip address>` with the IP address of the node:
 
-   You also need to update the password tables:
-
-   ```bash
-    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'dc-eastus2': 3, 'dc-eastus': 3}
-   ```
+    ```azurecli-interactive
+    az managed-cassandra cluster invoke-command \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName \
+      --host <ip address> \
+      --command-name nodetool --arguments rebuild="" "dc-eastus2"=""
+    ``` 
+   > [!WARNING]
+   > You should **not** allow application clients to write to the new data center until you have applied keyspace replication changes. Otherwise, rebuild won't work, and you will need to create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) so our team can run `repair` on your behalf. 
 
 ## Troubleshooting
 

@@ -3,11 +3,11 @@ metadata:
   title: Azure Private Link frequently asked questions (FAQ)
   description: Learn about Azure Private Link.
   services: private-link
-  author: asudbring
+  author: abell
   ms.service: private-link
   ms.topic: faq
-  ms.date: 01/17/2023
-  ms.author: allensu
+  ms.date: 03/18/2024
+  ms.author: abell
 title: Azure Private Link frequently asked questions (FAQ)
 summary: |
 
@@ -57,14 +57,19 @@ sections:
           Yes. You can have multiple Private Endpoints in same VNet or subnet. They can connect to different services.  
 
       - question: |
+           Can we link multiple private DNS zones with the same name? 
+        answer: |
+           No, creating multiple zones with the same name for a single virtual network is not supported.  
+
+      - question: |
           Do I require a dedicated subnet for Private Endpoints? 
         answer: |
           No. You don't require a dedicated subnet for Private Endpoints. You can choose a Private Endpoint IP from any subnet from the VNet where your service is deployed.  
 
       - question: |
-          Can a private endpoint connect to Private Link services across Azure Active Directory tenants? 
+          Can a private endpoint connect to Private Link services across Microsoft Entra tenants? 
         answer: |
-          Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Azure Active Directory tenants. Private Endpoints across tenants require a manual request approval. 
+          Yes. Private endpoints can connect to Private Link services or to an Azure PaaS across Microsoft Entra tenants. Private Endpoints across tenants require a manual request approval. 
 
       - question: |
           Can Private Endpoint connect to Azure PaaS resources across Azure regions?

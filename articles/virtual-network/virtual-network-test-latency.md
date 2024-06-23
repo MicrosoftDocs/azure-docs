@@ -6,12 +6,15 @@ author: asudbring
 manager: Marina Lipshteyn
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
+ms.custom: linux-related-content
 ms.date: 03/23/2023
 ms.author: allensu
 ---
 
 # Test network latency between Azure VMs
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to test network latency between Azure virtual machines (VMs) by using the publicly available tools [Latte](https://github.com/microsoft/latte) for Windows or [SockPerf](https://github.com/mellanox/sockperf) for Linux.
 
@@ -85,7 +88,7 @@ Run *latte.exe* from the Windows command line, not from PowerShell.
    ```
 
    For example:
-   
+
    `latte -c -a 10.0.0.4:5005 -i 65100`
 
 1. Wait for the results. Depending on how far apart the VMs are, the test could take a few minutes to finish. Consider starting with fewer iterations to test for success before running longer tests.

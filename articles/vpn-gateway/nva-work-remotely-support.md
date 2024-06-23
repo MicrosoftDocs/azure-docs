@@ -5,16 +5,12 @@ description: Learn about the things that you should take into consideration work
 author: KumudD
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 05/05/2023
 ms.author: kumud
 
 ---
 
 # Working remotely: Network Virtual Appliance (NVA) considerations for remote work
-
->[!NOTE]
->This article describes how you can leverage Network Virtual Appliances, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
->
 
 Some Azure customers utilize third-party Network Virtual Appliances (NVAs) from Azure Marketplace to provide critical services such as Point-to-site VPN for their employees who are working from home during the COVID-19 epidemic. This article outlines some high-level guidance to take into consideration when leveraging NVAs in Azure to provide remote access solutions.
 
@@ -53,7 +49,7 @@ Most major NVA partners have posted guidance around scaling for sudden, unexpect
 
 [Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation")
 
-[Citrix COVID-19 Response Support Center](https://www.citrix.com/support/covid-19-coronavirus.html "Citrix COVID-19 Response Support Center")
+[Citrix COVID-19 Response Support Center](https://www.citrix.com/content/dam/citrix/en_us/documents/ebook/back-to-the-office.pdf "Citrix COVID-19 Response Support Center")
 
 [F5 Guidance to Address the Dramatic Increase in Remote Workers](https://www.f5.com/business-continuity "F5 Guidance to Address the Dramatic Increase in Remote Workers")
 

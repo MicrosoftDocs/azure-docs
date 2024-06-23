@@ -5,16 +5,21 @@ description: Use the Data Movement library to move or copy data to or from blob 
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 11/13/2023
 ms.author: pauljewell
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Transfer data with the Data Movement library
+
+> [!NOTE]
+> This article includes guidance for working with version 2.0.XX of the Azure Storage Data Movement library. Version 2.0.XX is currently in maintenance mode, and the library is only receiving fixes for data integrity and security issues. No new functionality or features will be added, and new storage service versions will not be supported by the library.
+>
+> Beta versions of a modern Data Movement library are currently in development. For more information, see [Azure Storage Data Movement Common client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) on GitHub.
 
 The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods provide the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
 

@@ -6,9 +6,8 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: how-to
-ms.custom: seodec18, template-how-to
-ms.workload: infrastructure-services
-ms.date: 12/05/2022
+ms.custom: template-how-to, devx-track-azurecli
+ms.date: 01/22/2024
 ms.author: mbender
 ---
 
@@ -39,9 +38,9 @@ You can change the configuration of the distribution mode by modifying the load-
 
 The following options are available: 
 
-* **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
-* **Client IP (two-tuple: source IP and destination IP)** - Specifies that successive requests from the same client IP address will be handled by the same virtual machine.
-* **Client IP and protocol (three-tuple: source IP, destination IP, and protocol type)** - Specifies that successive requests from the same client IP address and protocol combination will be handled by the same virtual machine.
+* **None (hash-based)** - Specifies that successive requests from the same client can be handled by any virtual machine.
+* **Client IP (two-tuple: source IP and destination IP)** - Specifies that successive requests from the same client IP address are handled by the same virtual machine.
+* **Client IP and protocol (three-tuple: source IP, destination IP, and protocol type)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same virtual machine.
 
 5. Choose the distribution mode and then select **Save**.
 
@@ -70,7 +69,7 @@ Set the value of the `LoadDistribution` element for the type of load balancing r
 
 # [**CLI**](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 Use Azure CLI to change the load-balancer distribution settings on an existing load-balancing rule.  The following command updates the distribution mode:
 

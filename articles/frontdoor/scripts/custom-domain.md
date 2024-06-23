@@ -1,17 +1,19 @@
 ---
-title: "Azure CLI example: Deploy custom domain in Azure Front Door" 
-description: Use this Azure CLI example script to deploy a Custom Domain name and TLS certificate on an Azure Front Door front-end. 
+title: "Azure CLI example: Deploy custom domain in Azure Front Door"
+description: Use this Azure CLI example script to deploy a Custom Domain name and TLS certificate on an Azure Front Door front-end.
 services: frontdoor
 ms.service: frontdoor
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: DanielLarsenNZ
-ms.author: dalars
-ms.date: 04/27/2022 
+author: duongau
+ms.author: duau
+ms.date: 04/27/2022
 ---
 
 # Azure Front Door: Deploy custom domain
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../../includes/front-door-classic-retirement.md)]
 
 This Azure CLI script example deploys a custom domain name and TLS certificate on an Azure Front Door front-end. This script demonstrates fully automated provisioning of Azure Front Door with a custom domain name (hosted by Azure DNS) and TLS cert.
 
@@ -20,7 +22,7 @@ This Azure CLI script example deploys a custom domain name and TLS certificate o
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -46,7 +48,7 @@ The script will:
 
 To run this script, copy the following code to a .sh file, change the hardcoded variables to your domain values, and then execute the following command to pass these variables into the script
 
-```bash
+```
 AZURE_DNS_ZONE_NAME=www.contoso.com AZURE_DNS_ZONE_RESOURCE_GROUP=contoso-rg ./deploy-custom-apex-domain.sh
 ```
 

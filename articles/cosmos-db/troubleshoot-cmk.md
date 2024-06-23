@@ -6,7 +6,6 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/25/2022
 ms.author: turao
-ms.custom: ignite-2022
 ms.devlang: azurecli
 ---
 
@@ -100,7 +99,7 @@ In Scenario 3: Expected as the Multi-tenant App is not there or deleted.
 
 **Mitigation**
 
-For Scenario 1: customer needs to follow Configure your azure key vault instance section on [ setup customer managed keys documentation](./how-to-setup-customer-managed-keys.md) to retrieve the Key Vault Key Uri
+For Scenario 1: customer needs to follow Configure your azure key vault instance section on [setup customer managed keys documentation](./how-to-setup-customer-managed-keys.md) to retrieve the Key Vault Key Uri
 
 For Scenario 2: customer need to add the missing “&FederatedClientId=<00000000-0000-0000-0000-000000000000>” into the default identity.
 
@@ -147,8 +146,9 @@ ___________________________________
 
 **Error Message**
 
-``Updating KeyVaultKeyUri is not supported
-ActivityId: 00000000-0000-0000-0000-000000000000``
+```Updating KeyVaultKeyUri is not supported
+ActivityId: 00000000-0000-0000-0000-000000000000
+```
 
 
 **Status Code** 
@@ -175,8 +175,10 @@ A customer is trying to update the Cosmos DB CMK account which is in revoke stat
 
 **Error Message**
 
-``No Update is allowed on Database Account with Customer Managed Key in Revoked Status
-ActivityId: 00000000-0000-0000-0000-000000000000, Microsoft.Azure.Documents.Common/2.14.0``
+```
+No Update is allowed on Database Account with Customer Managed Key in Revoked Status
+ActivityId: 00000000-0000-0000-0000-000000000000, Microsoft.Azure.Documents.Common/2.14.0
+```
 
 
 **Status Code** 
@@ -418,9 +420,10 @@ ___________________________________
 
 **Error Message**
 
-``Continuous backup mode and multiple write locations cannot be enabled together for a global database account
-ActivityId: 00000000-0000-0000-0000-000000000000``
-
+```
+Continuous backup mode and multiple write locations cannot be enabled together for a global database account
+ActivityId: 00000000-0000-0000-0000-000000000000
+```
 
 **Status Code** 
 

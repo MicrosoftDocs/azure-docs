@@ -1,76 +1,162 @@
 ---
-title: Remove Microsoft Sentinel | Microsoft Docs
-description: How to delete your Microsoft Sentinel instance.
-author: yelevin
-ms.topic: conceptual
-ms.date: 11/09/2021
-ms.author: yelevin
-ms.custom: ignite-fall-2021
+title: Remove Microsoft Sentinel from your workspace 
+description: Learn how to delete your Microsoft Sentinel instance.
+author: cwatson-cat
+ms.topic: how-to
+ms.date: 03/06/2024
+ms.author: cwatson
 ---
 
 # Remove Microsoft Sentinel from your workspace
 
-If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your workspace.
+If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your Log Analytics workspace. Review the implications of removing Microsoft Sentinel before you complete these steps.
 
-## How to remove Microsoft Sentinel
+## Remove Microsoft Sentinel
 
-Follow this process to remove Microsoft Sentinel from your workspace:
+Complete the following steps to remove Microsoft Sentinel from your Log Analytics workspace.
 
-1. From the Microsoft Sentinel navigation menu, under **Configuration**, select **Settings**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Configuration**, select **Settings**.
 
-1. In the **Settings** pane, select the **Settings** tab.
+1. On the **Settings** page, select the **Settings** tab.
 
-1. Locate and expand the **Remove Microsoft Sentinel** expander (at the bottom of the list of expanders).
+1. At the bottom of the list, select **Remove Microsoft Sentinel**.
 
     :::image type="content" source="media/offboard/locate-remove-sentinel.png" alt-text="Screenshot to find the setting to remove Microsoft Sentinel from your workspace.":::
 
-1. Read the **Know before you go...** section and the rest of this document carefully, making sure that you understand the implications of removing Microsoft Sentinel, and that you take all the necessary actions before proceeding.
+1. Review the **Know before you go...** section and the rest of this document carefully. Take all the necessary actions before proceeding.
 
-1. Before you remove Microsoft Sentinel, please mark the relevant checkboxes to let us know why you're removing it. Enter any additional details in the space provided, and indicate whether you want Microsoft to email you in response to your feedback.
+1. Select the appropriate checkboxes to let us know why you're removing Microsoft Sentinel. Enter any other details in the space provided, and indicate whether you want Microsoft to email you in response to your feedback.
 
 1. Select **Remove Microsoft Sentinel from your workspace**.
     
-    :::image type="content" source="media/offboard/remove-sentinel-reasons.png" alt-text="Screenshot to remove the Microsoft Sentinel solution from your workspace and specify reasons.":::
+    :::image type="content" source="media/offboard/remove-sentinel-reasons.png" alt-text="Screenshot that shows the section to remove the Microsoft Sentinel solution from your workspace.":::
 
-## What happens behind the scenes?
+## Consider pricing changes
+When Microsoft Sentinel is removed from a workspace, there might still be costs associated with the data in Azure Monitor Log Analytics. For more information on the effect to commitment tier costs, see [Simplified billing offboarding behavior](enroll-simplified-pricing-tier.md#offboarding-behavior).
 
-When you remove the solution, Microsoft Sentinel takes up to 48 hours to complete the first phase of the deletion process.
+## Review implications
 
-After the disconnection is identified, the offboarding process begins.
+It can take up to 48 hours for Microsoft Sentinel to be removed from the Log Analytics workspace. Data connector configuration and Microsoft Sentinel tables are deleted. Other resources and data are retained for a limited time.
 
-**The configuration of these connectors is removed:**
--   Office 365
+Your subscription continues to be registered with the Microsoft Sentinel resource provider. But, you can remove it manually.
 
--   AWS
+### Data connector configurations removed
 
--   Microsoft services security alerts: Microsoft Defender for Identity, Microsoft Defender for Cloud Apps (*formerly Microsoft Cloud App Security*) including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint, security alerts from Microsoft Defender for Cloud (*formerly Azure Defender*)
+The configurations for the following data connector are removed when you remove Microsoft Sentinel from your workspace.
 
--   Threat Intelligence
+- Microsoft 365
 
--   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you get security alerts from Microsoft Defender for Cloud, these logs will continue to be collected.)
+- Amazon Web Services
 
--   Windows Security Events (If you get security alerts from Microsoft Defender for Cloud, these logs will continue to be collected.)
+- Microsoft services security alerts:
 
-Within the first 48 hours, the data and analytics rules (including real-time automation configuration) will no longer be accessible or queryable in Microsoft Sentinel.
+  - Microsoft Defender for Identity 
+  - Microsoft Defender for Cloud Apps including Cloud Discovery Shadow IT reporting
+  - Microsoft Entra ID Protection
+  - Microsoft Defender for Endpoint
+  - Microsoft Defender for Cloud
 
-**After 30 days these resources are removed:**
+- Threat Intelligence
 
--   Incidents (including investigation metadata)
+- Common security logs including CEF-based logs, Barracuda, and Syslog. If you get security alerts from Microsoft Defender for Cloud, these logs continue to be collected.
 
--   Analytics rules
+- Windows Security Events. If you get security alerts from Microsoft Defender for Cloud, these logs continue to be collected.
 
--   Bookmarks
+Within the first 48 hours, the data and analytics rules, which include real-time automation configuration, are no longer accessible or queryable in Microsoft Sentinel.
 
-Your playbooks, saved workbooks, saved hunting queries, and notebooks are not removed. **Some may break due to the removed data. You can remove those manually.**
+### Resources removed
 
-After you remove the service, there is a grace period of 30 days during which you can re-enable the solution. Your data and analytics rules will be restored, but the configured connectors that were disconnected must be reconnected.
+The following resources are removed after 30 days: 
 
-> [!NOTE]
-> If you remove the solution, your subscription will continue to be registered with the Microsoft Sentinel resource provider. **You can remove it manually.**
+- Incidents (including investigation metadata)
 
+- Analytics rules
 
+- Bookmarks
 
+Your playbooks, saved workbooks, saved hunting queries, and notebooks aren't removed. Some of these resources might break due to the removed data. Remove those resources manually.
+
+After you remove the service, there's a grace period of 30 days to re-enable Microsoft Sentinel. Your data and analytics rules are restored, but the configured connectors that were disconnected must be reconnected.
+
+### Microsoft Sentinel tables deleted
+
+When you remove Microsoft Sentinel from your workspace, all Microsoft Sentinel tables are deleted. The data in these tables aren't accessible or queryable. But, the data retention policy set for those tables applies to the data in the deleted tables. So, if you re-enable Microsoft Sentinel on the workspace within the data retention time period, the retained data is restored to those tables.
+
+The tables and related data that are inaccessible when you remove Microsoft Sentinel include but aren't limited to the following tables:
+
+- `AlertEvidence`
+- `AlertInfo`
+- `Anomalies`
+- `ASimAuditEventLogs`
+- `ASimAuthenticationEventLogs`
+- `ASimDhcpEventLogs`
+- `ASimDnsActivityLogs`
+- `ASimFileEventLogs`
+- `ASimNetworkSessionLogs`
+- `ASimProcessEventLogs`
+- `ASimRegistryEventLogs`
+- `ASimUserManagementActivityLogs`
+- `ASimWebSessionLogs`
+- `AWSCloudTrail`
+- `AWSCloudWatch`
+- `AWSGuardDuty`
+- `AWSVPCFlow`
+- `CloudAppEvents`
+- `CommonSecurityLog`
+- `ConfidentialWatchlist`
+- `DataverseActivity`
+- `DeviceEvents`
+- `DeviceFileCertificateInfo`
+- `DeviceFileEvents`
+- `DeviceImageLoadEvents`
+- `DeviceInfo`
+- `DeviceLogonEvents`
+- `DeviceNetworkEvents`
+- `DeviceNetworkInfo`
+- `DeviceProcessEvents`
+- `DeviceRegistryEvents`
+- `DeviceTvmSecureConfigurationAssessment`
+- `DeviceTvmSecureConfigurationAssessmentKB`
+- `DeviceTvmSoftwareInventory`
+- `DeviceTvmSoftwareVulnerabilities`
+- `DeviceTvmSoftwareVulnerabilitiesKB`
+- `DnsEvents`
+- `DnsInventory`
+- `Dynamics365Activity`
+- `DynamicSummary`
+- `EmailAttachmentInfo`
+- `EmailEvents`
+- `EmailPostDeliveryEvents`
+- `EmailUrlInfo`
+- `GCPAuditLogs`
+- `GoogleCloudSCC`
+- `HuntingBookmark`
+- `IdentityDirectoryEvents`
+- `IdentityLogonEvents`
+- `IdentityQueryEvents`
+- `LinuxAuditLog`
+- `McasShadowItReporting`
+- `MicrosoftPurviewInformationProtection`
+- `NetworkSessions`
+- `OfficeActivity`
+- `PowerAppsActivity`
+- `PowerAutomateActivity`
+- `PowerBIActivity`
+- `PowerPlatformAdminActivity`
+- `PowerPlatformConnectorActivity`
+- `PowerPlatformDlpActivity`
+- `ProjectActivity`
+- `SecurityAlert`
+- `SecurityEvent`
+- `SecurityIncident`
+- `SentinelAudit`
+- `SentinelHealth`
+- `ThreatIntelligenceIndicator`
+- `UrlClickEvents`
+- `Watchlist`
+- `WindowsEvent`
 
 ## Next steps
-In this document, you learned how to remove the Microsoft Sentinel service. If you change your mind and want to install it again:
-- Get started [on-boarding Microsoft Sentinel](quickstart-onboard.md).
+
+In this document, you learned how to remove the Microsoft Sentinel service. If you change your mind and want to install it again, see [Quickstart: Onboard Microsoft Sentinel](quickstart-onboard.md).
+

@@ -1,15 +1,16 @@
 ---
 title: Azure IoT Edge for Linux on Windows updates
-description: Overview of Azure IoT Edge for Linux on Windows updates
+description: Overview of Azure IoT Edge for Linux on Windows updates. Learn how to update your IoT Edge for Linux on Windows devices when a new version is available.
 author: PatAltimore
 
 # this is the PM responsible
 ms.reviewer: fcabrera
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/05/2022
-ms.author: fcabrera
+ms.date: 06/05/2024
+ms.author: patricka
 ---
 
 # Update IoT Edge for Linux on Windows
@@ -88,8 +89,8 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
 1. Open an elevated PowerShell session
 1. Start the EFLOW migration
 
-    >[!NOTE]
-    >You can migrate with one single cmdlet by using the `-autoConfirm` flag with the ` Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesnt needs to be called to proceed with 1.4 migration.
+    > [!NOTE]
+    > You can migrate with one single cmdlet by using the `-autoConfirm` flag with the `Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesnt needs to be called to proceed with 1.4 migration.
 
     1. If you're using the auto-download migration option run the following cmdlet
         ```powershell
@@ -109,8 +110,9 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
         Confirm-EflowMigration -updateMsiPath "<path-to-folder>\AzureIoTEdge_LTS_Update_1.4.2.12122_X64.msi" 
         ```
 
-If for any reason the migration fails, the EFLOW VM will be restored to its original 1.1LTS version. 
-If you want to cancel the migration, you can use the following cmdlets `Start-EflowMigration` and then `Restore-EflowPriorToMigration` 
+>[!WARNING]
+> If for any reason the migration fails, the EFLOW VM will be restored to its original 1.1LTS version. 
+> If you want to cancel the migration or manually restore the EFLOW VM to prior state, you can use the following cmdlets `Start-EflowMigration` and then `Restore-EflowPriorToMigration`. 
 
 For more information, check `Start-EflowMigration`, `Confirm-EflowMigration` and `Restore-EflowPriorToMigration` cmdlet documentation by using the `Get-Help <cmdlet> -full` command. 
 

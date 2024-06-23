@@ -3,16 +3,18 @@ title: Autoscale online endpoints
 titleSuffix:  Azure Machine Learning
 description: Learn to scale up online endpoints. Get more CPU, memory, disk space, and extra features.
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: devplatv2, cliv2, event-tier1-build-2022
+ms.custom: devplatv2, cliv2, update-code
 
 ms.date: 02/07/2023
 ---
 # Autoscale an online endpoint
+
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Online endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
 
@@ -33,7 +35,7 @@ To enable autoscale for an endpoint, you first define an autoscale profile. This
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The following snippet sets the endpoint and deployment names:
 
@@ -52,7 +54,7 @@ The following snippet creates the autoscale profile:
 
 
 # [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Import modules:
 ```python
@@ -148,13 +150,13 @@ Under __Choose how to scale your resources__, select __Custom autoscale__ to beg
 
 ---
 
-## Create a rule to scale out using metrics
+## Create a rule to scale out using deployment metrics
 
 A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
 
@@ -165,7 +167,7 @@ The rule is part of the `my-scale-settings` profile (`autoscale-name` matches th
 
 
 # [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Create the rule definition:
 
@@ -232,18 +234,18 @@ Finally, select the __Add__ button to create the rule.
 
 ---
 
-## Create a rule to scale in using metrics
+## Create a rule to scale in using deployment metrics
 
 When load is light, a scaling in rule can reduce the number of VM instances. The following example will release a single node, down to a minimum of 2, if the CPU load is less than 30% for 5 minutes:
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
 
 # [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Create the rule definition: 
 
@@ -254,15 +256,15 @@ rule_scale_in = ScaleRule(
         metric_resource_uri = deployment.id, 
         time_grain = datetime.timedelta(minutes = 1),
         statistic = "Average",
-        operator = "GreaterThan", 
+        operator = "LessThan", 
         time_aggregation = "Last",
         time_window = datetime.timedelta(minutes = 5), 
-        threshold = 70
+        threshold = 30
     ), 
     scale_action = ScaleAction(
         direction = "Increase", 
         type = "ChangeCount", 
-        value = 2, 
+        value = 1, 
         cooldown = datetime.timedelta(hours = 1)
     )
 )
@@ -320,13 +322,13 @@ The previous rules applied to the deployment. Now, add a rule that applies to th
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
 
 # [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Create the rule definition: 
 
@@ -399,18 +401,22 @@ Select __Scale based on metric__, and then select __Add a rule__. The __Scale ru
 
 ---
 
+## Find supported Metrics IDs
+
+If you want to use other metrics in code (either CLI or SDK) to set up autoscale rules, see the table in [Available metrics](how-to-monitor-online-endpoints.md#available-metrics).
+
 ## Create scaling rules based on a schedule
 
 You can also create rules that apply only on certain days or at certain times. In this example, the node count is set to 2 on the weekend.
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
 # [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python 
 mon_client.autoscale_settings.create_or_update(
@@ -455,17 +461,49 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 
 ---
 
+## Enable or disable autoscaling
+
+You can enable or disable specific autoscale profile.
+
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="disable_profile" :::
+
+# [Python](#tab/python)
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
+
+```python
+mon_client.autoscale_settings.create_or_update(
+    resource_group, 
+    autoscale_settings_name, 
+    parameters = {
+        "location" : endpoint.location,
+        "target_resource_uri" : deployment.id,
+        "enabled" : False
+    }
+)
+```
+
+# [Studio](#tab/azure-studio)
+
+To disable the autoscale profile, simply choose "Manual scale" and Save.
+To enable the autoscale profile, simply choose "Custom autoscale". If you have added the autoscale profile before, you'll see them below. You can now click Save to enable it. 
+
+---
+
 ## Delete resources
 
 If you are not going to use your deployments, delete them:
 
 # [Azure CLI](#tab/azure-cli)
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="delete_endpoint" :::
 
 # [Python](#tab/python)
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 ```python
 mon_client.autoscale_settings.delete(

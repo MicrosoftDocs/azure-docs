@@ -4,8 +4,8 @@ description: Use your Azure container registry to build, import, store, and depl
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: 
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Multi-architecture images in your Azure container registry

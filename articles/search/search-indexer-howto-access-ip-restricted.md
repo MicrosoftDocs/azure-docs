@@ -1,35 +1,38 @@
 ---
 title: Connect through firewalls
-titleSuffix: Azure Cognitive Search
-description: Configure IP firewall rules to allow data access by an Azure Cognitive Search indexer.
+titleSuffix: Azure AI Search
+description: Configure IP firewall rules to allow data access by an Azure AI Search indexer.
 
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 05/01/2024
 ---
 
-# Configure IP firewall rules to allow indexer connections from Azure Cognitive Search
+# Configure IP firewall rules to allow indexer connections from Azure AI Search
 
-On behalf of an indexer, a search service will issue outbound calls to an external Azure resource to pull in data during indexing. If your Azure resource uses IP firewall rules to filter incoming calls, you'll need to create an inbound rule in your firewall that admits indexer requests.
+On behalf of an indexer, a search service issues outbound calls to an external Azure resource to pull in data during indexing. If your Azure resource uses IP firewall rules to filter incoming calls, you must create an inbound rule in your firewall that admits indexer requests.
 
 This article explains how to find the IP address of your search service and configure an inbound IP rule on an Azure Storage account. While specific to Azure Storage, this approach also works for other Azure resources that use IP firewall rules for data access, such as Azure Cosmos DB and Azure SQL.
 
 > [!NOTE]
-> A storage account and your search service must be in different regions if you want to define IP firewall rules. If your setup doesn't permit this, try the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances) instead.
+> Applicable to Azure Storage only. Your storage account and your search service must be in different regions if you want to define IP firewall rules. If your setup doesn't permit this, try the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) or [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances) instead.
+>
+> For private connections from indexers to any supported Azure resource, we recommend setting up a [shared private link](search-indexer-howto-access-private.md). Private connections travel the Microsoft backbone network, bypassing the public internet completely.
 
 ## Get a search service IP address
 
-1. Get the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find the FQDN by looking up your search service on the Azure portal.
+1. Get the fully qualified domain name (FQDN) of your search service. This looks like `<search-service-name>.search.windows.net`. You can find the FQDN by looking up your search service on the Azure portal.
 
    :::image type="content" source="media\search-indexer-howto-secure-access\search-service-portal.png" alt-text="Screenshot of the search service Overview page." border="true":::
 
-1. Look up the IP address of the search service by performing a `nslookup` (or a `ping`) of the FQDN on a command prompt. Make sure you remove the "https://" prefix from the FQDN.
+1. Look up the IP address of the search service by performing a `nslookup` (or a `ping`) of the FQDN on a command prompt. Make sure you remove the `https://` prefix from the FQDN.
 
-1. Copy the IP address so that you can specify it on an inbound rule in the next step. In the example below, the IP address that you should copy is "150.0.0.1".
+1. Copy the IP address so that you can specify it on an inbound rule in the next step. In the following example, the IP address that you should copy is "150.0.0.1".
 
    ```bash
    nslookup contoso.search.windows.net
@@ -44,7 +47,7 @@ This article explains how to find the IP address of your search service and conf
 
 ## Allow access from your client IP address
 
-Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` will return the IP address of a search service).
+Client applications that push indexing and query requests to the search service must be represented in an IP range. On Azure, you can generally determine the IP address by pinging the FQDN of a service (for example, `ping <your-search-service-name>.search.windows.net` returns the IP address of a search service).
 
 Add your client IP address to allow access to the service from the Azure portal on your current computer. Navigate to the **Networking** section on the left navigation pane. Change **Public Network Access** to **Selected networks**, and then check **Add your client IP address** under **Firewall**.
 
@@ -52,11 +55,11 @@ Add your client IP address to allow access to the service from the Azure portal 
 
 ## Get the Azure portal IP address
 
-If you're using the portal or the [Import Data wizard](search-import-data-portal.md) to create an indexer, you'll need an inbound rule for the portal as well.
+If you're using the portal or the [Import Data wizard](search-import-data-portal.md) to create an indexer, you need an inbound rule for the portal as well.
 
 To get the portal's IP address, perform `nslookup` (or `ping`) on `stamp2.ext.search.windows.net`, which is the domain of the traffic manager. For nslookup, the IP address is visible in the "Non-authoritative answer" portion of the response. 
 
-In the example below, the IP address that you should copy is "52.252.175.48".
+In the following example, the IP address that you should copy is "52.252.175.48".
 
 ```bash
 $ nslookup stamp2.ext.search.windows.net
@@ -71,21 +74,21 @@ Aliases:  stamp2.ext.search.windows.net
           azspncuux.management.search.windows.net
 ```
 
-Services in different regions connect to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
+Services in different regions connects to different traffic managers. Regardless of the domain name, the IP address returned from the ping is the correct one to use when defining an inbound firewall rule for the Azure portal in your region.
 
-For ping, the request will time out, but the IP address will be visible in the response. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
+For ping, the request times out, but the IP address is visible in the response. For example, in the message "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", the IP address is "52.252.175.48".
 
 ## Get IP addresses for "AzureCognitiveSearch" service tag
 
-You'll also need to create an inbound rule that allows requests from the [multi-tenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). This environment is managed by Microsoft and it's used to offload processing intensive jobs that could otherwise overwhelm your search service. This section explains how to get the range of IP addresses needed to create this inbound rule.
+You'll also need to create an inbound rule that allows requests from the [multitenant execution environment](search-indexer-securing-resources.md#indexer-execution-environment). This environment is managed by Microsoft and it's used to offload processing intensive jobs that could otherwise overwhelm your search service. This section explains how to get the range of IP addresses needed to create this inbound rule.
 
-An IP address range is defined for each region that supports Azure Cognitive Search. You'll need to specify the full range to ensure the success of requests originating from the multi-tenant execution environment. 
+An IP address range is defined for each region that supports Azure AI Search. Specify the full range to ensure the success of requests originating from the multitenant execution environment. 
 
 You can get this IP address range from the `AzureCognitiveSearch` service tag.
 
 1. Use either the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or the [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). If the search service is the Azure Public cloud, download the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519).
 
-1. Open the JSON file and search for "AzureCognitiveSearch". For a search service in WestUS2, the IP addresses for the multi-tenant indexer execution environment are:
+1. Open the JSON file and search for "AzureCognitiveSearch". For a search service in WestUS2, the IP addresses for the multitenant indexer execution environment are:
 
     ```json
     {
@@ -130,6 +133,14 @@ Now that you have the necessary IP addresses, you can set up the inbound rules. 
    :::image type="content" source="media\search-indexer-howto-secure-access\storage-firewall-ip.png" alt-text="Screenshot of the IP address section of the page." border="true":::
 
 It can take five to ten minutes for the firewall rules to be updated, after which indexers should be able to access storage account data behind the firewall.
+
+## Supplement network security with token authentication
+
+Firewalls and network security are a first step in preventing unauthorized access to data and operations. Authorization should be your next step. 
+
+We recommend role-based access, where Microsoft Entra ID users and groups are assigned to roles that determine read and write access to your service. See [Connect to Azure AI Search using role-based access controls](search-security-rbac.md) for a description of built-in roles and instructions for creating custom roles.
+
+If you don't need key-based authentication, we recommend that you disable API keys and use role assignments exclusively.
 
 ## Next Steps
 

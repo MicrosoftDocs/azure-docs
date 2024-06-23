@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.devlang: csharp, javascript
-ms.custom: devx-track-js, devx-track-csharp, ignite-2022
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
+ms.custom: devx-track-csharp
 ---
 
 # Change streams in Azure Cosmos DB’s API for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 [Change feed](../change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 
@@ -43,22 +44,46 @@ while (!cursor.isExhausted()) {
 # [C#](#tab/csharp)
 
 ```csharp
+var collection = new MongoClient("<connection-string>")
+    .GetDatabase("<database-name>")
+    .GetCollection<BsonDocument>("<collection-name>");
+
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()
-    .Match(change => change.OperationType == ChangeStreamOperationType.Insert || change.OperationType == ChangeStreamOperationType.Update || change.OperationType == ChangeStreamOperationType.Replace)
+    .Match(change => 
+        change.OperationType == ChangeStreamOperationType.Insert || 
+        change.OperationType == ChangeStreamOperationType.Update || 
+        change.OperationType == ChangeStreamOperationType.Replace
+    )
     .AppendStage<ChangeStreamDocument<BsonDocument>, ChangeStreamDocument<BsonDocument>, BsonDocument>(
-    "{ $project: { '_id': 1, 'fullDocument': 1, 'ns': 1, 'documentKey': 1 }}");
+        @"{ 
+            $project: { 
+                '_id': 1, 
+                'fullDocument': 1, 
+                'ns': 1, 
+                'documentKey': 1 
+            }
+        }"
+    );
 
-var options = new ChangeStreamOptions{
-        FullDocument = ChangeStreamFullDocumentOption.UpdateLookup
-    };
+ChangeStreamOptions options = new ()
+{
+    FullDocument = ChangeStreamFullDocumentOption.UpdateLookup
+};
 
-var enumerator = coll.Watch(pipeline, options).ToEnumerable().GetEnumerator();
+using IChangeStreamCursor<BsonDocument> enumerator = collection.Watch(
+    pipeline, 
+    options
+);
 
-while (enumerator.MoveNext()){
-        Console.WriteLine(enumerator.Current);
-    }
-
-enumerator.Dispose();
+Console.WriteLine("Waiting for changes...");
+while (enumerator.MoveNext())
+{
+    IEnumerable<BsonDocument> changes = enumerator.Current;
+    foreach(BsonDocument change in changes)
+    {
+        Console.WriteLine(change);
+    }  
+}
 ```
 
 # [Java](#tab/java)

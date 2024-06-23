@@ -5,7 +5,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/20/2023
+ms.date: 09/27/2023
 ms.author: mametcal
 ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -13,7 +13,7 @@ ms.custom: devx-track-java, mode-other
 
 # Quickstart: Add feature flags to a Spring Boot app
 
-In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
+In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use App Configuration to centrally store all your feature flags and control their states.
 
 The Spring Boot Feature Management libraries extend the framework with comprehensive feature flag support. These libraries do **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Spring Boot configuration provider.
 
@@ -26,7 +26,7 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 
 ## Add a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -52,25 +52,67 @@ To create a new Spring Boot project:
 
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
+    ### [Spring Boot 3](#tab/spring-boot-3)
+
     ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-appconfiguration-config-web</artifactId>
-        <version>2.6.0</version>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
     </dependency>
     <dependency>
         <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-        <version>2.4.0</version>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-dependencies</artifactId>
+            <version>5.8.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     ```
 
+    ### [Spring Boot 2](#tab/spring-boot-2)
+
+    ```xml
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-dependencies</artifactId>
+            <version>4.14.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    ```
+
+    ---
+
 > [!NOTE]
-> * If you need to support an older version of Spring Boot see our [old appconfiguration library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md) and our [old feature flag library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
 > * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management) for differences.
 
 ## Connect to an App Configuration store
@@ -133,7 +175,7 @@ To create a new Spring Boot project:
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
 
-    import com.azure.spring.cloud.feature.manager.FeatureManager;
+    import com.azure.spring.cloud.feature.management.FeatureManager;
     import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -198,7 +240,7 @@ To create a new Spring Boot project:
         </header>
         <div class="container body-content">
             <h1 class="mt-5">Welcome</h1>
-            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-spring-cloud-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
+            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
 
         </div>
         <footer class="footer">

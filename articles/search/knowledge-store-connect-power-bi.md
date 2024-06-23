@@ -1,14 +1,15 @@
 ---
 title: Connect to a knowledge store with Power BI
-titleSuffix: Azure Cognitive Search
-description: Connect an Azure Cognitive Search knowledge store with Power BI for analysis and exploration.
-
+titleSuffix: Azure AI Search
+description: Connect an Azure AI Search knowledge store with Power BI for analysis and exploration.
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 03/18/2024
 ---
 
 # Connect a knowledge store with Power BI
@@ -17,17 +18,17 @@ In this article, learn how to connect to and query a knowledge store using Power
 
 A knowledge store that's composed of tables in Azure Storage work best in Power BI. If the tables contain projections from the same skillset and projection group, you can easily "join" them to build table visualizations that include fields from related tables.
 
-Follow the steps in this article using sample data and a knowledge store as [created in this portal quickstart](knowledge-store-create-portal.md) or through [Postman and REST APIs](knowledge-store-create-rest.md). 
+Follow the steps in this article using sample data and a knowledge store as [created in this portal quickstart](knowledge-store-create-portal.md) or through [REST APIs](knowledge-store-create-rest.md). 
 
 ## Connect to Azure Storage
 
 1. Start [Power BI Desktop](https://powerbi.microsoft.com/downloads/) and select **Get data**. 
 
-1. In the **Get Data** window, select **Azure**, and then select **Azure Table Storage**.
+1. In **Get Data**, select **Azure**, and then select **Azure Table Storage**.
 
 1. Select **Connect**.
 
-1. For **Account Name or URL**, enter in your Azure Storage account name (the full URL will be created for you).
+1. For **Account Name or URL**, enter in your Azure Storage account name (the full URL is created for you).
 
 1. If prompted, enter the storage account key.
 
@@ -45,7 +46,7 @@ Follow the steps in this article using sample data and a knowledge store as [cre
 
    ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Edit tables")
 
-1. Click the icon with opposing arrows at the upper right side of the table to expand *Content*. When the list of columns appears, select all columns. Clear columns starting with 'metadata'. Click **OK** to include the selected columns.
+1. Select the icon with opposing arrows at the upper right side of the table to expand *Content*. When the list of columns appears, select all columns. Clear columns starting with 'metadata'. Select **OK** to include the selected columns.
 
    ![Expand content](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expand content")
 
@@ -60,11 +61,11 @@ Follow the steps in this article using sample data and a knowledge store as [cre
 
 1. Open *hotelReviewsSsKeyPhrases* and repeat column deletion steps, expanding *Content* to select columns from the records. There are no data type modifications for this table.
 
-1. On the command bar, click **Close and Apply**.
+1. On the command bar, select **Close and Apply**.
 
 ## Check table relationships
 
-1. Click on the Model tile on the left navigation pane and validate that Power BI shows relationships between all three tables.
+1. Select on the Model tile on the left navigation pane and validate that Power BI shows relationships between all three tables.
 
    ![Validate relationships](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Validate relationships")
 
@@ -72,7 +73,7 @@ Follow the steps in this article using sample data and a knowledge store as [cre
 
 ## Build a report
 
-1. Click on the Report tile on the left navigation pane to explore data through visualizations. For text fields, tables and cards are useful visualizations.
+1. Select on the Report tile on the left navigation pane to explore data through visualizations. For text fields, tables and cards are useful visualizations.
 
 1. Choose fields from each of the three tables to fill in the table or card.
 
@@ -82,9 +83,9 @@ Follow the steps in this article using sample data and a knowledge store as [cre
 
 When creating a [knowledge store using the Azure portal](knowledge-store-create-portal.md), you have the option of downloading a [Power BI template](https://github.com/Azure-Samples/cognitive-search-templates) on the second page of the **Import data** wizard. This template gives you several visualizations, such as WordCloud and Network Navigator, for text-based content. 
 
-Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve and download the template from its public GitHub location. The wizard modifies the template to accommodate the shape of your data, as captured in the knowledge store projections specified in the wizard. For this reason, the template you download will vary each time you run the wizard, assuming different data inputs and skill selections.
+Select **Get Power BI Template** on the **Add cognitive skills** page to retrieve and download the template from its public GitHub location. The wizard modifies the template to accommodate the shape of your data, as captured in the knowledge store projections specified in the wizard. For this reason, the template you download varies each time you run the wizard, assuming different data inputs and skill selections.
 
-![Sample Azure Cognitive Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
+![Sample Azure AI Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
 
 > [!NOTE]
 > The template is downloaded while the wizard is in mid-flight. You'll have to wait until the knowledge store is actually created in Azure Table Storage before you can use it.

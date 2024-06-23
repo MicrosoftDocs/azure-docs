@@ -1,11 +1,11 @@
 ---
 title: Resource Manager template samples for metric alerts
 description: This article provides sample Resource Manager templates used to create metric alerts in Azure Monitor.
-author: bwren
-ms.author: bwren
+author: AbbyMSFT
 services: azure-monitor
+ms.author: abbyweisberg
 ms.topic: sample
-ms.date: 10/31/2022
+ms.date: 02/16/2024
 ms.custom: references_regions
 ms.reviewer: harelbr
 ---
@@ -19,7 +19,7 @@ This article provides samples of using [Azure Resource Manager templates](../../
 See [Supported resources for metric alerts in Azure Monitor](../alerts/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../alerts/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../alerts/alerts-metric-logs.md#resource-manager-templates).
 
 ## Template references
 
@@ -1970,7 +1970,8 @@ This section will describe Azure Resource Manager templates for three scenarios 
 
 > [!NOTE]
 >
-> In a metric alert rule that monitors multiple resources, only one condition is allowed.
+> - In a metric alert rule that monitors multiple resources, only one condition is allowed.
+> - If you are creating a metric alert for a single resource, the template uses the `ResourceId` of the target resource. If you are creating a metric alert for multiple resources, the template uses the `scope`, `TargetResourceType`, and `TargetResourceRegion` for the target resources.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 

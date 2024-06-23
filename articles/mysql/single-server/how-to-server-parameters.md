@@ -3,8 +3,8 @@ title: Configure server parameters - Azure portal - Azure Database for MySQL
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
@@ -13,7 +13,7 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters by using the Azure portal. Not all server parameters can be adjusted.
 
@@ -86,4 +86,4 @@ Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql
 
 ## Next steps
 
-- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).
+- [Connection libraries for Azure Database for MySQL](../flexible-server/concepts-connection-libraries.md).

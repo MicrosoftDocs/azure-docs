@@ -6,8 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
@@ -34,7 +33,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
@@ -179,7 +178,7 @@ You can also enable [fault tolerance](copy-activity-fault-tolerance.md) in copy 
 In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) supports service principal and managed identity for Azure resource authentications. The [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) supports account key, service principal, and managed identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files or access control lists (ACLs) you will need to grant high enough permissions to the account to access, read, or write all files and set ACLs if you choose to. You should grant the account a super-user or owner role during the migration period and remove the elevated permissions once the migration is completed. 
 
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Copy activity overview](copy-activity-overview.md)

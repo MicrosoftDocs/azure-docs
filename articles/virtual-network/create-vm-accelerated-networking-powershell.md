@@ -2,15 +2,14 @@
 title: Use PowerShell to create a VM with Accelerated Networking
 description: Use Azure PowerShell to create and manage Windows virtual machines that have Accelerated Networking enabled for improved network performance.
 services: virtual-network
-author: asudbring
+author: steveesp
 manager: gedegrac
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.custom: devx-track-azurepowershell
-ms.workload: infrastructure
 ms.date: 03/20/2023
-ms.author: allensu
+ms.author: steveesp
 ---
 
 # Use Azure PowerShell to create a VM with Accelerated Networking
@@ -25,7 +24,7 @@ To use Azure CLI to create a Linux or Windows VM with Accelerated Networking ena
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Azure PowerShell](/powershell/azure/install-az-ps) 1.0.0 or later installed. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) 1.0.0 or later installed. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the Az module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az).
 
 - In PowerShell, sign in to your Azure account by using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 

@@ -1,13 +1,15 @@
 ---
-title: Optimize log alert queries | Microsoft Docs
+title: Optimize log search alert queries | Microsoft Docs
 description: This article gives recommendations for writing efficient alert queries.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 5/30/2023
 ms.reviewer: yalavi
 ---
-# Optimize log alert queries
 
-This article describes how to write and convert [log alert](./alerts-unified-log.md) queries to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
+# Optimize log search alert queries
+
+This article describes how to write and convert [log search alerts](alerts-types.md#log-alerts) to achieve optimal performance. Optimized queries reduce latency and load of alerts, which run frequently.
 
 ## Start writing an alert log query
 
@@ -40,9 +42,9 @@ Using `limit` and `take` in queries can increase latency and load of alerts beca
 
 [Log queries in Azure Monitor](../logs/log-query-overview.md) start with either a table, [`search`](/azure/kusto/query/searchoperator), or [`union`](/azure/kusto/query/unionoperator) operator.
 
-Queries for log alert rules should always start with a table to define a clear scope, which improves query performance and the relevance of the results. Queries in alert rules run frequently. Using `search` and `union` can result in excessive overhead that adds latency to the alert because it requires scanning across multiple tables. These operators also reduce the ability of the alerting service to optimize the query.
+Queries for log search alert rules should always start with a table to define a clear scope, which improves query performance and the relevance of the results. Queries in alert rules run frequently. Using `search` and `union` can result in excessive overhead that adds latency to the alert because it requires scanning across multiple tables. These operators also reduce the ability of the alerting service to optimize the query.
 
-We don't support creating or modifying log alert rules that use `search` or `union` operators, except for cross-resource queries.
+We don't support creating or modifying log search alert rules that use `search` or `union` operators, except for cross-resource queries.
 
 For example, the following alerting query is scoped to the _SecurityEvent_ table and searches for a specific event ID. It's the only table that the query must process.
 
@@ -51,17 +53,17 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-Log alert rules using [cross-resource queries](../logs/cross-workspace-query.md) aren't affected by this change because cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be a valid log alert query:
+Log search alert rules using [cross-resource queries](../logs/cross-workspace-query.md) aren't affected by this change because cross-resource queries use a type of `union`, which limits the query scope to specific resources. The following example would be a valid log search alert query:
 
 ```Kusto
 union
-app('Contoso-app1').requests,
-app('Contoso-app2').requests,
-workspace('Contoso-workspace1').Perf 
+app('00000000-0000-0000-0000-000000000001').requests,
+app('00000000-0000-0000-0000-000000000002').requests,
+workspace('00000000-0000-0000-0000-000000000003').Perf 
 ```
 
 >[!NOTE]
-> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log alerts, see [Upgrade legacy rules management to the current Azure Monitor Log Alerts API](/previous-versions/azure/azure-monitor/alerts/alerts-log-api-switch) to learn about switching.
+> [Cross-resource queries](../logs/cross-workspace-query.md) are supported in the new [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules). If you still use the [legacy Log Analytics Alert API](./api-alerts.md) for creating log search alerts, see [Upgrade legacy rules management to the current Azure Monitor Scheduled Query Rules API](./alerts-log-api-switch.md) to learn about switching.
 
 ## Examples
 
@@ -69,7 +71,7 @@ The following examples include log queries that use `search` and `union`. They p
 
 ### Example 1
 
-You want to create a log alert rule by using the following query that retrieves performance information using `search`: 
+You want to create a log search alert rule by using the following query that retrieves performance information using `search`: 
 
 ``` Kusto
 search *
@@ -97,7 +99,7 @@ search *
 
 ### Example 2
 
-You want to create a log alert rule by using the following query that retrieves performance information using `search`:
+You want to create a log search alert rule by using the following query that retrieves performance information using `search`:
 
 ``` Kusto
 search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
@@ -125,7 +127,7 @@ search ObjectName =="Memory" and CounterName=="% Committed Bytes In Use"
 
 ### Example 3
 
-You want to create a log alert rule by using the following query that uses both `search` and `union` to retrieve performance information:
+You want to create a log search alert rule by using the following query that uses both `search` and `union` to retrieve performance information:
 
 ``` Kusto
 search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceName == "_Total")
@@ -169,7 +171,7 @@ search (ObjectName == "Processor" and CounterName == "% Idle Time" and InstanceN
 
 ### Example 4
 
-You want to create a log alert rule by using the following query that joins the results of two `search` queries:
+You want to create a log search alert rule by using the following query that joins the results of two `search` queries:
 
 ```Kusto
 search Type == 'SecurityEvent' and EventID == '4625'
@@ -215,5 +217,5 @@ search Type == 'SecurityEvent' and EventID == '4625'
 
 ## Next steps
 
-- Learn about [log alerts](alerts-log.md) in Azure Monitor.
+- Learn about [log search alerts](alerts-log.md) in Azure Monitor.
 - Learn about [log queries](../logs/log-query-overview.md).

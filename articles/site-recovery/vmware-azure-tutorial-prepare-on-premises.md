@@ -3,7 +3,7 @@ title: Prepare for VMware VM disaster recovery with Azure Site Recovery
 description: Learn how to prepare on-premises VMware servers for disaster recovery to Azure using the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 04/08/2024
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -50,7 +50,7 @@ Create the account as follows:
 **Task** | **Role/Permissions** | **Details**
 --- | --- | ---
 **VM discovery** | At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
-**Full replication, failover, failback** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
+**Full replication, failover, failback** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots, Create snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
 
 ## Prepare an account for Mobility service installation
 
@@ -64,8 +64,8 @@ Prepare the account as follows:
 
 Prepare a domain or local account with permissions to install on the VM.
 
-- **Windows VMs**: To install on Windows VMs if you're not using a domain account, disable Remote User Access
-   control on the local machine. To do this, in the registry > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the
+- **Windows VMs**: To install on Windows VMs if you're not using a domain account, disable UAC remote restrictions on the local machine.
+ After disabling, Azure Site Recovery can access the local machine remotely without UAC restriction. To do this, in the registry: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the
      DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - **Linux VMs**: To install on Linux VMs, prepare a root account on the source Linux server.
 
@@ -117,6 +117,6 @@ If you plan to fail back to your on-premises site, there are a number of [prereq
 ## Next steps
 
 Set up disaster recovery. If you're replicating multiple VMs, plan capacity.
-> [!div class="nextstepaction"]
-> [Set up disaster recovery to Azure for VMware VMs](vmware-azure-tutorial.md)
-> [Perform capacity planning](site-recovery-deployment-planner.md).
+
+- [Set up disaster recovery to Azure for VMware VMs](vmware-azure-set-up-replication-tutorial-modernized.md)
+- [Perform capacity planning](site-recovery-deployment-planner.md).

@@ -3,7 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 08/18/2022
+ms.date: 05/15/2024
 ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
@@ -72,7 +72,7 @@ Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are 
 
 **Cause**
 
-You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) for details.
+You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) for details.
 
 **Resolution**
  
@@ -269,11 +269,11 @@ Failure type is user configuration issue. String of parameters, instead of Array
 Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray('a','b')* for example, if you want to pass parameters 'a' and 'b'. If you want to pass numbers, for example, use *@createArray(1,2,3)*.  Use createArray function to force parameters being passed as an array.
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)

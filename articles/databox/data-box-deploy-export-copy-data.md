@@ -2,13 +2,13 @@
 title: Tutorial to copy data via SMB from your Azure Data Box | Microsoft Docs
 description: Learn how to copy data to your Azure Data Box via SMB
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/04/2022
-ms.author: alkohli
+ms.author: shaas
 
 # Customer intent: As an IT admin, I need to be able to copy data from Data Box to download from Azure to my on-premises server. 
 ---

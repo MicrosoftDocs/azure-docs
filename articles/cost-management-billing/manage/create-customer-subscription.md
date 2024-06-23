@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -16,6 +16,8 @@ ms.author: banders
 This article helps a Microsoft Partner with a [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) create a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for their customer. 
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
+
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-note](../../../includes/cost-management-billing-subscription-b2b-b2c-note.md)]
 
 ## Permission required to create Azure subscriptions
 
@@ -60,7 +62,7 @@ You can also create subscriptions programmatically. For more information, see [C
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Add or change Azure subscription administrators](add-change-subscription-administrator.md)
 - [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)

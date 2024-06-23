@@ -6,7 +6,7 @@ ms.date: 11/02/2021
 ---
 
 # Assign a system-managed identity to an Event Grid system topic
-In this article, you learn how to assign a system-assigned or a user-assigned identity to an Event Grid system topic. To learn about managed identities in general, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).  
+In this article, you learn how to assign a system-assigned or a user-assigned identity to an Event Grid system topic. To learn about managed identities in general, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).  
 
 > [!NOTE]
 > - You can assign one system-assigned identity and up to two user-assigned identities to a system topic. 
@@ -34,7 +34,7 @@ This section shows you how to enable a managed identity for an existing system t
 
 ### Enable user-assigned identity
 
-1. First, create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) article. 
+1. First, create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. 
 1. On the **Identity** page, switch to the **User assigned** tab in the right pane, and then select **+ Add** on the toolbar.
 
     :::image type="content" source="./media/managed-service-identity/system-topic-user-identity-add-button.png" alt-text="Image showing the Add button selected in the User assigned tab of the Identity page.":::

@@ -6,14 +6,14 @@ author: greg-lindsay
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/15/2022
+ms.date: 09/27/2023
 ms.author: greglin
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
 
 # What is Azure Application Gateway?
 
-Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
+Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
 
 Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. For example, you can route traffic based on the incoming URL. So if `/images` is in the incoming URL, you can route traffic to a specific set of servers (known as a pool) configured for images. If `/video` is in the URL, that traffic is routed to another pool that's optimized for videos.
 
@@ -38,6 +38,21 @@ To learn about Application Gateway features, see [Azure Application Gateway feat
 ## Infrastructure
 
 To learn about Application Gateway infrastructure, see [Azure Application Gateway infrastructure configuration](configuration-infrastructure.md).
+
+## Security
+
+* Protect your applications against L7 layer DDoS protection using WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+
+* Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
+
+* Secure applications against L3 and L4 DDoS attacks with [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) plan.
+
+* Privately connect to your backend behind Application Gateway with [Private Link](private-link.md) and embrace a zero-trust access model.
+
+* Eliminate risk of data exfiltration and control privacy of communication from within the virtual network with a fully [Private-only Application Gateway deployment](application-gateway-private-deployment.md).
+
+* Provide a centralized security experience for your application via Azure Policy, Azure Advisor, and Microsoft Sentinel integration that ensures consistent security features across apps.
+
 
 ## Pricing and SLA
 

@@ -4,14 +4,13 @@ title: VPN Gateway documentation # < 60 chars
 summary: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. # < 160 chars
 
 metadata:
-  title: VPN Gateway documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to configure, create, and manage an Azure VPN gateway.  # Required; article description that is displayed in search results. < 160 chars.
-  services: vpn-gateway
-  ms.service: vpn-gateway #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: cherylmc #Required; your GitHub user alias, with correct capitalization.
-  ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/30/2022
+  title: VPN Gateway documentation
+  description: Learn how to configure, create, and manage an Azure VPN gateway.
+  ms.service: vpn-gateway
+  ms.topic: landing-page
+  author: cherylmc
+  ms.author: cherylmc
+  ms.date: 05/08/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -50,7 +49,7 @@ landingContent:
             url: tutorial-create-gateway-portal.md
 
   # Card
-  - title: Point-to-site VPNs
+  - title: Point-to-site VPN
     linkLists:
       - linkListType: concept
         links:
@@ -60,17 +59,17 @@ landingContent:
             url: vpn-gateway-about-point-to-site-routing.md
       - linkListType: how-to-guide
         links:
-          - text: Certificate authentication
+          - text: Configure point-to-site VPN Certificate authentication
             url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
-          - text: RADIUS authentication
-            url: point-to-site-how-to-radius-ps.md
-          - text: Azure AD authentication
+          - text: Configure point-to-site VPN Microsoft Entra ID authentication
             url: openvpn-azure-ad-tenant.md
-          - text: Multiple authentication types
+          - text: Configure point-to-site VPN using Multiple authentication types
             url: howto-point-to-site-multi-auth.md
+          - text: Configure point-to-site VPN RADIUS authentication
+            url: point-to-site-how-to-radius-ps.md
 
 # Card
-  - title: Site-to-site VPNs
+  - title: Site-to-site VPN
     linkLists:
       - linkListType: tutorial
         links:

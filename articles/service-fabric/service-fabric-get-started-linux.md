@@ -5,13 +5,11 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: devx-track-dotnet, devx-track-extended-java, linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
 
 # Maintainer notes: Keep these documents in sync:
-# service-fabric-get-started-linux.md
-# service-fabric-get-started-mac.md
-# service-fabric-local-linux-cluster-windows.md
 # service-fabric-local-linux-cluster-windows-wsl2.md
 ---
 
@@ -194,7 +192,7 @@ Start a container-based [Service Fabric Onebox](https://hub.docker.com/_/microso
     ```
 
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/_/microsoft-service-fabric-onebox) page.
 
 # [Local cluster](#tab/localcluster)
 

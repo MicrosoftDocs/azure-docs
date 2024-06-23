@@ -1,17 +1,21 @@
 ---
-title: Enable and configure Microsoft Defender for Storage (classic) - Microsoft Defender for Cloud
+title: Enable and configure Microsoft Defender for Storage (classic)
 description: Learn about how to enable and configure Microsoft Defender for Storage (classic).
-ms.date: 03/16/2023
-author: bmansheim
-ms.author: benmansheim
+ms.date: 08/01/2023
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Enable Microsoft Defender for Storage (classic)
 
+This article explains how you can enable and configure Microsoft Defender for Storage (Classic) on your subscriptions by using various templates such as PowerShell, REST API, and others.  
+
+You can also [upgrade to the new Microsoft Defender for Storage plan](defender-for-storage-introduction.md) and use advanced security capabilities, including Malware Scanning and sensitive data threat detection. Benefit from a more predictable and granular pricing structure that charges per storage account, with extra costs for high-volume transactions. This new pricing plan also encompasses all new security features and detections.
+
 > [!NOTE]
-> Upgrade to the new [Microsoft Defender for Storage plan](defender-for-storage-introduction.md) and use advanced security capabilities, including Malware Scanning and sensitive data threat detection. Benefit from a more predictable and granular pricing structure that charges per storage account, with additional costs for high-volume transactions. This new pricing plan also encompasses all new security features and detections.
-> If you're using Defender for Storage (classic) with per-transaction or per-storage account pricing, you'll need to migrate to the new Defender for Storage (classic) plan to access these features and pricing. Learn about [migrating to the new Defender for Storage plan](defender-for-storage-classic-migrate.md).
+> If you're using Defender for Storage (classic) with per-transaction or per-storage account pricing, you'll need to migrate to the new Defender for Storage plan to access these features and pricing. Learn about [migrating to the new Defender for Storage plan](defender-for-storage-classic-migrate.md).
 
 **Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It uses advanced threat detection capabilities and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) data to provide contextual security alerts. Those alerts also include steps to mitigate the detected threats and prevent future attacks.
 
@@ -28,9 +32,9 @@ Learn more about the [benefits, features, and limitations of Defender for Storag
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Storage** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) and in the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) in the Azure portal |
+|Pricing:|**Microsoft Defender for Storage** is billed as shown in the [pricing details](https://azure.microsoft.com/pricing/details/defender-for-cloud/) and in the [Defender plans](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) in the Azure portal |
 |Protected storage types:|[Blob Storage](../storage/blobs/storage-blobs-introduction.md)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](../storage/files/storage-files-introduction.md) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (Standard/Premium accounts with hierarchical namespaces enabled)|
-|Clouds:|:::image type="icon" source="media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="media/icons/yes-icon.png"::: Azure Government (Only for per-transaction plan)<br>:::image type="icon" source="media/icons/no-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="media/icons/no-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="media/icons/yes-icon.png"::: Azure Government (Only for per-transaction plan)<br>:::image type="icon" source="media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="media/icons/no-icon.png"::: Connected AWS accounts|
 
 ## Set up Microsoft Defender for Storage (classic)
 
@@ -46,7 +50,6 @@ You can configure Microsoft Defender for Storage on your subscriptions in severa
 - [PowerShell](#powershell)
 - [Azure CLI](#azure-cli)
 - [REST API](#rest-api)
-
 
 #### Terraform template
 
@@ -112,7 +115,7 @@ Learn more about the [ARM template AzAPI reference](/azure/templates/microsoft.s
 
 To enable Microsoft Defender for Storage at the subscription level with per-transaction pricing using PowerShell:
 
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 1. Use the `Connect-AzAccount` cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
 1. Use these commands to register your subscription to the Microsoft Defender for Cloud Resource Provider:
 
@@ -192,7 +195,6 @@ You can configure Microsoft Defender for Storage with per-transaction pricing on
 - [PowerShell](#powershell)
 - [Azure CLI](#azure-cli)
 
-
 #### ARM template
 
 To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using an ARM template, use [the prepared Azure template](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/).
@@ -208,7 +210,7 @@ If you want to disable Defender for Storage on the account:
 
 To enable Microsoft Defender for Storage for a specific storage account with per-transaction pricing using PowerShell:
 
-1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+1. If you don't have it already, [install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 1. Use the Connect-AzAccount cmdlet to sign in to your Azure account. Learn more about [signing in to Azure with Azure PowerShell](/powershell/azure/authenticate-azureps).
 1. Enable Microsoft Defender for Storage for the desired storage account with the [`Enable-AzSecurityAdvancedThreatProtection`](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection) cmdlet:
 
@@ -257,11 +259,6 @@ Learn more about the [az security atp storage](/cli/azure/security/atp/storage#a
 
 ## Exclude a storage account from a protected subscription in the per-transaction plan
 
-> [!NOTE]
-> Consider upgrading to the new Defender for Storage plan if you have storage accounts you would like to exclude from the Defender for Storage classic plan. Not only will you save on costs for transaction-heavy accounts, but you'll also gain access to enhanced security features. Learn more about the [benefits of migrating to the new plan](defender-for-storage-introduction.md).
->
-> Excluded storage accounts in the Defender for Storage classic are not automatically excluded when you migrate to the new plan.
-
 When you [enable Microsoft Defender for Storage](../storage/common/azure-defender-storage-configure.md) on a subscription for the per-transaction pricing, all current and future Azure Storage accounts in that subscription are protected. You can exclude specific storage accounts from the Defender for Storage protections using the Azure portal, PowerShell, or the Azure CLI.
 
 We recommend that you enable Defender for Storage on the entire subscription to protect all existing and future storage accounts in it. However, there are some cases where people want to exclude specific storage accounts from Defender protection.
@@ -270,6 +267,11 @@ Exclusion of storage accounts from protected subscriptions requires you to:
 
 1. Add a tag to block inheriting the subscription enablement.
 1. Disable Defender for Storage (classic).
+
+> [!NOTE]
+> Consider upgrading to the new Defender for Storage plan if you have storage accounts you would like to exclude from the Defender for Storage classic plan. Not only will you save on costs for transaction-heavy accounts, but you'll also gain access to enhanced security features. Learn more about the [benefits of migrating to the new plan](defender-for-storage-introduction.md).
+>
+> Excluded storage accounts in the Defender for Storage classic are not automatically excluded when you migrate to the new plan.
 
 ### Exclude an Azure Storage account protection on a subscription with per-transaction pricing
 
@@ -280,7 +282,7 @@ To exclude an Azure Storage account from Microsoft Defender for Storage (classic
 
 #### Use PowerShell to exclude an Azure Storage account
 
-1. If you don't have the Azure Az PowerShell module installed, install it using [the instructions from the Azure PowerShell documentation](/powershell/azure/install-az-ps).
+1. If you don't have the Azure Az PowerShell module installed, install it using [the instructions from the Azure PowerShell documentation](/powershell/azure/install-azure-powershell).
 
 1. Using an authenticated account, connect to Azure with the ``Connect-AzAccount`` cmdlet, as explained in [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
@@ -290,10 +292,7 @@ To exclude an Azure Storage account from Microsoft Defender for Storage (classic
     Update-AzTag -ResourceId <resourceID> -Tag @{"AzDefenderPlanAutoEnable" = "off"} -Operation Merge
     ```
 
-    If you skip this stage, your untagged resources continue receiving daily updates from the subscription level enablement policy. That policy enables Defender for Storage again on the account.
-
-    > [!TIP]
-    > Learn more about tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
+    If you skip this stage, your untagged resources continue receiving daily updates from the subscription level enablement policy. That policy enables Defender for Storage again on the account. Learn more about tags in [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
 1. Disable Microsoft Defender for Storage for the desired account on the relevant subscription with the ``Disable-AzSecurityAdvancedThreatProtection`` cmdlet (using the same resource ID):
 
@@ -332,7 +331,6 @@ To exclude an Azure Storage account from Microsoft Defender for Storage (classic
 
     [Learn more about this command](/cli/azure/security/atp/storage).
 
-
 ### Exclude an Azure Databricks Storage account
 
 #### Exclude an active Databricks workspace
@@ -344,18 +342,16 @@ Microsoft Defender for Storage can exclude specific active Databricks workspace 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Azure Databricks** > **`Your Databricks workspace`** > **Tags**.
 1. In the Name field, enter `AzDefenderPlanAutoEnable`.
-1. In the Value field, enter `off`.
-1. Select **Apply**.
+1. In the Value field, enter `off` and then select **Apply**.
 
     :::image type="content" source="media/defender-for-storage-exclude/workspace-exclude.png" alt-text="Screenshot showing the location, and how to apply the tag to your Azure Databricks account.":::
 
 1. Navigate to **Microsoft Defender for Cloud** > **Environment settings** > **`Your subscription`**.
-1. Toggle the Defender for Storage plan to **Off**.
+1. Turn the Defender for Storage plan to **Off** and select **Save**.
 
     :::image type="content" source="media/defender-for-storage-exclude/storage-off.png" alt-text="Screenshot showing how to switch the Defender for Storage plan to off.":::
 
-1. Select **Save**.
-1. Re-enable Defender for Storage (classic) using one of the supported methods (you can’t enable Defender for Storage classic from the Azure portal). 
+1. Re-enable Defender for Storage (classic) using one of the supported methods (you can’t enable Defender for Storage classic from the Azure portal).
 
 The tags are inherited by the Storage account of the Databricks workspace and prevent Defender for Storage from turning on.
 
@@ -380,37 +376,8 @@ When you create a new Databricks workspace, you have the ability to add a tag th
 
 The Microsoft Defender for Storage account inherits the tag of the Databricks workspace, which prevents Defender for Storage from turning on automatically.
 
-## FAQ - Microsoft Defender for Storage pricing
-
-### Can I switch from an existing per-transaction pricing to per-storage account pricing?
-
-Yes, you can migrate to per-storage account pricing in the Azure portal or using any of the other supported enablement methods. To migrate to per-storage account pricing, [enable per-storage account pricing at the subscription level](#set-up-microsoft-defender-for-storage-classic).
-
-### Can I return to per-transaction pricing after switching to per-storage account pricing?
-
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage-classic) to migrate back from per-storage account pricing using all enablement methods except for the Azure portal.
-
-### Will you continue supporting per-transaction pricing?
-
-Yes, you can [enable per-transaction pricing](#set-up-microsoft-defender-for-storage-classic) from all the enablement methods, except for the Azure portal.
-
-### Can I exclude specific storage accounts from protections in per-storage account pricing?
-
-No, you can only enable per-storage account pricing for each subscription. All storage accounts in the subscription are protected.
-
-### How long does it take for per-storage account pricing to be enabled?
-
-When you enable Microsoft Defender for Storage at the subscription level for per-storage account or per-transaction pricing, it takes up to 24 hours for the plan to be enabled.
-
-### Is there any difference in the feature set of per-storage account pricing compared to the legacy per-transaction pricing?
-
-No. Both per-storage account and per-transaction pricing include the same features. The only difference is the pricing.
-
-### How can I estimate the cost for each pricing?
-
-To estimate the cost according to each pricing for your environment, we created a [pricing estimation workbook](https://aka.ms/dfstoragecosttool) and a PowerShell script that you can run in your environment.
-
 ## Next steps
 
-- Check out the [alerts for Azure Storage](alerts-reference.md#alerts-azurestorage)
+- Check out the [alerts for Azure Storage](alerts-reference.md#alerts-for-azure-storage)
 - Learn about the [features and benefits of Defender for Storage](defender-for-storage-introduction.md)
+- Check out [common questions](faq-defender-for-storage-classic.yml) about Defender for Storage classic.

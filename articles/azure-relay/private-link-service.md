@@ -28,15 +28,20 @@ Your private endpoint and virtual network must be in the same region. When you s
 
 Your private endpoint uses a private IP address in your virtual network.
 
-### Steps
-For step-by-step instructions on creating a new Azure Relay namespace and entities in it, see [Create an Azure Relay namespace using the Azure portal](relay-create-namespace-portal.md).
+### Configure private access for a Relay namespace
+The following procedure provides step-by-step instructions for disabling public access to a Relay namespace and then adding a private endpoint to the namespace. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the search bar, type in **Relays**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. On the left menu, select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections** tab at the top of the page
-6. Select the **+ Private Endpoint** button at the top of the page.
+1. On the **Networking** page, for **Public network access**, select **Disabled** if you want the namespace to be accessed only via private endpoints. 
+1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall. 
+
+    :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled.":::
+1. Select the **Private endpoint connections** tab at the top of the page
+1. Select the **+ Private Endpoint** button at the top of the page.
 
     :::image type="content" source="./media/private-link-service/add-private-endpoint-button.png" alt-text="Screenshot showing the selection of the Add private endpoint button on the Private endpoint connections tab of the Networking page.":::
 7. On the **Basics** page, follow these steps: 
@@ -225,6 +230,8 @@ Aliases:  <namespace-name>.servicebus.windows.net
 - Maximum number of private endpoints per Azure Relay namespace: 64.
 - Maximum number of Azure Relay namespaces with private endpoints per subscription: 64.
 - Network Security Group (NSG) rules and User-Defined Routes don't apply to Private Endpoint. For more information, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
+
+[!INCLUDE [trusted-services](./includes/trusted-services.md)]
 
 ## Next Steps
 

@@ -16,6 +16,8 @@
     href: quick-create-bicep.md
   - name: Create virtual network - ARM template
     href: quick-create-template.md
+  - name: Create virtual network - Terraform
+    href: quick-create-terraform.md
   expanded: true
 - name: Tutorials
   items:
@@ -27,30 +29,6 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
-- name: Samples
-  items:
-  - name: Azure CLI
-    items:
-    - name: Samples overview
-      href: cli-samples.md
-    - name: Create a virtual network for multi-tier applications
-      href: ./scripts/virtual-network-cli-sample-multi-tier-application.md
-    - name: Peer two virtual networks
-      href: ./scripts/virtual-network-cli-sample-peer-two-virtual-networks.md
-    - name: Route traffic through nva
-      href: ./scripts/virtual-network-cli-sample-route-traffic-through-nva.md
-    - name: Filter network traffic
-      href: ./scripts/virtual-network-cli-sample-filter-network-traffic.md
-    - name: Basic load balancer with IPv4 + IPv6 dual stack 
-      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack.md
-    - name: Standard load balancer with IPv4 + IPv6 dual stack 
-      href: ./scripts/virtual-network-cli-sample-ipv6-dual-stack-standard-load-balancer.md
-    - name: Create and test a NAT gateway
-      href: ./nat-gateway/quickstart-create-nat-gateway-cli.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
-  - name: Resource Manager templates
-    href: template-samples.md
 - name: Concepts
   items:
   - name: Concepts and best practices
@@ -63,18 +41,10 @@
       href: virtual-networks-udr-overview.md
     - name: Backend Connectivity Interoperability
       items:
-      - name: Preface and Test Setup
-        href: ../networking/connectivty-interoperability-preface.md?toc=/azure/virtual-network/toc.json
-      - name: Test Setup Configuration
-        href: ../networking/connectivty-interoperability-configuration.md?toc=/azure/virtual-network/toc.json
       - name: Control Plane Analysis
-        href: ../networking/connectivty-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
-      - name: Data Plane Analysis
-        href: ../networking/connectivty-interoperability-data-plane.md?toc=/azure/virtual-network/toc.json
+        href: ../networking/connectivity-interoperability-control-plane.md?toc=/azure/virtual-network/toc.json
     - name: Container networking
       href: container-networking-overview.md
-    - name: Cross-network connectivity
-      href: ../expressroute/cross-network-connectivity.md?toc=/azure/virtual-network/toc.json
     - name: Peering
       href: virtual-network-peering-overview.md
   - name: Integrate Azure services
@@ -97,6 +67,12 @@
       href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
     - name: Network isolation of Azure services
       href: vnet-integration-for-azure-services.md
+    - name: Virtual network encryption
+      items:
+      - name: Overview
+        href: virtual-network-encryption-overview.md
+      - name: FAQ
+        href: virtual-network-encryption-faq.yml
     - name: Network security groups
       items:
       - name: Overview
@@ -105,6 +81,8 @@
         href: network-security-group-how-it-works.md
     - name: Application security groups
       href: application-security-groups.md
+    - name: IP based access control list
+      href: ip-based-access-control-list-overview.md
     - name: Service tags 
       href: service-tags-overview.md
     - name: Service endpoint policies
@@ -141,7 +119,7 @@
     - name: Optimize network throughput
       href: virtual-network-optimize-network-bandwidth.md
     - name: View and modify hostnames
-      href: virtual-networks-viewing-and-modifying-hostnames.md
+      href: virtual-networks-viewing-and-modifying-hostnames.yml
     - name: Logs
       href: virtual-network-nsg-manage-log.md
   - name: Connectivity
@@ -157,11 +135,13 @@
       - name: Ansible
         href: /azure/developer/ansible/route-table-configure
       - name: Manage route tables
-        href: manage-route-table.md
+        href: manage-route-table.yml
     - name: Manage NICs
       href: virtual-network-network-interface.md
+    - name: Create a subnet with multiple prefixes
+      href: how-to-multiple-prefixes-subnet.md
     - name: Manage virtual network
-      href: manage-virtual-network.md
+      href: manage-virtual-network.yml
     - name: Manage subnets
       href: virtual-network-manage-subnet.md
     - name: Manage subnet delegation
@@ -176,6 +156,8 @@
           href: tutorial-connect-virtual-networks-cli.md
       - name: Same deployment model - different subscriptions
         href: create-peering-different-subscriptions.md
+      - name: Same deployment model - different subscriptions - SPN
+        href: create-peering-different-subscriptions-service-principal.md
       - name: Different deployment models - same subscription
         href: create-peering-different-deployment-models.md
       - name: Different deployment models - different subscriptions
@@ -183,7 +165,7 @@
     - name: Manage VNet peering
       href: virtual-network-manage-peering.md
     - name: Update VNet peering address spaces
-      href: update-virtual-network-peering-address-space.md
+      href: update-virtual-network-peering-address-space.yml
     - name: Connectivity scenarios
       items:
       - name: Virtual network to Virtual network
@@ -208,6 +190,14 @@
       href: deploy-container-networking.md
   - name: Security
     items:
+    - name: Create virtual network with encryption
+      items:
+      - name: Azure portal
+        href: how-to-create-encryption-portal.md
+      - name: Azure PowerShell
+        href: how-to-create-encryption-powershell.md
+      - name: Azure CLI
+        href: how-to-create-encryption-cli.md
     - name: Filter network traffic
       items:
       - name: Azure portal
@@ -244,7 +234,7 @@
           href: virtual-network-service-endpoint-policies-cli.md
     - name: Manage DDoS protection
       href: ../ddos-protection/manage-ddos-protection.md
-    - name: Onboard partners to DDoS Protection Standard
+    - name: Onboard partners to DDoS Protection
       href: ../ddos-protection/ddos-protection-partner-onboarding.md
     - name: Manage network security groups
       href: manage-network-security-group.md    
@@ -259,7 +249,7 @@
     - name: Migrate a virtual machine public IP address
       href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-network/toc.json
     - name: Add or remove network interfaces
-      href: virtual-network-network-interface-vm.md
+      href: virtual-network-network-interface-vm.yml
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell
@@ -279,6 +269,14 @@
           href: accelerated-networking-how-it-works.md
         - name: Setup DPDK
           href: setup-dpdk.md
+      - name: Microsoft Azure Network Adapter (MANA)
+        items:
+        - name: Microsoft Azure Network Adapter (MANA) overview
+          href: accelerated-networking-mana-overview.md
+        - name: Linux VMs with MANA
+          href: accelerated-networking-mana-linux.md
+        - name: Windows VMs with MANA
+          href: accelerated-networking-mana-windows.md
     - name: TCP/IP Performance Tuning for Azure VMs
       href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
@@ -291,20 +289,12 @@
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/toc.json
     - name: Network interfaces (NICs)
       href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/virtual-network/toc.json
-    - name: Manual move
+    - name: Manual relocation
       items:
-      - name: Network security groups - Portal
-        href: move-across-regions-nsg-portal.md
-      - name: Network security groups - PowerShell
-        href: move-across-regions-nsg-powershell.md
-      - name: Virtual networks - Portal
-        href: move-across-regions-vnet-portal.md
-      - name: Virtual networks - PowerShell
-        href: move-across-regions-vnet-powershell.md
-      - name: Public IPs - Portal
-        href: move-across-regions-publicip-portal.md
-      - name: Public IPs - PowerShell
-        href: move-across-regions-publicip-powershell.md
+      - name: Network security groups (NSG)
+        href: ../operational-excellence/relocation-virtual-network-nsg.md?toc=/azure/virtual-network/toc.json
+      - name: Virtual networks
+        href: ../operational-excellence/relocation-virtual-network.md?toc=/azure/virtual-network/toc.json
   - name: Troubleshoot
     items:
     - name: Troubleshoot virtual network peering issues
@@ -333,6 +323,8 @@
       href: what-is-ip-address-168-63-129-16.md
     - name: Troubleshoot Azure VM connectivity problems
       href: troubleshoot-vm-connectivity.md
+  - name: DHCP server on Azure Virtual Machine
+    href: how-to-dhcp-azure.md
   - name: Monitor virtual network
     href: monitor-virtual-network.md
   - name: Classic deployment

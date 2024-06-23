@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 3/12/2023
 author: mattmcinnes
 ms.author: mattmcinnes
-ms.reviewer: 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -36,8 +35,8 @@ $ppg = New-AzProximityPlacementGroup `
    -Location $location `
    -Name $ppgName `
    -ResourceGroupName $resourceGroup `
-   -ProximityPlacementGroupType Standard
-   -Zone $zone
+   -ProximityPlacementGroupType Standard `
+   -Zone $zone `
    -IntentVMSizeList $vmSize1, $vmSize2
 ```
 

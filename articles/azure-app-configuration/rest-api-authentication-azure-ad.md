@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory REST API - authentication
-description: Use Azure Active Directory to authenticate to Azure App Configuration by using the REST API
+title: Microsoft Entra REST API - authentication
+description: Use Microsoft Entra ID to authenticate to Azure App Configuration by using the REST API
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
@@ -8,13 +8,13 @@ ms.topic: reference
 ms.date: 08/17/2020
 ---
 
-# Azure Active Directory authentication
+# Microsoft Entra authentication
 
-You can authenticate HTTP requests by using the `Bearer` authentication scheme with a token acquired from Azure Active Directory (Azure AD). You must transmit these requests over Transport Layer Security (TLS).
+You can authenticate HTTP requests by using the `Bearer` authentication scheme with a token acquired from Microsoft Entra ID. You must transmit these requests over Transport Layer Security (TLS).
 
 ## Prerequisites
 
-You must assign the principal that's used to request an Azure AD token to one of the applicable [Azure App Configuration roles](./rest-api-authorization-azure-ad.md).
+You must assign the principal that's used to request a Microsoft Entra token to one of the applicable [Azure App Configuration roles](./rest-api-authorization-azure-ad.md).
 
 Provide each request with all HTTP headers required for authentication. Here's the minimum requirement:
 
@@ -29,23 +29,27 @@ Host: {myconfig}.azconfig.io
 Authorization: Bearer {{AadToken}}
 ```
 
-## Azure AD token acquisition
+<a name='azure-ad-token-acquisition'></a>
 
-Before acquiring an Azure AD token, you must identify what user you want to authenticate as, what audience you're requesting the token for, and what Azure AD endpoint (authority) to use.
+## Microsoft Entra token acquisition
+
+Before acquiring a Microsoft Entra token, you must identify what user you want to authenticate as, what audience you're requesting the token for, and what Microsoft Entra endpoint (authority) to use.
 
 ### Audience
 
-Request the Azure AD token with a proper audience. For Azure App Configuration use the following audience. The audience can also be referred to as the *resource* that the token is being requested for.
+Request the Microsoft Entra token with a proper audience. For Azure App Configuration use the following audience. The audience can also be referred to as the *resource* that the token is being requested for.
 
 `https://azconfig.io`
 
-### Azure AD authority
+<a name='azure-ad-authority'></a>
 
-The Azure AD authority is the endpoint you use for acquiring an Azure AD token. It's in the form of `https://login.microsoftonline.com/{tenantId}`. The `{tenantId}` segment refers to the Azure AD tenant ID to which the user or application who is trying to authenticate belongs.
+### Microsoft Entra authority
+
+The Microsoft Entra authority is the endpoint you use for acquiring a Microsoft Entra token. It's in the form of `https://login.microsoftonline.com/{tenantId}`. The `{tenantId}` segment refers to the Microsoft Entra tenant ID to which the user or application who is trying to authenticate belongs.
 
 ### Authentication libraries
 
-Microsoft Authentication Library (MSAL) helps to simplify the process of acquiring an Azure AD token. Azure builds these libraries for multiple languages. For more information, see the [documentation](../active-directory/develop/msal-overview.md).
+Microsoft Authentication Library (MSAL) helps to simplify the process of acquiring a Microsoft Entra token. Azure builds these libraries for multiple languages. For more information, see the [documentation](../active-directory/develop/msal-overview.md).
 
 ## Errors
 
@@ -65,15 +69,15 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer error="invalid_token", error_description="Authorization token failed validation"
 ```
 
-**Reason:** The Azure AD token isn't valid.
+**Reason:** The Microsoft Entra token isn't valid.
 
-**Solution:** Acquire an Azure AD token from the Azure AD authority, and ensure that you've used the proper audience.
+**Solution:** Acquire a Microsoft Entra token from the Microsoft Entra authority, and ensure that you've used the proper audience.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256, Bearer error="invalid_token", error_description="The access token is from the wrong issuer. It must match the AD tenant associated with the subscription to which the configuration store belongs. If you just transferred your subscription and see this error message, please try back later."
 ```
 
-**Reason:** The Azure AD token isn't valid.
+**Reason:** The Microsoft Entra token isn't valid.
 
-**Solution:** Acquire an Azure AD token from the Azure AD authority. Ensure that the Azure AD tenant is the one associated with the subscription to which the configuration store belongs. This error can appear if the principal belongs to more than one Azure AD tenant.
+**Solution:** Acquire a Microsoft Entra token from the Microsoft Entra authority. Ensure that the Microsoft Entra tenant is the one associated with the subscription to which the configuration store belongs. This error can appear if the principal belongs to more than one Microsoft Entra tenant.

@@ -2,23 +2,30 @@
 title: Enable end-to-end encryption using encryption at host - Azure CLI - managed disks
 description: Use encryption at host to enable end-to-end encryption on your Azure managed disks.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 03/28/2023
+ms.date: 11/02/2023
 ms.author: rogarana
-ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
+  - linux-related-content
+  - ignite-2023
 ---
 
 # Use the Azure CLI to enable end-to-end encryption using encryption at host
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see [Encryption at host - End-to-end encryption for your VM data](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## Restrictions
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
+
+## Regional availability
+
+[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### Supported VM sizes
 
@@ -31,16 +38,15 @@ You must enable the feature for your subscription before you use the EncryptionA
 
 - Execute the following command to register the feature for your subscription
 
-```azurecli
+```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name EncryptionAtHost
 ```
- 
+
 - Check that the registration state is **Registered** (takes a few minutes) using the command below before trying out the feature.
 
-```azurecli
+```azurecli-interactive
 az feature show --namespace Microsoft.Compute --name EncryptionAtHost
 ```
-
 
 ### Create resources
 
@@ -53,16 +59,16 @@ Once the feature is enabled, you need to set up a DiskEncryptionSet and either a
 
 ## Example scripts
 
-### Create a VM with encryption at host enabled with customer-managed keys. 
+### Create a VM with encryption at host enabled with customer-managed keys
 
-Create a VM with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys. 
+Create a VM with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys.
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmName=yourVMName
 location=eastus
 vmSize=Standard_DS2_v2
-image=UbuntuLTS 
+image=LinuxImageURN
 diskEncryptionSetName=yourDiskEncryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -79,16 +85,16 @@ az vm create -g $rgName \
 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
-### Create a VM with encryption at host enabled with platform-managed keys. 
+### Create a VM with encryption at host enabled with platform-managed keys
 
-Create a VM with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys. 
+Create a VM with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys.
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmName=yourVMName
 location=eastus
 vmSize=Standard_DS2_v2
-image=UbuntuLTS 
+image=LinuxImageURN
 
 az vm create -g $rgName \
 -n $vmName \
@@ -100,9 +106,9 @@ az vm create -g $rgName \
 --data-disk-sizes-gb 128 128 \
 ```
 
-### Update a VM to enable encryption at host. 
+### Update a VM to enable encryption at host
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmName=yourVMName
 
@@ -113,7 +119,7 @@ az vm update -n $vmName \
 
 ### Check the status of encryption at host for a VM
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmName=yourVMName
 
@@ -122,12 +128,11 @@ az vm show -n $vmName \
 --query [securityProfile.encryptionAtHost] -o tsv
 ```
 
-
-### Update a VM to disable encryption at host. 
+### Update a VM to disable encryption at host
 
 You must deallocate your VM before you can disable encryption at host.
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmName=yourVMName
 
@@ -136,16 +141,19 @@ az vm update -n $vmName \
 --set securityProfile.encryptionAtHost=false
 ```
 
-### Create a Virtual Machine Scale Set with encryption at host enabled with customer-managed keys. 
+### Create a Virtual Machine Scale Set with encryption at host enabled with customer-managed keys
 
-Create a Virtual Machine Scale Set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys. 
+Create a Virtual Machine Scale Set with managed disks using the resource URI of the DiskEncryptionSet created earlier to encrypt cache of OS and data disks with customer-managed keys. The temp disks are encrypted with platform-managed keys.
 
-```azurecli
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
+```azurecli-interactive
 rgName=yourRGName
 vmssName=yourVMSSName
 location=westus2
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=Ubuntu2204
 diskEncryptionSetName=yourDiskEncryptionSetName
 
 diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [id] -o tsv)
@@ -153,8 +161,8 @@ diskEncryptionSetId=$(az disk-encryption-set show -n $diskEncryptionSetName -g $
 az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
---image UbuntuLTS \
---upgrade-policy automatic \
+--image $image \
+--orchestration-mode flexible \
 --admin-username azureuser \
 --generate-ssh-keys \
 --os-disk-encryption-set $diskEncryptionSetId \
@@ -162,30 +170,33 @@ az vmss create -g $rgName \
 --data-disk-encryption-sets $diskEncryptionSetId $diskEncryptionSetId
 ```
 
-### Create a Virtual Machine Scale Set with encryption at host enabled with platform-managed keys. 
+### Create a Virtual Machine Scale Set with encryption at host enabled with platform-managed keys
 
-Create a Virtual Machine Scale Set with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys. 
+Create a Virtual Machine Scale Set with encryption at host enabled to encrypt cache of OS/data disks and temp disks with platform-managed keys.
 
-```azurecli
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
+```azurecli-interactive
 rgName=yourRGName
 vmssName=yourVMSSName
 location=westus2
 vmSize=Standard_DS3_V2
-image=UbuntuLTS 
+image=Ubuntu2204
 
 az vmss create -g $rgName \
 -n $vmssName \
 --encryption-at-host \
---image UbuntuLTS \
---upgrade-policy automatic \
+--image $image \
+--orchestration-mode flexible \
 --admin-username azureuser \
 --generate-ssh-keys \
 --data-disk-sizes-gb 64 128 \
 ```
 
-### Update a Virtual Machine Scale Set to enable encryption at host. 
+### Update a Virtual Machine Scale Set to enable encryption at host
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmssName=yourVMName
 
@@ -196,7 +207,7 @@ az vmss update -n $vmssName \
 
 ### Check the status of encryption at host for a Virtual Machine Scale Set
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmssName=yourVMName
 
@@ -205,11 +216,11 @@ az vmss show -n $vmssName \
 --query [virtualMachineProfile.securityProfile.encryptionAtHost] -o tsv
 ```
 
-### Update a Virtual Machine Scale Set to disable encryption at host. 
+### Update a Virtual Machine Scale Set to disable encryption at host
 
 You can disable encryption at host on your Virtual Machine Scale Set but, this will only affect VMs created after you disable encryption at host. For existing VMs, you must deallocate the VM, [disable encryption at host on that individual VM](#update-a-vm-to-disable-encryption-at-host), then reallocate the VM.
 
-```azurecli
+```azurecli-interactive
 rgName=yourRGName
 vmssName=yourVMName
 
@@ -245,8 +256,8 @@ When calling the [Resource Skus API](/rest/api/compute/resourceskus/list), check
 
 For the Azure PowerShell module, use the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) cmdlet.
 
-```powershell
-$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+```azurepowershell-interactive
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')}
 
 foreach($vmSize in $vmSizes)
 {

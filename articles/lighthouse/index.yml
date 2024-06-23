@@ -1,17 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Lighthouse documentation
-summary: Azure Lighthouse enables multi-tenant management with enhanced automation, scalability, and governance across resources and tenants.
+summary: Azure Lighthouse enables multitenant management with enhanced automation, scalability, and governance across resources and tenants.
 
 metadata:
   title: Azure Lighthouse Documentation
   description: Azure Lighthouse lets service providers manage Azure resources in multiple customer tenants, with enhanced automation, scalability, and governance.
   ms.service: lighthouse
   ms.topic: landing-page
-  ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 11/28/2022
+  ms.date: 12/07/2023
   
 landingContent:
   - title: About Azure Lighthouse
@@ -33,12 +32,10 @@ landingContent:
         links:
           - text: Onboard a customer to Azure Lighthouse
             url: ./how-to/onboard-customer.md
-          - text: Just-in-time roles
+          - text: Use just-in-time roles
             url: ./how-to/create-eligible-authorizations.md
           - text: View and manage customers
             url: ./how-to/view-manage-customers.md
-          - text: Link your partner ID
-            url: ./how-to/partner-earned-credit.md
       - linkListType: concept
         links:
           - text: Recommended security practices

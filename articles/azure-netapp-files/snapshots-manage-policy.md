@@ -1,18 +1,11 @@
 ---
 title: Manage snapshot policies in Azure NetApp Files | Microsoft Docs
-description: Describes how to create, manage, modify, and delete snapshot policies by using Azure NetApp Files. 
+description: Describes how to create, manage, modify, and delete snapshot policies by using Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/06/2023
+ms.date: 05/18/2023
 ms.author: anfdocs
 ---
 
@@ -23,10 +16,13 @@ ms.author: anfdocs
 ## Create a snapshot policy 
 
 A snapshot policy enables you to specify the snapshot creation frequency in hourly, daily, weekly, or monthly cycles. You also need to specify the maximum number of snapshots to retain for the volume.  
-
+   
+> [!NOTE] 
+> In case of a service maintenance event, Azure NetApp Files might sporadically skip the creation of a scheduled snapshot.
+       
 1.	From the NetApp Account view, select **Snapshot policy**.
 
-    ![Screenshot that shows how to navigate to Snapshot Policy.](../media/azure-netapp-files/snapshot-policy-navigation.png)
+    ![Screenshot that shows how to navigate to Snapshot Policy.](./media/snapshots-manage-policy/snapshot-policy-navigation.png)
 
 2.	In the Snapshot Policy window, set Policy State to **Enabled**. 
 
@@ -43,19 +39,19 @@ A snapshot policy enables you to specify the snapshot creation frequency in hour
 
     The following example shows hourly snapshot policy configuration. 
 
-    ![Screenshot that shows the hourly snapshot policy.](../media/azure-netapp-files/snapshot-policy-hourly.png)
+    ![Screenshot that shows the hourly snapshot policy.](./media/snapshots-manage-policy/snapshot-policy-hourly.png)
 
     The following example shows daily snapshot policy configuration.
 
-    ![Screenshot that shows the daily snapshot policy.](../media/azure-netapp-files/snapshot-policy-daily.png)
+    ![Screenshot that shows the daily snapshot policy.](./media/snapshots-manage-policy/snapshot-policy-daily.png)
 
     The following example shows weekly snapshot policy configuration.
 
-    ![Screenshot that shows the weekly snapshot policy.](../media/azure-netapp-files/snapshot-policy-weekly.png)
+    ![Screenshot that shows the weekly snapshot policy.](./media/snapshots-manage-policy/snapshot-policy-weekly.png)
 
     The following example shows monthly snapshot policy configuration.
 
-    ![Screenshot that shows the monthly snapshot policy.](../media/azure-netapp-files/snapshot-policy-monthly.png) 
+    ![Screenshot that shows the monthly snapshot policy.](./media/snapshots-manage-policy/snapshot-policy-monthly.png) 
 
 4.	Select **Save**.  
 
@@ -72,11 +68,11 @@ You cannot apply a snapshot policy to a destination volume in cross-region repli
 
 1.	Go to the **Volumes** page, right-click the volume that you want to apply a snapshot policy to, and select **Edit**.
 
-    ![Screenshot that shows the Volumes right-click menu.](../media/azure-netapp-files/volume-right-cick-menu.png) 
+    ![Screenshot that shows the Volumes right-click menu.](./media/snapshots-manage-policy/volume-right-cick-menu.png) 
 
 2.	In the Edit window, under **Snapshot policy**, select a policy to use for the volume. Select **OK** to apply the policy.  
 
-    ![Screenshot that shows the Snapshot policy menu.](../media/azure-netapp-files/snapshot-policy-edit.png) 
+    ![Screenshot that shows the Snapshot policy menu.](./media/snapshots-manage-policy/snapshot-policy-edit.png) 
 
 ## Modify a snapshot policy 
 
@@ -93,7 +89,7 @@ You can modify an existing snapshot policy to change the policy state, snapshot 
 
 2.	Right-click the snapshot policy you want to modify, then select **Edit**.
 
-    ![Screenshot that shows the Snapshot policy right-click menu.](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+    ![Screenshot that shows the Snapshot policy right-click menu.](./media/snapshots-manage-policy/snapshot-policy-right-click-menu.png) 
 
 3.	Make the changes in the Snapshot Policy window that appears, then select **Save**. 
 
@@ -107,11 +103,11 @@ You can delete a snapshot policy that you no longer want to keep.
 
 2.	Right-click the snapshot policy you want to modify, then select **Delete**.
 
-    ![Screenshot that shows the Delete menu item.](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+    ![Screenshot that shows the Delete menu item.](./media/snapshots-manage-policy/snapshot-policy-right-click-menu.png) 
 
 3.	Select **Yes** to confirm that you want to delete the snapshot policy.   
 
-    ![Screenshot that shows snapshot policy delete confirmation.](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+    ![Screenshot that shows snapshot policy delete confirmation.](./media/snapshots-manage-policy/snapshot-policy-delete-confirm.png) 
 
 ## Next steps
 

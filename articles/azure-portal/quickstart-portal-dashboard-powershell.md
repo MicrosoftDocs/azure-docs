@@ -8,20 +8,21 @@ ms.date: 03/27/2023
 
 # Quickstart: Create an Azure portal dashboard with PowerShell
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article focuses on the process of using the Az.Portal PowerShell module to create a dashboard. The dashboard shows the performance of a virtual machine (VM) that you create, as well as some static information and links.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This article focuses on the process of using the [Az.Portal PowerShell module](/powershell/module/az.portal) to create a dashboard. The dashboard shows the performance of a virtual machine (VM) that you create, as well as some static information and links.
+
+A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and organized view of your cloud resources. This quickstart shows how to use the Az.Portal PowerShell to create a dashboard. The example dashboard shows the performance of a virtual machine (VM), along with some static information and links.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 ## Choose a specific Azure subscription
 
-If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
-should be billed. Select a specific subscription using the
+If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the
 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
@@ -54,10 +55,8 @@ $vmName = 'myVM1'
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md)
-using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
-cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
-a group.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
+cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group based on the name in the `$resourceGroupName`
 variable in the region specified in the `$location` variable.
@@ -68,12 +67,9 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 ## Create a virtual machine
 
-The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by
-following these steps.
+The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
 
-Store login credentials for the VM in a variable. The password must be complex. This is a new user
-name and password; it's not, for example, the account you use to sign in to Azure. For more
-information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
+Store login credentials for the VM in a variable. The password must be complex. This is a new user name and password; it's not, for example, the account you use to sign in to Azure. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
 and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 ```azurepowershell-interactive
@@ -92,13 +88,11 @@ $AzVmParams = @{
 New-AzVm @AzVmParams
 ```
 
-The VM deployment now starts and typically takes a few minutes to complete. After deployment
-completes, move on to the next section.
+The VM deployment now starts and typically takes a few minutes to complete. After deployment completes, move on to the next section.
 
 ## Download the dashboard template
 
-Since Azure dashboards are resources, they can be represented as JSON. The following code downloads
-a JSON representation of a sample dashboard. For more information, see [The structure of Azure Dashboards](./azure-portal-dashboards-structure.md).
+Since Azure dashboards are resources, they can be represented as JSON. The following code downloads a JSON representation of a sample dashboard. For more information, see [The structure of Azure Dashboards](./azure-portal-dashboards-structure.md).
 
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
@@ -126,8 +120,7 @@ For more information about the dashboard template structure, see [Microsoft port
 
 ## Deploy the dashboard template
 
-You can use the `New-AzPortalDashboard` cmdlet that's part of the Az.Portal module to deploy the
-template directly from PowerShell.
+You can use the `New-AzPortalDashboard` cmdlet that's part of the Az.Portal module to deploy the template directly from PowerShell.
 
 ```azurepowershell
 $DashboardParams = @{

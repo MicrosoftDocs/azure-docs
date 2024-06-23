@@ -1,7 +1,6 @@
 ---
 title: What is Delta Lake? 
 description: Overview of Delta Lake and how it works as part of Azure Synapse Analytics
-services: synapse-analytics 
 author: jovanpop-msft
 ms.author: jovanpop
 ms.service: synapse-analytics 
@@ -38,5 +37,5 @@ For more information, see [Delta Lake Project](https://github.com/delta-io/delta
 
 ## Next steps
 
-- [.NET for Apache Spark documentation](/dotnet/spark)
+- [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 - [Azure Synapse Analytics](../index.yml)

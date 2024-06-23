@@ -1,58 +1,70 @@
 ---
 title: Set up user roles for Azure Communications Gateway
-description: Learn how to configure the user roles required to deploy, manage and monitor your Azure Communications Gateway
+description: Learn how to configure the user roles required to deploy, manage, and monitor your Azure Communications Gateway.
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: how-to
-ms.date: 12/15/2022 
+ms.date: 02/16/2024
 ---
 
 # Set up user roles for Azure Communications Gateway
 
-This article will guide you through how to configure the permissions required for operators in your organization to:
+This article guides you through how to configure the permissions required for staff in your organization to:
 
-- Deploy Azure Communications Gateway through the portal
-- Raise customer support requests (support tickets)
-- Monitor Azure Communications Gateway
-- Rotate secrets for Azure Communications Gateway
-- Use the API Bridge Number Management Portal for provisioning
+- Deploy Azure Communications Gateway through the portal.
+- Raise customer support requests (support tickets).
+- Monitor Azure Communications Gateway.
+- Use the Number Management Portal (preview) for provisioning the Operator Connect or Teams Phone Mobile environments.
+
+For permissions for the Provisioning API, see [Integrate with Azure Communications Gateway's Provisioning API](integrate-with-provisioning-api.md).
 
 ## Prerequisites
 
-Familiarize yourself with the Azure user roles relevant to Azure Communications Gateway by reading [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Familiarize yourself with the Azure user roles relevant to Azure Communications Gateway by reading [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 A list of all available defined Azure roles is available in [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
-## 1. Understand the user roles required for Azure Communications Gateway
+## Understand the user roles required for Azure Communications Gateway
 
-Your staff will need different user roles, depending on the tasks they need to carry out.
+Your staff might need different user roles, depending on the tasks they need to carry out.
 
-|Task  | Required user roles or access |
+|Task  | Minimum required user role or access |
 |---------|---------|
-| Deploying Azure Communications Gateway |**Contributor** access to your subscription|
-| Raising support requests |**Owner**, **Contributor** or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level|
-|Monitoring logs and metrics | **Reader** access to your subscription|
-|Rotating secrets |**Storage Account Key Operator**, **Contributor** or **Owner** access to your subscription|
-|Using the API Bridge Number Management Portal|**Reader** and **Writer** permissions for the Project Synergy enterprise application and permissions to the Azure portal for your subscription|
+| Deploy Azure Communications Gateway or change its configuration. |**Contributor** access to the resource group.|
+| Raise support requests. |**Owner**, **Contributor**, or **Support Request Contributor** access to your subscription or a custom role with `Microsoft.Support/*` access at the subscription level. |
+| Monitor logs and metrics. | **Reader** access to the Azure Communications Gateway resource. |
+| Use the Number Management Portal (preview) | **Reader** access to the Azure Communications Gateway resource and appropriate roles for the AzureCommunicationsGateway enterprise application: <!-- Must be kept in sync with step below for configuring and with manage-enterprise-operator-connect.md  --><br>- To view configuration: **ProvisioningAPI.ReadUser**.<br>- To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.<br>- To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.<br>- To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**. |
 
-## 2. Configure user roles
+> [!IMPORTANT]
+> The roles that you assign for the Number Management Portal apply to all Azure Communications Gateway resources in the same tenant.
+
+## Configure user roles
 
 You need to use the Azure portal to configure user roles.
 
-### 2.1 Prepare to assign a user role
+### Prepare to assign a user role
 
 1. Read through [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md) and ensure that you:
     - Know who needs access.
     - Know the appropriate user role or roles to assign them.
-    - Are signed in with a user that is assigned a role that has role assignments write permission, such as **Owner** or **User Access Administrator** for the subscription.
-1. If you're managing access to the API Bridge Number Management Portal, ensure that you're signed in with a user that can change permissions for enterprise applications. For example, you could be a Global Administrator, Cloud Application Administrator or Application Administrator. For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+    - Are signed in with a user account with a role that can change role assignments for the subscription, such as **Owner** or **User Access Administrator**.
+1. If you're managing access to the Number Management Portal, ensure that you're signed in with a user account that can change roles for enterprise applications. For example, you could be a Global Administrator, Cloud Application Administrator, or Application Administrator. For more information, see [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
 
-### 2.2 Assign a user role
+### Assign a user role
 
-1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.md) to assign the permissions you determined in [1. Understand the user roles required for Azure Communications Gateway](#1-understand-the-user-roles-required-for-azure-communications-gateway).
-1. If you're managing access to the API Bridge Number Management Portal, follow [Assign users and groups to an application](../active-directory/manage-apps/assign-user-or-group-access-portal.md) to assign **Reader** and **Writer** permissions for the Project Synergy application.
+1. Follow the steps in [Assign a user role using the Azure portal](../role-based-access-control/role-assignments-portal.yml) to assign the permissions you determined in [Understand the user roles required for Azure Communications Gateway](#understand-the-user-roles-required-for-azure-communications-gateway).
+1. If you're managing access to the Number Management Portal, also follow [Assign users and groups to an application](/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) to assign suitable roles for each user in the AzureCommunicationsGateway enterprise application.
+
+    <!-- Must be kept in sync with step 1 and with manage-enterprise-operator-connect.md  -->
+    - To view configuration: **ProvisioningAPI.ReadUser**.
+    - To add or make changes to configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.WriteUser**.
+    - To remove configuration: **ProvisioningAPI.ReadUser** and **ProvisioningAPI.DeleteUser**.
+    - To view, add, make changes to, or remove configuration: **ProvisioningAPI.AdminUser**.
+
+    > [!IMPORTANT]
+    > Ensure you configure these roles on the AzureCommunicationsGateway enterprise application (not the Project Synergy enterprise application for Operator Connect and Teams Phone Mobile). The ID application for AzureCommunicationsGateway is always `8502a0ec-c76d-412f-836c-398018e2312b`.
 
 ## Next steps
 
-- Learn how to remove access to the Azure Communications Gateway subscription by [removing Azure role assignments](../role-based-access-control/role-assignments-remove.md).
+- Learn how to remove access to the Azure Communications Gateway subscription by [removing Azure role assignments](../role-based-access-control/role-assignments-remove.yml).

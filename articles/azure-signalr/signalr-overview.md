@@ -4,8 +4,8 @@ description: Better understand what typical use case scenarios to use Azure Sign
 author: vicancy
 ms.service: signalr
 ms.topic: overview
-ms.custom: devx-track-dotnet 
-ms.date: 11/30/2022
+ms.custom:
+ms.date: 11/11/2023
 ms.author: lianwei
 ---
 
@@ -66,7 +66,7 @@ SignalR Service offers SDKs in different languages:
 
 * Client side: [Any client libraries supporting SignalR protocol](/aspnet/core/signalr/client-features) are compatible with SignalR service.
 * Server side: ASP.NET Core or ASP.NET web applications
-* Serverless support through REST APIs, Azure Functions triggers and bindings, and Event Grid integrations.
+* Serverless support through REST APIs, Azure Functions triggers and bindings, and Event Grid integrations for **ASP.NET Core SignalR**.
 
 **Handle large-scale client connections:**
 

@@ -1,25 +1,26 @@
 ---
-title: 'Quickstart: Create and configure Azure DDoS IP Protection - ARM template'
+title: 'QuickStart: Create and configure Azure DDoS IP Protection - ARM template'
 description: Learn how to create and enable Azure DDoS IP Protection using an Azure Resource Manager template (ARM template).
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
-ms.workload: infrastructure-services
-ms.custom: mode-arm
+ms.custom: mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 03/08/2023
+ms.date: 03/18/2024
 ---
 
-# Quickstart: Create and configure Azure DDoS IP Protection using ARM template
+# QuickStart: Create and configure Azure DDoS IP Protection using ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an IP address, then enable distributed denial of service (DDoS) IP Protection. Azure DDoS IP Protection is a pay-per-protected IP model that contains the same core engineering features as DDoS Network Protection.
+In this QuickStart, you'll learn how to use an Azure Resource Manager template (ARM template) to create an IP address, then enable distributed denial of service (DDoS) IP Protection. Azure DDoS IP Protection is a pay-per-protected IP model that contains the same core engineering features as DDoS Network Protection.
+
+:::image type="content" source="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png" alt-text="Diagram of DDoS IP Protection protecting the Public IP address." lightbox="./media/manage-ddos-ip-protection-portal/ddos-ip-protection-diagram.png":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
 
 
 ## Prerequisites
@@ -43,7 +44,7 @@ In this example, the template creates a new resource group, a DDoS protection pl
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** button.
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fpip-with-ddos-ip-protection%2Fazuredeploy.json":::
 
 1. Enter the values to create a new resource group, Public IP address, and enable DDoS IP Protection.
 

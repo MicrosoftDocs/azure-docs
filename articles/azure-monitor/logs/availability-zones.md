@@ -5,52 +5,73 @@ ms.subservice: logs
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 02/21/2023
+ms.date: 06/05/2023
 ms.custom: references_regions
 
-#customer-intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide so that can ensure my data and services are sufficiently protected in the event of datacenter failure.
+# Customer intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide to ensure my data and services are sufficiently protected in the event of datacenter failure.
 ---
 # Enhance data and service resilience in Azure Monitor Logs with availability zones
 
-[Azure availability zones](../../availability-zones/az-overview.md) protect applications and data from datacenter failures and can enhance the resilience of Azure Monitor features that rely on a Log Analytics workspace. This article describes the data and service resilience benefits Azure Monitor availability zones provide by default to [dedicated clusters](logs-dedicated-clusters.md) in supported regions.
+[Azure availability zones](../../reliability/availability-zones-overview.md) protect applications and data from datacenter failures and can enhance the resilience of Azure Monitor features that rely on a Log Analytics workspace. This article describes the data and service resilience benefits Azure Monitor availability zones provide in supported regions.
+
+> [!NOTE]
+> Application Insights resources can use availability zones only if they're workspace-based. Classic Application Insights resources can't use availability zones.
 
 ## Prerequisites
 
-- A Log Analytics workspace linked to a [dedicated cluster](logs-dedicated-clusters.md).  
+- A Log Analytics workspace linked to a shared or [dedicated cluster](logs-dedicated-clusters.md).  Azure Monitor creates Log Analytics workspaces in a shared cluster, unless you set up a dedicated cluster for your workspaces.
 
-    > [!NOTE]
-    > Application Insights resources can use availability zones only if they're workspace-based and the workspace uses a dedicated cluster. Classic Application Insights resources can't use availability zones.
+
+
+## How availability zones enhance data and service resilience in Azure Monitor Logs
+
+Each Azure region that supports availability zones is made of one or more datacenters, or zones, equipped with independent power, cooling, and networking infrastructure. 
+
+Azure Monitor Logs availability zones are [zone-redundant](../../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services), which means that Microsoft manages spreading service requests and replicating data across different zones in supported regions. If one zone is affected by an incident, Microsoft manages failover to a different availability zone in the region automatically. You don't need to take any action because switching between zones is seamless. 
+
+A subset of the availability zones that support data resilience currently also support service resilience for Azure Monitor Logs. In regions that support **service resilience**, Azure Monitor Logs service operations - for example, log ingestion, queries, and alerts - can continue in the event of a zone failure. In regions that only support **data resilience**, your stored data is protected against zonal failures, but service operations might be impacted by regional incidents.
+
+> [!NOTE]
+> Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.
     
-## Data resilience - supported regions
+## Supported regions
 
-Availability zones protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. 
+|	Region	|	Data resilience - Shared clusters (default)	|	Data resilience - Dedicated clusters	|	Service resilience	|
+|	---	|	---	|	---	|	---	|
+|	**Africa**	|		|		|		|
+|	South Africa North	|		|	:white_check_mark:	|		|
+|	**Americas**	|		|		|		|
+|	Brazil South	|		|	:white_check_mark:	|		|
+|	Canada Central	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	Central US	|		|	:white_check_mark:	|		|
+|	East US	|		|	:white_check_mark:	|		|
+|	East US 2	|		|	:white_check_mark:	|	:white_check_mark:	|
+|	South Central US	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	West US 2	|		|	:white_check_mark:	|	:white_check_mark:	|
+|	West US 3	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	**Asia Pacific**	|		|		|		|
+|	Australia East	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	Central India	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	East Asia	|		|	:white_check_mark:	|		|
+|	Japan East	|		|	:white_check_mark:	|		|
+|	Korea Central	|		|	:white_check_mark:	|		|
+|	Southeast Asia	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	**Europe**	|		|		|		|
+|	France Central	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	Germany West Central	|		|	:white_check_mark:	|		|
+|	Italy North	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
+|	North Europe	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
+|	Norway East	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	Poland Central	|		|	:white_check_mark:	|		|
+|	Sweden Central	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	Switzerland North	|		|	:white_check_mark:	|		|
+|	UK South	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	West Europe	|		|	:white_check_mark:	|		|
+|	**Middle East**	|		|		|		|
+|	Israel Central	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
+|	Qatar Central	|		|	:white_check_mark:	|		|
+|	UAE North	|	:white_check_mark:	|	:white_check_mark:	|		|
 
-Azure Monitor currently supports data resilience for availability-zone-enabled dedicated clusters in these regions:
-
-  | Americas | Europe | Middle East | Africa | Asia Pacific |
-  |---|---|---|---|---|
-  | Brazil South | France Central | UAE North | South Africa North | Australia East |
-  | Canada Central | Germany West Central | | | Central India |
-  | Central US | North Europe | | | Japan East |
-  | East US | Norway East | | | Korea Central |
-  | East US 2 | UK South | | | Southeast Asia |
-  | South Central US | West Europe | | | East Asia |
-  | US Gov Virginia | Sweden Central | | | China North 3 |
-  | West US 2 | Switzerland North | | | |
-  | West US 3 | | | | |
-
-## Service resilience - supported regions
-
-When available in your region, Azure Monitor availability zones enhance your Azure Monitor service resilience automatically. Physical separation and independent infrastructure makes interruption of service availability in your Log Analytics workspace far less likely because the Log Analytics workspace can rely on resources from a different zone. 
-
-Azure Monitor currently supports service resilience for availability-zone-enabled dedicated clusters in these regions:
-
-- East US 2
-- West US 2
-- North Europe
-- Canada Central
-- France Central
-- Japan East
 
 ## Next steps
 

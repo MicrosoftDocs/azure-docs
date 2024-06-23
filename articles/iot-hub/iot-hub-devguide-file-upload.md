@@ -46,7 +46,7 @@ IoT Hub imposes throttling limits on the number of file uploads that it can init
 
 You must associate an Azure storage account and  blob container with your IoT hub to use file upload features. All file uploads from devices registered with your IoT hub will go to this container. To configure a storage account and blob container on your IoT hub, see [Configure IoT Hub file uploads using the Azure portal](iot-hub-configure-file-upload.md), [Configure IoT Hub file uploads using Azure CLI](iot-hub-configure-file-upload-cli.md), or [Configure IoT Hub file uploads using PowerShell](iot-hub-configure-file-upload-powershell.md). You can also use the IoT Hub management APIs to configure file uploads programmatically.
 
-If you use the portal, you can create a storage account and container during configuration. Otherwise, to create a storage account, see [Create a storage account](../storage/common/storage-account-create.md) in the Azure storage documentation. Once you have a storage account, you can see how to create a blob container in the [Azure Blob Storage quickstarts](../storage/blobs/storage-quickstart-blobs-portal.md). By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. To learn how to configure managed identities, see the [Configure file upload with managed identities](iot-hub-managed-identity.md#configure-file-upload-with-managed-identities) section of [IoT Hub support for managed identities](iot-hub-managed-identity.md).
+If you use the portal, you can create a storage account and container during configuration. Otherwise, to create a storage account, see [Create a storage account](../storage/common/storage-account-create.md) in the Azure storage documentation. Once you have a storage account, you can see how to create a blob container in the [Azure Blob Storage quickstarts](../storage/blobs/storage-quickstart-blobs-portal.md). By default, Azure IoT Hub uses key-based authentication to connect and authorize with Azure Storage. You can also configure user-assigned or system-assigned managed identities to authenticate Azure IoT Hub with Azure Storage. Managed identities provide Azure services with an automatically managed identity in Microsoft Entra ID in a secure manner. To learn how to configure managed identities, see the [Configure file upload with managed identities](iot-hub-managed-identity.md#configure-file-upload-with-managed-identities) section of [IoT Hub support for managed identities](iot-hub-managed-identity.md).
 
 File upload is subject to [Azure Storage's firewall settings](../storage/common/storage-network-security.md). Based on your authentication configuration, you'll need to ensure your devices can communicate with Azure storage.
 
@@ -98,7 +98,7 @@ The following how-to guides provide complete, step-by-step instructions to uploa
 
 ## Device: Initialize a file upload
 
-The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create-file-upload-sas-uri) REST API or the equivalent API in one of the device SDKs to initiate a file upload.
+The device calls the [Create File Upload SAS URI](/rest/api/iothub/operation-groups) REST API or the equivalent API in one of the device SDKs to initiate a file upload.
 
 **Supported protocols**: HTTPS <br/>
 **Endpoint**: {iot hub}.azure-devices.net/devices/{deviceId}/files <br/>
@@ -172,7 +172,7 @@ Working with Azure storage APIs is beyond the scope of this article. In addition
 
 ## Device: Notify IoT Hub of a completed file upload
 
-The device calls the [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status) REST API or the equivalent API in one of the device SDKs when it completes the file upload. The device should update the file upload status with IoT Hub regardless of whether the upload succeeds or fails.
+The device calls the [Update File Upload Status](/rest/api/iothub/device/device/update-file-upload-status) REST API or the equivalent API in one of the device SDKs when it completes the file upload. The device should update the file upload status with IoT Hub regardless of whether the upload succeeds or fails.
 
 **Supported protocols**: HTTPS <br/>
 **Endpoint**: {iot hub}.azure-devices.net/devices/{deviceId}/files/notifications <br/>

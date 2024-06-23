@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 03/06/2023
+ms.date: 05/09/2024
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -10,6 +10,18 @@ ms.custom: has-adal-ref, devx-track-azurepowershell
 # Troubleshoot runbook issues
 
  This article describes runbook issues that might occur and how to resolve them. For general information, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
+
+
+## It is no longer possible to use cmdlets from imported non-default modules in graphical PowerShell runbooks
+
+### Issue
+When you import a PowerShell module you will not be able to use its cmdlets in graphical PowerShell runbooks.
+
+### Cause
+To improve the security posture of PowerShell runbooks, the service no longer processes the module manifest file to export the cmdlets and functions. This means that they cannot be used when authoring graphical PowerShell runbooks.
+
+### Resolution
+There is no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VScode for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
 
 
 ## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
@@ -26,12 +38,15 @@ It fails with the following error:
  
 ### Cause
 
-The naming convention is not being followed. Ensure that your runbook name starts with a letter and can contain letters, numbers, underscores, and dashes. The naming convention requirements are now being enforced starting with the Az module version 1.9 through the portal and cmdlets.
+Code that was introduced in [1.9.0](https://www.powershellgallery.com/packages/Az.Automation/1.9.0) version of the Az.Automation module verifies the names of the runbooks to start and incorrectly flags runbooks with multiple "-" characters or with an "_" character in the name as invalid. 
 
 ### Workaround
 
-We recommend that you follow the runbook naming convention or revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module where the naming convention isn't enforced.
+We recommend that you revert to [1.8.0 version](https://www.powershellgallery.com/packages/Az.Automation/1.8.0) of the module.
 
+### Resolution
+
+Currently, we are working to deploy a fix to address this issue.
 
 ## Diagnose runbook issues
 
@@ -55,7 +70,6 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
 1. If your runbook is suspended or unexpectedly fails:
 
-    * [Renew the certificate](../manage-runas-account.md#cert-renewal) if the Run As account has expired.
     * [Renew the webhook](../automation-webhooks.md#update-a-webhook) if you're trying to use an expired webhook to start the runbook.
     * [Check job statuses](../automation-runbook-execution.md#job-statuses) to determine current runbook statuses and some possible causes of the issue.
     * [Add additional output](../automation-runbook-output-and-messages.md#working-with-message-streams) to the runbook to identify what happens before the runbook is suspended.
@@ -128,7 +142,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Resolution
 
-Ensure that your Run As account has [permissions to access any resources](../../role-based-access-control/role-assignments-portal.md) used in your script.
+Ensure that your Run As account has [permissions to access any resources](../../role-based-access-control/role-assignments-portal.yml) used in your script.
 
 ## <a name="sign-in-failed"></a>Scenario: Sign-in to Azure account failed
 
@@ -163,15 +177,11 @@ To determine what's wrong, follow these steps:
    Connect-AzAccount -Credential $Cred
    ```
 
-1. If your authentication fails locally, you haven't set up your Azure Active Directory (Azure AD) credentials properly. To get the Azure AD account set up correctly, see the article [Authenticate to Azure using Azure Active Directory](../automation-use-azure-ad.md).
+1. If your authentication fails locally, you haven't set up your Microsoft Entra credentials properly. To get the Microsoft Entra account set up correctly, see the article [Authenticate to Azure using Microsoft Entra ID](../automation-use-azure-ad.md).
 
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
    ```powershell
-   # Get the connection "AzureRunAsConnection"
-   $connectionName = "AzureRunAsConnection"
-   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
-
    $logonAttempt = 0
    $logonResult = $False
 
@@ -180,12 +190,11 @@ To determine what's wrong, follow these steps:
        $LogonAttempt++
        #Logging in to Azure...
        $connectionResult = Connect-AzAccount `
-                              -ServicePrincipal `
-                              -Tenant $servicePrincipalConnection.TenantId `
-                              -ApplicationId $servicePrincipalConnection.ApplicationId `
-                              -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
-
        Start-Sleep -Seconds 30
+       if($connectionResult)
+       {
+          $logonResult = $True 
+       }
    }
    ```
 
@@ -201,7 +210,7 @@ Run Login-AzureRMAccount to login.
 
 ### Cause
 
-This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Azure Automation Run As accounts overview](../automation-security-overview.md#run-as-accounts).
+This error can occur when you're not using a Run As account or the Run As account has expired.
 
 This error has two primary causes:
 
@@ -260,7 +269,7 @@ The subscription named <subscription name> cannot be found.
 This error can occur if:
 
 * The subscription name isn't valid.
-* The Azure AD user who's trying to get the subscription details isn't configured as an administrator of the subscription.
+* The Microsoft Entra user who's trying to get the subscription details isn't configured as an administrator of the subscription.
 * The cmdlet isn't available.
 * Context switching occurred.
 
@@ -281,7 +290,7 @@ The runbook isn't using the correct context when running. This may be because th
 You may see errors like this one:
 
 ```error
-Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+Get-AzVM : The client '<client-id>' with object id '<object-id> does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
    ErrorCode: AuthorizationFailed
    StatusCode: 403
    ReasonPhrase: Forbidden Operation
@@ -314,7 +323,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ### Cause
 
-If you have multifactor authentication on your Azure account, you can't use an Azure Active Directory user to authenticate to Azure. Instead, you need to use a certificate or a service principal to authenticate.
+If you have multifactor authentication on your Azure account, you can't use a Microsoft Entra user to authenticate to Azure. Instead, you need to use a certificate or a service principal to authenticate.
 
 ### Resolution
 
@@ -327,7 +336,7 @@ To use a service principal with Azure Resource Manager cmdlets, see [Creating se
 Your runbook fails with an error similar to the following example:
 
 ```error
-Exception: A task was canceled.
+Exception: A task was cancelled.
 ```
 
 ### Cause
@@ -599,7 +608,7 @@ This error occurs because of one of the following issues:
 
 * **Module incompatible.** Module dependencies might not be correct. In this case, your runbook typically returns a `Command not found` or `Cannot bind parameter` message.
 
-* **No authentication with Active Directory for sandbox.** Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Azure AD by using the Azure Active Directory Authentication Library (ADAL) isn't supported.
+* **No authentication with Active Directory for sandbox.** Your runbook attempted to call an executable or subprocess that runs in an Azure sandbox. Configuring runbooks to authenticate with Microsoft Entra ID by using the Azure Active Directory Authentication Library (ADAL) isn't supported.
 
 ### Resolution
 
@@ -607,7 +616,7 @@ This error occurs because of one of the following issues:
 
 * **Module incompatible.** Update your Azure modules by following the steps in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
-* **No authentication with Active Directory for sandbox.** When you authenticate to Azure AD with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
+* **No authentication with Active Directory for sandbox.** When you authenticate to Microsoft Entra ID with a runbook, ensure that the Azure AD module is available in your Automation account. Be sure to grant the Run As account the necessary permissions to perform the tasks that the runbook automates.
 
   If your runbook can't call an executable or subprocess running in an Azure sandbox, use the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid workers aren't limited by the memory and network limits that Azure sandboxes have.
 
@@ -726,7 +735,7 @@ Follow [Step 5 - Add authentication to manage Azure resources](../learn/powershe
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+Add permissions to Key Vault to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Scenario: Runbook fails with "Parameter length exceeded" error
 

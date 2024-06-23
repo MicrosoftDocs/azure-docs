@@ -1,11 +1,10 @@
 ---
-title: Defender for Cloud Planning multicloud security determine multicloud dependencies CSPM CWPP guidance cloud workload protection
+title: Planning multicloud security determine multicloud dependencies CSPM CWPP guidance cloud workload protection
 description: Learn about determining multicloud dependencies when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
-author: bmansheim
-ms.author: benmansheim
-ms.custom: ignite-2022
-ms.date: 10/03/2022
+author: dcurwin
+ms.author: dacurwin
+ms.date: 12/13/2023
 ---
 
 # Determine multicloud dependencies
@@ -31,24 +30,28 @@ Defender for Cloud provides Cloud Security Posture Management (CSPM) features fo
 
 ## CWPP
 
+> [!NOTE]
+> As the Log Analytics agent is set to retire in August 2024 and as part of the Defender for Cloud [updated strategy](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation), all **Defender for Servers** features and capabilities will be provided either through Microsoft Defender for Endpoint integration or agentless scanning, without dependency on either the Log Analytics agent (MMA) or Azure Monitor agent (AMA). For more information about this change, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
 In Defender for Cloud, you enable specific plans to get Cloud Workload Platform Protection (CWPP) features. Plans to protect multicloud resources include:
 
 - [Defender for Servers](./defender-for-servers-introduction.md): Protect AWS/GCP Windows and Linux machines.
 - [Defender for Containers](./defender-for-containers-introduction.md): Help secure your Kubernetes clusters with security recommendations and hardening, vulnerability assessments, and runtime protection.
 - [Defender for SQL](./defender-for-sql-usage.md): Protect SQL databases running in AWS and GCP.
 
-### What agent do I need?
+### What extension do I need?
 
-The following table summarizes agent requirements for CWPP.
+The following table summarizes extension requirements for CWPP.
 
-| Agent  |Defender for Servers|Defender for Containers|Defender fo SQL on Machines|
+| Extension  |Defender for Servers|Defender for Containers|Defender for SQL on Machines|
 |:---:|:---:|:---:|:---:|
 |Azure Arc Agent |  ✔  |  ✔ | ✔ |
-|Microsoft Defender for Endpoint extension |✔|
-|Vulnerability assessment| ✔| |
+|Microsoft Defender for Endpoint extension |✔|||
+|Vulnerability assessment| ✔| ||
+|Agentless Disk Scanning| ✔ | ✔ ||
 |Log Analytics or Azure Monitor Agent (preview) extension|✔| |✔|
-|Defender profile| | ✔| |
-|Azure policy extension | | ✔| |
+|Defender sensor| | ✔| |
+|Azure Policy for Kubernetes | | ✔| |
 |Kubernetes audit log data | | ✔| |
 |SQL servers on machines | |  | ✔|
 |Automatic SQL server discovery and registration | | | ✔|
@@ -72,54 +75,49 @@ Defender for Servers offers two different plans:
 
     Review the [features of each plan](./defender-for-servers-introduction.md) before onboarding to Defender for Servers.
 
-#### Review components
+#### Review components - Defender for Servers
 
 The following components and requirements are needed to receive full protection from the Defender for Servers plan:
 
 - **Azure Arc agent**: AWS and GCP machines connect to Azure using Azure Arc. The Azure Arc agent connects them.
   - The Azure Arc agent is needed to read security information on the host level and allow Defender for Cloud to deploy the agents/extensions required for complete protection.
-To auto-provision the Azure Arc agent, the OS configuration agent on [GCP VM instances](./quickstart-onboard-gcp.md?pivots=env-settings) and the AWS Systems Manager (SSM) agent for [AWS EC2 instances](./quickstart-onboard-aws.md?pivots=env-settings) must be configured. [Learn more](../azure-arc/servers/agent-overview.md) about the agent.
+  To autoprovision the Azure Arc agent, the OS configuration agent on [GCP VM instances](./quickstart-onboard-gcp.md?pivots=env-settings) and the AWS Systems Manager (SSM) agent for [AWS EC2 instances](./quickstart-onboard-aws.md?pivots=env-settings) must be configured. [Learn more](../azure-arc/servers/agent-overview.md) about the agent.
 - **Defender for Endpoint capabilities**: The [Microsoft Defender for Endpoint](./integration-defender-for-endpoint.md?tabs=linux) agent provides comprehensive endpoint detection and response (EDR) capabilities.
 - **Vulnerability assessment**: Using either the integrated [Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md), or the [Microsoft Defender Vulnerability Management](/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management) solution.
 - **Log Analytics agent/[Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA) (in preview)**: Collects security-related configuration information and event logs from machines.
 
 #### Check networking requirements
 
-Machines must meet [network requirements](../azure-arc/servers/network-requirements.md?tabs=azure-cloud) before onboarding the agents.  Auto-provisioning is enabled by default.
+Machines must meet [network requirements](../azure-arc/servers/network-requirements.md?tabs=azure-cloud) before onboarding the agents.  Autoprovisioning is enabled by default.
 
 ### Defender for Containers
 
-Enabling Defender for Containers provides GKE and EKS clusters and underlying hosts with threat detection capabilities that include:
+Enabling Defender for Containers provides GKE and EKS clusters and underlying hosts with [these security capabilities](defender-for-containers-introduction.md#agentless-capabilities).
 
-- Kubernetes behavioral analytics
-- Anomaly detection
-- Security best practices
-- Built-in admission control policies and more
-
-#### Review components-Defender for Containers
+#### Review components - Defender for Containers
 
 The required [components](./defender-for-containers-introduction.md) are as follows:
 
-- **Azure Arc Agent**: Connects your GKE and EKS clusters to Azure, and onboards the Defender Profile.
-- **Defender Profile**: Provides host-level runtime threat protection.  
-- **Azure Policy extension**: Extends the Gatekeeper v3 to monitor every request to the Kubernetes API server, and ensures that security best practices are being followed on clusters and workloads.
+- **Azure Arc Agent**: Connects your GKE and EKS clusters to Azure, and onboards the Defender sensor.
+- **[Defender sensor](defender-for-cloud-glossary.md#defender-sensor)**: Provides host-level runtime threat protection.  
+- **Azure Policy for Kubernetes**: Extends the Gatekeeper v3 to monitor every request to the Kubernetes API server, and ensures that security best practices are being followed on clusters and workloads.
 - **Kubernetes audit logs**: Audit logs from the API server allow Defender for Containers to identify suspicious activity within your multicloud servers, and provide deeper insights while investigating alerts. Sending of the “Kubernetes audit logs” needs to be enabled on the connector level.
 
-#### Check networking requirements-Defender for Containers
+#### Check networking requirements - Defender for Containers
 
-Make sure to check that your clusters meet network requirements so that the Defender Profile can connect with Defender for Cloud.
+Make sure to check that your clusters meet network requirements so that the Defender sensor can connect with Defender for Cloud.
 
 ### Defender for SQL
 
 Defender for SQL provides threat detection for the GCP Compute Engine and AWS. The Defender for SQL Server on Machines plan must be enabled on the subscription where the connector is located.
 
-#### Review components-Defender for SQL
+#### Review components - Defender for SQL
 
 To receive the full benefits of Defender for SQL on your multicloud workload, you need these components:
 
 - **Azure Arc agent**: AWS and GCP machines connect to Azure using Azure Arc. The Azure Arc agent connects them.
   - The Azure Arc agent is needed to read security information on the host level and allow Defender for Cloud to deploy the agents/extensions required for complete protection.
-  - To auto-provision the Azure Arc agent, the OS configuration agent on [GCP VM instances](./quickstart-onboard-gcp.md?pivots=env-settings) and the AWS Systems Manager (SSM) agent for [AWS EC2 instances](./quickstart-onboard-aws.md?pivots=env-settings) must be configured. [Learn more](../azure-arc/servers/agent-overview.md) about the agent.
+  - To autoprovision the Azure Arc agent, the OS configuration agent on [GCP VM instances](./quickstart-onboard-gcp.md?pivots=env-settings) and the AWS Systems Manager (SSM) agent for [AWS EC2 instances](./quickstart-onboard-aws.md?pivots=env-settings) must be configured. [Learn more](../azure-arc/servers/agent-overview.md) about the agent.
 - **Log Analytics agent/[Azure Monitor Agent](../azure-monitor/agents/agents-overview.md) (AMA) (in preview)**: Collects security-related configuration information and event logs from machines
 - **Automatic SQL server discovery and registration**: Supports automatic discovery and registration of SQL servers
 

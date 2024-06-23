@@ -6,25 +6,18 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 06/16/2023
 ---
 
 # How to ingest data using pg_azure_storage in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article shows how to use the pg_azure_storage PostgreSQL extension to
-manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from
-[Azure Blob
-Storage](https://azure.microsoft.com/services/storage/blobs/#features) (ABS).
-ABS is a cloud-native scalable, durable and secure storage service. These
-characteristics make it a good choice of storing and moving existing data into
-the cloud.
+This article shows how to use the pg_azure_storage PostgreSQL extension to manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from [Azure Blob Storage (ABS)](https://azure.microsoft.com/services/storage/blobs/#features). ABS is a cloud-native scalable, durable and secure storage service. These characteristics make it a good choice of storing and moving existing data into the cloud.
 
 ## Prepare database and blob storage
 
-To load data from Azure Blob Storage, install the `pg_azure_storage` PostgreSQL
-extension in your database:
+To load data from Azure Blob Storage, install the `pg_azure_storage` PostgreSQL extension in your database:
     
 ```sql
 SELECT * FROM create_extension('azure_storage');
@@ -35,10 +28,7 @@ SELECT * FROM create_extension('azure_storage');
 > The pg_azure_storage extension is available only on Azure Cosmos DB for
 > PostgreSQL clusters running PostgreSQL 13 and above.
 
-We've prepared a public demonstration dataset for this article. To use your own
-dataset, follow [migrate your on-premises data to cloud
-storage](../../storage/common/storage-use-azcopy-migrate-on-premises-data.md)
-to learn how to get your datasets efficiently into Azure Blob Storage.
+We've prepared a public demonstration dataset for this article. To use your own dataset, follow [migrate your on-premises data to cloud storage](../../storage/common/storage-use-azcopy-migrate-on-premises-data.md) to learn how to get your datasets efficiently into Azure Blob Storage.
 
 > [!NOTE]
 >
@@ -66,7 +56,7 @@ pg_size_pretty | 5257 kB
 content_type   | application/x-gzip
 ```
 
-You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter will filter the returned rows on the Azure Blob Storage side.
+You can filter the output either by using a regular SQL `WHERE` clause, or by using the `prefix` parameter of the `blob_list` UDF. The latter filters the returned rows on the Azure Blob Storage side.
 
 
 > [!NOTE]
@@ -178,7 +168,7 @@ Currently the extension supports the following file formats:
 
 ### Load data with blob_get()
 
-The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in much more complex scenarios.
+The `COPY` command is convenient, but limited in flexibility. Internally COPY uses the `blob_get` function, which you can use directly to manipulate data in more complex scenarios.
 
 ```sql
 SELECT *
@@ -345,4 +335,6 @@ INSERT 0 264308
 
 Congratulations, you just learned how to load data into Azure Cosmos DB for PostgreSQL directly from Azure Blob Storage.
 
-Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn more about [pg_azure_storage](reference-pg-azure-storage.md).
+- Learn about [Postgres COPY support](reference-copy-command.md).

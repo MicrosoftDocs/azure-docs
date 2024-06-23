@@ -6,27 +6,27 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
+ms.custom: cliv2
 
 author: ynpandey
 ms.author: yogipandey
-ms.date: 02/14/2023
+ms.date: 04/15/2024
 ms.reviewer: franksolomon
 ---
 
 # CLI (v2) Azure Data Lake Gen1 YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 See the source JSON schema at https://azuremlschemas.azureedge.net/latest/azureDataLakeGen1.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------- |
-| `$schema` | string | The YAML schema. If you use the Azure Machine Learning Visual Studio Code extension to author the YAML file, you can invoke schema and resource completions if you include `$schema` at the top of your file. | | |
+| `$schema` | string | The YAML schema. If you use the Azure Machine Learning Visual Studio Code extension to author the YAML file, include `$schema` at the top of your file to invoke schema and resource completions. | | |
 | `type` | string | **Required.** The datastore type. | `azure_data_lake_gen1` | |
 | `name` | string | **Required.** The datastore name. | | |
 | `description` | string | The datastore description. | | |

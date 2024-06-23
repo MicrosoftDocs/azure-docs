@@ -4,7 +4,6 @@ description: Prepare for a ransomware attack
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
-ms.custom: ignite-2022
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 01/10/2022
@@ -14,7 +13,7 @@ ms.date: 01/10/2022
 
 ## Adopt a Cybersecurity framework
 
-A good place to start is to adopt the [Microsoft cloud security benchmark](/security/benchmark/azure) (MCSB) to secure the Azure environment. The Microsoft cloud security benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
+A good place to start is to adopt the [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure) to secure the Azure environment. The Microsoft cloud security benchmark is the Azure security control framework, based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1.
 
 :::image type="content" source="./media/ransomware/ransomware-13.png" alt-text="Screenshot of the NS-1: Establish Network Segmentation Boundaries security control":::
 
@@ -55,7 +54,7 @@ To achieve this, organizations should identify and execute quick wins to strengt
 
 Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources will drastically lower the chances they are successful at attacking you and demanding payment / profiting.
 
-Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's [Security rapid modernization plan](/security/compass/security-rapid-modernization-plan), which covers:
+Organizations should have elevated security for privileged accounts (tightly protect, closely monitor, and rapidly respond to incidents related to these roles). See Microsoft's Security rapid modernization plan, which covers:
 - End to End Session Security (including multifactor authentication (MFA) for admins)
 - Protect and Monitor Identity Systems
 - Mitigate Lateral Traversal

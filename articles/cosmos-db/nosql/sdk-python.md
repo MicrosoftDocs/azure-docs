@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 01/25/2022
 ms.author: rosouz
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for API for NoSQL: Release notes and resources
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
@@ -25,7 +25,7 @@ ms.custom: devx-track-python, ignite-2022
 |**Current supported platform**|[Python 3.6+](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
-> * Versions 4.3.0b2 and higher support Async IO operations and only support Python 3.6+. Python 2 is not supported.
+> * Versions 4.3.0b2 and higher support Async IO operations and version 4.5.2b4 and higher only support Python 3.8+. Python 2 is not supported.
 
 ## Release history
 Release history is maintained in the azure-sdk-for-python repo, for detailed list of releases, see the [changelog file](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md).
@@ -39,6 +39,11 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| 4.6.0 |Mar 15, 2023 |--- |
+| 4.5.1 |Sep 14, 2023 |--- |
+| 4.5.0 |Aug 10, 2023 |--- |
+| 4.4.0 |Jun 10, 2023 |--- |
+| 4.3.1 |Feb 24, 2023 |--- |
 | 4.3.0 |May 23, 2022 |--- |
 | 4.2.0 |Oct 09, 2020 |--- |
 | 4.1.0 |Aug 10, 2020 |--- |

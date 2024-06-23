@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -13,6 +14,12 @@ zone_pivot_groups: azure-maps-android
 # Get started with Azure Maps Android SDK
 
 The Azure Maps Android SDK is a vector map library for Android. This article guides you through the processes of installing the Azure Maps Android SDK and loading a map.
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Prerequisites
 

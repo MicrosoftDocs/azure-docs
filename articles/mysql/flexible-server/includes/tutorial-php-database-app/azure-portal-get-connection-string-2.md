@@ -1,16 +1,16 @@
 ---
 author: shreyaaithal
 ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.topic: include
-ms.date: 08/15/2022
 ---
 
-In the **Application settings** tab of the **Configuration** page, create a `DB_DATABASE` setting:
+In the **Application settings** tab of the **Configuration** page, for each of the following settings, click on **Edit**, update the **Name** field with new values and click on **OK**.
 
-1. Click **New application setting**.
-
-1. In the **Name** field, enter *DB_DATABASE*.
-
-1. In the **Value** field, enter the automatically generated database name from the creation wizard, which looks like *msdocs-docs-laravel-mysql-XYZ-database*.
-
-1. Click **OK**.
+| Current **Name**  | New **Name** |
+|:----------------|-----------:|
+| *AZURE_MYSQL_DBNAME* | *DB_DATABASE* |
+| *AZURE_MYSQL_HOST* | *DB_HOST* |
+| *AZURE_MYSQL_USERNAME* | *DB_USERNAME* |
+| *AZURE_MYSQL_PASSWORD* | *DB_PASSWORD* |

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the capabilities and purpose of Azure Digital Twins Explorer (preview) and when it can be a useful tool for visualizing digital models, twins, and graphs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/28/2022
+ms.date: 06/29/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -37,6 +37,8 @@ Developers may find this tool especially useful in the following scenarios:
 
 The explorer's main purpose is to help you visualize and understand your graph, and update your graph as needed. For large-scale solutions and for work that should be repeated or automated, consider using the [APIs and SDKs](./concepts-apis-sdks.md) to interact with your instance through code instead.
 
+[!INCLUDE [digital-twins-explorer-private-note.md](../../includes/digital-twins-explorer-private-note.md)]
+
 ## How to access
 
 The main way to access Azure Digital Twins Explorer is through the [Azure portal](https://portal.azure.com).
@@ -59,6 +61,8 @@ The sections of the explorer are as follows:
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png" alt-text="Screenshot of Azure Digital Twins Explorer, with a highlight around each of the panels described above." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png":::
 
 For detailed instructions on how to use each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 ## How to contribute
 

@@ -1,16 +1,20 @@
 ---
 title: Enable web app authentication options using Azure Active Directory B2C
 description:  This article discusses several ways to enable web app authentication options.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a web app developer, I want to enable and customize Azure AD B2C authentication options in my web application, so that I can provide a secure and personalized authentication experience for my users.
+
 ---
 
 # Enable authentication options in a web app by using Azure AD B2C 
@@ -303,7 +307,7 @@ To support a secured logout redirect in your application, first follow the steps
 1. In the **Startup.cs** class, parse the `id_token_hint` value and append the value to the authentication request. The following code snippet demonstrates how to pass the `id_token_hint` value to the authentication request:
 
     ```csharp
-    private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
+    private async Task OnRedirectToIdentityProviderForSignOutFunc(RedirectContext context)
     {
         var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
         if (id_token_hint != null)
@@ -324,7 +328,7 @@ To support a secured logout redirect in your application, first follow the steps
         {
             Configuration.Bind("AzureAdB2C", options);
             options.Events ??= new OpenIdConnectEvents();        
-            options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
+            options.Events.OnRedirectToIdentityProviderForSignOut += OnRedirectToIdentityProviderForSignOutFunc;
             options.SaveTokens = true;
         });
     ```

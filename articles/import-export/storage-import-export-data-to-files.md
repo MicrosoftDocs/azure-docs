@@ -7,7 +7,7 @@ ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/13/2023
 ms.author: alkohli
-ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Tutorial: Transfer data to Azure Files with Azure Import/Export
 
@@ -30,9 +30,7 @@ In this tutorial, you learn how to:
 Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
 - Have an active Azure subscription to use with Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).
-  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, auto splitting the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
-  - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
 - Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
 - Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 - Download the current release of the Azure Import/Export version 2 tool, for files, on the Windows system:
@@ -126,7 +124,7 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
@@ -314,7 +312,7 @@ Install-Module -Name Az.ImportExport
 [!INCLUDE [storage-import-export-verify-data-copy](../../includes/storage-import-export-verify-data-copy.md)]
 
 > [!NOTE]
-> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
+> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You might need to move some data around to make space in the share.
 
 
 ## Samples for journal files

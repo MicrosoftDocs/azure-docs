@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: chpalm
+author: tophpalmer
 manager: anvalent
 
 ms.service: azure-communication-services
@@ -73,7 +73,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
     1. Using Service Principal ([Refer Services Principal Creation](../../identity/service-principal-from-cli.md)):
         1. Provide a name for the connection.
         
-        1. Select Service principal (Azure AD application) Authentication from the drop down options.
+        1. Select Service principal (Microsoft Entra application) Authentication from the drop down options.
         
         1. Enter the Tenant ID, Client ID & Client Secret of your Service Principal.
         
@@ -95,9 +95,9 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
 
 1. When you're done, on the designer toolbar, select **Save**.
 
-Next, run your logic app workflow for testing.
+Next, run your workflow for testing.
 
-## Test your logic app
+## Test your workflow
 
 To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 

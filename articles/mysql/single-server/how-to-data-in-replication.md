@@ -3,17 +3,18 @@ title: Configure Data-in Replication - Azure Database for MySQL
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+ms.custom:
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 05/03/2023
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MySQL by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
@@ -61,7 +62,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    2. Execute the following query.
 
-      ```bash
+      ```sql
       mysql> SELECT @@global.redirect_server_host;
       ```
 
@@ -84,7 +85,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
       For example:
 
-      ```bash
+      ```cmd
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
       ```
@@ -93,7 +94,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
       > [!NOTE]
       > This IP address may change due to  maintenance / deployment operations. This method of connectivity is only for customers who cannot afford to allow all IP address on 3306 port.
-  
+
 3. Turn on binary logging.
 
    Check to see if binary logging has been enabled on the source by running the following command:
@@ -109,7 +110,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    2. Open the configuration file to edit it and locate **mysqld** section in the file.
    3. In the mysqld section, add following line:
 
-       ```bash
+       ```config
        log-bin=mysql-bin.log
        ```
 
@@ -151,7 +152,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
+   GRANT REPLICATION SLAVE ON *.* TO 'syncuser'@'%' REQUIRE SSL;
    ```
 
    *Replication without SSL*
@@ -160,7 +161,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
+   GRANT REPLICATION SLAVE ON *.* TO 'syncuser'@'%';
    ```
 
    **MySQL Workbench**
@@ -193,6 +194,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    ```sql
     show master status;
    ```
+
    The results should appear similar to the following. Make sure to note the binary file name for use in later steps.
 
    :::image type="content" source="./media/how-to-data-in-replication/master-status.png" alt-text="Master Status Results":::

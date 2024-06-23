@@ -1,11 +1,11 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 12/28/2022
+ms.date: 09/07/2023
 ms.topic: conceptual
-ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for backup with the Microsoft Azure Recovery Services (MARS) agent
@@ -57,23 +57,24 @@ Location changes | You can change the cache location by stopping the backup engi
 
 You can use the MARS agent to back up directly to Azure on the operating systems listed below that run on:
 
-1. On-premises Windows Servers
+1. On-premises Windows or Windows Servers
 2. Azure VMs running Windows
 
 The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
 **Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
 --- | --- | --- | ---
-Windows 11 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
-Windows 10 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
-Windows Server 2022 (Standard, Datacenter, Essentials) | Yes | Yes |  Check the corresponding server version for software/module requirements
+Windows 11 (Enterprise, Pro, Home, IoT Enterprise) | Yes | No |  Check the corresponding server version for software/module requirements
+Windows 10 (Enterprise, Pro, Home, IoT Enterprise) | Yes | No |  Check the corresponding server version for software/module requirements
 Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
+Windows Server 2022 (Standard, Datacenter, Essentials, Server IoT) | Yes | Yes |  Check the corresponding server version for software/module requirements
+Windows Server 2019 (Standard, Datacenter, Essentials, Server IoT) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2019 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+
 
 For more information, see [Supported MABS and DPM operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
@@ -105,16 +106,16 @@ Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
 
-### Minimum retention limits
+### Retention limits
 
-The following are the minimum retention durations that can be set for the different recovery points:
+The following are the retention durations that can be set for the different recovery points:
 
-|Recovery point |Duration  |
-|---------|---------|
-|Daily recovery point    |   7 days      |
-|Weekly recovery point     |    4 weeks     |
-|Monthly recovery point    |   3 months      |
-|Yearly recovery point  |      1 year   |
+|Recovery point |Minimum  | Maximum
+|---------|---------| ---------
+|Daily recovery point    |   7 days      | 9999 days
+|Weekly recovery point     |    4 weeks     | 5163 weeks
+|Monthly recovery point    |   3 months      | 1188 months
+|Yearly recovery point  |      1 year   | 99 years
 
 ### Other limitations
 

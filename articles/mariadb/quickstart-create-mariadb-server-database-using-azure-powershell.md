@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create a server - Azure PowerShell - Azure Database for MariaDB'
 description: This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an Azure resource group.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.date: 06/24/2022
 ms.topic: quickstart
 ms.service: mariadb
@@ -12,20 +12,15 @@ ms.custom: devx-track-azurepowershell, mvc, mode-api
 
 # Quickstart: Create an Azure Database for MariaDB server using PowerShell
 
-This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an
-Azure resource group. You can use PowerShell to create and manage Azure resources interactively or
-in scripts.
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
+This quickstart describes how to use PowerShell to create an Azure Database for MariaDB server in an Azure resource group. You can use PowerShell to create and manage Azure resources interactively or in scripts.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
-module and connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
-about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.MariaDb PowerShell module is in preview, you must install it separately from the Az
@@ -42,9 +37,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMariaDB
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
-should be billed. Select a specific subscription ID using the
-[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription ID using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -52,9 +45,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md)
-using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A
-resource group is a logical container in which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named **myresourcegroup** in the **West US** region.
 
@@ -64,8 +55,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 ## Create an Azure Database for MariaDB server
 
-Create an Azure Database for MariaDB server with the `New-AzMariaDbServer` cmdlet. A server can manage
-multiple databases. Typically, a separate database is used for each project or for each user.
+Create an Azure Database for MariaDB server with the `New-AzMariaDbServer` cmdlet. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
 The following table contains a list of commonly used parameters and sample values for the
 `New-AzMariaDbServer` cmdlet.
@@ -84,8 +74,7 @@ The following table contains a list of commonly used parameters and sample value
 | AdministratorUserName      | myadmin          | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | The password of the administrator user in the form of a secure string. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.                                       |
 
-The **Sku** parameter value follows the convention **pricing-tier\_compute-generation\_vCores** as
-shown in the following examples.
+The **Sku** parameter value follows the convention **pricing-tier\_compute-generation\_vCores** as shown in the following examples.
 
 - `-Sku B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
 - `-Sku GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
@@ -94,11 +83,7 @@ shown in the following examples.
 For information about valid **Sku** values by region and for tiers, see
 [Azure Database for MariaDB pricing tiers](./concepts-pricing-tiers.md).
 
-The following example creates a MariaDB server in the **West US** region named **mydemoserver** in the
-**myresourcegroup** resource group with a server admin login of **myadmin**. It is a Gen 5 server in
-the general-purpose pricing tier with 2 vCores and geo-redundant backups enabled. Document the
-password used in the first line of the example as this is the password for the MariaDB server admin
-account.
+The following example creates a MariaDB server in the **West US** region named **mydemoserver** in the **myresourcegroup** resource group with a server admin login of **myadmin**. It is a Gen 5 server in the general-purpose pricing tier with 2 vCores and geo-redundant backups enabled. Document the password used in the first line of the example as this is the password for the MariaDB server admin account.
 
 > [!TIP]
 > A server name maps to a DNS name and must be globally unique in Azure.
@@ -118,12 +103,9 @@ Consider using the basic pricing tier if light compute and I/O are adequate for 
 
 Create an Azure Database for MariaDB server-level firewall rule using the `New-AzMariaDbFirewallRule`
 cmdlet. A server-level firewall rule allows an external application, such as the `mysql`
-command-line tool or MariaDB Workbench to connect to your server through the Azure Database for MariaDB
-service firewall.
+command-line tool or MariaDB Workbench to connect to your server through the Azure Database for MariaDB service firewall.
 
-The following example creates a firewall rule named **AllowMyIP** that allows connections from a
-specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that correspond
-to the location that you are connecting from.
+The following example creates a firewall rule named **AllowMyIP** that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that correspond to the location that you are connecting from.
 
 ```azurepowershell-interactive
 New-AzMariaDbFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -136,10 +118,7 @@ New-AzMariaDbFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -Se
 
 ## Configure SSL settings
 
-By default, SSL connections between your server and client applications are enforced. This default
-ensures the security of _in-motion_ data by encrypting the data stream over the Internet. For this
-quickstart, disable SSL connections for your server. For more information, see
-[Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).
+By default, SSL connections between your server and client applications are enforced. This default ensures the security of _in-motion_ data by encrypting the data stream over the Internet. For this quickstart, disable SSL connections for your server. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).
 
 > [!WARNING]
 > Disabling SSL is not recommended for production servers.
@@ -152,9 +131,7 @@ Update-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup -Ss
 
 ## Get the connection information
 
-To connect to your server, you need to provide host information and access credentials. Use the
-following example to determine the connection information. Make a note of the values for
-**FullyQualifiedDomainName** and **AdministratorLogin**.
+To connect to your server, you need to provide host information and access credentials. Use the following example to determine the connection information. Make a note of the values for **FullyQualifiedDomainName** and **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -169,12 +146,7 @@ mydemoserver.mariadb.database.azure.com       myadmin
 
 ## Connect to the server using the mysql command-line tool
 
-Connect to your server using the `mysql` command-line tool. To download and install the command-line
-tool, see [MySQL Community Downloads](https://dev.mysql.com/downloads/shell/). You can also access a
-pre-installed version of the `mysql` command-line tool in Azure Cloud Shell by selecting the **Try
-It** button on a code sample in this article. Other ways to access Azure Cloud Shell are to select
-the **>_** button on the upper-right toolbar in the Azure portal or by visiting
-[shell.azure.com](https://shell.azure.com/).
+Connect to your server using the `mysql` command-line tool. To download and install the command-line tool, see [MySQL Community Downloads](https://dev.mysql.com/downloads/shell/). You can also access a pre-installed version of the `mysql` command-line tool in Azure Cloud Shell by selecting the **Try It** button on a code sample in this article. Other ways to access Azure Cloud Shell are to select the **>_** button on the upper-right toolbar in the Azure portal or by visiting [shell.azure.com](https://shell.azure.com/).
 
 1. Connect to the server using the `mysql` command-line tool.
 
@@ -234,8 +206,7 @@ For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https:
 
 ## Connect to the server using MariaDB Workbench
 
-1. Launch the MySQL Workbench application on your client computer. To download and install MySQL
-   Workbench, see [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+1. Launch the MySQL Workbench application on your client computer. To download and install MySQL Workbench, see [Download MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
 1. In the **Setup New Connection** dialog box, enter the following information on the **Parameters**
    tab:
@@ -257,8 +228,7 @@ For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https:
 
 ## Clean up resources
 
-If the resources created in this quickstart aren't needed for another quickstart or tutorial, you
-can delete them by running the following example.
+If the resources created in this quickstart aren't needed for another quickstart or tutorial, you can delete them by running the following example.
 
 > [!CAUTION]
 > The following example deletes the specified resource group and all resources contained within it.

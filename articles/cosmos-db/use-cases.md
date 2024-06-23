@@ -1,13 +1,13 @@
 ---
 title: Common use cases and scenarios for Azure Cosmos DB
-description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
+description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).'
 ms.service: cosmos-db
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.custom: cosmos-db-video, ignite-2022
+ms.custom: cosmos-db-video
 ---
 
 # Common Azure Cosmos DB use cases
@@ -65,14 +65,14 @@ Consider an example of a product catalog for an automotive parts supplier. Every
 
 Azure Cosmos DB is often used for event sourcing to power event driven architectures using its [change feed](change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events) made to an Azure Cosmos DB. This functionality can be leveraged to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
-:::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
 In addition, data stored in Azure Cosmos DB can be integrated with HDInsight for big data analytics via Apache Spark jobs. For details on the Spark Connector for Azure Cosmos DB, see [Run a Spark job with Azure Cosmos DB and HDInsight](./nosql/quickstart-spark.md).
 
 ## Gaming
 The database tier is a crucial component of gaming applications. Modern games perform graphical processing on mobile/console clients, but rely on the cloud to deliver customized and personalized content like in-game stats, social media integration, and high-score leaderboards. Games often require single-millisecond latencies for reads and writes to provide an engaging in-game experience. A game database needs to be fast and be able to handle massive spikes in request rates during new game launches and feature updates.
 
-Azure Cosmos DB is used by games like [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) by [Next Games](https://www.nextgames.com/), and [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB provides the following benefits to game developers:
+Azure Cosmos DB is used by games like The Walking Dead: No Man's Land by [Next Games](https://www.nextgames.com/), and Halo 5: Guardians by [343 Industries](https://www.343industries.com/). Azure Cosmos DB provides the following benefits to game developers:
 
 * Azure Cosmos DB allows performance to be scaled up or down elastically. This allows games to handle updating profile and stats from dozens to millions of simultaneous gamers by making a single API call.
 * Azure Cosmos DB supports millisecond reads and writes to help avoid any lags during game play.

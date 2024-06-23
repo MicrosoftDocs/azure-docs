@@ -9,7 +9,7 @@ ms.date: 03/01/2023
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.devlang: javascript
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
@@ -56,11 +56,11 @@ Once written, the stored procedure must be registered with a collection. To lear
 
 ### <a id="create-an-item"></a>Create items using stored procedures
 
-When you create an item by using a stored procedure, the item is inserted into the Azure Cosmos DB container and an ID for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters: one for the error object in case the operation fails, and another for a return value, in this case, the created object. Inside the callback, you can either handle the exception or throw an error. If a callback isn't provided and there's an error, the Azure Cosmos DB runtime throws an error.
+When you create an item using a stored procedure, the item is inserted into the Azure Cosmos DB container and an ID for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters: one for the error object in case the operation fails, and another for a return value, in this case, the created object. Inside the callback, you can either handle the exception or throw an error. If a callback isn't provided and there's an error, the Azure Cosmos DB runtime throws an error.
 
 The stored procedure also includes a parameter to set the description as a boolean value. When the parameter is set to true and the description is missing, the stored procedure throws an exception. Otherwise, the rest of the stored procedure continues to run.
 
-The following example of a stored procedure takes an array of new Azure Cosmos DB items as input, inserts it into the Azure Cosmos DB container and returns the count of the items inserted. In this example, we're using the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md).
+The following example of a stored procedure takes an array of new Azure Cosmos DB items as input, inserts it into the Azure Cosmos DB container, and returns the count of the items inserted. In this example, we're using the ToDoList sample from the [Quickstart .NET API for NoSQL](quickstart-dotnet.md).
 
 ```javascript
 function createToDoItems(items) {
@@ -101,7 +101,7 @@ function createToDoItems(items) {
 
 ### Arrays as input parameters for stored procedures
 
-When you define a stored procedure in Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to a string and sent to the stored procedure. To work around this, you can define a function within your stored procedure to parse the string as an array. The following code shows how to parse a string input parameter as an array:
+When you define a stored procedure in the Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to a string and sent to the stored procedure. To work around this, you can define a function within your stored procedure to parse the string as an array. The following code shows how to parse a string input parameter as an array:
 
 ```javascript
 function sample(arr) {
@@ -119,13 +119,12 @@ function sample(arr) {
 You can implement transactions on items within a container by using a stored procedure. The following example uses transactions within a fantasy football gaming app to trade players between two teams in a single operation. The stored procedure attempts to read the two Azure Cosmos DB items, each corresponding to the player IDs passed in as an argument. If both players are found, then the stored procedure updates the items by swapping their teams. If any errors are encountered along the way, the stored procedure throws a JavaScript exception that implicitly aborts the transaction.
 
 ```javascript
-// JavaScript source code
 function tradePlayers(playerId1, playerId2) {
     var context = getContext();
     var container = context.getCollection();
     var response = context.getResponse();
 
-    var player1Document, player2Document;
+    var player1Item, player2Item;
 
     // query for players
     var filterQuery =
@@ -138,7 +137,7 @@ function tradePlayers(playerId1, playerId2) {
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
 
-            if (items.length != 1) throw "Unable to find both names";
+            if (items.length != 1) throw "Unable to find player 1";
             player1Item = items[0];
 
             var filterQuery2 =
@@ -148,8 +147,8 @@ function tradePlayers(playerId1, playerId2) {
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
-                    if (err2) throw new Error("Error" + err2.message);
-                    if (items2.length != 1) throw "Unable to find both names";
+                    if (err2) throw new Error("Error " + err2.message);
+                    if (items2.length != 1) throw "Unable to find player 2";
                     player2Item = items2[0];
                     swapTeams(player1Item, player2Item);
                     return;
@@ -191,7 +190,7 @@ function bulkImport(items) {
     var container = getContext().getCollection();
     var containerLink = container.getSelfLink();
 
-    // The count of imported items, also used as current item index.
+    // The count of imported items, also used as the current item index.
     var count = 0;
 
     // Validate input.
@@ -213,9 +212,9 @@ function bulkImport(items) {
     function tryCreate(item, callback) {
         var isAccepted = container.createDocument(containerLink, item, callback);
 
-        // If the request was accepted, callback will be called.
-        // Otherwise report current count back to the client,
-        // which will call the script again with remaining set of items.
+        // If the request was accepted, the callback will be called.
+        // Otherwise report the current count back to the client,
+        // which will call the script again with the remaining set of items.
         if (!isAccepted) getContext().getResponse().setBody(count);
     }
 
@@ -230,7 +229,7 @@ function bulkImport(items) {
             // If we created all items, we are done. Just set the response.
             getContext().getResponse().setBody(count);
         } else {
-            // Create next document.
+            // Create the next document.
             tryCreate(items[count], callback);
         }
     }
@@ -397,13 +396,13 @@ For examples of how to register and use a UDF, see [How to work with user-define
 
 ## Logging
 
-When using stored procedure, triggers, or UDFs, you can log the steps by enabling script logging. A string for debugging is generated when `EnableScriptLogging` is set to *true*, as shown in the following examples:
+When using stored procedures, triggers, or UDFs, you can log the steps by enabling script logging. A string for debugging is generated when `EnableScriptLogging` is set to *true*, as shown in the following examples:
 
 # [JavaScript](#tab/javascript)
 
 ```javascript
 let requestOptions = { enableScriptLogging: true };
-const { resource: result, headers: responseHeaders} await container.scripts
+const { resource: result, headers: responseHeaders} = await container.scripts
       .storedProcedure(Sproc.id)
       .execute(undefined, [], requestOptions);
 console.log(responseHeaders[Constants.HttpHeaders.ScriptLogResults]);

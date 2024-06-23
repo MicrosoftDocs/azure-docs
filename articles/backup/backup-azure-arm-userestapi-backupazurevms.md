@@ -1,20 +1,21 @@
 ---
-title: Back up Azure VMs using REST API
+title: Back up Azure VMs using REST API in Azure Backup
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
-ms.topic: conceptual
-ms.date: 08/03/2018
+ms.topic: how-to
+ms.date: 04/24/2024
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Back up an Azure VM using Azure Backup via REST API
 
-This article describes how to manage backups for an Azure VM using Azure Backup via REST API. Configure protection for the first time for a previously unprotected Azure VM, trigger an on-demand backup for a protected Azure VM and modify backup properties of a backed-up VM via REST API as explained here.
+This article describes how to manage backups for an Azure VM using Azure Backup via REST API. Configure protection for the first time for a previously unprotected Azure VM, trigger an on-demand backup for a protected Azure VM and modify backup properties of a backed-up VM via REST API as explained here. To protect an Azure VM using the Azure portal, see [this article](backup-during-vm-creation.md).
 
-Refer to [create vault](backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
+Learn how to [create vault](backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials for creating new vaults and policies.
 
-Let's assume you want to protect a VM "testVM" under a resource group "testRG" to a Recovery Services vault "testVault", present within the resource group "testVaultRG", with the default policy (named "DefaultPolicy").
+Let's assume you want to protect a VM `testVM` under a resource group `testRG` to a Recovery Services vault `testVault`, present within the resource group `testVaultRG`, with the default policy (named `DefaultPolicy`).
 
 ## Configure backup for an unprotected Azure VM using REST API
 
@@ -36,14 +37,14 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 The 'refresh' operation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |204 No Content     |         |  OK  with No content returned      |
 |202 Accepted     |         |     Accepted    |
 
-##### Example responses to refresh operation
+**Example responses to refresh operation**:
 
 Once the *POST* request is submitted, a 202 (Accepted) response is returned.
 
@@ -89,7 +90,7 @@ X-Powered-By: ASP.NET
 
 ### Selecting the relevant Azure VM
 
- You can confirm that "caching" is done by [listing all protectable items](/rest/api/backup/backup-protectable-items/list) under the subscription and locate the desired VM in the response. [The response of this operation](#example-responses-to-get-operation) also gives you information on how Recovery Services identifies a VM.  Once you are familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enabling-protection-for-the-azure-vm).
+ You can confirm that "caching" is done by [listing all protectable items](/rest/api/backup/backup-protectable-items/list) under the subscription and locate the desired VM in the response. [The response of this operation](#responses-to-get-operation) also gives you information on how Recovery Services identifies a VM.  Once you're familiar with the pattern, you can skip this step and directly proceed to [enabling protection](#enable-protection-for-the-azure-vm).
 
 This operation is a *GET* operation.
 
@@ -105,9 +106,9 @@ The *GET* URI has all the required parameters. No additional request body is nee
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backup-protectable-items/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### Example responses to get operation
+**Example responses to get operation**:
 
-Once the *GET* request is submitted, a 200 (OK) response is returned.
+Once the *GET* request is submitted, 200 (OK) response is returned.
 
 ```http
 HTTP/1.1 200 OK
@@ -150,14 +151,14 @@ The response contains the list of all unprotected Azure VMs and each `{value}` c
 
 - containerName = "iaasvmcontainer;"+`{name}`
 - protectedItemName = "vm;"+ `{name}`
-- `{virtualMachineId}` is used later in [the request body](#example-request-body)
+- `{virtualMachineId}` is used later in [the request body](#enable-protection-for-the-azure-vm)
 
 In the example, the above values translate to:
 
 - containerName = "iaasvmcontainer;iaasvmcontainerv2;testRG;testVM"
 - protectedItemName = "vm;iaasvmcontainerv2;testRG;testVM"
 
-### Enabling protection for the Azure VM
+### Enable protection for the Azure VM
 
 After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backup-policies/list). Then select the [relevant policy](/rest/api/backup/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the example below.
 
@@ -183,7 +184,7 @@ To create a protected item, following are the components of the request body.
 
 For the complete list of definitions of the request body and other details, refer to [create protected item REST API document](/rest/api/backup/protected-items/create-or-update#request-body).
 
-##### Example request body
+**Example request body**:
 
 The following request body defines properties required to create a protected item.
 
@@ -197,20 +198,27 @@ The following request body defines properties required to create a protected ite
 }
 ```
 
-The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [response of list protectable items](#example-responses-to-get-operation).
+The `{sourceResourceId}` is the `{virtualMachineId}` mentioned above from the [response of list protectable items](#responses-to-get-operation).
+Responses to create protected item operation
+@01011011
+
+
+
+
+
 
 #### Responses to create protected item operation
 
 The creation of a protected item is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](/rest/api/backup/protected-item-operation-results/get#protecteditemresource)     |  OK       |
 |202 Accepted     |         |     Accepted    |
 
-##### Example responses to create protected item operation
+**Example responses to create protected item operation**:
 
 Once you submit the *PUT* request for protected item creation or update, the initial response is 202 (Accepted) with a location header or Azure-async-header.
 
@@ -273,7 +281,7 @@ This confirms that protection is enabled for the VM and the first backup will be
 
 ### Excluding disks in Azure VM backup
 
-Azure Backup also provides a way to selectively backup a subset of disks in Azure VM. More details are provided [here](selective-disk-backup-restore.md). If you want to selectively backup few disks during enabling protection, the following code snippet should be the [request body during enabling protection](#example-request-body).
+Azure Backup also provides a way to selectively back up a subset of disks in Azure VM. More details are provided [here](selective-disk-backup-restore.md). If you want to selectively back up few disks during enabling protection, the following code snippet should be the [request body during enabling protection](#create-the-request-body-for-on-demand-backup).
 
 ```json
 {
@@ -296,9 +304,9 @@ In the request body above, the list of disks to be backed up are provided in the
 |Property  |Value  |
 |---------|---------|
 |diskLunList     | The disk LUN list is a list of *LUNs of data disks*. **OS disk is always backed up and doesn't need to be mentioned**.        |
-|IsInclusionList     | Should be **true** for the LUNs to be included during backup. If it is **false**, the aforementioned LUNs will be excluded.         |
+|IsInclusionList     | Should be **true** for the LUNs to be included during backup. If it's **false**, the aforementioned LUNs will be excluded.         |
 
-So, if the requirement is to backup only the OS disk, then _all_ data disks should be excluded. An easier way is to say that no data disks should be included. So the disk LUN list will be empty and the **IsInclusionList** will be **true**. Similarly, think of what is the easier way of selecting a subset: A few disks should be always excluded or a few disks should always be included. Choose the LUN list and the boolean variable value accordingly.
+So, if the requirement is to back up only the OS disk, then _all_ data disks should be excluded. An easier way is to say that no data disks should be included. So the disk LUN list will be empty and the **IsInclusionList** will be **true**. Similarly, think of what is the easier way of selecting a subset: A few disks should be always excluded or a few disks should always be included. Choose the LUN list and the boolean variable value accordingly.
 
 ## Trigger an on-demand backup for a protected Azure VM
 
@@ -343,7 +351,7 @@ The following request body defines properties required to trigger a backup for a
 
 Triggering an on-demand backup is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -413,7 +421,7 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 ### Changing the policy of protection
 
-To change the policy with which VM is protected, you can use the same format as [enabling protection](#enabling-protection-for-the-azure-vm). Just provide the new policy ID in [the request body](#example-request-body) and submit the request. For example: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' ID in the request body.
+To change the policy with which VM is protected, you can use the same format as [enabling protection](#enable-protection-for-the-azure-vm)). Just provide the new policy ID in [the request body](#create-the-request-body) and submit the request. For example: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' ID in the request body.
 
 ```json
 {
@@ -434,7 +442,7 @@ If the Azure VM is already backed up, you can specify the list of disks to be ba
 > [!IMPORTANT]
 > The request body above is always the final copy of data disks to be excluded or included. This doesn't *add* to the previous configuration. For example: If you first update the protection as "exclude data disk 1" and then repeat with "exclude data disk 2", *only data disk 2 is excluded* in the subsequent backups and data disk 1 will be included. This is always the final list which will be included/excluded in the subsequent backups.
 
-To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](/rest/api/backup/protected-items/get). The response will provide the list of data disk LUNs and indicates whether they are included or excluded.
+To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](/rest/api/backup/protected-items/get). The response will provide the list of data disk LUNs and indicates whether they're included or excluded.
 
 ### Stop protection but retain existing data
 
@@ -472,7 +480,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 *DELETE* protection is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 204 (NoContent) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 204 (NoContent) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -484,9 +492,9 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 
 ### Undo the deletion
 
-Undoing the accidental deletion is similar to creating the backup item. After undoing the deletion, the item is retained but no future backups are triggered.
+Undoing the accidental deletion is similar to creating the backup item. After you undo the deletion, the item is retained but no future backups are triggered.
 
-Undo deletion is a *PUT* operation which is very similar to [changing the policy](#changing-the-policy-of-protection) and/or [enabling the protection](#enabling-protection-for-the-azure-vm). Just provide the intent to undo the deletion with the variable *isRehydrate*  in [the request body](#example-request-body) and submit the request. For example: To undo the deletion for testVM, the following request body should be used.
+Undo deletion is a *PUT* operation which is very similar to [changing the policy](#changing-the-policy-of-protection) and/or [enabling the protection](#enable-protection-for-the-azure-vm). Just provide the intent to undo the deletion with the variable *isRehydrate*  in [the request body](#create-the-request-body) and submit the request. For example: To undo the deletion for testVM, the following request body should be used.
 
 ```http
 {

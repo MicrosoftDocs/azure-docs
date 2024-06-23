@@ -3,7 +3,7 @@ title: Troubleshoot YARN in Azure HDInsight
 description: Get answers to common questions about working with Apache Hadoop YARN and Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/27/2023
+ms.date: 03/22/2024
 ---
 
 # Troubleshoot Apache Hadoop YARN by using Azure HDInsight
@@ -26,27 +26,27 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 1. Select the **Ambari Views** icon, and then select the grid pattern. Next, select **YARN Queue Manager**.
 
-    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Apache Ambari dashboard YARN Queue Manager" border="false":::
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Apache Ambari dashboard YARN Queue Manager." border="false":::
 2. Select the **default** queue.
 
-    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="Apache Ambari YARN select default queue" border="false":::
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="Apache Ambari YARN select default queue." border="false":::
 3. For the **default** queue, change the **capacity** from 50% to 25%. For the **thriftsvr** queue, change the **capacity** to 25%.
 
-    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="Change the capacity to 25% for the default and thriftsvr queues" border="false":::
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="Change the capacity to 25% for the default and thriftsvr queues." border="false":::
 4. To create a new queue, select **Add Queue**.
 
-    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Apache Ambari YARN dashboard Add Queue" border="false":::
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Apache Ambari YARN dashboard Add Queue." border="false":::
 
 5. Name the new queue.
 
-    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Apache Ambari YARN dashboard name Queue" border="false":::  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Apache Ambari YARN dashboard name Queue." border="false":::  
 
 6. Leave the **capacity** values at 50%, and then select the **Actions** button.
 
-    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="Apache Ambari YARN select action" border="false":::  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="Apache Ambari YARN select action." border="false":::  
 7. Select **Save and Refresh Queues**.
 
-    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="Select Save and Refresh Queues" border="false":::  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="Select Save and Refresh Queues." border="false":::  
 
 These changes are visible immediately on the YARN Scheduler UI.
 
@@ -126,6 +126,13 @@ These changes are visible immediately on the YARN Scheduler UI.
 - [Connect to HDInsight (Apache Hadoop) by using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
+## How do I check Yarn Application Diagnostics Information?
+
+Diagnostics in Yarn UI is a feature that allows you to view the status and logs of your applications running on Yarn. Diagnostics can help you troubleshoot and debug your applications, as well as monitor their performance and resource usage.
+
+To view the diagnostics of a specific application, you can click on the application ID in the applications list. On the application details page, you can also see a list of all the attempts that have been made to run the application. You can click on any attempt to see more details, such as the attempt ID, container ID, node ID, start time, finish time, and diagnostics
+
+:::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-application-diagnostics.png" alt-text="Screenshot showing Yarn Application Diagnostics."::: 
 
 ## How do I troubleshoot YARN common issues?
 

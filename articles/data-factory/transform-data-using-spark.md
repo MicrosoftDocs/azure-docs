@@ -8,13 +8,10 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Transform data using Spark activity in Azure Data Factory and Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-spark.md)
-> * [Current version](transform-data-using-spark.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -127,7 +124,7 @@ SparkJob2
 	files
 	
 ```
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

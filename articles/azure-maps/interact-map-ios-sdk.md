@@ -14,6 +14,12 @@ services: azure-maps
 
 This article shows you how to use the maps events manager.
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 ## Interact with the map
 
 The map manages all events through its `events` property accepting delegates, which conform to the `AzureMapDelegate` protocol. The following table lists all supported map events represented as methods of the `AzureMapDelegate` protocol.
@@ -66,7 +72,7 @@ class ShowSimpleEventsHandlingViewController: UIViewController, AzureMapDelegate
 }
 ```
 
-For more information, see the [Navigating the map](how-to-use-ios-map-control-library.md) article on how to interact with the map and trigger events.
+For more information, see the [Navigating the map] article on how to interact with the map and trigger events.
 
 ## Scope feature events to layer
 
@@ -110,8 +116,14 @@ class ShowScopedEventsHandlingViewController: UIViewController, AzureMapDelegate
 
 See the following articles for full code examples:
 
-- [Navigating the map](how-to-use-ios-map-control-library.md)
-- [Add a symbol layer](add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-map-ios.md)
-- [Add a line layer](add-line-layer-map-ios.md)
-- [Add a polygon layer](add-polygon-layer-map-ios.md)
+- [Navigating the map]
+- [Add a symbol layer]
+- [Add a bubble layer]
+- [Add a line layer]
+- [Add a polygon layer]
+
+[Navigating the map]: how-to-use-ios-map-control-library.md
+[Add a symbol layer]: add-symbol-layer-ios.md
+[Add a bubble layer]: add-bubble-layer-map-ios.md
+[Add a line layer]: add-line-layer-map-ios.md
+[Add a polygon layer]: add-polygon-layer-map-ios.md

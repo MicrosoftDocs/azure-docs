@@ -4,10 +4,10 @@ description: Learn how to monitor a pipeline in a data factory by using differen
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 author: nabhishek
 ms.author: abnarain
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-dotnet
 ---
 # Programmatically monitor an Azure Data Factory
 
@@ -161,5 +161,5 @@ For a complete walk-through of creating and monitoring a pipeline using PowerShe
 
 For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cmdlet reference](/powershell/module/az.datafactory).
 
-## Next steps
+## Related content
 See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines.

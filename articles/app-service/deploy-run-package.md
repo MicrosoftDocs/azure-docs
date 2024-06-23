@@ -3,6 +3,8 @@ title: Run your app from a ZIP package
 description: Deploy your app's ZIP package with atomicity. Improve the predictability and reliability of your app's behavior during the ZIP deployment process.
 ms.topic: article
 ms.date: 01/14/2020
+author: cephalin
+ms.author: cephalin
 
 ---
 
@@ -40,7 +42,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 The easiest way to run a package in your App Service is with the Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) command. For example:
 
 ```azurecli-interactive
-az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path <filename>.zip
 ```
 
 Because the `WEBSITE_RUN_FROM_PACKAGE` app setting is set, this command doesn't extract the package content to the *D:\home\site\wwwroot* directory of your app. Instead, it uploads the ZIP file as-is to *D:\home\data\SitePackages*, and creates a *packagename.txt* in the same directory, that contains the name of the ZIP package to load at runtime. If you upload your ZIP package in a different way (such as [FTP](deploy-ftp.md)), you need to create the *D:\home\data\SitePackages* directory and the *packagename.txt* file manually.

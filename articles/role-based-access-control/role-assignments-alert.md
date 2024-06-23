@@ -6,8 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 10/30/2022
+ms.date: 11/15/2023
 ms.author: rolyon
 ---
 
@@ -52,6 +51,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
     | where CategoryValue =~ "Administrative" and
         OperationNameValue =~ "Microsoft.Authorization/roleAssignments/write" and
         (ActivityStatusValue =~ "Start" or ActivityStatus =~ "Started")
+    | extend Properties_d = todynamic(Properties)
     | extend RoleDefinition = extractjson("$.Properties.RoleDefinitionId",tostring(Properties_d.requestbody),typeof(string))
     | extend PrincipalId = extractjson("$.Properties.PrincipalId",tostring(Properties_d.requestbody),typeof(string))
     | extend PrincipalType = extractjson("$.Properties.PrincipalType",tostring(Properties_d.requestbody),typeof(string))
@@ -107,7 +107,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
 Once you've created an alert rule, you can test that it fires. 
 
-1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 1. Wait a few minutes to receive the alert based on the aggregation granularity and the frequency of evaluation of the log query.
 

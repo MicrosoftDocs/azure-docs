@@ -57,7 +57,7 @@ You can run the commands either in the [Azure Cloud Shell](/azure/cloud-shell/ov
 
 - Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-- If you [install Azure PowerShell locally](/powershell/azure/install-Az-ps) to run the commands, you need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+- If you [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the commands, you need Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
 
   Also make sure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use `Get-InstalledModule -Name "Az.Network"`. To update, use the command `Update-Module -Name Az.Network`.
 
@@ -610,7 +610,7 @@ $nic | Set-AzNetworkInterface
 
 You can delete a NIC if it's not attached to a VM. If the NIC is attached to a VM, you must first stop and deallocate the VM, then detach the NIC. 
 
-To detach the NIC from the VM, complete the steps in [Remove a network interface from a VM](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). A VM must always have at least one NIC attached to it, so you can't delete the only NIC from a VM. 
+To detach the NIC from the VM, complete the steps in [Remove a network interface from a VM](virtual-network-network-interface-vm.yml#remove-a-network-interface-from-a-vm). A VM must always have at least one NIC attached to it, so you can't delete the only NIC from a VM. 
 
 # [Portal](#tab/azure-portal)
 
@@ -711,7 +711,7 @@ For other network interface tasks, see the following articles:
 |Task|Article|
 |----|-------|
 |Add, change, or remove IP addresses for a network interface.|[Configure IP addresses for an Azure network interface](./ip-services/virtual-network-network-interface-addresses.md)|
-|Add or remove network interfaces for VMs.|[Add network interfaces to or remove network interfaces from virtual machines](virtual-network-network-interface-vm.md)|
+|Add or remove network interfaces for VMs.|[Add network interfaces to or remove network interfaces from virtual machines](virtual-network-network-interface-vm.yml)|
 |Create a VM with multiple NICs|- [How to create a Linux virtual machine in Azure with multiple network interface cards](/azure/virtual-machines/linux/multiple-nics?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>- [Create and manage a Windows virtual machine that has multiple NICs](/azure/virtual-machines/windows/multiple-nics)|
 |Create a single NIC VM with multiple IPv4 addresses.|- [Assign multiple IP addresses to virtual machines by using the Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md)<br>- [Assign multiple IP addresses to virtual machines by using Azure PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)|
 |Create a single NIC VM with a private IPv6 address behind Azure Load Balancer.|- [Create a public load balancer with IPv6 by using Azure CLI](/azure/load-balancer/load-balancer-ipv6-internet-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>- [Create an internet facing load balancer with IPv6 by using PowerShell](/azure/load-balancer/load-balancer-ipv6-internet-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>- [Deploy an internet-facing load-balancer solution with IPv6 by using a template](/azure/load-balancer/load-balancer-ipv6-internet-template?toc=%2fazure%2fvirtual-network%2ftoc.json)|

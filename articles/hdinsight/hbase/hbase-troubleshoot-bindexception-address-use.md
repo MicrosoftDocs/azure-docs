@@ -3,7 +3,7 @@ title: BindException - Address already in use in Azure HDInsight
 description: BindException - Address already in use in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 05/30/2022
+ms.date: 06/13/2024
 ---
 
 # Scenario: BindException - Address already in use in Azure HDInsight

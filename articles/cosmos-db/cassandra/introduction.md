@@ -9,7 +9,6 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.topic: overview
 ms.date: 02/28/2023
-ms.custom: ignite-2022
 ---
 
 # What is Azure Cosmos DB for Apache Cassandra?
@@ -41,12 +40,19 @@ The API for Cassandra has added benefits of being built on Azure Cosmos DB:
 
 - **Choice of consistency**: Azure Cosmos DB provides the choice of five well-defined consistency levels to achieve optimal tradeoffs between consistency and performance. These consistency levels are strong, bounded-staleness, session, consistent prefix and eventual. These consistency levels allow developers to make precise trade-offs between consistency, availability, and latency. For more information, see [consistency levels](../consistency-levels.md).
 
-- **Enterprise grade**: Azure Cosmos DB provides [compliance certifications](https://www.microsoft.com/trustcenter) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.
+- **Enterprise grade**: Azure Cosmos DB provides [compliance certifications](https://www.microsoft.com/trust-center) to ensure users can use the platform securely. Azure Cosmos DB also provides encryption at rest and in motion, IP firewall, and audit logs for control plane activities.
 
 - **Event Sourcing**: The API for Cassandra provides access to a persistent change log, the [Change Feed](change-feed.md). The change feed can facilitate event sourcing directly from the database. In Apache Cassandra, change data capture (CDC) is the only equivalent feature. CDC is merely a mechanism to flag specific tables for archival and rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. These capabilities are redundant in Azure Cosmos DB as the relevant aspects are automatically governed.
+
+
+## Azure Managed Instance for Apache Cassandra
+
+For some customers, adapting to API for Cassandra can be a challenge due to differences in behaviour and/or configuration, especially for lift-and-shift migrations. [Azure Managed Instance for Apache Cassandra](../../managed-instance-apache-cassandra/introduction.md) is a first-party Azure service for hosting and maintaining pure open-source Apache Cassandra clusters with 100% compatibility.
 
 ## Next steps
 
 - Get started with [creating a API for Cassandra account, database, and a table](create-account-java.md) by using a Java application.
 - [Load sample data to the API for Cassandra table](load-data-table.md) by using a Java application.
 - [Query data from the API for Cassandra account](query-data.md) by using a Java application.
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../reserved-capacity.md).
+

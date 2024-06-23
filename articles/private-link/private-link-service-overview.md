@@ -2,11 +2,11 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 10/27/2022
-ms.author: allensu
+ms.date: 02/23/2024
+ms.author: abell
 ms.custom: template-concept
 ---
 
@@ -136,13 +136,15 @@ The following are the known limitations when using the Private Link service:
 
 - Supported only on Standard Load Balancer. Not supported on Basic Load Balancer.  
 
-- Supported only on Standard Load Balancer where backend pool is configured by NIC when using VM/VMSS.
+- Supported only on Standard Load Balancer where backend pool is configured by NIC. Not supported on Standard Load Balancer where backend pool is configured by IP address.
 
 - Supports IPv4 traffic only
 
 - Supports TCP and UDP traffic only
 
 - Private Link Service has an idle timeout of ~5 minutes (300 seconds). To avoid hitting this limit, applications connecting through Private Link Service must use TCP Keepalives lower than that time.
+
+- For an Inbound NAT rule with type set to *backend pool* to operate with Azure Private Link Service, a load balancing rule must be configured.
 
 ## Next steps
 

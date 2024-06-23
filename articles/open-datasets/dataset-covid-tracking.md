@@ -12,7 +12,7 @@ The COVID Tracking Project dataset provides the latest numbers on tests, confirm
 
 For more information about this dataset, see the [project GitHub repository](https://github.com/COVID19Tracking/covid-tracking-data).
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Datasets
 

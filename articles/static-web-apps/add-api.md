@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  how-to
 ms.date: 08/29/2022
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Add an API to Azure Static Web Apps with Azure Functions
@@ -21,14 +21,24 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
 
 - Azure account with an active subscription.
   - If you don't have an account, you can [create one for free](https://azure.microsoft.com/free).
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code
-- [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code
-- [Node.js](https://nodejs.org/download/) to run the frontend app and API
+- [Visual Studio Code](https://code.visualstudio.com/).
+- [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code.
+- [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+- [Node.js v18](https://nodejs.org/en/download) to run the frontend app and API.
+
+> [!TIP]
+> You can use the [nvm](https://github.com/nvm-sh/nvm/blob/master/README.md) tool to manage multiple versions of Node.js on your development system.
+> On Windows, [NVM for Windows](https://github.com/coreybutler/nvm-windows/blob/master/README.md) can be installed via Winget.
 
 ## Create the static web app
 
-Before adding an API, create and deploy a frontend application to Azure Static Web Apps. Use an existing app that you've already deployed or create one by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
+Before adding an API, create and deploy a frontend application to Azure Static Web Apps by following the [Building your first static site with Azure Static Web Apps](getting-started.md) quickstart.
+
+Once you have a frontend application deployed to Azure Static Web Apps, [clone your app repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). For example, to clone using the `git` command line:
+
+```bash
+git clone https://github.com/my-username/my-first-static-web-app
+```
 
 In Visual Studio Code, open the root of your app's repository. The folder structure contains the source for your frontend app and the Static Web Apps GitHub workflow in _.github/workflows_ folder.
 
@@ -53,8 +63,12 @@ You create an Azure Functions project for your static web app's API. By default,
     | Prompt | Value |
     | --- | --- |
     | Select a language | **JavaScript** |
+    | Select a programming model | **V3** |
     | Provide a function name | **message** |
 
+    > [!TIP]
+    > You can learn more about the differences between programming models in the [Azure Functions developer guide](/azure/azure-functions/functions-reference)
+    
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
 
     ```Files
@@ -225,6 +239,9 @@ Ensure you have the necessary command line tools installed.
 npm install -g @azure/static-web-apps-cli
 ```
 
+> [!TIP]
+> If you don't want to install the `swa` command line globally, you can use `npx swa` instead of `swa` in the following instructions.
+
 ### Build frontend app
 
 If your app uses a framework, build the app to generate the output before running the Static Web Apps CLI.
@@ -262,7 +279,7 @@ npm run build
 
 ---
 
-### Start the CLI
+### Run the application locally
 
 Run the frontend app and API together by starting the app with the Static Web Apps CLI. Running the two parts of your application this way allows the CLI to serve your frontend's build output from a folder, and makes the API accessible to the running app.
 
@@ -302,9 +319,11 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ---
 
-1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
+1. Windows Firewall may prompt to request that the Azure Functions runtime can access the Internet. Select **Allow**.
+   
+2. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
 
-1. To stop the CLI, type <kbd>Ctrl + C</kbd>.
+3. To stop the CLI, type <kbd>Ctrl + C</kbd>.
 
 ## Add API location to workflow
 
@@ -313,6 +332,16 @@ Before you can deploy your app to Azure, update your repository's GitHub Actions
 1. Open your workflow at _.github/workflows/azure-static-web-apps-\<DEFAULT-HOSTNAME>.yml_.
 
 1. Search for the property `api_location` and set the value to `api`.
+
+   ```yaml
+   ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+   # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+   app_location: "/" # App source code path
+   api_location: "api" # Api source code path - optional
+   output_location: "build" # Built app content directory - optional
+   ###### End of Repository/Build Configurations ######
+   ```
+
 1. Save the file.
 
 ## Deploy changes
@@ -338,4 +367,4 @@ To publish changes to your static web app in Azure, commit and push your code to
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Configure app settings](./application-settings.yml)

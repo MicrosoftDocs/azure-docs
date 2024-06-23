@@ -11,7 +11,7 @@ ms.topic: tutorial
 
 # Tutorial: Create Automation PowerShell runbook using managed identity
 
-This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses a [managed identity](../automation-security-overview.md#managed-identities), rather than the Run As account to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources.
+This tutorial walks you through creating a [PowerShell runbook](../automation-runbook-types.md#powershell-runbooks) in Azure Automation that uses a [managed identity](../automation-security-overview.md#managed-identities), rather than the Run As account to interact with resources. PowerShell runbooks are based on Windows PowerShell. A managed identity from Microsoft Entra ID allows your runbook to easily access other Microsoft Entra protected resources.
 
 In this tutorial, you learn how to:
 
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Using a user-assigned managed identity for an Azure Automation account](../add-user-assigned-identity.md).
 * Az modules: `Az.Accounts`, `Az.Automation`, `Az.ManagedServiceIdentity`, and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
-* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps). `Az.ManagedServiceIdentity` is a preview module and not installed as part of the Az module. To install it, run `Install-Module -Name Az.ManagedServiceIdentity`.
+* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell). `Az.ManagedServiceIdentity` is a preview module and not installed as part of the Az module. To install it, run `Install-Module -Name Az.ManagedServiceIdentity`.
 * An [Azure virtual machine](../../virtual-machines/windows/quick-create-powershell.md). Since you stop and start this machine, it shouldn't be a production VM.
 * A general familiarity with [Automation runbooks](../manage-runbooks.md).
 
@@ -38,8 +38,7 @@ Assign permissions to the managed identities to allow them to stop and start a v
     ```powershell
     # Sign in to your Azure subscription
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
+    if(-not ($sub)) {
         Connect-AzAccount
     }
     
@@ -110,81 +109,71 @@ Create a runbook that will allow execution by either managed identity. The runbo
 
     ```powershell
     Param(
-     [string]$resourceGroup,
-     [string]$VMName,
-     [string]$method,
-     [string]$UAMI 
+        [string]$ResourceGroup,
+        [string]$VMName,
+        [string]$Method,
+        [string]$UAMI 
     )
-    
+
     $automationAccount = "xAutomationAccount"
     
     # Ensures you do not inherit an AzContext in your runbook
-    Disable-AzContextAutosave -Scope Process | Out-Null
-    
+    $null = Disable-AzContextAutosave -Scope Process
+
     # Connect using a Managed Service Identity
     try {
-            $AzureContext = (Connect-AzAccount -Identity).context
-        }
-    catch{
-            Write-Output "There is no system-assigned user identity. Aborting."; 
-            exit
-        }
-    
+        $AzureConnection = (Connect-AzAccount -Identity).context
+    }
+    catch {
+        Write-Output "There is no system-assigned user identity. Aborting." 
+        exit
+    }
+
     # set and store context
-    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
-        -DefaultProfile $AzureContext
+    $AzureContext = Set-AzContext -SubscriptionName $AzureConnection.Subscription -DefaultProfile $AzureConnection
     
-    if ($method -eq "SA")
-        {
-            Write-Output "Using system-assigned managed identity"
+    if ($Method -eq "SA") {
+        Write-Output "Using system-assigned managed identity"
+    }
+    elseif ($Method -eq "UA") {
+        Write-Output "Using user-assigned managed identity"
+    
+        # Connects using the Managed Service Identity of the named user-assigned managed identity
+        $identity = Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroup -Name $UAMI -DefaultProfile $AzureContext
+    
+        # validates assignment only, not perms
+        $AzAutomationAccount = Get-AzAutomationAccount -ResourceGroupName $ResourceGroup -Name $automationAccount -DefaultProfile $AzureContext
+        if ($AzAutomationAccount.Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId)) {
+            $AzureConnection = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
+    
+            # set and store context
+            $AzureContext = Set-AzContext -SubscriptionName $AzureConnection.Subscription -DefaultProfile $AzureConnection
         }
-    elseif ($method -eq "UA")
-        {
-            Write-Output "Using user-assigned managed identity"
-    
-            # Connects using the Managed Service Identity of the named user-assigned managed identity
-            $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup `
-                -Name $UAMI -DefaultProfile $AzureContext
-    
-            # validates assignment only, not perms
-            if ((Get-AzAutomationAccount -ResourceGroupName $resourceGroup `
-                    -Name $automationAccount `
-                    -DefaultProfile $AzureContext).Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId))
-                {
-                    $AzureContext = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
-    
-                    # set and store context
-                    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
-                }
-            else {
-                    Write-Output "Invalid or unassigned user-assigned managed identity"
-                    exit
-                }
-        }
-    else {
-            Write-Output "Invalid method. Choose UA or SA."
+        else {
+            Write-Output "Invalid or unassigned user-assigned managed identity"
             exit
-         }
+        }
+    }
+    else {
+        Write-Output "Invalid method. Choose UA or SA."
+        exit
+    }
     
     # Get current state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName `
-        -Status -DefaultProfile $AzureContext).Statuses[1].Code
+    $status = (Get-AzVM -ResourceGroupName $ResourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code
     
     Write-Output "`r`n Beginning VM status: $status `r`n"
     
     # Start or stop VM based on current state
-    if($status -eq "Powerstate/deallocated")
-        {
-            Start-AzVM -Name $VMName -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
-        }
-    elseif ($status -eq "Powerstate/running")
-        {
-            Stop-AzVM -Name $VMName -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext -Force
-        }
+    if ($status -eq "Powerstate/deallocated") {
+        Start-AzVM -Name $VMName -ResourceGroupName $ResourceGroup -DefaultProfile $AzureContext
+    }
+    elseif ($status -eq "Powerstate/running") {
+        Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroup -DefaultProfile $AzureContext -Force
+    }
     
     # Get new state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status `
-        -DefaultProfile $AzureContext).Statuses[1].Code  
+    $status = (Get-AzVM -ResourceGroupName $ResourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code  
     
     Write-Output "`r`n Ending VM status: $status `r`n `r`n"
     

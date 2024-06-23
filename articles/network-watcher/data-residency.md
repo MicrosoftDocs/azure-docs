@@ -1,26 +1,26 @@
 ---
 title: Data residency for Azure Network Watcher
-description: This article will help you understand data residency for the Azure Network Watcher service.
-services: network-watcher
+description: Learn about data residency for the Azure Network Watcher.
 author: halkazwini
-ms.service: network-watcher
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 06/16/2021
 ms.author: halkazwini
-ms.custom: engagement-fy23
+ms.service: network-watcher
+ms.topic: concept-article
+ms.date: 05/14/2024
+ms.custom: references_regions
 ---
 
 # Data residency for Azure Network Watcher
-With the exception of the Connection Monitor service, Azure Network Watcher doesn't store customer data.
 
+Azure Network Watcher doesn't store customer data, except for the Connection monitor.
 
-## Connection Monitor data residency
-The Connection Monitor service stores customer data. This data is automatically stored by Network Watcher in a single region. So Connection Monitor automatically satisfies in-region data residency requirements, including requirements specified on the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+## Connection monitor data residency
 
-## Data residency
-In Azure, the feature that enables storing customer data in a single region is currently available only in the Southeast Asia Region (Singapore) of the Asia Pacific geo and Brazil South (Sao Paulo State) Region of the Brazil geo. For all other regions, customer data is stored in Geo. For more information, see the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+Connection monitor stores customer data. Network Watcher automatically stores this data in a single region. So Connection Monitor automatically satisfies in-region data residency requirements, including requirements specified on the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
-## Next steps
+## Data residency in Azure
 
-* Read an overview of [Network Watcher](./network-watcher-monitoring-overview.md).
+In Azure, single region data residency is currently provided by default only in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see the [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency).
+
+## Next step
+
+To learn more about Network Watcher features and capabilities, see [What is Azure Network Watcher?](network-watcher-overview.md)

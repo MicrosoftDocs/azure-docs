@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 09/27/2022
+ms.date: 08/11/2023
 ---
 # What's new archive for Azure Data Factory
 
@@ -19,14 +19,283 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 - Deprecated functionality.
 - Plans for changes.
 
-This archive page retains updates from older months.  
+This archive page retains updates from older months.
 
-Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update
+Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly updates.
+
+## July 2023
+
+### Change Data Capture
+
+Top-level CDC resource now supports schema evolution. [Learn more](how-to-change-data-capture-resource-with-schema-evolution.md)
+
+### Data flow
+
+Merge schema option in delta sink now supports schema evolution in Mapping Data Flows. [Learn more](format-delta.md#delta-sink-optimization-options)
+
+### Data movement
+
+- Comment Out Part of Pipeline with Deactivation. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/comment-out-part-of-pipeline/ba-p/3868069)
+- Pipeline return value is now generally available. [Learn more](tutorial-pipeline-return-value.md)
+
+### Developer productivity
+
+Documentation search now included in the Azure Data Factory search toolbar. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/documentation-search-now-embedded-in-azure-data-factory/ba-p/3873890)
+
+## June 2023
+
+### Continuous integration and continuous deployment
+
+npm package now supports pre-downloaded bundle for building ARM templates. If your firewall setting is blocking direct download for your npm package, you can now pre-load the package upfront, and let npm package consume local version instead. This is a super boost for your CI/CD pipeline in a firewalled environment.
+
+### Region expansion
+
+Azure Data Factory is now available in Sweden Central. You can co-locate your ETL workflow in this new region if you are utilizing the region for storing and managing your modern data warehouse. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/continued-region-expansion-azure-data-factory-just-became/ba-p/3857249)
+
+### Data movement
+
+Securing outbound traffic with Azure Data Factory's outbound network rules is now supported. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/securing-outbound-traffic-with-azure-data-factory-s-outbound/ba-p/3844032)
+
+### Connectors
+
+The Amazon S3 connector is now supported as a sink destination using Mapping Data Flows. [Learn more](connector-amazon-simple-storage-service.md)
+
+### Data flow
+
+We introduce optional Source settings for DelimitedText and JSON sources in top-level CDC resource. The top-level CDC resource in data factory now supports optional source configurations for Delimited and JSON sources. You can now select the column/row delimiters for delimited sources and set the document type for JSON sources. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-optional-source-settings-for-delimitedtext-and-json/ba-p/3824274)
+
+## May 2023
+
+### Data Factory in Microsoft Fabric
+
+[Data factory in Microsoft Fabric](/fabric/data-factory/) provides cloud-scale data movement and data transformation services that allow you to solve the most complex data factory and ETL scenarios. It's intended to make your data factory experience easy to use, powerful, and truly enterprise-grade.
+
+## April 2023
+
+### Data flow
+
+Easily unroll multiple arrays in ADF data flows. ADF updated the **Flatten** transformation that now makes it super easy to unroll multiple arrays from a single **Flatten** transformation step. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/unroll-multiple-arrays-in-a-single-flatten-step-in-adf/ba-p/3802457)
+
+### Continuous integration and continuous deployment
+
+You can customize the commit message in Git mode now. Type in a detailed description about the changes you make, and we will save it to Git repository.
+
+### Connectors
+
+The Azure Blob Storage connector now supports anonymous authentication. [Learn more](connector-azure-blob-storage.md#anonymous-authentication)
+
+## March 2023
+
+### Connectors
+
+Azure Data Lake Storage Gen2 connector now supports shared access signature authentication. [Learn more](connector-azure-data-lake-storage.md#shared-access-signature-authentication)
+
+## February 2023
+
+### Data movement
+
+- Anonymous authentication type supported for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#anonymous-authentication)
+- Updated SAP template to easily move SAP data to ADLSGen2 in Delta format [Learn more](industry-sap-templates.md)
+
+### Monitoring
+
+Container monitoring view available in default ADF studio [Learn more](how-to-manage-studio-preview-exp.md#container-view)
+
+### Orchestration
+
+- Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
+- Workflow Orchestration Manager (Public preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-managed-airflow-in-azure-data-factory/ba-p/3730151)
+
+### Developer productivity
+
+Dark theme support added (Public preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-dark-mode-for-adf-studio/ba-p/3757961)
+
+## January 2023
+
+### Data flow
+
+- Flowlets now support schema drift [Learn more](connector-office-365.md?tabs=data-factory)
+- SQL CDC incremental extract now supports numeric columns [Learn more](connector-sql-server.md?tabs=data-factory#native-change-data-capture)
+
+### Data movement
+
+New top-level CDC resource - native CDC configuration in 3 simple steps [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-the-public-preview-of-a-new-top-level-cdc-resource-in/ba-p/3720519)
+
+### Orchestration
+
+Orchestrate Synapse notebooks and Synapse spark job definitions natively [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/orchestrate-and-operationalize-synapse-notebooks-and-spark-job/ba-p/3724379)
+
+### Region expansion
+
+- Continued region expansion - China North 3 now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+- Continued region expansion - Switzerland West now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+
+### SQL Server Integration Services (SSIS)
+
+Express virtual network injection for SSIS now generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
+
+### Developer productivity
+
+- Added support for favoriting resources on home page
+- Save column width for pipeline monitoring
+- Monitor filter updates for faster searches
+- Directly launch Pipeline Template Gallery through Azure portal
+
+## December 2022
+
+### Data flow
+
+SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow [Learn more](connector-azure-sql-database.md?tabs=data-factory#source-transformation)
+
+### Data movement
+
+Express virtual network injection for SSIS in Azure Data Factory is generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
+
+### Region expansion
+
+Continued region expansion - Azure Data Factory is now available in China North 3 [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+
+## November 2022
+
+### Data flow
+
+- Incremental only is available in SAP CDC - get changes only from SAP system without initial full load  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
+- Source partitions in initial full data load of SAP CDC to improve performance  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
+- A new pipeline template - Load multiple objects with big amounts from SAP via SAP CDC [Learn more](solution-template-replicate-multiple-objects-sap-cdc.md?tabs=data-factory)
+
+### Data Movement
+- Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
+
+### User Interface
+3 Pipeline designer enhancements added to ADF Studio preview experience
+- Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
+- Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
+- Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
+
+### Continuous integration and continuous deployment
+
+In auto publish config, disable publish button is available to void overwriting the last automated publish deployment [Learn more](source-control.md?tabs=data-factory#editing-repo-settings)
+
+## October 2022
+
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=Ou90M59VQCA&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=7]
+
+### Data flow
+
+- Export up to 1000 rows from data flow preview [Learn more](concepts-data-flow-debug-mode.md?tabs=data-factory#data-preview)
+- SQL CDC in Mapping Data Flows now available (Public Preview) [Learn more](connector-sql-server.md?tabs=data-factory#native-change-data-capture)
+- Unlock advanced analytics with Microsoft 365 Mapping Data Flow Connector [Learn more](https://devblogs.microsoft.com/microsoft365dev/scale-access-to-microsoft-365-data-with-microsoft-graph-data-connect/)
+- SAP Change Data Capture (CDC) in now generally available [Learn more](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector)
+
+### Developer productivity
+
+- Now accepting community contributions to Template Gallery [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-azure-data-factory-community-templates/ba-p/3650989)
+- New design in Azure portal - easily discover how to launch ADF Studio [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/improved-ui-for-launching-azure-data-factory-studio/ba-p/3659610)
+- Learning Center now available in the Azure Data Factory studio [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-learning-center-to-azure-data-factory-studio/ba-p/3660888)
+- One-click to try Azure Data Factory [Learn more](quickstart-get-started.md)
+
+### Orchestration
+
+- Granular billing view available for ADF - see detailed billing information by pipeline (Public Preview) [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/granular-billing-for-azure-data-factory/ba-p/3654600)
+- Script activity execution timeout now configurable [Learn more](transform-data-using-script.md)
+
+### Region expansion
+
+Continued region expansion - Qatar Central now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+
+### Continuous integration and continuous deployment
+
+Exclude pipeline triggers that did not change in deployment now generally available [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvements-related-to-pipeline-triggers-deployment/ba-p/3605064)
+
+## September 2022
+
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=Bh_VA8n-SL8&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=6]
+
+### Data flow
+
+- Amazon S3 source connector added [Learn more](connector-amazon-simple-storage-service.md?tabs=data-factory)
+- Google Sheets REST-based connector added as Source (Preview) [Learn more](connector-google-sheets.md?tabs=data-factory)
+- Maximum column optimization in dataflow [Learn more](format-delimited-text.md#mapping-data-flow-properties)
+- SAP Change Data Capture capabilities in Mapping Data Flow (Preview) - Extract and transform data changes from SAP systems for a more efficient data refresh [Learn more](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector)
+- Writing data to a lookup field via alternative keys supported in Dynamics 365/CRM connectors for mapping data flows [Learn more](connector-dynamics-crm-office-365.md?tabs=data-factory#writing-data-to-a-lookup-field-via-alternative-keys)
+
+### Data movement
+
+Support to convert Oracle NUMBER type to corresponding integer in source [Learn more](connector-oracle.md?tabs=data-factory#oracle-as-source)
+
+### Monitoring
+
+- Additional monitoring improvements in Azure Data Factory [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/further-adf-monitoring-improvements/ba-p/3607669)
+   - Monitoring loading improvements - pipeline re-run groupings data fetched only when expanded
+   - Pagination added to pipeline activity runs view to show all activity records in pipeline run
+   - Monitoring consumption improvement - loading icon added to know when consumption report is fully calculated
+   - Additional sorting columns in monitoring - sorting added for Pipeline name, Run End, and Status
+   - Time-zone settings now saved in monitoring
+- Gantt chart view now supported in IR monitoring [Learn more](monitor-integration-runtime.md)
+
+### Orchestration
+
+DELETE method in the Web activity now supports sending a body with HTTP request [Learn more](control-flow-web-activity.md#type-properties)
+
+### User interface
+
+- Native UI support of parameterization added for 6 additional linked services - SAP ODP, ODBC, Microsoft Access, Informix, Snowflake, and DB2 [Learn more](parameterize-linked-services.md?tabs=data-factory#supported-linked-service-types)
+- Pipeline designer enhancements added in Studio Preview experience - users can view workflow inside pipeline objects like For Each, If Then, etc.  [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/azure-data-factory-updated-pipeline-designer/ba-p/3618755)
+
+## August 2022
+
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=KCJ2F6Y_nfo&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=5]
+
+### Data flow
+- Appfigures connector added as Source (Preview) [Learn more](connector-appfigures.md)
+- Cast transformation added - visually convert data types [Learn more](data-flow-cast.md)
+- New UI for inline datasets - categories added to easily find data sources [Learn more](data-flow-source.md#inline-datasets)
+
+### Data movement
+Service principal authentication type added for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#service-principal-authentication)
+
+### Developer productivity
+- Default activity time-out changed from 7 days to 12 hours [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/azure-data-factory-changing-default-pipeline-activity-timeout/ba-p/3598729)
+- New data factory creation experience - one click to have your factory ready within seconds [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/new-experience-for-creating-data-factory-within-seconds/ba-p/3561249)
+- Expression builder UI update - categorical tabs added for easier use [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/coming-soon-to-adf-more-pipeline-expression-builder-ease-of-use/ba-p/3567196)
+
+### Continuous integration and continuous delivery (CI/CD)
+When CI/CD integrating ARM template, instead of turning off all triggers, it can exclude triggers that didn't change in deployment [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvements-related-to-pipeline-triggers-deployment/ba-p/3605064)
+
+## July 2022
+
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=EOVVt4qYvZI&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=4]
+
+### Data flow
+
+- Asana connector added as source [Learn more](connector-asana.md)
+- Three new data transformation functions now supported [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/3-new-data-transformation-functions-in-adf/ba-p/3582738)
+   - [collectUnique()](data-flow-expressions-usage.md#collectUnique) - Create a new collection of unique values in an array.
+   - [substringIndex()](data-flow-expressions-usage.md#substringIndex) - Extract the substring before n occurrences of a delimiter.
+   - [topN()](data-flow-expressions-usage.md#topN) - Return the top n results after sorting your data.
+- Refetch from source available in Refresh for data source change scenarios [Learn more](concepts-data-flow-debug-mode.md#data-preview)
+- User defined functions (GA) - Create reusable and customized expressions to avoid building complex logic over and over [Learn more](concepts-data-flow-udf.md) [Video](https://www.youtube.com/watch?v=ZFTVoe8eeOc&t=170s)
+- Easier configuration on data flow runtime - choose compute size among Small, Medium and Large to pre-configure all integration runtime settings [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-makes-it-easy-to-select-azure-ir-size-for-data-flows/ba-p/3578033)
+
+### Continuous integration and continuous delivery (CI/CD)
+
+Include Global parameters supported in ARM template. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/ci-cd-improvement-using-global-parameters-in-azure-data-factory/ba-p/3557265#M665)
+### Developer productivity
+
+Be a part of Azure Data Factory studio preview features - Experience the latest Azure Data Factory capabilities and be the first to share your feedback [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/introducing-the-azure-data-factory-studio-preview-experience/ba-p/3563880)
 
 ## June 2022
 
 ### Video summary
- 
+
 > [!VIDEO https://www.youtube.com/embed?v=Ay3tsJe_vMM&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=3]
 
 <table>
@@ -37,7 +306,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td rowspan=2><b>Data Movement</b></td><td>Parameterization natively supported in additional 4 connectors</td><td>We added native UI support of parameterization for the following linked services: Azure Data Lake Gen1, Azure PostgreSQL, Google AdWords and PostgreSQL.<br><a href="parameterize-linked-services.md?tabs=data-factory#supported-linked-service-types">Learn more</a></td></tr>
 <tr><td>SAP Change Data Capture (CDC) capabilities in the new SAP ODP connector (Public Preview)</td><td>SAP Change Data Capture (CDC) capabilities are now supported in the new SAP ODP connector.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-the-public-preview-of-the-sap-cdc-solution-in-azure/ba-p/3420904">Learn more</a></td></tr>
 <tr><td><b>Integration Runtime</b></td><td>Time-To-Live in managed VNET (Public Preview)</td><td>Time-To-Live can be set to the provisioned computes in managed VNET.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-time-to-live-ttl-in-managed-virtual/ba-p/3552879">Learn more</a></td></tr>
-<tr><td><b>Monitoring</b></td><td> Rerun pipeline with new parameters</td><td>You can now rerun pipelines with new parameter values in Azure Data Factory.<br><a href="monitor-visually.md#rerun-pipelines-and-activities">Learn more</a></td></tr> 
+<tr><td><b>Monitoring</b></td><td> Rerun pipeline with new parameters</td><td>You can now rerun pipelines with new parameter values in Azure Data Factory.<br><a href="monitor-visually.md#rerun-pipelines-and-activities">Learn more</a></td></tr>
 <tr><td><b>Orchestration</b></td><td>‘turnOffAsync' property is available in Web activity</td><td>Web activity supports an async request-reply pattern that invokes HTTP GET on the Location field in the response header of an HTTP 202 Response. It helps web activity automatically poll the monitoring end-point till the job runs. ‘turnOffAsync' property is supported to disable this behavior in cases where polling isn't needed<br><a href="control-flow-web-activity.md#type-properties">Learn more</a></td></tr>
 </table>
 
@@ -102,7 +371,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td rowspan=4><b>Data flow</b></td><td>Parameterized linked services supported in mapping data flows</td><td>You can now use your parameterized linked services in mapping data flows to make your data flow pipelines generic and flexible.<br><a href="parameterize-linked-services.md?tabs=data-factory">Learn more</a></td></tr>
 <tr><td>SQL Database incremental source extract available in data flow (public preview)</td><td>A new option has been added on mapping data flow SQL Database sources called <i>Enable incremental extract (preview)</i>. Now you can automatically pull only the rows that have changed on your SQL Database sources by using data flows.<br><a href="connector-azure-sql-database.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr>
 <tr><td>Four new connectors available for mapping data flows (public preview)</td><td>Data Factory now supports four new connectors (public preview) for mapping data flows: Quickbase connector, Smartsheet connector, TeamDesk connector, and Zendesk connector.<br><a href="connector-overview.md?tabs=data-factory">Learn more</a></td></tr>
-<tr><td>Azure Cosmos DB (SQL API) for mapping data flow now supports inline mode</td><td>Azure Cosmos DB (SQL API) for mapping data flow can now use inline datasets.<br><a href="connector-azure-cosmos-db.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr> 
+<tr><td>Azure Cosmos DB (SQL API) for mapping data flow now supports inline mode</td><td>Azure Cosmos DB (SQL API) for mapping data flow can now use inline datasets.<br><a href="connector-azure-cosmos-db.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr>
 
 <tr><td rowspan=2><b>Data movement</b></td><td>Get metadata-driven data ingestion pipelines on the Data Factory Copy Data tool within 10 minutes (GA)</td><td>You can build large-scale data copy pipelines with a metadata-driven approach on the Copy Data tool within 10 minutes.<br><a href="copy-data-tool-metadata-driven.md">Learn more</a></td></tr>
 <tr><td>Data Factory Google AdWords connector API upgrade available</td><td>The Data Factory Google AdWords connector now supports the new AdWords API version. No action is required for the new connector user because it's enabled by default.<br><a href="connector-troubleshoot-google-adwords.md#migrate-to-the-new-version-of-google-ads-api">Learn more</a></td></tr>
@@ -110,7 +379,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <tr><td><b>Continuous integration and continuous delivery (CI/CD)</b></td><td>Cross tenant Azure DevOps support</td><td>Configure a repository using Azure DevOps Git not in the same tenant as the Azure Data Factory。<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 
 <tr><td><b>Region expansion</b></td><td>Data Factory is now available in West US3 and Jio India West</td><td>Data Factory is now available in two new regions: West US3 and Jio India West. You can colocate your ETL workflow in these new regions if you're using these regions to store and manage your modern data warehouse. You can also use these regions for business continuity and disaster recovery purposes if you need to fail over from another region within the geo.<br><a href="https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all">Learn more</a></td></tr>
- 
+
 <tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory (Azure AD) tenant</td><td>You can connect your Data Factory instance to an Azure DevOps account in a different Azure AD tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr>
 </table>
 
@@ -127,7 +396,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 
 <tr><td rowspan=2><b>Data movement</b></td><td>Data Factory Azure Databricks Delta Lake connector supports new authentication types</td><td>Data Factory Databricks Delta Lake connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication.<br><a href="connector-azure-databricks-delta-lake.md">Learn more</a></td></tr>
 <tr><td>Data Factory Copy activity supports upsert in several more connectors</td><td>Data Factory Copy activity now supports upsert while it sinks data to SQL Server, SQL Database, SQL Managed Instance, and Azure Synapse.<br><a href="connector-overview.md">Learn more</a></td></tr>
- 
+
 </table>
 
 ## December 2021
@@ -226,7 +495,7 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 <table>
 <tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
-  <tr><td><b>Continuous integration and continuous delivery</b></td><td>CI/CD improvements with GitHub support in Azure Government and Azure China</td><td>We've added support for GitHub in Azure for US Government and Azure China.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918">Learn more</a></td></tr>
+  <tr><td><b>Continuous integration and continuous delivery</b></td><td>CI/CD improvements with GitHub support in Azure Government and Microsoft Azure operated by 21Vianet</td><td>We've added support for GitHub in Azure for US Government and Azure operated by 21Vianet.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918">Learn more</a></td></tr>
 
 <tr><td rowspan=2><b>Data movement</b></td><td>The Azure Cosmos DB API for MongoDB connector supports versions 3.6 and 4.0 in Data Factory</td><td>The Data Factory Azure Cosmos DB API for MongoDB connector now supports server versions 3.6 and 4.0.<br><a href="connector-azure-cosmos-db-mongodb-api.md">Learn more</a></td></tr>
 <tr><td>Enhance using COPY statement to load data into Azure Synapse</td><td>The Data Factory Azure Synapse connector now supports staged copy and copy source with *.* as wildcardFilename for the COPY statement.<br><a href="connector-azure-sql-data-warehouse.md#use-copy-statement">Learn more</a></td></tr>

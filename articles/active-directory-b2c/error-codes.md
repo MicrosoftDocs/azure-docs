@@ -2,16 +2,20 @@
 title: Error code reference
 titleSuffix: Azure AD B2C
 description: A list of the error codes that can be returned by the Azure Active Directory B2C service.
-services: B2C
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 10/28/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand the possible error codes and their meanings, so that I can handle them appropriately and provide a better user experience.
+
 ---
 
 # Error codes: Azure Active Directory B2C
@@ -43,7 +47,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90031` | Policy '{0}' does not specify a default user journey. Ensure that the policy or it's parents specify a default user journey as part of a relying party section. | [Default user journey](relyingparty.md#defaultuserjourney) |
 | `AADB2C90035` | The service is temporarily unavailable. Please retry after a few minutes. |  |
 | `AADB2C90036` | The request does not contain a URI to redirect the user to post logout. Specify a URI in the post_logout_redirect_uri parameter field. | [Send a sign-out request](openid-connect.md#send-a-sign-out-request) |
-| `AADB2C90037` | An error occurred while processing the request. Please locate the `CorellationId` from the response. | [Submit a new support request](find-help-open-support-ticket.md), and include the `CorrelationId`. |
+| `AADB2C90037` | An error occurred while processing the request. Please locate the `CorrelationId` from the response. | [Submit a new support request](find-help-open-support-ticket.md), and include the `CorrelationId`. |
 | `AADB2C90039` | The request contains a client assertion, but the provided policy '{0}' in tenant '{1}' is missing a client_secret in RelyingPartyPolicy. | deprecated | 
 | `AADB2C90040` | User journey '{0}' does not contain a send claims step. | [User journey orchestration steps](userjourneys.md#orchestrationsteps) |
 | `AADB2C90043` | The prompt included in the request contains invalid values. Expected 'none', 'login', 'consent' or 'select_account'. |  |
@@ -151,3 +155,6 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C99011` | The metadata value '{0}' has not been specified in TechnicalProfile '{1}' in policy '{2}'. | [Custom policy Technical profiles](technicalprofiles.md) |
 | `AADB2C99013` | The supplied grant_type [{0}] and token_type [{1}] combination is not supported. |
 | `AADB2C99015` | Profile '{0}' in policy '{1}' in tenant '{2}' is missing all InputClaims required for resource owner password credential flow. | [Create a resource owner policy](add-ropc-policy.md#create-a-resource-owner-policy) |
+|`AADB2C99002`| User doesn't exist. Please sign up before you can sign in. |
+| `AADB2C99027` | Policy '{0}' does not contain an AuthorizationTechnicalProfile with a corresponding ClientAssertionType. | [Client credentials flow](client-credentials-grant-flow.md) |
+|`AADB2C90229`|Azure AD B2C throttled traffic if too many requests are sent from the same source in a short period of time| [Best practices for Azure Active Directory B2C](best-practices.md#testing) |

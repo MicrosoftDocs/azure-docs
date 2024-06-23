@@ -1,7 +1,7 @@
 ---
-title: PowerShell scripts using Az.Search module
-titleSuffix: Azure Cognitive Search
-description: Create and configure an Azure Cognitive Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query for system information.
+title: PowerShell scripts using Azure Search PowerShell module
+titleSuffix: Azure AI Search
+description: Create and configure an Azure AI Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
 manager: nitinme
 author: HeidiSteen
@@ -9,20 +9,22 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: how-to
-ms.date: 01/25/2023
-ms.custom: devx-track-azurepowershell
+ms.date: 04/05/2024
+ms.custom:
+  - devx-track-azurepowershell
+  - ignite-2023
 ---
 
-# Manage your Azure Cognitive Search service with PowerShell
+# Manage your Azure AI Search service with PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
 > * [REST API](search-manage-rest.md)
-> * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
-You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud Shell](../cloud-shell/overview.md) to create and configure Azure Cognitive Search. The **Az.Search** module extends [Azure PowerShell](/powershell/) with full parity to the [Search Management REST APIs](/rest/api/searchmanagement) and the ability to perform the following tasks:
+You can run PowerShell cmdlets and scripts on Windows, Linux, or in Azure Cloud Shell to create and configure Azure AI Search. 
+
+Use the [**Az.Search** module](/powershell/module/az.search/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * [List search services in a subscription](#list-search-services)
@@ -36,11 +38,13 @@ You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud
 
 Occasionally, questions are asked about tasks *not* on the above list.
 
-You cannot change a server name, region, or tier programmatically or in the portal. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. 
+You can't change a server name, region, or tier programmatically or in the portal. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. 
 
-You cannot use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
+You can't use tools or APIs to transfer content, such as an index, from one service to another. Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or an SDK such as [Azure SDK for .NET](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated commands for content migration, you can write script that calls REST API or a client library to create and load indexes on a new service.
 
 Preview administration features are typically not available in the **Az.Search** module. If you want to use a preview feature, [use the Management REST API](search-manage-rest.md) and a preview API version. 
+
+The [**Az.Search** module](/powershell/module/az.search/) extends [Azure PowerShell](/powershell/) with full parity to the stable versions of the [Search Management REST APIs](/rest/api/searchmanagement).
 
 <a name="check-versions-and-load"></a>
 
@@ -50,7 +54,7 @@ The examples in this article are interactive and require elevated permissions. L
 
 ### PowerShell version check
 
-PowerShell 7.0.6 LTS, PowerShell 7.1.3, or higher is the recommended version of PowerShell for use with the Azure Az PowerShell module on all platforms. [Install the latest version of PowerShell](/powershell/scripting/install/installing-powershell) if you don't have it.
+[Install the latest version of PowerShell](/powershell/scripting/install/installing-powershell) if you don't have it.
 
 ```azurepowershell-interactive
 $PSVersionTable.PSVersion
@@ -64,7 +68,7 @@ If you aren't sure whether **Az** is installed, run the following command as a v
 Get-InstalledModule -Name Az
 ```
 
-Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation [Azure PowerShell installation instructions](/powershell/azure/) to see if you missed a step.
+Some systems don't autoload modules. If you got an error on the previous command, try loading the module, and if that fails, go back to the installation [Azure PowerShell installation instructions](/powershell/azure/) to see if you missed a step.
 
 ```azurepowershell-interactive
 Import-Module -Name Az
@@ -118,15 +122,15 @@ Location          : westus
 ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
-## Import Az.Search
+## Import `Az.Search`
 
-Commands from [**Az.Search**](/powershell/module/az.search) are not available until you load the module.
+Commands from [**Az.Search**](/powershell/module/az.search) aren't available until you load the module.
 
 ```azurepowershell-interactive
-Install-Module -Name Az.Search
+Install-Module -Name Az.Search -Scope CurrentUser
 ```
 
-### List all Az.Search commands
+### List all `Az.Search` commands
 
 As a verification step, return a list of commands provided in the module.
 
@@ -137,25 +141,25 @@ Get-Command -Module Az.Search
 Results should look similar to the following output.
 
 ```
-CommandType     Name                                               Version    Source                                                                
------------     ----                                               -------    ------                                                                
-Cmdlet          Get-AzSearchAdminKeyPair                           0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchPrivateLinkResource                    0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchQueryKey                               0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchService                                0.8.0      Az.Search                                                             
-Cmdlet          Get-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchAdminKey                               0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchQueryKey                               0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchService                                0.8.0      Az.Search                                                             
-Cmdlet          New-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchPrivateEndpointConnection           0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchQueryKey                            0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchService                             0.8.0      Az.Search                                                             
-Cmdlet          Remove-AzSearchSharedPrivateLinkResource           0.8.0      Az.Search                                                             
-Cmdlet          Set-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
-Cmdlet          Set-AzSearchService                                0.8.0      Az.Search                                                             
-Cmdlet          Set-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search   
+CommandType     Name                                               Version     Source                                                                
+-----------     ----                                               -------     ------                                                                
+Cmdlet          Get-AzSearchAdminKeyPair                           0.10.0      Az.Search                                                             
+Cmdlet          Get-AzSearchPrivateEndpointConnection              0.10.0      Az.Search                                                             
+Cmdlet          Get-AzSearchPrivateLinkResource                    0.10.0      Az.Search                                                             
+Cmdlet          Get-AzSearchQueryKey                               0.10.0      Az.Search                                                             
+Cmdlet          Get-AzSearchService                                0.10.0      Az.Search                                                             
+Cmdlet          Get-AzSearchSharedPrivateLinkResource              0.10.0      Az.Search                                                             
+Cmdlet          New-AzSearchAdminKey                               0.10.0      Az.Search                                                             
+Cmdlet          New-AzSearchQueryKey                               0.10.0      Az.Search                                                             
+Cmdlet          New-AzSearchService                                0.10.0      Az.Search                                                             
+Cmdlet          New-AzSearchSharedPrivateLinkResource              0.10.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchPrivateEndpointConnection           0.10.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchQueryKey                            0.10.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchService                             0.10.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchSharedPrivateLinkResource           0.10.0      Az.Search                                                             
+Cmdlet          Set-AzSearchPrivateEndpointConnection              0.10.0      Az.Search                                                             
+Cmdlet          Set-AzSearchService                                0.10.0      Az.Search                                                             
+Cmdlet          Set-AzSearchSharedPrivateLinkResource              0.10.0      Az.Search   
 ```
 
 If you have an older version of the package, update the module to get the latest functionality.
@@ -214,7 +218,7 @@ Tags
 Remove-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name>
 ``` 
 
-You'll be asked to confirm the action.
+You're asked to confirm the action.
 
 ```azurepowershell
 Confirm
@@ -222,10 +226,9 @@ Are you sure you want to remove Search Service 'pstestazuresearch01'?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 ```
 
-
 ### Create a service with IP rules
 
-Depending on your security requirements, you may want to create a search service with an [IP firewall configured](service-configure-firewall.md). To do so, first define the IP Rules and then pass them to the `IPRuleList` parameter as shown below.
+Depending on your security requirements, you might want to create a search service with an [IP firewall configured](service-configure-firewall.md). To do so, first define the IP Rules and then pass them to the `IPRuleList` parameter as shown below.
 
 ```azurepowershell-interactive
 $ipRules = @([pscustomobject]@{Value="55.5.63.73"},
@@ -243,7 +246,7 @@ $ipRules = @([pscustomobject]@{Value="55.5.63.73"},
 
 ### Create a service with a system assigned managed identity
 
-In some cases, such as when [using managed identity to connect to a data source](search-howto-managed-identities-storage.md), you will need to turn on [system assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md). This is done by adding `-IdentityType SystemAssigned` to the command.
+In some cases, such as when [using managed identity to connect to a data source](search-howto-managed-identities-storage.md), you need to turn on [system assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md). This is done by adding `-IdentityType SystemAssigned` to the command.
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName <resource-group-name> `
@@ -270,8 +273,8 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
 
 ## Create a service with a private endpoint
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, see 
-[Creating a private endpoint for Azure Cognitive Search](service-create-private-endpoint.md)
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure AI Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more information, see 
+[Creating a private endpoint for Azure AI Search](service-create-private-endpoint.md).
 
 The following example shows how to create a search service with a private endpoint. 
 
@@ -348,7 +351,7 @@ New-AzPrivateDnsZoneGroup `
     -PrivateDnsZoneConfig $config
 ```
 
-For more details on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-powershell.md)
+For more information on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-powershell.md).
 
 ### Manage private endpoint connections
 
@@ -378,9 +381,9 @@ Set-AzSearchPrivateEndpointConnection -ResourceGroupName <search-service-resourc
 
 You can only regenerate one at a time, specified as either the `primary` or `secondary` key. For uninterrupted service, remember to update all client code to use a secondary key while rolling over the primary key. Avoid changing the keys while operations are in flight.
 
-As you might expect, if you regenerate keys without updating client code, requests using the old key will fail. Regenerating all new keys does not permanently lock you out of your service, and you can still access the service through the portal. After you regenerate primary and secondary keys, you can update client code to use the new keys and operations will resume accordingly.
+As you might expect, if you regenerate keys without updating client code, requests using the old key will fail. Regenerating all new keys doesn't permanently lock you out of your service, and you can still access the service through the portal. After you regenerate primary and secondary keys, you can update client code to use the new keys and operations will resume accordingly.
 
-Values for the API keys are generated by the service. You cannot provide a custom key for Azure Cognitive Search to use. Similarly, there is no user-defined name for admin API-keys. References to the key are fixed strings, either `primary` or `secondary`. 
+Values for the API keys are generated by the service. You can't provide a custom key for Azure AI Search to use. Similarly, there's no user-defined name for admin API-keys. References to the key are fixed strings, either `primary` or `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -396,9 +399,9 @@ Primary                    Secondary
 
 ## Create or delete query keys
 
-[**New-AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey) is used to create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure Cognitive Search index. Query keys are used to authenticate to a specific index for the purpose of retrieving search results. Query keys do not grant read-only access to other items on the service, such as an index, data source, or indexer.
+[**New-AzSearchQueryKey**](/powershell/module/az.search/new-azsearchquerykey) is used to create query [API keys](search-security-api-keys.md) for read-only access from client apps to an Azure AI Search index. Query keys are used to authenticate to a specific index for retrieving search results. Query keys don't grant read-only access to other items on the service, such as an index, data source, or indexer.
 
-You cannot provide a key for Azure Cognitive Search to use. API keys are generated by the service.
+You can't provide a key for Azure AI Search to use. API keys are generated by the service.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -406,13 +409,13 @@ New-AzSearchQueryKey -ResourceGroupName <search-service-resource-group-name> -Se
 
 ## Scale replicas and partitions
 
-[**Set-AzSearchService**](/powershell/module/az.search/set-azsearchservice) is used to [increase or decrease replicas and partitions](search-capacity-planning.md) to readjust billable resources within your service. Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for additional processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
+[**Set-AzSearchService**](/powershell/module/az.search/set-azsearchservice) is used to [increase or decrease replicas and partitions](search-capacity-planning.md) to readjust billable resources within your service. Increasing replicas or partitions adds to your bill, which has both fixed and variable charges. If you have a temporary need for more processing power, you can increase replicas and partitions to handle the workload. The monitoring area in the Overview portal page has tiles on query latency, queries per second, and throttling, indicating whether current capacity is adequate.
 
-It can take a while to add or remove resourcing. Adjustments to capacity occur in the background, allowing existing workloads to continue. Additional capacity is used for incoming requests as soon as it's ready, with no additional configuration required. 
+It can take a while to add or remove resourcing. Adjustments to capacity occur in the background, allowing existing workloads to continue. Extra capacity is used for incoming requests as soon as it's ready, with no extra configuration required. 
 
 Removing capacity can be disruptive. Stopping all indexing and indexer jobs prior to reducing capacity is recommended to avoid dropped requests. If that isn't feasible, you might consider reducing capacity incrementally, one replica and partition at a time, until your new target levels are reached.
 
-Once you submit the command, there is no way to terminate it midway through. You will have to wait until the command is finished before revising the counts.
+Once you submit the command, there's no way to terminate it midway through. You have to wait until the command is finished before revising the counts.
 
 ```azurepowershell-interactive
 Set-AzSearchService -ResourceGroupName <search-service-resource-group-name> -Name <search-service-name> -PartitionCount 6 -ReplicaCount 6
@@ -433,13 +436,13 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 ## Create a shared private link resource
 
-Private endpoints of secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as a storage account, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
+Private endpoints of secured resources that are created through Azure AI Search APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as a storage account that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
-If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
+If you're using an indexer to index data in Azure AI Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
 
-A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#group-ids) along with the related **Group ID** values.
+A full list of the Azure Resources for which you can create outbound private endpoints from Azure AI Search can be found [here](search-indexer-howto-access-private.md#group-ids) along with the related **Group ID** values.
 
-[New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) is used to create the shared private link resource. Keep in mind that some configuration may be required for the data source before running this command.
+[New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) is used to create the shared private link resource. Keep in mind that some configuration might be required for the data source before running this command.
 
 ```azurepowershell-interactive
 New-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-serviceresource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/<storage-resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
@@ -452,7 +455,7 @@ allows you to retrieve the shared private link resources and view their status.
 Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <search-service-resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
 ```
 
-You'll need to approve the connection with the following command before it can be used.
+You need to approve the connection with the following command before it can be used.
 
 ```azurepowershell-interactive
 Approve-AzPrivateEndpointConnection `
@@ -476,7 +479,7 @@ For full details on setting up shared private link resources, see the documentat
 
 Build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 
-* [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
+* [Create an Azure AI Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)
-* [Query an Azure Cognitive Search index using Search explorer in the Azure portal](search-explorer.md)
-* [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md)
+* [Query an Azure AI Search index using Search explorer in the Azure portal](search-explorer.md)
+* [How to use Azure AI Search in .NET](search-howto-dotnet-sdk.md)

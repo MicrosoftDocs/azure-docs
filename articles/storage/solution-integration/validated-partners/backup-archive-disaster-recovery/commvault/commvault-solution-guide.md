@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 03/15/2021
 ms.topic: conceptual
-ms.service: storage
-ms.subservice: partner
+ms.service: azure-storage
+ms.subservice: storage-partner-integration
 ---
 
 # Backup to Azure with Commvault
@@ -58,7 +58,7 @@ Remember, you'll require enough network capacity to support daily data transfers
 To determine how much bandwidth you'll need, use the following resources:
 
 - Reports from your backup software.
-- Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/commvault/v11_sp19/article?p=39699.htm) and [total backup set size](https://documentation.commvault.com/commvault/v11_sp19/article?p=39621.htm) for the initial baseline transfer to Azure.
+- Commvault provides standard reports to determine [change rate](https://documentation.commvault.com/v11/essential/index.html) and [total backup set size](https://documentation.commvault.com/v11/essential/index.html) for the initial baseline transfer to Azure.
 - Backup software-independent assessment and reporting tools like:
   - [Aptare](https://www.veritas.com/insights/aptare-it-analytics)
   - [Datavoss](https://www.datavoss.com/)
@@ -119,7 +119,7 @@ With pay-per-use can be daunting to customers who are new to the cloud. While yo
 
 ## Implementation guidance
 
-This section provides a brief guide for how to add Azure Storage to an on-premises Commvault deployment. For detailed guidance and planning considerations, see the [Commvault Public Cloud Architecture guide for Microsoft Azure](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf).
+This section provides a brief guide for how to add Azure Storage to an on-premises Commvault deployment.
 
 1. Open the Azure portal, and search for **storage accounts**. You can also click on the default **Storage accounts** icon.
 
@@ -172,7 +172,7 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
     ![Screenshot of the Commvault Command Center user interface. In the left navigation, under **Manage**, **Plans** is selected.](../media/commvault-plan.png)
 
-11. *(Optional)* If you plan to use Azure as a recovery site or Commvault to migrate servers and applications to Azure, it's a best practice to deploy a VSA Proxy in Azure. You can find detailed instructions [here](https://documentation.commvault.com/commvault/v11/article?p=106208.htm).
+11. *(Optional)* If you plan to use Azure as a recovery site or Commvault to migrate servers and applications to Azure, it's a best practice to deploy a VSA Proxy in Azure.
 
 ## Operational guidance
 
@@ -188,8 +188,8 @@ You can also [create log alerts](../../../../../service-health/alerts-activity-l
 
 #### Commvault Command Center
 
-- [Create an alert for cloud storage pools](https://documentation.commvault.com/commvault/v11/article?p=100514_3.htm)
-- For information about where you can view performance reports, job completion and begin basic troubleshooting, see [Dashboards](https://documentation.commvault.com/commvault/v11/article?p=95306_1.htm).
+- [Create an alert for cloud storage pools](https://documentation.commvault.com/v11/essential/configuring_settings_for_dashboard_alert.html)
+- For information about where you can view performance reports, job completion and begin basic troubleshooting, see [Dashboards](https://documentation.commvault.com/2023e/essential/dashboards.html).
 
 ### How to open support cases
 
@@ -218,8 +218,7 @@ In the [Azure portal](https://portal.azure.com) search for **support** in the se
 
 See the following Commvault documentation for further detail:
 
-- [Commvault User Guide](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
-- [Commvault Azure Architecture Guide](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf)
+- [Commvault User Guide](https://documentation.commvault.com/2023e/essential/quick_start_guide.html)
 
 ### Marketplace offerings
 
@@ -227,13 +226,12 @@ Commvault has made it easy to deploy their solution in Azure to protect Azure Vi
 
 - [Deploy Commvault via the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault?tab=Overview)
 - [Commvault for Azure datasheet](https://www.commvault.com/resources/microsoft-azure-cloud-platform-datasheet)
-- [Commvault's list of supported Azure features and services](https://documentation.commvault.com/commvault/v11/article?p=109795_1.htm)
 - [How to use Commvault to protect SAP HANA in Azure](https://azure.microsoft.com/resources/protecting-sap-hana-in-azure/)
 
 ## Next steps
 
 See these additional Commvault resources for information about specialized usage scenarios.
 
-- [Use Commvault to Migrate your servers and applications to Azure](https://www.commvault.com/resources/demonstration-vmware-to-azure-migrations-with-commvault)
+- [Use Commvault to Migrate your servers and applications to Azure](https://www.commvault.com/supported-technologies/microsoft/azure)
 - [Protect SAP in Azure with Commvault](https://www.youtube.com/watch?v=4ZGGE53mGVI)
 - [Protect Office365 with Commvault](https://www.youtube.com/watch?v=dl3nvAacxZU)

@@ -3,11 +3,10 @@ title:  Add, update, or delete a payment method
 description: This article describes how to add, update, or delete a payment method used to pay for an Azure subscription.
 author: bandersmsft
 ms.reviewer: lishepar
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 09/13/2023
 ms.author: banders
 ---
 
@@ -20,14 +19,12 @@ In the Azure portal, you can change your default payment method to a new credit 
 - For a Microsoft Online Service Program (pay-as-you-go) account, you must be an [Account Administrator](add-change-subscription-administrator.md#whoisaa). 
 - For a Microsoft Customer Agreement, you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
 
-[!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
-
 The supported payment methods for Microsoft Azure are credit cards, debit cards, and wire transfer. To get approved to pay by wire transfer, see [Pay for your Azure subscription wire transfer](pay-by-invoice.md).
 
 >[!NOTE]
 > Azure doesn't support virtual or prepaid cards.
 > Credit cards are accepted and debit cards are accepted by most countries or regions.
->   - Hong Kong and Brazil only support credit cards.
+>   - Hong Kong Special Administrative Region and Brazil only support credit cards.
 >   - India supports debit and credit cards through Visa and Mastercard.
 
 With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account).
@@ -44,11 +41,11 @@ When you create a new subscription, you can specify a new credit card. When you 
 
 ## Manage pay-as-you-go credit cards
 
-The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](./troubleshoot-declined-card.md).
+The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../troubleshoot-billing/troubleshoot-declined-card.md).
 
 ### Change credit card for all subscriptions by adding a new credit card
 
-You can change the default credit of your Azure subscription to a new credit card or previously saved credit card in the Azure portal. You must be the Account Administrator to change the credit card. 
+You can change the default credit of your Azure subscription to a new credit card or previously saved credit card in the Azure portal. You must be the Account Administrator to change the credit card.
 
 If multiple subscriptions have the same active payment method, then changing the default payment method on any of the subscriptions also updates the active payment method for the others.
 
@@ -60,7 +57,7 @@ You can change your subscription's default credit card to a new one by following
 1. Select the subscription you'd like to add the credit card to.
 1. Select **Payment methods**.  
     :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods option selected." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. In the top-left corner, select **+ Add** to add a card. A credit card form appears.
+1. In the top-left corner, select **Add payment method** to add a card. A credit card form appears.
 1. Enter credit card details.  
     :::image type="content" source="./media/change-credit-card/sub-add-new-default.png" alt-text="Screenshot showing adding a new card." lightbox="./media/change-credit-card/sub-add-new-default.png" :::
 1. To make this card your default payment method, select **Make this my default payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
@@ -90,10 +87,11 @@ If your credit card gets renewed and the number stays the same, update the exist
 1. Search for **Cost Management + Billing**.
     :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot of Search." lightbox="./media/change-credit-card/search.png" :::
 1. Select **Payment methods**.
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods" lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. Select the credit card that you'd like to edit. A credit card form appears.
-    :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit payment method." lightbox="./media/change-credit-card/edit-card-x.png" :::
-1. Update the credit card details.
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. On the right side of the page, for the credit card that you want to edit, select the ellipsis (`...`) at the end of the row. Select **Edit**. 
+    :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit navigation." lightbox="./media/change-credit-card/edit-card-x.png" :::
+1. Update the credit card details.  
+    :::image type="content" source="./media/change-credit-card/edit-payment-method.png" alt-text="Screenshot showing Edit payment method." lightbox="./media/change-credit-card/edit-payment-method.png" :::
 1. Select **Next**.
 
 ## Manage Microsoft Customer Agreement credit cards
@@ -116,7 +114,20 @@ To change your credit card, follow these steps:
     :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot showing payment methods in menu." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
 1. In the **Default payment method** section, select **Replace**.  
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Screenshot showing Replace." lightbox="./media/change-credit-card/change-payment-method-mca.png" :::
-1. In the new area on the right, either select an existing card from the drop-down or add a new one by selecting the blue **Add new payment method** link.
+1. In the new area on the right, either select an existing card from the drop-down, if available, or add a new one by selecting the blue **Add payment method** link.
+
+### Add a new credit card
+
+1. Search for **Cost Management + Billing**.  
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot showing Search." lightbox="./media/change-credit-card/search.png" :::
+1. Select the subscription you'd like to add the credit card to.
+1. Select **Payment methods**.  
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods option selected." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. In the top-left corner, select **Add payment method** to add a card. A credit card form appears.
+1. Enter credit card details.  
+    :::image type="content" source="./media/change-credit-card/sub-add-new-card-billing-profile.png" alt-text="Screenshot showing adding a new credit card as a payment method." lightbox="./media/change-credit-card/sub-add-new-card-billing-profile.png" :::
+1. To make this card your default payment method, select **Make this my default payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
+1. Select **Next**.
 
 ### Edit a credit card
 

@@ -1,20 +1,25 @@
 ---
-title: Secure your Azure and on-premises environments by removing SMB 1 on Linux
-description: Azure Files supports SMB 3.x and SMB 2.1, but not insecure legacy versions of SMB such as SMB 1. Before connecting to an Azure file share, you might wish to disable older versions of SMB such as SMB 1.
+title: Improve security by disabling SMB 1 on Linux clients
+description: Azure Files supports SMB 3.x and SMB 2.1, but not insecure legacy versions such as SMB 1. This article explains how to disable SMB 1 on Linux clients.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/23/2023
 ms.author: kendownie
-ms.subservice: files 
 ---
 
-# Remove SMB 1 on Linux
-Many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from security guidance about legacy and deprecated versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, older versions of SMB, especially SMB 1, aren't. SMB 1, also known as CIFS (Common Internet File System), is included with many Linux distributions. 
+# Disable SMB 1 on Linux clients
 
-SMB 1 is an outdated, inefficient, and insecure protocol. The good news is that Azure Files doesn't support SMB 1. Also, starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
+Many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from security guidance about legacy and deprecated versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, older versions of SMB, especially SMB 1, aren't. SMB 1, also known as CIFS (Common Internet File System), is included with many Linux distributions.
+
+SMB 1 is an outdated, inefficient, and insecure protocol. The good news is that Azure Files doesn't support SMB 1. Also, starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that will no longer be supported after June 2024. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 ## Linux distribution status
+
 Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation) called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. The following table details the availability of this module parameter on common Linux distributions.
 
 | Distribution | Can disable SMB 1 |
@@ -25,7 +30,7 @@ Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy
 | Debian 8-9 | No |
 | Debian 10+ | Yes |
 | Fedora 29+ | Yes |
-| CentOS 7 | No | 
+| CentOS 7 | No |
 | CentOS 8+ | Yes |
 | Red Hat Enterprise Linux 6.x-7.x | No |
 | Red Hat Enterprise Linux 8+ | Yes |
@@ -49,6 +54,7 @@ disable_legacy_dialects: To improve security it may be helpful to restrict the a
 ```
 
 ## Remove SMB 1
+
 Before disabling SMB 1, confirm that the SMB module isn't currently loaded on your system (which happens automatically if you've mounted an SMB share). Run the following command, which should output nothing if SMB isn't loaded:
 
 ```bash
@@ -93,9 +99,10 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
 ## Next steps
+
 See these links for more information about Azure Files:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Use Azure Files with Linux](storage-how-to-use-files-linux.md)
-- [Troubleshoot SMB issues on Linux](files-troubleshoot-linux-smb.md)
-- [Troubleshoot NFS issues on Linux](files-troubleshoot-linux-nfs.md)
+- [Troubleshoot SMB issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json)
+- [Troubleshoot NFS issues on Linux](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json)

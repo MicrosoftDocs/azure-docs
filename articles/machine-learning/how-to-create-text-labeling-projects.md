@@ -2,14 +2,15 @@
 title: Set up a text labeling project
 titleSuffix: Azure Machine Learning
 description: Learn how to create a project and use the data labeling tool to label text in the project. Specify either a single label or multiple labels to apply to each piece of text.
-author: kvijaykannan 
-ms.author: vkann 
+author: kvijaykannan
+ms.author: vkann
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 02/08/2023
-ms.custom: data4ml, ignite-fall-2021
+ms.date: 02/01/2024
+ms.custom: data4ml
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Set up a text labeling project and export labels
@@ -39,11 +40,11 @@ These data formats are available for text data:
 
 You use these items to set up text labeling in Azure Machine Learning:
 
-[!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
+[!INCLUDE [prerequisites](includes/machine-learning-data-labeling-prerequisites.md)]
 
 ## Create a text labeling project
 
-[!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
+[!INCLUDE [start](includes/machine-learning-data-labeling-start.md)]
 
 1. To create a project, select **Add project**.
 
@@ -65,7 +66,7 @@ You use these items to set up text labeling in Azure Machine Learning:
 
 ## Add workforce (optional)
 
-[!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
+[!INCLUDE [outsource](includes/machine-learning-data-labeling-outsource.md)]
 
 ## Select or create a dataset
 
@@ -117,25 +118,25 @@ To directly upload your data:
 
 ## Configure incremental refresh
 
-[!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
+[!INCLUDE [refresh](includes/machine-learning-data-labeling-refresh.md)]
 
 > [!NOTE]
 > Projects that use tabular (*.csv* or *.tsv*) dataset input can use incremental refresh. But incremental refresh only adds new tabular files. The refresh doesn't recognize changes to existing tabular files.
 
 ## Specify label categories
 
-[!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
+[!INCLUDE [classes](includes/machine-learning-data-labeling-classes.md)]
 
 ## Describe the text labeling task
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-describe.md)]
 
 > [!NOTE]
 > Labelers can select the first nine labels by using number keys 1 through 9.
 
 ## Quality control (preview)
 
-[!INCLUDE [describe](../../includes/machine-learning-data-labeling-quality-control.md)]
+[!INCLUDE [describe](includes/machine-learning-data-labeling-quality-control.md)]
 
 ## Use ML-assisted data labeling
 
@@ -170,102 +171,13 @@ After you train the machine learning model on your manually labeled data, the mo
 
 ## Initialize the text labeling project
 
-[!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
+[!INCLUDE [initialize](includes/machine-learning-data-labeling-initialize.md)]
 
-## Run and monitor the project
+## Troubleshooting
 
-[!INCLUDE [run](../../includes/machine-learning-data-labeling-run.md)]
-
-### Dashboard
-
-The **Dashboard** tab shows the labeling task progress.
-
-:::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Screenshot that shows the text labeling dashboard.":::
-
-The progress charts show how many items have been labeled, skipped, need review, or aren't yet complete. Hover over the chart to see the number of items in each section.
-
-A distribution of the labels for completed tasks is shown below the chart. In some project types, an item can have multiple labels. The total number of labels can exceed the total number of items.
-
-A distribution of labelers and how many items they've labeled also are shown.
-
-The middle section shows a table that has a queue of unassigned tasks. When ML-assisted labeling is off, this section shows the number of manual tasks that are awaiting assignment.
-
-When ML-assisted labeling is on, this section also shows:
-
-* Tasks that contain clustered items in the queue.
-* Tasks that contain pre-labeled items in the queue.
-
-Additionally, when ML-assisted labeling is enabled, you can scroll down to see the ML-assisted labeling status. The **Jobs** sections give links for each of the machine learning runs.
-
-### Data
-
-On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see data that's incorrectly labeled, select it and choose **Reject** to remove the labels and return the data to the unlabeled queue.
-
-If your project uses consensus labeling, review items that have no consensus:
-
-1. Select the **Data** tab.
-1. On the left menu, select  **Review labels**.
-1. On the command bar above **Review labels**, select **All filters**.
-
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot that shows how to select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
-
-1. Under **Labeled datapoints**, select **Consensus labels in need of review** to show only items for which the labelers didn't come to a consensus.
-
-    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot that shows how to select labels in need of review.":::
-
-1. For each item to review, select the **Consensus label** dropdown to view the conflicting labels.
-
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png" alt-text="Screenshot that shows the Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png":::
-
-1. Although you can select an individual labeler to see their labels, to update or reject the labels, you must use the top choice, **Consensus label (preview)**.
-
-### Details tab
-
-View and change details of your project. On this tab, you can:
-
-* View project details and input datasets.
-* Set or clear the **Enable incremental refresh at regular intervals** option, or request an immediate refresh.
-* View details of the storage container that's used to store labeled outputs in your project.
-* Add labels to your project.
-* Edit instructions you give to your labels.
-* Change settings for ML-assisted labeling and kick off a labeling task.
-
-### Access for labelers
-
-[!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
-
-## Add new labels to a project
-
-[!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
-
-## Start an ML-assisted labeling task
-
-[!INCLUDE [start-ml-assist](../../includes/machine-learning-data-labeling-start-ml-assist.md)]
-
-## Export the labels
-
-To export the labels, on the **Project details** page of your labeling project, select the **Export** button. You can export the label data for Machine Learning experimentation at any time.
-
-For all project types except **Text Named Entity Recognition**, you can export label data as:
-
-* A CSV file. The Azure Machine Learning workspace creates the CSV file in a folder inside *Labeling/export/csv*.
-* An [Azure Machine Learning dataset with labels](v1/how-to-use-labeled-dataset.md). 
-
-For **Text Named Entity Recognition** projects, you can export label data as:
-
-* An [Azure Machine Learning dataset (v1) with labels](v1/how-to-use-labeled-dataset.md).
-* A CoNLL file. For this export, you must assign a compute resource. The export process runs offline, and it generates the file as part of an experiment run. When the file is ready to download, a notification is shown in the Azure Machine Learning studio global controls. Select that notification to see a link to the file.
-
-    :::image type="content" source="media/how-to-create-text-labeling-projects/notification-bar.png" alt-text="Screenshot that shows the notification for the file download.":::
-
-Access exported Azure Machine Learning datasets in the **Datasets** section of Machine Learning. The dataset details page also provides sample code you can use to access your labels by using Python.
-
-:::image type="content" source="media/how-to-create-labeling-projects/exported-dataset.png" alt-text="Screenshot that shows an example of the dataset details page in Machine Learning.":::
-
-## Troubleshoot issues
-
-[!INCLUDE [troubleshooting](../../includes/machine-learning-data-labeling-troubleshooting.md)]
+[!INCLUDE [troubleshoot](includes/machine-learning-data-labeling-troubleshoot.md)]
 
 ## Next steps
 
+* [Manage labeling projects](how-to-manage-labeling-projects.md)
 * [How to tag text](how-to-label-data.md#label-text)

@@ -8,20 +8,20 @@ ms.author: parinitarahi
 ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 03/04/2024
 ---
 
 # Create custom curated Azure Container for PyTorch (ACPT) environments in Azure Machine Learning studio
 
-If you're looking to extend curated environment and add Hugging Face (HF) transformers or datasets or any other external packages to be installed, Azure Machine Learning offers to create a new env with docker context containing ACPT curated environment as base image and additional packages on top of it as below.
+In this article you'll learn to create a custom environment in Azure Machine learning. Custom Environments allow you to extend curated environments and add Hugging Face (HF) transformers, datasets or install any other external packages with Azure Machine Learning. Azure machine Learning offers to create a new environment with docker context containing ACPT curated environment as a base image and additional packages on top of it.
 
 ## Prerequisites
 
 Before following the steps in this article, make sure you have the following prerequisites:
 
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
-
 - An Azure Machine Learning workspace. If you don't have one, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one.
 
 ## Navigate to environments
@@ -39,19 +39,19 @@ Navigate to curated environments and search "acpt" to list all the available ACP
 
 ## Get details of the curated environments
 
-To create custom environment, you need the base docker image repository, which can be found in the "Description" section as "Azure Container Registry". Copy the "Azure Container Registry" name, which is used later when you create a new custom environment.
+To create a custom environment, you need the base docker image repository, which can be found in the **Description** section as **Azure Container Registry**. Copy the **Azure Container Registry** name, which is used later when you create a new custom environment.
 
 :::image type="content" source="./media/how-to-azure-container-for-pytorch-environment/get-details-curated-environments.png" alt-text="Screenshot of getting container registry name." lightbox= "./media/how-to-azure-container-for-pytorch-environment/get-details-curated-environments.png":::
 
 ## Navigate to custom environments
 
-Go back and select the " Custom Environments" tab.
+Go back and select the **Custom Environments** tab.
 
 :::image type="content" source="./media/how-to-azure-container-for-pytorch-environment/navigate-to-custom-environment.png" alt-text="Screenshot of navigating to custom environments." lightbox= "./media/how-to-azure-container-for-pytorch-environment/navigate-to-custom-environment.png":::
 
 ## Create custom environments
 
-Select **+ Create**. In the "Create Environment" window, name the environment, description and select "Create a new docker context" in Select environments type section.
+Select **+ Create**. In the "Create Environment" window, name the environment, description, and select **Create a new docker context** in the Select environments type section.
 
 :::image type="content" source="./media/how-to-azure-container-for-pytorch-environment/create-environment-window.png" alt-text="Screenshot of creating custom environment." lightbox= "./media/how-to-azure-container-for-pytorch-environment/create-environment-window.png":::
 

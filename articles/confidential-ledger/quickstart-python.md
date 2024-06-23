@@ -3,7 +3,7 @@ title: Quickstart – Microsoft Azure confidential ledger Python client library
 description: Learn to use the Microsoft Azure confidential ledger client library for Python
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-api
@@ -11,9 +11,9 @@ ms.custom: devx-track-python, mode-api
 
 # Quickstart: Microsoft Azure confidential ledger client library for Python
 
-Get started with the Microsoft Azure confidential ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Microsoft Azure confidential ledger client library for Python. Follow the steps in this article to install the package and try out example code for basic tasks.
 
-Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
+Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamper proofing (to ensure all records are kept intact).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -22,8 +22,9 @@ Microsoft Azure confidential ledger is a new and highly secure service for manag
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 3.6+](/azure/developer/python/configure-local-development-environment)
-- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps)
+[!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)].
+- Python versions [supported by the Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites).
+- [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Set up
 
@@ -37,7 +38,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 In a terminal or command prompt, create a suitable project folder, and then create and activate a Python virtual environment as described on [Use Python virtual environments](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
 
-Install the Azure Active Directory identity client library:
+Install the Microsoft Entra identity client library:
 
 ```terminal
 pip install azure-identity
@@ -67,7 +68,7 @@ pip install azure.confidentialledger
 
 ### Initialization
 
-We can now start writing our Python application.  First, we'll import the required packages.
+We can now start writing our Python application. First, import the required packages.
 
 ```python
 # Import the Azure authentication library
@@ -85,13 +86,13 @@ from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient
 ```
 
-Next, we'll use the [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate the app.
+Next, use the [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate the app.
 
 ```python
 credential = DefaultAzureCredential()
 ```
 
-We'll finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
+Finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
   > Each ledger must have a globally unique name. Replace \<your-unique-ledger-name\> with the name of your ledger in the following example.
@@ -107,9 +108,9 @@ ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 
 ### Use the control plane client library
 
-The control plane client library (azure.mgmt.confidentialledger) allows operations on ledgers, such as creation, modification, and deletion, listing the ledgers associated with a subscription, and getting the details of a specific ledger.
+The control plane client library (azure.mgmt.confidentialledger) allows operations on ledgers, such as creation, modification, deletion, listing the ledgers associated with a subscription, and getting the details of a specific ledger.
 
-In our code, we will first create a control plane client by passing the ConfidentialLedgerAPI the credential variable and your Azure subscription ID (both of which are set above).  
+In the code, first create a control plane client by passing the ConfidentialLedgerAPI the credential variable and your Azure subscription ID (both of which are set above).  
 
 ```python
 confidential_ledger_mgmt = ConfidentialLedgerAPI(
@@ -154,9 +155,9 @@ print (f"- ID: {myledger.id}")
 
 ### Use the data plane client library
 
-Now that we have a ledger, we'll interact with it using the data plane client library (azure.confidentialledger). 
+Now that we have a ledger, interact with it using the data plane client library (azure.confidentialledger). 
 
-First, we will generate and save a confidential ledger certificate.  
+First, we generate and save a confidential ledger certificate.  
 
 ```python
 identity_client = ConfidentialLedgerCertificateClient(identity_url)

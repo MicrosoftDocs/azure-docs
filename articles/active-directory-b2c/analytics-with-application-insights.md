@@ -2,17 +2,21 @@
 title: Track user behavior by using Application Insights
 titleSuffix: Azure AD B2C
 description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
-ms.workload: identity
-ms.date: 08/24/2021
+
+ms.date: 01/26/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to track user behavior by sending event data to Application Insights, so that I can gain insights on user behavior, troubleshoot policies, measure performance, and create notifications.
+
 ---
 
 # Track user behavior in Azure AD B2C by using Application Insights
@@ -34,6 +38,8 @@ In Azure Active Directory B2C (Azure AD B2C), you can send event data directly t
 - Measure performance.
 - Create notifications from Application Insights.
 
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
+
 ## Overview
 
 To enable custom event logs, add an Application Insights technical profile. In the technical profile, you define the Application Insights instrumentation key, the event name, and the claims to record. To post an event, add the technical profile as an orchestration step in a [user journey](userjourneys.md).
@@ -54,8 +60,7 @@ When you use Application Insights, consider the following:
 When you use Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key. For information, see [Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that has your Azure AD subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find the Azure AD directory that has your subscription in the **Directory name** list, and then select **Switch**
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
 1. Choose **Create a resource** in the upper-left corner of the Azure portal, and then search for and select **Application Insights**.
 1. Select **Create**.
 1. For **Name**, enter a name for the resource.
@@ -180,10 +185,12 @@ Open the *TrustFrameworkExtensions.xml* file from the starter pack. Add the tech
 
 ## Add the technical profiles as orchestration steps
 
-Add new orchestration steps that refer to the technical profiles.
+Add new orchestration steps that refer to the technical profiles.  
 
 > [!IMPORTANT]
 > After you add the new orchestration steps, renumber the steps sequentially without skipping any integers from 1 to N.
+
+1. Identify the policy file that contains your user journey, such as `SocialAndLocalAccounts/SignUpOrSignin.xml`, then open it.
 
 1. Call `AppInsights-SignInRequest` as the second orchestration step. This step tracks that a sign-up or sign-in request has been received.
 
@@ -196,10 +203,12 @@ Add new orchestration steps that refer to the technical profiles.
    </OrchestrationStep>
    ```
 
-1. Before the `SendClaims` orchestration step, add a new step that calls `AppInsights-UserSignup`. It's triggered when the user selects the sign-up button in a sign-up or sign-in journey.
+1. Before the `SendClaims` orchestration step, add a new step that calls `AppInsights-UserSignup`. It's triggered when the user selects the sign-up button in a sign-up or sign-in journey. You may need to update the orchestration step, `Order="8"`,to make sure you don't skip any integer from the first to the last orchestration step. 
 
    ```xml
-   <!-- Handles the user selecting the sign-up link in the local account sign-in page -->
+   <!-- Handles the user selecting the sign-up link in the local account sign-in page 
+    The `SendClaims` orchestration step comes after this one,
+    -->
    <OrchestrationStep Order="8" Type="ClaimsExchange">
      <Preconditions>
        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
@@ -218,10 +227,12 @@ Add new orchestration steps that refer to the technical profiles.
    </OrchestrationStep>
    ```
 
-1. After the `SendClaims` orchestration step, call `AppInsights-SignInComplete`. This step shows a successfully completed journey.
+1. After the `SendClaims` orchestration step, call `AppInsights-SignInComplete`. This step shows a successfully completed journey. You may need to update the orchestration step, `Order="10"`, to make sure you don't skip any integer from the first to the last orchestration step. 
 
    ```xml
-   <!-- Track that we have successfully sent a token -->
+   <!-- Track that we have successfully sent a token 
+    The `SendClaims` orchestration step come before this one,
+    -->
    <OrchestrationStep Order="10" Type="ClaimsExchange">
      <ClaimsExchanges>
        <ClaimsExchange Id="TrackSignInComplete" TechnicalProfileReferenceId="AppInsights-SignInComplete" />
@@ -233,7 +244,7 @@ Add new orchestration steps that refer to the technical profiles.
 
 Save and upload the *TrustFrameworkExtensions.xml* file. Then call the relying party policy from your application or use **Run Now** in the Azure portal. Wait for your events to be available in Application Insights.
 
-1. Open the **Application Insights** resource in your Azure Active Directory tenant.
+1. Open the **Application Insights** resource in your Microsoft Entra tenant.
 1. Select **Usage**, and then select **Events**.
 1. Set **During** to **Last hour** and **By** to **3 minutes**. You might need to refresh the window to see the results.
 
@@ -323,6 +334,6 @@ To disable Application Insights logs, change the `DisableTelemetry` metadata to 
 
 ## Next steps
 
-Learn how to [create custom KPI dashboards using Azure Application Insights](../azure-monitor/app/tutorial-app-dashboards.md).
+Learn how to [create custom KPI dashboards using Azure Application Insights](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).
 
 ::: zone-end

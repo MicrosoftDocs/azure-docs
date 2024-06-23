@@ -12,6 +12,12 @@ services: azure-maps
 
 # Add a line layer to the map in the iOS SDK (Preview)
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 A line layer can be used to render `LineString` and `MultiLineString` features as paths or routes on the map. A line layer can also be used to render the outline of `Polygon` and `MultiPolygon` features. A data source is connected to a line layer to provide it with data to render.
 
 > [!TIP]
@@ -19,7 +25,7 @@ A line layer can be used to render `LineString` and `MultiLineString` features a
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Add a line layer
 
@@ -241,6 +247,11 @@ The following screenshot shows the above code displaying a line with arrow icons
 
 See the following articles for more code samples to add to your maps:
 
-* [Create a data source](create-data-source-ios-sdk.md)
-* [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-* [Add a polygon layer](add-polygon-layer-map-ios.md)
+* [Create a data source]
+* [Use data-driven style expressions]
+* [Add a polygon layer]
+
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[Create a data source]: create-data-source-ios-sdk.md
+[Use data-driven style expressions]: data-driven-style-expressions-ios-sdk.md
+[Add a polygon layer]: add-polygon-layer-map-ios.md

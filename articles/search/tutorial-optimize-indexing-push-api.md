@@ -1,23 +1,24 @@
 ---
 title: 'C# tutorial optimize indexing with the push API'
-titleSuffix: Azure Cognitive Search
-description: Learn how to efficiently index data using Azure Cognitive Search's push API. This tutorial and sample code are in C#.
-
+titleSuffix: Azure AI Search
+description: Learn how to efficiently index data using Azure AI Search's push API. This tutorial and sample code are in C#.
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 1/05/2023
-ms.custom: devx-track-csharp
+ms.date: 1/18/2024
+ms.custom:
+  - devx-track-csharp
+  - ignite-2023
 ---
 
 # Tutorial: Optimize indexing with the push API
 
-Azure Cognitive Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *pushing* your data into the index programmatically, or pointing an [Azure Cognitive Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+Azure AI Search supports [two basic approaches](search-what-is-data-import.md) for importing data into a search index: *push* your data into the index programmatically, or pointing an [Azure AI Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
 
-This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). This article explains the key aspects of the application and factors to consider when indexing data.
+This tutorial explains how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing). This article explains the key aspects of the application and what factors to consider when indexing data.
 
-This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
+This tutorial uses C# and the [Azure.Search.Documents library](/dotnet/api/overview/azure/search) from the Azure SDK for .NET to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create an index
@@ -34,37 +35,34 @@ The following services and tools are required for this tutorial.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription.
++ [Create an Azure AI Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription.
 
 <a name="get-service-info"></a>
 
 ## Download files
 
-Source code for this tutorial is in the [optimzize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing/v11) folder in the [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository.
+Source code for this tutorial is in the [optimize-data-indexing/v11](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/optimize-data-indexing/v11) folder in the [Azure-Samples/azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository.
 
 ## Key considerations
 
-When pushing data into an index, there's several key considerations that impact indexing speeds. You can learn more about these factors in the [index large data sets article](search-howto-large-index.md).
+Factors affecting indexing speeds are listed next. You can learn more in [Index large data sets](search-howto-large-index.md).
 
-Six key factors to consider are:
-
-+ **Service tier and number of partitions/replicas** - Adding partitions and increasing your tier will both increase indexing speeds.
-+ **Index Schema** - Adding fields and adding additional properties to fields (such as *searchable*, *facetable*, or *filterable*) both reduce indexing speeds.
++ **Service tier and number of partitions/replicas** - Adding partitions or upgrading your tier increases indexing speeds.
++ **Index schema complexity** - Adding fields and field properties lowers indexing speeds. Smaller indexes are faster to index.
 + **Batch size** - The optimal batch size varies based on your index schema and dataset.
-+ **Number of threads/workers** - a single thread won't take full advantage of indexing speeds
-+ **Retry strategy** - An exponential backoff retry strategy should be used to optimize indexing.
++ **Number of threads/workers** - A single thread won't take full advantage of indexing speeds.
++ **Retry strategy** - An exponential backoff retry strategy is a best practice for optimum indexing.
 + **Network data transfer speeds** - Data transfer speeds can be a limiting factor. Index data from within your Azure environment to increase data transfer speeds.
 
+## 1 - Create Azure AI Search service
 
-## 1 - Create Azure Cognitive Search service
+To complete this tutorial, you need an Azure AI Search service, which you can [create in the portal](search-create-service-portal.md). We recommend using the same tier you plan to use in production so that you can accurately test and optimize indexing speeds.
 
-To complete this tutorial, you'll need an Azure Cognitive Search service, which you can [create in the portal](search-create-service-portal.md). We recommend using the same tier you plan to use in production so that you can accurately test and optimize indexing speeds.
+### Get an admin api-key and URL for Azure AI Search
 
-### Get an admin api-key and URL for Azure Cognitive Search
+This tutorial uses key-based authentication. Copy an admin API key to paste into the **appsettings.json** file.
 
-API calls require the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
-
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -87,7 +85,7 @@ API calls require the service URL and an access key. A search service is created
 
 Once you update *appsettings.json*, the sample program in **OptimizeDataIndexing.sln** should be ready to build and run.
 
-This code is derived from the [C# Quickstart](search-get-started-dotnet.md). You can find more detailed information on the basics of working with the .NET SDK in that article.
+This code is derived from the C# section of [Quickstart: Full text search using the Azure SDKs](search-get-started-text.md). You can find more detailed information on the basics of working with the .NET SDK in that article.
 
 This simple C#/.NET console app performs the following tasks:
 
@@ -101,12 +99,12 @@ This simple C#/.NET console app performs the following tasks:
 
   + **Hotel.cs** and **Address.cs** contains the schema that defines the index
   + **DataGenerator.cs** contains a simple class to make it easy to create large amounts of hotel data
-  + **ExponentialBackoff.cs** contains code to optimize the indexing process as described below
-  + **Program.cs** contains functions that create and delete the Azure Cognitive Search index, indexes batches of data, and tests different batch sizes
+  + **ExponentialBackoff.cs** contains code to optimize the indexing process as described in this article
+  + **Program.cs** contains functions that create and delete the Azure AI Search index, indexes batches of data, and tests different batch sizes
 
 ### Creating the index
 
-This sample program uses the .NET SDK to define and create an Azure Cognitive Search index. It takes advantage of the `FieldBuilder` class to generate an index structure from a C# data model class.
+This sample program uses the Azure SDK for .NET to define and create an Azure AI Search index. It takes advantage of the `FieldBuilder` class to generate an index structure from a C# data model class.
 
 The data model is defined by the Hotel class, which also contains references to the Address class. The FieldBuilder drills down through multiple class definitions to generate a complex data structure for the index. Metadata tags are used to define the attributes of each field, such as whether it's searchable or sortable.
 
@@ -140,7 +138,7 @@ private static async Task CreateIndexAsync(string indexName, SearchIndexClient i
 
 A simple class is implemented in the **DataGenerator.cs** file to generate data for testing. The sole purpose of this class is to make it easy to generate a large number of documents with a unique ID for indexing.
 
-To get a list of 100,000 hotels with unique IDs, you'd run the following lines of code:
+To get a list of 100,000 hotels with unique IDs, run the following lines of code:
 
 ```csharp
 long numDocuments = 100000;
@@ -150,13 +148,13 @@ List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
 
 There are two sizes of hotels available for testing in this sample: **small** and  **large**.
 
-The schema of your index can have a significant impact on indexing speeds. Because of this impact, it makes sense to convert this class to generate data matching your intended index schema after you run through this tutorial.
+The schema of your index has an effect on indexing speeds. For this reason, it makes sense to convert this class to generate data that best matches your intended index schema after you run through this tutorial.
 
 ## 4 - Test batch sizes
 
-Azure Cognitive Search supports the following APIs to load single or multiple documents into an index:
+Azure AI Search supports the following APIs to load single or multiple documents into an index:
 
-+ [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Documents - Index (REST API)](/rest/api/searchservice/documents)
 + [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch)
 
 Indexing documents in batches will significantly improve indexing performance. These batches can be up to 1000 documents, or up to about 16 MB per batch.
@@ -229,7 +227,7 @@ public static double EstimateObjectSize(object data)
 }
 ```
 
-The function requires an `SearchClient` as well as the number of tries you'd like to test for each batch size. As there may be some variability in indexing times for each batch, we try each batch three times by default to make the results more statistically significant.
+The function requires a `SearchClient` plus the number of tries you'd like to test for each batch size. Because there might be variability in indexing times for each batch, we try each batch three times by default to make the results more statistically significant.
 
 ```csharp
 await TestBatchSizesAsync(searchClient, numTries: 3);
@@ -239,7 +237,7 @@ When you run the function, you should see an output like below in your console:
 
    ![Output of test batch size function](media/tutorial-optimize-data-indexing/test-batch-sizes.png "Output of test batch size function")
 
-Identify which batch size is most efficient and then use that batch size in the next step of the tutorial. You may see a plateau in MB/s across different batch sizes.
+Identify which batch size is most efficient and then use that batch size in the next step of the tutorial. You might see a plateau in MB/s across different batch sizes.
 
 ## 5 - Index data
 
@@ -248,13 +246,15 @@ Now that we've identified the batch size we intend to use, the next step is to b
 + Uses multiple threads/workers.
 + Implements an exponential backoff retry strategy.
 
+Uncomment lines 41 through 49 and rerun and the program. On this run, the sample generates and sends batches of documents, up to 100,000 if you run the code without changing the parameters.
+
 ### Use multiple threads/workers
 
-To take full advantage of Azure Cognitive Search's indexing speeds, you'll likely need to use multiple threads to send batch indexing requests concurrently to the service.  
+To take full advantage of Azure AI Search's indexing speeds, use multiple threads to send batch indexing requests concurrently to the service.  
 
-Several of the key considerations mentioned above impact the optimal number of threads. You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains.
+Several of the key considerations previously mentioned can affect the optimal number of threads. You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains.
 
-As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
+As you ramp up the requests hitting the search service, you might encounter [HTTP status codes](/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
 
 + **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
 + **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
@@ -263,9 +263,9 @@ As you ramp up the requests hitting the search service, you may encounter [HTTP 
 
 If a failure happens, requests should be retried using an [exponential backoff retry strategy](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-Azure Cognitive Search's .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
+Azure AI Search's .NET SDK automatically retries 503s and other failed requests but you should implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can be useful in a retry strategy.
 
-In this sample, we implement our own exponential backoff retry strategy. To implement this strategy, we start by defining some variables including the `maxRetryAttempts` and the initial `delay` for a failed request:
+In this sample, we implement our own exponential backoff retry strategy. We start by defining some variables including the `maxRetryAttempts` and the initial `delay` for a failed request:
 
 ```csharp
 // Create batch of documents for indexing
@@ -280,7 +280,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-The results of the indexing operation are stored in the variable `IndexDocumentResult result`. This variable is important because it allows you to check if any documents in the batch failed as shown below. If there is a partial failure, a new batch is created based on the failed documents' ID.
+The results of the indexing operation are stored in the variable `IndexDocumentResult result`. This variable is important because it allows you to check if any documents in the batch failed as shown below. If there's a partial failure, a new batch is created based on the failed documents' ID.
 
 `RequestFailedException` exceptions should also be caught as they indicate the request failed completely and should also be retried.
 
@@ -340,7 +340,7 @@ do
 
 From here, we wrap the exponential backoff code into a function so it can be easily called.
 
-Another function is then created to manage the active threads. For simplicity, that function isn't included here but can be found in [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). The function can be called with the following command where `hotels` is the data we want to upload, `1000` is the batch size, and `8` is the number of concurrent threads:
+Another function is then created to manage the active threads. For simplicity, that function isn't included here but can be found in **ExponentialBackoff.cs**. The function can be called with the following command where `hotels` is the data we want to upload, `1000` is the batch size, and `8` is the number of concurrent threads:
 
 ```csharp
 await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
@@ -361,11 +361,11 @@ After the function is finished running, you can verify that all of the documents
 
 ## 6 - Explore index
 
-You can explore the populated search index after the program has run programatically or using the [**Search explorer**](search-explorer.md) in the portal.
+You can explore the populated search index after the program has run programmatically or using the [**Search explorer**](search-explorer.md) in the portal.
 
 ### Programatically
 
-There are two main options for checking the number of documents in an index: the [Count Documents API](/rest/api/searchservice/count-documents) and the [Get Index Statistics API](/rest/api/searchservice/get-index-statistics). Both paths may require some additional time to update so don't be alarmed if the number of documents returned is lower than you expected initially.
+There are two main options for checking the number of documents in an index: the [Count Documents API](/rest/api/searchservice/count-documents) and the [Get Index Statistics API](/rest/api/searchservice/get-index-statistics). Both paths require time to process so don't be alarmed if the number of documents returned is initially lower than you expect.
 
 #### Count Documents
 
@@ -385,15 +385,15 @@ var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 
 ### Azure portal
 
-In Azure portal, open the search service **Overview** page, and find the **optimize-indexing** index in the **Indexes** list.
+In Azure portal, from the left navigation pane, and find the **optimize-indexing** index in the **Indexes** list.
 
-  ![List of Azure Cognitive Search indexes](media/tutorial-optimize-data-indexing/portal-output.png "List of Azure Cognitive Search indexes")
+  ![List of Azure AI Search indexes](media/tutorial-optimize-data-indexing/portal-output.png "List of Azure AI Search indexes")
 
-The *Document Count* and *Storage Size* are based on [Get Index Statistics API](/rest/api/searchservice/get-index-statistics) and may take several minutes to update.
+The *Document Count* and *Storage Size* are based on [Get Index Statistics API](/rest/api/searchservice/get-index-statistics) and can take several minutes to update.
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure AI Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
 The sample code for this tutorial checks for existing indexes and deletes them so that you can rerun your code.
 
@@ -407,7 +407,7 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 ## Next steps
 
-Now that you're familiar with the concept of ingesting data efficiently, let's take a closer look at Lucene query architecture and how full text search works in Azure Cognitive Search.
+To learn more about indexing large amounts data, try the following tutorial.
 
 > [!div class="nextstepaction"]
-> [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
+> [Tutorial: Index large data from Apache Spark using SynapseML and Azure AI Search](search-synapseml-cognitive-services.md)

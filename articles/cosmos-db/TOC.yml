@@ -5,14 +5,25 @@
   items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: FAQ
+      href: faq.yml
     - name: Try Azure Cosmos DB free
       href: try-free.md
+    - name: Azure AI Advantage free trial
+      href: ai-advantage.md
     - name: Choose an API
       href: choose-api.md
     - name: Distributed NoSQL
       href: distributed-nosql.md
     - name: Distributed relational
       href: distributed-relational.md
+    - name: Vector databases in Azure Cosmos DB
+      expanded: true
+      items:
+      - name: Vector Databases
+        href: vector-database.md
+      - name: Vector Search in Azure Cosmos DB NoSQL
+        href: nosql/vector-search.md
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB

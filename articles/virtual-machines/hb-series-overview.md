@@ -1,16 +1,20 @@
 ---
 title: HB-series VM overview - Azure Virtual Machines | Microsoft Docs
-description: Learn about the preview support for the HB-series VM size in Azure. 
+description: Learn about the preview support for the HB-series VM size in Azure.
 ms.service: virtual-machines
 ms.subservice: hpc
+ms.custom:
 ms.topic: article
-ms.date: 03/04/2023
+ms.date: 04/20/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # HB-series virtual machines overview
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -50,8 +54,11 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
 | Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
-| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 15.4, WinServer 2016+  |
 | Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options) |
+
+> [!IMPORTANT]
+> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
 
 ## Next steps
 

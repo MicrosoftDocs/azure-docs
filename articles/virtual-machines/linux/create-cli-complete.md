@@ -1,18 +1,18 @@
 ---
-title: Create a Linux environment with the Azure CLI 
+title: Create a Linux environment with the Azure CLI
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: how-to
 ms.date: 3/29/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.reviewer: mattmcinnes
 ---
 # Create a complete Linux virtual machine with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
 To quickly create a virtual machine (VM) in Azure, you can use a single Azure CLI command that uses default values to create any required supporting resources. Resources such as a virtual network, public IP address, and network security group rules are automatically created. For more control of your environment in production use, you may create these resources ahead of time and then add your VMs to them. This article guides you through how to create a VM and each of the supporting resources one by one.
 
@@ -29,7 +29,7 @@ az group create --name myResourceGroup --location eastus
 
 By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az config set core.output=table](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the `az group create` command:
 
-```json                       
+```json
 {
   "id": "/subscriptions/guid/resourceGroups/myResourceGroup",
   "location": "eastus",
@@ -428,7 +428,7 @@ Output:
 
 
 ## Create an availability set
-Availability sets help spread your VMs across fault domains and update domains. Even though you only create one VM right now, it's best practice to use availability sets to make it easier to expand in the future. 
+Availability sets help spread your VMs across fault domains and update domains. Even though you only create one VM right now, it's best practice to use availability sets to make it easier to expand in the future.
 
 Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. A hardware issue in one of these fault domains does not affect every VM that is running your app.
 
@@ -482,7 +482,7 @@ az vm create \
     --location eastus \
     --availability-set myAvailabilitySet \
     --nics myNic \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

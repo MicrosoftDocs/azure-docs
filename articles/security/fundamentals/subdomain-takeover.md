@@ -6,13 +6,10 @@ services: security
 author: terrylanfear
 manager: rkarlin
 
-ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/19/2023
+ms.date: 03/27/2024
 ms.author: terrylan
 
 ---
@@ -36,7 +33,7 @@ A common scenario for a subdomain takeover:
 
     1. The Azure resource is deprovisioned or deleted after it is no longer needed.
 
-        At this point, the CNAME record `greatapp.contoso.com` *should* be removed from your DNS zone. If the CNAME record isn't removed, it's advertised as an active domain but doesn't route traffic to an active Azure resource. This is the definition of a "dangling" DNS record.
+        At this point, the CNAME record `greatapp.contoso.com` *should* be removed from your DNS zone. If the CNAME record isn't removed, it's advertised as an active domain but doesn't route traffic to an active Azure resource. You now have a "dangling" DNS record.
 
     1. The dangling subdomain, `greatapp.contoso.com`, is now vulnerable and can be taken over by being assigned to another Azure subscription's resource.
 
@@ -52,15 +49,15 @@ A common scenario for a subdomain takeover:
 
 ## The risks of subdomain takeover
 
-When a DNS record points to a resource that isn't available, the record itself should have been removed from your DNS zone. If it hasn't been deleted, it's a "dangling DNS" record and creates the possibility for subdomain takeover.
+When a DNS record points to a resource that isn't available, the record itself should be removed from your DNS zone. If it isn't deleted, it's a "dangling DNS" record and creates the possibility for subdomain takeover.
 
 Dangling DNS entries make it possible for threat actors to take control of the associated DNS name to host a malicious website or service. Malicious pages and services on an organization's subdomain might result in:
 
-- **Loss of control over the content of the subdomain** - Negative press about your organization's inability to secure its content, as well as the brand damage and loss of trust.
+- **Loss of control over the content of the subdomain** - Negative press about your organization's inability to secure its content, brand damage, and loss of trust.
 
-- **Cookie harvesting from unsuspecting visitors** - It's common for web apps to expose session cookies to subdomains (*.contoso.com), consequently any subdomain can access them. Threat actors can use subdomain takeover to build an authentic looking page, trick unsuspecting users to visit it, and harvest their cookies (even secure cookies). A common misconception is that using SSL certificates protects your site, and your users' cookies, from a takeover. However, a threat actor can use the hijacked subdomain to apply for and receive a valid SSL certificate. Valid SSL certificates grant them access to secure cookies and can further increase the perceived legitimacy of the malicious site.
+- **Cookie harvesting from unsuspecting visitors** - It's common for web apps to expose session cookies to subdomains (*.contoso.com). Any subdomain can access them. Threat actors can use subdomain takeover to build an authentic looking page, trick unsuspecting users to visit it, and harvest their cookies (even secure cookies). A common misconception is that using SSL certificates protects your site, and your users' cookies, from a takeover. However, a threat actor can use the hijacked subdomain to apply for and receive a valid SSL certificate. Valid SSL certificates grant them access to secure cookies and can further increase the perceived legitimacy of the malicious site.
 
-- **Phishing campaigns** - Authentic-looking subdomains might be used in phishing campaigns. This is true for malicious sites and for MX records that would allow the threat actor to receive emails addressed to a legitimate subdomain of a known-safe brand.
+- **Phishing campaigns** - Malicious actors often exploit authentic-looking subdomains in phishing campaigns. The risk extends to both malicious websites and MX records, which could enable threat actors to receive emails directed to legitimate subdomains associated with trusted brands.
 
 - **Further risks** - Malicious sites might be used to escalate into other classic attacks such as XSS, CSRF, CORS bypass, and more.
 
@@ -94,7 +91,7 @@ Run the query as a user who has:
 - at least reader level access to the Azure subscriptions
 - read access to Azure resource graph
 
-If you're a global administrator of your organization's tenant, elevate your account to have access to all of your organization's subscription using the guidance in [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
+If you're a Global Administrator of your organization's tenant, follow the guidance in [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md) to gain access to all your organization's subscriptions
 
 > [!TIP]
 > Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment.
@@ -109,17 +106,17 @@ Learn more about the PowerShell script, **Get-DanglingDnsRecords.ps1**, and down
 
 ## Remediate dangling DNS entries
 
-Review your DNS zones and identify CNAME records that are dangling or have been taken over. If subdomains are found to be dangling or have been taken over, remove the vulnerable subdomains and mitigate the risks with the following steps:
+Review your DNS zones and identify CNAME records that are dangling or taken over. If subdomains are found to be dangling or have been taken over, remove the vulnerable subdomains and mitigate the risks with the following steps:
 
 1. From your DNS zone, remove all CNAME records that point to FQDNs of resources no longer provisioned.
 
-1. To enable traffic to be routed to resources in your control, provision additional resources with the FQDNs specified in the CNAME records of the dangling subdomains.
+1. To enable traffic to be routed to resources in your control, provision more resources with the FQDNs specified in the CNAME records of the dangling subdomains.
 
 1. Review your application code for references to specific subdomains and update any incorrect or outdated subdomain references.
 
-1. Investigate whether any compromise has occurred and take action per your organization's incident response procedures. Tips and best practices for investigating this issue can be found below.
+1. Investigate whether any compromise occurred and take action per your organization's incident response procedures. Tips and best practices for investigating:
 
-    If your application logic is such that secrets such as OAuth credentials were sent to the dangling subdomain, or privacy-sensitive information was sent to the dangling subdomains, that data might have been exposed to third-parties.
+    If your application logic results in secrets, such as OAuth credentials, being sent to dangling subdomains or if privacy-sensitive information is transmitted to those subdomains, there is a possibility for this data to be exposed to third parties.
 
 1. Understand why the CNAME record was not removed from your DNS zone when the resource was deprovisioned and take steps to ensure that DNS records are updated appropriately when Azure resources are  deprovisioned in the future.
 
@@ -188,7 +185,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
  
 ### Clean up DNS pointers or Re-claim the DNS
 
-Upon deletion of the classic cloud service resource, the corresponding DNS is reserved for 7 days. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to the Azure AD tenant of the subscription originally owning the DNS. After the reservation expires, the DNS is free to be claimed by any subscription. By taking DNS reservations, the customer is afforded some time to either 1) clean up any associations/pointers to said DNS or 2) re-claim the DNS in Azure. The DNS name being reserved can be derived by appending the cloud service name to the DNS zone for that cloud.
+Upon deletion of the classic cloud service resource, the corresponding DNS is reserved as per Azure DNS policies. During the reservation period, re-use of the DNS will be forbidden EXCEPT for subscriptions belonging to the Microsoft Entra tenant of the subscription originally owning the DNS. After the reservation expires, the DNS is free to be claimed by any subscription. By taking DNS reservations, the customer is afforded some time to either 1) clean up any associations/pointers to said DNS or 2) re-claim the DNS in Azure. The recommendation would be to delete unwanted DNS entries at the earliest. The DNS name being reserved can be derived by appending the cloud service name to the DNS zone for that cloud.
  
 - Public - cloudapp.net
 - Mooncake - chinacloudapp.cn
@@ -198,7 +195,7 @@ Upon deletion of the classic cloud service resource, the corresponding DNS is re
 For example, a hosted service in Public named "test" would have DNS "test.cloudapp.net"
 
 Example:
-Subscription 'A' and subscription 'B' are the only subscriptions belonging to Azure AD tenant 'AB'. Subscription 'A' contains a classic cloud service 'test' with DNS name 'test.cloudapp.net'. Upon deletion of the cloud service, a reservation is taken on DNS name 'test.cloudapp.net'. During the 7 day reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.cloudapp.net' by creating a classic cloud service named 'test'. No other subscriptions will be allowed to claim it. After the 7 days are up, any subscription in Azure can now claim 'test.cloudapp.net'.
+Subscription 'A' and subscription 'B' are the only subscriptions belonging to Microsoft Entra tenant 'AB'. Subscription 'A' contains a classic cloud service 'test' with DNS name 'test.cloudapp.net'. Upon deletion of the cloud service, a reservation is taken on DNS name 'test.cloudapp.net'. During the reservation period, only subscription 'A' or subscription 'B' will be able to claim the DNS name 'test.cloudapp.net' by creating a classic cloud service named 'test'. No other subscriptions will be allowed to claim it. After the reservation period, any subscription in Azure can now claim 'test.cloudapp.net'.
 
 ## Next steps
 

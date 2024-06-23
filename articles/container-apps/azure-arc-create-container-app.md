@@ -4,6 +4,7 @@ description: Get started with Azure Container Apps on Azure Arc-enabled Kubernet
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 3/20/2023
 ms.author: cshoe
@@ -90,9 +91,9 @@ The following example creates a Node.js app.
     --name $myContainerApp \
     --environment $myConnectedEnvironment \
     --environment-type connected \
-    --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+    --image mcr.microsoft.com/k8se/quickstart:latest \
     --target-port 80 \
-    --ingress 'external'
+    --ingress external
 
 az containerapp browse --resource-group $myResourceGroup --name $myContainerApp
 ```
@@ -111,12 +112,12 @@ If there's an error when running a query, try again in 10-15 minutes. There may 
 ```kusto
 let StartTime = ago(72h);
 let EndTime = now();
-ContainerAppsConsoleLogs_CL
+ContainerAppConsoleLogs_CL
 | where TimeGenerated between (StartTime .. EndTime)
-| where AppName_s =~ "my-container-app"
+| where ContainerAppName_s =~ "my-container-app"
 ```
 
-The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppsConsoleLogs_CL`.
+The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppConsoleLogs_CL`.
 
 * **Log_s** contains application logs for a given Container Apps extension
 * **AppName_s** contains the Container App app name. In addition to logs you write via your application code, the *Log_s* column also contains logs on container startup and shutdown.

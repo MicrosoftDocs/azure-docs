@@ -1,0 +1,160 @@
+{
+    "redirections": [
+        
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-oci-artifacts.md",
+            "redirect_url": "/azure/container-registry/container-registry-manage-artifact",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-oras-artifacts.md",
+            "redirect_url": "/azure/container-registry/container-registry-manage-artifact",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-auth-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-registry-cache-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-artifact-cache.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-registry-cache.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-troubleshoot-registry-cache.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/tutorial-troubleshoot-artifact-cache.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
+            "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-enable-conditional-access-policy.md",
+            "redirect_url": "/azure/container-registry/container-registry-configure-conditional-access.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-portal.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-streaming-troubleshoot.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-streaming",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-auth.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-auth-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/tutorial-artifact-cache-troubleshoot.md",
+            "redirect_url": "/azure/container-registry/troubleshoot-artifact-cache",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
+            "redirect_url": "/azure/container-registry/monitor-service"
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
+            "redirect_url": "/azure/container-registry/container-registry-get-started-azure-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-portal.md",
+            "redirect_url": "/azure/container-registry/container-registry-get-started-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-upgrade.md",
+            "redirect_url": "/azure/container-registry/container-registry-skus",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-build-overview.md",
+            "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-tasks-agent-pools.md",
+            "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-tutorial-quick-build.md",
+            "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/policy-samples.md",
+            "redirect_url": "/azure/container-registry/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-headers.md",
+            "redirect_url": "https://github.com/Azure/acr/blob/master/docs/http-headers.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/github-action-scan.md",
+            "redirect_url": "/azure/developer/github/",
+            "redirect_document_id": false
+        }
+    ]
+}

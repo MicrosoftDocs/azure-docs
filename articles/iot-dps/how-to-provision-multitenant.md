@@ -8,6 +8,7 @@ ms.author: kgremban
 ms.topic: tutorial
 ms.date: 08/24/2022
 ms.service: iot-dps
+ms.custom: devx-track-azurecli, linux-related-content
 ---
 
 # Tutorial: Provision for geo latency
@@ -34,7 +35,7 @@ This tutorial uses a simulated device sample from the [Azure IoT C SDK](https://
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create two regional IoT hubs
 
@@ -196,7 +197,7 @@ For each VM:
 
 2. Find and copy the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
-3. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) on both VMs.  Use the tag you found in the previous step as the value for the `-b` parameter:
+3. Clone the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) on both VMs. Use the tag you found in the previous step as the value for the `-b` parameter, for example: `lts_01_2023`.
 
     ```bash
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git

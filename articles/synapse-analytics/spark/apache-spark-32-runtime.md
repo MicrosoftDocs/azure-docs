@@ -1,19 +1,25 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.2
 description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.2.
-author: eskot
+author: ekote
+ms.author: eskot
+ms.reviewer: wiassaf, sngun
 ms.service: synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022
-ms.author: eskot
-ms.custom: has-adal-ref, ignite-2022
-ms.reviewer: eskot
+ms.custom: has-adal-ref, devx-track-dotnet, devx-track-extended-java, devx-track-python
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.2
+# Azure Synapse Runtime for Apache Spark 3.2 (End of Support announced)
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.2.
+
+> [!IMPORTANT]
+> * End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023.
+> * End of Support announced runtime will not have bug and feature fixes. Security fixes will be backported based on risk assessment.
+> * In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.2 will be retired and disabled as of July 8, 2024. After the End of Support date, the retired runtimes are unavailable for new Spark pools and existing workflows can't execute. Metadata will temporarily remain in the Synapse workspace.
+> * **We strongly recommend that you upgrade your Apache Spark 3.2 workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md) before July 8, 2024.** 
 
 ## Component versions
 
@@ -29,6 +35,8 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Delta Lake | 1.2 |
 | Python | 3.8 |
 | R (Preview) | 4.2 | 
+
+[Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml) contains the list of libraries shipped in the default Python 3.8 environment in Azure Synapse Spark.
 
 ## Scala and Java libraries
 
@@ -2410,3 +2418,7 @@ widgetsnbextension==3.5.2
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Apache Spark Documentation](https://spark.apache.org/docs/3.2.1/)
 - [Apache Spark Concepts](apache-spark-concepts.md)
+
+## Migration between Apache Spark versions - support
+
+For guidance on migrating from older runtime versions to Azure Synapse Runtime for Apache Spark 3.3 or 3.4 please refer to [Runtime for Apache Spark Overview](./apache-spark-version-support.md).

@@ -6,8 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Incrementally load data from a source data store to a destination data store
@@ -53,7 +52,7 @@ You can copy new files only, where files or folders has already been time partit
 For step-by-step instructions, see the following tutorial: <br/>
 - [Incrementally copy new files based on time partitioned folder or file name from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
 
-## Next steps
+## Related content
 Advance to the following tutorial: 
 
 > [!div class="nextstepaction"]

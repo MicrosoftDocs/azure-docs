@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/25/2022
 ms.author: msangapu
-ms.custom: "devx-track-dotnet, mvc, seodec18, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli, linux-related-content
 ---
 
 # Create an ASP.NET Core app in a Docker container in App Service from Azure Container Registry
@@ -18,7 +18,7 @@ This sample script creates a resource group, a Linux App Service plan, and an ap
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

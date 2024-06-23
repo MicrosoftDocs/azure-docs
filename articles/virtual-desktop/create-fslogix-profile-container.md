@@ -1,15 +1,14 @@
 ---
-title: FSLogix profile containers NetApp Azure Virtual Desktop - Azure
-description: How to create an FSLogix profile container using Azure NetApp Files in Azure Virtual Desktop.
+title: Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
+description: Learn how to configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: helohr
-manager: femila
 ---
-# Create a profile container with Azure NetApp Files and AD DS
+# Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
 
-We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
+We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Azure Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
@@ -22,6 +21,14 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 
 >[!NOTE]
 >If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
+
+## Considerations 
+
+* To optimize performance and scalability, the number of _concurrent_ users accessing FSLogix profile containers stored on a single Azure NetApp Files regular volume should be limited to 3,000. Having more than 3,000 _concurrent_ users on a single volume causes significant increased latency on the volume. If your scenario requires more than 3,000 _concurrent_ users, divide users across multiple regular volumes or use a large volume. A single large volume can store FSLogix profiles for up to 50,000 _concurrent_ users. For more information on large volumes, see [Requirements and considerations for large volumes](../azure-netapp-files/large-volumes-requirements-considerations.md).
+
+* FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Microsoft Entra users to access profile containers without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined virtual machines (VMs). For more information, see [Access SMB volumes from Microsoft Entra joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
+
+* To protect your FSLogix profile containers, consider using [Azure NetApp Files snapshots](../azure-netapp-files/snapshots-introduction.md) and [Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md).
 
 ## Prerequisites
 
@@ -36,45 +43,22 @@ To get started, you need to set up an Azure NetApp Files account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Make sure your account has contributor or administrator permissions.
 
-2. Select the **Azure Cloud Shell icon** to the right of the search bar to open Azure Cloud Shell.
-
-3. Once Azure Cloud Shell is open, select **PowerShell**.
-
-4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Azure Virtual Desktop.
-
-   > [!div class="mx-imgBorder"]
-   > ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
-
-5. Once Azure Cloud Shell loads, run the following two cmdlets.
-
-   ```azurecli
-   az account set --subscription <subscriptionID>
-   ```
-
-   ```azurecli
-   az provider register --namespace Microsoft.NetApp --wait
-   ```
-
-6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
+1. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
    > [!div class="mx-imgBorder"]
    > ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
 
 
-7. Select **Azure NetApp Files** in the search results, then select **Create**.
+1. Select **Azure NetApp Files** in the search results, then select **Create**.
 
-8. Select the **Add** button.
-9. When the **New NetApp account** tab opens, enter the following values:
+1. When the **New NetApp account** tab opens, enter the following values:
 
     - For **Name**, enter your NetApp account name.
     - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
     - For **Resource group**, either select an existing resource group from the drop-down menu or create a new one by selecting **Create new**.
     - For **Location**, select the region for your NetApp account from the drop-down menu. This region must be the same region as your session host VMs.
 
-   >[!NOTE]
-   >Azure NetApp Files currently doesn't support mounting of a volume across regions.
-
-10. When you're finished, select **Create** to create your NetApp account.
+1. When you're finished, select **Create** to create your NetApp account.
 
 ## Create a capacity pool
 
@@ -89,7 +73,7 @@ Next, create a new capacity pool:
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
        >[!NOTE]
        >The Premium setting provides the minimum throughput available for a Premium Service level, which is 256 MBps. You may need to adjust this throughput for a production environment. Final throughput is based on the relationship described in [Throughput limits](../azure-netapp-files/azure-netapp-files-service-levels.md).
-    - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
+    - For **Size (TiB)**, enter the capacity pool size that best fits your needs. 
 
 5. When you're finished, select **OK**.
 
@@ -108,7 +92,7 @@ After that, you need to join an Active Directory connection.
     - For **AD DNS Domain Name**, enter your fully qualified domain name (FQDN).
     - For **AD Site Name**, enter the Active Directory Site name that the domain controller discovery will be limited to. This should match the Site name in Active Directory Sites and Services for the Site created to represent the Azure virtual network environment. This Site must be reachable by Azure NetApp Files in Azure. 
     - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
-    - For **Organizational unit path**, this is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is OU=AADDC Computers when you configure Active Directory for your NetApp account.
+    - For **Organizational unit path**, this is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. If you are using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is OU=AADDC Computers when you configure Active Directory for your NetApp account.
     - For **Credentials**, insert username and password: 
       
       ![A screenshot of the Join Active Directory connections menu for username and password.](media/active-directory-connections-credentials.png)
@@ -186,7 +170,7 @@ This section is based on [Create a profile container for a host pool using a fil
      >[!WARNING]
      >Be careful when creating the *DeleteLocalProfileWhenVHDShouldApply* value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
 
-## Make sure users can access the Azure NetApp File share
+## Make sure users can access the Azure NetApp Files share
 
 1. Browse to <https://rdweb.wvd.microsoft.com/arm/webclient>.
 

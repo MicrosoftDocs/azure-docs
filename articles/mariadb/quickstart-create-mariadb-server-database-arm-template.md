@@ -1,15 +1,17 @@
 ---
-title: 'Quickstart: Create an Azure DB for MariaDB - ARM template'
+title: 'Quickstart: Create an Azure Database for MariaDB - ARM template'
 description: In this Quickstart article, learn how to create an Azure Database for MariaDB server by using an Azure Resource Manager template.
 ms.service: mariadb
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 06/24/2022
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for MariaDB server
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB is a managed service that you use to run, manage, and scale highly available MariaDB databases in the cloud. In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Database for MariaDB server in the Azure portal, PowerShell, or Azure CLI.
 
@@ -17,7 +19,7 @@ Azure Database for MariaDB is a managed service that you use to run, manage, and
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformariadb%2Fmanaged-mariadb-with-vnet%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformariadb%2Fmanaged-mariadb-with-vnet%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -41,10 +43,9 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 You create an Azure Database for MariaDB server with a defined set of compute and storage resources. To learn more, see [Azure Database for MariaDB pricing tiers](concepts-pricing-tiers.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/managed-mariadb-with-vnet/).
-
+<!--
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformariadb/managed-mariadb-with-vnet/azuredeploy.json":::
-
+-->
 The template defines five Azure resources:
 
 * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
@@ -61,7 +62,7 @@ More Azure Database for MariaDB template samples can be found in [Azure Quicksta
 
 Select the following link to deploy the Azure Database for MariaDB server template in the Azure portal:
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformariadb%2Fmanaged-mariadb-with-vnet%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.dbformariadb%2Fmanaged-mariadb-with-vnet%2Fazuredeploy.json":::
 
 On the **Deploy Azure Database for MariaDB with VNet** page:
 

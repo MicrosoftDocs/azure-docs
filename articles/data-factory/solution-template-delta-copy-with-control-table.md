@@ -6,8 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Delta copy from a database with a control table
@@ -135,7 +134,7 @@ The template defines following parameters:
     
     :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png" alt-text="Screenshot showing where to configure Polybase.":::
 	
-## Next steps
+## Related content
 
 - [Bulk copy from a database by using a control table with Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 - [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)

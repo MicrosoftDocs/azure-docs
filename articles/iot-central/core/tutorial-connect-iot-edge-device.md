@@ -1,10 +1,9 @@
 ---
 title: Tutorial - Connect an IoT Edge device to your application
-titleSuffix: Azure IoT Central
 description: This tutorial shows you how to register, provision, and connect an IoT Edge device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/14/2022
+ms.date: 03/04/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -112,7 +111,7 @@ Select **Review + create** and then **Create**. Wait for the deployment to finis
 
 To verify the deployment of the IoT Edge device was successful:
 
-1. In your IoT Central application, navigate to the **Devices** page. Check the status of the **Environmental sensor - 001** device is **Provisioned**. You may need to wait for a few minutes while the device connects.
+1. In your IoT Central application, navigate to the **Devices** page. Check the status of the **Environmental sensor - 001** device is **Provisioned**. You might need to wait for a few minutes while the device connects.
 
 1. Navigate to the **Environmental sensor - 001** device.
 
@@ -128,7 +127,7 @@ At the moment, the IoT Edge device doesn't have a device template assigned, so a
 
 ## Add a device template
 
-A deployment manifest may include definitions of properties exposed by a module. For example, the configuration in the deployment manifest for the **SimulatedTemperatureSensor** module includes the following:
+A deployment manifest can include definitions of properties exposed by a module. For example, the configuration in the deployment manifest for the **SimulatedTemperatureSensor** module includes the following:
 
 ```json
 "SimulatedTemperatureSensor": {
@@ -163,7 +162,7 @@ A deployment manifest can only define module properties, not commands or telemet
 
 1. Navigate to the **SimulatedTemperatureSensor** module in the **Environmental sensor** device template.
 
-1. Select **Add inherited interface** (you may need to select **...** to see this option). Select **Import interface**. Then import the *EnvironmentalSensorTelemetry.json* file you previously downloaded.
+1. Select **Add inherited interface** (you might need to select **...** to see this option). Select **Import interface**. Then import the *EnvironmentalSensorTelemetry.json* file you previously downloaded.
 
 The module now includes a **telemetry** interface that defines **machine**, **ambient**, and **timeCreated** telemetry types:
 

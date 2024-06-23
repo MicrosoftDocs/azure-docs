@@ -3,15 +3,16 @@ title: Connect to IBM Informix database
 description: Automate tasks and workflows that manage resources stored in IBM Informix by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: mamccrea
-ms.author: mamccrea
+author: ju-shim
+ms.author: jushiman
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/07/2020
-tags: connectors
+ms.date: 01/04/2024
 ---
 
 # Manage IBM Informix database resources by using Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Informix connector](/connectors/informix/), you can create automated tasks and workflows that manage resources in an IBM Informix database. This connector includes a Microsoft client that communicates with remote Informix server computers across a TCP/IP network, including cloud-based databases such as IBM Informix for Windows running in Azure virtualization and on-premises databases when you use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). You can connect to these Informix platforms and versions if they are configured to support Distributed Relational Database Architecture (DRDA) client connections:
 

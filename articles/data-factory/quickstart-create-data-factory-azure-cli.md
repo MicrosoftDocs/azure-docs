@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 05/15/2024
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
@@ -18,7 +18,7 @@ For an introduction to the Azure Data Factory service, see [Introduction to Azur
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 > [!NOTE]
 > To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription. For more information, see [Azure roles](quickstart-create-data-factory-powershell.md#azure-roles).
@@ -111,7 +111,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --linked-service-name AzureStorageLinkedService \
-       --properties @AzureStorageLinkedService.json
+       --properties AzureStorageLinkedService.json
    ```
 
 1. In your working directory, create a JSON file with this content, named `InputDataset.json`:
@@ -140,7 +140,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
        --dataset-name InputDataset --factory-name ADFTutorialFactory \
-       --properties @InputDataset.json
+       --properties InputDataset.json
    ```
 
 1. In your working directory, create a JSON file with this content, named `OutputDataset.json`:
@@ -168,7 +168,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
        --dataset-name OutputDataset --factory-name ADFTutorialFactory \
-       --properties @OutputDataset.json
+       --properties OutputDataset.json
    ```
 
 ## Create and run the pipeline
@@ -234,7 +234,7 @@ Finally, create and run the pipeline.
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --name Adfv2QuickStartPipeline \
-       --pipeline @Adfv2QuickStartPipeline.json
+       --pipeline Adfv2QuickStartPipeline.json
    ```
 
 1. Run the pipeline by using the [az datafactory pipeline create-run](/cli/azure/datafactory/pipeline#az-datafactory-pipeline-create-run) command:
@@ -274,7 +274,7 @@ In this quickstart, you created the following JSON files:
 
 Delete them by using standard Bash commands.
 
-## Next steps
+## Related content
 
 - [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md)
 - [Linked services in Azure Data Factory](concepts-linked-services.md)

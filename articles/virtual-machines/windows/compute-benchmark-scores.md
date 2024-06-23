@@ -1,15 +1,13 @@
 ---
-title: Compute benchmark scores for Azure Windows VMs 
+title: Compute benchmark scores for Azure Windows VMs
 description: Compare Coremark compute benchmark scores for Azure VMs running Windows Server.
 author:: DavidBerg-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 05/31/2022
 ms.author: davberg
 ms.reviewer: ladolan
-
 ---
 # Compute benchmark scores for Windows VMs
 
@@ -699,7 +697,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 
 ## About CoreMark
 
-[CoreMark](https://www.eembc.org/coremark/faq.php) is a benchmark that tests the functionality of a microctronoller (MCU) or central processing unit (CPU). CoreMark isn't system dependent, so it functions the same regardless of the platform (for example, big or little endian, high-end or low-end processor).
+[CoreMark](https://www.eembc.org/coremark/faq.php) is a benchmark that tests the functionality of a microcontroller (MCU) or central processing unit (CPU). CoreMark isn't system dependent, so it functions the same regardless of the platform (for example, big or little endian, high-end or low-end processor).
 
 Windows numbers were computed by running CoreMark on Windows Server 2019. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to `PThreads`. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Test run dates shown above. Tests run on multiple VMs across Azure public regions the VM was supported in on the date run.
 

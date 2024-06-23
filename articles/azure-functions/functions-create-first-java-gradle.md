@@ -3,7 +3,7 @@ title: Use Java and Gradle to publish a function to Azure
 description: Create and publish an HTTP-triggered function to Azure with Java and Gradle.
 author: KarlErickson
 ms.devlang: java
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-extended-java
 ms.author: karler
 ms.topic: quickstart
 ms.date: 04/08/2020
@@ -20,7 +20,7 @@ This article shows you how to build and publish a Java function project to Azure
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21. (Java 21 is currently supported in preview on Linux only)
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 - [Gradle](https://gradle.org/), version 6.8 and above

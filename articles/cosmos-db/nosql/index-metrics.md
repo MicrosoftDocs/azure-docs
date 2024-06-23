@@ -14,14 +14,19 @@ ms.reviewer: jucocchi
 
 Azure Cosmos DB provides indexing metrics to show both utilized indexed paths and recommended indexed paths. You can use the indexing metrics to optimize query performance, especially in cases where you aren't sure how to modify the [indexing policy](../index-policy.md)).
 
-> [!NOTE]
-> The indexing metrics are only supported in the .NET SDK (version 3.21.0 or later) and Java SDK (version 4.19.0 or later)
+## Supported SDK versions
+Indexing metrics are supported in the following SDK versions:
+| SDK | Supported versions |
+| --- | --- | 
+| .NET SDK v3 | >= 3.21.0 |
+| Java SDK v4 | >= 4.19.0 | 
+| Python SDK | >= 4.6.0 | 
 
 ## Enable indexing metrics
 
 You can enable indexing metrics for a query by setting the `PopulateIndexMetrics` property to `true`. When not specified, `PopulateIndexMetrics` defaults to `false`. We only recommend enabling the index metrics for troubleshooting query performance. As long as your queries and indexing policy stay the same, the index metrics are unlikely to change. Instead, we recommend identifying expensive queries by monitoring query RU charge and latency using diagnostic logs.
 
-### .NET SDK example
+## [.NET SDK](#tab/dotnet)
 
 ```csharp
     string sqlQueryText = "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2";
@@ -42,6 +47,67 @@ You can enable indexing metrics for a query by setting the `PopulateIndexMetrics
           Console.WriteLine(response.IndexMetrics);
         }
 ```
+
+## [Java SDK Sync](#tab/java-sync)
+
+```java    
+    SqlQuerySpec querySpec = new SqlQuerySpec("SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2");
+    CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
+    options.setIndexMetricsEnabled(true);
+
+    CosmosPagedIterable<JsonNode> items = container.queryItems(querySpec, options, JsonNode.class);
+
+    // Print
+    items.iterableByPage().forEach(itemResponse -> {
+        logger.info("diagnostics: {}", itemResponse.getCosmosDiagnostics());
+        for (JsonNode item : itemResponse.getResults()) {
+            logger.info("Item: {}", item.toString());
+        }
+    });  
+```
+
+## [Java SDK Async](#tab/java-async)
+
+```java    
+    SqlQuerySpec querySpec = new SqlQuerySpec("SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2");
+    CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
+    options.setIndexMetricsEnabled(true);
+
+    CosmosPagedFlux<JsonNode> items = container.queryItems(querySpec, options, JsonNode.class);
+    
+    // Print
+    items.byPage(100).flatMap(itemsResponse -> {
+        logger.info("diagnostics: {}",itemsResponse.getCosmosDiagnostics());
+        for (JsonNode item : itemsResponse.getResults()) {
+            logger.info("Item: {}", item.toString());
+        }
+        executeCountQueryPrintSingleResultNumber.incrementAndGet();
+        return Flux.just(itemsResponse);
+    }).blockLast();   
+```
+
+## [JavaScript SDK](#tab/javascript)
+```javascript
+const querySpec = {
+    query: "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2",
+  };
+const { resources: resultsIndexMetrics, indexMetrics } = await container.items
+    .query(querySpec, { populateIndexMetrics: true })
+    .fetchAll();
+console.log("IndexMetrics: ", indexMetrics);
+```
+
+## [Python SDK](#tab/python)
+You can capture index metrics by passing in the populate_index_metrics keyword in query items and then reading the value for "x-ms-cosmos-index-utilization" header from the response. This header is returned only if the query returns some items.
+
+```python
+query_items = container.query_items(query="Select * from c",
+    enable_cross_partition_query=True,
+    populate_index_metrics=True)
+
+print(container.client_connection.last_response_headers['x-ms-cosmos-index-utilization'])
+```
+---
 
 ### Example output
 
@@ -72,7 +138,7 @@ Consider the list of utilized indexed paths as evidence that a query used those 
 
 ## Potential indexed paths
 
-The potential single indexes and utilized composite indexes respectively show the included paths and composite indexes that, if added, the query might utilize. If you see potential indexed paths, you should consider adding them to your indexing policy and observe if they improve query performance.
+The potential single indexes and potential composite indexes respectively show the included paths and composite indexes that, if added, the query might utilize. If you see potential indexed paths, you should consider adding them to your indexing policy and observe if they improve query performance.
 
 Consider the list of potential indexed paths as recommendations rather than conclusive evidence that a query will use a specific indexed path. The potential indexed paths are not an exhaustive list of indexed paths that a query could use. Additionally, it's possible that some potential indexed paths won't have any impact on query performance. [Add the recommended indexed paths](how-to-manage-indexing-policy.md) and confirm that they improve query performance.
 

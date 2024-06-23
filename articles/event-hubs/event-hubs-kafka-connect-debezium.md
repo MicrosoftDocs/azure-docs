@@ -7,21 +7,12 @@ ms.date: 10/18/2021
 
 # Integrate Apache Kafka Connect support on Azure Event Hubs with Debezium for Change Data Capture
 
-**Change Data Capture (CDC)** is a technique used to track row-level changes in database tables in response to create, update, and delete operations. [Debezium](https://debezium.io/) is a distributed platform that builds on top of Change Data Capture features available in different databases (for example, [logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). It provides a set of [Kafka Connect connectors](https://debezium.io/documentation/reference/1.2/connectors/index.html) that tap into row-level changes in database table(s) and convert them into event streams that are then sent to [Apache Kafka](https://kafka.apache.org/).
+**Change Data Capture (CDC)** is a technique used to track row-level changes in database tables in response to create, update, and delete operations. [Debezium](https://debezium.io/) is a distributed platform that builds on top of Change Data Capture features available in different databases (for example, [logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). It provides a set of [Kafka Connect connectors](https://debezium.io/documentation/reference/stable/connectors/index.html) that tap into row-level changes in database tables and convert them into event streams that are then sent to [Apache Kafka](https://kafka.apache.org/).
 
-> [!WARNING]
-> Use of the Apache Kafka Connect framework as well as the Debezium platform and its connectors are **not eligible for product support through Microsoft Azure**.
->
-> Apache Kafka Connect assumes for its dynamic configuration to be held in compacted topics with otherwise unlimited retention. Event Hubs [does not implement compaction as a broker feature](event-hubs-federation-overview.md#log-projections) and always imposes a time-based retention limit on retained events, rooting from the principle that Event Hubs is a real-time event streaming engine and not a long-term data or configuration store.
->
-> While the Apache Kafka project might be comfortable with mixing these roles, Azure believes that such information is best managed in a proper database or configuration store.
->
-> Many Apache Kafka Connect scenarios will be functional, but these conceptual differences between Apache Kafka's and Event Hubs' retention models may cause certain configurations not to work as expected. 
-
-This tutorial walks you through how to set up a change data capture based system on Azure using [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure DB for PostgreSQL](../postgresql/overview.md) and Debezium. It will use the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Event Hubs
+This tutorial walks you through how to set up a change data capture based system on Azure using [Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure Database for PostgreSQL](../postgresql/overview.md) and Debezium. It uses the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/stable/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Event Hubs.
 
 > [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this tutorial, you take the following steps:
 
@@ -32,8 +23,8 @@ In this tutorial, you take the following steps:
 > * Test change data capture
 > * (Optional) Consume change data events with a `FileStreamSink` connector
 
-## Pre-requisites
-To complete this walk through, you'll require:
+## Prerequisites
+To complete this walk through, you require:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - Linux/MacOS
@@ -44,24 +35,24 @@ To complete this walk through, you'll require:
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
 
 ## Set up and configure Azure Database for PostgreSQL
-[Azure Database for PostgreSQL](../postgresql/overview.md) is a relational database service based on the community version of open-source PostgreSQL database engine, and is available in three deployment options: Single Server, Flexible Server and Cosmos DB for PostgreSQL. [Follow these instructions](../postgresql/quickstart-create-server-database-portal.md) to create an Azure Database for PostgreSQL server using the Azure portal. 
+[Azure Database for PostgreSQL](../postgresql/overview.md) is a relational database service based on the community version of open-source PostgreSQL database engine, and is available in three deployment options: Single Server, Flexible Server, and Cosmos DB for PostgreSQL. [Follow these instructions](../postgresql/quickstart-create-server-database-portal.md) to create an Azure Database for PostgreSQL server using the Azure portal. 
 
 ## Setup and run Kafka Connect
-This section will cover the following topics:
+This section covers the following topics:
 
 - Debezium connector installation
 - Configuring Kafka Connect for Event Hubs
 - Start Kafka Connect cluster with Debezium connector
 
 ### Download and setup Debezium connector
-Follow the latest instructions in the [Debezium documentation](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-deploying-a-connector) to download and set up the connector.
+Follow the latest instructions in the [Debezium documentation](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-deployment) to download and set up the connector.
 
 - Download the connector’s plug-in archive. For example, to download version `1.2.0` of the connector, use this link - https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
 - Extract the JAR files and copy them to the [Kafka Connect plugin.path](https://kafka.apache.org/documentation/#connectconfigs).
 
 
 ### Configure Kafka Connect for Event Hubs
-Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs.  The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
+Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs. The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
 
 > [!IMPORTANT]
 > - Debezium will auto-create a topic per table and a bunch of metadata topics. Kafka **topic** corresponds to an Event Hubs instance (event hub). For Apache Kafka to Azure Event Hubs mappings, see [Kafka and Event Hubs conceptual mapping](azure-event-hubs-kafka-overview.md#apache-kafka-and-azure-event-hubs-conceptual-mapping). 
@@ -146,7 +137,7 @@ Create a configuration file (`pg-source-connector.json`) for the PostgreSQL sour
 ```
 
 > [!TIP]
-> `database.server.name` attribute is a logical name that identifies and provides a namespace for the particular PostgreSQL database server/cluster being monitored.. For detailed info, check [Debezium documentation](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name)
+> `database.server.name` attribute is a logical name that identifies and provides a namespace for the particular PostgreSQL database server/cluster being monitored.
 
 To create an instance of the connector, use the Kafka Connect REST API endpoint:
 
@@ -161,9 +152,9 @@ curl -s http://localhost:8083/connectors/todo-connector/status
 ```
 
 ## Test change data capture
-To see change data capture in action, you'll need to create/update/delete records in the Azure PostgreSQL database.
+To see change data capture in action, you need to create/update/delete records in the Azure PostgreSQL database.
 
-Start by connecting to your Azure PostgreSQL database (the example below uses [psql](https://www.postgresql.org/docs/12/app-psql.html))
+Start by connecting to your Azure PostgreSQL database (the following example uses [psql](https://www.postgresql.org/docs/12/app-psql.html)).
 
 ```bash
 psql -h <POSTGRES_INSTANCE_NAME>.postgres.database.azure.com -p 5432 -U <POSTGRES_USER_NAME> -W -d <POSTGRES_DB_NAME> --set=sslmode=require
@@ -184,11 +175,11 @@ INSERT INTO todos (description, todo_status) VALUES ('configure and install conn
 INSERT INTO todos (description, todo_status) VALUES ('start connector', 'pending');
 ```
 
-The connector should now spring into action and send change data events to an Event Hubs topic with the following name `my-server.public.todos`, assuming you have `my-server` as the value for `database.server.name` and `public.todos` is the table whose changes you're tracking (as per `table.whitelist` configuration)
+The connector should now spring into action and send change data events to an Event Hubs topic with the following name `my-server.public.todos`, assuming you have `my-server` as the value for `database.server.name` and `public.todos` is the table whose changes you're tracking (as per `table.whitelist` configuration).
 
 **Check Event Hubs topic**
 
-Let's introspect the contents of the topic to make sure everything is working as expected. The below example uses [`kafkacat`](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat), but you can also [create a consumer using any of the options listed here](apache-kafka-developer-guide.md)
+Let's introspect the contents of the topic to make sure everything is working as expected. The below example uses [`kafkacat`](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat), but you can also [create a consumer using any of the options listed here](apache-kafka-developer-guide.md).
 
 Create a file named `kafkacat.conf` with the following contents:
 
@@ -254,9 +245,9 @@ UPDATE todos SET todo_status = 'complete' WHERE id = 3;
 ```
 
 ## (Optional) Install FileStreamSink connector
-Now that all the `todos` table changes are being captured in Event Hubs topic, you'll use the FileStreamSink connector (that is available by default in Kafka Connect) to consume these events.
+Now that all the `todos` table changes are being captured in Event Hubs topic, you use the FileStreamSink connector (that is available by default in Kafka Connect) to consume these events.
 
-Create a configuration file (`file-sink-connector.json`) for the connector - replace the `file` attribute as per your file system
+Create a configuration file (`file-sink-connector.json`) for the connector - replace the `file` attribute as per your file system.
 
 ```json
 {
@@ -286,7 +277,7 @@ tail -f /Users/foo/todos-cdc.txt
 
 
 ## Cleanup
-Kafka Connect creates Event Hub topics to store configurations, offsets, and status that persist even after the Connect cluster has been taken down. Unless this persistence is desired, it's recommended that these topics are deleted. You may also want to delete the `my-server.public.todos` Event Hub that were created during this walk through.
+Kafka Connect creates Event Hubs topics to store configurations, offsets, and status that persist even after the Kafka Connect cluster has been taken down. Unless this persistence is desired, we recommend that you delete these topics. You might also want to delete the `my-server.public.todos` event hub that were created during this walk through.
 
 ## Next steps
 

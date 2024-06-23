@@ -2,7 +2,10 @@
 title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
 ms.topic: tutorial
-ms.date: 12/20/2021
+ms.date: 05/23/2023
+author: schaffererin
+ms.author: schaffererin
+
 ms.custom: mvc
 #Customer intent: As a developer, I want to learn how to update an existing application deployment in an Azure Kubernetes Service (AKS) cluster so that I can maintain the application lifecycle.
 ---
@@ -91,11 +94,10 @@ To correctly use the updated image, tag the *azure-vote-front* image with the lo
 
 ---
 
-
 Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname, and update the image version to *:v2* as follows:
 
 ```console
-docker tag /azure-vote-front:v1 /azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 Now use [docker push][docker-push] to upload the image to your registry. Replace `<acrLoginServer>` with your ACR login server name.
@@ -203,3 +205,4 @@ Advance to the next tutorial to learn how to upgrade an AKS cluster to a new ver
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
 [connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry
+

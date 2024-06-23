@@ -1,15 +1,16 @@
 ---
-title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
-description: This article shows you how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties and commands for your type.
+title: Define a new IoT device type in Azure IoT Central
+description: How to create a device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your device type.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2022
+ms.date: 03/01/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: [contperf-fy21q1, device-developer]
-
+ms.custom: device-developer
 # This article applies to solution builders and device developers.
+
+#customer intent: As an solution builders, I want define the device types that can connect to my application so that I can manage and monitor them effectively.
 ---
 
 # Define a new IoT device type in your Azure IoT Central application
@@ -37,28 +38,28 @@ To learn how to manage device templates by using the IoT Central REST API, see [
 You have several options to create device templates:
 
 - Design the device template in the IoT Central GUI.
-- Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
+- Import a device template from the list of featured device templates. Optionally, customize the device template to your requirements in IoT Central.
 - When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties and views your IoT Central application needs to the device template.
 - When the device connects to IoT Central, let IoT Central [autogenerate a device template](#autogenerate-a-device-template) definition from the data the device sends.
-- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). Manually import the device model into your IoT Central application. Then add the cloud properties and views your IoT Central application needs.
-- You can also add device templates to an IoT Central application using the [How to use the IoT Central REST API to manage device templates](howto-manage-device-templates-with-rest-api.md) or the [CLI](howto-manage-iot-central-from-cli.md).
+- Author a device model using the [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) and [IoT Central DTDL extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md). Manually import the device model into your IoT Central application. Then add the cloud properties and views your IoT Central application needs.
+- You can also add device templates to an IoT Central application using the [How to use the IoT Central REST API to manage device templates](howto-manage-device-templates-with-rest-api.md).
 
 > [!NOTE]
 > In each case, the device code must implement the capabilities defined in the model. The device code implementation isn't affected by the cloud properties and views sections of the device template.
 
-This section shows you how to import a device template from the catalog and how to customize it using the IoT Central GUI. This example uses the **ESP32-Azure IoT Kit** device template from the device catalog:
+This section shows you how to import a device template from the list of featured device templates and how to customize it using the IoT Central GUI. This example uses the **Onset Hobo MX-100 Temp Sensor** device template from the list of featured device templates:
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
-1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
-1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
+1. On the **Select type** page, scroll down until you find the **Onset Hobo MX-100 Temp Sensor** tile in the **Featured device templates** section.
+1. Select the **Onset Hobo MX-100 Temp Sensor** tile, and then select **Next: Review**.
 1. On the **Review** page, select **Create**.
-The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties and commands.
+The name of the template you created is **Hobo MX-100**. The model includes components such as **Hobo MX-100** and **IotDevice**. Components define the capabilities of a Hobo MX-100 device. Capabilities can include  telemetry, properties, and commands. This device only has telemetry capabilities.
 
-:::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a Sensor controller device template." lightbox="media/howto-set-up-template/device-template.png":::
+:::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a device template." lightbox="media/howto-set-up-template/device-template.png":::
 
 ## Autogenerate a device template
 
-You can also automatically create a device template from a connected device that's not yet assigned to a device template. IoT Central uses the telemetry and property values the device sends to infer a device model.
+You can also automatically create a device template from a currently unassigned device. IoT Central uses the telemetry and property values the device sends to infer a device model.
 
 > [!NOTE]
 > Currently, this preview feature can't use telemetry and properties from components. It can only generate capabilities from root telemetry and properties.
@@ -81,7 +82,7 @@ The following steps show how to use this feature:
 
 You can rename or delete a template from the template's editor page.
 
-After you've defined the template, you can publish it. Until the template is published, you can't connect a device to it, and it doesn't appear on the **Devices** page.
+After you define the template, you can publish it. Until the template is published, you can't connect a device to it, and it doesn't appear on the **Devices** page.
 
 To learn more about modifying and versioning device templates, see [Edit an existing device template](howto-edit-device-template.md).
 
@@ -92,8 +93,8 @@ The model defines how your device interacts with your IoT Central application. C
 To create a device model, you can:
 
 - Use IoT Central to create a custom model from scratch.
-- Import a DTDL model from a JSON file. A device builder might have used Visual Studio Code to author a device model for your application.
-- Select one of the devices from the Device Catalog. This option imports the device model that the manufacturer has published for this device. A device model imported like this is automatically published.
+- Import a DTDL model from a JSON file. A device builder might use Visual Studio Code to author a device model for your application.
+- Select one of the devices from the list of featured device templates. This option imports the device model that the manufacturer published for this device. A device model imported like this is automatically published.
 
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
@@ -111,7 +112,7 @@ To view and manage the interfaces in your device model:
 
     :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows root interface for a model":::
 
-1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot-pnp/concepts-modeling-guide.md#multiple-components) in the modeling guide.
+1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot/concepts-modeling-guide.md) in the modeling guide.
 
     :::image type="content" source="media/howto-set-up-template/add-interface.png" alt-text="Screenshot that shows how to add interface or component." lightbox="media/howto-set-up-template/add-interface.png":::
 
@@ -139,7 +140,7 @@ The following table shows the configuration settings for a telemetry capability:
 | Name | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Telemetry. |
 | Semantic Type | The semantic type of the telemetry, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The telemetry data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
+| Schema | The telemetry data type, such as double, string, or vector. The semantic type determines the available choices. Schema isn't available for the event and state semantic types. |
 | Severity | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
 | State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
 | Unit | A unit for the telemetry value, such as **mph**, **%**, or **&deg;C**. |
@@ -161,18 +162,18 @@ The following table shows the configuration settings for a property capability:
 | Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Property. |
 | Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
-| Writable | If the property isn't writable, the device can report property values to IoT Central. If the property is writable, the device can report property values to IoT Central and IoT Central can send property updates to the device.
+| Schema | The property data type, such as double, string, or vector. The semantic type determines the available choices. Schema isn't available for the event and state semantic types. |
+| Writable | If the property isn't writable, the device can report property values to IoT Central. If the property is writable, the device can report property values to IoT Central, and IoT Central can send property updates to the device. |
 | Severity | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**. |
 | State Values | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value. |
 | Unit | A unit for the property value, such as **mph**, **%**, or **&deg;C**. |
 | Display Unit | A display unit for use on views and forms. |
 | Comment | Any comments about the property capability. |
 | Description | A description of the property capability. |
-|Color | This is an IoT Central extension to DTDL. |
-|Min value | Set minimum value - This is an IoT Central extension to DTDL. |
-|Max value | Set maximum value - This is an IoT Central extension to DTDL. |
-|Decimal places | This is an IoT Central extension to DTDL. |
+|Color | An IoT Central extension to DTDL. |
+|Min value | Set minimum value - An IoT Central extension to DTDL. |
+|Max value | Set maximum value - An IoT Central extension to DTDL. |
+|Decimal places | An IoT Central extension to DTDL. |
 
 #### Commands
 
@@ -192,9 +193,9 @@ The following table shows the configuration settings for a command capability:
 | Description | A description of the command capability. |
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
-|Initial value | The default parameter value. This is an IoT Central extension to DTDL. |
+|Initial value | The default parameter value. This parameter is an IoT Central extension to DTDL. |
 
-To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](concepts-telemetry-properties-commands.md#commands).
+To learn more about how devices implement commands, see [Telemetry, property, and command payloads > Commands and long running commands](../../iot/concepts-message-payloads.md#commands).
 
 #### Offline commands
 
@@ -213,7 +214,7 @@ Cloud-to-device messages:
 
 ## Cloud properties
 
-Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you can use cloud properties to store the name of the customer who has installed the device, or the device's last service date.
+Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you can use cloud properties to store the name of the customer who installed the device, or the device's last service date.
 
 :::image type="content" source="media/howto-set-up-template/cloud-properties.png" alt-text="Screenshot that shows how to add cloud properties.":::
 
@@ -227,7 +228,7 @@ The following table shows the configuration settings for a cloud property:
 | Display Name | The display name for the cloud property value used on views and forms. |
 | Name | The name of the cloud property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
 | Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
-| Schema | The cloud property data type, such as double, string, or vector. The available choices are determined by the semantic type. |
+| Schema | The cloud property data type, such as double, string, or vector. The semantic type determines the available choices. |
 
 ## Views
 
@@ -241,7 +242,7 @@ Generating default views is a quick way to visualize your important device infor
 - **Overview**: A view with device telemetry, displaying charts and metrics.
 - **About**: A view with device information, displaying device properties.
 
-After you've selected **Generate default views**, they're automatically added under the **Views** section of your device template.
+After you select **Generate default views**, they're automatically added under the **Views** section of your device template.
 
 ### Custom views
 
@@ -258,10 +259,10 @@ To add a view to a device template:
 
 :::image type="content" source="media/howto-set-up-template/tile.png" alt-text="Screenshot that shows how to configure a tile." lightbox="media/howto-set-up-template/tile.png" :::
 
-To test your view, select **Configure preview device**. This feature lets you see the view as an operator sees it after it's published. Use this feature to validate that your views show the correct data. Choose from the following options:
+To test your view, select **Configure preview device**. This feature lets you see the view as an operator sees it after it publishes. Use this feature to validate that your views show the correct data. Choose from the following options:
 
 - No preview device.
-- The real test device you've configured for your device template.
+- The real test device you configured for your device template.
 - An existing device in your application, by using the device ID.
 
 ### Forms
@@ -285,7 +286,3 @@ Before you can connect a device that implements your device model, you must publ
 To publish a device template, go to you your device template, and select **Publish**.
 
 After you publish a device template, an operator can go to the **Devices** page, and add either real or simulated devices that use your device template. You can continue to modify and save your device template as you're making changes. When you want to push these changes out to the operator to view under the **Devices** page, you must select **Publish** each time.
-
-## Next steps
-
-A suggested next step is to read about how to [Make changes to an existing device template](howto-edit-device-template.md).

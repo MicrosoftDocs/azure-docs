@@ -16,7 +16,7 @@ ms.custom: mqtt, devx-track-js
 
 This article demonstrates how to [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) upload a file to [Azure blob storage](../storage/index.yml), using Node.js.
 
-The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart and [Send cloud-to-device messages with IoT Hub](c2d-messaging-node.md) articles show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](../iot/tutorial-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart and [Send cloud-to-device messages with IoT Hub](c2d-messaging-node.md) articles show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Videos
 * Large files that contain images
@@ -38,13 +38,13 @@ At the end of this article, you run two Node.js console apps:
 
 ## Prerequisites
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
 * Node.js version 10.0.x or later. The LTS version is recommended. You can download Node.js from [nodejs.org](https://nodejs.org).
 
-* Port 8883 should be open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Port 8883 should be open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
@@ -148,7 +148,7 @@ In this section, you create a device app to upload a file to IoT hub. The code i
 
 1. Copy an image file to the `fileupload` folder and give it a name such as `myimage.png`.
 
-1. Add environment variables for your device connection string and the path to the file that you want to upload. You got the device connection string when you registered a device in the IoT Hub.
+1. Add environment variables for your device connection string and the path to the file that you want to upload. You got the device connection string when you registered a device in the IoT hub.
     
     - For Windows:
 
@@ -223,6 +223,13 @@ In this section, you create a Node.js console app that receives file upload noti
             receiver.on('message', function (msg) {
               console.log('File upload from device:')
               console.log(msg.getData().toString('utf-8'));
+              receiver.complete(msg, function (err) {
+                if (err) {
+                  console.error('Could not finish the upload: ' + err.message);
+                } else {
+                  console.log('Upload complete');
+                }
+              });
             });
           }
         });

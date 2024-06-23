@@ -2,16 +2,20 @@
 title: String claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: String claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to understand how to use string claims transformations, so that I can manipulate and compare string claims in my custom policies.
+
 ---
 
 # String claims transformations
@@ -211,13 +215,13 @@ Determines whether a claim value is equal to the input parameter value. Check ou
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | string | String comparison, one of the values, that is, the string to which the input claim values must be compared to: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | string | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 
 ### Example of CompareClaimToValue
 
-Use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `v1`.
+Use this claims transformation to check if a claim is equal to a value you specified. For example, the following claims transformation checks if the value of the **termsOfUseConsentVersion** claim is equal to `V2`.
 
 ```xml
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
@@ -225,8 +229,8 @@ Use this claims transformation to check if a claim is equal to a value you speci
     <InputClaim ClaimTypeReferenceId="termsOfUseConsentVersion" TransformationClaimType="inputClaim1" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="compareTo" DataType="string" Value="V1" />
-    <InputParameter Id="operator" DataType="string" Value="not equal" />
+    <InputParameter Id="compareTo" DataType="string" Value="V2" />
+    <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
     <InputParameter Id="ignoreCase" DataType="string" Value="true" />
   </InputParameters>
   <OutputClaims>
@@ -238,8 +242,8 @@ Use this claims transformation to check if a claim is equal to a value you speci
 - Input claims:
   - **inputClaim1**: v1
 - Input parameters:
-  - **compareTo**: V1
-  - **operator**: EQUAL
+  - **compareTo**: V2
+  - **operator**: NOT EQUAL
   - **ignoreCase**:  true
 - Output claims:
   - **outputClaim**: true
@@ -408,7 +412,7 @@ Formats multiple claims according to a provided localized format string. This tr
 | OutputClaim | outputClaim | string | The claim that is produced after this claims transformation has been invoked. |
 
 > [!NOTE]
-> String format maximum allowed size is 4000.
+> There is no limit to the number of input claims that you can specify, but the maximum length of the formatted string is 4000.
 
 To use the FormatLocalizedString claims transformation:
 
@@ -1145,7 +1149,7 @@ Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/c
 
 ### Example of StringJoin
 
-The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in Azure AD user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
+The following example takes a string collection of user roles, and converts it to a comma delimiter string. You can use this method to store a string collection in an Azure AD B2C user account. Later, when you read the account from the directory, use the `StringSplit` to convert the comma delimiter string back to string collection.
 
 ```xml
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">

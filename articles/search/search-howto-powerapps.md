@@ -1,23 +1,24 @@
 ---
 title: 'Tutorial: Query from Power Apps'
-titleSuffix: Azure Cognitive Search
-description: Step-by-step guidance on how to build a Power App that connects to an Azure Cognitive Search index, sends queries, and renders results.
-
+titleSuffix: Azure AI Search
+description: Step-by-step guidance on how to build a Power App that connects to an Azure AI Search index, sends queries, and renders results.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: tutorial
-ms.date: 02/07/2023
+ms.date: 02/21/2024
 ---
 
-# Tutorial: Query a Cognitive Search index from Power Apps
+# Tutorial: Query an Azure AI Search index from Power Apps
 
-Use the rapid application development environment of Power Apps to create a custom app for your searchable content in Azure Cognitive Search.
+Use the rapid application development environment of Power Apps to create a custom app for your searchable content in Azure AI Search.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Connect to Azure Cognitive Search
+> * Connect to Azure AI Search
 > * Set up a query request
 > * Visualize results in a canvas app
 
@@ -25,11 +26,11 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Prerequisites
 
-* [Power Apps account](https://make.powerapps.com)
+* [Power Apps account](https://make.powerapps.com) with a [premium license](/power-platform/admin/pricing-billing-skus#licenses), such as a Power Apps per apps plan or a Power Apps per user plan.  
 
-* [Hotels-sample index](search-get-started-portal.md) hosted on your search service
+* [Hotels-sample index](search-get-started-portal.md) hosted on your search service.
 
-* [Query API key](search-security-api-keys.md#find-existing-keys)
+* [Query API key](search-security-api-keys.md#find-existing-keys).
 
 ## 1 - Create a custom connector
 
@@ -50,7 +51,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 1. Enter information in the General Page:
 
    * Icon background color (for instance, #007ee5)
-   * Description (for instance, "A connector to Azure Cognitive Search")
+   * Description (for instance, "A connector to Azure AI Search")
    * In the Host, enter your search service URL (such as `<yourservicename>.search.windows.net`)
    * For Base URL, enter "/"
 
@@ -68,15 +69,15 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 
    * Select the verb `GET`
 
-   * For the URL, enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
+   * For the URL, enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2023-11-01`. Omit the `https://` prefix.
 
-   * For Headers, type `Content-Type`. You'll set the value to `application/json` in a later step.
+   * For Headers, type `Content-Type application/json`.
 
      **Power Apps** uses the syntax in the URL to extract parameters from the query: search, select, and api-version parameters become configurable as you progress through the wizard.
 
        :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Import from sample" border="true":::
 
-1. Select **Import** to auto-fill the Request. Complete setting the parameter metadata by clicking the **...** symbol next to each of the parameters. Select **Back** to return to the Request page after each parameter update.
+1. Select **Import** to autofill the Request. Complete setting the parameter metadata by clicking the **...** symbol next to each of the parameters. Select **Back** to return to the Request page after each parameter update.
 
    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Import from sample dialogue" border="true":::
 
@@ -88,7 +89,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Select parameter metadata" border="true":::
 
-1. For *api-version*: Set `2020-06-30` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
+1. For *api-version*: Set `2023-11-01` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
 
@@ -100,12 +101,12 @@ A connector in Power Apps is a data source connection. In this step, create a cu
     parameters:
       - {name: search, in: query, required: false, type: string, default: '*'}
       - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
-      - {name: api-version, in: query, required: true, type: string, default: '2020-06-30',
+      - {name: api-version, in: query, required: true, type: string, default: '2023-11-01',
         x-ms-visibility: internal}
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
-1. Switch back to the wizard and return to the **3. Request** step. Scroll down to the Response section. Select **"Add default response"**. This step is critical because it helps Power Apps understand the schema of the response. 
+1. Switch back to the wizard and return to the **3. Definition** step. Scroll down to the Response section. Select **"Add default response"**. This step is critical because it helps Power Apps understand the schema of the response. 
 
 1. Paste a sample response. An easy way to capture a sample response is through Search Explorer in the Azure portal. In Search Explorer, you should enter the same query as you did for the request, but add **$top=2** to constrain results to just two documents: `search=*&$select=HotelName,Description,Address/City&$top=2`. 
 
@@ -148,7 +149,7 @@ A connector in Power Apps is a data source connection. In this step, create a cu
 
 When the connector is first created, you need to reopen it from the Custom Connectors list in order to test it. Later, if you make more updates, you can test from within the wizard.
 
-You'll need a [query API key](search-security-api-keys.md#find-existing-keys) for this task. Each time a connection is created, whether for a test run or inclusion in an app, the connector needs the query API key used for connecting to Azure Cognitive Search.
+Provide a [query API key](search-security-api-keys.md#find-existing-keys) for this task. Each time a connection is created, whether for a test run or inclusion in an app, the connector needs the query API key used for connecting to Azure AI Search.
 
 1. On the far left, select **Custom Connectors**.
 
@@ -158,13 +159,11 @@ You'll need a [query API key](search-security-api-keys.md#find-existing-keys) fo
 
     :::image type="content" source="./media/search-howto-powerapps/1-11-1-test-connector.png" alt-text="View Properties" border="true":::
 
-1. Select **Edit** on the top right.
+1. In the drop down list of operations, select **6. Test**.
 
-1. Select **5. Test** to open the test page.
+1. In **Test Operation**, select **+ New Connection**.
 
-1. In Test Operation, select **+ New Connection**.
-
-1. Enter a query API key. This is an Azure Cognitive Search query for read-only access to an index. You can [find the key](search-security-api-keys.md#find-existing-keys) in the Azure portal. 
+1. Enter a query API key. This is an Azure AI Search query for read-only access to an index. You can [find the key](search-security-api-keys.md#find-existing-keys) in the Azure portal. 
 
 1. In Operations, select the **Test operation** button. If you're successful you should see a 200 status, and in the body of the response you should see JSON that describes the search results.
 
@@ -176,13 +175,11 @@ If the test fails, recheck the inputs. In particular, revisit the sample respons
 
 In this step, create a Power App with a search box, a search button, and a display area for the results. The Power App will connect to the recently created custom connector to get the data from Azure Search.
 
-1. On the left, expand **Apps** > **+ New app** > **Canvas**.
+1. On the left, expand **Apps** > **New app** > **Start with a page design**.
 
-    :::image type="content" source="./media/search-howto-powerapps/2-1-create-canvas.png" alt-text="Create canvas app" border="true":::
+1. Select a **Blank canvas** with the **Phone Layout**. Give the app a name, such as "Hotel Finder". Select **Create**. The **Power Apps Studio** appears.
 
-1. Select the type of application. For this tutorial, create a **Blank App** with the **Phone Layout**. Give the app a name, such as "Hotel Finder". Select **Create**. The **Power Apps Studio** appears.
-
-1. In the studio, select the **Data Sources** tab, select **+ Add data**, and then find the new Connector you have just created. In this tutorial, it's called *AzureSearchQuery*. Select **Add a connection**.
+1. In the studio, select the **Data** tab, select **Add data**, and then find the new Connector you have just created. In this tutorial, it's called *AzureSearchQuery*. Select **Add a connection**.
 
    Enter the query API key.
 
@@ -254,7 +251,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
+Remember that a free search service is limited to three indexes, indexers, and data sources. You can delete individual items in the Azure portal to stay under the limit.
 
 ## Next steps
 

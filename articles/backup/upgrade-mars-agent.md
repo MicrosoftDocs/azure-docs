@@ -1,12 +1,12 @@
 ---
-title: Upgrade the Microsoft Azure Recovery Services (MARS) agent
+title: Upgrade the Microsoft Azure Recovery Services (MARS) agent for Azure Backup
 description: Learn how to upgrade the Microsoft Azure Recovery Services (MARS) agent.
 ms.topic: how-to
-ms.date: 12/28/2022
+ms.date: 08/27/2023
 ms.service: backup
-ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Upgrade the Microsoft Azure Recovery Services (MARS) agent
@@ -17,7 +17,7 @@ Azure Backup uses the MARS agent to back up and recover files, folders, and the 
 
 ## Identify servers with earlier versions of the MARS agent
 
-For Installations of Azure Backup agent and Azure Backup server:
+To install the Azure Backup agent and Azure Backup server, follow these steps:
 
 1. Go to the Recovery Services vault where you have registered servers that are potentially being backed up by older versions of the agent. You can find a representative list of vaults with older Azure Backup agents in the Azure Backup Update alerts from Azure.
 1. On the left-side **Settings** section of the Recovery Services vault, select **Backup Infrastructure** under the **Manage** section.
@@ -57,7 +57,7 @@ Once you've identified the servers that need an Azure Backup agent update, perfo
     Azure Cloud | URL
     --- | ---
     Azure Cloud (Public) |   `https://login.windows.net`
-    Azure China 21Vianet Cloud   | `https://login.chinacloudapi.cn`
+    Microsoft Azure operated by 21Vianet Cloud   | `https://login.chinacloudapi.cn`
     Azure US Government Cloud |   `https://login.microsoftonline.us`
     Azure German Cloud  |  `https://login.microsoftonline.de`
 

@@ -2,12 +2,12 @@
 title: Quickstart for Microsoft Azure Data Box Disk| Microsoft Docs
 description: Use this quickstart to quickly deploy your Azure Data Box Disk in Azure portal
 services: databox
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 11/04/2020
-ms.author: alkohli
+ms.date: 03/26/2024
+ms.author: shaas
 ms.custom: mode-ui, devx-track-azurecli
 #Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -16,17 +16,17 @@ ms.custom: mode-ui, devx-track-azurecli
 
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
 
-This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure.
+This quickstart describes the process of deploying Azure Data Box Disk using the Azure portal. Follow the steps in this article to create an order; receive, unpack, and connect disks; and copy data to the device for upload to Azure.
 
-For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
+For detailed step-by-step deployment and tracking instructions, refer to the [Order Azure Data Box Disk](data-box-disk-deploy-ordered.md) tutorial. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F&preserve-view=true).
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-This guide walks you through the steps of using the Azure Data Box Disk in the Azure portal. This guide helps answer the following questions.
+This guide describes the process of deploying Azure Data Box Disk using the Azure portal, and helps answer the following questions.
 
 ::: zone-end
 
@@ -36,7 +36,7 @@ This guide walks you through the steps of using the Azure Data Box Disk in the A
 
 Before you begin:
 
-- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](https://aka.ms/azuredataboxfromdiskdocs).
+- Ensure that your subscription is enabled for Azure Data Box service. If necessary, [sign up for the service](https://aka.ms/azuredataboxfromdiskdocs) to enable it on our subscription.
 
 ## Sign in to Azure
 
@@ -63,12 +63,12 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 
 ### [Portal](#tab/azure-portal)
 
-This step takes roughly 5 minutes.
+This step takes approximately 5 minutes.
 
-1. Create a new Azure Data Box resource in the Azure portal. 
+1. Create a new **Azure Data Box** resource in the Azure portal.
 2. Select a subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
 3. Select **Data Box Disk**. The maximum solution capacity is 35 TB and you can create multiple disk orders for larger data sizes.  
-4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
+4. Enter the order details and shipping information. Select either **Hardware encryption** (new) or **Software encryption** from the **Disk encryption type** drop-down list. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the disks are prepared for shipment.
 
@@ -76,7 +76,7 @@ Once the order is created, the disks are prepared for shipment.
 
 Use these Azure CLI commands to create a Data Box Disk job.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group:
 
@@ -142,13 +142,13 @@ Once the order is created, the device is prepared for shipment.
 
 ## Unpack
 
-This step takes roughly 5 minutes.
+Unpacking your disks should take approximately 5 minutes.
 
-The Data Box Disk are mailed in a UPS Express Box. Open the box and check that the box has:
+Data Box Disks are mailed in a UPS Express Box. Inspect the box for any evidence of tampering or obvious damage.
 
-- 1 to 5 bubble-wrapped USB disks.
-- A connecting cable per disk.
-- A shipping label for return shipment.
+After opening, check that the box contains 1 to 5 bubble-wrapped disks. Because hardware encrypted disks can be connected directly to your host's SATA port, orders containing these disks might not contain connecting cables. Orders containing software encrypted disks have one connecting cable for each disk.
+
+Finally, verify that the box contains a shipping label for returning your order.
 
 ## Connect and unlock
 
@@ -159,22 +159,26 @@ This step takes roughly 5 minutes.
 
     1. In the Azure portal, go to **General > Device Details** and get the passkey.
     2. Download and extract operating system-specific Data Box Disk unlock tool on the computer used to copy the data to disks. 
-    3. Run the Data Box Disk Unlock tool and supply the passkey. For any disk reinserts, run the unlock tool again and provide the passkey. **Do not use the BitLocker dialog or the BitLocker key to unlock the disk.** For more information on how to unlock disks, go to [Unlock disks on Windows client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) or [Unlock disks on Linux client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
+    3. Run the Data Box Disk Unlock tool and supply the passkey. For any disk reinserts, run the unlock tool again and provide the passkey. **Do not use the BitLocker dialog or the BitLocker key to unlock the disk when using Windows-based hosts.** For more information on how to unlock disks, go to [Unlock disks](data-box-disk-deploy-set-up.md#unlock-disks).
     4. The drive letter assigned to the disk is displayed by the tool. Make a note of the disk drive letter. This is used in the subsequent steps.
 
 ## Copy data and validate
 
 The time to complete this operation depends upon your data size.
 
-1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy the VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
+1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Within the *BlockBlob* root folder, you'll find a sub-folder corresponding to each of the available access tiers.
 
-    A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. A file share is created for a sub-folder under *AzureFile*.
+    Drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy any VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
 
-    All files under *BlockBlob* and *PageBlob* folders are copied into a default container `$root` under the Azure Storage account. Copy files into a folder within *AzureFile*. Any files copied directly to the *AzureFile* folder fail and are uploaded as block blobs.
+    To copy your blob data, you must first select the sub-folder within the *BlockBlob* share which corresponds to one of the access tiers. Next, create a sub-folder within that tier's folder to store your data. Finally, copy your data to the newly created sub-folder. Your new sub-folder represents a container created within the storage account during ingestion. Your data is uploaded to this container as blobs.
+
+    To copy files to the *AzureFile* share, first create a folder to contain your files, then copy your data to the newly created folder. A file share is created for a sub-folder under *AzureFile*. Any files copied directly to the *AzureFile* folder fail and are uploaded as block blobs with the storage account's default access tier.
+
+    All files under *PageBlob* folders are copied into a default container `$root` under the Azure Storage account. Just as with the *AzureFile* share, a container is created in the Azure storage account for each sub-folder within the *PageBlob* folder.  
 
     > [!NOTE]
     > - All the containers, blobs, and files should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
-    > - Ensure that files do not exceed ~4.75 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files.
+    > - Ensure that files do not exceed ~4.75 TiB for block blobs, ~8 TiB for page blobs, and ~4 TiB for Azure Files.
 
 2. **(Optional but recommended)** After the copy is complete, we strongly recommend that at a minimum you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder and select option 1 to validate the files. We also recommend that time permitting, you use option 2 to also generate checksums for validation (may take time depending upon the data size). These steps minimize the chances of any failures when uploading the data to Azure.
 3. Safely remove the drive.

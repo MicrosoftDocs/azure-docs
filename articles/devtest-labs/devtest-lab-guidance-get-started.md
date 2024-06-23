@@ -4,8 +4,9 @@ description: This article describes primary Azure DevTest Labs scenarios, and ho
 ms.topic: conceptual
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/03/2022
+ms.date: 09/30/2023
 ms.reviewer: christianreddington,anthdela,juselph
+ms.custom: UpdateFrequency2
 ---
 
 # Azure DevTest Labs scenarios
@@ -54,8 +55,7 @@ To monitor and control costs, lab administrators and owners can:
 - [Limit the number of VMs each user can create or claim](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user).
 - Allow only certain [VM sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes) in the lab.
 - Configure [auto-shutdown](devtest-lab-set-lab-policy.md#set-auto-shutdown) and auto-start policies to stop and restart all VMs at particular times of day. VM auto-shutdown doesn't apply to PaaS resources in environments.
-- [Manage cost targets and notifications](devtest-lab-configure-cost-management.md).
-- Use the [cost by resource](devtest-lab-configure-cost-management.md#view-cost-by-resource) page to track costs of environments.
+- Use [Azure Cost Management](devtest-lab-configure-cost-management.md) to track costs of environments.
 
 ## Development and test VMs
 

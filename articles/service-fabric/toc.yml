@@ -6,6 +6,8 @@
     href: overview-managed-cluster.md
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: What's new for Service Fabric?
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -44,18 +46,18 @@
     - name: 3- Add and remove managed cluster node types
       href: tutorial-managed-cluster-add-remove-node-type.md
     - name: 4- Connect to a managed cluster and deploy an application
-      href: tutorial-managed-cluster-deploy-app.md
+      href: how-to-managed-cluster-app-deployment-template.md
   - name: Deploy a .NET app
     items:
-    - name: 1- Build a .NET application
+    - name: Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
-    - name: 2- Deploy the application
+    - name: Deploy the application to a cluster
       href: service-fabric-tutorial-deploy-app.md
-    - name: 3- Enable HTTPS
+    - name: Add an HTTPS endpoint for the application
       href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-    - name: 4- Configure CI/CD
+    - name: Configure CI/CD by using Azure Pipelines
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 5- Monitor and Diagnose
+    - name: Monitor and diagnose the application
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:
@@ -178,6 +180,8 @@
         href: service-fabric-docker-compose.md
       - name: Probes
         href: probes-codepackage.md
+      - name: Container image management
+        href: container-image-management.md
     - name: Reliable Services
       items:
       - name: Reliable Services overview
@@ -355,6 +359,8 @@
         href: service-fabric-cluster-resource-manager-metrics.md
       - name: Use service affinity
         href: service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md
+      - name: Service sensitivity
+        href: service-fabric-cluster-resource-manager-sensitivity.md
       - name: Service placement policies
         href: service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md
       - name: Manage a cluster
@@ -373,8 +379,12 @@
         href: service-fabric-cluster-resource-manager-autoscaling.md
       - name: Node tagging
         href: service-fabric-cluster-resource-manager-node-tagging.md
+      - name: InBuild replicas per node throttling
+        href: service-fabric-cluster-resource-manager-inbuild-throttling.md
   - name: Monitoring and diagnostics
     items:
+    - name: Monitor
+      href: monitor-service-fabric.md
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
     - name: Application monitoring
@@ -409,7 +419,10 @@
     href: concepts-managed-identity.md
   - name: Configure container repository credentials
     href: configure-container-repository-credentials.md
-
+  - name: Managed cluster deny assignment policy
+    href: managed-cluster-deny-assignment.md
+  - name: Service Fabric Explorer blocking operations for managed clusters
+    href: managed-cluster-service-fabric-explorer-blocking-operation.md
 - name: How-to guides
   items:
   - name: Use Service Fabric managed clusters
@@ -418,7 +431,7 @@
       href: how-to-managed-cluster-configuration.md
     - name: Connect to your managed cluster
       href: how-to-managed-cluster-connect.md
-    - name: Configure Azure Active Directory client access
+    - name: Configure Microsoft Entra client access
       href: how-to-managed-cluster-azure-active-directory-client.md
     - name: Configure autoscaling on a managed cluster
       href: how-to-managed-cluster-autoscale.md
@@ -440,6 +453,8 @@
       href: how-to-managed-cluster-ephemeral-os-disks.md
     - name: Configure managed cluster upgrade options
       href: how-to-managed-cluster-upgrades.md
+    - name: Configure maintenance control on a managed cluster
+      href: how-to-managed-cluster-maintenance-control.md
     - name: Deploy application secrets to a managed cluster
       href: how-to-managed-cluster-application-secrets.md
     - name: Deploy an application to a managed cluster using Azure Resource Manager
@@ -458,6 +473,24 @@
       href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
     - name: Deploy custom image
       href: how-to-deploy-custom-image.md
+    - name: Use NAT gateways
+      href: how-to-managed-cluster-nat-gateway.md
+    - name: Use public IP prefix in a managed cluster
+      href: how-to-managed-cluster-public-ip-prefix.md
+    - name: Use multiple network interface cards
+      href: how-to-managed-cluster-use-multiple-network-interface-cards.md
+    - name: Use Azure DDoS Protection in a managed cluster
+      href: how-to-managed-cluster-ddos-protection.md
+    - name: Troubleshoot SNAT Port exhaustion issues in a managed cluster
+      href: how-to-managed-cluster-troubleshoot-snat-port-exhaustion-issues.md
+    - name: Use Azure Application Gateway in a Service Fabric managed cluster
+      href: how-to-managed-cluster-application-gateway.md
+    - name: Enable Safe Deployment Process
+      href: how-to-managed-cluster-enable-safe-deployment-process.md
+    - name: Deploy cluster with shared subnets across NodeTypes
+      href: how-to-managed-cluster-deploy-with-subnet-per-nodetype.md
+    - name: Scale to zero nodes
+      href: how-to-managed-cluster-scale-to-zero.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -532,9 +565,9 @@
           href: service-fabric-stateless-node-types.md
         - name: Deploy an Azure Service Fabric cluster with Managed data disks
           href: service-fabric-managed-disk.md
-        - name: Set up Azure Active Directory authentication
+        - name: Set up Microsoft Entra authentication
           href: service-fabric-cluster-creation-setup-aad.md
-        - name: Set up Azure Active Directory authentication in Azure portal
+        - name: Set up Microsoft Entra authentication in Azure portal
           href: service-fabric-cluster-creation-setup-azure-ad-via-portal.md
         - name: Create a custom cluster template
           href: service-fabric-cluster-creation-create-template.md
@@ -613,6 +646,8 @@
           href: service-fabric-cluster-security-roles.md
         - name: Patch cluster nodes (Windows)
           href: how-to-patch-cluster-nodes-windows.md
+    - name: Migrate a cluster to TLS 1.3
+      href: how-to-migrate-transport-layer-security.md
     - name: Visualize using Service Fabric Explorer
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
@@ -875,7 +910,7 @@
             href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
           - name: How to deploy application with a user-assigned managed identity
             href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
-    - name: Use MITS with Service Fabric application code
+    - name: Use Managed Identity with Service Fabric application code
       href: how-to-managed-identity-service-fabric-app-code.md
     - name: Grant access to other Azure resources
       href: how-to-grant-access-other-resources.md
@@ -950,6 +985,8 @@
     href: /azure/templates/microsoft.servicefabric/clusters
   - name: Service Fabric events
     href: service-fabric-diagnostics-event-generation-operational.md
+  - name: Monitoring data reference
+    href: monitor-service-fabric-reference.md
   - name: Configure cluster settings and fabric upgrade policy
     href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema

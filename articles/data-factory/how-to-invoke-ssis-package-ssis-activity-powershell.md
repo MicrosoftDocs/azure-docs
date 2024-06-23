@@ -7,8 +7,8 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 08/09/2022
+ms.custom: devx-track-azurepowershell
+ms.date: 05/15/2024
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory with PowerShell
@@ -410,7 +410,7 @@ In the previous step, you ran the pipeline on demand. You can also create a sche
    select * from catalog.executions
    ```
 
-## Next steps
+## Related content
 
 - [Run an SSIS package with the Execute SSIS Package activity in the Azure Data Factory Studio portal](how-to-invoke-ssis-package-ssis-activity.md)
 - [Modernize and extend your ETL/ELT workflows with SSIS activities in Azure Data Factory pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

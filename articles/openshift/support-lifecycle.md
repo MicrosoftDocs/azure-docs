@@ -5,7 +5,7 @@ author: joharder
 ms.author: joharder
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 12/18/2023
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -25,25 +25,26 @@ Red Hat OpenShift Container Platform uses semantic versioning. Semantic versioni
 Each number in the version indicates general compatibility with the previous version:
 
 * **Major version**: No major version releases are planned at this time. Major versions change when incompatible API changes or backwards compatibility may be broken.
-* **Minor version**: Released approximately every three months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
+* **Minor version**: Released approximately every four months. Minor version upgrades can include feature additions, enhancements, deprecations, removals, bug fixes, security enhancements, and other improvements.
 * **Patches**: Typically released each week, or as needed. Patch version upgrades can include bug fixes, security enhancements, and other improvements.
 
 Customers should aim to run the latest minor release of the major version they're running. For example, if your production cluster is on 4.9, and 4.10 is the latest generally available minor version for the 4 series, you should upgrade to 4.10 as soon as you can. 
 
 ### Upgrade channels
 
-Upgrade channels are tied to a minor version of Red Hat OpenShift Container Platform (OCP). For instance, OCP 4.9 upgrade channels will never include an upgrade to a 4.10 release. Upgrade channels control only release selection and don't impact the version of the cluster.
+Upgrade channels are tied to a minor version of Red Hat OpenShift Container Platform (OCP). For instance, OCP 4.9 upgrade never includes an upgrade to a 4.10 release. Upgrade channels control only release selection and don't impact the version of the cluster.
 
 Azure Red Hat OpenShift 4 supports stable channels only. For example: stable-4.9.
 
-You can use the stable-4.10 channel to upgrade from a previous minor version of Azure Red Hat OpenShift. Clusters upgraded using fast, prerelease, and candidate channels won't be supported.
+You can use the stable-4.10 channel to upgrade from a previous minor version of Azure Red Hat OpenShift. Clusters upgraded using fast, prerelease, and candidate channels aren't supported.
 
 If you change to a channel that doesn't include your current release, an alert displays and no updates can be recommended. However, you can safely change back to your original channel at any point.
 
 ## Red Hat OpenShift Container Platform version support policy
 
 Azure Red Hat OpenShift supports two generally available (GA) minor versions of Red Hat OpenShift Container Platform:
-* The latest GA minor version that is released in Azure Red Hat OpenShift (which we'll refer to as N)
+* The latest GA minor version that is released in Azure Red Hat OpenShift (referred to as N)
+
 * One previous minor version (N-1)
 
 If available in a stable upgrade channel, newer minor releases (N+1, N+2) available in upstream OCP are supported as well.
@@ -68,7 +69,7 @@ When a new minor version is introduced, the oldest minor version is deprecated a
 
 ## Release and deprecation process
 
-You can reference upcoming version releases and deprecations on the Azure Red Hat OpenShift Release Calendar.
+You can reference upcoming version releases and deprecations on the [Azure Red Hat OpenShift release calendar](#azure-red-hat-openshift-release-calendar).
 
 For new minor versions of Red Hat OpenShift Container Platform:
 * The Azure Red Hat OpenShift SRE team publishes a pre-announcement with the planned date of a new version release, and respective old version deprecation, in the [Azure Red Hat OpenShift Release notes](https://github.com/Azure/OpenShift/releases) at least 30 days prior to removal.
@@ -102,8 +103,14 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 |4.8|July 2021| Sept 15 2021|4.10 GA|
 |4.9|November 2021| February 1 2022|4.11 GA|
 |4.10|March 2022| June 21 2022|4.12 GA|
-|4.11|August 2022| March 2 2023|4.13 GA|
+|4.11|August 2022| March 2 2023|February 10 2024|
+|4.12|January 2023| August 19 2023|July 17 2024|
+|4.13|May 2023| December 15 2023|November 17 2024|
+|4.14|October 2023| April 25 2024|May 1 2025|
 
+> [!IMPORTANT]
+> Starting with ARO version 4.12, the support lifecycle for new versions will be set to 14 months from the day of general availability. That means that the end date for support of each version will no longer be dependent on the previous version (as shown in the table above for version 4.12.) This does not affect support for the previous version; two generally available (GA) minor versions of Red Hat OpenShift Container Platform will continue to be supported, as [explained previously](#red-hat-openshift-container-platform-version-support-policy).
+> 
 ## FAQ
 
 **What happens when a user upgrades an OpenShift cluster with a minor version that is not supported?**

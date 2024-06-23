@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ms.devlang: javascript
 ms.custom: mvc, devx-track-js, devx-track-azurecli, devx-track-azurepowershell
@@ -46,11 +46,11 @@ az login
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
 
@@ -68,7 +68,7 @@ To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) 
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --generate-ssh-keys
 ```

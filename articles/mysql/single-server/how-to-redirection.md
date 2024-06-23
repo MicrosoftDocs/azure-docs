@@ -1,12 +1,13 @@
 ---
 title: Connect with redirection - Azure Database for MySQL
 description: This article describes how you can configure your application to connect to Azure Database for MySQL with redirection.
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 03/27/2023
+ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: single-server
+ms.custom:
 ms.topic: how-to
 ---
 
@@ -14,7 +15,7 @@ ms.topic: how-to
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[Azure-database-for-mysql-single-server-deprecation](../includes/Azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[Azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article explains how to connect an application to your Azure Database for MySQL server with redirection mode. Redirection reduces network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
 
@@ -24,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Databas
 
 For details, refer to how to create an Azure Database for MySQL server using the [Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Redirection is currently not supported with [Private Link for Azure Database for MySQL](concepts-data-access-security-private-link.md).
 
 ## Enable redirection
@@ -37,12 +38,12 @@ Support for redirection in PHP applications is available through the [mysqlnd_az
 
 The mysqlnd_azure extension is available to add to PHP applications through PECL, and it's highly recommended to install and configure the extension through the officially published [PECL package](https://pecl.php.net/package/mysqlnd_azure).
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Support for redirection in the PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension is currently in preview.
 
 ### Redirection logic
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Redirection logic/behavior beginning version 1.1.0 was updated and **it is recommended to use version 1.1.0+**.
 
 The redirection behavior is determined by the value of `mysqlnd_azure.enableRedirect`. The table below outlines the behavior of redirection based on the value of this parameter beginning in **version 1.1.0+**.
@@ -59,9 +60,9 @@ For a successful connection to Azure Database for MySQL single server using `mys
 
 The subsequent sections of the document outline how to install the `mysqlnd_azure` extension using PECL and set the value of this parameter.
 
-### Ubuntu Linux
+### [Ubuntu Linux](#tab/ubuntu)
 
-#### Prerequisites
+**Prerequisites**
 
 - PHP versions 7.2.15+ and 7.3.2+
 - PHP PEAR
@@ -99,9 +100,9 @@ The subsequent sections of the document outline how to install the `mysqlnd_azur
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
 
-### Windows
+### [Windows](#tab/windows)
 
-#### Prerequisites
+**Prerequisites**
 
 - PHP versions 7.2.15+ and 7.3.2+
 - php-mysql
@@ -146,11 +147,13 @@ The subsequent sections of the document outline how to install the `mysqlnd_azur
     mysqlnd_azure.enableRedirect = on/off/preferred
     ```
 
+---
+
 ### Confirm redirection
 
 You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own.
 
- ```php
+```php
 <?php
 $host = '<yourservername>.mysql.database.azure.com';
 $username = '<yourusername>@<yourservername>';
@@ -170,7 +173,7 @@ $db_name = 'testdb';
     $db->close();
   }
 ?>
- ```
+```
 
 ## Next steps
 

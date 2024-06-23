@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: how-to
-ms.date: 06/22/2022
+ms.date: 04/15/2024
 ms.reviewer: akkumari
 
 # Customer intent: As a DevOps admin, I want to collect and analyze autoscale metrics and logs.
@@ -15,7 +15,7 @@ ms.reviewer: akkumari
 
 Autoscale has two log categories and a set of metrics that can be enabled via the **Diagnostics settings** tab on the **Autoscale setting** page.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="Screenshot that shows the menu on the Autoscale setting page.":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png"  lightbox="./media/autoscale-diagnostics/autoscale-diagnostics-menu.png" alt-text="A screenshot that shows the menu on the Autoscale setting page.":::
 
 The two categories are:
 
@@ -37,13 +37,16 @@ For more information on diagnostics, see [Diagnostic settings in Azure Monitor](
 
 View the history of your autoscale activity on the **Run history** tab. The **Run history** tab includes a chart of resource instance counts over time and the resource activity log entries for autoscale.
 
-:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="Screenshot that shows the Run history tab on the Autoscale setting page.":::
+:::image type="content" source="./media/autoscale-diagnostics/autoscale-run-history.png" lightbox="./media/autoscale-diagnostics/autoscale-run-history.png" alt-text="A screenshot that shows the Run history tab on the Autoscale setting page.":::
 
 ## Resource log schemas
 
 The following examples are the general formats for autoscale resource logs with example data included. Not all the examples are properly formed JSON because they might include a valid list for a given field.
 
 Use these logs to troubleshoot issues in autoscale. For more information, see [Troubleshooting autoscale problems](autoscale-troubleshoot.md).
+
+> [!NOTE]
+> Although the logs may refer to "scale up" and "scale down" actions, the actual action taken is scale in or scale out.  
 
 ## Autoscale evaluations log
 The following schemas appear in the autoscale evaluations log.

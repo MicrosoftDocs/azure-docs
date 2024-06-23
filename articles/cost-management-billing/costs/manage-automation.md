@@ -3,11 +3,11 @@ title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/22/2022
+ms.date: 12/11/2023
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojo
 ---
 
 # Manage costs with automation
@@ -20,7 +20,7 @@ You might need to download your Azure cost data to merge it with other datasets.
 
 ## Suggestions for handling large datasets
 
-If your organization has a large Azure presence across many resources or subscriptions, you'll have a large amount of usage details data. Excel often can't load such large files. In this situation, we recommend the following options:
+If your organization has a large Azure presence across many resources or subscriptions, you'll have a large amount of usage details data results. Excel often can't load such large files. In this situation, we recommend the following options:
 
 **Power BI**
 
@@ -62,19 +62,7 @@ Use the API to get all the data you need at the highest-level scope available. W
 
 ### Notes about pricing
 
-If you want to reconcile usage and charges with your price sheet or invoice, note the following information.
-
-Price Sheet price behavior - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure at which the actual resource usage and charges are emitted.
-
-Usage Details price behavior - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
-
-- Unit Price - The price is scaled to match the unit of measure at which the charges are actually emitted by Azure resources. If scaling occurs, then the price won't match the price seen in the Price Sheet.
-- Unit of Measure - Represents the unit of measure at which charges are actually emitted by Azure resources.
-- Effective Price / Resource Rate - The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the Quantity to do Price * Quantity calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price.
-  - Tiered pricing - For example: $10 for the first 100 units, $8 for the next 100 units.
-  - Included quantity - For example: The first 100 units are free and then $10 per unit.
-  - Reservations
-  - Rounding that occurs during calculation – Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
+If you want to reconcile usage and charges with your price sheet or invoice, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 
 ### A single resource might have multiple records for a single day
 
@@ -113,7 +101,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 
 ## Automate alerts and actions with budgets
 
-There are two critical components to maximizing the value of your investment in the cloud. One is automatic budget creation. The other is configuring cost-based orchestration in response to budget alerts. There are different ways to automate Azure budget creation. Various alert responses happen when your configured alert thresholds are exceeded.
+There are two critical components to maximizing the value of your investment in the cloud. One is automatic budget creation. The other is configuring cost-based orchestration in response to budget alerts. There are different ways to automate budget creation. Various alert responses happen when your configured alert thresholds are exceeded.
 
 The following sections cover available options and provide sample API requests to get you started with budget automation.
 
@@ -284,7 +272,7 @@ Request URL: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /p
 
 ### Configure cost-based orchestration for budget alerts
 
-You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with Azure Budgets](../manage/cost-management-budget-scenario.md).
+You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with budgets](../manage/cost-management-budget-scenario.md).
 
 ## Data latency and rate limits
 
@@ -314,7 +302,7 @@ The following quotas are configured per tenant. Requests are throttled when any 
 - 60 QPU per 1 min
 - 600 QPU per 1 hour
 
-The quotas maybe be changed as needed and more quotas may be added.
+The quotas maybe be changed as needed and more quotas can be added.
 
 #### Response headers
 
@@ -332,7 +320,7 @@ QPUs consumed by an API call.
 
 List of remaining quotas.
 
-## Next steps
+## Related content
 
 - [Analyze Azure costs with the Power BI template app](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 - [Create and manage exported data](./tutorial-export-acm-data.md) with Exports.

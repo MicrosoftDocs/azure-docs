@@ -3,12 +3,11 @@ title: Enable Azure Key Vault logging
 description: How to enable logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -36,11 +35,6 @@ To complete this tutorial, you'll need an Azure key vault. You can create a new 
   - [Create a key vault using the Azure portal](quick-create-portal.md)
 
 You'll also need a destination for your logs.  The destination can be an existing or new Azure storage account and/or Log Analytics workspace.
-
-> [!IMPORTANT]
-> If you use an existing Azure storage account or Log Analytics workspace, it must be in the same subscription as your key vault. It must also use the Azure Resource Manager deployment model, rather than the classic deployment model.
->
-> If you create a new Azure storage account or Log Analytics workspace, we recommend you create it in the same resource group as your key vault, for ease of management.
 
 You can create a new Azure storage account using one of these methods:
   - [Create a storage account using the Azure CLI](../../storage/common/storage-account-create.md?tabs=azure-cli)

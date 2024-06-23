@@ -1,67 +1,55 @@
 ---
-title: StringEquals in Azure Cosmos DB query language
-description: Learn about how the StringEquals SQL system function in Azure Cosmos DB returns a Boolean indicating whether the first string expression matches the second
-author: seesharprun
+title: StringEquals
+titleSuffix: Azure Cosmos DB for NoSQL
+description: An Azure Cosmos DB for NoSQL system function that returns a boolean indicating whether two strings are equivalent.
+author: jcodella
+ms.author: jacodel
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
-ms.topic: conceptual
-ms.date: 05/20/2020
-ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.custom: query-reference, ignite-2022
+ms.topic: reference
+ms.devlang: nosql
+ms.date: 02/27/2024
+ms.custom: query-reference
 ---
-# STRINGEQUALS (Azure Cosmos DB)
+
+# StringEquals (NoSQL query)
+
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
- Returns a Boolean indicating whether the first string expression matches the second.  
-  
-## Syntax
-  
-```sql
-STRINGEQUALS(<str_expr1>, <str_expr2> [, <bool_expr>])  
-```  
-  
-## Arguments
-  
-*str_expr1*  
-   Is the first string expression to compare.  
-  
-*str_expr2*  
-   Is the second string expression to compare.  
+Returns a boolean indicating whether the first string expression matches the second.  
 
-*bool_expr*
-    Optional value for ignoring case. When set to true, StringEquals will do a case-insensitive search. When unspecified, this value is false.
-  
+## Syntax
+
+```nosql
+STRINGEQUALS(<string_expr_1>, <string_expr_2> [, <boolean_expr>])  
+```
+
+## Arguments
+
+| | Description |
+| --- | --- |
+| **`string_expr_1`** | The first string expression to compare. |
+| **`string_expr_2`** | The second string expression to compare. |
+| **`boolean_expr` *(Optional)*** | An optional boolean expression for ignoring case. When set to `true`, this function performs a case-insensitive search. If not specified, the default value is `false`. |
+
 ## Return types
-  
-  Returns a Boolean expression.  
-  
+
+Returns a boolean expression.  
+
 ## Examples
-  
-  The following example checks if "abc" matches "abc" and if "abc" matches "ABC".  
-  
-```sql
-SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false) AS c2,  STRINGEQUALS("abc", "ABC", true) AS c3
-```  
-  
- Here is the result set.  
-  
-```json
-[
-    {
-        "c1": true,
-        "c2": false,
-        "c3": true
-    }
-]
-```  
+
+The following example checks if "abc" matches "abc" and if "abc" matches "ABC."
+
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/stringequals/query.sql" highlight="2-4":::
+
+:::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/stringequals/result.json":::
 
 ## Remarks
 
-Learn about [how this string system function uses the index](string-functions.md).
+- This function performs an index seek.
 
-## Next steps
+## Related content
 
-- [String functions Azure Cosmos DB](string-functions.md)
-- [System functions Azure Cosmos DB](system-functions.md)
-- [Introduction to Azure Cosmos DB](../../introduction.md)
+- [System functions](system-functions.yml)
+- [`SUBSTRING`](substring.md)

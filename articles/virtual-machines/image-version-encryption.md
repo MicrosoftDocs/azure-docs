@@ -4,10 +4,9 @@ description: Create an image version in an Azure Compute Gallery, by using custo
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/22/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
@@ -25,7 +24,7 @@ Server-side encryption through customer-managed keys uses Azure Key Vault. You c
 
 This article requires that you already have a disk encryption set in each region where you want to replicate your image:
 
-- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
+- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.yml) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-optionally-with-automatic-key-rotation).
 
 - To use both platform-managed and customer-managed keys (for double encryption), see the articles about enabling double encryption at rest by using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
 
@@ -43,6 +42,8 @@ When you're using customer-managed keys for encrypting images in an Azure Comput
 - After you've used your own keys to encrypt an image, you can't go back to using platform-managed keys for encrypting those images.
 
 - VM image version source doesn't currently support customer-managed key encryption.
+
+- Some of the features like replicating an SSE+CMK image, creating an image from SSE+CMK encrypted disk etc. are not supported through portal.
 
 ## PowerShell
 

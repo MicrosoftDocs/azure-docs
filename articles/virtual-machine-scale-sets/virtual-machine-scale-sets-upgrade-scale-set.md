@@ -1,13 +1,13 @@
 ---
 title: Modify an Azure Virtual Machine Scale Set
 description: Learn how to modify and update an Azure Virtual Machine Scale Set with the REST APIs, Azure PowerShell, and Azure CLI
-author: ju-shim
-ms.author: jushiman
+author: mimckitt
+ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
-ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 6/14/2024
+ms.reviewer: ju-shim
+ms.custom: upgradepolicy
 
 ---
 # Modify a Virtual Machine Scale Set
@@ -276,83 +276,49 @@ To update a global scale set property, you must update the property in the scale
 
 Once the scale set model is updated, the new configuration applies to any new VMs created in the scale set. However, the models for the existing VMs in the scale set must still be brought up-to-date with the latest overall scale set model. In the model for each VM is a boolean property called `latestModelApplied` that indicates whether or not the VM is up-to-date with the latest overall scale set model (`true` means the VM is up-to-date with the latest model).
 
-
-## How to bring VMs up-to-date with the latest scale set model
-Scale sets have an "upgrade policy" that determine how VMs are brought up-to-date with the latest scale set model. The three modes for the upgrade policy are:
-
-- **Automatic** - In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
-- **Rolling** - In this mode, the scale set rolls out the update in batches with an optional pause time between batches.
-- **Manual** - In this mode, when you update the scale set model, nothing happens to existing VMs.
- 
-To update existing VMs, you must do a "manual upgrade" of each existing VM. You can do this manual upgrade with:
-
-- REST API with [compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) as follows:
-
-    ```rest
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
-    ```
-
-- Azure PowerShell with [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
-    
-    ```powershell
-    Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
-    ```
-
-- Azure CLI with [az vmss update-instances](/cli/azure/vmss)
-
-    ```azurecli
-    az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
-    ```
-
-   > [!NOTE]
-   > The `az vmss update-instances` command will manually upgrade the selected instance to the latest model. While upgrading, the instance may be restarted.
-
-- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
-
->[!NOTE]
-> Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
-
-There is one type of modification to global scale set properties that does not follow the upgrade policy. Changes to the scale set OS and Data disk Profile (such as admin username and password) can only be changed in API version *2017-12-01* or later. These changes only apply to VMs created after the change in the scale set model. To bring existing VMs up-to-date, you must do a "reimage" of each existing VM. You can do this reimage via:
-
-- REST API with [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) as follows:
-
-    ```rest
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
-    ```
-
-- Azure PowerShell with [Set-AzVmssVm](/powershell/module/az.compute/set-azvmssvm):
-
-    ```powershell
-    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
-    ```
-
-- Azure CLI with [az vmss reimage](/cli/azure/vmss):
-
-    ```azurecli
-    az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
-    ```
-
-   > [!NOTE]
-   > The `az vmss reimage` command will reimage the selected instance, restoring it to the initial state. The instance may be restarted, and any local data will be lost.
-
-- You can also use the language-specific [Azure SDKs](https://azure.microsoft.com/downloads/).
-
 ## Properties with restrictions on modification
 
 ### Create-time properties
-Some properties can only be set when you create the scale set. These properties include:
-
-- Availability Zones
-- Image reference publisher
-- Image reference offer
-- Managed OS disk storage account type
+Some properties can only be set when you create the scale set. Some examples include Managed OS disk storage account type and fault domains.
 
 ### Properties that can only be changed based on the current value
 Some properties may be changed, with exceptions depending on the current value. These properties include:
 
-- **singlePlacementGroup** - If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
-- **subnet** - The subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
-- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
+- singlePlacementGroup
+- subnet
+- imageReferenceSku
+- imageReferenceOffer
+- Availability Zones (Preview)
+
+#### Example 1
+To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Unbuntu Server 20.04 to 22.04. 
+
+```azurecli
+az vmss update \
+--resource-group myResourceGroup \
+--name myScaleSet \
+--set virtualMachineProfile.storageProfile.imageReference.offer=0001-com-ubuntu-server-jammy \
+--set virtualMachineProfile.storageProfile.imageReference.publisher=Canonical \
+--set virtualMachineProfile.storageProfile.imageReference.sku=22_04-lts-gen2 \
+--set virtualMachineProfile.storageProfile.imageReference.version=latest
+```
+
+#### Example 2
+To update your scale set to use a different OS version, you need to set all the updated properties in a single call. In this example, we are changing from Windows Server 2016 to Windows Server 2019. 
+
+```powershell
+$VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+
+Set-AzVmssStorageProfile $vmss `
+    -OsDiskCreateOption "FromImage" `
+    -ImageReferencePublisher "MicrosoftWindowsServer" `
+    -ImageReferenceOffer "WindowsServer" `
+    -ImageReferenceSku "2019-datacenter" `
+    -ImageReferenceVersion "latest"
+
+Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $VMSS
+```
+
 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:

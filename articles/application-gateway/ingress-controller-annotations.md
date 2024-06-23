@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/26/2022
+ms.date: 5/13/2024
 ms.author: greglin
 ---
 
@@ -42,7 +42,7 @@ appgw.ingress.kubernetes.io/backend-path-prefix: <path prefix>
 ### Example
 
 ```yaml
-apiVersion: apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-bkprefix
@@ -70,11 +70,7 @@ In the previous example, you've defined an ingress resource named `go-server-ing
 
 ## TLS Redirect
 
-Application Gateway [can be configured](./redirect-overview.md)
-to automatically redirect HTTP URLs to their HTTPS counterparts. When this
-annotation is present and TLS is properly configured, Kubernetes Ingress
-controller creates a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)
-and applies the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
+Application Gateway [can be configured](./redirect-overview.md) to automatically redirect HTTP URLs to their HTTPS counterparts. When this annotation is present and TLS is properly configured, Kubernetes Ingress controller creates a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) and applies the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
 
 ### Usage
 
@@ -85,7 +81,7 @@ appgw.ingress.kubernetes.io/ssl-redirect: "true"
 ### Example
 
 ```yaml
-apiVersion: apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-redirect
@@ -124,7 +120,7 @@ appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
 ### Example
 
 ```yaml
-apiVersion: apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-drain
@@ -159,7 +155,7 @@ appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
 ### Example
 
 ```yaml
-apiVersion: apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-affinity
@@ -193,7 +189,7 @@ appgw.ingress.kubernetes.io/request-timeout: "20"
 ### Example
 
 ```yaml
-apiVersion: apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
@@ -219,7 +215,6 @@ spec:
 The following annotation allows you to specify whether to expose this endpoint on Private IP of Application Gateway.
 
 > [!NOTE]
-> * Application Gateway doesn't support multiple IPs on the same port (example: 80/443). Ingress with annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` and another with `appgw.ingress.kubernetes.io/use-private-ip: "true"` on `HTTP` will cause AGIC to fail while updating the Application Gateway.
 > * For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` is ignored. This is reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
 
 ### Usage
@@ -231,7 +226,7 @@ appgw.ingress.kubernetes.io/use-private-ip: "true"
 ### Example
 
 ```yaml
-apiVersion: apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout
@@ -270,7 +265,7 @@ appgw.ingress.kubernetes.io/backend-protocol: "https"
 ### Example
 
 ```yaml
-apiVersion: apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: go-server-ingress-timeout

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 
@@ -138,7 +138,7 @@ Here's an example of copy activity JSON configuration (see `preserve`):
 ]
 ```
 
-## Next steps
+## Related content
 
 See the other Copy Activity articles:
 

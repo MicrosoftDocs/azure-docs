@@ -6,18 +6,18 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 10/19/2022
+ms.date: 05/08/2023
 ms.topic: how-to
 ---
 
 # Define fail criteria for load tests by using Azure Load Testing
 
-In this article, you'll learn how to define test fail criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria. Criteria can apply to the entire load test, or to an individual request in the JMeter script.
+In this article, you learn how to define fail criteria or auto stop criteria for your load tests with Azure Load Testing. Fail criteria let you define performance and quality expectations for your application under load. Azure Load Testing supports various client metrics for defining fail criteria, such as error rate or response time. Auto stop criteria enable you to automatically stop your load test when the error rate surpasses a given threshold.
 
-## Prerequisites  
+## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- An Azure load testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).  
+- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure load testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
 ## Load test fail criteria
 
@@ -26,9 +26,9 @@ Load test fail criteria are conditions for client-side metrics, that your test s
 You can define test criteria at two levels. A load test can combine criteria at the different levels.
 
 - At the load test level. For example, to ensure that the total error percentage doesn't exceed a threshold.
-- At the JMeter request level (JMeter sampler). For example, you could specify a threshold for the response time of the *getProducts* request, but disregard the response time of the *sign in* request.
+- At the JMeter request level (JMeter sampler). For example, you could specify a response time threshold of the *getProducts* request, but disregard the response time of the *sign in* request.
 
-You can define a maximum of 10 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
+You can define a maximum of 50 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
 
 ### Fail criteria structure
 
@@ -47,7 +47,7 @@ The following table describes the different components:
 |`Aggregate function` | *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`          | *Required.* The comparison operator, such as `greater than`, or `less than`. |
 |`Threshold`          | *Required.* The numeric value to compare with the client metric. |
-|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any Personally Identifiable Information (PII) in the sampler name in your JMeter script. The sampler names appear in the Azure Load Testing test run results dashboard. |
+|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any personal data in the sampler name in your JMeter script. The sampler names appear in the Azure Load Testing results dashboard. |
 
 ### Supported client metrics for fail criteria
 
@@ -55,7 +55,7 @@ Azure Load Testing supports the following client metrics:
 
 |Metric  |Aggregate function  |Threshold  |Condition  | Description |
 |---------|---------|---------|---------|-------------|
-|`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Response time or elapsed time, in milliseconds. Learn more about [elapsed time in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
+|`response_time_ms`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 75, 90, 95, 96, 97, 98, 99, 999 and 9999   | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Response time or elapsed time, in milliseconds. Learn more about [elapsed time in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
 |`latency`     |  `avg` (average)<BR> `min` (minimum)<BR> `max` (maximum)<BR> `pxx` (percentile), xx can be 50, 90, 95, 99     | Integer value, representing number of milliseconds (ms).     |   `>` (greater than)<BR> `<` (less than)      | Latency, in milliseconds. Learn more about [latency in the Apache JMeter documentation](https://jmeter.apache.org/usermanual/glossary.html). |
 |`error`     |  `percentage`       | Numerical value in the range 0-100, representing a percentage.      |   `>` (greater than)      | Percentage of failed requests. |
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
@@ -89,13 +89,13 @@ In this section, you configure test criteria for a load test in the Azure portal
 
 1. Run the test and view the status in the load test dashboard.
 
-    The dashboard shows each of the test criteria and their status. The overall test status will be failed if at least one criterion was met.
+    The dashboard shows each of the test criteria and their status. The overall test status is failed if at least one criterion was met.
 
     :::image type="content" source="media/how-to-define-test-criteria/test-criteria-dashboard.png" alt-text="Screenshot that shows the test criteria on the load test dashboard.":::
- 
-# [Azure Pipelines](#tab/pipelines)
 
-In this section, you configure test criteria for a load test, as part of an Azure Pipelines CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+# [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
+
+In this section, you configure test criteria for a load test, as part of a CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).
 
 For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
 
@@ -111,7 +111,8 @@ To specify fail criteria in the YAML configuration file:
 
     ```yaml
     version: v0.1
-    testName: SampleTest
+    testId: SampleTestCICD
+    displayName: Sample test from CI/CD
     testPlan: SampleTest.jmx
     description: Load test website home page
     engineInstances: 1
@@ -120,7 +121,7 @@ To specify fail criteria in the YAML configuration file:
       - percentage(error) > 50
       - GetCustomerDetails: avg(latency) >200
     ```
-    
+
     When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.
 
     :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
@@ -133,45 +134,80 @@ To specify fail criteria in the YAML configuration file:
 
     :::image type="content" source="media/how-to-define-test-criteria/azure-pipelines-log.png" alt-text="Screenshot that shows the test criteria in the CI/CD workflow log.":::
 
-# [GitHub Actions](#tab/github)
+---
 
-In this section, you configure test criteria for a load test, as part of a GitHub Actions CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md).
+## Auto stop configuration
 
-For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
+Azure Load Testing automatically stops a load test if the error percentage exceeds a given threshold for a certain time window. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
 
-To specify fail criteria in the YAML configuration file:
+In the load test configuration, you can enable or disable the auto stop functionality and configure the error percentage threshold and time window. By default, Azure Load Testing automatically stops a load test that has an error percentage that is at least 90% during any 60-second time window.
+
+You can use the Azure Load Testing auto stop functionality in combination with an [*AutoStop listener*](https://jmeter-plugins.org/wiki/AutoStop/) in your JMeter script. The load test automatically stops when one of the criteria in either the auto stop configuration or the JMeter AutoStop listener is met.
+
+> [!CAUTION]
+> If you disable auto stop for your load test, you may incur costs even when your load test is configured incorrectly.
+
+# [Azure portal](#tab/portal)
+
+To configure auto stop for your load test in the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
+
+1. On the left pane, select **Tests** to view the list of load tests.
+
+1. Select your load test from the list, and then select **Edit**. Alternately, select **Create** > **Upload a JMeter script** to create a new test.
+
+1. Go to the **Test criteria** tab to configure the auto stop functionality.
+
+    - Enable or disable automatically stopping of the load test by using the **Auto-stop test** control.
+
+    - If you enable auto stop, you can fill the **Error percentage** and **Time window** fields. Specify the time window in seconds.
+
+        :::image type="content" source="media/how-to-define-test-criteria/test-creation-auto-stop.png" alt-text="Screenshot of the 'Test criteria' pane for a load test in the Azure portal, highlighting the auto stop functionality.":::
+
+1. Select **Apply**, or **Review + create** if you're creating a new load test, to save the changes.
+
+# [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
+
+To configure auto stop for your load test in a CI/CD workflow, you update the [load test configuration YAML file](./reference-test-config-yaml.md).
+
+To specify auto stop settings in the YAML configuration file:
 
 1. Open the YAML test configuration file for your load test in your editor of choice.
 
-1. Add your test criteria in the `failureCriteria` setting.
+    - To enable auto stop, add the `autoStop` setting and specify the `errorPercentage` and `timeWindow`.
 
-    Use the [fail criteria format](#fail-criteria-structure), as described earlier. You can add multiple fail criteria for a load test.
+        The following example automatically stops the load test when the error percentage exceeds 80% during any 2-minute time window:
 
-    The following example defines three fail criteria. The first two criteria apply to the overall load test, and the last one specifies a condition for the `GetCustomerDetails` request.
+        ```yaml
+        version: v0.1
+        testId: SampleTestCICD
+        displayName: Sample test from CI/CD
+        testPlan: SampleTest.jmx
+        description: Load test website home page
+        engineInstances: 1
+        autoStop:
+          errorPercentage: 80
+          timeWindow: 120
+        ```
 
-    ```yaml
-    version: v0.1
-    testName: SampleTest
-    testPlan: SampleTest.jmx
-    description: Load test website home page
-    engineInstances: 1
-    failureCriteria:
-      - avg(response_time_ms) > 300
-      - percentage(error) > 50
-      - GetCustomerDetails: avg(latency) >200
-    ```
-    
-    When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.
+    - To disable auto stop, add `autoStop: disable` to the configuration file.
 
-    :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
+        The following example disables auto stop for your load test:
+
+        ```yaml
+        version: v0.1
+        testId: SampleTestCICD
+        displayName: Sample test from CI/CD
+        testPlan: SampleTest.jmx
+        description: Load test website home page
+        engineInstances: 1
+        autoStop: disable
+        ```
 
 1. Save the YAML configuration file, and commit the changes to source control.
 
-1. After the CI/CD workflow runs, verify the test status in the CI/CD log.
-
-    The log shows the overall test status, and the status of each of the test criteria. The status of the CI/CD workflow run also reflects the test run status.
-
-    :::image type="content" source="media/how-to-define-test-criteria/github-actions-log.png" alt-text="Screenshot that shows the test criteria in the CI/CD workflow log.":::
+Learn how to [set up automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).
 
 ---
 
@@ -179,4 +215,4 @@ To specify fail criteria in the YAML configuration file:
 
 - To learn how to parameterize a load test by using secrets, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- To learn about performance test automation, see [Configure automated performance testing](./quickstart-add-load-test-cicd.md).

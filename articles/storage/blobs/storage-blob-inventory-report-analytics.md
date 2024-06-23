@@ -2,11 +2,10 @@
 title: 'Tutorial: Analyze blob inventory reports - Azure Storage'
 description: Learn how to analyze and visualize blob inventory reports by using Azure Synapse and Power BI.  
 author: normesta
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 12/01/2022
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Tutorial: Analyze blob inventory reports
@@ -47,7 +46,7 @@ You might have to wait up to 24 hours after enabling inventory reports for your 
 
 2. In the Synapse workspace, assign the **Contributor** role to your user identity. See [Azure RBAC: Owner role for the workspace](../../synapse-analytics/get-started-add-admin.md#azure-rbac-owner-role-for-the-workspace).
 
-3. Give the Synapse workspace permission to access the inventory reports in your storage account by navigating to your inventory report account, and then assigning the **Storage Blob Data Contributor** role to the system managed identity of the workspace. See [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+3. Give the Synapse workspace permission to access the inventory reports in your storage account by navigating to your inventory report account, and then assigning the **Storage Blob Data Contributor** role to the system managed identity of the workspace. See [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 4. Navigate to primary storage account and assign the **Blob Storage Contributor** role to your user identity.
 
@@ -180,7 +179,7 @@ In this section, you'll generate statistical data that you'll visualize in a rep
 
 - Learn about ways to analyze individual containers in your storage account. See these articles:
 
-  [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md)
+  [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml)
   
   [Tutorial: Calculate container statistics by using Databricks](storage-blob-calculate-container-statistics-databricks.md)
 

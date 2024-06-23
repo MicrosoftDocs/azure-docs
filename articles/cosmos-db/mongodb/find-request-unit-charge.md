@@ -7,12 +7,13 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 05/12/2022
-ms.devlang: csharp, java, javascript
-ms.custom: devx-track-csharp, devx-track-java, devx-track-js, ignite-2022
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript
+ms.custom: devx-track-csharp, devx-track-java, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Find the request unit charge for operations executed in Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 

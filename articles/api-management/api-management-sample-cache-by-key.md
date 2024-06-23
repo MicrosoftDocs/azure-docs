@@ -2,9 +2,7 @@
 title: Custom caching in Azure API Management
 description: Learn how to cache items by key in Azure API Management. You can modify the key by using request headers.
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
 ms.topic: how-to
 ms.service: api-management
 ms.date: 05/19/2022
@@ -12,6 +10,9 @@ ms.author: danlep
 
 ---
 # Custom caching in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (also known as representations), but sometimes it's useful to just cache a portion of a representation. The [cache-lookup-value](cache-lookup-value-policy.md) and [cache-store-value](cache-store-value-policy.md) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the [send-request](send-request-policy.md) policy because you can cache responses from external services.
 
 ## Architecture
@@ -21,7 +22,7 @@ API Management service uses a shared per-tenant internal data cache so that, as 
 > The internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. An external cache allows for greater cache control and flexibility for API Management instances in all tiers.
 
 ## Fragment caching
-There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
+There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating to flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
 
 Consider the following JSON response from a backend API.
 

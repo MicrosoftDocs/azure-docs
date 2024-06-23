@@ -1,8 +1,8 @@
 ---
 title: Azure Private 5G Core 2210 release notes 
 description: Discover what's new in the Azure Private 5G Core 2210 release
-author: b-branco
-ms.author: biancabranco
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: release-notes
 ms.date: 11/01/2022

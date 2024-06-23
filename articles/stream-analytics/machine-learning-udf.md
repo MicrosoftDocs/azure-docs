@@ -6,7 +6,6 @@ ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2022
-ms.custom: devx-track-js, event-tier1-build-2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
 
@@ -54,6 +53,9 @@ The following table describes each property of Azure Machine Learning Service fu
 ## Calling machine learning endpoint from your query
 
 When your Stream Analytics query invokes an Azure Machine Learning UDF, the job creates a JSON serialized request to the web service. The request is based on a model-specific schema that Stream Analytics infers from the endpoint's swagger.
+
+> [!WARNING]
+> Machine Learning endpoints aren't called when you're testing with the Azure portal query editor because the job isn't running. To test the endpoint call from the portal, the Stream Analytics job needs to be running.  
 
 The following Stream Analytics query is an example of how to invoke an Azure Machine Learning UDF:
 
@@ -163,7 +165,7 @@ The following JSON is an example request from the previous query:
 
 ## Optimize the performance for Azure Machine Learning UDFs
 
-When you deploy your model to Azure Kubernetes Service, you can [profile your model to determine resource utilization](../machine-learning/how-to-deploy-profile-model.md). You can also [enable App Insights for your deployments](../machine-learning/how-to-enable-app-insights.md) to understand request rates, response times, and failure rates.
+When you deploy your model to Azure Kubernetes Service, you can [profile your model to determine resource utilization](../machine-learning/v1/how-to-deploy-profile-model.md). You can also [enable App Insights for your deployments](../machine-learning/v1/how-to-enable-app-insights.md) to understand request rates, response times, and failure rates.
 
 If you have a scenario with high event throughput, you may need to change the following parameters in Stream Analytics to achieve optimal performance with low end-to-end latencies:
 
@@ -183,6 +185,10 @@ You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS)
 * Conflict (409)
 * Not Found (404)
 * Unauthorized (401)
+
+## Limitations
+
+If you're using an Azure ML Managed Endpoint service, Stream Analytics can currently only access endpoints that have public network access enabled. Read more about it on the page about [Azure ML private endpoints](/azure/machine-learning/concept-secure-online-endpoint#secure-inbound-scoring-requests).
 
 ## Next steps
 

@@ -4,10 +4,9 @@ titleSuffix: Azure Storage
 description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
 
-ms.service: storage
-ms.subservice: data-lake-storage-gen2
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 11/02/2023
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -41,7 +40,9 @@ Data Lake Storage Gen2 APIs, NFS 3.0, and Blob APIs can operate on the same data
 
 This section describes issues and limitations with using blob APIs, NFS 3.0, and Data Lake Storage Gen2 APIs to operate on the same data.
 
-- You can't use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when you're overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option.
+- You can't use blob APIs, NFS 3.0, and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs or NFS 3.0, then that file's blocks won't be visible to calls to the [Get Block List](/rest/api/storageservices/get-block-list) blob API. The only exception is when you're overwriting. You can overwrite a file/blob using either API or with NFS 3.0 by using the zero-truncate option. 
+ 
+  Blobs that are created by using a Data Lake Storage Gen2 operation such the [Path - Create](/rest/api/storageservices/datalakestoragegen2/path/create) operation, can't be overwritten by using [PutBlock](/rest/api/storageservices/put-block) or [PutBlockList](/rest/api/storageservices/put-block-list) operations, but they can be overwritten by using a [PutBlob](/rest/api/storageservices/put-block) operation subject to the maximum permitted blob size imposed by the corresponding api-version that PutBlob uses. 
 
 - When you use the [List Blobs](/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -100,7 +101,7 @@ Using the WASB driver as a client to a hierarchical namespace enabled storage ac
 
 ## Soft delete for blobs capability
 
-If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure portal. In such cases you can use [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items.
+If parent directories for soft-deleted files or directories are renamed, the soft-deleted items may not be displayed correctly in the Azure portal. In such cases you can use [PowerShell](soft-delete-blob-manage.yml?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) or [Azure CLI](soft-delete-blob-manage.yml?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli) to list and restore the soft-deleted items.
 
 ## Events
 

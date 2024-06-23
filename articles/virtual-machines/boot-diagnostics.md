@@ -3,6 +3,7 @@ title: Azure boot diagnostics
 description: Overview of Azure boot diagnostics and managed boot diagnostics
 services: virtual-machines
 ms.service: virtual-machines
+ms.custom:
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
@@ -21,7 +22,7 @@ Boot diagnostics is a debugging feature for Azure virtual machines (VM) that all
 When you create a VM in Azure portal, boot diagnostics is enabled by default. The recommended boot diagnostics experience is to use a managed storage account, as it yields significant performance improvements in the time to create an Azure VM. An Azure managed storage account is used, removing the time it takes to create a user storage account to store the boot diagnostics data.
 
 > [!IMPORTANT]
-> The boot diagnostics data blobs (which comprise of logs and snapshot images) are stored in a managed storage account. Customers will be charged only on used GiBs by the blobs, not on the disk's provisioned size. The snapshot meters will be used for billing of the managed storage account. Because the managed accounts are created on either Standard LRS or Standard ZRS, customers will be charged at $0.05/GB per month for the size of their diagnostic data blobs only. For more information on this pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Customers see this charge tied to their VM resource URI. 
+> The boot diagnostics data blobs (which comprise of logs and snapshot images) are stored in a managed storage account. Customers will be charged only on used GiBs by the blobs, not on the disk's provisioned size. The snapshot meters will be used for billing of the managed storage account. Because the managed accounts are created on either Standard LRS or Standard ZRS, customers will be charged at $0.05/GB per month for the size of their diagnostic data blobs only. For more information on this pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Customers see this charge tied to their VM resource URI.
 
 An alternative boot diagnostic experience is to use a custom storage account. A user can either create a new storage account or use an existing one. When the storage firewall is enabled on the custom storage account (**Enabled from all networks** option isn't selected), you must:
 
@@ -32,11 +33,11 @@ An alternative boot diagnostic experience is to use a custom storage account. A 
 To configure the storage firewall for Azure Serial Console, see [Use Serial Console with custom boot diagnostics storage account firewall enabled](/troubleshoot/azure/virtual-machines/serial-console-windows#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled).
 
 > [!NOTE]
-> The custom storage account associated with boot diagnostics requires the storage account and the associated virtual machines reside in the same region and subscription. 
+> The custom storage account associated with boot diagnostics requires the storage account and the associated virtual machines reside in the same region and subscription.
 
 ## Boot diagnostics view
 
-Go to the virtual machine blade in the Azure portal, the boot diagnostics option is under the *Support and Troubleshooting* section in the Azure portal. Selecting boot diagnostics display a screenshot and serial log information. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, users see a desktop background and for Linux, users see a login prompt.
+Go to the virtual machine blade in the Azure portal, the boot diagnostics option is under the *Help* section in the Azure portal. Selecting boot diagnostics display a screenshot and serial log information. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, users see a desktop background and for Linux, users see a login prompt.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot of Linux boot diagnostics":::
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot of Windows boot diagnostics":::
@@ -47,7 +48,7 @@ Managed boot diagnostics can be enabled through the Azure portal, CLI and ARM Te
 
 ### Enable managed boot diagnostics using the Azure portal
 
-When you create a VM in the Azure portal, the default setting is to have boot diagnostics enabled using a managed storage account. Navigate to the *Management* tab during the VM creation to view it. 
+When you create a VM in the Azure portal, the default setting is to have boot diagnostics enabled using a managed storage account. Navigate to the *Management* tab during the VM creation to view it.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Screenshot enabling managed boot diagnostics during VM creation.":::
 
@@ -119,9 +120,9 @@ Everything after API version 2020-06-01 supports managed boot diagnostics. For m
 
 ## Limitations
 
-- Managed boot diagnostics is only available for Azure Resource Manager VMs. 
+- Managed boot diagnostics is only available for Azure Resource Manager VMs.
 - Managed boot diagnostics doesn't support VMs using unmanaged OS disks.
-- Boot diagnostics doesn't support premium storage accounts or zone redundant storage accounts. If either of these are used for boot diagnostics users receive an `StorageAccountTypeNotSupported` error when starting the VM. 
+- Boot diagnostics doesn't support premium storage accounts or zone redundant storage accounts. If either of these are used for boot diagnostics users receive an `StorageAccountTypeNotSupported` error when starting the VM.
 - Managed storage accounts are supported in Resource Manager API version "2020-06-01" and later.
 - Portal only supports the use of boot diagnostics with a managed storage account for single instance VMs.
 - Users can't configure a retention period for Managed Boot Diagnostics. The logs are overwritten when the total size crosses 1 GB.

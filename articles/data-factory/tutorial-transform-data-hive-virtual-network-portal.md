@@ -6,7 +6,7 @@ ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.date: 01/20/2023
+ms.date: 10/20/2023
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - **HDInsight cluster.** Create a HDInsight cluster and join it to the virtual network you created in the previous step by following this article: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md). Here is a sample configuration of HDInsight in a virtual network. 
 
 	:::image type="content" source="media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png" alt-text="HDInsight in a virtual network":::
-- **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+- **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 - **A virtual machine**. Create an Azure virtual machine VM and join it into the same virtual network that contains your HDInsight cluster. For details, see [How to create virtual machines](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### Upload Hive script to your Blob Storage account
@@ -66,7 +66,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
@@ -224,7 +224,7 @@ Note the following points:
 
     :::image type="content" source="./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png" alt-text="Output file":::
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]

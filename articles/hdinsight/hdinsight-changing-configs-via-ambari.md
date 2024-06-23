@@ -3,8 +3,8 @@ title: Optimize clusters with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 12/26/2022
+ms.custom: hdinsightactive, devx-track-extended-java
+ms.date: 01/04/2024
 ---
 
 # Optimize clusters with Apache Ambari in Azure HDInsight
@@ -15,7 +15,7 @@ For an introduction to using the Ambari Web UI, see [Manage HDInsight clusters b
 
 Log in to  Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen  displays an overview dashboard.
 
-:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png" alt-text="Apache Ambari user dashboard displayed":::
+:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png" alt-text="Apache Ambari user dashboard displayed.":::
 
 The Ambari web UI is used to manage hosts, services, alerts, configurations, and views. Ambari can't be used to create an HDInsight cluster, or upgrade services. Also can't manage stacks and versions, decommission or recommission hosts, or add services to the cluster.
 
@@ -23,7 +23,7 @@ The Ambari web UI is used to manage hosts, services, alerts, configurations, and
 
 Configuration settings help tune a particular service. To modify a service's configuration settings, select the service from the **Services** sidebar (on the left). Then navigate to the **Configs** tab in the service detail page.
 
-:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png" alt-text="Apache Ambari Services sidebar":::
+:::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png" alt-text="Apache Ambari Services sidebar.":::
 
 ## Modify NameNode Java heap size
 
@@ -33,23 +33,23 @@ To modify the NameNode Java heap size:
 
 1. Select **HDFS** from the Services sidebar and navigate to the **Configs** tab.
 
-    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png" alt-text="Apache Ambari HDFS configuration":::
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png" alt-text="Apache Ambari HDFS configuration.":::
 
 1. Find the setting **NameNode Java heap size**. You can also use the **filter** text box to type and find a particular setting. Select the **pen** icon beside the setting name.
 
-    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png" alt-text="Apache Ambari NameNode Java heap size":::
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png" alt-text="Apache Ambari NameNode Java heap size.":::
 
 1. Type the new value in the text box, and then press **Enter** to save the change.
 
-    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png" alt-text="Ambari Edit NameNode Java heap size1":::
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png" alt-text="Ambari Edit NameNode Java heap size1.":::
 
 1. The NameNode Java heap size is changed to 1 GB from 2 GB.
 
-    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png" alt-text="Edited NameNode Java heap size2":::
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png" alt-text="Edited NameNode Java heap size2.":::
 
 1. Save your changes by clicking on the green **Save** button on the top of the configuration screen.
 
-    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png" alt-text="`Apache Ambari save configurations`":::
+    :::image type="content" source="./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png" alt-text="`Apache Ambari save configurations`.":::
 
 ## Next steps
 

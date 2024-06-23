@@ -1,13 +1,14 @@
 ---
-title: Retrieve IoT Edge logs - Azure IoT Edge
+title: Retrieve Azure IoT Edge logs
 description: IoT Edge module log retrieval and upload to Azure Blob Storage. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 09/01/2022
-ms.topic: conceptual
+ms.date: 06/03/2024
+ms.topic: how-to
 ms.reviewer: veyalla
 ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
@@ -28,7 +29,7 @@ While not required, for best compatibility with this feature, the recommended lo
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Timestamp}` should be formatted as `yyyy-MM-dd HH:mm:ss.fff zzz`, and `{Log Level}` should follow the table below, which derives its severity levels from the [Severity code in the Syslog standard](https://wikipedia.org/wiki/Syslog#Severity_level).
+`{Timestamp}` should be formatted as `yyyy-MM-dd HH:mm:ss.fff zzz`, and `{Log Level}` should use the following table, which derives its severity levels from the [Severity code in the Syslog standard](https://wikipedia.org/wiki/Syslog#Severity_level).
 
 | Value | Severity |
 |-|-|
@@ -41,7 +42,7 @@ While not required, for best compatibility with this feature, the recommended lo
 | 6 | Informational |
 | 7 | Debug |
 
-The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
+The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/main/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
 
 ## Retrieve module logs
 
@@ -78,7 +79,7 @@ This method accepts a JSON payload with the following schema:
 |-|-|-|
 | schemaVersion | string | Set to `1.0` |
 | items | JSON array | An array with `id` and `filter` tuples. |
-| id | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format is expected. In case there are multiple items whose ID matches the same module, only the filter options of the first matching ID will be applied to that module. |
+| id | string | A regular expression that supplies the module name. It can match multiple modules on an edge device. [.NET Regular Expressions](/dotnet/standard/base-types/regular-expressions) format is expected. In case there are multiple items whose ID matches the same module, only the filter options of the first matching ID is applied to that module. |
 | filter | JSON section | Log filters to apply to the modules matching the `id` regular expression in the tuple. |
 | tail | integer | Number of log lines in the past to retrieve starting from the latest. OPTIONAL. |
 | since | string | Only return logs since this time, as an rfc3339 timestamp, UNIX timestamp, or a duration (days (d) hours (h) minutes (m)). For example, a duration for one day, 12 hours, and 30 minutes can be specified as *1 day 12 hours 30 minutes* or *1d 12h 30m*. If both `tail` and `since` are specified, the logs are retrieved using the `since` value first. Then, the `tail` value is applied to the result, and the final result is returned. OPTIONAL. |
@@ -398,7 +399,7 @@ In the Azure portal, invoke the method with the method name `GetTaskStatus` and 
     }
 ```
 
-:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png" alt-text="Screenshot showing how to invoke direct method GetTaskStatus in Azure portal .":::
+:::image type="content" source="./media/how-to-retrieve-iot-edge-logs/invoke-get-task-status.png" alt-text="Screenshot showing how to invoke direct method GetTaskStatus in Azure portal.":::
 
 ## Next steps
 

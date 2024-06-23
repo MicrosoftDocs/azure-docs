@@ -8,7 +8,6 @@ ms.reviewer: sngun, garye
 ms.date: 11/02/2021
 author: JasonWHowell
 ms.author: jasonh
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Use FSSPEC to read/write ADLS data in serverless Apache Spark pool in Synapse Analytics
@@ -106,10 +105,9 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
    import fsspec
    import pandas
    
-   adls_account_name = '' #Provide exact ADLS account name
-   sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>)
+   linked_service_name = '' #Provide exact Linked Service Name
    
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key)
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', storage_options={'linked_service': linked_service_name})
    
    with fsspec_handle.open() as f:
        df = pandas.read_csv(f)
@@ -118,17 +116,16 @@ FSSPEC can read/write ADLS data by specifying the linked service name.
    import fsspec
    import pandas
    
-   adls_account_name = '' #Provide exact ADLS account name
+   linked_service_name = '' #Provide exact Linked Service Name
    
    data = pandas.DataFrame({'Name':['Tom', 'nick', 'krish', 'jack'], 'Age':[20, 21, 19, 18]})
-   sas_key = TokenLibrary.getConnectionString(<LinkedServiceName>) 
    
-   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', account_name =    adls_account_name, sas_token=sas_key, mode="wt") 
+   fsspec_handle = fsspec.open('abfs[s]://<container>/<path-to-file>', storage_options={'linked_service': linked_service_name}, mode="wt") 
    
    with fsspec_handle.open() as f:
        data.to_csv(f) 
    ```
-
+   
 ## Upload file from local file system to default ADLS storage account of Synapse workspace
 
 FSSPEC can upload a file from the local file system to a Synapse workspace default ADLS storage account.
@@ -146,7 +143,7 @@ Run the following code.
    
    # Set variables
    local_file_name = "<local_file_name>"
-   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.cor.net/"+local_file_name
+   ADLS_Store_Path = "abfs[s]://<filesystemname>@<account name>.dfs.windows.core.net/"+local_file_name
    
    # Generate local file for testing 
    with open(local_file_name, mode='w') as f:

@@ -4,9 +4,9 @@ description: Learn how to manage Azure Reservations. See steps to change the res
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/05/2024
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -27,7 +27,7 @@ At the time of purchase, a Reservation Order has one Reservation under it. Actio
 
 To view a Reservation Order, go to **Reservations** > select the reservation, and then select the **Reservation order ID**.
 
-![Example of reservation order details showing Reservation order ID ](./media/manage-reserved-vm-instance/reservation-order-details.png)
+:::image type="content" border="true" source="./media/manage-reserved-vm-instance/reservation-order-details.png" alt-text="Screenshot showing reservation order details with the reservation order ID.":::
 
 A reservation inherits permissions from its reservation order. To exchange or refund a reservation, the user should be added to the reservation order.
 
@@ -55,13 +55,13 @@ By default, the following users can view and manage reservations:
 
 - The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
 - Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
-- A Reservation administrator for reservations in their Azure Active Directory (Azure AD) tenant (directory).
-- A Reservation reader has read-only access to reservations in their Azure Active Directory tenant (directory).
+- A Reservation administrator for reservations in their Microsoft Entra tenant (directory).
+- A Reservation reader has read-only access to reservations in their Microsoft Entra tenant (directory).
 
 To allow other people to manage reservations, you have two options:
 
 - Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
@@ -74,16 +74,20 @@ To allow other people to manage reservations, you have two options:
 
 If you're a billing administrator, use following steps to view and manage all reservations and reservation transactions.
 
-1. Sign into the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 2. In the left menu, select **Products + services** > **Reservations**.
 3. The complete list of reservations for your EA enrollment or billing profile is shown.
 4. Billing administrators can take ownership of a reservation by selecting it and then selecting **Grant access** in the window that appears.
 
-## Change Billing Subscription for an Azure Reservation
+## Change billing subscription for an Azure Reservation
 
-We don’t allow changing Billing subscription after a reservation is purchased. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+
+## Change billing frequency for an Azure Reservation
+
+We don’t allow changing billing frequency after a reservation is purchased. If you want to change the billing frequency, use the exchange process to set the right billing frequency for the reservation or select a different billing frequency when setting up a renewal for an already purchased reservation.
 
 ## Split a single reservation into two reservations
 
@@ -136,9 +140,9 @@ To update the optimize setting for the reservation:
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
-  ![Example showing the Configuration item](./media/manage-reserved-vm-instance/add-product03.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/add-product03.png" alt-text="Screenshot showing  the Configuration symbol.":::
 5. Change the **Optimize for** setting.
-  ![Example showing the Optimize for setting](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/instance-size-flexibility-option.png" alt-text="Screenshot showing the Optimize for setting.":::
 
 ## Optimize reservation use
 
@@ -148,12 +152,12 @@ Azure reservation savings only result from sustained resource use. When you make
 
 One way of viewing reservation usage is in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select  **All services** > [**Reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and note the **Utilization (%)** for a reservation.  
-  ![Image showing the list of reservations](./media/manage-reserved-vm-instance/reservation-list.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/reservation-list.png" alt-text="Screenshot showing the list of reservations.":::
 3. Select a reservation.
 4. Review the reservation use trend over time.
-  ![Image showing reservation use ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/reservation-utilization-trend.png" alt-text="Screenshot  showing reservation use.":::
 
 ### View reservation use with API
 

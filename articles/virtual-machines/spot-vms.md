@@ -1,13 +1,12 @@
 ---
-title: Use Azure Spot Virtual Machines 
+title: Use Azure Spot Virtual Machines
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machines
 ms.subservice: spot
-ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 8/30/2022
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ---
 
@@ -20,6 +19,7 @@ Using Azure Spot Virtual Machines allows you to take advantage of our unused cap
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Spot Virtual Machines, Azure will allocate the VMs if there's capacity available, but there's no SLA for these VMs. An Azure Spot Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines with 30-seconds notice. 
 
+:::image type="content" source="media/spot-vms/azure-spot-virtual-machines-thumbnail.jpg" alt-text="YouTube video about Spot VMs and reducing operational costs of stateless workloads." link="https://youtu.be/GFRA91FTqAE":::
 
 ## Eviction policy
 
@@ -52,7 +52,7 @@ The following VM sizes aren't supported for Azure Spot Virtual Machines:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azure China 21Vianet.
+Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azure operated by 21Vianet.
 
 <a name="channel"></a>
 
@@ -60,7 +60,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
--	Sponsored (0036P and 0136P)
+-	Sponsored (0036P and 0136P) - not available in Fairfax
 - For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
 
 
@@ -78,13 +78,16 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 You can see historical pricing and eviction rates per size in a region in the portal while you are creating the VM. After selecting the checkbox to **Run with Azure Spot discount**, a link will appear under the size selection of the VM titled **View pricing history and compare prices in nearby regions**. By selecting that link you will be able to see a table or graph of spot pricing for the specified VM size.   The pricing and eviction rates in the following images are only examples. 
 
+> [!TIP]
+> Eviction rates are quoted _per hour_. For example, an eviction rate of 10% means a VM has a 10% chance of being evicted within the next hour, based on historical eviction data of the last 28 days.
+
 **Chart**:
 
-:::image type="content" source="./media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
 
 **Table**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ### Azure Resource Graph
 

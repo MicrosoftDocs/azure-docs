@@ -2,27 +2,35 @@
 title: Chart performance with VM insights
 description: This article discusses the VM insights Performance feature that discovers application components on Windows and Linux systems and maps the communication between services.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/08/2022
-
+ms.custom: linux-related-content
+author: guywi-ms
+ms.author: guywild
+ms.date: 09/28/2023
 ---
 
 # Chart performance with VM insights
 
-VM insights includes a set of performance charts that target several key performance indicators to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time. You can use them to identify bottlenecks and anomalies. You can also switch to a perspective that lists each machine to view resource utilization based on the metric selected.
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-VM insights monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance complements the health monitoring feature and helps to:
+VM insights includes a set of performance charts that target several key [performance indicators](vminsights-log-query.md#performance-records) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time. You can use them to identify bottlenecks and anomalies. You can also switch to a perspective that lists each machine to view resource utilization based on the metric selected.
+
+VM insights monitors key operating system performance indicators related to processor, memory, network adapter, and disk utilization. Performance helps to:
 
 - Expose issues that indicate a possible system component failure.
 - Support tuning and optimization to achieve efficiency.
 - Support capacity planning.
+
+> [!NOTE]
+> The network chart on the Performance tab looks different from the network chart on the Azure VM overview page because the overview page displays charts based on the host's measurement of activity in the guest VM. The network chart on the Azure VM overview only displays network traffic that will be billed. Inter-virtual network traffic isn't included. The data and charts shown for VM insights are based on data from the guest VM. The network chart displays all TCP/IP traffic that's inbound and outbound to that VM, including inter-virtual network traffic.
+
 
 ## Limitations
 Limitations in performance collection with VM insights:
 
 - Available memory isn't available in all Linux versions, including Red Hat Linux (RHEL) 6 and CentOS 6. It will be available in Linux versions that use [kernel version 3.14](http://www.man7.org/linux/man-pages/man1/free.1.html) or higher. It might be available in some kernel versions between 3.0 and 3.14.
 - Metrics are only available for data disks on Linux virtual machines that use XFS filesystem or EXT filesystem family (EXT2, EXT3, EXT4).
+- Collecting performance metrics from network shared drives is unsupported.
 
 ## Multi-VM perspective from Azure Monitor
 
@@ -33,12 +41,12 @@ To access from Azure Monitor:
 1. In the Azure portal, select **Monitor**.
 1. In the **Solutions** section, select **Virtual Machines**.
 1. Select the **Performance** tab.
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-performance/vminsights-performance-aggview-01.png" lightbox="media/vminsights-performance/vminsights-performance-aggview-01.png" alt-text="Screenshot that shows a VM insights Performance Top N List view." border="false":::
 
-![Screenshot that shows a VM insights Performance Top N List view.](media/vminsights-performance/vminsights-performance-aggview-01.png)
+On the **Top N Charts** tab, if you have more than one Log Analytics workspace, select the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector returns subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and doesn't carry over to Map.
 
-On the **Top N Charts** tab, if you have more than one Log Analytics workspace, select the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector returns subscriptions, resource groups, [computer groups](../logs/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and doesn't carry over to Health or Map.
-
-By default, the charts show the last 24 hours. By using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.
+By default, the charts show performance counters for the last hour. By using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.
 
 Five capacity utilization charts are shown on the page:
 
@@ -48,19 +56,23 @@ Five capacity utilization charts are shown on the page:
 * **Bytes Sent Rate**: Shows the top five machines with the highest average of bytes sent.
 * **Bytes Receive Rate**: Shows the top five machines with the highest average of bytes received.
 
+>[!NOTE]
+>Each chart described above only shows the top 5 machines.  
+>
+
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the correct scope and view.
 
 Select the icon to the left of the pushpin icon on a chart to open the **Top N List** view. This list view shows the resource utilization for a performance metric by individual VM. It also shows which machine is trending the highest.
-
-![Screenshot that shows a Top N List view for a selected performance metric.](media/vminsights-performance/vminsights-performance-topnlist-01.png)
+<!-- convertborder later -->
+:::image type="content" source="media/vminsights-performance/vminsights-performance-topnlist-01.png" lightbox="media/vminsights-performance/vminsights-performance-topnlist-01.png" alt-text="Screenshot that shows a Top N List view for a selected performance metric." border="false":::
 
 When you select the virtual machine, the **Properties** pane opens on the right side. It shows properties like system information reported by the operating system and the properties of the Azure VM. Selecting an option under the **Quick Links** section redirects you to that feature directly from the selected VM.
-
-![Screenshot that shows a virtual machine Properties pane.](./media/vminsights-performance/vminsights-properties-pane-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-performance/vminsights-properties-pane-01.png" lightbox="./media/vminsights-performance/vminsights-properties-pane-01.png" alt-text="Screenshot that shows a virtual machine Properties pane." border="false":::
 
 You can switch to the **Aggregated Charts** tab to view the performance metrics filtered by average or percentiles measured.
-
-![Screenshot that shows a VM insights Performance Aggregate view.](./media/vminsights-performance/vminsights-performance-aggview-02.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-aggview-02.png" lightbox="./media/vminsights-performance/vminsights-performance-aggview-02.png" alt-text="Screenshot that shows a VM insights Performance Aggregate view." border="false":::
 
 The following capacity utilization charts are provided:
 
@@ -77,8 +89,8 @@ To view the resource utilization by individual VM and see which machine is trend
 >[!NOTE]
 >The list can't show more than 500 machines at a time.  
 >
-
-![Screenshot that shows a Top N List page example.](./media/vminsights-performance/vminsights-performance-topnlist-01.png)
+<!-- convertborder later -->
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-topnlist-01.png" lightbox="./media/vminsights-performance/vminsights-performance-topnlist-01.png" alt-text="Screenshot that shows a Top N List page example." border="false":::
 
 To filter the results on a specific virtual machine in the list, enter its computer name in the **Search by name** text box.
 
@@ -109,7 +121,16 @@ The following capacity utilization charts are provided:
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.
 
-![Screenshot that shows VM insights Performance directly from the VM view.](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-direct-vm.png" lightbox="./media/vminsights-performance/vminsights-performance-direct-vm.png" alt-text="Screenshot that shows VM insights Performance directly from the VM view.":::
+
+## Troubleshoot VM performance issues with Performance Diagnostics
+
+[The Performance Diagnostics tool](/troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json) helps troubleshoot performance issues on Windows or Linux virtual machines by quickly diagnosing and providing insights on issues it currently finds on your machines. The tool does not analyze historical monitoring data you collect, but rather checks the current state of the machine for known issues, implementation of best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory. 
+
+To install and run the Performance Diagnostics tool, select the **Performance Diagnostics** button from the VM Insights Performance screen > **Install performance diagnostics** and [select an analysis scenario](/troubleshoot/azure/virtual-machines/performance-diagnostics#select-an-analysis-scenario-to-run?toc=/azure/azure-monitor/toc.json)
+
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-diagnostics.png" lightbox="./media/vminsights-performance/vminsights-performance-diagnostics.png" alt-text="Screenshot that shows the Performance Diagnostics button, which enables the Performance Diagnostics tool from the VM Insights Performance screen.":::
+
 
 ## View performance directly from an Azure virtual machine scale set
 
@@ -123,7 +144,7 @@ This page loads the Azure Monitor performance view scoped to the selected scale 
 
 Selecting the pushpin icon in the upper-right corner of a chart pins it to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to VM insights and loads the performance detail view for the VM.
 
-![Screenshot that shows VM insights Performance directly from the virtual machine scale set view.](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+:::image type="content" source="./media/vminsights-performance/vminsights-performance-direct-vmss.png" lightbox="./media/vminsights-performance/vminsights-performance-direct-vmss.png" alt-text="Screenshot that shows VM insights Performance directly from the virtual machine scale set view.":::
 
 >[!NOTE]
 >You can also access a detailed performance view for a specific instance from the **Instances** view for your scale set. Under the **Settings** section, go to **Instances** and select **Insights**.

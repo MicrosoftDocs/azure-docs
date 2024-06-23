@@ -2,7 +2,7 @@
 author: greg-lindsay
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 12/16/2022    
+ms.date: 05/22/2023  
 ms.author: greglin
 ---
 **Public DNS zones**
@@ -11,7 +11,7 @@ ms.author: greglin
 | --- | --- |
 | Public DNS zones per subscription |250 <sup>1</sup> |
 | Record sets per public DNS zone |10,000 <sup>1</sup> |
-| Records per record set in public DNS zone |20 |
+| Records per record set in public DNS zone |20 <sup>1</sup> |
 | Number of Alias records for a single Azure resource |20|
 
 <sup>1</sup>If you need to increase these limits, contact Azure Support.
@@ -24,9 +24,14 @@ ms.author: greglin
 | Record sets per private DNS zone |25000|
 | Records per record set for private DNS zones |20|
 | Virtual Network Links per private DNS zone |1000|
-| Virtual Networks Links per private DNS zones with auto-registration enabled |100|
-| Number of private DNS zones a virtual network can get linked to with auto-registration enabled |1|
+| Virtual Networks Links per private DNS zones with autoregistration enabled |100|
+| Number of private DNS zones a virtual network can get linked to with autoregistration enabled |1|
 | Number of private DNS zones a virtual network can get linked |1000|
+
+**Azure-provided DNS resolver**
+
+| Resource | Limit |
+| --- | --- |
 | Number of DNS queries a virtual machine can send to Azure DNS resolver, per second |1000 <sup>1</sup> |
 | Maximum number of DNS queries queued (pending response) per virtual machine |200 <sup>1</sup> |
 

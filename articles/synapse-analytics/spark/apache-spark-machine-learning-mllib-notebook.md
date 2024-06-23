@@ -6,7 +6,7 @@ ms.service:  synapse-analytics
 ms.reviewer: sngun 
 ms.topic: tutorial
 ms.subservice: machine-learning
-ms.date: 02/15/2022
+ms.date: 02/29/2024
 ms.author: negust
 ms.custom: subject-rbac-steps
 
@@ -73,10 +73,15 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     ```python
     from azureml.opendatasets import NycTlcYellow
 
-    end_date = parser.parse('2018-06-06')
-    start_date = parser.parse('2018-05-01')
+    from datetime import datetime
+    from dateutil import parser
+    
+    end_date = parser.parse('2018-05-08 00:00:00')
+    start_date = parser.parse('2018-05-01 00:00:00')
+    
     nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
-    filtered_df = nyc_tlc.to_spark_dataframe()
+    filtered_df = spark.createDataFrame(nyc_tlc.to_pandas_dataframe())
+
     ```
 
 2. The downside to simple filtering is that, from a statistical perspective, it might introduce bias into the data. Another approach is to use the sampling built into Spark. 
@@ -190,7 +195,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Now that there are two DataFrames, the next task is to create the model formula and run it against the training DataFrame. Then you can validate against the testing DataFrame. Experiment with different versions of the model formula to see the impact of different combinations.
 
 > [!Note]
-> To save the model, assign the *Storage Blob Data Contributor* role to the Azure SQL Database server resource scope. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). Only members with owner privileges can perform this step.
+> To save the model, assign the *Storage Blob Data Contributor* role to the Azure SQL Database server resource scope. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml). Only members with owner privileges can perform this step.
 
 ```python
 ## Create a new logistic regression object for the model
@@ -249,7 +254,7 @@ After you finish running the application, shut down the notebook to release the 
 
 ## Next steps
 
-- [.NET for Apache Spark documentation](/dotnet/spark)
+- [.NET for Apache Spark documentation](/previous-versions/dotnet/spark/what-is-apache-spark-dotnet)
 - [Azure Synapse Analytics](../index.yml)
 - [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 

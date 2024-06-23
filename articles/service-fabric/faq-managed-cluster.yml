@@ -7,10 +7,9 @@ metadata:
   author: tomvcassidy
   ms.service: service-fabric
   services: service-fabric
-  ms.date: 07/11/2022
+  ms.date: 03/12/2024
 title: Service Fabric managed clusters frequently asked questions
 summary: Here are some frequently asked questions (FAQs) and answers for Service Fabric managed clusters.
-
 
 sections:
   - name: General
@@ -28,12 +27,12 @@ sections:
       - question: |
           Can I do an in-place migration of my existing Service Fabric cluster to a managed cluster resource?
         answer: |
-          No. You will need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
+          No, you need to create a new Service Fabric cluster resource to use the new Service Fabric managed cluster resource type.
 
       - question: |
           Is there an additional cost for Service Fabric managed clusters?
         answer: |
-          No. There is no additional cost associated with a Service Fabric managed cluster beyond the cost of the underlying compute, storage, and networking resources that are required for the cluster.
+          No, there's no additional cost associated with a Service Fabric managed cluster beyond the cost of the underlying compute, storage, and networking resources that are required for the cluster.
 
       - question: |
           Is there a new SLA introduced by the Service Fabric managed cluster resource?
@@ -41,7 +40,7 @@ sections:
           The SLA doesn't change from the current Service Fabric resource model.
 
       - question: |
-          What is the difference between a Basic, and Standard SKU cluster?
+          What's the difference between a Basic, and Standard SKU cluster?
         answer: |
           Basic SKU clusters are intended to be used for testing and pre production environments with support for minimal configuration change. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
       
@@ -63,9 +62,29 @@ sections:
           Yes, you can configure internal-only load balancer. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
       
       - question: | 
-          Can I change the Azure AD tenant after initial deployment?
+          Can I change the Microsoft Entra tenant after initial deployment?
         answer: |
-          No. At this time you would need to create a new Service Fabric managed cluster resource.
+          No, you need to create a new Service Fabric managed cluster resource.
+
+      - question: | 
+          Can I transfer my subscription to a different Microsoft Entra tenant?
+        answer: |
+          No, you need to create a new Service Fabric managed cluster resource after the subscription has been transferred to a different Microsoft Entra tenant.
+      
+      - question: | 
+          Can I move/migrate my cluster between Microsoft Entra tenants?
+        answer: |
+          No, you need to create a new Service Fabric managed cluster resource under the new tenant.
+      
+      - question: | 
+          Can I move/migrate my cluster between subscriptions?
+        answer: |
+          No, you need to create a new Service Fabric managed cluster resource under the new subscription.
+      
+      - question: | 
+          Can I move/migrate my cluster or cluster resources to other resource groups or rename them?
+        answer: |
+          No, you need to create a new Service Fabric managed cluster resource under the new resource group/name.
 
       - question: |
           I want to enable IPv6, is that possible?
@@ -96,7 +115,22 @@ sections:
           Can I select between automatic and manual upgrades for my cluster runtime?
         answer: |
           Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./how-to-managed-cluster-upgrades.md).
+
+      - question: |
+          Can I set up maintenance control for my cluster?
+        answer: |
+          Yes, you can enable [maintenance control](./how-to-managed-cluster-maintenance-control.md)
+
+      - question: |
+          Why do I get 'Your connection isn't private' when connecting to Service Fabric Explorer (SFX) on a managed cluster?
+        answer: |
+          Connecting to a Service Fabric Explorer (SFX) endpoint on a managed cluster will result in a certificate error 'NET::ERR_CERT_AUTHORITY_INVALID' regardless of certificate being used or cluster configuration. This is because the cluster nodes are using the managed 'cluster' certificate when binding FabricGateway (19000) and FabricHttpGateway (19080) TCP ports and is by design.
           
+      - question: |
+          Can I manually make changes to a managed cluster's resources? 
+        answer: |
+          No, manually making changes to a managed cluster's resource isn't supported.
+
   - name: Applications
     questions:
       - question: |

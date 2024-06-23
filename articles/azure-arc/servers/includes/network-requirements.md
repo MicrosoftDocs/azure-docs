@@ -13,7 +13,7 @@ The Azure Connected Machine agent for Linux and Windows communicates outbound se
 To further secure your network connectivity to Azure Arc, instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](../private-link-security.md) .
 
 > [!NOTE]
-> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
+> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent. At the same time, Azure Monitor Agent supports Log Analytics gateway.
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs and Service Tags listed below are not blocked.
 
@@ -30,6 +30,8 @@ Be sure to allow access to the following Service Tags:
 
 For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
+If you filter traffic to the AzureArcInfrastructure service tag, you must allow traffic to the full service tag range. The ranges advertised for individual regions, for example AzureArcInfrastructure.AustraliaEast, do not include the IP ranges used by global components of the service. The specific IP address resolved for these endpoints may change over time within the documented ranges, so just using a lookup tool to identify the current IP address for a given endpoint and allowing access to that will not be sufficient to ensure reliable access.
+
 For more information, see [Virtual network service tags](../../../virtual-network/service-tags-overview.md).
 
 ### URLs
@@ -38,14 +40,17 @@ The table below lists the URLs that must be available in order to install and us
 
 #### [Azure Cloud](#tab/azure-cloud)
 
+> [!NOTE]
+> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Endpoint used with private link** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function.
+
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
 |`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
-|`login.windows.net`|Azure Active Directory|Always| Public |
-|`login.microsoftonline.com`|Azure Active Directory|Always| Public |
-|`pas.windows.net`|Azure Active Directory|Always| Public |
+|`login.windows.net`|Microsoft Entra ID|Always| Public |
+|`login.microsoftonline.com`|Microsoft Entra ID|Always| Public |
+|`pas.windows.net`|Microsoft Entra ID|Always| Public |
 |`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
@@ -55,6 +60,10 @@ The table below lists the URLs that must be available in order to install and us
 |`*.waconazure.com`|For Windows Admin Center connectivity|If using Windows Admin Center|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.services.visualstudio.com`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
+| `*.<region>.arcdataservices.com` <sup>1</sup> | For Arc SQL Server. Sends data processing service, service telemetry, and performance monitoring to Azure. Allows TLS 1.3. | Always | Public |
+|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | If using ESUs enabled by Azure Arc. Required always for automatic updates, or temporarily if downloading certificates manually. | Public |
+
+<sup>1</sup> For extension versions up to and including [February 13, 2024](../../data/release-notes.md#february-13-2024), use `san-af-<region>-prod.azurewebsites.net`. Beginning with [March 12, 2024](../../data/release-notes.md#march-12-2024) both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
 
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<region>`. Within this command, the region must be specified for the `<region>` placeholder.
@@ -63,32 +72,33 @@ The table below lists the URLs that must be available in order to install and us
 
 #### [Azure Government](#tab/azure-government)
 
+> [!NOTE]
+> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Endpoint used with private link** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function.
+
 | Agent resource | Description | When required| Endpoint used with private link |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
 |`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
-|`login.microsoftonline.us`|Azure Active Directory|Always| Public |
-|`pasff.usgovcloudapi.net`|Azure Active Directory|Always| Public |
+|`login.microsoftonline.us`|Microsoft Entra ID|Always| Public |
+|`pasff.usgovcloudapi.net`|Microsoft Entra ID|Always| Public |
 |`management.usgovcloudapi.net`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
 |`dc.applicationinsights.us`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
+|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | If using ESUs enabled by Azure Arc. Required always for automatic updates, or temporarily if downloading certificates manually. | Public |
 
-#### [Azure China](#tab/azure-china)
-
-> [!NOTE]
-> Private link is not available for Azure Arc-enabled servers in Azure China regions.
+#### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 
 | Agent resource | Description | When required|
 |---------|---------|--------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only|
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only|
 |`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only|
-|`login.chinacloudapi.cn`|Azure Active Directory|Always|
-|`login.partner.chinacloudapi.cn`|Azure Active Directory|Always|
-|`pas.chinacloudapi.cn`|Azure Active Directory|Always|
+|`login.chinacloudapi.cn`|Microsoft Entra ID|Always|
+|`login.partner.chinacloudapi.cn`|Microsoft Entra ID|Always|
+|`pas.chinacloudapi.cn`|Microsoft Entra ID|Always|
 |`management.chinacloudapi.cn`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only|
 |`*.his.arc.azure.cn`|Metadata and hybrid identity services|Always|
 |`*.guestconfiguration.azure.cn`| Extension management and guest configuration services |Always|

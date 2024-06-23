@@ -16,8 +16,8 @@ ms.reviewer: dech
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!IMPORTANT]
-> The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
+> [!WARNING]
+> The Jupyter Notebooks feature of Azure Cosmos DB will be retired March 30, 2024; you will not be able to use built-in Jupyter notebooks from the Azure Cosmos DB account. We recommend using [Visual Studio Code's support for Jupyter notebooks](../nosql/tutorial-create-notebook-vscode.md) or your preferred notebooks client.
 
 This tutorial walks through how to use the Jupyter Notebooks feature of Azure Cosmos DB to import sample retail data to an Azure Cosmos DB for NoSQL account. You'll see how to use the Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
 
@@ -224,7 +224,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Create another new code cell.
 
-1. In the code cell, add code to [execute a SQL query using the SDK](quickstart-dotnet.md#query-items) storing the output of the query in a variable of type <xref:System.Collections.Generic.List%601> named **results**.
+1. In the code cell, add code to [execute a SQL query using the SDK](query/index.yml) storing the output of the query in a variable of type <xref:System.Collections.Generic.List%601> named **results**.
 
     ```csharp
     using System.Collections.Generic;

@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Train a model in Python with automated machine learning'
-description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning.
+title: 'Tutorial: Train a model in Python with automated machine learning (deprecated)'
+description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning (deprecated).
 author: midesa
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: machine-learning
-ms.date: 06/30/2020
+ms.custom: devx-track-python
+ms.date: 03/06/2024
 ms.author: midesa
-ms.reviewer: sngun
- 
 ---
-# Tutorial: Train a model in Python with automated machine learning
+
+# Tutorial: Train a model in Python with automated machine learning (deprecated)
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
@@ -24,8 +24,14 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
-- Create a serverless Apache Spark pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
+- Create a serverless Apache Spark 2.4 pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
 - Complete the [Azure Machine Learning workspace setup](../../machine-learning/quickstart-create-resources.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
+
+> [!WARNING]
+> - Effective September 29, 2023, Azure Synapse will discontinue official support for [Spark 2.4 Runtimes](../spark/apache-spark-24-runtime.md). Post September 29, 2023, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
+> - As part of the deprecation process for Apache Spark 2.4, we would like to notify you that AutoML in Azure Synapse Analytics will also be deprecated. This includes both the low code interface and the APIs used to create AutoML trials through code.
+> - Please note that AutoML functionality was exclusively available through the Spark 2.4 runtime.
+> - For customers who wish to continue leveraging AutoML capabilities, we recommend saving your data into your Azure Data Lake Storage Gen2 (ADLSg2) account. From there, you can seamlessly access the AutoML experience through Azure Machine Learning (AzureML). Further information regarding this workaround is available [here](../machine-learning/access-data-from-aml.md).
 
 ## Understand regression models
 

@@ -1,0 +1,103 @@
+- name: Azure Operator Insights documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Operator Insights?
+    href: overview.md
+  - name: Azure Operator Insights FAQ
+    href: operator-insights-faq.yml
+  - name: What's new for the Azure Operator Insights ingestion agent?
+    href: ingestion-agent-release-notes.md
+- name: Planning
+  items:
+  - name: Architecture
+    href: architecture.md
+  - name: Data Products
+    items:
+    - name: Quality of Experience - Affirmed MCC
+      href: concept-mcc-data-product.md
+    - name: Monitoring - Affirmed MCC
+      href: concept-monitoring-mcc-data-product.md
+  - name: Business continuity and disaster recovery
+    href: business-continuity-disaster-recovery.md
+  - name: Data quality and data monitoring
+    href: concept-data-quality-monitoring.md
+  - name: Data types
+    href: concept-data-types.md
+  - name: Managed identity
+    href: managed-identity.md
+- name: Deployment
+  items:
+  - name: Deploy an Azure Operator Insights Data Product
+    href: data-product-create.md
+- name: Data ingestion
+  items:
+  - name: Ingestion agents
+    href: ingestion-agent-overview.md
+  - name: Set up the Azure Operator Insights ingestion agent
+    href: set-up-ingestion-agent.md
+  - name: Use Azure Data Factory for ingestion
+    href: ingestion-with-data-factory.md
+- name: Data analysis
+  items:
+  - name: Data visualization overview
+    href: concept-data-visualization.md
+  - name: Visualize data in dashboards
+    href: dashboards-use.md
+  - name: Query data in a Data Product
+    href: data-query.md
+- name: Integration
+  items:
+  - name: Use Microsoft Purview with a Data Product
+    href: purview-setup.md
+- name: Management
+  items:
+  - name: Manage permissions to the KQL consumption URL
+    href: consumption-plane-configure-permissions.md
+  - name: Monitoring
+    items:
+    - name: Monitor Azure Operator Insights
+      href: monitor-operator-insights.md
+    - name: Monitoring data
+      href: monitor-operator-insights-data-reference.md
+  - name: Manage Azure Operator Insights ingestion agents
+    items:
+    - name: Change configuration
+      href: change-ingestion-agent-configuration.md
+    - name: Monitor and troubleshoot
+      href: monitor-troubleshoot-ingestion-agent.md
+    - name: Upgrade
+      href: upgrade-ingestion-agent.md
+    - name: Rotate secrets
+      href: rotate-secrets-for-ingestion-agent.md
+    - name: Map Microsoft hostnames to IP addresses
+      href: map-hostnames-ip-addresses.md
+    - name: Configuration reference
+      href: ingestion-agent-configuration-reference.md
+- name: Development
+  items:
+  - name: Develop Data Products with the data product factory
+    href: data-product-factory.md
+- name: Reference
+  items:
+    - name: Device reference schema for the Quality of Experience Affirmed MCC Data Product
+      href: device-reference-schema.md
+    - name: Azure CLI for Operator Insights
+      href: /cli/azure/service-page/azure%20operator%20insights%20-%20network%20analytics
+    - name: PowerShell for Operator Insights
+      href: /powershell/module/az.networkanalytics
+    - name: SDK documentation
+      items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/networkanalytics
+      - name: Go
+        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/networkanalytics/armnetworkanalytics
+      - name: Java
+        href: /java/api/overview/azure/networkanalytics
+      - name: JavaScript
+        href: /javascript/api/%40azure/arm-networkanalytics
+      - name: Python
+        href: /python/api/overview/azure/networkanalytics
+    - name: Archive for Azure Operator Insights ingestion agent release notes
+      href: ingestion-agent-release-notes-archive.md

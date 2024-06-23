@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 05/15/2024
 ---
 # Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory or Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
 ### Prerequisites
 
-1. [Enable Azure Active Directory (Azure AD) on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Azure Active Directory authentication.
+1. [Enable Microsoft Entra ID on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Microsoft Entra authentication.
 
 1. Choose how to connect SQL Managed Instance, over private endpoint or over public endpoint:
 
@@ -70,7 +70,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
 ### Configure virtual network
 
-1. **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
+1. **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
 
     - Use the built-in Network Contributor role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
     - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. If you also want to bring your own public IP addresses for Azure-SSIS IR while joining it to an Azure Resource Manager virtual network, also include _Microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
@@ -133,11 +133,11 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png" alt-text="Screenshot shows Integration runtime setup with Create S S I S catalog selected and Catalog database server endpoint entered.":::
 
-1. Select Azure AD authentication when applies.
+1. Select Microsoft Entra authentication when applies.
 
     :::image type="content" source="./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png" alt-text="catalog-public-endpoint":::
 
-    For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
+    For more info about how to enable Microsoft Entra authentication, see [Enable Microsoft Entra ID on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Join Azure-SSIS IR to the virtual network when applies.
 
@@ -165,7 +165,7 @@ SSISDB logs retention policy are defined by below properties in [catalog.catalog
 
 To remove SSISDB logs that are outside the retention window set by the administrator, you can trigger the stored procedure `[internal].[cleanup_server_retention_window_exclusive]`. Optionally, you can schedule SQL Managed Instance agent job execution to trigger the stored procedure.
 
-## Next steps
+## Related content
 
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Set up Business continuity and disaster recovery (BCDR)](configure-bcdr-azure-ssis-integration-runtime.md)

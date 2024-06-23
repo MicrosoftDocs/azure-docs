@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 06/13/2024
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -16,9 +16,9 @@ To learn more about Azure pricing, see [Azure pricing overview](https://azure.mi
 > [!NOTE]
 > Some services have adjustable limits.
 >
-> When a service doesn't have adjustable limits, the following tables use the header **Limit**. In those cases, the default and the maximum limits are the same.
+> When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limit can be raised above the default limit but not above the maximum limit. Some services with adjustable limits use different headers with information about adjusting the limit.
 >
-> When the limit can be adjusted, the tables include **Default limit** and **Maximum limit** headers. The limit can be raised above the default limit but not above the maximum limit.
+> When a service doesn't have adjustable limits, the following tables use the header **Limit** without any additional information about adjusting the limit. In those cases, the default and the maximum limits are the same.
 >
 > If you want to raise the limit or quota above the default limit, [open an online customer support request at no charge](../templates/error-resource-quota.md).
 >
@@ -55,13 +55,35 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Azure Active Directory limits
+<a name='azure-active-directory-limits'></a>
 
-[!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
+## Microsoft Entra ID limits
+
+[!INCLUDE [entra-service-limits](../../../includes/entra-service-limits-include.md)]
+
+## API Center limits
+
+[!INCLUDE [api-center-service-limits](../../api-center/includes/api-center-service-limits.md)]
 
 ## API Management limits
 
+This section provides information about limits that apply to Azure API Management instances in different [service tiers](../../api-management/api-management-features.md), including the following:
+
+* [API Management classic tiers](#limits---api-management-classic-tiers)
+* [API Management v2 tiers](#limits---api-management-v2-tiers)
+* [Developer portal in API Management v2 tiers](#limits---developer-portal-in-api-management-v2-tiers)
+
+### Limits - API Management classic tiers
+
 [!INCLUDE [api-management-service-limits](../../../includes/api-management-service-limits.md)]
+
+### Limits - API Management v2 tiers
+
+[!INCLUDE [api-management-service-limits-v2](../../../includes/api-management-service-limits-v2.md)]
+
+### Limits - Developer portal in API Management v2 tiers
+
+[!INCLUDE [api-management-developer-portal-limits-v2](../../../includes/api-management-developer-portal-limits-v2.md)]
 
 ## App Service limits
 
@@ -83,11 +105,11 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-cloud-services-limits](../../../includes/azure-cloud-services-limits.md)]
 
-## Azure Cognitive Search limits
+## Azure AI Search limits
 
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
-* **Free** multi-tenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
+* **Free** multitenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
 * **Basic** provides dedicated computing resources for production workloads at a smaller scale, with up to three replicas for highly available query workloads.
 * **Standard**, which includes S1, S2, S3, and S3 High Density, is for larger production workloads. Multiple levels exist within the Standard tier so that you can choose a resource configuration that best matches your workload profile.
 
@@ -99,11 +121,17 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](../../../includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](../../search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
 
-## Azure Cognitive Services limits
+<a name='azure-cognitive-services-limits'></a>
+
+## Azure AI services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
+
+## Azure Chaos Studio limits
+
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
 
 ## Azure Communications Gateway limits
 
@@ -117,9 +145,13 @@ Azure Communications Gateway also has limits on the SIP signaling.
 
 [!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
 
+[!INCLUDE [limits on the Provisioning API](../../communications-gateway/includes/communications-gateway-provisioning-api-restrictions.md)]
+
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
+[!INCLUDE [container-apps-limits](../../../includes/container-apps/container-apps-limits.md)]
 
 ## Azure Cosmos DB limits
 
@@ -136,6 +168,14 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 ## Azure Database for PostgreSQL
 
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](../../postgresql/concepts-limits.md).
+
+## Azure Deployment Environments limits
+
+[!INCLUDE [Deployment Environments limits](../../../includes/deployment-environments-limits.md)]
+
+## Azure Files and Azure File Sync
+
+To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
 
 ## Azure Functions limits
 
@@ -173,6 +213,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 [!INCLUDE [maps-limits](../../../includes/maps-limits.md)]
 
+## Azure Managed Grafana limits
+
+[!INCLUDE [Azure Managed Grafana limits](../../../includes/azure-managed-grafana-limits.md)]
+
 ## Azure Monitor limits
 
 For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
@@ -187,7 +231,7 @@ For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor
 
 ## Azure Policy limits
 
-[!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+[!INCLUDE [azure-policy-limits](../../governance/includes/policy/azure-policy-limits.md)]
 
 ## Azure Quantum limits
 
@@ -205,7 +249,38 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 ## Azure Spring Apps limits
 
-To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/enterprise/quotas.md).
+
+## Azure Storage limits
+
+This section lists the following limits for Azure Storage:
+
+- [Standard storage account limits](#standard-storage-account-limits)
+- [Azure Storage resource provider limits](#azure-storage-resource-provider-limits)
+- [Azure Blob Storage limits](#azure-blob-storage-limits)
+- [Azure Queue storage limits](#azure-queue-storage-limits)
+- [Azure Table storage limits](#azure-table-storage-limits)
+
+### Standard storage account limits
+
+<!--like # storage accts -->
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
+
+### Azure Storage resource provider limits
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+### Azure Blob Storage limits
+
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+### Azure Queue storage limits
+
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+### Azure Table storage limits
+
+[!INCLUDE [storage-tables-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## Azure subscription creation limits
 
@@ -218,6 +293,10 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 ## Azure VMware Solution limits
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
+
+## Azure Web PubSub limits
+
+[!INCLUDE [azure-web-pubsub-limits](../../../includes/azure-web-pubsub-limits.md)]
 
 ## Backup limits
 
@@ -275,7 +354,7 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Digital Twins limits
 
 > [!NOTE]
-> Some areas of this service have adjustable limits, and others do not. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
+> Some areas of this service have adjustable limits, and others do not. This is represented in the following tables with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
 
 [!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
@@ -318,7 +397,7 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [mobile-services-limits](../../../includes/mobile-services-limits.md)]
 
-## Multi-Factor Authentication limits
+## Multifactor authentication limits
 
 [!INCLUDE [azure-mfa-service-limits](../../../includes/azure-mfa-service-limits.md)]
 
@@ -330,6 +409,10 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
 [!INCLUDE [application-gateway-limits](../../../includes/application-gateway-limits.md)]
+
+### Application Gateway for Containers limits
+
+[!INCLUDE [application-gateway-for-containers-limits](../../../includes/application-gateway-for-containers-limits.md)]
 
 ### Azure Bastion limits
 
@@ -347,6 +430,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
 
+### Azure Network Watcher limits
+
+[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
+
 ### Azure Route Server limits
 
 [!INCLUDE [Azure Route Server Limits](../../../includes/route-server-limits.md)]
@@ -359,10 +446,6 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
-### Network Watcher limits
-
-[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
-
 ### Private Link limits
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
@@ -371,7 +454,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
 
-### Virtual Network Gateway limits
+### VPN Gateway limits
+
+The following limits apply to VPN Gateway resources and VPN Gateway virtual network gateways, unless otherwise stated.
 
 [!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
 
@@ -393,47 +478,7 @@ The latest values for Microsoft Purview quotas can be found in the [Microsoft Pu
 
 ## Microsoft Sentinel limits
 
-This section lists the most common service limits you might encounter as you use Microsoft Sentinel.
-
-### Analytics rule limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-analytics-rules.md)]
-
-### Incident limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-incidents.md)]
-
-### Machine learning-based limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
-
-### Multi workspace limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
-
-### Notebook limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
-
-### Repositories limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-repositories.md)]
-
-### Threat intelligence limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
-
-### User and Entity Behavior Analytics (UEBA) limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
-
-### Watchlist limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
-
-### Workbook limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-workbooks.md)]
+For Microsoft Sentinel limits, see [Service limits for Microsoft Sentinel](../../sentinel/sentinel-service-limits.md)
 
 ## Service Bus limits
 
@@ -453,38 +498,16 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 
 [!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
 
-## Azure Files and Azure File Sync
-To learn more about the limits for Azure Files and File Sync, see [Azure Files scalability and performance targets](../../storage/files/storage-files-scale-targets.md).
-
-## Storage limits
-
-<!--like # storage accts -->
-[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
-
-For more information on limits for standard storage accounts, see [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md).
-
-### Storage resource provider limits
-
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-### Azure Blob storage limits
-
-[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### Azure Queue storage limits
-
-[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
-
-### Azure Table storage limits
-
-[!INCLUDE [storage-tables-scale-targets](../../../includes/storage-tables-scale-targets.md)]
-
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ### Virtual machine disk limits
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
 For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+[!INCLUDE [azure-storage-limits-vm-apps](../../../includes/azure-storage-limits-vm-apps.md)]
+
+For more information, see [VM Applications](../../virtual-machines/vm-applications.md).
 
 #### Disk encryption sets
 
@@ -532,13 +555,25 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 
+### Managed Run Command limit
+
+The maximum number of allowed Managed Run Commands is currently limited to 25.
+
 ## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
+## Virtual Network Manager limits
+
+[!INCLUDE [virtual-network-manager-limits](../../../includes/azure-virtual-network-manager-limits.md)]
+
+## Dev tunnels limits
+
+[!INCLUDE [dev-tunnels-service-limits](../../../includes/dev-tunnels/dev-tunnels-service-limits.md)]
+
 ## See also
 
-* [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+* [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)
 * [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

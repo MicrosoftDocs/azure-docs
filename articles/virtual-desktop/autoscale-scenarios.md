@@ -3,24 +3,17 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 11/01/2023
 ms.author: helohr
-manager: femila
 ms.custom: references_regions
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down to optimize deployment costs. You create a scaling plan that can be based on:
-
-- Time of day
-- Specific days of the week
-- Session limits per session host
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs.
 
 > [!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - Autoscale isn't supported on Azure Virtual Desktop for Azure Stack HCI.
-> - Autoscale doesn't support scaling of ephemeral disks.
-> - Autoscale doesn't support scaling of generalized or sysprepped VMs with machine-specific information removed. For more information, see [Remove machine-specific information by generalizing a VM before creating an image](../virtual-machines/generalize.md).
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
 > - Autoscale is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
 
@@ -30,9 +23,11 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 
 Before you create your plan, keep the following things in mind:
 
-- You can assign one scaling plan to one or more host pools of the same host pool type. The scaling plan's schedule will also be applied across all assigned host pools.
+- You can assign one scaling plan to one or more host pools of the same host pool type. The scaling plan's schedules will be applied to all assigned host pools.
 
 - You can only associate one scaling plan per host pool. If you assign a single scaling plan to multiple host pools, those host pools can't be assigned to another scaling plan.
+
+- Hibernate is available for personal host pools. For more information, view [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume).
 
 - A scaling plan can only operate in its configured time zone.
 
@@ -51,13 +46,13 @@ Also, keep these limitations in mind:
 
 - Don’t use autoscale in combination with other scaling Microsoft or third-party scaling tools. Ensure that you disable those for the host pools you apply the scaling plans to.
 
-- Autoscale overwrites [drain mode](drain-mode.md), so make sure to use exclusion tags when updating VMs in host pools.
+- For pooled host pools, autoscale overwrites [drain mode](drain-mode.md), so make sure to use exclusion tags when updating VMs in host pools.
 
-- Autoscale ignores existing [load-balancing algorithms](host-pool-load-balancing.md) in your host pool settings, and instead applies load balancing based on your schedule configuration.
+- For pooled host pools, autoscale ignores existing [load-balancing algorithms](host-pool-load-balancing.md) in your host pool settings, and instead applies load balancing based on your schedule configuration.
 
-## Example scenarios
+## Example scenarios for autoscale for pooled host pools
 
-In this section, there are four scenarios that show how different parts of autoscale works. In each example, there are tables that show the host pool's settings and animated visual demonstrations.
+In this section, there are four scenarios that show how different parts of autoscale for pooled host pools works. In each example, there are tables that show the host pool's settings and animated visual demonstrations.
 
 >[!NOTE]
 >To learn more about what the parameter terms mean, see [our autoscale glossary](autoscale-glossary.md).
@@ -159,6 +154,8 @@ In this scenario, we'll show that autoscale turns off session hosts when all of 
 - The used host pool capacity is below the capacity threshold.
 - Autoscale can turn off session hosts without exceeding the capacity threshold.
 - Autoscale only turns off session hosts with no user sessions on them (unless the scaling plan is in ramp-down phase and you've enabled the force logoff setting).
+- Pooled autoscale will not turn off session hosts in the ramp-up phase to avoid bad user experience.
+
 
 For this scenario, the host pool starts off looking like this:
 

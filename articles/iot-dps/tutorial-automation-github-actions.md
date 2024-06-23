@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 * The Azure CLI
 
   * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
-   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
   * Or, If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
     * If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
@@ -213,7 +213,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
    ```
 
    > [!NOTE]
-   > This job and others use the parameter `--auth-type login` in some commands to indicate that the operation should use the service principal from the current Azure AD session. The alternative, `--auth-type key` doesn't require the service principal configuration, but is less secure.
+   > This job and others use the parameter `--auth-type login` in some commands to indicate that the operation should use the service principal from the current Microsoft Entra session. The alternative, `--auth-type key` doesn't require the service principal configuration, but is less secure.
 
    For more information about the commands run in this job, see:
 

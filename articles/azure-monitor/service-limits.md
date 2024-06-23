@@ -1,11 +1,10 @@
 ---
 title: Azure Monitor service limits | Microsoft Docs
-description: Lists limits in different areas of Azure Monitor.
+description: This article lists limits in different areas of Azure Monitor.
 ms.topic: conceptual
-ms.custom: ignite-2022
 author: bwren
 ms.author: bwren
-ms.date: 04/05/2022
+ms.date: 05/31/2023
 ---
 
 # Azure Monitor service limits
@@ -28,7 +27,7 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits-metrics](../../includes/azure-monitor-limits-metrics.md)]
 
-## Logs ingestion API
+## Logs Ingestion API
 
 [!INCLUDE [monitoring-limits-custom-logs](../../includes/azure-monitor-limits-custom-logs.md)]
 
@@ -36,10 +35,9 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits-data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
 
-## Diagnostic Settings
+## Diagnostic settings
 
 [!INCLUDE [monitoring-limits-diagnostic-settings](../../includes/azure-monitor-limits-diagnostic-settings.md)]
-
 
 ## Log queries and language
 
@@ -51,9 +49,13 @@ This article lists limits in different areas of Azure Monitor.
 
 ## Application Insights
 
-[!INCLUDE [monitoring-limits-application-insights](../../includes/application-insights-limits.md)]
+[!INCLUDE [monitoring-limits-application-insights](./includes/application-insights-limits.md)]
 
-## Next Steps
+## Azure Monitor Private Link Scope (AMPLS)
+
+[!INCLUDE [ampls-limitations](includes/ampls-limitations.md)]
+
+## Next steps
 
 - [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/)
-- [Monitoring usage and estimated costs in Azure Monitor](./usage-estimated-costs.md)
+- [Azure Monitor cost and usage](cost-usage.md)

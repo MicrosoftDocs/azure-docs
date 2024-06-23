@@ -3,8 +3,8 @@ title: Configure server parameters - Azure PowerShell - Azure Database for MySQL
 description: This article describes how to configure the service parameters in Azure Database for MySQL using PowerShell.
 ms.service: mysql
 ms.subservice: single-server
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/20/2022
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 You can list, show, and update configuration parameters for an Azure Database for MySQL server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.
@@ -27,7 +27,7 @@ PowerShell. A subset of engine configurations is exposed at the server-level and
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](/powershell/azure/install-az-ps) installed locally or
+- The [Az PowerShell module](/powershell/azure/install-azure-powershell) installed locally or
   [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-powershell.md)
 

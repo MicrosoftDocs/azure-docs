@@ -1,19 +1,23 @@
 ---
 title: Microsoft Azure Data Box Disk system requirements| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Data Box Disk
+description: Learn about the software and networking requirements for your Azure Data Box Disk 
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
+ms.custom: linux-related-content
 ms.topic: article
-ms.date: 10/11/2022
-ms.author: alkohli
+ms.date: 04/18/2024
+ms.author: shaas
 ---
 
 ::: zone target="docs"
 
 # Azure Data Box Disk system requirements
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes the important system requirements for your Microsoft Azure Data Box Disk solution and for the clients connecting to the Data Box Disk. We recommend that you review the information carefully before you deploy your Data Box Disk, and then refer back to it as necessary during the deployment and subsequent operation.
 
@@ -29,19 +33,37 @@ The system requirements include the supported platforms for clients connecting t
 2. You have a client computer available from which you can copy the data. Your client computer must:
 
     - Run a supported operating system.
-    - Have other required software installed.
+    - Have any additional required software installed.
 
 ::: zone-end
 
 ## Supported operating systems for clients
 
-Here is a list of the supported operating systems for the disk unlock and data copy operation via the clients connected to the Data Box Disk.
+The following tables contain a list of the supported operating systems for disk unlock and data copy operations for use on clients connected to Data Box Disks.
+
+### [Hardware encrypted disks](#tab/hardware)
+
+The following supported operating systems can be used with hardware encrypted Data Box Disks.
 
 | **Operating system** | **Tested versions** |
 | --- | --- |
-| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows (64-bit) |7, 8, 10, 11 |
-|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
+| Windows Server<sup><b>*</b></sup> | 2022 |
+| Windows (64-bit)<sup><b>*</b></sup> | 10, 11 |
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li>  CentOS| <br>22 <br> 9 <br> 9 |
+
+<sup><b>*</b></sup>Data copy operations are only supported on Linux-based hosts when using hardware-encrypted disks. Windows-based machines can be used for data validation only. 
+
+### [Software encrypted disks](#tab/software)
+
+The following supported operating systems can be used with software encrypted Data Box Disks.
+
+| **Operating system** | **Tested versions** |
+| -------------------- | ------------------- |
+| Windows Server       | 2008 R2 SP1<br>2012<br>2012 R2<br>2016<br>2022 |
+| Windows (64-bit)     | 7, 8, 10, 11        |
+| Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS | <br>14, 16, 18, 22<br> 8.11, 9<br>7.0<br>7.0, 7.5, 8.0, 9.0 |
+
+---
 
 ## Other required software for Windows clients
 
@@ -61,13 +83,24 @@ For Linux client, the Data Box Disk toolset installs the following required soft
 - dislocker
 - OpenSSL
 
+The following additional software is required.
+
+| Hardware encrypted disks | Software encrypted disks  |
+|--------------------------|---------------------------|
+| NTFS-3g                  | <li> Sedutil-cli <li> Exfat utils |
+
 ## Supported connection
 
-The client computer containing the data must have a USB 3.0 or later port. The disks connect to this client using the provided cable.
+| Hardware encrypted disks | Software encrypted disks  |
+|--------------------------|---------------------------|
+| SATA 3 <br> All other connections are unsupported | USB 3.0 or later |
 
 ## Supported storage accounts
 
-Here is a list of the supported storage types for the Data Box Disk.
+> [!Note]
+> Classic storage accounts are not supported beginning **August 1, 2023**.
+
+The following table contains supported storage types for Data Box Disks.
 
 | **Storage account** | **Supported access tiers** |
 | --- | --- |
@@ -102,4 +135,3 @@ Here is a list of the storage types supported for uploaded to Azure using Data B
 * [Deploy your Azure Data Box Disk](data-box-disk-deploy-ordered.md)
 
 ::: zone-end
-

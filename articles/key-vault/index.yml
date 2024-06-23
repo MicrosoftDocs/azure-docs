@@ -7,14 +7,11 @@ brand: azure
 metadata:
   title: Azure Key Vault documentation
   description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
-  services: key-vault
   ms.service: key-vault
-  ms.subservice: na
   ms.topic: hub-page
-  ms.collection: na
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 04/07/2020
+  ms.date: 02/20/2024
 
 highlightedContent:
   items:
@@ -152,7 +149,7 @@ conceptualContent:
         - url: /azure/developer/ansible/key-vault-configure-vm-security
           itemType: overview
           text: Key Vault with Linux VMs in Ansible
-        - url: ../virtual-machines/windows/disk-encryption-key-vault.md
+        - url: ../virtual-machines/windows/disk-encryption-key-vault.yml
           itemType: overview
           text: Key Vault with Azure Disk Encryption - Windows
         - url: ../virtual-machines/linux/disk-encryption-key-vault.md
@@ -169,7 +166,7 @@ conceptualContent:
         - url: ../app-service/app-service-key-vault-references.md
           itemType: overview
           text: App Services - Reference Key Vault secrets in App Services
-        - url: ../app-service/configure-ssl-certificate.md#store-certificate-in-azure-key-vault
+        - url: ../app-service/configure-ssl-app-service-certificate.md#store-certificate-in-azure-key-vault
           itemType: overview
           text: App Services - Maintain App Service certificates in Key Vault
         - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver

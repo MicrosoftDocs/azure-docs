@@ -1,18 +1,17 @@
 ---
-title: Use a disk encryption set across Azure AD tenants
-description: Learn how to use customer-managed keys with your Azure disks in different Azure AD tenants.
+title: Use a disk encryption set across Microsoft Entra tenants
+description: Learn how to use customer-managed keys with your Azure disks in different Microsoft Entra tenants.
 author: roygara
-ms.service: storage
+ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: rogarana
-ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Encrypt managed disks with cross-tenant customer-managed keys
 
-This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Azure Active Directory (Azure AD) tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
+This article covers building a solution where you encrypt managed disks with customer-managed keys using Azure Key Vaults stored in a different Microsoft Entra tenant. This configuration can be ideal for several scenarios, one example being Azure support for service providers that want to offer bring-your-own encryption keys to their customers where resources from the service provider's tenant are encrypted with keys from their customer's tenant.
 
 A disk encryption set with federated identity in a cross-tenant CMK workflow spans service provider/ISV tenant resources (disk encryption set, managed identities, and app registrations) and customer tenant resources (enterprise apps, user role assignments, and key vault). In this case, the source Azure resource is the service provider's disk encryption set.
 
@@ -22,15 +21,15 @@ If you have questions about cross-tenant customer-managed keys with managed disk
 
 - Managed Disks and the customer's Key Vault must be in the same Azure region, but they can be in different subscriptions.
 - This feature doesn't support Ultra Disks or Azure Premium SSD v2 managed disks.
-- This feature isn't available in Azure China or Government clouds.
+- This feature isn't available in Microsoft Azure operated by 21Vianet or Government clouds.
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](../../includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Create a disk encryption set
 
-Now that you've created your Azure Key Vault and performed the required Azure AD configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using the Azure portal, Azure PowerShell, or Azure CLI. You can also use an [ARM template](#use-an-arm-template) or [REST API](#use-rest-api).
+Now that you've created your Azure Key Vault and performed the required Microsoft Entra configurations, deploy a disk encryption set configured to work across tenants and associate it with a key in the key vault. You can do this using the Azure portal, Azure PowerShell, or Azure CLI. You can also use an [ARM template](#use-an-arm-template) or [REST API](#use-rest-api).
 
 # [Portal](#tab/azure-portal)
 
@@ -53,7 +52,7 @@ To use the Azure portal, sign in to the portal and follow these steps.
 
 # [PowerShell](#tab/azure-powershell)
 
-To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+To use Azure PowerShell, install the latest Az module or the Az.Storage module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell).
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
@@ -75,7 +74,7 @@ $config = New-AzDiskEncryptionSetConfig `
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 In the command below, `myAssignedId` should be the resource ID of the user-assigned managed identity that you created earlier, and `myFederatedClientId` should be the application ID (client ID) of the multi-tenant application.
 
@@ -178,4 +177,4 @@ Content-Type: application/json
 See also:
 
 - [Encrypt disks using customer-managed keys in Azure DevTest Labs](../devtest-labs/encrypt-disks-customer-managed-keys.md)
-- [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](disks-enable-customer-managed-keys-portal.md)
+- [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](disks-enable-customer-managed-keys-portal.yml)

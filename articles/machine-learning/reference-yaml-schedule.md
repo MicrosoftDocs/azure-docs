@@ -1,7 +1,7 @@
 ---
 title: 'CLI (v2) schedule YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) schedule YAML schema.
+description: Reference documentation for the CLI (v2) job schedule YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 
 author: cloga
 ms.author: lochen
-ms.date: 08/15/2022
+ms.date: 05/17/2023
 ms.reviewer: lagayhar
 ---
 
-# CLI (v2) schedule YAML schema
+# CLI (v2) job schedule YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/schedule.schema.json.
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -27,7 +27,6 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- |
 | `$schema` | string | The YAML schema. | |
 | `name` | string | **Required.** Name of the schedule. | |
-| `version` | string | Version of the schedule. If omitted, Azure Machine Learning will autogenerate a version. | |
 | `description` | string | Description of the schedule. | |
 | `tags` | object | Dictionary of tags for the schedule. | |
 | `trigger` | object | The trigger configuration to define rule when to trigger job. **One of `RecurrenceTrigger` or `CronTrigger` is required.** | |
@@ -118,13 +117,13 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: Schedule with recurrence pattern
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/recurrence-job-schedule.yml":::
 
 ## YAML: Schedule with cron expression
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 :::code language="yaml" source="~/azureml-examples-main/cli/schedules/cron-job-schedule.yml":::
 

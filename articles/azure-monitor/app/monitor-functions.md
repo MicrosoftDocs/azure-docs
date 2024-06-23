@@ -2,7 +2,8 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor integrates with your Azure Functions application, allowing performance monitoring and quickly identifying problems.
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
+ms.date: 07/10/2023
 ms.reviewer: abinetabate
 ---
 
@@ -16,16 +17,14 @@ The required Application Insights instrumentation is built into Azure Functions.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-For a list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+For a list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
-## Distributed tracing for Java applications (preview)
-
-This feature is currently in public preview for Java Azure Functions for both Windows and Linux.
+## Distributed tracing for Java applications
 
 > [!Note]
 > This feature used to have an 8- to 9-second cold startup implication, which has been reduced to less than 1 second. If you were an early adopter of this feature (for example, prior to February 2023), review the "Troubleshooting" section to update to the current version and benefit from the new faster startup.
 
-To view more data from your Java-based Azure Functions applications than is [collected by default](../../azure-functions/functions-monitoring.md?tabs=cmd), enable the [Application Insights Java 3.x agent](./java-in-process-agent.md). This agent allows Application Insights to automatically collect and correlate dependencies, logs, and metrics from popular libraries and Azure SDKs. This telemetry is in addition to the request telemetry already captured by Functions.
+To view more data from your Java-based Azure Functions applications than is [collected by default](../../azure-functions/functions-monitoring.md?tabs=cmd), enable the [Application Insights Java 3.x agent](./java-in-process-agent.md). This agent allows Application Insights to automatically collect and correlate dependencies, logs, and metrics from popular libraries and Azure Software Development Kits (SDKs). This telemetry is in addition to the request telemetry already captured by Functions.
 
 By using the application map and having a more complete view of end-to-end transactions, you can better diagnose issues. You have a topological view of how systems interact along with data on average performance and error rates. You also have more data for end-to-end diagnostics. You can use the application map to easily find the root cause of reliability issues and performance bottlenecks on a per-request basis.
 
@@ -33,25 +32,14 @@ For more advanced use cases, you can modify telemetry by adding spans, updating 
 
 ### Enable distributed tracing for Java function apps
 
-1. **Option 1**: On the function app **Overview** pane, go to **Application Insights**. Under **Collection Level**, select **Recommended**.
+On the function app **Overview** pane, go to **Application Insights**. Under **Collection Level**, select **Recommended**.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows the how to enable the AppInsights Java Agent.](./media//functions/collection-level.jpg)
-
-2. **Option 2**: On the function app **Overview** pane, go to **Configuration**. Under **Application settings**, select **New application setting**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot that shows the New application setting option.](./media//functions/create-new-setting.png)
-
-    Add an application setting with the following values and select **Save**.
-
-    ```
-    APPLICATIONINSIGHTS_ENABLE_AGENT: true
-    ```
+> [!div class="mx-imgBorder"]
+:::image type="content" source="./media//functions/collection-level.jpg" lightbox="./media//functions/collection-level.jpg" alt-text="Screenshot that shows the how to enable the AppInsights Java Agent.":::
 
 ### Troubleshooting
 
-Your Java functions might have slow startup times if you adopted this feature before February 2023. Follow the steps to fix the issue.
+Your Java functions might have slow startup times if you adopted this feature before February 2023. From the function app **Overview** pane, go to **Configuration** in the left-hand side navigation menu. Then select **Application settings** and use the following steps to fix the issue.
 
 #### Windows
 
@@ -62,7 +50,7 @@ Your Java functions might have slow startup times if you adopted this feature be
     ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
     ```
 
-1. Enable the latest version by adding this setting:
+2. Enable the latest version by adding this setting:
     
     ```
     APPLICATIONINSIGHTS_ENABLE_AGENT: true
@@ -76,7 +64,7 @@ Your Java functions might have slow startup times if you adopted this feature be
     ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
     ```
 
-1. Enable the latest version by adding this setting:
+2. Enable the latest version by adding this setting:
     
     ```
     APPLICATIONINSIGHTS_ENABLE_AGENT: true
@@ -85,16 +73,113 @@ Your Java functions might have slow startup times if you adopted this feature be
 > [!NOTE]
 > If the latest version of the Application Insights Java agent isn't available in Azure Functions, upload it manually by following [these instructions](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent).
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
+
+#### Duplicate logs
+
+If you're using `log4j` or `logback` for console logging, distributed tracing for Java Functions creates duplicate logs. These duplicate logs are then sent to Application Insights. To avoid this behavior, use the following workarounds.
+
+##### Log4j
+
+Add the following filter to your log4j.xml:
+
+```xml
+<Filters>
+  <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+</Filters>
+```
+
+Example:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <Filters>
+        <ThresholdFilter level="ALL" onMatch="DENY" onMismatch="NEUTRAL"/>
+      </Filters>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="error">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+```
+
+##### Logback
+
+Add the following filter to your logback.xml: 
+
+```xml
+<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+  <level>OFF</level>
+</filter>  
+```
+
+Example:
+
+```xml
+<configuration debug="true">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are  by default assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%kvp- %msg%n</pattern>
+      <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>OFF</level>
+      </filter>  
+    </encoder>
+  </appender>
+  <root level="debug">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>
+```
+
+## Distributed tracing for Node.js function apps
+
+To view more data from your Node Azure Functions applications than is [collected by default](../../azure-functions/functions-monitoring.md#collecting-telemetry-data), instrument your Function using the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=nodejs).
 
 ## Distributed tracing for Python function apps
 
-To collect custom telemetry from services such as Redis, Memcached, and MongoDB, use the [OpenCensus Python extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](../../azure-functions/functions-reference-python.md?tabs=azurecli-linux%2capplication-level#log-custom-telemetry). You can find the list of supported services in this [GitHub folder](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
+To collect telemetry from services such as Requests, urllib3, httpx, PsycoPG2, and more, use the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python). Tracked incoming requests coming into your Python application hosted in Azure Functions will not be automatically correlated with telemetry being tracked within it. You can manually achieve trace correlation by extract the TraceContext directly as shown below:
+
+<!-- TODO: Remove after Azure Functions implements this automatically -->
+
+```python
+import azure.functions as func
+
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
+from opentelemetry.propagate import extract
+
+# Configure Azure monitor collection telemetry pipeline
+configure_azure_monitor()
+
+def main(req: func.HttpRequest, context) -> func.HttpResponse:
+   ...
+   # Store current TraceContext in dictionary format
+   carrier = {
+      "traceparent": context.trace_context.Traceparent,
+      "tracestate": context.trace_context.Tracestate,
+   }
+   tracer = trace.get_tracer(__name__)
+   # Start a span using the current context
+   with tracer.start_as_current_span(
+      "http_trigger_span",
+      context=extract(carrier),
+   ):
+      ...
+```
 
 ## Next steps
 
 * Read more instructions and information about [monitoring Azure Functions](../../azure-functions/functions-monitoring.md).
-* Get an overview of [distributed tracing](./distributed-tracing.md).
+* Get an overview of [distributed tracing](distributed-trace-data.md).
 * See what [Application Map](./app-map.md?tabs=net) can do for your business.
 * Read about [requests and dependencies for Java apps](./java-in-process-agent.md).
 * Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md).

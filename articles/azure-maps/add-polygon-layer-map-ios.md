@@ -14,9 +14,15 @@ services: azure-maps
 
 This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer.
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Use a polygon layer
 
@@ -134,7 +140,13 @@ The following is a screenshot of the above code rendering a polygon with a fill 
 
 See the following articles for more code samples to add to your maps:
 
-- [Create a data source](create-data-source-ios-sdk.md)
-- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-- [Add a line layer](add-line-layer-map-ios.md)
-- [Add a polygon extrusion layer](add-polygon-extrusion-layer-map-ios.md)
+- [Create a data source]
+- [Use data-driven style expressions]
+- [Add a line layer]
+- [Add a polygon extrusion layer]
+
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[Create a data source]: create-data-source-ios-sdk.md
+[Use data-driven style expressions]: data-driven-style-expressions-ios-sdk.md
+[Add a line layer]: add-line-layer-map-ios.md
+[Add a polygon extrusion layer]: add-polygon-extrusion-layer-map-ios.md

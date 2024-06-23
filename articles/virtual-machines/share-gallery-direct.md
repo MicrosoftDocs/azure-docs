@@ -5,16 +5,14 @@ author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 02/14/2023
 ms.author: saraic
 ms.reviewer: cynthn
-ms.custom: template-how-to , devx-track-azurecli 
+ms.custom: template-how-to , devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 
-# Share a gallery with subscriptions or tenants (preview)
+# Share a gallery with all users in a subscription or tenants (preview)
 
 This article covers how to share an Azure Compute Gallery with specific subscriptions or tenants using a direct shared gallery. Sharing a gallery with tenants and subscriptions give them read-only access to your gallery.
 
@@ -22,10 +20,14 @@ This article covers how to share an Azure Compute Gallery with specific subscrip
 > [!IMPORTANT]
 > Azure Compute Gallery – direct shared gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). Please submit the form and share your use case, We will evaluate the request and follow up in 10 business days after submitting the form. No additional access required to consume images, Creating VMs from a direct shared gallery is open to all Azure users in the target subscription or tenant the gallery is shared with. In most scenarios RBAC/Cross-tenant sharing using service principal is sufficient, request access to this feature only if you wish to share images widely with all users in the subscription/tenant.
+> To publish images to a direct shared gallery during the preview, you need to register at [https://aka.ms/directsharedgallery-preview](https://aka.ms/directsharedgallery-preview). Please submit the form and share your business case. No additional access required to consume images, Creating VMs from a direct shared gallery is open to all Azure users in the target subscription or tenant the gallery is shared with. In most scenarios RBAC/Cross-tenant sharing using service principal is sufficient, and encourage customers to leverage RBAC sharing. Request access to Direct shared gallery feature only if you wish to share images widely with all users in the subscription/tenant and if your business case requires access to direct shared gallery.
 >
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
+> [!NOTE]
+> Please note that Images can be used with read permissions on them to deploy virtual machines and disks.
+> 
+> When utilizing the direct shared gallery, images are distributed widely to all users in a subscription/tenant, while the community gallery distributes images publicly. It is recommended to exercise caution when sharing images that contain intellectual property to prevent widespread distribution.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
@@ -44,11 +46,10 @@ During the preview:
 - A direct shared gallery can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
 - Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
-- TrustedLaunch and ConfidentialVM are not supported
-- PowerShell, Ansible, and Terraform aren't supported at this time.
+- Only RestAPI, CLI, Portal support is available in preview. PowerShell, Terraform support will come later.
+- While Portal support is available for this feature, consumption of images in portal is only available from the VM/VMSS creation blade only and there's no way to browse direct shared images directly in portal.
 - The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
 - Not available in Government clouds
-- For consuming direct shared images in target subscription, Direct shared images can be found from VM/VMSS creation blade only.
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 ## Prerequisites
@@ -66,7 +67,7 @@ When you are ready, you share your gallery with subscriptions and tenants. Only 
 > [!NOTE]
 > **Known issue**: In the Azure portal, If you get an error "Failed to update Azure compute gallery", please verify if you have owner (or) compute gallery sharing admin permission on the gallery.
 >
-1. Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
@@ -90,6 +91,9 @@ To share the gallery:
    :::image type="content" source="media/create-gallery/direct-share-add.png" alt-text="Screenshot showing the option to share with a subscription or tenant.":::
 
 1. If you would like to share with someone within your organization, for **Type** select *Subscription* or *Tenant* and choose the appropriate item from the **Tenants and subscriptions** drop-down. If you want to share with someone outside of your organization, select either *Subscription outside of my organization* or *Tenant outside of my organization* and then paste or type the ID into the text box.
+
+	**When a gallery is shared with the tenant, all subscriptions within the tenant will get access to the image and don't have to share it with individual subscription(s) in the tenant**
+
 1. When you are done adding items, select **Save**.
 
 

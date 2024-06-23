@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Pricing example: Copy data and transform with Azure Databricks hourly
@@ -44,7 +44,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 :::image type="content" source="media/pricing-concepts/scenario-2-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with Azure Databricks scenario." lightbox="media/pricing-concepts/scenario-2-pricing-calculator.png":::
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with dynamic parameters hourly for 30 days](pricing-examples-copy-transform-dynamic-parameters.md)

@@ -18,20 +18,13 @@ ms.date: 06/24/2022
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
-This quickstart describes how to use PowerShell to create an Azure Database for PostgreSQL server in an
-Azure resource group. You can use PowerShell to create and manage Azure resources interactively or
-in scripts.
+This quickstart describes how to use PowerShell to create an Azure Database for PostgreSQL server in an Azure resource group. You can use PowerShell to create and manage Azure resources interactively or in scripts.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
-module and connect to your Azure account using the
-[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
-cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](/powershell/azure/install-az-ps).
+If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 > [!IMPORTANT]
 > While the Az.PostgreSql PowerShell module is in preview, you must install it separately from the Az
@@ -48,9 +41,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.DBforPostgreSQL
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
-should be billed. Select a specific subscription ID using the
-[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription ID using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -58,12 +49,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-Create an
-[Azure resource group](../../azure-resource-manager/management/overview.md)
-using the
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
-cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
-a group.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named **myresourcegroup** in the **West US** region.
 
@@ -73,9 +59,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 ## Create an Azure Database for PostgreSQL server
 
-Create an Azure Database for PostgreSQL server with the `New-AzPostgreSqlServer` cmdlet. A server
-can manage multiple databases. Typically, a separate database is used for each project or for each
-user.
+Create an Azure Database for PostgreSQL server with the `New-AzPostgreSqlServer` cmdlet. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
 The following table contains a list of commonly used parameters and sample values for the
 `New-AzPostgreSqlServer` cmdlet.
@@ -94,8 +78,7 @@ The following table contains a list of commonly used parameters and sample value
 | AdministratorUserName      | myadmin          | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | The password of the administrator user in the form of a secure string. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.                                       |
 
-The **Sku** parameter value follows the convention **pricing-tier\_compute-generation\_vCores** as
-shown in the following examples.
+The **Sku** parameter value follows the convention **pricing-tier\_compute-generation\_vCores** as shown in the following examples.
 
 - `-Sku B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
 - `-Sku GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
@@ -105,10 +88,7 @@ For information about valid **Sku** values by region and for tiers, see
 [Azure Database for PostgreSQL pricing tiers](./concepts-pricing-tiers.md).
 
 The following example creates a PostgreSQL server in the **West US** region named **mydemoserver**
-in the **myresourcegroup** resource group with a server admin login of **myadmin**. It is a Gen 5
-server in the general-purpose pricing tier with 2 vCores and geo-redundant backups enabled. Document
-the password used in the first line of the example as this is the password for the PostgreSQL server
-admin account.
+in the **myresourcegroup** resource group with a server admin login of **myadmin**. It is a Gen 5 server in the general-purpose pricing tier with 2 vCores and geo-redundant backups enabled. Document the password used in the first line of the example as this is the password for the PostgreSQL server admin account.
 
 > [!TIP]
 > A server name maps to a DNS name and must be globally unique in Azure.
@@ -127,13 +107,9 @@ Consider using the basic pricing tier if light compute and I/O are adequate for 
 ## Configure a firewall rule
 
 Create an Azure Database for PostgreSQL server-level firewall rule using the
-`New-AzPostgreSqlFirewallRule` cmdlet. A server-level firewall rule allows an external application,
-such as the `psql` command-line tool or PostgreSQL Workbench to connect to your server through the
-Azure Database for PostgreSQL service firewall.
+`New-AzPostgreSqlFirewallRule` cmdlet. A server-level firewall rule allows an external application, such as the `psql` command-line tool or PostgreSQL Workbench to connect to your server through the Azure Database for PostgreSQL service firewall.
 
-The following example creates a firewall rule named **AllowMyIP** that allows connections from a
-specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that correspond
-to the location that you are connecting from.
+The following example creates a firewall rule named **AllowMyIP** that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that correspond to the location that you are connecting from.
 
 ```azurepowershell-interactive
 New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -ServerName mydemoserver -StartIPAddress 192.168.0.1 -EndIPAddress 192.168.0.1
@@ -146,9 +122,7 @@ New-AzPostgreSqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup 
 
 ## Get the connection information
 
-To connect to your server, you need to provide host information and access credentials. Use the
-following example to determine the connection information. Make a note of the values for
-**FullyQualifiedDomainName** and **AdministratorLogin**.
+To connect to your server, you need to provide host information and access credentials. Use the following example to determine the connection information. Make a note of the values for **FullyQualifiedDomainName** and **AdministratorLogin**.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -164,11 +138,7 @@ mydemoserver.postgres.database.azure.com       myadmin
 ## Connect to PostgreSQL database using psql
 
 If your client computer has PostgreSQL installed, you can use a local instance of
-[psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure
-PostgreSQL server. You can also access a pre-installed version of the `psql` command-line tool in
-Azure Cloud Shell by selecting the **Try It** button on a code sample in this article. Other ways to
-access Azure Cloud Shell are to select the **>_** button on the upper-right toolbar in the Azure
-portal or by visiting [shell.azure.com](https://shell.azure.com/).
+[psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. You can also access a pre-installed version of the `psql` command-line tool in Azure Cloud Shell by selecting the **Try It** button on a code sample in this article. Other ways to access Azure Cloud Shell are to select the **>_** button on the upper-right toolbar in the Azure portal or by visiting [shell.azure.com](https://shell.azure.com/).
 
 1. Connect to your Azure PostgreSQL server using the `psql` command-line utility.
 
@@ -176,9 +146,7 @@ portal or by visiting [shell.azure.com](https://shell.azure.com/).
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   For example, the following command connects to the default database called **postgres** on your
-   PostgreSQL server `mydemoserver.postgres.database.azure.com` using access credentials. Enter
-   the `<server_admin_password>` you chose when prompted for password.
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server `mydemoserver.postgres.database.azure.com` using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
 
    ```azurepowershell-interactive
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -204,15 +172,13 @@ portal or by visiting [shell.azure.com](https://shell.azure.com/).
 ## Connect to the PostgreSQL Server using pgAdmin
 
 pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin from the
-[pgAdmin website](https://www.pgadmin.org/). The pgAdmin version you're using may be different from
-what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
+[pgAdmin website](https://www.pgadmin.org/). The pgAdmin version you're using may be different from what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
 
 1. Open the pgAdmin application on your client computer.
 
 1. From the toolbar go to **Object**, hover over **Create**, and select **Server**.
 
-1. In the **Create - Server** dialog box, on the **General** tab, enter a unique friendly name for
-   the server, such as **mydemoserver**.
+1. In the **Create - Server** dialog box, on the **General** tab, enter a unique friendly name for the server, such as **mydemoserver**.
 
    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="The General tab":::
 
@@ -232,31 +198,25 @@ what is used in this Quickstart. Read the pgAdmin documentation if you need addi
 
 1. Select **Save**.
 
-1. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for
-   example, **mydemoserver**. Select to connect to it.
+1. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **mydemoserver**. Select to connect to it.
 
-1. Expand the server node, and then expand **Databases** under it. The list should include your
-   existing *postgres* database and any other databases you've created. You can create multiple
-   databases per server with Azure Database for PostgreSQL.
+1. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any other databases you've created. You can create multiple databases per server with Azure Database for PostgreSQL.
 
 1. Right-click **Databases**, choose the **Create** menu, and then select **Database**.
 
 1. Type a database name of your choice in the **Database** field, such as **mypgsqldb2**.
 
-1. Select the **Owner** for the database from the list box. Choose your server admin login name,
-   such as the example, **my admin**.
+1. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **my admin**.
 
    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Create a database in pgAdmin":::
 
 1. Select **Save** to create a new blank database.
 
-1. In the **Browser** pane, you can see the database that you created in the list of databases under
-   your server name.
+1. In the **Browser** pane, you can see the database that you created in the list of databases under your server name.
 
 ## Clean up resources
 
-If the resources created in this quickstart aren't needed for another quickstart or tutorial, you
-can delete them by running the following example.
+If the resources created in this quickstart aren't needed for another quickstart or tutorial, you can delete them by running the following example.
 
 > [!CAUTION]
 > The following example deletes the specified resource group and all resources contained within it.

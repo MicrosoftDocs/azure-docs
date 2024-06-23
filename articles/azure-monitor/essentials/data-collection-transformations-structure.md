@@ -4,17 +4,17 @@ description: Structure of transformation in Azure Monitor including limitations 
 author: bwren
 ms.author: bwren
 ms.topic: conceptual
-ms.date: 06/29/2022
+ms.date: 06/09/2023
 ms.reviwer: nikeist
 
 ---
 
 # Structure of transformation in Azure Monitor
-[Transformations in Azure Monitor](./data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They are implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
+[Transformations in Azure Monitor](./data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
 
 
 ## Transformation structure
-The KQL statement is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. The input stream is represented by a virtual table named `source` with columns matching the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
+The KQL statement is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. A virtual table named `source` represents the input stream. `source` table columns match the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
 
 - Filters the incoming data with a [where](/azure/data-explorer/kusto/query/whereoperator) statement
 - Adds a new column using the [extend](/azure/data-explorer/kusto/query/extendoperator) operator
@@ -41,34 +41,10 @@ Transformations in a [data collection rule (DCR)](data-collection-rule-overview.
 
 
 
-### Required columns
+## Required columns
 The output of every transformation must contain a valid timestamp in a column called `TimeGenerated` of type `datetime`. Make sure to include it in the final `extend` or `project` block! Creating or updating a DCR without `TimeGenerated` in the output of a transformation will lead to an error.
 
-## Inline reference table
-The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This operator would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
-
-For example, the following statement isn't supported in a transformation:
-
-```kusto
-let galaxy = datatable (country:string,entity:string)['ES','Spain','US','United States'];
-source
-| join kind=inner (galaxy) on $left.Location == $right.country
-| extend Galaxy_CF = ['entity']
-```
-
-You can instead use the following statement, which is supported and performs the same functionality:
-
-```kusto
-let galaxyDictionary = parsejson('{"ES": "Spain","US": "United States"}');
-source
-| extend Galaxy_CF = galaxyDictionary[Location]
-```
-
-### has operator
-Transformations don't currently support [has](/azure/data-explorer/kusto/query/has-operator). Use [contains](/azure/data-explorer/kusto/query/contains-operator) which is supported and performs similar functionality.
-
-
-### Handling dynamic data
+## Handling dynamic data
 Consider the following input with [dynamic data](/azure/data-explorer/kusto/query/scalar-data-types/dynamic):
 
 ```json
@@ -82,7 +58,7 @@ Consider the following input with [dynamic data](/azure/data-explorer/kusto/quer
 }
 ```
 
-In order to access the properties in *AdditionalContext*, define it as dynamic-typed column in the input stream:
+To access the properties in *AdditionalContext*, define it as dynamic-type column in the input stream:
 
 ```json
 "columns": [
@@ -101,7 +77,7 @@ In order to access the properties in *AdditionalContext*, define it as dynamic-t
 ]
 ```
 
-The content of *AdditionalContext* column can now be parsed and used in the KQL transformation:
+The content of the *AdditionalContext* column can now be parsed and used in the KQL transformation:
 
 ```kusto
 source
@@ -110,7 +86,7 @@ source
 | extend DeviceId = tostring(parsedAdditionalContext.DeviceID)
 ```
 
-### Dynamic literals
+## Dynamic literals
 Use the [parse_json function](/azure/data-explorer/kusto/query/parsejsonfunction) to handle [dynamic literals](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals).
 
 For example, the following queries provide the same functionality:
@@ -156,7 +132,8 @@ print x = 2 + 2, y = 5 | extend z = exp2(x) + exp2(y)
 - [parse](/azure/data-explorer/kusto/query/parseoperator)
 - [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
 - [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
-- [columnifexists]() (use columnifexists instead of column_ifexists)
+- [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor)
+- [columnifexists](/azure/data-explorer/kusto/query/columnifexists) (use columnifexists instead of column_ifexists)
 
 ### Scalar operators
 
@@ -177,6 +154,10 @@ The following [String operators](/azure/data-explorer/kusto/query/datatypes-stri
 - !contains
 - contains_cs
 - !contains_cs
+- has
+- !has
+- has_cs
+- !has_cs
 - startswith
 - !startswith
 - startswith_cs
@@ -188,6 +169,7 @@ The following [String operators](/azure/data-explorer/kusto/query/datatypes-stri
 - matches regex
 - in
 - !in
+
 
 #### Bitwise operators
 
@@ -315,7 +297,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 
 ##### parse_cef_dictionary
 
-Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example below.
+Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example.
 
 ```kusto
 | extend cefMessage=iff(cefMessage contains_cs ";", replace(";", " ", cefMessage), cefMessage) 
@@ -326,6 +308,24 @@ Given a string containing a CEF message, `parse_cef_dictionary` parses the Exten
 
 :::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
 
+##### geo_location
+
+Given a string containing IP address (IPv4 and IPv6 are supported), `geo_location` function returns approximate geographical location, including the following attributes:
+* Country
+* Region
+* State
+* City
+* Latitude
+* Longitude
+
+```kusto
+| extend GeoLocation = geo_location("1.0.0.5")
+```
+
+:::image type="content" source="media/data-collection-transformations-structure/geo-location.png" alt-text="Screenshot of sample output of geo_location function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
+
+> [!IMPORTANT]
+> Due to nature of IP geolocation service utilized by this function, it may introduce data ingestion latency if used excessively. Exercise caution when using this function more than several times per transformation.
 
 ### Identifier quoting
 Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity-names?q=identifier#identifier-quoting) as required.

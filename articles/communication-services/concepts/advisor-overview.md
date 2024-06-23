@@ -3,10 +3,8 @@ title: Use Azure Advisor for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Advisor offerings for Azure Communication Services.
 author: tophpalmer
-
 manager: chpalm
 services: azure-communication-services
-
 ms.author: chpalm
 ms.date: 10/10/2022
 ms.topic: conceptual
@@ -32,11 +30,12 @@ The following SDKs are supported for this feature, along with all their supporte
 * Identity
 * Phone Numbers
 * Management
-* Network Traversal
+* Call Automation
 
 ## Next steps
 
 The following documents may be interesting to you:
 
-- [Logging and diagnostics](./logging-and-diagnostics.md)
+- [Logging and diagnostics](./analytics/enable-logging.md)
+- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](./metrics.md)

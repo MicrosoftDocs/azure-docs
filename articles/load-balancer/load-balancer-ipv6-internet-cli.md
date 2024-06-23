@@ -7,10 +7,9 @@ author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 06/25/2018
+ms.date: 05/30/2023
 ms.author: mbender
-ms.custom: template-how-to, seodec18, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Create a public load balancer with IPv6 using Azure CLI
@@ -41,11 +40,11 @@ The following steps show how to create a public load balancer by using Azure CLI
 
 To deploy a load balancer, create and configure the following objects:
 
-* **Front-end IP configuration**: Contains public IP addresses for incoming network traffic.
-* **Back-end address pool**: Contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
-* **Load balancing rules**: Contains rules that map a public port on the load balancer to a port in the back-end address pool.
-* **Inbound NAT rules**: Contains network address translation (NAT) rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
-* **Probes**: Contains health probes that are used to check the availability of virtual machine instances in the back-end address pool.
+* **Frontend IP configuration**: Contains public IP addresses for incoming network traffic.
+* **Backend address pool**: Contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
+* **Load balancing rules**: Contains rules that map a public port on the load balancer to a port in the backend address pool.
+* **Inbound NAT rules**: Contains network address translation (NAT) rules that map a public port on the load balancer to a port for a specific virtual machine in the backend address pool.
+* **Probes**: Contains health probes that are used to check the availability of virtual machine instances in the backend address pool.
 
 ## Set up Azure CLI
 
@@ -96,7 +95,7 @@ In this example, you run the Azure CLI tools in a PowerShell command window. To 
     $subnet2 = az network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
-## Create public IP addresses for the front-end pool
+## Create public IP addresses for the frontend pool
 
 1. Set up the PowerShell variables:
 
@@ -105,7 +104,7 @@ In this example, you run the Azure CLI tools in a PowerShell command window. To 
     $publicIpv6Name = "myIPv6Vip"
     ```
 
-2. Create a public IP address for the front-end IP pool:
+2. Create a public IP address for the frontend IP pool:
 
     ```azurecli
     $publicipV4 = az network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --version IPv4 --allocation-method Dynamic --dns-name $dnsLabel
@@ -117,11 +116,11 @@ In this example, you run the Azure CLI tools in a PowerShell command window. To 
     >
     > In this example, the FQDN is *contoso09152016.southcentralus.cloudapp.azure.com*.
 
-## Create front-end and back-end pools
+## Create frontend and backend pools
 
 In this section, you create the following IP pools:
-* The front-end IP pool that receives the incoming network traffic on the load balancer.
-* The back-end IP pool where the front-end pool sends the load-balanced network traffic.
+* The frontend IP pool that receives the incoming network traffic on the load balancer.
+* The backend IP pool where the frontend pool sends the load-balanced network traffic.
 
 1. Set up the PowerShell variables:
 
@@ -132,7 +131,7 @@ In this section, you create the following IP pools:
     $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
-2. Create a front-end IP pool, and associate it with the public IP that you created in the previous step and the load balancer.
+2. Create a frontend IP pool, and associate it with the public IP that you created in the previous step and the load balancer.
 
     ```azurecli
     $frontendV4 = az network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-address $publicIpv4Name --lb-name $lbName
@@ -148,9 +147,9 @@ This example creates the following items:
 * A probe rule to check for connectivity to TCP port 80.
 * A NAT rule to translate all incoming traffic on port 3389 to port 3389 for RDP.\*
 * A NAT rule to translate all incoming traffic on port 3391 to port 3389 for remote desktop protocol (RDP).\*
-* A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool.
+* A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the backend pool.
 
-\* NAT rules are associated with a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You cannot assign both protocols to the same port.
+\* NAT rules are associated with a specific virtual-machine instance behind the load balancer. The network traffic that arrives on port 3389 is sent to the specific virtual machine and port that's associated with the NAT rule. You must specify a protocol (UDP or TCP) for a NAT rule. You can't assign both protocols to the same port.
 
 1. Set up the PowerShell variables:
 
@@ -164,20 +163,20 @@ This example creates the following items:
 
 2. Create the probe.
 
-    The following example creates a TCP probe that checks for connectivity to the back-end TCP port 80 every 15 seconds. After two consecutive failures, it marks the back-end resource as unavailable.
+    The following example creates a TCP probe that checks for connectivity to the backend TCP port 80 every 15 seconds. After two consecutive failures, it marks the backend resource as unavailable.
 
     ```azurecli
     $probeV4V6 = az network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --threshold 2 --lb-name $lbName
     ```
 
-3. Create inbound NAT rules that allow RDP connections to the back-end resources:
+3. Create inbound NAT rules that allow RDP connections to the backend resources:
 
     ```azurecli
     $inboundNatRuleRdp1 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
     $inboundNatRuleRdp2 = az network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
-4. Create load balancer rules that send traffic to different back-end ports, depending on the front end that received the request.
+4. Create load balancer rules that send traffic to different backend ports, depending on the front end that received the request.
 
     ```azurecli
     $lbruleIPv4 = az network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
@@ -259,7 +258,7 @@ Create NICs and associate them with NAT rules, load balancer rules, and probes.
     $nic2IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
-## Create the back-end VM resources, and attach each NIC
+## Create the backend VM resources, and attach each NIC
 
 To create VMs, you must have a storage account. For load balancing, the VMs need to be members of an availability set. For more information about creating VMs, see [Create an Azure VM by using PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
@@ -288,7 +287,7 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
 3. Create the virtual machines with the associated NICs:
 
     ```azurecli
-	az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
+    az vm create --resource-group $rgname --name $vm1Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic1Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
 
-	az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
-	```
+    az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
+    ```

@@ -123,7 +123,7 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Confirm data written to Azure Cosmos DB
 
-Sign into the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
+Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account. Check that the three records from the “hotels” topic are created in your account.
 
 ## Cleanup
 
@@ -260,9 +260,8 @@ If you have non-JSON data on your source topic in Kafka and attempt to read it u
 
 ```console
 org.apache.kafka.connect.errors.DataException: Converting byte[] to Kafka Connect data failed due to serialization error:
-…
-org.apache.kafka.common.errors.SerializationException: java.io.CharConversionException: Invalid UTF-32 character 0x1cfa7e2 (above 0x0010ffff) at char #1, byte #7)
-
+...
+org.apache.kafka.common.errors.SerializationException: java.io.CharConversionException: Invalid UTF-32 character 0x1cfa7e2 (above 0x0010ffff) at char #1, byte #7
 ```
 
 This error is likely caused by data in the source topic being serialized in either Avro or another format such as CSV string.
@@ -274,6 +273,38 @@ This error is likely caused by data in the source topic being serialized in eith
 "value.converter.schema.registry.url": "http://schema-registry:8081",
 ```
 
+### Gateway mode support
+```connect.cosmos.connection.gateway.enabled``` is a configuration option for the Cosmos DB Kafka Sink Connector that enhances data ingestion by utilizing the Cosmos DB gateway service. This service acts as a front-end for Cosmos DB, offering benefits such as load balancing, request routing, and protocol translation. By leveraging the gateway service, the connector achieves improved throughput and scalability when writing data to Cosmos DB. For more information, see [connectivity modes](/azure/cosmos-db/nosql/sdk-connection-modes).
+
+```json
+"connect.cosmos.connection.gateway.enabled": true
+```
+
+### Bulk mode support
+```connect.cosmos.sink.bulk.enabled``` property determines whether the bulk write feature is enabled for writing data from Kafka topics to Azure Cosmos DB. 
+
+When this property is set to `true` (by default), it enables the bulk write mode, allowing Kafka Connect to use the bulk import API of Azure Cosmos DB for performing efficient batch writes utilizing ```CosmosContainer.executeBulkOperations()``` method. Bulk write mode significantly improves the write performance and reduces the overall latency when ingesting data into Cosmos DB in comparison with non-bulk mode when ```CosmosContainer.upsertItem()``` method is used.
+
+Bulk mode is enabled by default. To disable the `connect.cosmos.sink.bulk.enabled` property, you need to set it to `false` in the configuration for the Cosmos DB sink connector. Here's an example configuration property file:
+
+```json
+"name": "my-cosmosdb-connector",
+"connector.class": "io.confluent.connect.azure.cosmosdb.CosmosDBSinkConnector",
+"tasks.max": 1,
+"topics": "my-topic"
+"connect.cosmos.endpoint": "https://<cosmosdb-account>.documents.azure.com:443/"
+"connect.cosmos.master.key": "<cosmosdb-master-key>"
+"connect.cosmos.database": "my-database"
+"connect.cosmos.collection": "my-collection"
+"connect.cosmos.sink.bulk.enabled": false
+```
+
+By enabling the `connect.cosmos.sink.bulk.enabled` property, you can leverage the bulk write functionality in Kafka Connect for Azure Cosmos DB to achieve improved write performance when replicating data from Kafka topics to Azure Cosmos DB.
+
+```json
+"connect.cosmos.sink.bulk.enabled": true
+```
+
 ### Read non-Avro data with AvroConverter
 
 This scenario is applicable when you try to use the Avro converter to read data from a topic that isn't in Avro format. Which, includes data written by an Avro serializer other than the Confluent Schema Registry’s Avro serializer, which has its own wire format.
@@ -281,10 +312,9 @@ This scenario is applicable when you try to use the Avro converter to read data 
 ```console
 org.apache.kafka.connect.errors.DataException: my-topic-name
 at io.confluent.connect.avro.AvroConverter.toConnectData(AvroConverter.java:97)
-…
+...
 org.apache.kafka.common.errors.SerializationException: Error deserializing Avro message for id -1
 org.apache.kafka.common.errors.SerializationException: Unknown magic byte!
-
 ```
 
 **Solution**: Check the source topic’s serialization format. Then, either switch Kafka Connect’s sink connector to use the right converter or switch the upstream format to Avro.

@@ -1,26 +1,33 @@
 ---
-title: IoT remote monitoring and notifications with Azure Logic App
-description: Use Azure Logic Apps for IoT temperature monitoring on your IoT hub and automatically send email notifications to your mailbox for any anomalies detected.
+title: Tutorial - Monitor devices, notify with Azure Logic Apps
+titleSuffix: Azure IoT Hub
+description: Tutorial - Use Azure Logic Apps to monitor IoT temperature data in IoT hub and send email notifications to your mailbox for any anomalies detected.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 07/18/2019
-#I think this is out of date. I changed 'click' to select. --RobinShahan
+ms.date: 02/07/2024
 ---
 
-# IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox
+# Tutorial: Monitor IoT devices and send notifications with Azure Logic Apps
+
+Use Azure Logic Apps to monitor incoming device telemetry from IoT Hub and send notifications when alerts are triggered.
 
 ![End-to-end diagram](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
+[Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, multiple enterprises, and various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
 
-[Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, one or more enterprises, and across various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
+In this tutorial, you perform the following tasks:
 
-In this article, you learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications. The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
+> [!div class="checklist"]
+> Create a Service Bus queue.
+> Create a route in your IoT hub that sends messages to the Service Bus queue if the messages contain anomalous temperature readings.
+> Create a logic app that watches for messaging arriving in the queue and sends an email alert.
 
-Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties are not shown):
+The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above a given threshold, it sets this property to `true`; otherwise, it sets the property to `false`.
+
+Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties aren't shown):
 
 ```json
 {
@@ -36,177 +43,208 @@ Messages arriving at your IoT hub look similar to the following, with the teleme
 }
 ```
 
-To learn more about IoT Hub message format, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md).
-
-In this topic, you set up routing on your IoT hub to send messages in which the `temperatureAlert` property is `true` to a Service Bus endpoint. You then set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
+Prepare the following prerequisites before beginning this tutorial.
 
-  * An active Azure subscription.
-  * An Azure IoT hub under your subscription.
-  * A client application running on your device that sends telemetry messages to your Azure IoT hub.
+* An active Azure subscription.
+* An IoT hub in your subscription.
+* A client app that sends temperature data to your Azure IoT hub. This tutorial filters device-to-cloud messages based on a message property called `temperatureAlert`. Some samples that generate messages with this property include:
+
+  * .NET SDK: [SimulatedDevice](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/samples/getting%20started/SimulatedDevice/Program.cs)
+  * Java SDK: [send-event](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-event/README.md)
+  * Node.js SDK: [simple_sample_device](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js)
+  * C SDK: [iothub_II_client_shared_sample](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/samples/iothub_ll_client_shared_sample/iothub_ll_client_shared_sample.c)
+  * Codeless: [Raspberry Pi online simulator](raspberry-pi-get-started.md)
 
 ## Create Service Bus namespace and queue
 
-Create a Service Bus namespace and queue. Later in this topic, you create a routing rule in your IoT hub to direct messages that contain a temperature alert to the Service Bus queue, where they will be picked up by a logic app and trigger it to send a notification email.
+Create a Service Bus namespace and queue. Later in this article, you create a routing rule in your IoT hub to direct messages that contain a temperature alert to the Service Bus queue. A logic app monitors the queue for incoming messages and sends a notification for each alert.
 
 ### Create a Service Bus namespace
 
-1. On the [Azure portal](https://portal.azure.com/), select **+ Create a resource** > **Integration** > **Service Bus**.
+1. On the [Azure portal](https://portal.azure.com/), use the search bar to search for and select **Service Bus**.
+
+1. Select **Create** to create a service bus namespace.
 
 1. On the **Create namespace** pane, provide the following information:
 
-   **Name**: The name of the service bus namespace. The namespace must be unique across Azure.
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Subscription** | Choose the same subscription that contains your IoT hub. |
+   | **Resource group** | Choose the same resource group that contains your IoT hub. |
+   | **Namespace name** | Provide a name for your service bus namespace. The namespace must be unique across Azure. |
+   | **Location** | Choose the same location that your IoT hub uses. |
+   | **Pricing tier** | Select **Basic** from the drop-down list. The Basic tier is sufficient for this tutorial. |
 
-   **Pricing tier**: Select **Basic** from the drop-down list. The Basic tier is sufficient for this tutorial.
+1. Select **Review + create**.
 
-   **Resource group**: Use the same resource group that your IoT hub uses.
+1. Select **Create**.
 
-   **Location**: Use the same location that your IoT hub uses.
-
-   ![Create a service bus namespace in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
-
-1. Select **Create**. Wait for the deployment to complete before moving on to the next step.
+1. Wait for the deployment to complete, then select **Go to resource**.
 
 ### Add a Service Bus queue to the namespace
 
-1. Open the Service Bus namespace. The easiest way to get to the Service Bus namespace is to select **Resource groups** from the resource pane, select your resource group, then select the Service Bus namespace from the list of resources.
+1. On the **Overview** page of your Service Bus namespace, select **Queue**.
 
-1. On the **Service Bus Namespace** pane, select **+ Queue**.
+   :::image type="content" source="./media/iot-hub-monitoring-notifications-with-azure-logic-apps/namespace-add-queue.png" alt-text="Screenshot of the namespace overview page to add a queue.":::
 
-1. Enter a name for the queue and then select **Create**. When the queue has been successfully created, the **Create queue** pane closes.
+1. In the **Name** field, provide a name for the queue. Accept the default values for the other fields and select **Create**.
 
-   ![Add a service bus queue in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
+1. In your Service Bus namespace, select **Shared access policies** from the **Settings** section of the resource menu.
 
-1. Back on the **Service Bus Namespace** pane, under **Entities**, select **Queues**. Open the Service Bus queue from the list, and then select **Shared access policies** > **+ Add**.
+1. Select the **RootManageSharedAccessKey** policy to open its details.
 
-1. Enter a name for the policy, check **Manage**, and then select **Create**.
-
-   ![Add a service bus queue policy in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
+1. Copy the value of **Primary connection string** and save it to use later in this tutorial when you configure the logic app.
 
 ## Add a custom endpoint and routing rule to your IoT hub
 
-Add a custom endpoint for the Service Bus queue to your IoT hub and create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties).
+Add a custom endpoint for the Service Bus queue to your IoT hub. Then, create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they're picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties).
 
-### Add a custom endpoint
+### Add a custom endpoint and route
 
-1. Open your IoT hub. The easiest way to get to the IoT hub is to select **Resource groups** from the resource pane, select your resource group, then select your IoT hub from the list of resources.
+1. In the Azure portal, go to your IoT hub.
 
-1. Under **Messaging**, select **Message routing**. On the **Message routing** pane, select the **Custom endpoints** tab and then select **+ Add**. From the drop-down list, select **Service bus queue**.
+1. In the resource menu under **Hub settings**,  select **Message routing** then select **Add**.
 
-   ![Screenshot that highlights the Service bus queue option.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/message-routing-add.png" alt-text="Screenshot that shows location of the Add button, to add a new route in your IoT hub.":::
 
-1. On the **Add a service bus endpoint** pane, enter the following information:
+1. On the **Endpoint** tab, create an endpoint for your Service Bus queue by providing the following information:
 
-   **Endpoint name**: The name of the endpoint.
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Endpoint type** | Select **Service Bus queue**. |
+   | **Endpoint name** | Provide a name for the new endpoint that maps to your Service Bus queue. |
+   | **Service Bus namespace** | Use the drop-down menu to select the Service Bus namespace that you created in the previous section. |
+   | **Service Bus queue** | Use the drop-down menu to select the Service Bus queue that you created in your namespace. |
 
-   **Service bus namespace**: Select the namespace you created.
+   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/add-a-route-endpoint.png" alt-text="Screenshot that shows how to create a service bus queue endpoint for your route.":::
 
-   **Service bus queue**: Select the queue you created.
+1. Select **Create + next**.
 
-   ![Add an endpoint to your IoT hub in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
+1. On the **Route** tab, enter the following information to create a route that points to your Service Bus queue endpoint:
 
-1. Select **Create**. After the endpoint is successfully created, proceed to the next step.
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Name** | Provide a unique name for the route. |
+   | **Data source** | Keep the default **Device Telemetry Message** data source. |
+   | **Routing query** | Enter `temperatureAlert = "true"` as the query string. |
 
-### Add a routing rule
+   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/add-a-route-route.png" alt-text="Screenshot that shows adding a route with a query.":::
 
-1. Back on the **Message routing** pane, select the **Routes** tab and then select **+ Add**.
+1. Select **Create + skip enrichments**.
 
-1. On the **Add a route** pane, enter the following information:
-
-   **Name**: The name of the routing rule.
-
-   **Endpoint**: Select the endpoint you created.
-
-   **Data source**: Select **Device Telemetry Messages**.
-
-   **Routing query**: Enter `temperatureAlert = "true"`.
-
-   ![Add a routing rule in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
-
-1. Select **Save**. You can close the **Message routing** pane.
-
-## Create and configure a Logic App
+## Configure Logic Apps for notifications
 
 In the preceding section, you set up your IoT hub to route messages containing a temperature alert to your Service Bus queue. Now, you set up a logic app to monitor the Service Bus queue and send an e-mail notification whenever a message is added to the queue.
 
 ### Create a logic app
 
-1. Select **Create a resource** > **Integration** > **Logic App**.
+1. In the Azure portal, search for and select **Logic Apps**.
 
-1. Enter the following information:
+1. Select **Add** to create a new logic app.
 
-   **Name**: The name of the logic app.
+1. Enter the following information on the **Basics** tab of **Create Logic App**:
 
-   **Resource group**: Use the same resource group that your IoT hub uses.
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Resource group** | Select the same resource group that contains your IoT hub. |
+   | **Name** | Provide a name for your logic app. |
+   | **Region** | Select a location close to you. |
+   | **Plan type** | Select **Consumption**, which is sufficient for this tutorial. |
 
-   **Location**: Use the same location that your IoT hub uses.
+   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png" alt-text="Screenshot that shows creating a logic app in the Azure portal.":::
 
-   ![Create a logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
+1. Select **Review + create**.
 
 1. Select **Create**.
 
+1. After the deployment completes, select **Go to resource** to open your logic app.
+
 ### Configure the logic app trigger
 
-1. Open the logic app. The easiest way to get to the logic app is to select **Resource groups** from the resource pane, select your resource group, then select your logic app from the list of resources. When you select the logic app, the Logic Apps Designer opens.
+1. On your logic app resource page in the Azure portal, open the **Logic app designer** from the **Development Tools** section of the resource menu.
 
-1. In the Logic Apps Designer, scroll down to **Templates** and select **Blank Logic App**.
+1. In the designer, scroll down to **Templates** and select **Blank Logic App**.
 
-   ![Start with a blank logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
+   :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/designer-blank-logic-app.png" alt-text="Screenshot that shows selecting the Blank Logic App template.":::
 
-1. Select the **All** tab and then select **Service Bus**.
+1. Select the **All** tab to show all connectors and triggers, then select **Service Bus**.
 
-   ![Select Service Bus to start creating your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
+   ![Select Service Bus to start creating your logic app in the Azure portal.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
 1. Under **Triggers**, select **When one or more messages arrive in a queue (auto-complete)**.
 
-   ![Select the trigger for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
+   ![Select the trigger for your logic app in the Azure portal.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
 1. Create a service bus connection.
-   1. Enter a connection name and select your Service Bus namespace from the list. The next screen opens.
 
-      ![Screenshot that highlights the When one or more messages arrive in a queue (auto-complete) option.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+   1. Provide a **Connection name** and then paste the **Connection string** that you copied from your Service Bus namespace.
 
-   1. Select the service bus policy (RootManageSharedAccessKey). Then select  **Create**.
+   1. Select **Create**.
 
-      ![Create a service bus connection for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
+   1. On the next screen, use the drop-down menu to select the queue that you created in your Service Bus namespace. Then, enter `175` for **Maximum message count**.
 
-   1. On the final screen, for **Queue name**, select the queue that you created from the drop-down. Enter `175` for **Maximum message count**.
+      :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/designer-queue-settings.png" alt-text="Screenshot that shows configuring queue settings in the Logic app designer.":::
 
-      ![Specify the maximum message count for the service bus connection in your logic app](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
-
-   1. Select **Save** on the menu at the top of the Logic Apps Designer to save your changes.
+1. Select **Save** on the logic app designer menu to save your changes.
 
 ### Configure the logic app action
 
+1. Select **New step** in the logic app designer.
+
 1. Create an SMTP service connection.
 
-   1. Select **New step**. In **Choose an action**, select the **All** tab.
+   1. Search for and select **SMTP**.
 
-   1. Type `smtp` in the search box, select the **SMTP** service in the search result, and then select **Send Email**.
+      :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/designer-smtp-connection.png" alt-text="Screenshot that shows selecting an SMTP connection in the logic app designer.":::
 
-      ![Create an SMTP connection in your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
+   1. Select **Send Email (V3)** as the action for this step.
 
-   1. Enter the SMTP information for your mailbox, and then select **Create**.
+   1. Provide a **Connection name**, then fill out the rest of the fields with the SMTP information for the email account you want to use to send the notification messages.
 
-      ![Enter SMTP connection info in your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
+      Use the following links to find your SMTP information, depending on your mail provider:
 
-      Get the SMTP information for [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en), and [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
+      * [Hotmail/Outlook.com](https://support.microsoft.com/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040)
+      * [Gmail](https://support.google.com/a/answer/176600?hl=en)
+      * [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
       > You may need to disable TLS/SSL to establish the connection. If this is the case and you want to re-enable TLS after the connection has been established, see the optional step at the end of this section.
 
-   1. From the **Add new parameter** drop-down on the **Send Email** step, select **From**, **To**, **Subject** and **Body**. Click or tap anywhere on the screen to close the selection box.
+      :::image type="content" source="media/iot-hub-monitoring-notifications-with-azure-logic-apps/designer-smtp-settings.png" alt-text="Screenshot that shows configuring the SMTP connection settings in the logic app designer.":::
 
-      ![Choose SMTP connection email fields](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
+   1. Select **Create**.
 
-   1. Enter your email address for **From** and **To**, and `High temperature detected` for **Subject** and **Body**. If the **Add dynamic content from the apps and connectors used in this flow** dialog opens, select **Hide** to close it. You do not use dynamic content in this tutorial.
+1. Configure the **Send Email** action.
 
-      ![Fill-in SMTP connection email fields](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
+   1. From the **Add new parameter** drop-down on the **Send Email** step, select the following parameters:
 
-   1. Select **Save** to save the SMTP connection.
+      * **From**
+      * **To**
+      * **Subject**
+      * **Body**
+
+      Click or tap anywhere on the screen to close the selection box.
+
+      ![Choose SMTP connection email fields to include in email.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
+
+   1. Enter the following information for the email parameters you selected in the previous step:
+
+      | Parameter | Value |
+      | --------- | ----- |
+      | **From** | The email address that you configured for the SMTP connection. |
+      | **To** | The email address or addresses where you want to send notification emails. |
+      | **Subject** | `High temperature detected`. |
+      | **Body** | `High temperature detected`. |
+
+      If the **Add dynamic content** dialog opens, select **Hide** to close it. You don't use dynamic content in this tutorial.
+
+      ![Provide details for SMTP connection email fields.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
+
+1. Select **Save** to save the SMTP connection.
 
 1. (Optional) If you had to disable TLS to establish a connection with your email provider and want to re-enable it, follow these steps:
 
@@ -216,25 +254,36 @@ In the preceding section, you set up your IoT hub to route messages containing a
 
    1. On the **smtp API Connection** pane, under **General**, select **Edit API connection**.
 
-   1. On the **Edit API Connection** pane, select **Enable SSL?**, re-enter the password for your email account, and select **Save**.
+   1. On the **Edit API Connection** pane, select **Enable SSL?**, reenter the password for your email account, and select **Save**.
 
-      ![Edit SMTP API connection in your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
+      ![Edit SMTP API connection in your logic app in the Azure portal.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 
 Your logic app is now ready to process temperature alerts from the Service Bus queue and send notifications to your email account.
 
 ## Test the logic app
 
-1. Start the client application on your device.
+Start sending temperature messages from your IoT device to test the monitoring and notification pipeline.
 
-1. If you're using a physical device, carefully bring a heat source near the heat sensor until the temperature exceeds 30 degrees C. If you're using the online simulator, the client code will randomly output telemetry messages that exceed 30 C.
+1. Start the client application on your device. The client code randomly outputs telemetry messages, and sets the `temperatureAlert` property to `true` when the temperature exceeds 30 C.
 
 1. You should begin receiving email notifications sent by the logic app.
 
    > [!NOTE]
    > Your email service provider may need to verify the sender identity to make sure it is you who sends the email.
 
+## Clean up resources
+
+If you don't need the resources that you created in this tutorial any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and select **Delete**.
+
+Alternatively, use the CLI:
+
+```azurecli-interactive
+# Delete your resource group and its contents
+az group delete --name <RESOURCE_GROUP_NAME>
+```
+
 ## Next steps
 
-You have successfully created a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
+In this tutorial, you created a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

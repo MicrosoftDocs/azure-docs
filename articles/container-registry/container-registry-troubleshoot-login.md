@@ -4,7 +4,8 @@ description: Symptoms, causes, and resolution of common problems when logging in
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Troubleshoot registry login
@@ -35,7 +36,7 @@ May include one or more of the following:
 
 ## Further diagnosis 
 
-Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Azure Active Directory login problems. 
+Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Microsoft Entra login problems. 
 
 See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
 
@@ -63,7 +64,7 @@ When using `docker login`, provide the full login server name of the registry, s
 docker login myregistry.azurecr.io
 ```
 
-When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
+When using [az acr login](/cli/azure/acr#az-acr-login) with a Microsoft Entra identity, first [sign in to the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
 
 ```azurecli
 az acr login --name myregistry
@@ -87,12 +88,12 @@ Check the validity of the credentials you use for your scenario, or were provide
 Related links:
 
 * [Authentication overview](container-registry-authentication.md#authentication-options)
-* [Individual login with Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
+* [Individual login with Microsoft Entra ID](container-registry-authentication.md#individual-login-with-azure-ad)
 * [Login with service principal](container-registry-auth-service-principal.md)
 * [Login with managed identity](container-registry-authentication-managed-identity.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Login with admin account](container-registry-authentication.md#admin-account)
-* [Azure AD authentication and authorization error codes](../active-directory/develop/reference-aadsts-error-codes.md)
+* [Microsoft Entra authentication and authorization error codes](../active-directory/develop/reference-aadsts-error-codes.md)
 * [az acr login](/cli/azure/acr#az-acr-login) reference
 
 ### Confirm credentials are authorized to access registry
@@ -109,10 +110,10 @@ Related links:
 
 * [Azure roles and permissions - Azure Container Registry](container-registry-roles.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
-* [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
-* [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
-* [Azure AD authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)
+* [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+* [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret)
+* [Microsoft Entra authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### Check that credentials aren't expired
 
@@ -126,7 +127,7 @@ Related links:
 
 * [Reset service principal credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset)
 * [Regenerate token passwords](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
-* [Individual login with Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
+* [Individual login with Microsoft Entra ID](container-registry-authentication.md#individual-login-with-azure-ad)
 
 ## Advanced troubleshooting
 

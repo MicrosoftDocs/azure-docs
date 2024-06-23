@@ -1,10 +1,10 @@
 ---
-title: Create test certificates - Azure IoT Edge | Microsoft Docs
+title: Create test certificates - Azure IoT Edge
 description: Create test certificates and learn how to install them on an Azure IoT Edge device to prepare for production deployment. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/05/2022
+ms.date: 06/03/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # Create demo certificates to test IoT Edge device features
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 IoT Edge devices require certificates for secure communication between the runtime, the modules, and any downstream devices.
 If you don't have a certificate authority to create the required certificates, you can use demo certificates to try out IoT Edge features in your test environment.
@@ -303,7 +303,7 @@ Your IoT device also needs a copy of its device certificates so that it can auth
 3. Retrieve the SHA1 thumbprint (called a thumbprint in IoT Hub contexts) from each certificate. The thumbprint is a 40 hexadecimal character string. Use the following openssl command to view the certificate and find the thumbprint:
 
    ```PowerShell
-   openssl x509 -in certs\iot-device-<device name>-primary.cert.pem -text -thumbprint
+   Write-Host (Get-Pfxcertificate -FilePath certs\iot-device-<device name>-primary.cert.pem).Thumbprint
    ```
 
    Run this command twice, once for the primary certificate and once for the secondary certificate. You provide thumbprints for both certificates when you register a new IoT device using self-signed X.509 certificates.

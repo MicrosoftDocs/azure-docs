@@ -40,9 +40,10 @@ This section describes service limits for resource type `vaults`.
 
 | Transactions type | Maximum transactions allowed in 10 seconds, per vault per region<sup>1</sup> |
 | --- | --- |
-| All transactions |4,000 |
+| Secret<br>CREATE secret| 300 |
+| All other transactions |4,000 |
 
-For information on how to handle throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](../articles/key-vault/general/overview-throttling.md).
+For information on how to handle throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling).
 
 <sup>1</sup> A subscription-wide limit for all transaction types is five times per key vault limit.
 
@@ -61,7 +62,7 @@ When you back up a key vault object, such as a secret, key, or certificate, the 
 
 Key Vault does not restrict the number of keys, secrets or certificates that can be stored in a vault. The transaction limits on the vault should be taken into account to ensure that operations are not throttled.
 
-Key Vault does not restrict the number of versions on a secret, key or certificate, but storing a large number of versions (500+) can impact the performance of backup operations. See [Azure Key Vault Backup](../articles/key-vault/general/backup.md).
+Key Vault does not restrict the number of versions on a secret, key or certificate, but storing a large number of versions (500+) can impact the performance of backup operations. See [Azure Key Vault Backup](/azure/key-vault/general/backup).
 
 ### Resource type: Managed HSM
 

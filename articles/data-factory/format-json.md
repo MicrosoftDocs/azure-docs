@@ -5,9 +5,9 @@ description: This topic describes how to deal with JSON format in Azure Data Fac
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, contperf-fy22q2
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -315,7 +315,7 @@ File.json
     ]
 ```
 > [!NOTE]
-> If data flows throw an error stating "corrupt_record" when previewing your JSON data, it is likely that your data contains contains a single document in your JSON file. Setting "single document" should clear that error.
+> If data flows throw an error stating "corrupt_record" when previewing your JSON data, it is likely that your data contains a single document in your JSON file. Setting "single document" should clear that error.
 
 #### Unquoted column names
 
@@ -441,7 +441,7 @@ Here are some common connectors and formats related to the JSON format:
 - OData connector(connector-odata.md)
 - Parquet format(format-parquet.md)
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)

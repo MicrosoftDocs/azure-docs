@@ -7,15 +7,12 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
 # Copy activity in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
-> * [Version 1](v1/data-factory-data-movement-activities.md)
-> * [Current version](copy-activity-overview.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -39,7 +36,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 :::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
 
 > [!NOTE]
-> In case if a self-hosted integration runtime is used in either source or sink data store within a copy activity, than both the source and sink must be accessible from the server hosting the integartion runtime for the copy activity to be successful.
+> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integration runtime for the Copy activity to be successful.
 
 ## Supported data stores and formats
 
@@ -173,6 +170,11 @@ For other scenarios than binary file copy, copy activity rerun starts from the b
 
 While copying data from source to sink, in scenarios like data lake migration, you can also choose to preserve the metadata and ACLs along with data using copy activity. See [Preserve metadata](copy-activity-preserve-metadata.md) for details.
 
+## Add metadata tags to file based sink
+When the sink is Azure Storage based (Azure data lake storage or Azure Blob Storage), we can opt to add some metadata to the files. These metadata will be appearing as part of the file properties as Key-Value pairs. 
+For all the types of file based sinks, you can add metadata involving dynamic content using the pipeline parameters, system variables, functions and variables. 
+In addition to this, for binary file based sink, you have the option to add Last Modified datetime (of the source file) using the keyword $$LASTMODIFIED, as well as custom values as a metadata to the sink file. 
+
 ## Schema and data type mapping
 
 See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for information about how the Copy activity maps your source data to your sink.
@@ -181,8 +183,8 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 
 In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
 
-- When copy from file-based source, store the relative file path as an additional column to trace from which file the data comes from.
-- Duplicate the specified source column as another column. 
+- When you copy from a file-based source, store the relative file path as an additional column to trace from which file the data comes from.
+- Duplicate the specified source column as another column.
 - Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline ID, or store other dynamic value from upstream activity's output.
 - Add a column with static value to meet your downstream consumption need.
 
@@ -242,16 +244,16 @@ To configure it programmatically, add the `additionalColumns` property in your c
 ]
 ```
 >[!TIP]
->After configuring additional columns remember to map them to you destination sink, in the Mapping tab.
+>After configuring additional columns remember to map them to your destination sink, in the Mapping tab.
 
 ## Auto create sink tables
 
-When copying data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
+When you copy data into SQL database/Azure Synapse Analytics, if the destination table does not exist, copy activity supports automatically creating it based on the source data. It aims to help you quickly get started to load the data and evaluate SQL database/Azure Synapse Analytics. After the data ingestion, you can review and adjust the sink table schema according to your needs.
 
-This feature is supported when copying data from any source into the following sink data stores. You can find the option on *ADF authoring UI* –> *Copy activity sink* –> *Table option* –> *Auto create table*, or via `tableOption` property in copy activity sink payload.
+This feature is supported when copying data from any source into the following sink data stores. You can find the option on *ADF authoring UI* -> *Copy activity sink* -> *Table option* -> *Auto create table*, or via `tableOption` property in copy activity sink payload.
 
 - [Azure SQL Database](connector-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
+- [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 - [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
@@ -266,9 +268,9 @@ By default, the Copy activity stops copying data and returns a failure when sour
 When you move data from source to destination store, copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
 
 ## Session log
-You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session log in copy activity](copy-activity-log.md) for details.
+You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session sign in copy activity](copy-activity-log.md) for details.
 
-## Next steps
+## Related content
 See the following quickstarts, tutorials, and samples:
 
 - [Copy data from one location to another location in the same Azure Blob storage account](quickstart-create-data-factory-dot-net.md)

@@ -2,10 +2,10 @@
 title: Tutorial - Restore files to a VM with Azure Backup
 description: Learn how to perform file-level restores on an Azure VM with Backup and Recovery Services.
 ms.topic: tutorial
-ms.date: 01/31/2019
-ms.custom: mvc
-author: jyothisuri
-ms.author: jsuri
+ms.date: 03/20/2024
+ms.custom: mvc, devx-track-azurecli, engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore files to a virtual machine in Azure
@@ -24,7 +24,7 @@ This tutorial requires a Linux VM that has been protected with Azure Backup. To 
 
 Prepare your environment:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This article requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

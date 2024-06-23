@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -14,12 +15,18 @@ zone_pivot_groups: azure-maps-android
 
 This article shows you how to render point data from a data source as a symbol layer on a map using the Azure Maps Android SDK. Symbol layers render points as an image and text on the map.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 > [!TIP]
 > Symbol layers by default will render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` option of the layer to `eq(geometryType(), "Point")`. If you want to include MultiPoint features as well, set the `filter` option of the layer to `any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint"))`.
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Add a symbol layer
 
@@ -71,7 +78,7 @@ There are three different types of point data that can be added to the map:
 - GeoJSON MultiPoint geometry - This object contains the coordinates of multiple points and nothing else. Pass an array of points into the `MultiPoint` class to create these objects.
 - GeoJSON Feature - This object consists of any GeoJSON geometry and a set of properties that contain metadata associated to the geometry.
 
-For more information, see the [Create a data source](create-data-source-android-sdk.md) document on creating and adding data to the map.
+For more information, see the [Create a data source] document on creating and adding data to the map.
 
 The following code sample creates a GeoJSON Point geometry and passes it into the GeoJSON Feature and has a `title` value added to its properties. The `title` property is displayed as text above the symbol icon on the map.
 
@@ -283,16 +290,23 @@ The following code is a modified version of the default marker vector XML that y
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Cluster point data](clustering-point-data-android-sdk.md)
+> [Cluster point data]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-android-sdk.md)
+> [Use data-driven style expressions]
 
 > [!div class="nextstepaction"]
-> [Display feature information](display-feature-information-android.md)
+> [Display feature information]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Cluster point data]: clustering-point-data-android-sdk.md
+[Create a data source]: create-data-source-android-sdk.md
+[Display feature information]: display-feature-information-android.md
+[Quickstart: Create an Android app]: quick-android-map.md
+[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md

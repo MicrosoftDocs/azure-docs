@@ -1,17 +1,22 @@
 ---
-title: CLI script - Create an Azure Database for MySQL - Flexible Server in a VNet
-description: This Azure CLI sample script shows how to create a Azure Database for MySQL - Flexible Server in a VNet (private access connectivity method) and connect to the server from a VM within the VNet.
+title: CLI script - Create an Azure Database for MySQL - Flexible Server database in a VNet
+description: This Azure CLI sample script shows how to create a Azure Database for MySQL - Flexible Server database in a VNet (private access connectivity method) and connect to the server from a VM within the VNet.
 author: shreyaaithal
 ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
-ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc, devx-track-azurecli
-ms.date: 02/10/2022 
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+ms.devlang: azurecli
 ---
 
-# Create an Azure Database for MySQL - Flexible Server in a VNet using Azure CLI
+# Create an Azure Database for MySQL - Flexible Server database in a VNet using Azure CLI
+
+[!INCLUDE[applies-to-mysql-flexible-server](../../includes/applies-to-mysql-flexible-server.md)]
 
 This sample CLI script creates an Azure Database for MySQL - Flexible Server in a VNet ([private access connectivity method](../concepts-networking-vnet.md)) and connects to the server from a VM within the VNet.
 
@@ -20,7 +25,7 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
@@ -37,9 +42,9 @@ Use the following steps to test connectivity to the MySQL server from the VM by 
 1. To SSH into the VM, start by getting the public IP address and then use MySQL tools to connect
 
    ```bash
-   publicIp=$(az vm list-ip-addresses --resource-group $resourceGroup --name $vm --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" --output tsv)
+   PUBLIC_IP=$(az vm list-ip-addresses --resource-group $RESOURCE_GROUP --name $VM --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" --output tsv)
    
-   ssh azureuser@$publicIp
+   ssh azureuser@$PUBLIC_IP
    ```
 
 1. Download MySQL tools and connect to the server. Substitute <server_name> and <admin_user> with your values.
@@ -58,7 +63,7 @@ Use the following steps to test connectivity to the MySQL server from the VM by 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
-az group delete --name $resourceGroup
+az group delete --name $RESOURCE_GROUP
 ```
 
 ## Sample reference

@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/02/2023
+ms.date: 01/10/2024
 ms.custom: engagement-fy23
-# As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
+# Customer intent: As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
 ---
 
 # What are connectors in Azure Logic Apps
@@ -49,6 +49,14 @@ For more information, see the following documentation:
 A trigger specifies the condition to meet before the workflow can start and is always the first step in any workflow. Each trigger also follows a specific firing pattern that controls how the trigger monitors and responds to events. Usually, a trigger follows either a *polling* pattern or a *push* pattern. Sometimes, both trigger versions are available.
 
 - *Polling* triggers regularly check a specific service or system on a specified schedule to check for new data or a specific event. If new data is available, or the specific event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
+
+  > [!NOTE]
+  >
+  > For connectors that are Microsoft-managed, hosted, and run in Azure, polling triggers use only the **Interval** 
+  > and **Frequency** values to calculate the next recurrence. They don't use the advanced scheduling options, 
+  > such as **At these hours** and **At these days**. These options work only with built-in polling triggers that 
+  > directly run with the Azure Logic Apps runtime, such as the **Recurrence**, **Sliding Window**, and **HTTP** triggers.
+  
 
 - *Push* or *webhook* triggers listen for new data or for an event to happen, without polling. When new data is available, or when the event happens, these triggers create and run a new instance of your workflow. This new instance can then use the data that's passed as input.
 
@@ -92,9 +100,9 @@ Although you create connections within a workflow, these connections are actuall
 
 ### Connection security and encryption
 
-Connection configuration details, such as server address, username, and password, credentials, and secrets are [encrypted and stored in the secured Azure environment](../security/fundamentals/encryption-overview.md). This information can be used only in logic app resources and by clients who have permissions for the connection resource, which is enforced using linked access checks. Connections that use Azure Active Directory Open Authentication (Azure AD OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores only access and refresh tokens as secrets, not sign-in credentials.
+Connection configuration details, such as server address, username, and password, credentials, and secrets are [encrypted and stored in the secured Azure environment](../security/fundamentals/encryption-overview.md). This information can be used only in logic app resources and by clients who have permissions for the connection resource, which is enforced using linked access checks. Connections that use Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores only access and refresh tokens as secrets, not sign-in credentials.
 
-Established connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
+Established connections can access the target service or system for as long as that service or system allows. For services that use Microsoft Entra ID OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
 
 > [!NOTE]
 > 
@@ -180,7 +188,7 @@ The following table includes known issues for connectors in Azure Logic Apps:
 
 | Error message| Description | Resolution |
 |--------------|-------------|------------|
-| `Error: BadGateway. Client request id: '{GUID}'` | This error results from updating the tags on a logic app resource where one or more connections don't support Azure Active Directory (Azure AD) OAuth authentication, such as SFTP ad SQL, breaking those connections. | To prevent this behavior, avoid updating those tags. |
+| `Error: BadGateway. Client request id: '{GUID}'` | This error results from updating the tags on a logic app resource where one or more connections don't support Microsoft Entra ID OAuth authentication, such as SFTP ad SQL, breaking those connections. | To prevent this behavior, avoid updating those tags. |
 
 ## Next steps
 

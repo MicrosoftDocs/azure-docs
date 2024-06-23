@@ -2,8 +2,8 @@
 title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
-ms.date: 11/15/2022
-ms.custom: devx-track-js
+ms.date: 06/23/2023
+ms.custom:
 ms.reviewer: saars
 ---
 
@@ -73,18 +73,18 @@ If you need to modify the behavior for only a single Application Insights resour
 
 1. Select **Deploy**.
 
-    ![Screenshot that shows the Deploy button.](media/ip-collection/deploy.png)
+    :::image type="content" source="media/ip-collection/deploy.png" lightbox="media/ip-collection/deploy.png" alt-text="Screenshot that shows the Deploy button.":::
 
 1. Select **Edit template**.
 
-    ![Screenshot that shows the Edit button, along with a warning about the resource group.](media/ip-collection/edit-template.png)
+    :::image type="content" source="media/ip-collection/edit-template.png" lightbox="media/ip-collection/edit-template.png" alt-text="Screenshot that shows the Edit button, along with a warning about the resource group.":::
 
     > [!NOTE]
     > If you experience the error shown in the preceding screenshot, you can resolve it. It states: "The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group." Temporarily select a different resource group from the dropdown list and then re-select your original resource group.
 
 1. In the JSON template, locate `properties` inside `resources`. Add a comma to the last JSON field, and then add the following new line: `"DisableIpMasking": true`. Then select **Save**.
 
-    ![Screenshot that shows the addition of a comma and a new line after the property for request source.](media/ip-collection/save.png)
+    :::image type="content" source="media/ip-collection/save.png" lightbox="media/ip-collection/save.png" alt-text="Screenshot that shows the addition of a comma and a new line after the property for request source.":::
 
 1. Select **Review + create** > **Create**.
 
@@ -125,6 +125,16 @@ Content-Length: 54
        }
 }
 ```
+
+### PowerShell
+
+The PoweShell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+
+```powershell
+Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
+```
+
+For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights)
 
 ## Telemetry initializer
 
@@ -254,6 +264,22 @@ requests
 Newly collected IP addresses will appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all four octets zeroed out.
 
 If you're testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. The `::1` value represents the loopback address in IPv6. It's equivalent to `127.0.0.1` in IPv4.
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How is city, country/region, and other geolocation data calculated?
+
+We look up the IP address (IPv4 or IPv6) of the web client:
+          
+* Browser telemetry: We collect the sender's IP address.
+* Server telemetry: The Application Insights module collects the client IP address. It's not collected if `X-Forwarded-For` is set.
+* To learn more about how IP address and geolocation data is collected in Application Insights, see [Geolocation and IP address handling](./ip-collection.md).
+          
+You can configure `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it's moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
+          
+You can [use Power BI](../logs/log-powerbi.md) to display your request telemetry on a map if you've [migrated to a workspace-based resource](./convert-classic-resource.md).          
 
 ## Next steps
 

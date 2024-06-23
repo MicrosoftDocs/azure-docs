@@ -1,17 +1,18 @@
 ---
-title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc (preview)
-description: This article helps you create a virtual machine using Azure portal (preview). 
-ms.date: 01/27/2023
-ms.topic: conceptual
+title:  Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
+description: This article helps you create a virtual machine using Azure portal. 
+ms.date: 11/15/2023
+ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: jyothisuri
-ms.author: jsuri
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
 keywords: "VMM, Arc, Azure"
 ---
 
 
-# Create a virtual machine on System Center Virtual Machine Manager using Azure Arc (preview)
+# Create a virtual machine on System Center Virtual Machine Manager using Azure Arc
 
 Once your administrator has connected an SCVMM management server to Azure, represented VMM resources such as private clouds, VM templates in Azure, and provided you the required permissions on those resources, you'll be able to create a virtual machine in Azure.
 
@@ -26,7 +27,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
 
 1. Go to Azure portal.
 2. Select **Azure Arc** as the service and then select **Azure Arc virtual machine** from the left blade.
-3. Click **+ Create**, **Create an Azure Arc virtual machine** page opens.
+3. Select **+ Create**, **Create an Azure Arc virtual machine** page opens.
 
 3. Under **Basics** > **Project details**, select the **Subscription** and **Resource group** where you want to deploy the VM.
 4. Under **Instance details**, provide the following details:
@@ -39,7 +40,7 @@ Once your administrator has connected an SCVMM management server to Azure, repre
    - Template – Choose the VM template for deployment.
    - Override template details - Select the checkbox to override the default CPU cores and memory on the VM templates.
    - Specify computer name for the VM, if the VM template has computer name associated with it.
-6. Under **Administrator account**, provide the following details and click **Next : Disks >**.
+6. Under **Administrator account**, provide the following details and select **Next : Disks >**.
    - Username
    - Password
    - Confirm password

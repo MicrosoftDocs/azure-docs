@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 06/20/2020
+ms.date: 06/29/2023
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
@@ -32,7 +32,7 @@ To complete this tutorial, you need:
 
 - [Git](https://git-scm.com/)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create Azure resources
 
@@ -74,7 +74,7 @@ Diagnostic settings can be used to collect metrics for certain Azure services in
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md?tabs=cli#create-diagnostic-settings) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/create-diagnostic-settings.md?tabs=cli) for more information on this command.
 >
 
 ```azurecli
@@ -267,5 +267,5 @@ What you learned:
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analyze app Logs in HDInsight](/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

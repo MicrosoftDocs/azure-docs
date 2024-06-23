@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
@@ -179,7 +179,7 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
   }                  
 }
 ```
-Changes to existing scale set instances are applied on the next [upgrade](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Changes to existing scale set instances are applied on the next [upgrade](virtual-machine-scale-sets-upgrade-policy.md).
 
 ### Azure PowerShell
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition. Extension sequencing requires the use of Az PowerShell 1.2.0 or above.

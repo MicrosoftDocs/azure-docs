@@ -71,6 +71,20 @@ The message *Health not supported* or *RP has no information about the resource,
 
 To know which resources support health metrics, refer to [Supported Resource Types](resource-health-checks-resource-types.md) page.
 
+## Resource health events sent to the activity log
+
+A resource health event is recorded in the activity log when:
+- An annotation, for example "ResourceDegraded" or "AccountClientThrottling", is submitted for a resource.
+- A resource transitioned to or from Unhealthy.
+- A resource was Unhealthy for more than 15 minutes.
+
+The following resource health transitions aren't recorded in the activity log:
+- A transition to Unknown state.
+- A transition from Unknown state if:
+    - This is the first transition.
+    - If the state prior to Unknown is the same as the new state after. (For example, if the resource transitioned from Healthy to Unknown and back to Healthy).
+    - For compute resources: VMs that transition from Healthy to Unhealthy, and back to Healthy, when the Unhealthy time is less than 35 seconds.
+
 ## History information
 
 > [!NOTE]

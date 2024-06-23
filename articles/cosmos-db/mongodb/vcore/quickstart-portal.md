@@ -3,18 +3,18 @@ title: |
   Quickstart: Create a new cluster
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: In this quickstart, create a new Azure Cosmos DB for MongoDB vCore cluster to store databases, collections, and documents by using the Azure portal.
+author: gahl-levy
+ms.author: gahllevy
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
-author: gahl-levy
-ms.author: gahllevy
-ms.reviewer: nayakshweta
-ms.date: 03/07/2023
+ms.date: 08/28/2023
 ---
 
 # Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using the Azure portal
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 In this quickstart, you create a new Azure Cosmos DB for MongoDB vCore cluster. This cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
 
@@ -51,9 +51,9 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
 
     | Setting | Value |
     | --- | --- |
-    | **Node count** | Single node |
+    | **Shard count** | Single shard |
     | **Cluster tier** | M30 Tier, 2 vCores, 8-GiB RAM |
-    | **Storage per node** | 128 GiB |
+    | **Storage per shard** | 128 GiB |
 
 1. Leave the **High availability** option unselected. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
 
@@ -65,7 +65,7 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | --- | --- | --- |
     | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB for MongoDB cluster. |
     | Resource Group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-    | cluster Name | A unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
+    | Cluster Name | A unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
     | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster. Use the location that is closest to your users to give them the fastest access to the data. |
     | MongoDB version | Version of MongoDB to run in your cluster |  This value is set to a default of **5.0** |
     | Admin username | Provide a username to access the cluster | This user is created on the cluster as a user administrator. |
@@ -123,7 +123,7 @@ When you're done with Azure Cosmos DB for MongoDB vCore cluster, you can delete 
 
     :::image type="content" source="media/quickstart-portal/delete-resource-group-dialog.png" alt-text="Screenshot of the delete resource group confirmation dialog with the name of the group filled out.":::
 
-## Next steps
+## Next step
 
 In this guide, you learned how to create an Azure Cosmos DB for MongoDB vCore cluster. You can now migrate data to your cluster.
 

@@ -7,8 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Move files with Azure Data Factory
@@ -63,7 +62,7 @@ The template defines four parameters:
 
     :::image type="content" source="media/solution-template-move-files/move-files6.png" alt-text="Screenshot showing the result of the pipeline run.":::
 
-## Next steps
+## Related content
 
 - [Copy new and changed files by LastModifiedDate with Azure Data Factory](solution-template-copy-new-files-lastmodifieddate.md)
 

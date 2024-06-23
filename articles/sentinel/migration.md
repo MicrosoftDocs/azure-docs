@@ -5,7 +5,7 @@ author: limwainstein
 ms.author: lwainstein
 ms.service: microsoft-sentinel
 ms.topic: how-to
-ms.date: 05/03/2022
+ms.date: 03/11/2024
 ---
 
 # Plan your migration to Microsoft Sentinel
@@ -25,8 +25,9 @@ In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel. 
 |---------|---------|
 |Plan your migration     |**You are here**         |
 |Track migration with a workbook     |[Track your Microsoft Sentinel migration with a workbook](migration-track.md)         |
+|Use the SIEM Migration experience | [SIEM Migration (Preview)](siem-migration.md)       |
 |Migrate from ArcSight     |• [Migrate detection rules](migration-arcsight-detection-rules.md)<br>• [Migrate SOAR automation](migration-arcsight-automation.md)<br>• [Export historical data](migration-arcsight-historical-data.md)          |
-|Migrate from Splunk     |• [Migrate detection rules](migration-splunk-detection-rules.md)<br>• [Migrate SOAR automation](migration-splunk-automation.md)<br>• [Export historical data](migration-splunk-historical-data.md)          |
+|Migrate from Splunk     |• [Migrate detection rules](migration-splunk-detection-rules.md)<br>• [Migrate SOAR automation](migration-splunk-automation.md)<br>• [Export historical data](migration-splunk-historical-data.md)<br><br>If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).      |
 |Migrate from QRadar     |• [Migrate detection rules](migration-qradar-detection-rules.md)<br>• [Migrate SOAR automation](migration-qradar-automation.md)<br>• [Export historical data](migration-qradar-historical-data.md)          |
 |Ingest historical data |• [Select a target Azure platform to host the exported historical data](migration-ingestion-target-platform.md)<br>• [Select a data ingestion tool](migration-ingestion-tool.md)<br>• [Ingest historical data into your target platform](migration-export-ingest.md) |
 |Convert dashboards to workbooks |[Convert dashboards to Azure Workbooks](migration-convert-dashboards.md) |

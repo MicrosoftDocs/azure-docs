@@ -5,9 +5,8 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
-ms.date: 12/22/2022
+ms.date: 12/28/2023
 ms.author: duau
-ms.custom: seodec18
 ---
 # Troubleshooting network performance
 
@@ -15,7 +14,7 @@ ms.custom: seodec18
 
 Azure provides a stable and fast way to connect your on-premises network to Azure. Methods like Site-to-Site VPN and ExpressRoute are successfully used by customers large and small to run their businesses in Azure. But what happens when performance doesn't meet your expectation or previous experience? This article can help standardize the way you test and baseline your specific environment.
 
-You'll learn how to easily and consistently test network latency and bandwidth between two hosts. You'll also be provided some advice on ways to look at the Azure network to help isolate problem points. The PowerShell script and tools discussed require two hosts on the network (at either end of the link being tested). One host must be a Windows Server or Desktop, the other can be either Windows or Linux. 
+You learn how to easily and consistently test network latency and bandwidth between two hosts. You also be provided some advice on ways to look at the Azure network to help isolate problem points. The PowerShell script and tools discussed require two hosts on the network (at either end of the link being tested). One host must be a Windows Server or Desktop, the other can be either Windows or Linux. 
 
 ## Network components
 
@@ -31,11 +30,11 @@ At the highest level, there are three major network routing domains:
 
 Looking at the diagram from right to left, let's discuss briefly each component:
 
- - **Virtual Machine** - The server may have multiple NICs. Ensure any static routes, default routes, and Operating System settings are sending and receiving traffic the way you think it is. Also, each VM SKU has a bandwidth restriction. If you're using a smaller VM SKU, your traffic is limited by the bandwidth available to the NIC. We recommend using a DS5v2 for testing to ensure adequate bandwidth at the VM.
+ - **Virtual Machine** - The server might have multiple NICs. Ensure any static routes, default routes, and Operating System settings are sending and receiving traffic the way you think it is. Also, each VM SKU has a bandwidth restriction. If you're using a smaller VM SKU, your traffic is limited by the bandwidth available to the NIC. We recommend using a DS5v2 for testing to ensure adequate bandwidth at the VM.
  
  - **NIC** - Ensure you know the private IP that is assigned to the NIC in question.
  
- - **NIC NSG** - There may be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass. For example, ensure ports 5201 for iPerf, 3389 for RDP, or 22 for SSH are open to allow test traffic to pass.
+ - **NIC NSG** - There might be specific NSGs applied at the NIC level, ensure the NSG rule-set is appropriate for the traffic you're trying to pass. For example, ensure ports 5201 for iPerf, 3389 for RDP, or 22 for SSH are open to allow test traffic to pass.
  
  - **VNet Subnet** - The NIC is assigned to a specific subnet, ensure you know which one and the rules associated with that subnet.
  
@@ -45,7 +44,7 @@ Looking at the diagram from right to left, let's discuss briefly each component:
  
  - **Gateway subnet / NSG / UDR** - Just like the VM subnet, the gateway subnet can have NSGs and UDRs. Make sure you know if they're there and what effects they have on your traffic.
  
- - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have a VNet Gateway connected to multiple ExpressRoute circuits or VPN tunnels, you should be aware of the connection weight settings. The connection weight affects connection preference and determines the path your traffic takes.
+ - **VNet Gateway (ExpressRoute)** - Once peering (ExpressRoute) or VPN is enabled, there aren't many settings that can affect how or if traffic routes. If you have a virtual network Gateway connected to multiple ExpressRoute circuits or VPN tunnels, you should be aware of the connection weight settings. The connection weight affects connection preference and determines the path your traffic takes.
  
  - **Route Filter** (Not shown) - A route filter is necessary when using Microsoft Peering through ExpressRoute. If you're not receiving any routes, check if the route filter is configured and applied correctly to the circuit.
 
@@ -59,7 +58,7 @@ Given the complexity of these three different high-level network environments. I
 
 Most network issues can be analyzed and isolated using basic tools like ping and traceroute. It's rare you need to go as deep as a packet analysis using tools like Wireshark. 
 
-To help with troubleshooting, the Azure Connectivity Toolkit (AzureCT) was developed to put some of these tools in an easy package. For performance testing, tools like iPerf and PSPing can provide you information about your network. iPerf is a commonly used tool for basic performances tests and is fairly easy to use. PSPing is a ping tool developed by SysInternals. PSPing can do both ICMP and TCP pings to reach a remote host. Both of these tools are lightweight and are "installed" simply by coping the files to a directory on the host.
+To help with troubleshooting, the Azure Connectivity Toolkit (AzureCT) was developed to put some of these tools in an easy package. For performance testing, tools like iPerf and PSPing can provide you with information about your network. iPerf is a commonly used tool for basic performances tests and is fairly easy to use. PSPing is a ping tool developed by SysInternals. PSPing can do both ICMP and TCP pings to reach a remote host. Both of these tools are lightweight and are "installed" simply by coping the files to a directory on the host.
 
 These tools and methods are wrapped into a PowerShell module (AzureCT) that you can install and use.
 
@@ -71,30 +70,31 @@ There are three basic steps to use this toolkit for Performance testing.
 
 1. Installing the PowerShell Module.
 
-	```powershell
-	(new-object Net.WebClient).DownloadString("https://aka.ms/AzureCT") | Invoke-Expression
-	
-	```
+    ```powershell
+    (new-object Net.WebClient).DownloadString("https://aka.ms/AzureCT") | Invoke-Expression
+    
+    ```
 
-	This command downloads the PowerShell module and installs it locally.
+    This command downloads the PowerShell module and installs it locally.
 
 2. Install the supporting applications.
 
-	```powershell
-	Install-LinkPerformance
-	```
-	This AzureCT command installs iPerf and PSPing in a new directory "C:\ACTTools", it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
+    ```powershell
+    Install-LinkPerformance
+    ```
+
+    This AzureCT command installs iPerf and PSPing in a new directory `C:\ACTTools`, it also opens the Windows Firewall ports to allow ICMP and port 5201 (iPerf) traffic.
 
 3. Run the performance test.
 
-	First, on the remote host you must install and run iPerf in server mode. Also ensure the remote host is listening on either 3389 (RDP for Windows) or 22 (SSH for Linux) and allowing traffic on port 5201 for iPerf. If the remote host is Windows, install the AzureCT and run the Install-LinkPerformance command. The command will set up iPerf and the firewall rules needed to start iPerf in server mode successfully. 
-	
-	Once the remote machine is ready, open PowerShell on the local machine and start the test:
-	```powershell
-	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
-	```
+    First, on the remote host you must install and run iPerf in server mode. Also ensure the remote host is listening on either 3389 (RDP for Windows) or 22 (SSH for Linux) and allowing traffic on port 5201 for iPerf. If the remote host is Windows, install the AzureCT and run the Install-LinkPerformance command. The command sets up iPerf and the firewall rules needed to start iPerf in server mode successfully. 
+    
+    Once the remote machine is ready, open PowerShell on the local machine and start the test:
+    ```powershell
+    Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
+    ```
 
-	This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
+    This command runs a series of concurrent load and latency tests to help estimate the bandwidth capacity and latency of your network link.
 
 4. Review the output of the tests.
 
@@ -102,21 +102,21 @@ There are three basic steps to use this toolkit for Performance testing.
 
     :::image type="content" source="./media/expressroute-troubleshooting-network-performance/powershell-output.png" alt-text="Screenshot of PowerShell output of the Link Performance test.":::
 
-	The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
+    The detailed results of all the iPerf and PSPing tests are in individual text files in the AzureCT tools directory at "C:\ACTTools."
 
 ## Troubleshooting
 
-If the performance test isn't giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach will provide a faster path to resolution than jumping around. By troubleshooting systematically, you can prevent doing unnecessary testing multiple times.
+If the performance test isn't giving you expected results, figuring out why should be a progressive step-by-step process. Given the number of components in the path, a systematic approach provides a faster path to resolution than jumping around. By troubleshooting systematically, you can prevent doing unnecessary testing multiple times.
 
 >[!NOTE]
->The scenario here is a performance issue, not a connectivity issue. The steps would be different if traffic wasn't passing at all.
+>The scenario here is a performance issue, not a connectivity issue. To isolate the connectivity problem to Azure network, follow [Verifying ExpressRotue connectivity](expressroute-troubleshooting-expressroute-overview.md) article.
 >
 
 First, challenge your assumptions. Is your expectation reasonable? For instance, if you have a 1-Gbps ExpressRoute circuit and 100 ms of latency. It's not reasonable to expect the full 1 Gbps of traffic given the performance characteristics of TCP over high latency links. See the [References section](#references) for more on performance assumptions.
 
-Next, we recommend starting at the edges between routing domains and try to isolate the problem to a single major routing domain. You can start at the Corporate Network, the WAN, or the Azure Network. People often blame the "black box" in the path. While blaming the black box is easy to do, it may significantly delay resolution. Especially if the problem is in an area that you can make changes to fix the issue. Make sure you do your due diligence before handing off to your service provider or ISP.
+Next, we recommend starting at the edges between routing domains and try to isolate the problem to a single major routing domain. You can start at the Corporate Network, the WAN, or the Azure Network. People often blame the "black box" in the path. While blaming the black box is easy to do, it can significantly delay resolution. Especially if the problem is in an area that you can make changes to fix the issue. Make sure you do your due diligence before handing off to your service provider or ISP.
 
-Once you've identified the major routing domain that appears to contain the problem, you should create a diagram of the area in question. When you draw out a diagram, you can methodically work through and isolate the problem. You can plan testing points, and update the map as you clear areas or dig deeper as the testing progresses.
+Once you identified the major routing domain that appears to contain the problem, you should create a diagram of the area in question. When you draw out a diagram, you can methodically work through and isolate the problem. You can plan testing points, and update the map as you clear areas or dig deeper as the testing progresses.
 
 Now that you have a diagram, start to divide the network into segments and narrow the problem down. Find out where it works and where it doesn't. Keep moving your testing points to isolate down to the offending component.
 
@@ -124,7 +124,7 @@ Also, don't forget to look at other layers of the OSI model. It's easy to focus 
 
 ## Advanced ExpressRoute troubleshooting
 
-If you're not sure where the edge of the cloud actually is, isolating the Azure components can be a challenge. When ExpressRoute is used, the edge is a network component called the Microsoft Enterprise Edge (MSEE). **When using ExpressRoute**, the MSEE is the first point of contact into Microsoft's network, and the last hop when leaving the Microsoft network. When you create a connection object between your VNet gateway and the ExpressRoute circuit, you're actually making a connection to the MSEE. Recognizing the MSEE as the first or last hop depending on which direction the traffic is crucial to isolating an Azure networking problem. Knowing which direction will prove if the issue is in Azure or further downstream in the WAN or the corporate network. 
+If you're not sure where the edge of the cloud actually is, isolating the Azure components can be a challenge. When ExpressRoute is used, the edge is a network component called the Microsoft Enterprise Edge (MSEE). **When using ExpressRoute**, the MSEE is the first point of contact into Microsoft's network, and the last hop when leaving the Microsoft network. When you create a connection object between your virtual network gateway and the ExpressRoute circuit, you're actually making a connection to the MSEE. Recognizing the MSEE as the first or last hop depending on which direction the traffic is crucial to isolating an Azure networking problem. Knowing which direction proves if the issue is in Azure or further downstream in the WAN or the corporate network. 
 
 :::image type="content" source="./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png" alt-text="Diagram of multiple virtual networks connected to an ExpressRoute circuit.":::
 
@@ -136,9 +136,9 @@ If two VNets are connected to the **same** ExpressRoute circuit, you can do a se
  
 ### Test plan
 
-1. Run the Get-LinkPerformance test between VM1 and VM2. This test provides insight to if the problem is local or not. If this test produces acceptable latency and bandwidth results, you can mark the local VNet network as good.
+1. Run the Get-LinkPerformance test between VM1 and VM2. This test provides insight to if the problem is local or not. If this test produces acceptable latency and bandwidth results, you can mark the local virtual network as good.
 
-1. Assuming the local VNet traffic is good, run the Get-LinkPerformance test between VM1 and VM3. This test exercises the connection through the Microsoft network down to the MSEE and back into Azure. If this test produces acceptable latency and bandwidth results, you can mark the Azure network as good.
+1. Assuming the local virtual network traffic is good, run the Get-LinkPerformance test between VM1 and VM3. This test exercises the connection through the Microsoft network down to the MSEE and back into Azure. If this test produces acceptable latency and bandwidth results, you can mark the Azure network as good.
 
 1. If Azure is ruled out, you can do a similar sequence of tests on your corporate network. If that also tests well, it's time to work with your service provider or ISP to diagnose your WAN connection. Example: Run this test between two branch offices, or between your desk and a data center server. Depending on what you're testing, find endpoints such as servers and client PCs that can exercise that path.
 
@@ -152,7 +152,7 @@ The more you isolate the problem the faster the solution can be found. Sometime 
 
 For corporate network issues, your internal IT department or service provider can help with device configuration or hardware repair.
 
-For the WAN, sharing your testing results with your Service Provider or ISP will help get them started. Doing so will also avoid duplicating the same work that you've already done. Don't be offended if they want to verify your results themselves. "Trust but verify" is a good motto when troubleshooting based on other people's reported results.
+A good practice for troubleshooting the WAN is to share your testing results with your Service Provider or ISP, as this can help them with their work. Your test results can also avoid doing the same tasks again that you have already done. However, they may want to check your results themselves. This is based on the principle of *trust but verify*.
 
 With Azure, once you isolate the issue in as much detail as you're able, it's time to review the [Azure Network Documentation][Network Docs] and then if still needed [open a support ticket][Ticket Link].
 
@@ -169,13 +169,13 @@ For example, we got an ExpressRoute setup in Seattle, Washington in the USA. The
 Test setup:
  - A physical server running Windows Server 2016 with a 10 Gbps NIC, connected to an ExpressRoute circuit.
  - A 10Gbps Premium ExpressRoute circuit in the location identified with Private Peering enabled.
- - An Azure VNet with an UltraPerformance gateway in the specified region.
- - A DS5v2 VM running Windows Server 2016 on the VNet. The VM was non-domain joined, built from the default Azure image (no optimization or customization) with AzureCT installed.
+ - An Azure virtual network with an UltraPerformance gateway in the specified region.
+ - A DS5v2 VM running Windows Server 2016 on the virtual network. The VM wasn't domain joined, built from the default Azure image (no optimization or customization) with AzureCT installed.
  - All tests use the AzureCT Get-LinkPerformance command with a 5-minute load test for each of the six test runs. For example:
 
-	```powershell
-	Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
-	```
+    ```powershell
+    Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
+    ```
  - The data flow for each test had the load flowing from the on-premises physical server (iPerf client in Seattle) up to the Azure VM (iPerf server in the listed Azure region).
  - The "Latency" column data is from the No Load test (a TCP latency test without iPerf running).
  - The "Max Bandwidth" column data is from the 16 TCP flow load test with a 1-Mb window size.
@@ -206,6 +206,9 @@ Test setup:
 | Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec |
 
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. The expected latency would be in the neighborhood of 160 ms, but is actually 189 ms. The difference in latency would seem to indicate a network issue somewhere. But the reality is the fiber line doesn't go to Brazil in a straight line. So you should expect an extra 1,000 km or so of travel to get to Brazil from Seattle.
+
+>[!NOTE]
+>While these numbers should be taken into consideration, they were tested using AzureCT which is based in IPERF in Windows via PowerShell. In this scenario, IPERF does not honor default Windows TCP options for Scaling Factor and uses a much lower Shift Count for the TCP Window size. The numbers represented here were performed using default IPERF values and are for general reference only. By tuning IPERF commands with `-w` switch and a big TCP Window size, better throughput can be obtained over long distances, showing significantly better throughput figures. Also, to ensure an ExpressRoute is using the full bandwidth, it's ideal to run the IPERF in multi-threaded option from multiple machines simultaneously to ensure computing capacity is able to reach maximum link performance and is not limited by processing capacity of a single VM. To get the best Iperf results on Windows, use "Set-NetTCPSetting -AutoTuningLevelLocal Experimental". Please check your organizational policies before making any changes. 
 
 ## Next steps
 

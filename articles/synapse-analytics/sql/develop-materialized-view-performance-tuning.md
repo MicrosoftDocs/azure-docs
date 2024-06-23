@@ -1,14 +1,13 @@
 ---
 title: Performance tuning with materialized views
-description: Recommendations and considerations for materialized views to improve your query performance. 
+description: Recommendations and considerations for materialized views to improve your query performance.
 author: XiaoyuMSFT
-manager: craigg 
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql
-ms.date: 03/01/2023
 ms.author: xiaoyul
 ms.reviewer: nibruno; wiassaf
+ms.date: 03/01/2023
+ms.service: synapse-analytics
+ms.subservice: sql
+ms.topic: conceptual
 ---
 
 # Performance tuning with materialized views using dedicated SQL pool in Azure Synapse Analytics
@@ -274,7 +273,7 @@ ORDER BY t_s_secyear.customer_id
 OPTION ( LABEL = 'Query04-af359846-253-3');
 ```
 
-Check the query's [estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md). There are 18 shuffles and 17 joins operations, which take more time to execute. 
+Check the query's [estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan). There are 18 shuffles and 17 joins operations, which take more time to execute. 
 
 Now, let's create one materialized view for each of the three sub-SELECT statements.
 
@@ -368,4 +367,4 @@ With materialized views, the same query runs much faster without any code change
 For more development tips, see [Synapse SQL development overview](develop-overview.md).
 
 - [Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md). 
-- [View estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan.md)
+- [View estimated execution plan](/sql/relational-databases/performance/display-the-estimated-execution-plan)

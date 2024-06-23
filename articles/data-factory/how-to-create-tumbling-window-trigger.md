@@ -2,14 +2,14 @@
 title: Create tumbling window triggers
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a tumbling window.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 01/05/2024
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -48,8 +48,8 @@ A tumbling window has the following trigger type properties:
             "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime": <<datetime – optional>>,
-            "delay": <<timespan – optional>>,
+            "endTime": <<datetime - optional>>,
+            "delay": <<timespan - optional>>,
             "maxConcurrency": <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
@@ -58,8 +58,8 @@ A tumbling window has the following trigger type properties:
             "dependsOn": [
                 {
                     "type": "TumblingWindowTriggerDependencyReference",
-                    "size": <<timespan – optional>>,
-                    "offset": <<timespan – optional>>,
+                    "size": <<timespan - optional>>,
+                    "offset": <<timespan - optional>>,
                     "referenceTrigger": {
                         "referenceName": "MyTumblingWindowDependency1",
                         "type": "TriggerReference"
@@ -67,7 +67,7 @@ A tumbling window has the following trigger type properties:
                 },
                 {
                     "type": "SelfDependencyTumblingWindowTriggerReference",
-                    "size": <<timespan – optional>>,
+                    "size": <<timespan - optional>>,
                     "offset": <<timespan>>
                 }
             ]
@@ -150,6 +150,9 @@ To use the **WindowStart** and **WindowEnd** system variable values in the pipel
 
 If the startTime of trigger is in the past, then based on this formula, M=(CurrentTime- TriggerStartTime)/TumblingWindowSize, the trigger will generate {M} backfill(past) runs in parallel, honoring trigger concurrency, before executing the future runs. The order of execution for windows is deterministic, from oldest to newest intervals. Currently, this behavior can't be modified.
 
+> [!NOTE]
+> Be aware that in this scenario, all runs from the selected startTime will be run before executing future runs. If you need to backfill a long period of time, doing an intial historical load is recommended. 
+
 ### Existing TriggerResource elements
 
 The following points apply to update of existing **TriggerResource** elements:
@@ -206,7 +209,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
-- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps). 
+- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azure-powershell). 
 
 - **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using PowerShell](./quickstart-create-data-factory-powershell.md) to create a data factory and a pipeline.
 
@@ -285,7 +288,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 ### Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - Follow the instructions in [Create an Azure Data Factory using Azure CLI](./quickstart-create-data-factory-azure-cli.md) to create a data factory and a pipeline.
 
@@ -361,7 +364,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-## Next steps
+## Related content
 
 * For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).

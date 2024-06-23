@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Get and manage phone numbers using Azure Communication Services
-description: Learn how to manage phone numbers using Azure Communication Services
+description: Learn how to manage phone numbers using Azure Communication Services.
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -9,8 +9,8 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.custom: references_regions, mode-other
-zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
+ms.custom: references_regions, mode-other, devx-track-extended-java, devx-track-js, devx-track-python
+zone_pivot_groups: acs-azp-azpnew-azcli-java-csharp-js-python
 ---
 
 # Quickstart: Get and manage phone numbers
@@ -19,16 +19,20 @@ zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
-::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/phone-numbers-az-cli.md)]
-::: zone-end
-
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
 ::: zone-end
 
+::: zone pivot="platform-azp-new"
+[!INCLUDE [Azure portal (new)](./includes/phone-numbers-portal-new.md)]
+::: zone-end
+
+::: zone pivot="platform-azcli"
+[!INCLUDE [Azure CLI](./includes/phone-numbers-az-cli.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Azure portal](./includes/phone-numbers-net.md)]
+[!INCLUDE [C#](./includes/phone-numbers-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -47,9 +51,9 @@ zone_pivot_groups: acs-azcli-azp-java-net-python-csharp-js
 
 Common Questions and Issues:
 
-- When a phone number is released, the phone number will not be released or able to be repurchased until the end of the billing cycle.
+- When a phone number is released, the phone number shows up in your ACS resource on Azure portal until the end of the billing cycle. It also can't be repurchased until the end of the billing cycle.
 
-- When a Communication Services resource is deleted, the phone numbers associated with that resource will be automatically released at the same time.
+- When a Communication Services resource is deleted, the phone numbers associated with that resource are automatically released at the same time.
 
 ## Next steps
 
@@ -66,6 +70,9 @@ In this quickstart you learned how to:
 > 
 > [!div class="nextstepaction"]
 > [Toll-free verification](../../concepts/sms/sms-faq.md#toll-free-verification)
-
+>
 > [!div class="nextstepaction"]
-> [Get started with calling](../voice-video-calling/getting-started-with-calling.md)
+> [Build workflow for outbound calls using the purchased phone numbers](../call-automation/quickstart-make-an-outbound-call.md)
+>
+> [!div class="nextstepaction"]
+> [Get started with calling in applications](../voice-video-calling/getting-started-with-calling.md)

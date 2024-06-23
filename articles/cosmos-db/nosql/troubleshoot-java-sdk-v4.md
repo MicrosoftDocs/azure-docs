@@ -8,7 +8,7 @@ ms.author: thvankra
 ms.devlang: java
 ms.subservice: nosql
 ms.topic: troubleshooting
-ms.custom: devx-track-java, ignite-2022
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with API for NoSQL accounts
@@ -18,10 +18,11 @@ ms.custom: devx-track-java, ignite-2022
 > * [Java SDK v4](troubleshoot-java-sdk-v4.md)
 > * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dotnet-sdk.md)
-> 
+> * [Python SDK](troubleshoot-python-sdk.md)
+>
 
 > [!IMPORTANT]
-> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 [Release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
+> This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 [Release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4.md) for more information. If you're currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 >
 
 This article covers common issues, workarounds, diagnostic steps, and tools when you use Azure Cosmos DB Java SDK v4 with Azure Cosmos DB for NoSQL accounts.
@@ -30,20 +31,20 @@ Azure Cosmos DB Java SDK v4 provides client-side logical representation to acces
 Start with this list:
 
 * Take a look at the [Common issues and workarounds] section in this article.
-* Look at the Java SDK in the Azure Cosmos DB central repo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the *cosmos:v4-item* tag.
+* Look at the Java SDK in the Azure Cosmos DB central repo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the `*cosmos:v4-item*` tag.
 * Review the [performance tips](performance-tips-java-sdk-v4.md) for Azure Cosmos DB Java SDK v4, and follow the suggested practices.
-* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
+* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there's an option to add tags to your GitHub issue, add a `*cosmos:v4-item*` tag.
 
 ## Capture the diagnostics
 
 Database, container, item, and query responses in the Java V4 SDK have a Diagnostics property. This property records all the information related to the single request, including if there were retries or any transient failures.
 
-The Diagnostics are returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. With each version of the SDK, the string will have breaking changes to the formatting. Do not parse the string to avoid breaking changes. 
+The Diagnostics are returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. With each version of the SDK, the string might break its format. Don't parse the string to avoid breaking changes.
 
 The following code sample shows how to read diagnostic logs using the Java V4 SDK:
 
 > [!IMPORTANT]
-> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check recommended version [here](./sdk-java-v4.md#recommended-version). 
+> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you're using this version or higher. You can check recommended version [here](./sdk-java-v4.md#recommended-version). 
 
 # [Sync](#tab/sync)
 
@@ -197,10 +198,114 @@ itemResponseMono.onErrorResume(throwable -> {
 ```
 ---
 
+## Logging the diagnostics
+Java V4 SDK versions v4.43.0 and above support automatic logging of Cosmos Diagnostics for all requests or errors if they meet certain criteria. Application developers can define thresholds for latency (for point (create, read, replace, upsert, patch) or non-point operations (query, change feed, bulk and batch)), request charge and payload size. If the requests exceed these defined thresholds, the cosmos diagnostics for those requests will be emitted automatically.
+
+By default, the Java v4 SDK logs these diagnostics automatically in a specific format. However, this can be changed by implementing `CosmosDiagnosticsHandler` interface and providing your own custom Diagnostics Handler.
+
+These `CosmosDiagnosticsThresholds` and `CosmosDiagnosticsHandler` can then be used in `CosmosClientTelemetryConfig` object, which should be passed into `CosmosClientBuilder` while creating sync or async client.
+
+NOTE: These diagnostics thresholds are applied across different types of diagnostics including logging, tracing and client telemetry.
+
+The following code samples show how to define diagnostics thresholds, custom diagnostics logger and use them through client telemetry config:
+
+# [Sync](#tab/sync)
+
+#### Defining custom Diagnostics Thresholds
+```Java
+//  Create diagnostics threshold
+CosmosDiagnosticsThresholds cosmosDiagnosticsThresholds = new CosmosDiagnosticsThresholds();
+//  These thresholds are for demo purposes
+//  NOTE: Do not use the same thresholds for production
+cosmosDiagnosticsThresholds.setPayloadSizeThreshold(100_00);
+cosmosDiagnosticsThresholds.setPointOperationLatencyThreshold(Duration.ofSeconds(1));
+cosmosDiagnosticsThresholds.setNonPointOperationLatencyThreshold(Duration.ofSeconds(5));
+cosmosDiagnosticsThresholds.setRequestChargeThreshold(100f);
+```
+
+#### Defining custom Diagnostics Handler
+```Java
+//  By default, DEFAULT_LOGGING_HANDLER can be used
+CosmosDiagnosticsHandler cosmosDiagnosticsHandler = CosmosDiagnosticsHandler.DEFAULT_LOGGING_HANDLER;
+
+//  App developers can also define their own diagnostics handler
+cosmosDiagnosticsHandler = new CosmosDiagnosticsHandler() {
+    @Override
+    public void handleDiagnostics(CosmosDiagnosticsContext diagnosticsContext, Context traceContext) {
+        logger.info("This is custom diagnostics handler: {}", diagnosticsContext.toJson());
+    }
+};
+```
+
+#### Defining CosmosClientTelemetryConfig
+```Java
+//  Create Client Telemetry Config
+CosmosClientTelemetryConfig cosmosClientTelemetryConfig =
+    new CosmosClientTelemetryConfig();
+cosmosClientTelemetryConfig.diagnosticsHandler(cosmosDiagnosticsHandler);
+cosmosClientTelemetryConfig.diagnosticsThresholds(cosmosDiagnosticsThresholds);
+
+//  Create sync client
+CosmosClient client = new CosmosClientBuilder()
+    .endpoint(AccountSettings.HOST)
+    .key(AccountSettings.MASTER_KEY)
+    .clientTelemetryConfig(cosmosClientTelemetryConfig)
+    .buildClient();
+```
+
+# [Async](#tab/async)
+
+#### Defining custom Diagnostics Thresholds
+```Java
+//  Create diagnostics threshold
+CosmosDiagnosticsThresholds cosmosDiagnosticsThresholds = new CosmosDiagnosticsThresholds();
+//  These thresholds are for demo purposes
+//  NOTE: Do not use the same thresholds for production
+cosmosDiagnosticsThresholds.setPayloadSizeThreshold(100_00);
+cosmosDiagnosticsThresholds.setPointOperationLatencyThreshold(Duration.ofSeconds(1));
+cosmosDiagnosticsThresholds.setNonPointOperationLatencyThreshold(Duration.ofSeconds(5));
+cosmosDiagnosticsThresholds.setRequestChargeThreshold(100f);
+```
+
+#### Defining custom Diagnostics Handler
+```Java
+//  By default, DEFAULT_LOGGING_HANDLER can be used
+CosmosDiagnosticsHandler cosmosDiagnosticsHandler = CosmosDiagnosticsHandler.DEFAULT_LOGGING_HANDLER;
+
+//  App developers can also define their own diagnostics handler
+cosmosDiagnosticsHandler = new CosmosDiagnosticsHandler() {
+    @Override
+    public void handleDiagnostics(CosmosDiagnosticsContext diagnosticsContext, Context traceContext) {
+        logger.info("This is custom diagnostics handler: {}", diagnosticsContext.toJson());
+    }
+};
+```
+
+#### Defining CosmosClientTelemetryConfig
+```Java
+//  Create Client Telemetry Config
+CosmosClientTelemetryConfig cosmosClientTelemetryConfig =
+    new CosmosClientTelemetryConfig();
+cosmosClientTelemetryConfig.diagnosticsHandler(cosmosDiagnosticsHandler);
+cosmosClientTelemetryConfig.diagnosticsThresholds(cosmosDiagnosticsThresholds);
+
+//  Create async client
+CosmosAsyncClient client = new CosmosClientBuilder()
+    .endpoint(AccountSettings.HOST)
+    .key(AccountSettings.MASTER_KEY)
+    .clientTelemetryConfig(cosmosClientTelemetryConfig)
+    .buildAsyncClient();
+```
+---
+
 ## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
 See our guide to [designing resilient applications with Azure Cosmos DB SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
+
+### Check the portal metrics
+
+Checking the [portal metrics](../monitor.md) will help determine if it's a client-side issue or if there's an issue with the service. For example, if the metrics contain a high rate of rate-limited requests (HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section.
 
 ### Network issues, Netty read timeout failure, low throughput, high latency
 
@@ -208,7 +313,7 @@ See our guide to [designing resilient applications with Azure Cosmos DB SDKs](co
 For best performance:
 * Make sure the app is running on the same region as your Azure Cosmos DB account. 
 * Check the CPU usage on the host where the app is running. If CPU usage is 50 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
-    * If you are running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](../../azure-monitor/containers/container-insights-analyze.md).
+    * If you're running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](../../azure-monitor/containers/container-insights-analyze.md).
 
 #### Connection throttling
 Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
@@ -234,18 +339,18 @@ If your app is deployed on Azure Virtual Machines without a public IP address, b
 * Assign a public IP to your Azure VM.
 
 ##### <a name="cant-connect"></a>Can't reach the Service - firewall
-``ConnectTimeoutException`` indicates that the SDK cannot reach the service.
+``ConnectTimeoutException`` indicates that the SDK can't reach the service.
 You may get a failure similar to the following when using the direct mode:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-If you have a firewall running on your app machine, open port range 10,000 to 20,000 which are used by the direct mode.
+If you have a firewall running on your app machine, open port range 10,000 to 20,000, which are used by the direct mode.
 Also follow the [Connection limit on a host machine](#connection-limit-on-host).
 
 #### UnknownHostException
 
-UnknownHostException means that the Java framework cannot resolve the DNS entry for the Azure Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
+UnknownHostException means that the Java framework can't resolve the DNS entry for the Azure Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming can't be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
 
 #### HTTP proxy
 
@@ -258,7 +363,7 @@ The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure
 
 The Netty IO threads are meant to be used only for non-blocking Netty IO work. The SDK returns the API invocation result on one of the Netty IO threads to the app's code. If the app performs a long-lasting operation after it receives results on the Netty thread, the SDK might not have enough IO threads to perform its internal IO work. Such app coding might result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation takes time.
 
-For example, take a look at the following code snippet which adds items to a container (look [here](quickstart-java.md) for guidance on setting up the database and container.) You might perform long-lasting work that takes more than a few milliseconds on the Netty thread. If so, you eventually can get into a state where no Netty IO thread is present to process IO work. As a result, you get a ReadTimeoutException failure.
+For example, take a look at the following code snippet, which adds items to a container (look [here](quickstart-java.md) for guidance on setting up the database and container.) You might perform long-lasting work that takes more than a few milliseconds on the Netty thread. If so, you eventually can get into a state where no Netty IO thread is present to process IO work. As a result, you get a ReadTimeoutException failure.
 
 ### <a id="java4-readtimeout"></a>Java SDK V4 (Maven com.azure::azure-cosmos) Async API
 
@@ -287,7 +392,7 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
 ### Error handling from Java SDK Reactive Chain
 
-Error handling from Azure Cosmos DB Java SDK is important when it comes to client's application logic. There are different error handling mechanism provided by [reactor-core framework](https://projectreactor.io/docs/core/release/reference/#error.handling) which can be used in different scenarios. We recommend customers to understand these error handling operators in detail and use the ones which fit their retry logic scenarios the best.
+Error handling from Azure Cosmos DB Java SDK is important when it comes to client's application logic. There are different error handling mechanisms provided by [reactor-core framework](https://projectreactor.io/docs/core/release/reference/#error.handling) which can be used in different scenarios. We recommend customers to understand these error handling operators in detail and use the ones which fit their retry logic scenarios the best.
 
 > [!IMPORTANT]
 > We do not recommend using [`onErrorContinue()`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) operator, as it is not supported in all scenarios.
@@ -295,11 +400,11 @@ Error handling from Azure Cosmos DB Java SDK is important when it comes to clien
 
 ### Failure connecting to Azure Cosmos DB Emulator
 
-The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../emulator.md).
 
 ### Dependency Conflict Issues
 
-The Azure Cosmos DB Java SDK pulls in a number of dependencies; generally speaking, if your project dependency tree includes an older version of an artifact that Azure Cosmos DB Java SDK depends on, this may result in unexpected errors being generated when you run your application. If you are debugging why your application unexpectedly throws an exception, it is a good idea to double-check that your dependency tree is not accidentally pulling in an older version of one or more of the Azure Cosmos DB Java SDK dependencies.
+The Azure Cosmos DB Java SDK pulls in many dependencies; generally speaking, if your project dependency tree includes an older version of an artifact that Azure Cosmos DB Java SDK depends on, this may result in unexpected errors being generated when you run your application. If you're debugging why your application unexpectedly throws an exception, it's a good idea to double-check that your dependency tree is not accidentally pulling in an older version of one or more of the Azure Cosmos DB Java SDK dependencies.
 
 The workaround for such an issue is to identify which of your project dependencies brings in the old version and exclude the transitive dependency on that older version, and allow Azure Cosmos DB Java SDK to bring in the newer version.
 
@@ -385,6 +490,15 @@ Filter the result to only connections to the Azure Cosmos DB endpoint.
 The number of connections to the Azure Cosmos DB endpoint in the `ESTABLISHED` state can't be greater than your configured connection pool size.
 
 Many connections to the Azure Cosmos DB endpoint might be in the `CLOSE_WAIT` state. There might be more than 1,000. A number that high indicates that connections are established and torn down quickly. This situation potentially causes problems. For more information, see the [Common issues and workarounds] section.
+
+### Common query issues
+
+The [query metrics](query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it's being spent on the back-end vs the client. Learn more on the [query performance guide](performance-tips-query-sdk.md?pivots=programming-language-java).
+
+## Next steps
+
+* Learn about Performance guidelines for the [Java SDK v4](performance-tips-java-sdk-v4.md)
+* Learn about the best practices for the [Java SDK v4](best-practice-java.md)
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds

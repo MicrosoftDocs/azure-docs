@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to 
-ms.date: 12/15/2022
+ms.date: 02/14/2024
 ms.custom: template-how-to
 ---
 
@@ -39,7 +39,7 @@ In this article, you’ll learn how to configure multiple Virtual Machine Scale 
 > If you choose to use Azure CLI, you have can run AZ CLI in Azure Cloud Shell or as a local install. Review the following to ensure you are ready to use Azure CLI in the environment you choose. 
 
 - Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md)
-  [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+  :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 - If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
   - If you're using a local installation, sign in to the Azure CLI by using the [az sign-in](/cli/azure/reference-index#az-login) command. To finish the authentication process, follow the steps displayed in your terminal. For other sign-in options, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
@@ -59,7 +59,7 @@ In this section, you’ll learn how to attach your Virtual Machine Scale Sets be
 
 # [Azure portal](#tab/azureportal)
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 1. Select your balancer from the list.
 1. In your load balancer's page, select **Backend pools** under **Settings**.
@@ -78,7 +78,7 @@ In this section, you’ll learn how to attach your Virtual Machine Scale Sets be
     az vmss update\
         --resource-group <resource-group> \
         --name <vmss-name> \
-        --add  virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools "{'id':'/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group> /providers/Microsoft.Network/loadBalancers/<Load Balancer Name>/backendAddressPools/<Backend address pool name >}" 
+        --add  virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools "{'id':'/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group> /providers/Microsoft.Network/loadBalancers/<Load Balancer Name>/backendAddressPools/<Backend address pool name >'}" 
     
     ```
 This example deploys a Virtual Machine Scale Set with the following defined values:  

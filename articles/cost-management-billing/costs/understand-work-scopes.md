@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2023
+ms.date: 03/12/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -18,7 +18,7 @@ This article helps you understand billing and resource management scopes availab
 
 ## Scopes
 
-A _scope_ is a node in the Azure resource hierarchy where Azure AD users access and manage services. Most Azure resources are created and deployed into resource groups, which are part of subscriptions. Microsoft also offers two hierarchies above Azure subscriptions that have specialized roles to manage billing data:
+A _scope_ is a node in the Azure resource hierarchy where Microsoft Entra users access and manage services. Most Azure resources are created and deployed into resource groups, which are part of subscriptions. Microsoft also offers two hierarchies above Azure subscriptions that have specialized roles to manage billing data:
 - Billing data, such as payments and invoices
 - Cloud services, such as cost and policy governance
 
@@ -27,6 +27,8 @@ Scopes are where you manage billing data, have roles specific to payments, view 
 To learn more about scopes, watch the [Cost Management setting up hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
 ## How Cost Management uses scopes
 
@@ -52,7 +54,7 @@ Management groups allow you to organize subscriptions into a hierarchy. For exam
 
 Creating an organizational hierarchy allows cost and policy compliance to roll up organizationally. Then, each leader can view and analyze their current costs. And then they can create budgets to curb bad spending patterns and optimize costs with Advisor recommendations at the lowest level.
 
-Granting access to view costs and optionally manage cost configuration, such as budgets and exports, is done on governance scopes using Azure RBAC. You use Azure RBAC to grant Azure AD users and groups access to do a predefined set of actions. The actions are defined in a role on a specific scope and lower. For instance, a role assigned to a management group scope also grants the same permissions to nested subscriptions and resource groups.
+Granting access to view costs and optionally manage cost configuration, such as budgets and exports, is done on governance scopes using Azure RBAC. You use Azure RBAC to grant Microsoft Entra users and groups access to do a predefined set of actions. The actions are defined in a role on a specific scope and lower. For instance, a role assigned to a management group scope also grants the same permissions to nested subscriptions and resource groups.
 
 Cost Management supports the following built-in roles for each of the following scopes:
 
@@ -67,14 +69,14 @@ Cost Management Contributor is the recommended least-privilege role. The role al
 - **Reporting on resource usage** – Cost Management shows cost in the Azure portal. It includes usage as it pertains to cost in the full usage patterns. This report can also show API and download charges, but you may also want to drill into detailed usage metrics in Azure Monitor to get a deeper understanding. Consider granting [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) on any scope where you also need to report detailed usage metrics.
 - **Act when budgets are exceeded** – Cost Management Contributors also need access to create and manage action groups to automatically react to overages. Consider granting [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) to a resource group that contains the action group to use when budget thresholds are exceeded. Automating specific actions requires more roles for the specific services used, such as Automation and Azure Functions.
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
-- **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md#all) if you want to act on a cost-based recommendation.
+- **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md) if you want to act on a cost-based recommendation.
 
 > [!NOTE]
-> Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement subscriptions.
+> Management groups aren't currently supported in Cost Management features for Microsoft Customer Agreement subscriptions. The [Cost Details API](/rest/api/cost-management/generate-cost-details-report/create-operation) also doesn't support management groups for either EA or MCA customers.
 
-Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. 
+Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Microsoft Entra subscriptions, can't view costs. 
 
-If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
+If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Microsoft Entra ID** and **My Org**. Move your Microsoft Entra subscription to the **Microsoft Entra ID** management group and then view and manage costs using the **My Org** management group.
 
 ### Feature behavior for each role
 
@@ -104,7 +106,7 @@ Enterprise Agreement (EA) billing accounts, also called enrollments, have the fo
 
     Resource type: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
-Although governance scopes are bound to a single directory, EA billing scopes aren't. An EA billing account may have subscriptions across any number of Azure AD directories.
+Although governance scopes are bound to a single directory, EA billing scopes aren't. An EA billing account may have subscriptions across any number of Microsoft Entra directories.
 
 EA billing scopes support the following roles:
 
@@ -130,10 +132,10 @@ The following tables show how Cost Management features can be utilized by each r
 | --- | --- | --- |
 | **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets/Reservation utilization alerts** | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update |
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Cost Allocation Rules** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Cost Allocation Rules** | Create, Read, Update, Delete | Read |
 
 #### Department scope
 
@@ -188,7 +190,7 @@ Microsoft Customer Agreement billing accounts have the following scopes:
 
 - **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to Cloud Solution Providers (CSP).
 
-Unlike EA billing scopes, Customer Agreement billing accounts _are_ managed by a single directory. Microsoft Customer Agreement billing accounts can have *linked* subscriptions that could be in different Azure AD directories.
+Unlike EA billing scopes, Customer Agreement billing accounts _are_ managed by a single directory. Microsoft Customer Agreement billing accounts can have *linked* subscriptions that could be in different Microsoft Entra directories.
 
 Customer Agreement billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 
@@ -228,7 +230,7 @@ The following tables show how Cost Management features can be utilized by each r
 | --- | --- | --- | --- | --- |
 | **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
-| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets/Reservation utilization alerts** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update | Create, Read, Update, Delete |
 | **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Read, Update |
 | **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |
@@ -245,6 +247,9 @@ The following tables show how Cost Management features can be utilized by each r
 | **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |
 
 ## AWS scopes
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
 
@@ -360,6 +365,6 @@ When you work with Cost Management APIs, knowing the scope is critical. Use the 
 
 Cost Management is currently supported in Azure Global with `https://management.azure.com` and Azure Government with `https://management.usgovcloudapi.net`. For more information about Azure Government, see [Azure Global and Government API endpoints](../../azure-government/documentation-government-developer-guide.md#endpoint-mapping).
 
-## Next steps
+## Related content
 
 - If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](quick-acm-cost-analysis.md).

@@ -2,12 +2,12 @@
 title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 01/21/2024
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell
@@ -43,7 +43,7 @@ Review the **Az.RecoveryServices** [cmdlet reference](/powershell/module/az.reco
 
 Set up PowerShell as follows:
 
-1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.5.0.
+1. [Download the latest version of Az PowerShell](/powershell/azure/install-azure-powershell). The minimum version required is 1.5.0.
 
 2. Find the Azure Backup PowerShell cmdlets with this command:
 
@@ -102,7 +102,7 @@ The Recovery Services vault is a Resource Manager resource, so you must place it
 3. Specify the type of redundancy to use for the vault storage.
 
     * You can use [locally redundant storage](../storage/common/storage-redundancy.md#locally-redundant-storage), [geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) or [zone-redundant storage](../storage/common/storage-redundancy.md#zone-redundant-storage) .
-    * The following example sets the **-BackupStorageRedundancy** option for the [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for **testvault** set to **GeoRedundant**.
+    * The following example sets the `-BackupStorageRedundancy` option for the [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd for `testvault` set to `GeoRedundant`.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -136,7 +136,7 @@ Store the vault object in a variable, and set the vault context.
 * Many Azure Backup cmdlets require the Recovery Services vault object as an input, so it's convenient to store the vault object in a variable.
 * The vault context is the type of data protected in the vault. Set it with [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). After the context is set, it applies to all subsequent cmdlets.
 
-The following example sets the vault context for **testvault**.
+The following example sets the vault context for `testvault`
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -226,7 +226,7 @@ Now that we have the required SQL DB and the policy with which it needs to be ba
 Enable-AzRecoveryServicesBackupProtection -ProtectableItem $SQLDB -Policy $NewSQLPolicy
 ```
 
-The command waits until the configure backup is completed and returns the following output.
+The command waits until the backup configuration is completed and returns the following output.
 
 ```output
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -330,7 +330,7 @@ The above output means that you can restore to any point-in-time between the dis
 
 ### Determine recovery configuration
 
-In the case of a SQL DB restore, the following restore scenarios are supported.
+For a SQL DB restore, the following restore scenarios are supported.
 
 * Overriding the backed-up SQL DB with data from another recovery point - OriginalWorkloadRestore
 * Restoring the SQL DB as a new DB in the same SQL instance - AlternateWorkloadRestore
@@ -539,7 +539,7 @@ $PairedRegionVault = Get-AzRecoveryServicesVault -ResourceGroupName SecondaryRG 
 $secContainer =  Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -Status Registered  -VaultId $PairedRegionVault.ID -FriendlyName "secondaryVM"
 ```
 
-Once the registered container is chosen, then we fetch the SQL instances within the container to which the DB should be restored to. Here we assume that there is 1 SQL instance within the "secondaryVM" and we fetch that instance.
+Once the registered container is chosen, then we fetch the SQL instances within the container to which the database should be restored. Here we assume that there's 1 SQL instance within the "secondaryVM" and we fetch that instance.
 
 ```powershell
 $secSQLInstance = Get-AzRecoveryServicesBackupProtectableItem -WorkloadType MSSQL -ItemType SQLInstance -VaultId $PairedRegionVault.ID -Container $secContainer
@@ -606,7 +606,7 @@ If the output is lost or if you want to get the relevant Job ID, [get the list o
 
 ### Change policy for backup items
 
-You can change the policy of the backed-up item from *Policy1* to *Policy2*. To switch policies for a backed-up item, fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) command with backup item as the parameter.
+You can change the policy of the backed-up item from `Policy1` to `Policy2`. To switch policies for a backed-up item, fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) command with backup item as the parameter.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -614,7 +614,7 @@ $anotherBkpItem = Get-AzRecoveryServicesBackupItem -WorkloadType MSSQL -BackupMa
 Enable-AzRecoveryServicesBackupProtection -Item $anotherBkpItem -Policy $TargetPol1
 ```
 
-The command waits until the configure backup is completed and returns the following output.
+The command waits until the backup configuration is completed and returns the following output.
 
 ```output
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID

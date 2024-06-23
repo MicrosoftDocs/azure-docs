@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 02/21/2023
+ms.date: 02/06/2024
 ---
 
 # Azure Policy built-in definitions for Azure Service Fabric

@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 08/02/2022
 ms.author: danlep
 ---
 
 # Manage protocols and ciphers in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Azure API Management supports multiple versions of Transport Layer Security (TLS) protocol to secure API traffic for:
 * Client side
@@ -22,11 +24,9 @@ By default, API Management enables TLS 1.2 for client and backend connectivity a
 
 :::image type="content" source="media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png" alt-text="Screenshot of managing protocols and ciphers in the Azure portal.":::
 
-
 > [!NOTE]
 > * If you're using the self-hosted gateway, see [self-hosted gateway security](self-hosted-gateway-overview.md#security) to manage TLS protocols and cipher suites.
-> * Currently, API Management doesn't support TLS 1.3.
-> * The Consumption tier doesn't support changes to the default cipher configuration. 
+> * The following tiers don't support changes to the default cipher configuration: **Consumption**, **Basic v2**, **Standard v2**. 
 
 ## Prerequisites
 
@@ -38,7 +38,9 @@ By default, API Management enables TLS 1.2 for client and backend connectivity a
 
 1. In the left navigation of your API Management instance, under **Security**, select **Protocols + ciphers**.  
 1. Enable or disable desired protocols or ciphers.
-1. Select **Save**. Changes are applied within an hour.  
+1. Select **Save**.
+
+Changes can take 1 hour or longer to apply. An instance in the Developer service tier has downtime during the process. Instances in the Basic and higher tiers don't have downtime during the process.  
 
 > [!NOTE]
 > Some protocols or cipher suites (such as backend-side TLS 1.2) can't be enabled or disabled from the Azure portal. Instead, you'll need to apply the REST API call. Use the `properties.customProperties` structure in the [Create/Update API Management Service](/rest/api/apimanagement/current-ga/api-management-service/create-or-update) REST API.

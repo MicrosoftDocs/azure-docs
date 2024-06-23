@@ -2,14 +2,12 @@
 title: Diagnose an Azure virtual machine routing problem
 description: Learn how to diagnose a virtual machine routing problem by viewing the effective routes for a virtual machine.
 services: virtual-network
-author: asudbring    
-manager: twooley
-tags: azure-resource-manager
+author: asudbring
+
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.workload: infrastructure-services
 ms.date: 05/30/2018
-ms.author: allensu 
+ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -39,13 +37,13 @@ The steps that follow assume you have an existing VM to view the effective route
 
 Though effective routes were viewed through the VM in the previous steps, you can also view effective routes through an:
 - **Individual network interface**: Learn how to [view a network interface](virtual-network-network-interface.md#view-network-interface-settings).
-- **Individual route table**: Learn how to [view a route table](manage-route-table.md#view-details-of-a-route-table).
+- **Individual route table**: Learn how to [view a route table](manage-route-table.yml#view-details-of-a-route-table).
 
 ## Diagnose using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
 Get the effective routes for a network interface with [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). The following example gets the effective routes for a network interface named *myVMNic1*, that is in a resource group named *myResourceGroup*:
 
@@ -102,9 +100,9 @@ az vm show \
 
 Resolving routing problems typically consists of:
 
-- Adding a custom route to override one of Azure's default routes. Learn how to [add a custom route](manage-route-table.md#create-a-route).
-- Change or remove a custom route that may cause routing to an undesired location. Learn how to [change](manage-route-table.md#change-a-route) or [delete](manage-route-table.md#delete-a-route) a custom route.
-- Ensuring that the route table that contains any custom routes you've defined is associated to the subnet the network interface is in. Learn how to [associate a route table to a subnet](manage-route-table.md#associate-a-route-table-to-a-subnet).
+- Adding a custom route to override one of Azure's default routes. Learn how to [add a custom route](manage-route-table.yml#create-a-route).
+- Change or remove a custom route that may cause routing to an undesired location. Learn how to [change](manage-route-table.yml#change-a-route) or [delete](manage-route-table.yml#delete-a-route) a custom route.
+- Ensuring that the route table that contains any custom routes you've defined is associated to the subnet the network interface is in. Learn how to [associate a route table to a subnet](manage-route-table.yml#associate-a-route-table-to-a-subnet).
 - Ensuring that devices such as Azure VPN gateway or network virtual appliances you've deployed are operable. Use the [VPN diagnostics](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) capability of Network Watcher to determine any problems with an Azure VPN gateway.
 
 If you're still having communication problems, see [Considerations](#considerations) and Additional diagnosis.
@@ -121,7 +119,7 @@ Consider the following points when troubleshooting communication problems:
 - For virtual network peering traffic to work correctly, a system route with a next hop type of *VNet Peering* must exist for the peered virtual network's prefix range. If such a route doesn't exist, and the virtual network peering link is **Connected**:
     - Wait a few seconds, and retry. If it's a newly established peering link, it occasionally takes longer to propagate routes to all the network interfaces in a subnet. To learn more about virtual network peering, see [Virtual network peering overview](virtual-network-peering-overview.md) and [manage virtual network peering](virtual-network-manage-peering.md).
     - Network security group rules may be impacting communication. For more information, see [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md).
-- Though Azure assigns default routes to each Azure network interface, if you have multiple network interfaces attached to the VM, only the primary network interface is assigned a default route (0.0.0.0/0), or gateway, within the VM's operating system. Learn how to create a default route for secondary network interfaces attached to a [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) or [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) VM. Learn more about [primary and secondary network  interfaces](virtual-network-network-interface-vm.md#constraints).
+- Though Azure assigns default routes to each Azure network interface, if you have multiple network interfaces attached to the VM, only the primary network interface is assigned a default route (0.0.0.0/0), or gateway, within the VM's operating system. Learn how to create a default route for secondary network interfaces attached to a [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) or [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) VM. Learn more about [primary and secondary network  interfaces](virtual-network-network-interface-vm.yml#constraints).
 
 ## Additional diagnosis
 
@@ -132,5 +130,5 @@ Consider the following points when troubleshooting communication problems:
 
 ## Next steps
 
-- Learn about all tasks, properties, and settings for a [route table and routes](manage-route-table.md).
+- Learn about all tasks, properties, and settings for a [route table and routes](manage-route-table.yml).
 - Learn about all [next hop types, system routes, and how Azure selects a route](virtual-networks-udr-overview.md).

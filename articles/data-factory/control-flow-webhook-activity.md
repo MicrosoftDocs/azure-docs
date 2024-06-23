@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Webhook activity in Azure Data Factory
@@ -26,7 +26,7 @@ A webhook activity can control the execution of pipelines through custom code. W
 To use a Webhook activity in a pipeline, complete the following steps:
 
 1. Search for _Webhook_ in the pipeline Activities pane, and drag a Webhook activity to the pipeline canvas.
-1. Select the new Fail activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+1. Select the new webhook activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
 
    :::image type="content" source="media/control-flow-webhook-activity/webhook-activity.png" alt-text="Shows the UI for a Webhook activity.":::
 
@@ -49,7 +49,7 @@ To use a Webhook activity in a pipeline, complete the following steps:
         "body": {
             "key": "value"
         },
-        "timeout": "00:03:00",
+        "timeout": "00:10:00",
         "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
@@ -150,7 +150,7 @@ When you use the **Report status on callback** property, you must add the follow
 }
 ```
 
-## Next steps
+## Related content
 
 See the following supported control flow activities:
 

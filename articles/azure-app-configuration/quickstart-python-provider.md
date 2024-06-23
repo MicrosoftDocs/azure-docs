@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other, engagement-fy23
-ms.date: 03/20/2023
+ms.date: 11/20/2023
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
@@ -21,7 +21,7 @@ The Python App Configuration provider is a library running on top of the [Azure 
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
+- Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Add key-values
 
@@ -33,8 +33,10 @@ Add the following key-values to the App Configuration store. For more informatio
 | *test.message* | *Hello test*      | Leave empty | Leave empty        |
 | *my_json*      | *{"key":"value"}* | Leave empty | *application/json* |
 
-## Set up the Python app
+## Console applications
+In this section, you will create a console application and load data from your App Configuration store.
 
+### Connect to App Configuration
 1. Create a new directory for the project named *app-configuration-quickstart*.
 
     ```console
@@ -82,24 +84,24 @@ Add the following key-values to the App Configuration store. For more informatio
     selects = {SettingSelector(key_filter="message*", label_filter="\0")}
     config = load(connection_string=connection_string, selects=selects)
 
-   # Print True or False to indicate if "message" is found in Azure App Configuration.
+    # Print True or False to indicate if "message" is found in Azure App Configuration.
     print("message found: " + str("message" in config))
     print("test.message found: " + str("test.message" in config))
     ```
 
-## Configure your App Configuration connection string
+### Run the application
 
 1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    #### [Windows command prompt](#tab/windowscommandprompt)
 
-    To build and run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```cmd
     setx AZURE_APPCONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
     ```
 
-    ### [PowerShell](#tab/powershell)
+    #### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
@@ -107,7 +109,7 @@ Add the following key-values to the App Configuration store. For more informatio
     $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
     ```
 
-    ### [macOS](#tab/unix)
+    #### [macOS](#tab/unix)
 
     If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
@@ -115,25 +117,25 @@ Add the following key-values to the App Configuration store. For more informatio
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
     ```
 
-    ### [Linux](#tab/linux)
+    #### [Linux](#tab/linux)
 
     If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
 
     ```console
     export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
-   ```
-
-1. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly with the command below.
-
-    ### [Windows command prompt](#tab/windowscommandprompt)
-
-    Using the Windows command prompt, run the following command:
-
-    ```cmd
-    printenv AZURE_APPCONFIG_CONNECTION_STRING
     ```
 
-    ### [PowerShell](#tab/powershell)
+1. Print out the value of the environment variable to validate that it is set properly with the command below.
+
+    #### [Windows command prompt](#tab/windowscommandprompt)
+
+    Using the Windows command prompt, restart the command prompt to allow the change to take effect and run the following command:
+
+    ```cmd
+    echo %AZURE_APPCONFIG_CONNECTION_STRING%
+    ```
+
+    #### [PowerShell](#tab/powershell)
 
     If you use Windows PowerShell, run the following command:
 
@@ -141,7 +143,7 @@ Add the following key-values to the App Configuration store. For more informatio
     $Env:AZURE_APPCONFIG_CONNECTION_STRING
     ```
 
-    ### [macOS](#tab/unix)
+    #### [macOS](#tab/unix)
 
     If you use macOS, run the following command:
 
@@ -149,14 +151,15 @@ Add the following key-values to the App Configuration store. For more informatio
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
     ```
 
-    ### [Linux](#tab/linux)
+    #### [Linux](#tab/linux)
 
     If you use Linux, run the following command:
 
     ```console
     echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    ```
 
-1. After the build successfully completes, run the following command to run the app locally:
+1. After the environment variable is properly set, run the following command to run the app locally:
 
     ```python
     python app-configuration-quickstart.py
@@ -171,6 +174,41 @@ Add the following key-values to the App Configuration store. For more informatio
     message found: True
     test.message found: False
     ```
+
+## Web applications
+The App Configuration provider loads data into a `Mapping` object, accessible as a dictionary, which can be used in combination with the existing configuration of various Python frameworks. This section shows how to use the App Configuration provider in popular web frameworks like Flask and Django.
+
+### [Flask](#tab/flask)
+You can use Azure App Configuration in your existing Flask web apps by updating its in-built configuration. You can do this by passing your App Configuration provider object to the `update` function of your Flask app instance in `app.py`:
+
+```python
+azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+
+# NOTE: This will override all existing configuration settings with the same key name.
+app.config.update(azure_app_config)
+
+# Access a configuration setting directly from within Flask configuration
+message = app.config.get("message")
+```
+
+### [Django](#tab/django)
+You can use Azure App Configuration in your existing Django web apps by adding the following lines of code into your `settings.py` file
+
+```python
+AZURE_APPCONFIGURATION = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNECTION_STRING"))
+```
+
+To access individual configuration settings in the Django views, you can reference them from the provider object created in Django settings. For example, in `views.py`:
+```python
+# Import Django settings
+from django.conf import settings
+
+# Access a configuration setting from Django settings instance.
+MESSAGE = settings.AZURE_APPCONFIGURATION.get("message")
+```
+---
+
+Full code samples on how to use Azure App Configuration in Python web applications can be found in the [Azure App Configuration](https://github.com/Azure/AppConfiguration/tree/main/examples/Python) GitHub repo.
 
 ## Clean up resources
 

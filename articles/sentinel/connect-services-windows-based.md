@@ -3,7 +3,7 @@ title: Connect Microsoft Sentinel to other Microsoft services with a Windows age
 description: Learn how to connect Microsoft Sentinel to Microsoft services with Windows agent-based connections.
 author: yelevin
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 07/18/2023
 ms.author: yelevin
 ---
 
@@ -15,13 +15,11 @@ This article presents information that is common to the group of Windows agent-b
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-The [Windows DNS Events via AMA connector (Preview)](connect-dns-ama.md) also uses the Azure Monitor Agent. This connector streams and filter events from Windows Domain Name System (DNS) server logs.
-
 ## Azure Monitor Agent
 
 Some connectors based on the Azure Monitor Agent (AMA) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Monitor Agent is currently supported only for Windows Security Events and Windows Forwarded Events.
+The Azure Monitor Agent is currently supported only for Windows Security Events, Windows Forwarded Events, and Windows DNS Events. 
 
 The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
 
@@ -48,7 +46,8 @@ See below how to create data collection rules.
     |Data connector  |Licensing, costs, and other information  |
     |---------|---------|
     |Windows Forwarded Events|- You must have Windows Event Collection (WEC) enabled and running.<br>Install the Azure Monitor Agent on the WEC machine. <br>- We recommend installing the [Advanced Security Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.|
- 
+ - Install the related Microsoft Sentinel solution from the Content Hub in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 ### Instructions
 
 1. From the Microsoft Sentinel navigation menu, select **Data connectors**. Select your connector from the list, and then select **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.

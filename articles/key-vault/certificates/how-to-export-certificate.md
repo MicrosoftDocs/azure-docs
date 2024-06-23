@@ -63,7 +63,7 @@ View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-key
 Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
 
 ```azurecli
-az keyvault secret download -–file {nameofcert.pfx}
+az keyvault secret download --file {nameofcert.pfx}
                             [--encoding {ascii, base64, hex, utf-16be, utf-16le, utf-8}]
                             [--id]
                             [--name]
@@ -84,13 +84,10 @@ $certificateName = '<YourCert>'
 $password = '<YourPwd>'
 
 $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
-$secretByte = [Convert]::FromBase64String($pfxSecret)
-$x509Cert = New-Object Security.Cryptography.X509Certificates.X509Certificate2
-$x509Cert.Import($secretByte, $null, [Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$pfxFileByte = $x509Cert.Export([Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
+$certBytes = [Convert]::FromBase64String($pfxSecret)
 
 # Write to a file
-[IO.File]::WriteAllBytes("KeyVaultcertificate.pfx", $pfxFileByte)
+Set-Content -Path cert.pfx -Value $certBytes -AsByteStream
 
 ```
 
@@ -110,7 +107,7 @@ To download the certificate, select **Download in CER format** or **Download in 
 
 Azure App Service certificates are a convenient way to purchase SSL certificates. You can assign them to Azure Apps from within the portal. After you import them, the App Service certificates are located under **secrets**.
 
-For more information, see the steps to [export Azure App Service certificates](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
+For more information, see the steps to [export Azure App Service certificates](/azure/app-service/configure-ssl-app-service-certificate?tabs=portal#export-an-app-service-certificate).
 
 ---
 

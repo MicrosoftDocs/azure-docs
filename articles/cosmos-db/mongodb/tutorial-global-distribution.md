@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 08/26/2021
 ms.reviewer: mjbrown
 ms.devlang: csharp
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ---
 # Set up global distributed database using Azure Cosmos DB's API for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 In this article, we show how to use the Azure portal to setup a global distributed database and connect to it using Azure Cosmos DB's API for MongoDB.
 
@@ -96,7 +96,7 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the Azure Cosmos DB emulator](../local-emulator.md)
+> [Develop locally with the Azure Cosmos DB emulator](../emulator.md)
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

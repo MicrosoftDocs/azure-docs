@@ -2,13 +2,12 @@
 title: How to use the BlobFuse2 command set
 titleSuffix: Azure Storage
 description: Learn how to use the BlobFuse2 command set to mount blob storage containers as file systems on Linux, and manage them.
-author: jimmart-dev
-ms.service: storage
-ms.subservice: blobs
+author: akashdubey-ms
+ms.service: azure-blob-storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: jammart
-ms.reviewer: tamram
+ms.author: akashdubey
 ---
 
 # How to use the BlobFuse2 command set

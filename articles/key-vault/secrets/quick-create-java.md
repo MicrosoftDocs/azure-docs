@@ -2,7 +2,7 @@
 title: Quickstart - Azure Key Vault Secret client library for Java
 description: Provides a quickstart for the Azure Key Vault Secret client library for Java.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
 ms.date: 01/11/2023
 ms.service: key-vault
@@ -114,15 +114,11 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
 #### Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permissions to your user account.
-
-```azurecli
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 #### Set environment variables
 

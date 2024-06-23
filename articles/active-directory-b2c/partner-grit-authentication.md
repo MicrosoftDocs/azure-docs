@@ -2,16 +2,16 @@
 title: Configure Grit's biometric authentication with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how Grit's biometric authentication with Azure AD B2C secures your account
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 1/25/2023
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C 
+
+# Customer intent: As an application developer using header-based authentication, I want to migrate my legacy application to Azure Active Directory B2C with Grit app proxy. I want to enable modern authentication experiences, enhance security, and save on licensing costs.
 ---
 
 # Configure Grit's biometric authentication with Azure Active Directory B2C

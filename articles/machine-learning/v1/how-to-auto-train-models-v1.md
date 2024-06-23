@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-author: manashgoswami 
-ms.author: magoswam
-ms.reviewer: ssalgado 
-ms.date: 11/04/2022
-ms.custom: UpdateFrequency5, devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
+author: manashgoswami
+ms.author: manashg
+ms.reviewer: ssalgado
+ms.date: 01/25/2023
+ms.custom: UpdateFrequency5, devx-track-python, automl, sdkv1
 ---
 
 # Train a regression model with AutoML and Python (SDK v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to train a regression model with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML. This regression model predicts NYC taxi fares. 
 
@@ -23,7 +23,7 @@ This process accepts training data and configuration settings, and automatically
 
 ![Flow diagram](./media/how-to-auto-train-models/flow2.png)
 
-You'll write code using the Python SDK in this article.  You'll learn the following tasks:
+You write code using the Python SDK in this article.  You learn the following tasks:
 
 > [!div class="checklist"]
 > * Download, transform, and clean data using Azure Open Datasets
@@ -38,7 +38,7 @@ For no-code AutoML, try the following tutorials:
 
 ## Prerequisites
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://azure.microsoft.com/free/) of Azure Machine Learning today.
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
 * After you complete the quickstart:
@@ -47,9 +47,9 @@ If you don’t have an Azure subscription, create a free account before you begi
     1. Open the *SDK v1/tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* notebook.
     1. To run each cell in the tutorial, select **Clone this notebook**
 
-This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment-v1.md). 
+This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md). 
 To get the required packages, 
-* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
+* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.
 
 ## Download and prepare data
@@ -63,7 +63,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 ```
 
-Begin by creating a dataframe to hold the taxi data. When working in a non-Spark environment, Open Datasets only allows downloading one month of data at a time with certain classes to avoid `MemoryError` with large datasets.
+Begin by creating a dataframe to hold the taxi data. When you work in a non-Spark environment, Open Datasets only allows downloading one month of data at a time with certain classes to avoid `MemoryError` with large datasets.
 
 To download taxi data, iteratively fetch one month at a time, and before appending it to `green_taxi_df` randomly sample 2,000 records from each month to avoid bloating the dataframe. Then preview the data.
 
@@ -81,7 +81,7 @@ for sample_month in range(12):
 green_taxi_df.head(10)
 ```
 
-|vendorID| lpepPickupDatetime|	lpepDropoffDatetime|	passengerCount|	tripDistance|	puLocationId|	doLocationId|	pickupLongitude|	pickupLatitude|	dropoffLongitude	|...|	paymentType	|fareAmount	|extra|	mtaTax|	improvementSurcharge|	tipAmount|	tollsAmount|	ehailFee|	totalAmount|	tripType|
+|vendorID| lpepPickupDatetime|    lpepDropoffDatetime|    passengerCount|    tripDistance|    puLocationId|    doLocationId|    pickupLongitude|    pickupLatitude|    dropoffLongitude    |...|    paymentType    |fareAmount    |extra|    mtaTax|    improvementSurcharge|    tipAmount|    tollsAmount|    ehailFee|    totalAmount|    tripType|
 |----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|
 |131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4.84|None|None|-73.88|40.84|-73.94|...|2|15.00|0.50|0.50|0.3|0.00|0.00|nan|16.30|
 |1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0.69|None|None|-73.96|40.81|-73.96|...|2|4.50|1.00|0.50|0.3|0.00|0.00|nan|6.30|
@@ -92,9 +92,9 @@ green_taxi_df.head(10)
 |737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|
 |113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|
 |150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|
-|432136|2|2015-01-22 23:16:33	2015-01-22 23:20:13	1	0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|
+|432136|2|2015-01-22 23:16:33    2015-01-22 23:20:13    1    0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|
 
-Remove some of the columns that you won't need for training or additional feature building.  Automate machine learning will automatically handle time-based features such as **lpepPickupDatetime**.
+Remove some of the columns that you won't need for training or other feature building.  Automate machine learning will automatically handle time-based features such as **lpepPickupDatetime**.
 
 ```python
 columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
@@ -115,7 +115,7 @@ Run the `describe()` function on the new dataframe to see summary statistics for
 green_taxi_df.describe()
 ```
 
-|vendorID|passengerCount|tripDistance|pickupLongitude|pickupLatitude|dropoffLongitude|dropoffLatitude|	totalAmount|month_num	day_of_month|day_of_week|hour_of_day
+|vendorID|passengerCount|tripDistance|pickupLongitude|pickupLatitude|dropoffLongitude|dropoffLatitude|    totalAmount|month_num    day_of_month|day_of_week|hour_of_day
 |----|----|---|---|----|---|---|---|---|---|---|
 |count|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|
 |mean|1.78|1.37|2.87|-73.83|40.69|-73.84|40.70|14.75|6.50|15.13|
@@ -127,7 +127,7 @@ green_taxi_df.describe()
 |max|2.00|9.00|97.57|0.00|41.93|0.00|41.94|450.00|12.00|30.00|
 
 
-From the summary statistics, you see that there are several fields that have outliers or values that will reduce model accuracy. First filter the lat/long fields to be within the bounds of the Manhattan area. This will filter out longer taxi trips or trips that are outliers in respect to their relationship with other features.
+From the summary statistics, you see that there are several fields that have outliers or values that reduce model accuracy. First filter the lat/long fields to be within the bounds of the Manhattan area. This filters out longer taxi trips or trips that are outliers in respect to their relationship with other features.
 
 Additionally filter the `tripDistance` field to be greater than zero but less than 31 miles (the haversine distance between the two lat/long pairs). This eliminates long outlier trips that have inconsistent trip cost.
 
@@ -186,17 +186,17 @@ To automatically train a model, take the following steps:
 
 ### Define training settings
 
-Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train-v1.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_hours` parameter.
+Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_hours` parameter.
 
 |Property| Value in this article |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Time limit in minutes for each iteration. Increase this value for larger datasets that need more time for each iteration.|
 |**experiment_timeout_hours**|0.3|Maximum amount of time in hours that all iterations combined can take before the experiment terminates.|
-|**enable_early_stopping**|True|Flag to enable early termination if the score is not improving in the short term.|
-|**primary_metric**| spearman_correlation | Metric that you want to optimize. The best-fit model will be chosen based on this metric.|
+|**enable_early_stopping**|True|Flag to enable early termination if the score isn't improving in the short term.|
+|**primary_metric**| spearman_correlation | Metric that you want to optimize. The best-fit model is chosen based on this metric.|
 |**featurization**| auto | By using **auto**, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)|
 |**verbosity**| logging.INFO | Controls the level of logging.|
-|**n_cross_validations**|5|Number of cross-validation splits to perform when validation data is not specified.|
+|**n_cross_validations**|5|Number of cross-validation splits to perform when validation data isn't specified.|
 
 ```python
 import logging
@@ -363,11 +363,19 @@ The traditional machine learning model development process is highly resource-in
 
 ## Clean up resources
 
-Do not complete this section if you plan on running other Azure Machine Learning tutorials.
+Don't complete this section if you plan on running other Azure Machine Learning tutorials.
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
+If you used a compute instance, stop the VM when you aren't using it to reduce cost.
+
+1. In your workspace, select **Compute**.
+
+1. From the list, select the name of the compute instance.
+
+1. Select **Stop**.
+
+1. When you're ready to use the server again, select **Start**.
 
 ### Delete everything
 
@@ -389,4 +397,4 @@ In this automated machine learning article, you did the following tasks:
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
 
-[Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models-v1.md)
+[Set up AutoML to train computer vision models with Python (v1)](how-to-auto-train-image-models.md)

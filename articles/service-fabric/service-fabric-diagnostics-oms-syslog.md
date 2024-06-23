@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
+ms.custom: linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -25,7 +26,7 @@ Each Syslog event has 4 components
 * Message
 * Severity
 
-The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config  config. The Identity used is `ServiceFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
+The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config. The Identity used is `ServiceFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
 
 ## Enable SyslogConsumer
 

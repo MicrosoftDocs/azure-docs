@@ -3,6 +3,7 @@ title: Configure storage provider - Netherite
 description: Configure a Durable Functions app to use Netherite
 author: sebastianburckhardt
 ms.topic: quickstart
+ms.custom: devx-track-dotnet
 ms.date: 11/14/2022
 ms.reviewer: azfuncdf
 ---
@@ -41,7 +42,7 @@ If this isn't the case, we suggest you start with one of the following articles,
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You'll need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
+You need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
 
 The Extension package to install depends on the .NET worker you are using:
 - For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
@@ -53,7 +54,7 @@ You can install the Extension using the following [Azure Functions Core Tools CL
 func extensions install --package <package name depending on your worker model> --version <latest version>
 ```
 
-For more information on installing Azure Functions Extensions via the Core Tools CLI, see [this guide](../functions-run-local.md#install-extensions).
+For more information on installing Azure Functions Extensions via the Core Tools CLI, see [func extensions install](../functions-core-tools-reference.md#func-extensions-install).
 
 ## Configure local.settings.json for local development
 
@@ -92,7 +93,7 @@ Edit the storage provider section of the `host.json` file so it sets the `type` 
 }
 ```
 
-The snippet above is just a *minimal* configuration. Later, you may want to consider [additional parameters](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration).
+The snippet above is just a *minimal* configuration. Later, you may want to consider [other parameters](https://microsoft.github.io/durabletask-netherite/#/settings?id=typical-configuration).
 
 
 ## Test locally
@@ -106,13 +107,16 @@ While the function app is running, Netherite will publish load information about
 > [!NOTE]
 > For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
 
+> [!NOTE]
+> If you are using local storage emulation on a Windows OS, please ensure you're using the [Azurite](../../storage/common/storage-use-azurite.md) storage emulator and not the legacy "Azure Storage Emulator" component. Local storage emulation with Netherite is only supported via Azurite.
+
 ## Run your app on Azure
 
 You need to create an Azure Functions app on Azure. To do this, follow the instructions in the **Create a function app** section of [these instructions](../functions-create-function-app-portal.md).
 
 ### Set up Event Hubs
 
-You will need to set up an Event Hubs namespace to run Netherite on Azure. You can also set it up if you prefer to use Event Hubs during local development.
+You need to set up an Event Hubs namespace to run Netherite on Azure. You can also set it up if you prefer to use Event Hubs during local development.
 
 > [!NOTE]
 > An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Durable Functions. Microsoft offers a [12-month free Azure subscription account](https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.

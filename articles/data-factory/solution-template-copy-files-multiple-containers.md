@@ -6,8 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Copy multiple folders with Azure Data Factory
@@ -62,7 +61,7 @@ If you want to copy multiple containers under root folders between storage store
 
     :::image type="content" source="media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image-6.png" alt-text="Review the result":::
 
-## Next steps
+## Related content
 
 - [Bulk copy from a database by using a control table with Azure Data Factory](solution-template-bulk-copy-with-control-table.md)
 

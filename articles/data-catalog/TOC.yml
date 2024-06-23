@@ -9,24 +9,16 @@
   items:
   - name: Create an Azure Data Catalog
     href: data-catalog-get-started.md
+  - name: Supported data sources
+    href: data-catalog-dsr.md
 - name: Tutorials
   items:
   - name: Register data assets
     href: register-data-assets-tutorial.md
-- name: Concepts
-  items:
-  - name: Common scenarios
-    href: data-catalog-common-scenarios.md
-  - name: Supported data sources
-    href: data-catalog-dsr.md
-  - name: Adopting Azure Data Catalog
-    href: data-catalog-adopting-data-catalog.md
-  - name: FAQ
-    href: data-catalog-frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Migrate to Microsoft Purview
-    href: data-catalog-migration-to-azure-purview.md
+    href: data-catalog-migration-to-microsoft-purview.md
   - name: Register data sources
     href: data-catalog-how-to-register.md
   - name: Discover data sources
@@ -53,6 +45,8 @@
     href: data-catalog-how-to-view-related-data-assets.md
   - name: Troubleshoot 
     href: troubleshoot-policy-configuration.md
+- name: FAQ
+  href: data-catalog-frequently-asked-questions.yml
 - name: Reference
   items:
   - name: Code samples

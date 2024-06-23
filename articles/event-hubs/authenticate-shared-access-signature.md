@@ -3,8 +3,9 @@ title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
 ms.topic: conceptual
 ms.date: 03/13/2023
-ms.devlang: csharp, java, javascript, php
-ms.custom: devx-track-js, devx-track-csharp
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, php
+ms.custom: devx-track-csharp
 ---
 
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)
@@ -19,9 +20,9 @@ Shared access signature (SAS) gives you granular control over the type of access
 This article covers authenticating the access to Event Hubs resources using SAS. To learn about **authorizing** access to Event Hubs resources using SAS, see [this article](authorize-access-shared-access-signature.md). 
 
 > [!NOTE]
-> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the shared access signatures, which can be more easily compromised. While you can continue to use shared access signatures (SAS) to grant fine-grained access to your Event Hubs resources, Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
+> Microsoft recommends that you use Microsoft Entra credentials when possible as a security best practice, rather than using the shared access signatures, which can be more easily compromised. While you can continue to use shared access signatures (SAS) to grant fine-grained access to your Event Hubs resources, Microsoft Entra ID offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS.
 > 
-> For more information about Azure AD integration in Azure Event Hubs, see [Authorize access to Event Hubs using Azure AD](authorize-access-azure-active-directory.md). 
+> For more information about Microsoft Entra integration in Azure Event Hubs, see [Authorize access to Event Hubs using Microsoft Entra ID](authorize-access-azure-active-directory.md). 
 
 
 ## Configuring for SAS authentication
@@ -97,7 +98,7 @@ You need to add a reference to `AzureNamedKeyCredential`.
 const { AzureNamedKeyCredential } = require("@azure/core-auth");
 ```
 
-To use a SAS token that you generated using the code above, use the `EventHubProducerClient` constructor that takes the `AzureSASCredential` parameter.
+To use a SAS token that you generated using the code, use the `EventHubProducerClient` constructor that takes the `AzureSASCredential` parameter.
 
 ```javascript
 var token = createSharedAccessToken("https://NAMESPACENAME.servicebus.windows.net", "POLICYNAME", "KEYVALUE");
@@ -199,7 +200,7 @@ private static string createToken(string resourceUri, string keyName, string key
 
 ```azurepowershell-interactive
 [Reflection.Assembly]::LoadWithPartialName("System.Web")| out-null
-$URI="myNamespace.servicebus.windows.net/myEventHub"
+$URI="myNamespace.servicebus.windows.net/myEventHub/"
 $Access_Policy_Name="RootManageSharedAccessKey"
 $Access_Policy_Key="myPrimaryKey"
 #Token expires now+300
@@ -217,9 +218,9 @@ $SASToken
 
 ```bash
 get_sas_token() {
-    local EVENTHUB_URI=$1
-    local SHARED_ACCESS_KEY_NAME=$2
-    local SHARED_ACCESS_KEY=$3
+    local EVENTHUB_URI='EVENTHUBURI'
+    local SHARED_ACCESS_KEY_NAME='SHAREDACCESSKEYNAME'
+    local SHARED_ACCESS_KEY='SHAREDACCESSKEYVALUE'
     local EXPIRY=${EXPIRY:=$((60 * 60 * 24))} # Default token expiry is 1 day
 
     local ENCODED_URI=$(echo -n $EVENTHUB_URI | jq -s -R -r @uri)
@@ -242,7 +243,7 @@ Each Event Hubs client is assigned a unique token, which is uploaded to the clie
 
 All tokens are assigned with SAS keys. Typically, all tokens are signed with the same key. Clients aren't aware of the key, which prevents clients from manufacturing tokens. Clients operate on the same tokens until they expire.
 
-For example, to define authorization rules scoped down to only sending/publishing to Event Hubs, you need to define a send authorization rule. This can be done at a namespace level or give more granular scope to a particular entity (event hubs instance or a topic). A client or an application that is scoped with such granular access is called, Event Hubs publisher. To do so, follow these steps:
+For example, to define authorization rules scoped down to only sending/publishing to Event Hubs, you need to define a send authorization rule. It can be done at a namespace level or give more granular scope to a particular entity (event hubs instance or a topic). A client or an application that is scoped with such granular access is called, Event Hubs publisher. To do so, follow these steps:
 
 1. Create a SAS key on the entity you want to publish to assign the **send** scope on it. For more information, see [Shared access authorization policies](authorize-access-shared-access-signature.md#shared-access-authorization-policies).
 2. Generate a SAS token with an expiry time for a specific publisher by using the key generated in step1. For the sample code, see [Generating a signature(token) from a policy](#generating-a-signaturetoken-from-a-policy).
@@ -268,7 +269,7 @@ For example, to define authorization rules scoped down to only sending/publishin
 To authenticate back-end applications that consume from the data generated by Event Hubs producers, Event Hubs token authentication requires its clients to either have the **manage** rights or the **listen** privileges assigned to its Event Hubs namespace or event hub instance or topic. Data is consumed from Event Hubs using consumer groups. While SAS policy gives you granular scope, this scope is defined only at the entity level and not at the consumer level. It means that the privileges defined at the namespace level or the event hub instance or topic level will be applied to the consumer groups of that entity.
 
 ## Disabling Local/SAS Key authentication  
-For certain organizational security requirements, you may have to disable local/SAS key authentication completely and rely on the Azure Active Directory (Azure AD) based authentication, which is the recommended way to connect with Azure Event Hubs. You can disable local/SAS key authentication at the Event Hubs namespace level using Azure portal or Azure Resource Manager template. 
+For certain organizational security requirements, you want to disable local/SAS key authentication completely and rely on the Microsoft Entra ID based authentication, which is the recommended way to connect with Azure Event Hubs. You can disable local/SAS key authentication at the Event Hubs namespace level using Azure portal or Azure Resource Manager template. 
 
 ### Disabling Local/SAS Key authentication via the portal 
 You can disable local/SAS key authentication for a given Event Hubs namespace using the Azure portal. 
@@ -277,11 +278,11 @@ As shown in the following image, in the namespace overview section, select **Loc
 
 ![Namespace overview for disabling local auth](./media/authenticate-shared-access-signature/disable-local-auth-overview.png)
 
-And then select **Disabled** option and select **Ok** as shown below. 
+And then select **Disabled** option and select **Ok** as shown in the following image. 
 ![Disabling local auth](./media/authenticate-shared-access-signature/disabling-local-auth.png)
 
 ### Disabling Local/SAS Key authentication using a template 
-You can disable local authentication for a given Event Hubs namespace by setting `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template(ARM Template).
+You can disable local authentication for a given Event Hubs namespace by setting `disableLocalAuth` property to `true` as shown in the following Azure Resource Manager template (ARM Template).
 
 ```json
 "resources":[
@@ -306,7 +307,7 @@ You can disable local authentication for a given Event Hubs namespace by setting
       "properties": {
         "isAutoInflateEnabled": "true",
         "maximumThroughputUnits": "7", 
-        "disableLocalAuth": false
+        "disableLocalAuth": true
       },
       "resources": [
         {
@@ -341,7 +342,7 @@ See the following articles:
 
 See the following related articles:
 
-- [Authenticate requests to Azure Event Hubs from an application using Azure Active Directory](authenticate-application.md)
-- [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)
-- [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
+- [Authenticate requests to Azure Event Hubs from an application using Microsoft Entra ID](authenticate-application.md)
+- [Authenticate a managed identity with Microsoft Entra ID to access Event Hubs Resources](authenticate-managed-identity.md)
+- [Authorize access to Event Hubs resources using Microsoft Entra ID](authorize-access-azure-active-directory.md)
 - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)

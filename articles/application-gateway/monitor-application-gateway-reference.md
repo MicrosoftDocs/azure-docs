@@ -6,7 +6,7 @@ ms.author: greglin
 ms.topic: conceptual
 ms.service: application-gateway
 ms.custom: subject-monitoring
-ms.date: 11/17/2021
+ms.date: 05/17/2024
 ---
 <!-- VERSION 2.2
 Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
@@ -15,21 +15,11 @@ Template for monitoring data reference article for Azure services. This article 
 
 See [Monitoring Azure Application Gateway](monitor-application-gateway.md) for details on collecting and analyzing monitoring data for Azure Application Gateway.
 
-## Metrics
-
-<!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
-<!-- Please keep headings in this order -->
-
-<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](../cosmos-db/monitor-cosmos-db-reference.md#metrics). They even regroup the metrics into usage type vs. resource provider and type.
--->
-
-<!-- Example format. Mimic the setup of metrics supported, but add extra information -->
-
-### Application Gateway v2 metrics
+## Application Gateway v2 metrics
 
 Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkapplicationgateways)
 
-#### Timing metrics
+### Timing metrics
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds.
 
 > [!NOTE]
@@ -53,12 +43,12 @@ If you notice a spike in *Backend last byte response time* but the *Backend firs
 
 Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that the degradation is because of the network between client and Application Gateway.
 
-#### Application Gateway metrics
+### Application Gateway metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
-|**Bytes received**|Bytes|Count of bytes received by the Application Gateway from the clients.|
-|**Bytes sent**|Bytes|Count of bytes sent by the Application Gateway to the clients.|
+|**Bytes received**|Bytes|Count of bytes received by the Application Gateway from the clients. (This metric accounts for only the Request content size observed by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.)|
+|**Bytes sent**|Bytes|Count of bytes sent by the Application Gateway to the clients. (This metric accounts for only the Response Content size served by the Application Gateway. It doesn't include data transfers such as TCP/IP packet headers or retransmissions.)|
 |**Client TLS protocol**|Count|Count of TLS and non-TLS requests initiated by the client that established connection with the Application Gateway. To view TLS protocol distribution, filter by the TLS Protocol dimension.|
 |**Current capacity units**|Count|Count of capacity units consumed to load balance the traffic. There are three determinants to capacity unit - compute unit, persistent connections, and throughput. Each capacity unit is composed of at most: one compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.|
 |**Current compute units**|Count|Count of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing.|
@@ -68,10 +58,10 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Fixed Billable Capacity Units**|Count|The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting (one instance translates to 10 capacity units) in the Application Gateway configuration.|
 |**New connections per second**|Count|The average number of new TCP connections per second established from clients to the Application Gateway and from the Application Gateway to the backend members.|
 |**Response Status**|Status code|HTTP response status returned by Application Gateway. The response status code distribution can be further categorized to show responses in 2xx, 3xx, 4xx, and 5xx categories.|
-|**Throughput**|Bytes/sec|Number of bytes per second the Application Gateway has served.|
+|**Throughput**|Bytes/sec|Number of bytes per second the Application Gateway has served. (This metric accounts for only the Content size served by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.)|
 |**Total Requests**|Count|Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.|
 
-#### Backend metrics
+### Backend metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
@@ -80,10 +70,90 @@ Similarly, if the *Application gateway total time* has a spike but the *Backend 
 |**Unhealthy host count**|Count|The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.|
 |**Requests per minute per Healthy Host**|Count|The average number of requests received by each healthy member in a backend pool in a minute. Specify the backend pool using the *BackendPool HttpSettings* dimension.|
 
+### Backend health API
 
-### Application Gateway v1 metrics
+See [Application Gateways - Backend Health](/rest/api/application-gateway/application-gateways/backend-health?tabs=HTTP) for details of the API call to retrieve the backend health of an application gateway.
 
-#### Application Gateway metrics
+Sample Request:
+``output
+POST
+https://management.azure.com/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/
+applicationGateways/appgw/backendhealth?api-version=2021-08-01
+After
+``
+
+After sending this POST request, you should see an HTTP 202 Accepted response. In the response headers, find the Location header and send a new GET request using that URL.
+
+``output
+GET
+https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/region-name/operationResults/GUID?api-version=2021-08-01
+``
+
+### Application Gateway TLS/TCP proxy monitoring 
+
+#### TLS/TCP proxy metrics
+
+With layer 4 proxy feature now available with Application Gateway, there are some Common metrics (apply to both layer 7 as well as layer 4), and some layer 4 specific metrics. The following table describes all the metrics are the applicable for layer 4 usage.
+
+| Metric              | Description                                                                                                                            | Type   | Dimension |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------|:----------|
+| Current Connections | The number of active connections: reading, writing, or waiting. The count of current connections established with Application Gateway. | Common metric | None      |
+| New Connections per second | The average number of connections handled per second during that minute. | Common metric | None      |
+| Throughput | The rate of data flow (inBytes+ outBytes) during that minute. | Common metric | None      |
+| Healthy host count | The number of healthy backend hosts. | Common metric | BackendSettingsPool  |
+| Unhealthy host | The number of unhealthy backend hosts. | Common metric | BackendSettingsPool  |
+| ClientRTT | Average round trip time between clients and Application Gateway. | Common metric | Listener  |
+| Backend Connect Time | Time spent establishing a connection with a backend server. | Common metric | Listener, BackendServer, BackendPool, BackendSetting |
+| Backend First Byte Response Time | Time interval between start of establishing a connection to backend server and receiving the first byte of data (approximating processing time of backend server). | Common metric | Listener, BackendServer, BackendPool, BackendHttpSetting`*`  |
+| Backend Session Duration | The total time of a backend connection. The average time duration from the start of a new connection to its termination. | L4-specific | Listener, BackendServer, BackendPool, BackendHttpSetting`*` |
+| Connection Lifetime | The total time of a client connection to application gateway. The average time duration from the start of a new connection to its termination in milliseconds. | L4-specific | Listener |
+
+`*` BackendHttpSetting dimension includes both layer 7 and layer 4 backend settings.
+
+#### TLS/TCP proxy logs
+
+Application Gateway’s Layer 4 proxy provides log data through access logs. These logs are only generated and published if they are configured in the diagnostic settings of your gateway. Also see: [Supported categories for Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways).
+
+> [!NOTE]
+> The columns with Mutual Authentication details for a TLS listener are currently available only through the [AzureDiagnostics table](application-gateway-diagnostics.md#storage-locations). 
+
+| Category | Resource log category | 
+|:--------------|:----------------------------------------------------------------------|
+| ResourceGroup | The resource group to which the application gateway resource belongs. |
+| SubscriptionId |The subscription ID of the application gateway resource. |
+| ResourceProvider |This will be MICROSOFT.NETWORK for application gateway. |
+| Resource |The name of the application gateway resource. |
+| ResourceType |This will be APPLICATIONGATEWAYS. |
+| ruleName |The name of the routing rule that served the connection request. |
+| instanceId |Application Gateway instance that served the request. |
+| clientIP |Originating IP for the request. |
+| receivedBytes |Data received from client to gateway, in bytes. |
+| sentBytes |Data sent from gateway to client, in bytes. |
+| listenerName |The name of the listener that established the frontend connection with client. |
+| backendSettingName |The name of the backend setting used for the backend connection. |
+| backendPoolName |The name of the backend pool from which a target server was selected to establish the backend connection. |
+| protocol |TCP (Irrespective of it being TCP or TLS, the protocol value will always be TCP). |
+| sessionTime |session duration, in seconds (this is for the client->appgw session) |
+| upstreamSentBytes |Data sent to backend server, in bytes. |
+| upstreamReceivedBytes |Data received from backend server, in bytes. |
+| upstreamSessionTime |session duration, in seconds (this is for the appgw->backend session) |
+| sslCipher |Cipher suite being used for TLS communication (for TLS protocol listeners). |
+| sslProtocol |SSL/TLS protocol being used (for TLS protocol listeners). |
+| serverRouted |The backend server IP and port number to which the traffic was routed. |
+| serverStatus |200 - session completed successfully. 400 - client data could not be parsed. 500 - internal server error. 502 - bad gateway. For example, when an upstream server could not be reached. 503 - service unavailable. For example, if access is limited by the number of connections. |
+| ResourceId |Application Gateway resource URI |
+
+### TLS/TCP proxy backend health
+
+Application Gateway’s layer 4 proxy provides the capability to monitor the health of individual members of the backend pools through the portal and REST API.
+
+![Screenshot of backend health](./media/monitor-application-gateway-reference/backend-health.png) 
+
+
+
+## Application Gateway v1 metrics
+
+### Application Gateway metrics
 
 | Metric | Unit | Description|
 |:-------|:-----|:------------|
@@ -103,12 +173,12 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 
 
-## Metric Dimensions
+## Metrics Dimensions
 
 <!-- REQUIRED. Please  keep headings in this order -->
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
+For more information on what metrics dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 
 <!-- See https://learn.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
@@ -126,16 +196,16 @@ This section lists the types of resource logs you can collect for Azure Applicat
 For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
 
 > [!NOTE]
-> The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.
+> The Performance log is available only for the v1 SKU. For the v2 SKU, use [Application Gateway v2 metrics](#application-gateway-v2-metrics) for performance data.
 
-For more information, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log)
+For more information, see [Backend health and diagnostic logs for Application Gateway](application-gateway-diagnostics.md#access-log).
 
-<!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
+<!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU MUST MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
 -->
 
 <!-- Example format. Add extra information -->
 
-### Application Gateway
+## Application Gateway
 
 Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworkapplicationgateways)
 
@@ -143,7 +213,7 @@ Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-mon
 |:---------|:-------------|------------------|
 | **Activitylog**   | Activity log | Activity log entries are collected by default. You can use [Azure activity logs](../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. |
 |**ApplicationGatewayAccessLog**|Access log| You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP address, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.|
-| **ApplicationGatewayPerformanceLog**|Performance log|You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.|
+| **ApplicationGatewayPerformanceLog**|Performance log|You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Application Gateway v2 metrics](#application-gateway-v2-metrics) for performance data.|
 |**ApplicationGatewayFirewallLog**|Firewall log|You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds.|
 
 
@@ -167,7 +237,7 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 
 ### Diagnostics tables
 <!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
+<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
 Azure Application Gateway uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table to store resource log information. The following columns are relevant.
 
@@ -191,5 +261,5 @@ sslEnabled_s | Does the client request have SSL enabled|
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Application Gateway.
+- See [Monitoring Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Application Gateway.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

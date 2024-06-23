@@ -5,7 +5,8 @@ author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.service: azure-migrate
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 ---
 
@@ -26,7 +27,7 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware vSphere](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, from your VMware vSphere environment to Azure App Service.
+**Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, or Java web applications, running on Tomcat servers from your VMware vSphere environment to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises vSphere servers to [Azure VMware Solution](../azure-vmware/introduction.md). You can assess your on-premises [VMware vSphere VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
@@ -117,7 +118,7 @@ Here's what's included in an Azure VMware Solution assessment:
 | **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate. |
 | **Storage type** | Specifies the storage engine to be used in Azure VMware Solution. Azure VMware Solution currently only supports vSAN as a default storage type but more storage options will be coming as per roadmap. |
 | **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution if purchased and the term of the Reserved Instance. Your cost estimates will take the option chosen into account.[Learn more](../azure-vmware/reserved-instance.md) <br/><br/> If you select reserved instances, you can't specify “Discount (%)”.|
-| **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution. |
+| **Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to be used in Azure. The default node type is AV36. More node types might be available in future.  Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution. |
 | **FTT Setting, RAID Level** | Specifies the valid combination of Failures to Tolerate and Raid combinations. The selected FTT option combined with RAID level and the on-premises vSphere VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. Total available storage after calculations also includes a) space reserved for management objects such as vCenter Server and b) 25% storage slack required for vSAN operations. |
 | **Sizing criterion** | Sets the criteria to be used to determine memory, cpu and storage requirements for Azure VMware Solution nodes. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. To simply lift and shift, choose as on-premises. To obtain usage based sizing, choose performance based. |
 | **Performance history** | Sets the duration to consider in evaluating the performance data of servers. This property is applicable only when the sizing criteria is *performance-based*. |
@@ -206,13 +207,13 @@ If you use *as on-premises sizing*, Azure VMware Solution assessment doesn't con
 
 CPU utilization assumes 100% usage of the available cores. To reduce the number of nodes required, one can increase the oversubscription from 4:1 to say 6:1 based on workload characteristics and on-premises vSphere experience. Unlike for disk, Azure VMware Solution does not place any limits on CPU utilization. It's up to customers to ensure their cluster performs optimally so if "running hot" is required, adjust accordingly. To allow more room for growth, reduce the oversubscription or increase the value for growth factor.
 
-CPU utilization also already accounts for management overhead from vCenter Server, NSX-T Manager and other smaller resources.
+CPU utilization also already accounts for management overhead from vCenter Server, NSX Manager and other smaller resources.
 
 ### Memory utilization on Azure VMware Solution nodes
 
 Memory utilization shows the total memory from all nodes vs. requirements from Server or workloads. Memory can be over subscribed and again Azure VMware Solution places no limits and it's up the customer to run optimal cluster performance for their workloads.
 
-Memory utilization also already accounts for management overhead from vCenter Server, NSX-T Manager and other smaller resources.
+Memory utilization also already accounts for management overhead from vCenter Server, NSX Manager and other smaller resources.
 
 ### Storage utilization on Azure VMware Solution nodes
 

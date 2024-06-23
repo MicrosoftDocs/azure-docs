@@ -6,8 +6,9 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 05/01/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -19,7 +20,7 @@ ms.author: alkohli
 You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a VM on your Azure Stack Edge Pro GPU device by using the Azure portal.
 
 > [!IMPORTANT] 
-> You will need to enable multifactor authentication for the user who manages the VMs and images that are deployed on your device from the cloud. The cloud operations will fail if the user doesn't have multifactor authentication enabled. For steps to enable multifactor authentication, see [Enable Azure AD Multi-Factor Authentication](/training/modules/secure-aad-users-with-mfa/4-exercise-mfa).
+> You will need to enable multifactor authentication for the user who manages the VMs and images that are deployed on your device from the cloud. The cloud operations will fail if the user doesn't have multifactor authentication enabled. For steps to enable multifactor authentication, see [Enable Microsoft Entra multifactor authentication](/training/modules/secure-aad-users-with-mfa/4-exercise-mfa).
 
 ## VM deployment workflow
 
@@ -91,7 +92,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
     |Edge resource group  |Select the resource group to add the image to. |
     |Save image as      | The name for the VM image that you're creating from the VHD you uploaded to the storage account.        |
     |OS type     |Choose from Windows or Linux as the operating system of the VHD you'll use to create the VM image.         |
-    |VM generation    |Choose Gen 1 or Gen 2 as the generation of the image you'll use to create the VM.        |
+    |VM generation    |Choose Gen 1 or Gen 2 as the generation of the image you'll use to create the VM. For Gen 2 VMs, secure boot is enabled by default.        |
    
 
     ![Screenshot showing the Add image page for a virtual machine with the Add button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)

@@ -2,10 +2,10 @@
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 05/24/2024
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Offline seeding using Azure Data Box for DPM and MABS
 
@@ -54,9 +54,11 @@ Ensure the following:
 
 - A valid Azure subscription.
 - The user intended to perform the offline backup policy must be an owner of the Azure subscription.
+- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 - The Data Box job and the Recovery Services vault to which the data needs to be seeded must be available in the same subscriptions.
-    > [!NOTE]
-    > We recommend that the target storage account and the Recovery Services vault be in the same region. However, this isn't mandatory.
+
+  >[!NOTE]
+  >We recommend that the target storage account and the Recovery Services vault be in the same region. However, this isn't mandatory.
 
 ### Order and receive the Data Box device
 
@@ -116,7 +118,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 5. On the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
 6. On the **Choose replica creation method** page, select **Automatically over the network.**
 7. On the **Choose consistency check options** page, select how you want to automate consistency checks.
-8. On the **Specify online protection data** page, select the member you want enable online protection.
+8. On the **Specify online protection data** page, select the member you want to enable online protection.
 
     ![Specify online protection data](./media/offline-backup-azure-data-box-dpm-mabs/specify-online-protection-data.png)
 
@@ -133,14 +135,14 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
      The DPM/MABS server will then fetch the Data Box jobs in the subscription that are in *Delivered* state.
 
      > [!NOTE]
-     > The first time sign-in takes longer than usual. The Azure PowerShell module gets installed in the background, and also the Azure AD Application is registered.
+     > The first time sign-in takes longer than usual. The Azure PowerShell module gets installed in the background, and also the Microsoft Entra Application is registered.
      >
      >  - The following PowerShell modules are installed:<br>
           - AzureRM.Profile     *5.8.3*<br>
           - AzureRM.Resources   *6.7.3*<br>
           - AzureRM.Storage     *5.2.0*<br>
           - Azure.Storage       *4.6.1*<br>
-     >  - The Azure AD application is registered as *AzureOfflineBackup_\<object GUID of the user>*.
+     >  - The Microsoft Entra application is registered as *AzureOfflineBackup_\<object GUID of the user>*.
 
 13. Select the correct Data box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
@@ -196,13 +198,13 @@ Follow these steps once the data backup to the Azure Data Box Disk is successful
 
 ## Troubleshooting
 
-The Microsoft Azure Backup (MAB) agent on the DPM server creates an Azure AD application for you, in your tenant. This application requires a certificate for authentication that's created and uploaded when configuring offline seeding policy.
+The Microsoft Azure Backup (MAB) agent on the DPM server creates a Microsoft Entra application for you, in your tenant. This application requires a certificate for authentication that's created and uploaded when configuring offline seeding policy.
 
-We use Azure PowerShell for creating and uploading the certificate to the Azure AD Application.
+We use Azure PowerShell for creating and uploading the certificate to the Microsoft Entra Application.
 
 ### Issue
 
-At the time of configuring offline backup, due to a known code defect in the Azure PowerShell cmdlet you're unable to add multiple certificates to the same Azure AD Application created by the MAB agent. This will impact you if you've configured an offline seeding policy for the same or a different server.
+At the time of configuring offline backup, due to a known code defect in the Azure PowerShell cmdlet you're unable to add multiple certificates to the same Microsoft Entra Application created by the MAB agent. This will impact you if you've configured an offline seeding policy for the same or a different server.
 
 ### Verify if the issue is caused by this specific root cause
 
@@ -223,14 +225,14 @@ Check if you see one of the following error messages in the DPM/MABS console at 
 #### Step 2
 
 1. Open the **Temp** folder in the installation path (default temp folder path is *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Look for the *CBUICurr* file and open the file.
-2. In the *CBUICurr* file, scroll to the last line and check if the failure is due to "Unable to create an Azure AD application credential in customer's account. Exception: Update to existing credential with KeyId \<some guid> isn't allowed".
+2. In the *CBUICurr* file, scroll to the last line and check if the failure is due to "Unable to create a Microsoft Entra application credential in customer's account. Exception: Update to existing credential with KeyId \<some guid> isn't allowed".
 
 ### Workaround
 
 To resolve this issue, do the following steps and retry the policy configuration.
 
 1. Sign into the Azure sign-in page that appears on the DPM/MABS server UI using a different account with admin access on the subscription that will have the Data Box job created.
-2. If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, then delete this application from **Azure portal > Azure Active Directory > App registrations**.
+2. If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, then delete this application from **Azure portal > Microsoft Entra ID > App registrations**.
 
    > [!NOTE]
    > Check if the application `AzureOfflineBackup_<Azure User Id>` doesn't have any other offline seeding configured and also no other server is dependent on this application. Go to **Settings > Keys** under the Public Keys section. It shouldn't have any other **public keys** added. See the following screenshot for reference:

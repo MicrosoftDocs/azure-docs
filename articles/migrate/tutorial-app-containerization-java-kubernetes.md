@@ -4,11 +4,15 @@ description: Tutorial:Containerize & migrate Java web applications to Azure Kube
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty-aks, devx-track-javaee-wls-aks, migration-java, subject-rbac-steps
+ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
-ms.date: 01/04/2023
+ms.service: azure-migrate
+ms.date: 04/03/2024
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this article, you'll learn how to containerize Java web applications (running on Apache Tomcat) and migrate them to [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) using the Azure Migrate: App Containerization tool. The containerization process doesn’t require access to your codebase and provides an easy way to containerize existing applications. The tool works by using the running state of the applications on a server to determine the application components and helps you package them in a container image. The containerized application can then be deployed on Azure Kubernetes Service (AKS).
 
@@ -27,7 +31,8 @@ The Azure Migrate: App Containerization tool helps you to -
 - **Deploy to Azure Kubernetes Service**:  The tool then generates the Kubernetes resource definition YAML files needed to deploy the containerized application to your Azure Kubernetes Service cluster. You can customize the YAML files and use them to deploy the application on AKS.
 
 > [!NOTE]
-> The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md)
+> - The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md)
+> - App Containerization Tool skips the discovery of some default Tomcat web apps, such as "docs", "examples", "host-manager", "manager" and "ROOT".
 
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
@@ -57,7 +62,7 @@ Before you begin this tutorial, you should:
 --- | ---
 **Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the Java web applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy.
 **Application servers** | - Enable Secure Shell (SSH) connection on port 22 on the server(s) running the Java application(s) to be containerized. <br/>
-**Java web application** | The tool currently supports <br/><br/> - Applications running on Tomcat 8 or later.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java version 7 or later.  <br/><br/> The tool currently doesn't support <br/><br/> - Applications servers running multiple Tomcat instances <br/>  
+**Java web application** | The tool currently supports <br/><br/> - Applications running on Tomcat 8 or Tomcat 9.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java 7 or Java 8. <br/> If you have version outside of this,  find an image that supports your required versions and modify the dockerfile to replace image <br/><br/> The tool currently doesn't support <br/><br/> - Applications servers running multiple Tomcat instances <br/>  
 
 
 ## Prepare an Azure user account
@@ -66,7 +71,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Once your subscription is set up, you'll need an Azure user account with:
 - Owner permissions on the Azure subscription
-- Permissions to register Azure Active Directory apps
+- Permissions to register Microsoft Entra apps
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -80,7 +85,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -90,15 +95,15 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-1. Your Azure account also needs **permissions to register Azure Active Directory apps.**
+1. Your Azure account also needs **permissions to register Microsoft Entra apps.**
 
-1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+1. In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
       ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
-1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install Azure Migrate: App Containerization tool
 
@@ -109,6 +114,9 @@ If you just created a free Azure account, you're the owner of your subscription.
    ```powershell
    .\AppContainerizationInstaller.ps1
    ```
+
+> [!NOTE]
+> For Windows Server 2022, edit line 135 and remove `PowerShell-ISE` from the feature list, as it's no longer supported.
 
 ## Launch the App Containerization tool
 

@@ -4,7 +4,8 @@ description: Use the Azure portal to create a lab, create a virtual machine in t
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/30/2022
+ms.date: 09/30/2023
+ms.custom: UpdateFrequency2
 ---
 
 # Tutorial: Create a DevTest Labs lab and VM and add a user in the Azure portal
@@ -43,7 +44,7 @@ To create a lab in Azure DevTest Labs, follow these steps.
    |**Resource group**|Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group so it's easy to delete later.|
    |**Lab name**|Enter a name for the lab.|
    |**Location**|If you're creating a new resource group, select an Azure region for the resource group and lab.|
-   |**Public environments**|Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).|
+   |**Public environments**|Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#set-public-environment-access-for-new-lab).|
 
    :::image type="content" source="./media/tutorial-create-custom-lab/create-custom-lab-blade.png" alt-text="Screenshot of the Basic Settings tab of the Create DevTest Labs form.":::
 

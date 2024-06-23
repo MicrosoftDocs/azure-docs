@@ -5,9 +5,9 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 06/10/2022
+ms.date: 02/23/2024
 ms.author: cshoe
-ms.custom: ignite-fall-2021, mode-other, event-tier1-build-2022
+ms.custom: mode-other
 ---
 
 # Comparing Container Apps with other Azure container options
@@ -26,13 +26,13 @@ There's no perfect solution for every use case and every team. The following exp
 ## Container option comparisons
 
 ### Azure Container Apps
-Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
+Azure Container Apps enables you to build serverless microservices and jobs based on containers. Distinctive features of Container Apps include:
 
 * Optimized for running general purpose containers, especially for applications that span many microservices deployed in containers.
 * Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
 * Supports Kubernetes-style apps and microservices with features like [service discovery](connect-apps.md) and [traffic splitting](revisions.md).
 * Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](scale-app.md), including [scale to zero](scale-app.md).
-* Support of long running processes and can run [background tasks](background-processing.md).
+* Supports running on demand, scheduled, and event-driven [jobs](jobs.md).
 
 Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](../aks/intro-kubernetes.md). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
 
@@ -51,7 +51,7 @@ You can get started building your first container app [using the quickstarts](ge
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless Functions-as-a-Service (FaaS) solution. It's optimized for running event-driven applications using the functions programming model. It shares many characteristics with Azure Container Apps around scale and integration with events, but optimized for ephemeral functions deployed as either code or containers. The Azure Functions programming model provides productivity benefits for teams looking to trigger the execution of your functions on events and bind to other data sources. When building FaaS-style functions, Azure Functions is the ideal option. The Azure Functions programming model is available as a base container image, making it portable to other container based compute platforms allowing teams to reuse code as environment requirements change. 
 
 ### Azure Spring Apps
-[Azure Spring Apps](../spring-apps/overview.md) is a fully managed service for Spring developers. If you want to run Spring Boot, Spring Cloud or any other Spring applications on Azure, Azure Spring Apps is an ideal option. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more. 
+[Azure Spring Apps](../spring-apps/enterprise/overview.md) is a fully managed service for Spring developers. If you want to run Spring Boot, Spring Cloud or any other Spring applications on Azure, Azure Spring Apps is an ideal option. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more. 
 
 ### Azure Red Hat OpenShift
 [Azure Red Hat OpenShift](../openshift/intro-openshift.md) is jointly engineered, operated, and supported by Red Hat and Microsoft to provide an integrated product and support experience for running Kubernetes-powered OpenShift. With Azure Red Hat OpenShift, teams can choose their own registry, networking, storage, and CI/CD solutions, or use the built-in solutions for automated source code management, container and application builds, deployments, scaling, health management, and more from OpenShift. If your team or organization is using OpenShift, Azure Red Hat OpenShift is an ideal option.

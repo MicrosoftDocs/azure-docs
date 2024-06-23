@@ -1,14 +1,12 @@
 ---
 title: Monitor apps
 description: Learn how to monitor apps in Azure App Service by using the Azure portal. Understand the quotas and metrics that are reported.
-author: btardif
 
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 04/23/2020
-ms.author: byvinyal
-ms.custom: seodec18
-
+ms.date: 06/29/2023
+ms.author: msangapu
+author: msangapu-msft
 ---
 # Monitor apps in Azure App Service
 [Azure App Service](./overview.md) provides
@@ -110,7 +108,7 @@ For an app, the available metrics are:
 For an App Service plan, the available metrics are:
 
 > [!NOTE]
-> App Service plan metrics are available only for plans in *Basic*, *Standard*, and *Premium* tiers.
+> App Service plan metrics are available only for plans in *Basic*, *Standard*, *Premium*, and *Isolated* tiers.
 > 
 
 | Metric | Description |

@@ -1,19 +1,19 @@
 ---
 title: 'Using ExpressRoute for Microsoft 365 Services | Microsoft Docs'
 description: This document discusses objectively on using ExpressRoute circuit for Microsoft 365 SaaS services.
-documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 4/12/2022
+ms.date: 6/11/2024
 ms.author: rambala
-
 ---
 
 # Using ExpressRoute for routing Microsoft 365 traffic
+
+> [!NOTE]
+> We **don't recommend** ExpressRoute for Microsoft 365 because it doesn't provide the best connectivity model for the service in most circumstances. As such, Microsoft authorization is required to use this connectivity model. We review every customer request and authorize ExpressRoute for Microsoft 365 only in the rare scenarios where it is necessary. For more information, see the [ExpressRoute for Microsoft 365 guide](https://aka.ms/erguide) and review the document with your productivity, network, and security teams before working with your Microsoft account team to submit an exception as required. If you try to create a route filter for Microsoft 365 without an authorized subscription you will receive an [error message](https://support.microsoft.com/kb/3181709).
 
 An ExpressRoute circuit provides private connectivity to the Microsoft backbone network.
 
@@ -24,7 +24,7 @@ For more information about ExpressRoute, see the [Introduction to ExpressRoute][
 
 Often time there's confusion about whether or not ExpressRoute can be used for routing Microsoft 365 SaaS traffic. ExpressRoute offers Microsoft peering, which allows you to access most public endpoints in the Microsoft network. With the use of a *Route Filter*, you can select Microsoft 365 service prefixes that you want to advertise over Microsoft peering to your on-premises network. These routes enable routing Microsoft 365 service traffic over the ExpressRoute circuit.
 
-In this article, you'll learn about when it's necessary to use ExpressRoute to route Microsoft 365 traffic.
+In this article, you learn about when it's necessary to use ExpressRoute to route Microsoft 365 traffic.
 
 ## Network requirements of Microsoft 365 traffic
 
@@ -38,11 +38,11 @@ To address the stringent network latency requirements, Microsoft 365 shortens ro
 * Dynamically routing the end-user connection to the nearest Microsoft 365 entry point. 
 * From the entry point, traffic is efficiently routed within the Microsoft's global network to the nearest Microsoft 365 data center.
 
-Microsoft 365 entry points are serviced by Azure Front Door. Azure Front Door is a widely distributed service present at Microsoft global edge network that creates a fast, secure, and highly scalable SaaS applications. For more information about how Azure Front Door accelerates web application performance, see [What is Azure Front Door?][AFD]. When choosing the nearest Microsoft 365 data center, Microsoft takes into consideration data sovereignty regulations within the geo-political region.
+Microsoft 365 entry points get serviced by Azure Front Door. Azure Front Door is a widely distributed service present at Microsoft global edge network that creates a fast, secure, and highly scalable SaaS applications. For more information about how Azure Front Door accelerates web application performance, see [What is Azure Front Door?][AFD]. When selecting the nearest Microsoft 365 data center, Microsoft takes into consideration data sovereignty regulations within the geo-political region.
 
 ## What is geo-pinning connections?
 
-When you force a client-server to pass traffic through certain network device(s) located in a geographical location, that is referred to as geo-pinning the network connection. In a traditional network architecture, the underlying design principle is that the clients-servers are statically located which commonly geo-pins connections.
+When you force a client-server to pass traffic through certain network device(s) located in a geographical location that is referred to as geo-pinning the network connection. In a traditional network architecture, the underlying design principle is that the clients-servers are statically located which commonly geo-pins connections.
 
 For example, when you force your enterprise Internet connections to traverse through your corporate network. The egress is from a central location, typically via a set of proxy-servers or firewalls, you're geo-pinning the Internet connections. Another example of geo-pinning is when you have a SaaS application architecture that you force traffic through an intermediate datacenter in a region or using one or more intermediate network devices.
 
@@ -56,15 +56,7 @@ Therefore, in scenarios where you have widely distributed SaaS clients or client
 
 ## When to use ExpressRoute for Microsoft 365?
 
-The following are some of the reasons why you may want to use ExpressRoute for routing Microsoft 365 traffic:
-
-* Your SaaS clients are concentrated in a geo-location and the most optimal way to connect to Microsoft global network is using ExpressRoute.
-* Your SaaS clients are concentrated in multiple global locations and each location has its own ExpressRoute connection that provides optimal connectivity to Microsoft's global network.
-* You're required by law to route cloud-bound traffic with a private connection.
-* You're required to route all the SaaS traffic to a geo-pinned centralized location whether it be a private or a public datacenter. The only optimal way to connect the centralized location to the Microsoft global network is by using ExpressRoute.
-* For some of your static SaaS clients only ExpressRoute can provide optimal connectivity, while for the other clients they can use the Internet.
-
-When you're using ExpressRoute, you can apply a route filter to Microsoft peering to only advertise a subset of Microsoft 365 services and/or Azure PaaS services prefixes over the ExpressRoute circuit. For more information, see [Tutorial: Configure route filters for Microsoft peering][ExRRF].
+We no longer recommend the use of ExpressRoute for Microsoft 365 traffic. For more information, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute?view=o365-worldwide).
 
 ## Next steps
 

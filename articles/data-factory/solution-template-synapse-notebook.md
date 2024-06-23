@@ -6,7 +6,7 @@ author: chugugrace
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Call Synapse pipeline with a notebook activity
@@ -75,6 +75,6 @@ Review the configurations of your pipeline and make any necessary changes.
 
         :::image type="content" source="media/solution-template-synapse-notebook/fail-activity.png" alt-text="Fail pipeline":::
 
-## Next steps
+## Related content
 
 - [Overview of templates](solution-templates-introduction.md)

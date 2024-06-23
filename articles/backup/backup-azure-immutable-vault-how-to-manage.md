@@ -3,22 +3,17 @@ title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: backup
-ms.date: 02/17/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 05/27/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Manage Azure Backup Immutable vault operations
 
+This article describes how to manage Azure Backup Immutable vault operations for Recovery Services vault and Backup vault.
+
 [Immutable vault](backup-azure-immutable-vault-concept.md) can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
-
-In this article, you'll learn how to:
-
-> [!div class="checklist"]
->
-> - Enable Immutable vault
-> - Perform operations on Immutable vault
-> - Disable immutability
 
 ## Enable Immutable vault
 
@@ -28,11 +23,11 @@ You can enable immutability for a vault through its properties.
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-Follow these steps:
+To enable Immutable vault for a Recovery Services vault, follow these steps:
 
 1. Go to the **Recovery Services vault** for which you want to enable immutability.
 
-1. In the vault, go to **Properties** > **Immutable vault**, and then select **Settings**.
+1. On the vault, go to **Properties** > **Immutable vault**, and then select **Settings**.
 
    :::image type="content" source="./media/backup-azure-immutable-vault/enable-immutable-vault-settings.png" alt-text="Screenshot showing how to open the Immutable vault settings.":::
 
@@ -50,7 +45,7 @@ Follow these steps:
 
 # [Backup vault](#tab/backup-vault)
 
-Follow these steps:
+To enable Immutable vault for a Backup vault, follow these steps:
 
 1.	Go to the **Backup vault** for which you want to enable immutability.
 
@@ -96,6 +91,18 @@ This time, the operation successfully passes as no recovery points can be delete
 
 :::image type="content" source="./media/backup-azure-immutable-vault/modify-policy-to-increase-retention.png" alt-text="Screenshot showing how to modify backup policy to increase backup retention.":::
 
+However, increasing the retention of backup items that are in suspended state isn't supported.
+
+Let's try to stop backup on a VM and choose **Retain as per policy** for backup data retention.
+
+:::image type="content" source="./media/backup-azure-immutable-vault/attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an attempt to increase retention of backup items in suspended state.":::
+
+Now, let's go to **Modify Policy** and try to increase the retention of daily backup points to *45 days*, increasing the value by *5 days*, and save the policy.
+
+:::image type="content" source="./media/backup-azure-immutable-vault/error-on-attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an error has occurred when you try to increase retention of backup items that are in suspended state.":::
+
+When you try to update the policy, the operation fails with an error and you can't modify the policy as the backup is in suspended state.
+
 ## Disable immutability
 
 You can disable immutability only for vaults that have immutability enabled, but not locked.
@@ -104,7 +111,7 @@ You can disable immutability only for vaults that have immutability enabled, but
 
 # [Recovery Services vault](#tab/recovery-services-vault)
 
-Follow these steps:
+To disable immutability for a Recovery Services vault, follow these steps:
 
 1. Go to the **Recovery Services** vault for which you want to disable immutability.
 
@@ -112,7 +119,7 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-azure-immutable-vault/disable-immutable-vault-settings.png" alt-text="Screenshot showing how to open the Immutable vault settings to disable.":::
 
-1. In the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
+1. On the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
 
 1. Select **Apply** to save the changes.
 
@@ -120,7 +127,7 @@ Follow these steps:
 
 # [Backup vault](#tab/backup-vault)
 
-Follow these steps:
+To disable immutability for a Nackup vault, follow these steps:
 
 1. Go to the **Backup vault** for which you want to disable immutability.
 
@@ -128,7 +135,7 @@ Follow these steps:
 
    :::image type="content" source="./media/backup-azure-immutable-vault/disable-immutable-vault-settings-backup-vault.png" alt-text="Screenshot showing how to open the Immutable vault settings to disable for a Backup vault.":::
 
-1. In the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
+1. On the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
 
 1. Select **Apply** to save the changes.
 
@@ -136,6 +143,6 @@ Follow these steps:
 
 ---
 
-## Next steps
+## Next step
 
-- Learn [about Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
+Learn [about Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).

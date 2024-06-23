@@ -3,8 +3,8 @@ title: Create a Windows VM with Azure VM Image Builder by using PowerShell
 description: In this article, you create a Windows VM by using the VM Image Builder PowerShell module.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 09/12/2022
+ms.reviewer: jushiman
+ms.date: 11/10/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -24,7 +24,7 @@ Builder PowerShell module.
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Azure PowerShell
-module and connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+module and connect to your Azure account by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 Some of the steps require cmdlets from the [Az.ImageBuilder](https://www.powershellgallery.com/packages/Az.ImageBuilder) module. Install separately by using the following command.
 
@@ -42,7 +42,7 @@ should be billed. Select a specific subscription by using the
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
-### Register features
+### Register providers
 
 If you haven't already done so, register the following resource providers to use with your Azure subscription:
 
@@ -52,6 +52,7 @@ If you haven't already done so, register the following resource providers to use
 - Microsoft.Network
 - Microsoft.VirtualMachineImages
 - Microsoft.ManagedIdentity
+- Microsoft.ContainerInstance
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute, Microsoft.KeyVault, Microsoft.Storage, Microsoft.VirtualMachineImages, Microsoft.Network, Microsoft.ManagedIdentity |

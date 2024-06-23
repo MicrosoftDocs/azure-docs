@@ -1,20 +1,20 @@
 ---
 title: Migrate from MongoDB to Azure Cosmos DB for MongoDB, using Databricks and Spark
 description: Learn how to use Databricks Spark to migrate large datasets from MongoDB instances to Azure Cosmos DB.
-author: nayakshweta
-ms.author: shwetn
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: ignite-2022
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 08/26/2021
 ---
 # Migrate data from MongoDB to an Azure Cosmos DB for MongoDB account by using Azure Databricks
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
-This migration guide is part of series on migrating databases from MongoDB to Azure CosmosDB API for MongoDB. The critical migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
+This migration guide is part of series on migrating databases from MongoDB to Azure Cosmos DB API for MongoDB. The critical migration steps are [pre-migration](pre-migration-steps.md), migration, and [post-migration](post-migration-optimization.md), as shown below.
 
-:::image type="content" source="./media/pre-migration-steps/overall-migration-steps.png" alt-text="Diagram of migration steps":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/overall-migration-steps.png" alt-text="Diagram of migration steps":::
 
 
 ## Data migration using Azure Databricks
@@ -132,7 +132,7 @@ df.write.format("mongo").mode("append").option("uri", targetConnectionString).op
 
 The migration performance can be adjusted through these configurations:
 
-- **Number of workers and cores in the Spark cluster**: More workers mean more compute nodes to execute tasks.
+- **Number of workers and cores in the Spark cluster**: More workers mean more compute shards to execute tasks.
 
 - **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Azure Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](prevent-rate-limiting-errors.md) errors.
 

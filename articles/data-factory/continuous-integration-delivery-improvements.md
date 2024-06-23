@@ -5,20 +5,23 @@ ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: susabat
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 04/09/2024
 ---
 
-# Automated publishing for continuous integration and delivery
+# Automated publishing for continuous integration and delivery (CI/CD)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+> [!NOTE]
+> Synapse Analytics also supports CI/CD. Refer to the [Synapse Analytics CI/CD documentation](/azure/synapse-analytics/cicd/continuous-integration-delivery) for more information.
 
 ## Overview
 
 Continuous integration is the practice of testing each change made to your codebase automatically. As early as possible, continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
-In Azure Data Factory, continuous integration and continuous delivery (CI/CD) means moving Data Factory pipelines from one environment, such as development, test, and production, to another. Data Factory uses [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities, such as pipelines, datasets, and data flows.
+In Azure Data Factory, CI/CD means moving Data Factory pipelines from one environment, such as development, test, and production, to another. Data Factory uses [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities, such as pipelines, datasets, and data flows.
 
 There are two suggested methods to promote a data factory to another environment:
 
@@ -34,7 +37,7 @@ This article focuses on the continuous deployment improvements and the automated
 The automated publish feature takes the **Validate all** and **Export ARM template** features from the Data Factory user experience and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). For this reason, you can programmatically trigger these actions instead of having to go to the Data Factory UI and select a button manually. This capability will give your CI/CD pipelines a truer continuous integration experience.
 
 > [!NOTE]
-> Be sure to use the latest versions of node and npm to avoid errors that can occur due to package incompatibility with older versions.
+> Be sure to use the node version 18.x and and its compatible version to avoid errors that can occur due to package incompatibility with older versions.
 
 ### Current CI/CD flow
 
@@ -145,9 +148,9 @@ Follow these steps to get started:
    
    # Installs Node and the npm packages saved in your package.json file in the build
    
-   - task: NodeTool@0
+   - task: UseNode@1
      inputs:
-       versionSpec: '14.x'
+       version: '18.x'
      displayName: 'Install Node.js'
    
    - task: Npm@1
@@ -187,8 +190,6 @@ Follow these steps to get started:
        artifact: 'ArmTemplates'
        publishLocation: 'pipeline'
    ```
-> [!NOTE]
-> Node version 10.x is currently still supported but may be deprected in the future. We highly recommend upgrading to the latest version.
 
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 
@@ -197,7 +198,7 @@ Follow these steps to get started:
 > [!NOTE]
 > The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script.md#script-execution-and-parameters) to execute the provided script.
 
-## Next steps
+## Related content
 
 Learn more information about continuous integration and delivery in Data Factory:
 [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md).

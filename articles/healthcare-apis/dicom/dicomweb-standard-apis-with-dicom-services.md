@@ -1,92 +1,92 @@
 ---
-title:  Using DICOMweb - Standard APIs with Azure Health Data Services DICOM service 
-description: This tutorial describes how to use DICOMweb Standard APIs with the DICOM service. 
+title:  Access DICOMweb APIs to manage DICOM data in Azure Health Data Services
+description: Learn how to use DICOMweb APIs to store, review, search, and delete DICOM objects. Learn how to use custom APIs to track changes and assign unique tags to DICOM data.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: tutorial
-ms.date: 10/13/2022
+ms.date: 05/29/2024
 ms.author: mmitrik
 ---
 
-# Using DICOMweb&trade;Standard APIs with DICOM services
+# Access DICOMweb APIs to manage DICOM data
 
-This tutorial provides an overview of how to use DICOMweb&trade; Standard APIs with the DICOM service.
+The DICOM&reg; service allows you to store, review, search, and delete DICOM objects by using a subset of DICOMweb APIs. The DICOMweb APIs are web-based services that follow the DICOM standard. By using these APIs, you can access and manage your organization's DICOM data without requiring complex protocols or formats.
 
-The DICOM service supports a subset of DICOMweb&trade; Standard that includes:
+The supported services are:
 
-* [Store (STOW-RS)](dicom-services-conformance-statement.md#store-stow-rs)
-* [Retrieve (WADO-RS)](dicom-services-conformance-statement.md#retrieve-wado-rs)
-* [Search (QIDO-RS)](dicom-services-conformance-statement.md#search-qido-rs)
-* [Delete](dicom-services-conformance-statement.md#delete)
+- [Store (STOW-RS)](dicom-services-conformance-statement-v2.md#store-stow-rs): Upload DICOM objects to the server.
+- [Retrieve (WADO-RS)](dicom-services-conformance-statement-v2.md#retrieve-wado-rs): Download DICOM objects from the server.
+- [Search (QIDO-RS)](dicom-services-conformance-statement-v2.md#search-qido-rs): Find DICOM objects on the server based on criteria.
+- [Delete](dicom-services-conformance-statement-v2.md#delete): Remove DICOM objects from the server.
+- [Worklist Service (UPS Push and Pull SOPs)](dicom-services-conformance-statement-v2.md#worklist-service-ups-rs): Manage and track medical imaging workflows.
 
-Additionally, the following non-standard API(s) are supported:
+In addition to the subset of DICOMweb APIs, the DICOM service supports these custom APIs that are unique to Microsoft:
 
-* [Change Feed](dicom-change-feed-overview.md)
-* [Extended Query Tags](dicom-extended-query-tags-overview.md)
-
-To learn more about our support of DICOM Web Standard APIs, see the [DICOM Conformance Statement](dicom-services-conformance-statement.md) reference document.
+- [Change feed](change-feed-overview.md): Track changes to DICOM data over time.
+- [Extended query tags](dicom-extended-query-tags-overview.md): Define custom tags for querying DICOM data.
+- [Bulk update](update-files.md)
+- [Bulk import](import-files.md)
+- [Export](export-dicom-files.md)
 
 ## Prerequisites
 
-To use DICOMweb&trade; Standard APIs, you must have an instance of DICOM service deployed. If you haven't already deployed an instance of DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+- **Deploy an instance of the DICOM service**. For more information, see [Deploy the DICOM service using Azure portal](deploy-dicom-services-in-azure.md).
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created DICOM service to see the details including your Service URL. The Service URL to access your DICOM service  will be: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
+- **Find your Service URL**. Use Azure portal to navigate to the instance of the DICOM service to find the Service URL. The Service URL to access your DICOM service uses this format: ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the URL when making requests. For more information, see [API versioning for the DICOM service](api-versioning-dicom-service.md).
 
-## Overview of various methods to use with DICOM service
+## Use REST API methods to interact with the DICOM service
 
-Because DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Services Conformance Statement](dicom-services-conformance-statement.md).
+The DICOM service provides a web-based interface that follows REST (representational state transfer) principles. The REST API allows different applications or systems to communicate with each other using standard methods like GET, POST, PUT, and DELETE. To interact with the DICOM service, use any programming language that supports HTTP requests and responses.
 
-To see language-specific examples, refer to the examples below. You can view Postman collection examples in several languages including:
+Refer to the language-specific examples. You can view Postman collection examples in several languages including:
 
-* Go 
-* Java 
-* JavaScript 
-* C# 
-* PHP 
-* C 
-* NodeJS
-* Objective-C
-* OCaml
-* PowerShell
-* Python
-* Ruby 
-* Swift
+- Go 
+- Java 
+- JavaScript 
+- C# 
+- PHP 
+- C 
+- NodeJS
+- Objective-C
+- OCaml
+- PowerShell
+- Python
+- Ruby 
+- Swift
 
 ### C#
 
-Refer to the [Using DICOMweb™ Standard APIs with C#](dicomweb-standard-apis-c-sharp.md) tutorial to learn how to use C# with DICOM service.
+Refer to [Use DICOMweb Standard APIs with C#](dicomweb-standard-apis-c-sharp.md) to learn how to use C# with DICOM service.
 
 ### cURL
 
-cURL is a common command-line tool for calling web endpoints that is available for nearly any operating system. [Download cURL](https://curl.haxx.se/download.html) to get started.
+cURL is a common command-line tool for calling web endpoints and is available for most operating systems. To get started, [download cURL](https://curl.haxx.se/download.html).
 
-To learn how to use cURL with DICOM service, see [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md) tutorial.
+To learn how to use cURL with the DICOM service, see [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md).
 
 ### Python
 
-Refer to the [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md) tutorial to learn how to use Python with the DICOM service.
+For more information about how to use Python with the DICOM service, see [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md).
 
 ### Postman
 
-Postman is an excellent tool for designing, building, and testing REST APIs. [Download Postman](https://www.postman.com/downloads/) to get started. You can learn how to effectively use Postman at the [Postman learning site](https://learning.postman.com/).
+Postman is an excellent tool for designing, building, and testing REST APIs. [Download Postman](https://www.postman.com/downloads/) to get started. For more information, see [Postman learning site](https://learning.postman.com/).
 
-One important caveat with Postman and DICOMweb&trade; Standard is that Postman can only support uploading DICOM files using the single part payload defined in the DICOM standard. This reason is because Postman can't support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). Thus, all examples in the Postman collection for uploading DICOM documents using a multipart request are prefixed with [won't work - see description]. The examples for uploading using a single part request are included in the collection and are prefixed with "Store-Single-Instance".
+One important caveat with Postman and the DICOMweb standard is that Postman only supports uploading DICOM files by using the single-part payload defined in the DICOM standard. This caveat is because Postman can't support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). All examples in the Postman collection for uploading DICOM documents by using a multipart request are prefixed with **[won't work - see description]**. The examples for uploading by using a single-part request are included in the collection and are prefixed with **Store-Single-Instance**.
 
-To use the Postman collection, you'll need to download the collection locally and import the collection through Postman. To access this collection, see [Postman Collection Examples](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+To use the Postman collection, download it locally and then import the collection through Postman. To access the collection, see [Postman Collection Examples](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
 
-## Summary
+### Next steps
 
-This tutorial provided an overview of the APIs supported by DICOM service. Get started using these APIs with the following tools:
+[Use DICOMweb Standard APIs with C#](dicomweb-standard-apis-c-sharp.md)
 
-- [Using DICOMweb™ Standard APIs with C#](dicomweb-standard-apis-c-sharp.md)
-- [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md)
-- [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md)
-- [Use DICOMWeb™ Standard APIs with Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
+[Use DICOMweb Standard APIs with cURL](dicomweb-standard-apis-curl.md)
 
-### Next Steps
+[Use DICOMweb Standard APIs with Python](dicomweb-standard-apis-python.md)
 
-For more information, see
+[Use DICOMWeb Standard APIs with the Postman Example Collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json)
 
->[!div class="nextstepaction"]
->[Overview of the DICOM service](dicom-services-overview.md)
+[DICOM Conformance Statement](dicom-services-conformance-statement-v2.md)
+
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

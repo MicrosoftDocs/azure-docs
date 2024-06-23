@@ -1,11 +1,11 @@
 ---
 title: Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads
 description: Learn how soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads makes backups more secure.
-ms.topic: conceptual
-ms.date: 04/27/2020 
-ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+ms.topic: how-to
+ms.date: 01/04/2024 
+ms.custom: devx-track-azurepowershell, engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads
 
@@ -83,9 +83,9 @@ The **DeleteState** of the backup item will revert to **NotDeleted**. But the pr
 
 ## How to disable soft delete
 
-Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 ## Next steps
 
-- Read the [frequently asked questions](backup-azure-security-feature-cloud.md#frequently-asked-questions) about soft delete
+- Read the [frequently asked questions](soft-delete-azure-backup-faq.yml) about soft delete
 - Read about all the [security features in Azure Backup](security-overview.md)

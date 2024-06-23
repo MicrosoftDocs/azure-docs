@@ -1,16 +1,20 @@
 ---
-title:  Manage Backup Jobs using REST API
-description: In this article, learn how to track and manage backup and restore jobs of Azure Backup using REST API.
-ms.topic: conceptual
-ms.date: 08/03/2018
+title:  Manage the backup jobs using REST API in Azure Backup
+description: In this article, learn how to track and manage the backup and restore jobs of Azure Backup using REST API.
+ms.service: backup
+ms.topic: how-to
+ms.date: 04/09/2024
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
-# Track backup and restore jobs using REST API
+# Track the backup and restore jobs using REST API in Azure Backup
 
-Azure Backup service triggers jobs that run in background in various scenarios such as triggering backup, restore operations, disabling backup. These jobs can be tracked using their IDs.
+This article describes how to monitor the backup and restore jobs using REST API in Azure Backup.
+
+The Azure Backup service triggers jobs that run in background in various scenarios such as triggering backup, restore operations, disabling backup. You can track these jobs using their IDs.
 
 ## Fetch Job information from operations
 
@@ -38,7 +42,7 @@ The Azure VM backup job is identified by "jobId" field and can be tracked as men
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it's "Completed" or "CompletedWithWarnings", the 'extendedInfo' section reveals more details about the job.
+The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it's *Completed* or *CompletedWithWarnings*, the 'extendedInfo' section reveals more details about the job.
 
 ### Response
 
@@ -48,7 +52,7 @@ The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with t
 
 #### Example response
 
-Once the *GET* URI is submitted, a 200 (OK) response is returned.
+Once the *GET* URI submission is complete, a 200 (OK) response is returned.
 
 ```http
 HTTP/1.1 200 OK
@@ -106,3 +110,6 @@ X-Powered-By: ASP.NET
 }
 
 ```
+## Next steps
+
+[About Azure Backup](backup-overview.md).

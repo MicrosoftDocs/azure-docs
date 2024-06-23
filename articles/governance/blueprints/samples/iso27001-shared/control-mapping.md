@@ -1,14 +1,15 @@
 ---
 title: ISO 27001 Shared Services blueprint sample controls
 description: Control mapping of the ISO 27001 Shared Services blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 Shared Services blueprint sample
 
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
+
 The following article details how the Azure Blueprints ISO 27001 Shared Services blueprint sample
-maps to the ISO 27001 controls. For more information about the controls, see
-[ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
+maps to the ISO 27001 controls.
 
 The following mappings are to the **ISO 27001:2013** controls. Use the navigation on the right to
 jump directly to a specific control mapping. Many of the mapped controls are implemented with an
@@ -45,21 +46,13 @@ appropriate separation of duties.
 ## A.8.2.1 Classification of information
 
 Azure's
-[SQL Vulnerability Assessment service](../../../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md)
-can help you discover sensitive data stored in your databases and includes recommendations to
-classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
-to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.
+[SQL Vulnerability Assessment service](../../../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md) can help you discover sensitive data stored in your databases and includes recommendations to classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.
 
 - Vulnerabilities on your SQL databases should be remediated
 
 ## A.9.1.2 Access to networks and network services
 
-[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-helps to manage who has access to Azure resources. This blueprint helps you control access to Azure
-resources by assigning seven [Azure Policy](../../../policy/overview.md) definitions. These policies
-audit use of resource types and configurations that may allow more permissive access to resources.
-Understanding resources that are in violation of these policies can help you take corrective actions
-to ensure access Azure resources is restricted to authorized users.
+[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md) helps to manage who has access to Azure resources. This blueprint helps you control access to Azure resources by assigning seven [Azure Policy](../../../policy/overview.md) definitions. These policies audit use of resource types and configurations that may allow more permissive access to resources. Understanding resources that are in violation of these policies can help you take corrective actions to ensure access Azure resources is restricted to authorized users.
 
 - Show audit results from Linux VMs that have accounts without passwords
 - Show audit results from Linux VMs that allow remote connections from accounts without passwords
@@ -106,11 +99,7 @@ corrective action to ensure authenticators aren't compromised.
 
 ## A.9.2.5 Review of user access rights
 
-[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-helps you manage who has access to resources in Azure. Using the Azure portal, you can review who
-has access to Azure resources and their permissions. This blueprint assigns four [Azure
-Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized for
-review, including depreciated accounts and external accounts with elevated permissions.
+[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md) helps you manage who has access to resources in Azure. Using the Azure portal, you can review who has access to Azure resources and their permissions. This blueprint assigns four [Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized for review, including depreciated accounts and external accounts with elevated permissions.
 
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
@@ -119,13 +108,8 @@ review, including depreciated accounts and external accounts with elevated permi
 
 ## A.9.2.6 Removal or adjustment of access rights
 
-[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-helps you manage who has access to resources in Azure. Using [Azure Active
-Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) and Azure RBAC, you
-can update user roles to reflect organizational changes. When needed, accounts can be blocked from
-signing in (or removed), which immediately removes access rights to Azure resources. This blueprint
-assigns two [Azure Policy](../../../policy/overview.md) definitions to audit depreciated account
-that should be considered for removal.
+[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md) helps you manage who has access to resources in Azure. Using [Azure Active
+Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) and Azure RBAC, you can update user roles to reflect organizational changes. When needed, accounts can be blocked from signing in (or removed), which immediately removes access rights to Azure resources. This blueprint assigns two [Azure Policy](../../../policy/overview.md) definitions to audit depreciated account that should be considered for removal.
 
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription

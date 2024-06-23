@@ -1,10 +1,9 @@
 ---
 title: Transform data for an IoT Central application
-titleSuffix: Azure IoT Central
 description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data both on the way in and out of IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/10/2023
+ms.date: 11/27/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -34,7 +33,7 @@ The following table shows three example transformation types:
 
 | Transformation | Description | Example  | Notes |
 |------------------------|-------------|----------|-------|
-| Message Format         | Convert to or manipulate JSON messages. | CSV to JSON  | At ingress. IoT Central only accepts value JSON messages. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md). |
+| Message Format         | Convert to or manipulate JSON messages. | CSV to JSON  | At ingress. IoT Central only accepts value JSON messages. To learn more, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md). |
 | Computations           | Math functions that [Azure Functions](../../azure-functions/index.yml) can execute. | Unit conversion from Fahrenheit to Celsius.  | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. Transforming the data lets you use IoT Central features such as visualizations and jobs. |
 | Message Enrichment     | Enrichments from external data sources not found in device properties or telemetry. To learn more about internal enrichments, see  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). | Add weather information to messages using [location data](howto-use-location-data.md) from devices. | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. |
 
@@ -149,7 +148,7 @@ To build the custom module in the [Azure Cloud Shell](https://shell.azure.com/):
 
 This scenario uses an IoT Edge gateway device to transform the data from any downstream devices. This section describes how to create IoT Central device template for the gateway device in your IoT Central application. IoT Edge devices use a deployment manifest to configure their modules.
 
-In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if it was sent by the IoT Edge device.
+In this example, the downstream device doesn't need a device template. The downstream device is registered in IoT Central so you can generate the credentials it needs to connect the IoT Edge device. Because the IoT Edge module transforms the data, all the downstream device telemetry arrives in IoT Central as if the IoT Edge device has sent it.
 
 To create a device template for the IoT Edge gateway device:
 
@@ -277,7 +276,7 @@ To check that the IoT Edge gateway device is running correctly:
 
 1. Open your IoT Central application. Then navigate to the **IoT Edge Gateway device** on the list of devices on the **Devices** page.
 
-1. Select the **Modules** tab and check the status of the three modules. It takes a few minutes for the IoT Edge runtime to start up in the virtual machine. When it's started, the status of the three modules is **Running**. If the IoT Edge runtime doesn't start, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
+1. Select the **Modules** tab and check the status of the three modules. It takes a few minutes for the IoT Edge runtime to start up in the virtual machine. When the virtual machine is running, the status of the three modules is **Running**. If the IoT Edge runtime doesn't start, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
 
 For your IoT Edge device to function as a gateway, it needs some certificates to prove its identity to any downstream devices. This article uses demo certificates. In a production environment, use certificates from your certificate authority.
 
@@ -364,7 +363,7 @@ To connect a downstream device to the IoT Edge gateway device:
     git clone https://github.com/iot-for-all/iot-central-transform-with-iot-edge
     ```
 
-1. To copy the required certificate from the gateway device, run the following `scp` commands. This `scp` command uses the hostname `edgegateway` to identify the gateway virtual machine. You'll be prompted for your password:
+1. To copy the required certificate from the gateway device, run the following `scp` commands. This `scp` command uses the hostname `edgegateway` to identify the gateway virtual machine. You're prompted for your password:
 
     ```bash
     cd ~/iot-central-transform-with-iot-edge
@@ -505,7 +504,7 @@ This scenario uses the same Azure Functions deployment as the IoT Central device
 | Scope ID | Use the **ID scope** you made a note of previously. |
 | IoT Central SAS Key | Use the shared access signature primary key for the **SaS-IoT-Devices** enrollment group. You made a note of this value previously. |
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json).
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json).
 
 Select **Review + Create**, and then **Create**. It takes a couple of minutes to create the Azure function and related resources in the **egress-scenario** resource group.
 
@@ -601,7 +600,7 @@ Set up the data export to send data to your Device bridge:
 
 ### Verify
 
-The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and npm installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) that has them preinstalled.
+The sample device you use to test the scenario is written in Node.js. Make sure you have Node.js and npm installed on your local machine. If you don't want to install these prerequisites, use the [Azure Cloud Shell](https://shell.azure.com/) where they are preinstalled.
 
 To run a sample device that tests the scenario:
 

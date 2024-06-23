@@ -6,7 +6,6 @@ author: ajetasin
 ms.author: ajetasi
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.custom: seodec18
 ---
 
 # Do sentiment analysis with Azure Stream Analytics and Machine Learning Studio (classic)

@@ -2,11 +2,10 @@
 title: On-premises NAS migration to Azure file shares
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to Azure file shares with Azure DataBox.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 05/16/2024
 ms.author: kendownie
-ms.subservice: files
 recommendations: false
 ---
 
@@ -39,7 +38,7 @@ The goal is to move the shares on your NAS appliance to Azure and have them beco
 The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares and configure networking. Then you'll migrate your files using Azure DataBox, and RoboCopy to catch-up with changes. Finally, you'll cut-over your users and apps to the newly created Azure file shares. The following sections describe the phases of the migration process in detail.
 
 > [!TIP]
-> If you are returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
+> If you're returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
 
 ## Phase 1: Identify how many Azure file shares you need
 
@@ -62,11 +61,9 @@ Remember that an Azure file share is deployed in the cloud in an Azure storage a
 As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
 
 > [!NOTE]
-> There's a limit of 250 storage accounts per subscription per Azure region.
+> There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
 
-Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../common/storage-redundancy.md).
-
-Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
+Another consideration when you're deploying a storage account is redundancy. See [Azure Files redundancy](files-redundancy.md).
 
 If you've made a list of your shares, you should map each share to the storage account it will be created in.
 
@@ -126,11 +123,11 @@ To save time, you should proceed with this phase while you wait for your DataBox
 
 :::row:::
     :::column:::
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        > [!VIDEO https://www.youtube-nocookie.com/embed/jd49W33DxkQ]
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
-        The video references dedicated documentation for some topics:
+        The video references dedicated documentation for the following topics. Note that Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/azureadnewname).
 
 * [Identity overview](storage-files-active-directory-overview.md)
 * [How to domain join a storage account](storage-files-identity-auth-active-directory-enable.md)
@@ -146,7 +143,7 @@ To save time, you should proceed with this phase while you wait for your DataBox
 
 ## Phase 6: Copy files onto your DataBox
 
-When your DataBox arrives, you need to set up your DataBox in a line of sight to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
+When your DataBox arrives, you need to set up your DataBox with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the DataBox type you ordered.
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md)
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md)

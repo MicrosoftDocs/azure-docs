@@ -3,7 +3,7 @@ title: Quickstart – Microsoft Azure confidential ledger with Azure PowerShell
 description: Learn to use the Microsoft Azure confidential ledger through Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 06/08/2022
+ms.date: 01/30/2024
 ms.service: confidential-ledger
 ms.custom: devx-track-azurepowershell
 ms.topic: quickstart
@@ -11,13 +11,17 @@ ms.topic: quickstart
 
 # Quickstart: Create a confidential ledger using Azure PowerShell
 
-Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that must be kept intact. In this quickstart you will use [Azure PowerShell](/powershell/azure/) to create a confidential ledger, view and update its properties, and delete it. For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
+Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that must be kept intact. In this quickstart, you use [Azure PowerShell](/powershell/azure/) to create a confidential ledger, view and update its properties, and delete it. For more information on Azure confidential ledger and examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-In this quickstart, you create a confidential ledger with [Azure PowerShell](/powershell/azure/). If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+In this quickstart, you create a confidential ledger with [Azure PowerShell](/powershell/azure/). If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+
+## Prerequisites
+
+[!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 
 ## Create a resource group
 
@@ -25,26 +29,26 @@ In this quickstart, you create a confidential ledger with [Azure PowerShell](/po
 
 ## Get your principal ID and tenant ID
 
-To create a confidential ledger, you'll need your Azure Active Directory principal ID (also called your object ID).  To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, with the `-SignedIn` flag:
+To create a confidential ledger, use your Microsoft Entra principal ID (also called your object ID). To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, with the `-SignedIn` flag:
 
 ```azurepowershell
 Get-AzADUser -SignedIn
 ```
 
-Your result will be listed under "Id", in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+Your result is listed under "Id", in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ## Create a confidential ledger
 
-Use the Azure Powershell [New-AzConfidentialLedger](/powershell/module/az.confidentialledger/new-azconfidentialledger) command to create a confidential ledger in your new resource group.
+Use the Azure PowerShell [New-AzConfidentialLedger](/powershell/module/az.confidentialledger/new-azconfidentialledger) command to create a confidential ledger in your new resource group.
 
 ```azurepowershell
 New-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Administrator"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }
 
 ```
 
-A successful operation will return the properties of the newly created ledger. Take note of the **ledgerUri**. In the example above, this URI is "https://myledger.confidential-ledger.azure.com".
+A successful operation returns the properties of the newly created ledger. Take note of the **ledgerUri**. In the example above, this URI is "https://myledger.confidential-ledger.azure.com".
 
-You'll need this URI to transact with the confidential ledger from the data plane.
+You need this URI to transact with the confidential ledger from the data plane.
 
 ## View and update your confidential ledger properties
 
@@ -60,7 +64,7 @@ To update the properties of a confidential ledger, use do so, use the Azure Powe
 Update-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Reader"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }
 ```
 
-If you again run [Get-AzConfidentialLedger](/powershell/module/az.confidentialledger/get-azconfidentialledger), you'll see that the role has been updated.
+If you again run [Get-AzConfidentialLedger](/powershell/module/az.confidentialledger/get-azconfidentialledger), you see that the role is updated.
 
 ```json
 "ledgerRoleName": "Reader",

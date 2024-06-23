@@ -1,9 +1,8 @@
 ---
-title: Global distribution with Azure Cosmos DB- under the hood 
+title: Global distribution with Azure Cosmos DB- under the hood
 description: This article provides technical details relating to global distribution of Azure Cosmos DB
 author: seesharprun
 ms.service: cosmos-db
-ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sidandrews
@@ -65,7 +64,7 @@ The service allows you to configure your Azure Cosmos DB databases with either a
 
 ## Conflict resolution
 
-Our design for the update propagation, conflict resolution, and causality tracking is inspired from the prior work on [epidemic algorithms](https://www.kth.se/social/upload/51647982f276546170461c46/4-gossip.pdf) and the [Bayou](https://people.cs.umass.edu/~mcorner/courses/691M/papers/terry.pdf) system. While the kernels of the ideas have survived and provide a convenient frame of reference for communicating the Azure Cosmos DB’s system design, they have also undergone significant transformation as we applied them to the Azure Cosmos DB system. This was needed, because the previous systems were designed neither with the resource governance nor with the scale at which Azure Cosmos DB needs to operate, nor to provide the capabilities (for example, bounded staleness consistency) and the stringent and comprehensive SLAs that Azure Cosmos DB delivers to its customers.  
+Our design for the update propagation, conflict resolution, and causality tracking is inspired from the prior work on [epidemic algorithms](https://www.kth.se/social/upload/51647982f276546170461c46/4-gossip.pdf) and the Bayou system. While the kernels of the ideas have survived and provide a convenient frame of reference for communicating the Azure Cosmos DB’s system design, they have also undergone significant transformation as we applied them to the Azure Cosmos DB system. This was needed, because the previous systems were designed neither with the resource governance nor with the scale at which Azure Cosmos DB needs to operate, nor to provide the capabilities (for example, bounded staleness consistency) and the stringent and comprehensive SLAs that Azure Cosmos DB delivers to its customers.  
 
 Recall that a partition-set is distributed across multiple regions and follows Azure Cosmos DB s (multi-region writes) replication protocol to replicate the data among the physical partitions comprising a given partition-set. Each physical partition (of a partition-set) accepts writes and serves reads typically to the clients that are local to that region. Writes accepted by a physical partition within a region are durably committed and made highly available within the physical partition before they are acknowledged to the client. These are tentative writes and are propagated to other physical partitions within the partition-set using an anti-entropy channel. Clients can request either tentative or committed writes by passing a request header. The anti-entropy propagation (including the frequency of propagation) is dynamic, based on the topology of the partition-set, regional proximity of the physical partitions, and the consistency level configured. Within a partition-set, Azure Cosmos DB follows a primary commit scheme with a dynamically selected arbiter partition. The arbiter selection is dynamic and is an integral part of the reconfiguration of the partition-set based on the topology of the overlay. The committed writes (including multi-row/batched updates) are guaranteed to be ordered. 
 
@@ -88,7 +87,7 @@ The semantics of the five consistency models in Azure Cosmos DB are described [h
 
 Next learn how to configure global distribution by using the following articles:
 
-* [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Add/remove regions from your database account](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

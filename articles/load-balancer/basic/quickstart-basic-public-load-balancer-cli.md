@@ -6,7 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.custom: template-quickstart, devx-track-azurecli
 ---
 
@@ -16,7 +17,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a basic
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -167,6 +168,12 @@ Create a network security group rule using [az network nsg rule create](/cli/azu
 ## Create a bastion host
 
 In this section, you'll create the resources for Azure Bastion. Azure Bastion is used to securely manage the virtual machines in the backend pool of the load balancer.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+
+>
 
 ### Create a public IP address
 

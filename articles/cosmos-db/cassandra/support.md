@@ -6,7 +6,6 @@ ms.author: iriaosara
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022
 ms.topic: overview
 ms.date: 09/14/2020
 ---
@@ -21,6 +20,10 @@ By using the Azure Cosmos DB for Apache Cassandra, you can enjoy the benefits of
 ## Cassandra protocol 
 
 The Azure Cosmos DB for Apache Cassandra is compatible with Cassandra Query Language (CQL) v3.11 API (backward-compatible with version 2.x). The supported CQL commands, tools, limitations, and exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB for Apache Cassandra.
+
+## Azure Managed Instance for Apache Cassandra
+
+For some customers, adapting to API for Cassandra can be a challenge due to differences in behaviour and/or configuration, especially for lift-and-shift migrations. If a feature that is critical for your application is listed as not supported below, consider using [Azure Managed Instance for Apache Cassandra](../../managed-instance-apache-cassandra/introduction.md). This is a first-party Azure service for hosting and maintaining pure open-source Apache Cassandra clusters with 100% compatibility.
 
 ## Cassandra driver
 
@@ -146,7 +149,7 @@ Azure Cosmos DB supports the following database commands on API for Cassandra ac
 | `COMPACT STORAGE` | N/A (PaaS service) |
 | `CREATE AGGREGATE` | No | 
 | `CREATE CUSTOM INDEX (SASI)` | No |
-| `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md), and cluster key index is currently in [private preview](https://devblogs.microsoft.com/cosmosdb/now-in-private-preview-cluster-key-index-support-for-azure-cosmos-db-cassandra-api/) but full FROZEN collection is not supported) |
+| `CREATE INDEX` | Yes (including [named indexes](secondary-indexing.md) but full FROZEN collection is not supported) |
 | `CREATE FUNCTION` | No |
 | `CREATE KEYSPACE` (replication settings ignored) | Yes |
 | `CREATE MATERIALIZED VIEW` | Yes |
@@ -332,7 +335,7 @@ Azure Cosmos DB supports Azure role-based access control (Azure RBAC) for provis
 
 ## Keyspace and Table options
 
-The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB's [global distribution](../global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](../how-to-manage-database-account.md#addremove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](../global-dist-under-the-hood.md) can't be modified.
+The options for region name, class, replication_factor, and datacenter in the "Create Keyspace" command are ignored currently. The system uses the underlying Azure Cosmos DB's [global distribution](../global-dist-under-the-hood.md) replication method to add the regions. If you need the cross-region presence of data, you can enable it at the account level with PowerShell, CLI, or portal, to learn more, see the [how to add regions](../how-to-manage-database-account.yml#add-remove-regions-from-your-database-account) article. Durable_writes can't be disabled because Azure Cosmos DB ensures every write is durable. In every region, Azure Cosmos DB replicates the data across the replica set that is made up of four replicas and this replica set [configuration](../global-dist-under-the-hood.md) can't be modified.
  
 All the options are ignored when creating the table, except gc_grace_seconds, which should be set to zero.
 The Keyspace and table have an extra option named "cosmosdb_provisioned_throughput" with a minimum value of 400 RU/s. The Keyspace throughput allows sharing throughput across multiple tables and it is useful for scenarios when all tables are not utilizing the provisioned throughput. Alter Table command allows changing the provisioned throughput across the regions. 

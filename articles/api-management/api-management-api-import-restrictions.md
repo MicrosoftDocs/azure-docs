@@ -3,16 +3,19 @@ title: Restrictions and details of API formats support
 titleSuffix: Azure API Management
 description: Details of known issues and restrictions on OpenAPI, WSDL, and WADL formats support in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
+ms.custom:
+  - build-2024
 ms.topic: conceptual
-ms.date: 03/02/2022
+ms.date: 04/24/2024
 ms.author: danlep
 ---
 
 # API import restrictions and known issues
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 When importing an API, you might encounter some restrictions or need to identify and rectify issues before you can successfully import. In this article, you'll learn:
 
@@ -25,12 +28,10 @@ When importing an API, you might encounter some restrictions or need to identify
 During OpenAPI import, API Management:
 
 * Checks specifically for query string parameters marked as required.
-* Converts the query string parameters to template parameters. 
+* By default, converts the required query string parameters to required template parameters. 
 
-If you prefer a different behavior, you can either: 
+If you prefer that required query parameters in the specification are translated to query parameters in API Management, disable the **Include query parameters in operation templates** setting when creating the API in the portal. You can also accomplish this by using the [APIs - Create or Update](/rest/api/apimanagement/current-ga/apis/create-or-update) REST API to set the API's `translateRequiredQueryParameters` property to `query`.
 
-* Manually change via form-based editor, or 
-* Remove the "required" attribute from the OpenAPI definition, thus not converting them to template parameters.
 
 For GET, HEAD, and OPTIONS operations, API Management discards a request body parameter if defined in the OpenAPI specification. 
 
@@ -47,7 +48,7 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 | Requirement | Description |
 | ----------- | ----------- |
-| **Unique names for required path and query parameters** | In OpenAPI: <ul><li>A parameter name only needs to be unique within a location, for example path, query, header.</li></ul>In API Management:<ul><li>We allow operations to be discriminated by both path and query parameters.</li><li>OpenAPI doesn't support this discrimination, so we require parameter names to be unique within the entire URL template.</li></ul>  |
+| **Unique names for required path and query parameters** | In OpenAPI: <ul><li>A parameter name only needs to be unique within a location, for example path, query, header.</li></ul>In API Management:<ul><li>We allow operations to be discriminated by both path and query parameters.</li><li>OpenAPI doesn't support this discrimination, so we require parameter names to be unique within the entire URL template. Names are case-insensitive.</li></ul>  |
 | **Defined URL parameter** | Must be part of the URL template. |
 | **Available source file URL** | Applied to relative server URLs. |
 | **`\$ref` pointers** | Can't reference external files. |
@@ -68,7 +69,7 @@ API Management only supports:
 | Size limit | Description |
 | ---------- | ----------- |
 | **Up to 4 MB** | When an OpenAPI specification is imported inline to API Management. |
-| **Size limit doesn't apply** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. |
+| **Azure Resource Manager API request size** | When an OpenAPI document is provided via a URL to a location accessible from your API Management service. See [Azure subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). |
 
 #### Supported extensions
 
@@ -248,10 +249,16 @@ This message type is not supported.
 - Types defined recursively aren't supported by API Management.
 - For example, refer to an array of themselves.
 
-### Multiple Namespaces
+### Multiple namespaces
 While multiple namespaces can be used in a schema, only the target namespace can be used to define message parts. These namespaces are used to define other input or output elements.
 
 Namespaces other than the target aren't preserved on export. While you can import a WSDL document defining message parts with other namespaces, all message parts will have the WSDL target namespace on export.
+
+### Multiple endpoints
+WSDL files can define multiple services and endpoints (ports) by one or more `wsdl:service` and `wsdl:port` elements. However, the API Management gateway is able to import and proxy requests to only a single service and endpoint. If multiple services or endpoints are defined in the WSDL file, identify the target service name and endpoint when importing the API by using the [wsdlSelector](/rest/api/apimanagement/apis/create-or-update#wsdlselector) property.
+
+> [!TIP]
+> If you want to load-balance requests across multiple services and endpoints, consider configuring a [load-balanced backend pool](backends.md#load-balanced-pool).
 
 ### Arrays 
 SOAP-to-REST transformation supports only wrapped arrays shown in the example below:

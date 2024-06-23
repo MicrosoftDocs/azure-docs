@@ -1,41 +1,43 @@
 ---
-title: FAQs about FHIR service in Azure Health Data Services
+title: FAQ about FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about FHIR service, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
 author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/06/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ms.custom: references_regions
 ---
 
 # Frequently asked questions about FHIR service
 
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
 This section covers some of the frequently asked questions about the Azure Health Data Services FHIR service (hereby called FHIR service).
 
-## FHIR service: The Basics
+## FHIR service: The basics
 
 ### What is FHIR?
 
-The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The FHIR service supports R4 and the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
+The Fast Healthcare Interoperability Resources (FHIR) is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The FHIR service supports R4 and the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
 
 ### Is the data behind the FHIR APIs stored in Azure?
 
 Yes, the data is stored in managed databases in Azure. The FHIR service in Azure Health Data Services doesn't provide direct access to the underlying data store.
 
-## How can I get access to the underlying data?
+### How can I get access to the underlying data?
 
 In the managed service, you can't access the underlying data. This is to ensure that the FHIR service offers the privacy and compliance certifications needed for healthcare data. If you need access to the underlying data, you can use the [open-source FHIR server](https://github.com/microsoft/fhir-server).  
 
 ### What identity provider do you support?
 
-We support Microsoft Azure Active Directory as the identity provider.
+We support Microsoft Entra ID as the identity provider.
 
-## Can I use Azure AD B2C with the FHIR service?
+### Can I use Azure AD B2C with the FHIR service?
 
-No, we don't support B2C in the FHIR service. If you need more granular access controls, we recommend looking at the [open-source FHIR proxy](https://github.com/microsoft/fhir-proxy). 
+Yes. You can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR service to grant access to your applications and users. For more information, see [Use Azure Active Directory B2C to grant access to the FHIR service](../fhir/azure-ad-b2c-setup.md).
 
 ### What FHIR version do you support?
 
@@ -45,11 +47,14 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 
 ### What is the difference between Azure API for FHIR and the FHIR service in the Azure Health Data Services?
 
-FHIR service is our implementation of the FHIR specification that sits in the Azure Health Data Services, which allows you to have a FHIR service and a DICOM service within a single workspace. Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
+Azure API for FHIR was our initial generally available product and is being retired as of September 30, 2026. The Azure Health Data Services FHIR service supports additional capabilities such as: 
 
-* FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
-* FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-* Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that aren't yet available in FHIR service in Azure Health Data Services. More details will follow on these features by GA.
+- [Transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
+- [Incremental Import](configure-import-data.md)
+- [Autoscaling](fhir-service-autoscale.md) enabled by default
+
+By default each Azure Health Data Services, FHIR instance is limited to storage capacity of 4TB.
+To provision a FHIR instance with storage capacity beyond 4TB, create support request with Issue type 'Service and Subscription limit (quotas)'.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 
@@ -89,7 +94,8 @@ SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a 
 
 ### Does the FHIR service support SMART on FHIR?
 
-We have a basic SMART on FHIR proxy as part of the managed service. If this doesn’t meet your needs, you can use the open-source FHIR proxy for more advanced SMART scenarios. 
+Yes, SMART on FHIR capability is supported using [AHDS samples](https://aka.ms/azure-health-data-services-smart-on-fhir-sample). This is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
+
 
 ### Can I create a custom FHIR resource?
 
@@ -125,8 +131,7 @@ No, the FHIR service doesn't support terminology operations today.
 
 ### What are the differences between delete types in the FHIR service? 
 
-There are two basic Delete types supported within the FHIR service. These are [Delete and Conditional Delete](././../fhir/fhir-rest-api-capabilities.md#delete-and-conditional-delete).
-
+There are two basic Delete types supported within the FHIR service. They are [Delete and Conditional Delete](rest-api-capabilities.md#delete-and-conditional-delete).
 
 * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
 * With Conditional Delete, you can pass search criteria to delete a resource one item at a time or several at a time.
@@ -136,12 +141,9 @@ There are two basic Delete types supported within the FHIR service. These are [D
 
 ### Can I perform health checks on FHIR service?
 
-To perform health check on FHIR service , enter `{{fhirurl}}/health/check` in the GET request. You should be able to see Status of FHIR service. HTTP Status code response with 200 and OverallStatus as "Healthy" in response, means your health check is succesful.
-In case of errors, you will recieve error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in response body in some scenarios.
+To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in the GET request. You should be able to see status of FHIR service. HTTP Status code response with 200 and OverallStatus as **Healthy** in response means your health check is successful.
 
-### Where can I see some examples of using the FHIR service within a workflow?
-
-We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
+In case of errors, you may receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
 
 ## Next steps
 

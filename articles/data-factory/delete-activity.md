@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 05/15/2024
 ---
 
 # Delete Activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
+You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they're no longer needed.
 
 > [!WARNING]
 > Deleted files or folders cannot be restored (unless the storage has soft-delete enabled). Be cautious when using the Delete activity to delete files or folders.
@@ -28,31 +28,32 @@ Here are some recommendations for using the Delete activity:
 
 -   Make sure that the service has write permissions to delete folders or files from the storage store.
 
--   Make sure you are not deleting files that are being written at the same time. 
+-   Make sure you aren't deleting files that are being written at the same time. 
 
--   If you want to delete files or folder from an on-premises system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
+-   If you want to delete files or folder from an on-premises system, make sure you're using a self-hosted integration runtime with a version greater than 3.14.
 
 ## Supported data stores
 
--   [Azure Blob storage](connector-azure-blob-storage.md)
--   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure Files](connector-azure-file-storage.md)
--   [File System](connector-file-system.md)
--   [FTP](connector-ftp.md)
--   [SFTP](connector-sftp.md)
--   [Amazon S3](connector-amazon-simple-storage-service.md)
--   [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
--   [Google Cloud Storage](connector-google-cloud-storage.md)
--   [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
--   [HDFS](connector-hdfs.md)
+- [Azure Blob storage](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Azure Files](connector-azure-file-storage.md)
+- [File System](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [SFTP](connector-sftp.md)
+- [Microsoft Fabric Lakehouse](connector-microsoft-fabric-lakehouse.md)
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
 
 ## Create a Delete activity with UI
 
 To use a Delete activity in a pipeline, complete the following steps:
 
 1. Search for _Delete_ in the pipeline Activities pane, and drag a Delete activity to the pipeline canvas.
-1. Select the new Delete activity on the canvas if it is not already selected, and its  **Source** tab, to edit its details.
+1. Select the new Delete activity on the canvas if it isn't already selected, and its  **Source** tab, to edit its details.
 
    :::image type="content" source="media/delete-activity/delete-activity.png" alt-text="Shows the UI for a Delete activity.":::
 
@@ -97,10 +98,10 @@ To use a Delete activity in a pipeline, complete the following steps:
 | dataset | Provides the dataset reference to determine which files or folder to be deleted | Yes |
 | recursive | Indicates whether the files are deleted recursively from the subfolders or only from the specified folder.  | No. The default is `false`. |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently for deleting folder or files.   |  No. The default is `1`. |
-| enablelogging | Indicates whether you need to record the folder or file names that have been deleted. If true, you need to further provide a storage account to save the log file, so that you can track the behaviors of the Delete activity by reading the log file. | No |
-| logStorageSettings | Only applicable when enablelogging = true.<br/><br/>A group of storage properties that can be specified where you want to save the log file containing the folder or file names that have been deleted by the Delete activity. | No |
-| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log file that contains the folder or file names that have been deleted by the Delete activity. Be aware it must be configured with the same type of Integration Runtime from the one used by delete activity to delete files. | No |
-| path | Only applicable when enablelogging = true.<br/><br/>The path to save the log file in your storage account. If you do not provide a path, the service creates a container for you. | No |
+| enable logging | Indicates whether you need to record the deleted folder or file names. If true, you need to further provide a storage account to save the log file, so that you can track the behaviors of the Delete activity by reading the log file. | No |
+| logStorageSettings | Only applicable when enablelogging = true.<br/><br/>A group of storage properties that can be specified where you want to save the log file containing the folder or file names deleted by the Delete activity. | No |
+| linkedServiceName | Only applicable when enablelogging = true.<br/><br/>The linked service of [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the log file that contains the folder or file names deleted by the Delete activity. Be aware it must be configured with the same type of Integration Runtime from the one used by delete activity to delete files. | No |
+| path | Only applicable when enablelogging = true.<br/><br/>The path to save the log file in your storage account. If you don't provide a path, the service creates a container for you. | No |
 
 ## Monitoring
 
@@ -143,18 +144,18 @@ The store has the following folder structure:
 
 Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt
 
-Now you are using the Delete activity to delete folder or files by the combination of different property value from the dataset and the Delete activity:
+Now you're using the Delete activity to delete folder or files by the combination of different property value from the dataset and the Delete activity:
 
 | folderPath | fileName | recursive | Output |
 |:--- |:--- |:--- |:--- |
-| Root/ Folder_A_2 | NULL | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
-| Root/ Folder_A_2 | NULL | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
-| Root/ Folder_A_2 | *.txt | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
-| Root/ Folder_A_2 | *.txt | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
+| Root/ Folder_A_2 | NULL | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~4.txt~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.csv~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
+| Root/ Folder_A_2 | NULL | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;~~Folder_A_2/~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~4.txt~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~5.csv~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~Folder_B_1/~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~6.txt~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~7.csv~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~Folder_B_2/~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~8.txt~~ |
+| Root/ Folder_A_2 | *.txt | False | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~4.txt~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
+| Root/ Folder_A_2 | *.txt | True | Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~4.txt~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~6.txt~~<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~~8.txt~~ |
 
 ### Periodically clean up the time-partitioned folder or files
 
-You can create a pipeline to periodically clean up the time partitioned folder or files.  For example, the folder structure is similar as: `/mycontainer/2018/12/14/*.csv`.  You can leverage the service system variable from schedule trigger to identify which folder or files should be deleted in each pipeline run. 
+You can create a pipeline to periodically clean up the time partitioned folder or files.  For example, the folder structure is similar as: `/mycontainer/2018/12/14/*.csv`.  You can use the service system variable from schedule trigger to identify which folder or files should be deleted in each pipeline run. 
 
 #### Sample pipeline
 
@@ -294,7 +295,7 @@ You can create a pipeline to periodically clean up the time partitioned folder o
 
 ### Clean up the expired files that were last modified before 2018.1.1
 
-You can create a pipeline to clean up the old or expired files by leveraging file attribute filter: “LastModified” in dataset.  
+You can create a pipeline to clean up the old or expired files by using file attribute filter: "LastModified" in dataset.  
 
 #### Sample pipeline
 
@@ -375,7 +376,7 @@ You can create a pipeline to clean up the old or expired files by leveraging fil
 
 ### Move files by chaining the Copy activity and the Delete activity
 
-You can move a file by using a Copy activity to copy a file and then a Delete activity to delete a file in a pipeline.  When you want to move multiple files, you can use the GetMetadata activity + Filter activity + Foreach activity + Copy activity + Delete activity as in the following sample.
+You can move a file by using a Copy activity to copy a file and then a Delete activity to delete a file in a pipeline. When you want to move multiple files, you can use the GetMetadata activity + Filter activity + Foreach activity + Copy activity + Delete activity as in the following sample.
 
 > [!NOTE]
 > If you want to move the entire folder by defining a dataset containing a folder path only, and then using a Copy activity and a Delete activity to reference to the same dataset representing a folder, you need to be very careful. You must ensure that there **will not** be any new files arriving into the folder between the copy operation and the delete operation. If new files arrive in the folder at the moment when your copy activity just completed the copy job but the Delete activity has not been started, then the Delete activity might delete the newly arriving file which has NOT been copied to the destination yet by deleting the entire folder. 
@@ -769,14 +770,14 @@ Dataset for data destination used by copy activity.
 
 You can also get the template to move files from [here](solution-template-move-files.md).
 
-## Known limitation
+## Known limitations
 
--   Delete activity does not support deleting list of folders described by wildcard.
+- Delete activity doesn't support deleting list of folders described by wildcard.
 
--   When using file attribute filter in delete activity: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "wildcardFileName": "*" in delete activity as well.
+- When using file attribute filter in delete activity: modifiedDatetimeStart and modifiedDatetimeEnd to select files to be deleted, make sure to set "wildcardFileName": "*" in delete activity as well.
 
-## Next steps
+## Related content
 
 Learn more about moving files in Azure Data Factory and Synapse pipelines.
 
--   [Copy Data tool](copy-data-tool.md)
+- [Copy Data tool](copy-data-tool.md)

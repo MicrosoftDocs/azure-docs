@@ -9,7 +9,7 @@ ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 08/20/2019
-ms.custom: "amqp, devx-track-csharp"
+ms.custom: amqp, devx-track-csharp, devx-track-dotnet
 ---
 # Get started with IoT Hub module identity and module twin using the Azure portal and a .NET device
 
@@ -32,9 +32,17 @@ In this article, you will learn how to:
 
 * Visual Studio.
 
-* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+* A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
+
+## Module authentication
+
+You can use symmetric keys or X.509 certificates to authenticate module identities. For X.509 certificate authentication, the module's certificate *must* have its common name (CN) formatted like `CN=<deviceid>/<moduleid>`. For example:
+
+```bash
+openssl req -new -key d1m1.key.pem -out d1m1.csr -subj "/CN=device01\/module01"
+```
 
 ## Create a module identity in the portal
 
@@ -70,7 +78,7 @@ To create an app that updates the module twin, reported properties, follow these
 
 ### Install the latest Azure IoT Hub .NET device SDK
 
-Module identity and module twin is only available in the IoT Hub pre-release device SDKs. To install it, follow these steps:
+The module identity and module twin features are only available in the IoT Hub pre-release device SDKs. To install it, follow these steps:
 
 1. In Visual Studio, open **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**.
 

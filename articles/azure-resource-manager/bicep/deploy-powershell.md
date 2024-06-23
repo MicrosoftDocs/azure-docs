@@ -1,10 +1,9 @@
 ---
 title: Deploy resources with PowerShell and Bicep
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Bicep file.
-author: mumian
-ms.author: jgao
-ms.topic: conceptual
-ms.date: 08/05/2022
+ms.topic: how-to
+ms.custom: devx-track-arm-template, devx-track-bicep, devx-track-azurepowershell
+ms.date: 06/14/2024
 ---
 
 # Deploy resources with Bicep and Azure PowerShell
@@ -17,7 +16,7 @@ You need a Bicep file to deploy. The file must be local.
 
 You need Azure PowerShell and to be connected to Azure:
 
-- **Install Azure PowerShell cmdlets on your local computer.** To deploy Bicep files, you need [Azure PowerShell](/powershell/azure/install-az-ps) version **5.6.0 or later**. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Install Azure PowerShell cmdlets on your local computer.** To deploy Bicep files, you need [Azure PowerShell](/powershell/azure/install-azure-powershell) version **5.6.0 or later**. For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Install Bicep CLI.** Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must [manually install the Bicep CLI](install.md#install-manually).
 - **Connect to Azure by using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
 
@@ -71,7 +70,7 @@ If you're deploying to a resource group that doesn't exist, create the resource 
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 ```
 
-To deploy a local Bicep file, use the `-TemplateFile` parameter in the deployment command.
+To deploy a local Bicep file, use the `-TemplateFile` switch in the deployment command.
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -84,11 +83,11 @@ The deployment can take several minutes to complete.
 
 ## Deploy remote Bicep file
 
-Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep#az-bicep-build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure PowerShell doesn't support deploying remote Bicep files. Use [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) to [build](/cli/azure/bicep#az-bicep-build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Parameters
 
-To pass parameter values, you can use either inline parameters or a parameter file.
+To pass parameter values, you can use either inline parameters or a parameters file. The parameters file can be either a [Bicep parameters file](#bicep-parameter-files) or a [JSON parameters file](#json-parameters-files).
 
 ### Inline parameters
 
@@ -100,6 +99,19 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile <path-to-bicep> `
   -exampleString "inline string" `
   -exampleArray $arrayParam
+```
+
+You can use the `TemplateParameterObject` parameter to pass through a hashtable that contains the parameters for the template.
+
+```powershell
+$params = @{
+  exampleString = "inline string"
+  exampleArray = "value1", "value2"
+}
+
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile <path-to-bicep> `
+  -TemplateParameterObject $params
 ```
 
 You can also get the contents of file and provide that content as an inline parameter.
@@ -125,27 +137,50 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $subnetArray
 ```
 
-### Parameter files
+### Bicep parameter files
 
-Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file can be a local file or an external file with an accessible URI. Bicep file uses JSON parameter files.
+Rather than passing parameters as inline values in your script, you might find it easier to use a parameters file, either a `.bicepparam` file or a JSON parameters file, that contains the parameter values. The Bicep parameters file must be a local file.
 
-For more information about the parameter file, see [Create Resource Manager parameter file](./parameter-files.md).
+With Azure PowerShell version 10.4.0 or later, and [Bicep CLI version 0.22.X or higher](./install.md), you can deploy a Bicep file by utilizing a Bicep parameter file. With the `using` statement within the Bicep parameters file, there is no need to provide the `-TemplateFile` switch when specifying a Bicep parameter file for the `-TemplateParameterFile` switch.
 
-To pass a local parameter file, use the `TemplateParameterFile` parameter:
+The following example shows a parameters file named _storage.bicepparam_. The file is in the same directory where the command is run.
 
 ```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateParameterFile storage.bicepparam
+```
+
+For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
+
+### JSON parameters files
+
+The JSON parameters file can be a local file or an external file with an accessible URI. For more information about the parameters file, see [Create Resource Manager parameters file](./parameter-files.md).
+
+To pass a local parameters file, use the `TemplateParameterFile` switch with a JSON parameters file:
+
+```powershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\BicepFiles\storage.bicep `
   -TemplateParameterFile c:\BicepFiles\storage.parameters.json
 ```
 
-To pass an external parameter file, use the `TemplateParameterUri` parameter:
+To pass an external parameters file, use the `TemplateParameterUri` parameter:
 
 ```powershell
-New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\BicepFiles\storage.bicep `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
+
+The `TemplateParameterUri` parameter doesn't support `.bicepparam` files, it only supports JSON parameters files.
+
+You can use inline parameters and a location parameters file in the same deployment operation. For more information, see [Parameter precedence](./parameter-files.md#parameter-precedence).
 
 ## Preview changes
 

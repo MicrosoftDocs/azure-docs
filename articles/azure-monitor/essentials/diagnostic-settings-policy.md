@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/25/2023
+ms.date: 05/30/2024
 ms.reviewer: lualderm
 ---
 
@@ -37,7 +37,7 @@ For resource types that don't have a built-in policy, you need to create a custo
 
 The script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) creates policy files for a particular resource type that you can install by using PowerShell or the Azure CLI. Use the following procedure to create a custom policy definition for diagnostic settings:
 
-1. Ensure that you have [Azure PowerShell](/powershell/azure/install-az-ps) installed.
+1. Ensure that you have [Azure PowerShell](/powershell/azure/install-azure-powershell) installed.
 2. Install the script by using the following command:
   
     ```azurepowershell
@@ -80,24 +80,24 @@ For details on creating an initiative, see [Create and assign an initiative defi
 
 - Set **Category** to **Monitoring** to group it with related built-in and custom policy definitions.
 - Instead of specifying the details for the Log Analytics workspace and the event hub for policy definitions included in the initiative, use a common initiative parameter. This parameter allows you to easily specify a common value for all policy definitions and change that value if necessary.
-
-![Screenshot that shows settings for initiative definition.](media/diagnostic-settings-policy/initiative-definition.png)
+<!-- convertborder later -->
+:::image type="content" source="media/diagnostic-settings-policy/initiative-definition.png" lightbox="media/diagnostic-settings-policy/initiative-definition.png" alt-text="Screenshot that shows settings for initiative definition." border="false":::
 
 ## Assignment 
 Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
-
-![Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in the Azure portal.](media/diagnostic-settings-policy/initiative-assignment.png)
+<!-- convertborder later -->
+:::image type="content" source="media/diagnostic-settings-policy/initiative-assignment.png" lightbox="media/diagnostic-settings-policy/initiative-assignment.png" alt-text="Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in the Azure portal." border="false":::
 
 By using initiative parameters, you can specify the workspace or any other details once for all of the policy definitions in the initiative. 
-
-![Screenshot that shows initiative parameters on the Parameters tab.](media/diagnostic-settings-policy/initiative-parameters.png)
+<!-- convertborder later -->
+:::image type="content" source="media/diagnostic-settings-policy/initiative-parameters.png" lightbox="media/diagnostic-settings-policy/initiative-parameters.png" alt-text="Screenshot that shows initiative parameters on the Parameters tab." border="false":::
 
 ## Remediation
 The initiative will be applied to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can create diagnostic settings for any resources that were already created.
 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
-
-![Screenshot that shows initiative remediation for a Log Analytics workspace.](media/diagnostic-settings-policy/initiative-remediation.png)
+<!-- convertborder later -->
+:::image type="content" source="media/diagnostic-settings-policy/initiative-remediation.png" lightbox="media/diagnostic-settings-policy/initiative-remediation.png" alt-text="Screenshot that shows initiative remediation for a Log Analytics workspace." border="false":::
 
 ## Troubleshooting
 

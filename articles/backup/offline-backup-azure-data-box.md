@@ -2,11 +2,11 @@
 title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
 ms.topic: how-to
-ms.date: 1/23/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 05/24/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ms.service: backup
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 
 # Azure Backup offline backup by using Azure Data Box
@@ -34,6 +34,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 | Windows 8 64 bit                      | Enterprise, Pro                                             |
 | Windows 7 64 bit                      | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | **Server**                             |                                                              |
+| Windows Server 2022 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2019 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2016 64 bit            | Standard, Datacenter, Essentials                            |
 | Windows Server 2012 R2 64 bit         | Standard, Datacenter, Foundation                            |
@@ -65,6 +66,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 - The process requires that the user designated to perform the offline backup policy is an owner of the Azure subscription.
 - The Data Box job and the Recovery Services vault (to which the data needs to be seeded) are required to be in the same subscriptions.
 - We recommend that the target storage account associated with the Azure Data Box job and the Recovery Services vault are in the same region. However, this isn't necessary.
+- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 
 ### Get Azure PowerShell 3.7.0
 
@@ -250,11 +252,11 @@ This section explains the steps to take after the backup of the data to the Azur
 
 ## Troubleshooting
 
-The Microsoft Azure Recovery Services (MARS) Agent creates an Azure Active Directory (Azure AD) application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Azure AD application.
+The Microsoft Azure Recovery Services (MARS) Agent creates a Microsoft Entra application for you in your tenant. This application requires a certificate for authentication that's created and uploaded when you configure an offline seeding policy. We use Azure PowerShell to create and upload the certificate to the Microsoft Entra application.
 
 ### Problem
 
-When you configure offline backup, you might face a problem because of a bug in the Azure PowerShell cmdlet. You might be unable to add multiple certificates to the same Azure AD application created by the MAB Agent. This problem will affect you if you configured an offline seeding policy for the same or a different server.
+When you configure offline backup, you might face a problem because of a bug in the Azure PowerShell cmdlet. You might be unable to add multiple certificates to the same Microsoft Entra application created by the MAB Agent. This problem will affect you if you configured an offline seeding policy for the same or a different server.
 
 ### Verify if the problem is caused by this specific root cause
 
@@ -282,7 +284,7 @@ Sign in to PowerShell that appears on the MAB UI by using a different account wi
 
 #### Step 2 of workaround
 
-If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Azure Active Directory** > **App registrations**.
+If no other server has offline seeding configured and no other server is dependent on the `AzureOfflineBackup_<Azure User Id>` application, delete this application. Select **Azure portal** > **Microsoft Entra ID** > **App registrations**.
 
 >[!NOTE]
 > Check to see if the `AzureOfflineBackup_<Azure User Id>` application doesn't have any other offline seeding configured and also if no other server is dependent on this application. Go to **Settings** > **Keys** under the **Public Keys** section. It shouldn't have any other public keys added. See the following screenshot for reference.

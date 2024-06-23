@@ -2,10 +2,10 @@
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
 ms.topic: conceptual
-ms.date: 09/17/2021 
+ms.date: 06/03/2024 
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up Azure Managed Disks using Azure PowerShell
@@ -28,7 +28,7 @@ For information on the Azure Disk backup region availability, supported scenario
 
 A Backup vault is a storage entity in Azure that holds backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we will create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a backup vault.Learn more about [creating a Backup vault](./backup-vault-overview.md#create-a-backup-vault).
+Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we'll create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a backup vault. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurepowershell-interactive
 $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant/GeoRedundant -DataStoreType VaultStore
@@ -108,7 +108,9 @@ TargetDataStoreCopySetting :
 Azure Disk Backup offers multiple backups per day. If you require more frequent backups, choose the **Hourly** backup frequency with the ability to take backups with intervals of every 4, 6, 8 or 12 hours. The backups are scheduled based on the **Time** interval selected. For example, if you select **Every 4 hours**, then the backups are taken at approximately in the interval of every 4 hours so the backups are distributed equally across the day. If a once a day backup is sufficient, then choose the **Daily** backup frequency. In the daily backup frequency, you can specify the time of the day when your backups are taken. It's important to note that the time of the day indicates the backup start time and not the time when the backup completes. The time required for completing the backup operation is dependent on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
 
    >[!NOTE]
-   > Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
+   >- Although the selected vault may have the global-redundancy setting, currently Azure Disk Backup supports snapshot datastore only. All backups are stored in a resource group in your subscription and aren't copied to backup vault storage.
+   >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
+   >- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
 
 To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
 
@@ -132,7 +134,7 @@ Once the vault and policy are created, there are 3 critical points that the user
 
 #### Disk to be protected
 
-Fetch the ARM ID of the disk to be protected. This will serve as the identifier of the disk. We will use an example of a disk named "PSTestDisk" under a resource group "diskrg" under a different subscription.
+Fetch the ARM ID of the disk to be protected. This will serve as the identifier of the disk. We'll use an example of a disk named "PSTestDisk" under a resource group "diskrg" under a different subscription.
 
 ```azurepowershell-interactive
 $DiskId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/PSTestDisk"
@@ -188,7 +190,7 @@ To configure backup of managed disks, ensure the following prerequisites:
 
   1. Go to **Backup vault** -> **Identity** and select **Azure role assignments**.
  
-     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments-inline.png" alt-text="Screenshot showing the selection of Azure role assignments." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments-expanded.png":::
+     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments.png" alt-text="Screenshot showing the selection of Azure role assignments." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments.png":::
 
   1. Verify that the role, resource name, and resource type are correct.
  
@@ -219,7 +221,7 @@ Fetch the relevant backup instance on which the user desires to trigger a backup
 $instance = Get-AzDataProtectionBackupInstance -SubscriptionId "xxxx-xxx-xxx" -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name "BackupInstanceName"
 ```
 
-You can specify a retention rule while triggering backup. To view the retention rules in policy, navigate through the policy object for retention rules. In the below example, the rule with name 'default' is displayed and we will use that rule for the on-demand backup
+You can specify a retention rule while triggering backup. To view the retention rules in policy, navigate through the policy object for retention rules. In the below example, the rule with name 'default' is displayed and we'll use that rule for the on-demand backup
 
 ```azurepowershell-interactive
 $policyDefn.PolicyRule | fl

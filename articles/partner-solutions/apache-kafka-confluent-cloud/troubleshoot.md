@@ -1,15 +1,14 @@
 ---
-title: Troubleshooting Apache Kafka for Confluent Cloud
+title: Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
+# customerIntent: As a developer I want to troubleshoot an error or get an answer to questions I have about using Apache Kafka & Apache Flink on Confluent Cloud.
 ms.topic: conceptual
-ms.date: 02/18/2021
-author: flang-msft
-ms.author: franlanglois
+ms.date: 1/31/2024
 ---
 
-# Troubleshooting Apache Kafka for Confluent Cloud solutions
+# Troubleshooting Apache Kafka & Apache Flink on Confluent Cloud solutions
 
-This document contains information about troubleshooting your solutions that use Apache Kafka for Confluent Cloud.
+This document contains information about troubleshooting your solutions that use Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service.
 
 If you don't find an answer or can't resolve a problem, [create a request through the Azure portal](get-support.md) or contact [Confluent support](https://support.confluent.io).
 
@@ -18,20 +17,16 @@ If you don't find an answer or can't resolve a problem, [create a request throug
 To find the offer in the Azure Marketplace, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
-1. Search for _Apache Kafka on Confluent Cloud_.
+1. Search for _Apache Kafka® & Apache Flink® on Confluent Cloud™ - An Azure Native ISV Service_.
 1. Select the application tile.
 
-If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Azure Active Directory tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Azure Active Directory tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Microsoft Entra tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Microsoft Entra tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name).
 
 ## Purchase errors
 
-* Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
+[!INCLUDE [marketplace-purchase-errors](../includes/marketplace-purchase-errors.md)]
 
-  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
-
-* The EA subscription doesn't allow Marketplace purchases.
-
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Confluent support](https://support.confluent.io).
+If those options don't solve the problem, contact [Confluent support](https://support.confluent.io).
 
 ## Conflict error
 
@@ -59,16 +54,23 @@ This error could be an intermittent problem with the Azure portal. Try to deploy
 
 ## Unable to delete
 
-If you're unable to delete Confluent resources, verify you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.md).
+If you're unable to delete Confluent resources, verify you have permissions to delete the resource. You must be allowed to take Microsoft.Confluent/*/Delete actions. For information about viewing permissions, see [List Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-list-portal.yml).
 
 If you have the correct permissions but still can't delete the resource, contact [Confluent support](https://support.confluent.io). This condition might be related to Confluent's retention policy. Confluent support can delete the organization and email address for you.
 
 ## Unable to use single sign-on
 
-If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Azure Active Directory email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](manage.md#single-sign-on).
+If SSO isn't working for the Confluent Cloud SaaS portal, verify you're using the correct Microsoft Entra ID email. You must also have consented to allow access for the Confluent Cloud software as a service (SaaS) portal. For more information, see the [single sign-on guidance](manage.md#single-sign-on).
 
 If the problem persists, contact [Confluent support](https://support.confluent.io).
 
 ## Next steps
 
-Learn about [managing your instance](manage.md) of Apache Kafka for Confluent Cloud.
+- Learn about [managing your instance](manage.md) of Apache Kafka & Apache Flink on Confluent Cloud.
+- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/confluentinc.confluent-cloud-azure-prod?tab=Overview)

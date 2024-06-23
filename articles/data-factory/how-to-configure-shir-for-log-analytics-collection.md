@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 08/09/2022
+ms.date: 01/05/2024
 ms.author: jburchel
 ---
 
@@ -42,7 +42,7 @@ It's important to note that when choosing the event logs using the interface, it
 
 The event journal name we must configure are:
 
-- Connectors – Integration Runtime
+- Connectors - Integration Runtime
 - Integration Runtime
 
 :::image type="content" source="media/how-to-configure-shir-for-log-analytics-collection/configure-journals-for-collection.png" alt-text="Screenshot of the selection of the SHIR relevant logs with errors and warnings checked.":::
@@ -63,8 +63,9 @@ In the interface, when first configuring it, a suggested counter set will be rec
 
 ## View Events and Performance counter data in Log Analytics
 
-Consult this tutorial on [How to query data in Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
-The two tables where the telemetry is saved are called Perf and Event respectively. The following query will check the row count to see if we have data flowing in. This would confirm if the instrumentation described above is working.
+To learn how to analyze monitoring data in the Azure Monitor Logs / Log Analytics store by using the Kusto query language (KQL), see [Kusto queries](monitor-data-factory.md#kusto-queries).
+
+The two tables where the telemetry is saved are called Perf and Event respectively. The following query checks the row count to see if we have data flowing in. This confirms if the instrumentation described above is working.
 
 ### Sample KQL queries
 
@@ -127,11 +128,11 @@ search in (Perf, Event) "disconnected"
 
 ##### Retrieve all events from one specific log journal
 
-In this example we’re narrowing the query to the log journal called **Connectors – Integration Runtime**.
+In this example we’re narrowing the query to the log journal called **Connectors - Integration Runtime**.
 
 ```kusto
 Event 
-| where EventLog == "Connectors – Integration Runtime"
+| where EventLog == "Connectors - Integration Runtime"
 ```
 
 ##### Use timespans to restrict query results
@@ -140,7 +141,7 @@ This query uses the same query as above but restricts results to those occurring
 
 ```kusto
 Event 
-| where EventLog      == "Connectors – Integration Runtime"
+| where EventLog      == "Connectors - Integration Runtime"
   and   TimeGenerated >= ago(2d)
 ```
 
@@ -192,7 +193,7 @@ Perf
 | summarize Value=max(CounterValue) by CounterName, TimeStamps=TimeGenerated
 ```
 
-## Next Steps
+## Related content
 
 - [Review integration runtime concepts in Azure Data Factory.](concepts-integration-runtime.md)
 - Learn how to [create a self-hosted integration runtime in the Azure portal.](create-self-hosted-integration-runtime.md)

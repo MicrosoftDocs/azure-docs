@@ -1,16 +1,16 @@
 ---
 title: Track changes to system files and registry keys
 description: Learn about tracking changes to system files and registry keys with file integrity monitoring in Microsoft Defender for Cloud.
-author: bmansheim
-ms.author: benmansheim
+author: dcurwin
+ms.author: dacurwin
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 03/11/2024
 ---
 # File Integrity Monitoring in Microsoft Defender for Cloud
 
-File Integrity Monitoring (FIM) examines operating system files, Windows registries, application software, and Linux system files for changes that might indicate an attack.  
+File Integrity Monitoring (FIM) examines operating system files, Windows registries, application software, and Linux system files for changes that might indicate an attack.
 
-FIM (file integrity monitoring) uses the Azure Change Tracking solution to track and identify changes in your environment. When FIM is enabled, you have a **Change Tracking** resource of type **Solution**. If you remove the **Change Tracking** resource, you'll also disable the File Integrity Monitoring feature in Defender for Cloud. FIM lets you take advantage of [Change Tracking](../automation/change-tracking/overview.md) directly in Defender for Cloud. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
+FIM (file integrity monitoring) uses the Azure Change Tracking solution to track and identify changes in your environment. When FIM is enabled, you have a **Change Tracking** resource of type **Solution**. If you remove the **Change Tracking** resource, you'll also disable the File Integrity Monitoring feature in Defender for Cloud. FIM lets you take advantage of [Change Tracking](../automation/change-tracking/overview.md) directly in Defender for Cloud. For data collection frequency details, see [Change tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 Defender for Cloud recommends entities to monitor with FIM, and you can also define your own FIM policies or entities to monitor. FIM informs you about suspicious activity such as:
 
@@ -60,7 +60,7 @@ Defender for Cloud provides the following list of recommended items to monitor b
 
 ## Next steps
 
-In this article, you learned about File Integrity Monitoring (FIM) in Defender for Cloud. 
+In this article, you learned about File Integrity Monitoring (FIM) in Defender for Cloud.
 
 Next, you can:
 

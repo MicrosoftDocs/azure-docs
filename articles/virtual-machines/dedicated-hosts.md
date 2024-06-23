@@ -4,11 +4,9 @@ description: Learn more about how Azure Dedicated Hosts can be used for deployin
 author: vamckMS
 ms.service: azure-dedicated-host
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.date: 1/25/2023
 ms.author: vakavuru
 ms.reviewer: mattmcinnes
-
 #Customer intent: As an IT administrator, I want to learn more about using a dedicated host for my Azure virtual machines
 ---
 
@@ -47,11 +45,11 @@ A **host group** is a resource that represents a collection of dedicated hosts. 
 A **host** is a resource, mapped to a physical server in an Azure data center. The physical server is allocated when the host is created. A host is created within a host group. A host has a SKU describing which VM sizes can be created. Each host can host multiple VMs, of different sizes, as long as they are from the same size series.
 
 
-## High Availability considerations
+## High availability considerations
 
 For high availability, you should deploy multiple VMs, spread across multiple hosts (minimum of 2). With Azure Dedicated Hosts, you have several options to provision your infrastructure to shape your fault isolation boundaries.
 
-### Use Availability Zones for fault isolation
+### Use availability zones for fault isolation
 
 Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A host group is created in a single availability zone. Once created, all hosts will be placed within that zone. To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts between them accordingly.
 
@@ -132,7 +130,14 @@ Not all scale-set orchestration and optimizations settings are supported by dedi
 - Use the ScaleSetVM orchestration mode
 - Don't use proximity placement groups for co-location
 
+### Ultra disk support for virtual machines on dedicated hosts
+[Ultra disks](./disks-enable-ultra-ssd.md) offer higher IOPS (maximum of 160,00 IOPS per disk) and higher disk throughput (maximum of 4000 MBps per disk) depending on the disk size. All the limitations of ultra disks would still apply. To use ultra disks on dedicated hosts following requirements needs to be satisfied:
+- Host group needs to have Ultra SSD 'Enabled', this property cannot be changed once the host group is created
+- Dedicated host's virtual machine series should be compatible with ultra disks.
 
+Dedicated hosts also support ultra disks with specialty VM sizes: LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4. However in these cases below listed additional limitations would apply:
+- Host group should have Automatic Placement 'Disabled'
+- Host group's fault domain count should be set to '1' only.
 
 ## Maintenance control
 
@@ -223,7 +228,3 @@ Azure monitors and manages the health status of your hosts. The following states
 - There's a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
-
-
-
-

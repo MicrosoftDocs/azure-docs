@@ -9,7 +9,7 @@ ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample
 ms.date: 12/19/2022
-ms.custom: devx-track-python, ignite-2022, devguide-python, py-fresh-zinc
+ms.custom: devx-track-python, devguide-python, py-fresh-zinc
 ---
 
 # Examples for Azure Cosmos DB for NoSQL SDK for Python
@@ -81,7 +81,7 @@ The [document_management.py](https://github.com/Azure/azure-sdk-for-python/blob/
 
 ## Indexing examples
 
-The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](../index-policy.md), [indexing types](../index-overview.md#index-types), and [indexing paths](../index-policy.md#include-exclude-paths) conceptual articles.
+The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](../index-policy.md), [indexing types](../index-overview.md#types-of-indexes), and [indexing paths](../index-policy.md#include-exclude-paths) conceptual articles.
 
 | Task | API reference |
 | --- | --- |

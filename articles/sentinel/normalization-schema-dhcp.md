@@ -5,7 +5,6 @@ author: limwainstein
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: lwainstein
-ms.custom: ignite-fall-2021
 ---
 
 # The Advanced Security Information Model (ASIM) DHCP normalization schema reference (Public preview)
@@ -50,7 +49,7 @@ The following list mentions fields that have specific guidelines for DHCP events
 | --- | --- | --- | --- |
 | **EventType** | Mandatory | Enumerated | Indicate the operation reported by the record. <br><Br> Possible values are `Assign`, `Renew`, `Release` and `DNS Update`. <br><br>Example: `Assign`| 
 | **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1**. |
-| **EventSchema** | Mandatory | String | The name of the schema documented here is **Dhcp**. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is **DhcpEvent**. |
 | **Dvc** fields| -      | -    | For DHCP events, device fields refer to the system that reports the DHCP event. |
 
 
@@ -85,17 +84,17 @@ The fields below are specific to DHCP events, but many are similar to fields in 
 | <a name="srcdvcscope"></a>**SrcDvcScope** | Optional | String | The cloud platform scope the device belongs to. **SrcDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
 | **SrcDvcIdType** | Conditional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | Enumerated | The type of the source device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
-| <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>- **SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID** (Linux): `4578`<br>- **AADID** (Azure Active Directory): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>- **OktaId**: `00urjk4znu3BcncfY0h7`<br>- **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. If other IDs are available, we recommend that you normalize the field names to SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId and UserAwsId, respectively.<br><br>Example: `S-1-12` |
+| <a name="srcuserid"></a>**SrcUserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the source user. Format and supported types include:<br>- **SID** (Windows): `S-1-5-21-1377283216-344919071-3415362939-500`<br>- **UID** (Linux): `4578`<br>- **AADID** (Microsoft Entra ID): `9267d02c-5f76-40a9-a9eb-b686f3ca47aa`<br>- **OktaId**: `00urjk4znu3BcncfY0h7`<br>- **AWSId**: `72643944673`<br><br>Store the ID type in the [SrcUserIdType](#srcuseridtype) field. If other IDs are available, we recommend that you normalize the field names to SrcUserSid, SrcUserUid, SrcUserAadId, SrcUserOktaId and UserAwsId, respectively.<br><br>Example: `S-1-12` |
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Conditional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows** and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
-| **Username** | Alias | | Alias for [SrcUsername](#srcusername) |
+| **User** | Alias | | Alias for [SrcUsername](#srcusername) |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Conditional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
 | **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalUserType](#srcoriginalusertype) field. |
 | <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | The original source user type, if provided by the source. |
 | <a name="srcmacaddr"></a>**SrcMacAddr** | Mandatory | Mac Address | The MAC address of the client requesting a DHCP lease. <br><br>**Note**: The Windows DHCP server logs MAC address in a non-standard way, omitting the colons, which should be inserted by the parser.<br><br>Example: `06:10:9f:eb:8f:14` |
 | <a name="dhcpleaseduration"></a>**DhcpLeaseDuration** | Optional | Integer | The length of the lease granted to a client, in seconds. |  
 |<a name="dhcpsessionid"></a>**DhcpSessionId** | Optional | string | The session identifier as reported by the reporting device. For the Windows DHCP server, set this to the TransactionID field. <br><br>Example: `2099570186` |
-| **SessionId** | Alias | String | Alias to [DhcpkSessionId](#dhcpsessionid) |
+| **SessionId** | Alias | String | Alias to [DhcpSessionId](#dhcpsessionid) |
 | <a name="dhcpsessionduration"></a>**DhcpSessionDuration** | Optional | Integer | The amount of time, in milliseconds, for the completion of the DHCP session.<br><br>Example: `1500` |
 | **Duration** | Alias | | Alias to [DhcpSessionDuration](#dhcpsessionduration) |
 | **DhcpSrcDHCId** | Optional | String | The DHCP client ID, as defined by [RFC4701](https://datatracker.ietf.org/doc/html/rfc4701) |

@@ -1,6 +1,6 @@
 ---
 title: Manage consistency in Azure Cosmos DB
-description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK and various other SDKs
+description: Learn how to configure and manage consistency levels in Azure Cosmos DB using Azure portal, .NET SDK, Java SDK, and various other SDKs
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: nosql
@@ -8,14 +8,17 @@ ms.topic: how-to
 ms.date: 02/16/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.devlang: csharp, java, javascript
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, devx-track-dotnet, devx-track-extended-java
 ---
 
 # Manage consistency levels in Azure Cosmos DB
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
+
+As you change your account level consistency, ensure you redeploy your applications and make any necessary code modifications to apply these changes.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -59,7 +62,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
 
 ## Override the default consistency level
 
-Clients can override the default consistency level that is set by the service. Consistency level can be set on a per request, which overrides the default consistency level set at the account level.
+Clients can override the default consistency level that is set by the service. The consistency level can be set on a per-request basis, which overrides the default consistency level set at the account level.
 
 > [!TIP]
 > Consistency can only be **relaxed** at the SDK instance or request level. To move from weaker to stronger consistency, update the default consistency for the Azure Cosmos DB account.
@@ -78,17 +81,17 @@ documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy
 // Override consistency at the request level via request options
 RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
-var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+var response = await client.ReadDocumentAsync(collectionUri, document, requestOptions);
 ```
 
 # [.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
-ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
 var response = await client.GetContainer(databaseName, containerName)
-    .CreateItemAsync(
+    .ReadItemAsync(
         item,
         new PartitionKey(itemPartitionKey),
         requestOptions);
@@ -166,11 +169,11 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 One of the consistency levels in Azure Cosmos DB is *Session* consistency. This is the default level applied to Azure Cosmos DB accounts by default. When working with Session consistency, each new write request to Azure Cosmos DB is assigned a new SessionToken. The CosmosClient will use this token internally with each read/query request to ensure that the set consistency level is maintained.
 
-In some scenarios you need to manage this Session yourself. Consider a web application with multiple nodes, each node will have its own instance of CosmosClient. If you wanted these nodes to participate in the same session (to be able read your own writes consistently across web tiers) you would have to send the SessionToken from FeedResponse\<T\> of the write action to the end-user using a cookie or some other mechanism, and have that token flow back to the web tier and ultimately the CosmosClient for subsequent reads. If you are using a round-robin load balancer which does not maintain session affinity between requests, such as the Azure Load Balancer, the read could potentially land on a different node to the write request, where the session was created.
+In some scenarios, you need to manage this Session yourself. Consider a web application with multiple nodes, each node will have its own instance of CosmosClient. If you wanted these nodes to participate in the same session (to be able to read your own writes consistently across web tiers) you would have to send the SessionToken from FeedResponse\<T\> of the write action to the end-user using a cookie or some other mechanism, and have that token flow back to the web tier and ultimately the CosmosClient for subsequent reads. If you are using a round-robin load balancer that does not maintain session affinity between requests, such as the Azure Load Balancer, the read could potentially land on a different node to the write request, where the session was created.
 
-If you do not flow the Azure Cosmos DB SessionToken across as described above you could end up with inconsistent read results for a period of time.
+If you do not flow the Azure Cosmos DB SessionToken across as described above, you could end up with inconsistent read results for a while.
 
-To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
+Session Tokens in Azure Cosmos DB are partition-bound, meaning they are exclusively associated with one partition. In order to ensure you can read your writes, use the session token that was last generated for the relevant item(s). To manage session tokens manually, get the session token from the response and set them per request. If you don't need to manage session tokens manually, you don't need to use these samples. The SDK keeps track of session tokens automatically. If you don't set the session token manually, by default, the SDK uses the most recent session token.
 
 ### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
 
@@ -285,7 +288,7 @@ item = client.ReadItem(doc_link, options)
 
 ## Monitor Probabilistically Bounded Staleness (PBS) metric
 
-How eventual is eventual consistency? For the average case, can we offer staleness bounds with respect to version history and time. The [**Probabilistically Bounded Staleness (PBS)**](http://pbs.cs.berkeley.edu/) metric tries to quantify the probability of staleness and shows it as a metric. 
+How eventual is eventual consistency? For the average case, we can offer staleness bounds with respect to version history and time. The [**Probabilistically Bounded Staleness (PBS)**](http://pbs.cs.berkeley.edu/) metric tries to quantify the probability of staleness and shows it as a metric. 
 
 To view the PBS metric, go to your Azure Cosmos DB account in the Azure portal. Open the **Metrics (Classic)** pane, and select the **Consistency** tab. Look at the graph named **Probability of strongly consistent reads based on your workload (see PBS)**.
 

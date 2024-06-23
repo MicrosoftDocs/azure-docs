@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identities](./quickstarts/enable-managed-identity.md).
 * Az modules: `Az.Accounts` and `Az.KeyVault` imported into the Automation account. For more information, see [Import Az modules](./shared-resources/modules.md#import-az-modules).
-* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Create an Azure Key Vault
 
@@ -99,7 +99,7 @@ Create an Azure Key Vault and [Key Vault access policy](../key-vault/general/ass
 
 ## Assign permissions to managed identities
 
-Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.md).
+Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.yml).
 
 1. Use PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign a role to the system-assigned managed identity.
 

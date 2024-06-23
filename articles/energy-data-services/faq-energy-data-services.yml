@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Microsoft Azure Data Manager for Energy Preview FAQ | Microsoft Docs
-  description: Get answers to common questions about Azure Data Manager for Energy Preview.
+  title: Microsoft Azure Data Manager for Energy FAQ
+  description: Get answers to common questions about Azure Data Manager for Energy.
   ms.service: energy-data-services
   ms.topic: faq
   ms.date: 09/13/2022
@@ -9,71 +9,89 @@ metadata:
   author: bharathim
   manager: priyabratp
   ms.reviewer: ppadhi  
-title: Common questions about Azure Data Manager for Energy Preview
-summary: This article answers commonly asked questions about the Azure Data Manager for Energy Preview.
+title: Common questions about Azure Data Manager for Energy
+summary: This article answers commonly asked questions about Azure Data Manager for Energy.
 sections:
     - name: General
       questions:
-        - question: What is Azure Data Manager for Energy Preview?
+        - question: What is Azure Data Manager for Energy?
           answer: >
-            Azure Data Manager for Energy Preview is an open, secure, reliable, and fully managed cloud based data platform solution for the energy industry. It's an enterprise-grade offering that is based on OSDU&trade; Data Platform and brings together Microsoft's secure and trusted Azure cloud platform and SLB's extensive domain expertise. The offering is currently in preview for evaluation and deployment by customers.
+            Azure Data Manager for Energy is a fully managed, cloud-based data platform solution for the energy industry. It's an enterprise-grade service that's based on the OSDU&reg; Data Platform. It brings together the security and trust of the Microsoft Azure cloud platform and the domain expertise of SLB.
 
     - name: Access
       questions:
-        - question: How can I get access to Azure Data Manager for Energy Preview?
+        - question: How can I get access to Azure Data Manager for Energy?
           answer: >
-            Azure Data Manager for Energy Preview is available to all customers and partners with a valid subscription. Customers can create an instance by going directly to the Azure Marketplace and searching for "Microsoft Energy Data Services".
+            Azure Data Manager for Energy is available to all customers and partners who have a valid Azure subscription. You can create an instance by going to Azure Marketplace and searching for **Azure Data Manager for Energy**.
 
-
-    - name: Data Residency
+    - name: External Data Sources
       questions:
-        - question: Where does Azure Data Manager for Energy Preview store customer data?
+        - question:  What is the impact of data sharing across tenancy boundaries on security, privacy, and compliance?
           answer: >
-            Azure Data Manager for Energy Preview stores/process customer data. By default, customer data is replicated to the paired region. For region with data residency requirements, customer data is always kept within the same region
+            Any data transferred across tenancy boundaries by the data provider and data consumer is the responsibility of the data provider and the data consumer. Microsoft will not store or process customer data outside the customer-specified Geo without your authorization. The data provider and consumer can use Customer Managed Encryption Keys (CMEK) and Private Links to secure data at rest and during transit.
+        - question: How are the network bandwidth/data transfer charges handled with EDS usage?
+          answer: >
+            The deployment topology decided by the data provider and data consumer will determine the network bandwidth/data transfer costs.
+        - question: Would data integrity be maintained when data provider deletes source data?
+          answer: > 
+            Currently, EDS does not support reconciling deleted data therefore deleting data at the data provider’s level may result in inconsistent records at the data consumer’s level.
+        - question: What is the impact of secret key rotation at the data consumer’s end?
+          answer: > 
+            Key rotation is fully supported therefore it will not have any impact on EDS functionality.
+        - question: When will EDS be generally available on Azure Data Manager for Energy?
+          answer: >
+            EDS is a preview feature in Azure Data Manager for Energy. We wish to learn from customer implementation of the EDS preview feature to ensure the functionality, performance, and scalability needs are met, before we make the feature generally available.
 
-    - name: Pricing and Billing
+
+    - name: Data residency
       questions:
-        - question: Where can I learn about the pricing for Azure Data Manager for Energy Preview?
+        - question: Where does Azure Data Manager for Energy store customer data?
           answer: >
-            Pricing for Azure Data Manager for Energy Preview is available [here](https://aka.ms/adme-pricing). 
+             By default, Azure Data Manager for Energy replicates customer data to [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions) for resiliency. The service doesn't replicate or move data outside the geography in which the customer created the instance. In some regions with requirements for data to remain within the single region, the service always keeps customer data within the same region. These regions are documented at [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/). For more information on the regions that support disaster recovery and cross-region data replication, see [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md).
+            
+    - name: Pricing and billing
+      questions:
+        - question: Where can I learn about the pricing for Azure Data Manager for Energy?
+          answer: >
+            Go to the [Azure Data Manager for Energy pricing page](https://aka.ms/adme-pricing). 
           
         - question: How is Azure Data Manager for Energy priced?
           answer: >
-            Azure Data Manager for Energy includes a fixed instance fee. This base instance price includes the capacity which can scale up to allow for peak workloads and a higher number of data partition needs.
+            Azure Data Manager for Energy includes a fixed instance fee for each base instance and for each data partition after the first one. The fixed instance pricing includes the capacity, which can scale up to allow for peak workloads and the need for a higher number of data partitions.
 
         - question: Does Azure Data Manager for Energy charge even if the instance is idle and not being used?
           answer: >
-            Yes, the fixed instance fee for Azure Data Manager for Energy Preview is applicable for all active instances and will be charged even if the instance is idle or running with no usage. 
+            Yes. The fixed instance fee for Azure Data Manager for Energy is applicable for all active instances. It's charged even if the instance is idle or running with no usage. 
 
-        - question: Are there any data storage charges?
+        - question: Are there any charges for data storage?
           answer: >
-            Standard Azure Storage rates would apply. This is free to customers during the Preview period. 
+            Standard Azure Storage rates apply after the free trial period. 
 
-        - question: Are there any data transfer charges?
+        - question: Are there any charges for data transfer?
           answer: >
-            Standard Azure data transfer rates would apply. This is free to customers during the Preview period. 
+            Standard Azure data transfer rates apply after the free trial period. 
            
-        - question: Will I be charged for Azure Data Manager for Energy separately from the applications used on top of the platform?
+        - question: Will I be charged for Azure Data Manager for Energy separately from the applications that I use on top of the platform?
           answer: >
-            Pricing for Azure Data Manager for Energy will be separate from other applications built or utilized on the platform.  
+            Pricing for Azure Data Manager for Energy is separate from other applications that you build or use on the platform.  
                   
-        - question: Will prices differ regionally?
+        - question: Do prices differ regionally?
           answer: >
-            Pricing for Azure Data Manager for Energy will vary by region. Please select the region and currency using the pricing filters in the pricing calculator for regional differences.  
+            Pricing for Azure Data Manager for Energy does vary by region. To understand regional differences, select a region and currency by using the pricing filters in the pricing calculator.  
 
     - name: Support policies
       questions:
-        - question: How do I raise a support request for Azure Data Manager for Energy Preview?
+        - question: How do I raise a support request for Azure Data Manager for Energy?
           answer: > 
-            You can search for "Support" on your Azure portal and select "Help + Support" followed by "Create a support request". You can select "Azure Data Manager for Energy Preview" in the service option to raise a bug with Azure Data Manager for Energy Preview.
+            In the Azure portal, search for **Support.** Select **Help + Support** > **Create a support request**. You can select **Azure Data Manager for Energy** in the service option to raise a bug with Azure Data Manager for Energy.
 
     - name: Service updates
       questions:
-        - question: How do we get the latest updates on Azure Data Manager for Energy Preview?
+        - question: How do I get the latest updates on Azure Data Manager for Energy?
           answer: > 
-            Azure Data Manager for Energy Preview is a fully managed OSDU&trade; Data Platform. It means that the underlying infrastructure, security updates, new features, and upgrade to new OSDU™ versions is fully managed by Microsoft.
+            Azure Data Manager for Energy is a fully managed service that's based on the OSDU&reg; Data Platform. Microsoft fully manages the underlying infrastructure, security updates, new features, and upgrades to new OSDU™ versions.
             
-        - question: Can I move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another? 
+        - question: Can I move an Azure Data Manager for Energy resource from one subscription or resource group to another? 
           answer: > 
-            Today, you can't move an Azure Data Manager for Energy Preview resource from one subscription or resource group to another. Instead you can, delete the existing Azure Data Manager for Energy Preview instance in the current resource group or subscription. Create a new Azure Data Manager for Energy Preview instance in the target resource group or subscription. Next, reingest the data into the new Azure Data Manager for Energy Preview instance.
+            Currently, you can't move an Azure Data Manager for Energy resource from one subscription or resource group to another. Instead, you can delete the existing Azure Data Manager for Energy instance in the current resource group or subscription, and then create a new Azure Data Manager for Energy instance in the target resource group or subscription. Then, reingest the data into the new instance.
 

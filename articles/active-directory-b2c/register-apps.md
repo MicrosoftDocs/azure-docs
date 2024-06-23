@@ -2,16 +2,20 @@
 title: Register apps in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to register different apps types such as web app, web API, single-page apps, mobile and desktop apps, daemon apps, Microsoft Graph apps and SAML app in Azure Active Directory B2C 
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer, I want to register my applications in Azure Active Directory B2C, so that I can enable authentication for various modern application architectures and specify the type of app that I want to register.
+
 ---
 
 # Register apps in Azure Active Directory B2C
@@ -40,8 +44,4 @@ You can register different app types in your Azure AD B2C Tenant. The how-to gui
 - [Daemon apps](client-credentials-grant-flow.md)
 - [Microsoft Graph application](microsoft-graph-get-started.md)
 - [SAML application](saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy)
-- [Publish app in Azure AD app gallery](publish-app-to-azure-ad-app-gallery.md)
-          
-    
-
-                      
+- [Publish app in Microsoft Entra app gallery](publish-app-to-azure-ad-app-gallery.md)

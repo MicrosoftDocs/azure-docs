@@ -4,7 +4,7 @@ description: Learn about using network security groups with Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 04/05/2024
 ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion
@@ -45,7 +45,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 
 * **Egress Traffic:**
 
-   * **Egress Traffic to target VMs:** Azure Bastion will reach the target VMs over private IP. The NSGs need to allow egress traffic to other target VM subnets for port 3389 and 22. If you are using the custom port feature as part of Standard SKU, the NSGs will instead need to allow egress traffic to other target VM subnets for the custom value(s) you have opened on your target VMs.
+   * **Egress Traffic to target VMs:** Azure Bastion will reach the target VMs over private IP. The NSGs need to allow egress traffic to other target VM subnets for port 3389 and 22. If you're utilizing the custom port functionality within the Standard SKU, ensure that NSGs allow outbound traffic to the service tag VirtualNetwork as the destination.
    * **Egress Traffic to Azure Bastion data plane:** For data plane communication between the underlying components of Azure Bastion, enable ports 8080, 5701 outbound from the **VirtualNetwork** service tag to the **VirtualNetwork** service tag. This enables the components of Azure Bastion to talk to each other.
    * **Egress Traffic to other public endpoints in Azure:** Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs). For this reason, Azure Bastion needs outbound to 443 to **AzureCloud** service tag.
    * **Egress Traffic to Internet:** Azure Bastion needs to be able to communicate with the Internet for session, Bastion Shareable Link, and certificate validation. For this reason, we recommend enabling port 80 outbound to the **Internet.**
@@ -56,7 +56,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 ### Target VM Subnet
 This is the subnet that contains the target virtual machine that you want to RDP/SSH to.
 
-   * **Ingress Traffic from Azure Bastion:** Azure Bastion will reach to the target VM over private IP. RDP/SSH ports (ports 3389/22 respectively, or custom port values if you are using the custom port feature as a part of Standard SKU) need to be opened on the target VM side over private IP. As a best practice, you can add the Azure Bastion Subnet IP address range in this rule to allow only Bastion to be able to open these ports on the target VMs in your target VM subnet.
+   * **Ingress Traffic from Azure Bastion:** Azure Bastion will reach to the target VM over private IP. RDP/SSH ports (ports 3389/22 respectively, or custom port values if you're using the custom port feature as a part of Standard or Premium SKU) need to be opened on the target VM side over private IP. As a best practice, you can add the Azure Bastion Subnet IP address range in this rule to allow only Bastion to be able to open these ports on the target VMs in your target VM subnet.
 
 
 ## Next steps

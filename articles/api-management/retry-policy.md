@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Retry
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes `false` or retry `count` is exhausted.
 
@@ -36,12 +38,12 @@ The `retry` policy executes its child policies once and then retries their execu
 
 | Attribute        | Description                                                                                                                                           | Required | Default |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condition        | A Boolean literal or [expression](api-management-policy-expressions.md) specifying if retries should be stopped (`false`) or continued (`true`).      | Yes      | N/A     |
-| count            | A positive number specifying the maximum number of retries to attempt.                                                                                | Yes      | N/A     |
-| interval         | A positive number in seconds specifying the wait interval between the retry attempts.                                                                 | Yes      | N/A     |
-| max-interval     | A positive number in seconds specifying the maximum wait interval between the retry attempts. It is used to implement an exponential retry algorithm. | No       | N/A     |
-| delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms.             | No       | N/A     |
-| first-fast-retry | If set to `true` , the first retry attempt is performed immediately.                                                                                  | No       | `false` |
+| condition        | Boolean. Specifies whether retries should be stopped (`false`) or continued (`true`). Policy expressions are allowed.     | Yes      | N/A     |
+| count            | A positive number between 1 and 50 specifying the number of retries to attempt. Policy expressions are allowed.  | Yes      | N/A     |
+| interval         | A positive number in seconds specifying the wait interval between the retry attempts. Policy expressions are allowed.                                                                 | Yes      | N/A     |
+| max-interval     | A positive number in seconds specifying the maximum wait interval between the retry attempts. It is used to implement an exponential retry algorithm. Policy expressions are allowed. | No       | N/A     |
+| delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms. Policy expressions are allowed.             | No       | N/A     |
+| first-fast-retry | Boolean. If set to `true`, the first retry attempt is performed immediately. Policy expressions are allowed.                                                                                  | No       | `false` |
 
 ## Retry wait times
 
@@ -58,8 +60,8 @@ The `retry` policy may contain any other policies as its child elements.
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Examples
 
@@ -103,6 +105,6 @@ In the following example, sending a request to a URL other than the defined back
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Policy control and flow](api-management-policies.md#policy-control-and-flow)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -1,9 +1,9 @@
 ---
-ms.author: benmansheim
-author: bmansheim
+ms.author: dacurwin
+author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 11/08/2022
+ms.date: 06/04/2023
 
 ---
 ## Enable the plan
@@ -20,11 +20,11 @@ ms.date: 11/08/2022
     >
     > :::image type="content" source="../media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-1. Turn the relevant component on to enable it. 
+1. Turn the relevant component on to enable it.
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/container-components-on.png" alt-text="screenshot of turning on components." lightbox="../media/defender-for-containers-enable-plan-gke/container-components-on.png":::
 
-    > [!Note]
+    > [!NOTE]
     > When you turn off Defender for Containers, the components are set to off and are not deployed to any more containers but they are not removed from containers that they are already installed on.
 
 By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to automatically install required components to provide the protections offered by plan, including the assignment of a default workspace.
@@ -49,14 +49,14 @@ Learn more about the [roles used to provision Defender for Containers extensions
 
 ## Prerequisites
 
-Before deploying the extension, ensure you:
+Before deploying the sensor, ensure you:
 
 - [Connect the Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Complete the [pre-requisites listed under the generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
 
-## Deploy the Defender extension
+## Deploy the Defender sensor
 
-You can deploy the Defender extension using a range of methods. For detailed steps, select the relevant tab.
+You can deploy the Defender sensor using a range of methods. For detailed steps, select the relevant tab.
 
 ### [**Azure portal**](#tab/k8s-deploy-asc)
 
@@ -64,29 +64,29 @@ You can deploy the Defender extension using a range of methods. For detailed ste
 
 A dedicated Defender for Cloud recommendation provides:
 
-- **Visibility** about which of your clusters has the Defender for Kubernetes extension deployed
-- **Fix** button to deploy it to those clusters without the extension
+- **Visibility** about which of your clusters has the Defender sensor deployed
+- **Fix** button to deploy it to those clusters without the sensor
 
 1. From Microsoft Defender for Cloud's recommendations page, open the **Enable enhanced security** security control.
 
 1. Use the filter to find the recommendation named **Azure Arc-enabled Kubernetes clusters should have Defender for Cloud's extension installed**.
 
-    :::image type="content" source="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender sensor for Azure Arc-enabled Kubernetes clusters." lightbox="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
     > Notice the **Fix** icon in the actions column
 
-1. Select the extension to see the details of the healthy and unhealthy resources - clusters with and without the extension.
+1. Select the sensor to see the details of the healthy and unhealthy resources - clusters with and without the sensor.
 
 1. From the unhealthy resources list, select a cluster and select **Remediate** to open the pane with the remediation options.
 
 1. Select the relevant Log Analytics workspace and select **Remediate x resource**.
 
-    :::image type="content" source="../media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Defender extension for Azure Arc with Defender for Cloud's 'fix' option.":::
+    :::image type="content" source="../media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Defender sensor for Azure Arc with Defender for Cloud's 'fix' option.":::
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
 
-### Use Azure CLI to deploy the Defender extension
+### Use Azure CLI to deploy the Defender sensor
 
 1. Sign in to Azure:
 
@@ -98,13 +98,13 @@ A dedicated Defender for Cloud recommendation provides:
     > [!IMPORTANT]
     > Ensure that you use the same subscription ID for ``<your-subscription-id>`` as the one that was used when connecting your cluster to Azure Arc.
 
-1. Run the following command to deploy the extension on top of your Azure Arc-enabled Kubernetes cluster:
+1. Run the following command to deploy the sensor on top of your Azure Arc-enabled Kubernetes cluster:
 
     ```azurecli
     az k8s-extension create --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --extension-type microsoft.azuredefender.kubernetes
     ```
 
-    A description of all the supported configuration settings on the Defender extension type is given below:
+    A description of all the supported configuration settings on the Defender sensor type is given below:
 
     | Property | Description |
     |----------|-------------|
@@ -119,9 +119,9 @@ A dedicated Defender for Cloud recommendation provides:
 
 ### [**Resource Manager**](#tab/k8s-deploy-resource-manager)
 
-### Use Azure Resource Manager to deploy the Defender extension
+### Use Azure Resource Manager to deploy the Defender sensor
 
-To use Azure Resource Manager to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+To use Azure Resource Manager to deploy the Defender sensor, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 You can use the **azure-defender-extension-arm-template.json** Resource Manager template from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
 
@@ -130,14 +130,14 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 
 ### [**REST API**](#tab/k8s-deploy-api)
 
-### Use REST API to deploy the Defender extension
+### Use REST API to deploy the Defender sensor
 
-To use the REST API to deploy the Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
+To use the REST API to deploy the Defender sensor, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!TIP]
-> The simplest way to use the API to deploy the Defender extension is with the supplied **Postman Collection JSON** example from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
+> The simplest way to use the API to deploy the Defender sensor is with the supplied **Postman Collection JSON** example from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
 
-- To modify the Postman Collection JSON, or to manually deploy the extension with the REST API, run the following PUT command:
+- To modify the Postman Collection JSON, or to manually deploy the sensor with the REST API, run the following PUT command:
 
     ```rest
     PUT https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegroups/{{Resource Group}}/providers/Microsoft.Kubernetes/connectedClusters/{{Cluster Name}}/providers/Microsoft.KubernetesConfiguration/extensions/microsoft.azuredefender.kubernetes?api-version=2020-07-01-preview
@@ -183,27 +183,27 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
 
 ## Verify the deployment
 
-To verify that your cluster has the Defender extension installed on it, follow the steps in one of the tabs below:
+To verify that your cluster has the Defender sensor installed on it, follow the steps in one of the tabs below:
 
 ### [**Azure portal - Defender for Cloud**](#tab/k8s-verify-asc)
 
-### Use Defender for Cloud recommendation to verify the status of your extension
+### Use Defender for Cloud recommendation to verify the status of your sensor
 
 1. From Microsoft Defender for Cloud's recommendations page, open the  **Enable Microsoft Defender for Cloud** security control.
 
 1. Select the recommendation named **Azure Arc-enabled Kubernetes clusters should have Microsoft Defender for Cloud's extension installed**.
 
-    :::image type="content" source="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender sensor for Azure Arc-enabled Kubernetes clusters." lightbox="../media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
-1. Check that the cluster on which you deployed the extension is listed as **Healthy**.
+1. Check that the cluster on which you deployed the sensor is listed as **Healthy**.
 
 ### [**Azure portal - Azure Arc**](#tab/k8s-verify-arc)
 
-### Use the Azure Arc pages to verify the status of your extension
+### Use the Azure Arc pages to verify the status of your sensor
 
 1. From the Azure portal, open **Azure Arc**.
 1. From the infrastructure list, select **Kubernetes clusters** and then select the specific cluster.
-1. Open the extensions page. The extensions on the cluster are listed. To confirm whether the Defender extension was installed correctly, check the **Install status** column.
+1. Open the extensions page. The extensions on the cluster are listed. To confirm whether the Defender sensor was installed correctly, check the **Install status** column.
 
     :::image type="content" source="../media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png" alt-text="Azure Arc page for checking the status of all installed extensions on a Kubernetes cluster." lightbox="../media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png":::
 
@@ -213,7 +213,7 @@ To verify that your cluster has the Defender extension installed on it, follow t
 
 ### [**Azure CLI**](#tab/k8s-verify-cli)
 
-### Use Azure CLI to verify that the extension is deployed
+### Use Azure CLI to verify that the sensor is deployed
 
 1. Run the following command on Azure CLI:
 
@@ -226,17 +226,17 @@ To verify that your cluster has the Defender extension installed on it, follow t
     > [!NOTE]
     > It might show "installState": "Pending" for the first few minutes.
 
-1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that all pods under the mdc namespace are in the 'Running' state:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n mdc
     ```
 
 ### [**REST API**](#tab/k8s-verify-api)
 
-### Use the REST API to verify that the extension is deployed
+### Use the REST API to verify that the sensor is deployed
 
-To confirm a successful deployment, or to validate the status of your extension at any time:
+To confirm a successful deployment, or to validate the status of your sensor at any time:
 
 1. Run the following GET command:
 
@@ -249,10 +249,10 @@ To confirm a successful deployment, or to validate the status of your extension 
     > [!TIP]
     > It might show "installState": "Pending" for the first few minutes.
 
-1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that a pod called "azuredefender-XXXXX" is in 'Running' state:
+1. If the state shows **Installed**, run the following command on your machine with the `kubeconfig` file pointed to your cluster to check that all pods under the mdc namespace are in 'Running' state:
 
     ```console
-    kubectl get pods -n azuredefender
+    kubectl get pods -n mdc
     ```
 
 ---

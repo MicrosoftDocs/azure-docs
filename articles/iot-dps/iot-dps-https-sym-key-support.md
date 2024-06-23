@@ -30,7 +30,7 @@ There are different paths through this article depending on the type of enrollme
 * If you're running in Windows, install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository. On Windows, you'll enter all commands on your local system in a GitBash prompt.
 
 * Azure CLI. You have two options for running Azure CLI commands in this article:
-    * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
+    * Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, sign in to the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
     * Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 * If you're running in a Linux or a WSL environment, open a Bash prompt to run commands locally. If you're running in a Windows environment, open a GitBash prompt.
@@ -133,7 +133,7 @@ az iot dps enrollment-group show -g {resource_group_name} --dps-name {dps_name} 
 
 ### Derive a device key
 
-When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key for each device from the enrollment group key. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments).
+When using symmetric key attestation with group enrollments, you don't use the enrollment group keys directly. Instead, you derive a unique key for each device from the enrollment group key. For more information, see [Group Enrollments with symmetric keys](concepts-symmetric-key-attestation.md#group-enrollments-with-symmetric-keys).
 
 In this section, you'll generate a device key from the enrollment group primary key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device. The result will then be converted into Base64 format.
 
@@ -285,7 +285,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 {"operationId":"5.316aac5bdc130deb.b1e02da8-c3a0-4ff2-a121-7ea7a6b7f550","status":"assigning"}
 ```
 
-The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup) REST API to determine when your device has been assigned or whether a failure has occurred.
+The response contains an operation ID and a status. In this case, the status is set to `assigning`. DPS enrollment is, potentially, a long-running operation, so it's done asynchronously. Typically, you'll poll for status using the [Operation Status Lookup](/rest/api/iot-dps/device/operation-groups) REST API to determine when your device has been assigned or whether a failure has occurred.
 
 The valid status values for DPS are:
 
@@ -399,7 +399,7 @@ To learn more about creating SAS tokens for IoT Hub, including example code in o
 
 ### Send data to your IoT hub
 
-You call the IoT Hub [Send Device Event](/rest/api/iothub/device/send-device-event) REST API to send telemetry to the device.
+You call the IoT Hub [Send Device Event](/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send) REST API to send telemetry to the device.
 
 Use the following curl command:
 

@@ -3,9 +3,10 @@ title: Quickstart - Create registry in portal
 description: Quickly learn to create a private Azure container registry using the Azure portal.
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.topic: quickstart
-ms.custom: mvc, contperf-fy21q4, mode-ui
+ms.service: container-registry
+ms.custom: mvc, mode-ui
 ---
 # Quickstart: Create an Azure container registry using the Azure portal
 
@@ -21,11 +22,11 @@ To log in to the registry to work with container images, this quickstart require
 
 ---
 
-You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+You must also have Docker installed locally with the daemon running. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a container registry
 

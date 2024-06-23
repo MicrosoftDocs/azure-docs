@@ -3,21 +3,18 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/21/2021
+ms.date: 12/21/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Start a runbook from a webhook
 
 A webhook allows an external service to start a particular runbook in Azure Automation through a single HTTP request. External services include Azure DevOps Services, GitHub, Azure Monitor logs, and custom applications. Such a service can use a webhook to start a runbook without implementing the full Azure Automation API. You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](./start-runbooks.md).
 
-> [!NOTE]
-> Using a webhook to start a Python runbook is not supported.
-
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
-To understand client requirements for TLS 1.2 with webhooks, see [TLS 1.2 for Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher with webhooks, see [TLS for Azure Automation](automation-managing-data.md#tls-for-azure-automation).
 
 ## Webhook properties
 
@@ -43,7 +40,7 @@ The `WebhookData` parameter has the following properties:
 | Property | Description |
 |:--- |:--- |
 | WebhookName | Name of the webhook. |
-| RequestHeader | Hashtable containing the headers of the incoming POST request. |
+| RequestHeader | PSCustomObject containing the headers of the incoming POST request. |
 | RequestBody | Body of the incoming POST request. This body keeps any data formatting, such as string, JSON, XML, or form-encoded. The runbook must be written to work with the data format that is expected. |
 
 There's no configuration of the webhook required to support the `WebhookData` parameter, and the runbook isn't required to accept it. If the runbook doesn't define the parameter, any details of the request sent from the client are ignored.
@@ -104,16 +101,14 @@ Consider the following strategies:
     write-output "start"
     write-output ("object type: {0}" -f $WebhookData.gettype())
     write-output $WebhookData
-    #write-warning (Test-Json -Json $WebhookData)
-    $Payload = $WebhookData | ConvertFrom-Json
     write-output "`n`n"
-    write-output $Payload.WebhookName
-    write-output $Payload.RequestBody
-    write-output $Payload.RequestHeader
+    write-output $WebhookData.WebhookName
+    write-output $WebhookData.RequestBody
+    write-output $WebhookData.RequestHeader
     write-output "end"
 
-    if ($Payload.RequestBody) { 
-        $names = (ConvertFrom-Json -InputObject $Payload.RequestBody)
+    if ($WebhookData.RequestBody) { 
+        $names = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
             foreach ($x in $names)
             {

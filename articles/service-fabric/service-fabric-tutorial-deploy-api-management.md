@@ -28,7 +28,7 @@ This article shows you how to set up [Azure API Management](../api-management/ap
 Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in a network security group.
 * If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2019](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 
@@ -292,7 +292,7 @@ az group delete --name $ResourceGroupName
 
 Learn more about using [API Management](../api-management/import-and-publish.md).
 
-You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.md) to create and manage Service Fabric backends for API Management.
+You can also use the [Azure portal](../api-management/how-to-configure-service-fabric-backend.yml) to create and manage Service Fabric backends for API Management.
 
 [azure-powershell]: /powershell/azure/
 

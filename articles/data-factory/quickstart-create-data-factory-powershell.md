@@ -6,15 +6,12 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 08/18/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create an Azure Data Factory using PowerShell
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-powershell.md)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -29,7 +26,7 @@ This quickstart describes how to use PowerShell to create an Azure Data Factory.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
@@ -437,6 +434,6 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](includes/data-factory-quickstart-verify-output-cleanup.md)]
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

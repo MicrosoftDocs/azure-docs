@@ -125,6 +125,11 @@ You've added an HTTP triggered function that starts an orchestration. Open *Http
 
 You now have a Durable Functions app that can be run locally and deployed to Azure.
 
+> [!NOTE]
+> The next version of the DF PowerShell is now in preview and may be downloaded from the PowerShell Gallery.
+> Learn about it and how to try it out in the [guide to the standalone PowerShell SDK](./durable-functions-powershell-v2-sdk-migration-guide.md).
+> You may follow the guide's [installation section](./durable-functions-powershell-v2-sdk-migration-guide.md#install-and-enable-the-sdk) for instructions compatible with this quickstart on how to enable it.
+
 ## Test the function locally
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function app from Visual Studio Code.
@@ -187,7 +192,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Test your function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in this format: `https://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 

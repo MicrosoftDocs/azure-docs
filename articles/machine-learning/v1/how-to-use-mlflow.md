@@ -9,15 +9,12 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, mlflow, sdkv1
+ms.custom: UpdateFrequency5, mlflow, sdkv1
 ---
 
 # Track ML models with MLflow and Azure Machine Learning 
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
-> [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning Python SDK you are using:"]
-> * [v1](how-to-use-mlflow.md)
-> * [v2 (current version)](../how-to-use-mlflow-cli-runs.md)
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to enable [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) to connect Azure Machine Learning as the backend of your MLflow experiments.
 
@@ -42,7 +39,7 @@ See [MLflow and Azure Machine Learning](../concept-mlflow.md) for all supported 
 
 * Install and [set up Azure Machine Learning CLI (v1)](reference-azure-machine-learning-cli.md) and make sure you install the ml extension.
 
-    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+    [!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 * Install and set up [Azure Machine Learning SDK for Python](introduction.md#sdk-v1).
 
@@ -59,7 +56,7 @@ To track a run that is not running on Azure Machine Learning compute (from now o
 
 # [Using the Azure Machine Learning SDK](#tab/azuremlsdk)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 You can get the Azure Machine Learning MLflow tracking URI using the [Azure Machine Learning SDK v1 for Python](introduction.md#sdk-v1). Ensure you have the library `azureml-sdk` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
@@ -99,7 +96,7 @@ You can get the Azure Machine Learning MLflow tracking URI using the [Azure Mach
 
 # [Using an environment variable](#tab/environ)
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your terminal. 
 
@@ -161,11 +158,11 @@ with mlflow.start_run() as mlflow_run:
     mlflow.log_artifact("helloworld.txt")
 ```
 
-For details about how to log metrics, parameters and artifacts in a run using MLflow view [How to log and view metrics](../how-to-log-view-metrics.md).
+For details about how to log metrics, parameters and artifacts in a run using MLflow view [How to log and view metrics](how-to-log-view-metrics.md).
 
 ## Track runs running on Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Remote runs (jobs) let you train your models in a more robust and repetitive way. They can also leverage more powerful computes, such as Machine Learning Compute clusters. See [Use compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
@@ -311,7 +308,7 @@ mlflow.autolog()
 
 Register and track your models with the [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere), which supports the MLflow model registry. Azure Machine Learning models are aligned with the MLflow model schema making it easy to export and import these models across different workflows. The MLflow-related metadata, such as run ID, is also tracked with the registered model for traceability. Users can submit training runs, register, and deploy models produced from MLflow runs.
 
-If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](../how-to-deploy-mlflow-models.md).
+If you want to deploy and register your production ready model in one step, see [Deploy and register MLflow models](how-to-deploy-mlflow-models.md).
 
 To register and view a model from a run, use the following steps:
 

@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 043/26/2021
-ms.author: alkohli
+ms.author: shaas
 ---
 
 | Port no.|	In or out |	Port scope|	Required|	Notes |
@@ -19,3 +19,4 @@ ms.author: alkohli
 | TCP 443 (HTTPS)|Out/In|LAN|Yes|This port is the inbound port for local UI on the device for local management. |
 | TCP 445 (SMB)|In|LAN|In some cases<br>See notes|This port is required only if you are connecting via SMB. |
 | TCP 2049 (NFS)|In|LAN|In some cases<br>See notes|This port is required only if you are connecting via NFS. |
+

@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 03/02/2023
+ms.date: 04/05/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui, ignite-2022
@@ -17,6 +17,20 @@ This quickstart walks you through the steps to create an Azure DNS Private Resol
 
 Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multicloud and public DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
+## In this article: 
+
+- Two VNets are created: **myvnet** and **myvnet2**.
+- An Azure DNS Private Resolver is created in the first VNet with an inbound endpoint at **10.10.0.4**.
+- A DNS forwarding ruleset is created for the private resolver.
+- The DNS forwarding ruleset is linked to the second VNet.
+- Example rules are added to the DNS forwarding ruleset.
+
+This article doesn't demonstrate DNS forwarding to an on-premises network. For more information, see [Resolve Azure and on-premises domains](private-resolver-hybrid-dns.md).
+
+The following figure summarizes the setup used in this article:
+
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
+
 ## Prerequisites
 
 An Azure subscription is required.
@@ -26,7 +40,7 @@ An Azure subscription is required.
 
 Before you can use **Microsoft.Network** services with your Azure subscription, you must register the **Microsoft.Network** namespace:
 
-1. Select the **Subscription** blade in the Azure portal, and then choose your subscription by clicking on it.
+1. Select the **Subscription** blade in the Azure portal, and then choose your subscription.
 2. Under **Settings** select **Resource Providers**.
 3. Select **Microsoft.Network** and then select **Register**.
 
@@ -93,9 +107,9 @@ Next, add a virtual network to the resource group that you created, and configur
 
     This example has only one conditional forwarding rule, but you can create many. Edit the rules to enable or disable them as needed.
 
-    ![create resolver - review](./media/dns-resolver-getstarted-portal/resolver-review.png)
+    ![Screenshot of Create resolver - review.](./media/dns-resolver-getstarted-portal/resolver-review.png)
 
-    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it's deployed.
+    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two. The status of each component is displayed during deployment.
 
     ![create resolver - status](./media/dns-resolver-getstarted-portal/resolver-status.png)
 
@@ -113,9 +127,7 @@ Create a second virtual network to simulate an on-premises or other environment.
     - Subnet address range: 12.2.0.0/24
 7. Select **Add**, select **Review + create**, and then select **Create**.
 
-    ![second vnet review](./media/dns-resolver-getstarted-portal/vnet-review.png)
-
-    ![second vnet create](./media/dns-resolver-getstarted-portal/vnet-create.png)
+    ![Screenshot showing creation of a second vnet.](./media/dns-resolver-getstarted-portal/vnet-create.png)
 
 ## Link your forwarding ruleset to the second virtual network
 
@@ -129,7 +141,7 @@ To apply your forwarding ruleset to the second virtual network, you must create 
 
 ## Delete a virtual network link
 
-Later in this article a rule is created using the private resolver inbound endpoint as a destination. This can cause a DNS resolution loop if the VNet where the resolver is provisioned is also linked to the ruleset.  To fix this issue, remove the link to **myvnet**.
+Later in this article a rule is created using the private resolver inbound endpoint as a destination. This configuration can cause a DNS resolution loop if the VNet where the resolver is provisioned is also linked to the ruleset.  To fix this issue, remove the link to **myvnet**.
 
 1. Search for **DNS forwarding rulesets** in the Azure services list and select your ruleset (ex: **myruleset**).
 2. Select **Virtual Network Links**, choose **myvnet-link**, select **Remove** and select **OK**.
@@ -143,6 +155,10 @@ Add or remove specific rules your DNS forwarding ruleset as desired, such as:
 - A rule to resolve an on-premises zone: internal.contoso.com.
 - A wildcard rule to forward unmatched DNS queries to a protective DNS service.
 
+> [!IMPORTANT]
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
+
 ### Delete a rule from the forwarding ruleset
 
 Individual rules can be deleted or disabled. In this example, a rule is deleted.
@@ -155,21 +171,21 @@ Individual rules can be deleted or disabled. In this example, a rule is deleted.
 
 Add three new conditional forwarding rules to the ruleset. 
 
-1. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+1. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **AzurePrivate**
     - Domain Name: **azure.contoso.com.**
     - Rule State: **Enabled**
-2. Under **Destination IP address** enter 10.0.0.4, and then click **Add**.
-3. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+2. Under **Destination IP address** enter 10.0.0.4, and then select **Add**.
+3. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **Internal**
     - Domain Name: **internal.contoso.com.**
     - Rule State: **Enabled**
-4. Under **Destination IP address** enter 192.168.1.2, and then click **Add**.
-5. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+4. Under **Destination IP address** enter 192.168.1.2, and then select **Add**.
+5. On the **myruleset | Rules** page, select **Add**, and enter the following rule data:
     - Rule Name: **Wildcard**
     - Domain Name: **.** (enter only a dot)
     - Rule State: **Enabled**
-6. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
+6. Under **Destination IP address** enter 10.5.5.5, and then select **Add**.
 
     ![Screenshot of a forwarding ruleset example.](./media/dns-resolver-getstarted-portal/ruleset.png)
 
@@ -182,6 +198,7 @@ In this example:
 
 You should now be able to send DNS traffic to your DNS resolver and resolve records based on your forwarding rulesets, including:
 - Azure DNS private zones linked to the virtual network where the resolver is deployed.
+    - If a VNet is linked to the private zone itself, it doesn't need a rule for the private zone in the forwarding ruleset. Resources in the VNet can directly resolve the zone. However, in this example, the second VNet isn't linked to the private zone. It can still resolve the zone by using the forwarding ruleset. For more information about this design, see [Private Resolver Architecture](private-resolver-architecture.md).
 - Private DNS zones that are hosted on-premises.
 - DNS zones in the public internet DNS namespace.
 

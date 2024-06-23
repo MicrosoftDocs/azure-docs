@@ -2,18 +2,18 @@
 title: Move from Storage Analytics metrics to Azure Monitor metrics
 description: Learn how to transition from Storage Analytics metrics (classic metrics) to metrics in Azure Monitor. 
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 01/11/2024
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.custom: monitoring
 ---
 
 # Transition to metrics in Azure Monitor
 
-On **August 31, 2023** Storage Analytics metrics, also referred to as *classic metrics* will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). If you use classic metrics, make sure to transition to metrics in Azure Monitor prior to that date. This article helps you make the transition.
+On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics* retired. If you used classic metrics, this article helps you transition to metrics in Azure Monitor.
 
 ## Steps to complete the transition
 
@@ -42,7 +42,7 @@ This section describes a few key differences between these two metrics platforms
 
 The main difference is in how metrics are managed. Classic metrics are managed by Azure Storage whereas metrics in Azure Monitor are managed by Azure Monitor. With classic metrics, Azure Storage collects metric values, aggregates them, and then stores them in tables that are located in the storage account. With metrics in Azure Monitor, Azure Storage sends metric data to the Azure Monitor back end. Azure Monitor provides a unified monitoring experience that includes data from the Azure portal as well as data that is ingested.
 
-Classic metrics are sent and stored in an Azure storage account. Azure Monitor metrics can be sent to multiple locations. A storage account can be one of those locations, but it not required.
+Classic metrics are sent and stored in an Azure storage account. Azure Monitor metrics can be sent to multiple locations. A storage account can be one of those locations, but it's not required.
 
 As far as metrics support, classic metrics provide **capacity** metrics only for Azure Blob storage. Metrics in Azure Monitor provide capacity metrics for Blob, Table, File, Queue, and premium storage. Classic metrics provide **transaction** metrics on Blob, Table, Azure File, and Queue storage. Metrics in Azure Monitor add premium storage to that list.
 

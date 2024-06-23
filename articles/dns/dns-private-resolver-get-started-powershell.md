@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 09/27/2022
+ms.date: 04/05/2024
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
@@ -19,11 +19,15 @@ This article walks you through the steps to create your first private DNS zone a
 
 Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
+The following figure summarizes the setup used in this article:
+
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
+
 ## Prerequisites
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This article assumes you've [installed the Az Azure PowerShell module](/powershell/azure/install-az-ps).
+This article assumes you've [installed the Az Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 
 ## Install the Az.DnsResolver PowerShell module
@@ -37,7 +41,7 @@ Install the Az.DnsResolver module.
 Install-Module Az.DnsResolver
 ```
 
-Confirm that the Az.DnsResolver module was installed. The current version of this module is 0.2.0.
+Confirm that the Az.DnsResolver module was installed. The current version of this module is 0.2.1.
 
 ```Azure PowerShell
 Get-InstalledModule -Name Az.DnsResolver
@@ -90,7 +94,7 @@ Create a DNS resolver in the virtual network that you created.
 New-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup -Location westcentralus -VirtualNetworkId "/subscriptions/<your subs id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"
 ```
 
-Verify that the DNS resolver was created successfully and the state is connected (optional).
+Verify that the DNS resolver was created successfully and the state is connected (optional). In output, the **dnsResolverState** is **Connected**.
 
 ```Azure PowerShell
 $dnsResolver = Get-AzDnsResolver -Name mydnsresolver -ResourceGroupName myresourcegroup
@@ -112,8 +116,24 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 Create an inbound endpoint to enable name resolution from on-premises or another private location using an IP address that is part of your private virtual network address space.
 
+> [!TIP]
+> Using PowerShell, you can specify the inbound endpoint IP address to be dynamic or static.<br> 
+> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. Typically the same IP address will be assigned again during reprovisioning.<br>
+> If the endpoint IP address is static, it can be specified and reused if the endpoint is reprovisioned. The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
+The following commands provision a dynamic IP address:
 ```Azure PowerShell
 $ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAllocationMethod Dynamic -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
+New-AzDnsResolverInboundEndpoint -DnsResolverName mydnsresolver -Name myinboundendpoint -ResourceGroupName myresourcegroup -Location westcentralus -IpConfiguration $ipconfig
+```
+
+Use the following commands to specify a static IP address. Do not use both the dynamic and static sets of commands. 
+
+You must specify an IP address in the subnet that was created previously. The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+
+The following commands provision a static IP address:
+```Azure PowerShell
+$ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAddress 10.0.0.4 -PrivateIPAllocationMethod Static -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
 New-AzDnsResolverInboundEndpoint -DnsResolverName mydnsresolver -Name myinboundendpoint -ResourceGroupName myresourcegroup -Location westcentralus -IpConfiguration $ipconfig
 ```
 
@@ -210,6 +230,8 @@ $virtualNetworkLink2.ToJsonString()
 
 ## Create forwarding rules
 
+
+
 Create a forwarding rule for a ruleset to one or more target DNS servers. You must specify the fully qualified domain name (FQDN) with a trailing dot. The **New-AzDnsResolverTargetDnsServerObject** cmdlet sets the default port as 53, but you can also specify a unique port. 
 
 ```Azure PowerShell
@@ -226,6 +248,10 @@ In this example:
 - 10.0.0.4 is the resolver's inbound endpoint. 
 - 192.168.1.2 and 192.168.1.3 are on-premises DNS servers.
 - 10.5.5.5 is a protective DNS service.
+
+> [!IMPORTANT]
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ## Test the private resolver
 

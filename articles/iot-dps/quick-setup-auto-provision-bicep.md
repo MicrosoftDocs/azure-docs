@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 author: mumian
-ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell
+ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, devx-track-bicep, devx-track-azurecli
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with Bicep
@@ -22,7 +22,7 @@ This quickstart uses [Azure PowerShell](../azure-resource-manager/bicep/deploy-p
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 

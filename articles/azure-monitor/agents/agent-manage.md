@@ -2,9 +2,10 @@
 title: Manage the Azure Log Analytics agent 
 description: This article describes the different management tasks that you'll typically perform during the lifecycle of the Log Analytics Windows or Linux agent deployed on a machine.
 ms.topic: conceptual
+ms.custom: linux-related-content
 author: guywi-ms
 ms.author: guywild
-ms.date: 04/06/2022
+ms.date: 07/06/2023
 ms.reviewer: luki
 ---
 
@@ -352,6 +353,14 @@ Perform the following steps to configure the Log Analytics agent for Linux to re
 1. Restart the OMI server by using the following command:
 
     `sudo /opt/omi/bin/service_control restart`
+
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How do I stop the Log Analytics agent from communicating with Azure Monitor?
+
+For agents connected to Log Analytics directly, open Control Panel and select **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics.
 
 ## Next steps
 

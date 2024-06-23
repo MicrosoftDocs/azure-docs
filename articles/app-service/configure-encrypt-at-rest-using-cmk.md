@@ -2,7 +2,10 @@
 title: Encrypt your application source at rest
 description: Learn how to encrypt your application data in Azure Storage and deploy it as a package file.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/06/2020
+author: cephalin
+ms.author: cephalin
 ---
 
 # Encryption at rest using customer-managed keys
@@ -44,7 +47,7 @@ Now you can replace the value of the `WEBSITE_RUN_FROM_PACKAGE` application sett
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
     ```    
 
-1. Follow [these instructions to grant your app access](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) to your key vault:
+1. Follow [these instructions to grant your app access](app-service-key-vault-references.md#grant-your-app-access-to-a-key-vault) to your key vault:
 
 1. Use the following [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to add your external URL as a secret in your key vault:   
 
@@ -64,9 +67,9 @@ Updating this application setting causes your web app to restart. After the app 
 
 ## How to rotate the access token
 
-It is best practice to periodically rotate the SAS key of your storage account. To ensure the web app does not inadvertently loose access, you must also update the SAS URL in Key Vault.
+It is best practice to periodically rotate the SAS key of your storage account. To ensure the web app does not inadvertently lose access, you must also update the SAS URL in Key Vault.
 
-1. Rotate the SAS key by navigating to your storage account in the Azure portal. Under **Settings** > **Access keys**, click the icon to rotate the SAS key.
+1. Rotate the SAS key by navigating to your storage account in the Azure portal. Under **Settings** > **Access keys**, select the icon to rotate the SAS key.
 
 1. Copy the new SAS URL, and use the following command to set the updated SAS URL in your key vault:
 
@@ -98,7 +101,7 @@ You can revoke the web app's access to the site data by disabling the web app's 
 
 Your application files are now encrypted at rest in your storage account. When your web app starts, it retrieves the SAS URL from your key vault. Finally, the web app loads the application files from the storage account. 
 
-If you need to revoke the web app's access to your storage account, you can either revoke access to the key vault or rotate the storage account keys, which invalidates the SAS URL.
+If you need to revoke the web app's access to your storage account, you can either revoke access to the key vault or rotate the storage account keys, both of which invalidate the SAS URL.
 
 ## Frequently Asked Questions
 

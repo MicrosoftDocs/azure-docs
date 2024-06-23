@@ -1,6 +1,6 @@
 ---
 title: Create an Angular app with Azure Cosmos DB's API for MongoDB (Part1)
-description: Part 4 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB 
+description: Part 4 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 author: gahl-levy
 ms.service: cosmos-db
 ms.subservice: mongodb
@@ -8,11 +8,11 @@ ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: gahllevy
-ms.custom: seodec18, devx-track-js, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-js, devx-track-azurecli
 ms.reviewer: mjbrown
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Create an Azure Cosmos DB account
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Azure Cosmos DB account configured with Azure Cosmos DB's API for MongoDB](introduction.md).
 
@@ -34,7 +34,7 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Log in to Azure](../../../includes/login-to-azure.md)]
+[!INCLUDE [Log in to Azure](../includes/login-to-azure.md)]
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 

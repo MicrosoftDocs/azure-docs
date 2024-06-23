@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The yellow taxi trip records include fields capturing pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Volume and retention
 
@@ -111,7 +111,7 @@ azure_storage_sas_token = r""
 container_name = "nyctlc"
 folder_name = "yellow"
 
-from azure.storage.blob import BlockBlobServicefrom azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
 if azure_storage_account_name is None or azure_storage_sas_token is None:
     raise Exception(

@@ -1,27 +1,36 @@
 ---
-title: Search over CSV blobs 
-titleSuffix: Azure Cognitive Search
-description: Extract CSV blobs from Azure Blob Storage and import as search documents into Azure Cognitive Search using the delimitedText parsing mode.
+title: Search over CSV blobs
+titleSuffix: Azure AI Search
+description: Extract CSV blobs from Azure Blob Storage or Azure Files and import as search documents into Azure AI Search using the delimitedText parsing mode.
 
 manager: nitinme
-author: HeidiSteen 
+author: HeidiSteen
 ms.author: heidist
 
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 01/17/2024
 ---
 
 # Index CSV blobs and files using delimitedText parsing mode
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
-In Azure Cognitive Search, both blob indexers and file indexers support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, the `delimitedText` parsing mode would result in two documents in the search index: 
+In Azure AI Search, indexers for Azure Blob Storage and Azure Files support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, the `delimitedText` parsing mode would result in two documents in the search index: 
 
 ```text
 id, datePublished, tags
 1, 2016-01-12, "azure-search,azure,cloud"
 2, 2016-07-07, "cloud,mobile"
+```
+
+If a field inside the CSV file contains the delimeter, it should be wrapped in quotes. If the field contains a quote, it must be escaped using double quotes (`""`).
+
+```text
+id, datePublished, tags
+1, 2020-01-05, "tags,with,""quoted text"""
 ```
 
 Without the `delimitedText` parsing mode, the entire contents of the CSV file would be treated as one search document.
@@ -30,7 +39,9 @@ Whenever you're creating multiple search documents from a single blob, be sure t
 
 ## Setting up CSV indexing
 
-To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode on a [Create Indexer](/rest/api/searchservice/create-indexer) request:
+To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode on a [Create Indexer](/rest/api/searchservice/indexers/create) request.
+
+Only UTF-8 encoding is supported.
 
 ```http
 {
@@ -40,7 +51,7 @@ To index CSV blobs, create or update an indexer definition with the `delimitedTe
 }
 ```
 
-`firstLineContainsHeaders` indicates that the first (non-blank) line of each blob contains headers.
+`firstLineContainsHeaders` indicates that the first (nonblank) line of each blob contains headers.
 If blobs don't contain an initial header line, the headers should be specified in the indexer configuration: 
 
 ```http
@@ -54,11 +65,7 @@ You can customize the delimiter character using the `delimitedTextDelimiter` con
 ```
 
 > [!NOTE]
-> Currently, only the UTF-8 encoding is supported. If you need support for other encodings, vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8).
-
-> [!IMPORTANT]
-> When you use the delimited text parsing mode, Azure Cognitive Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8). Otherwise, considering using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported on each indexer run.
->
+> In delimited text parsing mode, Azure AI Search assumes that all blobs are CSV. If you have a mix of CSV and non-CSV blobs in the same data source, consider using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported on each indexer run.
 
 ## Request examples
 
@@ -67,10 +74,9 @@ Putting it all together, here are the complete payload examples.
 Datasource: 
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
+POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
 Content-Type: application/json
 api-key: [admin key]
-
 {
     "name" : "my-blob-datasource",
     "type" : "azureblob",
@@ -82,10 +88,9 @@ api-key: [admin key]
 Indexer:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
+POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
 Content-Type: application/json
 api-key: [admin key]
-
 {
   "name" : "my-csv-indexer",
   "dataSourceName" : "my-blob-datasource",

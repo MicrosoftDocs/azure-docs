@@ -6,8 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019, contperf-fy22q2
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Azure Private Link for Azure Data Factory
@@ -53,6 +52,11 @@ Enabling Private Link for each of the preceding communication channels offers th
    - The command communications between the self-hosted IR and Data Factory can be performed securely in a private network environment. The traffic between the self-hosted IR and Data Factory goes through Private Link.
 - **Not currently supported**:
    - Interactive authoring that uses a self-hosted IR, such as test connection, browse folder list and table list, get schema, and preview data, goes through Private Link.
+   Please notice that the traffic goes through private link if the self-contained interactive authoring is enabled. See [Self-contained Interactive Authoring](create-self-hosted-integration-runtime.md#self-contained-interactive-authoring-preview).
+
+   > [!NOTE]
+   > Both "Get IP" and "Send log" are not supported when self-contained interactive authoring is enabled.
+
    - The new version of the self-hosted IR that can be automatically downloaded from Microsoft Download Center if you enable auto-update isn't supported at this time.
 
    For functionality that isn't currently supported, you need to configure the previously mentioned domain and port in the virtual network or your corporate firewall.
@@ -89,6 +93,9 @@ If you don't allow the preceding outbound traffic in the firewall and NSG, self-
 
 > [!NOTE]
 > If one data factory (shared) has a self-hosted IR and the self-hosted IR is shared with other data factories (linked), you only need to create a private endpoint for the shared data factory. Other linked data factories can leverage this private link for the communications between self-hosted IR and Data Factory.
+
+> [!NOTE]
+> We do not currently support establishing a private link between a self-hosted integration runtime and a Synapse Analytics workspace. And the self-hosted integration runtime can still communicate with Synapse even when data exfiltration protection is enabled on the Synapse workspace.
 
 ## DNS changes for private endpoints
 
@@ -146,7 +153,7 @@ If you don't have an existing virtual network to use with your private endpoint 
     | Resource group   | Select a resource group for your virtual network. |
     | **Instance details** |                                                                 |
     | Name             | Enter a name for your virtual network. |
-    | Region           | *Important:* Select the same region your private endpoint will use. |
+    | Region           | *Important:* Select the same region your private endpoint uses. |
 
 1. Select the **IP Addresses** tab or select **Next: IP Addresses** at the bottom of the page.
 
@@ -271,9 +278,9 @@ If you want to restrict access for Data Factory resources in your subscriptions 
 
 You're unable to access each PaaS resource when both sides are exposed to Private Link and a private endpoint. This issue is a known limitation of Private Link and private endpoints.
 
-For example, A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn't block public access, B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then customer B can't access data factory A via public in virtual network B anymore.
+For example, customer A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn't block public access, customer B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then customer B can't access data factory A via public in virtual network B anymore.
 
-## Next steps
+## Related content
 
 - [Create a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md)
 - [Introduction to Azure Data Factory](introduction.md)

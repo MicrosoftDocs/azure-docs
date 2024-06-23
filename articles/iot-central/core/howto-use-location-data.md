@@ -3,7 +3,7 @@ title: Use location data in an Azure IoT Central solution
 description: Learn how to use location data sent from a device connected to your IoT Central application. Plot location data on a map or create geofencing rules.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/03/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,7 +26,7 @@ The following screenshot shows a device template with examples of a device prope
 
 :::image type="content" source="media/howto-use-location-data/location-device-template.png" alt-text="Screenshot showing location property definition in device template" lightbox="media/howto-use-location-data/location-device-template.png":::
 
-For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) definitions for these capabilities look like the following snippet:
+For reference, the [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) definitions for these capabilities look like the following snippet:
 
 ```json
 {
@@ -55,7 +55,7 @@ For reference, the [Digital Twins Definition Language (DTDL) V2](https://github.
 ```
 
 > [!NOTE]
-> The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility.
+> The **geopoint** schema type is not part of the [DTDL specification](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). IoT Central currently supports the **geopoint** schema type and the **location** semantic type for backwards compatibility, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
 
 ## Send location data from a device
 
@@ -103,5 +103,5 @@ You can use location telemetry to create a geofencing rule that generates an ale
 
 Now that you've learned how to use properties in your Azure IoT Central application, see:
 
-* [Payloads](concepts-telemetry-properties-commands.md)
+* [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md)
 * [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)

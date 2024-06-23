@@ -8,7 +8,7 @@ manager: msmbaldwin
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 02/09/2023
+ms.date: 05/17/2023
 ms.author: mbaldwin
 ---
 
@@ -109,27 +109,34 @@ For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf
 
 Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
 
-- **Get Rotation Policy**: Retrieve rotation policy configuration
-- **Set Rotation Policy**: Set rotation policy configuration 
+- **Get Rotation Policy**: Retrieve rotation policy configuration.
+- **Set Rotation Policy**: Set rotation policy configuration.
 
 ## Key attributes
 
 In addition to the key material, the following attributes may be specified. In a JSON Request, the attributes keyword and braces, '{' '}', are required even if there are no attributes specified.  
 
-- *enabled*: boolean, optional, default is **true**. Specifies whether the key is enabled and useable for cryptographic operations. The *enabled* attribute is used with *nbf* and *exp*. When an operation occurs between *nbf* and *exp*, it will only be permitted if *enabled* is set to **true**. Operations outside the *nbf* / *exp* window are automatically disallowed, except for [decrypt, unwrap, and verify](#date-time-controlled-operations).
-- *nbf*: IntDate, optional, default is now. The *nbf* (not before) attribute identifies the time before which the key MUST NOT be used for cryptographic operations, except for [decrypt, unwrap, and verify](#date-time-controlled-operations). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Key Vault MAY provide for some small leeway, normally no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
-- *exp*: IntDate, optional, default is "forever". The *exp* (expiration time) attribute identifies the expiration time on or after which the key MUST NOT be used for cryptographic operation, except for [decrypt, unwrap, and verify](#date-time-controlled-operations). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Key Vault MAY provide for some small leeway, typically no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
+- *enabled*: boolean, optional, default is **true**. Specifies whether the key is enabled and useable for cryptographic operations. The *enabled* attribute is used with *nbf* and *exp*. When an operation occurs between *nbf* and *exp*, it will only be permitted if *enabled* is set to **true**. Operations outside the *nbf* / *exp* window are automatically disallowed, except for [decrypt, release, unwrap, and verify](#date-time-controlled-operations).
+- *nbf*: IntDate, optional, default is now. The *nbf* (not before) attribute identifies the time before which the key MUST NOT be used for cryptographic operations, except for [decrypt, release, unwrap, and verify](#date-time-controlled-operations). The processing of the *nbf* attribute requires that the current date/time MUST be after or equal to the not-before date/time listed in the *nbf* attribute. Key Vault MAY provide for some small leeway, normally no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
+- *exp*: IntDate, optional, default is "forever". The *exp* (expiration time) attribute identifies the expiration time on or after which the key MUST NOT be used for cryptographic operation, except for [decrypt, release, unwrap, and verify](#date-time-controlled-operations). The processing of the *exp* attribute requires that the current date/time MUST be before the expiration date/time listed in the *exp* attribute. Key Vault MAY provide for some small leeway, typically no more than a few minutes, to account for clock skew. Its value MUST be a number containing an IntDate value.  
 
 There are more read-only attributes that are included in any response that includes key attributes:  
 
 - *created*: IntDate, optional. The *created* attribute indicates when this version of the key was created. The value is null for keys created prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
-- *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. The value is null for keys that were last updated prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.  
+- *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. The value is null for keys that were last updated prior to the addition of this attribute. Its value MUST be a number containing an IntDate value.
+- *hsmPlatform*: string, optional. The underlying HSM Platform that is protecting a key.
+    - A hsmPlatform value of 2 means the key is protected by our latest FIPS 140 Level 3 validated HSM platform.
+    - A hsmPlatform value of 1 means the key is protected by our previous FIPS 140 Level 2 validated HSM platform.
+    - A hsmPlatform value of 0 means the key is protected by a FIPS 140 Level 1 HSM software cryptographic module.
+    - if this is not set by a Managed HSM pool, it is protected by our latest FIPS 140 Level 3 validated HSM platform.
+ 
+It’s important to note that keys are bound to the HSM in which they were created. New keys are seamlessly created and stored in the new HSMs. While there is no way to migrate or transfer keys, new key versions are automatically in the new HSMs. For more information on how to migrate to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
 For more information on IntDate and other data types, see [About keys, secrets, and certificates: [Data types](../general/about-keys-secrets-certificates.md#data-types).
 
 ### Date-time controlled operations
 
-Not-yet-valid and expired keys, outside the *nbf* / *exp* window, will work for **decrypt**, **unwrap**, and **verify** operations (won't return 403, Forbidden). The rationale for using the not-yet-valid state is to allow a key to be tested before production use. The rationale for using the expired state is to allow recovery operations on data that was created when the key was valid. Also, you can disable access to a key using Key Vault policies, or by updating the *enabled* key attribute to **false**.
+Not-yet-valid and expired keys, outside the *nbf* / *exp* window, will work for **decrypt**, **release**, **unwrap**, and **verify** operations (won't return 403, Forbidden). The rationale for using the not-yet-valid state is to allow a key to be tested before production use. The rationale for using the expired state is to allow recovery operations on data that was created when the key was valid. Also, you can disable access to a key using Key Vault policies, or by updating the *enabled* key attribute to **false**.
 
 For more information on data types, see [Data types](../general/about-keys-secrets-certificates.md#data-types).
 

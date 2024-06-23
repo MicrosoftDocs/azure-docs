@@ -21,11 +21,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/store-php-create-mysql-database.md",
-        "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/reference-data-in-stored-procedures.md",
         "redirect_url": "/azure/mysql/single-server/reference-stored-procedures",
         "redirect_document_id": false
@@ -784,6 +779,146 @@
         "source_path_from_root": "/articles/mysql/single-server/select-right-deployment-type.md",
         "redirect_url": "/azure/mysql/select-right-deployment-type",
         "redirect_document_id": true
-    }
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-replication-latency.md",
+        "redirect_url": "/azure/mysql/how-to-troubleshoot-replication-latency",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/tutorial-archive-laravel.md",
+        "redirect_url": "/azure/mysql/flexible-server/tutorial-php-database-app",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/videos.md",
+        "redirect_url": "https://aka.ms/mysql-intro-vid",
+        "redirect_document_id": false
+    },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concept-monitoring-best-practices.md",
+        "redirect_url": "/azure/mysql/flexible-server/concept-monitoring-best-practices",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concept-operation-excellence-best-practices.md",
+        "redirect_url": "/azure/mysql/flexible-server/concept-operation-excellence-best-practices",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concept-perf-benchmark-best-practices.md",
+        "redirect_url": "/azure/mysql/flexible-server/concept-perf-benchmark-best-practices",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concept-performance-best-practices.md",
+        "redirect_url": "/azure/mysql/flexible-server/concept-performance-best-practices",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concept-reserved-pricing.md",
+        "redirect_url": "/azure/mysql/flexible-server/concept-reserved-pricing",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-azure-advisor-recommendations.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-azure-advisor-recommendations",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-connection-libraries.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-connection-libraries",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-dump-restore.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-migrate-dump-restore",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-troubleshooting-best-practices.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-troubleshooting-best-practices",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-migrate-online.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-migrate-online",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-migrate-rds-mysql-data-in-replication.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-migrate-rds-mysql-data-in-replication",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-common-errors.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-troubleshoot-common-errors",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-connectivity-issues.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-troubleshoot-connectivity-issues",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-high-cpu-utilization.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-troubleshoot-high-cpu-utilization",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-low-memory-issues.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-troubleshoot-low-memory-issues",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-query-performance-new.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-troubleshoot-query-performance-new",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-query-performance.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-troubleshoot-query-performance",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-troubleshoot-sys-schema.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-troubleshoot-sys-schema",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/overview.md",
+        "redirect_url": "/azure/mysql/flexible-server/overview-single",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/partners-migration-mysql.md",
+        "redirect_url": "/azure/mysql/flexible-server/partners-migration-mysql",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/quickstart-mysql-github-actions.md",
+        "redirect_url": "/azure/mysql/flexible-server/quickstart-mysql-github-actions",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-fix-corrupt-database.md",
+        "redirect_url": "/azure/mysql/flexible-server/how-to-fix-corrupt-database",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-import-export.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-migrate-import-export",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-aks.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-aks",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/mysql/flexible-server/overview-single.md",
+        "redirect_url": "/azure/mysql/flexible-server/overview",
+        "redirect_document_id": true
+      }
   ]
 }

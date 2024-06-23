@@ -5,21 +5,41 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/12/2022
+ms.date: 03/27/2024
 ms.author: abell
-ms.custom: fasttrack-edit, ignite-2022
+ms.custom: fasttrack-edit, linux-related-content
 ---
 
 # Azure DDoS Protection reference architectures
 
 Azure DDoS Protection is designed [for services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
 
-> [!NOTE]
-> Protected resources include public IPs attached to an IaaS VM (except for single VM running behind a public IP), Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric, IaaS based Network Virtual Appliance (NVA) or Azure API Management (Premium tier only), connected to a virtual network (VNet) in the external mode. Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN are not supported at present.
+## Protected Resources
 
-> [!NOTE]
-> Protected resources that include public IPs created from public IP address prefix are not supported at present.
+Supported resources include:
+* Public IPs attached to:
+    * An IaaS virtual machine.
+    * Application Gateway (including WAF) cluster.
+    * Azure API Management (Premium tier only).
+    * Bastion.
+    * Connected to a virtual network (VNet) in the external mode. 
+    * Firewall.
+    * IaaS based Network Virtual Appliance (NVA). 
+    * Load Balancer (Classic & Standard Load Balancers).
+    * Service Fabric.
+    * VPN Gateway.
+* Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). 
+
+    
+Unsupported resources include:
+
+* Azure Virtual WAN.
+* Azure API Management in deployment modes other than the supported modes.
+* PaaS services (multi-tenant) including Azure App Service Environment for Power Apps.
+* Protected resources that include public IPs created from public IP address prefix.
+* NAT Gateway.
+
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -60,7 +80,7 @@ There are many ways to implement an N-tier architecture. The following diagrams 
  In this architecture diagram DDoS IP Protection is enabled on the public IP address.
 
 > [!NOTE]
-> Scenarios in which a single VM is running behind a public IP are not supported. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
+> Scenarios in which a single VM is running behind a public IP is not recommended. DDoS mitigation may not initiate instantaneously when a DDoS attack is detected. As a result a single VM deployment that can’t scale out will go down in such cases.
 
 ### PaaS web application
 
@@ -123,7 +143,7 @@ DDoS Protection is designed for services that are deployed in a virtual network.
 In this architecture diagram Azure DDoS IP Protection is enabled on the public IP Address.
 
 > [!NOTE]
-> Azure DDoS Protection protects the Public IPs of Azure resource. DDoS infrastructure protection, which requires no configuration and is enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). For more information, see [Azure DDoS Protection overview](ddos-protection-overview.md).
+> At no additional cost, Azure DDoS infrastructure protection protects every Azure service that uses public IPv4 and IPv6 addresses. This DDoS protection service helps to protect all Azure services, including platform as a service (PaaS) services such as Azure DNS. For more information, see [Azure DDoS Protection overview](ddos-protection-overview.md).
 For more information about hub-and-spoke topology, see [Hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).
 
 ## Next steps

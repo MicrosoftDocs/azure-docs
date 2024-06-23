@@ -4,8 +4,9 @@ description: In this tutorial, you learn how to configure an Azure Container Reg
 ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: "seodec18, mvc, devx-track-js, devx-track-azurecli"
+ms.date: 10/31/2023
+ms.custom: mvc, devx-track-azurecli
+ms.service: container-registry
 # Customer intent: As a developer or devops engineer, I want container images to be built automatically when the base image of a container is updated in the registry.
 ---
 
@@ -43,7 +44,7 @@ If you haven't already done so, complete the following tutorials before proceedi
 
 ### Configure the environment
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 - This article requires version 2.0.46 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 Populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever it appears in the example commands.
@@ -87,7 +88,7 @@ az acr task create \
     --name baseexample1 \
     --image helloworld:{{.Run.ID}} \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
     --file Dockerfile-app \
     --git-access-token $GIT_PAT
 ```

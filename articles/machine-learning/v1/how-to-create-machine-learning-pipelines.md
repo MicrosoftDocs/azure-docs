@@ -1,7 +1,7 @@
 ---
 title: Create and run ML pipelines
 titleSuffix: Azure Machine Learning
-description: Create and run machine learning pipelines to create and manage the workflows that stitch together machine learning (ML) phases. 
+description: Create and run machine learning pipelines to create and manage the workflows that stitch together machine learning (ML) phases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 ---
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to create and run [machine learning pipelines](../concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, and sharing ML workflows with others.
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * An Azure Machine Learning workspace. [Create workspace resources](../quickstart-create-resources.md).
 
-* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 
@@ -172,7 +172,7 @@ else:
         pin_sdk_version=False)
 ```
 
-The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](../resource-curated-environments.md).
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/u/microsoft). For more information, see [Azure Machine Learning curated environments](../resource-curated-environments.md).
 
 The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](../../container-registry/container-registry-intro.md)). Building and registering this image can take quite a few minutes.
 
@@ -284,7 +284,7 @@ For more detail, including alternate ways to pass and access data, see [Moving d
 ## Caching & reuse  
 
 To optimize and customize the behavior of your pipelines, you can do a few things around caching and reuse. For example, you can choose to:
-+ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](/python/api/azureml-pipeline-steps/). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of reuse.
++ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](/python/api/azureml-pipeline-steps/azureml.pipeline.steps). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of reuse.
 + **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`
 
 By default, `allow_reuse` for steps is enabled and the `source_directory` specified in the step definition is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), and nothing else in the` source_directory` has changed, the output of a previous step run is reused, the job isn't submitted to the compute, and the results from the previous run are immediately available to the next step instead.
@@ -306,7 +306,7 @@ step = PythonScriptStep(name="Hello World",
 When you submit the pipeline, Azure Machine Learning checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded. The snapshot is also stored as part of the experiment in your workspace.
 
 > [!IMPORTANT]
-> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 >
 > For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -380,6 +380,6 @@ When you start a training run where the source directory is a local Git reposito
 
 - To share your pipeline with colleagues or customers, see [Publish machine learning pipelines](how-to-deploy-pipelines.md)
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further
-- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package
+- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/azureml.pipeline.core) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package
 - See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines=
 - Learn how to run notebooks by following the article [Use Jupyter notebooks to explore this service](../samples-notebooks.md).

@@ -1,13 +1,14 @@
 ---
 title: Linter rule - max variables
 description: Linter rule - max variables.
-ms.topic: conceptual
-ms.date: 02/03/2022
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 03/20/2024
 ---
 
 # Linter rule - max variables
 
-This rule checks that the number of variables does not exceed the [ARM template limits](../templates/best-practices.md#template-limits).
+This rule checks that the number of variables doesn't exceed the [ARM template limits](../templates/best-practices.md#template-limits).
 
 ## Linter rule code
 

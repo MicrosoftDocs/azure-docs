@@ -19,6 +19,7 @@ The documentation on the [control plane](../azure-resource-manager/management/co
 - [Labels](./rest-api-labels.md)
 - [Locks](./rest-api-locks.md)
 - [Revisions](./rest-api-revisions.md)
+- [Snapshots](./rest-api-snapshot.md)
 
 ## Protocol
 

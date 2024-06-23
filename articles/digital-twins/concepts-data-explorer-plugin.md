@@ -66,7 +66,7 @@ The plugin works by calling the [Azure Digital Twins Query API](/rest/api/digita
 
 
 >[!IMPORTANT]
->The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+>The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Microsoft Entra token is used to authenticate. Information on how to assign this role can be found in [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
 
 For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
 
@@ -78,7 +78,7 @@ Before querying with the plugin, you'll need to ingest your Azure Digital Twins 
 
 ### Ingesting with data history
 
-The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and graph updates (including twin property updates, twin lifecycle events, and relationship lifecycle events) are automatically historized to the cluster. This is a good choice if you're using telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
+The simplest way to ingest IoT data from Azure Digital Twins into Azure Data Explorer is to use the **data history** feature. This feature allows you to set up a connection between your Azure Digital Twins instance and an Azure Data Explorer cluster, and graph updates (including twin property updates, twin lifecycle events, and relationship lifecycle events) are automatically historized to the cluster. This is a good choice if you're using device telemetry data to bring your digital twins to life. For more information about this feature, see [Data history (with Azure Data Explorer)](concepts-data-history.md). 
 
 ### Direct ingestion
 
@@ -90,7 +90,7 @@ If you're ingesting time series data directly into Azure Data Explorer, you may 
 
 An [update policy](/azure/data-explorer/kusto/management/updatepolicy) in Azure Data Explorer allows you to automatically transform and append data to a target table whenever new data is inserted into a source table. 
 
-If the sensor ID in your telemetry data differs from the corresponding twin ID in Azure Digital Twins, you can use an update policy to enrich your raw time series data with the twin ID and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
+If the sensor ID in your device telemetry data differs from the corresponding twin ID in Azure Digital Twins, you can use an update policy to enrich your raw time series data with the twin ID and persist it to a target table. Using the twin ID, the target table can then be joined against the digital twins selected by the Azure Digital Twins plugin. 
 
 For example, say you created the following table to hold the raw time series data flowing into your Azure Data Explorer instance. 
 

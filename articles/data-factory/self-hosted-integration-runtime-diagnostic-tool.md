@@ -6,8 +6,8 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
-ms.date: 08/18/2022
+ms.custom: references_regions
+ms.date: 05/15/2024
 ---
 
 # Diagnostic tool for self-hosted integration runtime
@@ -35,7 +35,7 @@ The execution result and detail log messages are generated as a HTML report. You
 
 :::image type="content" source="./media/self-hosted-integration-runtime-diagnostic-tool/diagnostic-report.png" alt-text="Screenshot that shows the diagnostic result report.":::
 
-## Next steps
+## Related content
 
 - Review [integration runtime concepts in Azure Data Factory](./concepts-integration-runtime.md).
 

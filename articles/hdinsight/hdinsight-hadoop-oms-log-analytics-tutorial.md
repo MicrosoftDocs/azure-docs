@@ -1,10 +1,10 @@
 ---
-title: Use Azure Monitor logs to monitor Azure HDInsight clusters 
+title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020, devx-track-azurepowershell, references_regions, devx-track-azurecli
-ms.date: 09/02/2022
+ms.custom: devx-track-azurepowershell, references_regions, devx-track-azurecli
+ms.date: 05/10/2024
 ---
 
 # Use Azure Monitor logs to monitor HDInsight clusters
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/monitor-virtual-machine.md).
+* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
 * An Azure HDInsight cluster. Currently, you can use Azure Monitor logs with the following HDInsight cluster types:
 
@@ -59,7 +59,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 5. Select **Save**. It takes a few moments to save the setting. 
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-azure-monitor.png" alt-text="Enable monitoring for HDInsight clusters":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-azure-monitor.png" alt-text="Enable monitoring for HDInsight clusters.":::
 
 If you want to disable Azure Monitor, you can do the same in this portal. 
 
@@ -139,29 +139,8 @@ Available HDInsight workbooks:
 - HDInsight Hive/LLAP Workbook
 
 Screenshot of Spark Workbook
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-spark-workbook.png" alt-text="Spark workbook screenshot":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-spark-workbook.png" alt-text="Spark workbook screenshot.":::
 
-## Use at-scale Insights to monitor multiple clusters
-
-You can log into Azure portal and select Monitoring. In the **Insights** section, you can select **Insights Hub**. Then you can find HDInsight clusters.
-
-In this view, you can monitor multiple HDInsight clusters in one place.
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-monitor-insights.png" alt-text="Cluster monitor insights screenshot":::
-
-You can select the subscription and the HDInsight clusters you want to monitor. 
- - The **Monitored Clusters** shows the number of clusters you have enabled Azure Monitor integration.
- - The **Unmonitored Cluster** shows the number of clusters you haven't enabled Azure Monitor integration.
-
-You can see the detail cluster list in each section. 
-
-In the **Overview** tab under **Monitored Clusters**, you can see cluster type, critical Alerts, and resource utilizations.
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-cluster-alerts.png" alt-text="Cluster monitor alerts screenshot":::
-
-Also you can see the clusters in each workload type, including Spark, HBase, Hive, and Kafka.
-
-The high-level metrics of each workload type will be presented, including how many active node managers, how many running applications, etc.
-
-:::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/spark-metrics.png" alt-text="Cluster monitor spark metrics":::
 
 ## Configuring performance counters
 
@@ -175,7 +154,6 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 * `log_auth_CL` - this table provides SSH logs with successful and failed sign-in attempts.
 * `log_ambari_audit_CL` - this table provides audit logs from Ambari.
 * `log_ranger_audti_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
-
 
 #### [Classic Azure Monitor experience](#tab/previous)
 
@@ -216,7 +194,7 @@ In this section, you configure an existing HDInsight Hadoop cluster to use an Az
 
 1. Select **Save**.  It takes a few moments to save the setting.
 
-    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="Enable monitoring for HDInsight clusters":::
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="Enable monitoring for HDInsight clusters.":::
 
 ## Enable Azure Monitor using Azure PowerShell
 
@@ -314,13 +292,9 @@ Available HDInsight solutions:
 
 For management solution instructions, see [Management solutions in Azure](/previous-versions/azure/azure-monitor/insights/solutions#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it's done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
-:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight monitoring solution view":::
+:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight monitoring solution view.":::
 
 Because the cluster is a brand new cluster, the report doesn't show any activities.
-
-## Configuring performance counters
-
-Azure monitor supports collecting and analyzing performance metrics for the nodes in your cluster. For more information, see [Linux performance data sources in Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## Cluster auditing
 

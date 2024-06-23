@@ -5,6 +5,7 @@ description: Learn how to use the Create Python Model component in Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: devx-track-python
 ms.topic: reference
 
 author: likebupt

@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: alkohli
-ms.custom: has-adal-ref, devx-track-azurecli 
+ms.custom: has-adal-ref, devx-track-azurecli, devx-track-python
 ms.devlang: azurecli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -114,7 +114,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
 
 7. Prepare your environment for the Azure CLI:
 
-   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+   [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Step 1: Set up Azure CLI/Python on the client
 

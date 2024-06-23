@@ -4,6 +4,7 @@ description: Configure NAT gateway for Azure Container Instances workloads that 
 author: tomvcassidy
 ms.topic: how-to
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.author: tomcassidy
 ms.date: 05/03/2022
@@ -27,7 +28,7 @@ You then validate egress from example container groups through the NAT gateway.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
 

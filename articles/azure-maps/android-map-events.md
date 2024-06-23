@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.custom: devx-track-extended-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
@@ -13,6 +14,12 @@ zone_pivot_groups: azure-maps-android
 # Interact with the map (Android SDK)
 
 This article shows you how to use the maps events manager.
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Interact with the map
 
@@ -86,7 +93,7 @@ map.events.add(OnCameraMove {
 
 ::: zone-end
 
-For more information, see the [Navigating the map](how-to-use-android-map-control-library.md#navigating-the-map) documentation on how to interact with the map and trigger events.
+For more information, see the [Navigating the map] documentation on how to interact with the map and trigger events.
 
 ## Scope feature events to layer
 
@@ -169,16 +176,22 @@ map.events.add(
 See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Navigating the map](how-to-use-android-map-control-library.md#navigating-the-map)
+> [Navigating the map]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer-android.md)
+> [Add a bubble layer]
 
 > [!div class="nextstepaction"]
-> [Add a line layer](android-map-add-line-layer.md)
+> [Add a line layer]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](how-to-add-shapes-to-android-map.md)
+> [Add a polygon layer]
+
+[Add a bubble layer]: map-add-bubble-layer-android.md
+[Add a line layer]: android-map-add-line-layer.md
+[Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Navigating the map]: how-to-use-android-map-control-library.md#navigating-the-map

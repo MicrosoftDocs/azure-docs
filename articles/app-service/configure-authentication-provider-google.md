@@ -4,8 +4,9 @@ description: Learn how to configure Google authentication as an identity provide
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
 ms.date: 03/29/2021
-ms.custom: [seodec18, fasttrack-edit]
-
+ms.custom: fasttrack-edit, AppServiceIdentity
+author: cephalin
+ms.author: cephalin
 ---
 
 # Configure your App Service or Azure Functions app to use Google login
@@ -40,8 +41,8 @@ To complete the procedure in this topic, you must have a Google account that has
 
 1. Click **Add**.
 
-> [Note]
-    > For adding scope: You can define what permissions your application has in the provider's registration portal. The app can request scopes at login time which leverage these permissions.
+> [!NOTE]
+> For adding scope: You can define what permissions your application has in the provider's registration portal. The app can request scopes at login time which leverage these permissions.
 
 You are now ready to use Google for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
@@ -61,4 +62,3 @@ You are now ready to use Google for authentication in your app. The provider wil
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Azure portal]: https://portal.azure.com/
-

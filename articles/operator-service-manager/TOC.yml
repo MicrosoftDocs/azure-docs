@@ -1,0 +1,110 @@
+- name: Azure Operator Service Manager documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Azure Operator Service Manager?
+    href: ./azure-operator-service-manager-overview.md
+- name: Concepts
+  expanded: false
+  items:
+  - name: Best Practices
+    expanded: false
+    items:
+      - name: Onboard and deploy a Network Function
+        href: best-practices-onboard-deploy.md
+  - name: Roles and Interfaces
+    href: roles-interfaces.md
+  - name: Helm Package Requirements
+    href: helm-requirements.md
+  - name: Publisher Tenants, subscriptions, regions and preview management
+    href: publisher-resource-preview-management.md
+  - name: Azure Operator Service Manager CLI Extension
+    expanded: false
+    items:
+      - name: About the Azure Operator Service Manager CLI extension
+        href: concepts-about-azure-operator-service-manager-cli.md
+      - name: CLI container image onboarding
+        href: concepts-cli-containerized-network-function-image-upload.md
+      - name: Exposing parameters in a configuration group schema
+        href: concepts-expose-parameters-configuration-group-schema.md
+- name: Quickstarts
+  expanded: false
+  items:
+  - name: Onboard Subscription to Azure Operator Service Manager
+    href: quickstart-onboard-subscription-azure-operator-service-manager.md
+  - name: Containerized Network Function (CNF)
+    expanded: false
+    items:
+      - name: Prerequisites for using Azure Operator Service Manager
+        href: quickstart-containerized-network-function-prerequisites.md
+      - name: Publish a Network Function Definition
+        href: quickstart-publish-containerized-network-function-definition.md
+      - name: Design a Network Service Design
+        href: quickstart-containerized-network-function-network-design.md
+      - name: Prerequisites for Operator
+        href: quickstart-containerized-network-function-operator.md
+      - name: Create a site
+        href: quickstart-containerized-network-function-create-site.md
+      - name: Create a Site Network Service
+        href: quickstart-containerized-network-function-create-site-network-service.md
+  - name: Virtualized Network Function (VNF)
+    expanded: false
+    items:
+      - name: Prerequisites for using Azure Operator Service Manager
+        href: quickstart-virtualized-network-function-prerequisites.md
+      - name: Publish a Network Function Definition
+        href: quickstart-publish-virtualized-network-function-definition.md
+      - name: Design a Network Service Design
+        href: quickstart-virtualized-network-function-network-design.md
+      - name: Prerequisites for Operator
+        href: quickstart-virtualized-network-function-operator.md
+      - name: Create a site
+        href: quickstart-virtualized-network-function-create-site.md
+      - name: Create a Site Network Service
+        href: quickstart-virtualized-network-function-create-site-network-service.md
+
+- name: How-to guides
+  expanded: false
+  items:
+  - name: Onboard network functions and Azure resources
+    expanded: false
+    items:
+      - name: Onboard a containerized network function (CNF) - CLI
+        href: how-to-onboard-containerized-network-function-cli.md
+      - name: Onboard a virtualized network function (VNF) - CLI
+        href: how-to-onboard-virtualized-network-function-cli.md
+      - name: Use Helm option parameters to prevent containerized network function (CNF) deletion on install failure
+        href: how-to-use-helm-option-parameters.md
+      - name: Onboard Azure resources - CLI
+        href: how-to-onboard-azure-resource-manager-resources-cli.md
+  - name: Create a custom role
+    href: how-to-create-custom-role.md
+  - name: Assign a custom role
+    href: how-to-assign-custom-role.md
+  - name: Create a user assigned managed identity
+    href: how-to-create-user-assigned-managed-identity.md
+  - name: Create a site
+    href: how-to-create-site.md
+  - name: Delete operator resources
+    href: how-to-delete-operator-resources.md
+  - name: Create site network service
+    href: how-to-create-site-network-service.md
+  - name: Push and pull artifacts for network functions on Azure Operator Nexus
+    href: how-to-manage-artifacts-nexus.md
+  - name: Push and pull artifacts for virtualized network functions (VNF) on Azure
+    href: how-to-manage-artifacts-virtualized-network-function-cloud.md
+- name: Troubleshooting
+  expanded: false
+  items:
+    - name: CLI extension common issues
+      href: troubleshoot-cli-common-issues.md
+    - name: Helm install failures
+      href: troubleshoot-helm-install-failures.md
+- name: Resources
+  expanded: false
+  items:
+  - name: Glossary
+    href: glossary.md
+  - name: REST API
+    href: /rest/api/hybridnetwork

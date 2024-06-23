@@ -11,13 +11,12 @@ ms.custom:
 
 # Set up a workspace
 
-Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized API development team to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. After you create a workspace and assign permissions, workspace collaborators can create and manage their own APIs, products, subscriptions, and related resources.
+[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
-[!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
+Set up a [workspace](workspaces-overview.md) (preview) to enable a decentralized API development team to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. After you create a workspace and assign permissions, workspace collaborators can create and manage their own APIs, products, subscriptions, and related resources.
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](workspaces-overview.md#preview-limitations).
-> * This feature is being released during March and April 2023.
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
@@ -42,11 +41,11 @@ The new workspace appears in the list on the **Workspaces** page. Select the wor
 After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
 
 > [!NOTE]
-> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
 > 
 
 * For a list of built-in workspace roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
-* For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md?tabs=current).
+* For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
 
 
 ### Assign a service-scoped role
@@ -72,7 +71,10 @@ After creating a workspace, assign permissions to users to manage the workspace'
     * **API Management Workspace API Developer**
     * **API Management Workspace API Product Manager**
 
+## Migrate resources to a workspace
+
+The open source [Azure API Management workspaces migration tool](https://github.com/Azure-Samples/api-management-workspaces-migration) can help you with the initial setup of resources in the workspace. Use the tool to migrate selected service-level APIs with their dependencies from an Azure API Management instance to a workspace.  
+
 ## Next steps
 
 * Workspace collaborators can get started [managing APIs and other resources in their API Management workspace](api-management-in-workspace.md)
-

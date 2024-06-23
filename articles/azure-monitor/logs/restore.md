@@ -3,11 +3,14 @@ title: Restore logs in Azure Monitor
 description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
 ms.topic: conceptual
 ms.date: 10/01/2022
-
 ---
 
 # Restore logs in Azure Monitor
-The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
+The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.  
+
+## Permissions
+
+To restore data from an archived table, you need `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/restoreLogs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles).
 
 ## When to restore logs
 Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table can't complete within the log query timeout of 10 minutes.
@@ -18,7 +21,7 @@ Use the restore operation to query data in [Archived Logs](data-retention-archiv
 ## What does restore do?
 When you restore data, you specify the source table that contains the data you want to query and the name of the new destination table to be created. 
 
-The restore operation creates the restore table and allocates additional compute resources for querying the restored data using high-performance queries that support full KQL.
+The restore operation creates the restore table and allocates extra compute resources for querying the restored data using high-performance queries that support full KQL.
 
 The destination table provides a view of the underlying source data, but doesn't affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
@@ -83,6 +86,7 @@ For example:
 az monitor log-analytics workspace table restore create --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name Heartbeat_RST --restore-source-table Heartbeat --start-restore-time "2022-01-01T00:00:00.000Z" --end-restore-time "2022-01-08T00:00:00.000Z" --no-wait
 ```
 
+
 ---
 
 ## Query restored data
@@ -116,23 +120,40 @@ Restore is subject to the following limitations.
 
 You can: 
 
-- Restore data for a minimum of two days.
+- Restore data from a period of at least two days.
+
 - Restore up to 60 TB.
 - Run up to two restore processes in a workspace concurrently.
-- Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
+- Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore fails. 
 - Perform up to four restores per table per week. 
 
 ## Pricing model
-The charge for maintaining restored logs is calculated based on the volume of data you restore, in GB, and the number or days for which you restore the data. Charges are prorated and subject to the minimum restore duration and data volume. There is no charge for querying against restored logs.
 
-For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data.
+The charge for restored logs is based on the volume of data you restore, and the duration for which the restore is active. Thus, the units of price are *per GB per day*. Data restores are billed on each UTC-day that the restore is active. 
+
+- Charges are subject to a minimum restored data volume of 2 TB per restore. If you restore less data, you will be charged for the 2 TB minimum each day until the [restore is dismissed](#dismiss-restored-data).
+- On the first and last days that the restore is active, you're only billed for the part of the day the restore was active. 
+
+- The minimum charge is for a 12-hour restore duration, even if the restore is active for less than 12-hours.
+
+- For more information on your data restore price, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) on the Logs tab.
+
+Here are some examples to illustrate data restore cost calculations:
+
+1. If your table holds 500 GB a day and you restore 10 days data from that table, your total restore size is 5 TB. You are charged for this 5 TB of restored data each day until you [dismiss the restored data](#dismiss-restored-data). Your daily cost is 5,000 GB multiplied by your data restore price (see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).) 
+
+1. If instead, only 700 GB of data is restored, each day that the restore is active is billed for the 2 TB minimum restore level. Your daily cost is 2,000 GB multiplied by your data restore price.
+
+1. If a 5 TB data restore is only kept active for 1 hour, it is billed for 12-hour minimum. The cost for this data restore is 5,000 GB multiplied by your data restore price multiplied by 0.5 days (the 12-hour minimum). 
+
+1. If a 700 GB data restore is only kept active for 1 hour, it is billed for 12-hour minimum. The cost for this data restore is 2,000 GB (the minimum billed restore size) multiplied by your data restore price multiplied by 0.5 days (the 12-hour minimum). 
 
 > [!NOTE]
-> Billing of restore is not yet enabled. You can restore logs for free until early 2023.
-
-For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+> There is no charge for querying restored logs since they are Analytics logs. 
 
 ## Next steps
 
 - [Learn more about data retention and archiving data.](data-retention-archive.md)
+
 - [Learn about Search jobs, which is another method for retrieving archived data.](search-jobs.md)
+

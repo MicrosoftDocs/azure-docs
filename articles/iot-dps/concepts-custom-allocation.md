@@ -8,7 +8,7 @@ ms.author: kgremban
 ms.date: 09/09/2022
 ms.topic: concept-article
 ms.service: iot-dps
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp
 ---
 
 # Understand custom allocation policies with Azure IoT Hub Device Provisioning Service
@@ -31,7 +31,7 @@ The following steps describe how custom allocation polices work:
 
 1. The Azure Function executes and returns an **AllocationResponse** object on success. The **AllocationResponse** object contains the IoT hub the device should be provisioned to, the initial twin state, and an optional custom payload to return to the device. For more information, see [Custom allocation policy response](#custom-allocation-policy-response).
 
-1. DPS assigns the device to the IoT hub indicated in the response, and, if an initial twin is returned, sets the initial twin for the device accordingly. If a custom payload is returned by the webhook, it's passed to the device along with the assigned IoT hub and authentication details in the [registration response](/rest/api/iot-dps/device/runtime-registration/register-device#deviceregistrationresult) from DPS.
+1. DPS assigns the device to the IoT hub indicated in the response, and, if an initial twin is returned, sets the initial twin for the device accordingly. If a custom payload is returned by the webhook, it's passed to the device along with the assigned IoT hub and authentication details in the [registration response](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) from DPS.
 
 1. The device connects to the assigned IoT hub and downloads its initial twin state. If a custom payload is returned in the registration response, the device uses it according to its own client-side logic.  
 
@@ -217,7 +217,7 @@ The following JSON shows a webhook response that includes a payload:
 
 ### DPS sends data payload to device
 
-If DPS receives a payload in the webhook response, it passes this data back to the device in the **RegistrationOperationStatus.registrationState.payload** property in the response on a successful registration. The **registrationState** property is of type [DeviceRegistrationResult](/rest/api/iot-dps/device/runtime-registration/register-device#deviceregistrationresult).
+If DPS receives a payload in the webhook response, it passes this data back to the device in the **RegistrationOperationStatus.registrationState.payload** property in the response on a successful registration. The **registrationState** property is of type [DeviceRegistrationResult](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup).
 
 The following JSON shows a successful registration response for a TPM device that includes the **payload** property:
 

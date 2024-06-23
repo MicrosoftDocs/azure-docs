@@ -1,30 +1,31 @@
 ---
-title: Add autocomplete to a search box
-titleSuffix: Azure Cognitive Search
-description: Enable search-as-you-type query actions in Azure Cognitive Search by creating suggesters and formulating requests that autocomplete a search box with finished terms or phrases. You can also return suggested matches.
+title: Autocomplete or typeahead
+titleSuffix: Azure AI Search
+description: Enable search-as-you-type query actions in Azure AI Search by creating suggesters and queries that autocomplete a search string with finished terms or phrases. You can also return suggested matches.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/12/2022
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom:
+  - ignite-2023
+ms.topic: how-to
+ms.date: 02/22/2024
 ---
 
-# Add autocomplete and suggestions to client apps using Azure Cognitive Search
+# Add autocomplete and search suggestions in client apps
 
-Search-as-you-type is a common technique for improving query productivity. In Azure Cognitive Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microsoft"). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer queries that return zero results.
+Search-as-you-type is a common technique for improving query productivity. In Azure AI Search, this experience is supported through *autocomplete*, which finishes a term or phrase based on partial input (completing "micro" with "microchip", "microscope", "microsoft", and any other micro matches). A second user experience is *suggestions*, or a short list of matching documents (returning book titles with an ID so that you can link to a detail page about that book). Both autocomplete and suggestions are predicated on a match in the index. The service won't offer autocompleted queries or suggestions that return zero results.
 
-To implement these experiences in Azure Cognitive Search, you will need:
+To implement these experiences in Azure AI Search:
 
-+ A *suggester* definition that's embedded in the index schema.
-+ A *query* specifying [Autocomplete](/rest/api/searchservice/autocomplete) or [Suggestions](/rest/api/searchservice/suggestions) API on the request.
-+ A *UI control* to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
++ Add a `suggester` to an index schema.
++ Build a query that calls the [Autocomplete](/rest/api/searchservice/autocomplete) or [Suggestions](/rest/api/searchservice/suggestions) API on the request.
++ Add a UI control to handle search-as-you-type interactions in your client app. We recommend using an existing JavaScript library for this purpose.
 
-In Azure Cognitive Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you have registered with a suggester. A suggester is part of the index, and it specifies which fields will provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
+In Azure AI Search, autocompleted queries and suggested results are retrieved from the search index, from selected fields that you register with a suggester. A suggester is part of the index, and it specifies which fields provide content that either completes a query, suggests a result, or does both. When the index is created and loaded, a suggester data structure is created internally to store prefixes used for matching on partial queries. For suggestions, choosing suitable fields that are unique, or at least not repetitive, is essential to the experience. For more information, see [Create a suggester](index-add-suggesters.md).
 
-The remainder of this article is focused on queries and client code. It uses JavaScript and C# to illustrate key points. REST API examples are used to concisely present each operation. For links to end-to-end code samples, see [Next steps](#next-steps).
+The remainder of this article is focused on queries and client code. It uses JavaScript and C# to illustrate key points. REST API examples are used to concisely present each operation. For end-to-end code samples, see [Next steps](#next-steps).
 
 ## Set up a request
 
@@ -40,11 +41,11 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 The "suggesterName" gives you the suggester-aware fields used to complete terms or suggestions. For suggestions in particular, the field list should be composed of those that offer clear choices among matching results. On a site that sells computer games, the field might be the game title.
 
-The "search" parameter provides the partial query, where characters are fed to the query request through the jQuery Autocomplete control. In the above example, "minecraf" is a static illustration of what the control might have passed in.
+The "search" parameter provides the partial query, where characters are fed to the query request through the jQuery Autocomplete control. In the above example, "minecraf" is a static illustration of what the control might pass in.
 
-The APIs do not impose minimum length requirements on the partial query; it can be as little as one character. However, jQuery Autocomplete provides a minimum length. A minimum of two or three characters is typical.
+The APIs don't impose minimum length requirements on the partial query; it can be as little as one character. However, jQuery Autocomplete provides a minimum length. A minimum of two or three characters is typical.
 
-Matches are on the beginning of a term anywhere in the input string. Given "the quick brown fox", both autocomplete and suggestions will match on partial versions of "the", "quick", "brown", or "fox" but not on partial infix terms like "rown" or "ox". Furthermore, each match sets the scope for downstream expansions. A partial query of "quick br" will match on "quick brown" or "quick bread", but neither "brown" or "bread" by themselves would be match unless "quick" precedes them.
+Matches are on the beginning of a term anywhere in the input string. Given "the quick brown fox", both autocomplete and suggestions match on partial versions of "the", "quick", "brown", or "fox" but not on partial infix terms like "rown" or "ox". Furthermore, each match sets the scope for downstream expansions. A partial query of "quick br" will match on "quick brown" or "quick bread", but neither "brown" or "bread" by themselves would be a match unless "quick" precedes them.
 
 ### APIs for search-as-you-type
 
@@ -65,7 +66,7 @@ Responses are shaped by the parameters on the request:
 
 + For Suggestions, set [$select](/rest/api/searchservice/suggestions#query-parameters) to return fields containing unique or differentiating values, such as names and description. Avoid fields that contain duplicate values (such as a category or city).
 
-The following additional parameters apply to both autocomplete and suggestions, but are perhaps more necessary for suggestions, especially when a suggester includes multiple fields.
+The following parameters apply to both autocomplete and suggestions, but are more applicable to suggestions, especially when a suggester includes multiple fields.
 
 | Parameter | Usage |
 |-----------|-------|
@@ -75,9 +76,9 @@ The following additional parameters apply to both autocomplete and suggestions, 
 
 ## Add user interaction code
 
-Auto-filling a query term or dropping down a list of matching links requires user interaction code, typically JavaScript, that can consume requests from external sources, such as autocomplete or suggestion queries against an Azure Search Cognitive index.
+Autofilling a query term or dropping down a list of matching links requires user interaction code, typically JavaScript, that can consume requests from external sources, such as autocomplete or suggestion queries against an Azure Search Cognitive index.
 
-Although you could write this code natively, it's much easier to use functions from existing JavaScript library, such as one of the following. 
+Although you could write this code natively, it's easier to use functions from existing JavaScript library, such as one of the following. 
 
 + [Autocomplete widget (jQuery UI)](https://jqueryui.com/autocomplete/) appears in the Suggestion code snippet. You can create a search box, and then reference it in a JavaScript function that uses the Autocomplete widget. Properties on the widget set the source (an autocomplete or suggestions function), minimum length of input characters before action is taken, and positioning.
 
@@ -140,11 +141,11 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### Suggest function
 
-If you are using C# and an MVC application, **HomeController.cs** file under the Controllers directory is where you might create a class for suggested results. In .NET, a Suggest function is based on the [SuggestAsync method](/dotnet/api/azure.search.documents.searchclient.suggestasync). For more information about the .NET SDK, see [How to use Azure Cognitive Search from a .NET Application](search-howto-dotnet-sdk.md).
+If you're using C# and an MVC application, **HomeController.cs** file under the Controllers directory is where you might create a class for suggested results. In .NET, a Suggest function is based on the [SuggestAsync method](/dotnet/api/azure.search.documents.searchclient.suggestasync). For more information about the .NET SDK, see [How to use Azure AI Search from a .NET Application](search-howto-dotnet-sdk.md).
 
-The `InitSearch` method creates an authenticated HTTP index client to the Azure Cognitive Search service. Properties on the [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) class determine which fields are searched and returned in the results, the number of matches, and whether fuzzy matching is used. 
+The `InitSearch` method creates an authenticated HTTP index client to the Azure AI Search service. Properties on the [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) class determine which fields are searched and returned in the results, the number of matches, and whether fuzzy matching is used. 
 
-For autocomplete, fuzzy matching is limited to one edit distance (one omitted or misplaced character). Note that fuzzy matching in autocomplete queries can sometimes produce unexpected results depending on index size and how it's sharded. For more information, see [partition and sharding concepts](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
+For autocomplete, fuzzy matching is limited to one edit distance (one omitted or misplaced character). Fuzzy matching in autocomplete queries can sometimes produce unexpected results depending on index size and [how it's sharded](index-similarity-and-scoring.md#sharding-effects-on-query-results). 
 
 ```csharp
 public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
@@ -180,7 +181,7 @@ The SuggestAsync function takes two parameters that determine whether hit highli
 
 ## Autocomplete
 
-So far, the search UX code has been centered on suggestions. The next code block shows autocomplete, using the XDSoft jQuery UI Autocomplete function, passing in a request for Azure Cognitive Search autocomplete. As with the suggestions, in a C# application, code that supports user interaction goes in **index.cshtml**.
+So far, the search UX code has been centered on suggestions. The next code block shows autocomplete, using the XDSoft jQuery UI Autocomplete function, passing in a request for Azure AI Search autocomplete. As with the suggestions, in a C# application, code that supports user interaction goes in **index.cshtml**.
 
 ```javascript
 $(function () {

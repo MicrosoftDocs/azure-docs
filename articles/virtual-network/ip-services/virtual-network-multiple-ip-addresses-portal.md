@@ -2,12 +2,12 @@
 title: Assign multiple IP addresses to VMs - Azure portal
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure portal.
 services: virtual-network
-author: asudbring
+ms.date: 03/22/2024
+ms.author: mbender
+author: mbender-ms
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 12/08/2022
-ms.author: allensu
 ms.custom: template-how-to, engagement-fy23
 ---
 # Assign multiple IP addresses to virtual machines using the Azure portal
@@ -20,7 +20,7 @@ Assigning multiple IP addresses to a VM enables the following capabilities:
 
 * Serve as a network virtual appliance, such as a firewall or load balancer.
 
-* The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* The ability to add any (primary or secondary) private IP addresses of the NICs to an Azure Load Balancer backend pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Outbound rules](../../load-balancer/outbound-rules.md#limitations).
 
 Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, see [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 

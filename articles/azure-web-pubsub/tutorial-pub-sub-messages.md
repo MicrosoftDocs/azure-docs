@@ -4,6 +4,7 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial 
 ms.date: 03/09/2023
 ---
@@ -53,7 +54,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 # [Azure Cloud Shell ](#tab/Cloud)
 
-[![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 ---
 

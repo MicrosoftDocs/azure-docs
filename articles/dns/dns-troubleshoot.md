@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: troubleshooting
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.author: greglin
 ---
 # Azure DNS troubleshooting guide
@@ -47,12 +47,12 @@ To resolve common issues, try one or more of the following steps:
 
 DNS name resolution is a multi-step process, which can fail for many reasons. The following steps help you investigate why DNS resolution is failing for a DNS record in a zone hosted in Azure DNS.
 
-1.	Confirm that the DNS records have been configured correctly in Azure DNS. Review the DNS records in the Azure portal, checking that the zone name, record name, and record type are correct.
+1.	Confirm that the DNS records are configured correctly in Azure DNS. Review the DNS records in the Azure portal, checking that the zone name, record name, and record type are correct.
 2.	Confirm that the DNS records resolve correctly on the Azure DNS name servers.
     - If you make DNS queries from your local PC, you may see cached results that don’t reflect the current state of the name servers.  Also, corporate networks often use DNS proxy servers, which prevent DNS queries from being directed to specific name servers.  To avoid these problems, use a web-based name resolution service such as [digwebinterface](https://digwebinterface.com).
     - Be sure to specify the correct name servers for your DNS zone, as shown in the Azure portal.
     - Check that the DNS name is correct (you have to specify the fully qualified name, including the zone name) and the record type is correct
-3.	Confirm that the DNS domain name has been correctly [delegated to the Azure DNS name servers](dns-domain-delegation.md). There are a [many 3rd-party web sites that offer DNS delegation validation](https://www.bing.com/search?q=dns+check+tool). This test is a *zone* delegation test, so you should only enter the DNS zone name and not the fully qualified record name.
+3.	Confirm that the DNS domain name is correctly [delegated to the Azure DNS name servers](dns-domain-delegation.md). There are a [many 3rd-party web sites that offer DNS delegation validation](https://www.bing.com/search?q=dns+check+tool). This test is a *zone* delegation test, so you should only enter the DNS zone name and not the fully qualified record name.
 4.	Having completed the above, your DNS record should now resolve correctly. To verify, you can again use [digwebinterface](https://digwebinterface.com), this time using the default name server settings.
 
 ### Recommended articles
@@ -97,7 +97,7 @@ The following scenario demonstrates where a configuration error has led to the u
 
 **Unhealthy Delegation**
 
-A primary zone contains NS delegation records, which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record, except glue records, and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy, and its status is **Degraded**.
+A primary zone contains NS delegation records, which help delegate traffic from the primary to the child zones. If any NS delegation record is present in the parent zone, the DNS server is supposed to mask all other records below the NS delegation record (except glue records) and direct traffic to the respective child zone based on the user query. If a parent zone contains other records meant for the child zones (delegated zones) below the NS delegation record, the zone will be marked unhealthy and its status is **Degraded**.
 
 **What are glue records?** - These are records under the delegation record, which help direct traffic to the delegated/child zones using their IP addresses and are configured as seen in the following.
 
@@ -137,7 +137,7 @@ In the preceding example, **child** is the NS delegation records. The records _*
 
 **How can you fix it?** - To resolve, locate and remove all records except glue records under NS delegation records in your parent zone.
 
-**How to locate unhealthy delegation records?** - A script has been created to find the unhealthy delegation records in your zone.  The script will report records, which are unhealthy.
+**How to locate unhealthy delegation records?** - A script is provided to find the unhealthy delegation records in your zone.  The script will report records, which are unhealthy.
 
 1. Save the script located at: [Find unhealthy DNS records in Azure DNS - PowerShell script sample](./scripts/find-unhealthy-dns-records.md)
 

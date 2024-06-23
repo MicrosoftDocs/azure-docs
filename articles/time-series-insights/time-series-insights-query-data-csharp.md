@@ -2,16 +2,13 @@
 title: 'Query data from a Gen1 environment using C# code - Azure Time Series Insights Gen1 | Microsoft Docs'
 description: Learn how to query data from an Azure Time Series Insights Gen1 environment using a custom app written in C#.
 ms.service: time-series-insights
-services: time-series-insights
 author: shreyasharmamsft
 ms.author: shresha
 manager: cnovak
 ms.reviewer: orspodek
 ms.devlang: csharp
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: seodec18
 ---
 
 # Query data from the Azure Time Series Insights Gen1 environment using C Sharp
@@ -30,7 +27,7 @@ This C# example demonstrates how to use the [Gen1 Query APIs](/rest/api/time-ser
 
 The sample code below demonstrates the following features:
 
-* How to acquire an access token through Azure Active Directory using [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* How to acquire an access token through Microsoft Entra ID using [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 
 * How to pass that acquired access token in the `Authorization` header of subsequent Query API requests.
 
@@ -51,7 +48,7 @@ The sample code below demonstrates the following features:
 Complete the following steps before you compile and run the sample code:
 
 1. [Provision a Gen1 Azure Time Series Insights](./time-series-insights-get-started.md) environment.
-1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
+1. Configure your Azure Time Series Insights environment for Microsoft Entra ID as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md).
 1. Install the required project dependencies.
 1. Edit the sample code below by replacing each **#DUMMY#** with the appropriate environment identifier.
 1. Execute the code inside Visual Studio.

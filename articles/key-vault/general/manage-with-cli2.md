@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/11/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 
@@ -18,7 +18,7 @@ This article covers how to get started working with Azure Key Vault using the Az
 
 - How to create a hardened container (a vault) in Azure
 - Adding a key, secret, or certificate to the key vault
-- Registering an application with Azure Active Directory
+- Registering an application with Microsoft Entra ID
 - Authorizing an application to use a key or secret
 - Setting key vault advanced access policies
 - Working with Hardware security modules (HSMs)
@@ -179,20 +179,22 @@ az keyvault secret list --vault-name "ContosoKeyVault"
 az keyvault certificate list --vault-name "ContosoKeyVault"
 ```
 
-## Registering an application with Azure Active Directory
+<a name='registering-an-application-with-azure-active-directory'></a>
+
+## Registering an application with Microsoft Entra ID
 
 This step would usually be done by a developer, on a separate computer. It isn't specific to Azure Key Vault but is included here, for awareness. To complete the app registration, your account, the vault, and the application need to be in the same Azure directory.
 
-Applications that use a key vault must authenticate by using a token from Azure Active Directory.  The owner of the application must register it in Azure Active Directory first. At the end of registration, the application owner gets the following values:
+Applications that use a key vault must authenticate by using a token from Microsoft Entra ID.  The owner of the application must register it in Microsoft Entra first. At the end of registration, the application owner gets the following values:
 
-- An **Application ID** (also known as the AAD Client ID or appID)
+- An **Application ID** (also known as the Microsoft Entra Client ID or appID)
 - An **authentication key** (also known as the shared secret). 
 
-The application must present both these values to Azure Active Directory, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
+The application must present both these values to Microsoft Entra ID, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Azure Active Directory you should review the articles titled [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+For detailed steps on registering an application with Microsoft Entra ID you should review the articles titled [Integrating applications with Microsoft Entra ID](../../active-directory/develop/quickstart-register-app.md), [Use portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-To register an application in Azure Active Directory:
+To register an application in Microsoft Entra ID:
 
 ```azurecli
 az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor --scopes /subscriptions/<subscription id>
@@ -203,16 +205,16 @@ az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor
 
 To authorize the application to access the key or secret in the vault, use the `az keyvault set-policy` command.
 
-For example, if your vault name is ContosoKeyVault, the application has an appID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, use the following command:
+For example, if your vault name is ContosoKeyVault and you want to authorize the application to decrypt and sign with keys in your vault, use the following command with your application ID:
 
 ```azurecli
-az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn {application-id} --key-permissions decrypt sign
 ```
 
 To authorize the same application to read secrets in your vault, type the following command:
 
 ```azurecli
-az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn {application-id} --secret-permissions get
 ```
 
 ## Setting key vault advanced access policies
@@ -239,7 +241,7 @@ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 ## Working with Hardware security modules (HSMs)
 
-For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
+For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are [FIPS 140 validated](/azure/key-vault/keys/about-keys#compliance). If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 

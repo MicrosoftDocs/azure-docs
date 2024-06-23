@@ -6,8 +6,7 @@ ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/24/2022
+ms.date: 01/05/2024
 ---
 
 # Cross-tenant connections to Azure DevOps

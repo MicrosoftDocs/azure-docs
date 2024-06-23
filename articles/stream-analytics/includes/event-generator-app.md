@@ -1,11 +1,10 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
-ms.service: event-hubs
+ms.service: stream-analytics
 ms.topic: include
-ms.date: 02/27/2023
+ms.date: 02/14/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -17,16 +16,14 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an event hub
 
-Before Stream Analytics can analyze the fraudulent calls data stream, the data needs to be sent to Azure. In this tutorial, you'll send data to Azure by using  [Azure Event Hubs](../../event-hubs/event-hubs-about.md).
+You need to send some sample data to an event hub before Stream Analytics can analyze the fraudulent calls data stream. In this tutorial, you send data to Azure by using  [Azure Event Hubs](../../event-hubs/event-hubs-about.md).
 
 Use the following steps to create an event hub and send call data to that event hub:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **Create a resource** > **Internet of Things** > **Event Hubs**. On the **Event Hubs** page, select **Create**. 
+1. Select **All services** on the left menu, select **Internet of things**, mouse the mouse over **Event Hubs**, and then select **+ (Add)** button.  
 
     :::image type="content" source="media/event-generator-app/find-event-hub-resource.png" lightbox="media/event-generator-app/find-event-hub-resource.png" alt-text="Screenshot showing the Event Hubs creation page.":::
-
-    If you don't see **Event Hubs** on the **Internet of Things** page, type **Event Hubs** in the search box and select it from the results. Then, select **Event Hubs** on the **Marketplace** page. 
 3. On the **Create Namespace** page, follow these steps:
     1. Select an **Azure subscription** where you want to create the event hub. 
     1. For **Resource group**, select **Create new** and enter a name for the resource group. The Event Hubs namespace is created in this resource group.
@@ -50,23 +47,16 @@ Use the following steps to create an event hub and send call data to that event 
 
 Before an application can send data to Azure Event Hubs, the event hub must have a policy that allows access. The access policy produces a connection string that includes authorization information.
 
-1. On the **Event Hubs Namespace**, select **Event Hubs** under **Entities** on the left menu, and then select the event hub you created.
-
-    :::image type="content" source="media/event-generator-app/select-event-hub.png" alt-text="Screenshot showing the selection of an event hub on the Event Hubs page."::: 
-1. On the **Event Hubs instance** page, select **Shared access policies** under **Settings** on the left menu, and then select **+ Add** on the command bar. 
-2. Name the policy **MyPolicy**, select **Manage**, and then select **Create**.
-
-    :::image type="content" source="media/event-generator-app/create-event-hub-access-policy.png" alt-text="Screenshot showing Shared access policies page for an event hub."::: 
-3. Once the policy is created, select the policy name to open the policy. Find the **Connection string–primary key**. Select the **copy** button next to the connection string.
-
-    :::image type="content" source="media/event-generator-app/save-connection-string.png" alt-text="Screenshot showing the primary connection string of the Event Hubs namespace you created.":::
-4. Paste the connection string into a text editor. You need this connection string in the next section.
+1. On the **Event Hubs Namespace** page, select **Shared access policies** on the left menu.
+1. Select **RootManageSharedAccessKey** from the list of policies. 
+1. Then, select the copy button next to **Connection string - primary key**. 
+1. Paste the connection string into a text editor. You need this connection string in the next section.
 
    The connection string looks as follows:
 
-   `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>`
+   `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>`
 
-   Notice that the connection string contains multiple key-value pairs separated with semicolons: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey**, and **EntityPath**.
+   Notice that the connection string contains multiple key-value pairs separated with semicolons: **Endpoint**, **SharedAccessKeyName**, and **SharedAccessKey**.
 
 ## Start the event generator application
 
@@ -77,9 +67,8 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 3. Update the `<appSettings>` element in the config file with the following details:
 
    * Set the value of the **EventHubName** key to the value of the **EntityPath** at the end of the connection string.
-   * Set the value of the **Microsoft.ServiceBus.ConnectionString** key to the connection string **without** the EntityPath value at the end. **Don't forget** to remove the semicolon that precedes the EntityPath value.
+   * Set the value of the **Microsoft.ServiceBus.ConnectionString** key to the connection string to the namespace. If you use a connection string to an event hub, not a namespace, remove `EntityPath` value (`;EntityPath=myeventhub`) at the end. **Don't forget** to remove the semicolon that precedes the EntityPath  value. 
 4. Save the file.
-
 5. Next open a command window and change to the folder where you unzipped the TelcoGenerator application. Then enter the following command:
 
    ```cmd
@@ -88,7 +77,7 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 
    This command takes the following parameters:
    * Number of call data records per hour.
-   * Percentage of fraud probability, which is how often the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
+   * Percentage of fraud probability, which is how often the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records look fraudulent.
    * Duration in hours, which is the number of hours that the app should run. You can also stop the app at any time by ending the process (**Ctrl+C**) at the command line.
 
    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub. The phone call data contains the following fields:
@@ -117,7 +106,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
     1. For **Streaming units**, select **1**. Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, see [understanding and adjusting streaming units](../stream-analytics-streaming-unit-consumption.md) article.
     1. Select **Review + create** at the bottom of the page. 
     
-       ![Create an Azure Stream Analytics job](media/event-generator-app/create-stream-analytics-job.png)
+        :::image type="content" source="media/event-generator-app/create-stream-analytics-job.png" alt-text="Screenshot that shows the Create Azure Stream Analytics job page.":::
 1. On the **Review + create** page, review settings, and then select  **Create** to create the Stream Analytics job. 
 5. After the job is deployed, select **Go to resource** to navigate to the **Stream Analytics job** page. 
 
@@ -126,7 +115,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 The next step is to define an input source for the job to read data using the event hub you created in the previous section.
 
 1. On the **Stream Analytics job** page, in the **Job Topology** section on the left menu, select **Inputs**.
-2. On the **Inputs** page, select **+ Add stream input** and **Event hub**. 
+2. On the **Inputs** page, select **+ Add input** and **Event hub**. 
 
     :::image type="content" source="media/event-generator-app/add-input-event-hub-menu.png" lightbox="media/event-generator-app/add-input-event-hub-menu.png" alt-text="Screenshot showing the Input page for a Stream Analytics job."::: 
 3. On the **Event hub** page, follow these steps: 

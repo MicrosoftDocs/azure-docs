@@ -1,3 +1,4 @@
+items:
 - name: Azure confidential ledger 
   href: index.yml
 - name: Overview
@@ -23,29 +24,48 @@
   items:
   - name: Architecture
     href: architecture.md
-  - name: Authentication with Azure AD
-    href: authentication-azure-ad.md
-  - name: Authenticating ledger nodes
-    href: authenticate-ledger-nodes.md
-  - name: Write transaction receipts
-    href: write-transaction-receipts.md
+  - name: User Authentication and authorization 
+    items:
+    - name: Authentication with Microsoft Entra ID
+      href: authentication-azure-ad.md
+  - name: Verifying your Ledger Data
+    items:
+    - name: Authenticating ledger nodes
+      href: authenticate-ledger-nodes.md
+    - name: Write transaction receipts
+      href: write-transaction-receipts.md
 - name: How To Guides
   items:
-  - name: Create a client certificate
-    href: create-client-certificate.md 
-  - name: Register the confidential ledger resource provider
-    href: register-ledger-resource-provider.md
-  - name: Register an ACL app with Azure AD
-    href: register-application.md
-  - name: Verify write transaction receipts
-    href: verify-write-transaction-receipts.md
-  - name: Manage Azure AD token-based users
-    href: manage-azure-ad-token-based-users.md
-  - name: Manage certificate-based users
-    href: manage-certificate-based-users.md
+  - name: Manage your Ledger
+    items:
+    - name: Register the confidential ledger resource provider
+      href: register-ledger-resource-provider.md  
+    - name: Register an ACL app with Microsoft Entra ID
+      href: register-application.md
+  - name: Manage users
+    items:  
+    - name: Manage Microsoft Entra token-based users
+      href: manage-azure-ad-token-based-users.md
+    - name: Manage certificate-based users
+      href: manage-certificate-based-users.md
+    - name: Create a client certificate
+      href: create-client-certificate.md
+  - name: Verifying your data with Confidential Ledger
+    items:
+    - name: Verify write transaction receipts
+      href: verify-write-transaction-receipts.md
+    - name: Establish trust on Azure confidential ledger
+      href: verify-node-quotes.md
+    - name: Upload, view and list ledger data with the Azure ledger explorer
+      href: quickstart-ledger-explorer.md
+  - name: Applications using Confidential Ledger 
+    items: 
+    - name: Store your data securely in SQL Server with Ledger
+      href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
+    - name: Create a managed application to store blob digests
+      href: create-blob-managed-app.md
 - name: References
   items:
-
   - name: FAQ
     href: faq.yml
   - name: Azure confidential ledger REST API reference
@@ -54,8 +74,8 @@
     href: /dotnet/api/overview/azure/confidentialledger 
   - name: JavaScript client library
     href: /javascript/api/overview/azure/azure-confidential-ledger
-  - name: Java preview client library
-    href: /java/api/overview/azure/data-confidentialledger-readme
+  - name: Java client library
+    href: /java/api/overview/azure/security-confidentialledger-readme
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training

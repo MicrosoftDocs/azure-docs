@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.subservice: integration-services
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---
@@ -97,7 +97,7 @@ After you provision and start an instance of Azure-SSIS integration runtime, you
    Remove-AzResourceGroup -Name $ResourceGroupName -Force 
    ```
 
-## Next steps
+## Related content
 For more information about Azure-SSIS runtime, see the following topics: 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 

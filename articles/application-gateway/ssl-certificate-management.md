@@ -1,28 +1,28 @@
 ---
-title: Listener SSL certificate management in Application Gateway
+title: Listener TLS certificate management in Application Gateway
 description: Understand listener certificate management through portal. 
 services: application-gateway
 author: jaesoni
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 03/19/2024
 ms.author: jaysoni
 ---
 
-# SSL certificate management for listeners
+# TLS certificates management for listeners
 
-Listener SSL certificates in Application Gateway are used for terminating client TLS connection at the gateway. This function is analogous to uploading a certificate on a web server to support TLS/HTTPS connections from clients/browsers. 
+Listener TLS/SSL certificates in Application Gateway are used for terminating client TLS connection at the gateway. This function is analogous to uploading a certificate on a web server to support TLS/HTTPS connections from clients/browsers. 
 
-## SSL Certificate structure 
+## TLS Certificate structure 
 
-The SSL certificates on application gateway are stored in local certificate objects or containers. This certificate container’s reference is then supplied to listeners to support TLS connections for clients. Refer to this illustration for better understanding.  
+The TLS/SSL certificates on application gateway are stored in local certificate objects or containers. This certificate container’s reference is then supplied to listeners to support TLS connections for clients. Refer to this illustration for better understanding.  
 
 ![Diagram that shows how certficates are linked to a listener.](media/ssl-certificate-management/cert-reference.png)
 
 Here is a sample application gateway configuration. The SSLCertificates property includes certificate object “contoso-agw-cert" linked to a key vault. The “listener1” references that certificate object.
 
-## Understanding the portal section (Preview)
-  
+## Understanding the portal section
+
 ### Listener SSL certificates 
 
 This section allows you to list all the SSL certificate objects that are present on your application gateway. This view is equivalent of running PowerShell command `Get-AzApplicationGatewaySslCertificate -ApplicationGateway $AppGW` or CLI command `az network application-gateway ssl-cert list --gateway-name --resource-group`. 

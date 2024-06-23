@@ -6,10 +6,14 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.topic: article
 ms.date: 01/31/2023
-ms.custom: mvc, seodec18
+ms.custom: mvc
+ms.author: msangapu
+author: msangapu-msft
 ---
 
 # Map an existing custom DNS name to Azure App Service
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This guide shows you how to map an existing custom Domain Name System (DNS) name to App Service. To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure](manage-custom-dns-migrate-domain.md).
 
@@ -27,7 +31,7 @@ The DNS record type you need to add with your domain provider depends on the dom
 ## Prerequisites
 
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
-* Make sure you can edit the DNS records for your custom domain. To edit DNS records, you need access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain. Your custom domains must be in a public DNS zone; private DNS zone is only supported on Internal Load Balancer (ILB) App Service Environment (ASE).
+* Make sure you can edit the DNS records for your custom domain. To edit DNS records, you need access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain. Your custom domains must be in a public DNS zone; private DNS zones are not supported.
 * If you don't have a custom domain yet, you can [purchase an App Service domain](manage-custom-dns-buy-domain.md) instead.
 
 ## 1. Configure a custom domain
@@ -106,7 +110,7 @@ Create two records according to the following table:
 
 | Record type | Host | Value | Comments |
 | - | - | - |
-| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` (see [note at top](#dnl-note)) | The domain mapping itself. |
 | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
@@ -117,7 +121,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 | Record type | Host | Value | Comments |
 | - | - | - | - |
-| CNAME | `*` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+| CNAME | `*` | `<app-name>.azurewebsites.net` (see [note at top](#dnl-note)) | The domain mapping itself. |
 | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)

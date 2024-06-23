@@ -3,12 +3,11 @@ title: Creating and merging a certificate signing request in Azure Key Vault
 description: Learn how to create and merge a CSR in Azure Key Vault. 
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: sebansal
 ---
 
@@ -27,7 +26,7 @@ Key Vault partners with the following certificate authorities to simplify certif
 |Provider|Certificate type|Configuration setup  
 |--------------|----------------------|------------------|  
 |DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration guide](./how-to-integrate-certificate-authority.md)
-|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration guide](https://support.globalsign.com/code-signing/Code-Signing-certificate-setup-in-Azure-Key-vault)
 
 ## Add certificates in Key Vault issued by non-partnered CAs
 
@@ -99,7 +98,7 @@ The certificate request has now been successfully merged.
 ## Add more information to the CSR
 
 If you want to add more information when creating the CSR, define it in **SubjectName**. You might want to add information such as:
-- Country
+- Country/region
 - City/locality
 - State/province
 - Organization

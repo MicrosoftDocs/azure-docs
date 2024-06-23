@@ -1,17 +1,19 @@
 ---
-title: Tutorial - Use device groups in your Azure IoT Central application | Microsoft Docs
+title: Tutorial - Use Azure IoT Central device groups
 description: Tutorial - Learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2022
+ms.date: 04/17/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
+
+#customer intent: As an operator, I want configure device groups so that I can analyze my device telemetry.
 ---
 
 # Tutorial: Use device groups to analyze device telemetry
 
-This article describes how to use device groups to analyze device telemetry in your Azure IoT Central application.
+In this tutorial, you learn how to use device groups to analyze device telemetry in your Azure IoT Central application.
 
 A device group is a list of devices that are grouped together because they match some specified criteria. Device groups help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you can create a device group to list all the air conditioner devices in Seattle to enable a technician to find the devices for which they're responsible.
 
@@ -29,19 +31,19 @@ To complete the steps in this tutorial, you need:
 
 ## Add and customize a device template
 
-Add a device template from the device catalog. This tutorial uses the **ESP32-Azure IoT Kit** device template:
+Add a device template from the featured device templates list. This tutorial uses the **Onset Hobo MX-100 Temp Sensor** device template:
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
 
-1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
+1. On the **Select type** page, scroll down until you find the **Onset Hobo MX-100 Temp Sensor** tile in the **Featured device templates** section.
 
-1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
+1. Select the **Onset Hobo MX-100 Temp Sensor** tile, and then select **Next: Review**.
 
 1. On the **Review** page, select **Create**.
 
-The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
+The name of the template you created is **Hobo MX-100**. The model includes the **Hobo MX-100** and **IotDevice** components. Components define the capabilities of a Hobo MX-100 device.
 
-Add two cloud properties to the **Sensor Controller** model in the device template:
+Add two cloud properties to the **Hobo MX-100** model in the device template:
 
 1. Select **+ Add capability** and then use the information in the following table to add two cloud properties to your device template:
 
@@ -52,13 +54,13 @@ Add two cloud properties to the **Sensor Controller** model in the device templa
 
 1. Select **Save** to save your changes.
 
-Add a new form to the device template to manage the device:
+To manage the device, add a new form to the device template:
 
 1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
 
 1. Change the form name to **Manage device**.
 
-1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Target Temperature** property. Then select **Add section**.
+1. Select the **Customer Name** and **Last Service Date** cloud properties. Then select **Add section**.
 
 1. Select **Save** to save your new form.
 
@@ -66,7 +68,7 @@ Now publish the device template.
 
 ## Create simulated devices
 
-Before you create a device group, add at least five simulated devices based on the **Sensor Controller** device template to use in this tutorial:
+Before you create a device group, add at least five simulated devices based on the **Hobo MX-100** device template to use in this tutorial:
 
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices." lightbox="media/tutorial-use-device-groups/simulated-devices.png":::
 
@@ -80,7 +82,7 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 
 1. Select **+ New**.
 
-1. Name your device group *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template and organization. Choose the **Sensor Controller** device template to use for this group.
+1. Name your device group *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template and organization. Choose the **Hobo MX-100** device template to use for this group.
 
     > [!TIP]
     > If your application [uses organizations](howto-create-organizations.md), select the organization that your devices belong to. Only devices from the selected organization are visible. Also, only users associated with the organization or an organization higher in the hierarchy can see the device group.
@@ -105,9 +107,9 @@ To analyze the telemetry for a device group:
 
 1. Choose **Data explorer** on the left pane and select **Create a query**.
 
-1. Select the **Contoso devices** device group you created. Then add both the **Temperature** and **SensorHumid** telemetry types.
+1. Select the **Contoso devices** device group you created. Then add the **Temperature** telemetry type.
 
-    Use the ellipsis icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
+    To select an aggregation type, use the ellipsis icons next to the telemetry types. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
 1. Select **Analyze** to view the average telemetry values.
 

@@ -3,6 +3,9 @@ title: Configure Metrics Server VPA in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your Metrics Server pods on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.date: 03/27/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Configure Metrics Server VPA in Azure Kubernetes Service (AKS)
@@ -58,7 +61,7 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
 3. Restart the Metrics Server pods. There are two Metrics server pods, and the following command deletes all of them.
 
     ```bash
-    kubectl -n kube-system delete po metrics-server-pod-name
+    kubectl -n kube-system delete po -l k8s-app=metrics-server
     ```
 
 4. To verify the updated resources took effect, run the following command to review the Metrics Server VPA log.
@@ -123,7 +126,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
 3. Restart the Metrics Server pods. There are two Metrics server pods, and the following command deletes all of them.
 
     ```bash
-    kubectl -n kube-system delete po metrics-server-pod-name
+    kubectl -n kube-system delete po -l k8s-app=metrics-server
     ```
 
 4. To verify the updated resources took effect, run the following command to review the Metrics Server VPA log.
@@ -201,3 +204,4 @@ Metrics Server is a component in the core metrics pipeline. For more information
 
 <!--- INTERNAL LINKS --->
 [horizontal-pod-autoscaler]: concepts-scale.md#horizontal-pod-autoscaler
+

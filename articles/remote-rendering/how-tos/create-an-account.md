@@ -24,16 +24,16 @@ The following steps are needed to create an account for the Azure Remote Renderi
     1. Set 'Resource Name' to the name of the account
     1. Update 'Subscription' if needed
     1. Set 'Resource group' to a resource group of your choice
-    1. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions) below.
+    1. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions).
 1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
-    1. In the *Settings > Access Keys* tab, note the 'Primary key' - this is the account's secret account key
+    1. In the *Settings > Access Keys* tab, note the 'Primary key' - this value is the account's secret account key
     1. Make sure, that in the *Settings > Identity* tab, the option *System assigned > Status* is turned on.
 
 :::image type="content" source="./media/azure-identity-add.png" alt-text="Screenshot of Remote Rendering Account Page in sub menu settings, identity, with the option System assigned status turned on.":::
 
 ### Account regions
-The location that is specified during account creation time of an account determines which region the account resource is assigned to. This cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
+The location that is specified during account creation time of an account determines which region the account resource is assigned to. The location can't be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
 
 ### Retrieve the account information
 
@@ -43,11 +43,11 @@ The samples and tutorials require that you provide the account ID and a key. For
 "accountSettings": {
     "arrAccountId": "<fill in the account ID from the Azure portal>",
     "arrAccountKey": "<fill in the account key from the Azure portal>",
-    "region": "<select from available regions>"
+    "arrAccountDomain": "<select from available regions: australiaeast, eastus, eastus2, japaneast, northeurope, southcentralus, southeastasia, uksouth, westeurope, westus2 or specify the full url>"
 },
 ```
 
-See the [list of available regions](../reference/regions.md) for filling out the *region* option.
+See the [list of available regions](../reference/regions.md) for filling out the *arrAccountDomain* option.
 
 The values for **`arrAccountId`** and **`arrAccountKey`** can be found in the portal as described in the following steps:
 
@@ -68,21 +68,23 @@ The value for **`arrAccountKey`** can either be primary or secondary key.
 
 ## Link storage accounts
 
-This paragraph explains how to link storage accounts to your Remote Rendering account. When a storage account is linked it is not necessary to generate a SAS URI every time you want to interact with the data in your account, for instance when loading a model. Instead, you can use the storage account names directly as described in the [loading a model section](../concepts/models.md#loading-models).
+This paragraph explains how to link storage accounts to your Remote Rendering account. With a linked account, it isn't necessary anymore to generate a SAS URI every time you want to interact with the data in your account. Instead, you can use the storage account names directly as described in the [loading a model section](../concepts/models.md#loading-models).
+
+Another advantage of this approach is that the storage access level can be limited to private endpoints as described in the [Azure documentation how to configure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md#change-the-default-network-access-rule). Loading from blob storage through a SAS token on the other hand only works if the blob storage has been configured with the "Enabled from all networks" option.
 
 The steps in this paragraph have to be performed for each storage account that should use this access method. If you haven't created storage accounts yet, you can walk through the respective step in the [convert a model for rendering quickstart](../quickstarts/convert-model.md#storage-account-creation).
 
 1. Navigate to your storage account in the Azure portal
 
-1. Select **Access control (IAM)**.
+2. Select **Access control (IAM)**.
 
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+3. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-   If you don't have owner permissions to this storage account, the **Add a role assignment** option will be disabled.
+   If the **Add a role assignment** option is disabled, you probably don't have owner permissions to this storage account.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+4. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
    1. Select the **Storage Blob Data Contributor** role and click **Next**.
-   1. Choose to assign access to a **Managed Identity**. 
+   1. Choose to assign access to a **Managed Identity**.
    1. Select **Select members**, select your subscription, select **Remote Rendering Account**, select your remote rendering account, and then click **Select**.
    1. Select **Review + assign** and select **Review + assign** again.
 

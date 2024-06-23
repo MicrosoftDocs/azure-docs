@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Tutorial: How to move existing Azure integration runtime to an Azure integration runtime in a managed virtual network
@@ -32,7 +32,7 @@ For Azure Data Factory, you can move existing Azure integration runtime directly
 ## Azure Synapse Analytics
 For Azure Synapse Analytics, Azure integration runtime can't be moved directly in existing workspace. You need to create a new workspace with a managed workspace virtual network. In new workspace, Azure integration runtime is in a managed virtual network and you can reference it in the linked service.
 
-## Next steps
+## Related content
 
 Advance to the following tutorial to learn about managed virtual network:
 

@@ -3,7 +3,7 @@ title: Move Azure classic deployment resources
 description: Use Azure Resource Manager to move classic deployment resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.date: 04/11/2022
-ms.custom: timwarner
+ms.custom: timwarner, devx-track-arm-template
 ---
 
 # Move guidance for classic deployment model resources
@@ -27,7 +27,7 @@ To move classic resources to a new resource group within the same subscription, 
 
 When moving classic cloud services to a new subscription, the following restrictions apply:
 
-- The source and target subscriptions need to be under the same Azure AD tenant.
+- The source and target subscriptions need to be under the same Microsoft Entra tenant.
 - Cloud Service Provider (CSP) subscriptions do not support migrating classic cloud services.
 - All classic resources in the subscription must be moved in the same operation.
 - The target subscription must not have any other classic resources.

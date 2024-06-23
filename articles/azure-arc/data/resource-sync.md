@@ -4,8 +4,8 @@ description: Synchronize resources for Azure Arc-enabled data services in direct
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/14/2022
 ms.topic: conceptual
@@ -71,7 +71,7 @@ https://management.azure.com/subscriptions/{{subscription}}/resourcegroups/{{res
 - Resource sync rule does not project Azure Arc Active Directory connector
 - Resource sync rule does not project Azure Arc Instance Failover Groups
 
-## Next steps
+## Related content
 
 [Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md)
 

@@ -34,7 +34,7 @@ Azure Health Data Services enables you to:
 
 ### Can I migrate my existing production workload from Azure API for FHIR to Azure Health Data Services?
 
-No, unfortunately we don't offer migration capabilities at this time.
+Yes. Azure API for FHIR is retiring on September 30, 2023. See [migration strategies](./fhir/migration-strategies.md)
 
 ### What is the pricing of Azure Health Data Services?
 

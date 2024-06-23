@@ -5,8 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 09/07/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ---
 
 # Use Azure Storage Explorer to manage Azure managed disks
@@ -142,4 +141,4 @@ With Storage Explorer, you can copy a manged disk within or across regions. To c
 ## Next steps
 
 - [Create a virtual machine from a VHD by using the Azure portal](./windows/create-vm-specialized-portal.md)
-- [Attach a managed data disk to a Windows virtual machine by using the Azure portal](./windows/attach-managed-disk-portal.md)
+- [Attach a managed data disk to a Windows virtual machine by using the Azure portal](./windows/attach-managed-disk-portal.yml)

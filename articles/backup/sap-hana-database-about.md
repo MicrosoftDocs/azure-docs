@@ -1,12 +1,11 @@
 ---
-title: About SAP HANA database backup on Azure VMs
+title: About the SAP HANA database backup on Azure VMs
 description: In this article, you'll learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 11/02/2023
 ms.service: backup
-ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About SAP HANA database backup on Azure VMs
@@ -75,16 +74,13 @@ You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up th
 
 1. Restore the database into the VM from the [Azure SAP HANA database backup](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) to your intended point in time.
 
-## Back up a HANA system with replication enabled (preview)
+## Back up a HANA system with replication enabled
 
-Azure Backup now supports backing up databases that have HSR enabled (preview). This means that backups are managed automatically when a failover occurs, which eliminates the necessity for manual intervention. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container. 
+Azure Backup now supports backing up databases that have HSR enabled. This means that backups are managed automatically when a failover occurs, which eliminates the necessity for manual intervention. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container. 
 
 Although there are multiple physical nodes (primary and secondary), the backup service now considers them a single HSR container.
 
->[!Note]
->Because the feature is in preview, there are no Protected Instance charges for a logical HSR container. However, you are charged for the underlying storage of the backups.
-
-## Back up database instance snapshots (preview)
+## Back up database instance snapshots
 
 As databases grow in size, the time it takes to restore them becomes a factor when you're dealing with streaming backups. Also, during backup, the time the database takes to generate Backint streams can grow in proportion to the churn, which can be factor as well.
 

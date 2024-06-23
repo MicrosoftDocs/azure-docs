@@ -2,29 +2,26 @@
 title: Workspaces in Azure API Management | Microsoft Docs
 description: Learn about workspaces (preview) in Azure API Management. Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. 
 services: api-management
-documentationcenter: ''
 author: dlepow
  
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 03/10/2023
+ms.date: 01/25/2024
 ms.author: danlep
 ms.custom:
 ---
 
 # Workspaces in Azure API Management
 
+[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
+
 In API Management, *workspaces* allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). 
-
-[!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
-
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](#preview-limitations).
-> * This feature is being released during March and April 2023.
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
-
+> * See [upcoming breaking changes](./breaking-changes/workspaces-breaking-changes-june-2024.md) for workspaces.
 
 ## Example scenario overview
 
@@ -50,9 +47,7 @@ The following resources can be managed in the workspaces preview.
 
 * Apply a policy for all APIs in a workspace. 
 
-* Use `context.Api.Workspace` and `context.Product.Workspace` objects in workspace-scoped policies and in the all-APIs policy on the service level. 
-
-* Describe APIs with tags from the workspace level or from the service level. 
+* Describe APIs with tags from the workspace level. 
 
 * Define named values, policy fragments, and schemas for request and response validation for use in workspace-scoped policies. 
 
@@ -66,11 +61,7 @@ The following resources can be managed in the workspaces preview.
 
 ### Products and subscriptions
 
-* Publish APIs with products. APIs in a workspace can be part of a service-level product or a workspace-level product. 
-
-    * Workspace-level product -  Visibility can be configured based on user membership in a workspace-level or a service-level group. 
-
-    * Service-level product - Visibility can be configured only for service-level groups. 
+* Publish APIs with products. APIs in a workspace can only be part of a workspace-level product. Visibility can be configured based on user membership in a workspace-level or a service-level group. 
 
 * Manage access to APIs with subscriptions. Subscriptions requested to an API or product within a workspace are created in that workspace. 
 
@@ -82,10 +73,10 @@ The following resources can be managed in the workspaces preview.
 
 Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
-Workspace members must be assigned both a service-scoped role and a workspace-scoped role, or granted equivalent permissions using custom roles. The service-scoped role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
+Workspace members must be assigned both a service-scoped role and a workspace-scoped role, or granted equivalent permissions using custom roles. The service-scoped role enables referencing certain service-level resources from workspace-level resources. For example, organize a user into a workspace-level group to control API and product visibility.  
 
 > [!NOTE]
-> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
 > 
 
 ## Workspaces and other API Management features
@@ -97,7 +88,7 @@ Workspace members must be assigned both a service-scoped role and a workspace-sc
     * API gateways, including scaling, locations, and self-hosted gateways
     
     
-* **Resource references** - Resources in a workspace can reference other resources in the workspace and the following resources from the service level: products, tags, and users. They can't reference resources from another workspace. 
+* **Resource references** - Resources in a workspace can reference other resources in the workspace and users from the service level. They can't reference resources from another workspace. 
 
     For security reasons, it's not possible to reference service-level resources from workspace-level policies (for example, named values) or by resource names, such as `backend-id` in the [set-backend-service](set-backend-service-policy.md) policy.
 
@@ -109,9 +100,9 @@ Workspace members must be assigned both a service-scoped role and a workspace-sc
 
 The following resources aren't currently supported in workspaces: 
 
-* Authorization servers
+* Authorization servers (credential providers in credential manager)
 
-* Authorizations 
+* Authorizations (connections to credential providers in credential manager)
 
 * Backends 
 
@@ -135,14 +126,17 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 
 * Validating client certificates 
 
-* Using the authorizations feature 
+* Using the credential manager (formerly called authorizations) feature 
 
 * Specifying API authorization server information (for example, for the developer portal)
    
-Workspace APIs can't be published to self-hosted gateways.
+* Publishing workspace APIs to self-hosted gateways
 
-All resources in an API Management service need to have unique names, even if they are located in different workspaces.
+> [!IMPORTANT]
+> All resources in an API Management service need to have unique names, even if they are located in different workspaces.
+> 
 
-## Next steps
+## Related content
 
 * [Create a workspace](how-to-create-workspace.md)
+* [Workspaces breaking changes - June 2024](breaking-changes/workspaces-breaking-changes-june-2024.md)

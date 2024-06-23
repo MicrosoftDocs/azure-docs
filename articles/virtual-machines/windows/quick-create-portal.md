@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create a Windows VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Windows virtual machine
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
-ms.workload: infrastructure
-ms.date: 08/29/2022
-ms.author: cynthn
+ms.date: 01/04/2024
+ms.author: jushiman
+ms.reviewer: jushiman
 ms.custom: mvc, mode-ui
 ---
 
@@ -21,16 +21,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create virtual machine
 
 1. Enter *virtual machines* in the search.
 1. Under **Services**, select **Virtual machines**.
 1. In the **Virtual machines** page, select **Create** and then **Azure virtual machine**. The **Create a virtual machine** page opens.
-1. Under **Instance details**, enter *myVM* for the **Virtual machine name** and choose *Windows Server 2019 Datacenter - Gen 2* for the **Image**. Leave the other defaults.
+1. Under **Instance details**, enter *myVM* for the **Virtual machine name** and choose *Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2* for the **Image**. Leave the other defaults.
 
-    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
+    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size." lightbox="media/quick-create-portal/instance-details.png":::
 
     > [!NOTE]
     > Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see [Create virtual machines in an availability zone](../create-portal-availability-zone.md).
@@ -50,7 +50,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 
 1. After validation runs, select the **Create** button at the bottom of the page.
-    :::image type="content" source="media/quick-create-portal/validation.png" alt-text="Screenshot showing that validation has passed. Select the Create button to create the VM.":::
+    :::image type="content" source="media/quick-create-portal/validation.png" alt-text="Screenshot showing that validation has passed. Select the Create button to create the VM." lightbox="media/quick-create-portal/validation.png":::
 
 1. After deployment is complete, select **Go to resource**.
 
@@ -94,11 +94,24 @@ In the portal, select the VM and in the overview of the VM, hover over the IP ad
 
 ## Clean up resources
 
+### Delete resources
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 1. On the Overview page for the VM, select the **Resource group** link.
 1. At the top of the page for the resource group, select **Delete resource group**. 
 1. A page will open warning you that you are about to delete resources. Type the name of the resource group and select **Delete** to finish deleting the resources and the resource group.
+
+### Auto-shutdown
+If the VM is still needed, Azure provides an Auto-shutdown feature for virtual machines to help manage costs and ensure you are not billed for unused resources.
+
+1. On the **Operations** section for the VM, select the **Auto-shutdown** option.
+1. A page will open where you can configure the auto-shutdown time. Select the **On** option to enable and then set a time that works for you.
+1. Once you have set the time, select **Save**  at the top to enable your Auto-shutdown configuration.
+
+> [!NOTE]
+> Remember to configure the time zone correctly to match your requirements, as (UTC) Coordinated Universal Time is the default setting in the Time zone dropdown.
+
+For more information see [Auto-shutdown](/azure/virtual-machines/auto-shutdown-vm).
 
 ## Next steps
 

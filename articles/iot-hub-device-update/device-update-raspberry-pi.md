@@ -135,7 +135,7 @@ Read the license terms prior to using the agent. Your installation and use const
            "runas": "adu",
            "connectionSource": {
               "connectionType": "string",
-              "connectionData": "HostName=example-connection-string.azure-devices.net;DeviceId=example-device;SharedAccessKey=M5oK/rOP12aB5678YMWv5vFWHFGJFwE8YU6u0uTnrmU=" 
+              "connectionData": "HostName=<hub_name>.azure-devices.net;DeviceId=<device_id>;SharedAccessKey=<device_key>" 
            },
            "manufacturer": "contoso",
            "model": "virtual-vacuum-v2"
@@ -224,6 +224,11 @@ Read the license terms prior to using the agent. Your installation and use const
                 "ADUGroup": "<CustomTagValue>"
                 }
     ```
+
+   :::image type="content" source="media/import-update/device-twin-ppr.png" alt-text="Screenshot that shows twin with tag information." lightbox="media/import-update/device-twin-ppr.png":::
+
+   _This screenshot shows the section where the tag needs to be added in the twin._
+   
 
 ## Import the update
 

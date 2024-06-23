@@ -3,19 +3,21 @@ title: Add an Azure Spot node pool to an Azure Kubernetes Service (AKS) cluster
 description: Learn how to add an Azure Spot node pool to an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
 ms.date: 03/29/2023
-
+author: schaffererin
+ms.author: schaffererin
+ms.subservice: aks-nodes
 #Customer intent: As a cluster operator or developer, I want to learn how to add an Azure Spot node pool to an AKS Cluster.
 ---
 
 # Add an Azure Spot node pool to an Azure Kubernetes Service (AKS) cluster
 
-A Spot node pool is a node pool backed by an [Azure Spot Virtual machine scale set][vmss-spot]. With Spot VMs in your AKS cluster, you can take advantage of unutilized Azure capacity with significant cost savings. The amount of available unutilized capacity varies based on many factors, such as node size, region, and time of day.
-
-When you deploy a Spot node pool, Azure allocates the Spot nodes if there's capacity available and deploys a Spot scale set that backs the Spot node pool in a single default domain. There's no SLA for the Spot nodes. There are no high availability guarantees. If Azure needs capacity back, the Azure infrastructure will evict the Spot nodes.
-
-Spot nodes are great for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads may be good candidates to schedule on a Spot node pool.
-
 In this article, you add a secondary Spot node pool to an existing Azure Kubernetes Service (AKS) cluster.
+
+A Spot node pool is a node pool backed by an [Azure Spot Virtual Machine scale set][vmss-spot]. With Spot VMs in your AKS cluster, you can take advantage of unutilized Azure capacity with significant cost savings. The amount of available unutilized capacity varies based on many factors, such as node size, region, and time of day.
+
+When you deploy a Spot node pool, Azure allocates the Spot nodes if there's capacity available and deploys a Spot scale set that backs the Spot node pool in a single default domain. There's no SLA for the Spot nodes. There are no high availability guarantees. If Azure needs capacity back, the Azure infrastructure evicts the Spot nodes.
+
+Spot nodes are great for workloads that can handle interruptions, early terminations, or evictions. For example, workloads such as batch processing jobs, development and testing environments, and large compute workloads might be good candidates to schedule on a Spot node pool.
 
 ## Before you begin
 
@@ -29,18 +31,18 @@ In this article, you add a secondary Spot node pool to an existing Azure Kuberne
 The following limitations apply when you create and manage AKS clusters with a Spot node pool:
 
 * A Spot node pool can't be a default node pool, it can only be used as a secondary pool.
-* The control plane and node pools can't be upgraded at the same time. You must upgrade them separately or remove the Spot node pool to upgrade the control plane and remaining node pools at the same time.
+* You can't upgrade the control plane and node pools at the same time. You must upgrade them separately or remove the Spot node pool to upgrade the control plane and remaining node pools at the same time.
 * A Spot node pool must use Virtual Machine Scale Sets.
 * You can't change `ScaleSetPriority` or `SpotMaxPrice` after creation.
 * When setting `SpotMaxPrice`, the value must be *-1* or a *positive value with up to five decimal places*.
-* A Spot node pool will have the `kubernetes.azure.com/scalesetpriority:spot` label, the taint `kubernetes.azure.com/scalesetpriority=spot:NoSchedule`, and the system pods will have anti-affinity.
+* A Spot node pool has the `kubernetes.azure.com/scalesetpriority:spot` label, the `kubernetes.azure.com/scalesetpriority=spot:NoSchedule` taint, and the system pods have anti-affinity.
 * You must add a [corresponding toleration][spot-toleration] and affinity to schedule workloads on a Spot node pool.
 
 ## Add a Spot node pool to an AKS cluster
 
 When adding a Spot node pool to an existing cluster, it must be a cluster with multiple node pools enabled. When you create an AKS cluster with multiple node pools enabled, you create a node pool with a `priority` of `Regular` by default. To add a Spot node pool, you must specify `Spot` as the value for `priority`. For more details on creating an AKS cluster with multiple node pools, see [use multiple node pools][use-multiple-node-pools].
 
-* Create a node pool with a `priority` of `Spot` using the [az aks nodepool add][az-aks-nodepool-add] command.
+* Create a node pool with a `priority` of `Spot` using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
     az aks nodepool add \
@@ -65,19 +67,19 @@ The previous command also enables the [cluster autoscaler][cluster-autoscaler], 
 > [!IMPORTANT]
 > Only schedule workloads on Spot node pools that can handle interruptions, such as batch processing jobs and testing environments. We recommend you set up [taints and tolerations][taints-tolerations] on your Spot node pool to ensure that only workloads that can handle node evictions are scheduled on a Spot node pool. For example, the above command adds a taint of `kubernetes.azure.com/scalesetpriority=spot:NoSchedule`, so only pods with a corresponding toleration are scheduled on this node.
 
-### Verify the Spot node pool
+## Verify the Spot node pool
 
-* Verify your node pool has been added using the [`az aks nodepool show`][az-aks-nodepool-show] command and confirming the `scaleSetPriority` is `Spot`.
+* Verify your node pool was added using the [`az aks nodepool show`][az-aks-nodepool-show] command and confirming the `scaleSetPriority` is `Spot`.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name spotnodepool
     ```
 
-### Schedule a pod to run on the Spot node
+## Schedule a pod to run on the Spot node
 
 To schedule a pod to run on a Spot node, you can add a toleration and node affinity that corresponds to the taint applied to your Spot node.
 
-The following example shows a portion of a YAML file that defines a toleration corresponding to the `kubernetes.azure.com/scalesetpriority=spot:NoSchedule` taint and a node affinity corresponding to the `kubernetes.azure.com/scalesetpriority=spot` label used in the previous step.
+The following example shows a portion of a YAML file that defines a toleration corresponding to the `kubernetes.azure.com/scalesetpriority=spot:NoSchedule` taint and a node affinity corresponding to the `kubernetes.azure.com/scalesetpriority=spot` label used in the previous step with `requiredDuringSchedulingIgnoredDuringExecution` and `preferredDuringSchedulingIgnoredDuringExecution` node affinity rules:
 
 ```yaml
 spec:
@@ -97,10 +99,22 @@ spec:
             operator: In
             values:
             - "spot"
-   ...
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+          - key: another-node-label-key
+            operator: In
+            values:
+            - another-node-label-value
 ```
 
-When you deploy a pod with this toleration and node affinity, Kubernetes will successfully schedule the pod on the nodes with the taint and label applied.
+When you deploy a pod with this toleration and node affinity, Kubernetes successfully schedules the pod on the nodes with the taint and label applied. In this example, the following rules apply:
+
+* The node *must* have a label with the key `kubernetes.azure.com/scalesetpriority`, and the value of that label *must* be `spot`.
+* The node *preferably* has a label with the key `another-node-label-key`, and the value of that label *must* be `another-node-label-value`.
+
+For more information, see [Assigning pods to nodes](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity).
 
 ## Upgrade a Spot node pool
 
@@ -131,6 +145,7 @@ In this article, you learned how to add a Spot node pool to an AKS cluster. For 
 [pricing-windows]: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
 [spot-toleration]: #verify-the-spot-node-pool
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[use-multiple-node-pools]: use-multiple-node-pools.md
+[use-multiple-node-pools]: create-node-pools.md
 [vmss-spot]: ../virtual-machine-scale-sets/use-spot.md
 [upgrade-cluster]: upgrade-cluster.md
+

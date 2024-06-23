@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 08/18/2022
+ms.date: 02/20/2024
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection
@@ -21,7 +21,7 @@ For more information about Key Vault, see
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* [Azure PowerShell](/powershell/azure/install-az-ps).
+* [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
 * The user will need the following permissions (at subscription level) to perform operations on soft-deleted vaults:

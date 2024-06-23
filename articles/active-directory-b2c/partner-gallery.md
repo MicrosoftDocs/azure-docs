@@ -2,16 +2,20 @@
 title: ISV Partner gallery for Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with our ISV partners to tailor your end-user experience to your needs. Our partner network extends our solution capabilities; enable MFA, Secure Customer Authentication, role-based access control; combat fraud through Identity Verification Proofing.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 1/25/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C user, I want to integrate with ISV partners for multifactor authentication, role-based access control, identity verification and proofing, fraud protection, and compliance with PSD2 SCA requirements, so that I can enhance the security and user experience of my applications.
+
 ---
 
 # Azure Active Directory B2C ISV partners
@@ -30,12 +34,12 @@ Microsoft partners with the following ISVs for identity verification and proofin
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a deduce logo.](./media/partner-gallery/deduce-logo.png) | [Deduce](./partner-deduce.md) is an identity verification and proofing provider focused on stopping account takeover and registration fraud. It helps combat identity fraud and creates a trusted user experience. |
-| ![Screenshot of a eid-me logo](./media/partner-gallery/eid-me-logo.png) | [eID-Me](./partner-eid-me.md) is an identity verification and decentralized digital identity solution for Canadian citizens. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |
+| ![Screenshot of an eid-me logo](./media/partner-gallery/eid-me-logo.png) | [eID-Me](./partner-eid-me.md) is an identity verification and decentralized digital identity solution for Canadian citizens. It enables organizations to meet Identity Assurance Level (IAL) 2 and Know Your Customer (KYC) requirements. |
 | ![Screenshot of an Experian logo.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud. |
 | ![Screenshot of an IDology logo.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an identity verification and proofing provider with ID verification solutions, fraud prevention solutions, compliance solutions, and others.|
 | ![Screenshot of a Jumio logo.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) is an ID verification service, which enables real-time automated ID verification, safeguarding customer data. |
 | ![Screenshot of a LexisNexis logo.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) is a profiling and identity validation provider that verifies user identification and provides comprehensive risk assessment based on user’s device. |
-| ![Screenshot of a Onfido logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) is a document ID and facial biometrics verification solution that allows companies to meet *Know Your Customer* and identity requirements in real time.  |
+| ![Screenshot of an Onfido logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) is a document ID and facial biometrics verification solution that allows companies to meet *Know Your Customer* and identity requirements in real time.  |
 
 ## MFA and Passwordless authentication
 
@@ -43,13 +47,13 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of a asignio logo](./media/partner-gallery/asignio-logo.png) | [Asignio](./partner-asignio.md) is a passwordless, soft biometric, and MFA solution. Asignio uses a combination of the patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature eliminates passwords, fraud, phishing, and credential reuse through omni-channel authentication. |
+| ![Screenshot of an asignio logo](./media/partner-gallery/asignio-logo.png) | [Asignio](./partner-asignio.md) is a passwordless, soft biometric, and MFA solution. Asignio uses a combination of the patented Asignio Signature and live facial verification for user authentication. The changeable biometric signature eliminates passwords, fraud, phishing, and credential reuse through omni-channel authentication. |
 | ![Screenshot of a bloksec logo](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) is a passwordless authentication and tokenless MFA solution, which provides real-time consent-based services and protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks. |
 | ![Screenshot of a grit biometric authentication logo.](./media/partner-gallery/grit-logo.png) | [Grit biometric authentication](./partner-grit-authentication.md) provides users the option to sign in using finger print, face ID or [Windows Hello](https://support.microsoft.com/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0) for enhanced security. 
 | ![Screenshot of a haventec logo](./media/partner-gallery/haventec-logo.png) | [Haventec](./partner-haventec.md) is a passwordless authentication provider, which provides decentralized identity platform that eliminates passwords, shared secrets, and friction. |
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
-| ![Screenshot of a idemia logo](./media/partner-gallery/idemia-logo.png) | [IDEMIA](./partner-idemia.md) is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. |
-| ![Screenshot of a itsme logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
+| ![Screenshot of an idemia logo](./media/partner-gallery/idemia-logo.png) | [IDEMIA](./partner-idemia.md) is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. |
+| ![Screenshot of an itsme logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 |![Screenshot of a Keyless logo.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) is a passwordless authentication provider that provides authentication in the form of a facial biometric scan and eliminates fraud, phishing, and credential reuse.
 | ![Screenshot of a nevis logo](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) enables passwordless authentication and provides a mobile-first, fully branded end-user experience with Nevis Access app for strong customer authentication and to comply with PSD2 transaction requirements. |
 | ![Screenshot of a nok nok logo](./media/partner-gallery/nok-nok-logo.png) | [Nok Nok](./partner-nok-nok.md) provides passwordless authentication and enables FIDO certified multifactor authentication such as FIDO UAF, FIDO U2F, WebAuthn, and FIDO2 for mobile and web applications. Using Nok Nok customers can improve their security posture while balancing user experience.
@@ -58,7 +62,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 | ![Screenshot of a twilio logo.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) provides multiple solutions to enable MFA through SMS one-time password (OTP), time-based one-time password (TOTP), and push notifications, and to comply with SCA requirements for PSD2. |
 | ![Screenshot of a typingDNA logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) enables strong customer authentication by analyzing a user’s typing pattern. It helps companies enable a silent MFA and comply with SCA requirements for PSD2. |
 | ![Screenshot of a whoiam logo](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) is a Branded Identity Management System (BRIMS) application that enables organizations to verify their user base by voice, SMS, and email. |
-| ![Screenshot of a xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified personal information through the xID API. |
+| ![Screenshot of an xid logo](./media/partner-gallery/xid-logo.png) | [xID](./partner-xID.md) is a digital ID solution that provides users with passwordless, secure, multifactor authentication. xID-authenticated users obtain their identities verified by a My Number Card, the digital ID card issued by the Japanese government. Organizations can get users verified personal information through the xID API. |
 
 ## Role-based access control 
  
@@ -91,7 +95,7 @@ Microsoft partners with the following ISVs for fraud detection and prevention.
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of a Arkose lab logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings. |
+| ![Screenshot of an Arkose lab logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings. |
 | ![Screenshot of a BioCatch logo](./media/partner-gallery/biocatch-logo.png) | [BioCatch](./partner-biocatch.md) is a fraud prevention solution provider that analyzes a user's physical and cognitive digital behaviors to generate insights that distinguish between legitimate customers and cyber-criminals. |
 | ![Screenshot of a Microsoft Dynamics 365 logo](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 Fraud Protection](./partner-dynamics-365-fraud-protection.md) is a solution that helps organizations protect against fraudulent account openings through device fingerprinting. |
 
@@ -102,7 +106,7 @@ Microsoft partners with the following ISVs for Web Application Firewall (WAF).
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 |  ![Screenshot of Akamai logo](./media/partner-gallery/akamai-logo.png) | [Akamai WAF](./partner-akamai.md) allows fine grained manipulation of traffic to protect and secure your identity infrastructure against malicious attacks.  |
-|  ![Screenshot of Azure WAF logo](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-azure-web-application-firewall.md) provides centralized protection of your web applications from common exploits and vulnerabilities.  |
+|  ![Screenshot of Azure WAF logo](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-web-application-firewall.md) provides centralized protection of your web applications from common exploits and vulnerabilities.  |
 ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
 
 ## Developer tools 

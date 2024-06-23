@@ -1,13 +1,13 @@
 ---
-title: Ephemeral OS disks 
+title: Ephemeral OS disks
 description: Learn more about ephemeral OS disks for Azure VMs.
 author: Aarthi-Vijayaraghavan
 ms.service: virtual-machines
-ms.workload: infrastructure-services
+ms.custom:
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: aarthiv
-ms.subservice: disks 
+ms.subservice: disks
 ---
 
 # Ephemeral OS disks for Azure VMs
@@ -20,10 +20,10 @@ The key features of ephemeral disks are:
 
 - Ideal for stateless applications.
 - Supported by  Marketplace, custom images, and by [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Shared Image Gallery).
-- Ability to fast reset or reimage VMs and scale set instances to the original boot state.  
-- Lower latency, similar to a temporary disk. 
+- Ability to fast reset or reimage VMs and scale set instances to the original boot state.
+- Lower latency, similar to a temporary disk.
 - Ephemeral OS disks are free, you incur no storage cost for OS disks.
-- Available in all Azure regions.  
+- Available in all Azure regions.
 
 Key differences between persistent and ephemeral OS disks:
 
@@ -38,17 +38,17 @@ Key differences between persistent and ephemeral OS disks:
 | **Specialized OS disk support** | Yes| No|
 | **OS disk resize**| Supported during VM creation and after VM is stop-deallocated| Supported during VM creation only|
 | **Resizing to a new VM size**| OS disk data is preserved| Data on the OS disk is deleted, OS is reprovisioned |
-| **Redeploy** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
-| **Stop/ Start of VM** | OS disk data is preserved | Not Supported | 
+| **Redeploy** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned |
+| **Stop/ Start of VM** | OS disk data is preserved | Not Supported |
 | **Page file placement**| For Windows, page file is stored on the resource disk| For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).|
-| **Maintenance of VM/VMSS using [healing](understand-vm-reboots.md#unexpected-downtime)** | OS disk data is preserved | OS disk data is not preserved  | 
-| **Maintenance of VM/VMSS using [Live Migration](maintenance-and-updates.md#live-migration)** | OS disk data is preserved | OS disk data is preserved  | 
+| **Maintenance of VM/VMSS using [healing](understand-vm-reboots.md#unexpected-downtime)** | OS disk data is preserved | OS disk data is not preserved  |
+| **Maintenance of VM/VMSS using [Live Migration](maintenance-and-updates.md#live-migration)** | OS disk data is preserved | OS disk data is preserved  |
 
 \* 4 TiB is the maximum supported OS disk size for managed (persistent) disks. However, many OS disks are partitioned with master boot record (MBR) by default and because of this are limited to 2 TiB. For details, see [OS disk](managed-disks-overview.md#os-disk).
 
 ## Placement options for Ephemeral OS disks
 
-Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk. 
+Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk.
 [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement) is the new property that can be used to specify where you want to place the Ephemeral OS disk. With this feature, when a Windows VM is provisioned, we configure the pagefile to be located on the OS Disk.
 
 ## Size requirements
@@ -79,12 +79,12 @@ Ephemeral disks also require that the VM size supports **Premium storage**. The 
 - Disk snapshots
 - Azure Disk Encryption
 - Azure Backup
-- Azure Site Recovery  
+- Azure Site Recovery
 - OS Disk Swap
 
 ## Trusted Launch for Ephemeral OS disks
 
-Ephemeral OS disks can be created with Trusted launch. Not all VM sizes and regions are supported for trusted launch. Check [limitations of trusted launch](trusted-launch.md#limitations) for supported sizes and regions.
+Ephemeral OS disks can be created with Trusted launch. All regions are supported for Trusted Launch; not all virtual machines sizes are supported. Check [Virtual machines sizes supported](trusted-launch.md#virtual-machines-sizes) for supported sizes.
 VM guest state (VMGS) is specific to trusted launch VMs. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. When using trusted launch by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS image of size 56 GiB with VM size [Standard_DS4_v2](dv2-dsv2-series.md) using temp disk placement you would get an error as
@@ -101,7 +101,7 @@ For more information on [how to deploy a trusted launch VM](trusted-launch-porta
 ## Confidential VMs using Ephemeral OS disks
 
 AMD-based Confidential VMs cater to high security and confidentiality requirements of customers. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. There are limitations to use Confidential VMs. Check the [region](../confidential-computing/confidential-vm-overview.md#regions), [size](../confidential-computing/confidential-vm-overview.md#size-support) and [OS supported](../confidential-computing/confidential-vm-overview.md#os-support) limitations for confidential VMs.
-Virtual machine guest state (VMGS) blob contains the security information of the confidential VM. 
+Virtual machine guest state (VMGS) blob contains the security information of the confidential VM.
 Confidential VMs using Ephemeral OS disks by default **1 GiB** from the **OS cache** or **temp storage** based on the chosen placement option is reserved for VMGS.The lifecycle of the VMGS blob is tied to that of the OS Disk.
 > [!IMPORTANT]
 >
@@ -111,7 +111,7 @@ For more information on [confidential VM](../confidential-computing/confidential
 
 ## Customer Managed key
 
-You can choose to use customer managed keys or platform managed keys when you enable end-to-end encryption for VMs using Ephemeral OS disk. Currently this option is available only via [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md), [CLI](./linux/disks-enable-customer-managed-keys-cli.md) and SDK in all regions. 
+You can choose to use customer managed keys or platform managed keys when you enable end-to-end encryption for VMs using Ephemeral OS disk. Currently this option is available only via [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md), [CLI](./linux/disks-enable-customer-managed-keys-cli.md) and SDK in all regions.
 
 > [!IMPORTANT]
 >

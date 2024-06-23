@@ -2,17 +2,16 @@
 title: Event Hubs - Capture streaming events using Azure portal
 description: This article describes how to enable capturing of events streaming through Azure Event Hubs by using the Azure portal.
 ms.topic: quickstart
-ms.date: 10/27/2022
+ms.date: 07/07/2023
 ms.custom: mode-ui
 ---
 
 # Enable capturing of events streaming through Azure Event Hubs
 
-Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen1 or Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice.You can configure capture settings using the [Azure portal](https://portal.azure.com) when creating an event hub or for an existing event hub. For conceptual information on this feature, see [Event Hubs Capture overview][capture-overview].
+Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice. You can configure capture settings using the [Azure portal](https://portal.azure.com) when creating an event hub or for an existing event hub. For conceptual information on this feature, see [Event Hubs Capture overview][capture-overview].
 
 > [!IMPORTANT]
-> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
-> - Event Hubs doesn't support capturing events in a **premium** storage account. 
+> Event Hubs doesn't support capturing events in a **premium** storage account. 
 
 
 ## Enable Capture when you create an event hub
@@ -34,6 +33,10 @@ To create an event hub within the namespace, follow these steps:
 
 See one of the following sections based on the type of storage you want to use to store captured files. 
 
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen1 is retired, so don't use it for capturing event data. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you are using Azure Data Lake Storage Gen1, migrate to Azure Data Lake Storage Gen2. For more information, see [Azure Data Lake Storage migration guidelines and patterns](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md).
+
 ## Capture data to Azure Storage
 
 1. For **Capture Provider**, select **Azure Storage Account** (default).
@@ -48,12 +51,15 @@ See one of the following sections based on the type of storage you want to use t
 1. For **Capture file name format**, specify format for the captured file names.
 1. Select **Review + create** at the bottom of the page. 
 1. On the **Review + create** page, review settings, and select **Create** to create the event hub. 
+
+    > [!NOTE]
+    > If public access is disabled on the storage account, allow **trusted services**, which include Azure Event Hubs, to access the storage account. For details and step-by-step instructions, see [this article](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
  
 ## Capture data to Azure Data Lake Storage Gen 2 
 
 Follow [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) article to create an Azure Storage account. Set **Hierarchical namespace** to **Enabled** on the **Advanced** tab to make it an Azure Data Lake Storage Gen 2 account. The Azure Storage account must be in the same subscription as the event hub.
 
-1. Select **Azure Storage** as the capture provider. The **Azure Data Lake Store** option you see for the **Capture provider** is for the Gen 1 of Azure Data Lake Storage. To use a Gen 2 of Azure Data Lake Storage, you select **Azure Storage**.
+1. Select **Azure Storage** as the capture provider. To use Azure Data Lake Storage Gen2, you select **Azure Storage**.
 2. For **Azure Storage Container**, click the **Select the container** link.
 
     :::image type="content" source="./media/event-hubs-capture-enable-through-portal/select-container-link.png" alt-text="Screenshot that shows the Create event hub page with the Select container link.":::
@@ -73,28 +79,6 @@ Follow [Create a storage account](../storage/common/storage-account-create.md?ta
     > The container you create in an Azure Data Lake Storage Gen 2 using this user interface (UI) is shown under **File systems** in **Storage Explorer**. Similarly, the file system you create in a Data Lake Storage Gen 2 account shows up as a container in this UI. 
 
 
-## Capture data to Azure Data Lake Storage Gen 1 
-
-To capture data to Azure Data Lake Storage Gen 1, you create a Data Lake Storage Gen 1 account, and an event hub:
-
-> [!IMPORTANT]
-> On Feb 29, 2024 Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. For more information, see [Azure Data Lake Storage migration guidelines and patterns](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md).
-
-### Create an Azure Data Lake Storage Gen 1 account and folders
-
-1. Create a Data Lake Storage account, following the instructions in [Get started with Azure Data Lake Storage Gen 1 using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md).
-2. Follow the instructions in the [Assign permissions to Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) section to create a folder within the Data Lake Storage Gen 1 account in which you want to capture the data from Event Hubs, and assign permissions to Event Hubs so that it can write data into your Data Lake Storage Gen 1 account.  
-
-
-### Create an event hub
-
-1. The event hub must be in the same Azure subscription as the Azure Data Lake Storage Gen 1 account you created. Create the event hub, clicking the **On** button under **Capture** in the **Create Event Hub** portal page. 
-2. On the **Create Event Hub** page, select **Azure Data Lake Store** from the **Capture Provider** box.
-3. In **Select Store** next to the **Data Lake Store** drop-down list, specify the Data Lake Storage Gen 1 account you created previously, and in the **Data Lake Path** field, enter the path to the data folder you created.
-
-    :::image type="content" source="./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png" alt-text="Screenshot showing the selection of Data Lake Storage Account Gen 1.":::
-
-
 ## Configure Capture for an existing event hub
 
 You can configure Capture on existing event hubs that are in Event Hubs namespaces. To enable Capture on an existing event hub, or to change your Capture settings, follow these steps:
@@ -112,8 +96,7 @@ You can configure Capture on existing event hubs that are in Event Hubs namespac
     :::image type="content" source="./media/event-hubs-capture-enable-through-portal/enable-capture.png" alt-text="Screenshot showing the Capture page for your event hub with the Capture feature enabled.":::    
 1. To configure other settings, see the sections: 
     - [Capture data to Azure Storage](#capture-data-to-azure-storage)
-    - [Capture data to Azure Data Lake Storage Gen 2](#capture-data-to-azure-data-lake-storage-gen-2)
-    - [Capture data to Azure Data Lake Storage Gen 1](#capture-data-to-azure-data-lake-storage-gen-1) 
+    - [Capture data to Azure Data Lake Storage Gen 2](#capture-data-to-azure-data-lake-storage-gen-2)    
     
 ## Next steps
 

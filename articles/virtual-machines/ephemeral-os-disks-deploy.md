@@ -1,13 +1,12 @@
 ---
-title: Deploy Ephemeral OS disks 
+title: Deploy Ephemeral OS disks
 description: Learn to deploy ephemeral OS disks for Azure VMs.
 author: Aarthi-Vijayaraghavan
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: aarthiv
-ms.subservice: disks 
+ms.subservice: disks
 ms.custom: devx-track-azurecli
 ---
 
@@ -22,95 +21,95 @@ This article shows you how to create a virtual machine or virtual machine scale 
 In the Azure portal, you can choose to use ephemeral disks when deploying a virtual machine or virtual machine scale sets by opening the **Advanced** section of the **Disks** tab. For choosing placement of Ephemeral OS disk, select **OS cache placement** or **Temp disk placement**.
 
 ![Screenshot showing the radio button for choosing to use an ephemeral OS disk](./media/virtual-machines-common-ephemeral/ephemeral-portal-temp.png)
- 
+
 
 If the option for using an ephemeral disk or OS cache placement or Temp disk placement is greyed out, you might have selected a VM size that doesn't have a cache/temp size larger than the OS image or that doesn't support Premium storage. Go back to the **Basics** page and try choosing another VM size.
 
 ## Scale set template deployment
 
-The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
+The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the
 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. placement can be changed to `CacheDisk` for OS cache disk placement.
 
 ```json
-{ 
-  "type": "Microsoft.Compute/virtualMachineScaleSets", 
-  "name": "myScaleSet", 
-  "location": "East US 2", 
-  "apiVersion": "2019-12-01", 
-  "sku": { 
-    "name": "Standard_DS2_v2", 
-    "capacity": "2" 
-  }, 
-  "properties": { 
-    "upgradePolicy": { 
-      "mode": "Automatic" 
-    }, 
-    "virtualMachineProfile": { 
-       "storageProfile": { 
-        "osDisk": { 
-          "diffDiskSettings": { 
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US 2",
+  "apiVersion": "2019-12-01",
+  "sku": {
+    "name": "Standard_DS2_v2",
+    "capacity": "2"
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+       "storageProfile": {
+        "osDisk": {
+          "diffDiskSettings": {
             "option": "Local" ,
             "placement": "ResourceDisk"
-          }, 
-          "caching": "ReadOnly", 
-          "createOption": "FromImage" 
-        }, 
-        "imageReference":  { 
-          "publisher": "publisherName", 
-          "offer": "offerName", 
-          "sku": "skuName", 
-          "version": "imageVersion" 
-        } 
-      }, 
-      "osProfile": { 
-        "computerNamePrefix": "myvmss", 
-        "adminUsername": "azureuser", 
-        "adminPassword": "P@ssw0rd!" 
-      } 
-    } 
-  } 
-}  
+          },
+          "caching": "ReadOnly",
+          "createOption": "FromImage"
+        },
+        "imageReference":  {
+          "publisher": "publisherName",
+          "offer": "offerName",
+          "sku": "skuName",
+          "version": "imageVersion"
+        }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvmss",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+  }
+}
 ```
 
 > [!NOTE]
 > Replace all the other values accordingly.
 
-## VM template deployment 
+## VM template deployment
 You can deploy a VM with an ephemeral OS disk using a template. The process to create a VM that uses ephemeral OS disks is to add the `diffDiskSettings` property to Microsoft.Compute/virtualMachines resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. placement option can be changed to `CacheDisk` for OS cache disk placement.
 
 ```json
-{ 
-  "type": "Microsoft.Compute/virtualMachines", 
-  "name": "myVirtualMachine", 
-  "location": "East US 2", 
-  "apiVersion": "2019-12-01", 
-  "properties": { 
-       "storageProfile": { 
-            "osDisk": { 
-              "diffDiskSettings": { 
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "myVirtualMachine",
+  "location": "East US 2",
+  "apiVersion": "2019-12-01",
+  "properties": {
+       "storageProfile": {
+            "osDisk": {
+              "diffDiskSettings": {
                 "option": "Local" ,
                 "placement": "ResourceDisk"
-              }, 
-              "caching": "ReadOnly", 
-              "createOption": "FromImage" 
-            }, 
-            "imageReference": { 
-                "publisher": "MicrosoftWindowsServer", 
-                "offer": "WindowsServer", 
-                "sku": "2016-Datacenter-smalldisk", 
-                "version": "latest" 
-            }, 
-            "hardwareProfile": { 
-                 "vmSize": "Standard_DS2_v2" 
-             } 
-      }, 
-      "osProfile": { 
-        "computerNamePrefix": "myvirtualmachine", 
-        "adminUsername": "azureuser", 
-        "adminPassword": "P@ssw0rd!" 
-      } 
-    } 
- } 
+              },
+              "caching": "ReadOnly",
+              "createOption": "FromImage"
+            },
+            "imageReference": {
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2016-Datacenter-smalldisk",
+                "version": "latest"
+            },
+            "hardwareProfile": {
+                 "vmSize": "Standard_DS2_v2"
+             }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvirtualmachine",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+ }
 ```
 
 ## CLI
@@ -139,16 +138,16 @@ You can reimage a Virtual Machine instance with ephemeral OS disk using REST API
 
 ```
 POST https://management.azure.com/subscriptions/{sub-
-id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?api-version=2019-12-01" 
+id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?api-version=2019-12-01"
 ```
 
 ## PowerShell
-To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `ResourceDisk`.     
+To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `ResourceDisk`.
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -DiffDiskPlacement ResourceDisk -Caching ReadOnly
 
 ```
-To use an ephemeral disk on cache disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` , `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `CacheDisk`.     
+To use an ephemeral disk on cache disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` , `-Caching` to `ReadOnly` and  `-DiffDiskPlacement` to `CacheDisk`.
 ```PowerShell
 Set-AzVMOSDisk -DiffDiskSetting Local -DiffDiskPlacement CacheDisk -Caching ReadOnly
 ```

@@ -3,13 +3,13 @@ title: Machine learning example with Spark MLlib on HDInsight - Azure
 description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
-ms.date: 05/19/2022
+ms.custom: hdinsightactive, devx-track-python
+ms.date: 04/08/2024
 ---
 
 # Use Apache Spark MLlib to build a machine learning application and analyze a dataset
 
-Learn how to use Apache Spark MLlib to create a machine learning application. The application will do predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression.
+Learn how to use Apache Spark MLlib to create a machine learning application. The application does predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression.
 
 MLlib is a core Spark library that provides many utilities useful for machine learning tasks, such as:
 
@@ -28,11 +28,11 @@ Logistic regression is the algorithm that you use for classification. Spark's lo
 
 In summary, the process of logistic regression produces a *logistic function*. Use the function to predict the probability that an input vector belongs in one group or the other.  
 
-## Predictive analysis example on food inspection data
+## Predictive analysis example of food inspection data
 
 In this example, you use Spark to do some predictive analysis on food inspection data (**Food_Inspections1.csv**). Data acquired through the [City of Chicago data portal](https://data.cityofchicago.org/). This dataset contains information about food establishment inspections that were conducted in Chicago. Including information about each establishment, the violations found (if any), and the results of the inspection. The CSV data file is already available in the storage account associated with the cluster at **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
-In the steps below, you develop a model to see what it takes to pass or fail a food inspection.
+In the following steps, you develop a model to see what it takes to pass or fail a food inspection.
 
 ## Create an Apache Spark MLlib machine learning app
 
@@ -60,9 +60,9 @@ Use the Spark context to pull the raw CSV data into memory as unstructured text.
     ```PySpark
     def csvParse(s):
         import csv
-        from StringIO import StringIO
+        from io import StringIO
         sio = StringIO(s)
-        value = csv.reader(sio).next()
+        value = next(csv.reader(sio))
         sio.close()
         return value
 
@@ -170,7 +170,7 @@ Let's start to get a sense of what the dataset contains.
 
     The output is:
 
-    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output" border="true":::
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output." border="true":::
 
 3. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This action ensures that the code is run locally on the Jupyter server.
 
@@ -227,11 +227,11 @@ Let's start to get a sense of what the dataset contains.
 
 ## Create a logistic regression model from the input dataframe
 
-The final task is to convert the labeled data. Convert the data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs a set of *label-feature vector pairs*. Where the "feature vector" is a vector of numbers that represent the input point. So, you need to convert the "violations" column, which is semi-structured and contains many comments in free-text. Convert the column to an array of real numbers that a machine could easily understand.
+The final task is to convert the labeled data. Convert the data into a format that analyzed by logistic regression. The input to a logistic regression algorithm needs a set of *label-feature vector pairs*. Where the "feature vector" is a vector of numbers that represent the input point. So, you need to convert the "violations" column, which is semi-structured and contains many comments in free-text. Convert the column to an array of real numbers that a machine could easily understand.
 
-One standard machine learning approach for processing natural language is to assign each distinct word an "index". Then pass a vector to the machine learning algorithm. Such that each index's value contains the relative frequency of that word in the text string.
+One standard machine learning approach for processing natural language is to assign each distinct word an index. Then pass a vector to the machine learning algorithm. Such that each index's value contains the relative frequency of that word in the text string.
 
-MLlib provides an easy way to do this operation. First, "tokenize" each violations string to get the individual words in each string. Then, use a `HashingTF` to convert each set of tokens into a feature vector that can then be passed to the logistic regression algorithm to construct a model. You conduct all of these steps in sequence using a "pipeline".
+MLlib provides an easy way to do this operation. First, "tokenize" each violations string to get the individual words in each string. Then, use a `HashingTF` to convert each set of tokens into a feature vector that can then be passed to the logistic regression algorithm to construct a model. You conduct all of these steps in sequence using a pipeline.
 
 ```PySpark
 tokenizer = Tokenizer(inputCol="violations", outputCol="words")
@@ -244,7 +244,7 @@ model = pipeline.fit(labeledData)
 
 ## Evaluate the model using another dataset
 
-You can use the model you created earlier to *predict* what the results of new inspections will be. The predictions are based on the violations that were observed. You trained this model on the dataset **Food_Inspections1.csv**. You can use a second dataset, **Food_Inspections2.csv**, to *evaluate* the strength of this model on the new data. This second data set (**Food_Inspections2.csv**) is in the default storage container associated with the cluster.
+You can use the model you created earlier to *predict* what the results of new inspections are. The predictions are based on the violations that were observed. You trained this model on the dataset **Food_Inspections1.csv**. You can use a second dataset, **Food_Inspections2.csv**, to *evaluate* the strength of this model on the new data. This second data set (**Food_Inspections2.csv**) is in the default storage container associated with the cluster.
 
 1. Run the following code to create a new dataframe, **predictionsDf** that contains the prediction generated by the model. The snippet also creates a temporary table called **Predictions** based on the dataframe.
 
@@ -288,8 +288,8 @@ You can use the model you created earlier to *predict* what the results of new i
                                                                 results = 'Pass w/ Conditions'))""").count()
     numInspections = predictionsDf.count()
 
-    print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
-    print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+    print ("There were", numInspections, "inspections and there were", numSuccesses, "successful predictions")
+    print ("This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate")
     ```
 
     The output looks like the following text:
@@ -349,7 +349,7 @@ You can now construct a final visualization to help you reason about the results
 
 ## Shut down the notebook
 
-After you have finished running the application, you should shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action shuts down and closes the notebook.
+After running the application, you should shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, select **Close and Halt**. This action shuts down and closes the notebook.
 
 ## Next steps
 

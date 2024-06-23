@@ -5,7 +5,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 05/15/2024
 ms.author: lle
 ms.custom: devx-track-azurepowershell
 ---
@@ -64,6 +64,6 @@ Now, use the output JSON file from the previous command containing the encrypted
 Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json"
 ```
 
-## Next steps
+## Related content
 For information about security considerations for data movement, see [Data movement security considerations](data-movement-security-considerations.md).
 

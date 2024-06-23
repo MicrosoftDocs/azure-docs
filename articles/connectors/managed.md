@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: engagement-fy23
-ms.date: 09/07/2022
+ms.date: 05/20/2024
 ---
 
 # Managed connectors in Azure Logic Apps
 
 Managed connectors provide ways for you to access other services and systems where built-in connectors aren't available. You can use these triggers and actions to create workflows that integrate data, apps, cloud-based services, and on-premises systems. Different from built-in connectors, managed connectors are usually tied to a specific service or system such as Office 365, SharePoint, Azure Key Vault, Salesforce, Azure Automation, and so on. Managed by Microsoft and hosted in Azure, managed connectors usually require that you first create a connection from your workflow and authenticate your identity.
 
-For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multi-tenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type, and not the other.
+For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multitenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type, and not the other.
 
-For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multitenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
 
 This article provides a general overview about managed connectors and the way they're organized in the Consumption workflow designer versus the Standard workflow designer with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
@@ -354,7 +354,7 @@ For more information, review the following documentation:
 
 ## ISE connectors
 
-In an integration service environment (ISE), these managed connectors also have [ISE versions](introduction.md#ise-and-connectors), which have different capabilities than their multi-tenant versions:
+In an integration service environment (ISE), these managed connectors also have [ISE versions](introduction.md#ise-and-connectors), which have different capabilities than their multitenant versions:
 
 > [!NOTE]
 >
@@ -521,7 +521,6 @@ For more information, see these topics:
 
 * [Access to Azure virtual network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
 * [Azure Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
-* [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 ## Next steps
 
@@ -546,7 +545,7 @@ For more information, see these topics:
 [azure-key-vault-icon]: ./media/apis-list/azure-key-vault.png
 [azure-ml-icon]: ./media/apis-list/azure-ml.png
 [azure-monitor-logs-icon]: ./media/apis-list/azure-monitor-logs.png
-[azure-queues-icon]: ./media/apis-list/azure-queues.png
+[azure-queues-icon]: ./media/apis-list/azure-queue-storage.png
 [azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [azure-sql-data-warehouse-icon]: ./media/apis-list/azure-sql-data-warehouse.png

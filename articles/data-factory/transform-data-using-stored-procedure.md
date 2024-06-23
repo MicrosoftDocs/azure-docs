@@ -8,13 +8,10 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory or Synapse Analytics
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-stored-proc-activity.md)
-> * [Current version](transform-data-using-stored-procedure.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -33,6 +30,12 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 > When copying data into Azure SQL Database or SQL Server, you can configure the **SqlSink** in copy activity to invoke a stored procedure by using the **sqlWriterStoredProcedureName** property. For details about the property, see following connector articles: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md). Invoking a stored procedure while copying data into an Azure Synapse Analytics by using a copy activity is not supported. But, you can use the stored procedure activity to invoke a stored procedure in Azure Synapse Analytics. 
 >
 > When copying data from Azure SQL Database or SQL Server or Azure Synapse Analytics, you can configure **SqlSource** in copy activity to invoke a stored procedure to read data from the source database by using the **sqlReaderStoredProcedureName** property. For more information, see the following connector articles: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)          
+
+When the stored procedure has Output parameters, instead of using stored procedure activity, use lookup acitivty and Script activity. Stored procedure activity does not support calling SPs with Output parameter yet.  
+
+If you call a stored procedure with output parameters using stored procedure activity, following error occurs.
+
+Execution fail against sql server. Please contact SQL Server team if you need further support. Sql error number: 201. Error Message: Procedure or function 'sp_name' expects parameter '@output_param_name', which was not supplied.
 
  ## Create a Stored Procedure activity with UI
 
@@ -88,7 +91,7 @@ The data type you specify for the parameter is the internal service type that ma
 - [Oracle  data type mapping](connector-oracle.md#data-type-mapping-for-oracle)
 - [SQL Server data type mapping](connector-sql-server.md#data-type-mapping-for-sql-server)
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL Activity](transform-data-using-data-lake-analytics.md)

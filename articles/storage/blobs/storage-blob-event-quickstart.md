@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/11/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurecli
 ---
 
@@ -23,7 +22,7 @@ When you complete the steps described in this article, you see that the event da
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

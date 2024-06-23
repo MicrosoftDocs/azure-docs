@@ -3,7 +3,7 @@ title: Troubleshoot BMM issues using the `az networkcloud baremetalmachine run-r
 description: Step by step guide on using the `az networkcloud baremetalmachine run-read-command` to run diagnostic commands on a BMM.
 author: eak13
 ms.author: ekarandjeff
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/23/2023
 ms.custom: template-how-to
@@ -20,115 +20,272 @@ The command execution produces an output file containing the results that can be
 1. Install the latest version of the
   [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
-1. Get the Resource group name that you created for `Cluster` resource
+1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
+## Verify Storage Account access
+
+Verify you have access to the Cluster Manager's storage account
+  1. From Azure portal, navigate to Cluster Manager's Storage account.
+  1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+  1. In the Storage browser details, select on **Blob containers**.
+  1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+  1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+ 
 ## Executing a run-read command
 
-The run-read command executes a read-only command on the specified BMM.
+The run-read command lets you run a command on the BMM that does not change anything. Some commands have more
+than one word, or need an argument to work. These commands are made like this to separate them from the ones
+that can change things. For example, run-read-command can use `kubectl get` but not `kubectl apply`. When you
+use these commands, you have to put all the words in the “command” field. For example,
+`{"command":"kubectl get","arguments":["nodes"]}` is right; `{"command":"kubectl","arguments":["get","nodes"]}`
+is wrong.
 
-The current list of supported commands are:
+Also note that some commands begin with `nc-toolbox nc-toolbox-runread` and must be entered as shown.
+`nc-toolbox-runread` is a special container image that includes more tools that aren't installed on the
+baremetal host, such as `ipmitool` and `racadm`.
 
-- `traceroute`
-- `ping`
+Some of the run-read commands require specific arguments be supplied to enforce read-only capabilities of the commands.
+An example of run-read commands that require specific arguments is the allowed Mellanox command `mstconfig`,
+which requires the `query` argument be provided to enforce read-only.
+
+The list below shows the commands you can use. Commands in `*italics*` cannot have `arguments`; the rest can.
+
 - `arp`
-- `tcpdump`
 - `brctl show`
 - `dmidecode`
+- *`fdisk -l`*
 - `host`
-- `ip link show`
+- *`hostname`*
+- *`ifconfig -a`*
+- *`ifconfig -s`*
 - `ip address show`
+- `ip link show`
 - `ip maddress show`
 - `ip route show`
 - `journalctl`
-- `kubectl logs`
-- `kubectl describe`
-- `kubectl get`
 - `kubectl api-resources`
 - `kubectl api-versions`
+- `kubectl describe`
+- `kubectl get`
+- `kubectl logs`
+- *`mount`*
+- `ping`
+- *`ss`*
+- `tcpdump`
+- `traceroute`
 - `uname`
+- *`ulimit -a`*
 - `uptime`
-- `fdisk -l`
-- `hostname`
-- `ifconfig -a`
-- `ifconfig -s`
-- `mount`
-- `ss`
-- `ulimit -a`
+- `nc-toolbox nc-toolbox-runread ipmitool channel authcap`
+- `nc-toolbox nc-toolbox-runread ipmitool channel info`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis status`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis power status`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis restart cause`
+- `nc-toolbox nc-toolbox-runread ipmitool chassis poh`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi power get_limit`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi sensors`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi asset_tag`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi get_mc_id_string`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi thermalpolicy get`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi get_temp_reading`
+- `nc-toolbox nc-toolbox-runread ipmitool dcmi get_conf_param`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem lcd info`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem lcd status`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem mac list`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem mac get`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem lan get`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor powerconsumption`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor powerconsumptionhistory`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem powermonitor getpowerbudget`
+- `nc-toolbox nc-toolbox-runread ipmitool delloem vflash info card`
+- `nc-toolbox nc-toolbox-runread ipmitool echo`
+- `nc-toolbox nc-toolbox-runread ipmitool ekanalyzer print`
+- `nc-toolbox nc-toolbox-runread ipmitool ekanalyzer summary`
+- `nc-toolbox nc-toolbox-runread ipmitool fru print`
+- `nc-toolbox nc-toolbox-runread ipmitool fwum info`
+- `nc-toolbox nc-toolbox-runread ipmitool fwum status`
+- `nc-toolbox nc-toolbox-runread ipmitool fwum tracelog`
+- `nc-toolbox nc-toolbox-runread ipmitool gendev list`
+- `nc-toolbox nc-toolbox-runread ipmitool hpm rollbackstatus`
+- `nc-toolbox nc-toolbox-runread ipmitool hpm selftestresult`
+- `nc-toolbox nc-toolbox-runread ipmitool ime help`
+- `nc-toolbox nc-toolbox-runread ipmitool ime info`
+- `nc-toolbox nc-toolbox-runread ipmitool isol info`
+- `nc-toolbox nc-toolbox-runread ipmitool lan print`
+- `nc-toolbox nc-toolbox-runread ipmitool lan alert print`
+- `nc-toolbox nc-toolbox-runread ipmitool lan stats get`
+- `nc-toolbox nc-toolbox-runread ipmitool mc bootparam get`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis poh`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis policy list`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis power status`
+- `nc-toolbox nc-toolbox-runread ipmitool mc chassis status`
+- `nc-toolbox nc-toolbox-runread ipmitool mc getenables`
+- `nc-toolbox nc-toolbox-runread ipmitool mc getsysinfo`
+- `nc-toolbox nc-toolbox-runread ipmitool mc guid`
+- `nc-toolbox nc-toolbox-runread ipmitool mc info`
+- `nc-toolbox nc-toolbox-runread ipmitool mc restart cause`
+- `nc-toolbox nc-toolbox-runread ipmitool mc watchdog get`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc bootparam get`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis poh`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis policy list`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis power status`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc chassis status`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc getenables`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc getsysinfo`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc guid`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc info`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc restart cause`
+- `nc-toolbox nc-toolbox-runread ipmitool bmc watchdog get`
+- `nc-toolbox nc-toolbox-runread ipmitool nm alert get`
+- `nc-toolbox nc-toolbox-runread ipmitool nm capability`
+- `nc-toolbox nc-toolbox-runread ipmitool nm discover`
+- `nc-toolbox nc-toolbox-runread ipmitool nm policy get policy_id`
+- `nc-toolbox nc-toolbox-runread ipmitool nm policy limiting`
+- `nc-toolbox nc-toolbox-runread ipmitool nm statistics`
+- `nc-toolbox nc-toolbox-runread ipmitool nm suspend get`
+- `nc-toolbox nc-toolbox-runread ipmitool nm threshold get`
+- `nc-toolbox nc-toolbox-runread ipmitool pef`
+- `nc-toolbox nc-toolbox-runread ipmitool picmg addrinfo`
+- `nc-toolbox nc-toolbox-runread ipmitool picmg policy get`
+- `nc-toolbox nc-toolbox-runread ipmitool power status`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr elist`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr get`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr info`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr list`
+- `nc-toolbox nc-toolbox-runread ipmitool sdr type`
+- `nc-toolbox nc-toolbox-runread ipmitool sel elist`
+- `nc-toolbox nc-toolbox-runread ipmitool sel get`
+- `nc-toolbox nc-toolbox-runread ipmitool sel info`
+- `nc-toolbox nc-toolbox-runread ipmitool sel list`
+- `nc-toolbox nc-toolbox-runread ipmitool sel time get`
+- `nc-toolbox nc-toolbox-runread ipmitool sensor get`
+- `nc-toolbox nc-toolbox-runread ipmitool sensor list`
+- `nc-toolbox nc-toolbox-runread ipmitool session info`
+- `nc-toolbox nc-toolbox-runread ipmitool sol info`
+- `nc-toolbox nc-toolbox-runread ipmitool sol payload status`
+- `nc-toolbox nc-toolbox-runread ipmitool user list`
+- `nc-toolbox nc-toolbox-runread ipmitool user summary`
+- *`nc-toolbox nc-toolbox-runread racadm arp`*
+- *`nc-toolbox nc-toolbox-runread racadm coredump`*
+- `nc-toolbox nc-toolbox-runread racadm diagnostics`
+- `nc-toolbox nc-toolbox-runread racadm eventfilters get`
+- `nc-toolbox nc-toolbox-runread racadm fcstatistics`
+- `nc-toolbox nc-toolbox-runread racadm get`
+- `nc-toolbox nc-toolbox-runread racadm getconfig`
+- `nc-toolbox nc-toolbox-runread racadm gethostnetworkinterfaces`
+- *`nc-toolbox nc-toolbox-runread racadm getled`*
+- `nc-toolbox nc-toolbox-runread racadm getniccfg`
+- `nc-toolbox nc-toolbox-runread racadm getraclog`
+- `nc-toolbox nc-toolbox-runread racadm getractime`
+- `nc-toolbox nc-toolbox-runread racadm getsel`
+- `nc-toolbox nc-toolbox-runread racadm getsensorinfo`
+- `nc-toolbox nc-toolbox-runread racadm getssninfo`
+- `nc-toolbox nc-toolbox-runread racadm getsvctag`
+- `nc-toolbox nc-toolbox-runread racadm getsysinfo`
+- `nc-toolbox nc-toolbox-runread racadm gettracelog`
+- `nc-toolbox nc-toolbox-runread racadm getversion`
+- `nc-toolbox nc-toolbox-runread racadm hwinventory`
+- *`nc-toolbox nc-toolbox-runread racadm ifconfig`*
+- *`nc-toolbox nc-toolbox-runread racadm inlettemphistory get`*
+- `nc-toolbox nc-toolbox-runread racadm jobqueue view`
+- `nc-toolbox nc-toolbox-runread racadm lclog view`
+- `nc-toolbox nc-toolbox-runread racadm lclog viewconfigresult`
+- `nc-toolbox nc-toolbox-runread racadm license view`
+- *`nc-toolbox nc-toolbox-runread racadm netstat`*
+- `nc-toolbox nc-toolbox-runread racadm nicstatistics`
+- `nc-toolbox nc-toolbox-runread racadm ping`
+- `nc-toolbox nc-toolbox-runread racadm ping6`
+- *`nc-toolbox nc-toolbox-runread racadm racdump`*
+- `nc-toolbox nc-toolbox-runread racadm sslcertview`
+- *`nc-toolbox nc-toolbox-runread racadm swinventory`*
+- *`nc-toolbox nc-toolbox-runread racadm systemconfig getbackupscheduler`*
+- `nc-toolbox nc-toolbox-runread racadm systemperfstatistics` (PeakReset argument NOT allowed)
+- *`nc-toolbox nc-toolbox-runread racadm techsupreport getupdatetime`*
+- `nc-toolbox nc-toolbox-runread racadm traceroute`
+- `nc-toolbox nc-toolbox-runread racadm traceroute6`
+- `nc-toolbox nc-toolbox-runread racadm usercertview`
+- *`nc-toolbox nc-toolbox-runread racadm vflashsd status`*
+- *`nc-toolbox nc-toolbox-runread racadm vflashpartition list`*
+- *`nc-toolbox nc-toolbox-runread racadm vflashpartition status -a`*
+- `nc-toolbox nc-toolbox-runread mstregdump`
+- `nc-toolbox nc-toolbox-runread mstconfig`   (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstflint`    (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstlink`     (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mstfwmanager` (requires `query` arg )
+- `nc-toolbox nc-toolbox-runread mlx_temp`
 
 The command syntax is:
-
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name "<machine-name>"
-    --limit-time-seconds <timeout> \
-    --commands arguments="<arg1>" arguments="<arg2>" command="<command>" --resource-group "<resourceGroupName>" \
-    --subscription "<subscription>" \
-    --debug
+    --limit-time-seconds "<timeout>" \
+    --commands '[{"command":"<command1>"},{"command":"<command2>","arguments":["<arg1>","<arg2>"]}]' \
+    --resource-group "<cluster_MRG>" \
+    --subscription "<subscription>"
 ```
 
-These commands to not require `arguments`:
+Multiple commands can be provided in json format to `--commands` option.
 
-- `fdisk -l`
-- `hostname`
-- `ifconfig -a`
-- `ifconfig -s`
-- `mount`
-- `ss`
-- `ulimit -a`
+For a command with multiple arguments, provide as a list to `arguments` parameter. See [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md) for instructions on constructing the `--commands` structure.
 
-All other inputs are required. Multiple commands are each specified with their own `--commands` option. 
+These commands can be long running so the recommendation is to set `--limit-time-seconds` to at least 600 seconds (10 minutes). Running multiple extracts might take longer that 10 minutes.
 
-Each `--commands` option specifies `command` and `arguments`. For a command with multiple arguments, `arguments` is repeated for each one.
+This command runs synchronously. If you wish to skip waiting for the command to complete, specify the `--no-wait --debug` options. For more information, see [how to track asynchronous operations](howto-track-async-operations-cli.md).
 
-`--debug` is required to get the operation status that can be queried to get the URL for the output file.
+When an optional argument `--output-directory` is provided, the output result is downloaded and extracted to the local directory.
 
-### This example executes the `hostname` command and a `ping` command.
+### This example executes the `hostname` command and a `ping` command
 
 ```azurecli
-az networkcloud baremetalmachine run-read-command --name "bareMetalMachineName" \
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
     --limit-time-seconds 60 \
-    --commands command="hostname" \
-    --commands arguments="192.168.0.99" arguments="-c" arguments="3" command="ping" \
-    --resource-group "resourceGroupName" \
-    --subscription "<subscription>" \
-    --debug
+    --commands '[{"command":"hostname"},{"command":"ping","arguments":["198.51.102.1","-c","3"]}]' \
+    --resource-group "<cluster_MRG>" \
+    --subscription "<subscription>"
 ```
 
-In the response, an HTTP status code of 202 is returned as the operation is performed asynchronously. 
+### This example executes the `racadm getsysinfo -c` command
+
+```azurecli
+az networkcloud baremetalmachine run-read-command --name "<bareMetalMachineName>" \
+    --limit-time-seconds 60 \
+    --commands '[{"command":"nc-toolbox nc-toolbox-runread racadm getsysinfo","arguments":["-c"]}]' \
+    --resource-group "<cluster_MRG>" \
+    --subscription "<subscription>"
+```
 
 ## Checking command status and viewing output
 
-The debug output of the command execution contains the 'Azure-AsyncOperation' response header. Note the URL provided.
+Sample output is shown. It prints the top 4,000 characters of the result to the screen for convenience and provides a short-lived link to the storage blob containing the command execution result. You can use the link to download the zipped output file (tar.gz).
 
-```azurecli
-cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': 'https://management.azure.com/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/0797fdd7-28eb-48ec-8c70-39a3f893421d*A0123456789F331FE47B40E2BFBCE2E133FD3ED2562348BFFD8388A4AAA1271?api-version=2022-09-30-preview'
+```output
+  ====Action Command Output====
+  + hostname
+  rack1compute01
+  + ping 198.51.102.1 -c 3
+  PING 198.51.102.1 (198.51.102.1) 56(84) bytes of data.
+
+  --- 198.51.102.1 ping statistics ---
+  3 packets transmitted, 0 received, 100% packet loss, time 2049ms
+
+  ================================
+  Script execution result can be found in storage account:
+  https://<storage_account_name>.blob.core.windows.net/bmm-run-command-output/a8e0a5fe-3279-46a8-b995-51f2f98a18dd-action-bmmrunreadcmd.tar.gz?se=2023-04-14T06%3A37%3A00Z&sig=XXX&sp=r&spr=https&sr=b&st=2023-04-14T02%3A37%3A00Z&sv=2019-12-12
 ```
 
-Check the status of the operation with the `az rest` command:
+## How to view the output of an `az networkcloud baremetalmachine run-read-command` in the Cluster Manager Storage account
 
-```azurecli
-az rest --method get --url <Azure-AsyncOperation-URL>
-```
+This guide walks you through accessing the output file that is created in the Cluster Manager Storage account when an `az networkcloud baremetalmachine run-read-command` is executed on a server. The name of the file is identified in the `az rest` status output.
 
-Repeat until the response to the URL displays the result of the run-read-command.
+1. Open the Cluster Manager Managed Resource Group for the Cluster where the server is housed and then select the **Storage account**.
 
-Sample output looks something like this. The `Succeeded` `status` indicates the command was executed on the BMM. The `resultUrl` provides a link to the zipped output file that contains the output from the command execution. The tar.gz file name can be used to identify the file in the Storage account of the Cluster Manager resource group. 
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
 
-See [How To BareMetal Review Output Run-Read](howto-baremetal-review-read-output.md) for instructions on locating the output file in the Storage Account. You can also use the link to directly access the output zip file.
+1. In the Storage browser details, select on **Blob containers**.
 
-```azurecli
-az rest --method get --url https://management.azure.com/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/932a8fe6-12ef-419c-bdc2-5bb11a2a071d*C0123456789E735D5D572DECFF4EECE2DFDC121CC3FC56CD50069249183110F?api-version=2022-09-30-preview
-{
-  "endTime": "2023-03-01T12:38:10.8582635Z",
-  "error": {},
-  "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/providers/Microsoft.NetworkCloud/locations/EASTUS/operationStatuses/932a8fe6-12ef-419c-bdc2-5bb11a2a071d*C0123456789E735D5D572DECFF4EECE2DFDC121CC3FC56CD50069249183110F",
-  "name": "932a8fe6-12ef-419c-bdc2-5bb11a2a071d*C0123456789E735D5D572DECFF4EECE2DFDC121CC3FC56CD50069249183110F",
-  "properties": {
-    "exitCode": "15",
-    "outputHead": "====Action Command Output====",
-    "resultUrl": "https://cmnvc94zkjhvst.blob.core.windows.net/bmm-run-command-output/af4fea82-294a-429e-9d1e-e93d54f4ea24-action-bmmruncmd.tar.gz?se=2023-03-01T16%3A38%3A07Z&sig=Lj9MS01234567898fn4qb2E1HORGh260EHdRrCJTJg%3D&sp=r&spr=https&sr=b&st=2023-03-01T12%3A38%3A07Z&sv=2019-12-12"
-  },
-  "resourceId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/m01-xx-HostedResources-xx/providers/Microsoft.NetworkCloud/bareMetalMachines/m01r750wkr3",
-  "startTime": "2023-03-01T12:37:48.2823434Z",
-  "status": "Succeeded"
-}
-```
+1. Select the baremetal-run-command-output blob container.
+
+1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer [Verify Storage Account access](#verify-storage-account-access) for procedure to verify/request access. 
+
+1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
+
+1. You can manage & download the output file from the **Overview** pop-out.

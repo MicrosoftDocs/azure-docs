@@ -37,28 +37,28 @@ In Xcode, create a new project:
 
 ### Install the package and dependencies
 
-1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 
 1. Add the following code to your Podfile. Replace `UILibraryQuickStart` with your project name.
 
     ```ruby
-    platform :ios, '14.0'
+    platform :ios, '15.0'
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUICalling', '1.2.0'
+        pod 'AzureCommunicationUICalling'
     end
     ```
 
 1. Run `pod install --repo-update`.
 
-1. In Xcode, open the generated *.xcworkspace* file.
+1. In Xcode, open the generated.xcworkspace* file.
 
 ### Request access to device hardware
 
-To access the device's hardware, including the microphone and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
+To access the device's hardware, including the microphone, and camera, update your app's information property list. Set the associated value to a string that's included in the dialog the system uses to request access from the user.
 
 1. Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines to the top level `<dict>` section, and then save the file.
 
@@ -151,7 +151,7 @@ The following classes and interfaces handle some key features of the Azure Commu
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-callcomposite) | Component that renders a call experience that has a participant gallery and controls |
 | [CallCompositeOptions](#create-callcomposite) | Settings for options like themes and event handling |
-| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#set-up-a-teams-meeting). |
+| RemoteOptions | Remote options to send to Azure Communication Services to join a [group call](#set-up-a-group-call) or a [Teams meeting](#join-a-teams-meeting). |
 | [ThemeOptions](#apply-theme-options) | Customization options for the composite theme |
 | [LocalizationOptions](#apply-localization-options) | Language options for the composite |
 
@@ -195,9 +195,21 @@ let remoteOptions = RemoteOptions(for: .groupCall(groupId: uuid),
 
 For more information about using a group ID for calls, see [Manage calls](../../../../how-tos/calling-sdk/manage-calls.md).
 
-### Set up a Teams meeting
+### Join a Teams meeting
 
-To set up a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator.  Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
+You can join to a Teams meeting using two mechanisms:
+
+- Teams meeting URL or Teams meeting short URL
+- Teams Meeting ID and Passcode
+
+The Teams meeting link can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+
+The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+#### Join via Teams meeting URL
+
+To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
 let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>"),
@@ -205,11 +217,39 @@ let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_
                                   displayName: "<DISPLAY_NAME>")
 ```
 
-#### Get a Teams meeting link
+#### Join via Teams Meeting ID and Passcode
 
-You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
+The `teamMeetingId` locates a meeting using a meeting ID and passcode. These can be found under a Teams meeting's join info.
+A Teams meeting ID is 12 characters long and consists of numeric digits grouped in threes (i.e. `000 000 000 000`).
+A passcode consists of 6 alphabet characters (i.e. `aBcDeF`). The passcode is case sensitive.
 
-The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+```swift
+let remoteOptions = RemoteOptions(for: .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode:  "<TEAMS_MEETING_PASSCODE>" ),
+                                  credential: communicationTokenCredential,
+                                  displayName: "<DISPLAY_NAME>")
+
+```
+
+### Set up a Rooms call
+
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
+While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
+
+For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
+
+```swift
+let remoteOptions = RemoteOptions(for: .roomCall(roomId: "<ROOM_ID>"),
+                                  credential: communicationTokenCredential,
+                                  displayName: "<DISPLAY_NAME>")
+
+// Optionally, if user is a Consumer role, disable camera and microphone buttons on the setup screen:
+let setupScreenOptions = SetupScreenOptions(cameraButtonEnabled: false, microphoneButtonEnabled: false)
+let callCompositeOptions = CallCompositeOptions(setupScreenOptions: setupScreenOptions)
+
+let callComposite = CallComposite(withOptions: callCompositeOptions)
+```
 
 ### Launch the composite
 
@@ -221,7 +261,16 @@ callComposite?.launch(remoteOptions: remoteOptions)
 
 ### Subscribe to events
 
-You can implement closures to act on composite events. The following example shows an error event for a failed composite:
+You can implement closures to act on composite events. The following errorCodes might be sent to the error handler:
+
+- `callJoin`
+- `callEnd`
+- `cameraFailure`
+- `tokenExpired`
+- `microphonePermissionNotGranted`
+- `networkConnectionNotAvailable`
+
+The following example shows an error event for a failed composite event:
 
 ```swift
 callComposite?.events.onError = { error in
@@ -264,6 +313,30 @@ let callCompositeOptions = CallCompositeOptions(localization: localizationOption
 ```
 
 For more information about localization and for a list of supported languages, see the [localization guide](../../../../how-tos/ui-library-sdk/localization.md).
+
+### Subscribe to CallComposite call state changed event
+
+You can implement closures to act on composite events. The call states are sent to the call state changed handler.
+
+The following example shows an event for a call state changed.
+
+```swift
+callComposite?.events.onCallStateChanged = { callStateEvent in
+   print("CallComposite call state changed:\(callStateEvent.requestString)")
+}
+```
+
+### Dismiss CallComposite and subscribe to dismissed event
+
+To dismiss CallComposite, call `dismiss`. The following dismiss event be sent on call composite dismissed:
+
+```swift
+callComposite?.events.onDismissed = { dismissed in
+   print("CallComposite dismissed:\(dismissed.errorCode)")
+}
+
+callComposite.dismiss()
+```
 
 ## Add notifications to your mobile app
 

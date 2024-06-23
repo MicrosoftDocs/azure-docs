@@ -41,12 +41,18 @@
     href: scope-overview.md
   - name: Best practices
     href: best-practices.md
+  - name: Delegate
+    items:
+    - name: Delegate role assignment management overview
+      href: delegate-role-assignments-overview.md
+    - name: Authorization actions and attributes
+      href: conditions-authorization-actions-attributes.md
+    - name: Example conditions
+      href: delegate-role-assignments-examples.md
   - name: ABAC conditions
     items:
     - name: Condition format
       href: conditions-format.md
-    - name: Example conditions for Blob Storage
-      href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions prerequisites
       href: conditions-prerequisites.md
     - name: Conditions FAQ
@@ -61,15 +67,15 @@
 - name: How-to guides
   items:
   - name: List role definitions
-    href: role-definitions-list.md
+    href: role-definitions-list.yml
   - name: List role assignments
     items:
     - name: Portal
-      href: role-assignments-list-portal.md
+      href: role-assignments-list-portal.yml
     - name: PowerShell
-      href: role-assignments-list-powershell.md
+      href: role-assignments-list-powershell.yml
     - name: CLI
-      href: role-assignments-list-cli.md
+      href: role-assignments-list-cli.yml
     - name: REST API
       href: role-assignments-list-rest.md
   - name: Assign roles
@@ -79,12 +85,10 @@
     - name: Portal
       items:
       - name: Assign roles
-        href: role-assignments-portal.md
-      - name: Subscription administrator
-        href: role-assignments-portal-subscription-admin.md
+        href: role-assignments-portal.yml
       - name: Managed identity
-        href: role-assignments-portal-managed-identity.md
-      - name: External guest users
+        href: role-assignments-portal-managed-identity.yml
+      - name: External users
         href: role-assignments-external-users.md
     - name: PowerShell
       href: role-assignments-powershell.md
@@ -95,6 +99,12 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
+  - name: Delegate
+    items:
+    - name: Subscription administrator with conditions
+      href: role-assignments-portal-subscription-admin.yml
+    - name: Delegate role assignment management with conditions
+      href: delegate-role-assignments-portal.md
   - name: Add or edit ABAC conditions
     items:
     - name: Portal
@@ -107,22 +117,14 @@
       href: conditions-role-assignments-rest.md
     - name: ARM template
       href: conditions-role-assignments-template.md
-    - name: Troubleshoot conditions
-      href: conditions-troubleshoot.md
+    - name: Example conditions for Blob Storage
+      href: ../storage/blobs/storage-auth-abac-examples.md?toc=/azure/role-based-access-control/toc.json
     - name: Conditions and custom security attributes
       href: conditions-custom-security-attributes.md
   - name: Remove role assignments
-    href: role-assignments-remove.md
+    href: role-assignments-remove.yml
   - name: List deny assignments
-    items:
-    - name: Overview
-      href: deny-assignments.md
-    - name: Portal
-      href: deny-assignments-portal.md
-    - name: PowerShell
-      href: deny-assignments-powershell.md
-    - name: REST API
-      href: deny-assignments-rest.md
+    href: deny-assignments.md
   - name: Create custom roles
     items:
     - name: Overview
@@ -152,13 +154,97 @@
   - name: Transfer subscription to different directory
     href: transfer-subscription.md
   - name: Troubleshoot
-    href: troubleshooting.md
+    items:
+    - name: Troubleshoot Azure RBAC
+      href: troubleshooting.md
+    - name: Troubleshoot Azure RBAC limits
+      href: troubleshoot-limits.md
+    - name: Troubleshoot ABAC conditions
+      href: conditions-troubleshoot.md
 - name: Reference
   items:
   - name: Built-in roles
-    href: built-in-roles.md
-  - name: Resource provider operations
-    href: resource-provider-operations.md
+    items:
+    - name: Built-in roles
+      href: built-in-roles.md
+    - name: General
+      href: built-in-roles/general.md
+    - name: Compute
+      href: built-in-roles/compute.md
+    - name: Networking
+      href: built-in-roles/networking.md
+    - name: Storage
+      href: built-in-roles/storage.md
+    - name: Web and Mobile
+      href: built-in-roles/web-and-mobile.md
+    - name: Containers
+      href: built-in-roles/containers.md
+    - name: Databases
+      href: built-in-roles/databases.md
+    - name: Analytics
+      href: built-in-roles/analytics.md
+    - name: AI + machine learning
+      href: built-in-roles/ai-machine-learning.md
+    - name: Internet of Things
+      href: built-in-roles/internet-of-things.md
+    - name: Mixed reality
+      href: built-in-roles/mixed-reality.md
+    - name: Integration
+      href: built-in-roles/integration.md
+    - name: Identity
+      href: built-in-roles/identity.md
+    - name: Security
+      href: built-in-roles/security.md
+    - name: DevOps
+      href: built-in-roles/devops.md
+    - name: Monitor
+      href: built-in-roles/monitor.md
+    - name: Management and governance
+      href: built-in-roles/management-and-governance.md
+    - name: Hybrid + multicloud
+      href: built-in-roles/hybrid-multicloud.md
+  - name: Permissions
+    items:
+    - name: Permissions
+      href: resource-provider-operations.md
+    - name: General
+      href: permissions/general.md
+    - name: Compute
+      href: permissions/compute.md
+    - name: Networking
+      href: permissions/networking.md
+    - name: Storage
+      href: permissions/storage.md
+    - name: Web and Mobile
+      href: permissions/web-and-mobile.md
+    - name: Containers
+      href: permissions/containers.md
+    - name: Databases
+      href: permissions/databases.md
+    - name: Analytics
+      href: permissions/analytics.md
+    - name: AI + machine learning
+      href: permissions/ai-machine-learning.md
+    - name: Internet of Things
+      href: permissions/internet-of-things.md
+    - name: Mixed reality
+      href: permissions/mixed-reality.md
+    - name: Integration
+      href: permissions/integration.md
+    - name: Identity
+      href: permissions/identity.md
+    - name: Security
+      href: permissions/security.md
+    - name: DevOps
+      href: permissions/devops.md
+    - name: Migration
+      href: permissions/migration.md
+    - name: Monitor
+      href: permissions/monitor.md
+    - name: Management and governance
+      href: permissions/management-and-governance.md
+    - name: Hybrid + multicloud
+      href: permissions/hybrid-multicloud.md
   - name: Azure RBAC limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits
   - name: Azure PowerShell

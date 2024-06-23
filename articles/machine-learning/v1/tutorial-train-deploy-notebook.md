@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train and deploy an example in Jupyter Notebook"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train and deploy an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook. 
+description: Use Azure Machine Learning to train and deploy an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 09/14/2022
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.date: 04/02/2024
+ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Tutorial: Train and deploy an image classification model with an example Jupyter Notebook
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
-In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter Notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. 
+In this tutorial, you train a machine learning model on remote compute resources. You use the training and deployment workflow for Azure Machine Learning in a Python Jupyter Notebook. You can then use the notebook as a template to train your own machine learning model with your own data. 
 
 This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multi-class classifier to identify the digit a given image represents.
 
@@ -38,7 +38,7 @@ Learn how to take the following actions:
 
 ## Run a notebook from your workspace
 
-Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment-v1.md) if you prefer to have control over your environment, packages, and dependencies.
+Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and preconfigured experience. Use [your own environment](how-to-configure-environment.md) if you prefer to have control over your environment, packages, and dependencies.
 
 ## Clone a notebook folder
 
@@ -70,7 +70,7 @@ You complete the following experiment setup and run steps in Azure Machine Learn
 
 ## Install packages
 
-Once the compute instance is running and the kernel appears, add a new code cell to install packages needed for this tutorial.  
+Once the compute instance is running and the kernel appears, add a new code cell to install packages needed for this tutorial. 
 
 1. At the top of the notebook, add a code cell.
     :::image type="content" source="media/tutorial-train-deploy-notebook/add-code-cell.png" alt-text="Screenshot of add code cell for notebook.":::
@@ -82,17 +82,19 @@ Once the compute instance is running and the kernel appears, add a new code cell
     %pip install scipy==1.5.2
     ```
 
-You may see a few install warnings.  These can safely be ignored.
+You may see a few install warnings. These can safely be ignored.
 
 ## Run the notebook
 
-This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment-v1.md). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
+This tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md). If you aren't using the compute instance, add `%pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to the install above.
 
 > [!Important]
-> The rest of this article contains the same content as you see in the notebook.  
+> The rest of this article contains the same content as you see in the notebook. 
 >
 > Switch to the Jupyter Notebook now if you want to run the code while you read along.
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
+
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins/quickstart-azureml-in-10mins.ipynb -->
 
 ## Import data
 
@@ -101,7 +103,7 @@ Before you train a model, you need to understand the data you're using to train 
 * Download the MNIST dataset
 * Display some sample images
 
-You'll use Azure Open Datasets to get the raw MNIST data files. Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for better models. Each dataset has a corresponding class, `MNIST` in this case, to retrieve the data in different ways.
+You use Azure Open Datasets to get the raw MNIST data files. Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for better models. Each dataset has a corresponding class, `MNIST` in this case, to retrieve the data in different ways.
 
 
 ```python
@@ -119,7 +121,7 @@ mnist_file_dataset.download(data_folder, overwrite=True)
 
 Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them. 
 
-Note this step requires a `load_data` function that's included in an `utils.py` file. This file is placed in the same folder as this notebook. The `load_data` function simply parses the compressed files into numpy arrays.
+Note this step requires a `load_data` function, included in an `utils.py` file. This file is placed in the same folder as this notebook. The `load_data` function simply parses the compressed files into numpy arrays.
 
 
 ```python
@@ -175,18 +177,18 @@ for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     plt.imshow(X_train[i].reshape(28, 28), cmap=plt.cm.Greys)
 plt.show()
 ```
-The code above displays a random set of images with their labels, similar to this:
+The code displays a random set of images with their labels, similar to this:
 
 :::image type="content" source="media/tutorial-train-deploy-notebook/image-data-with-labels.png" alt-text="Sample images with their labels.":::
 
 ## Train model and log metrics with MLflow
 
-You'll train the model using the code below. Note that you are using MLflow autologging to track metrics and log model artifacts.
+Train the model using the following code. This code uses MLflow autologging to track metrics and log model artifacts.
 
 You'll be using the [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) classifier from the [SciKit Learn framework](https://scikit-learn.org/) to classify the data.
 
 > [!NOTE]
-> The model training takes approximately 2 minutes to complete.**
+> The model training takes approximately 2 minutes to complete.
 
 
 ```python
@@ -217,16 +219,15 @@ clf = LogisticRegression(
 with mlflow.start_run() as run:
     clf.fit(X_train, y_train)
 ```
-
 ## View experiment
 
-In the left-hand menu in Azure Machine Learning studio, select __Jobs__ and then select your job (__azure-ml-in10-mins-tutorial__). A job is a grouping of many runs from a specified script or piece of code.  Multiple jobs can be grouped together as an experiment.
+In the left-hand menu in Azure Machine Learning studio, select __Jobs__ and then select your job (__azure-ml-in10-mins-tutorial__). A job is a grouping of many runs from a specified script or piece of code. Multiple jobs can be grouped together as an experiment.
 
-Information for the run is stored under that job. If the name doesn't exist when you submit a job, if you select your run you will see various tabs containing metrics, logs, explanations, etc.
+Information for the run is stored under that job. If the name doesn't exist when you submit a job, if you select your run you'll see various tabs containing metrics, logs, explanations, etc.
 
 ## Version control your models with the model registry
 
-You can use model registration to store and version your models in your workspace. Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. The code below registers and versions the model you trained above. Once you have executed the code cell below you will be able to see the model in the registry by selecting __Models__ in the left-hand menu in Azure Machine Learning studio.
+You can use model registration to store and version your models in your workspace. Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. The code below registers and versions the model you trained above. Once you execute the following code cell, you'll see the model in the registry by selecting __Models__ in the left-hand menu in Azure Machine Learning studio.
 
 ```python
 # register the model
@@ -236,11 +237,11 @@ model = mlflow.register_model(model_uri, "sklearn_mnist_model")
 
 ## Deploy the model for real-time inference
 
-In this section you learn how to deploy a model so that an application can consume (inference) the model over REST.
+In this section, learn how to deploy a model so that an application can consume (inference) the model over REST.
 
 ### Create deployment configuration
 
-The code cell gets a _curated environment_, which specifies all the dependencies required to host the model (for example, the packages like scikit-learn). Also, you create a _deployment configuration_, which specifies the amount of compute required to host the model. In this case, the compute will have 1CPU and 1GB memory.
+The code cell gets a _curated environment_, which specifies all the dependencies required to host the model (for example, the packages like scikit-learn). Also, you create a _deployment configuration_, which specifies the amount of compute required to host the model. In this case, the compute has 1CPU and 1-GB memory.
 
 
 ```python
@@ -252,8 +253,7 @@ from azureml.core.webservice import AciWebservice
 # get a curated environment
 env = Environment.get(
     workspace=ws, 
-    name="AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference",
-    version=1
+    name="AzureML-sklearn-1.0"
 )
 env.inferencing_stack_version='latest'
 
@@ -271,7 +271,7 @@ aciconfig = AciWebservice.deploy_configuration(
 This next code cell deploys the model to Azure Container Instance.
 
 > [!NOTE]
-> The deployment takes approximately 3 minutes to complete.**
+> The deployment takes approximately 3 minutes to complete. But it might be longer to until it is available for use, perhaps as long as 15 minutes.**
 
 
 ```python
@@ -300,14 +300,14 @@ service = Model.deploy(
 service.wait_for_deployment(show_output=True)
 ```
 
-The scoring script file referenced in the code above can be found in the same folder as this notebook, and has two functions:
+The scoring script file referenced in the preceding code can be found in the same folder as this notebook, and has two functions:
 
 1. An `init` function that executes once when the service starts - in this function you normally get the model from the registry and set global variables
 1. A `run(data)` function that executes each time a call is made to the service. In this function, you normally format the input data, run a prediction, and output the predicted result.
 
 ### View endpoint
 
-Once the model has been successfully deployed, you can view the endpoint by navigating to __Endpoints__ in the left-hand menu in Azure Machine Learning studio. You will be able to see the state of the endpoint (healthy/unhealthy), logs, and consume (how applications can consume the model).
+Once the model is successfully deployed, you can view the endpoint by navigating to __Endpoints__ in the left-hand menu in Azure Machine Learning studio. You'll see the state of the endpoint (healthy/unhealthy), logs, and consume (how applications can consume the model).
 
 ## Test the model service
 
@@ -340,19 +340,20 @@ If you're not going to continue to use this model, delete the Model service usin
 service.delete()
 ```
 
-If you want to control cost further, stop the compute instance by selecting the "Stop compute" button next to the **Compute** dropdown.  Then start the compute instance again the next time you need it.
+If you want to control cost further, stop the compute instance by selecting the "Stop compute" button next to the **Compute** dropdown. Then start the compute instance again the next time you need it.
+
+<!-- nbend -->
 
 ### Delete everything
 
 Use these steps to delete your Azure Machine Learning workspace and all compute resources.
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../includes/aml-delete-resource-group.md)]
 
 
-## Next steps
+## Related resources
 
 + Learn about all of the [deployment options for Azure Machine Learning](../how-to-deploy-online-endpoints.md).
 + Learn how to [authenticate to the deployed model](../how-to-authenticate-online-endpoint.md).
 + [Make predictions on large quantities of data](../tutorial-pipeline-batch-scoring-classification.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).
-

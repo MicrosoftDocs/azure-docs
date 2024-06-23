@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
 ms.date: 06/29/2021
-ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', ignite-2022]
+ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---
 
 # Understand the identity registry in your IoT hub
@@ -63,7 +63,7 @@ You can disable devices by updating the **status** property of an identity in th
 
 This feature isn't available for modules.
 
-For more information, see [Disable or delete a device in an IoT hub](./iot-hub-create-through-portal.md#disable-or-delete-a-device-in-an-iot-hub).
+For more information, see [Disable or delete a device in an IoT hub](./create-connect-device.md#disable-or-delete-a-device).
 
 ## Import and export device identities
 
@@ -73,7 +73,7 @@ Use asynchronous operations on the [IoT Hub resource provider endpoint](iot-hub-
 
 For more information about the import and export APIs, see [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource). To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities](iot-hub-bulk-identity-mgmt.md).
 
-Device identities can also be exported and imported from an IoT Hub via the Service API via either the [REST API](/rest/api/iothub/service/jobs/createimportexportjob) or one of the IoT Hub [Service SDKs](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+Device identities can also be exported and imported from an IoT hub by using the Service API through either the [REST API](/rest/api/iothub/service/jobs/createimportexportjob) or one of the IoT Hub [Service SDKs](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 ## Device provisioning
 
@@ -83,7 +83,9 @@ The device data that a given IoT solution stores depends on the specific require
 
 ## Device and module lifecycle notifications
 
-IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and set the data source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events are sent for both device identities and module identities; however, the message contents differ depending on whether the events are generated for module identities or device identities.  It should be noted that for IoT Edge modules, the module identity creation flow is different than for other modules, as a result for IoT Edge modules the create notification is only sent if the corresponding IoT Edge Device for the updated IoT Edge module identity is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.  To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+IoT Hub can notify your IoT solution when a device identity is created or deleted by sending lifecycle notifications. To do so, your IoT solution needs to create a route and set the data source equal to *DeviceLifecycleEvents*. By default, no lifecycle notifications are sent, that is, no such routes pre-exist. By creating a route with Data Source equal to *DeviceLifecycleEvents*, lifecycle events are sent for both device identities and module identities. The message contents differ depending on whether the events are generated for module identities or device identities. To learn more about the properties and body returned in the notification message, see  [Non-telemetry event schemas](iot-hub-non-telemetry-event-schema.md).
+
+Notifications for module identity creation are different for IoT Edge modules than for other modules. For IoT Edge modules, the create notification is only sent if the corresponding IoT Edge device is running. For all other modules, lifecycle notifications are sent whenever the module identity is updated on the IoT Hub side.
 
 ## Device identity properties
 
@@ -143,7 +145,7 @@ Other reference articles in the IoT Hub developer guide include:
 
 * [IoT Hub query language](iot-hub-devguide-query-language.md) describes the query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 
-* [IoT Hub MQTT support](iot-hub-mqtt-support.md) provides more information about IoT Hub support for the MQTT protocol.
+* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 

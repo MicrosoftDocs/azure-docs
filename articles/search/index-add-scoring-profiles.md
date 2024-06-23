@@ -1,35 +1,33 @@
 ---
 title: Add scoring profiles
-titleSuffix: Azure Cognitive Search
-description: Boost search relevance scores for Azure Cognitive Search results by adding scoring profiles to a search index.
+titleSuffix: Azure AI Search
+description: Boost search relevance scores for Azure AI Search results by adding scoring profiles to a search index.
 
 manager: nitinme
 author: shmed
 ms.author: ramero
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
-ms.date: 11/03/2022
+ms.date: 11/06/2023
 ---
 
 # Add scoring profiles to boost search scores
 
-In this article, you'll learn how to define a scoring profile for boosting search scores based on criteria.
+In this article, you'll learn how to define a scoring profile. A scoring profile is critera for boosting a search score based on parameters that you provide. For example, you might want matches found in a "tags" field to be more relevant than the same match found in "descriptions". Criteria can be a weighted field (such as the "tags" example) or a function. 
 
-Criteria can be a weighted field, such as when a match found in a "tags" field is more relevant than a match found in "descriptions". Criteria can also be a function, such as the `distance` function that favors results that are within a specified distance of the current location.
-
-Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
+Scoring profiles are defined in a search index and invoked on non-vector fields in query requests. You can create multiple profiles and then modify query logic to choose which one is used.
 
 > [!NOTE]
-> Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search. You can also visit [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
->
-> > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+> Unfamiliar with relevance concepts? The following [video segment on YouTube](https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970) fast-forwards to how scoring profiles work in Azure AI Search. You can also visit [Relevance and scoring in Azure AI Search](index-similarity-and-scoring.md) for more background.
 >
 
 ## Scoring profile definition
 
-A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters.
+A scoring profile is named object defined in an index schema. A profile can be composed of weighted fields, functions, and parameters.
 
-The following definition shows a simple profile named 'geo'. This example boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within 10 kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
+The following definition shows a simple profile named "geo". This example boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within 10 kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
 ```json
 "scoringProfiles": [
@@ -56,7 +54,7 @@ The following definition shows a simple profile named 'geo'. This example boosts
 ]
 ```  
 
-To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. If you're using the REST API, queries are specified through GET and POST requests.
+To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. If you're using the REST API, queries are specified through GET and POST requests. In the following example, "currentLocation" has a delimiter of a single dash (`-`). It's followed by longitude and latitude coordinates, where longitude is a negative value.
 
 ```http
 GET /indexes/hotels/docs?search+inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30
@@ -69,7 +67,7 @@ POST /indexes/hotels/docs&api-version=2020-06-30
 {
     "search": "inn",
     "scoringProfile": "geo",
-    "scoringParameters": [currentLocation--122.123,44.77233]
+    "scoringParameters": ["currentLocation--122.123,44.77233"]
 }
 ```  
 
@@ -81,7 +79,7 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 ## How scores are computed
 
-Scores are computed for full text search queries for ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
+Scores are computed for full text search queries. Matches are scored based on how relevant the match is, and the highest scoring matches are returned in the query response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
 You can use the [featuresMode (preview)](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request extra scoring details with the search results (including the field level scores).
 
@@ -89,7 +87,7 @@ You can use the [featuresMode (preview)](index-similarity-and-scoring.md#feature
 
 You should create one or more scoring profiles when the default ranking behavior doesn’t go far enough in meeting your business objectives. For example, you might decide that search relevance should favor newly added items. Likewise, you might have a field that contains profit margin, or some other field indicating revenue potential. Boosting results that are more meaningful to your users or the business is often the deciding factor in adoption of scoring profiles.
 
-Relevancy-based ordering in a search page is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles can be used to drive the ‘relevance’ option. The definition of relevance is user-defined, predicated on business objectives and the type of search experience you want to deliver.  
+Relevancy-based ordering in a search page is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure AI Search, scoring profiles can be used to drive the ‘relevance’ option. The definition of relevance is user-defined, predicated on business objectives and the type of search experience you want to deliver.  
 
 ## Steps for adding a scoring profile
 
@@ -99,7 +97,7 @@ To implement custom scoring behavior, add a scoring profile to the schema that d
 
 1. Paste in the [Template](#bkmk_template) provided in this article.  
 
-1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Cognitive Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
+1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Azure AI Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
 
 1. Specify boosting criteria. A single profile can contain [weighted fields](#weighted-fields), [functions](#functions), or both. 
 
@@ -119,22 +117,23 @@ Weighted fields are composed of a searchable field and a positive number that is
 
 ```json
 "scoringProfiles": [  
-{  
-  "name": "boostKeywords",  
-  "text": {  
-    "weights": {  
-      "HotelName": 2,  
-      "Description": 5 
-    }  
-  }  
-}
+    {  
+      "name": "boostKeywords",  
+      "text": {  
+        "weights": {  
+          "HotelName": 2,  
+          "Description": 5 
+        }  
+      }  
+    }
+]
 ```
 
 <a name="functions"></a>
 
 ### Using functions
 
-Use functions when simple relative weights are insufficient or don't apply, as is the case of distance and freshness, which are calculations over numeric data. You can specify multiple functions per scoring profile.
+Use functions when simple relative weights are insufficient or don't apply, as is the case of distance and freshness, which are calculations over numeric data. You can specify multiple functions per scoring profile. For more information about the EDM data types used in Azure AI Search, see [Supported data types](/rest/api/searchservice/supported-data-types).
 
 | Function | Description |
 |-|-|
@@ -229,8 +228,8 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 | functions > distance > boostingDistance | A number that indicates the distance in kilometers from the reference location where the boosting range ends.|  
 | functions > tag | The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query are provided as a scoring parameter in each search request (using the scoringParameter query parameter). |  
 | functions > tag > tagsParameter | A parameter to be passed in queries to specify tags for a particular request (using the scoringParameter query parameter). The parameter consists of a comma-delimited list of whole terms. If a given tag within the list is itself a comma-delimited list, you can [use a text normalizer](search-normalizers.md) on the field to strip out the commas at query time (map the comma character to a space). This approach will "flatten" the list so that all terms are a single, long string of comma-delimited terms. |  
-| functionAggregation | Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attribute indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the [tf-idf](http://www.tfidf.com/) value computed from the document and the search query.|  
-| defaultScoringProfile | When executing a search request, if no scoring profile is specified, then default scoring is used ([tf-idf](http://www.tfidf.com/) only). </br></br>You can override the built-in default, substituting a custom profile as the one to use when no specific profile is given in the search request.|  
+| functionAggregation | Optional. Applies only when functions are specified. Valid values include: sum (default), average, minimum, maximum, and firstMatching. A search score is single value that is computed from multiple variables, including multiple functions. This attribute indicates how the boosts of all the functions are combined into a single aggregate boost that then is applied to the base document score. The base score is based on the [tf-idf](https://wikipedia.org/wiki/Tf%E2%80%93idf) value computed from the document and the search query.|  
+| defaultScoringProfile | When executing a search request, if no scoring profile is specified, then default scoring is used ([tf-idf](https://wikipedia.org/wiki/Tf%E2%80%93idf) only). </br></br>You can override the built-in default, substituting a custom profile as the one to use when no specific profile is given in the search request.|  
 
 <a name="bkmk_interpolation"></a> 
 
@@ -341,8 +340,8 @@ The `boostGenre` profile uses weighted text fields, boosting matches found in al
 
 ## See also
 
-+ [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md)
++ [Relevance and scoring in Azure AI Search](index-similarity-and-scoring.md)
 + [REST API Reference](/rest/api/searchservice/)
 + [Create Index API](/rest/api/searchservice/create-index)
-+ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search?)
++ [Azure AI Search .NET SDK](/dotnet/api/overview/azure/search?)
 + [What Are Scoring Profiles?](https://social.technet.microsoft.com/wiki/contents/articles/26706.azure-search-what-are-scoring-profiles.aspx)

@@ -1,8 +1,9 @@
 ---
 title: Linter rule - no unused existing resources
 description: Linter rule - no unused existing resources
-ms.topic: conceptual
-ms.date: 02/10/2023
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 03/20/2024
 ---
 
 # Linter rule - no unused existing resources

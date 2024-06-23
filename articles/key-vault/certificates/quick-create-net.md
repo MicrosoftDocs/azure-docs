@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 ---
 
 # Quickstart: Azure Key Vault certificate client library for .NET
@@ -51,13 +51,9 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 2. Sign in with your account credentials in the browser.
 
-#### Grant access to your key vault
+### Grant access to your key vault
 
-Create an access policy for your key vault that grants certificate permissions to your user account
-
-```azurecli
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
-```
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ### Create new .NET console app
 

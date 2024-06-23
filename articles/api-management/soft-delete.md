@@ -10,6 +10,8 @@ ms.date: 02/07/2022
 
 # API Management soft-delete (preview)
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 With API Management soft-delete, you can recover and restore a recently deleted API Management instance. This feature protects against accidental deletion of your API Management instance.
 
 Currently, depending on how you delete an API Management instance, the instance is either soft-deleted and recoverable during a retention period, or it's permanently deleted:
@@ -54,13 +56,13 @@ You can verify that a soft-deleted API Management instance is available to resto
 
 ### Get a soft-deleted instance by name
 
-Use the API Management [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, resource location, and API Management instance name:
+Use the API Management [Get By Name](/rest/api/apimanagement/current-ga/deleted-services/get-by-name) operation, substituting `{subscriptionId}`, `{location}`, and `{serviceName}` with your Azure subscription, [resource location name](/rest/api/resources/subscriptions/list-locations#location), and API Management instance name:
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2021-08-01
 ```
 
-If available for undelete, Azure will return a record of the APIM instance showing its `deletionDate` and `scheduledPurgeDate`, for example:
+If available for undelete, Azure will return a record of the API Management instance showing its `deletionDate` and `scheduledPurgeDate`, for example:
 
 ```json
 {
@@ -124,6 +126,23 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Mic
 ```
 
 This will permanently delete your API Management instance from Azure.
+
+## Reuse an API Management instance name after deletion
+
+You **can** reuse the name of an API Management instance in a new deployment:
+
+* After the instance has been permanently deleted (purged) from Azure.
+
+* In the same subscription as the original instance.
+
+You **can't** reuse the name of an API Management instance in a new deployment:
+
+* While the instance is soft-deleted.
+
+* In a subscription other than the one used to deploy the original instance, even after the original instance has been permanently deleted (purged) from Azure. This restriction applies whether the new subscription used is in the same or a different Microsoft Entra tenant. The restriction is in effect for several days or longer after deletion, depending on the subscription type. 
+
+    This restriction is because Azure reserves the service host name to a customer's tenant for a reservation period to prevent the threat of subdomain takeover with dangling DNS entries. For more information, see [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover). To see all dangling DNS entries for subscriptions in a Microsoft Entra tenant, see [Identify dangling DNS entries](/azure/security/fundamentals/subdomain-takeover#identify-dangling-dns-entries). 
+
 
 ## Next steps
 

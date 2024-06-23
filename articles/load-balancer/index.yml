@@ -1,19 +1,17 @@
 ### YamlMime:Landing
 
 title: Load Balancer documentation
-summary: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
+summary: Learn how to use Azure Load Balancer to efficiently distribute traffic and improve application scalability. Explore quickstarts, tutorials, and how-to guides for deploying load balancers in virtual machines, cloud resources, and cross-premises networks.
 
 metadata:
   title: Load Balancer
-  description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
-  services: load-balancer
+  description: Learn how to use Azure Load Balancer to efficiently distribute traffic and improve application scalability. Explore quickstarts, tutorials, and how-to guides for deploying load balancers in virtual machines, cloud resources, and cross-premises networks.
   ms.service: load-balancer
   ms.topic: landing-page
-  ms.collection: collection
   author: mbender-ms
   ms.author: mbender
-  ms.date: 11/16/2022
-  ms.custom: engagement-fy23 
+  ms.date: 01/09/2024
+  ms.custom: engagement-fy23, seo-FY24Q2
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -69,25 +67,6 @@ landingContent:
             url: tutorial-load-balancer-port-forwarding-portal.md
 
   # Card
-  - title: Manage features and options
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Load Balancer health probes
-            url: load-balancer-custom-probe-overview.md
-          - text: Outbound connections in Azure
-            url: load-balancer-outbound-connections.md
-          - text: Multiple Frontends for Azure Load Balancer
-            url: load-balancer-multivip-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
-            url: load-balancer-ipv6-internet-ps.md
-          - text: Configure the distribution mode
-            url: load-balancer-distribution-mode.md
-          - text: Upgrade from Basic to Standard
-            url: upgrade-basic-standard.md
-  # Card
   - title: Deploy
     linkLists:
       - linkListType: concept
@@ -105,6 +84,19 @@ landingContent:
           - text: Load balancing on multiple IP configurations
             url: load-balancer-multiple-ip.md
 
+  - title: Load Balancer architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load-balancing options
+            url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: Networking on Azure and AWS
+            url: /azure/architecture/aws-professional/networking
+          - text: Windows N-tier application on Azure
+            url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
+          - text: Oracle database migration to Azure
+            url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure
+    # Card
   # Card
   - title: Troubleshoot
     linkLists:
@@ -112,6 +104,8 @@ landingContent:
         links:
           - text: Standard Load Balancer diagnostics with metrics, alerts and resource health
             url: load-balancer-standard-diagnostics.md
+          - text: Test reachability of Azure Load Balancer frontends
+            url: load-balancer-test-frontend-reachability.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md
           - text: Common Azure Load Balancer errors
@@ -126,8 +120,30 @@ landingContent:
         links:
           - text: Build & monitor highly available apps with Azure Load Balancer
             url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
-      
-     # Card
+
+  - title: Manage features and options
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Load Balancer health probes
+            url: load-balancer-custom-probe-overview.md
+          - text: Outbound connections in Azure
+            url: load-balancer-outbound-connections.md
+          - text: Multiple Frontends for Azure Load Balancer
+            url: load-balancer-multivip-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
+            url: load-balancer-ipv6-internet-ps.md
+          - text: Configure TCP reset and idle timeout for Azure Load Balancer
+            url: load-balancer-tcp-idle-timeout.md
+          - text: Upgrade from Basic to Standard
+            url: upgrade-basic-standard.md
+      - linkListType: video
+        links:
+          - text: Deep dive into cross region load balancing
+            url: https://aka.ms/WFH/DeepDive-CRLB         
+
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -140,17 +156,3 @@ landingContent:
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
             url: load-balancer-faqs.yml
-
-  # Card
-  - title: Learn about Load Balancer architecture
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Load-balancing options
-            url: /azure/architecture/guide/technology-choices/load-balancing-overview
-          - text: Networking on Azure and AWS
-            url: /azure/architecture/aws-professional/networking
-          - text: Windows N-tier application on Azure
-            url: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
-          - text: Oracle database migration to Azure
-            url: /azure/architecture/solution-ideas/articles/reference-architecture-for-oracle-database-migration-to-azure

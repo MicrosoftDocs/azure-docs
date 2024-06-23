@@ -1,23 +1,25 @@
 ---
 title: C# tutorial indexing Azure SQL data
-titleSuffix: Azure Cognitive Search
-description: In this C# tutorial, connect to Azure SQL Database, extract searchable data, and load it into an Azure Cognitive Search index.
+titleSuffix: Azure AI Search
+description: In this C# tutorial, connect to Azure SQL Database, extract searchable data, and load it into an Azure AI Search index.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/04/2022
-ms.custom: devx-track-csharp
-
+ms.date: 01/18/2024
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - ignite-2023
 ---
 
 # Tutorial: Index Azure SQL data using the .NET SDK
 
-Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL Database, sending it to a search index in Azure Cognitive Search. 
+Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL Database, sending it to a search index in Azure AI Search. 
 
-This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
+This tutorial uses C# and the [Azure SDK for .NET](/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create a data source that connects to Azure SQL Database
@@ -29,12 +31,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) using SQL Server authentication
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-* [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+* [Azure AI Search](search-what-is-azure-search.md). [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!NOTE]
-> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
+> You can use a free search service for this tutorial. The free tier limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
 
@@ -42,35 +44,31 @@ Source code for this tutorial is in the [DotNetHowToIndexer](https://github.com/
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, and Azure SQL Database as an external data source. If possible, create both services in the same region and resource group for proximity and manageability. In practice, Azure SQL Database can be in any region.
+This tutorial uses Azure AI Search for indexing and queries, and Azure SQL Database as an external data source. If possible, create both services in the same region and resource group for proximity and manageability. In practice, Azure SQL Database can be in any region.
 
 ### Start with Azure SQL Database
 
-In this step, create an external data source on Azure SQL Database that an indexer can crawl. You can use the Azure portal and the *hotels.sql* file from the sample download to create the dataset in Azure SQL Database. Azure Cognitive Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
+This tutorial provides *hotels.sql* file in the sample download to populate the database. Azure AI Search consumes flattened rowsets, such as one generated from a view or query. The SQL file in the sample solution creates and populates a single table.
 
-If you have an existing Azure SQL Database resource, you can add the hotels table to it, starting at step 4.
+If you have an existing Azure SQL Database resource, you can add the hotels table to it, starting at the **Open query** step.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
+1. Create an Azure SQL database, using the instructions in [Quickstart: Create a single database](/azure/azure-sql/database/single-database-create-quickstart).
 
-1. Find or create a **SQL Database**. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
+   Server configuration for the database is important.
 
-   :::image type="content" source="media/search-indexer-tutorial/indexer-new-sqldb.png" alt-text="Screenshot of the Create SQL Database page in Azure portal." border="true":::
+   * Choose the SQL Server authentication option that prompts you to specify a username and password. You need this for the ADO.NET connection string used by the indexer.
 
-1. Select **Review + create** to deploy the new server and database. Wait for the server and database to deploy. Go to the resource.
+   * Choose a public connection. It makes this tutorial easier to complete. Public isn't recommended for production and we recommend [deleting this resource](#clean-up-resources) at the end of the tutorial.
 
-1. On the navigate pane, select **Getting started** and then select **Configure** to allow access.
+   :::image type="content" source="media/search-indexer-tutorial/sql-server-config.png" alt-text="Screenshot of server configuration.":::
 
-1. Under Public access, click **Selected networks**.
+1. In the Azure portal, go to the new resource.
 
-1. Under Firewall rules, add your client IPv4 address. This is the portal client.
+1. Add a firewall rule to allow access from your client, using the instructions in [Quickstart: Create a server-level firewall rule in Azure portal](/azure/azure-sql/database/firewall-create-server-level-portal-quickstart). You can run `ipconfig` from a command prompt to get your IP address. 
 
-1. Under Exception, select **Allow Azure services and resources to access this server**.
+1. Use the Query editor to load the sample data. On the navigation pane, select **Query editor (preview)** and enter the user name and password of server admin. 
 
-1. Save your changes and then close the Networking page.
-
-1. On the navigation pane, select **Query editor (preview)** and enter the user name and password of server admin. 
-
-   You'll probably get an access denied error. Copy the client IP address from the error message. Return to the firewall rules page to add a rule that allows access from your client. 
+   If you get an access denied error, copy the client IP address from the error message, open the network security page for the server, and add an inbound rule that allows access from your client. 
 
 1. In Query editor, select **Open query** and navigate to the location of *hotels.sql* file on your local computer. 
 
@@ -94,15 +92,15 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
 
 You'll need this connection string in the next exercise, setting up your environment.
 
-### Azure Cognitive Search
+### Azure AI Search
 
-The next component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
+The next component is Azure AI Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
 
-### Get an admin api-key and URL for Azure Cognitive Search
+### Get an admin api-key and URL for Azure AI Search
 
-API calls require the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+API calls require the service URL and an access key. A search service is created with both, so if you added Azure AI Search to your subscription, follow these steps to get the necessary information:
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -154,7 +152,7 @@ A schema can also include other elements, including scoring profiles for boostin
 
 The main program includes logic for creating [an indexer client](/dotnet/api/azure.search.documents.indexes.models.searchindexer), an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
 
-The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#CaptureChangedRows) for using the built-in [change detection features](/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The source demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
+The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#CaptureChangedRows) for using the built-in [change detection features](/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The source demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure AI Search index.
 
 ```csharp
 Console.WriteLine("Creating data source...");
@@ -214,9 +212,9 @@ try
 {
       await indexerClient.RunIndexerAsync(indexer.Name);
 }
-catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+catch (RequestFailedException ex) when (ex.Status == 429)
 {
-      Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
+      Console.WriteLine("Failed to run indexer: {0}", ex.Message);
 }
 ```
 
@@ -238,11 +236,9 @@ Your code runs locally in Visual Studio, connecting to your search service on Az
 
 Use Azure portal to verify object creation, and then use **Search explorer** to query the index.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-sql-indexer", and "azure-sql", respectively.
+1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service left navigation pane, open each page in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels-sql-idx", "hotels-sql-indexer", and "hotels-sql-ds", respectively.
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Screenshot of the indexer and data source tiles in the Azure portal search service page." border="true":::
-
-1. On the Indexes tab, select the hotels index. On the hotels page, **Search explorer** is the first tab.
+1. On the Indexes tab, select the hotels-sql-idx index. On the hotels page, **Search explorer** is the first tab.
 
 1. Select **Search** to issue an empty query.
 
@@ -250,17 +246,32 @@ Use Azure portal to verify object creation, and then use **Search explorer** to 
 
    :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Screenshot of a Search Explorer query for the target index." border="true":::
 
-1. Next, enter a search string: `search=river&$count=true`.
+1. Next, [switch to **JSON View**](search-explorer.md#start-search-explorer) so that you can enter query parameters:
+
+   ```json
+   {
+        "search": "river",
+        "count": true
+   }
+   ```
 
    This query invokes full text search on the term `river`, and the result includes a count of the matching documents. Returning the count of matching documents is helpful in testing scenarios when you have a large index with thousands or millions of documents. In this case, only one document matches the query.
 
-1. Lastly, enter a search string that limits the JSON output to fields of interest: `search=river&$count=true&$select=hotelId, baseRate, description`.
+1. Lastly, enter parameters that limit search results to fields of interest: 
+
+   ```json
+   {
+        "search": "river",
+        "select": "hotelId, hotelName, baseRate, description",
+        "count": true
+   }
+   ```
 
    The query response is reduced to selected fields, resulting in more concise output.
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early experimental stages of development, the most practical approach for design iteration is to delete the objects from Azure AI Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
 The sample code for this tutorial checks for existing objects and deletes them so that you can rerun your code.
 

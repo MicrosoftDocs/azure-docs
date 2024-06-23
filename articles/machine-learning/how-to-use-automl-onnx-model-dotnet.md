@@ -2,37 +2,37 @@
 title: Make predictions with AutoML ONNX Model in .NET
 description: Learn how to make predictions using an AutoML ONNX model in .NET with ML.NET
 titleSuffix: Azure Machine Learning
-author: manashgoswami 
-ms.author: magoswam
-ms.reviewer: ssalgado 
-ms.date: 10/21/2021
+author: manashgoswami
+ms.author: manashg
+ms.reviewer: ssalgado
+ms.date: 09/21/2023
 ms.topic: how-to
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: automl
+ms.custom: automl, devx-track-dotnet
 ---
 
 # Make predictions with an AutoML ONNX model in .NET
 
-In this article, you learn how to use an Automated ML (AutoML) Open Neural Network Exchange (ONNX) model to make predictions in a C# .NET Core console application with ML.NET.
+In this article, you learn how to use an Automated ML (AutoML) Open Neural Network Exchange (ONNX) model to make predictions in a C# console application with ML.NET.
 
-[ML.NET](/dotnet/machine-learning/) is an open-source, cross-platform, machine learning framework for the .NET ecosystem that allows you to train and consume custom machine learning models using a code-first approach in C# or F# as well as through low-code tooling like [Model Builder](/dotnet/machine-learning/automate-training-with-model-builder) and the [ML.NET CLI](/dotnet/machine-learning/automate-training-with-cli). The framework is also extensible and allows you to leverage other popular machine learning frameworks like TensorFlow and ONNX.
+[ML.NET](/dotnet/machine-learning/) is an open-source, cross-platform, machine learning framework for the .NET ecosystem that allows you to train and consume custom machine learning models using a code-first approach in C# or F#, or through low-code tooling like [Model Builder](/dotnet/machine-learning/automate-training-with-model-builder) and the [ML.NET CLI](/dotnet/machine-learning/automate-training-with-cli). The framework is extensible and allows you to leverage other popular machine learning frameworks like TensorFlow and ONNX.
 
 ONNX is an open-source format for AI models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format, and consume the ONNX model in a different framework like ML.NET. To learn more, visit the [ONNX website](https://onnx.ai/).
 
 ## Prerequisites
 
-- [.NET Core SDK 3.1 or greater](https://dotnet.microsoft.com/download)
+- [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
 - Text Editor or IDE (such as [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/Download))
-- ONNX model. To learn how to train an AutoML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+- ONNX model. To learn how to train an AutoML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing.ipynb).
 - [Netron](https://github.com/lutzroeder/netron) (optional)
 
 ## Create a C# console application
 
-In this sample, you use the .NET Core CLI to build your application but you can do the same tasks using Visual Studio. Learn more about the [.NET Core CLI](/dotnet/core/tools/).
+In this sample, you use the .NET CLI to build your application, but you can do the same tasks using Visual Studio. Learn more about the [.NET CLI](/dotnet/core/tools/).
 
-1. Open a terminal and create a new C# .NET Core console application. In this example, the name of the application is `AutoMLONNXConsoleApp`. A directory is created by that same name with the contents of your application.
+1. Open a terminal and create a new C# .NET console application. In this example, the name of the application is `AutoMLONNXConsoleApp`. A directory is created by that same name with the contents of your application.
 
     ```dotnetcli
     dotnet new console -o AutoMLONNXConsoleApp
@@ -46,7 +46,7 @@ In this sample, you use the .NET Core CLI to build your application but you can 
 
 ## Add software packages
 
-1. Install the **Microsoft.ML**, **Microsoft.ML.OnnxRuntime**, and **Microsoft.ML.OnnxTransformer** NuGet packages using the .NET Core CLI.
+1. Install the **Microsoft.ML**, **Microsoft.ML.OnnxRuntime**, and **Microsoft.ML.OnnxTransformer** NuGet packages using the .NET CLI.
 
     ```dotnetcli
     dotnet add package Microsoft.ML
@@ -56,7 +56,7 @@ In this sample, you use the .NET Core CLI to build your application but you can 
 
     These packages contain the dependencies required to use an ONNX model in a .NET application. ML.NET provides an API that uses the [ONNX runtime](https://github.com/Microsoft/onnxruntime) for predictions.
 
-1. Open the *Program.cs* file and add the following `using` statements at the top to reference the appropriate packages.
+1. Open the *Program.cs* file and add the following `using` directives at the top.
 
     ```csharp
     using System.Linq;
@@ -67,9 +67,9 @@ In this sample, you use the .NET Core CLI to build your application but you can 
 
 ## Add a reference to the ONNX model
 
-A way for the console application to access the ONNX model is to add it to the build output directory.  To learn more about MSBuild common items, see the [MSBuild guide](/visualstudio/msbuild/common-msbuild-project-items).
+A way for the console application to access the ONNX model is to add it to the build output directory. If you don't already have a model, follow [this notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb) to create an example model.
 
-Add a reference to your ONNX model file in your application
+Add a reference to your ONNX model file in your application:
 
 1. Copy your ONNX model to your application's *AutoMLONNXConsoleApp* root directory.
 1. Open the *AutoMLONNXConsoleApp.csproj* file and add the following content inside the `Project` node.
@@ -83,6 +83,8 @@ Add a reference to your ONNX model file in your application
     ```
 
     In this case, the name of the ONNX model file is *automl-model.onnx*.
+
+    (To learn more about MSBuild common items, see the [MSBuild guide](/visualstudio/msbuild/common-msbuild-project-items).)
 
 1. Open the *Program.cs* file and add the following line inside the `Program` class.
 
@@ -98,19 +100,19 @@ Inside the `Main` method of your `Program` class, create a new instance of [`MLC
 MLContext mlContext = new MLContext();
 ```
 
-The [`MLContext`](xref:Microsoft.ML.MLContext) class is a starting point for all ML.NET operations, and initializing `mlContext` creates a new ML.NET environment that can be shared across the model lifecycle. It's similar, conceptually, to DbContext in Entity Framework.
+The [`MLContext`](xref:Microsoft.ML.MLContext) class is a starting point for all ML.NET operations, and initializing `mlContext` creates a new ML.NET environment that can be shared across the model lifecycle. It's similar, conceptually, to <xref:Microsoft.EntityFrameworkCore.DbContext> in Entity Framework.
 
 ## Define the model data schema
 
-Your model expects your input and output data in a specific format. ML.NET allows you to define the format of your data via classes. Sometimes you may already know what that format looks like. In cases when you don't know the data format, you can use tools like Netron to inspect your ONNX model.
+A model expects the input and output data in a specific format. ML.NET allows you to define the format of your data via classes. Sometimes you might already know what that format looks like. In cases when you don't know the data format, you can use tools like Netron to inspect the ONNX model.
 
-The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sample of the data can be seen below:
+The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sample of the data is shown in the following table:
 
-|vendor_id|rate_code|passenger_count|trip_time_in_secs|trip_distance|payment_type|fare_amount|
-|---|---|---|---|---|---|---|
-|VTS|1|1|1140|3.75|CRD|15.5|
-|VTS|1|1|480|2.72|CRD|10.0|
-|VTS|1|1|1680|7.8|CSH|26.5|
+| vendor_id | rate_code | passenger_count | trip_time_in_secs | trip_distance | payment_type | fare_amount |
+|-----------|-----------|-----------------|-------------------|---------------|--------------|-------------|
+| VTS       | 1         | 1               | 1140              | 3.75          | CRD          | 15.5        |
+| VTS       | 1         | 1               | 480               | 2.72          | CRD          | 10.0        |
+| VTS       | 1         | 1               | 1680              | 7.8           | CSH          | 26.5        |
 
 ### Inspect the ONNX model (optional)
 
@@ -154,7 +156,7 @@ public class OnnxInput
 Each of the properties maps to a column in the dataset. The properties are further annotated with attributes.
 
 The [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute lets you specify how ML.NET should reference the column when operating on the data. For example, although the `TripDistance` property follows standard .NET naming conventions, the model only knows of a column or feature known as `trip_distance`. To address this naming discrepancy, the [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute maps the `TripDistance` property to a column or feature by the name `trip_distance`.
-  
+
 For numerical values, ML.NET only operates on [`Single`](xref:System.Single) value types. However, the original data type of some of the columns are integers. The [`OnnxMapType`](xref:Microsoft.ML.Transforms.Onnx.OnnxMapTypeAttribute) attribute maps types between ONNX and ML.NET.
 
 To learn more about data attributes, see the [ML.NET load data guide](/dotnet/machine-learning/how-to-guides/load-data-ml-net).
@@ -197,7 +199,7 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
     var outputColumns = new string [] { "variable_out1" };
     ```
 
-1. Define your pipeline. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601) provides a blueprint of the operations, input, and output schemas of your pipeline.
+1. Define your pipeline. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601) provides a blueprint of the operations and the input and output schemas of your pipeline.
 
     ```csharp
     var onnxPredictionPipeline =
@@ -222,9 +224,7 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
     The [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) method expects an [`IDataView`](xref:Microsoft.ML.IDataView) as input to perform the operations on. An [`IDataView`](xref:Microsoft.ML.IDataView) is a way to represent data in ML.NET using a tabular format. Since in this case the pipeline is only used for predictions, you can provide an empty [`IDataView`](xref:Microsoft.ML.IDataView) to give the [`ITransformer`](xref:Microsoft.ML.ITransformer) the necessary input and output schema information. The fitted [`ITransformer`](xref:Microsoft.ML.ITransformer) is then returned for further use in your application.
 
     > [!TIP]
-    > In this sample, the pipeline is defined and used within the same application. However, it is recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets such as desktop applications, web services, WebAssembly applications*, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
-    >
-    > *WebAssembly is only supported in .NET Core 5 or greater
+    > In this sample, the pipeline is defined and used within the same application. However, it's recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET, your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets, such as desktop applications, web services, WebAssembly applications, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
 
 1. Inside the `Main` method, call the `GetPredictionPipeline` method with the required parameters.
 
@@ -268,19 +268,19 @@ Now that you have a pipeline, it's time to use it to make predictions. ML.NET pr
     Console.WriteLine($"Predicted Fare: {prediction.PredictedFare.First()}");
     ```
 
-1. Use the .NET Core CLI to run your application.
+1. Use the .NET CLI to run your application.
 
     ```dotnetcli
     dotnet run
     ```
 
-    The result should look as similar to the following output:
+    The result should look similar to the following output:
 
     ```text
     Predicted Fare: 15.621523
     ```
 
-To learn more about making predictions in ML.NET, see the [use a model to make predictions guide](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
+To learn more about making predictions in ML.NET, see [Use a model to make predictions](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
 
 ## Next steps
 

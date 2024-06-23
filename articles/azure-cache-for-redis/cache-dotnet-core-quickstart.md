@@ -5,10 +5,9 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mvc, mode-other
+ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.date: 03/25/2022
-
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Core
 
@@ -25,7 +24,7 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

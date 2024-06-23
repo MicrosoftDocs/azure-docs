@@ -1,17 +1,16 @@
 ---
-# Mandatory fields.
 title: Create routes and filters
 titleSuffix: Azure Digital Twins
 description: Learn how to set up event routes and event filters to Azure Digital Twins endpoints
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/08/2023
+ms.date: 1/3/2024
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -36,7 +35,7 @@ Routing [event notifications](concepts-event-notifications.md) from Azure Digita
 
 Next, follow the instructions below if you intend to use the Azure CLI while following this guide.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Create an event route
 
@@ -109,16 +108,14 @@ The following sample method shows how to create, list, and delete an event route
 As described above, routes have a filter field. If the filter value on your route is `false`, no events will be sent to your endpoint. 
 
 After you've enabled a minimal filter of `true`, endpoints will receive different kinds of events from Azure Digital Twins:
-* Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
+* [Telemetry fired by digital twins](concepts-event-notifications.md#digital-twin-telemetry-messages) using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
 
 You can restrict the types of events being sent by defining a more-specific filter.
 
 >[!NOTE]
-> Filters are case-sensitive and need to match the payload case. 
->
-> For telemetry filters, this means that the casing needs to match the casing in the telemetry sent by the device, not necessarily the casing defined in the twin's model.
+> Filters are case-sensitive and need to match the payload case. For telemetry filters, this means that the casing needs to match the casing in the telemetry sent by the device.
 
 # [Portal](#tab/portal3)
 
@@ -165,7 +162,7 @@ Here are the supported route filters.
 | Data schema | DTDL model ID | `dataschema = '<model-dtmi-ID>'` | For telemetry: The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2` <br><br>For notifications (create/delete): Data schema can be accessed in the notification body at `$body.$metadata.$model`. <br><br>For notifications (update): Data schema can be accessed in the notification body at `$body.modelId`|
 | Content type | Content type of data value | `datacontenttype = '<content-type>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you're using | `specversion = '<version>'` | The version must be `1.0`. This value indicates the CloudEvents schema version 1.0 |
-| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Event notifications](concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
+| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Event notifications](concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body` |
 
 >[!NOTE]
 > Azure Digital Twins currently doesn't support filtering events based on fields within an array. This includes filtering on properties within a `patch` section of a [digital twin change notification](concepts-event-notifications.md#digital-twin-change-notifications).

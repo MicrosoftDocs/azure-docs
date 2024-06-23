@@ -1,28 +1,28 @@
 ---
-title: Tutorial - Create and manage rules in your Azure IoT Central application
-description: This tutorial shows you how Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
+title: Tutorial - Create and manage rules in Azure IoT Central
+description: This tutorial shows you how Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions when a rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/27/2022
+ms.date: 04/17/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
+
+#customer intent: As a solution builder, I want add a rule and action so that I can be notified when a telemetry value reaches a threshold.
 ---
 
 # Tutorial: Create a rule and set up notifications in your Azure IoT Central application
 
-You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
+In this tutorial, you learn how to use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules let you monitor your devices in near real time and automatically invoke actions, such as sending an email. This article explains how to create rules to monitor the telemetry your devices send.
 
 Devices use telemetry to send numerical data from the device. A  rule triggers when the selected telemetry crosses a specified threshold.
-
-In this tutorial, you create a rule to send an email when the temperature in a simulated sensor device exceeds 70&deg; F.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create a rule
-> * Add an email action
+> * Create a rule that fires when the device temperature reaches 70&deg; F.
+> * Add an email action to notify you when the rule fires.
 
 ## Prerequisites
 
@@ -32,35 +32,23 @@ To complete the steps in this tutorial, you need:
 
 ## Add and customize a device template
 
-Add a device template from the device catalog. This tutorial uses the **ESP32-Azure IoT Kit** device template:
+Add a device template from the device catalog. This tutorial uses the **Onset Hobo MX-100 Temp Sensor** device template:
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
 
-1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
+1. On the **Select type** page, scroll down until you find the **Onset Hobo MX-100 Temp Sensor** tile in the **Featured device templates** section.
 
-1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
+1. Select the **Onset Hobo MX-100 Temp Sensor** tile, and then select **Next: Review**.
 
 1. On the **Review** page, select **Create**.
 
-The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
-
-Modify the **Overview** view to include the temperature telemetry:
-
-1. In the **Sensor Controller** device template, select the **Overview** view.
-
-1. On the **Working Set, SensorAltitude, SensorHumid, SensorLight** tile, select **Edit**.
-
-1. Update the title to **Telemetry**.
-
-1. Add the **Temperature** capability to the list of telemetry values shown on the chart. Then **Save** the changes.
-
-Now publish the device template.
+The name of the template you created is **Hobo MX-100**. The model includes components such as **Hobo MX-100** and **IotDevice**. Components define the capabilities of an ESP32 device. Capabilities can include the telemetry, properties, and commands.
 
 ## Add a simulated device
 
 To test the rule you create in the next section, add a simulated device to your application:
 
-1. Select **Devices** in the left-navigation panel. Then select **Sensor Controller**.
+1. Select **Devices** in the left-navigation panel. Then select **Hobo MX-100**.
 
 1. Select **+ New**. In the **Create a new device** panel, leave the default device name and device ID values. Toggle **Simulate this device?** to **Yes**.
 
@@ -68,7 +56,7 @@ To test the rule you create in the next section, add a simulated device to your 
 
 ## Create a rule
 
-To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Sensor Controller** device that sends temperature and humidity telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
+To create a telemetry rule, the device template must include at least one telemetry value. This tutorial uses a simulated **Hobo MX-100** device that sends temperature telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 70 degrees.
 
 > [!NOTE]
 > There is a limit of 50 rules per application.
@@ -79,7 +67,7 @@ To create a telemetry rule, the device template must include at least one teleme
 
 1. Enter the name _Temperature monitor_ to identify the rule and press Enter.
 
-1. Select the **Sensor Controller** device template. By default, the rule automatically applies to all the devices assigned to the device template:
+1. Select the **Hobo MX-100** device template. By default, the rule automatically applies to all the devices assigned to the device template:
 
     :::image type="content" source="media/tutorial-create-telemetry-rules/device-filters.png" alt-text="Screenshot that shows the selection of the device template in the rule definition." lightbox="media/tutorial-create-telemetry-rules/device-filters.png":::
 
@@ -87,7 +75,7 @@ To create a telemetry rule, the device template must include at least one teleme
 
 ### Configure the rule conditions
 
-Conditions define the criteria that the rule monitors. In this tutorial, you configure the rule to fire when the temperature exceeds  70&deg; F.
+Conditions define the criteria that the rule monitors. In this tutorial, you configure the rule to fire when the temperature exceeds 70&deg; F.
 
 1. Select **Temperature** in the **Telemetry** dropdown.
 
@@ -139,12 +127,7 @@ Choose the rule you want to customize. Use one or more filters in the **Target d
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
-## Next steps
-
-In this tutorial, you learned how to:
-
-* Create a telemetry-based rule
-* Add an action
+## Next step
 
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 

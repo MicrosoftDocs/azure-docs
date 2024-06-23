@@ -1,19 +1,20 @@
 ### YamlMime:Landing
 
-title: Azure Deployment Environments Preview documentation
-summary: Learn how to configure self-serve environments that developers can use to deploy their code with the Azure Deployment Environments Preview service. Tutorials, quickstarts, how-to guides, and more. 
+title: Azure Deployment Environments documentation
+summary: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more. 
 
 metadata:
-  title: Azure Deployment Environments Preview documentation
-  description: Learn how to configure self-serve environments that developers can use to deploy their code with the Azure Deployment Environments Preview service. Tutorials, quickstarts, how-to guides, and more. 
-  services: deployment-environments
+  title: Azure Deployment Environments documentation
+  description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more.
   ms.service: deployment-environments
-  ms.custom: ignite-2022
+  ms.custom:
+    - build-2023
+    - ignite-2023
   ms.topic: landing-page
-  ms.collection: collection
+
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 07/27/2022
+  ms.date: 10/28/2023
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -26,20 +27,22 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-          - text: Use scenarios
-            url: concept-environments-scenarios.md         
 
   # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: 'Create & configure a dev center'
+          - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
-          - text: 'Create & configure a project'
-            url: quickstart-create-and-configure-projects.md
+          - text: 'Create dev center & project (Azure Resource Manager)'
+            url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an environment with Azure Developer CLI
+            url: how-to-create-environment-with-azure-developer.md  
   
   # Card
   - title: Configure the Deployment Environments service
@@ -48,10 +51,24 @@ landingContent:
         links:
           - text: Configure a catalog
             url: how-to-configure-catalog.md
-          - text: Configure a catalog item
-            url: configure-catalog-item.md
+          - text: Configure an environment definition
+            url: configure-environment-definition.md
           - text: Configure a managed identity
             url: how-to-configure-managed-identity.md
+
+  # Card
+  - title: Customize deployments with the extensibility model
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure container image to execute deployments
+            url: how-to-configure-extensibility-generic-container-image.md
+          - text: Configure an ARM/Bicep custom container image
+            url: how-to-configure-extensibility-bicep-container-image.md
+          - text: Configure a Terraform custom container image
+            url: how-to-configure-extensibility-terraform-container-image.md
+          - text: Configure a Pulumi custom container image
+            url: how-to-configure-extensibility-pulumi-container-image.md  
 
   # Card
   - title: Configure environment types
@@ -64,11 +81,19 @@ landingContent:
             url: how-to-configure-project-environment-types.md
 
   # Card
+  - title: Manage costs
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Request a quota limit increase
+            url: how-to-request-quota-increase.md
+       
+  # Card
   - title: Provide access to create and manage environments
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Provide access to dev center project admin
             url: how-to-configure-project-admin.md
-          - text: Provide access to create environments
+          - text: Grant access to create environments
             url: how-to-configure-deployment-environments-user.md

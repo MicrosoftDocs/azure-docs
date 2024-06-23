@@ -25,6 +25,6 @@ In the **indirect** connected mode, you must export and upload at least one type
 
 ## Azure portal
 
-After you complete your first [metrics or logs upload to Azure](upload-metrics-and-logs-to-azure-monitor.md) or [usage data upload](view-billing-data-in-azure.md), you can see the Azure Arc data controller and any Azure Arc-enabled SQL managed instances or Azure Arc-enabled PostgreSQL server resources in the [Azure portal](https://portal.azure.com).
+After you complete your first [metrics or logs upload to Azure](upload-metrics-and-logs-to-azure-monitor.md) or [usage data upload](view-billing-data-in-azure.md), you can see the Azure Arc data controller and any SQL Managed Instance enabled by Azure Arcs or Azure Arc-enabled PostgreSQL server resources in the [Azure portal](https://portal.azure.com).
 
 To find your data controller, search for it by name in the search bar and then select it.

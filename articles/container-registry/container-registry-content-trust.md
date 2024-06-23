@@ -4,7 +4,8 @@ description: Learn how to enable content trust for your Azure container registry
 ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ms.custom: subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -14,6 +15,9 @@ Azure Container Registry implements Docker's [content trust][docker-content-trus
 
 > [!NOTE]
 > Content trust is a feature of the [Premium service tier](container-registry-skus.md) of Azure Container Registry.
+
+## Limitations
+- Token with repository-scoped permissions does not currently support docker push and pull of signed images.
 
 ## How content trust works
 
@@ -70,12 +74,12 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## Grant image signing permissions
 
-Only the users or systems you've granted permission can push trusted images to your registry. To grant trusted image push permission to a user (or a system using a service principal), grant their Azure Active Directory identities the `AcrImageSigner` role. This is in addition to the `AcrPush` (or equivalent) role required for pushing images to the registry. For details, see [Azure Container Registry roles and permissions](container-registry-roles.md).
+Only the users or systems you've granted permission can push trusted images to your registry. To grant trusted image push permission to a user (or a system using a service principal), grant their Microsoft Entra identities the `AcrImageSigner` role. This is in addition to the `AcrPush` (or equivalent) role required for pushing images to the registry. For details, see [Azure Container Registry roles and permissions](container-registry-roles.md).
 
 > [!IMPORTANT]
 > You can't grant trusted image push permission to the following administrative accounts: 
 > * the [admin account](container-registry-authentication.md#admin-account) of an Azure container registry
-> * a user account in Azure Active Directory with the [classic system administrator role](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> * a user account in Microsoft Entra ID with the [classic system administrator role](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 > [!NOTE]
 > Starting July 2021, the `AcrImageSigner` role includes both the         `Microsoft.ContainerRegistry/registries/sign/write` action and the `Microsoft.ContainerRegistry/registries/trustedCollections/write` data action.
@@ -88,7 +92,7 @@ Details for granting the `AcrImageSigner` role in the Azure portal and the Azure
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. In this example, the role is assigned to an individual user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. In this example, the role is assigned to an individual user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |

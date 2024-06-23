@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/20/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -53,6 +53,7 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Microsoft Fabric Lakehouse](connector-microsoft-fabric-lakehouse.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
@@ -240,7 +241,7 @@ The Get Metadata results are shown in the activity output. Following are two sam
 }
 ```
 
-## Next steps
+## Related content
 Learn about other supported control flow activities:
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)

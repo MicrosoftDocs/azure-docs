@@ -6,18 +6,16 @@ ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 03/10/2023
-ms.custom: 
 ---
 
 # Manage APIs and other resources in your API Management workspace
 
-This article is an introduction to managing APIs, products, subscriptions, and other API Management resources in a *workspace*. A workspace is a place where a development team can own, manage, update, and productize their own APIs, while a central API platform team manages the API Management infrastructure. Learn about the [workspace features](workspaces-overview.md)
+[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
-[!INCLUDE [api-management-availability-premium-dev-standard](../../includes/api-management-availability-premium-dev-standard.md)]
+This article is an introduction to managing APIs, products, subscriptions, and other API Management resources in a *workspace*. A workspace is a place where a development team can own, manage, update, and productize their own APIs, while a central API platform team manages the API Management infrastructure. Learn about the [workspace features](workspaces-overview.md)
 
 > [!NOTE]
 > * Workspaces are a preview feature of API Management and subject to certain [limitations](workspaces-overview.md#preview-limitations).
-> * This feature is being released during March and April 2023.
 > * Workspaces are supported in API Management REST API version 2022-09-01-preview or later.
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 

@@ -1,9 +1,9 @@
 ---
 title: Azure Monitor Log Analytics API errors
 description: This section contains a non-exhaustive list of known common errors that can occur in the Azure Monitor Log Analytics API, their causes, and possible solutions.
-author: AbbyMSFT
-ms.author: abbyweisberg
 ms.date: 11/29/2021
+author: guywi-ms
+ms.author: guywild
 ms.topic: article
 ---
 # Azure Monitor Log Analytics API errors
@@ -57,7 +57,7 @@ Include a form of authentication with your request, such as the header `"Authori
     }
 ```
 
-The token is malformed or otherwise invalid. This error can occur if you manually copy and paste the token and add or cut characters to the payload. Verify that the token is exactly as received from Azure Active Directory (Azure AD).
+The token is malformed or otherwise invalid. This error can occur if you manually copy and paste the token and add or cut characters to the payload. Verify that the token is exactly as received from Microsoft Entra ID.
 
 ## Invalid token audience
 
@@ -106,10 +106,10 @@ This error can occur if you try to use client credentials via the direct API end
     }
 ```
 
-The token you've presented for authorization belongs to a user who doesn't have sufficient access to this privilege. Verify that your workspace GUID and your token request are correct. If necessary, grant IAM privileges in your workspace to the Azure AD application you created as Contributor.
+The token you've presented for authorization belongs to a user who doesn't have sufficient access to this privilege. Verify that your workspace GUID and your token request are correct. If necessary, grant IAM privileges in your workspace to the Microsoft Entra application you created as Contributor.
 
 > [!NOTE]
-> When you use Azure AD authentication, it might take up to 60 minutes for the Application Insights REST API to recognize new role-based access control permissions. While permissions are propagating, REST API calls might fail with error code 403.
+> When you use Microsoft Entra authentication, it might take up to 60 minutes for the Application Insights REST API to recognize new role-based access control permissions. While permissions are propagating, REST API calls might fail with error code 403.
 
 ## Bad authorization code
 
@@ -126,7 +126,7 @@ The token you've presented for authorization belongs to a user who doesn't have 
     }
 ```
 
-The authorization code submitted in the token request was either stale or previously used. Reauthorize via the Azure AD authorize endpoint to get a new code.
+The authorization code submitted in the token request was either stale or previously used. Reauthorize via the Microsoft Entra authorize endpoint to get a new code.
 
 ## Path not found
 

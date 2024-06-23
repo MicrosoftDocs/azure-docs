@@ -1,15 +1,12 @@
 ---
 title: Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
-author: mlee3gsd
-manager: craigg
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.date: 04/17/2024
 ms.service: synapse-analytics
+ms.subservice: sql-dw
 ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 11/22/2019
-ms.author: martinle
-ms.reviewer: wiassaf
-ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
@@ -39,8 +36,6 @@ Increasing DWUs:
 - Increases the maximum number of concurrent queries and concurrency slots
 
 ## Service Level Objective
-
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
 
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your dedicated SQL pool (formerly SQL DW). The service levels for Gen2 dedicated SQL pool (formerly SQL DW) are measured in data warehouse units (DWU), for example DW2000c.
 
@@ -77,7 +72,8 @@ The ideal number of data warehouse units depends very much on your workload and 
 Steps for finding the best DWU for your workload:
 
 1. Begin by selecting a smaller DWU.
-2. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe.
+1. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe. Verify by monitoring [resource utilization](sql-data-warehouse-concept-resource-utilization-query-activity.md).
+
 3. Identify any additional requirements for periodic periods of peak activity. Workloads that show significant peaks and troughs in activity may need to be scaled frequently.
 
 Dedicated SQL pool (formerly SQL DW) is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data.
@@ -152,7 +148,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 ### REST APIs
 
-To change the DWUs, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the service level objective to DW1000c for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+To change the DWUs, use the [Create or Update Database](/rest/api/sql/2022-08-01-preview/databases/create-or-update) REST API. The following example sets the service level objective to DW1000c for the database `MySQLDW`, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1

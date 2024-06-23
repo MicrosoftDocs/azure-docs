@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial that shows how to build an Azure Digital Twins scenario using the Azure CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 1/3/2024
 ms.topic: tutorial
 ms.service: digital-twins
 ms.custom: devx-track-azurecli
@@ -43,7 +43,7 @@ The tutorial uses two pre-written models that are part of the C# [end-to-end sam
 
 To get the files on your machine, use the navigation links above and copy the file bodies into local files on your machine with the same names (*Room.json* and *Floor.json*).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -73,7 +73,7 @@ Now that the CLI and Azure Digital Twins instance are set up, you can begin buil
 
 The first step in creating an Azure Digital Twins solution is defining twin [models](concepts-models.md) for your environment. 
 
-Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They're written in a JSON-like language called *Digital Twins Definition Language (DTDL)*, and can define a twin's properties, telemetry, relationships, and components.
+Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They're written in a JSON-like language called *Digital Twins Definition Language (DTDL)*, and can define a twin's properties, relationships, and components.
 
 > [!NOTE]
 > DTDL also allows for the definition of commands on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
@@ -300,7 +300,7 @@ After completing this tutorial, you can choose which resources you want to remov
 
 * If you plan to continue to the next tutorial, you can keep the resources you set up here and reuse the Azure Digital Twins instance without clearing anything in between.
 
-* If you want to continue using the Azure Digital Twins instance, but clear out all of its models, twins, and relationships, you can use the [az dt twin relationship delete](/cli/azure/dt/twin/relationship#az-dt-twin-relationship-delete), [az dt twin delete](/cli/azure/dt/twin#az-dt-twin-delete), and [az dt model delete](/cli/azure/dt/model#az-dt-model-delete) commands to clear the relationships, twins, and models in your instance, respectively.
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

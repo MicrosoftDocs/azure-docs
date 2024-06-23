@@ -1,8 +1,8 @@
 ---
 title: Data collection and reporting | Azure Arc-enabled data services
 description: Explains the type of data that is transmitted by Azure Arc-enabled Data services to Microsoft. 
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -17,14 +17,14 @@ This article describes the data that Azure Arc-enabled data services transmit to
 
 Neither Azure Arc-enabled data services nor any of the applicable data services store any customer data. This applies to:
 
-- Azure Arc-enabled SQL Managed Instance
+- SQL Managed Instance enabled by Azure Arc
 - Azure Arc-enabled PostgreSQL
 
 ## Azure Arc-enabled data services
 
 Azure Arc-enabled data services may use some or all of the following products:
 
-- Azure Arc-enabled SQL Managed Instance 
+- SQL Managed Instance enabled by Azure Arc 
 - Azure Arc-enabled PostgreSQL
 - Azure Data Studio
 
@@ -63,9 +63,9 @@ Operational data is collected for all database instances and for the Azure Arc-e
 
 - Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc-enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
-- Logs – Records emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
+- Logs – Records emitted by all components including failure, warning, and informational events are collected to an OpenSearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. Prior to the May, 2023 release, the log database used Elasticsearch. Thereafter, it uses OpenSearch. 
 
-The operational data stored locally requires built-in administrative privileges to view it in Grafana/Kibana. 
+The operational data stored locally requires built-in administrative privileges to view it in Grafana/Kibana.
 
 The operational data does not leave your environment unless you chooses to export/upload (indirect connected mode) or automatically send (directly connected mode) the data to Azure Monitor/Log Analytics. The data goes into a Log Analytics workspace, which you control. 
 
@@ -79,7 +79,7 @@ Every database instance and the data controller itself will be reflected in Azur
 
 There are three resource types: 
 
-- Azure Arc-enabled SQL Managed Instance 
+- SQL Managed Instance enabled by Azure Arc 
 - Azure Arc-enabled PostgreSQL server 
 - Data controller
 
@@ -667,7 +667,7 @@ In support situations, you may be asked to provide database instance logs, Kuber
 |Crash dumps – customer data | Maximum 30-day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
 
-## Next steps
+## Related content
 [Upload usage data to Azure Monitor](upload-usage-data.md)
 
 

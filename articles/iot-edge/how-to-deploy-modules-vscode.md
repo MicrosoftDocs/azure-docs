@@ -2,11 +2,9 @@
 title: Deploy modules from Visual Studio Code - Azure IoT Edge
 description: Use Visual Studio Code with Azure IoT Edge for Visual Studio Code to push an IoT Edge module from your IoT Hub to your IoT Edge device, as configured by a deployment manifest.
 author: PatAltimore
-
 ms.author: patricka
 ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: 
 ms.service: iot-edge
 services: iot-edge
 ---
@@ -27,7 +25,7 @@ This article shows how to create a JSON deployment manifest, then use that file 
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+* [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 
 ## Configure a deployment manifest
 
@@ -58,7 +56,7 @@ Here's a basic deployment manifest with one module as an example:
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+                 "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
                  "createOptions": "{}"
                }
              },
@@ -67,19 +65,19 @@ Here's a basic deployment manifest with one module as an example:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+                 "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
                  "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                }
              }
            },
            "modules": {
              "SimulatedTemperatureSensor": {
-               "version": "1.0",
+               "version": "1.5",
                "type": "docker",
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
                  "createOptions": "{}"
                }
              }

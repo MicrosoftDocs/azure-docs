@@ -1,10 +1,10 @@
 ---
 title: 'ITSM Connector: Configure ServiceNow for Secure Webhook'
 description: This article shows you how to connect your IT Service Management products and services with ServiceNow and Secure Webhook in Azure Monitor.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 06/19/2023
 ms.reviewer: nolavime
-
 ---
 
 # Connect ServiceNow to Azure Monitor
@@ -15,7 +15,7 @@ The following sections provide information about how to connect your ServiceNow 
 
 Ensure that you've met the following prerequisites:
 
-* Azure Active Directory is registered.
+* Microsoft Entra ID is registered.
 * You have the supported version of ServiceNow Event Management - ITOM (version New York or later).
 * The [application](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ac4c9c57dbb1d090561b186c1396191a/2.2.0) is installed on the ServiceNow instance.
 
@@ -28,3 +28,4 @@ Ensure that you've met the following prerequisites:
    * [Rome](https://docs.servicenow.com/bundle/rome-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Quebec](https://docs.servicenow.com/bundle/quebec-it-operations-management/page/product/event-management/concept/azure-integration.html)
    * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Vancouver](https://docs.servicenow.com/bundle/vancouver-it-operations-management/page/product/event-management/concept/azure-integration.html)

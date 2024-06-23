@@ -22,7 +22,7 @@ The SCCA has four components:
 
 Microsoft has developed a solution that helps you meet the SCCA requirements for both [DoD IL4](/azure/compliance/offerings/offering-dod-il4) and [DoD IL5](/azure/compliance/offerings/offering-dod-il5) workloads that run in Azure. This Azure-specific solution is called the **Secure Azure Computing Architecture (SACA)**, and it can help you comply with the SCCA FRD. It can enable you to move workloads into Azure after you're connected.
 
-SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections](./compliance-tic.md) (TIC) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
+SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections (TIC)](./compliance-tic.md) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
 
 ## Secure Cloud Computing Architecture components
 
@@ -110,7 +110,7 @@ As mentioned earlier, you can build the SACA reference by using a variety of app
     - [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
     - [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
     - [Azure Key Vault](../../key-vault/general/overview.md)
-    - [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+    - [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
     - [Application Gateway](../../application-gateway/overview.md)
     - [Azure Firewall](../../firewall/overview.md)
     - [Azure Front Door](../../frontdoor/front-door-overview.md)

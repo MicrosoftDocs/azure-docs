@@ -3,6 +3,7 @@ title: Deploy Azure Health Data Services FHIR service using ARM template
 description: Learn how to deploy FHIR service by using an Azure Resource Manager template (ARM template)
 author: expekesheth
 ms.service: healthcare-apis
+ms.custom: devx-track-arm-template
 ms.topic: tutorial
 ms.author: kesheth
 ms.date: 06/06/2022
@@ -20,7 +21,7 @@ An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally:
-    * [Azure PowerShell](/powershell/azure/install-az-ps).
+    * [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 # [CLI](#tab/CLI)
 
@@ -39,6 +40,9 @@ The template defines three Azure resources:
 - Microsoft.HealthcareApis/workspaces
 - Microsoft.HealthcareApis/workspaces/fhirservices      
 - Microsoft.Storage/storageAccounts
+
+> [!NOTE]
+> Local RBAC is deprecated. Access Policies configuration associated with Local RBAC in ARM template are deprecated. Existing customers using Local RBAC need to migrate to Azure RBAC by November 2024. For questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 You can deploy the FHIR service resource by **removing** the workspaces resource, the storage resource, and the `dependsOn` property in the “Microsoft.HealthcareApis/workspaces/fhirservices” resource.
 
@@ -115,7 +119,7 @@ You can deploy the FHIR service resource by **removing** the workspaces resource
         {
             "type": "Microsoft.HealthcareApis/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2020-11-01-preview",
+            "apiVersion": "2023-11-01",
             "location": "[parameters('region')]",
             "properties": {}
         },
@@ -123,7 +127,7 @@ You can deploy the FHIR service resource by **removing** the workspaces resource
             "type": "Microsoft.HealthcareApis/workspaces/fhirservices",
             "kind": "fhir-R4",
             "name": "[concat(parameters('workspaceName'), '/', parameters('fhirServiceName'))]",
-            "apiVersion": "2020-11-01-preview",
+            "apiVersion": "2023-11-01",
             "location": "[parameters('region')]",
             "dependsOn": [
                 "[resourceId('Microsoft.HealthcareApis/workspaces', parameters('workspaceName'))]"
@@ -201,7 +205,7 @@ You can create a new resource group, or use an existing one by skipping the step
 $resourcegroupname="your resource group"
 $location="South Central US"
 $workspacename="your workspace name"
-$servicename="your fhir service name"
+$fhirservicename="your fhir service name"
 $tenantid="xxx"
 $subscriptionid="xxx"
 $storageaccountname="storage account name"
@@ -270,7 +274,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ```
 # [CLI](#tab/CLI)
 ```azurecli-interactive
-resourceGroupName = “your resource group name”
+resourceGroupName = "your resource group name"
 az group delete --name $resourceGroupName
 ```
 ---

@@ -5,7 +5,7 @@ author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
-ms.date: 04/19/2022
+ms.date: 05/02/2024
 ms.author: midesa
 ---
 
@@ -13,13 +13,17 @@ ms.author: midesa
 
 Apache Spark in Azure Synapse Analytics enables machine learning with big data, providing the ability to obtain valuable insight from large amounts of structured, unstructured, and fast-moving data. There are several options when training machine learning models using Azure Spark in Azure Synapse Analytics: Apache Spark MLlib, Azure Machine Learning, and various other open-source libraries.
 
+> [!WARNING]
+> - The GPU accelerated preview is limited to the [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtime. End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime and the corresponding GPU accelerated preview on Spark 3.2 will be retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now unsupported on the [Azure Synapse 3.1 (unsupported) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
+
 ## GPU-enabled Apache Spark pools
 
-To simplify the process for creating and managing pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes. To learn more about how to create a GPU-accelerated pool, you can visit the quickstart on how to [create a GPU-accelerated pool](../quickstart-create-apache-gpu-pool-portal.md).
+To simplify the process for creating and managing pools, Azure Synapse takes care of pre-installing low-level libraries and setting up all the complex networking requirements between compute nodes. This integration allows users to get started with GPU- accelerated pools within just a few minutes. 
 
 > [!NOTE]
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
->  - GPU-accelerated pools are only available with the Apache Spark 3.1 and 3.2 runtime.
+>  - GPU-accelerated pools are only available with the Apache Spark 3.1 (unsupported) and 3.2 runtime.
 >  - You might need to request a [limit increase](../spark/apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters.
 
 ## GPU ML Environment
@@ -59,5 +63,4 @@ For more information about Petastorm, you can visit the [Petastorm GitHub page](
 This article provides an overview of the various options to train machine learning models within Apache Spark pools in Azure Synapse Analytics. You can learn more about model training by following the tutorial below:
 
 - Run SparkML experiments: [Apache SparkML Tutorial](../spark/apache-spark-machine-learning-mllib-notebook.md)
-- View libraries within the Apache Spark 3 runtime: [Apache Spark 3 Runtime](../spark/apache-spark-3-runtime.md)
 - Accelerate ETL workloads with RAPIDS: [Apache Spark Rapids](../spark/apache-spark-rapids-gpu.md)

@@ -2,7 +2,8 @@
 title: Azure Functions SignalR Service bindings
 description: Understand how to use SignalR Service bindings with Azure Functions.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.date: 04/02/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -14,46 +15,42 @@ This set of articles explains how to authenticate and send real-time messages to
 |---------|---------|
 | Handle messages from SignalR Service | [Trigger binding](./functions-bindings-signalr-service-trigger.md) |
 | Return the service endpoint URL and access token | [Input binding](./functions-bindings-signalr-service-input.md) |
-| Send SignalR Service messages |[Output binding](./functions-bindings-signalr-service-output.md) |
+| Send SignalR Service messages and manage groups |[Output binding](./functions-bindings-signalr-service-output.md) |
 
 ::: zone pivot="programming-language-csharp"
 
 ## Install extension
 
-The extension NuGet package you install depends on the C# mode you're using in your function app: 
+The extension NuGet package you install depends on the C# mode you're using in your function app:
 
-# [In-process](#tab/in-process)
-
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-Add the extension to your project by installing this [NuGet package].
-
-# [Isolated process](#tab/isolated-process)
+# [Isolated worker model](#tab/isolated-process)
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).
 
-# [C# script](#tab/csharp-script)
+# [In-process model](#tab/in-process)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 2.x, or a later version.
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+Add the extension to your project by installing this [NuGet package].
 
 ---
 
-::: zone-end  
+::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"
 
-## Install bundle    
+## Install bundle
 
 The SignalR Service extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
 
-::: zone-end  
-::: zone pivot="programming-language-java"  
+::: zone-end
+::: zone pivot="programming-language-java"
 
-## Add dependency   
+## Add dependency
 
 To use the SignalR Service annotations in Java functions, you need to add a dependency to the *azure-functions-java-library-signalr* artifact (version 1.0 or higher) to your *pom.xml* file.
 
@@ -64,7 +61,7 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
     <version>1.0.0</version>
 </dependency>
 ```
-::: zone-end 
+::: zone-end
 
 ## Connection string settings
 

@@ -6,15 +6,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, data4ml
+ms.custom: UpdateFrequency5, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 08/17/2022
-
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
-
 ---
 
 # DevOps for a data ingestion pipeline
@@ -55,7 +53,7 @@ This article demonstrates how to automate the CI and CD processes with [Azure Pi
 ## Source control management
 
 Source control management is needed to track changes and enable collaboration between team members.
-For example, the code would be stored in an Azure DevOps, GitHub, or GitLab repository. The collaboration workflow is based on a branching model. For example, [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html).
+For example, the code would be stored in an Azure DevOps, GitHub, or GitLab repository. The collaboration workflow is based on a branching model.
 
 ### Python Notebook Source Code
 

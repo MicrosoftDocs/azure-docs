@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Azure PowerShell to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 07/21/2022
+ms.date: 05/30/2024
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, mvc, mode-api
 
 # Quickstart: Direct web traffic with Azure Application Gateway using Azure PowerShell
 
-In this quickstart, you use Azure PowerShell to create an application gateway. Then you test it to make sure it works correctly. 
+In this quickstart, you use Azure PowerShell to create an application gateway. Then you test it to make sure it works correctly.
 
 The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
@@ -22,10 +22,13 @@ The application gateway directs application web traffic to specific resources in
 
 You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or the [Azure portal](quick-create-portal.md).
 
+> [!NOTE]
+> Application Gateway frontend now supports dual-stack IP addresses (Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-az-ps) (if you run Azure PowerShell locally).
+- [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-azure-powershell) (if you run Azure PowerShell locally).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -76,6 +79,8 @@ New-AzPublicIpAddress `
 ```
 ## Create an application gateway
 
+The Standard v2 SKU is used in this example.
+
 ### Create the IP configurations and frontend port
 
 1. Use `New-AzApplicationGatewayIPConfiguration` to create the configuration that associates the subnet you created with the application gateway. 
@@ -96,6 +101,8 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
   -Name myFrontendPort `
   -Port 80
 ```
+  > [!NOTE]
+  > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 ### Create the backend pool
 
@@ -161,9 +168,12 @@ New-AzApplicationGateway `
   -Sku $sku
 ```
 
+> [!TIP]
+> You can modify values of the `Name` and `Tier` parameters to use a different SKU. For example: `Basic`.
+
 ### Backend servers
 
-Now that you have created the Application Gateway, create the backend virtual machines which will host the websites. A backend can be composed of NICs, virtual machine scale sets, public IP address, internal IP address, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. 
+Now that you have created the Application Gateway, create the backend virtual machines which will host the websites. A backend can be composed of NICs, virtual machine scale sets, public IP address, internal IP address, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. 
 
 In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to verify that Azure successfully created the application gateway.
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: devx-track-java, contperf-fy21q2
+ms.custom: devx-track-java, devx-track-extended-java
 ---
 
 # Performance tips for Azure Cosmos DB Async Java SDK v2
@@ -21,6 +21,7 @@ ms.custom: devx-track-java, contperf-fy21q2
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3.md)
 > * [.NET SDK v2](performance-tips.md)
+> * [Python SDK](performance-tips-python-sdk.md)
 
 
 > [!IMPORTANT]  
@@ -99,7 +100,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
   * ***ConnectionPolicy Configuration options for Direct mode***
 
-    As a first step, use the following recommended configuration settings below. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
+    As a first step, use the following recommended configuration settings below. Contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
 
     If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to 0 (that is, no timeout).
 
@@ -130,9 +131,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
   
   * **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex   data processing are best placed in a separate thread. A request that pulls in data from another data store (for example if the thread   utilizes Azure Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an   additional thread that awaits a response from the other data store.
   
-    * The underlying network IO in the Azure Cosmos DB Async Java SDK v2 is managed by Netty, see these [tips for avoiding coding   patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
+    * The underlying network IO in the Azure Cosmos DB Async Java SDK v2 is managed by Netty. See these [tips for avoiding coding   patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
   
-  * **Data modeling** - The Azure Cosmos DB SLA assumes document size to be less than 1KB. Optimizing your data model and programming to   favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than   1KB, the recommended approach is for documents to link to data in Azure Blob Storage.
+  * **Data modeling** - The Azure Cosmos DB SLA assumes document size to be less than 1 KB. Optimizing your data model and programming to   favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than  1 KB, the recommended approach is for documents to link to data in Azure Blob Storage.
 
 * **Tuning parallel queries for partitioned collections**
 
@@ -142,13 +143,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
     
     Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use setMaxDegreeOfParallelism to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
-    It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
+    It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or most of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
 
   * ***Tuning setMaxBufferedItemCount\:***
     
-    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
+    Parallel query is designed to prefetch results while the current batch of results is being processed by the client. The prefetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of prefetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from prefetching.
 
-    Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
+    Prefetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
 
 * **Implement backoff at getRetryAfterInMilliseconds intervals**
 
@@ -172,7 +173,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-  The Azure Cosmos DB Async Java SDK v2 uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
+  The Azure Cosmos DB Async Java SDK v2 uses [netty](https://netty.io/) for nonblocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
   For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
@@ -213,7 +214,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
       });
   ```
 
-  Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
+  Based on the type of your work, you should use the appropriate existing RxJava Scheduler for your work. Read here
   [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
   For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Azure Cosmos DB Async Java SDK v2.
@@ -252,7 +253,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
  
 * **Exclude unused paths from indexing for faster writes**
 
-    Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by leveraging Indexing Paths (setIncludedPaths and setExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed. For example, the following code shows how to exclude an entire section of the documents (also known as a subtree) from indexing using the "*" wildcard.
+    Azure Cosmos DB’s indexing policy allows you to specify which document paths to include or exclude from indexing by using Indexing Paths (setIncludedPaths and setExcludedPaths). The use of indexing paths can offer improved write performance and lower index storage for scenarios in which the query patterns are known beforehand, as indexing costs are directly correlated to the number of unique paths indexed. For example, the following code shows how to exclude an entire section of the documents (also known as a subtree) from indexing using the "*" wildcard.
 
     ### <a id="asyncjava2-indexing"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -288,7 +289,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     response.getRequestCharge();
     ```
 
-    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1,000 1 KB documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://cosmos.azure.com/capacitycalculator).
 
 * **Handle rate limiting/request rate too large**
 

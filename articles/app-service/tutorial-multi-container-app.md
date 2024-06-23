@@ -12,7 +12,7 @@ ms.custom: cli-validate, devx-track-azurecli
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
 > [!NOTE]
-> Multi-container is in preview.
+> Sidecar containers (preview) will succeed multi-container apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 [Web App for Containers](overview.md#app-service-on-linux) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL. You'll complete this tutorial in Cloud Shell, but you can also run these commands locally with the [Azure CLI](/cli/azure/install-azure-cli) command-line tool (2.0.32 or later).
 
@@ -34,7 +34,7 @@ To complete this tutorial, you need experience with [Docker Compose](https://doc
 
 ## Download the sample
 
-For this tutorial, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/samples/wordpress/), but you'll modify it to include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress). In the sample below, note that `depends_on` is an **unsupported option** and is ignored. For supported configuration options, see [Docker Compose options](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -327,7 +327,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 ### Modify configuration file
 
-In the Cloud Shell, opne the file `docker-compose-wordpress.yml` in a text editor.
+In the Cloud Shell, open the file `docker-compose-wordpress.yml` in a text editor.
 
 The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. You'll use this environment variable in the volumes option so that the WordPress files are installed into persistent storage instead of the container. Make the following modifications to the file:
 
@@ -401,7 +401,7 @@ services:
 
    redis:
      image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-     environment: 
+     environment:
       - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```

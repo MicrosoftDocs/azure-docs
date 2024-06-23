@@ -27,7 +27,9 @@ RDP Shortpath can be used in two ways:
 The transport used for RDP Shortpath is based on the [Universal Rate Control Protocol (URCP)](https://www.microsoft.com/research/publication/urcp-universal-rate-control-protocol-for-real-time-communication-applications/). URCP enhances UDP with active monitoring of the network conditions and provides fair and full link utilization. URCP operates at low delay and loss levels as needed.
 
 > [!IMPORTANT]
-> During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+> - During the preview, TURN is only available for connections to session hosts in a validation host pool. To configure your host pool as a validation environment, see [Define your host pool as a validation environment](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool).
+>
+> - RDP Shortpath for public networks with TURN is only available in the Azure public cloud.
 
 ## Key benefits
 
@@ -64,7 +66,7 @@ To use RDP Shortpath for managed networks, you must enable a UDP listener on you
 
 The following diagram gives a high-level overview of the network connections when using RDP Shortpath for managed networks and session hosts joined to an Active Directory domain.
 
-:::image type="content" source="media/rdp-shortpath-managed-networks.svg" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.svg":::
+:::image type="content" source="media/rdp-shortpath-managed-networks.png" alt-text="Diagram of network connections when using RDP Shortpath for managed networks." lightbox="media/rdp-shortpath-managed-networks.png":::
 
 ### Connection sequence
 
@@ -86,7 +88,7 @@ If your users have both RDP Shortpath for managed network and public networks av
 
 To provide the best chance of a UDP connection being successful when using a public connection, there are the *direct* and *indirect* connection types:
 
-- **Direct connection**: STUN is used to establish a direct UDP connection between a client and session host. To establish this connection, the client and session host must be able to connect to each other through a public IP address and negotiated port. However, most clients don't know their own public IP address as they sit behind a [Network Address Translation](#network-address-translation-and-firewalls) (NAT) gateway device. STUN is a protocol for the self-discovery of a public IP address from behind a NAT gateway device and the client to determine its own public-facing IP address. 
+- **Direct connection**: STUN is used to establish a direct UDP connection between a client and session host. To establish this connection, the client and session host must be able to connect to each other through a public IP address and negotiated port. However, most clients don't know their own public IP address as they sit behind a [Network Address Translation (NAT)](#network-address-translation-and-firewalls) gateway device. STUN is a protocol for the self-discovery of a public IP address from behind a NAT gateway device and the client to determine its own public-facing IP address. 
 
   For a client to use STUN, its network must allow UDP traffic. Assuming both the client and session host can route to the other's discovered IP address and port directly, communication is established with direct UDP over the WebSocket protocol. If firewalls or other network devices block direct connections, an indirect UDP connection will be tried.
 
@@ -96,12 +98,12 @@ To provide the best chance of a UDP connection being successful when using a pub
 
 When a connection is being established, Interactive Connectivity Establishment (ICE) coordinates the management of STUN and TURN to optimize the likelihood of a connection being established, and ensure that precedence is given to preferred network communication protocols.
 
-Each RDP session uses a dynamically assigned UDP port from an ephemeral port range (**49152** to **65535** by default) that accepts the RDP Shortpath traffic. You can also use a smaller, predictable port range. For more information, see [Limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
+Each RDP session uses a dynamically assigned UDP port from an ephemeral port range (**49152** to **65535** by default) that accepts the RDP Shortpath traffic. Port 65330 is ignored from this range as it is reserved for use internally by Azure. You can also use a smaller, predictable port range. For more information, see [Limit the port range used by clients for public networks](configure-rdp-shortpath-limit-ports-public-networks.md).
 
 > [!TIP]
 > RDP Shortpath for public networks will work automatically without any additional configuration, providing networks and firewalls allow the traffic through and RDP transport settings in the Windows operating system for session hosts and clients are using their default values.
 
-The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks where session hosts joined to Azure Active Directory (Azure AD).
+The following diagram gives a high-level overview of the network connections when using RDP Shortpath for public networks where session hosts joined to Microsoft Entra ID.
 
 :::image type="content" source="media/rdp-shortpath/rdp-shortpath-public-networks.png" alt-text="Diagram of network connections when using RDP Shortpath for public networks." lightbox="media/rdp-shortpath/rdp-shortpath-public-networks.png":::
 

@@ -8,21 +8,18 @@ ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.date: 10/13/2021
-ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
+ms.date: 03/25/2024
+ms.custom: sdkv2, devx-track-python
 ---
 
 # Train a small object detection model with AutoML
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-use-automl-small-object-detect-v1.md)
-> * [v2 (current version)](how-to-use-automl-small-object-detect.md)
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
-In this article, you'll learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
+In this article, you learn how to train an object detection model to detect small objects in high-resolution images with [automated ML](concept-automated-ml.md) in Azure Machine Learning.
 
-Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under-perform when tasked to detect small objects in high-resolution images. Because high-resolution images are typically large, they are resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
+Typically, computer vision models for object detection work well for datasets with relatively large objects. However, due to memory and computational constraints, these models tend to under-perform when tasked to detect small objects in high-resolution images. Because high-resolution images are typically large, they're resized before input into the model, which limits their capability to detect smaller objects--relative to the initial image size.
 
 To help with this problem, automated ML supports tiling as part of the computer vision capabilities. The tiling capability in automated ML is based on the concepts in [The Power of Tiling for Small Object Detection](https://openaccess.thecvf.com/content_CVPRW_2019/papers/UAVision/Unel_The_Power_of_Tiling_for_Small_Object_Detection_CVPRW_2019_paper.pdf).
 
@@ -42,17 +39,17 @@ Small object detection using tiling is supported for all models supported by Aut
 
 ## Enable tiling during training
 
-To enable tiling, you can set the `tile_grid_size` parameter to a value like '3x2'; where 3 is the number of tiles along the width dimension and 2 is the number of tiles along the height dimension. When this parameter is set to '3x2', each image is split into a grid of 3 x 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap can be controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
+To enable tiling, you can set the `tile_grid_size` parameter to a value like '3x2'; where 3 is the number of tiles along the width dimension and 2 is the number of tiles along the height dimension. When this parameter is set to '3x2'; each image is split into a grid of 3 x 2 tiles. Each tile overlaps with the adjacent tiles, so that any objects that fall on the tile border are included completely in one of the tiles. This overlap is controlled by the `tile_overlap_ratio` parameter, which defaults to 25%.
 
 When tiling is enabled, the entire image and the tiles generated from it are passed through the model. These images and tiles are resized according to the `min_size` and `max_size` parameters before feeding to the model. The computation time increases proportionally because of processing this extra data.
 
-For example, when the `tile_grid_size` parameter is '3x2', the computation time would be approximately seven times higher than without tiling.
+For example, when the `tile_grid_size` parameter is '3x2' the computation time would be approximately seven times higher than without tiling.
 
 You can specify the value for `tile_grid_size` in your training parameters as a string.
 
 # [CLI v2](#tab/CLI-v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
@@ -63,7 +60,7 @@ training_parameters:
 
 ```python
 image_object_detection_job.set_training_parameters(
-	tile_grid_size='3x2'
+    tile_grid_size='3x2'
 )
 ```
 ---
@@ -74,7 +71,7 @@ To choose the optimal value for this parameter for your dataset, you can use hyp
 
 # [CLI v2](#tab/CLI-v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 ```yaml
 search_space:
@@ -90,10 +87,10 @@ search_space:
 
 ```python
 image_object_detection_job.extend_search_space(
-	SearchSpace(
-		model_name=Choice(['fasterrcnn_resnet50_fpn']),
-		tile_grid_size=Choice(['2x1', '3x2', '5x3'])
-	)
+    SearchSpace(
+        model_name=Choice(['fasterrcnn_resnet50_fpn']),
+        tile_grid_size=Choice(['2x1', '3x2', '5x3'])
+    )
 )
 ```
 ---
@@ -111,13 +108,13 @@ When a model trained with tiling is deployed, tiling also occurs during inferenc
 
 You also have the option to enable tiling only during inference without enabling it in training. To do so, set the `tile_grid_size` parameter only during inference, not for training.
 
-Doing so, may improve performance for some datasets, and won't incur the extra cost that comes with tiling at training time.
+Doing so, might improve performance for some datasets, and will not incur the extra cost that comes with tiling at training time.
 
 ## Tiling hyperparameters
 
 The following are the parameters you can use to control the tiling feature.
 
-| Parameter Name	| Description	| Default |
+| Parameter Name    | Description    | Default |
 | --------------- |-------------| -------|
 | `tile_grid_size` |  The grid size to use for tiling each image. Available for use during training, validation, and inference.<br><br>Should be passed as a string in `'3x2'` format.<br><br> *Note: Setting this parameter increases the computation time proportionally, since all tiles and images are processed by the model.*| no default value |
 | `tile_overlap_ratio` | Controls the overlap ratio between adjacent tiles in each dimension. When the objects that fall on the tile boundary are too large to fit completely in one of the tiles, increase the value of this parameter so that the objects fit in at least one of the tiles completely.<br> <br>  Must be a float in [0, 1).| 0.25 |
@@ -130,7 +127,7 @@ See the [object detection sample notebook](https://github.com/Azure/azureml-exam
 
 >[!NOTE]
 > All images in this article are made available in accordance with the permitted use section of the [MIT licensing agreement](https://choosealicense.com/licenses/mit/).
-> Copyright © 2020 Roboflow, Inc.
+> Copyright &copy; 2020 Roboflow, Inc.
 
 ## Next steps
 

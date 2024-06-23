@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 12/05/2022
+ms.date: 12/28/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -20,6 +20,8 @@ In Azure Front Door [Rule sets](front-door-rules-engine.md), a rule consists of 
 
 ::: zone pivot="front-door-classic"
 
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
+
 In Azure Front Door (classic) [Rules engines](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door (classic) Rules engines.
 
 ::: zone-end
@@ -30,7 +32,7 @@ You can use a match condition to:
 
 ::: zone pivot="front-door-standard-premium"
 
-* Filter requests based on a specific IP address, port, country, or region.
+* Filter requests based on a specific IP address, port, or country/region.
 * Filter requests by header information.
 * Filter requests from mobile devices or desktop devices.
 * Filter requests from request file name and file extension.
@@ -40,7 +42,7 @@ You can use a match condition to:
 
 ::: zone pivot="front-door-classic"
 
-* Filter requests based on a specific IP address, country, or region.
+* Filter requests based on a specific IP address, or country/region.
 * Filter requests by header information.
 * Filter requests from mobile devices or desktop devices.
 * Filter requests from request file name and file extension.
@@ -54,7 +56,7 @@ You can use a match condition to:
 
 ## Device type
 
-Use the **device type** match condition to identify requests that have been made from a mobile device or desktop device.
+Use the **device type** match condition to identify requests that is from a mobile device or desktop device.
 
 ### Properties
 
@@ -65,7 +67,7 @@ Use the **device type** match condition to identify requests that have been made
 
 ### Example
 
-In this example, we match all requests that have been detected as coming from a mobile device.
+In this example, we match all requests that were detected as coming from a mobile device.
 
 # [Portal](#tab/portal)
 
@@ -152,7 +154,7 @@ In this example, we match all requests that have been detected as coming from a 
 ::: zone pivot="front-door-standard-premium"
 ## HTTP version
 
-Use the **HTTP version** match condition to identify requests that have been made by using a specific version of the HTTP protocol.
+Use the **HTTP version** match condition to identify requests that are made by using a specific version of the HTTP protocol.
 
 > [!NOTE]
 > The **HTTP version** match condition is only available on Azure Front Door Standard/Premium.
@@ -166,7 +168,7 @@ Use the **HTTP version** match condition to identify requests that have been mad
 
 ### Example
 
-In this example, we match all requests that have been sent by using the HTTP 2.0 protocol.
+In this example, we match all requests that were sent by using the HTTP 2.0 protocol.
 
 # [Portal](#tab/portal)
 
@@ -208,7 +210,7 @@ In this example, we match all requests that have been sent by using the HTTP 2.0
 
 ## Request cookies
 
-Use the **request cookies** match condition to identify requests that have included a specific cookie.
+Use the **request cookies** match condition to identify requests that includes a specific cookie.
 
 > [!NOTE]
 > The **request cookies** match condition is only available on Azure Front Door Standard/Premium.
@@ -224,7 +226,7 @@ Use the **request cookies** match condition to identify requests that have inclu
 
 ### Example
 
-In this example, we match all requests that have included a cookie named `deploymentStampId` with a value of `1`.
+In this example, we match all requests that have a cookie named `deploymentStampId` with a value of `1`.
 
 # [Portal](#tab/portal)
 
@@ -270,7 +272,7 @@ In this example, we match all requests that have included a cookie named `deploy
 
 ## Post args
 
-Use the **post args** match condition to identify requests based on the arguments provided within a POST request's body. A single match condition matches a single argument from the POST request's body. You can specify multiple values to match, which will be combined using OR logic.
+Use the **post args** match condition to identify requests based on the arguments provided within a POST request's body. A single match condition matches a single argument from the POST request's body. You can specify multiple values to match, which can be combined using OR logic.
 
 > [!NOTE]
 > The **post args** match condition works with the `application/x-www-form-urlencoded` content type.
@@ -390,7 +392,7 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 ## Query string
 
-Use the **query string** match condition to identify requests that contain a specific query string. You can specify multiple values to match, which will be combined using OR logic.
+Use the **query string** match condition to identify requests that contain a specific query string. You can specify multiple values to match, which can be combined using OR logic.
 
 > [!NOTE]
 > The entire query string is matched as a single string, without the leading `?`.
@@ -491,7 +493,7 @@ In this example, we match all requests where the query string contains the strin
 
 ## Remote address
 
-The **remote address** match condition identifies requests based on the requester's location or IP address. You can specify multiple values to match, which will be combined using OR logic.
+The **remote address** match condition identifies requests based on the requester's location or IP address. You can specify multiple values to match, which can be combined using OR logic.
 
 * Use CIDR notation when specifying IP address blocks. The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
     * **IPv4 example**: `5.5.5.64/26` matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
@@ -510,7 +512,7 @@ The **remote address** match condition identifies requests based on the requeste
 
 ### Example
 
-In this example, we match all requests where the request hasn't originated from the United States.
+In this example, we match all requests where the request didn't originate from the United States.
 
 # [Portal](#tab/portal)
 
@@ -596,7 +598,7 @@ In this example, we match all requests where the request hasn't originated from 
 
 ## Request body
 
-The **request body** match condition identifies requests based on specific text that appears in the body of the request. You can specify multiple values to match, which will be combined using OR logic.
+The **request body** match condition identifies requests based on specific text that appears in the body of the request. You can specify multiple values to match, which can be combined using OR logic.
 
 > [!NOTE]
 > If a request body exceeds 64KB in size, only the first 64KB will be considered for the **request body** match condition.
@@ -611,7 +613,7 @@ The **request body** match condition identifies requests based on specific text 
 
 ### Example
 
-In this example, we match all requests where the request body contains the string `ERROR`. We transform the request body to uppercase before evaluating the match, so `error` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request body contains the string `ERROR`. We transform the request body to uppercase before evaluating the match, so `error` and other case variations also triggers this match condition.
 
 # [Portal](#tab/portal)
 
@@ -709,7 +711,7 @@ In this example, we match all requests where the request body contains the strin
 
 ## Request file name
 
-The **request file name** match condition identifies requests that include the specified file name in the request URL. You can specify multiple values to match, which will be combined using OR logic.
+The **request file name** match condition identifies requests that include the specified file name in the request URL. You can specify multiple values to match, which can be combined using OR logic.
 
 ### Properties
 
@@ -721,7 +723,7 @@ The **request file name** match condition identifies requests that include the s
 
 ### Example
 
-In this example, we match all requests where the request file name is `media.mp4`. We transform the file name to lowercase before evaluating the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file name is `media.mp4`. We transform the file name to lowercase before evaluating the match, so `MEDIA.MP4` and other case variations also triggers this match condition.
 
 # [Portal](#tab/portal)
 
@@ -819,7 +821,7 @@ In this example, we match all requests where the request file name is `media.mp4
 
 ## Request file extension
 
-The **request file extension** match condition identifies requests that include the specified file extension in the file name in the request URL. You can specify multiple values to match, which will be combined using OR logic.
+The **request file extension** match condition identifies requests that include the specified file extension in the file name in the request URL. You can specify multiple values to match, which can be combined using OR logic.
 
 > [!NOTE]
 > Don't include a leading period. For example, use `html` instead of `.html`.
@@ -834,7 +836,7 @@ The **request file extension** match condition identifies requests that include 
 
 ### Example
 
-In this example, we match all requests where the request file extension is `pdf` or `docx`. We transform the request file extension to lowercase before evaluating the match, so `PDF`, `DocX`, and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file extension is `pdf` or `docx`. We transform the request file extension to lowercase before evaluating the match, so `PDF`, `DocX`, and other case variations also trigger this match condition.
 
 # [Portal](#tab/portal)
 
@@ -935,7 +937,7 @@ In this example, we match all requests where the request file extension is `pdf`
 
 ## Request header
 
-The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists or to check if the header matches a specified value. You can specify multiple values to match, which will be combined using OR logic.
+The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists or to check if the header matches a specified value. You can specify multiple values to match, which can be combined using OR logic.
 
 ### Properties
 
@@ -1026,7 +1028,7 @@ In this example, we match all requests where the request contains a header named
 
 ## Request method
 
-The **request method** match condition identifies requests that use the specified HTTP request method. You can specify multiple values to match, which will be combined using OR logic.
+The **request method** match condition identifies requests that use the specified HTTP request method. You can specify multiple values to match, which can be combined using OR logic.
 
 ### Properties
 
@@ -1123,7 +1125,7 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ## Request path
 
-The **request path** match condition identifies requests that include the specified path in the request URL. You can specify multiple values to match, which will be combined using OR logic.
+The **request path** match condition identifies requests that include the specified path in the request URL. You can specify multiple values to match, which can be combined using OR logic.
 
 > [!NOTE]
 > The path is the part of the URL after the hostname and a slash. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
@@ -1134,8 +1136,8 @@ The **request path** match condition identifies requests that include the specif
 
 | Property | Supported values |
 |-|-|
-| Operator | <ul><li>All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request path** match condition.</li><li>**Wildcard**: Matches when the request path matches a wildcard expression. A wildcard expression can include the `*` character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but does not match `files/customer2/anotherfile.pdf`.<ul><li>In the Azure portal: `Wildcards`, `Not Wildcards`</li><li>In ARM templates: `Wildcard`; use the `negateCondition` property to specify _Not Wildcards_</li></ul></li></ul> |
-| Value | One or more string or integer values representing the value of the request path to match. If you specify a leading slash, it's ignored. If multiple values are specified, they're evaluated using OR logic. |
+| Operator | <ul><li>All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request path** match condition.</li><li>**Wildcard**: Matches when the request path matches a wildcard expression. A wildcard expression can include the `*` character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but doesn't match `files/customer2/anotherfile.pdf`.<ul><li>In the Azure portal: `Wildcards`, `Not Wildcards`</li><li>In ARM templates: `Wildcard`; use the `negateCondition` property to specify _Not Wildcards_</li></ul></li></ul> |
+| Value | One or more string or integer values representing the value of the request path to match. If you specify a leading slash, it gets ignored. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ::: zone-end
@@ -1145,14 +1147,14 @@ The **request path** match condition identifies requests that include the specif
 | Property | Supported values |
 |-|-|
 | Operator | All operators from the [standard operator list](#operator-list) are supported. However, the **Any** match condition matches every request, and the **Not Any** match condition doesn't match any request, when used with the **request path** match condition. |
-| Value | One or more string or integer values representing the value of the request path to match. If you specify a leading slash, it's ignored. If multiple values are specified, they're evaluated using OR logic. |
+| Value | One or more string or integer values representing the value of the request path to match. If you specify a leading slash, it gets ignored. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | Any transform from the [standard string transforms list](#string-transform-list). |
 
 ::: zone-end
 
 ### Example
 
-In this example, we match all requests where the request file path begins with `files/secure/`. We transform the request file extension to lowercase before evaluating the match, so requests to `files/SECURE/` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file path begins with `files/secure/`. We transform the request file extension to lowercase before evaluating the match, so requests to `files/SECURE/` and other case variations also triggers this match condition.
 
 # [Portal](#tab/portal)
 
@@ -1350,10 +1352,10 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 ## Request URL
 
-Identifies requests that match the specified URL. The entire URL is evaluated, including the protocol and query string, but not the fragment. You can specify multiple values to match, which will be combined using OR logic.
+Identifies requests that match the specified URL. The entire URL is evaluated, including the protocol and query string, but not the fragment. You can specify multiple values to match, which can be combined using OR logic.
 
 > [!TIP]
-> When you use this rule condition, be sure to include the protocol. For example, use `https://www.contoso.com` instead of just `www.contoso.com`.
+> When you use this rule condition, be sure to include the protocol and a trailing forward slash `/`. For example, use `https://www.contoso.com/` instead of just `www.contoso.com`.
 
 ### Properties
 
@@ -1465,7 +1467,7 @@ In this example, we match all requests where the request URL begins with `https:
 
 ## Host name
 
-The **host name** match condition identifies requests based on the specified hostname in the request from the client. The match condition uses the `Host` header value to evaluate the hostname. You can specify multiple values to match, which will be combined using OR logic. 
+The **host name** match condition identifies requests based on the specified hostname in the request from the client. The match condition uses the `Host` header value to evaluate the hostname. You can specify multiple values to match, which can be combined using OR logic. 
 
 ### Properties
 
@@ -1521,7 +1523,7 @@ In this example, we match all requests with a `Host` header that ends with `cont
 
 ## SSL protocol
 
-The **SSL protocol** match condition identifies requests based on the SSL protocol of an established TLS connection. You can specify multiple values to match, which will be combined using OR logic.
+The **SSL protocol** match condition identifies requests based on the SSL protocol of an established TLS connection. You can specify multiple values to match, which can be combined using OR logic.
 
 ### Properties
 
@@ -1574,7 +1576,7 @@ In this example, we match all requests that use the TLS 1.2 protocol.
 
 ## Socket address
 
-The **socket address** match condition identifies requests based on the IP address of the direct connection to Azure Front Door edge. You can specify multiple values to match, which will be combined using OR logic.
+The **socket address** match condition identifies requests based on the IP address of the direct connection to Azure Front Door edge. You can specify multiple values to match, which can be combined using OR logic.
 
 > [!NOTE]
 > If the client used an HTTP proxy or a load balancer to send the request, the socket address is the IP address of the proxy or load balancer.
@@ -1639,7 +1641,7 @@ In this example, we match all requests from IP addresses in the range 5.5.5.64/2
 
 ## Client port
 
-The **client port** match condition identifies requests based on the TCP port of the client that made the request. You can specify multiple values to match, which will be combined using OR logic. 
+The **client port** match condition identifies requests based on the TCP port of the client that made the request. You can specify multiple values to match, which can be combined using OR logic. 
 
 ### Properties
 
@@ -1692,7 +1694,7 @@ In this example, we match all requests with a client port of 1234.
 
 ## Server port
 
-The **server port** match condition identifies requests based on the TCP port of the Azure Front Door server that accepted the request. The port must be 80 or 443. You can specify multiple values to match, which will be combined using OR logic. 
+The **server port** match condition identifies requests based on the TCP port of the Azure Front Door server that accepted the request. The port must be 80 or 443. You can specify multiple values to match, which can be combined using OR logic. 
 
 ### Properties
 

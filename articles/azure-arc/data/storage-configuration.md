@@ -4,7 +4,6 @@ description: Explains Azure Arc-enabled data services storage configuration opti
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.custom: event-tier1-build-2022
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
@@ -140,7 +139,7 @@ Some services in Azure Arc for data services depend upon being configured to use
 
 |**Service**|**Persistent Volume Claims**|
 |---|---|
-|**ElasticSearch**|`<namespace>/logs-logsdb-0`, `<namespace>/data-logsdb-0`|
+|**OpenSearch**|`<namespace>/logs-logsdb-0`, `<namespace>/data-logsdb-0`|
 |**InfluxDB**|`<namespace>/logs-metricsdb-0`, `<namespace>/data-metricsdb-0`|
 |**Controller SQL instance**|`<namespace>/logs-controldb`, `<namespace>/data-controldb`|
 |**Controller API service**|`<namespace>/data-controller`|

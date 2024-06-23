@@ -5,7 +5,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/05/2023
+ms.date: 02/15/2024
 ms.reviewer: Xema Pathak
 
 ---
@@ -15,7 +15,7 @@ ms.reviewer: Xema Pathak
 This guide describes how to use Azure Monitor to monitor the health and performance of virtual machines and their workloads. It includes collection of telemetry critical for monitoring and analysis and visualization of collected data to identify trends. It also shows you how to configure alerting to be proactively notified of critical issues.
 
 > [!NOTE]
-> This scenario describes how to implement complete monitoring of your enterprise Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
+> This guide describes how to implement complete monitoring of your enterprise Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
 
 ## Types of machines
 
@@ -63,7 +63,7 @@ The articles in this guide provide guidance on configuring VM insights and using
 
 
 ## Security monitoring
-Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) and [Microsoft Sentinel](../../sentinel/index.yml). Configuration of these services is not included in this guide.
+Azure Monitor focuses on operational data, while security monitoring in Azure is performed by other services such as [Microsoft Defender for Cloud](../../defender-for-cloud/index.yml) and [Microsoft Sentinel](../../sentinel/index.yml). Configuration of these services is not included in this guide.
 
 > [!IMPORTANT]
 > The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.
@@ -72,7 +72,7 @@ The following table lists the integration points for Azure Monitor with the secu
 
 See [Design a Log Analytics workspace architecture](../logs/workspace-design.md) for guidance on the most effective workspace design for your requirements taking into account all your services that use them.
 
-| Integration point       | Azure Monitor | Microsoft Defender for Cloud | Microsoft Sentinel | Defender for Endpoint |
+| Integration point       | Azure Monitor | Microsoft<br>Defender for Cloud | Microsoft<br>Sentinel | Microsoft<br>Defender for Endpoint |
 |:---|:---:|:---:|:---:|:---:|
 | Collects security events     | X<sup>1</sup> | X | X | X |
 | Stores data in Log Analytics workspace | X | X | X |   | 
@@ -82,6 +82,10 @@ See [Design a Log Analytics workspace architecture](../logs/workspace-design.md)
 
 > [!IMPORTANT]
 > Azure Monitor agent is in preview for some service features. See [Supported services and features](../agents/agents-overview.md#supported-services-and-features) for current details.
+
+## Troubleshoot VM performance issues with Performance Diagnostics
+
+[The Performance Diagnostics tool](/troubleshoot/azure/virtual-machines/performance-diagnostics?toc=/azure/azure-monitor/toc.json) helps troubleshoot performance issues on Windows or Linux virtual machines by quickly diagnosing and providing insights on issues it currently finds on your machines. The tool does not analyze historical monitoring data you collect, but rather checks the current state of the machine for known issues, implementation of best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory.  
 
 
 ## Next steps

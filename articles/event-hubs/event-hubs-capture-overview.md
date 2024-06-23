@@ -2,7 +2,7 @@
 title: Capture streaming events - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of the Capture feature that allows you to capture events streaming through Azure Event Hubs. 
 ms.topic: article
-ms.date: 05/31/2022
+ms.date: 05/16/2023
 ---
 
 # Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage
@@ -16,8 +16,9 @@ Azure Event Hubs enables you to automatically capture the streaming data in Even
 Event Hubs Capture enables you to process real-time and batch-based pipelines on the same stream. This means you can build solutions that grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution, Event Hubs Capture makes working with streaming data easier.
 
 > [!IMPORTANT]
-> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub. 
-> - Event Hubs doesn't support capturing events in a **premium** storage account. 
+> - The destination storage (Azure Storage or Azure Data Lake Storage) account  must be in the same subscription as the event hub when not using managed identity for authentication.
+> - Event Hubs doesn't support capturing events in a premium storage account.
+> - Event Hubs capture supports any non-premium Azure storage account with support for block blobs.
 
 ## How Event Hubs Capture works
 
@@ -69,10 +70,30 @@ The capture feature is included in the premium tier so there is no additional ch
 Capture doesn't consume egress quota as it is billed separately. 
 
 ## Integration with Event Grid 
-You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to a Azure Synapse Analytics using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
+You can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: [Process and migrate captured Event Hubs data to an Azure Synapse Analytics using Event Grid and Azure Functions](store-captured-data-data-warehouse.md).
 
 ## Explore captured files
 To learn how to explore captured Avro files, see [Explore captured Avro files](explore-captured-avro-files.md).
+
+## Azure Storage account as a destination
+To enable capture on an event hub with Azure Storage as the capture destination, or update properties on an event hub with Azure Storage as the capture destination, the user or service principal must have an RBAC role with the following permissions assigned at the storage account scope. 
+
+```
+Microsoft.Storage/storageAccounts/blobServices/containers/write
+Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write
+```
+ 
+
+Without above permission, you will see below error: 
+
+```
+Generic: Linked access check failed for capture storage destination <StorageAccount Arm Id>.
+User or the application with object id <Object Id> making the request doesn't have the required data plane write permissions.
+Please enable Microsoft.Storage/storageAccounts/blobServices/containers/write, Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write permission(s) on above resource for the user or the application and retry.
+TrackingId:<ID>, SystemTracker:mynamespace.servicebus.windows.net:myhub, Timestamp:<TimeStamp>
+```
+
+The [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) is a built-in role with above permissions, so add the user account or the service principal to this role.  
 
 ## Next steps
 Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data Lake, Azure Data Factory, and Azure HDInsight, you can perform batch processing and other analytics using familiar tools and platforms of your choosing, at any scale you need.
