@@ -1,5 +1,5 @@
 ---
-title: Select a table plan based on usage patterns in a Log Analytics workspace
+title: Select a table plan based on data usage in a Log Analytics workspace
 description: Use the Auxiliary, Basic, and Analytics Logs plans to reduce costs and take advantage of advanced analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 05/01/2024
 ---
 
-# Select a table plan based on usage patterns in a Log Analytics workspace
+# Select a table plan based on data usage in a Log Analytics workspace
 
 You can use one Log Analytics workspace to store any type of log required for any purpose. For example:
 
