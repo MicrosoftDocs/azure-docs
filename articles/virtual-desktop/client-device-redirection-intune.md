@@ -237,7 +237,7 @@ To create and apply an app protection policy, follow the steps in [How to create
    > [!TIP]
    > If you disable clipboard redirection in an app configuration policy, you should set **Restrict cut, copy, and paste between other apps** to **Blocked**.
 
-- On the **Conditional launch** tab, we recommend you configure **Min app version** from the drop-down list. Enter a value based on your requirements for the minimum version of the app, then set the action to **Block access**.
+- On the **Conditional launch** tab, we recommend you configure **Min app version** from the drop-down list. Enter a value based on your requirements for the minimum version of the app, then set the action to **Block access**. A **Min OS version** as well as a **Max allowed device threat level** of **Secure** is also recommended. If your Primary MTD service is Defender for Endpoint, you must [configure Microsoft Defender for Endpoint in Intune](/mem/intune/protect/advanced-threat-protection-configure).
 
    For version details, see [What's new in Windows App](/windows-app/whats-new), [What's new in the Remote Desktop client for iOS and iPadOS](whats-new-client-ios-ipados.md), and [What's new in the Remote Desktop client for Android and Chrome OS](whats-new-client-android-chrome-os.md).
 
