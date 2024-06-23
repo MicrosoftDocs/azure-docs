@@ -51,6 +51,10 @@ map to the following concepts:
   count. For more information, see
   [Assignment definition - excluded scopes](./assignment-structure.md#excluded-scopes).
 
+> [!NOTE]  
+> Azure Policy can be assigned at management group, subscription and resource group level but it can’t be assigned at resource level. On the other hand, policy exclusion can be assigned at resource, resource group, and subscription level but not at management group level.
+
+
 In addition to the properties on the policy assignment, is the
 [policy exemption](./exemption-structure.md) object. Exemptions enhance the scope story by providing
 a method to identify a portion of an assignment to not be evaluated.
