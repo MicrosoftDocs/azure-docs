@@ -373,17 +373,13 @@ The following table describes the optional CRs available to deploy:
 
 <!--i don't see this in SAP docs, but im not sure we should go into such detail. is there something we can refer to? even if it's behind a paywall.-->
 
-The screenshots shown in this procedure are examples, and your SAP system may look different.
+This procedure provides a sample set of steps for how to import the Microsoft Sentinel solution CRs to your SAP system. Your SAP system may have different options and buttons. In such cases, refer to the SAP system documentation for exact instructions.
 
 1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
 
-    :::image type="content" source="media/preparing-sap/stms-import.png" alt-text="Screenshot of running the STMS import transaction.":::    
-
-1. Run the **STMS_IMPORT** transaction. To do this, in the **SAP Easy Access** screen, search for `STMS_IMPORT` and then press **ENTER**.
+1. Run the **STMS_IMPORT** transaction. For exampel, to do this, in the **SAP Easy Access** screen, search for `STMS_IMPORT` and then press **ENTER**.
 
 1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
-
-    :::image type="content" source="media/preparing-sap/import-queue-add.png" alt-text="Screenshot of adding an import queue.":::
 
 1. In the **Add Transport Requests to Import Queue** pop-up that appears, select the **Transp. Request** field.
 
@@ -399,13 +395,11 @@ The screenshots shown in this procedure are examples, and your SAP system may lo
 
     If you have remaining Transport Requests to add to the deployment, repeat this step as needed.
 
-1. Select the :::image type="icon" source="media/preparing-sap/import-requests-button.png" border="false"::: **Import Requests** button, and then in the **Start Import** window, select the **Target Client** field.
+1. Select the **Import Requests** button, and then in the **Start Import** window, select the **Target Client** field.
 
-1. The **Input Help..** dialog appears. Select the number of the client you want to deploy the CRs to (`001` in our example), then select the green checkmark to confirm.
+1. The **Input Help..** dialog appears. Select the number of the client you want to deploy the CRs to, then select the green checkmark to confirm.
 
 1. Back in the **Start Import** window, select the **Options** tab, mark the **Ignore Invalid Component Version** checkbox, and then select the green checkmark to confirm.
-
-    :::image type="content" source="media/preparing-sap/start-import.png" alt-text="Screenshot of the start import window.":::
 
 1. In the **Start import** confirmation dialog, select **Yes** to confirm the import.
 
@@ -413,15 +407,7 @@ The screenshots shown in this procedure are examples, and your SAP system may lo
 
 1. To review the import status, in the **Import Queue** window select **More > Go To > Import History**.
 
-    :::image type="content" source="media/preparing-sap/import-history.png" alt-text="Screenshot of import history.":::
-
 1. If you deployed the *NPLK900202* CR, it's expected to display a **Warning**. Select the entry with the warning to verify that the warnings displayed are of type  `"Table \<tablename\>` was activated."
-
-    For example:
-
-    :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lightbox.png":::
-
-    :::image type="content" source="media/preparing-sap/import-warning.png" alt-text="Screenshot of import warning message display.":::
 
 ## Verify that the PAHI table is updated at regular intervals
 
@@ -453,34 +439,22 @@ The screenshots shown in this procedure are examples, and your SAP system may lo
 
 1. In the **Job Name** field, enter *SAP_COLLECTOR_FOR_PERFMONITOR*.
 
-    :::image type="content" source="media/preparing-sap/pahi-table-job-name.png" alt-text="Screenshot of adding the job used to monitor the SAP PAHI table.":::
-
-1. Select **Step** and enter the following details:
+1. Select **Step**, enter the following details, and then save the configuration.
 
     - **User**: Enter *DDIC*.
     - **ABAP Program Name**: Enter *RSCOLL00*.
-
-1. Save the configuration as shown in the following image:
-
-    :::image type="content" source="media/preparing-sap/pahi-table-define-user.png" alt-text="Screenshot of defining a user for the job used to monitor the SAP PAHI table.":::
 
 1. Press **F3** to return to the previous screen, and then select **Start Condition** to define the start condition.
 
 1. Select **Immediate** and then select the **Periodic job** checkbox.
 
-    :::image type="content" source="media/preparing-sap/pahi-table-periodic-job.png" alt-text="Screenshot of defining the job used to monitor the SAP PAHI table as periodic.":::
-
 1. Select **Period values** and then select **Hourly**.
 
-1. Select **Save** inside the dialog, and then select **Save** at the bottom.
-
-    :::image type="content" source="media/preparing-sap/pahi-table-hourly-job.png" alt-text="Screenshot of defining the job used to monitor the SAP PAHI table as hourly.":::
+1. Select **Save** both inside the dialog, and then select **Save** at the bottom.
 
 1. To release the job, select **Save** at the top.
 
-    :::image type="content" source="media/preparing-sap/pahi-table-release-job.png" alt-text="Screenshot of releasing the job used to monitor the SAP PAHI table as hourly.":::
-
-## Next steps
+## Next step
 
 Your SAP environment is now fully prepared to deploy a data connector agent. A role and profile are provisioned, a user account is created and assigned the relevant role profile, and CRs are deployed as needed for your environment.
 

@@ -13,39 +13,17 @@ ms.date: 03/23/2023
 
 This article shows you how to deploy the Microsoft Sentinel solution for SAP applications security content from the content hub to your Microsoft Sentinel workspace. This content makes up the remaining parts of the Microsoft Sentinel solution for SAP.
 
+:::image type="content" source="media/deployment-steps/install-solution.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
+
 ## Prerequisites
 
 To deploy the Microsoft Sentinel solution for SAP applications from the content hub, you need:
 
 - A Microsoft Sentinel instance.
 - A defined Microsoft Sentinel workspace, and read and write permissions to the workspace.
-- A Microsoft Sentinel for SAP data connector set up.
-
-## Check deployment milestones
-
-Track your SAP solution deployment journey through this series of articles:
-
-1. [Deployment overview](deployment-overview.md)
-
-1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-
-1. [Work with the solution in multiple workspaces](cross-workspace.md) (preview)
-
-1. [Prepare your SAP environment](preparing-sap.md)
-
-1. [Deploy the data connector agent](deploy-data-connector-agent-container.md)
-
-1. **Deploy the Microsoft Sentinel solution for SAP applications from the content hub** (*You are here*)
-
-1. [Configure the Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
-
-1. Optional deployment steps:
-
-   - [Configure the SAP data connector to use SNC](configure-snc.md)
-   - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
-   - [Configure audit log monitoring rules](configure-audit-log-rules.md)
-   - [Deploy the SAP data connector manually](sap-solution-deploy-alternate.md)
-   - [Select SAP ingestion profiles](select-ingestion-profiles.md)
+- [A Microsoft Sentinel for SAP data connector agent set up.](deploy-data-connector-agent-container.md)
 
 ## Deploy the security content from the content hub
 
@@ -55,11 +33,11 @@ Deploying the Microsoft Sentinel solution for SAP applications causes the Micros
 
 To deploy SAP solution security content:
 
-1. In Microsoft Sentinel, on the left pane, select **Content hub (Preview)**.
+1. From the unified security operations platform, select **Microsoft Sentinel > Content management > Content hub**. In the Azure portal, in Microsoft Sentinel, select **Content hub**.
 
-    The **Content hub (Preview)** page displays a filtered, searchable list of solutions.
+    The **Content hub** page displays a filtered, searchable list of solutions.
 
-1. To open the SAP solution page, select **Microsoft Sentinel solution for SAP applications**.
+1. To open the SAP solution page, search for and select **SAP applications**. In the side pane, scroll down and select either **Install** to open the solution details page. For example:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
 

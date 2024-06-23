@@ -12,7 +12,7 @@ ms.date: 05/26/2024
 
 This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications. Reviewing and ensuring that you have or understand all the prerequisites is the first step in deploying the Microsoft Sentinel solution for SAP applications.
 
-:::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted.":::
+:::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
 Content in this article is relevant for your security, infrastructure, and  SAP teams.
 
@@ -93,7 +93,7 @@ If you choose to retrieve additional information with the [NPLK900202 optional C
 This process is described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
  
 --> 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md)

@@ -17,9 +17,9 @@ ms.collection: usx-security
 
 For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
 
-This article describes how to deploy the container that hosts the SAP data connector agent and connect to your SAP system, and is the third step in deploying the Microsoft Sentinel solution for SAP applications. Perform the steps in this article in the order that they're presented.
+This article describes how to deploy the container that hosts the SAP data connector agent and connect to your SAP system, and is the third step in deploying the Microsoft Sentinel solution for SAP applications. Make sure to perform the steps in this article in the order that they're presented.
 
-:::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Deploy your data agent container step.":::
+:::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Deploy your data agent container step." border="false" :::
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -38,7 +38,6 @@ The procedures in this step require coordination between your security, infrastr
 Watch a video demononstration of the deployment process described in this article.
 <br>
 > [!VIDEO https://www.youtube.com/embed/bg0vmUvcQ5Q?si=hugWYn1wjlq4seCR]
-
 
 ## Create a virtual machine and configure access to your credentials
 
@@ -425,10 +424,19 @@ If you're using a configuration file to store your credentials, see [Deploy and 
 
 ---
 
-## Next steps
+## Check health and connectivity
+
+We recommend periodically checking on your data connector agent's health and connectivity, as shown in the following video:
+
+<br>
+> [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
+
+## Related content
+
+For more video content, see the [Microsoft Security Community YouTube channel](https://www.youtube.com/@MicrosoftSecurityCommunity).
+
+## Next step
 
 Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP applications content:
 > [!div class="nextstepaction"]
 > [Deploy the solution content from the content hub](deploy-sap-security-content.md)
-
-See this [YouTube video](https://youtu.be/FasuyBSIaQM), on the [Microsoft Security Community YouTube channel](https://www.youtube.com/@MicrosoftSecurityCommunity), for guidance on checking the health and connectivity of the SAP connector.
