@@ -163,7 +163,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 ### Resources covered by Azure Policy
 
-Although a policy can be assigned at the management group level, _only_ resources at the subscription or resource group level are evaluated. Policy can’t be applied at resource level.
+Although a policy can be assigned at the management group level, _only_ resources at the subscription or resource group level are evaluated. Policy can’t be applied at resource level. However, you can assign policy exclusion at resource, resource group, and subscription level but not at management group level.
 
 For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
 
