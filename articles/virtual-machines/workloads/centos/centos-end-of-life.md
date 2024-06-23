@@ -1,14 +1,14 @@
 ---
 title: CentOS end-of-life (EOL) guidance
 description: Understand your options for moving CentOS workloads
-author: clausw
+author: fossygirl
 ms.service: virtual-machines
 ms.subservice: vm-linux-setup-configuration
 ms.custom: linux-related-content, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 12/1/2023
-ms.author: chasecrum
+ms.author: carols
 ---
 # CentOS End-Of-Life guidance
 

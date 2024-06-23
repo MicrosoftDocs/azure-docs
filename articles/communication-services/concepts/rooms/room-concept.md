@@ -100,7 +100,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
-| - Mute remote user | ✔️ | ❌ | ❌ |
+| - Mute remote user ** | ✔️ | ❌ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
 | - Active speaker | ✔️ | ✔️ | ✔️ |
 | - Choose speaker for calls | ✔️ | ✔️ | ✔️ |
@@ -135,6 +135,8 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Call participants using phone calls | ✔️ | ❌ | ❌ |
 
 \* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
+
+** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Event handling
 

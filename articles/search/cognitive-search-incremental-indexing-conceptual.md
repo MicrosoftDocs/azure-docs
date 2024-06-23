@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/16/2024
+ms.date: 06/18/2024
 ---
 
 # Incremental enrichment and caching in Azure AI Search
@@ -17,6 +17,8 @@ ms.date: 02/16/2024
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
 *Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur pay-as-you-go processing charges for API calls to Azure AI services. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document. Although caching is billable (it uses Azure Storage), the overall cost of enrichment is reduced because the costs of storage are less than image extraction and AI processing.
+
+To ensure synchronization between your data source data and your index, it's important to understand your unique [data source](search-data-sources-gallery.md) change and deletion tracking prerequisites. This guide specifically addresses how to manage incremental modifications in terms of your skills processing and how to utilize cache for this purpose.
 
 When you enable caching, the indexer evaluates your updates to determine whether existing enrichments can be pulled from the cache. Image and text content from the document cracking phase, plus skill outputs that are upstream or orthogonal to your edits, are likely to be reusable.
 

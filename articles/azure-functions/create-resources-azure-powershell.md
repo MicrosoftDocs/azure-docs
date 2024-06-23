@@ -33,7 +33,7 @@ This article contains the following examples:
 
 [!INCLUDE [azure-powershell-requirements](../../includes/azure-powershell-requirements.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a serverless function app for C# 
 
@@ -85,7 +85,7 @@ The following script creates a Python function app on Linux and creates and moun
 
 Mounted file shares are only supported on Linux. For more information, see [Mount file shares](storage-considerations.md#mount-file-shares).
 
-[!INCLUDE [powershell-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/powershell-samples-clean-up.md)]
+[!INCLUDE [powershell-samples-clean-up](../../includes/powershell-samples-clean-up.md)]
 
 ## Next steps
 

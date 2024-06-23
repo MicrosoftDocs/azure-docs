@@ -547,6 +547,7 @@ ml_client.models.archive(name="run-model-example", version="1")
 
 ## Related content
 
+- [Share models, components, and environments across workspaces with registries](how-to-share-models-pipelines-across-workspaces-with-registries.md)
 - [Azure Machine Learning package client library for Python - version 1.16.1](https://aka.ms/sdk-v2-install)
 - [Azure CLI ml extension](/cli/azure/ml)
 - [MLflow and Azure Machine Learning](concept-mlflow.md)

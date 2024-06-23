@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 5/23/2024
+ms.date: 6/13/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -104,14 +104,13 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Failed to start revert operation on ASE in hybrid state, please try again later.    |This error appears if you try to revert the migration but something goes wrong. This error doesn't affect either your old or your new environment.     |Open a support case to engage support to resolve your issue.     |
 |This ASE cannot be migrated without downtime.    |This error appears if you try to use the side-by-side migration feature on an App Service Environment v1.   |The side-by-side migration feature doesn't support App Service Environment v1. Migrate using the [in-place migration feature](migrate.md) or one of the [manual migration options](migration-alternatives.md).     |
 |Migrate is not available for this subscription.    |Support needs to be engaged for migrating this App Service Environment.|Open a support case to engage support to resolve your issue.|
-|Zone redundant migration cannot be called since the IP addresses created during pre-migrate are not zone redundant.    |This error appears if you attempt a zone redundant migration but didn't create zone redundant IPs during the IP generation step.    |Open a support case to engage support if you need to enable zone redundancy. Otherwise, you can migrate without enabling zone redundancy.     |
+|Zone redundant migration cannot be called since the IP addresses created during pre-migrate are not zone redundant.    |This error appears if you attempt a zone redundant migration but the IPs generated during the IP generation step were not created as zone redundant. The platform attempts to make all IPs zone redundant to ensure backend resiliency.   |Open a support case to engage support if you need to enable zone redundancy. The engineers will revert the migration and allow for another attempt to create the IPs. Otherwise, you can migrate without enabling zone redundancy.     |
 |Migrate cannot be called if IP SSL is enabled on any of the sites.    |App Service Environments that have sites with IP SSL enabled can't be migrated using the side-by-side migration feature. |Remove the IP SSL from all of your apps in the App Service Environment to enable the migration feature. |
 |Cannot migrate within the same subnet.  |The error appears if you specify the same subnet that your current environment is in for placement of your App Service Environment v3.     |You must specify a different subnet for your App Service Environment v3. If you need to use the same subnet, migrate using the [in-place migration feature](migrate.md).     |
 |Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) is met. |Remove unneeded environments or contact support to review your options.  |
 |Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. In some cases, an upgrade is initiated when visiting the migration page if your App Service Environment isn't on the current build.  |Wait until the upgrade finishes and then migrate.   |
 |App Service Environment management operation in progress.    |Your App Service Environment is undergoing a management operation. These operations can include activities such as deployments or upgrades. Migration is blocked until these operations are complete.   |You can migrate once these operations are complete.  |
 |Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The Microsoft team must manually change the InternalLoadBalancingMode. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode. |
-|Migration is invalid. Your ASE needs to be upgraded to the latest build to ensure successful migration. We will upgrade your ASE now. Please try migrating again in few hours once platform upgrade has finished. |Your App Service Environment isn't on the minimum build required for migration. An upgrade is started. Your App Service Environment isn't impacted, but you can't scale or make changes to your App Service Environment while the upgrade is in progress. You can't migrate until the upgrade finishes. |Wait until the upgrade finishes and then migrate. |
 |Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](#use-the-side-by-side-migration-feature).  |
 |Full migration cannot be called on Ase with custom dns suffix set but without an AseV3 Custom Dns Suffix Configuration configured. |Your existing App Service Environment uses a custom domain suffix. You have to configure custom domain suffix for your App Service Environment v3 during the migration process. |Configure a [custom domain suffix](./how-to-custom-domain-suffix.md). If you no longer want to use a custom domain suffix, you can remove it once the migration is complete. |
 
@@ -144,8 +143,6 @@ The platform creates the [the new outbound IP addresses](networking.md#addresses
 When completed, the new outbound IPs that your future App Service Environment v3 uses are created. These new IPs have no effect on your existing environment.
 
 You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-validate-your-app-service-environment-v3-and-complete-migration). You don't get the inbound IP at this point in the process because there are dependencies on App Service Environment v3 resources that get created during the migration step. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
-
-This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
 ### Update dependent resources with new outbound IPs
 
@@ -184,6 +181,8 @@ There's no application downtime during the migration, but as in the IP generatio
 > [!IMPORTANT]
 > Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration.
 >
+
+This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
 Side-by-side migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. During migration, scaling and environment configurations are blocked and the following events occur:
 
@@ -275,23 +274,10 @@ az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigrationUpgra
 
 ### 4. Generate outbound IP addresses for your new App Service Environment v3
 
-Create a file called *zoneredundancy.json* with the following details for your region and zone redundancy selection.
-
-```json
-{
-    "location":"<region>",    
-    "Properties": {
-        "zoneRedundant": "<true/false>"
-    }
-}
-```
-
-You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy can be configured by setting the `zoneRedundant` property to `true`. Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time.
-
 Run the following command to create new outbound IP addresses. This step takes about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time.
 
 ```azurecli
-az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigration&api-version=2022-03-01" --body @zoneredundancy.json
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigration&api-version=2022-03-01"
 ```
 
 Run the following command to check the status of this step:
@@ -344,7 +330,9 @@ If your existing App Service Environment uses a custom domain suffix, you need t
 > If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment v3's new subnet. If you're accessing your key vault using a private endpoint, ensure you've configured private access correctly with the new subnet.
 >
 
-To set these configurations, including identifying the subnet you selected earlier, create another file called *parameters.json* with the following details based on your scenario. Be sure to use the new subnet that you selected for your new App Service Environment v3. Don't include the properties for a custom domain suffix if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property and set it to the same value you used in the outbound IP generation step. **You must use the same value for zone redundancy that you used in the outbound IP generation step.**
+You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy can be configured by setting the `zoneRedundant` property to `true`. Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time.
+
+To set these configurations, including identifying the subnet you selected earlier, create a file called *parameters.json* with the following details based on your scenario. Be sure to use the new subnet that you selected for your new App Service Environment v3. Don't include the properties for a custom domain suffix if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property and set it according to your resiliency requirement.
 
 If you're migrating without a custom domain suffix, use this code:
 
