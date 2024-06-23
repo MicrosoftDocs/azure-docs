@@ -184,6 +184,22 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 ---
 
+## Configure Datadog
+
+# [Windows](#tab/windows)
+* The configuration options are different depending on which Datadog site your organization is using. Therefore please reference and follow the steps here in the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
+
+# [Linux](#tab/windows)
+* The configuration options are different depending on which Datadog site your organization is using. Therefore please reference and follow the steps here in the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
+
+## Configure Dynatrace
+
+# [Windows](#tab/windows)
+* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, please follow the steps in the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
+
+# [Linux](#tab/windows)
+* Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, please follow the steps in the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
+
 ## Next steps
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
