@@ -1,18 +1,17 @@
 ---
 title: Overview - Oracle Database@Azure 
-description: Learn about Oracle Database@Azure.
+description: Overview - Oracle Database@Azure.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 12/12/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, references_regions
 ms.author: jacobjaygbay
 ---
 
 
-# Overview - Oracle Database@Azure 
+# Overview - Oracle Database@Azure
 
 Oracle Database@Azure is an Oracle database service running on Oracle Cloud Infrastructure (OCI), colocated in Microsoft data centers. This ensures that the Oracle Database@Azure service has the fastest possible access to Azure resources and applications.
 
@@ -38,23 +37,14 @@ Billing and payment for the service is done through Azure. Payment for Oracle Da
 
 Oracle Database@Azure is available in the following locations. Oracle Database@Azure infrastructure resources must be provisioned in the Azure regions listed.
 
-### United States
+|Azure region|Oracle Exadata Database@Azure|Oracle Autonomous Database@Azure|
+|-------------------------|:-------------:|:--------------:|
+|East US (Virginia)|&check; | &check;|
+|Germany West Central (Frankfurt)| &check;| |
+|France Central (Paris)|&check; | |
+|UK South (London)|&check; | |
+|Australia East (Sydney)| &check;| |
 
-|Azure region|
-|------------|
-|East US (Virginia)|
-
-### Germany
-
-|Azure region|
-|------------|
-|Germany West Central (Frankfurt)|
-
-### United Kingdom
-
-|Azure region|
-|------------|
-|UK South (London)
 
 ## Azure Support scope and contact information
 

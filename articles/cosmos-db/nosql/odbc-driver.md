@@ -42,7 +42,7 @@ You can do SQL operations against the normalized tables and views, including gro
 
     | Installer | Supported operating systems |
     | --- | --- |
-    | [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/cosmos-odbc-64x64) for 64-bit Windows | 64-bit versions of Windows 8.1 or later, Windows 8, Windows 7. 64-bit versions of  Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2. |
+    | [Microsoft Azure Cosmos DB ODBC 64-bit.msi](https://aka.ms/cosmos-odbc-64x64) for 64-bit Windows | 64-bit versions of Windows 8.1 or later, Windows 8, Windows 7. 64-bit versions of  Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2. Windows 10. Windows Server 2012 R2. Windows Server 2016 |
     | [Microsoft Azure Cosmos DB ODBC 32x64-bit.msi](https://aka.ms/cosmos-odbc-32x64) for 32-bit on 64-bit Windows | 64-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, Windows Vista. 64-bit versions of Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, and Windows Server 2003. |
     | [Microsoft Azure Cosmos DB ODBC 32-bit.msi](https://aka.ms/cosmos-odbc-32x32) for 32-bit Windows | 32-bit versions of Windows 8.1 or later, Windows 8, Windows 7, Windows XP, and Windows Vista. |
 

@@ -230,7 +230,7 @@ Potential reasons:
 
 * Are the other components instrumented with Application Insights?
 * Are they using the latest stable Application Insights SDK?
-* If these components are separate Application Insights resources, validate you have [access](resources-roles-access-control.md).
+* If these components are separate Application Insights resources, validate you have [access](../roles-permissions-security.md).
 If you do have access and the components are instrumented with the latest Application Insights SDKs, let us know via the feedback channel in the upper-right corner.
 
 ### I see duplicate rows for the dependencies. Is this behavior expected?

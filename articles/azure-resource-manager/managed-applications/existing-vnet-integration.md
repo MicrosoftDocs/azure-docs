@@ -1,7 +1,7 @@
 ---
 title: Deploy to existing virtual network
 description: Describes how to enable users of your managed application to select an existing virtual network. The virtual network can be outside of the managed application.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ---
 

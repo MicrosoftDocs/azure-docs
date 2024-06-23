@@ -4,7 +4,7 @@ description: In this tutorial, learn how to use the information gathered in the 
 ms.topic: tutorial
 ms.custom: "engagement-fy23, devx-track-azurecli"
 ms.service: azure-vmware
-ms.date: 12/08/2023
+ms.date: 5/15/2024
 ---
 
 # Deploy and configure Azure VMware Solution
@@ -42,7 +42,7 @@ In the planning phase, you defined whether to use an *existing* or *new* Express
 
 | If | Then  |
 | --- | --- |
-| You don't already have a virtual network...     |  Create the following:<ol><li><a href="tutorial-configure-networking.md#create-a-vnet-manually">Virtual network</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>        |
+| You don't already have a virtual network...     |  Create the following:<ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network-manually">Virtual network</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>        |
 | You already have a virtual network **without** a GatewaySubnet...   | Create the following: <ol><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>          |
 | You already have a virtual network **with** a GatewaySubnet... | Create the following: <ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>    |
 
@@ -65,9 +65,9 @@ Ensure connectivity between the Azure Virtual Network where the ExpressRoute ter
 
    1. On the left, select **Effective routes**. A list of address prefixes that are contained within the `/22` CIDR block you entered during the deployment phase displays.
 
-1. To sign in to both vCenter Server and NSX-T Manager, open a web browser and sign in to the same virtual machine used for network route validation.  
+1. To sign in to both vCenter Server and NSX Manager, open a web browser and sign in to the same virtual machine used for network route validation.  
 
-   Find the vCenter Server and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
+   Find the vCenter Server and NSX Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **VMware credentials**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot displaying private cloud vCenter and NSX Manager URLs and credentials in Azure portal.":::
 

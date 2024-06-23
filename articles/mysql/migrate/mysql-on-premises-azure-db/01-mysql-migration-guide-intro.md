@@ -1,19 +1,18 @@
 ---
 title: "Migrate MySQL on-premises to Azure Database for MySQL introduction"
 description: "Migration guide from MySQL on-premises to Azure Data base for MySQL"
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.reviewer: maghan
-ms.custom:
-ms.date: 06/21/2021
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL
 
-[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 This migration guide is designed to provide stackable and actionable information for MySQL customers and software integrators seeking to migrate MySQL workloads to [Azure Database for MySQL](../../overview.md). This guide gives applicable knowledge that applies to most cases and provides guidance that leads to the successful planning and execution of a MySQL migration to Azure.
 
@@ -31,13 +30,13 @@ MySQL has a rich history in the open-source community and has become popular wit
 
 In addition to the PaaS offering, it's still possible to run MySQL in Azure VMs. Reference the [Choose the right MySQL Server option in Azure](../../select-right-deployment-type.md) article to decide what deployment type is most appropriate for the target data workload.
 
-![Comparison of MySQL environments](./media/image3.jpg)
+:::image type="content" source="media/01-mysql-migration-guide-intro/image3.jpg" alt-text="Comparison of MySQL environments." lightbox="media/01-mysql-migration-guide-intro/image3.jpg":::
 
 **Comparison of MySQL environments**
 
-This guide focuses entirely on migrating the on-premises MySQL workloads to the Platform as a Service Azure Database for MySQL offering due to its various advantages over Infrastructure as a Service (IaaS) such as scale-up and scale-out, pay-as-you-go, high availability, security, and manageability features.  
+This guide focuses entirely on migrating the on-premises MySQL workloads to the Platform as a Service Azure Database for MySQL offering due to its various advantages over Infrastructure as a Service (IaaS) such as scale-up and scale-out, pay-as-you-go, high availability, security, and manageability features.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Representative Use Case](./02-representative-use-case.md)
+> [Representative Use Case](02-representative-use-case.md)

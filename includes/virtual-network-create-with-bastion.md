@@ -5,7 +5,7 @@
  author: asudbring
  ms.service: virtual-network
  ms.topic: include
- ms.date: 06/06/2023
+ ms.date: 06/17/2024
  ms.author: allensu
  ms.custom: include file
 ---
@@ -18,7 +18,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. On the **Virtual networks** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+1. On the **Basics** tab of **Create virtual network**, enter, or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -35,10 +35,10 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
 1. In the **Azure Bastion** section, select **Enable Bastion**.
 
-    Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](../articles/bastion/bastion-overview.md).
+    Bastion uses your browser to connect to VMs in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
 
     > [!NOTE]
-    > [!INCLUDE [Pricing](bastion-pricing.md)]
+    > [!INCLUDE [Pricing](./bastion-pricing.md)]
 
 1. In **Azure Bastion**, enter or select the following information:
 
@@ -57,13 +57,14 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     | Setting | Value |
     |---|---|
-    | **Subnet details** |  |
-    | Subnet template | Leave the default of **Default**. |
+    | Subnet purpose | Leave the default of **Default**. |
     | Name | Enter **subnet-1**. |
+    | **IPv4** |  |
+    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Leave the default of **10.0.0.0**. |
-    | Subnet size | Leave the default of **/24 (256 addresses)**. |
+    | Size | Leave the default of **/24 (256 addresses)**. |
 
-    :::image type="content" source="./media/virtual-network-create-with-bastion/address-subnet-space.png" alt-text="Screenshot of configuration details for a subnet.":::
+    :::image type="content" source="./media/virtual-network-create-with-bastion/address-subnet-space.png" alt-text="Screenshot of configuration details for a subnet." lightbox="./media/virtual-network-create-with-bastion/address-subnet-space.png":::
 
 1. Select **Save**.
 

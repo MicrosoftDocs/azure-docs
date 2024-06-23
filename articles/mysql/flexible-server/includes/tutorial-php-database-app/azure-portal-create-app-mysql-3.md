@@ -1,8 +1,9 @@
 ---
 author: cephalin
 ms.author: cephalin
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.topic: include
-ms.date: 07/07/2022
 ---
 The deployment takes a few minutes to complete, and creates the following resources:
 

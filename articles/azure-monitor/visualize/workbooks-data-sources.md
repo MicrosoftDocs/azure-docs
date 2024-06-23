@@ -67,10 +67,14 @@ To make a query control that uses this data source, use the **Query type** dropd
 
 Azure Workbooks supports Azure Resource Manager REST operations so that you can query the management.azure.com endpoint without providing your own authorization header token.
 
-To make a query control that uses this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Provide the appropriate parameters, such as **Http method**, **url path**, **headers**, **url parameters**, and **body**.
+To make a query control that uses this data source, use the **Data source** dropdown and select **Azure Resource Manager**. Provide the appropriate parameters, such as **Http method**, **url path**, **headers**, **url parameters**, and **body**.  Azure Resource Manager data source is intended to be used as a data source to power data *visualizations*; as such, it does not support `PUT` or `PATCH` operations.  The data source supports the following HTTP methods, with these expecations and limitations:
 
+* `GET` - the most common operation for visualization, execute a query and parse the `JSON` result using settings in the "Result Settings" tab. 
+* `GETARRAY` - for ARM APIs that may return multiple "pages" of results using the ARM standard `nextLink` or `@odata.nextLink` style response (See [Async operations, throttling, and paging](/rest/api/azure/#async-operations-throttling-and-paging), this method will make followup calls to the API for each `nextLink`, and merge those results into an array of results.
+* `POST` - This method is used for APIs that pass information in a POST body.
+  
 > [!NOTE]
-> Only GET, POST, and HEAD operations are currently supported.
+> The Azure Resource Manager data source only supports results that return a 200 `OK` response, indicating the result is synchronous.  APIs returning asynchronous results with 202 `ACCEPTED` asynchronous result and a header with a result URL are not supported.
 
 ## Azure Data Explorer
 
@@ -94,7 +98,13 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 
 Merging data from different sources can enhance the insights experience. An example is augmenting active alert information with related metric data. Merging data allows users to see not just the effect (an active alert) but also potential causes, for example, high CPU usage. The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
 
-With workbooks, you can query different data sources. Workbooks also provide simple controls that you can use to merge or join data to provide rich insights. The *merge* control is the way to achieve it.
+With workbooks, you can query different data sources. Workbooks also provide simple controls that you can use to merge or join data to provide rich insights. The *merge* control is the way to achieve it.  A single merge data source can do many merges in one step.  For example, a *single* merge data source can merge results from a step using Azure Resource Graph with Azure Metrics, and then merge that result with another step using the Azure Resource Manager data source in one query item.
+
+> [!NOTE]
+> Although hidden query and metrics steps run if they're referenced by a merge step, hidden query items that use the merge data source don't run while hidden.
+> A step that uses merge and attempts to reference a hidden step by using merge data source won't run until that hidden step becomes visible.
+> A single merge step can merge many data sources at once.  There's rarely a case where a merge data source will reference another merge data source.
+
 
 ### Combine alerting data with Log Analytics VM performance data
 

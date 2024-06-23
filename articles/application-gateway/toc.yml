@@ -279,6 +279,8 @@
         href: application-gateway-create-probe-classic-ps.md
       - name: Resource Manager PowerShell
         href: application-gateway-create-probe-ps.md
+  - name: Deploy Application Gateway Basic
+    href: deploy-basic-portal.md
   - name: Configure App Service
     href: configure-web-app.md
   - name: Schedule autoscaling

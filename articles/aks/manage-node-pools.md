@@ -58,7 +58,7 @@ In this example, we upgrade the *mynodepool* node pool. Since there are two node
 3. List the status of your node pools using the [`az aks nodepool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
      The following example output shows *mynodepool* is in the *Upgrading* state:
@@ -144,7 +144,7 @@ As your application workload demands change, you may need to scale the number of
 2. List the status of your node pools using the [`az aks node pool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
      The following example output shows *mynodepool* is in the *Scaling* state with a new count of five nodes:
@@ -188,7 +188,7 @@ For more information, see [use the cluster autoscaler](cluster-autoscaler.md#use
 
 ## Remove specific VMs in the existing node pool (Preview)
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 1. Register or update the `aks-preview` extension using the [`az extension add`][az-extension-add] or [`az extension update`][az-extension-update] command.
 
@@ -258,18 +258,27 @@ As your workload demands change, you can associate existing capacity reservation
 * Create a new cluster and assign the newly created identity.
 
   ```azurecli-interactive
-    az aks create --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
+    az aks create \
+        --resource-group $RG_NAME \
+        --name $CLUSTER_NAME \
+        --location $LOCATION \
         --node-vm-size $VM_SKU --node-count $NODE_COUNT \
-        --assign-identity $IDENTITY_ID --enable-managed-identity         
+        --assign-identity $IDENTITY_ID \
+        --generate-ssh-keys 
   ```
 
 * You can also assign the user-managed identity on an existing managed cluster with update command.
 
-  ```azurecli-interactive
-    az aks update --resource-group $RG_NAME --name $CLUSTER_NAME --location $LOCATION \
-            --node-vm-size $VM_SKU --node-count $NODE_COUNT \
-            --assign-identity $IDENTITY_ID --enable-managed-identity         
-  ```
+    ```azurecli-interactive
+    az aks update \
+        --resource-group $RG_NAME \
+        --name $CLUSTER_NAME \
+        --location $LOCATION \
+        --node-vm-size $VM_SKU \
+        --node-count $NODE_COUNT \
+        --enable-managed-identity \
+        --assign-identity $IDENTITY_ID         
+    ```
 
 ### Associate an existing capacity reservation group with a node pool
 
@@ -296,7 +305,13 @@ NODEPOOL_NAME=myNodepool
 CRG_NAME=myCRG
 CRG_ID=$(az capacity reservation group show --capacity-reservation-group $CRG_NAME --resource-group $RG_NAME --query id -o tsv)
 IDENTITY_ID=$(az identity show --name $IDENTITY_NAME --resource-group $RG_NAME --query identity.id -o tsv)
-az aks create --resource-group $RG_NAME --cluster-name $CLUSTER_NAME --crg-id $CRG_ID --assign-identity $IDENTITY_ID --enable-managed-identity
+
+az aks create \
+    --resource-group $RG_NAME \
+    --cluster-name $CLUSTER_NAME \
+    --crg-id $CRG_ID \
+    --assign-identity $IDENTITY_ID \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -326,7 +341,7 @@ In the following example, we create a GPU-based node pool that uses the *Standar
 2. Check the status of the node pool using the [`az aks nodepool list`][az-aks-nodepool-list] command.
 
     ```azurecli-interactive
-    az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+    az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
 
     The following example output shows the *gpunodepool* node pool is *Creating* nodes with the specified *VmSize*:

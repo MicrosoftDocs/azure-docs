@@ -126,6 +126,8 @@
       href: service-bus-throttling.md
     - name: Enforce minimum required TLS version
       href: transport-layer-security-enforce-minimum-version.md
+    - name: Delete messages in Service Bus
+      href: batch-delete.md
   - name: Federation
     items:
       - name: Message replication and cross-region federation

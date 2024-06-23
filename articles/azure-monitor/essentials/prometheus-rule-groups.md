@@ -34,7 +34,7 @@ You can optionally limit the rules in a rule group to query data originating fro
 You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the cluster scope, you can create multiple rule groups, each configured with the same rules, with each group covering a different cluster. 
 
 To limit your rule group to a cluster scope [using an ARM template](#creating-prometheus-rule-group-using-resource-manager-template), you should add the Azure Resource ID of your cluster to the rule group **scopes[]** list. **The scopes list must still include the Azure Monitor workspace resource ID**. The following cluster resource types are supported as a cluster scope:
-* Azure Kubernetes Service clusters (AKS) (Microsoft.ContainerService/managedClusters)
+* Azure Kubernetes Service (AKS) clusters (Microsoft.ContainerService/managedClusters)
 * Azure Arc-enabled Kubernetes clusters (Microsoft.kubernetes/connectedClusters)
 * Azure connected appliances (Microsoft.ResourceConnector/appliances)
 
@@ -303,7 +303,7 @@ You can view your Prometheus rule groups and their included rules in the Azure p
 * In the [portal home page](https://portal.azure.com/), in the search box, look for **Prometheus Rule Groups**.
 * In the [portal home page](https://portal.azure.com/), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**.
       :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-from-alerts.png" alt-text="Screenshot that shows how to view Prometheus rule groups from the alerts screen.":::
-* In the page of a specific Azure Kubernetes Services resource (AKS), or a specific Azure Monitor Workspace (AMW), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**, to view a list of rule groups for this specific resource.
+* In the page of a specific Azure Kubernetes Services (AKS) resource, or a specific Azure Monitor Workspace (AMW), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**, to view a list of rule groups for this specific resource.
 You can select a rule group from the list to view or edit its details.
 
 ## View the resource health states of your Prometheus rule groups

@@ -79,15 +79,9 @@ Use the following steps to enable Microsoft Entra authentication to access your 
 1. In the Azure portal, navigate to your resource group and then open the Function app you created.
 1. In the navigation pane, select **Authentication** and then select **Add identity provider** on the main pane.
 1. On the **Add an identity provider** page, select **Microsoft** from the **Identity provider** dropdown menu.
-
-   :::image type="content" source="media/tutorial-managed-identities-functions/add-identity-provider.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Microsoft highlighted in the identity provider dropdown menu." lightbox="media/tutorial-managed-identities-functions/add-identity-provider.png":::
-
 1. Select **Add**.
 1. For the **Basics** settings on the **Add an identity provider** page, set **Supported account types** to **Any Microsoft Entra directory - Multi-tenant**.
 1. Set **Unauthenticated requests** to **HTTP 401 Unauthorized: recommended for APIs**. This setting ensures that all unauthenticated requests are denied (401 response).
-
-   :::image type="content" source="media/tutorial-managed-identities-functions/identity-provider-settings.png" alt-text="Screenshot of the Azure portal showing the Add an identity provider page with Support account types and Unauthenticated requests highlighted." lightbox="media/tutorial-managed-identities-functions/identity-provider-settings.png":::
-
 1. Select **Add**.
 
 After you add the settings, the Function app restarts and all subsequent requests are prompted to sign in through Microsoft Entra ID. You can test that unauthenticated requests are currently being rejected with the Function app's root URL (returned in the `hostNames` output of the `az functionapp create` command). You should then be redirected to your organization's Microsoft Entra sign-in screen.
