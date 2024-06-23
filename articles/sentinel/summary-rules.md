@@ -22,6 +22,8 @@ Use summary rules in Microsoft Sentinel to aggregate large sets of data in the b
 - **Run high performance KQL queries** on summarized data.
 - **Use summary rule results for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
 
+Summary rule results are stored in analytic logs and are available as other analytic logs, and charged accordingly.
+
 Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](https://aka.ms/summary-rules-azmon) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
 
 > [!IMPORTANT]
@@ -84,7 +86,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
     - Whether you want the rule to run with any sort of delay, in minutes
     - When you want the rule to start running
 
-    The time you defined is `timegenerated`. <!--what does this mean?-->
+    Times defined in the scheduling are based on the `timegenerated` column in your data
 
 1. Select **Next: Review + create >** > **Save** to complete the summary rule.
 
@@ -117,7 +119,7 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
 1. **Create an analytics rule** that runs for less than two minutes against the summary dataset, quickly drilling into the specific time range when the malicious IP address interacted with the company network.
 
-    Make sure to configure run intervals of up to five minutes at a minimum, to accommodate different summary payload sizes. This ensures that there's no loss even when there's an event ingestion delay. <!--what does this mean? •	Support both frontfill (scheduled queries on a fixed-interval schedule).-->
+    Make sure to configure run intervals of up to five minutes at a minimum, to accommodate different summary payload sizes. This ensures that there's no loss even when there's an event ingestion delay.
 
     For example:
 
@@ -145,44 +147,6 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
 1. **Run a subsequent search or correlation with other data** to complete the attack story.
 
-<!--
-### Detect when an event feed stops
-
-Detect when an event feed stops by summarizing multiple tables at once.
-
-**Scenario**: Bobby has data in 65 Microsoft Sentinel table, and one of their team goals is to detect and report whenever a specific event feed stops running. Bobby needs to create an analytics rule for this detection scenario and configure the rule to run every 10 minutes.
-
-Currently, Bobby has a logic app that runs every 10 minutes to generate a summary of all 65 tables into a custom table named `EventFeed_CL`. 
-
-**Challenge**: With 65 feeds to monitor, using a logic app that must be monitored frequently is an inefficient use of system and team resources.
-
-**Solution**: We recommend that Bobby use summary rules to do the following:
-
-1. Summarize data volume for all event feeds every 10 minutes, collecting the updated results in a single summary table.
-
-    To avoid duplication and data loss, the summary must consider both the `TimeGenerate` for query lookbacks and the `ingestion_time` for the summary. For more information, see [Handle ingestion delay in scheduled analytics rules](ingestion-delay.md).
-
-1. Create an analytics rule on the summary data to raise alerts for any event feed disruptions. Configure the rule to run every 15 minutes.
-
-    If there are delayed events, Bobby can reconcile and audit the summary data, such as considering both timestamps in the query run.
-
-not sure what this means
-
-
-### Enrich alerts with summaries on entities
-
-Speed up and improve your investigations by adding summary data to alerts.
-
-**Scenario**: Rami's team needs to create an analytics rule for Microsoft Sentinel customers to detect suspicious sign-ins to their system from sensitive and privileged accounts.
-
-**Challenge**: While analytics rules only look back on the last 75 minutes of user sign-in events, Rami's team needs to watch user information from the last seven days. Also, queries that run directly against the `IdentityInfo` table often time out when there are a large number of records, resulting in missing alerts.
-
-**Solution**: Use summary rules to do the following:
-
-1. Create a summary dataset of user information from the `IdentityInfo` table, including a daily snapshot of all user profile data, such as user roles, risk levels, and so on. 
-
-1. Configure an analytics rule to generate an alert if any suspicious SAP sign-ins are found from a privileged user account.
--->
 ### Detect potential SPN scanning in your network
 
 Detect potential Service Principal Name (SPN) scanning in your network traffic.
@@ -227,13 +191,13 @@ The current detection also runs a summary query on a separate logic app for each
     | extend baselineDay = toint(baselineDay)  
     | summarize p95CountDay = percentile(baselineDay, 95) by TargetUserName;  let current = Kerbevent  
     | where TimeGenerated between(ago(timeframe) .. now())  
-    | extend encryptionType = case(TicketEncryptionType in ("0x1","0x3"), "DES",                                  TicketEncryptionType in ("0x11","0x12"), "AES", TicketEncryptionType in ("0x17","0x18"), "RC4", "Failure")  
+    | extend encryptionType = case(TicketEncryptionType in ("0x1","0x3"), "DES", TicketEncryptionType in ("0x11","0x12"), "AES", TicketEncryptionType in ("0x17","0x18"), "RC4", "Failure")  
     | where encryptionType in ("AES","DES","RC4")  
     | summarize currentCount = dcount(ServiceName), ticketsRequested=make_set(ServiceName), encryptionTypes=make_set(encryptionType), ClientIPAddress=any(ClientIPAddress), Computer=any(Computer) by TargetUserName; current  
     | join kind=leftouter baseline on TargetUserName  
     | where currentCount > p95CountDay*2 and currentCount > threshold  
     | project-away TargetUserName1  
-    | extend context_message = strcat("Potential SPN scan performed by user ", TargetUserName,                                          "\nUser generally requests ", p95CountDay, " unique service tickets in a day.", "\nUnique service tickets requested by user in the last hour: ", currentCount)
+    | extend context_message = strcat("Potential SPN scan performed by user ", TargetUserName, "\nUser generally requests ", p95CountDay, " unique service tickets in a day.", "\nUnique service tickets requested by user in the last hour: ", currentCount)
     ```
 
 ### Generate alerts on threat intelligence matches against network data

@@ -20,9 +20,9 @@ The listed features were released in the last three months. For information abou
 
 ## July 2024
 
-- [Create dyanmic summary tables for large sets of data](#create-dyanmic-summary-tables-for-large-sets-of-data)
+- [Create summary tables for large sets of data](#create-summary-tables-for-large-sets-of-data)
 
-### Create dyanmic summary tables for large sets of data
+### Create summary tables for large sets of data
 
 Microsoft Sentinel now provides the ability to create dynamic summaries, which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
 
