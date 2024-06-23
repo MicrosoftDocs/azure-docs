@@ -16,12 +16,11 @@ ms.collection: usx-security
 
 # Aggregate Microsoft Sentinel data with summary rules (preview)
 
-This article describes summary rules in Microsoft Sentinel, which you can use to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled to provide a fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#how-youre-charged-for-microsoft-sentinel).
+Use summary rules in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled to provide a fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#how-youre-charged-for-microsoft-sentinel).
 
 - **Access summary rule results via Kusto Query Language (KQL)** across detection, investigation, hunting, and reporting activities.
 - **Run high performance KQL queries** on summarized data.
 - **Use summary rule results for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
-
 
 Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](https://aka.ms/summary-rules-azmon) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
 
@@ -144,12 +143,9 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
     | summarize make_set(FieldName), make_set(DeviceVendor) by IPType, IPaddress
     ```
 
-    > [!div class="nextstepaction"]
-    > [Open this rule in Azure](https://ms.portal.azure.com/#@4b2462a4-bbee-495a-a0e1-f23ae524cc9c/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2FresourceGroups%2Fdynamic-sum%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2Fdynamic-sum/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA5VTy27bMBC8%252BysWOkmAgqBATy3cS40EAeLCiINeBVpcOUxEUlgunaiPf%252B9SUWQ5RVqEJy05szMcrhYtMtShrWrfRuus4vpumT8XlVMWP0FgMm5fwM8FyPrqrfVui3Ukw%252F213w%252B7v%252BDxDgnh1li8RIekGDV8Ea4i9o1Wfa72Pv%252Bgi%252BIEb4LzjLbjfq75gsEnRqeHIq2VNIUlNJ7EZqWlYpHLTzRLyHpZZ%252Bv1mdZZUU7kq43SmjAE6TBKmQafTOAwlxb%252BnHVhsNXfZP%252FISqgTf9L6tu8SwjRNbrrDx8qEqiNzEEP5pFvAcglMMUlsng%252Bz9Bl3ramzN2M58kdER%252F4eax7SKOHV5Sd0ebRejgZLWOHB1PhdPHsau4VorSLzA%252BV60XFeJCIFTn23iE5uZY07zVgw1%252Bo%252FENj1o8N3WPr9eRGd8e71QObZ1keq8Woz5lT%252BjVhhYOMUCz3B4C3cWkncxsfwr2Y3aCX%252FAXF%252BDheRWJ5lymoQgVo52CFo7xA6OT0OGHsgaXCQw9iJmsQQBoj8BiDMVtFeqjS8DaXZkokGUYAmJQ8U3WL%252BMFY9YBWQ8yk%252BeYBpcx7gkPpLspOfP43koMTjAwAA)
-
 1. **Run a subsequent search or correlation with other data** to complete the attack story.
 
-<!-->
+<!--
 ### Detect when an event feed stops
 
 Detect when an event feed stops by summarizing multiple tables at once.
@@ -170,9 +166,9 @@ Currently, Bobby has a logic app that runs every 10 minutes to generate a summar
 
     If there are delayed events, Bobby can reconcile and audit the summary data, such as considering both timestamps in the query run.
 
-not sure what this means-->
+not sure what this means
 
-<!--
+
 ### Enrich alerts with summaries on entities
 
 Speed up and improve your investigations by adding summary data to alerts.
@@ -240,9 +236,6 @@ The current detection also runs a summary query on a separate logic app for each
     | extend context_message = strcat("Potential SPN scan performed by user ", TargetUserName,                                          "\nUser generally requests ", p95CountDay, " unique service tickets in a day.", "\nUnique service tickets requested by user in the last hour: ", currentCount)
     ```
 
-    > [!div class="nextstepaction"]
-    > [Open this rule in Azure](https://ms.portal.azure.com/#@4b2462a4-bbee-495a-a0e1-f23ae524cc9c/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2FresourceGroups%2Fdynamic-sum%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2Fdynamic-sum/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA71V4U7bMBD%252Bz1PcrEmkqCDKYIyOVEMUJjQJIcr%252BTUJucm1NUyezHUqmPcyeZU%252B2c9wGJwT2g2mtVDV357vv7r7PSdCANlwZIxYIIfT2448AGwmZUcZrY2WzhonizjqrrDOFepYmcdjbXdu%252BoBrjPUpDkSOMciVMcVY%252Bw8ZPWM5QIdxQts8oUXGDMYzRLBFlwKdpUEHqwM4OyHQZdDrewTLRxRDCEPYP3x%252BVnowrvfIMueGwFGYGW7B5I6I5mjMZqSIzIpU3RYZssAltdmDHjM68lG6E6l5EeEkzsFm8R%252B%252BwQ%252Bn73kSpNFxIDewtAy7j57xzNTZTw15uiaspmq8a1RpG3fIEScPtg%252Fnk0Dwb4cN8CdNFdhLHRAPNBv3%252BhD79TThNhN3T1crjYBFBLD%252FGXGMipCXSI1Weo8YghAYrSsy1mOMyZEVaR5YFn%252BM2tSRQV%252FWGvAjjKM2lCbzWOhDjhOeJCXuQykZmIUFxOcUGM7u1gl1SSQfGRXOSQDDu8SF7CrjrYyrx4oOhdDVzCCYVhNWzud50vlhwJX4gZEcHp7YfF56himiUIkH%252FTBeODlrQrXZB6lROqX9fha%252FS6jZoqnTVCNbFFUJEiIJW4dGMA7b70GNd%252Bn3HaJxseDZiXfj963Xfdp2vy7l6vb2y4Ml%252FKHjoCn4oC16f7lNBds5Fkitk%252Fg2HLcdLfG4s5dEmEVZrLMlAw25heZcucAtOX%252BP3HDXtM7QaudXYjKvX149hdQdFNkQeclkEDZuNShdZblA59%252BqhnZFrNtrm7oj8MBcyDhOcmNQeerw5rFAbYqvmV5vFwNfI1l55eTQCqleYu%252BRUeoeR2eZL3gTY8wlub0n6e7ugJvnUMlwbFXETsKvUWBXyBEZXl6AjLq0yJ6laWA0VkFM6oOXXk7%252BefU%252FYyL5Jmx2mpYKTpADldq9teW8uRETIpSAfaEeFNVks%252BzjEvNj5B%252FJoBdheVq1JWg2MgJgZQsK1gVmaq77twd9kZ%252BMPxozbVdEIAAA%253D)
-
 ### Generate alerts on threat intelligence matches against network data
 
 Generate alerts on threat intelligence matches against noisy, high volume, and low-security value network data.
@@ -284,9 +277,6 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
     | extend LogicApp = "SOC-McAfee-ADX-DstDomainAgainstThreatIntelligence"
     | project LatestIndicatorTime, TI_Domain = DomainName, Description, ConfidenceScore, AdditionalInformation, LogicApp
     ```
-
-    > [!div class="nextstepaction"]
-    > [Open this rule in Azure](https://ms.portal.azure.com/#@4b2462a4-bbee-495a-a0e1-f23ae524cc9c/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2FresourceGroups%2Fdynamic-sum%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2Fdynamic-sum/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA4VU22rbQBB9rr5iMYFIrS52Sx%252FaklIRh9bgtBC7UHrBbKSRtIm0K3bHkZ0m%252F96RVEuWY4ifPDNnxuecmbX3IghyQIaigCsuU2Bn7G3xwWqzGWJpUIuCsqMmeB8Eo%252F3qfrGtDaYtkGukulQVs73JuHAOABcyprJ90PCKtdAgWPJbYHfCCISYxargQhqWaFWwyyhMAFip1WZr8Xhjn%252B4IUpBUuUrHE18qjRmstSrBv10bVH4lZKwq40vAQNYoc%252Br4l7wsIW4nLraGstYDqzLQ0DA1yIuSXQNWAPIJWd8fyHG6VmGkQihK3Nrfr%252BZ1HjYIJJiiaSOFpJdcG1itdd5g%252FC%252FK4HGgSBJbmG5cm3dc%252Bur24fFWSmkeof1pZP8ae%252B%252B4dx96P70%252Ffyfu429%252FkHntvjmWeni2bTJ%252BdE5GLhu7bMDmmBN91ayLgmtxD%252Bx62%252FfR2neNlGOmdtlUArP2zEZNvZdJAusrXDU4uztZt%252FH8OegQScd0AxHW0Cbu%252Bc050hlQPowiMGZJC6dhXKergm%252Fs7khc9tL5r8VdG9A05ZJjlD054UbOcsZaxV85jctFs%252FobRTu7pSs9E1KCZvYy08BxJhHyXKQgI5jJWEQclbYYfY6Y3E91BpAwQnFHxGsb1jAoXWxKoTkKJacktdH3sX629m7CoRcdiQMv6vAzEHNCxTs%252FekLNNMYcpiQ7ySFBf%252B9Sz9iJFmmG%252Fh6%252B299cpSIKy7L%252Bu1l8O%252Ffa5%252BqF0x%252Fe1GDbEaa1u%252FjUspHVb%252FcIf5d2sereS%252F%252FrLpuCibQoa2Ncdq5kIuJ63iJSmqphHIu6xPOZTJQueIvbUbWsf2TFECRgBQAA)
 
 ## Related content
 
