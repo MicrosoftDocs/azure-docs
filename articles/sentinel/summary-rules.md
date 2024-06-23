@@ -4,7 +4,7 @@ description: Learn how to aggregate large sets of Microsoft Sentinel data across
 author: batamig
 ms.author: bagol
 ms.topic: how-to #Don't change
-ms.date: 05/05/2024
+ms.date: 06/23/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -75,7 +75,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
     | summarize count() by Severity
     ```
 
-    <!--we need some more robust examples-->
+    For for more information, see [Sample summary rule scenarios](#sample-summary-rule-scenarios) and [Kusto Query Language (KQL) in Azure Monitor](/azure/azure-monitor/log-query/log-query-overview).
 
 1. Select **Preview results** to show an example of the data you'd collect with the configured query.
 
@@ -120,8 +120,36 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
     Make sure to configure run intervals of up to five minutes at a minimum, to accommodate different summary payload sizes. This ensures that there's no loss even when there's an event ingestion delay. <!--what does this mean? •	Support both frontfill (scheduled queries on a fixed-interval schedule).-->
 
+    For example:
+
+    ```kusto
+    let csl_columnmatch=(column_name: string) {
+    CommonSecurityLog
+    | where TimeGenerated > startofday(ago(1d))
+    | where isnotempty(column_name)
+    | extend
+        Date = format_datetime(TimeGenerated, "yyyy-MM-dd"),
+        IPaddress = column_ifexists(column_name, ""),
+        FieldName = column_name
+    | extend IPType = iff(ipv4_is_private(IPaddress) == true, "Private", "Public")
+    | where isnotempty(IPaddress)
+    | project Date, TimeGenerated, IPaddress, FieldName, IPType, DeviceVendor
+    | summarize count(), FirstTimeSeen = min(TimeGenerated), LastTimeSeen = min(TimeGenerated) by Date, IPaddress, FieldName, IPType, DeviceVendor
+    };
+    union csl_columnmatch("SourceIP")
+        , csl_columnmatch("DestinationIP") 
+        , csl_columnmatch("MaliciousIP")
+        , csl_columnmatch("RemoteIP")
+    // Further summarization can be done per IPaddress to remove duplicates per day on larger timeframe for the first run
+    | summarize make_set(FieldName), make_set(DeviceVendor) by IPType, IPaddress
+    ```
+
+    > [!div class="nextstepaction"]
+    > [Open this rule in Azure](https://ms.portal.azure.com/#@4b2462a4-bbee-495a-a0e1-f23ae524cc9c/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2FresourceGroups%2Fdynamic-sum%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2Fdynamic-sum/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA5VTy27bMBC8%252BysWOkmAgqBATy3cS40EAeLCiINeBVpcOUxEUlgunaiPf%252B9SUWQ5RVqEJy05szMcrhYtMtShrWrfRuus4vpumT8XlVMWP0FgMm5fwM8FyPrqrfVui3Ukw%252F213w%252B7v%252BDxDgnh1li8RIekGDV8Ea4i9o1Wfa72Pv%252Bgi%252BIEb4LzjLbjfq75gsEnRqeHIq2VNIUlNJ7EZqWlYpHLTzRLyHpZZ%252Bv1mdZZUU7kq43SmjAE6TBKmQafTOAwlxb%252BnHVhsNXfZP%252FISqgTf9L6tu8SwjRNbrrDx8qEqiNzEEP5pFvAcglMMUlsng%252Bz9Bl3ramzN2M58kdER%252F4eax7SKOHV5Sd0ebRejgZLWOHB1PhdPHsau4VorSLzA%252BV60XFeJCIFTn23iE5uZY07zVgw1%252Bo%252FENj1o8N3WPr9eRGd8e71QObZ1keq8Woz5lT%252BjVhhYOMUCz3B4C3cWkncxsfwr2Y3aCX%252FAXF%252BDheRWJ5lymoQgVo52CFo7xA6OT0OGHsgaXCQw9iJmsQQBoj8BiDMVtFeqjS8DaXZkokGUYAmJQ8U3WL%252BMFY9YBWQ8yk%252BeYBpcx7gkPpLspOfP43koMTjAwAA)
+
 1. **Run a subsequent search or correlation with other data** to complete the attack story.
 
+<!-->
 ### Detect when an event feed stops
 
 Detect when an event feed stops by summarizing multiple tables at once.
@@ -142,7 +170,9 @@ Currently, Bobby has a logic app that runs every 10 minutes to generate a summar
 
     If there are delayed events, Bobby can reconcile and audit the summary data, such as considering both timestamps in the query run.
 
-<!--not sure what this means-->
+not sure what this means-->
+
+<!--
 ### Enrich alerts with summaries on entities
 
 Speed up and improve your investigations by adding summary data to alerts.
@@ -156,7 +186,7 @@ Speed up and improve your investigations by adding summary data to alerts.
 1. Create a summary dataset of user information from the `IdentityInfo` table, including a daily snapshot of all user profile data, such as user roles, risk levels, and so on. 
 
 1. Configure an analytics rule to generate an alert if any suspicious SAP sign-ins are found from a privileged user account.
-
+-->
 ### Detect potential SPN scanning in your network
 
 Detect potential Service Principal Name (SPN) scanning in your network traffic.
@@ -180,6 +210,39 @@ The current detection also runs a summary query on a separate logic app for each
     - Reference at least 30 days worth of summary data to create a strong baseline.
     - Apply `percentile()` in your query to calculate the deviation from the baseline
 
+    For example:
+
+    ```kusto
+    let starttime = 14d;  
+    let endtime = 1d;  
+    let timeframe = 1h;  
+    let threshold=10;  
+    let Kerbevent = SecurityEvent  
+    | where TimeGenerated between(ago(starttime) .. now())  
+    | where EventID == 4769  
+    | parse EventData with * 'TicketEncryptionType">' TicketEncryptionType "<" *  
+    | parse EventData with * 'ServiceName">' ServiceName "<" *  
+    | where ServiceName !contains "$" and ServiceName !contains "krbtgt"  
+    | parse EventData with * 'TargetUserName">' TargetUserName "<" *  
+    | where TargetUserName !contains "$@" and TargetUserName !contains ServiceName  
+    | parse EventData with * 'IpAddress">::ffff:' ClientIPAddress "<" *;  let baseline = Kerbevent  
+    | where TimeGenerated >= ago(starttime) and TimeGenerated < ago(endtime)  
+    | make-series baselineDay=dcount(ServiceName) default=1 on TimeGenerated in range(ago(starttime), ago(endtime), 1d) by TargetUserName  | mvexpand TimeGenerated , baselineDay  
+    | extend baselineDay = toint(baselineDay)  
+    | summarize p95CountDay = percentile(baselineDay, 95) by TargetUserName;  let current = Kerbevent  
+    | where TimeGenerated between(ago(timeframe) .. now())  
+    | extend encryptionType = case(TicketEncryptionType in ("0x1","0x3"), "DES",                                  TicketEncryptionType in ("0x11","0x12"), "AES", TicketEncryptionType in ("0x17","0x18"), "RC4", "Failure")  
+    | where encryptionType in ("AES","DES","RC4")  
+    | summarize currentCount = dcount(ServiceName), ticketsRequested=make_set(ServiceName), encryptionTypes=make_set(encryptionType), ClientIPAddress=any(ClientIPAddress), Computer=any(Computer) by TargetUserName; current  
+    | join kind=leftouter baseline on TargetUserName  
+    | where currentCount > p95CountDay*2 and currentCount > threshold  
+    | project-away TargetUserName1  
+    | extend context_message = strcat("Potential SPN scan performed by user ", TargetUserName,                                          "\nUser generally requests ", p95CountDay, " unique service tickets in a day.", "\nUnique service tickets requested by user in the last hour: ", currentCount)
+    ```
+
+    > [!div class="nextstepaction"]
+    > [Open this rule in Azure](https://ms.portal.azure.com/#@4b2462a4-bbee-495a-a0e1-f23ae524cc9c/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2FresourceGroups%2Fdynamic-sum%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2Fdynamic-sum/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA71V4U7bMBD%252Bz1PcrEmkqCDKYIyOVEMUJjQJIcr%252BTUJucm1NUyezHUqmPcyeZU%252B2c9wGJwT2g2mtVDV357vv7r7PSdCANlwZIxYIIfT2448AGwmZUcZrY2WzhonizjqrrDOFepYmcdjbXdu%252BoBrjPUpDkSOMciVMcVY%252Bw8ZPWM5QIdxQts8oUXGDMYzRLBFlwKdpUEHqwM4OyHQZdDrewTLRxRDCEPYP3x%252BVnowrvfIMueGwFGYGW7B5I6I5mjMZqSIzIpU3RYZssAltdmDHjM68lG6E6l5EeEkzsFm8R%252B%252BwQ%252Bn73kSpNFxIDewtAy7j57xzNTZTw15uiaspmq8a1RpG3fIEScPtg%252Fnk0Dwb4cN8CdNFdhLHRAPNBv3%252BhD79TThNhN3T1crjYBFBLD%252FGXGMipCXSI1Weo8YghAYrSsy1mOMyZEVaR5YFn%252BM2tSRQV%252FWGvAjjKM2lCbzWOhDjhOeJCXuQykZmIUFxOcUGM7u1gl1SSQfGRXOSQDDu8SF7CrjrYyrx4oOhdDVzCCYVhNWzud50vlhwJX4gZEcHp7YfF56himiUIkH%252FTBeODlrQrXZB6lROqX9fha%252FS6jZoqnTVCNbFFUJEiIJW4dGMA7b70GNd%252Bn3HaJxseDZiXfj963Xfdp2vy7l6vb2y4Ml%252FKHjoCn4oC16f7lNBds5Fkitk%252Fg2HLcdLfG4s5dEmEVZrLMlAw25heZcucAtOX%252BP3HDXtM7QaudXYjKvX149hdQdFNkQeclkEDZuNShdZblA59%252BqhnZFrNtrm7oj8MBcyDhOcmNQeerw5rFAbYqvmV5vFwNfI1l55eTQCqleYu%252BRUeoeR2eZL3gTY8wlub0n6e7ugJvnUMlwbFXETsKvUWBXyBEZXl6AjLq0yJ6laWA0VkFM6oOXXk7%252BefU%252FYyL5Jmx2mpYKTpADldq9teW8uRETIpSAfaEeFNVks%252BzjEvNj5B%252FJoBdheVq1JWg2MgJgZQsK1gVmaq77twd9kZ%252BMPxozbVdEIAAA%253D)
+
 ### Generate alerts on threat intelligence matches against network data
 
 Generate alerts on threat intelligence matches against noisy, high volume, and low-security value network data.
@@ -194,8 +257,36 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. ASIM functions might be helpful in the summary query. <!--why?-->
 
-1. Create an analytics rule to trigger an alert for anytime a domain name in the summary data matches an entry on the threat intelligence list. 
+1. Create an analytics rule to trigger an alert for anytime a domain name in the summary data matches an entry on the threat intelligence list. For example:
 
+    ```kusto
+    //let timeRange = 5m;
+    //let httpstrim = "https://";
+    //let httptrim = "http://";
+    let timeRangeStart = now (-10m);
+    let timeRangeEnd = (timeRangeStart + 10m);
+    //Take visited domains from McAfee proxy
+    adx('https://adxfwlog01.northeurope.kusto.windows.net/nwlogs').MappedMcAfeeSyslog
+    | where timestamp between (timeRangeStart .. timeRangeEnd)
+    | where isnotempty(URL)
+    | extend URLDomain = parse_url(URL).Host
+    | extend URLDomain = iff(isempty(URLDomain),URL,URLDomain)
+    | extend URLDomain = extract(@"([0-9a-zA-Z-]{1,}\.[0-9a-zA-Z-]{2,3}\.[0-9a-zA-Z-]{2,3}|[0-9a-zA-Z-]{1,}\.[0-9a-zA-Z-]{2,10})$", 0, URLDomain)
+    | where isnotempty(URLDomain)
+    | summarize by URLDomain
+    //Match visited domains with TI DomainName list
+    | join kind=inner (ThreatIntelligenceIndicator
+        | where isnotempty(DomainName)
+        | where Active == true
+        | where ExpirationDateTime > now()
+        | summarize LatestIndicatorTime = arg_max(TimeGenerated, *) by DomainName
+          ) on $left.URLDomain == $right.DomainName
+    | extend LogicApp = "SOC-McAfee-ADX-DstDomainAgainstThreatIntelligence"
+    | project LatestIndicatorTime, TI_Domain = DomainName, Description, ConfidenceScore, AdditionalInformation, LogicApp
+    ```
+
+    > [!div class="nextstepaction"]
+    > [Open this rule in Azure](https://ms.portal.azure.com/#@4b2462a4-bbee-495a-a0e1-f23ae524cc9c/blade/Microsoft_OperationsManagementSuite_Workspace/Logs.ReactView/resourceId/%2Fsubscriptions%2Fd1d8779d-38d7-4f06-91db-9cbc8de0176f%2FresourceGroups%2Fdynamic-sum%2Fproviders%2FMicrosoft.OperationalInsights%2Fworkspaces%2Fdynamic-sum/source/LogsBlade.AnalyticsShareLinkToQuery/q/H4sIAAAAAAAAA4VU22rbQBB9rr5iMYFIrS52Sx%252FaklIRh9bgtBC7UHrBbKSRtIm0K3bHkZ0m%252F96RVEuWY4ifPDNnxuecmbX3IghyQIaigCsuU2Bn7G3xwWqzGWJpUIuCsqMmeB8Eo%252F3qfrGtDaYtkGukulQVs73JuHAOABcyprJ90PCKtdAgWPJbYHfCCISYxargQhqWaFWwyyhMAFip1WZr8Xhjn%252B4IUpBUuUrHE18qjRmstSrBv10bVH4lZKwq40vAQNYoc%252Br4l7wsIW4nLraGstYDqzLQ0DA1yIuSXQNWAPIJWd8fyHG6VmGkQihK3Nrfr%252BZ1HjYIJJiiaSOFpJdcG1itdd5g%252FC%252FK4HGgSBJbmG5cm3dc%252Bur24fFWSmkeof1pZP8ae%252B%252B4dx96P70%252Ffyfu429%252FkHntvjmWeni2bTJ%252BdE5GLhu7bMDmmBN91ayLgmtxD%252Bx62%252FfR2neNlGOmdtlUArP2zEZNvZdJAusrXDU4uztZt%252FH8OegQScd0AxHW0Cbu%252Bc050hlQPowiMGZJC6dhXKergm%252Fs7khc9tL5r8VdG9A05ZJjlD054UbOcsZaxV85jctFs%252FobRTu7pSs9E1KCZvYy08BxJhHyXKQgI5jJWEQclbYYfY6Y3E91BpAwQnFHxGsb1jAoXWxKoTkKJacktdH3sX629m7CoRcdiQMv6vAzEHNCxTs%252FekLNNMYcpiQ7ySFBf%252B9Sz9iJFmmG%252Fh6%252B299cpSIKy7L%252Bu1l8O%252Ffa5%252BqF0x%252Fe1GDbEaa1u%252FjUspHVb%252FcIf5d2sereS%252F%252FrLpuCibQoa2Ncdq5kIuJ63iJSmqphHIu6xPOZTJQueIvbUbWsf2TFECRgBQAA)
 
 ## Related content
 
