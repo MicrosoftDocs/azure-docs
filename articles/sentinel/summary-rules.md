@@ -55,7 +55,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
     - **Description**. Enter an optional description.
     - **Destination table**. Define the custom log table where your data is aggregated:
         - If you select **Existing custom log table**, select the table you want to use.
-        - If you select **New custom log table**, enter a meaningful name for your table. Your full table name uses the following syntax: *<tableName>_CL*.
+        - If you select **New custom log table**, enter a meaningful name for your table. Your full table name uses the following syntax: `<tableName>_CL`.
 
 1. We recommend that you enable **SummaryLogs** diagnostic settings on your workspace to get visibility for historical runes and failures. If **SummaryLogs** diagnostic settings aren't enabled, you're prompted to enable them in the **Diagnostic settings** area.
 
