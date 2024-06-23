@@ -28,7 +28,9 @@ Data plans let you manage data ingestion and retention costs based on how often 
 
 ## Select a table plan based on usage needs
 
-This table compares the Analytics, Basic, and Auxiliary data plans:
+The diagram and table below compare the Analytics, Basic, and Auxiliary log data plans.
+
+:::image type="content" source="media/basic-logs-configure/azure-monitor-logs-data-plans.png" lightbox="media/basic-logs-configure/azure-monitor-logs-data-plans.png" alt-text="Diagram that presents an overview of the capabilities provided by the Analytics, Basic, and Auxiliary log data plans.":::
 
 |                     | Analytics                                                                                   | Basic                                                                                       | Auxiliary (Preview)                                                                                   |
 |--------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
