@@ -35,9 +35,9 @@ Deployment of the Microsoft Sentinel solution for SAP® applications is divided 
 
 1. [Configure auditing](configure-audit.md)
 
-1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md) 
-
 1. **Deploy the data connector agent (*You are here*)**
+
+1. [Deploy the Microsoft Sentinel solution for SAP applications® from the content hub](deploy-sap-security-content.md) 
 
 1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 

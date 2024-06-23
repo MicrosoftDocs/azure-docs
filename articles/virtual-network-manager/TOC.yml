@@ -69,6 +69,8 @@
       href: concept-virtual-network-flow-logs.md
     - name: Query Azure Virtual Network Manager using Azure Resource Graph (ARG)
       href: query-azure-resource-graph.md
+    - name: Verify resource reachability with Virtual Network Verifier
+      href: concept-virtual-network-verifier.md
 - name: Samples
   items:
     - name: Resource Manager Templates
@@ -117,6 +119,8 @@
       href: how-to-view-applied-configurations.md
     - name: Define dynamic network group membership with Azure Policy
       href: how-to-define-network-group-membership-azure-policy.md
+    - name: Verify resource reachability
+      href: how-to-verify-reachability-with-virtual-network-verifier.md
   - name: Common issues
     href: common-issues.md
 - name: Reference

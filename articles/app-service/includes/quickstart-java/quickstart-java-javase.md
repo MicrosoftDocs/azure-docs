@@ -44,7 +44,7 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 ### [Spring Boot](#tab/springboot)
 
-1. Download and extract the [default Spring Boot web application template](https://github.com/rd-1-2022/rest-service). This repository is cloned for you when you run the [Spring CLI](https://docs.spring.io/spring-cli/reference/creating-new-projects.html) command `spring boot new my-webapp`.
+1. Download and extract the [default Spring Boot web application template](https://github.com/rd-1-2022/rest-service). This repository is cloned for you when you run the [Spring CLI](https://docs.spring.io/spring-cli/reference/getting-started.html) command `spring boot new my-webapp`.
 
     ```bash
     git clone https://github.com/rd-1-2022/rest-service my-webapp

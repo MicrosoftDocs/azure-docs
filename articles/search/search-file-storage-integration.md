@@ -37,7 +37,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 The Azure Files indexer can extract text from the following document formats:
 
-[!INCLUDE [search-document-data-sources](../../includes/search-blob-data-sources.md)]
+[!INCLUDE [search-document-data-sources](./includes/search-blob-data-sources.md)]
 
 
 ## How Azure Files are indexed

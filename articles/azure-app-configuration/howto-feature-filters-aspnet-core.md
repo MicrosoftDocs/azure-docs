@@ -5,7 +5,7 @@ description: Learn how to implement a custom feature filter to enable conditiona
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: zhiyuanliang
+author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
 ms.date: 03/28/2024

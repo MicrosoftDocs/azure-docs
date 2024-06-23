@@ -20,7 +20,7 @@ This quickstart describes how to use Bicep to create Azure DNS Private Resolver.
 
 The following figure summarizes the general setup used. Subnet address ranges used in templates are slightly different than those shown in the figure.
 
-![Conceptual figure displaying components of the private resolver.](./media/dns-resolver-getstarted-portal/resolver-components.png)
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 ## Prerequisites
 

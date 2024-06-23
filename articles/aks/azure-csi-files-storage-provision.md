@@ -83,7 +83,7 @@ Storage classes define how to create an Azure file share. A storage account is a
 * `Standard_ZRS`: Standard zone redundant storage (ZRS)
 * `Standard_RAGRS`: Standard read-access geo-redundant storage (RA-GRS)
 * `Premium_LRS`: Premium locally redundant storage (LRS)
-* `Premium_ZRS`: pPremium zone redundant storage (ZRS)
+* `Premium_ZRS`: Premium zone redundant storage (ZRS)
 
 > [!NOTE]
 > Minimum premium file share is 100GB.
@@ -266,8 +266,8 @@ The following table includes parameters you can use to define a PersistentVolume
 |--- | **Following parameters are only for SMB protocol** | --- | --- | --- |
 |volumeAttributes.secretName | Specify a secret name that stores storage account name and key. | | No |
 |volumeAttributes.secretNamespace | Specify a secret namespace. | `default`,`kube-system`, etc. | No | PVC namespace (`csi.storage.k8s.io/pvc/namespace`) |
-|nodeStageSecretRef.name | Specify a secret name that stores storage account name and key. | Existing secret name |  Yes  ||
-|nodeStageSecretRef.namespace | Specify a secret namespace. | Kubernetes namespace  |  Yes  ||
+|nodeStageSecretRef.name | Specify a secret name that stores storage account name and key. | Existing secret name. |  No  |If empty, driver uses kubelet identity to get account key.|
+|nodeStageSecretRef.namespace | Specify a secret namespace. | Kubernetes namespace  |  No  ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.fsGroupChangePolicy | Indicates how the driver changes a volume's ownership. Pod `securityContext.fsGroupChangePolicy` is ignored.  | `OnRootMismatch` (default), `Always`, `None` | No | `OnRootMismatch` |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions. The default is `0777` | | No ||

@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
 ms.custom: has-azure-ad-ps-ref
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Enable Microsoft Entra authentication for Azure-SSIS integration runtime

@@ -1,6 +1,6 @@
 ---
-title: Create a lab in Azure Education Hub through REST APIs
-description: Learn how to set up a lab in education hub
+title: Create a lab in the Azure Education Hub
+description: Learn how to set up a lab in the Azure Education Hub by using REST APIs.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
@@ -9,14 +9,14 @@ ms.date: 03/11/2023
 ms.custom: template-how-to
 ---
 
-# Create a lab in Azure Education Hub through REST APIs.
+# Create a lab in the Azure Education Hub
 
-This article walks you through how to create a lab and verify that the lab has been created.
+This article walks you through how to create a lab and verify its creation by using REST APIs.
 
 ## Prerequisites
 
-- Know billing account ID, Billing profile ID, and Invoice Section ID
-- Have an Edu approved Azure account
+- Know your billing account ID, billing profile ID, and invoice section ID.
+- Have an education-approved Azure account.
 
 ## Create a lab
 
@@ -24,7 +24,7 @@ This article walks you through how to create a lab and verify that the lab has b
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default?api-version=2021-12-01-preview
 ```
 
-Call the create lab API with the body similar to the following. Include your details for the display name and how much budget you allocate for this lab.
+Call the `create lab` API with a body similar to the following example. Include your details for the display name and how much budget you're allocating for this lab.
 
 ```json
 {
@@ -48,7 +48,7 @@ Call the create lab API with the body similar to the following. Include your det
 }
 ```
 
-The API response returns details of the newly created lab. Congratulations, you have created a lab in education hub.
+The API response returns details of the newly created lab. This response verifies that you created the lab successfully.
 
 ```json
 {
@@ -89,13 +89,13 @@ The API response returns details of the newly created lab. Congratulations, you 
 
 ## Check the details of a lab
 
-Now that the lab has been created and a student has been added to the lab, let's get the details for the lab. Getting the lab details will provide you with meta data like when the lab was created and how much budget it has.
+After you create a lab, you can get the details for it anytime to check metadata like when the lab was created and how much budget it has.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default?includeBudget=true&api-version=2021-12-01-preview
 ```
 
-The API response includes information about the lab and budget information.
+The API response shows the details:
 
 ```json
 {
@@ -134,7 +134,8 @@ The API response includes information about the lab and budget information.
 }
 ```
 
-## Next steps
-- [Manage your Academic Grant using the Overview page](hub-overview-page.md)
+## Related content
 
-- [Support options](educator-service-desk.md)
+- [Add students to a lab](add-student-api.md)
+- [Manage your academic grant by using the Overview page](hub-overview-page.md)
+- [Learn about support options](educator-service-desk.md)

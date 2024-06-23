@@ -46,7 +46,7 @@ You must meet the following prerequisites before using Anomaly Detector containe
 
 ## The host computer
 
-[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../includes/cognitive-services-containers-host-computer.md)]
 
 <!--* [Azure IoT Edge](../../iot-edge/index.yml). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
@@ -81,7 +81,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
 -->
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ### Docker pull for the Anomaly Detector container
 
@@ -157,11 +157,11 @@ Use the host, http://localhost:5000, for container APIs.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
@@ -176,7 +176,7 @@ If you run the container with an output [mount](anomaly-detector-container-confi
 
 The Anomaly Detector containers send billing information to Azure, using an _Anomaly Detector_ resource on your Azure account.
 
-[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](anomaly-detector-container-configuration.md).
 
