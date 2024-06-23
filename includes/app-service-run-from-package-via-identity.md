@@ -7,7 +7,7 @@ ms.author: mahender
 ms.subservice: web-apps
 ---
 
-Azure Blob Storage can be configured to [authorize requests with Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This means that instead of generating a SAS key with an expiration, you can instead rely on the application's [managed identity](/azure/app-service/overview-managed-identity). By default, the app's system-assigned identity will be used. If you wish to specify a user-assigned identity, you can set the `WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID` app setting to the resource ID of that identity. The setting can also accept "SystemAssigned" as a value, although this is the same as omitting the setting altogether. A resource ID is a standard representation for a resource in Azure. For a user-assigned managed identity, that is going to be /subscriptions/subid/resourcegroups/rg-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name. The resource ID of a user-assigned managed identity can be obtained in the Settings->Properties->Id for the user assigned managed identity.
+Azure Blob Storage can be configured to [authorize requests with Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This means that instead of generating a SAS key with an expiration, you can instead rely on the application's [managed identity](/azure/app-service/overview-managed-identity).
 
 To enable the package to be fetched using the identity:
 
@@ -16,3 +16,5 @@ To enable the package to be fetched using the identity:
 1. Grant the identity the [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) role with scope over the package blob. See [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access) for details on creating the role assignment.
 
 1. Set the `WEBSITE_RUN_FROM_PACKAGE` application setting to the blob URL of the package. This will likely be of the form "https://{storage-account-name}.blob.core.windows.net/{container-name}/{path-to-package}" or similar.
+
+1. Set `WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID` by default, the app's system-assigned identity will be used. If you wish to specify a user-assigned identity, you can set the `WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID` app setting to the resource ID of that identity. The setting can also accept "SystemAssigned" as a value, although this is the same as omitting the setting altogether. A resource ID is a standard representation for a resource in Azure. For a user-assigned managed identity, that is going to be `/subscriptions/subid/resourcegroups/rg-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name`. The resource ID of a user-assigned managed identity can be obtained in the Settings->Properties->Id for the user assigned managed identity.
