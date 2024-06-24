@@ -12,10 +12,6 @@ ms.date: 03/28/2024
 
 Access is currently limited. For now, we're working with customers that have an existing technical partnership with Microsoft and that have targeted specific use cases. In addition to applying for initial access, all requests for Azure Operator 5G Core Previeware required to go through a use case review.
 
-## Apply for access to Azure Operator 5G Core Preview
-
-[Apply here](https://aka.ms/AO5GC-Activation-Request) for initial access. Contact your account lead for updates on access status.
-
 ## Related content
 
 [What is Azure Operator 5G Core?](overview-product.md)
