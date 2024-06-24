@@ -19,7 +19,7 @@ ms.date: 6/24/2024
 Read operations based on predicates and aggregates will first consult the index for the corresponding filters. In the absence of indexes, the database engine will perform a document scan to retrieve the matching documents. Scans will always be expensive and will get progressively more expensive as the volume of data in a collection continues to grow. Thus, indexes should always be created for all queryable fields.
 
 ## Avoid unnecessary indexes and indexing all fields by default
-While indexes should be created for queryable fields, all fields within the document structure in a collection should not be indexed if unnecessary.
+While indexes should be created for queryable fields, all fields within the document structure in a collection should not be indexed (either individually or through wildcard indexing) if they are not going to be part of query predicates or filters.
 
 > [!TIP]
 > Azure Cosmos DB for MongoDB vCore only indexes the _id field by default. All other fields are not indexed by default. The fields to be indexed should be planned ahead of time to optimize for both read and write performance.
@@ -33,9 +33,42 @@ For optimal write performance, indexes should be created upfront before data is 
 For scenarios where indexes need to be added at a later time due to changes in read patterns, background indexing needs to be enabled on the cluster which can be enabled through a support ticket.
 
 ## For multiple indexes created on historical data, issue non-blocking createIndex commands for each field
-It is not always possible to plan for all query patterns upfront. Changing application needs will inevitably require fields to be added to the index at a later time on an active cluster with a large amount of historical data. In such scenarios, if multiple fields need to be added to the index, each createIndex command should be issued asynchronously without waiting on a response from the server.
+It is not always possible to plan for all query patterns upfront, particularly when application needs evolve over time. Changing business and application needs will inevitably require fields to be added to the index at a later time on a cluster with a large amount of historical data. In such scenarios, if one or more fields need to be added to the index, each createIndex command should be issued asynchronously without waiting on a response from the server.
 
-By default, Azure Cosmos DB for MongoDB vCore responds only after the index has been fully built on all the historically loaded documents. Depending on the size of the cluster and the volume of data already ingested, this can take time and may appear as though the server is not responding to the createIndex command. An independent call to getIndexes can be used to verify that the newly added field is now part of the list of fields to be indexed.
+By default, Azure Cosmos DB for MongoDB vCore responds to a createIndex operation only after the index has been fully built on all the historical data. Depending on the size of the cluster and the volume of data already ingested, this can take time and may appear as though the server is not responding to the createIndex command. 
+
+If the createIndex commands are being issued through the Mongo Shell, use Ctrl + C to interrupt the command to stop waiting on a response and issue the next set of operations. 
+
+> [!NOTE]
+Using Ctrl + C to interrupt the createIndex command after it has been issued does not terminate the index build operation on the server. It simply stops the Shell from waiting on a response from the server, while the server asynchronously builds in the index over the existing documents in the collection.
+
+## Create Compound Indexes for queries with predicates on multiple fields
+Compound indexes should be used for the following scenarios:
+- Queries with filters on multiple fields
+- Queries with filters on multiple fields and with one or more fields sorted in ascending or descending order
+
+Consider the following document within the cosmicworks database and employee collection
+```javascript
+{
+    firstName: 'Steve',
+    lastName: 'Smith',
+    companyName: 'Microsoft',
+    division: 'Azure',
+    subDivision: 'Data & AI',
+    timeInOrgInYears: '7'
+}
+```
+
+Consider the following query to find all employees with last name 'Smith' that have been with the organization for at least 5 years:
+```javascript
+db.employee.find({"lastName": "Smith", "timeInOrgInYears": {"$gt": 5}})
+```
+
+A compound index on both 'lastName' and 'timeInOrgInYears' will optimize this query:
+```javascript
+use cosmicworks;
+db.employee.createIndex({"lastName" : 1, "timeInOrgInYears" : 1})
+```
 
 ## Track the status of a createIndex operation
 When indexes are added and historical data needs to be indexed, the progress of the index build operation(s) can be tracked using db.currentOp().
@@ -47,37 +80,37 @@ db.currentOp()
 ```
 
 When a createIndex operation is in progress, the response will look like:
-```javascript
+```json
 {
-  inprog: [
+  "inprog": [
     {
-      shard: 'defaultShard',
-      active: true,
-      type: 'op',
-      opid: '30000451493:1719209762286363',
-      op_prefix: Long('30000451493'),
-      currentOpTime: ISODate('2024-06-24T06:16:02.000Z'),
-      secs_running: Long('0'),
-      command: { aggregate: '' },
-      op: 'command',
-      waitingForLock: false
+      "shard": "defaultShard",
+      "active": true,
+      "type": "op",
+      "opid": "30000451493:1719209762286363",
+      "op_prefix": Long('30000451493'),
+      "currentOpTime": ISODate('2024-06-24T06:16:02.000Z'),
+      "secs_running": Long('0'),
+      "command": { aggregate: '' },
+      "op": "command",
+      "waitingForLock": false
     },
     {
-      shard: 'defaultShard',
-      active: true,
-      type: 'op',
-      opid: '30000451876:1719209638351743',
-      op_prefix: Long('30000451876'),
-      currentOpTime: ISODate('2024-06-24T06:13:58.000Z'),
-      secs_running: Long('124'),
-      command: { createIndexes: '' },
-      op: 'workerCommand',
-      waitingForLock: false,
-      progress: {},
-      msg: ''
+      "shard": "defaultShard",
+      "active": true,
+      "type": "op",
+      "opid": "30000451876:1719209638351743",
+      "op_prefix": Long('30000451876'),
+      "currentOpTime": ISODate('2024-06-24T06:13:58.000Z'),
+      "secs_running": Long('124'),
+      "command": { createIndexes: '' },
+      "op": workerCommand",
+      "waitingForLock": false,
+      "progress": {},
+      "msg": ''
     }
   ],
-  ok: 1
+  "ok": 1
 }
 ```
 
