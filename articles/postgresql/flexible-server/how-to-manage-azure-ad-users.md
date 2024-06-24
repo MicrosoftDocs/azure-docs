@@ -92,10 +92,10 @@ pg_catalog.pgaadauth_create_principal(roleName text, isAdmin boolean, isMfa bool
 `boolean` when `true` it creates a PostgreSQL admin user (member of `azure_pg_admin` role and with CREATEROLE and CREATEDB permissions). When `false` it creates a regular PostgreSQL user.
 
 ##### `isMfa`
-`boolean` when `true` it enforces Multi Factor Authentication for this PostgreSQL user.
+`boolean` when `true` it enforces multifactor authentication for this PostgreSQL user.
 
 > [!IMPORTANT]
-> The `isMfa` flag tests the `mfa` claim in the Microsoft Entra ID token, but it doesn't impact the token acquisition flow. For example, if the tenant of the principal is not configured for Multi Factor Authentication, it will prevent the use of the feature. And if the tenant requires Multi Factor Authentication for all tokens, it will make this flag useless.
+> The `isMfa` flag tests the `mfa` claim in the Microsoft Entra ID token, but it doesn't impact the token acquisition flow. For example, if the tenant of the principal is not configured for multifactor authentication, it will prevent the use of the feature. And if the tenant requires multifactor authentication for all tokens, it will make this flag useless.
 
 #### Return type
 
@@ -135,10 +135,10 @@ pg_catalog.pgaadauth_create_principal(roleName text, objectId text, objectType t
 `boolean` when `true` it creates a PostgreSQL admin user (member of `azure_pg_admin` role and with CREATEROLE and CREATEDB permissions). When `false` it creates a regular PostgreSQL user.
 
 ##### `isMfa`
-`boolean` when `true` it enforces Multi Factor Authentication for this PostgreSQL user.
+`boolean` when `true` it enforces multifactor authentication for this PostgreSQL user.
 
 > [!IMPORTANT]
-> The `isMfa` flag tests the `mfa` claim in the Microsoft Entra ID token, but it doesn't impact the token acquisition flow. For example, if the tenant of the principal is not configured for Multi Factor Authentication, it will prevent the use of the feature. And if the tenant requires Multi Factor Authentication for all tokens, it will make this flag useless.
+> The `isMfa` flag tests the `mfa` claim in the Microsoft Entra ID token, but it doesn't impact the token acquisition flow. For example, if the tenant of the principal is not configured for multifactor authentication, it will prevent the use of the feature. And if the tenant requires multifactor authentication for all tokens, it will make this flag useless.
 
 #### Return type
 
@@ -157,7 +157,7 @@ SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>,t
 
 ##### `roleName`
 
-`text` name of an existing PostgreSQL role to which Microsft Entra authentication needs to be enabled.
+`text` name of an existing PostgreSQL role to which Microsoft Entra authentication needs to be enabled.
 
 ##### `objectId`
 
