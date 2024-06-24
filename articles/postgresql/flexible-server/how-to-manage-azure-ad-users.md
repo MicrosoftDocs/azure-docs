@@ -94,6 +94,9 @@ pg_catalog.pgaadauth_create_principal(roleName text, isAdmin boolean, isMfa bool
 ##### `isMfa`
 `boolean` when `true` it enforces Multi Factor Authentication for this PostgreSQL user.
 
+> [!IMPORTANT]
+> The `isMfa` flag tests the `mfa` claim in the Microsoft Entra ID token, but it doesn't impact the token acquisition flow. For example, if the tenant of the principal is not configured for Multi Factor Authentication, it will prevent the use of the feature. And if the tenant requires Multi Factor Authentication for all tokens, it will make this flag useless.
+
 #### Return type
 
 `text` single value that consists of a string "Created role for ***roleName***", where ***roleName*** is the argument passed for the **roleName** parameter.
@@ -160,6 +163,10 @@ SECURITY LABEL for "pgaadauth" on role "<roleName>" is 'aadauth,oid=<objectId>,t
 ##### `objectType`
 
 `text` it can be set to `user`, `group`, or `service` (for applications or managed identities connecting under their own service credentials).
+
+##### `admin`
+
+`text` it can be present or absent. Users/roles for which this part is present in their security label, can manage other Microsoft Entra ID roles.
 
 ## Next steps
 
