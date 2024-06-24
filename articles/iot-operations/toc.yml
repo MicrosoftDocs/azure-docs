@@ -171,7 +171,7 @@ items:
         href: manage-layered-network/overview-layered-network.md
       - name: IoT Operations in layered network
         href: manage-layered-network/concept-iot-operations-in-layered-network.md
-      - name: Deploy Layered Network Management
+      - name: Configure Layered Network Management
         href: manage-layered-network/howto-deploy-aks-layered-network.md
       - name: How to
         items:
