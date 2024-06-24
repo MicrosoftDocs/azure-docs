@@ -53,7 +53,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Announcement date: June 24, 2024**
 
-**Estimated date for change: July, 2024**
+**Estimated date for change: July 2024**
 
 The Checkov integration for infrasturcture-as-code (IaC) scanning through [MSDO](azure-devops-extension.md) will be released for General Availability (GA) in July 2024. As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
 
