@@ -35,6 +35,18 @@ Auto-migrations are done using the [in-place migration feature](migrate.md). The
 
 For more information about in-place migrations and to see what process is followed during an auto-migration, see the [Migration to App Service Environment v3 using the in-place migration feature](migrate.md).
 
+### Ineligible for auto-migration
+
+If you're ineligible for auto-migration, you must [migrate manually](migration-alternatives.md). The portal displays a message with the reason why you're ineligible for auto-migration. If you're ineligible for auto-migration, your App Service Environment is suspended until you migrate manually. **Your App Service Environment will be deleted in February 2025.**
+
+The following scenarios are ineligible for auto-migration:
+
+|Error message      |Description  |Recommendation  |
+|---------|---------|----------|
+|TODO:error message   |The App Service Environment v1 is in a Classic virtual network. Classic virtual networks don't support App Service Environment v3.  |You must [migrate manually](migration-alternatives.md). |
+|TODO: error message  |There's a resource lock on the App Service Environment/virtual network/resource group/subscription that's preventing the migration.  |Remove the resource lock to enable auto-migration.  |
+|TODO: error message  |There's an [Azure Policy](../../governance/policy/overview.md) that's preventing the migration.  |Remove the Azure Policy to enable auto-migration.  |
+
 ## Changes to the in-place migration feature
 
 To limit the effect of auto-migrations, we implemented the following changes to the in-place migration feature.
@@ -120,8 +132,3 @@ The App Service plan SKUs available for App Service Environment v3 run on the Is
   There's about one hour of downtime during the migration process. The inbound and outbound IP addresses of your App Service Environment might change during the migration process. Downtime might be longer if you have dependencies on these IP addresses. Downtime might also be longer if you use features that aren't supported in App Service Environment v3.
 - **Will I be charged for auto-migrations?**  
   There's no cost associated with migrating your App Service Environment. You stop being charged for your previous App Service Environment as soon as it shuts down during the migration process. You begin getting charged for your new App Service Environment v3 as soon as it gets deployed.
-<!-- 
-TODO: what if there is an azure policy blocking migration?
-TODO: what if there is a lock blocking migration?
-TODO: how do we handle subnet delegation? do we automatically delegate the subnet?
-TODO: how do we handle "Subscription has too many App Service Environments. Please remove some before trying to create more."? -->
