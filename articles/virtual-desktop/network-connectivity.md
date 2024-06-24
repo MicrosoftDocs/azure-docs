@@ -50,7 +50,7 @@ The client connection sequence is as follows:
 
 1. Remote Desktop stack initiates a TLS 1.2 connection to the same Azure Virtual Desktop gateway instance as used by the client.
 
-1. After both client and session host connected to the gateway, the gateway starts relaying the data between both endpoints. This relay establishes the base reverse connect transport for the RDP connection through a nested tunnel, using the mutually agreed TLS version supported and enabled between the client and session host, up to TLS 1.3.
+1. After both client and session host connected to the gateway, the gateway starts relaying the data between both endpoints. This connection establishes the base reverse connect transport for the RDP connection through a nested tunnel, using the mutually agreed TLS version supported and enabled between the client and session host, up to TLS 1.3.
 
 1. After the base transport is set, the client starts the RDP handshake.
 
