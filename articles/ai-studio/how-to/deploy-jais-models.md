@@ -25,7 +25,7 @@ You can find the JAIS model in the [Model Catalog](model-catalog.md) by filterin
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions will not work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Jamba Instruct is only available with hubs created in these regions:
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for JAIS is only available with hubs created in these regions:
 
     > [!div class="checklist"]
     > * East US
