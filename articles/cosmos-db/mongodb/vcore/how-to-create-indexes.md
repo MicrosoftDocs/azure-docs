@@ -46,7 +46,7 @@ db.currentOp()
 ```
 
 When a createIndex operation is in progress, the response will look like:
-```json
+```javascript
 {
   inprog: [
     {
