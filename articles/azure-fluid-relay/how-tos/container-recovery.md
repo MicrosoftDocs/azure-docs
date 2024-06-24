@@ -18,11 +18,11 @@ If the latest snapshot or subsequent changes are corrupt, Fluid may not be able 
 
 ## Azure client APIs
 
-## APIs for viewing and loading container versions
+### APIs for viewing and loading container versions
 
-The AzureClient has the following methods to support this scenario.
+The AzureClient has the following methods to support this scenario:
 
-### Get Container Versions
+#### Get container versions
 
 `getContainerVersions(id, options?)`
 
@@ -40,7 +40,7 @@ Retrieve a list of available versions that may be loaded from.
     *   *Note*:  This is different from the container ID, and specifically references a snapshot version rather than the container.
 *   `date`:  The timestamp when the version was generated.
 
-### View Container Version
+#### View container version
 
 `viewContainerVersion(id, containerSchema, version, compatibilityMode)`
 
@@ -59,7 +59,7 @@ The container is loaded in a paused state, meaning it will not apply the subsequ
 
 *   `container`:  The container object.  This is the same type of object as the container object returned by `getContainer`, but is paused in its prior state from the selected version.
 
-## Example
+### Example
 
 ```typescript
 const azureClient = new AzureClient(/* ... */);
@@ -87,7 +87,7 @@ We aren't recovering (rolling back) existing container. `copyContainer` will giv
 
  New container is initially in `detached` state. We can continue working with detached container, or immediately attach. After calling `attach` we'll get back unique Container ID, representing newly created instance.
 
- ## Post-recovery considerations
+## Post-recovery considerations
 
 When it comes to building use cases around post-recovery scenarios, here are couple of considerations on what application might want do to get its remote collaborators all working on the same container again.
 
