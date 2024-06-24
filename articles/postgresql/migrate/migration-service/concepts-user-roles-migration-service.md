@@ -4,7 +4,7 @@ description: Migration of users/roles, ownerships, and privileges along with sch
 author: shriramm
 ms.author: shriramm
 ms.reviewer: maghan
-ms.date: 03/13/2024
+ms.date: 06/19/2024
 ms.service: postgresql
 ms.topic: conceptual
 ---

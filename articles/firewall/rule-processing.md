@@ -195,7 +195,7 @@ As a stateful service, Azure Firewall completes a TCP three-way handshake for al
 
 Creating an allow rule from VNet-A to VNet-B doesn't mean that new initiated connections from VNet-B to VNet-A are allowed.
 
-As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you interrupt the three-way handshake from the initial allow rule from VNet-A to VNet-B. 
+As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. 
 
 ## Next steps
 

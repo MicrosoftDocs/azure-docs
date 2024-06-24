@@ -52,7 +52,7 @@ First, configure the secrets for the username and password in Azure Key Vault an
       az keyvault secret set \
         --name "password" \
         --vault-name "<your-azure-key-vault-name>" \
-        --value "<your-opc-ua-server-username>" \
+        --value "<your-opc-ua-server-password>" \
         --content-type "text/plain"
     ```
 
