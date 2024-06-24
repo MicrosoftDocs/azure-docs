@@ -302,6 +302,10 @@ You should already have IoT Edge installed on your device. If not, follow the st
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
 
     ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+    
     [agent.config]
     image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     ```
@@ -512,6 +516,10 @@ You should already have IoT Edge installed on your device. If not, follow the st
 01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
 
     ```toml
+    [agent]
+    name = "edgeAgent"
+    type = "docker"
+
     [agent.config]
     image: "mcr.microsoft.com/azureiotedge-agent:1.5"
     ```
@@ -599,10 +607,19 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Devices** under the **Device management** menu.
 1. Select the top layer IoT Edge device that you're configuring from the list.
 1. Select **Set modules**.
-1. In the **IoT Edge modules** section, select **Add** then choose **Marketplace module**.
-1. Search for and select the **IoT Edge API Proxy** module.
-1. Select the name of the API proxy module from the list of deployed modules and update the following module settings:
-   1. In the **Environment variables** tab, update the value of **NGINX_DEFAULT_PORT** to `443`.
+1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
+1. Update the following module settings:
+
+    | Setting            | Value                                             |
+    |--------------------|---------------------------------------------------|
+    | IoT Module name    | `IoTEdgeAPIProxy`                                 |
+    | Image URI          | `mcr.microsoft.com/azureiotedge-api-proxy:latest` |
+    | Restart policy     | always                                            |
+    | Desired status     | running                                           |
+
+    If you want to use a different version or architecture of the API proxy module, find the available images in the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azureiotedge-api-proxy).
+
+   1. In the **Environment variables** tab, add a variable named  `NGINX_DEFAULT_PORT` of type *Text* with a value of `443`.
    1. In the **Container create options** tab, update the port bindings to reference port 443.
 
       ```json
@@ -620,8 +637,8 @@ The API proxy module was designed to be customized to handle most common gateway
       ```
 
    These changes configure the API proxy module to listen on port 443. To prevent port binding collisions, you need to configure the edgeHub module to not listen on port 443. Instead, the API proxy module will route any edgeHub traffic on port 443.
-
-1. Select **Runtime Settings** and find the edgeHub module create options. Delete the port binding for port 443, leaving the bindings for ports 5671 and 8883.
+1. Select **Add** to add the module to the deployment.
+1. Select **Runtime Settings** and find the edgeHub module *Container Create Options*. Delete the port binding for port 443, leaving the bindings for ports 5671 and 8883.
 
    ```json
    {
@@ -642,34 +659,39 @@ The API proxy module was designed to be customized to handle most common gateway
    }
    ```
 
-1. Select **Save** to save your changes to the runtime settings.
-1. Select **Add** again, then choose **IoT Edge module**.
-1. Provide the following values to add the Docker registry module to your deployment:
-   1. **IoT Edge module name**: `registry`
-   1. On the **Module settings** tab, **Image URI**: `registry:latest`
-   1. On the **Environment variables** tab, add the following environment variables:
+1. Select **Apply** to save your changes to the runtime settings.
+1. Provide the following values to add the Docker registry module to your deployment. 
 
-      * **Name**: `REGISTRY_PROXY_REMOTEURL` **Value**: The URL for the container registry you want this registry module to map to. For example, `https://myregistry.azurecr`.
+    1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
 
-        The registry module can only map to one container registry, so we recommend having all container images in a single private container registry.
+        | Setting            | Value                                             |
+        |--------------------|---------------------------------------------------|
+        | IoT Module name    | `registry`                                        |
+        | Image URI          | `registry:latest`                                 |
+        | Restart policy     | `always`                                          |
+        | Desired status     | `running`                                         |
 
-      * **Name**: `REGISTRY_PROXY_USERNAME` **Value**: Username to authenticate to the container registry.
+    1. In the **Environment variables** tab, add the following variables:
 
-      * **Name**: `REGISTRY_PROXY_PASSWORD` **Value**: Password to authenticate to the container registry.
+        | Name                   | Type  | Value                                                   |
+        |------------------------|-------|---------------------------------------------------------|
+        | `REGISTRY_PROXY_REMOTEURL` | Text  | The URL for the container registry you want this registry module to map to. For example, `https://myregistry.azurecr`. The registry module can only map to one container registry, so we recommend having all container images in a single private container registry.|
+        | `REGISTRY_PROXY_USERNAME`  | Text  | Username to authenticate to the container registry. |
+        | `REGISTRY_PROXY_PASSWORD`  | Text  | Password to authenticate to the container registry. |
 
-   1. On the **Container create options** tab, paste:
+    1. In the **Container create options** tab, update the port bindings to reference port 5000.
 
       ```json
       {
-          "HostConfig": {
-              "PortBindings": {
-                  "5000/tcp": [
-                      {
-                          "HostPort": "5000"
-                      }
-                  ]
+        "HostConfig": {
+          "PortBindings": {
+            "5000/tcp": [
+              {
+                "HostPort": "5000"
               }
+            ]
           }
+        }
       }
       ```
 
@@ -831,11 +853,19 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Devices** under the **Device management** menu.
 1. Select the lower layer IoT Edge device that you're configuring from the list.
 1. Select **Set modules**.
-1. In the **IoT Edge modules** section, select **Add** then choose **Marketplace module**.
-1. Search for and select the **IoT Edge API Proxy** module.
-1. Select the name of the API proxy module from the list of deployed modules and update the following module settings:
-   1. In the **Module settings** tab, update the value of **Image URI**. Replace `mcr.microsoft.com` with `$upstream:443`.
-   1. In the **Environment variables** tab, update the value of **NGINX_DEFAULT_PORT** to `443`.
+1. In the **IoT Edge modules** section, select **Add** then choose **IoT Edge Module**.
+1. Update the following module settings:
+
+    | Setting            | Value                                             |
+    |--------------------|---------------------------------------------------|
+    | IoT Module name    | `IoTEdgeAPIProxy`                                 |
+    | Image URI          | `mcr.microsoft.com/azureiotedge-api-proxy:latest` |
+    | Restart policy     | `always`                                          |
+    | Desired status     | `running`                                         |
+
+    If you want to use a different version or architecture of the API proxy module, find the available images in the [Microsoft Artifact Registry](https://mcr.microsoft.com/product/azureiotedge-api-proxy).
+
+   1. In the **Environment variables** tab, add a variable named  `NGINX_DEFAULT_PORT` of type *Text* with a value of `443`.
    1. In the **Container create options** tab, update the port bindings to reference port 443.
 
       ```json
@@ -882,7 +912,7 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Update the edgeAgent module settings:
    1. In the **Image** field, replace `mcr.microsoft.com` with `$upstream:443`.
 
-1. Select **Save** to save your changes to the runtime settings.
+1. Select **Apply** to save your changes to the runtime settings.
 1. Select **Next: Routes** to go to the next step.
 1. To enable device-to-cloud messages from downstream devices to reach IoT Hub, include a route that passes all messages to `$upstream`. The upstream parameter points to the parent device in the case of lower layer devices. For example:
     1. **Name**: `Route`

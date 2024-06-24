@@ -119,7 +119,7 @@ Once a request is admitted to the search service, it must still undergo authenti
 
 + [Key-based authentication](search-security-api-keys.md) is performed on the request (not the calling app or user) through an API key, where the key is a string composed of randomly generated numbers and letters that prove the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-You can use both authentication methods, or [disable an approach](search-security-rbac.md#disable-api-key-authentication) that you don't want available on your search service.
+You can use both authentication methods, or [disable an approach](search-security-enable-roles.md) that you don't want available on your search service.
 
 ## Authorization
 
@@ -156,12 +156,7 @@ For multitenancy solutions requiring security boundaries at the index level, it'
 
 User permissions at the document level, also known as *row-level security*, isn't natively supported in Azure AI Search. If you import data from an external system that provides row-level security, such as Azure Cosmos DB, those permissions won't transfer with the data as its being indexed by Azure AI Search.
 
-If you require permissioned access over content in search results, there's a technique for applying filters that include or exclude documents based on user identity. This workaround adds a string field in the data source that represents a group or user identity, which you can make filterable in your index. The following table describes two approaches for trimming search results of unauthorized content.
-
-| Approach | Description |
-|----------|-------------|
-|[Security trimming based on identity filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
-|[Security trimming based on Microsoft Entra identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Microsoft Entra ID, one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
+If you require permissioned access over content in search results, there's a technique for applying filters that include or exclude documents based on user identity. This workaround adds a string field in the data source that represents a group or user identity, which you can make filterable in your index. For more information about this pattern, see [Security trimming based on identity filters](search-security-trimming-for-azure-search.md).
 
 ## Data residency
 

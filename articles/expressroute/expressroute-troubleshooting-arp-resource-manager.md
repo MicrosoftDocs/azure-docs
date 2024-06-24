@@ -4,7 +4,7 @@ description: This page provides instructions on getting the Address Resolution P
 services: expressroute
 author: duongau
 ms.service: expressroute
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ms.topic: troubleshooting
 ms.date: 06/30/2023
 ms.author: duau

@@ -93,7 +93,7 @@ The following example creates a Node.js app.
     --environment-type connected \
     --image mcr.microsoft.com/k8se/quickstart:latest \
     --target-port 80 \
-    --ingress 'external'
+    --ingress external
 
 az containerapp browse --resource-group $myResourceGroup --name $myContainerApp
 ```

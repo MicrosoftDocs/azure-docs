@@ -4,9 +4,9 @@ description: Learn how to prepare Linux with a multi-node cluster in Edge Storag
 author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
+ms.custom: linux-related-content
 ms.date: 04/08/2024
 zone_pivot_groups: platform-select
-
 ---
 
 # Prepare Linux using a multi-node cluster (preview)

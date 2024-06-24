@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server has an intelligent tuning feature that's designed to enhance
 performance automatically and help prevent problems. Intelligent tuning continuously monitors the Azure Database for PostgreSQL flexible server database's

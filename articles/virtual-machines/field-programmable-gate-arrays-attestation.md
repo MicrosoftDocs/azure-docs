@@ -56,14 +56,6 @@ There are several ways to copy the file; an example using the az storage upload 
 
 `az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>`
 
-## Download the attestation scripts  
-
-The Validation scripts can be downloaded from the following Azure storage blob container:  
-
-[https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip](https://fpgaattestation.blob.core.windows.net/validationscripts/validate.zip)
-
-The zip file has two PowerShell scripts, one to submit and the other to monitor while the third file is a bash script which performs both functions.  
-
 ## Running the attestation scripts  
 
 To run the scripts, you will need to provide the name of your storage account, the name of the blob container where the netlist file is stored and the name of the netlist file. You will also need to create a Service shared access signature (SAS) that grants read/write access to your container (not the netlist). This SAS is used by the attestation service to make a local copy of your netlist file and to write back the resulting output files of the validation process to your container.  

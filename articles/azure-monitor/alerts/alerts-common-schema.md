@@ -109,7 +109,8 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 | resolvedDateTime | The date and time when the monitor condition for the alert instance is set to **Resolved** in UTC. Currently only applicable for metric alerts.|
 | description | The description, as defined in the alert rule. |
 |essentialsVersion| The version number for the essentials section.|
-|alertContextVersion | The version number for the `alertContext` section. |
+|alertContextVersion | The version number for the `alertContext` section.|
+|investigationLink | Link to investigate the alert in Azure Monitor. Currently requires limited preview registration.|
 
 
 ## Alert context fields for metric alerts 

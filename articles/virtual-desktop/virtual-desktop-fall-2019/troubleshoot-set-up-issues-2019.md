@@ -70,9 +70,6 @@ Example of raw error:
 
 **Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Microsoft Entra tenant](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). After following the instructions, you'll have a user assigned to the TenantCreator role.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of TenantCreator role assigned.](../media/TenantCreatorRoleAssigned.png)
-
 ## Creating Azure Virtual Desktop session host VMs
 
 Session host VMs can be created in several ways, but the Azure Virtual Desktop team only supports VM provisioning issues related to the [Azure Marketplace](https://azuremarketplace.microsoft.com/) offering. For more information, see [Issues using Azure Virtual Desktop - Provision a host pool Azure Marketplace offering](#issues-using-azure-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
@@ -374,8 +371,7 @@ New-RdsRoleAssignment -TenantName <Azure Virtual Desktop tenant name> -RoleDefin
 
 ### Error: User requires Microsoft Entra multifactor authentication (MFA)
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of your deployment failed due to lack of multifactor authentication (MFA)](../media/MFARequiredError.png)
+:::image type="content" source="../media/MFA-Required-Error-inline.png" alt-text="Screenshot of your deployment failed due to lack of multifactor authentication (MFA)." lightbox="../media/MFA-Required-Error-expanded.png":::
 
 Example of raw error:
 
