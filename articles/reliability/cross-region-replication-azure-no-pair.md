@@ -37,13 +37,21 @@ To achieve geo-replication in non-paired regions, you can use:
 - [Azure Site Recovery](/azure/site-recovery/azure-to-azure-enable-global-disaster-recovery). 
 - Third party backup solutions.
 
-## Azure SQL Database and SQL Managed Instance
+- 
+## Azure SQL Database
 
-For geo-replication in non-paired regions, Azure SQL data services you can use:
+For geo-replication in non-paired regions with Azure SQL Database, you can use:
 
-- [Failover Group feature](/azure/azure-sql/database/failover-group-sql-db?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying storage GRS.
+- [Failover group feature](/azure/azure-sql/database/failover-group-sql-db?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying storage GRS.
 
 - [Active geo-replication feature](/azure/azure-sql/database/active-geo-replication-overview?view=azuresql&preserve-view=true) to create a continuously synchronized readable secondary database for a primary database. The readable secondary database may be in the same Azure region as the primary or, more commonly, in a different region. This kind of readable secondary database is also known as a *geo-secondary* or *geo-replica*.
+
+## Azure SQL Managed Instance 
+
+For geo-replication in non-paired regions with Azure SQL Managed Instance, you can use:
+
+- [Failover group feature](/azure/azure-sql/managed-instance/failover-group-sql-mi?view=azuresql&preserve-view=true) that replicates across any combination of Azure regions without any dependency on underlying storage GRS.
+
 
 
 ## Azure Key Vault
