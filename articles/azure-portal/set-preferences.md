@@ -99,7 +99,7 @@ The **Menu behavior** section lets you choose how the [Azure portal menu](azure-
 - **Flyout**: The menu is hidden until you need it. You can select the menu icon in the upper left hand corner to open or close the menu.
 - **Docked**: The menu is always visible. You can collapse the menu to provide more working space.
 
-## Service menu behavior
+### Service menu behavior
 
 The **Service menu behavior** section lets you choose how items in [service menus](azure-portal-overview.md#service-menu) are displayed.
 
