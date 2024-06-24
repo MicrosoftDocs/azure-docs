@@ -185,7 +185,6 @@ Azure Backup and Azure Database for PostgreSQL flexible server services have bui
 
 - In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
 - In preview, you can perform LTR backups for all databases, single db backup support will be added in the future.
-- LTR backup is currently not supported for CMK-enabled servers. This capability will be added in the future.
 - LTR backup is currently not supported on geo-replicas. You can still perform LTR backups from the primary servers.
 
 

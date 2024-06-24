@@ -1,4 +1,4 @@
----
+ ---
 title: Collect logs from a text or JSON file with Azure Monitor Agent 
 description: Configure a data collection rule to collect log data from a text or JSON file on a virtual machine using Azure Monitor Agent.
 ms.topic: conceptual
@@ -21,7 +21,7 @@ Many applications and services will log information to text or JSON files instea
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- One or two [data collection endpoints](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint), depending on whether your virtual machine and Log Analytics workspace are in the same region.
+- A data collection endpoint (DCE) if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. See [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment) for details.
 
 ## Text or JSON file requirements and best practices
 The file that the Azure Monitor Agent is monitoring must meet the following requirements:
@@ -34,6 +34,7 @@ The file that the Azure Monitor Agent is monitoring must meet the following requ
      
 
 Adhere to the following recommendations to ensure that you don't experience data loss or performance issues:
+  
 
 - Create a new log file every day so that you can easily clean up old files.
 - Continuously clean up log files in the monitored directory. Tracking many log files can drive up agent CPU and Memory usage. Wait for at least 2 days to allow ample time for all logs to be processed.
