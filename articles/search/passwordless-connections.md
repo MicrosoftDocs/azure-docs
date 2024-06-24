@@ -391,5 +391,5 @@ To connect to Azure AI Search, your code needs to know your resource endpoint, a
 
 ## Additional resources
 
-* [keylessless connections developer guide](/azure/developer/intro/keylessless-overview)
+* [keylessless connections developer guide](/azure/developer/intro/passwordless-overview)
 * [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
