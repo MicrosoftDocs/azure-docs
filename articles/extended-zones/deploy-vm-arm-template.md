@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: quickstart-arm  #Don't change
-ms.date: 06/11/2024
+ms.date: 06/26/2024
 ms.custom: subject-armqs
 
 # Customer intent: As a cloud administrator, I want a quick method to deploy a virtual machine in an Azure Extended Zone.
@@ -15,7 +15,7 @@ ms.custom: subject-armqs
  
 In this quickstart, you learn how to deploy a virtual machine (VM) in an Azure Extended Zone using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 You can also complete this quickstart using the [Azure portal](deploy-vm-portal.md).
 
@@ -312,7 +312,8 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines?pivots=deployment-language-arm-template)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks?pivots=deployment-language-arm-template)
 
-
+> [!NOTE]
+> Default outbound access is not available to VMs in Extended Zones. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 
 ## Related content
