@@ -25,19 +25,19 @@ The working pane for a resource or service may also have a [service menu](#servi
 
 The illustration below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine (VM), but the same elements generally apply, no matter what type of resource or service you're working with.
 
-:::image type="content" source="media/azure-portal-overview/portal-callouts.png" alt-text="Screenshot showing the full screen portal view and a key to UI elements." lightbox="media/azure-portal-overview/azure-portal-overview-portal-callouts.png":::
+:::image type="content" source="media/azure-portal-overview/portal-callouts.png" alt-text="Screenshot showing the full screen portal view and a key to UI elements." lightbox="media/azure-portal-overview/portal-callouts.png":::
 
 |Key|Description |
 |:---:|---|
-|1|**Portal menu**. This global element can help you to navigate between services. Sometimes referred to as the sidebar.|
+|1|**[Portal menu](#portal-menu)**. This global element can help you to navigate between services. Here, the portal menu is in flyout mode, so it's hidden until you select the menu icon.|
 |2|**Breadcrumb**. Use the breadcrumb links to move back a level in your workflow.|
 |3|**Page header**. Appears at the top of every portal page and holds global elements.|
 |4|**Global search**. Use the search bar in the page header to quickly find a specific resource, a service, or documentation.|
-|5|**Copilot**. Quick access to [Microsoft Copilot in Azure (preview)](/azure/copilot/).|
-|6|**Global controls**. Controls that persist in the page header for common tasks: Cloud Shell, Notifications, Settings, Support + Troubleshooting, and Feedback.|
+|5|**Copilot**. Provides quick access to [Microsoft Copilot in Azure (preview)](/azure/copilot/).|
+|6|**Global controls**. These controls for common tasks persist in the page header: Cloud Shell, Notifications, Settings, Support + Troubleshooting, and Feedback.|
 |7|**Your account**. View information about your account, switch directories, sign out, or sign in with a different account.|
 |8|**Command bar**. A group of controls that are contextual to your current focus.|
-|9|**Service menu**. A menu with commands that are contextual to the service or resource that you're working with. You may see also this element referred to as the resource menu, or sometimes as the left pane.|
+|9|**[Service menu](#service-menu)**. A menu with commands that are contextual to the service or resource that you're working with. Sometimes referred to as the resource menu.|
 |10|**Working pane**. Displays details about the resource or service that's currently in focus.|
 
 ## Portal menu
@@ -48,16 +48,16 @@ The Azure portal menu lets you quickly get to key functionality and resource typ
 
 Useful commands in the portal menu include:
 
-- **+ Create a resource**. An easy way to get started creating a new resource in the current subscription.
-- **Favorites**. Your list of favorite Azure services. To learn how to customize this list, see [Add, remove, and sort favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md).|
+- **Create a resource**. An easy way to get started creating a new resource in the current subscription.
+- **Favorites**. Your list of favorite Azure services. To learn how to customize this list, see [Add, remove, and sort favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md).
 
-You can [choose a default mode for the portal menu](set-preferences.md#portal-menu-behavior): flyout or docked.
+In your portal settings, you can [choose a default mode for the portal menu](set-preferences.md#portal-menu-behavior): flyout or docked.
 
 When the portal menu is in flyout mode, it's hidden until you need it. Select the menu icon to open or close the menu.
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-menu-flyout.png" alt-text="Screenshot of the Azure portal menu in flyout mode.":::
 
-If you choose docked mode for the portal menu, it's always be visible. You can manually collapse the menu to provide more working space.
+If you choose docked mode for the portal menu, it's always visible. You can select the arrows to manually collapse the menu if you want more working space.
 
 :::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-menu-expandcollapse.png" alt-text="Screenshot of the Azure portal menu in docked mode.":::
 
@@ -81,7 +81,7 @@ When you save a command as a favorite, it appears in a **Favorites** folder near
 
 :::image type="content" source="media/azure-portal-overview/service-menu-favorites.png" alt-text="Screenshot of the Favorites folder in a service menu.":::
 
-Your menu group selections are preserved by resource type and throughout sessions. For example, if you add a favorite command while working with a VM, that command will appear in your **Favorites** if you later work with a different VM. Menu groups will also appear collapsed or expanded based on your previous selections.
+Your menu group selections are preserved by resource type and throughout sessions. For example, if you add a favorite command while working with a VM, that command will appear in your **Favorites** if you later work with a different VM. Specific menu groups will also appear collapsed or expanded based on your previous selections.
 
 ## Dashboard
 
