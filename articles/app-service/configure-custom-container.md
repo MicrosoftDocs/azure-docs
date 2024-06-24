@@ -222,16 +222,16 @@ The only exception is the `/home/LogFiles` directory, which is used to store the
 
 It's recommended to write data to `/home` or a [mounted Azure storage path](configure-connect-to-azure-storage.md?tabs=portal&pivots=container-linux). Data written outside these paths isn't persistent during restarts and is saved to platform-managed host disk space separate from the App Service Plans file storage quota.
 
-By default, persistent storage is *enabled* on Linux custom containers. To disable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `false` via the [Cloud Shell](https://shell.azure.com). In Bash:
+By default, persistent storage is *disabled* on Linux custom containers. To enable it, set the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting value to `true` via the [Cloud Shell](https://shell.azure.com). In Bash:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
 ```
 
 In PowerShell:
 
 ```azurepowershell-interactive
-Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=false}
+Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"WEBSITES_ENABLE_APP_SERVICE_STORAGE"=true}
 ```
 
 ::: zone-end

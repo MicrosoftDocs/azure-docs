@@ -232,7 +232,7 @@ This upgrade performs a node-image version upgrade on all node pools and restart
 AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster. The API server hostname doesn't change, but public DNS entries are modified or removed if necessary.
 
 > [!NOTE]
-> `--disable-private-cluster is currently in preview. For more information, see [Reference and support levels][ref-support-levels].
+> `--disable-private-cluster` is currently in preview. For more information, see [Reference and support levels][ref-support-levels].
 
 ### Enable private cluster mode
 

@@ -56,7 +56,7 @@ $LB = New-AzLoadBalancer @loadbalancer
  
 $LBinfo = @{
     ResourceGroupName = 'myResourceGroupLB'
-    Name = 'myLoadBalancer’
+    Name = 'myLoadBalancer'
 }
 
 ## Add load balancer frontend configuration and apply to load balancer.
