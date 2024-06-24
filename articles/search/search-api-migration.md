@@ -89,9 +89,9 @@ If you're upgrading from the previous version, the next section has the steps.
 
 ## Upgrade from 2023-07-01-preview
 
-Do not use this API version.
+Do not use this API version. It implements a vector query syntax that's incompatible with any newer API version.
 
-`2023-07-01-preview` is now deprecated, so you shouldn't base new code on this version, nor should you upgrade *to* this version under any circumstances. This section explains the migration path from `2023-07-01-preview` to any newer API version. There are multiple breaking changes in vector query syntax from `2023-07-01-preview` to any newer version.
+`2023-07-01-preview` is now deprecated, so you shouldn't base new code on this version, nor should you upgrade *to* this version under any circumstances. This section explains the migration path from `2023-07-01-preview` to any newer API version.
 
 ### Portal upgrade for vector indexes
 

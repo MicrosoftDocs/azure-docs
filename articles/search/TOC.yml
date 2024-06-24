@@ -412,7 +412,7 @@
       href: semantic-how-to-enable-disable.md      
     - name: Configure semantic ranking
       href: semantic-how-to-configure.md
-    - name: Invoke semantic ranking
+    - name: Add semantic ranking to queries
       href: semantic-how-to-query-request.md
     - name: Configure BM25 ranking
       href: index-ranking-similarity.md
