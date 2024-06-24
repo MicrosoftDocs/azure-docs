@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 06/24/2024
 
 ---
 
@@ -153,7 +153,7 @@ Configure the **enableStaging** setting in the copy activity to specify whether 
 | --- | --- | --- | --- |
 | enableStaging |Specify whether you want to copy data via an interim staging store. |False |No |
 | linkedServiceName |Specify the name of an [Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) linked service, which refers to the instance of Storage that you use as an interim staging store. |N/A |Yes, when **enableStaging** is set to TRUE |
-| path |Specify the path that you want to contain the staged data. If you don't provide a path, the service creates a container to store temporary data. |N/A |No |
+| path |Specify the path that you want to contain the staged data. If you don't provide a path, the service creates a container to store temporary data. When `storageIntegration` in Snowflake connector is specified, the path is required. |N/A |No |
 | enableCompression |Specifies whether data should be compressed before it's copied to the destination. This setting reduces the volume of data being transferred. |False |No |
 
 >[!NOTE]
