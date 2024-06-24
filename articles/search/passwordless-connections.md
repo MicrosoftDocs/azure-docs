@@ -280,7 +280,7 @@ Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-g
 
 ### Authentication for local development
 
-Use a tool in your local development environment to authentication to Azure identity. Once you're authenticated, the AzureDefaultCredential in your source code finds and uses the authentication.  
+Use a tool in your local development environment to authentication to Azure identity. Once you're authenticated, the `DefaultAzureCredential` instance in your source code finds and uses the authentication.  
 
 #### [.NET](#tab/csharp)
 
