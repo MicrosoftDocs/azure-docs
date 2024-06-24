@@ -29,8 +29,9 @@ The file that the Azure Monitor Agent is monitoring must meet the following requ
 - The file must be stored on the local drive of the machine with the Azure Monitor Agent in the directory that is being monitored.
 - Each record must be delineated with an end of line. 
 - The file must use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
-- JSON text must be contained in a single row. The JSON body format is not supported.
 - New records should be appended to the end of the file and not overwrite old records. Overwriting will cause data loss.
+- JSON text must be contained in a single row. The JSON body format is not supported. For example `{"Element":"Gold","Symbol":"Au","NobleMetal":true,"AtomicNumber":79,"MeltingPointC":1064.18}`. 
+     
 
 Adhere to the following recommendations to ensure that you don't experience data loss or performance issues:
 
@@ -41,8 +42,25 @@ Adhere to the following recommendations to ensure that you don't experience data
 - Don't rename or copy large log files that match the file scan pattern into the monitored directory. If you must, do not exceed 50MB per minute.
 
 
+
+## Incoming stream
+When you create the DCR using the Azure portal, the incoming stream of data includes the columns in the following table. To modify the incoming stream, you must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream.
+
+ | Column | Type | Description |
+|:---|:---|:---|
+| `TimeGenerated` | datetime | The time the record was generated. |
+| `RawData` | string | For a text log, this will include the entire log entry in a single column. You can use a transformation if you want to break down this data into multiple columns. For a JSON file, this column will be empty. |
+| `FilePath` | string | If you add this column to either a text file or a JSON file, it will include the path to the log file. |
+| Additional columns | varies | Add additional columns to the incoming stream of the DCR for a JSON file that match the columns in the log file. |
+
 ## Create a custom table
-Before you can collect log data from a text or JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the data you are collecting.
+Before you can collect log data from a text or JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the data you are collecting, or you must add a transformation to ensure that the output schema matches the table.
+
+The incoming stream of data from 
+
+ The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. If you add 
+ 
+  Adding the 'FilePath' to either team is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later. 
 
 The table created in the script has two columns: 
 
@@ -51,7 +69,7 @@ The table created in the script has two columns:
 - 'FilePath' (string) [Optional]
 - `YourOptionalColumn` (string) [Optional]
 
-The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. Adding the 'FilePath' to either team is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later.  
+ 
 
 Your column names and JSON attributes must exactly match to automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
 
@@ -102,15 +120,12 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 | Setting | Description |
 |:---|:---|
-| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames vary, for example when the filename includes a date. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.txt<br>- C:\Logs\MyLog*.txt<br>- C:\App01\AppLog.txt, C:\App02\AppLog.txt<br>- /var/mylog.log<br>- /var/mylog*.log |
+| File pattern | Identifies the location and name of log files on the local disk. Use a wildcard for filenames that vary, for example when a new file is created each daya with a new name. You can enter multiple file patterns separated by commas.<br><br>Examples:<br>- C:\Logs\MyLog.txt<br>- C:\Logs\MyLog*.txt<br>- C:\App01\AppLog.txt, C:\App02\AppLog.txt<br>- /var/mylog.log<br>- /var/mylog*.log |
 | Table name | Name of the destination table in your Log Analytics Workspace. |     
 | Record delimiter | Not currently used but reserved for future potential use allowing delimiters other than the currently supported end of line (`/r/n`). | 
-| Transform | Use an [ingestion-time transformation](../essentials/data-collection-transformations.md) to filter records or to format the incoming data for the destination table. Use `source` to leave the incoming data unchanged. |
+| Transform | [Ingestion-time transformation](../essentials/data-collection-transformations.md) to filter records or to format the incoming data for the destination table. Use `source` to leave the incoming data unchanged. |
 
  
-1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
-    <!-- convertborder later -->
-    :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png" alt-text="Screenshot that shows the destination tab of the Add data source screen for a data collection rule in Azure portal." border="false":::
 
 ### [Resource Manager template](#tab/arm)
 
@@ -210,7 +225,7 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
         {
             "type": "Microsoft.Insights/dataCollectionRules",
             "name": "dataCollectionRuleName",
-            "location":  `location` ,
+            "location":  "location" ,
             "apiVersion": "2022-06-01",
             "properties": {
                 "dataCollectionEndpointId":  "endpointResourceId" ,
@@ -299,12 +314,9 @@ Update the following values in the Resource Manager template:
 | `filePatterns` | Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas (on Linux, AMA version 1.26 or higher is required to collect from a comma-separated list of file patterns). Examples of valid inputs: 20220122-MyLog.txt, ProcessA_MyLog.txt, ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt |
 | `transformKql` | Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace or leave as **source** if you don't need to transform the collected data. |
 
-> [!NOTE]
-> JSON text must be contained on a single line. For example {"Element":"Gold","Symbol":"Au","NobleMetal":true,"AtomicNumber":79,"MeltingPointC":1064.18}. To transfom the data into a table with columns TimeGenerated, Element, Symbol, NobleMetal, AtomicNumber and Melting point use this transform:  "transformKql": "source|extend d=todynamic(RawData)|project TimeGenerated, Element=tostring(d.Element), Symbol=tostring(d.Symbol), NobleMetal=tostring(d.NobleMetal), AtomicNumber=tostring(d.AtommicNumber), MeltingPointC=tostring(d.MeltingPointC)
-     
 
 
-See [Structure of a data collection rule in Azure Monitor](../essentials/data-collection-rule-structure.md) if you want to modify the data collection rule.
+
     
 
 When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
@@ -315,21 +327,35 @@ Change the API version to **2022-06-01**.
 
 :::image type="content" source="media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot that shows JSON view for data collection rule.":::
 
-Associate the data collection rule to the virtual machine you want to collect data from. You can associate the same data collection rule with multiple machines:
-
-    1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you created.
-    
-        :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with data collection rules menu item.":::
-    
-    1. Select **Resources** and then select **Add** to view the available resources.
-    
-        :::image type="content" source="media/data-collection-text-log/add-resources.png" lightbox="media/data-collection-text-log/add-resources.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with resources for the data collection rule.":::
-    
-    1. Select either individual virtual machines to associate the data collection rule, or select a resource group to create an association for all virtual machines in that resource group. Select **Apply**.
-    
-        :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
 
 ---
+
+## Delimited log files
+Many text log files have entries that are delimited by a character such as a comma. To parse this data into separate columns, use a transformation with the [split function](/azure/data-explorer/kusto/query/split-function).
+
+For example, consider a text file with the following comma-delimited data. These fields could desscribed as: `Time`, `Code`, `Severity`,`Module`, and `Message`. 
+
+```plaintext
+2024-06-21 19:17:34,1423,Error,Sales,Unable to connect to pricing service.
+2024-06-21 19:18:23,1420,Information,Sales,Pricing service connection established.
+2024-06-21 21:45:13,2011,Warning,Procurement,Module failed and was restarted.
+2024-06-21 23:53:31,4100,Information,Data,Nightly backup complete.
+```
+
+The following transformation parses the data into separate columns:
+
+```kusto
+source | project d = split(RawData,",") | project TimeGenerated=todatetime(d[0]), Code=toint(d[1]), Severity=tostring(d[2]), Module=tostring(d[3]), Message=tostring(d[4])
+```
+
+:::image type="content" source="media/data-collection-text-log/delimited-results.png" lightbox="media/data-collection-text-log/delimited-resultspng" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
+
+
+
+Because `split` returns dynamic data, you must use functions such as `tostring` and `toint` to convert the data to the correct scalar type. You also need to provide a name for each entry that matches the column name in the target table. Note that this example provides a `TimeGenerated` value. If this was not provided, the ingestion time would be used.
+
+:::image type="content" source="media/data-collection-text-log/delimited-results.png" lightbox="media/data-collection-text-log/delimited-resultspng" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
+
 
 
 ### Sample log queries
@@ -351,6 +377,10 @@ The column names used here are for example only. The column names for your log w
     | where status == "Error"
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
+
+## Transformation
+
+To transfom the data into a table with columns TimeGenerated, Element, Symbol, NobleMetal, AtomicNumber and Melting point use this transform:  "transformKql": "source|extend d=todynamic(RawData)|project TimeGenerated, Element=tostring(d.Element), Symbol=tostring(d.Symbol), NobleMetal=tostring(d.NobleMetal), AtomicNumber=tostring(d.AtommicNumber), MeltingPointC=tostring(d.MeltingPointC)
 
 
 ## Troubleshoot
@@ -450,6 +480,28 @@ do
 while ($true)
 
 ```
+
+
+## Example
+Consider the following log file used by an application running on a virtual machine. The log files are stored in the `C:\Logs` folder and have a name that starts with `AppLog` followed by the date. For 
+example, `appLog240621.txt`.
+
+:::image type="content" source="media/data-collection-text-log/example-text-logs.png" lightbox="media/data-collection-text-log/example-text-logs.png" alt-text="Screenshot that shows contents of example text log file.":::
+
+The contents of a log file are shown in the following image. Each line is comma-delimited and contains the following fields: `Time`, `Code`, `Severity`,`Module`, and `Message`.
+
+:::image type="content" source="media/data-collection-text-log/example-text-contents.png" lightbox="media/data-collection-text-log/example-text-contents.png" alt-text="Screenshot that shows contents of example text log file.":::
+
+The following sections show different options for collection this log data.
+
+### Simple table with single column
+This strategy uses a table with a single column called `RawData`. No transformation is required since the table corresponds to the default schema of the log file.
+
+
+
+### Parse log data into columns
+This strategy uses a table with a column for each field in the log file. A transformation is used to parse each 
+
 
 
 
