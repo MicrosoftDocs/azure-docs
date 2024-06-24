@@ -167,7 +167,7 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: BM25 ranking (keyword search)
+    - name: BM25 ranking
       href: index-similarity-and-scoring.md
     - name: Vector ranking
       href: vector-search-ranking.md
@@ -408,7 +408,7 @@
         href: search-query-fuzzy.md
   - name: Hybrid search
     href: hybrid-search-how-to-query.md
-  - name: Relevance tuning
+  - name: Relevance
     items:
     - name: Enable or disable semantic ranking
       href: semantic-how-to-enable-disable.md      
