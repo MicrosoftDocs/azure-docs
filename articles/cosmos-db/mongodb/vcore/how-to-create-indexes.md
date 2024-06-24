@@ -101,7 +101,7 @@ db.runCommand(
 })
 ```
 
-## Blocking Option
+## Prioritizing Index Builds over new Write Operations using the Blocking Option
 For scenarios in which the index should strictly be created before data has been loaded and for new writes to be blocked until all the historical data has been fully indexed, the blocking option should be specified when creating the index.
 
 Setting `{ "blocking": true }` blocks all write operations (delete, update, insert) to the collection until index creation is completed. This feature is particularly useful in scenarios such as migration utilities where indexes are created on empty collections before data writes commence.
