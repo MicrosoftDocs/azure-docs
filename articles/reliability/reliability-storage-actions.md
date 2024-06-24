@@ -31,7 +31,7 @@ While the Azure Storage Actions service is regional and doesn’t offer SKUs or 
 
 ### Zone down experience
 
-In a zone-done scenario, the Storage Action service continues to be available. The progress of tasks depends on the availability zone support of storage accounts against which they are running. If the account is not affected by the downed zone, the tasks continues to make progress. Otherwise, the tasks fail. 
+In a zone-done scenario, the Storage Action service continues to be available. The progress of tasks depends on the availability zone support of storage accounts against which they are running. If the account is not affected by the downed zone, the tasks continue to make progress. Otherwise, the tasks fail. 
 
 ### Zone outage preparation and recovery
 
