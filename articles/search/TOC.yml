@@ -167,11 +167,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Keyword queries (BM25 ranking)
+    - name: BM25 ranking (keyword search)
       href: index-similarity-and-scoring.md
-    - name: Vector queries
+    - name: Vector ranking
       href: vector-search-ranking.md
-    - name: Hybrid queries (RRF)
+    - name: Hybrid ranking (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
@@ -398,16 +398,6 @@
         href: search-pagination-page-layout.md
       - name: Return a semantic answer
         href: semantic-answers.md
-    - name: Relevance
-      items:
-      - name: Enable or disable semantic ranking
-        href: semantic-how-to-enable-disable.md      
-      - name: Configure semantic ranking
-        href: semantic-how-to-configure.md
-      - name: Configure BM25 ranking
-        href: index-ranking-similarity.md
-      - name: Add a scoring profile
-        href: index-add-scoring-profiles.md
     - name: Advanced queries
       items:
       - name: Use full Lucene (examples)
@@ -418,6 +408,16 @@
         href: search-query-fuzzy.md
   - name: Hybrid search
     href: hybrid-search-how-to-query.md
+  - name: Relevance tuning
+    items:
+    - name: Enable or disable semantic ranking
+      href: semantic-how-to-enable-disable.md      
+    - name: Configure semantic ranking
+      href: semantic-how-to-configure.md
+    - name: Configure BM25 ranking
+      href: index-ranking-similarity.md
+    - name: Add a scoring profile
+      href: index-add-scoring-profiles.md
   - name: Security
     items:
     - name: Enable role-based access control
