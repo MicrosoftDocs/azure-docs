@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: quickstart  #Don't change
-ms.date: 05/24/2024
+ms.date: 06/26/2024
 
 ---
   
@@ -115,6 +115,9 @@ In this section, you create a virtual network in the Azure Extended Zone that yo
 1. Select **Download RDP file** and open the downloaded file.
 
 1. Select **Connect** and then enter the username and password that you created in the previous steps. Accept the certificate if prompted.
+
+> [!NOTE]
+> Default outbound access is not available to VMs in Extended Zones. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 ## Clean up resources
 
