@@ -142,7 +142,7 @@ Azure Monitor alerts use the values the resource provider writes to the metric d
 
 ## How aggregation works
 
-The metrics charts in the previous system show different types of aggregated data. The system pre-aggregates the data so that the requested charts can show quicker without many repeated computations.  
+The metrics charts in the previous system show different types of aggregated data. The system preaggregates the data so that the requested charts can show quicker without many repeated computations.  
 
 In this example:
 
@@ -261,7 +261,7 @@ Following is a larger example using values for a fictitious metric called HTTP R
 
 Consider the following example. The boxes and arrows show examples of how the values are aggregated and calculated. 
 
-The same 1-minute preaggregation process as described in the previous section occurs for Sums, Count, Minimum, and Maximum.  However, Average is NOT pre-aggregated. It's recalculated using aggregated data to avoid calculation errors.
+The same 1-minute preaggregation process as described in the previous section occurs for Sums, Count, Minimum, and Maximum.  However, Average is NOT preaggregated. It's recalculated using aggregated data to avoid calculation errors.
  
 :::image type="content" source="media/metrics-aggregation-explained/full-aggregation-example-all-types.png" alt-text="Screenshot showing complex example of aggregation and calculation of sum, count, min, max and average from 1 minute to 10 minutes." border="false" lightbox="media/metrics-aggregation-explained/full-aggregation-example-all-types.png":::
 

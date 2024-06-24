@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 06/21/2024
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -468,8 +468,8 @@ If you installed Docker Desktop CLI, it includes Docker compose and its prerequi
             - EULA=accept
             - billing={TRANSLATOR_ENDPOINT_URI}
             - apiKey={TRANSLATOR_KEY}
-            - AzureAiLanguageHost=http://azure-ai-language:5000
-            - AzureAiReadHost=http://azure-ai-read:5000
+            - ladurl=http://azure-ai-language:5000
+            - VISIONURL=http://azure-ai-read:5000
         ports:
               - "5000:5000"
         azure-ai-language:
