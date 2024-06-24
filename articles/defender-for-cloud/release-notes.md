@@ -27,7 +27,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | June 24 | [Change in pricing for Defender for Containers in multicloud](#change-in-pricing-for-defender-for-containers-in-multicloud) |
 | June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
 
-### ## Change in pricing for Defender for Containers in multicloud
+### Change in pricing for Defender for Containers in multicloud
 
 June 24, 2024
 
