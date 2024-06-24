@@ -11,7 +11,7 @@ ms.author: cherylmc
 ---
 # Generate and export certificates for Point-to-Site connections using MakeCert
 
-Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. The steps in this article help you create **.pfx** and **.cer** files. If you're looking for different certificate instructions, see [PowerShell - .pfx and .cer certificate files](vpn-gateway-certificates-point-to-site.md) or [Linux- OpenSSL - .pem certificate files](point-to-site-certificates-linux-openssl.md).
+This article shows you how to create a self-signed root certificate and generate client certificates using MakeCert. The steps in this article help you create **.pfx** and **.cer** files. If you're looking for different certificate instructions, see [PowerShell - .pfx and .cer certificate files](vpn-gateway-certificates-point-to-site.md) or [Linux- OpenSSL - .pem certificate files](point-to-site-certificates-linux-openssl.md).
 
 We recommend using the [Windows 10 or later PowerShell steps](vpn-gateway-certificates-point-to-site.md) to create your certificates. We provide these MakeCert instructions as an optional method. The certificates that you generate using either method can be installed on [any supported client operating system](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). MakeCert has the following limitation:
 
