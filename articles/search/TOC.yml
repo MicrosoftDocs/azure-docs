@@ -354,8 +354,6 @@
     items:
     - name: Full text query
       href: search-query-create.md
-    - name: Semantic query
-      href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
     - name: Query examples (simple syntax)
@@ -408,12 +406,14 @@
         href: search-query-fuzzy.md
   - name: Hybrid search
     href: hybrid-search-how-to-query.md
-  - name: Relevance
+  - name: Ranking and relevance
     items:
     - name: Enable or disable semantic ranking
       href: semantic-how-to-enable-disable.md      
     - name: Configure semantic ranking
       href: semantic-how-to-configure.md
+    - name: Invoke semantic ranking
+      href: semantic-how-to-query-request.md
     - name: Configure BM25 ranking
       href: index-ranking-similarity.md
     - name: Add a scoring profile
