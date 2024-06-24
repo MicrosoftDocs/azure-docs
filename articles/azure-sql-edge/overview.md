@@ -38,7 +38,7 @@ Azure SQL Edge supports two deployment modes.
 
 ## Editions of SQL Edge
 
-SQL Edge is available with two different editions or software plans. These editions have identical feature sets and only differ in terms of their usage rights and the amount of cpu/memory they support.
+SQL Edge is available with two different editions or software plans. These editions have identical feature sets and only differ in terms of their usage rights and the amount of CPU/memory they support.
 
 | Plan | Description |
 | --- | --- |
