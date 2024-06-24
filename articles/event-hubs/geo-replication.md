@@ -14,11 +14,11 @@ There are two features that provide Geo-disaster recovery in Azure Event Hubs. T
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
 > - The below regions are currently supported in the public preview.
 >
-> | US               | Europe        | Asia             |
-> |------------------|---------------|------------------|
-> | Central US EUAP  | Italy North   |                  |
-> |                  | Spain Central |                  |
-> |                  | Norway East   |                  |
+> | US               | Europe        |
+> |------------------|---------------|
+> | Central US EUAP  | Italy North   |
+> |                  | Spain Central |
+> |                  | Norway East   |
 
 **High level feature differences**
 
