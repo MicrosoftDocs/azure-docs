@@ -12,7 +12,7 @@ ms.devlang: csharp
 Monitor your live, in-production web application by using live metrics (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). You can select and filter metrics and performance counters to watch in real time, without any disturbance to your service. You can also inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot Debugger](./snapshot-debugger.md), live metrics provide a powerful and noninvasive diagnostic tool for your live website.
 
 > [!NOTE]
-> Live metrics only supports TLS 1.2. For more information, see [Troubleshooting](#troubleshooting).
+> Live metrics only support TLS 1.2. For more information, see [Troubleshooting](#troubleshooting).
 
 With live metrics, you can:
 
@@ -112,7 +112,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 ## Secure the control channel
 
-Live metrics custom filters allow you to control which of your application's telemetry is streamed to the live metrics view in the Azure portal. The filters criteria are sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, secure the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
+Live metrics custom filters allow you to control which of your application's telemetry is streamed to the live metrics pane in the Azure portal. The filters criteria are sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, secure the live metrics channel by using [Microsoft Entra authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
 
 > [!NOTE]
 > On September 30, 2025, API keys used to stream live metrics telemetry into Application Insights will be retired. After that date, applications that use API keys won't be able to send live metrics data to your Application Insights resource. Authenticated telemetry ingestion for live metrics streaming to Application Insights will need to be done with [Microsoft Entra authentication for Application Insights](./azure-ad-authentication.md).

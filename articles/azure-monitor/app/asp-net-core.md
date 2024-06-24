@@ -168,7 +168,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### Live metrics
 
-[Live metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. It might take a few minutes for telemetry to appear in the portal and analytics, but the live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
+[Live metrics](./live-stream.md) can be used to quickly verify if application monitoring with Application Insights is configured correctly. Telemetry can take a few minutes to appear in the Azure portal, but the live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
 
 #### Enable live metrics by using code for any .NET application
 
@@ -307,7 +307,7 @@ var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.Applicat
 // Disables adaptive sampling.
 aiOptions.EnableAdaptiveSampling = false;
 
-// Disables live metrics (formerly QuickPulse).
+// Disables live metrics (also known as QuickPulse).
 aiOptions.EnableQuickPulseMetricStream = false;
 
 builder.Services.AddApplicationInsightsTelemetry(aiOptions);
@@ -324,7 +324,7 @@ public void ConfigureServices(IServiceCollection services)
     // Disables adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
 
-    // Disables live metrics (formerly QuickPulse).
+    // Disables live metrics (also known as QuickPulse).
     aiOptions.EnableQuickPulseMetricStream = false;
     services.AddApplicationInsightsTelemetry(aiOptions);
 }
@@ -509,7 +509,7 @@ By default, the following automatic-collection modules are enabled. These module
 * `RequestTrackingTelemetryModule`: Collects RequestTelemetry from incoming web requests.
 * `DependencyTrackingTelemetryModule`: Collects [DependencyTelemetry](./asp-net-dependencies.md) from outgoing HTTP calls and SQL calls.
 * `PerformanceCollectorModule`: Collects Windows PerformanceCounters.
-* `QuickPulseTelemetryModule`: Collects telemetry to show in the live metrics portal.
+* `QuickPulseTelemetryModule`: Collects telemetry to show in the live metrics pane.
 * `AppServicesHeartbeatTelemetryModule`: Collects heartbeats (which are sent as custom metrics), about the App Service environment where the application is hosted.
 * `AzureInstanceMetadataTelemetryModule`: Collects heartbeats (which are sent as custom metrics), about the Azure VM environment where the application is hosted.
 * `EventCounterCollectionModule`: Collects [EventCounters](eventcounters.md). This module is a new feature and is available in SDK version 2.8.0 and later.

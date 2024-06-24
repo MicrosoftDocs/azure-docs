@@ -313,7 +313,7 @@ The following sections list the full telemetry automatically collected by Applic
 
 ### Live metrics
 
-[Live metrics](./live-stream.md) can be used to quickly verify if Application Insights monitoring is configured correctly. Although it might take a few minutes before telemetry appears in the portal and analytics, The live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like Requests, Dependencies, and Traces.
+[Live metrics](./live-stream.md) can be used to quickly verify if application monitoring with Application Insights is configured correctly. Telemetry can take a few minutes to appear in the Azure portal, but the live metrics pane shows CPU usage of the running process in near real time. It can also show other telemetry like requests, dependencies, and traces.
 
 ### ILogger logs
 
@@ -382,7 +382,7 @@ public void ConfigureServices(IServiceCollection services)
     // Disables adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
 
-    // Disables live metrics (formerly QuickPulse).
+    // Disables live metrics (also known as QuickPulse).
     aiOptions.EnableQuickPulseMetricStream = false;
     services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
 }
