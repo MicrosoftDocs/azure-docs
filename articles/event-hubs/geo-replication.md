@@ -10,6 +10,16 @@ ms.custom: references_regions
  
 There are two features that provide Geo-disaster recovery in Azure Event Hubs. There's ***Geo-disaster recovery*** (Metadata DR) that just provides replication of metadata and then a second feature, in public preview, ***Geo-replication*** that provides replication of both metadata and the data itself. Neither geo-disaster recovery feature should be confused with Availability Zones. Both geographic recovery features provide resilience between Azure regions such as East US and West US. Availability Zone support provides resilience within a specific geographic region, such as East US. For more details on Availability Zones, read the documentation here: [Event Hubs Availability Zone support](./event-hubs-availability-and-consistency.md).
 
+ > [!IMPORTANT]
+> - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
+> - The below regions are currently supported in the public preview.
+>
+> | US               | Europe        | Asia             |
+> |------------------|---------------|------------------|
+> | Central US EUAP  | Italy North   |                  |
+> |                  | Spain Central |                  |
+> |                  | Norway East   |                  |
+
 **High level feature differences**
 
 The Metadata DR feature replicates configuration information for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than configuration information nor are permission assignments replicated. 
@@ -19,7 +29,7 @@ The Geo-replication feature replicates configuration information and all of the 
 This rest of this document is focused on the Geo-replication feature. For details on the metadata DR feature, read [Event Hubs Geo-disater recovery for metadata](./event-hubs-geo-dr.md).
 
 ## Geo-replication 
-For public preview, Geo-replication is initially only enabled in a small subset of regions. The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling Dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:
+The public preview of the Geo-replication feature is supported for namespaces in Event Hubs self-serve scaling Dedicated clusters. You can use the feature with new, or existing namespaces in dedicated self-serve clusters. The following features aren't supported with Geo-replication:
 -	Customer Managed Keys (CMK)
 -	Managed Identity for Capture
 -	VNet features (service endpoints, or private endpoints)
