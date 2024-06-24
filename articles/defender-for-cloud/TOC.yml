@@ -734,7 +734,7 @@
             href: transition-to-defender-vulnerability-management.md
           - name: Common questions 
             href: common-questions-microsoft-defender-vulnerability-management.md
-      - name: Binary drift protection (preview)
+      - name: Binary drift detection (preview)
         displayName: k8s, containers, aks
         href: binary-drift-detection.md
       - name: Kubernetes data plane hardening
