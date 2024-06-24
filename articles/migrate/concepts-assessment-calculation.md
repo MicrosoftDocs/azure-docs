@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/18/2024
+ms.date: 06/24/2024
 ms.custom: engagement-fy24
 ---
 
@@ -205,7 +205,6 @@ Assessments also determine readiness of the recommended target for Microsoft Def
    - SUSE Linux Enterprise Server 12, 15+
    - Debian 9, 10, 11
    - Oracle Linux 7.2+, 8
-   - CentOS Linux 7.2+
    - Amazon Linux 2
 - For other Operating Systems, the server is marked as **Ready with Conditions**.
 If a server is not ready to be migrated to Azure, it is marked as **Not Ready** for Microsoft Defender for Servers.
