@@ -304,7 +304,7 @@ Select a tool for [authentication during local development](/python/api/overview
 
 To connect to Azure AI Search, your code needs to know your resource endpoint. 
 
-Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
+Create an environment variable for your Azure AI Search endpoint. This URL generally has the format `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
 
 * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
 
