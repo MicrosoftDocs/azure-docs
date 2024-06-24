@@ -54,7 +54,7 @@ The `default` option is meant exclusively for AKS weekly releases. You can switc
 
 Planned maintenance windows are specified in Coordinated Universal Time (UTC).
 
-A `default` maintenance window has the following properties:
+A `default` maintenance window has the following legacy properties (no longer recommended)
 
 |Name|Description|Default value|
 |--|--|--|
@@ -63,7 +63,10 @@ A `default` maintenance window has the following properties:
 |`timeInWeek.hourSlots`|A list of hour-long time slots to perform maintenance on a particular day in a `default` configuration.|Not applicable|
 |`notAllowedTime`|A range of dates that maintenance can't run, determined by `start` and `end` child properties. This property is applicable only when you're creating the maintenance window by using a configuration file.|Not applicable|
 
-An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window has the following properties:
+> [!NOTE] 
+> Starting 2023-05-01 API version onwards please use the below properties for `default` configuration.
+
+An `aksManagedAutoUpgradeSchedule` or `aksManagedNodeOSUpgradeSchedule` maintenance window and `default` configuration from 2023-05-01 API version onwards has the following properties:
 
 |Name|Description|Default value|
 |--|--|--|
