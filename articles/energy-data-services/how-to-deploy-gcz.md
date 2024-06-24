@@ -10,6 +10,9 @@ ms.date: 05/11/2024
 zone_pivot_groups: energy-data-services-gcz-options
 ---
 
+> [!IMPORTANT]
+> While the Geospatial Consumption Zone (GCZ) service is a graduated service in the OSDU Forum, it has limitations in terms of security and usage. We will deploy some additional services and policies to secure the environment, but encourage you to follow the service's development on the [OSDU Gitlab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/wikis/home).
+
 # Deploy Geospatial Consumption Zone
 
 This guide shows you how to deploy the Geospatial Consumption Zone (GCZ) service integrated with Azure Data Manager for Energy (ADME).
