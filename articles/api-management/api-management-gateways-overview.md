@@ -112,9 +112,9 @@ The following tables compare features available in the following API Management 
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ |
-| [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ |
+| [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
+| [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
 <sup>1</sup> Synthetic GraphQL subscriptions (preview) aren't supported.
 
@@ -122,7 +122,7 @@ The following tables compare features available in the following API Management 
 
 Managed and self-hosted gateways support all available [policies](api-management-policies.md) in policy definitions with the following exceptions.
 
-| Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  |
+| Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
 | [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ | ❌ |
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
@@ -147,7 +147,7 @@ For details about monitoring options, see [Observability in Azure API Management
 | [Metrics in Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) | ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [OpenTelemetry Collector](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [Request logs in Azure Monitor and Log Analytics](api-management-howto-use-azure-monitor.md#resource-logs) | ✔️ | ✔️ | ❌ | ❌<sup>2</sup> | ❌ |
-| [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |  ❌ |
+| [Local metrics and logs](how-to-configure-local-metrics-logs.md) |  ❌ | ❌ | ❌ | ✔️ | ❌ |  
 | [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>3</sup> | ✔️ | ✔️ | ❌ |
 
 <sup>1</sup> The v2 tiers support Azure Monitor-based analytics.<br/>
