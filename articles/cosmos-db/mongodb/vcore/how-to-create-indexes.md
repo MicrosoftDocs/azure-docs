@@ -30,7 +30,7 @@ When a new document is inserted for the first time or an existing document is up
 For optimal write performance, indexes should be created upfront before data is loaded. This ensures all documents that are inserted for the first time or subsequently updated or deleted will have the corresponding indexes updated as part of the write operation. If indexes are created after data has been ingested, additional server resources will be consumed to index historical data. Depending on the size of the historical data, this can be time consuming and can affect steady state write and read operations.
 
 > [!NOTE]
-    > For scenarios where indexes need to be added at a later time due to changes in read patterns, background indexing needs to be enabled on the cluster which can be enabled through a support ticket.
+For scenarios where indexes need to be added at a later time due to changes in read patterns, background indexing needs to be enabled on the cluster which can be enabled through a support ticket.
 
 ## For multiple indexes created on historical data, issue non-blocking createIndex commands for each field
 It is not always possible to plan for all query patterns upfront. Changing application needs will inevitably require fields to be added to the index at a later time on an active cluster with a large amount of historical data. In such scenarios, if multiple fields need to be added to the index, each createIndex command should be issued asynchronously without waiting on a response from the server.
