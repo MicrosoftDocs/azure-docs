@@ -186,7 +186,7 @@ Thus, during the canary upgrade, when two revisions exist simultaneously on the 
     productpage-v1-979d4d9fc-p4764:	docker.io/istio/examples-bookinfo-productpage-v1:1.20.0, mcr.microsoft.com/oss/istio/proxyv2:1.20.7-distroless
     ```
 
-> [!INFO]
+> [!NOTE]
 > In case of any issues encountered during upgrades, refer to [article on troubleshooting mesh revision upgrades][upgrade-istio-service-mesh-tsg]
 
 [aks-release-notes]: https://github.com/Azure/AKS/releases
