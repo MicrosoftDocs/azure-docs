@@ -1,5 +1,5 @@
 ---
-title: What are Azure Extended Zones?
+title: What are Azure Extended Zones (Preview)?
 description: Learn about Azure Extended Zones.
 author: halkazwini
 ms.author: halkazwini
@@ -9,7 +9,7 @@ ms.date: 06/26/2024
 
 ---
 
-# What are Azure Extended Zones?
+# What are Azure Extended Zones (Preview)?
 
 Azure Extended Zones are small-footprint extensions of Azure placed in metros, industry centers, or a specific jurisdiction to serve low latency and data residency workloads. Azure Extended Zones supports virtual machines (VMs), containers, storage, and a selected set of Azure services and can run latency-sensitive and throughput-intensive applications close to end users and within approved data residency boundaries.
  

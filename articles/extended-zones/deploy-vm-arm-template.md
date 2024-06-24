@@ -13,6 +13,10 @@ ms.custom: subject-armqs,
   
 # Quickstart: Deploy a virtual machine in an Extended Zone using an Azure Resource Manager template (ARM template) 
  
+> [!IMPORTANT]
+> Azure Extended Zones service is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In this quickstart, you learn how to deploy a virtual machine (VM) in an Azure Extended Zone using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]

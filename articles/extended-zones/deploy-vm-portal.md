@@ -11,6 +11,10 @@ ms.date: 06/26/2024
   
 # Quickstart: Deploy a virtual machine in an Extended Zone using the Azure portal
  
+> [!IMPORTANT]
+> Azure Extended Zones service is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In this quickstart, you use the Azure portal to deploy a virtual machine in an Azure Extended Zone. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
