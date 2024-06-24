@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 06/24/2024
 ms.author: danlep
 ---
 
@@ -53,7 +53,7 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
         <!-- if there are multiple possible allowed values, then add additional value elements -->
     </required-claims>
     <decryption-keys>
-        <key>certificate-id="mycertificate"</key>
+        <key>Base64 encoded signing key | certificate-id="mycertificate"</key>
         <!-- if there are multiple keys, then add additional key elements -->
     </decryption-keys>
 </validate-azure-ad-token>
