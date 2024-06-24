@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: bastion
-ms.date: 06/21/2024
+ms.date: 06/24/2024
 ---
 
 
@@ -21,15 +21,15 @@ For a more detailed overview of reliability in Azure, see [Azure reliability](/a
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
 
-Bastion support for availability zones with [zonal](./availability-zones-overview.md#zonal-and-zone-redundant-services) configuration is currently in preview. A zone-redundant configuration is not supported.
+Bastion support for availability zones with a [zone-redundant](./availability-zones-overview.md#zonal-and-zone-redundant-services) configuration is currently in preview. 
 
-Previously deployed Bastions may or may not be zone-redundant and these are limited to the following regions:
+Previously deployed Bastion resources may be zone-redundant and these are limited to the following regions:
 - Korea Central 
 - Southeast Asia
 
 ### Prerequisites
 
-For a zonal deployment, your Bastion resource must be in one of the following regions:
+For a zone-redundant deployment, your Bastion resource must be in one of the following regions:
 
 - East US
 - Australia East
@@ -50,18 +50,18 @@ There is no change to pricing for availability zone support.
 
 ### Create a resource with availability zones enabled
 
-To choose a region for a zonal configuration:
+To choose a region for a zone-redundant configuration:
 
 1. Go to the [Azure portal](https://portal.azure.com).
 1. [Create your Bastion resource](/azure/bastion/tutorial-create-host-portal).
 
     - For **Region**, select one of the regions listed in the [Prerequisites section](#prerequisites).
-    - For **Availablity zone**, select the zones.
+    - For **Availability zone**, select the zones.
 
     :::image type="content" source="./media/reliability-bastion/create-bastion-zonal.png" alt-text="Screnshot showing the Availability zone setting while creating a Bastion resource.":::
 
 >[!NOTE]
->You can't change the zonal availability zone setting after Bastion is deployed. 
+>You can't change the availability zone setting after your Bastion resource is deployed. 
 
 
 ### Zone down experience
