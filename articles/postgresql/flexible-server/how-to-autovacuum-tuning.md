@@ -18,24 +18,25 @@ This article provides an overview of the autovacuum feature for [Azure Database 
 
 ## What is autovacuum
 
-Internal data consistency in PostgreSQL is based on the Multi-Version Concurrency Control (MVCC) mechanism, which allows the database engine to maintain multiple versions of a row and provides greater concurrency with minimal blocking between the different processes.
+Autovacuum is a crucial PostgreSQL daemon process designed to automatically clean up dead tuples and update statistics. It combines the functionalities of *VACUUM* and *ANALYZE*. The *VACUUM* component reclaims disk space by removing dead tuples, while the *ANALYZE* component updates statistics, enabling the PostgreSQL Optimizer to choose the most efficient execution paths for queries. Autovacuum handles both *VACUUM* and *ANALYZE* operations on tables, ensuring optimal performance and maintaining efficient database performance. without manual intervention.
 
-PostgreSQL databases need appropriate maintenance. For example, when a row is deleted, it isn't removed physically. Instead, the row is marked as "dead". Similarly for updates, the row is marked as "dead" and a new version of the row is inserted. These operations leave behind dead records, called dead tuples, even after all the transactions that might see those versions finish. Unless cleaned up, dead tuples remain, consuming disk space and bloating tables and indexes which result in slow query performance.
-
-PostgreSQL uses a process called autovacuum to automatically clean-up dead tuples.
+Autovacuum should always be set to ON for the autovacuum daemon to effectively perform its operations on the server. PostgreSQL automatically determines whether VACUUM or ANALYZE needs to be executed on a table, but this only occurs if autovacuum is enabled on the server or database.
 
 ## Autovacuum internals
 
 Autovacuum reads pages looking for dead tuples, and if none are found, autovacuum discards the page.  When autovacuum finds dead tuples, it removes them.  The cost is based on:
 
-- `vacuum_cost_page_hit`: Cost of reading a page that is already in shared buffers and doesn't need a disk read. The default value is set to 1.
-- `vacuum_cost_page_miss`: Cost of fetching a page that isn't in shared buffers. The default value is set to 10.
-- `vacuum_cost_page_dirty`: Cost of writing to a page when dead tuples are found in it. The default value is set to 20.
+| Parameter                        | Description                                                                   
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+`vacuum_cost_page_hit` | Cost of reading a page that is already in shared buffers and doesn't need a disk read. The default value is set to 1.
+`vacuum_cost_page_miss` | Cost of fetching a page that isn't in shared buffers. The default value is set to 10.
+`vacuum_cost_page_dirty` | Cost of writing to a page when dead tuples are found in it. The default value is set to 20.
 
 The amount of work autovacuum does depends on two parameters:
-
-- `autovacuum_vacuum_cost_limit` is the amount of work autovacuum does in one go.
-- `autovacuum_vacuum_cost_delay` number of milliseconds that autovacuum is asleep after it has reached the cost limit specified by the `autovacuum_vacuum_cost_limit` parameter.
+| Parameter                        | Description                                                                   
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+`autovacuum_vacuum_cost_limit` | The amount of work autovacuum does in one go.
+`autovacuum_vacuum_cost_delay` | Number of milliseconds that autovacuum is asleep after it has reached the cost limit specified by the `autovacuum_vacuum_cost_limit`  parameter.
 
 In all currently supported versions of Postgres the default for `autovacuum_vacuum_cost_limit` is 200 (actually, it is set to -1 which makes it equals to the value of the regular `vacuum_cost_limit` which, by default, is 200).
 
@@ -59,23 +60,45 @@ select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_t
 
 The following columns help determine if autovacuum is catching up to table activity:
 
-- **dead_pct**: percentage of dead tuples when compared to live tuples.
-- **last_autovacuum**: The date of the last time the table was autovacuumed.
-- **last_autoanalyze**:  The date of the last time the table was automatically analyzed.
+| Parameter                        | Description                                                                       
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+`dead_pct` | Percentage of dead tuples when compared to live tuples.
+`last_autovacuum` | The date of the last time the table was autovacuumed.
+`last_autoanalyze` |  The date of the last time the table was automatically analyzed.
 
 ## When does PostgreSQL trigger autovacuum
 
-An autovacuum action (either *ANALYZE* or *VACUUM*) triggers when the number of dead tuples exceeds a particular number that is dependent on two factors: the total count of rows in a table, plus a fixed threshold. *ANALYZE*, by default, triggers when 10% of the table plus 50 rows changes, while *VACUUM* triggers when 20% of the table plus 50 rows changes.  Since the *VACUUM* threshold is twice as high as the *ANALYZE* threshold, *ANALYZE* gets triggered earlier than *VACUUM*.
+An autovacuum action (either *ANALYZE* or *VACUUM*) triggers when the number of dead tuples exceeds a particular number that is dependent on two factors: the total count of rows in a table, plus a fixed threshold. *ANALYZE*, by default, triggers when 10% of the table plus 50 row changes, while *VACUUM* triggers when 20% of the table plus 50 row changes.  Since the *VACUUM* threshold is twice as high as the *ANALYZE* threshold, *ANALYZE* gets triggered earlier than *VACUUM*. 
+For PG versions >=13; *ANALYZE* by default, triggers when 20% of the table plus 1000 row inserts.
 
 The exact equations for each action are:
 
-- **Autoanalyze** = autovacuum_analyze_scale_factor * tuples + autovacuum_analyze_threshold
+- **Autoanalyze** = autovacuum_analyze_scale_factor * tuples + autovacuum_analyze_threshold or 
+                    autovacuum_vacuum_insert_scale_factor * tuples + autovacuum_vacuum_insert_threshold (For PG versions >= 13)
 - **Autovacuum** =  autovacuum_vacuum_scale_factor * tuples + autovacuum_vacuum_threshold
 
-For example, analyze triggers after 60 rows change on a table that contains 100 rows, and vacuum triggers when 70 rows change on the table, using the following equations:
+For example,  if we have a table woth 100 rows. Then using the below equation
 
+For Updates/deletes:
 `Autoanalyze = 0.1 * 100 + 50 = 60`  
 `Autovacuum =  0.2 * 100 + 50 = 70`
+
+Analyze triggers after 60 rows are changed on a table, and Vacuum triggers when 70 rows are changed on a table.
+
+For Inserts:
+`Autoanalyze = 0.2 * 100 + 1000 = 1020`  
+
+Analyze triggers after 1020 rows are inserted on a table
+
+Below is the description of the parameters used in the above equation:
+
+| Parameter                        | Description                                                                       
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `autovacuum_analyze_scale_factor` | This is the percentage of inserts/updates/deletes which triggers ANALYZE on the table.
+| `autovacuum_analyze_threshold` | This parameter specifies the minimum number of tuples inserted/updated/deleted to ANALYZE a table.
+| `autovacuum_vacuum_insert_scale_factor` | This is the percentage of inserts which triggers ANLYZE on the table.
+| `autovacuum_vacuum_insert_threshold` | This parameter specifies the minimum number of tuples inserted to ANALYZE a table.
+| `autovacuum_vacuum_scale_factor` | This is the percentage of updates/deletes which triggers VACUUM on the table.
 
 Use the following query to list the tables in a database and identify the tables that qualify for the autovacuum process:
 
@@ -131,14 +154,14 @@ If `autovacuum_vacuum_cost_limit` is set to `-1` then autovacuum uses the `v
 
 In case the autovacuum isn't keeping up, the following parameters might be changed:
 
-| Parameter                        | Description                                                                                                                                                                                                                   |
+| Parameter                        | Description                                                                       
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `autovacuum_vacuum_scale_factor` | Default: `0.2`, range: `0.05 - 0.1`. The scale factor is workload-specific and should be set depending on the amount of data in the tables. Before changing the value, investigate the workload and individual table volumes. |
 | `autovacuum_vacuum_cost_limit`   | Default: `200`. Cost limit might be increased. CPU and I/O utilization on the database should be monitored before and after making changes.                                                                                   |
 | `autovacuum_vacuum_cost_delay`   | **Postgres Version 11** - Default: `20 ms`. The parameter might be decreased to `2-10 ms`.<br />**Postgres Versions 12 and above** - Default: `2 ms`.                                                                         |
 
 > [!NOTE]  
-> The `autovacuum_vacuum_cost_limit` value is distributed proportionally among the running autovacuum workers, so that if there is more than one, the sum of the limits for each worker doesn't exceed the value of the `autovacuum_vacuum_cost_limit` parameter
+> - The `autovacuum_vacuum_cost_limit` value is distributed proportionally among the running autovacuum workers, so that if there is more than one, the sum of the limits for each worker doesn't exceed the value of the `autovacuum_vacuum_cost_limit` parameter.
+> - `autovacuum_vacuum_scale_factor`  is another parameter which could trigger vacuum on a table based on dead tuple accumulation. Default: `0.2`, Allowed range: `0.05 - 0.1`. The scale factor is workload-specific and should be set depending on the amount of data in the tables. Before changing the value, investigate the workload and individual table volumes. 
 
 ### Autovacuum constantly running
 
