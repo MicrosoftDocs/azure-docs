@@ -223,7 +223,7 @@ As a local developer, your Azure identity needs full control of your service. Th
 |Search Index Data Contributor|
 |Search Index Data Reader|
 
-Find your personal identity with on of the following tools. Use that identity as the `<identity-id>` value.
+Find your personal identity with one of the following tools. Use that identity as the `<identity-id>` value.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -282,7 +282,7 @@ Where applicable, replace `<identity-id>`, `<subscription-id>`, and `<resource-g
 
 ### Authentication for local development
 
-Use a tool in your local development environment to authentication to Azure identity. Once you're authenticated, the AzureDefaultCredential in your source code finds and uses the authentication.  
+Use a tool in your local development environment to authentication to Azure identity. Once you're authenticated, the `DefaultAzureCredential` instance in your source code finds and uses the authentication.  
 
 #### [.NET](#tab/csharp)
 
@@ -306,7 +306,7 @@ Select a tool for [authentication during local development](/python/api/overview
 
 To connect to Azure AI Search, your code needs to know your resource endpoint. 
 
-Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
+Create an environment variable for your Azure AI Search endpoint. This URL generally has the format `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
 
 * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
 
@@ -384,10 +384,10 @@ resource role 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 
 To connect to Azure AI Search, your code needs to know your resource endpoint, and the ID of the managed identity. 
 
-1. Create an environment variable for your Azure AI Search endpoint. This URL generally has the following format, `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
+1. Create an environment variable for your Azure AI Search endpoint. This URL generally has the format `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
 
     - `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.   
-    - `AZURE_CLIENT_ID`: This is the identity to authenticate as.|
+    - `AZURE_CLIENT_ID`: This is the identity to authenticate as.
 
 ## Additional resources
 
