@@ -25,6 +25,7 @@ keylessless connections are enabled with the following steps:
 The following steps need to be completed for both local development and production workloads.
 
 * [Create an AI Search resource](#create-an-ai-search-resource)
+* [Install Azure Identity client library](#install-azure-identity-client-library)
 
 ### Create an AI Search resource
 
@@ -78,7 +79,7 @@ pip install azure-identity
 
 ---
 
-### Update source code to use DefaultAzureCredential
+## Update source code to use DefaultAzureCredential
 
 The Azure Identity library's `DefaultAzureCredential` allows the customer to run the same code in the local development environment and in the Azure Cloud. Create a single credential then reuse it as needed to take advantage of token caching.
 
@@ -207,7 +208,7 @@ search_index_client = SearchIndexClient(
 ---
 
 
-## Local development
+### Local development
 
 Local development without keylesss includes these steps:
 
@@ -312,7 +313,7 @@ Create an environment variable for your Azure AI Search endpoint. This URL gener
 
 * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
 
-## Production workloads
+### Production workloads
 
 Deploy production workloads includes these steps:
 
@@ -391,7 +392,7 @@ To connect to Azure AI Search, your code needs to know your resource endpoint, a
     - `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.   
     - `AZURE_CLIENT_ID`: This is the identity to authenticate as.
 
-## Additional resources
+## Related content
 
-* [keylessless connections developer guide](/azure/developer/intro/passwordless-overview)
+* [Keylessless connections developer guide](/azure/developer/intro/passwordless-overview)
 * [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
