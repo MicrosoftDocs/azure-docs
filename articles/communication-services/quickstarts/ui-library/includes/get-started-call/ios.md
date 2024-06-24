@@ -204,7 +204,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 #### Join via Teams meeting URL
 
-To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize a instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
+To join a Microsoft Teams meeting, inside the `startCallComposite` function, initialize an instance for the `.teamsMeeting` locator. Replace `<TEAMS_MEETING_LINK>` with the Teams meeting link for your call. Replace `<DISPLAY_NAME>` with your name.
 
 ```swift
 let locator = .teamsMeeting(teamsLink: "<TEAMS_MEETING_LINK>")
@@ -224,7 +224,7 @@ let locator = .teamsMeetingId(meetingId: "<TEAMS_MEETING_ID>", meetingPasscode: 
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
+To set up an Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator` with a room ID.
 While on the setup screen, `CallComposite` will enable camera and microphone to all participants with any room role. Actual up-to-date participant role and capabilities are retrieved from Azure Communication Services once call is connected.
 
 For more information about Rooms, how to create and manage one see [Rooms QuickStart](../../../rooms/get-started-rooms.md)
@@ -233,7 +233,7 @@ For more information about Rooms, how to create and manage one see [Rooms QuickS
 let locator = .roomCall(roomId: "<ROOM_ID>")
 ```
 
-### Set up a 1:N Outgoing call and and incoming call push notifications
+### Set up a 1:N Outgoing call and incoming call push notifications
 
 UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../../how-tos/ui-library-sdk/one-to-one-calling.md)
 
