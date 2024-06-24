@@ -139,7 +139,8 @@
         - name: Defender for Cloud support matrices
           displayName: coverage, supported platforms, cloud services, roles, permissions
           href: support-matrix-defender-for-cloud.md
-        - name: Defender for Cloud cloud support
+        - name: Defender for Cloud cloud support matrices
+          displayName: matrices, gov, government, 21via, net, support
           href: support-matrix-cloud-environment.md
         - name: Defender for Servers support matrices
           displayName: coverage, machines, windows, linux, multicloud, supported features,
