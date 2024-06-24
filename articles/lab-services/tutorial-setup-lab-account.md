@@ -92,10 +92,6 @@ Follow these steps to [assign Azure roles using the Azure portal](../role-based-
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-## Troubleshooting
-
-[!INCLUDE [Troubleshoot insufficient IP addresses](./includes/lab-services-troubleshoot-insufficient-ip-addresses.md)]
-
 ## Next steps
 
 In this tutorial, you created a lab account and granted lab creation permissions to another user. To learn about how to create a lab, advance to the next tutorial:

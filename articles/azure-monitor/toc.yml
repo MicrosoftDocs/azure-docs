@@ -45,6 +45,8 @@ items:
     items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
+    - name: OpenTelemetry on Azure
+      href: app/opentelemetry.md
     - name: Enable Application Insights
       items:
       - name: Data Collection Basics
@@ -736,8 +738,10 @@ items:
         items:
         - name: Migration guidance
           href: agents/azure-monitor-agent-migration.md
-        - name: Migration tools
-          href: agents/azure-monitor-agent-migration-tools.md
+        - name: AMA migration helper workbook  
+          href: agents/azure-monitor-agent-migration-helper-workbook.md
+        - name: DCR Config Generator
+          href: agents/azure-monitor-agent-migration-data-collection-rule-generator.md 
         - name: MMA removal tool
           href: agents/azure-monitor-agent-mma-removal-tool.md
         - name: Migration custom text log tables

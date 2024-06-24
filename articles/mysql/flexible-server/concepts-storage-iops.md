@@ -1,14 +1,15 @@
 ---
 title: Storage iops
 description: This article describes the storage IOPS in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.custom:
-  - build-2024
-ms.topic: conceptual
 author: code-sidd
 ms.author: sisawant
-ms.date: 07/20/2023
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
+ms.custom:
+  - build-2024
 ---
 
 # Storage IOPS in Azure Database for MySQL - Flexible Server
