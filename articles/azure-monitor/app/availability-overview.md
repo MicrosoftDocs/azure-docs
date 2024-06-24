@@ -71,34 +71,10 @@ TLS protocol versions 1.2 and 1.3 are supported encryption mechanisms for availa
 
 ### Deprecating TLS configuration
 > [!WARNING]
-> After 31 October 2024, protocol versions TLS 1.0 and 1.1 support will be completely removed. In addition, the following Cipher suites and Elliptical curves will be retired.
+> After 31 October 2024, only the listed Cipher suites and Elliptical curves within the below TLS 1.2 and TLS 1.3 sections will be retired. TLS 1.2/1.3 and the previously mentioned Cipher Suites and Elliptical Curves under section "Supported TLS configurations" will still be supported.
 
-#### TLS 1.0
-**Cipher suites** 
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA 
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA 
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA 
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA 
-- TLS_RSA_WITH_AES_256_CBC_SHA 
-- TLS_RSA_WITH_AES_128_CBC_SHA 
-
-**Elliptical curves** 
-- curve25519 
-
-#### TLS 1.1
-**Cipher suites:**
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA 
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA 
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA 
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA 
-- TLS_RSA_WITH_AES_256_CBC_SHA 
-- TLS_RSA_WITH_AES_128_CBC_SHA 
-
-**Elliptical curves** 
-- curve25519 
-
-> [!NOTE]
-> After 31 October 2024, only the listed Cipher suites and Elliptical curves within these TLS 1.2 and TLS 1.3 will be retired.
+#### TLS 1.0 and TLS 1.1
+Protocol versions will no longer be supported
 
 #### TLS 1.2
 **Cipher suites**
@@ -143,16 +119,16 @@ The user agent string is **Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Tr
 Availability tests act as a distributed client in each of the supported web test locations. Every time a web test is executed the availability test service attempts to reach out to the remote endpoint defined in the web test configuration. A TLS Client Hello message is sent which contains all the currently supported TLS configuration. If the remote endpoint shares a common TLS configuration with the availability test client, then the TLS handshake succeeds. Otherwise, the web test fails with a TLS handshake failure. 
 
 #### How do I ensure my web test isn't impacted?
-To avoid any impact, each remote endpoint (including dependent requests) your web test interacts with needs to support at least one combination of the same Protocol Version, Cipher Suite, and Elliptical Curve that availability test does. If the remote endpoint doesn't support the needed TLS configuration, it needs to be updated with support for some combination of the above-mentioned post-deprecation TLS configuration. These endpoints can be discovered through viewing the [Transaction Details](/azure/azure-monitor/app/availability-standard-tests) of your web test (ideally for a successful web test execution). 
+To avoid any impact, each remote endpoint (including dependent requests) your web test interacts with needs to support at least one combination of the same Protocol Version, Cipher Suite, and Elliptical Curve that availability test does. If the remote endpoint doesn't support the needed TLS configuration, it needs to be updated with support for some combination of the above-mentioned post-deprecation TLS configuration. These endpoints can be discovered through viewing the [Transaction Details](/azure/azure-monitor/app/availability-standard-tests#see-your-availability-test-results) of your web test (ideally for a successful web test execution). 
+
+#### How do I validate what TLS configuration a remote endpoint supports?
+There are several tools available to test what TLS configuration an endpoint supports. One way would be to follow the example detailed on this [page](/security/engineering/solving-tls1-problem#appendix-a-handshake-simulation). If your remote endpoint isn't available via the Public internet, you need to ensure you validate the TLS configuration supported on the remote endpoint from a machine that has access to call your endpoint. 
 
 > [!NOTE]
 > For steps to enable the needed TLS configuration on your web server, it is best to reach out to the team that owns the hosting platform your web server runs on if the process is not known. 
 
 #### After October 31, 2024, what will the web test behavior be for impacted tests?
-There's no one exception type that all TLS handshake failures impacted by this deprecation would present themselves with. However, the most common exception your web test would start failing with would be `The request was aborted: Couldn't create SSL/TLS secure channel`. You should also be able to see any TLS related failures in the TLS Transport” [Troubleshooting Step](/troubleshoot/azure/azure-monitor/app-insights/availability/diagnose-ping-test-failure) for the web test result that is potentially impacted. 
-
-#### How do I validate what TLS configuration a remote endpoint supports?
-There are several tools available to test what TLS configuration an endpoint supports. One way would be to follow the example detailed on this [page](/security/engineering/solving-tls1-problem). If your remote endpoint isn't available via the Public internet, you need to ensure you validate the TLS configuration supported on the remote endpoint from a machine that has access to call your endpoint. 
+There's no one exception type that all TLS handshake failures impacted by this deprecation would present themselves with. However, the most common exception your web test would start failing with would be `The request was aborted: Couldn't create SSL/TLS secure channel`. You should also be able to see any TLS related failures in the TLS Transport [Troubleshooting Step](/troubleshoot/azure/azure-monitor/app-insights/availability/diagnose-ping-test-failure) for the web test result that is potentially impacted. 
 
 #### Can I view what TLS configuration is currently in use by my web test?
 The TLS configuration negotiated during a web test execution can't be viewed. As long as the remote endpoint supports common TLS configuration with availability tests, no impact should be seen post-deprecation. 
