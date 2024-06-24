@@ -24,7 +24,7 @@ The two methods are described in the table below with detailed information on ea
 The DCR created by Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. Rather than directly modifying the DCR, you should use one of the methods described below to configure data collection.
 
 > [!IMPORTANT]
-> AKS clusters must use either System or User Assigned Managed Identity to use a DCR. If cluster is using a Service Principal, you must [upgrade to Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+> AKS clusters must use either a system-assigned or user-assigned managed identity. If cluster is using a service principal, you must update the cluster to use a [system-assigned managed identity](../../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
 
 ### [Azure portal](#tab/portal)
