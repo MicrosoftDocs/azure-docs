@@ -48,14 +48,14 @@ Compound indexes should be used for the following scenarios:
 - Queries with filters on multiple fields and with one or more fields sorted in ascending or descending order
 
 Consider the following document within the cosmicworks database and employee collection
-```javascript
+```json
 {
-    firstName: 'Steve',
-    lastName: 'Smith',
-    companyName: 'Microsoft',
-    division: 'Azure',
-    subDivision: 'Data & AI',
-    timeInOrgInYears: '7'
+    "firstName": "Steve",
+    "lastName": "Smith",
+    "companyName": "Microsoft",
+    "division": "Azure",
+    "subDivision": "Data & AI",
+    "timeInOrgInYears": 7
 }
 ```
 
@@ -88,10 +88,10 @@ When a createIndex operation is in progress, the response will look like:
       "active": true,
       "type": "op",
       "opid": "30000451493:1719209762286363",
-      "op_prefix": Long('30000451493'),
-      "currentOpTime": ISODate('2024-06-24T06:16:02.000Z'),
+      "op_prefix": 30000451493,
+      "currentOpTime": "2024-06-24T06:16:02.000Z",
       "secs_running": Long('0'),
-      "command": { aggregate: '' },
+      "command": { "aggregate": "" },
       "op": "command",
       "waitingForLock": false
     },
@@ -100,14 +100,14 @@ When a createIndex operation is in progress, the response will look like:
       "active": true,
       "type": "op",
       "opid": "30000451876:1719209638351743",
-      "op_prefix": Long('30000451876'),
-      "currentOpTime": ISODate('2024-06-24T06:13:58.000Z'),
-      "secs_running": Long('124'),
-      "command": { createIndexes: '' },
+      "op_prefix": 30000451876,
+      "currentOpTime": "2024-06-24T06:13:58.000Z",
+      "secs_running": 124,
+      "command": { "createIndexes": "" },
       "op": workerCommand",
       "waitingForLock": false,
       "progress": {},
-      "msg": ''
+      "msg": ""
     }
   ],
   "ok": 1
