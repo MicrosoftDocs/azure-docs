@@ -31,6 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
+The template that you use in this quickstart is from the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/extended-zones-vm-create).
 
 
 ```json
@@ -315,6 +316,31 @@ Multiple Azure resources are defined in the template:
 > [!NOTE]
 > Default outbound access is not available to VMs in Extended Zones. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
+
+## Deploy the template
+
+1. Create a resource group using the [az group create](/cli/azure/group#az_group_create) command.
+
+    ```azurecli-interactive
+    az group create --name 'myResourceGroup' --location '<location>' 
+    ```
+
+    > [!NOTE]
+    > Each Azure Extended Zone site is associated with an Azure region. Based on the Azure Extended Zone location where the resource needs to be deployed, select the appropriate region value for the `location` parameter.
+
+2. deploy the template using [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command.
+
+    ```azurecli-interactive
+    az deployment group create --resource-group 'myResourceGroup' --template-uri 'https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/extended-zones-vm-create/azuredeploy.json'
+    ```
+
+## Clean up resources
+
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains using the [az group delete](/cli/azure/group#az-group-delete) command.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
 
 ## Related content
 
