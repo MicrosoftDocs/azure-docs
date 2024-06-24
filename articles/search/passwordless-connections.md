@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-trac
 
 # Use Azure AI Search without keys 
 
-In your application code, you can set up a keylessless connection to Azure AI Search that uses roles and Microsoft Entra ID for authentication and authorization. Application requests to most Azure services must be authenticated with keys or [keylessless connections](https://aka.ms/delete-keylesss). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. keylessless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
+In your application code, you can set up a keylessless connection to Azure AI Search that uses Microsoft Entra ID and roles for authentication and authorization. Application requests to most Azure services must be authenticated with keys or [keylessless connections](https://aka.ms/delete-keylesss). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. keylessless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
 
 keylessless connections are enabled with the following steps: 
 
@@ -78,11 +78,11 @@ pip install azure-identity
 
 ### Update source code to use DefaultAzureCredential
 
-The Azure Identity library's `DefaultAzureCredential` allows the customer to run the same code in the local development environment and in the Azure Cloud.
+The Azure Identity library's `DefaultAzureCredential` allows the customer to run the same code in the local development environment and in the Azure Cloud. Create a single credential then reuse it as needed to take advantage of token caching.
 
 #### [.NET](#tab/csharp)
 
-For more information on `DefaultAzureCredential` for .NET, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#defaultazurecredential).
+For more information on `DefaultAzureCredential` for .NET, see [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme#defaultazurecredential). 
 
 ```csharp
 using Azure;
@@ -97,9 +97,9 @@ using static System.Environment;
 string endpoint = GetEnvironmentVariable("AZURE_SEARCH_ENDPOINT");
 string indexName = "my-search-index";
 
-SearchClient client = new SearchClient(new Uri(endpoint), indexName, new DefaultAzureCredential());
-
-SearchIndexClient client = new SearchIndexClient(endpoint, new DefaultAzureCredential());
+DefaultAzureCredential credential = new();
+SearchClient searchClient = new(new Uri(endpoint), indexName, credential);
+SearchIndexClient searchIndexClient = new(endpoint, credential);
 ```
 
 #### [Java](#tab/java)
@@ -117,32 +117,32 @@ import com.azure.search.documents.indexes.SearchIndexClientBuilder;
 String ENDPOINT = System.getenv("AZURE_SEARCH_ENDPOINT");
 String INDEX_NAME = "my-index";
 
-DefaultAzureCredential CREDENTIAL = new DefaultAzureCredentialBuilder().build();
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
 // Sync SearchClient
 SearchClient searchClient = new SearchClientBuilder()
     .endpoint(ENDPOINT)
-    .credential(CREDENTIAL)
+    .credential(credential)
     .indexName(INDEX_NAME)
     .buildClient();
 
 // Sync IndexClient
 SearchIndexClient searchIndexClient = new SearchIndexClientBuilder()
     .endpoint(ENDPOINT)
-    .credential(CREDENTIAL)
+    .credential(credential)
     .buildClient();
 
 // Async SearchClient
 SearchAsyncClient searchAsyncClient = new SearchClientBuilder()
     .endpoint(ENDPOINT)
-    .credential(CREDENTIAL)
+    .credential(credential)
     .indexName(INDEX_NAME)
     .buildAsyncClient();
 
 // Async IndexClient
 SearchIndexAsyncClient searchIndexAsyncClient = new SearchIndexClientBuilder()
     .endpoint(ENDPOINT)
-    .credential(CREDENTIAL)
+    .credential(credential)
     .buildAsyncClient();
 ```
 
@@ -158,18 +158,20 @@ import { SearchClient,
 
 const AZURE_SEARCH_ENDPOINT = process.env.AZURE_SEARCH_ENDPOINT;
 const index = "my-index";
+const credential = new DefaultAzureCredential();
 
 // To query and manipulate documents
 const searchClient = new SearchClient(
   AZURE_SEARCH_ENDPOINT,
   index,
-  new DefaultAzureCredential()
+  credential
 );
 
 // To manage indexes and synonymmaps
 const indexClient = new SearchIndexClient(
   AZURE_SEARCH_ENDPOINT, 
-  new DefaultAzureCredential());
+  credential
+);
 ```
 
 #### [Python](#tab/python)
@@ -228,7 +230,7 @@ Find your personal identity with on of the following tools. Use that identity as
 1. Sign in to Azure CLI.
 
     ```azurecli
-    azure login
+    az login
     ```
 
 2. Get your personal identity.
