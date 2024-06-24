@@ -548,7 +548,7 @@ The following optional settings can be configured for the SQL trigger for local 
 | Setting | Default| Description|
 |---------|---------|---------|
 |**MaxBatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
-|**PollingIntervalMs**| 1000 (1 second) | The delay in milliseconds between processing each batch of changes.|
+|**PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1000 ms is 1 second)|
 |**MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
 
 #### Example host.json file
@@ -589,7 +589,7 @@ The local.settings.json file stores app settings and settings used by local deve
 | Setting | Default| Description|
 |---------|---------|---------|
 |**Sql_Trigger_BatchSize** | 100 |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function.|
-|**Sql_Trigger_PollingIntervalMs**| 1000 (1 second) | The delay in milliseconds between processing each batch of changes.|
+|**Sql_Trigger_PollingIntervalMs** | 1000 | The delay in milliseconds between processing each batch of changes. (1000 ms is 1 second)|
 |**Sql_Trigger_MaxChangesPerWorker**| 1000 | The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it might result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling).|
 
 #### Example local.settings.json file
