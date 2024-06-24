@@ -6,12 +6,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/25/2024
+ms.date: 06/24/2024
 ms.author: cherylmc
 ---
 # Generate and export certificates - Linux - OpenSSL
 
-VPN Gateway point-to-site (P2S) connections can be configured to use certificate authentication. The root certificate public key is uploaded to Azure and each VPN client must have the appropriate certificate files installed locally in order to connect. This article helps you create a self-signed root certificate and generate client certificates using OpenSSL. For more information, see [Point-to-site configuration - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+This article helps you create a self-signed root certificate and generate client certificate **.pem** files using OpenSSL. If you need *.pfx* and *.cer* files instead, see the [Windows- PowerShell](vpn-gateway-certificates-point-to-site.md) instructions.
 
 ## Prerequisites
 

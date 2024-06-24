@@ -27,7 +27,7 @@ Use the following steps to create a two way network peer between **vnet1** and *
     | Setting | Value |
     |---|---|
     | **Remote virtual network summary** |  |
-    | Peering link name | Enter **vnet-1-to-vnet-2**. |
+    | Peering link name | Enter **vnet-2-to-vnet-1**. |
     | Virtual network deployment model | Leave the default of **Resource Manager**. |
     | Subscription | Select your subscription. |
     | Virtual network | Select **vnet-2**. |
@@ -37,7 +37,7 @@ Use the following steps to create a two way network peer between **vnet1** and *
     | Allow gateway or route server in 'vnet-2' to forward traffic to 'vnet-1' | Leave the default of cleared. |
     | Enable 'vnet-2' to use 'vnet-1's' remote gateway or route server | Leave the default of cleared. |
     | **Local virtual network peering summary** |  |
-    | Peering link name | Enter **vnet-2-to-vnet-1**. |
+    | Peering link name | Enter **vnet-1-to-vnet-2**. |
     | **Local virtual network peering settings** |  |
     | Allow 'vnet-1' to access 'vnet-2' | Leave the default of selected. |
     | Allow 'vnet-1' to receive forwarded traffic from 'vnet-2' | Select the checkbox. |
