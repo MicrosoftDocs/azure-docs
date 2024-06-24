@@ -19,7 +19,9 @@ If you want to find the procedure to upgrade your Service Fabric runtime version
 
 # [Windows](#tab/windows)
 
-## Current versions
+## Listed versions
+
+For currently supported versions, all releases are listed. For currently unsupported versions, only the most recent release is listed.
 
 | Service Fabric runtime | Can upgrade directly from | Can downgrade to* | Compatible SDK or NuGet package version | Supported .NET runtimes** | OS Version | End of support | Link to release notes |
 | - | - | - | - | - | - | - | - |
@@ -80,7 +82,9 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 
 # [Linux](#tab/linux)
 
-## Current versions
+## Listed versions
+
+For currently supported versions, all releases are listed. For currently unsupported versions, only the most recent release is listed.
 
 | Service Fabric runtime | Can upgrade directly from | Can downgrade to* | Compatible SDK or NuGet package version | Supported .NET runtimes** | OS version | End of support | Link to release notes |
 | - | - | - | - | - | - | - | - |
