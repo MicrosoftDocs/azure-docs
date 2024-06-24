@@ -16,7 +16,7 @@ ms.date: 6/24/2024
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 ## Queryable fields should always have indexes created
-Read operations based on predicates and aggregates will first consult the index for the corresponding filters. In the absence of indexes, the database engine will perform a document scan to retrieve the matching documents. Scans will always be expensive and will get progressively more expensive as the volume of data in a collection continues to grow. Thus, indexes should always be created for all queryable fields.
+Read operations based on predicates and aggregates will first consult the index for the corresponding filters. In the absence of indexes, the database engine will perform a document scan to retrieve the matching documents. Scans will always be expensive and will get progressively more expensive as the volume of data in a collection continues to grow. For optimal queri performance, indexes should always be created for all queryable fields.
 
 ## Avoid unnecessary indexes and indexing all fields by default
 While indexes should be created for queryable fields, all fields within the document structure in a collection should not be indexed (either individually or through wildcard indexing) if they are not going to be part of query predicates or filters.
