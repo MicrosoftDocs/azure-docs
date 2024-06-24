@@ -13,7 +13,7 @@ ms.author: lajanuar
 
 # Use Translator behind firewalls
 
-Translator can translate behind firewalls using either [Domain-name](../../firewall/dns-settings.md#configure-dns-proxy---azure-portal) or [IP filtering](#configure-firewall). Domain-name filtering is the preferred method.
+Translator can translate behind firewalls using either [Domain-name](../../firewall/dns-settings.md#dns-proxy-configuration) or [IP filtering](#configure-firewall). Domain-name filtering is the preferred method.
 
 If you still require IP filtering, you can get the [IP addresses details using service tag](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Translator is under the **CognitiveServicesManagement** service tag.
 

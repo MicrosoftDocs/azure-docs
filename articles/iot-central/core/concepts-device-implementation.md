@@ -109,7 +109,17 @@ To learn more about message properties, see [System Properties of device-to-clou
 
 ## Best practices
 
-These recommendations show how to implement devices to take advantage of the [built-in high availability, disaster recovery, and automatic scaling](concepts-faq-scalability-availability.md) in IoT Central.
+These recommendations show how to implement devices to take advantage of the built-in high availability, disaster recovery, and automatic scaling in IoT Central.
+
+### Device provisioning
+
+As the number of IoT hubs in your application changes, a device might need to connect to a different hub.
+
+Before a device connects to IoT Central, it must be registered and provisioned in the underlying services. When you add a device to an IoT Central application, IoT Central adds an entry to a DPS enrollment group. Information from the enrollment group such as the ID scope, device ID, and keys is surfaced in the IoT Central UI.
+
+When a device first connects to your IoT Central application, DPS provisions the device in one of the enrollments group's linked IoT hubs. The device is then associated with that IoT hub. DPS uses an allocation policy to load balance the provisioning across the IoT hubs in the application. This process makes sure each IoT hub has a similar number of provisioned devices.
+
+To learn more about registration and provisioning in IoT Central, see [IoT Central device connectivity guide](overview-iot-central-developer.md#how-devices-connect).
 
 ### Handle connection failures
 
@@ -129,6 +139,8 @@ If the device gets any of the following errors when it connects, it should use a
 To learn more about device error codes, see [Troubleshooting device connections](troubleshooting.md).
 
 To learn more about implementing automatic reconnections, see [Manage device reconnections to create resilient applications](../../iot/concepts-manage-device-reconnections.md).
+
+Currently, IoT Edge devices can't move between IoT hubs.
 
 ### Test failover capabilities
 

@@ -10,8 +10,6 @@ ms.custom: "UpdateFrequency3, references_regions"
 
 # App Service Environment overview
 
-[!INCLUDE [regionalization-note](../includes/regionalization-note.md)]
-
 An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Unlike the App Service public multitenant offering where supporting ingfrastructure is shared, with App Service Environment, compute is dedicated to a single customer. For more information on the differences between App Service Environment and App Service public multitenant, see the [comparison of the offerings](ase-multi-tenant-comparison.md).
 
 > [!NOTE]

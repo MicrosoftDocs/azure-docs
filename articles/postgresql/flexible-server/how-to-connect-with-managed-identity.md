@@ -111,8 +111,11 @@ This section shows how to get an access token using the VM's user-assigned manag
 
 ## Connect using Managed Identity in Python
 
-For a Python code example, please refer to the [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server
-](./connect-python.md)
+For a Python code example, please refer to the [Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Flexible Server](./connect-python.md)
+
+## Connect using Managed Identity in Java
+
+For a Java code example, please refer to the [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL - Flexible Server](./connect-java.md)
 
 ## Connect using Managed Identity in C#
 
@@ -202,7 +205,7 @@ Opening connection using access token...
 
 Connected!
 
-Postgres version: PostgreSQL 11.11, compiled by Visual C++ build 1800, 64-bit
+Postgres version: PostgreSQL 11.11, compiled by Visual C++ build 1800, 64-bit 
 ```
 
 ## Next steps
