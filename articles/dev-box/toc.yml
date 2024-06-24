@@ -29,6 +29,11 @@ items:
       href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
+- name: Plan
+  expanded: true
+  items:
+    - name: Microsoft Dev Box deployment guide
+      href: concept-dev-box-deployment-guide.md
 - name: Configure resources
   items:
   - name: Manage a dev center

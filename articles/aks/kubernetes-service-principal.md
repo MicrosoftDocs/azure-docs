@@ -2,7 +2,6 @@
 title: Use a service principal with AKS
 description: Learn how to create and manage a Microsoft Entra service principal with a cluster in Azure Kubernetes Service (AKS).
 author: tamram
-
 ms.topic: article
 ms.subservice: aks-security
 ms.date: 05/30/2024
@@ -289,12 +288,12 @@ For more information about Microsoft Entra service principals, see [Application 
 For information on how to update the credentials, see [Update or rotate the credentials for a service principal in AKS][update-credentials].
 
 <!-- LINKS - internal -->
-[aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
+[aad-service-principal]: /entra/identity-platform/app-objects-and-service-principals
 [az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
 [az-ad-sp-delete]: /cli/azure/ad/sp#az_ad_sp_delete
 [az-ad-app-credential-list]: /cli/azure/ad/app/credential#az_ad_app_credential_list
 [install-azure-cli]: /cli/azure/install-azure-cli
-[service-principal]:../active-directory/develop/app-objects-and-service-principals.md
+[service-principal]: /entra/identity-platform/app-objects-and-service-principals
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor

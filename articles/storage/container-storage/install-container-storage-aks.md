@@ -1,10 +1,10 @@
 ---
 title: Install Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install the Azure Container Storage extension.
+description: Learn how to install Azure Container Storage for use with Azure Kubernetes Service. Create an AKS cluster, label the node pool, and install Azure Container Storage.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: tutorial
-ms.date: 05/30/2024
+ms.date: 06/20/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli
 ---
@@ -110,7 +110,7 @@ To use Azure Container Storage, you'll need a node pool of at least three Linux 
 
 If you intend to use Azure Elastic SAN or Azure Disks with Azure Container Storage, then you should choose a [general purpose VM type](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes.
 
-If you intend to use Ephemeral Disk, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**.
+If you intend to use Ephemeral Disk with local NVMe, choose a [storage optimized VM type](../../virtual-machines/sizes-storage.md) such as **standard_l8s_v3**. If you intend to use Ephemeral Disk with temp SSD, a [Ev3 and Esv3-series VM](../../virtual-machines/ev3-esv3-series.md) is required.
 
 > [!IMPORTANT]
 > You must choose a VM type that supports [Azure premium storage](../../virtual-machines/premium-storage-performance.md).
