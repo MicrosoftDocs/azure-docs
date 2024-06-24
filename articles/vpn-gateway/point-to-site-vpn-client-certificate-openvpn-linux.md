@@ -48,10 +48,7 @@ The workflow for this article is:
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
-For more information about certificates for Linux, see the following articles:
-
-* [Generate certificates - OpenSSL](point-to-site-certificates-linux-openssl.md)
-* [Generate certificates - strongSwan](vpn-gateway-certificates-point-to-site-linux.md)
+This article uses certificates exported with a *.pfx* format. You can export a client certificate easily to this format using the Windows instructions (not the Linux certificate instructions). See [Export a client certificate - pfx](vpn-gateway-certificates-point-to-site.md#clientexport). The Linux instructions we provide don't use this format, and instead export using [OpenSSL steps]((point-to-site-certificates-linux-openssl.md) and the *.pem* format.
 
 ## <a name="openvpn"></a>Configuration steps
 
