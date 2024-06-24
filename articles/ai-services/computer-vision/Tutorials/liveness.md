@@ -54,6 +54,8 @@ This tutorial demonstrates how to operate a frontend application and an app serv
 
 We provide SDKs in different languages for frontend applications and app servers. See the following instructions to set up your frontend applications and app servers.
 
+### Download SDK for frontend application
+
 Once you have access to the SDK, follow instructions in the [azure-ai-vision-sdk](https://github.com/Azure-Samples/azure-ai-vision-sdk) GitHub repository to integrate the UI and the code into your native mobile application. The liveness SDK supports Java/Kotlin for Android mobile applications, Swift for iOS mobile applications and JavaScript for web applications:
 - For Swift iOS, follow the instructions in the [iOS sample](https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-readme) 
 - For Kotlin/Java Android, follow the instructions in the [Android sample](https://aka.ms/liveness-sample-java) 
@@ -61,7 +63,7 @@ Once you have access to the SDK, follow instructions in the [azure-ai-vision-sdk
 
 Once you've added the code into your application, the SDK handles starting the camera, guiding the end-user in adjusting their position, composing the liveness payload, and calling the Azure AI Face cloud service to process the liveness payload.
 
-### Download Azure AI Face client library for an app server
+### Download Azure AI Face client library for app server
 
 The app server/orchestrator is responsible for controlling the lifecycle of a liveness session. The app server has to create a session before performing liveness detection, and then it can query the result and delete the session when the liveness check is finished. We offer a library in various languages for easily implementing your app server. Follow these steps to install the package you want:
 - For C#, follow the instructions in the [dotnet readme](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/face/Azure.AI.Vision.Face/README.md)
@@ -69,7 +71,7 @@ The app server/orchestrator is responsible for controlling the lifecycle of a li
 - For Python, follow the instructions in the [Python readme](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/README.md)
 - For JavaScript, follow the instructions in the [JavaScript readme](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/face/ai-vision-face-rest/README.md)
 
-### Create environment variables
+#### Create environment variables
 
 [!INCLUDE [create environment variables](../includes/face-environment-variables.md)]
 
