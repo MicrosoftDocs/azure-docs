@@ -15,13 +15,14 @@ ms.date: 6/24/2024
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-The `CreateIndexes` Command in Azure Cosmos DB for MongoDB vCore has an option to optimize index creation, especially beneficial for scenarios involving empty collections. This document outlines the usage and expected behavior of this new option.
+## Queryable fields should always have indexes created
+Read operations based on predicates and aggregates will first consult the index for the corresponding filters. In the absence of indexes, the database engine will perform a document scan to retrieve the matching documents. Scans will always be expensive and will get progressively more expensive as the volume of data in a collection continues to grow. Thus, indexes should always be created for all queryable fields.
 
-## Queryable fields should have indexes created
-Azure Cosmos DB for MongoDB vCore only indexes the _id field by default and all other fields are excluded. Thus, indexes should explicitly be created for all queryable fields for the workload.
+## Avoid unnecessary indexes and indexing all fields by default
+While indexes should be created for queryable fields, all fields within the document structure in a collection should not be indexed if unnecessary.
 
-## Avoid unnecessary indexes and indexing all fields
-While indexes should be created for all queryable fields other than the _id field, all fields should not be indexed if unnecessary.
+> [!TIP]
+> Azure Cosmos DB for MongoDB vCore only indexes the _id field by default. All other fields are not indexed by default. The fields to be indexed should be planned ahead of time to optimize for both read and write performance.
 
 When a new document is inserted for the first time or an existing document is updated or deleted, each of the specified fields in the index also needs to be updated. If the indexing policy contains a large number of fields (or all the fields in the document), additional time will be spent by the server in updating the corresponding indexes and write performance may be sub optimal. When running at scale, only the queryable fields should be indexed while all other fields not used in query predicates should be excluded from the index. 
 
