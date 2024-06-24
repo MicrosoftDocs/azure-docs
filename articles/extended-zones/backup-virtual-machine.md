@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure
 ms.topic: tutorial
-ms.date: 06/07/2024
+ms.date: 06/26/2024
 
 ---
 

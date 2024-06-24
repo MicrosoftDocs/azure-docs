@@ -4,7 +4,7 @@ description: Learn how to deploy a virtual machine in an Azure Extended Zone usi
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure
-ms.topic: quickstart  #Don't change
+ms.topic: quickstart
 ms.date: 06/26/2024
 
 ---
