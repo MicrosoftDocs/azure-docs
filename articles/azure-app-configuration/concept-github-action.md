@@ -39,7 +39,7 @@ To start using this GitHub Action, go to your repository and select the **Action
 > [!div class="mx-imgBorder"]
 > ![Select the Action tab](media/find-github-action.png)
 > [!div class="mx-imgBorder"]
-> ![Select the app configuration sync Action](media/azure-login-github-action.png)
+> ![Select the Azure Login Action](media/azure-login-github-action.png)
 
 #### Example using Microsoft Entra ID
 
@@ -90,7 +90,7 @@ jobs:
 
 To start using this GitHub Action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure CLI Action.” Once you find it, click on the action and copy the provided snippet into your workflow file.
 > [!div class="mx-imgBorder"]
-> ![Select the app configuration sync Action](media/azure-cli-github-action.png)
+> ![Select the Azure CLI Action](media/azure-cli-github-action.png)
 
 The example below we use the Azure CLI action to import configuration files into an Azure App Configuration store when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the script passed to the Azure CLI action updates the App Configuration instance with the new values.
 
@@ -159,8 +159,6 @@ The first section of this workflow specifies that the action triggers *on* a *pu
 ```
 ## Next steps
 
-> [!div class="nextstepaction"]
 >To learn how to use CLI import commands, check out our comprehensive guide [Azure CLI import commands](/cli/azure/appconfig/kv#az-appconfig-kv-import).
 
-> [!div class="nextstepaction"]
 > To learn more about different file content profiles, see [Concept Config File](./concept-config-file.md)
