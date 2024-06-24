@@ -345,9 +345,6 @@
         - name: Configure RDP Shortpath
           displayName: network, udp
           href: configure-rdp-shortpath.md
-        - name: Limit RDP Shortpath port range
-          displayName: network, udp
-          href: configure-rdp-shortpath-limit-ports-public-networks.md
         - name: Set up Azure Private Link
           displayName: network, private endpoints
           href: private-link-setup.md

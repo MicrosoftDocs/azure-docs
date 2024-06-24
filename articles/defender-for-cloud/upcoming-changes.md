@@ -38,7 +38,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [General Availability of Unified Disk Encryption recommendations](#general-availability-of-unified-disk-encryption-recommendations) | March 28, 2024 | April 30, 2024 |
 | [Changes in where you access Compliance offerings and Microsoft Actions](#changes-in-where-you-access-compliance-offerings-and-microsoft-actions) | March 3, 2024 | September 30, 2025 |
 | [Decommissioning of Microsoft.SecurityDevOps resource provider](#decommissioning-of-microsoftsecuritydevops-resource-provider) | February 5, 2024 | March 6, 2024 |
-| [Change in pricing for multicloud container threat detection](#change-in-pricing-for-multicloud-container-threat-detection) | January 30, 2024 | April 2024 |
 | [Enforcement of Defender CSPM for Premium DevOps Security Capabilities](#enforcement-of-defender-cspm-for-premium-devops-security-value) | January 29, 2024 | March 2024 |
 | [Update to agentless VM scanning built-in Azure role](#update-to-agentless-vm-scanning-built-in-azure-role) |January 14, 2024 | February 2024 |
 | [Upcoming change for the Defender for Cloud’s multicloud network requirements](#upcoming-change-for-the-defender-for-clouds-multicloud-network-requirements) | January 3, 2024 | May 2024 |
@@ -275,14 +274,6 @@ As part of that deprecation, we’ll be introducing new agentless endpoint prote
 | Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines | March 2024 |
 
 Learn more about the [migration to the updated Endpoint protection recommendations experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).
-
-## Change in pricing for multicloud container threat detection
-
-**Announcement date: January 30, 2024**
-
-**Estimated date for change: April 2024**
-
-When [multicloud container threat detection](support-matrix-defender-for-containers.md) moves to GA, it will no longer be free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Enforcement of Defender CSPM for Premium DevOps Security Value
 
