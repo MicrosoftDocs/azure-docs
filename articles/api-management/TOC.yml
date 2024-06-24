@@ -132,8 +132,6 @@
       href: workspaces-overview.md
     - name: Create a workspace
       href: how-to-create-workspace.md
-    - name: Use a workspace
-      href: api-management-in-workspace.md
   - name: Configuration management
     items:
     - name: Landing zone accelerator
