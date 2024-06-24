@@ -145,7 +145,7 @@ After you save the script on the Linux server, follow these steps:
 
 > [!Note]
 > This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
-> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the command `yum install curl`.  
+> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/CentOS), you can use the command `yum install curl`.  
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.
@@ -174,7 +174,7 @@ After you save the script on the Linux server, follow these steps:
 
 > [!Note]
 > - This script needs to be run after you connect to a Linux machine on its terminal that meets the networking prerequisites and OS compatibility. 
-> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/Centos), you can use the `yum install curl` command.
+> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/CentOS), you can use the `yum install curl` command.
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.
