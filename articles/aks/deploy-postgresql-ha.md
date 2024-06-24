@@ -76,11 +76,11 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
       --kube-context=$AKS_PRIMARY_CLUSTER_NAME
     ```
 
-For reference dump the configured PodMonitor: kubectl -n $PG_NAMESPACE \
-    --context $AKS_PRIMARY_CLUSTER_NAME \
-    get podmonitors.monitoring.coreos.com \
-    $PG_PRIMARY_CLUSTER_NAME \
-    -o yaml
+For reference dump the configured PodMonitor: kubectl -n $PG_NAMESPACE  
+    --context $AKS_PRIMARY_CLUSTER_NAME  
+    get podmonitors.monitoring.coreos.com  
+    $PG_PRIMARY_CLUSTER_NAME  
+    -o yaml  
 
 ## Create a federated credential
 
