@@ -465,11 +465,7 @@
       - name: Find encrypted objects
         href: search-security-get-encryption-keys.md
     - name: Document-level security
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Microsoft Entra ID
-        href: search-security-trimming-for-azure-search-with-aad.md
+      href: search-security-trimming-for-azure-search.md
   - name: Development
     items:
     - name: API versions
