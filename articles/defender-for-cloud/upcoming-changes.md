@@ -26,6 +26,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
 | [Adaptive network hardening deprecation](#adaptive-network-hardening-deprecation) | June 13, 2024 | July 2024|
+| [Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation](#reminder-of-the-deprecation-scope-of-adaptive-recommendations-as-of-mma-deprecation) | June 20, 2024 | August 2024 |
 | [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 10, 2024 | July 10, 2024 |
 | [Changes to identity recommendations](#changes-to-identity-recommendations) | June 3, 2024 | July 2024 |
 | [Removal of FIM over AMA and release of new version over Defender for Endpoint](#removal-of-fim-over-ama-and-release-of-new-version-over-defender-for-endpoint) | May 1, 2024 | June 2024 |
@@ -61,7 +62,17 @@ The feature deprecation includes the following experiences:
 - Recommendations
 - Alerts
 - 
-- 
+
+ 
+## Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation
+
+**Announcement date: June 20, 2024**
+
+**Estimated date for change: August, 2024**
+
+As part of the [MMA deprecation and the Defender for Servers updated deployment strategy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341), Defender for Servers security features will be provided through the Microsoft Defender for Endpoint (MDE) agent, or through the [agentless scanning capabilities](enable-agentless-scanning-vms.md). Both of these options won't depend on either the Log Analytics Agent (MMA) or the Azure Monitoring Agent (AMA).
+
+Adaptive Security Recommendations, known as Adaptive Application Controls and Adaptive Network Hardening, will be discontinued. The current GA version based on the Log Analytics Agent (MMA) and the preview version based on the Azure Monitoring Agent (AMA) will be deprecated in August 2024.
 
 ## SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers
 
@@ -419,7 +430,7 @@ The current provisioning process that provides the installation and configuratio
 1. In October 2023:
    1. The current shared ‘Log Analytics agent’/’Azure Monitor agent’ autoprovisioning mechanism will be updated and applied to ‘Log Analytics agent’ only.
 
-      1. **Azure Monitor agent** (AMA) related Public Preview policy initiatives will be deprecated and replaced with the new autoprovisioning process for Azure Monitor agent (AMA), targeting only Azure registered SQL servers (SQL Server on Azure VM/ Arc-enabled SQL Server).
+      1. **Azure Monitor agent (AMA)** related Public Preview policy initiatives will be deprecated and replaced with the new autoprovisioning process for Azure Monitor agent (AMA), targeting only Azure registered SQL servers (SQL Server on Azure VM/ Arc-enabled SQL Server).
 
 1. Current customers with AMA with the Public Preview policy initiative enabled will still be supported but are recommended to migrate to the new policy.
 
