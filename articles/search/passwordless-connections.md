@@ -24,6 +24,8 @@ keylessless connections are enabled with the following steps:
 
 The following steps need to be completed for both local development and production workloads.
 
+* [Create an AI Search resource](#create-an-ai-search-resource)
+
 ### Create an AI Search resource
 
 Before continuing with this article, you need an Azure AI Search resource to work with. If you don't have a resource, [create your resource](search-create-service-portal.md) now. [Enable role-based access control (RBAC)](search-security-enable-roles.md) for the resource.
