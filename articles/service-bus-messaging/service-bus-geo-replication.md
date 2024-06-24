@@ -28,11 +28,11 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 > - This feature is currently in public preview, and as such shouldn't be used in production scenarios.
 > - The below regions are currently supported in the public preview.
 >
-> | US               | Europe        | Asia         |
-> |------------------|---------------|--------------|
-> | Central US EUAP  | Italy North   | Taiwan North |
-> |                  | Spain Central |              |
-> |                  | Norway East   |              |
+> | US               | Europe        | Asia             |
+> |------------------|---------------|------------------|
+> | Central US EUAP  | Italy North   | Taiwan North     |
+> |                  | Spain Central | Taiwan Northwest |
+> |                  | Norway East   |                  |
 >
 > - This feature is currently available on new namespaces. If a namespace had this feature enabled before, it can be disabled (by removing the secondary regions), and re-enabled.
 > - The following features currently aren't supported. We're continuously working on bringing more features to the public preview, and will update this list with the latest status.
