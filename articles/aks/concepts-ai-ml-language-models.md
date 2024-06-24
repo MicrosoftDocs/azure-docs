@@ -2,7 +2,7 @@
 title: Concepts - Small and large language models
 description: Learn about small and large language models, including when to use them and how you can onboard them to your AI and machine learning workflows on Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 06/20/2024
+ms.date: 06/24/2024
 author: schaffererin
 ms.author: schaffererin
 ---
@@ -78,7 +78,7 @@ The following table lists some popular, high-performance large language models:
 
 Kubernetes AI Toolchain Operator (KAITO) is an open-source operator that automates small and large language model deployments in Kubernetes clusters. The KAITO add-on for AKS simplifies onboarding and reduces the time-to-inference for open-source models on your AKS clusters. The add-on automatically provisions right-sized GPU nodes and sets up the associated interference server as an endpoint server to your chosen model.
 
-For more information, [Deploy an AI model on AKS with the AI toolchain operator][ai-toolchain-operator].
+For more information, see [Deploy an AI model on AKS with the AI toolchain operator][ai-toolchain-operator]. To get started with a range of supported small and large language models for your inference workflows, see the [KAITO model GitHub repository][kaito-repo].
 
 ## Next steps
 
@@ -91,3 +91,4 @@ To learn more about containerized AI and machine learning workloads on AKS, see 
 [ai-toolchain-operator]: ./ai-toolchain-operator.md
 [forecast-energy-usage]: https://azure.github.io/Cloud-Native/60DaysOfIA/forecasting-energy-usage-with-intelligent-apps-1/
 [flyte-aks]: ./use-flyte.md
+[kaito-repo]: https://github.com/Azure/kaito/tree/main/presets
