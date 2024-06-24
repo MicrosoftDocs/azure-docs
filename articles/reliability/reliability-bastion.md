@@ -72,7 +72,7 @@ When a zone goes down, the VM and Bastion should still be accessible. See [Relia
 
 Migration from non-availability zone support to availability zone support is not possible. Instead, you'll need to [create a Bastion resource](/azure/bastion/tutorial-create-host-portal) in the new region and delete the old one.
 
-### Cross-region disaster recovery in multi-region geography
+### Cross-region disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
