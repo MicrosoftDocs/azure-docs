@@ -59,6 +59,11 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
     e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the &lt;FactoryName&gt; folder of the adf_publish branch.
 
+# MS CSS got many support cases that except the maximum size limitation of ARM template
+# so please consider too add some docs here
+https://learn.microsoft.com/en-us/azure/data-factory/continuous-integration-delivery-linked-templates#using-linked-templates
+https://learn.microsoft.com/en-us/archive/blogs/najib/deploying-linked-arm-templates-with-vsts
+
     f.  Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the &gt;FactoryName&lt; folder of the adf_publish branch.
 
     g.  Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target data factory. For credentials that come from Azure Key Vault, enter the secret's name between double quotation marks. For example, if the secret's name is cred1, enter **"$(cred1)"** for this value.
