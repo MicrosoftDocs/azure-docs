@@ -87,7 +87,17 @@ Consider the example below to enable large index keys on a collection named larg
 
 ```javascript
 use cosmicworks;
-db.runCommand({ "createIndexes": "large_index_coll", "indexes": [ { "key": { "ikey": 1 }, "name": "ikey_1", "enableLargeIndexKeys": true } ] })
+db.runCommand(
+{
+ "createIndexes": "large_index_coll",
+ "indexes": [
+    {
+        "key": { "ikey": 1 },
+        "name": "ikey_1",
+        "enableLargeIndexKeys": true
+    }
+    ]
+})
 ```
 
 ## Blocking Option
