@@ -163,13 +163,13 @@
             href: point-to-site-vpn-client-certificate-openvpn-ios.md
       - name: Generate self-signed certificates
         items:
-        - name: Azure PowerShell
+        - name: Azure PowerShell - .cer and .pfx files
           href: vpn-gateway-certificates-point-to-site.md
-        - name: Makecert
+        - name: Makecert - .cer and .pfx files
           href: vpn-gateway-certificates-point-to-site-makecert.md
-        - name: Linux - OpenSSL
+        - name: Linux - OpenSSL - .pem files
           href: point-to-site-certificates-linux-openssl.md
-        - name: Linux - strongSwan
+        - name: Linux - strongSwan - .pem files
           href: vpn-gateway-certificates-point-to-site-linux.md
       - name: Install VPN client certificates
         href: point-to-site-how-to-vpn-client-install-azure-cert.md
