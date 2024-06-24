@@ -13,11 +13,12 @@ ms.date: 03/03/2023
 # Service Fabric supported versions
 The tables in this article outline the Service Fabric and platform versions that are actively supported.
 
-If you want to find a list of all the available Service Fabric runtime versions in available for your subscription, follow the guidance in the [Check for supported cluster versions section of the Manage Service Fabric Cluster Upgrades guide](service-fabric-cluster-upgrade-version-azure.md#check-for-supported-cluster-versions).
+> [!NOTE]
+> For a list of all the available Service Fabric runtime versions in available for your subscription, follow the guidance in the [Check for supported cluster versions section of the Manage Service Fabric Cluster Upgrades guide](service-fabric-cluster-upgrade-version-azure.md#check-for-supported-cluster-versions).
+>
+> For the procedure to upgrade your Service Fabric runtime version, see [Upgrade the Service Fabric version that runs on your cluster](service-fabric-cluster-upgrade-windows-server.md).
 
-If you want to find the procedure to upgrade your Service Fabric runtime version, see [Upgrade the Service Fabric version that runs on your cluster](service-fabric-cluster-upgrade-windows-server.md).
-
-# [Windows](#tab/windows)
+# [**Windows**](#tab/windows)
 
 ## Listed versions
 
@@ -25,14 +26,14 @@ For currently supported versions, all releases are listed. For currently unsuppo
 
 | Service Fabric runtime | Can upgrade directly from | Can downgrade to* | Compatible SDK or NuGet package version | Supported .NET runtimes** | OS Version | End of support | Link to release notes |
 | - | - | - | - | - | - | - | - |
-| 10.1 CU3<br>10.1.2175.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 8, .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 **(.NET 8 runtime support is only available for cumulative update 3 (CU3) of 10.1)** | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | Release notes pending |
+| 10.1 CU3<br>10.1.2175.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 8 **(.NET 8 runtime support is available starting with cumulative update 3 (CU3) of 10.1)**, .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU3.md) |
 | 10.1 CU2<br>10.1.1951.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU2.md) |
 | 10.1 RTO<br>10.1.1541.9590  | 9.1 CU6<br>9.1.1851.9590 | 9.0 | Less than or equal to version 7.1 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
-| 10.0 CU4<br>10.0.2382.9590 | 9.0 CU10<br>9.0.1553.9590 | 9.0 | Less than or equal to version 7.0 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | Release notes pending |
+| 10.0 CU4<br>10.0.2382.9590 | 9.0 CU10<br>9.0.1553.9590 | 9.0 | Less than or equal to version 7.0 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU4.md) |
 | 10.0 CU3<br>10.0.2226.9590 | 9.0 CU10<br>9.0.1553.9590 | 9.0 | Less than or equal to version 7.0 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU3.md) |
 | 10.0 CU1<br>10.0.1949.9590 | 9.0 CU10<br>9.0.1553.9590 | 9.0 | Less than or equal to version 7.0 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU1.md) |
 | 10.0 RTO<br>10.0.1816.9590 | 9.0 CU10<br>9.0.1553.9590 | 9.0 | Less than or equal to version 7.0 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_10.md) |
-| 9.1 CU10<br>9.1.2488.9590 | 8.2 CU6<br>8.2.1686.9590 | 8.2 | Less than or equal to version 6.1 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | Release notes pending |
+| 9.1 CU10<br>9.1.2488.9590 | 8.2 CU6<br>8.2.1686.9590 | 8.2 | Less than or equal to version 6.1 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU10.md) |
 | 9.1 CU9<br>9.1.2277.9590 | 8.2 CU6<br>8.2.1686.9590 | 8.2 | Less than or equal to version 6.1 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU9.md) |
 | 9.1 CU7<br>9.1.1993.9590 | 8.2 CU6<br>8.2.1686.9590 | 8.2 | Less than or equal to version 6.1 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU7.md) |
 | 9.1 CU6<br>9.1.1851.9590 | 8.2 CU6<br>8.2.1686.9590 | 8.2 | Less than or equal to version 6.1 | .NET 7, .NET 6 <br> .NET Framework >= 4.6.2 | [See supported OS version](#supported-windows-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU6.md) |
@@ -80,7 +81,7 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | Version 1809 | 5/11/2021 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
 | Version 1803 | 5/11/2021 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
 
-# [Linux](#tab/linux)
+# [**Linux**](#tab/linux)
 
 ## Listed versions
 
@@ -88,14 +89,14 @@ For currently supported versions, all releases are listed. For currently unsuppo
 
 | Service Fabric runtime | Can upgrade directly from | Can downgrade to* | Compatible SDK or NuGet package version | Supported .NET runtimes** | OS version | End of support | Link to release notes |
 | - | - | - | - | - | - | - | - |
-| 10.1 CU3<br>10.1.2108.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | .NET 8, .NET 7, .NET 6 **(.NET 8 runtime support is only available for cumulative update 3 (CU3) of 10.1)**  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | Release notes pending |
+| 10.1 CU3<br>10.1.2108.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | .NET 8 **(.NET 8 runtime support is available starting with cumulative update 3 (CU3) of 10.1)**, .NET 7, .NET 6 | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU3.md) |
 | 10.1 CU2<br>10.1.1885.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU2.md) |
 | 10.1 RTO<br>10.1.1507.1 | 9.1 CU6<br>9.1.1642.1 | 9.0 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | Current version | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
-| 10.0 CU4<br>10.0.2261.1 | 9.0 CU10<br>9.0.1489.1 | 9.0 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | September 30, 2024 | Release notes pending |
+| 10.0 CU4<br>10.0.2261.1 | 9.0 CU10<br>9.0.1489.1 | 9.0 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU4.md) |
 | 10.0 CU3<br>10.0.2105.1 | 9.0 CU10<br>9.0.1489.1 | 9.0 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU3.md) |
 | 10.0 CU1<br>10.0.1829.1 | 9.0 CU10<br>9.0.1489.1 | 9.0 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU1.md) |
 | 10.0 RTO<br>10.0.1728.1 | 9.0 CU10<br>9.0.1489.1 | 9.0 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | September 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_10.md) |
-| 9.1 CU10<br>9.1.2248.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | April 30, 2024 | Release notes pending |
+| 9.1 CU10<br>9.1.2248.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | April 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU10.md) |
 | 9.1 CU9<br>9.1.2038.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | April 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU9.md) |
 | 9.1 CU7<br>9.1.1740.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | April 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU7.md) |
 | 9.1 CU6<br>9.1.1642.1 | 8.2 CU6<br>8.2.1485.1 | 8.2 | .NET 7, .NET 6  | N/A | [See supported OS version](#supported-linux-versions-and-support-end-date) | April 30, 2024 | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU6.md) |
