@@ -18,7 +18,9 @@ The tables in this article outline the Service Fabric and platform versions that
 >
 > For the procedure to upgrade your Service Fabric runtime version, see [Upgrade the Service Fabric version that runs on your cluster](service-fabric-cluster-upgrade-windows-server.md).
 
-# [**Windows**](#tab/windows)
+Use the following Windows/Linux tab selector to view the corresponding listed Service Fabric runtime versions for Windows and Linux.
+
+# [Windows](#tab/windows)
 
 ## Listed versions
 
@@ -81,7 +83,7 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | Version 1809 | 5/11/2021 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
 | Version 1803 | 5/11/2021 | <a href="/lifecycle/products/windows-10-enterprise-and-education">Windows 10 Enterprise and Education - Microsoft Lifecycle</a> |
 
-# [**Linux**](#tab/linux)
+# [Linux](#tab/linux)
 
 ## Listed versions
 
