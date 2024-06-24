@@ -43,8 +43,8 @@ Deployment stacks provide the following benefits:
 - A management group-scoped stack is restricted from deploying to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
 - The PowerShell command help lists a `DeleteResourcesAndResourcesGroups` value for the `ActionOnUnmanage` switch. When this value is used, the command detaches the managed resources and the resource groups. This value will be removed in the next update. Don't use this value.
 - In some cases, the New and Set cmdlets of Azure PowerShell may return a generic template validation error that is not clearly actionable. This bug will be fixed in the next release, but for now, if the error is unclear, you can run the cmdlet in debug mode to see a more detailed error in the raw response.
-- Deploy stacks are not supported by Microsoft Graph provider.  For more information, see [Deployment Error: This application {0} isn't authorized to call Microsoft Graph using a Bicep template](/graph/templates/known-issues-graph-bicep.md#deployment-error-this-application-0-isnt-authorized-to-call-microsoft-graph-using-a-bicep-template).
- 
+- Deploy stacks are not supported by [Microsoft Graph provider](https://aka.ms/graphbicep).
+
 ## Built-in roles
 
 > [!WARNING]
