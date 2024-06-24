@@ -79,7 +79,7 @@ Various factors impact [sidecar performance][data-plane-performance] such as req
 - Two proxy workers
 - 1-KB payload
 - 1,000 Queries per second (QPS) at varying client connections
-- `http/1.1` protocol and mutual TLS enabled
+- `http/1.1` protocol and mutual Transport Layer Security (TLS) enabled
 - 26 data points collected
 
 #### CPU and memory
@@ -124,7 +124,7 @@ kubectl patch hpa aks-istio-ingressgateway-external-asm-1-19 -n aks-istio-ingres
 ```
 
 ## Service entry
-Istio's ServiceEntry custom resource definition enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on DNS servers][understanding-dns]. The following suggestions can help reduce the load:
+Istio's ServiceEntry custom resource definition enables adding other services into the Istio’s internal service registry. A [ServiceEntry][serviceentry] allows services already in the mesh to route or access the services specified. However, the configuration of multiple ServiceEntries with the `resolution` field set to DNS can cause a [heavy load on Domain Name System (DNS) servers][understanding-dns]. The following suggestions can help reduce the load:
 
 - Switch to `resolution: NONE` to avoid proxy DNS lookups entirely. Suitable for most use cases.
 - Increase TTL (Time To Live) if you control the domains being resolved.
