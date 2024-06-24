@@ -90,7 +90,7 @@ When a createIndex operation is in progress, the response will look like:
       "opid": "30000451493:1719209762286363",
       "op_prefix": 30000451493,
       "currentOpTime": "2024-06-24T06:16:02.000Z",
-      "secs_running": Long('0'),
+      "secs_running": 0,
       "command": { "aggregate": "" },
       "op": "command",
       "waitingForLock": false
@@ -104,7 +104,7 @@ When a createIndex operation is in progress, the response will look like:
       "currentOpTime": "2024-06-24T06:13:58.000Z",
       "secs_running": 124,
       "command": { "createIndexes": "" },
-      "op": workerCommand",
+      "op": "workerCommand",
       "waitingForLock": false,
       "progress": {},
       "msg": ""
