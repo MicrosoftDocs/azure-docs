@@ -36,7 +36,7 @@ If two agents use the same configuration, you will encounter inconsistent behavi
 
 ## Supported operating systems
 
-Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent does not run on x86 (32-bit) or ARM-based architectures.
+Azure Arc supports the following Windows and Linux operating systems. x86-64 (64-bit) architectures are fully supported. The Azure Connected Machine agent does not run on x86 (32-bit) architectures. Some scenarios are supported for ARM64, see below 
 
 * AlmaLinux 9
 * Amazon Linux 2 and 2023
@@ -56,6 +56,26 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 
 The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
 
+## ARM64 Architecture operating systems
+
+Azure Arc-enabled Servers supports the following Linux distributions for ARM64 architectures, starting with Azure Connected Machine Agent version x.y
+
+* Amazon Linux 2023
+* SuSE Linux Enterprise Server (SLES) 15
+
+Not all features, virtual machine extensions and solutions are compatible with ARM64 at this point. 
+The following extensions and solutions have ARM64 support: 
+
+* Microsoft Defender for Endpoints
+* Azure Monitoring Agent
+* Custom Script Extension and RunCommand
+
+The following extensions and solutions are NOT compatible with ARM64 at this time:
+
+* Machine Configuration
+
+For full details on ARM64 compatibility please refer to the documentation for the solution you wish to use.
+
 ## Limited support operating systems
 
 The following operating system versions have **limited support**. In each case, newer agent versions won't support these operating systems.  The last agent version that supports the operating system is listed, and newer agent releases won't be made available for that system. 
@@ -65,6 +85,8 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 | -- | -- | -- | -- | 
 | Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
 | CentOS 7 and 8 | 1.42 [Download](https://download.microsoft.com/download/9/6/0/9600825a-e532-4e50-a2d5-7f07e400afc1/AzureConnectedMachineAgent.msi)  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+
+
 
 ### Client operating system guidance
 
