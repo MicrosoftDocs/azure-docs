@@ -1,20 +1,20 @@
 ---
-title: Use passwordless connections with Azure AI Search
-description: Use passwordless connections with Azure Identity for authentication and authorization with Azure AI Search.
+title: Use keyless connections with Azure AI Search
+description: Use keyless connections with Azure Identity for authentication and authorization with Azure AI Search.
 ms.topic: how-to
 ms.date: 06/05/2024
 author: HeidiSteen
 ms.author: heidist
 ms.reviewer: scaddie
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, passwordless-dotnet, passwordless-java, passwordless-js, passwordless-python, build-2024-intelligent-apps
-#customer intent: As a developer, I want to use passwordless connections so that I don't leak secrets.
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, keylessless-dotnet, keylessless-java, keylessless-js, keylessless-python, build-2024-intelligent-apps
+#customer intent: As a developer, I want to use keylessless connections so that I don't leak secrets.
 ---
 
 # Use Azure AI Search without keys 
 
-In your application code, you can set up a passwordless connection to Azure AI Search that uses roles and Microsoft Entra ID for authentication and authorization. Application requests to most Azure services must be authenticated with keys or [passwordless connections](https://aka.ms/delete-passwords). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Passwordless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
+In your application code, you can set up a keylessless connection to Azure AI Search that uses roles and Microsoft Entra ID for authentication and authorization. Application requests to most Azure services must be authenticated with keys or [keylessless connections](https://aka.ms/delete-keylesss). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. keylessless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
 
-Passwordless connections are enabled with the following steps: 
+keylessless connections are enabled with the following steps: 
 
 * Configure your authentication.
 * Set environment variables, as needed. 
@@ -26,11 +26,11 @@ The following steps need to be completed for both local development and producti
 
 ### Create an AI Search resource
 
-Before continuing with this article, you need an Azure AI Search resource to work with. If you don't have a resource, [create your resource](search-create-service-portal.md) now.
+Before continuing with this article, you need an Azure AI Search resource to work with. If you don't have a resource, [create your resource](search-create-service-portal.md) now. [Enable role-based access control (RBAC)](search-security-enable-roles.md) for the resource.
 
 ### Install Azure Identity client library
 
-Before working locally without passwords, update your AI Search enabled code with the Azure Identity client library.
+Before working locally without keylesss, update your AI Search enabled code with the Azure Identity client library.
 
 #### [.NET](#tab/csharp)
 
@@ -205,7 +205,7 @@ search_index_client = SearchIndexClient(
 
 ## Local development
 
-Local development without passwords includes these steps:
+Local development without keylesss includes these steps:
 
 - Assign your personal identity with RBAC roles on the specific resource.
 - Use a tool to authenticate with Azure.
@@ -389,5 +389,5 @@ To connect to Azure AI Search, your code needs to know your resource endpoint, a
 
 ## Additional resources
 
-* [Passwordless connections developer guide](/azure/developer/intro/passwordless-overview)
+* [keylessless connections developer guide](/azure/developer/intro/keylessless-overview)
 * [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
