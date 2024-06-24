@@ -82,7 +82,7 @@ You generate two data flows in this tutorial. The first data flow is a simple so
 
    :::image type="content" source="media/tutorial-data-flow-delta-lake/add-new-source-dataset.png" alt-text="Screenshot showing where to add a new source dataset to the data flow.":::
 
-1.  Select _Azure Data Lake Storage Gen2_ from the **New dataset** window that appears, and then select **Continue**.
+1. Select _Azure Data Lake Storage Gen2_ from the **New dataset** window that appears, and then select **Continue**.
 
    :::image type="content" source="media/tutorial-data-flow-delta-lake/select-azure-data-lake-storage-gen2.png" alt-text="Screenshot showing where to select Azure Data Lake Storage Gen2 from the New dataset window.":::
 
