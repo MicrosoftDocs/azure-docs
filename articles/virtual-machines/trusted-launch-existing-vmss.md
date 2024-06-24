@@ -8,7 +8,7 @@ ms.service: azure-virtual-machine-scale-sets
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 06/10/2024
-ms.custom: template-how-to, devx-track-azurepowershell
+ms.custom: template-how-to, devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # (Preview) Enable Trusted launch on existing Virtual machine Scale set
