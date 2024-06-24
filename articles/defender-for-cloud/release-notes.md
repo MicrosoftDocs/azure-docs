@@ -24,7 +24,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 |Date | Update |
 |--|--|
+| June 24 | [Change in pricing for Defender for Containers in multicloud](#change-in-pricing-for-defender-for-containers-in-multicloud) |
 | June 10 | [Copilot for Security in Defender for Cloud (Preview)](#copilot-for-security-in-defender-for-cloud-preview) |
+
+### ## Change in pricing for Defender for Containers in multicloud
+
+June 24, 2024
+
+Since Defender for Containers in multicloud is now generally available, it's no longer free of charge. For more information, see [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ### Copilot for Security in Defender for Cloud (Preview)
 
