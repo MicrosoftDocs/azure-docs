@@ -243,10 +243,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     ```
 
     > [!TIP]
-    > Besides using the `helm install`, you can also install Azure App Configuration Kubernetes Provider through [AKS extension](../aks/azure-app-configuration.md). There are two advantages:
-    > 1. The AKS extension is managed by Azure Resource Manager (ARM), you can use Azure CLI, ARM or bicep template to manage the installation.
-    > 1. The AKS extension supports automatic updates and version management, you don't have to manually manage the minor/patch version updates.
-    >
+    > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](../aks/azure-app-configuration.md).
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
