@@ -42,7 +42,7 @@ Follow the steps in this article to:
 
 1. On the **Gateway** tab, do the following:
 
-    * In **Gateway details**, enter a gateway name and select a number of scale **Units**.
+    * In **Gateway details**, enter a gateway name and select the number of scale **Units**.
 
     * In **Network**, select a **Network configuration** for your workspace gateway. 
 
@@ -57,7 +57,7 @@ It can take some time to create the workspace, workspace gateway, and related re
 
 After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
 
-To work with the workspace gateway, aksi assign workspace users the **Owner**, **Contributor**, or **Reader** role scoped to the workspace gateway.
+To work with the workspace gateway, also assign workspace users the **Owner**, **Contributor**, or **Reader** role scoped to the workspace gateway.
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
@@ -120,7 +120,7 @@ To get started managing, protecting, and publishing APIs in your workspaces, see
 |Policy fragments     |  [Reuse policy configurations in your API Management policy definitions](policy-fragments.md)       |
 | Schemas | [Validate content](validate-content-policy.md) |
 | Groups | [Create and use groups to manage developer accounts](api-management-howto-create-groups.md)  |
-| Notifications | [How to configure notifications and notification templates](api-management-howto-configure-notifications.md) |
+| Notifications | [How to configure notifications and notification templates](api-management-howto-configure-notifications.md) | 
 
 
 
