@@ -55,12 +55,12 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date for change: July 2024**
 
-The Checkov integration for infrasturcture-as-code (IaC) scanning through [MSDO](azure-devops-extension.md) will be released for General Availability (GA) in July 2024. As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
+The Checkov integration for infrasturcture-as-code (IaC) scanning through [MSDO](azure-devops-extension.yml) will be released for General Availability (GA) in July 2024. As part of this release, Checkov will be replacing Terrascan as a default IaC analyzer that runs as part of the MSDO CLI. Terrascan may still be configured manually through MSDO's [environment variables](https://github.com/microsoft/security-devops-azdevops/wiki) but will not run by default. 
 
 Security findings from Checkov will be represented as recommendations for both Azure DevOps and GitHub repositories under the assessments: "Azure DevOps repositories should have infrastructure as code findings resolved" and "GitHub repositories should have infrastructure as code findings resolved." 
 
 To learn more about DevOps security in Defender for Cloud, see the [DevOps Security Overview](defender-for-devops-introduction.md).
-To learn how to manually configure Checkov in MSDO today, see the [Azure DevOps](azure-devops-extension.md) or [GitHub](github-action.md) documentation.
+To learn how to manually configure Checkov in MSDO today, see the [Azure DevOps](azure-devops-extension.yml) or [GitHub](github-action.md) documentation.
 
 ## Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation
 
