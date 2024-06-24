@@ -1,7 +1,7 @@
 ---
 title: What is the Azure portal?
 description: The Azure portal is a graphical user interface that you can use to manage your Azure services. Learn how to navigate and find resources in the Azure portal.
-ms.date: 06/20/2024
+ms.date: 06/24/2024
 ms.topic: overview
 ---
 
@@ -25,7 +25,7 @@ The working pane for a resource or service may also have a [service menu](#servi
 
 The illustration below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine (VM), but the same elements generally apply, no matter what type of resource or service you're working with.
 
-:::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-callouts.png" alt-text="Screenshot showing the full screen portal view and a key to UI elements." lightbox="media/azure-portal-overview/azure-portal-overview-portal-callouts.png":::
+:::image type="content" source="media/azure-portal-overview/portal-callouts.png" alt-text="Screenshot showing the full screen portal view and a key to UI elements." lightbox="media/azure-portal-overview/azure-portal-overview-portal-callouts.png":::
 
 |Key|Description |
 |:---:|---|
