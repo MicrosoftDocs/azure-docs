@@ -51,10 +51,10 @@ The **Basic** page includes basic information about the DCR.
 | Resource group | Resource group to store the DCR. This does not need to be the same resource group as the virtual machines. |
 | Region | Region to store the DCR. The virtual machines and their associations must be in the same region. |
 | Platform Type | Specifies the type of data sources that will be available for the DCR, either **Windows** or **Linux**. **None** allows for both. <sup>1</sup> |
-| Data Collection Endpoint | Specifies the data collection endpoint (DCE) used to collect data if one is required for any of the data sources in this DCR<sup>2</sup>. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](data-collection-endpoints.md). |
+| Data Collection Endpoint | Specifies the data collection endpoint (DCE) used to collect data. This is only required if you're using Azure Monitor Private Links. This DCE must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](data-collection-endpoints.md). |
 
 <sup>1</sup> This option sets the `kind` attribute in the DCR. There are other values that can be set for this attribute, but they are not available in the portal.
-<sup>2</sup> Currently, all data source types require a DCE except for Windows events and performance counters. 
+
 
 ## Add resources
 The **Resources** page allows you to add resources that will be associated with the DCR. Click **+ Add resources** to select resources. The Azure Monitor agent will automatically be installed on any resources that don't already have it.
