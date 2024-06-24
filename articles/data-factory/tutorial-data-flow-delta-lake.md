@@ -1,12 +1,12 @@
 ---
 title: Delta lake ETL with data flows
-description:  This tutorial provides step-by-step instructions for using data flows to transform and analyze data in delta lake
+description: This tutorial provides step-by-step instructions for using data flows to transform and analyze data in delta lake
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 06/24/2024
 ---
 
 # Transform data in delta lake using mapping data flows
@@ -15,13 +15,13 @@ ms.date: 05/15/2024
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
-In this tutorial, you'll use the data flow canvas to create data flows that allow you to analyze and transform data in Azure Data Lake Storage (ADLS) Gen2 and store it in Delta Lake.
+In this tutorial, you use the data flow canvas to create data flows that allow you to analyze and transform data in Azure Data Lake Storage (ADLS) Gen2 and store it in Delta Lake.
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 
-The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB2.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples will be referencing a container named 'sample-data'.
+The file that we're transforming in this tutorial is MoviesDB.csv, which can be found [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/moviesDB2.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples are referencing a container named 'sample-data'.
 
 ## Create a data factory
 
@@ -46,7 +46,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
 ## Create a pipeline with a data flow activity
 
-In this step, you'll create a pipeline that contains a data flow activity.
+In this step, you create a pipeline that contains a data flow activity.
 
 1. On the home page, select **Orchestrate**.
 
@@ -56,7 +56,7 @@ In this step, you'll create a pipeline that contains a data flow activity.
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
 
     :::image type="content" source="media/tutorial-data-flow/activity1.png" alt-text="Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.":::
-1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **DeltaLake**. Click Finish when done.
+1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **DeltaLake**. Select Finish when done.
 
     :::image type="content" source="media/tutorial-data-flow/activity2.png" alt-text="Screenshot that shows where you name your data flow when you create a new data flow.":::
 1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
@@ -65,13 +65,13 @@ In this step, you'll create a pipeline that contains a data flow activity.
 
 ## Build transformation logic in the data flow canvas
 
-You will generate two data flows in this tutorial. The first data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file from above. Lastly, you'll create this flow design below to update data in Delta Lake.
+You generate two data flows in this tutorial. The first data flow is a simple source to sink to generate a new Delta Lake from the movies CSV file. Lastly, you create the flow design that follows to update data in Delta Lake.
 
 :::image type="content" source="media/data-flow/data-flow-tutorial-6.png" alt-text="Final flow":::
 
 ### Tutorial objectives
 
-1. Take the MoviesCSV dataset source from above, and form a new Delta Lake from it.
+1. Use the MoviesCSV dataset source from the prerequisites, and form a new Delta Lake from it.
 1. Build the logic to updated ratings for 1988 movies to '1'.
 1. Delete all movies from 1950.
 1. Insert new movies for 2021 by duplicating the movies from 1960.
@@ -103,7 +103,7 @@ You will generate two data flows in this tutorial. The first data flow is a simp
    :::image type="content" source="media/tutorial-data-flow-delta-lake/select-sink-details.png" alt-text="Screenshot showing the Sink details for an inline delta dataset.":::
 
 1. Choose a folder name in your storage container where you would like the service to create the Delta Lake.
-1. Finally, navigate back the pipeline designer and select **Debug** to execute the pipeline in debug mode with just this data flow activity on the canvas. This will generate your new Delta Lake in Azure Data Lake Storage Gen2.
+1. Finally, navigate back the pipeline designer and select **Debug** to execute the pipeline in debug mode with just this data flow activity on the canvas. This generates your new Delta Lake in Azure Data Lake Storage Gen2.
 1. Now, from the Factory Resources menu on the left of the screen, select **+** to add a new resource, and then select **Data flow**.
 
    :::image type="content" source="media/concepts-data-flow-overview/new-data-flow.png" alt-text="Screenshot showing where to create a new data flow in the data factory.":::
@@ -125,16 +125,17 @@ You will generate two data flows in this tutorial. The first data flow is a simp
 1. Your alter row policies should look like this.
 
    :::image type="content" source="media/data-flow/data-flow-tutorial-3.png" alt-text="Alter row":::
-   
-1. Now that you’ve set the proper policy for each alter row type, check that the proper update rules have been set on the sink transformation
+
+1. Now that you set the proper policy for each alter row type, check that the proper update rules were set on the sink transformation
 
    :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="Sink":::
-   
-1. Here we are using the Delta Lake sink to your ADLS Gen2 data lake and allowing inserts, updates, deletes. 
-1. Note that the Key Columns are a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
+
+1. Here we're using the Delta Lake sink to your Azure Data Lake Storage Gen2 data lake and allowing inserts, updates, deletes.
+1. Note that the key columns are a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
 
 ### Download completed sample
-[Here is a sample solution for the Delta pipeline with a data flow for update/delete rows in the lake:](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DeltaPipeline.zip)
+
+Here's a [sample solution for the Delta pipeline](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/DeltaPipeline.zip) with a data flow for update/delete rows in the lake.
 
 ## Related content
 
