@@ -561,7 +561,7 @@ If you use the webhook action, your target webhook endpoint must be able to proc
 
 > [!NOTE]
 >
->Pre-requisites: https://learn.microsoft.com/powershell/microsoftgraph/installation?view=graph-powershell-1.0
+>Pre-requisites: [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true)
 
 #### How to run?
 

@@ -40,6 +40,8 @@
       href: configure-common.md
     - name: Use settings from App Configuration
       href: app-service-configuration-references.md
+    - name: App settings reference
+      href: reference-app-settings.md      
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
@@ -90,8 +92,6 @@
           href: provision-resource-terraform.md
         - name: ARM template reference
           href: /azure/templates/microsoft.web/allversions
-    - name: App settings reference
-      href: reference-app-settings.md
 - name: Logs and monitoring
   items:
     - name: Monitor
@@ -405,6 +405,8 @@
       href: samples-bicep.md
 - name: Reference
   items:
+    - name: App settings reference
+      href: reference-app-settings.md  
     - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell

@@ -47,7 +47,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
-> * Traffic flows through the ExpressRoute gateway when these limits are reached.
+> * Traffic flows through the ExpressRoute gateway when these IP limits are reached.
 
 ## Limited General Availability (GA)
 FastPath support for Virtual Network Peering, User Defined Routes (UDRs) and Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Virtual Network Peering and UDR support are available globally across all Azure regions. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
@@ -75,7 +75,7 @@ FastPath Private endpoint/Private Link connectivity is supported for the followi
 > [!NOTE]
 > * Enabling FastPath Private endpoint/Link support for limited GA scenarios may take upwards of 4 weeks to complete. Please plan your deployment(s) in advance.
 > * Connections associated to ExpressRoute partner circuits aren't eligible for this preview. Both IPv4 and IPv6 connectivity is supported.
-> * FastPath connectivity to a Private endpoint/Link service deployed to a spoke Virtual Network, peered to the Hub Virtual Network (where the ExpressRoute Virtual Network Gateway is deployed), is not supported. FastPath only supports connectivity to Private Endpoints/Link services deployed to the Hub Virtual Network.
+> * FastPath connectivity to a Private endpoint/Link service deployed to a spoke Virtual Network, peered to the Hub Virtual Network (where the ExpressRoute Virtual Network Gateway is deployed), is supported. 
 > * Private Link pricing will not apply to traffic sent over ExpressRoute FastPath. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 > * FastPath supports a max of 100Gbps connectivity to a single Availability Zone (Az).
 
