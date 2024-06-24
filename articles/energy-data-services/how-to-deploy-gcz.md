@@ -33,7 +33,7 @@ There are two main deployment options for the GCZ service:
 
 ::: zone pivot="energy-data-services-gcz-aks"
 
-[!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/how-to-deploy-gcz/deploy-gcz-on-aks.md)
+[!INCLUDE [Azure Kubernetes Service (AKS)](includes/how-to/how-to-deploy-gcz/deploy-gcz-on-aks.md)]
 
 ::: zone-end
 
