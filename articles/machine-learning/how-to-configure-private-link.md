@@ -334,7 +334,7 @@ The following restrictions apply to IP address ranges:
 
 - Only IPv4 addresses are supported for configuration of storage firewall rules.
 
-- When this feature is enabled, you can test public endpoints using any client tool such as Postman or others, but the Endpoint Test tool in the portal is not supported.
+- When this feature is enabled, you can test public endpoints using any client tool such as Curl, but the Endpoint Test tool in the portal is not supported.
 
 ## Securely connect to your workspace
 
