@@ -71,39 +71,56 @@ You will generate two data flows in this tutorial. The first data flow is a simp
 
 ### Tutorial objectives
 
-1. Take the MoviesCSV dataset source from above, and form a new Delta Lake from it.
-1. Build the logic to updated ratings for 1988 movies to '1'.
-1. Delete all movies from 1950.
-1. Insert new movies for 2021 by duplicating the movies from 1960.
+1. Take the MoviesCSV dataset source from above, and form a new Delta Lake from it.
+1. Build the logic to updated ratings for 1988 movies to '1'.
+1. Delete all movies from 1950.
+1. Insert new movies for 2021 by duplicating the movies from 1960.
 
 ### Start from a blank data flow canvas
 
-1. Click on the source transformation
-1. Click new next to dataset in the bottom panel
-1  Create a new Linked Service for ADLS Gen2
-1. Choose Delimited Text for the dataset type
-1. Name the dataset “MoviesCSV” 
-1. Point to the MoviesCSV file that you uploaded to storage above
-1. Set it to be comma delimited and include header on first row 
-1. Go to the source projection tab and click "Detect data types"
-1. Once you have your projection set, you can continue 
-1. Add a sink transformation
-1. Delta is an inline dataset type. You will need to point to your ADLS Gen2 storage account.
-   
-   :::image type="content" source="media/data-flow/data-flow-tutorial-5.png" alt-text="Inline dataset":::
+1. Select the source transformation at the top of the data flow editor window, and then select **+ New** next to the **Dataset** property in the **Source settings** window:
 
-1. Choose a folder name in your storage container where you would like ADF to create the Delta Lake
-1. Go back to the pipeline designer and click Debug to execute the pipeline in debug mode with just this data flow activity on the canvas. This will generate your new Delta Lake in ADLS Gen2.
-1. From Factory Resources, click new > Data flow 
-1. Use the MoviesCSV again as a source and click "Detect data types" again
-1. Add a filter transformation to your source transformation in the graph
-1. Only allow movie rows that match the three years you are going to work with which will be 1950, 1988, and 1960
-1. Update ratings for each 1988 movie to '1' by now adding a derived column transformation to your filter transformation
-1. In that same derived column, create movies for 2021 by taking an existing year and change the year to 2021. Let’s pick 1960.
-1. This is what your three derived columns will look like
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/add-new-source-dataset.png" alt-text="Screenshot showing where to add a new source dataset to the data flow.":::
 
-   :::image type="content" source="media/data-flow/data-flow-tutorial-2.png" alt-text="Derived column":::
-   
+1.  Select _Azure Data Lake Storage Gen2_ from the **New dataset** window that appears, and then select **Continue**.
+
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/select-azure-data-lake-storage-gen2.png" alt-text="Screenshot showing where to select Azure Data Lake Storage Gen2 from the New dataset window.":::
+
+1. Choose **DelimitedText** for the dataset type, and select **Continue** again.
+
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/select-dataset-format.png" alt-text="Screenshot showing where to select the format for the dataset.":::
+
+1. Name the dataset “MoviesCSV”, and select **+ New** under **Linked service** to create a new linked service to the file.
+1. Provide the details for your storage account created previously in the Prerequisites section, and browse and select the MoviesCSV file that you uploaded there.
+1. After adding your linked service, select the **First row as header** checkbox, then select **OK** to add the source.
+1. Navigate to the **Projection** tab of the data flow settings window, and then select **Detect data types**.
+1. Now select the **+** after the Source in the data flow editor window, and scroll down to select **Sink** under the **Destination** section, adding a new sink to your data flow.
+
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/add-sink.png" alt-text="Screenshot showing where to add a sink destination for the data flow.":::
+
+1. In the **Sink** tab for the sink settings that appear after the sink is added, select **Inline** for the **Sink type**, and then **Delta** for the **Inline dataset type**. Then select your Azure Data Lake Storage Gen2 for the **Linked service**.
+
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/select-sink-details.png" alt-text="Screenshot showing the Sink details for an inline delta dataset.":::
+
+1. Choose a folder name in your storage container where you would like the service to create the Delta Lake.
+1. Finally, navigate back the pipeline designer and select **Debug** to execute the pipeline in debug mode with just this data flow activity on the canvas. This will generate your new Delta Lake in Azure Data Lake Storage Gen2.
+1. Now, from the Factory Resources menu on the left of the screen, select **+** to add a new resource, and then select **Data flow**.
+
+   :::image type="content" source="media/concepts-data-flow-overview/new-data-flow.png" alt-text="Screenshot showing where to create a new data flow in the data factory.":::
+
+1. As previously, select the MoviesCSV file again as a source and then select **Detect data types** again from the **Projection** tab.
+1. This time, after creating the source, select the **+** in the data flow editor window, and add a Filter transformation to your source.
+
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/add-filter.png" alt-text="Screenshot showing where to add a Filter condition to the data flow.":::
+
+1. Add a **Filter on** condition in the **Filter settings** window that only allows movie rows matching 1950, 1960, and 1988.
+
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/add-year-filter.png" alt-text="Screenshot showing where to add a filter on the Year column for the dataset.":::
+
+1. Now add a **Derived column** transformation to update ratings for each 1988 movie to '1'.
+
+   :::image type="content" source="media/tutorial-data-flow-delta-lake/derived-column-content.png" alt-text="Screenshot showing where to enter the expression for the derived column.":::
+
 1. `Update, insert, delete, and upsert` policies are created in the alter Row transform. Add an alter row transformation after your derived column.
 1. Your alter row policies should look like this.
 
@@ -113,7 +130,7 @@ You will generate two data flows in this tutorial. The first data flow is a simp
 
    :::image type="content" source="media/data-flow/data-flow-tutorial-4.png" alt-text="Sink":::
    
-1. Here we are using the Delta Lake sink to your ADLS Gen2 data lake and allowing inserts, updates, deletes. 
+1. Here we are using the Delta Lake sink to your ADLS Gen2 data lake and allowing inserts, updates, deletes. 
 1. Note that the Key Columns are a composite key made up of the Movie primary key column and year column. This is because we created fake 2021 movies by duplicating the 1960 rows. This avoids collisions when looking up the existing rows by providing uniqueness.
 
 ### Download completed sample
