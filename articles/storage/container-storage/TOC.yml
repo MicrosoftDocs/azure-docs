@@ -77,5 +77,5 @@
 - name: Resources
   items:
   - name: Pricing for Azure Container Storage
-    href: https://azure.microsoft.com/pricing/details/storage/container-storage
+    href: https://azure.microsoft.com/pricing/details/container-storage/
   
