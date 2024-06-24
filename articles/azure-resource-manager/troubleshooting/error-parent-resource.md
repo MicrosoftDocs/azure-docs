@@ -3,7 +3,7 @@ title: Parent resource errors
 description: Describes how to resolve errors when you deploy a resource that's dependent on a parent resource in a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 04/05/2023
+ms.date: 06/20/2024
 ---
 
 # Resolve errors for parent resources

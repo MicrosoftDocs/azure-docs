@@ -1,21 +1,28 @@
 ---
 title: Quickstart for using Azure Container Storage Preview with Azure Kubernetes Service (AKS)
-description: Create a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage, and create a storage pool.
+description: Connect to a Linux-based Azure Kubernetes Service (AKS) cluster, install Azure Container Storage, and create a storage pool.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: quickstart
-ms.date: 06/19/2024
+ms.date: 06/21/2024
 ms.author: kendownie
 ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-content
 ---
 
 # Quickstart: Use Azure Container Storage Preview with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to create a Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
 
 ## Prerequisites
 
-[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+- This article requires the latest version (2.35.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). If you're using the Bash environment in Azure Cloud Shell, the latest version is already installed. If you plan to run the commands locally instead of in Azure Cloud Shell, be sure to run them with administrative privileges. For more information, see [Get started with Azure Cloud Shell](/azure/cloud-shell/get-started).
+
+- You'll need the Kubernetes command-line client, `kubectl`. It's already installed if you're using Azure Cloud Shell, or you can install it locally by running the `az aks install-cli` command.
+
+- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
+
 - If you haven't already created an AKS cluster, follow the instructions for [Installing an AKS Cluster](install-container-storage-aks.md).
 
 ## Getting started
