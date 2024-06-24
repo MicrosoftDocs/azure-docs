@@ -68,14 +68,14 @@ Dimension for ExpressRoute gateway:
 | BgpPeerAddress | |
 | ConnectionName | |
 | direction | |
-| roleInstance | The gateway instance. Each ExpressRoute gateway is comprised of multiple instances, and the supported values are GatewayTenantWork_IN_X (where X is a minimum of 0 and a maximum of the number of gateway instances -1). |
+| roleInstance | The gateway instance. Each ExpressRoute gateway is composed of multiple instances. The supported values are `GatewayTenantWork_IN_X`, where X is a minimum of 0 and a maximum of the number of gateway instances -1. |
 
 Dimension for Express Direct:
 
 | Dimension Name | Description |
 |:---------------|:------------|
 | Lane | |
-| Link | The physical link. Each ExpressRoute Direct port pair is comprised of two physical links for redundancy, and the supported values are link1 and link2. |
+| Link | The physical link. Each ExpressRoute Direct port pair is composed of two physical links for redundancy, and the supported values are link1 and link2. |
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
@@ -95,11 +95,11 @@ Dimension for Express Direct:
 
 - [Microsoft.Network resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftnetwork)
 
-The following table lists the operations related to ExpressRoute that may be created in the Activity log.
+The following table lists the operations related to ExpressRoute that might be created in the Activity log.
 
 | Operation | Description |
 |:---|:---|
-| All Administrative operations | All administrative operations including create, update and delete of an ExpressRoute circuit. |
+| All Administrative operations | All administrative operations including create, update, and delete of an ExpressRoute circuit. |
 | Create or update ExpressRoute circuit | An ExpressRoute circuit was created or updated. |
 | Deletes ExpressRoute circuit | An ExpressRoute circuit was deleted.|
 
@@ -109,7 +109,7 @@ For more information on the schema of Activity Log entries, see [Activity Log sc
 
 For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/essentials/resource-logs-schema.md).
 
-When reviewing any metrics through Log Analytics, the output will contain the following columns:
+When you review any metrics through Log Analytics, the output contains the following columns:
 
 | Column | Type | Description |
 |:-------|:-----|:------------|
