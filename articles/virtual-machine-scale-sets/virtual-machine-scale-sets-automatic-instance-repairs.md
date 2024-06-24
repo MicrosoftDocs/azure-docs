@@ -287,6 +287,8 @@ az feature register --name AutomaticRepairsWithConfigurableRepairActions --names
 Register-AzProviderFeature -FeatureName "AutomaticRepairsWithConfigurableRepairActions" -ProviderNamespace "Microsoft.Compute"
 ```
 
+---
+
 ## Configure a repair action on automatic repairs policy
 
 > [!CAUTION]
