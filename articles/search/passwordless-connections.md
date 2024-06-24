@@ -221,7 +221,7 @@ As a local developer, your Azure identity needs full control of your service. Th
 |Search Index Data Contributor|
 |Search Index Data Reader|
 
-Find your personal identity with on of the following tools. Use that identity as the `<identity-id>` value.
+Find your personal identity with one of the following tools. Use that identity as the `<identity-id>` value.
 
 #### [Azure CLI](#tab/azure-cli)
 
