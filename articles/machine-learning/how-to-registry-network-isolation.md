@@ -241,6 +241,6 @@ $accessToken = (az account get-access-token | ConvertFrom-Json).accessToken
     curl -X GET "https://<region>.api.azureml.ms/registrymanagement/v1.0/registries/<registry_name>/discovery" -H "Authorization: Bearer <token>" -H "Content-Type: application/json"
     ```
 
-## Next steps
+## Next step
 
 Learn how to [Share models, components, and environments across workspaces with registries](how-to-share-models-pipelines-across-workspaces-with-registries.md).

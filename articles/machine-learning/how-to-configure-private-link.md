@@ -391,7 +391,7 @@ If you want to create an isolated Azure Kubernetes Service used by the workspace
 
 :::image type="content" source="./media/how-to-configure-private-link/multiple-private-endpoint-workspace-aks.png" alt-text="Diagram of isolated AKS VNet":::
 
-## Next steps
+## Next step
 
 * For more information on securing your Azure Machine Learning workspace, see the [Virtual network isolation and privacy overview](how-to-network-security-overview.md) article.
 
