@@ -104,9 +104,9 @@ UI Library supports picture in picture mode for call screen. While being in the 
 
 UI Library supports CallKit Integration to handle interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit.](../../../how-tos/ui-library-sdk/callkit.md)
 
-### Telecom Manager support
+### TelecomManager support
 
-The UI Library now supports integration with the Telecom Manager, allowing for handling of call hold and resume functions. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecom-manager.md)
+The UI Library now supports integration with the TelecomManager, allowing for handling of call hold and resume functions. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecommanager.md)
 
 ### One-to-one call and PUSH notification support
 

@@ -24,7 +24,7 @@ The following sections describe how to register for, handle, and unregister push
 
 Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. 
 
-### Register/Unregister for notification hub push notifications
+### Register/unregister for notification hub push notifications
 
 To register for push notifications, the application needs to call `registerPushNotifications()` on a `CallComposite` instance with a device registration token.
 

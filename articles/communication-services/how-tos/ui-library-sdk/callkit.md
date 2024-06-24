@@ -113,7 +113,7 @@ let options = CallCompositeOptions(
 )
 ```
 
-### Hold and Resume API for CallKit integrated in Application
+### Hold and Resume API for CallKit integrated in application
 
 For CallKit integrated in application use `hold` and `resume` to manage call state.
 

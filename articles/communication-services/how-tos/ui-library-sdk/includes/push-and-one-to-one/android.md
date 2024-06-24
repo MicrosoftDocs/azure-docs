@@ -57,11 +57,11 @@ To get the device registration token, add the Firebase SDK to your application m
 
 -----
 
-### Handle push notifications received from EventGrid or notification hub
+### Handle push notifications received from Event Grid or notification hub
 
 To receive push notifications for incoming calls, call `handlePushNotification` on a `CallComposite` instance with a payload.
 
-To get the payload from FCM, begin by creating a new service (**File** > **New** > **Service** > **Service**) that extends the `FirebaseMessagingService` Firebase SDK class and overrides the `onMessageReceived` method. This method is the event handler that's called when FCM delivers the push notification to the application.
+To get the payload from FCM, begin by creating a new service (**File** > **New** > **Service** > **Service**) that extends the `FirebaseMessagingService` Firebase SDK class and overrides the `onMessageReceived` method. This method is the event handler that called when FCM delivers the push notification to the application.
 
 #### [Kotlin](#tab/kotlin)
 

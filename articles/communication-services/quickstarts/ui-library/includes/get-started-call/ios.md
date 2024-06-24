@@ -233,7 +233,7 @@ For more information about Rooms, how to create and manage one see [Rooms QuickS
 let locator = .roomCall(roomId: "<ROOM_ID>")
 ```
 
-### Set up a 1:N Outgoing call and Incoming Call Push Notifications 
+### Set up a 1:N Outgoing call and and incoming call push notifications
 
 UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications.](../../../../how-tos/ui-library-sdk/one-to-one-calling.md)
 

@@ -26,11 +26,11 @@ In this article, you learn how to set up TelecomManager correctly by using the U
 
 For more information, see the [open-source Android UI Library](https://github.com/Azure/communication-ui-library-android) and the [sample application code](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling).
 
-### Set up TelecomManager integration
+## Set up TelecomManager integration
 
 The Azure Communication Services Calling SDK supports TelecomManager integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeTelecomManagerOptions`. For more information, see [Integrate with TelecomManager](../calling-sdk/telecommanager-integration.md).
 
-`CallCompositeTelecomManagerIntegrationMode` provides options for `SDK_PROVIDED_TELECOM_MANAGER` and `APPLICATION_IMPLEMENTED_TELECOM_MANAGER`. `SDK_PROVIDED_TELECOM_MANAGER` requires `phoneAccountId` and use implementation from calling sdk. `APPLICATION_IMPLEMENTED_TELECOM_MANAGER` is for if telecom manager is integrated in application.
+`CallCompositeTelecomManagerIntegrationMode` provides options for `SDK_PROVIDED_TELECOM_MANAGER` and `APPLICATION_IMPLEMENTED_TELECOM_MANAGER`. `SDK_PROVIDED_TELECOM_MANAGER` requires `phoneAccountId` and use implementation from calling SDK. `APPLICATION_IMPLEMENTED_TELECOM_MANAGER` is for if TelecomManager is integrated in application.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -53,7 +53,7 @@ The Azure Communication Services Calling SDK supports TelecomManager integration
 
 -----
 
-### Hold and Resume API
+## Hold and Resume API
 
 For `APPLICATION_IMPLEMENTED_TELECOM_MANAGER` use `hold` and `resume` to manage call state.
 
