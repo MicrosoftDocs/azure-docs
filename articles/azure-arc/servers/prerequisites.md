@@ -36,45 +36,63 @@ If two agents use the same configuration, you will encounter inconsistent behavi
 
 ## Supported operating systems
 
-Azure Arc supports the following Windows and Linux operating systems. x86-64 (64-bit) architectures are fully supported. The Azure Connected Machine agent does not run on x86 (32-bit) architectures. Some scenarios are supported for ARM64, see below 
+Azure Arc supports the following Windows and Linux operating systems. x86-64 (64-bit) architectures are fully supported. Some serviceThe Azure Connected Machine agent does not run on x86 (32-bit) architectures. Some scenarios are supported for ARM64, see below 
 
-* AlmaLinux 9
-* Amazon Linux 2 and 2023
-* Azure Linux (CBL-Mariner) 1.0, 2.0
-* Azure Stack HCI
-* Debian 10, 11, and 12
-* Oracle Linux 7, 8, and 9
-* Red Hat Enterprise Linux (RHEL) 7, 8 and 9
-* Rocky Linux 8 and 9
-* SUSE Linux Enterprise Server (SLES) 12 SP3-SP5 and 15
-* Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
-* Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
-* Windows IoT Enterprise
-* Windows Server 2012, 2012 R2, 2016, 2019, and 2022
-  * Both Desktop and Server Core experiences are supported
-  * Azure Editions are supported on Azure Stack HCI
+| Operating System | Version | x86-64 | ARM64 | Notes |
+| -- | -- | -- | -- | -- |
+| AlmaLinux | 9 | ✅ | ❌ | |
+| Amazon Linux | 2 | ✅ | ✅ | |
+| Amazon Linux | 2023 | ✅ | ✅ | |
+| Azure Linux (CBL-Mariner) | 1.0 | ✅ | ❌ | |
+| Azure Linux (CBL-Mariner) | 2.0 | ✅ | ✅ | |
+| Azure Stack HCI | (versions) | ✅ | ❌ | |
+| Centos | 7 | ⚠️ | ❌ | **Limited Support**, see below |
+| Centos | 8 | ⚠️ | ❌ | **Limited Support**, see below |
+| Debian | 10 | ✅ | ❌ | |
+| Debian | 11 | ✅ | ❌ | |
+| Debian | 12 | ✅ | ❌ | |
+| Oracle Linux | 7 | ✅ | ❌ | |
+| Oracle Linux | 8 | ✅ | ❌ | |
+| Oracle Linux | 9 | ✅ | ❌ | |
+| Red Hat Enterprise Linux (RHEL) | 7 | ✅ | ❌ | |
+| Red Hat Enterprise Linux (RHEL) | 8 | ✅ | ❌ | |
+| Red Hat Enterprise Linux (RHEL) | 9 | ✅ | ✅ | |
+| Rocky Linux | 8 |  ✅ | ❌ | |
+| Rocky Linux | 9 |  ✅ | ❌ | |
+| SuSE Linux Enterprise Server (SLES) | 12 SP3-SP5 | ✅ | ❌ | |
+| SuSE Linux Enterprise Server (SLES) | 15 | ✅ | ✅ | |
+| Ubuntu | 16.04 | ✅ | ❌ | |
+| Ubuntu | 18.04 | ✅ | ❌ | |
+| Ubuntu | 20.04 | ✅ | ✅ | |
+| Ubuntu | 22.04 | ✅ | ✅ | |
+| Windows client | 10 | ✅ | ❌ |see [client operating system guidance](#client-operating-system-guidance) |
+| Windows client | 11 | ✅ | ❌ |see [client operating system guidance](#client-operating-system-guidance) |
+| Windows IoT Enterprise | version? | ✅ | ❌ | |
+| Windows Server | 2008 R2 SP1 |  ⚠️ | ❌ | **Limited Support**, see below |
+| Windows Server | 2012 | ✅ | ❌ | |
+| Windows Server | 2012  R2 | ✅ | ❌ | |
+| Windows Server | 2016 | ✅ | ❌ | |
+| Windows Server | 2019 | ✅ | ❌ | |
+| Windows Server | 2022 | ✅ | ❌ | |
+
+For Windows Server, both Desktop and Server Core experiences are supported. Azure Editions are supported on Azure Stack HCI.
 
 The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
 
-## ARM64 Architecture operating systems
+## ARM64 Architecture service support.
 
-Azure Arc-enabled Servers supports the following Linux distributions for ARM64 architectures, starting with Azure Connected Machine Agent version x.y
-
-* Amazon Linux 2023
-* SuSE Linux Enterprise Server (SLES) 15
-
-Not all features, virtual machine extensions and solutions are compatible with ARM64 at this point. 
-The following extensions and solutions have ARM64 support: 
+Not all features, virtual machine extensions and services are compatible with ARM64 at this point. 
+The following extensions and services have ARM64 support: 
 
 * Microsoft Defender for Endpoints
 * Azure Monitoring Agent
 * Custom Script Extension and RunCommand
 
-The following extensions and solutions are NOT compatible with ARM64 at this time:
+The following extensions and services are NOT compatible with ARM64 at this time:
 
 * Machine Configuration
 
-For full details on ARM64 compatibility please refer to the documentation for the solution you wish to use.
+For full details on ARM64 compatibility please refer to the documentation for the service you wish to use.
 
 ## Limited support operating systems
 
@@ -85,8 +103,6 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 | -- | -- | -- | -- | 
 | Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
 | CentOS 7 and 8 | 1.42 [Download](https://download.microsoft.com/download/9/6/0/9600825a-e532-4e50-a2d5-7f07e400afc1/AzureConnectedMachineAgent.msi)  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
-
-
 
 ### Client operating system guidance
 
