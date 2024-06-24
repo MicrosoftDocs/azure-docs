@@ -31,6 +31,10 @@
     href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
+  - name: Plan data retention and archive
+    href: ../azure-monitor/logs/data-retention-archive.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Select table plans based on data usage
+    href: ../azure-monitor/logs/basic-logs-configure.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Plan costs
     href: billing.md
   - name: Availability and support

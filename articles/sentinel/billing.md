@@ -75,15 +75,17 @@ There are two ways to pay for the analytics logs: **Pay-As-You-Go** and **Commit
 
 #### Basic logs and Auxiliary logs
 
-Basic logs are a low-cost option, and Auxiliary logs an even lower-cost option, for ingesting high-volume, low-value data sources. They are charged at a flat, low rate per GB. They have the following limitations, among others:
+Basic logs are a low-cost option, and Auxiliary logs a super-low-cost option, for ingesting high-volume, low-value data sources. They are charged at a flat, low rate per GB. They have the following limitations, among others:
 
 - Reduced querying capabilities
-- 30-day retention
+- 30-day interactive retention
 - No support for scheduled alerts
 
 These two log types are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see:
 - [Log sources to use for Basic Logs or Auxiliary Logs ingestion](basic-logs-use-cases.md)
 - [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
+
+To learn about the difference between **interactive retention** and **auxiliary (archival) retention**, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-archive.md).
 
 > [!IMPORTANT]
 >

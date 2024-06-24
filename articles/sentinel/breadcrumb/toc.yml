@@ -15,6 +15,9 @@
     - name: Microsoft Sentinel
       tocHref: /azure/defender-for-iot/organizations/
       topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /azure/azure-monitor/
+      topicHref: /azure/sentinel/index
 
 ### Security baseline
 - name: Azure
