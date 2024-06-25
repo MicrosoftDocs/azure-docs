@@ -182,7 +182,7 @@ Before continuing with these steps, you should confirm that you have a current b
     ```
 
     > [!Tip]
-    > If you've used [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService), please refer to our [Guide for WorkerService applications](guide_workerservice.md).
+    > If you've used [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService), refer to the WorkerService tabs.
 
 2. Remove Initialization Code and customizations
 
@@ -199,7 +199,7 @@ Before continuing with these steps, you should confirm that you have a current b
         ```
 
     > [!Tip]
-    > If you've used `AddApplicationInsightsTelemetryWorkerService()` to add Application Insights to your `ServiceCollection`, please refer to our [Guide for WorkerService applications](guide_workerservice.md).
+    > If you've used `AddApplicationInsightsTelemetryWorkerService()` to add Application Insights to your `ServiceCollection`, refer to the WorkerService tabs.
 
 3. Clean and Build
 
@@ -956,11 +956,9 @@ The following scenarios are optional and apply to advanced users.
 
 ---
 
-## Advanced scenarios
+## Frequently asked questions
 
-This section covers advanced scenarios for OpenTelemetry migration.
-
-### Overview
+### How do the SDK API's map to OTEL concepts?
 
 [OpenTelemetry](https://opentelemetry.io/) is a vendor neutral observability framework. There are no Application Insights APIs in the OpenTelemetry SDK or libraries. Before migrating, it's important to understand some of OpenTelemetry's concepts.
 
@@ -978,7 +976,9 @@ With OpenTelemetry, you can write a [Processor](https://opentelemetry.io/docs/co
 Azure Monitor Exporter or Azure Monitor Distro only offers fixed rate sampling.
 Currently only Traces (Requests and Dependencies) can be sampled.
 
-### Understanding Telemetry DataTypes
+#### How do Application Insights telemetry types map to OpenTelemetry?
+
+##### Understanding Telemetry DataTypes
 
 This table maps Application Insights data types to OpenTelemetry concepts and their .NET implementations.
 
@@ -997,11 +997,11 @@ The following documents provide more information.
 - [Application Insights telemetry data model](./data-model-complete.md)
 - [OpenTelemetry Concepts](https://opentelemetry.io/docs/concepts/)
 
-### Telemetry Processors and Initializers
+##### Telemetry Processors and Initializers
 
 In the Application Insights .NET SDK, use telemetry processors to filter and modify or discard telemetry. Use telemetry initializers to add or modify custom properties. For more information, see the [Azure Monitor documentation](./api-filtering-sampling.md). OpenTelemetry replaces these concepts with activity or log processors, which enrich and filter telemetry.
 
-#### Filtering Traces
+###### Filtering Traces
 
 To filter telemetry data in OpenTelemetry, you can implement an activity processor. This example is equivalent to the Application Insights example for filtering telemetry data as described in [Azure Monitor documentation](./api-filtering-sampling.md?tabs=javascriptwebsdkloaderscript#c). The example illustrates where unsuccessful dependency calls are filtered.
 
@@ -1040,7 +1040,7 @@ public static void Main()
 }
 ```
 
-#### Filtering Logs
+###### Filtering Logs
 
 [`ILogger`](/dotnet/core/extensions/logging)
 implementations have a built-in mechanism to apply [log
@@ -1061,7 +1061,7 @@ builder.AddFilter<OpenTelemetryLoggerProvider>("MyProduct.MyLibrary.MyClass", Lo
 
 For more information, please read the [OpenTelemetry .NET documentation on logs](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/docs/logs/README.md).
 
-#### Adding Custom Properties to Traces
+###### Adding Custom Properties to Traces
 
 In OpenTelemetry, you can use activity processors to enrich telemetry data with more properties. It's similar to using telemetry initializers in Application Insights, where you can modify telemetry properties.
 
@@ -1127,7 +1127,7 @@ public static void Main()
 }
 ```
 
-### Sampling
+#### How do Application Insights sampling concepts map to OpenTelemetry?
 
 While Application Insights offered multiple options to configure sampling, Azure Monitor Exporter or Azure Monitor Distro only offers fixed rate sampling.
 Currently only Traces (Requests and Dependencies) can be sampled.
