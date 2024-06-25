@@ -69,7 +69,7 @@ In this section, you use Visual Studio Code to create a function with an Event G
 1. Hover over your project and select the **Deploy to Azure** button.
 
     :::image type="content" source="./media/custom-event-to-function/deploy-to-azure-button.png" alt-text="Screenshot that shows the button for deploying to Azure."  lightbox="./media/custom-event-to-function/deploy-to-azure-button.png":::
-1. In the drop-down list of the command palette, select **+ Create new function app**, and then select the Enter key.
+1. In the dropdown list of the command palette, select **+ Create new function app**, and then select the Enter key.
 
 1. For **Name**, enter a globally unique name for the new function app, and then select the Enter key.
 
@@ -84,7 +84,7 @@ In this section, you use Visual Studio Code to create a function with an Event G
 1. Right-click your function, and then select **Open in Portal**.
 
     :::image type="content" source="./media/custom-event-to-function/click-to-view-functions-app.png" alt-text="Screenshot that shows selections for opening a function in the portal."  lightbox="./media/custom-event-to-function/click-to-view-functions-app.png":::
-1. Sign in to Azure if needed, and confirm that the **Function App** page appears for your function.
+1. Sign in to Azure if necessary, and confirm that the **Function App** page appears for your function.
 
 1. On the bottom pane, select your function.
 
@@ -97,9 +97,9 @@ In this section, you use Visual Studio Code to create a function with an Event G
 
 An Event Grid topic provides a user-defined endpoint that you post your events to.
 
-1. On a new tab of the web browser window, sign in to [Azure portal](https://portal.azure.com/).
+1. On a new tab of the web browser window, sign in to the [Azure portal](https://portal.azure.com/).
 
-1. On the search bar at the topic, search for **Event Grid Topics**, and select **Event Grid Topics**.
+1. On the search bar at the topic, search for **Event Grid Topics**, and then select **Event Grid Topics**.
 
     :::image type="content" source="./media/custom-event-to-function/select-topics.png" alt-text="Screenshot that shows the selection of Event Grid topics." lightbox="./media/custom-event-to-function/select-topics.png" :::
 1. On the **Topics** page, select **+ Create** on the command bar.
@@ -163,7 +163,7 @@ The cURL tool sends HTTP requests. In this article, you use cURL to send the eve
 
 ### Azure CLI
 
-1. In the Azure portal, select **Cloud Shell**. If you're in the PowerShell mode, select **Switch to Bash**.
+1. In the Azure portal, select **Cloud Shell**. If you're in Azure PowerShell mode, select **Switch to Bash**.
 
     :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Screenshot that shows the Bash window in Azure Cloud Shell.":::
 1. Set the `topicname` and `resourcegroupname` variables that are used in the commands.
@@ -295,16 +295,16 @@ If you plan to continue working with this event, don't clean up the resources th
 
 1. On the toolbar, select **Delete resource group**.
 
-1. Confirm deletion by entering the name of the resource group, and then select **Delete**.
+1. Confirm the deletion by entering the name of the resource group, and then select **Delete**.
 
-The other resource group that appears on the **Resource groups** page was created and used by the Cloud Shell window. Delete it if you don't plan to use the Cloud Shell window later.
+The Cloud Shell window created and used the other resource group that appears on the **Resource groups** page. Delete this resource group if you don't plan to use the Cloud Shell window later.
 
 ## Related content
 
 Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
 
 * [About Event Grid](overview.md)
-* [Route Blob Storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Route Azure Blob Storage events to a custom web endpoint](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-logic-app.md)
 * [Stream big data into a data warehouse](event-hubs-integration.md)
 

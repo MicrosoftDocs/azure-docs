@@ -20,7 +20,7 @@ Event Grid topics are Azure resources, and they must be placed in an Azure resou
 
 Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `gridResourceGroup` in the `westus2` location.
 
-Select **Try it** next to the CLI example to open Azure Cloud Shell on the right pane. Select the **Copy** button to copy the command, paste it in the Cloud Shell window, and then select the Enter key to run the command.
+Select **Open Cloud Shell** to open Azure Cloud Shell on the right pane. Select the **Copy** button to copy the command, paste it in Cloud Shell, and then select the Enter key to run the command.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2
@@ -112,7 +112,7 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-To simplify this article, you use sample event data to send to the custom topic. Typically, an application or an Azure service would send the event data.
+For the sake of simplicity in this article, you use sample event data to send to the custom topic. Typically, an application or an Azure service would send the event data.
 
 The cURL tool sends HTTP requests. In this article, you use cURL to send the event to the custom topic. The following example sends three events to the Event Grid topic:
 
