@@ -59,6 +59,7 @@ The previously mentioned Cohere models can be deployed as a service with pay-as-
      * West US
      * West US 3
      * Sweden Central
+    
     For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 
 - An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
