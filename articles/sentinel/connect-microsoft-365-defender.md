@@ -12,7 +12,7 @@ ms.collection: usx-security
 
 # Connect data from Microsoft Defender XDR to Microsoft Sentinel
 
-The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream all Microsoft Defender XDR incidents,  alerts, and advanced hunting events into Microsoft Sentinel. This connector keeps the incidents synchronized between both portals. Microsoft Defender XDR incidents include all their alerts, entities, and other relevant information. The incidents can also include alerts from the Microsoft Defender products and services. For more information, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
+The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream all Microsoft Defender XDR incidents, alerts, and advanced hunting events into Microsoft Sentinel. This connector keeps the incidents synchronized between both portals. Microsoft Defender XDR incidents include alerts, entities, and other relevant information from all the Microsoft Defender products and services. For more information, see [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -63,7 +63,7 @@ To ingest and synchronize Microsoft Defender XDR incidents with all their alerts
       |    where ProviderName == "Microsoft 365 Defender"
    ```
 
-When you enable the Microsoft Defender XDR connector, all of the Microsoft Defender XDR components’ connectors are automatically connected in the background. In order to disconnect one of the components’ connectors, you must first disconnect the Microsoft Defender XDR connector.
+When you enable the Microsoft Defender XDR connector, any Microsoft Defender components’ connectors that were previously connected are automatically disconnected in the background. Although they continue to *appear* connected, no data flows through them.
 
 ### Connect entities
 
@@ -104,7 +104,7 @@ If you want to collect advanced hunting events from Microsoft Defender for Endpo
     |-|-|
     | **[EmailAttachmentInfo](/microsoft-365/security/defender/advanced-hunting-emailattachmentinfo-table)** | Information about files attached to emails |
     | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table)** | Microsoft 365 email events, including email delivery and blocking events |
-    | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Security events that occur post-delivery, after Microsoft 365 delivered the emails to the recipient mailbox |
+    | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Security events that occur post-delivery, after Microsoft 365 delivers the emails to the recipient mailbox |
     | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table)** | Information about URLs on emails |
 
     # [Defender for Identity](#tab/MDI)
@@ -137,7 +137,7 @@ If you want to collect advanced hunting events from Microsoft Defender for Endpo
 
 ## Verify data ingestion
 
-The data graph in the connector page indicates that you're ingesting data. Notice that it shows one line each for incidents, alerts, and events, and the events line is an aggregation of event volume across all enabled tables. Once you enabled the connector, use the following KQL queries to generate more specific graphs.
+The data graph in the connector page indicates that you're ingesting data. Notice that it shows one line each for incidents, alerts, and events, and the events line is an aggregation of event volume across all enabled tables. After you enable the connector, use the following KQL queries to generate more specific graphs.
 
 Use the following KQL query for a graph of the incoming Microsoft Defender XDR incidents:
 
