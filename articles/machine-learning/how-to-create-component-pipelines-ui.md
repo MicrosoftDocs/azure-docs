@@ -144,6 +144,12 @@ After submitting the pipeline job, there will be a message on the top with a lin
 
   :::image type="content" source="./media/how-to-create-component-pipelines-ui/submit-message.png" alt-text="Screenshot showing submission message." lightbox ="./media/how-to-create-component-pipelines-ui/submit-message.png":::
 
+## Specify identity in pipeline job
+
+When submitting pipeline job, you can specify the identity to access the data under `Run settings`. The default identity is `AMLToken` which didn't use any identity meanwhile we support both `UserIdentity` and `Managed`. For `UserIdentity`, the identity of job submitter is used to access input data and write the result to the output folder. If you specify `Managed`, the system will use the managed identity to access the input data and write the result to the output folder.
+
+  :::image type="content" source="./media/how-to-create-component-pipelines-ui/identity-in-pipeline.png" alt-text="Screenshot showing how to set identity in pipeline job." lightbox ="./media/how-to-create-component-pipelines-ui/identity-in-pipeline.png":::
+
 ## Next steps
 
 - Use [these Jupyter notebooks on GitHub](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components) to explore machine learning pipelines further
