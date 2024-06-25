@@ -13,7 +13,7 @@ ms.custom: build-2023
 
 # Configure your Azure Cosmos DB for MongoDB account capabilities
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Capabilities are features that can be added or removed to your API for MongoDB account. Many of these features affect account behavior, so it's important to be fully aware of the effect a capability has before you enable or disable it. Several capabilities are set on API for MongoDB accounts by default and can't be changed or removed. One example is the `EnableMongo` capability. This article demonstrates how to enable and disable a capability.
 
@@ -40,6 +40,9 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 >
 > <sup>1</sup> This capability cannot be enabled on an Azure Cosmos DB for MongoDB accounts with continuous backup.
 >
+
+> [!IMPORTANT]
+> Changing capabilities using Azure Resource Manager is not available for Azure Cosmos DB for MongoDB accounts.
 
 ## Enable a capability
 

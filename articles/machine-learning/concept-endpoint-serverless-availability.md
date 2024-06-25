@@ -25,7 +25,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ## Region availability
 
-[!INCLUDE [region-availabilitity-serverless-api](../ai-studio/includes/region-availabilitity-serverless-api.md)]
+[!INCLUDE [region-availabilitity-serverless-api](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/region-availabilitity-serverless-api.md)]
 
 > [!NOTE]
 > Models offered through the Azure Marketplace are available for purchase only on [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions), with exception of Cohere family of models, which is also available in Japan.

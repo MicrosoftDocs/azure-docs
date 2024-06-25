@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 02/09/2024
+ms.date: 06/19/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -50,7 +50,7 @@ Within the application directory, install the Document Translation client librar
 dotnet add package Azure.AI.Translation.Document --version 2.0.0-beta
 ```
 
-### Translate a document or batch files
+## Translate documents asynchronously
 
 1. For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
 
@@ -84,13 +84,13 @@ dotnet add package Azure.AI.Translation.Document --version 2.0.0-beta
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
-      * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
+      * **targetUri** The SAS URI, with a SAS token appended as a query string, for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
-
-## Code sample
 
   > [!IMPORTANT]
   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
+
+## Asynchronous translation code sample
 
 **Enter the following code sample into your application's Program.cs file:**
 
@@ -162,6 +162,49 @@ Once you add the code sample to your application, run your application from the 
 Here's a snippet of the expected output:
 
   :::image type="content" source="../../../../media/quickstarts/c-sharp-output-document.png" alt-text="Screenshot of the Visual Studio Code output in the terminal window. ":::
+
+## Synchronous translation code sample
+
+You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
+
+```csharp
+
+
+using Azure;
+using Azure.AI.Translation.Document;
+using System;
+using System.Threading;
+using System.Text;
+
+class Program {
+
+  string endpoint = "{your-document-translation-endpoint}";
+  string apiKey = "{your-api-key}";
+  SingleDocumentTranslationClient client = new SingleDocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+
+  try
+  {
+    string filePath = @"C:\{folder}\document.txt"
+    using Stream fileStream = File.OpenRead(filePath);
+
+    // MultipartFormFileData (string name, System.IO.Stream content, string contentType);
+    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
+    DocumentTranslateContent content = new DocumentTranslateContent(sourceDocument);
+
+    // DocumentTranslate (string targetLanguage, Azure.AI.Translation.Document.DocumentTranslateContent documentTranslateContent, string sourceLanguage = default, string category = default, bool? allowFallback = default, System.Threading.CancellationToken cancellationToken = default);
+    var response = client.DocumentTranslate("de", content);
+
+    Console.WriteLine($"Request string for translation: {requestString}");
+    Console.WriteLine($"Response string after translation: {responseString}");
+  }
+    catch (RequestFailedException exception) {
+    Console.WriteLine($"Error Code: {exception.ErrorCode}");
+    Console.WriteLine($"Message: {exception.Message}");
+  }
+}
+
+```
 
 ### [Visual Studio](#tab/vs)
 
@@ -244,10 +287,10 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
-      * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
+      * **targetUri** The SAS URI, with a SAS token appended as a query string, for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
-## Code sample
+## Asynchronous translation code sample
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
@@ -317,6 +360,49 @@ Once you add the code sample to your application, choose the green **Start** but
 Here's a snippet of the expected output:
 
   :::image type="content" source="../../../../media/quickstarts/c-sharp-output-document.png" alt-text="Screenshot of the Visual Studio Code output in the terminal window. ":::
+
+## Synchronous translation code sample
+
+You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
+
+```csharp
+
+
+using Azure;
+using Azure.AI.Translation.Document;
+using System;
+using System.Threading;
+using System.Text;
+
+class Program {
+
+  string endpoint = "{your-document-translation-endpoint}";
+  string apiKey = "{your-api-key}";
+  SingleDocumentTranslationClient client = new SingleDocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+
+  try
+  {
+    string filePath = @"C:\{folder}\document-translation-sample.docx"
+    using Stream fileStream = File.OpenRead(filePath);
+
+    // MultipartFormFileData (string name, System.IO.Stream content, string contentType);
+    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
+    DocumentTranslateContent content = new DocumentTranslateContent(sourceDocument);
+
+    // DocumentTranslate (string targetLanguage, Azure.AI.Translation.Document.DocumentTranslateContent documentTranslateContent, string sourceLanguage = default, string category = default, bool? allowFallback = default, System.Threading.CancellationToken cancellationToken = default);
+    var response = client.DocumentTranslate("de", content);
+
+    Console.WriteLine($"Request string for translation: {requestString}");
+    Console.WriteLine($"Response string after translation: {responseString}");
+  }
+    catch (RequestFailedException exception) {
+    Console.WriteLine($"Error Code: {exception.ErrorCode}");
+    Console.WriteLine($"Message: {exception.Message}");
+  }
+}
+
+```
 
 ---
 

@@ -5,7 +5,7 @@
  author: HeidiSteen
  ms.service: cognitive-search
  ms.topic: include
- ms.date: 05/21/2024
+ ms.date: 06/12/2024
  ms.author: heidist
 ms.custom: include file, build-2024
 ---
@@ -16,7 +16,7 @@ Search service limits for storage, partitions, and replicas vary by service crea
 + [Between April and May 2024 (Basic, S1, S2, S3, S3 HD)](#after-april-3-2024)
 + [After May 17, 2024 (L1 and L2)](#after-may-17-2024)
 
-A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](../articles/search/search-limits-quotas-capacity.md#index-limits) or [indexers](../articles/search/search-limits-quotas-capacity.md#indexer-limits), whichever comes first. 
+A search service is subject to a maximum storage limit (partition size multiplied by the number of partitions) or by a hard limit on the [maximum number of indexes](/azure/search/search-limits-quotas-capacity#index-limits) or [indexers](/azure/search/search-limits-quotas-capacity#indexer-limits), whichever comes first. 
 
 Service level agreements (SLAs) apply to billable services having two or more replicas for query workloads, or three or more replicas for query and indexing workloads. The number of partitions isn't an SLA consideration. For more information, see [Reliability in Azure AI Search](/azure/search/search-reliability#high-availability).
 
@@ -52,7 +52,7 @@ Free services don't have fixed partitions or replicas and they share resources w
 | Resource | Free | Basic  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 |----------|------|--------|----|----|----|------------|----|----|
 | Service level agreement (SLA) | No |Yes |Yes |Yes |Yes |Yes |Yes |Yes |
-| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 512&nbsp;GB | 1&nbsp;TB | &nbsp;TB | **2&nbsp;TB** | **4&nbsp;TB**  |
+| Storage (partition size)  | 50&nbsp;MB | 15&nbsp;GB | 160&nbsp;GB | 512&nbsp;GB | 1&nbsp;TB | 1&nbsp;TB | **2&nbsp;TB** | **4&nbsp;TB**  |
 | Partitions | N/A |3 |12 |12 |12 |3 |12 |12 |
 | Replicas | N/A | 3 |12 |12 |12 |12 |12 |12 |
 
@@ -68,6 +68,7 @@ Services must be in one of the following regions to get the extra storage. Watch
 | **South Africa** | South Africa North​ |
 | **Germany** | Germany North​, Germany West Central​ ​|
 | **Azure Government** | Texas, Arizona, Virginia |
+| **China** | China North 3, China East 3 |
 
 ### Available starting on April 3, 2024
 

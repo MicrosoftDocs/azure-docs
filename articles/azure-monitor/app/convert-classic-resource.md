@@ -455,7 +455,7 @@ Legacy table: availabilityResults
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -496,7 +496,7 @@ Legacy table: browserTimings
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |processingDuration|real|ProcessingDurationMs|real|
 |receiveDuration|real|ReceiveDurationMs|real|
@@ -542,7 +542,7 @@ Legacy table: dependencies
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |resultCode|string|ResultCode|string|
 |sdkVersion|string|SDKVersion|string|
@@ -584,7 +584,7 @@ Legacy table: customEvents
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -619,7 +619,7 @@ Legacy table: customMetrics
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -666,7 +666,7 @@ Legacy table: pageViews
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
@@ -706,7 +706,7 @@ Legacy table: performanceCounters
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |timestamp|datetime|TimeGenerated|datetime|
@@ -746,7 +746,7 @@ Legacy table: requests
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |performanceBucket|string|PerformanceBucket|String|
 |resultCode|string|ResultCode|String|
 |sdkVersion|string|SDKVersion|string|
@@ -796,7 +796,7 @@ Legacy table: exceptions
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |outerAssembly|string|OuterAssembly|string|
 |outerMessage|string|OuterMessage|string|
 |outerMethod|string|OuterMethod|string|
@@ -840,7 +840,7 @@ Legacy table: traces
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|ParentId|string|
-|operation_SyntheticSource|string|OperationSyntheticSource|string|
+|operation_SyntheticSource|string|SyntheticSource|string|
 |sdkVersion|string|SDKVersion|string|
 |session_Id|string|SessionId|string|
 |severityLevel|int|SeverityLevel|int|

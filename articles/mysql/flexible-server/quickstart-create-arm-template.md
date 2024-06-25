@@ -1,13 +1,17 @@
 ---
-title: 'Quickstart: Create a flexible server by using Azure Resource Manager'
+title: "Quickstart: Create a flexible server by using Azure Resource Manager"
 description: In this quickstart, learn how to deploy a database in an instance of Azure Database for MySQL - Flexible Server by using an Azure Resource Manager template.
+author: shreyaaithal
+ms.author: shaithal
+ms.reviewer: maghan
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-author: shreyaaithal
-ms.author: shaithal
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 02/16/2023
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
 ---
 
 # Quickstart: Create an instance of Azure Database for MySQL - Flexible Server by using Azure Resource Manager

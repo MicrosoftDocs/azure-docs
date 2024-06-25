@@ -15,7 +15,7 @@ author: eric-urban
 
 # Quickstart: Create a project and use the chat playground in Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this [Azure AI Studio](https://ai.azure.com) quickstart, you create a project, deploy a chat model, and use it in the chat playground in Azure AI Studio.
 

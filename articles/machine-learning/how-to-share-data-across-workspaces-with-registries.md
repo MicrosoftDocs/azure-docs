@@ -267,7 +267,7 @@ jobs:
 ```  
 
 > [!WARNING]
-> * Before running the pipeline job, confirm that the workspace in which you will run the job is in a Azure region that is supported by the registry in which you created the data.
+> * Before running the pipeline job, confirm that the workspace in which you will run the job is in an Azure region that is supported by the registry in which you created the data.
 > * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or edit the `compute` field under `jobs.train_job.compute` with the name of your compute.
 
 Run the pipeline job with the `az ml job create` command.
@@ -306,7 +306,7 @@ print(pipeline_job)
 ```
 
 > [!WARNING]
-> * Confirm that the workspace in which you will run this job is in a Azure location that is supported by the registry in which you created the component before you run the pipeline job.
+> * Confirm that the workspace in which you will run this job is in an Azure location that is supported by the registry in which you created the component before you run the pipeline job.
 > * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or update it `pipeline_job.settings.default_compute=<compute-cluster-name>`.
 
 Run the pipeline job and wait for it to complete. 
