@@ -43,9 +43,9 @@ This guide shows how to add the action in your workflow and add the PowerShell s
 
 ## Considerations
 
-- The Azure portal saves your script as a PowerShell script file (.csx) in the same folder as your **workflow.json** file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition. Azure Logic Apps compiles this file to make the script ready for execution.
+- The Azure portal saves your script as a PowerShell script file (.ps1) in the same folder as your **workflow.json** file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition.
 
-  The .csx file format lets you write less "boilerplate" and focus just on writing a PowerShell function. You can rename the .csx file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
+  The .ps1 format lets you write less "boilerplate" and focus just on writing PowerShell code. You can rename the .ps1 file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
 
 - The script is local to the workflow. To use the same script in other workflows, [view the script file in the **KuduPlus** console](#view-script-file), and then copy the script to reuse in other workflows.
 
@@ -60,86 +60,46 @@ This guide shows how to add the action in your workflow and add the PowerShell s
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **Inline Code Operations** action named **Execute PowerShell Code action** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. In the designer, [follow these general steps to add the **Inline Code Operations** action named **Execute PowerShell Code** to your workflow](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own script code.
+1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own code.
 
-   - At the top of the script, [import the necessary namespaces](#import-namespaces) and [add any required assembly references](#add-assembly-references) as usual.
+     - To access data coming from your workflow, see [Access trigger outputs, preceding action outputs, and your workflow](#access-trigger-action-outputs) later in this guide.
 
-   - Implement the **`Run`** method:
+     - To return the script's results or other data to your workflow, see [Return data to your workflow](#return-data-to-workflow).
 
-     - The **`Run`** method name is predefined, and your workflow executes only by calling this **Run** method at runtime.
-
-     - To access data coming from your workflow, the **`Run`** method accepts this data through a parameter with  **WorkflowContext** type. You can use the **WorkflowContext** object for the following tasks:
-
-       - [Access trigger outputs, preceding action outputs, and your workflow](#access-trigger-action-outputs).
-
-       - [Access environment variables and logic app setting values](#access-environment-variables-app-settings).
-
-     - To return the script's results or other data to your workflow, implement the **`Run`** method with a return type. For more information, see [Return data to your workflow](#return-data-to-workflow).
-
-     - To log the output from your script in PowerShell, implement the **`Run`** method to accept a function logger through a parameter with **`ILogger`** type, and use **`log`** as the argument name for easy identification. Avoid including **`Console.Write`** in your script.
-
-       > [!IMPORTANT]
-       > 
-       > If you have a long-running script that requires graceful termination in case the function host shuts down, 
-       > include a cancellation token, which is required, with your function logger.
-
-       For more information, see the following sections:
-
-       - [Log output to a stream](#log-output-stream).
-
-       - [Log output to Application Insights](#log-output-application-insights).
+1. To review the workflow output in Application Insights, see [View output in Application Insights](#log-output-application-insights).
 
    The following example shows the action's **Parameters** tab with the sample script code:
 
-   :::image type="content" source="media/add-run-csharp-scripts/action-sample-script.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, Request trigger, Execute CSharp Script Code action with information pane open, and Response action. Information pane shows sample PowerShell script." lightbox="media/add-run-csharp-scripts/action-sample-script.png":::
+   :::image type="content" source="media/add-run-powershell-scripts/action-sample-script.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, Request trigger, Execute PowerShell Code action with information pane open, and Response action. Information pane shows sample PowerShell script." lightbox="media/add-run-powershell-scripts/action-sample-script.png":::
 
    The following example shows the sample script code:
 
-   ```csharp
-   /// Add the required libraries.
-   #r "Newtonsoft.Json"
-   #r "Microsoft.Azure.Workflows.Scripting"
-   using Microsoft.AspNetCore.Mvc;
-   using Microsoft.Extensions.Primitives;
-   using Microsoft.Extensions.Logging;
-   using Microsoft.Azure.Workflows.Scripting;
-   using Newtonsoft.Json.Linq;
+   ```powershell
+   # Use these cmdlets to retrieve outputs from prior steps
+   # oldActionOutput = Get-ActionOutput -ActionName <name of old action>
+   # oldTriggerOutput = Get-TriggerOutput
 
-   /// <summary>
-   /// Executes the inline PowerShell code.
-   /// </summary>
-   /// <param name="context">The workflow context.</param>
-   /// <remarks> The entry-point to your code. The function signature should remain unchanged.</remarks>
-   public static async Task<Results> Run(WorkflowContext context, ILogger log)
-   {
-       var triggerOutputs = (await context.GetTriggerResults().ConfigureAwait(false)).Outputs;
-
-       /// Dereferences the 'name' property from the trigger payload.
-       var name = triggerOutputs?["body"]?["name"]?.ToString();
-
-       /// To get the outputs from a preceding action, you can uncomment and repurpose the following code.
-       //var actionOutputs = (await context.GetActionResults("<action-name>").ConfigureAwait(false)).Outputs;
-
-       /// The following logs appear in the Application Insights traces table.
-       //log.LogInformation("Outputting results.");
-
-       /// var name = null;
-
-       return new Results
-       {
-           Message = !string.IsNullOrEmpty(name) ? $"Hello {name} from CSharp action" : "Hello from CSharp action."
-       };
+   $customResponse =  [PSCustomObject]@{
+      Message = "Hello world!"
    }
 
-   public class Results
-   {
-       public string Message {get; set;}
-   }
+   # Use Write-Host/ Write-Output/Write-Debug to log messages to application insights
+   # Write-Host/Write-Output/Write-Debug and 'returns' will not return an output to the workflow
+   # Write-Host "Sending to application insight logs"
+
+   # Use Push-WorkflowOutput to push outputs forward to subsequent actions
+   Push-WorkflowOutput -Output $customResponse
    ```
 
-   For more information, see ["#r" - Reference external assemblies](/azure/azure-functions/functions-reference-csharp?tabs=functionsv2%2Cfixed-delay%2Cazure-cli#referencing-external-assemblies).
+   The following example shows a custom sample script:
+
+   ```powershell
+   $action = Get-TriggerOutput
+   $results = "Hello from PowerShell!"
+   Push-ActionOutputs -body $results
+   ```
 
 1. When you're done, save your workflow.
 
@@ -157,11 +117,11 @@ This guide shows how to add the action in your workflow and add the PowerShell s
 
 1. Go to your logic app's root location: **site/wwwroot**
 
-1. Go to your workflow's folder, which contains the .csx file, along this path: **site/wwwroot/{workflow-name}**
+1. Go to your workflow's folder, which contains the .ps1 file, along this path: **site/wwwroot/{workflow-name}**
 
 1. Next to the file name, select **Edit** to open and view the file.
 
-## Custom commandlets
+## Custom PowerShell commandlets
 
 ### Get-TriggerOutput
 
@@ -179,7 +139,7 @@ None.
 
 ### Get-ActionOutput
 
-Gets the output from another action in the workflow. This object is returned as a **PowershellWorkflowOperationResult**.
+Gets the output from another action in the workflow and returns an object named **PowershellWorkflowOperationResult**.
 
 #### Syntax
 
@@ -195,13 +155,20 @@ Get-ActionOutput [ -ActionName <String> ]
 
 ### Push-WorkflowOutput
 
-Pushes an output to the workflow from the **Execute PowerShell Code** action. Please note values from Write-Host/Write-Debug/Write-Output will not be returned to the workflow. Returning a value with a ‘return’ statement will also not be returned to the workflow. Those commandlets can be used to write trace messages that can be viewed within application insights.  
+Pushes output from the **Execute PowerShell Code** action to your workflow, which can pass back any object type. If the return value is null, you get a null object error from the commandlet.
+
+> [!NOTE]
+>
+> The **Write-Host**, **Write-Debug**, and **Write-Output** commandlets don't return values to your workflow. 
+> The **return** statement also doesn't return values to your workflow. However, you can use these commandlets 
+> to write trace messages that appear in Application Insights.
 
 #### Syntax
 
 ```azurepowershell
-Push-WorkflowOutput [-Output <Object>] [-Clobber]  
+Push-WorkflowOutput [-Output <Object>] [-Clobber]
 ```
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -213,61 +180,46 @@ Push-WorkflowOutput [-Output <Object>] [-Clobber]
 
 ## Access workflow trigger and action outputs in your script
 
-To access data from your workflow, use the following methods available for the **`WorkflowContext`** context object:
+The output values from the trigger and preceding actions are returned using a custom object, which have multiple parameters. To access these outputs and make sure that you return the value that you want, use the [**Get-TriggerOutput**](#get-triggeroutput), [**Get-ActionOutput**](#get-actionoutput), and [**Push-WorkflowOutput**](#push-workflowoutput) commandlets plus any appropriate parameters described in the following table, for example:
 
-- **`GetTriggerResults`** method
+```powershell
+$trigger = Get-TriggerOutput
+$statusCode = $trigger.status.ToString();
+$action = Get-ActionOutput -ActionName Compose
+$actionOutput = $action.outputs['actionOutput'].ToString();
+$populatedString = "Send the $statusCode for the trigger status and $actionOutputName."
 
-  To access trigger outputs, use this method to return an object that represents the trigger and its outputs, which are available through the **`Outputs`** property. This object has **JObject** type, and you can use square brackets (**[]**) indexer to access various properties in the trigger outputs.
-
-  For example, the following sample code gets the data from the **`body`** property in the trigger outputs:
-
-  ```csharp
-  public static async Task<Results> Run(WorkflowContext context, ILogger log)
-  {
-      var triggerOutputs = (await context.GetTriggerResults().ConfigureAwait(false)).Outputs;
-      var body = triggerOutputs["body"];
-  }
-  ```
-
-- **`GetActionResults`** method
-
-  To access action outputs, use this method to return an object that represents the action and its outputs, which are available through the **`Outputs`** property. This method accepts an action name as a parameter, for example:
-
-  ```csharp
-  public static async Task<Results> Run(WorkflowContext context, ILogger log)
-  {
-
-      var actionOutputs = (await context.GetActionResults("actionName").ConfigureAwait(false)).Outputs;
-      var body = actionOutputs["body"];
-  }
-  ```
-
-<a name="access-environment-variables-app-settings"></a>
-
-## Access environment variables or app setting value
-
-To get an environment variable or an app setting value, use the **`System.Environment.GetEnvironmentVariable`** method, for example:
-
-```csharp
-public static void Run(WorkflowContext context, ILogger log)
-{
-    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-    log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
-    log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-}
-
-public static string GetEnvironmentVariable(string name)
-{
-    return name + ": " +
-    System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
-}
+Push-WorkflowOutput -Output $populatedString
 ```
+
+> [!NOTE]
+>
+> In PowerShell, if you reference an object that has **JValue** type inside a complex object, and you 
+> add that object to a string, you get a format exception. To avoid this error, use **ToString()**.
+
+### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| **Name** | String | The name for the trigger or action. |
+| **Inputs** | JToken | The input values passed into the trigger or action. |
+| **Outputs** | JToken | The outputs from the executed trigger or action. |
+| **StartTime** | DateTime | The start time for the trigger or action. |
+| **EndTime** | DateTime | The end time for the trigger or action. |
+| **ScheduledTime** | DateTime | The scheduled time to run the trigger or action or trigger. |
+| **OriginHistoryName** | String | The origin history name for triggers with the **Split-On** option enabled. |
+| **SourceHistoryName** | String | The source history name for a resubmitted trigger. |
+| **TrackingId** | String | The operation tracking ID. |
+| **Code** | String | The status code for the result. |
+| **Status** | String | The run status for the trigger or action, for example, **Succeeded** or **Failed**. |
+| **Error** | JToken | The HTTP error code. |
+| **TrackedProperties** | JToken | Any tracked properties that you set up. |
 
 <a name="return-data-to-workflow"></a>
 
-## Return data to your workflow
+## Return outputs to your workflow
 
-
+To return any outputs to your workflow, you must use the [**Push-WorkflowOutput** commandlet](#push-workflowoutput).
 
 <a name="log-output-application-insights"></a>
 
@@ -296,7 +248,7 @@ PowerShell modules are self-contained, reusable units that include various com
 - Variables: Store data for use within the module.
 - Other types of resources.
 
-Modules organize and make it easier to distribute PowerShell code. You can use modules to package related functionality together, making it more manageable and shareable. The **Execute PowerShell Code** action lets you automatically import both public and private PowerShell modules.
+A module organizes PowerShell code, making it easier to distribute. For example, you can create your own modules to package and make related functionality more manageable and shareable. The **Execute PowerShell Code** action lets you import both public and private PowerShell modules.
 
 ## Public modules
 
@@ -380,11 +332,11 @@ In this release, the web-based editor includes limited IntelliSense support, whi
 
 Make sure that you use **Push-WorkflowOutput**.
 
-### Execute PowerShell Code action fails: "The term 'Hello-World' is not recognized..."
+### Execute PowerShell Code action fails: "The term '{some-text}' is not recognized..."
 
 If you incorrectly add your module to the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{moduleName}, you get the following error:
 
-**The term 'Hello-World' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again.**
+**The term '{some-text}' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again.**
 
 ### Execute PowerShell Code action fails: "Cannot bind argument to parameter 'Output' because it is null."
 
