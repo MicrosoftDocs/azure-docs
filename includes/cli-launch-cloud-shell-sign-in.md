@@ -19,9 +19,9 @@ When Cloud Shell opens, verify that **Bash** is selected for your environment. S
 Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.  [!INCLUDE [quickstarts-free-trial-note](./quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
-subscription="<subscriptionId>" # add subscription here
+$subscription="<subscriptionId>" # add subscription here
 
-az account set -s $subscription # ...or use 'az login'
+az account set -s $subscription  # ...or use 'az login'
 ```
 
 For more information, see [set active subscription](/cli/azure/account#az-account-set) or [log in interactively](/cli/azure/reference-index#az-login)
