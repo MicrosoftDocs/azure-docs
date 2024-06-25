@@ -128,8 +128,6 @@ To create the workspace, run the following code:
 terraform init
 
 terraform plan \
-          -var name=<deployment-name> \
-          -var environment=<environment-name> \
         # -var <any of the variables set in variables.tf> \
           -out demo.tfplan
 
