@@ -1,6 +1,6 @@
 ---
 title: Integrate common workloads with Azure Managed Prometheus
-description: Describes how to integrate AKS workloads with Azure Managed Prometheus and list of available workloads that are ready to be integrated.
+description: Describes how to integrate Azure Kubernetes Service workloads with Azure Managed Prometheus and list of available workloads that are ready to be integrated.
 ms.topic: conceptual
 ms.date: 6/20/2024
 ms.reviewer: rashmy
@@ -14,9 +14,9 @@ You can use Prometheus exporters to collect metrics from third-party workloads o
 
 The enablement of Managed Prometheus automatically deploys the custom resource definitions (CRD) for [pod monitors](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/deploy/addon-chart/azure-monitor-metrics-addon/templates/ama-metrics-podmonitor-crd.yaml) and [service monitors](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/deploy/addon-chart/azure-monitor-metrics-addon/templates/ama-metrics-servicemonitor-crd.yaml).
 
-You can configure any Prometheus exporter to work with Azure Managed Prometheus. See [Configure collection using Service and Pod Monitor custom resources](./prometheus-metrics-scrape-crd.md).
+You can configure any Prometheus exporter to work with Azure Managed Prometheus. For more information, see [Configure collection using Service and Pod Monitor custom resources](./prometheus-metrics-scrape-crd.md).
 
-This document lists a set of commonly used workloads for which we have curated configurations and instructions that will help you setup metrics collection from the workload. You can use this only with the managed add-on for Azure Managed Prometheus. For self-managed Prometheus, refer to the relevant exporter documentation for setting up metrics collection.
+This document lists a set of commonly used workloads which have curated configurations and instructions to help you setup metrics collection from the workload. You can use this only with the managed add-on for Azure Managed Prometheus. For self-managed Prometheus, refer to the relevant exporter documentation for setting up metrics collection.
 
 ## Common workloads
 
