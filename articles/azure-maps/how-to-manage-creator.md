@@ -48,7 +48,7 @@ To delete the Creator resource:
 2. Select **Delete**.
 
     >[!WARNING]
-    >When you delete the Creator resource of your Azure Maps account, you also delete the conversions, datasets, tilesets, and feature statesets that were created using Creator services. Once a Creator resource is deleted, it cannot be undone.
+    >When you delete the Creator resource of your Azure Maps account, you also delete the conversions, datasets and tilesets that were created using Creator services. Once a Creator resource is deleted, it cannot be undone.
 
      :::image type="content" source="./media/how-to-manage-creator/creator-delete.png" alt-text="A screenshot of the Azure Maps Creator Resource page with the delete button highlighted.":::
 
@@ -89,9 +89,6 @@ Introduction to Creator services for indoor mapping:
 > [!div class="nextstepaction"]
 > [Tileset]
 
-> [!div class="nextstepaction"]
-> [Feature State set]
-
 Learn how to use the Creator services to render indoor maps in your application:
 
 > [!div class="nextstepaction"]
@@ -107,7 +104,6 @@ Learn how to use the Creator services to render indoor maps in your application:
 [Azure portal]: https://portal.azure.com
 [Data conversion]: creator-indoor-maps.md#convert-a-drawing-package
 [Dataset]: creator-indoor-maps.md#datasets
-[Feature State set]: creator-indoor-maps.md#feature-statesets
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [see Creator service geographic scope]: creator-geographic-scope.md
 [Tileset]: creator-indoor-maps.md#tilesets
