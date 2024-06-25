@@ -451,10 +451,7 @@ When constructing the [REST API authorization header](/rest/api/cosmos-db/access
 
 ## Use data explorer
 
-> [!NOTE]
-> As of July 2024, the Data Explorer exposed in the Azure portal does support Azure Cosmos DB role-based access control. The Azure Cosmos DB Explorer at [https://cosmos.azure.com](https://cosmos.azure.com) also supports this without the need to specify a query parameter. The previous method of using `https://cosmos.azure.com/?feature.enableAadDataPlane=true` to enable this functionality is still honored and will force the use of Microsoft Entra identity for your data requests.
-
-The use of Azure Cosmos DB role-based access control within Data Explorer (either exposed in the Azure Portal or at [https://cosmos.azure.com] (https://cosmos.azure.com)) is governed by the **Enable Entra ID RBAC** setting. You can access this setting via the "wheel" icon at the right-hand side of the Data Explorer interface. 
+The use of Azure Cosmos DB role-based access control within Data Explorer (either exposed in the Azure Portal or at [https://cosmos.azure.com] (https://cosmos.azure.com)) is governed by the **Enable Entra ID RBAC** setting. You can access this setting via the "wheel" icon at the upper right-hand side of the Data Explorer interface. 
 
 The setting has three possible values:
 - **Automatic (default)**: In this mode, role-based access control will be automatically used if the account has [disabled the use of keys] (#disable-local-auth). Otherwise, Data Explorer will use account keys for data requests.
@@ -463,7 +460,12 @@ The setting has three possible values:
 
 - **False**: In this mode, account keys will always be used for Data Explorer data requests. If the account has disabled the use of keys, then the requests will fail.
 
-Please note that changing the mode to one that uses account keys may trigger a request to fetch the primary key on behalf of the identity that is signed in.
+When using modes that enable role-based access, please ensure that the signed in identity has been [assigned with proper role definitions] (#role-assignments) to enable data access.
+
+Also note that changing the mode to one that uses account keys may trigger a request to fetch the primary key on behalf of the identity that is signed in.
+
+> [!NOTE]
+> Previously, role-based access was only supported in Cosmos Explorer using `https://cosmos.azure.com/?feature.enableAadDataPlane=true`. This is still supported and will override the value of the **Enable Entra ID RBAC** setting. Using this query parameter is the equal to using the 'True' mode mentioned above.
 
 ## Audit data requests
 
