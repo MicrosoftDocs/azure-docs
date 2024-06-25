@@ -2,6 +2,7 @@
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
 ms.date: 06/25/2024
+ms.topic: release-notes
 ---
 
 # Azure Cloud Shell release notes
