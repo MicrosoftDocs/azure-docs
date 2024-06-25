@@ -22,7 +22,7 @@ Using private endpoints for your workspace enables you to:
 - Increase security for the VNet, by enabling you to block exfiltration of data from the VNet.
 - Securely connect to workspaces from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
-## Conceptual overview
+## Conceptual overview 
 
 :::image type="content" source="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-private-endpoints-overview.png" alt-text="A diagram showing an overview of private endpoints for Azure Monitor workspace."  lightbox="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-private-endpoints-overview.png" :::
 
