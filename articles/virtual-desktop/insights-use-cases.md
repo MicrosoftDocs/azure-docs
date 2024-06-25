@@ -66,16 +66,16 @@ You can also analyze connection errors by different pivots to determine the root
 
    | Pivot | Description |
    |--|--|
-   | Subscription | Group events by the subscription that contains related resources. When more than one subscription has Azure Virtual Desktop resources, it helps to determine whether issues are scoped to one or more subscriptions. |
-   | Resource group | Group events by the resource group that contains related resources. |
-   | Host pool | Group events by host pool. |
+   | Subscription | Groups events by the subscription that contains related resources. When more than one subscription has Azure Virtual Desktop resources, it helps to determine whether issues are scoped to one or more subscriptions. |
+   | Resource group | Groups events by the resource group that contains related resources. |
+   | Host pool | Groups events by host pool. |
    | Transport | Groups events by the network transport layer used for connections, either UDP or TCP.<br /><br />For UDP, valid values are `Relay`, `ShortpathPublic`, and `ShortpathPrivate`.<br /><br />For TCP, valid values are `NotUsed` and `<>` |
-   | Session host | Group events by session host. |
-   | Session host IP/16 | Group events by the IPv4 address of each session host, collated by the first two octets, for example (**1.2**.3.4). |
-   | Client type | Group events by the client used to connect to a remote session, including platform and processor architecture of the connecting device. |
-   | Client version | Group events by the version number of Windows App or the Remote Desktop app used to connect to a remote session. |
-   | Client IP/16 | Group events by the IPv4 address of each client device connecting to a remote session, collated by the first two octets, for example (**1.2**.3.4). |
-   | Gateway region | Group events by the Azure Virtual Desktop gateway region a client device connected through. For a list of gateway regions, see [Gateway region codes](insights-glossary.md#gateway-region-codes). |
+   | Session host | Groups events by session host. |
+   | Session host IP/16 | Groups events by the IPv4 address of each session host, collated by the first two octets, for example (**1.2**.3.4). |
+   | Client type | Groups events by the client used to connect to a remote session, including platform and processor architecture of the connecting device. |
+   | Client version | Groups events by the version number of Windows App or the Remote Desktop app used to connect to a remote session. |
+   | Client IP/16 | Groups events by the IPv4 address of each client device connecting to a remote session, collated by the first two octets, for example (**1.2**.3.4). |
+   | Gateway region | Groups events by the Azure Virtual Desktop gateway region a client device connected through. For a list of gateway regions, see [Gateway region codes](insights-glossary.md#gateway-region-codes). |
 
 To view connection reliability information:
 
@@ -99,7 +99,7 @@ To view connection reliability information:
 
    :::image type="content" source="media/insights-use-cases/insights-connection-reliability-time-slice.png" alt-text="A screenshot showing the connection reliability tab of Azure Virtual Desktop Insights with the list of events for the time slice. " lightbox="media/insights-use-cases/insights-connection-reliability-time-slice.png":::
 
-1. To see the detailed history of a specific connection, select an entry in the **Details** section of a time slice. Selecting an entry generated a list of steps in the connection and any errors.
+1. To see the detailed history of a specific connection, select an entry in the **Details** section of a time slice. Selecting an entry generates a list of steps in the connection and any errors.
 
    :::image type="content" source="media/insights-use-cases/insights-connection-reliability-connection-details.png" alt-text="A screenshot showing the connection reliability tab of Azure Virtual Desktop Insights with the details of a connection. " lightbox="media/insights-use-cases/insights-connection-reliability-connection-details.png":::
 
