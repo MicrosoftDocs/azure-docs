@@ -65,14 +65,13 @@ If you need to deploy a different model, [deploy it to managed compute](#deploy-
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them. The serverless API model deployment offering for Meta Llama 3 is only available with workspaces created in these regions:
 
-    > [!div class="checklist"]
-    > * East US
-    > * East US 2
-    > * North Central US
-    > * South Central US
-    > * West US
-    > * West US 3
-    > * Sweden Central
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
     
     For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
@@ -101,13 +100,12 @@ If you need to deploy a different model, [deploy it to managed compute](#deploy-
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An Azure Machine Learning workspace and a compute instance. If you don't have these, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create them. The serverless API model deployment offering for Meta Llama 2 is only available with workspaces created in these regions:
 
-    > [!div class="checklist"]
-    > * East US
-    > * East US 2
-    > * North Central US
-    > * South Central US
-    > * West US
-    > * West US 3
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
     
     For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
