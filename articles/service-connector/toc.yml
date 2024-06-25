@@ -112,7 +112,7 @@ items:
     - name: Permission requirements
       href: concept-permission.md
     - name: Microsoft Entra roles
-      href: concept-entra-roles.md
+      href: concept-microsoft-entra-roles.md
 - name: How-to guides
   expanded: false
   items: 

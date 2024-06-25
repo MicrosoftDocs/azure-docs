@@ -14,7 +14,7 @@ Service Connector's purpose is to simplify the process of connecting various Azu
 
 To do this, Service Connector uses Azure's [role-based access control (RBAC)](../role-based-access-control/overview.md) authorization system that provides access management to Azure resources.
 
-This article provides a summary of the roles assigned by Service Connector y default, and explains how to choose a different role.
+This article provides a summary of the roles assigned by Service Connector by default, and explains how to choose a different role.
 
 ## Built-in roles
 
@@ -49,7 +49,7 @@ For more information about these roles, go to [Azure built-in roles](../role-bas
 
 When creating a new connection in Service connector, users can choose other roles than the default ones. This is done in the Azure portal in the Service Connector menu, in the **Authentication** tab, under **Advanced** > **Role**.
 
-:::image type="content" source="./media/entra-roles/customize-role.png" alt-text="Screenshot of the Azure portal, showing how to edit a connection's role.":::
+:::image type="content" source="./media/microsoft-entra-roles/customize-role.png" alt-text="Screenshot of the Azure portal, showing how to edit a connection's role.":::
 
 ## Related content
 
