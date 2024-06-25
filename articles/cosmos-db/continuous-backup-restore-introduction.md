@@ -154,7 +154,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * The restore process restores all the properties of a container including its TTL configuration by default, you can pass parameter to disable TTL while doing the restore. As a result, it's possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
-* Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
+* Unique indexes in API for MongoDB can't be added, updated, or dropped when you create a continuous backup mode account. They also can't be modified when you migrate an account from periodic to continuous mode.
 
 * Continuous mode restore may not restore throughput setting valid as of restore point.
 

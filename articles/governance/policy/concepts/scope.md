@@ -41,7 +41,7 @@ resource for Azure Policy to evaluate and which resources count toward complianc
 map to the following concepts:
 
 - Inclusion - A resource hierarchy or individual resource should be evaluated for compliance by the
-  definition. The `properties.scope` property on an assignment object determines what to include and
+  definition. The scope of where the assignment object lives on determines what to include and
   evaluate for compliance. For more information, see
   [Assignment definition](./assignment-structure.md).
 
