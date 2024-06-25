@@ -19,21 +19,21 @@ ms.date: 6/24/2024
 Read operations based on predicates and aggregates consult the index for the corresponding filters. In the absence of indexes, the database engine performs a document scan to retrieve the matching documents. Scans are always expensive and get progressively more expensive as the volume of data in a collection grows. For optimal queri performance, indexes should always be created for all queryable fields.
 
 ## Avoid unnecessary indexes and indexing all fields by default
-While indexes should be created for all queryable fields, other fields within the document structure in a collection should not be indexed (either individually or through wildcard indexing) if they are not part of query predicates or filters.
+Indexes should be created only for queryable fields. Wildcard indexing should be used only when query patterns are unpredictable where any field in the document structure can be part of query filters.
 
 > [!TIP]
 > Azure Cosmos DB for MongoDB vCore only indexes the _id field by default. All other fields are not indexed by default. The fields to be indexed should be planned ahead of time to maximize query performance, while minimizing impact on writes from indexing too many fields.
 
-When a new document is inserted for the first time or an existing document is updated or deleted, each of the specified fields in the index is also updated. If the indexing policy contains a large number of fields (or all the fields in the document), additional resources are consumed by the server in updating the corresponding indexes. When running at scale, only the queryable fields should be indexed while all remaining fields not used in query predicates should remain excluded from the index. 
+When a new document is inserted for the first time or an existing document is updated or deleted, each of the specified fields in the index is also updated. If the indexing policy contains a large number of fields (or all the fields in the document), more resources are consumed by the server in updating the corresponding indexes. When running at scale, only the queryable fields should be indexed while all remaining fields not used in query predicates should remain excluded from the index. 
 
-## Create the necessary indexes prior to data ingestion
-For optimal performance, indexes should be created upfront before data is loaded. This ensures all documents inserted for the first time or subsequently updated or deleted will have corresponding indexes updated synchronously. If indexes are created after data is ingested, additional server resources are consumed to index historical data. Depending on the size of the historical data, this operation is time consuming and impacts steady state read and write performance.
+## Create the necessary indexes before data ingestion
+For optimal performance, indexes should be created upfront before data is loaded. Documents inserted for the first time and subsequently updated or deleted will have corresponding indexes updated synchronously. If indexes are created after data is ingested, more server resources are consumed to index historical data. Depending on the size of the historical data, this operation is time consuming and impacts steady state read and write performance.
 
 > [!NOTE]
 For scenarios where read patterns change and indexes need to be added, background indexing should be enabled, which can be done through a support ticket.
 
 ## For multiple indexes created on historical data, issue non-blocking createIndex commands for each field
-It is not always possible to plan for all query patterns upfront, particularly as application requirements evolve. Changing business and application needs will inevitably require fields to be added to the index on a cluster with a large amount of historical data. 
+It is not always possible to plan for all query patterns upfront, particularly as application requirements evolve. Changing application needs inevitably requires fields to be added to the index on a cluster with a large amount of historical data. 
 
 In such scenarios, each createIndex command should be issued asynchronously without waiting on a response from the server.
 
@@ -62,27 +62,27 @@ Consider the following document within the 'cosmicworks' database and 'employee'
 }
 ```
 
-Consider the following query to find all employees with last name 'Smith' that have been with the organization for at least 5 years:
+Consider the following query to find all employees with last name 'Smith' with the organization for more than 5 years:
 ```javascript
 db.employee.find({"lastName": "Smith", "timeInOrgInYears": {"$gt": 5}})
 ```
 
-A compound index on both 'lastName' and 'timeInOrgInYears' will optimize this query:
+A compound index on both 'lastName' and 'timeInOrgInYears' optimizes this query:
 ```javascript
 use cosmicworks;
 db.employee.createIndex({"lastName" : 1, "timeInOrgInYears" : 1})
 ```
 
 ## Track the status of a createIndex operation
-When indexes are added and historical data needs to be indexed, the progress of the index build operation(s) can be tracked using db.currentOp().
+When indexes are added and historical data needs to be indexed, the progress of the index build operation can be tracked using db.currentOp().
 
-Consider the example below, to track the indexing progress on the 'cosmicworks' database.
+Consider this sample to track the indexing progress on the 'cosmicworks' database.
 ```javascript
 use cosmicworks;
 db.currentOp()
 ```
 
-When a createIndex operation is in progress, the response will look like:
+When a createIndex operation is in progress, the response looks like:
 ```json
 {
   "inprog": [
@@ -120,7 +120,7 @@ When a createIndex operation is in progress, the response will look like:
 ## Enable Large Index Keys by default
 Even if the documents do not contain keys that have a large number of characters or the documents do not contain multiple levels of nesting, specifying large index keys ensures these scenarios are covered.
 
-Consider the example below to enable large index keys on the 'large_index_coll' collection within the 'cosmicworks' database.
+Consider this sampe to enable large index keys on the 'large_index_coll' collection in the 'cosmicworks' database.
 
 ```javascript
 use cosmicworks;
@@ -138,11 +138,11 @@ db.runCommand(
 ```
 
 ## Prioritizing Index Builds over new Write Operations using the Blocking Option
-For scenarios in which the index should strictly be created before data has been loaded and for new writes to be blocked until historical data has been fully indexed, the blocking option should be specified when creating the index.
+For scenarios in which the index should be created before data is loaded, the blocking option should be used to block incoming writes until the index build completes.
 
-Setting `{ "blocking": true }` blocks all write operations (delete, update, insert) to the collection until index creation is completed. This feature is particularly useful in scenarios such as migration utilities where indexes are created on empty collections before data writes commence.
+Setting `{ "blocking": true }` is particularly useful in migration utilities where indexes are created on empty collections before data writes commence.
 
-Consider an example of the blocking option for index creation being specified on the 'employee' collection within the 'cosmicworks' database:
+Consider an example of the blocking option for index creation on the 'employee' collection in the 'cosmicworks' database:
 
 ```javascript
 use cosmicworks;
