@@ -463,7 +463,7 @@ The setting has three possible values:
 
 - **False**: In this mode, account keys will always be used for Data Explorer data requests. If the account has disabled the use of keys, then the requests will fail.
 
-
+Please note that changing the mode to one that uses account keys may trigger a request to fetch the primary key on behalf of the identity that is signed in.
 
 ## Audit data requests
 
