@@ -181,7 +181,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-To restore the default behavior of the *myrepo* repository and all images so that they can be deleted and updated, run the following command:
+To restore the default behavior of the *myrepo* repository, enabling individual images to be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -193,10 +193,8 @@ However, if there is a lock on the manifest, you need to run an additional comma
     
 ```azurecli
 az acr repository update \
-   --name myregistry \
-   --image $repo@$digest \
-   --delete-enabled true \ 
-   --write-enabled true
+   --name myregistry --image $repo@$digest \
+   --delete-enabled true --write-enabled true
 ```
 
 ## Next steps
