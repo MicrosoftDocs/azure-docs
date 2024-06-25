@@ -48,7 +48,7 @@ Call the [List Marketplaces API](/rest/api/consumption/marketplaces/list/#market
 
 ### Price Sheet
 
-Call the new [Price Sheet API](/rest/api/consumption/price-sheet) to get the price sheet for either [the current billing period](/rest/api/consumption/price-sheet/get/) or for [a specific billing period](/rest/api/consumption/price-sheet/get-by-billing-period/).
+Call the new Price Sheet API to [download the price sheet by billing account for the specified billing period](/rest/api/cost-management/price-sheet/download-by-billing-account/).
 
 ## Related content
 
