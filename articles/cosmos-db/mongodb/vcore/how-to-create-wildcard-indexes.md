@@ -81,7 +81,7 @@ sudo apt update
 sudo apt install openjdk-21-jdk
 ```
 
-### Sample jar to create individual indexes for all fields
+## Sample jar to create individual indexes for all fields
 
 Clone the repository containing the Java sample to iterate through each field in the JSON document's structure and issue createIndex operations for each field in the document.
 
@@ -99,7 +99,7 @@ The cloned repository does not need to be built if there are no changes to be ma
 java -jar azure-cosmosdb-mongo-data-indexer-1.0-SNAPSHOT.jar mongodb+srv://<user>:<password>@abinav-test-benchmarking.global.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000 cosmicworks employee sampleEmployee.json
 ```
 
-### Track the status of a createIndex operation
+## Track the status of a createIndex operation
 The jar file is designed to not wait on a response from each createIndex operation. The indexes are created asynchronously on the server and the progress of the index build operation on the cluster can be tracked.
 
 Consider this sample to track indexing progress on the 'cosmicworks' database.
@@ -144,5 +144,7 @@ When a createIndex operation is in progress, the response looks like:
 ```
 
 ## Related content
+
+Check out the full sample here - https://github.com/Azure-Samples/cosmosdb-mongodb-vcore-wildcard-indexing
 
 Check out [indexing best practices](how-to-create-indexes.md), which details best practices for indexing on Azure Cosmos DB for MongoDB vCore.
