@@ -27,7 +27,7 @@ Indexes should be created only for queryable fields. Wildcard indexing should be
 When a new document is inserted for the first time or an existing document is updated or deleted, each of the specified fields in the index is also updated. If the indexing policy contains a large number of fields (or all the fields in the document), more resources are consumed by the server in updating the corresponding indexes. When running at scale, only the queryable fields should be indexed while all remaining fields not used in query predicates should remain excluded from the index. 
 
 ## Create the necessary indexes before data ingestion
-For optimal performance, indexes should be created upfront before data is loaded. All document writes, updates and deletes will have corresponding indexes updated synchronously. If indexes are created after data is ingested, more server resources are consumed to index historical data. Depending on the size of the historical data, this operation is time consuming and impacts steady state read and write performance.
+For optimal performance, indexes should be created upfront before data is loaded. All document writes, updates and deletes will synchronously update the corresponding indices. If indexes are created after data is ingested, more server resources are consumed to index historical data. Depending on the size of the historical data, this operation is time consuming and impacts steady state read and write performance.
 
 > [!NOTE]
 For scenarios where read patterns change and indexes need to be added, background indexing should be enabled, which can be done through a support ticket.
@@ -49,11 +49,6 @@ Using Ctrl + C to interrupt the createIndex command after it has been issued doe
 Compound indexes should be used in the following scenarios:
 - Queries with filters on any field in the JSON structure making it easier to use wildcard indexing instead of indexing each field individually.
 - Queries with filters on all but a few fields making it is easier to exclude a few fields instead of indexing most of the fields individually.
-
-Wildcard indexing will soon be available in Azure Cosmos DB for MongoDB vCore. Until then, this sample provides a workaround to circumvent creating individual indexes. The solution takes a sample json file and performs the following actions:
-- Iterates through each root level field and creates an index on the field. 
-- Iterates through each nested field and creates an index in the field after concatenating the path to the nested field.
-- Handles Objects, Arrays and base field types accordingly
 
 Consider the following document within the 'cosmicworks' database and 'employee' collection
 ```json
