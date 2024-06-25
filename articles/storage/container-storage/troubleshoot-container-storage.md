@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Container Storage Preview
+title: Troubleshoot Azure Container Storage preview
 description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
@@ -8,7 +8,7 @@ ms.author: kendownie
 ms.topic: how-to
 ---
 
-# Troubleshoot Azure Container Storage Preview
+# Troubleshoot Azure Container Storage preview
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. Use this article to troubleshoot common issues with Azure Container Storage and find resolutions to problems.
 
@@ -75,7 +75,7 @@ If you need a persistent volume, where the volume has a lifecycle independent of
 
 An ephemeral volume is allocated on a single node. When you configure the size of ephemeral volumes for your pods, the size should be less than the available capacity of a single node's ephemeral disk. Otherwise, the pod creation will be in pending status.
 
-1. Use the following command to check if your pod creation is in pending status.
+Use the following command to check if your pod creation is in pending status.
 
 ```output
 $ kubectl get pods
@@ -85,7 +85,7 @@ fiopod   0/1     Pending   0          17s
 
 In this example, the pod `fiopod` is in `Pending` status.
 
-1. Use the following command to check if the pod has the warning event for persistentvolumeclaim creation.
+Use the following command to check if the pod has the warning event for persistentvolumeclaim creation.
 
 ```output
 $ kubectl describe pod fiopod
@@ -98,7 +98,7 @@ Events:
 
 In this example, the pod shows the warning event on creating persistent volume claim `fiopod-ephemeralvolume`.
 
-1. Use the following command to check if the persistent volume claim fails to provision due to insufficient capacity.
+Use the following command to check if the persistent volume claim fails to provision due to insufficient capacity.
 
 ```output
 $ kubectl describe pvc fiopod-ephemeralvolume
@@ -108,7 +108,7 @@ $ kubectl describe pvc fiopod-ephemeralvolume
 
 In this example, `Insufficient Storage` is shown as the reason for volume provisioning failure.
 
-1. Run the following command to check the available capacity of a single node's ephemeral disk.
+Run the following command to check the available capacity of a single node's ephemeral disk.
 
 ```output
 $ kubectl get diskpool -n acstor
@@ -120,7 +120,7 @@ ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   5609
 
 In this example, the available capacity of temp disk for a single node is `75031990272` bytes or 69 GiB.
 
-1. Adjust the volume storage size below available capacity and re-deploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
+Adjust the volume storage size below available capacity and re-deploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
 
 ## See also
 
