@@ -7,7 +7,7 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: justipat
-  ms.date: 10/20/2022
+  ms.date: 06/25/2024
   ms.service: cosmos-db
   ms.subservice: nosql
   ms.topic: how-to
@@ -16,7 +16,7 @@ metadata:
     - devx-track-azurecli
     - subject-rbac-steps
     - ge-structured-content-pilot
-
+  ai-usage: ai-assisted
 title: |
   Use system-assigned managed identities to access Azure Cosmos DB data
 introduction: |
@@ -297,7 +297,24 @@ procedureSection:
       (Optional) Run the function locally
     summary: |
       In a local environment, the [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) class will use various local credentials to determine the current identity. While running locally isn't required for the how-to, you can develop locally using your own identity or a service principal.
-    steps: 
+    steps:
+      - |
+        Get your local account's principal identifier using [`az ad signed-in-user show`](/cli/azure/ad/signed-in-user#az-ad-signed-in-user-show).
+
+        ```azurecli-interactive
+        az ad signed-in-user show --query "id"
+        ```
+      - |
+        Assign your local account role-based access control access to the Azure Cosmos DB account using [`az cosmosdb sql role assignment create`](/cli/azure/cosmosdb/sql/role/assignment#az-cosmosdb-sql-role-assignment-create) command. Use the built-in "Cosmos DB Data Contributor" role with an id of `00000000-0000-0000-0000-000000000002`.
+
+        ```azurecli-interactive
+        az cosmosdb sql role assignment create \
+            --resource-group $resourceGroupName \
+            --account-name $cosmosName \
+            --role-definition-id "00000000-0000-0000-0000-000000000002" \
+            --principal-id "<your-principal-id>" \
+            --scope "/"
+        ```
       - |
         In the **local.settings.json** file, add a new setting named ``COSMOS_ENDPOINT`` in the **Values** object. The value of the setting should be the document endpoint you recorded earlier in this how-to guide.
 
