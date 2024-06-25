@@ -3,7 +3,7 @@ title:  Indexing Best Practices in Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use create Indexing for empty collections in Azure Cosmos DB for MongoDB vCore.
 author: abinav2307
-ms.author: abrameesh
+ms.author: abramees
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
@@ -46,9 +46,14 @@ If the createIndex commands are being issued through the Mongo Shell, use Ctrl +
 Using Ctrl + C to interrupt the createIndex command after it has been issued does not terminate the index build operation on the server. It simply stops the Shell from waiting on a response from the server, while the server asynchronously continues to build the index over the existing documents.
 
 ## Create Compound Indexes for queries with predicates on multiple fields
-Compound indexes should be used for the following scenarios:
-- Queries with filters on multiple fields
-- Queries with filters on multiple fields and with one or more fields sorted in ascending or descending order
+Compound indexes should be used in the following scenarios:
+- Queries with filters on any field in the JSON structure making it easier to use wildcard indexing instead of indexing each field individually.
+- Queries with filters on all but a few fields making it is easier to exclude a few fields instead of indexing most of the fields individually.
+
+Wildcard indexing will soon be available in Azure Cosmos DB for MongoDB vCore. Until then, this sample provides a workaround to circumvent creating individual indexes. The solution takes a sample json file and performs the following actions:
+- Iterates through each root level field and creates an index on the field. 
+- Iterates through each nested field and creates an index in the field after concatenating the path to the nested field.
+- Handles Objects, Arrays and base field types accordingly
 
 Consider the following document within the 'cosmicworks' database and 'employee' collection
 ```json
