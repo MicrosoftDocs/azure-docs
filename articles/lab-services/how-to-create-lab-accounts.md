@@ -36,7 +36,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 1. Select **Next: Review + create**.
 1. Wait for validation to pass. Review the summary information on the **Review + create** page, and select **Create**.
 
-    :::image type="content" source="./media/how-to-create-lab-accounts/create-lab-account-review-create.png" alt-text="Screenshot that shows the Review and create tab of the Create lab account wizard":::
+    :::image type="content" source="./media/how-to-create-lab-accounts/create-lab-account-review-create.png" alt-text="Screenshot that shows the Review and create tab of the Create lab account wizard.":::
 1. Wait until the deployment is complete, expand **Next steps**, and select **Go to resource**.
 
     You can also select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**.
