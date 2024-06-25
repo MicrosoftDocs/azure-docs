@@ -157,7 +157,7 @@ Detect potential Service Principal Name (SPN) scanning in your network traffic.
 1. Creates a baseline with the number of unique tickets typically requested by a user account per day.
 1. Generates an alert when there's a major deviation from that baseline.
 
-**Challenge**: The current detection runs on 14 days, or the maximum data lookback in the Analytics table, and creates many false positives. While the detection includes thresholds that are designed to prevent false positives, alerts are still generated for legitimate requests as long as there are more requests than usual. This might happen for vulnerability scanners, administration systems, and in misconfigured systems. In Prateeks team, there were so many false positives that they needed to turn off some of the analytics rules. To create a more accurate baseline, Prateek needs more than 14 days of baseline data.
+**Challenge**: The current detection runs on 14 days, or the maximum data lookback in the Analytics table, and creates many false positives. While the detection includes thresholds that are designed to prevent false positives, alerts are still generated for legitimate requests as long as there are more requests than usual. This might happen for vulnerability scanners, administration systems, and in misconfigured systems. In Prateek's team, there were so many false positives that they needed to turn off some of the analytics rules. To create a more accurate baseline, Prateek needs more than 14 days of baseline data.
 
 The current detection also runs a summary query on a separate logic app for each alert. This involves extra work for the setup and maintenance of those logic apps, and incurs extra costs.
 
