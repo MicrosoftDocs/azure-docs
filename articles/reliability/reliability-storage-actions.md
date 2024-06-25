@@ -44,7 +44,7 @@ The Storage Action service isn't zonal, but the storage account is. If the stora
 
 Storage Action is a regional service, and it runs against accounts in the same region. When a region is down, both the storage account and service are also down.  The service doesn't support disaster recovery across regions. If you trigger a failover of the storage account to a different region, then storage tasks can’t run against the storage account until it fails back to the original region.  So, although you may be able to recover the storage account, the storage task won't be able to run against it. 
 
->[!IMPORANT]
+>[!IMPORTANT]
 >If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
 
 ### Outage detection, notification, and management
