@@ -12,7 +12,7 @@ customer intent: As a Terraform user, I want to see how to create an Azure windo
 
 # Quickstart: Create an Azure windows web app using Terraform
 
-In this quickstart, you use Terraform to create an Azure windows web app with a backup schedule and a .NET application stack using Terraform. Azure windows web app is a fully managed platform for building, deploying, and scaling web apps. It's designed to let you focus on your application code, without the worry of managing infrastructure or the underlying operating system. You can use it to host web apps, REST APIs, and backend services for mobile, desktop, and web applications.
+In Azure App Service, you can make on-demand custom backups or configure scheduled custom backups. In this quickstart, you use Terraform to create an Azure windows web app with a backup schedule and a .NET application stack. For more information about App Service backups and restores, see [Back up and restore your app in Azure App Service](/azure/app-service/manage-backup?tabs=portal).
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -67,13 +67,13 @@ In this quickstart, you use Terraform to create an Azure windows web app with a 
 
 ## Verify the results
 
-Run [`az webapp show`](/cli/azure/webapp#az-webapp-show) to view the Azure windows web app.
+Run [az webapp show](/cli/azure/webapp#az-webapp-show) to view the Azure windows web app.
 
 ```azurecli
 az webapp show --name <web_app_name> --resource-group <resource_group_name>
 ```
 
-You must replace `<web_app_name>` with the name of your Azure Windows web app and `<resource_group_name>` with the name of your resource group.
+Replace `<web_app_name>` with the name of your Azure Windows web app and `<resource_group_name>` with the name of your resource group.
 
 ## Clean up resources
 
@@ -86,4 +86,4 @@ You must replace `<web_app_name>` with the name of your Azure Windows web app an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure windows web app](/search/?terms=Azure%20windows%20web%20app%20and%20terraform)
+> [See more articles about App Service](/app-service)
