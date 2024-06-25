@@ -14,7 +14,7 @@ ms.topic: how-to
 
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-The troubleshooting guides for Azure Database for PostgreSQL flexible server are designed to help you quickly identify and resolve common challenges you may encounter while using Azure Database for PostgreSQL flexible server. Integrated directly into the Azure portal, the troubleshooting guides provide actionable insights, recommendations, and data visualizations to assist you in diagnosing and addressing issues related to common performance problems. With these guides at your disposal, you'll be better equipped to optimize your Azure Database for PostgreSQL flexible server experience and ensure a smoother, more efficient database operation.
+The troubleshooting guides for Azure Database for PostgreSQL flexible server are designed to help you quickly identify and resolve common challenges you may encounter while using Azure Database for PostgreSQL flexible server. Integrated directly into the Azure portal, the troubleshooting guides provide actionable insights, recommendations, and data visualizations to assist you in diagnosing and addressing issues related to common performance problems. With these guides at your disposal, you are better equipped to optimize your Azure Database for PostgreSQL flexible server experience and ensure a smoother, more efficient database operation.
 
 ## Overview
 
@@ -85,12 +85,12 @@ The troubleshooting guides consist of the following components:
   * Autovacuum blockers
 
 
-Before using any troubleshooting guide, it is essential to ensure that all prerequisites are in place. For a detailed list of prerequisites, please refer to the [Use troubleshooting guides](how-to-troubleshooting-guides.md) article.
+Before using any troubleshooting guide, it's essential to ensure that all prerequisites are in place. For a detailed list of prerequisites refer to the article [Use troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ### Limitations
 
-* Troubleshooting guides are not available for [read replicas](concepts-read-replicas.md).
-* Please be aware that enabling Query Store on the Burstable pricing tier can lead to a negative impact on performance. As a result, it is generally not recommended to use Query Store with this particular pricing tier.
+* Troubleshooting guides aren't available for [read replicas](concepts-read-replicas.md).
+* Be aware that enabling Query Store on the Burstable pricing tier can lead to a negative impact on performance. As a result, it's not recommended to use Query Store with this particular pricing tier.
 
 
 ## Next steps
