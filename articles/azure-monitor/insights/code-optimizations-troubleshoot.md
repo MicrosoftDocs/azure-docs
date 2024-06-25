@@ -44,7 +44,7 @@ To make sure that profiles are uploaded to your Application Insights resource, f
 
 1. On the **Application Insights Profiler** page, view the **Recent profiling sessions** section.
 
-   :::image type="content" source="./media/code-optimizations-troubleshoot/profiling-sessions.png" alt-text="Azure portal screenshot of the Application Insights Profiler page." lightbox="./media/code-optimizations-troubleshooting/profiling-sessions.png":::
+   :::image type="content" source="./media/code-optimizations-troubleshoot/profiling-sessions.png" alt-text="Azure portal screenshot of the Application Insights Profiler page." lightbox="./media/code-optimizations-troubleshoot/profiling-sessions.png":::
 
    > [!NOTE]  
    > If you don't see any profiling sessions, see [Troubleshoot Application Insights Profiler](../profiler/profiler-troubleshooting.md).
