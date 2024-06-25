@@ -313,7 +313,7 @@ items:
         - name: View insights
           href: insights/view-code-optimizations.md
         - name: Troubleshooting
-          href: /troubleshoot/azure/azure-monitor/app-insights/code-optimizations-troubleshooting
+          href: insights/code-optimizations-troubleshoot.md
       - name: Snapshot Debugger
         items:
         - name: Overview
