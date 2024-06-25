@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Create an Azure windows web app with a backup using Terraform'
-description: In this quickstart, you create an Azure windows web app with a backup schedule and a .NET application stack.
+title: 'Quickstart: Create an Azure Windows web app with a backup using Terraform'
+description: In this quickstart, you create an Azure Windows web app with a backup schedule and a .NET application stack.
 ms.topic: quickstart
 ms.date: 06/25/2024
 ms.custom: devx-track-terraform
 ms.service: windows
 author: msangapu-msft
 ms.author: msangapu
-customer intent: As a Terraform user, I want to see how to create an Azure windows web app with a backup schedule and a .NET application stack.
+customer intent: As a Terraform user, I want to see how to create an Azure Windows web app with a backup schedule and a .NET application stack.
 ---
 
-# Quickstart: Create an Azure windows web app with a backup using Terraform
+# Quickstart: Create an Azure Windows web app with a backup using Terraform
 
-In Azure App Service, you can make on-demand custom backups or configure scheduled custom backups. In this quickstart, you use Terraform to create an Azure windows web app with a backup schedule and a .NET application stack. For more information about App Service backups and restores, see [Back up and restore your app in Azure App Service](/azure/app-service/manage-backup?tabs=portal).
+In Azure App Service, you can make on-demand custom backups or configure scheduled custom backups. In this quickstart, you use Terraform to create an Azure Windows web app with a backup schedule and a .NET application stack. For more information about App Service backups and restores, see [Back up and restore your app in Azure App Service](/azure/app-service/manage-backup?tabs=portal).
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -67,7 +67,7 @@ In Azure App Service, you can make on-demand custom backups or configure schedul
 
 ## Verify the results
 
-Run [az webapp show](/cli/azure/webapp#az-webapp-show) to view the Azure windows web app.
+Run [az webapp show](/cli/azure/webapp#az-webapp-show) to view the Azure Windows web app.
 
 ```azurecli
 az webapp show --name <web_app_name> --resource-group <resource_group_name>
