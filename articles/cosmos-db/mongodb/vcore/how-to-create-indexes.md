@@ -2,7 +2,7 @@
 title:  Indexing Best Practices in Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use create Indexing for empty collections in Azure Cosmos DB for MongoDB vCore.
-author: abramees
+author: abinav2307
 ms.author: abrameesh
 ms.reviewer: sidandrews
 ms.service: cosmos-db
@@ -16,7 +16,7 @@ ms.date: 6/24/2024
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 ## Queryable fields should always have indexes created
-Read operations based on predicates and aggregates consult the index for the corresponding filters. In the absence of indexes, the database engine performs a document scan to retrieve the matching documents. Scans are always expensive and get progressively more expensive as the volume of data in a collection grows. For optimal queri performance, indexes should always be created for all queryable fields.
+Read operations based on predicates and aggregates consult the index for the corresponding filters. In the absence of indexes, the database engine performs a document scan to retrieve the matching documents. Scans are always expensive and get progressively more expensive as the volume of data in a collection grows. For optimal query performance, indexes should always be created for all queryable fields.
 
 ## Avoid unnecessary indexes and indexing all fields by default
 Indexes should be created only for queryable fields. Wildcard indexing should be used only when query patterns are unpredictable where any field in the document structure can be part of query filters.
