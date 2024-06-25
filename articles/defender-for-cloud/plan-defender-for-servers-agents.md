@@ -97,9 +97,6 @@ Learn more about the Azure Policy [guest configuration extension](../virtual-mac
 
 When you enable Defender for Servers, Defender for Cloud automatically deploys a Defender for Endpoint extension. The extension is a management interface that runs a script inside the operating system to deploy and integrate the Defender for Endpoint sensor on the machine.
 
-> [!NOTE]
-> Before you deploy the Defender for Servers plan, you should review the Defender for Endpoint extension [network connectivity requirements].
-
 - Windows machines extension: `MDE.Windows`
 - Linux machines extension: `MDE.Linux`
 - Machines must meet [minimum requirements](/microsoft-365/security/defender-endpoint/minimum-requirements).
