@@ -75,7 +75,7 @@ After you configure the Defender XDR data connector, Defender XDR incidents appe
 
    - You can no longer predetermine the titles of incidents, since the Defender XDR correlation engine presides over incident creation and automatically names the incidents it creates. This change is liable to affect any automation rules you created that use the incident name as a condition. To avoid this pitfall, use criteria other than the incident name as conditions for [triggering automation rules](automate-incident-handling-with-automation-rules.md#conditions). We recommend using *tags*.
 
-## Working with Defender XDR incidents in Microsoft Sentinel and bi-directional sync
+## Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync
 
 Defender XDR incidents appear in the Microsoft Sentinel incidents queue with the product name **Microsoft Defender XDR**, and with similar details and functionality to any other Microsoft Sentinel incidents. Each incident contains a link back to the parallel incident in the Microsoft Defender Portal.
 
