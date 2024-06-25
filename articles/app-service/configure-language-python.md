@@ -370,6 +370,10 @@ Build issues such as incorrect dependencies in *requirements.txt* and errors in 
 
 When you're successfully connected to the SSH session, you should see the message "SSH CONNECTION ESTABLISHED" at the bottom of the window. If you see errors such as "SSH_CONNECTION_CLOSED" or a message that the container is restarting, an error may be preventing the app container from starting. See [Troubleshooting](#troubleshooting) for steps to investigate possible issues.
 
+## URL rewrites
+
+URL rewrites need to be handled by the app. For example, you can use the [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) in Flask to accomplish this.
+
 ## Troubleshooting
 
 In general, the first step in troubleshooting is to use App Service Diagnostics:

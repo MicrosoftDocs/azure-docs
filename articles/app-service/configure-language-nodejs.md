@@ -350,6 +350,10 @@ if (req.secure) {
 
 ::: zone pivot="platform-linux"
 
+## URL rewrites
+
+URL rewrites need to be handled by the app. For example, you can use the [express-urlrewrite](https://www.npmjs.com/package/express-urlrewrite) package to accomplish this.
+
 ## Monitor with Application Insights
 
 Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps-nodejs.md#enable-through-powershell)
