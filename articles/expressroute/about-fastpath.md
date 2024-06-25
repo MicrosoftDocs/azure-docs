@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/24/2024
+ms.date: 06/25/2024
 ms.author: duau
 ms.custom: template-concept, references_regions, engagement-fy23
 ---
@@ -27,6 +27,10 @@ To configure FastPath, the virtual network gateway must be either:
 
 * Ultra Performance
 * ErGw3AZ
+
+### Virtual network peering
+
+For the FastPath feature to function correctly, the hub virtual network and any peered spoke virtual networks must reside within the same region. It is important to note that FastPath doesn't support globally peered virtual networks.
 
 ## Limitations
 
