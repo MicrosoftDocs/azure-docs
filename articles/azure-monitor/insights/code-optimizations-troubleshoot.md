@@ -40,14 +40,14 @@ To make sure that profiles are uploaded to your Application Insights resource, f
 1. In the navigation pane of your Application Insights resource, locate the **Investigate** heading, and then select **Performance**.
 1. On the **Performance** page of your Application Insights resource, select **Profiler**:
 
-   :::image type="content" source="./media/code-optimizations-troubleshooting/performance-page.png" alt-text="Azure portal screenshot that shows how to navigate to the Application Insights Profiler.":::
+   :::image type="content" source="./media/code-optimizations-troubleshoot/performance-page.png" alt-text="Azure portal screenshot that shows how to navigate to the Application Insights Profiler.":::
 
 1. On the **Application Insights Profiler** page, view the **Recent profiling sessions** section.
 
-   :::image type="content" source="./media/code-optimizations-troubleshooting/profiling-sessions.png" alt-text="Azure portal screenshot of the Application Insights Profiler page." lightbox="./media/code-optimizations-troubleshooting/profiling-sessions.png":::
+   :::image type="content" source="./media/code-optimizations-troubleshoot/profiling-sessions.png" alt-text="Azure portal screenshot of the Application Insights Profiler page." lightbox="./media/code-optimizations-troubleshooting/profiling-sessions.png":::
 
    > [!NOTE]  
-   > If you don't see any profiling sessions, see [Troubleshoot Application Insights Profiler](./profiler-troubleshooting.md).
+   > If you don't see any profiling sessions, see [Troubleshoot Application Insights Profiler](../profiler/profiler-troubleshooting.md).
 
 ### Step 5: Regularly check the Profiler
 
