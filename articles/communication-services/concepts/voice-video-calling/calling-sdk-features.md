@@ -45,6 +45,7 @@ Once you start development, check out the [known issues page](../known-issues.md
 - **Media Stats** - The Calling SDK provides comprehensive insights into [the metrics](media-quality-sdk.md) of your VoIP and video calls. With this information, developers have a clearer understanding of call quality and can make informed decisions to further enhance their communication experience.
 - **Video Constraints** - The Calling SDK provides APIs that gain the ability to regulate [video quality among other parameters](../../quickstarts/voice-video-calling/get-started-video-constraints.md) during video calls by adjusting parameters such as resolution and frame rate supporting different call situations for different levels of video quality
 - **User Facing Diagnostics (UFD)** - The Calling SDK provides [events](user-facing-diagnostics.md) that are designed to provide insights into underlying issues that could affect call quality. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that they're always aware of any factors impacting the calls.
+- **Custom context** - The Calling SDK provides APIs supporting calling with one user-to-user and up to five custom headers. The headers are received within the incoming call.  
 
 ## Detailed capabilities
 
@@ -102,6 +103,7 @@ The following list presents the set of features that are currently available in 
 |      | Noise suppression          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
+| Custom context    | Place a call with user-to-user or custom headers                                                                    | ✔️   | ❌       | ❌              | ❌                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
 
