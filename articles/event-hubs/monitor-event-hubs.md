@@ -39,10 +39,10 @@ For more information about the resource types for Event Hubs, see [Azure Event H
 
 - Log Analytics
 
-  If you use Log Analytics to store the diagnostic logging information, the information is stored in tables named AzureDiagnostics / AzureMetrics or resource specific tables.
+  If you use Log Analytics to store the diagnostic logging information, the information is stored in tables named *AzureDiagnostics / AzureMetrics* or resource specific tables.
 
 > [!IMPORTANT]
-> Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
+> Enabling these settings requires additional Azure services: storage account, event hub, or Log Analytics. These services might increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.

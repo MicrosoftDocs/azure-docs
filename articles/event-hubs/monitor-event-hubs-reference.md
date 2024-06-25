@@ -56,7 +56,7 @@ This table provides more information for message metrics from the preceding tabl
 
 > [!NOTE]
 > - These values are point-in-time values. Incoming messages that are consumed immediately after that point-in-time might not be reflected in these metrics.
-> - The Incoming Requests metric includes all the data and management plane operations. The Incoming Messages metric gives you the total number of events that are sent to the event hub. For example, if you send a batch of 100 events to an event hub, it'll count as 1 incoming request and 100 incoming messages.
+> - The Incoming Requests metric includes all the data and management plane operations. The Incoming Messages metric gives you the total number of events that are sent to the event hub. For example, if you send a batch of 100 events to an event hub, it counts as 1 incoming request and 100 incoming messages.
 
 This table provides more information for capture metrics from the preceding tables.
 
@@ -88,7 +88,7 @@ The following two types of errors are classified as *user errors*:
 2. Errors that occur while processing messages.
 
 > [!NOTE]
-> Logic Apps creates epoch receivers and receivers may be moved from one node to another depending on the service load. During those moves, `ReceiverDisconnection` exceptions may occur. They are counted as user errors on the Event Hubs service side. Logic Apps can collect failures from Event Hubs clients so that you can view them in user logs.
+> Logic Apps creates epoch receivers. Receivers can be moved from one node to another depending on the service load. During those moves, `ReceiverDisconnection` exceptions might occur. They are counted as user errors on the Event Hubs service side. Logic Apps can collect failures from Event Hubs clients so that you can view them in user logs.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -104,7 +104,7 @@ The following two types of errors are classified as *user errors*:
 Adding dimensions to your metrics is optional. If you don't add dimensions, metrics are specified at the namespace level.
 
 > [!NOTE]
-> When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
+> When you enable metrics in a diagnostic setting, dimension information isn't currently included as part of the information sent to a storage account, event hub, or log analytics.
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
