@@ -792,9 +792,8 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
 
 Once you're finished reviewing your deployment, delete all the resources you created in this guide using the [`az group delete`][az-group-delete] command.
 
-    ```azurecli-interactive 
-    az group delete --resource-group $RESOURCE_GROUP_NAME --no-wait --yes
-    ```
+```azurecli-interactive 
+az group delete --resource-group $RESOURCE_GROUP_NAME --no-wait --yes
 
 ## Next steps
 
