@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 06/11/2024
+ms.date: 06/25/2024
 ---
 
 # Preview features in Azure AI Search
 
-This article identifies all features in public preview. This list is helpful for checking feature status.
+This article identifies all data plane and control plane features in public preview. This list is helpful for checking feature status. It also provides usage guidance and reminders to always upgrade to newer preview API versions as they roll out.
 
 Preview features are removed from this list if they're retired or transition to general availability. For announcements regarding general availability and retirement, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
 
@@ -52,7 +52,7 @@ Preview features are removed from this list if they're retired or transition to 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [**User-assigned managed identity**](search-howto-managed-identities-data-sources.md) | Service | Configures a search service to use a previously created user-assigned managed identity. | [Services - Update](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity), 2021-04-01-preview or a later. |
+| [**Search service under a user-assigned managed identity**](search-howto-managed-identities-data-sources.md) | Service | Configures a search service to use a previously created user-assigned managed identity. | [Services - Update](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-03-01-preview&preserve-view=true#identity), 2021-04-01-preview or a later. |
 
 ## Preview features in Azure SDKs
 
@@ -73,29 +73,30 @@ The following statements apply to preview features:
 + Preview features might undergo breaking changes if a redesign is required. 
 + Sometimes preview features don't make it into a GA release.
 
+If you write code against a preview API, you should prepare to upgrade that code to newer API versions when they roll out. We maintain an [Upgrade REST APIs](search-api-migration.md) document to make that step easier.
+
 ## How to call a preview REST API
 
 Preview REST APIs are accessed through the api-version parameter on the URI. Older previews are still operational but become stale over time and aren't updated with new features or bug fixes.
 
-For content operations, [**`2023-10-01-Preview`**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) is the most recent preview version. The following example shows the syntax for [Search POST (preview)](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true):
+For data plane operation on content, [**`2024-05-01-preview`**](/rest/api/searchservice/search-service-api-versions#2024-05-01-Preview) is the most recent preview version. The following example shows the syntax for [Indexes GET (preview)](/rest/api/searchservice/indexes/get?view=rest-searchservice-2024-05-01-preview&preserve-view=true):
 
 ```rest
-GET {endpoint}/indexes('{indexName}')?api-version=2023-10-01-Preview
+GET {endpoint}/indexes('{indexName}')?api-version=2024-05-01-Preview
 ```
 
-For management operations, [**`2021-04-01-Preview`**](/rest/api/searchmanagement/management-api-versions#2021-04-01-Preview) is the most recent preview version. The following example shows the syntax for Update Service 2021-04-01-preview version.
+For management operations on the search service, [**`2024-06-01-preview`**](/rest/api/searchmanagement/services/update?view=rest-searchmanagement-2024-06-01-preview&preserve-view=true) is the most recent preview version. The following example shows the syntax for Update Service 2024-06-01-preview version.
 
 ```rest
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}?api-version=2021-04-01-preview
+PATCH https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice?api-version=2024-06-01-preview
+
 {
-  "location": "{{region}}",
-  "sku": {
-    "name": "basic"
+  "tags": {
+    "app-name": "My e-commerce app",
+    "new-tag": "Adding a new tag"
   },
   "properties": {
-    "replicaCount": 3,
-    "partitionCount": 1,
-    "hostingMode": "default"
+    "replicaCount": 2
   }
 }
 ```
