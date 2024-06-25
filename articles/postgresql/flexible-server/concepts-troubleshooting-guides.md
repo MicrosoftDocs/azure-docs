@@ -85,7 +85,7 @@ The troubleshooting guides consist of the following components:
   * Autovacuum blockers
 
 
-Before using any troubleshooting guide, it is essential to ensure that all prerequisites are in place. For a detailed list of prerequisites, please refer to the [Use Troubleshooting Guides](how-to-troubleshooting-guides.md) article.
+Before using any troubleshooting guide, it is essential to ensure that all prerequisites are in place. For a detailed list of prerequisites, please refer to the [Use troubleshooting guides](how-to-troubleshooting-guides.md) article.
 
 ### Limitations
 
@@ -95,7 +95,7 @@ Before using any troubleshooting guide, it is essential to ensure that all prere
 
 ## Next steps
 
-* Learn more about [How to use Troubleshooting Guides](how-to-troubleshooting-guides.md).
+* Learn more about [How to use troubleshooting guides](how-to-troubleshooting-guides.md).
 * Learn more about [Troubleshoot high CPU utilization](how-to-high-cpu-utilization.md).
 * Learn more about [High memory utilization](how-to-high-memory-utilization.md).
 * Learn more about [Troubleshoot high IOPS utilization](how-to-high-io-utilization.md).
