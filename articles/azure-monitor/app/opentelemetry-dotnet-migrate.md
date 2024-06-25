@@ -10,25 +10,42 @@ ms.reviewer: mmcc
 
 # Migrate from .NET Application Insights SDKs to Azure Monitor OpenTelemetry
 
-This guide provides options to migrate various .NET applications from Application Insights SDKs to Azure Monitor OpenTelemetry.
+This guide provides options to migrate various .NET applications from Application Insights software development kits (SDKs) to Azure Monitor OpenTelemetry.
 
-## Migration paths
+We cover ASP.NET Core and migrating to the OpenTelemetry Distro. We also cover migrating ASP.NET, console, and WorkerService migrations to the Azure Monitor OpenTelemetry Exporter.
 
-We cover ASP.NET, ASP.NET Core, console, and WorkerService migrations. For more information, see [Advanced Scenarios](#advanced-scenarios).
+For more information, see [Advanced Scenarios](#advanced-scenarios).
+
+## Prerequisites
 
 ### [ASP.NET Core](#tab/aspnetcore)
-
-### Prerequisites
 
 * An ASP.NET Core web application already instrumented with Application Insights without any customizations
 * An actively supported version of [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 
-### Steps to Migrate
+### [ASP.NET](#tab/net)
 
-#### Step 1: Remove Application Insights SDK
+* An ASP.NET web application already instrumented with Application Insights
+* An actively supported version of [.NET Framework](/lifecycle/products/microsoft-net-framework)
 
-The first step is to remove the Application Insights SDK.
-If you used Visual Studio's Add Application Insights experience, this would have added some additional files.
+### [Console](#tab/console)
+
+* A Console application already instrumented with Application Insights
+* An actively supported version of [.NET Framework](/lifecycle/products/microsoft-net-framework) or [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
+
+### [WorkerService](#tab/workerservice)
+
+* A WorkerService application already instrumented with Application Insights without any customizations
+* An actively supported version of [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
+
+---
+
+## Remove the Application Insights SDK
+
+### [ASP.NET Core](#tab/aspnetcore)
+
+Visual Studio's *Add Application Insights* experience adds more files.
+
 Before continuing with these steps, you should confirm that you have a current backup of your application.
 
 1. Remove NuGet packages
@@ -68,7 +85,178 @@ Before continuing with these steps, you should confirm that you have a current b
 
 4. Test your application
 
-    Verify that your application has no unexpected consequenses.
+    Verify that your application has no unexpected consequences.
+
+### [ASP.NET](#tab/net)
+
+When you first added Application Insights to your project, the SDK adds a config file and makes some edits to the web.config.
+Visual Studio's *Add Application Insights* experience adds more files.
+If using NuGet tools to remove the Application Insights, then some is cleaned up.
+If you're manually removing the package reference from your csproj, you need to manually clean up these artifacts.
+Before continuing with these steps, you should confirm that you have a current backup of your application.
+
+1. Remove NuGet packages
+
+   Remove the `Microsoft.AspNet.TelemetryCorrelation` package and any `Microsoft.ApplicationInsights.*` packages from your `csproj` and `packages.config`.
+
+2. Delete the `ApplicationInsights.config` file
+
+3. Delete section from your application's `Web.config` file
+
+    - Two [HttpModules](/troubleshoot/developer/webapps/aspnet/development/http-modules-handlers) were automatically added to your web.config when you first added ApplicationInsights to your project.
+    Any references to the `TelemetryCorrelationHttpModule` and the `ApplicationInsightsWebTracking` should be removed.
+    If you added Application Insights to your [Internet Information Server (IIS) Modules](/iis/get-started/introduction-to-iis/iis-modules-overview), it should also be removed.
+
+      ```xml
+      <configuration>
+        <system.web>
+          <httpModules>
+            <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" />
+            <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
+          </httpModules>
+        </system.web>
+        <system.webServer>
+          <modules>
+            <remove name="TelemetryCorrelationHttpModule" />
+            <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="managedHandler" />
+            <remove name="ApplicationInsightsWebTracking" />
+            <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+          </modules>
+        </system.webServer>
+      </configuration>
+      ```
+
+    - Also review any [assembly version redirections](https://learn.microsoft.com/dotnet/framework/configure-apps/redirect-assembly-versions) added to your web.config.
+
+4. Remove Initialization Code and customizations
+
+    Remove any references to Application Insights types in your codebase.
+
+    > [!Tip]
+    > After removing the Application Insights package, you can re-build your application to get a list of references that need to be removed.
+
+    - Remove references to `TelemetryConfiguration` or `TelemetryClient`. It's a part of your application startup to initialize the Application Insights SDK.
+
+    The following scenarios are optional and apply to advanced users.
+
+    - If you have any more references to the `TelemetryClient`, which are used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), they should be removed.
+    - If you added any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) in the form of a custom `TelemetryProcessor` or `TelemetryInitializer`, they should be removed. You can find them referenced in your configuration.
+    - If your project has a `FilterConfig.cs` in the `App_Start` directory, check for any custom exception handlers that reference Application Insights and remove.
+
+5. Remove JavaScript Snippet
+
+    If you added the JavaScript SDK to collect client-side telemetry, it can also be removed although it continues to work without the .NET SDK.
+    For full code samples of what to remove, review the [onboarding guide for the JavaScript SDK](https://learn.microsoft.com/azure/azure-monitor/app/javascript-sdk).
+
+6. Remove any Visual Studio Artifacts
+
+    If you used Visual Studio to onboard to Application Insights, you could have more files left over in your project.
+
+    - `ConnectedService.json` might have a reference to your Application Insights resource.
+    - `[Your project's name].csproj` might have a reference to your Application Insights resource:
+
+        ```xml
+        <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
+        ```
+
+7. Clean and Build
+
+    Inspect your bin directory to validate that all references to `Microsoft.ApplicationInsights.` were removed.
+
+8. Test your application
+
+    Verify that your application has no unexpected consequences.
+
+### [Console](#tab/console)
+
+Before continuing with these steps, you should confirm that you have a current backup of your application.
+
+1. Remove NuGet packages
+
+   Remove any `Microsoft.ApplicationInsights.*` packages from your `csproj` and `packages.config`.
+
+    ```console
+    dotnet remove package Microsoft.ApplicationInsights
+    ```
+
+    > [!Tip]
+    > If you've used [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService), please refer to our [Guide for WorkerService applications](guide_workerservice.md).
+
+2. Remove Initialization Code and customizations
+
+    Remove any references to Application Insights types in your codebase.
+
+    > [!Tip]
+    > After removing the Application Insights package, you can re-build your application to get a list of references that need to be removed.
+
+    - Remove references to `TelemetryConfiguration` or `TelemetryClient`. It should be part of your application startup to initialize the Application Insights SDK.
+
+        ```csharp
+        var config = TelemetryConfiguration.CreateDefault();
+        var client = new TelemetryClient(config);
+        ```
+
+    > [!Tip]
+    > If you've used `AddApplicationInsightsTelemetryWorkerService()` to add Application Insights to your `ServiceCollection`, please refer to our [Guide for WorkerService applications](guide_workerservice.md).
+
+3. Clean and Build
+
+    Inspect your bin directory to validate that all references to `Microsoft.ApplicationInsights.` were removed.
+
+4. Test your application
+
+    Verify that your application has no unexpected consequences.
+
+### [WorkerService](#tab/workerservice)
+
+The first step is to remove the Application Insights SDK.
+If you used Visual Studio's *Add Application Insights* experience, it added more files.
+Before continuing with these steps, you should confirm that you have a current backup of your application.
+
+1. Remove NuGet packages
+
+    Remove the `Microsoft.ApplicationInsights.WorkerService` package from your `csproj`.
+
+    ```console
+    dotnet remove package Microsoft.ApplicationInsights.AspNetCore
+    ```
+
+2. Remove Initialization Code and customizations
+
+    Remove any references to Application Insights types in your codebase.
+
+    > [!Tip]
+    > After removing the Application Insights package, you can re-build your application to get a list of references that need to be removed.
+
+    - Remove Application Insights from your `ServiceCollection` by deleting the following line:
+
+        ```csharp
+        builder.Services.AddApplicationInsightsTelemetryWorkerService();
+        ```
+
+    - Remove the `ApplicationInsights` section from your `appsettings.json`.
+
+        ```json
+        {
+            "ApplicationInsights": {
+                "ConnectionString": "<Your Connection String>"
+            }
+        }
+        ```
+
+3. Clean and Build
+
+    Inspect your bin directory to validate that all references to `Microsoft.ApplicationInsights.*` were removed.
+
+4. Test your application
+
+    Verify that your application has no unexpected consequences.
+
+---
+
+## Install and configure OpenTelemetry
+
+### [ASP.NET Core](#tab/aspnetcore)
 
 #### Step 2: Install the Azure Monitor Distro and Enable at Application Startup
 
@@ -82,11 +270,10 @@ Before continuing with these steps, you should confirm that you have a current b
 
 2. Add and configure both OpenTelemetry and Azure Monitor
 
-    The OpenTelemery SDK must be configured at application startup as part of your `ServiceCollection`.
-    This is typically done in the `Program.cs`.
+    The OpenTelemery SDK must be configured at application startup as part of your `ServiceCollection`, typically in the `Program.cs`.
 
     OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
-    The Azure Monitor Distro will configure each of these signals.
+    The Azure Monitor Distro configures each of these signals.
 
     **Program.cs**
 
@@ -110,17 +297,17 @@ Before continuing with these steps, you should confirm that you have a current b
     APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
     ```
 
-    Additional options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=aspnetcore#connection-string).
+    More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=aspnetcore#connection-string).
 
-#### Step 3: Additional configurations
+#### Step 3: More configurations
 
-Application Insights offered many additional configuration options via `ApplicationInsightsServiceOptions`.
+Application Insights offered many more configuration options via `ApplicationInsightsServiceOptions`.
 
 | Application Insights Setting               | OpenTelemetry Alternative                                                                                            |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | AddAutoCollectedMetricExtractor            | N/A                                                                                                                  |
 | ApplicationVersion                         | Set "service.version" on Resource                                                                                    |
-| ConnectionString                           | See [instructions](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=aspnetcore#connection-string) on configuring the Conneciton String.  |
+| ConnectionString                           | See [instructions](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=aspnetcore#connection-string) on configuring the Connection String.  |
 | DependencyCollectionOptions                | N/A. To customize dependencies, review the available configuration options for applicable Instrumentation libraries. |
 | DeveloperMode                              | N/A                                                                                                                  |
 | EnableActiveTelemetryConfigurationSetup    | N/A                                                                                                                  |
@@ -141,10 +328,10 @@ Application Insights offered many additional configuration options via `Applicat
 
 ### Remove Custom Configurations
 
-The following scenarios are optional and may only apply to advanced users.
+The following scenarios are optional and only apply to advanced users.
 
-* If you have any additional references to the `TelemetryClient` which may have been used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), these should be removed.
-* If you added any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) in the form of a custom `TelemetryProcessor` or `TelemetryInitializer`, these should be removed. These would have been added to your `ServiceCollection`.
+* If you have any more references to the `TelemetryClient`, which could be used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), they should be removed.
+* If you added any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) in the form of a custom `TelemetryProcessor` or `TelemetryInitializer`, they should be removed. They can be found in your `ServiceCollection`.
 
     ```csharp
     builder.Services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
@@ -156,112 +343,25 @@ The following scenarios are optional and may only apply to advanced users.
 
 * Remove JavaScript Snippet
 
-    If you used the Snippet provided by the Application Insights .NET SDK, this must also be removed.
+    If you used the Snippet provided by the Application Insights .NET SDK, it must also be removed.
     For full code samples of what to remove, review the guide [enable client-side telemetry for web applications](https://learn.microsoft.com/azure/azure-monitor/app/asp-net-core?tabs=netcorenew#enable-client-side-telemetry-for-web-applications).
 
-    If you added the JavaScript SDK to collect client-side telemetry, this can also be removed although this will continue to work without the .NET SDK.
-    For full code samples of what to remove, review the [onboarding guide for the Javascript SDK](https://learn.microsoft.com/azure/azure-monitor/app/javascript-sdk).
+    If you added the JavaScript SDK to collect client-side telemetry, it can also be removed although it continues to work without the .NET SDK.
+    For full code samples of what to remove, review the [onboarding guide for the JavaScript SDK](https://learn.microsoft.com/azure/azure-monitor/app/javascript-sdk).
 
 * Remove any Visual Studio Artifacts
 
-    If you used Visual Studio to onboard to Application Insights you may have additional files left over in your project.
+    If you used Visual Studio to onboard to Application Insights, you could have more files left over in your project.
 
   - `Properties/ServiceDependencies` directory might have a reference to your Application Insights resource.
 
 ### [ASP.NET](#tab/net)
 
-### Prerequisites
-
-* An ASP.NET web application already instrumented with Application Insights
-* An actively supported version of [.NET Framework](https://learn.microsoft.com/lifecycle/products/microsoft-net-framework)
-
-### Steps to Migrate
-
-#### Step 1: Remove Application Insights SDK
-
-When you first added Application Insights to your project, the SDK would have added a config file and made some edits to the web.config.
-If you used Visual Studio's Add Application Insights experience, this would have added additional files.
-If using Nuget tools to remove the Application Insights, some of this will be cleaned up.
-If you're manually removing the package reference from your csproj, you'll need to manually cleanup these artifacts.
-Before continuing with these steps, you should confirm that you have a current backup of your application.
-
-1. Remove NuGet packages
-
-   Remove the `Microsoft.AspNet.TelemetryCorrelation` package and any `Microsoft.ApplicationInsights.*` packages from your `csproj` and `packages.config`.
-
-2. Delete the `ApplicationInsights.config` file
-
-3. Delete section from your application's `Web.config` file
-
-    - Two [HttpModules](https://learn.microsoft.com/troubleshoot/developer/webapps/aspnet/development/http-modules-handlers) were automatically added to your web.config when you first added ApplicationInsights to your project.
-    Any references to the `TelemetryCorrelationHttpModule` and the `ApplicationInsightsWebTracking` should be removed.
-    If you added Application Insights to your [IIS Modules](https://learn.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview), this should also be removed.
-
-      ```xml
-      <configuration>
-        <system.web>
-          <httpModules>
-            <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" />
-            <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
-          </httpModules>
-        </system.web>
-        <system.webServer>
-          <modules>
-            <remove name="TelemetryCorrelationHttpModule" />
-            <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="managedHandler" />
-            <remove name="ApplicationInsightsWebTracking" />
-            <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
-          </modules>
-        </system.webServer>
-      </configuration>
-      ```
-
-    - Also review any [assembly version redirections](https://learn.microsoft.com/dotnet/framework/configure-apps/redirect-assembly-versions) that may have been added to your web.config.
-
-4. Remove Initialization Code and customizations
-
-    Remove any references to Application Insights types in your codebase.
-
-    > [!Tip]
-    > After removing the Application Insights package, you can re-build your application to get a list of references that need to be removed.
-
-    - Remove references to `TelemetryConfiguration` or `TelemetryClient`. These should have been a part of your application startup to initialize the Application Insights SDK.
-
-    The following scenarios are optional and may only apply to advanced users.
-
-    - If you have any additional references to the `TelemetryClient` which may have been used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), these should be removed.
-    - If you added any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) in the form of a custom `TelemetryProcessor` or `TelemetryInitializer`, these should be removed. These would have been referenced in your configuration.
-    - If your project has a `FilterConfig.cs` in the `App_Start` directory, check for any custom exception handlers that reference Application Insights and remove.
-
-5. Remove JavaScript Snippet
-
-    If you added the JavaScript SDK to collect client-side telemetry, this can also be removed although this will continue to work without the .NET SDK.
-    For full code samples of what to remove, review the [onboarding guide for the Javascript SDK](https://learn.microsoft.com/azure/azure-monitor/app/javascript-sdk).
-
-6. Remove any Visual Studio Artifacts
-
-    If you used Visual Studio to onboard to Application Insights you may have additional files left over in your project.
-
-    - `ConnectedService.json` might have a reference to your Application Insights resource.
-    - `[Your project's name].csproj` might have a reference to your Application Insights resource:
-
-        ```xml
-        <ApplicationInsightsResourceId>/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebApplication4</ApplicationInsightsResourceId>
-        ```
-
-7. Clean and Build
-
-    Inspect your bin directory to validate that all references to `Microsoft.ApplicationInsights.` were removed.
-
-8. Test your application
-
-    Verify that your application has no unexpected consequenses.
-
 #### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
 1. Install the OpenTelemetry SDK via Azure Monitor
 
-    Installing the Azure Monitor Exporter will bring the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
+    Installing the Azure Monitor Exporter brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
 
     ```console
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter
@@ -269,15 +369,15 @@ Before continuing with these steps, you should confirm that you have a current b
 
 2. Configure OpenTelemetry as part of your application startup
 
-    The OpenTelemery SDK must be configured at application startup. This is typically done in the `Global.asax.cs`.
+    The OpenTelemery SDK must be configured at application startup, typically in the `Global.asax.cs`.
     OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
-    Each of these signals will need to be configured as part of your application startup.
+    Each of these signals needs to be configured as part of your application startup.
     `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
 
 ##### Global.asax.cs
 
 The following code sample shows a simple example meant only to show the basics.
-No telemetry will be collected at this point.
+No telemetry is collected at this point.
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -319,13 +419,13 @@ public class Global : System.Web.HttpApplication
 
 [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies. We recommend the following libraries:
 
-1. [OpenTelemetry.Instrumentation.AspNet](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet) can be used to collect telemetry for incoming requests. Azure Monitor will map this to [Request Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#request).
+1. [OpenTelemetry.Instrumentation.AspNet](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNet) can be used to collect telemetry for incoming requests. Azure Monitor maps it to [Request Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#request).
 
     ```console
     dotnet add package OpenTelemetry.Instrumentation.AspNet
     ```
 
-    This requires adding an additional HttpModule to your `Web.config`:
+    It requires adding an extra HttpModule to your `Web.config`:
 
     ```xml
     <system.webServer>
@@ -341,7 +441,7 @@ public class Global : System.Web.HttpApplication
 
     A complete getting started guide is available here: [OpenTelemetry.Instrumentation.AspNet Readme](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/tree/main/src/OpenTelemetry.Instrumentation.AspNet)
 
-2. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor will map this to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
+2. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor maps it to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
 
     ```console
     dotnet add package OpenTelemetry.Instrumentation.Http
@@ -349,7 +449,7 @@ public class Global : System.Web.HttpApplication
 
     A complete getting started guide is available here: [OpenTelemetry.Instrumentation.Http Readme](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/tree/main/src/OpenTelemetry.Instrumentation.Http)
 
-3. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor will map this to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
+3. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor maps it to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
 
     ```console
     dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
@@ -360,7 +460,7 @@ public class Global : System.Web.HttpApplication
 ##### Global.asax.cs
 
 The following code sample expands on the previous example.
-This now collects telemetry, but does not yet send to Application Insights.
+It now collects telemetry, but doesn't yet send to Application Insights.
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -409,7 +509,7 @@ To send your telemetry to Application Insights, the Azure Monitor Exporter must 
 ##### Global.asax.cs
 
 The following code sample expands on the previous example.
-This now collects telemetry and will send to Application Insights.
+It now collects telemetry and sends to Application Insights.
 
 ```csharp
 public class Global : System.Web.HttpApplication
@@ -454,62 +554,15 @@ We recommend setting your Connection String in an environment variable:
 APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 ```
 
-Additional options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
+More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
 
 ### [Console](#tab/console)
-
-### Prerequisites
-
-* A Console application already instrumented with Application Insights
-* An actively supported version of [.NET Framework](https://learn.microsoft.com/lifecycle/products/microsoft-net-framework) or [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
-
-### Steps to Migrate
-
-#### Step 1: Remove Application Insights SDK
-
-Before continuing with these steps, you should confirm that you have a current backup of your application.
-
-1. Remove NuGet packages
-
-   Remove any `Microsoft.ApplicationInsights.*` packages from your `csproj` and `packages.config`.
-
-    ```console
-    dotnet remove package Microsoft.ApplicationInsights
-    ```
-
-    > [!Tip]
-    > If you've used [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService), please refer to our [Guide for WorkerService applications](guide_workerservice.md).
-
-2. Remove Initialization Code and customizations
-
-    Remove any references to Application Insights types in your codebase.
-
-    > [!Tip]
-    > After removing the Application Insights package, you can re-build your application to get a list of references that need to be removed.
-
-    - Remove references to `TelemetryConfiguration` or `TelemetryClient`. These should have been a part of your application startup to initialize the Application Insights SDK.
-
-        ```csharp
-        var config = TelemetryConfiguration.CreateDefault();
-        var client = new TelemetryClient(config);
-        ```
-
-    > [!Tip]
-    > If you've used `AddApplicationInsightsTelemetryWorkerService()` to add Application Insights to your `ServiceCollection`, please refer to our [Guide for WorkerService applications](guide_workerservice.md).
-
-3. Clean and Build
-
-    Inspect your bin directory to validate that all references to `Microsoft.ApplicationInsights.` were removed.
-
-4. Test your application
-
-    Verify that your application has no unexpected consequenses.
 
 #### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
 1. Install the OpenTelemetry SDK via Azure Monitor
 
-    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) will bring the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
+    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
 
     ```console
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter
@@ -517,13 +570,13 @@ Before continuing with these steps, you should confirm that you have a current b
 
 2. Configure OpenTelemetry as part of your application startup
 
-    The OpenTelemery SDK must be configured at application startup. This is typically done in the `Program.cs`.
+    The OpenTelemery SDK must be configured at application startup, typically in the `Program.cs`.
     OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
-    Each of these signals will need to be configured as part of your application startup.
+    Each of these signals needs to be configured as part of your application startup.
     `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
 
 The following code sample shows a simple example meant only to show the basics.
-No telemetry will be collected at this point.
+No telemetry is collected at this point.
 
 ##### Program.cs
 
@@ -551,15 +604,15 @@ internal class Program
         Console.WriteLine("Hello, World!");
 
         // Dispose tracer provider before the application ends.
-        // This will flush the remaining spans and shutdown the tracing pipeline.
+        // It will flush the remaining spans and shutdown the tracing pipeline.
         tracerProvider.Dispose();
 
         // Dispose meter provider before the application ends.
-        // This will flush the remaining metrics and shutdown the metrics pipeline.
+        // It will flush the remaining metrics and shutdown the metrics pipeline.
         meterProvider.Dispose();
 
         // Dispose logger factory before the application ends.
-        // This will flush the remaining logs and shutdown the logging pipeline.
+        // It will flush the remaining logs and shutdown the logging pipeline.
         loggerFactory.Dispose();
     }
 }
@@ -569,7 +622,7 @@ internal class Program
 
 [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies. We recommend the following libraries:
 
-1. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor will map this to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
+1. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor maps it to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
 
     ```console
     dotnet add package OpenTelemetry.Instrumentation.Http
@@ -577,7 +630,7 @@ internal class Program
 
     A complete getting started guide is available here: [OpenTelemetry.Instrumentation.Http Readme](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/tree/main/src/OpenTelemetry.Instrumentation.Http)
 
-2. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor will map this to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
+2. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor maps it to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
 
     ```console
     dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
@@ -586,7 +639,7 @@ internal class Program
     A complete getting started guide is available here: [OpenTelemetry.Instrumentation.SqlClient Readme](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/tree/main/src/OpenTelemetry.Instrumentation.SqlClient)
 
 The following code sample expands on the previous example.
-This now collects telemetry, but does not yet send to Application Insights.
+It now collects telemetry, but doesn't yet send to Application Insights.
 
 ##### Program.cs
 
@@ -630,7 +683,7 @@ To send your telemetry to Application Insights, the Azure Monitor Exporter must 
 ##### Program.cs
 
 The following code sample expands on the previous example.
-This now collects telemetry and will send to Application Insights.
+It now collects telemetry and sends to Application Insights.
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -673,19 +726,19 @@ We recommend setting your Connection String in an environment variable:
 APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 ```
 
-Additional options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
+More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
 
 ### Remove Custom Configurations
 
-The following scenarios are optional and may only apply to advanced users.
+The following scenarios are optional and apply to advanced users.
 
-* If you have any additional references to the `TelemetryClient` which may have been used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), these should be removed.
+* If you have any more references to the `TelemetryClient`, which is used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), they should be removed.
 
-* If you added any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) in the form of a custom `TelemetryProcessor` or `TelemetryInitializer`, these should be removed. These would have been referenced in your configuration.
+* Remove any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) added as a custom `TelemetryProcessor` or `TelemetryInitializer`. The configuration references them.
 
 * Remove any Visual Studio Artifacts
 
-  If you used Visual Studio to onboard to Application Insights you may have additional files left over in your project.
+  If you used Visual Studio to onboard to Application Insights, you could have more files left over in your project.
 
   - `ConnectedService.json` might have a reference to your Application Insights resource.
   - `[Your project's name].csproj` might have a reference to your Application Insights resource:
@@ -696,63 +749,11 @@ The following scenarios are optional and may only apply to advanced users.
 
 ### [WorkerService](#tab/workerservice)
 
-### Prerequisites
-
-* A WorkerService application already instrumented with Application Insights without any customizations
-* An actively supported version of [.NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
-
-### Steps to Migrate
-
-#### Step 1: Remove Application Insights SDK
-
-The first step is to remove the Application Insights SDK.
-If you used Visual Studio's Add Application Insights experience, this would have added some additional files.
-Before continuing with these steps, you should confirm that you have a current backup of your application.
-
-1. Remove NuGet packages
-
-    Remove the `Microsoft.ApplicationInsights.WorkerService` package from your `csproj`.
-
-    ```console
-    dotnet remove package Microsoft.ApplicationInsights.AspNetCore
-    ```
-
-2. Remove Initialization Code and customizations
-
-    Remove any references to Application Insights types in your codebase.
-
-    > [!Tip]
-    > After removing the Application Insights package, you can re-build your application to get a list of references that need to be removed.
-
-    - Remove Application Insights from your `ServiceCollection` by deleting the following line:
-
-        ```csharp
-        builder.Services.AddApplicationInsightsTelemetryWorkerService();
-        ```
-
-    - Remove the `ApplicationInsights` section from your `appsettings.json`.
-
-        ```json
-        {
-            "ApplicationInsights": {
-                "ConnectionString": "<Your Connection String>"
-            }
-        }
-        ```
-
-3. Clean and Build
-
-    Inspect your bin directory to validate that all references to `Microsoft.ApplicationInsights.*` were removed.
-
-4. Test your application
-
-    Verify that your application has no unexpected consequenses.
-
 #### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
 1. Install the OpenTelemetry SDK via Azure Monitor
 
-    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) will bring the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
+    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
 
     ```console
     dotnet add package Azure.Monitor.OpenTelemetry.Exporter
@@ -766,13 +767,13 @@ Before continuing with these steps, you should confirm that you have a current b
 
 2. Configure OpenTelemetry as part of your application startup
 
-    The OpenTelemery SDK must be configured at application startup. This is typically done in the `Program.cs`.
+    The OpenTelemery SDK must be configured at application startup, typically in the `Program.cs`.
     OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
-    Each of these signals will need to be configured as part of your application startup.
+    Each of these signals needs to be configured as part of your application startup.
     `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
 
 The following code sample shows a simple example meant only to show the basics.
-No telemetry will be collected at this point.
+No telemetry is collected at this point.
 
 ##### Program.cs
 
@@ -804,7 +805,7 @@ public class Program
 
 [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) can be added to your project to auto collect telemetry about specific components or dependencies. We recommend the following libraries:
 
-1. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor will map this to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
+1. [OpenTelemetry.Instrumentation.Http](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) can be used to collect telemetry for outbound http dependencies. Azure Monitor maps it to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
 
     ```console
     dotnet add package OpenTelemetry.Instrumentation.Http
@@ -812,7 +813,7 @@ public class Program
 
     A complete getting started guide is available here: [OpenTelemetry.Instrumentation.Http Readme](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/tree/main/src/OpenTelemetry.Instrumentation.Http)
 
-2. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor will map this to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
+2. [OpenTelemetry.Instrumentation.SqlClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.SqlClient) can be used to collect telemetry for MS SQL dependencies. Azure Monitor maps it to [Dependency Telemetry](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete#dependency).
 
     ```console
     dotnet add package --prerelease OpenTelemetry.Instrumentation.SqlClient
@@ -821,7 +822,7 @@ public class Program
     A complete getting started guide is available here: [OpenTelemetry.Instrumentation.SqlClient Readme](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/tree/main/src/OpenTelemetry.Instrumentation.SqlClient)
 
 The following code sample expands on the previous example.
-This now collects telemetry, but does not yet send to Application Insights.
+It now collects telemetry, but doesn't yet send to Application Insights.
 
 ##### Program.cs
 
@@ -863,7 +864,7 @@ To send your telemetry to Application Insights, the Azure Monitor Exporter must 
 ##### Program.cs
 
 The following code sample expands on the previous example.
-This now collects telemetry and will send to Application Insights.
+It now collects telemetry and sends to Application Insights.
 
 ```csharp
 using Microsoft.Extensions.DependencyInjection;
@@ -904,17 +905,17 @@ We recommend setting your Connection String in an environment variable:
 APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
 ```
 
-Additional options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
+More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=net#connection-string).
 
-#### Step 5: Additional configurations
+#### Step 5: More configurations
 
-Application Insights offered many additional configuration options via `ApplicationInsightsServiceOptions`.
+Application Insights offered many more configuration options via `ApplicationInsightsServiceOptions`.
 
 | Application Insights Setting               | OpenTelemetry Alternative                                                                                            |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | AddAutoCollectedMetricExtractor            | N/A                                                                                                                  |
 | ApplicationVersion                         | Set "service.version" on Resource                                                                                    |
-| ConnectionString                           | See [instructions](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=aspnetcore#connection-string) on configuring the Conneciton String.  |
+| ConnectionString                           | See [instructions](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-configuration?tabs=aspnetcore#connection-string) on configuring the Connection String.  |
 | DependencyCollectionOptions                | N/A. To customize dependencies, review the available configuration options for applicable Instrumentation libraries. |
 | DeveloperMode                              | N/A                                                                                                                  |
 | EnableAdaptiveSampling                     | N/A. Currently only fixed-rate sampling is supported.                                                                |
@@ -931,11 +932,11 @@ Application Insights offered many additional configuration options via `Applicat
 
 ### Remove Custom Configurations
 
-The following scenarios are optional and may only apply to advanced users.
+The following scenarios are optional and apply to advanced users.
 
-* If you have any additional references to the `TelemetryClient` which may have been used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), these should be removed.
+* If you have any more references to the `TelemetryClient`, which are used to [manually record telemetry](https://learn.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics), they should be removed.
 
-* If you added any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) in the form of a custom `TelemetryProcessor` or `TelemetryInitializer`, these should be removed. These would have been added to your `ServiceCollection`.
+* If you added any [custom filtering or enrichment](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling) in the form of a custom `TelemetryProcessor` or `TelemetryInitializer`, it should be removed. You can find references in your `ServiceCollection`.
 
     ```csharp
     builder.Services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
@@ -947,7 +948,7 @@ The following scenarios are optional and may only apply to advanced users.
 
 * Remove any Visual Studio Artifacts
 
-  If you used Visual Studio to onboard to Application Insights you may have additional files left over in your project.
+  If you used Visual Studio to onboard to Application Insights, you could have more files left over in your project.
 
   - `Properties/ServiceDependencies` directory might have a reference to your Application Insights resource.
 
@@ -959,9 +960,9 @@ This section covers advanced scenarios for OpenTelemetry migration.
 
 ### Overview
 
-[OpenTelemetry](https://opentelemetry.io/) is a vendor neutral observability framework. There are no Application Insights APIs in the OpenTelemetry SDK or libraries. Before migrating it's important to understand some of OpenTelemetry's concepts.
+[OpenTelemetry](https://opentelemetry.io/) is a vendor neutral observability framework. There are no Application Insights APIs in the OpenTelemetry SDK or libraries. Before migrating, it's important to understand some of OpenTelemetry's concepts.
 
-* In Application Insights, all telemetry was managed through a single `TelemetryClient` and `TelemetryConfiguration`. In OpenTelemetry, each of the three telemetry signals (Traces, Metrics, and Logs) has its own configuration. You can manually create telemetry via the .NET runtime without external libraries. For more details, refer to the .NET guides on [distributed tracing](https://learn.microsoft.com/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs), [metrics](https://learn.microsoft.com/dotnet/core/diagnostics/metrics), and [logging](https://learn.microsoft.com/dotnet/core/extensions/logging).
+* In Application Insights, all telemetry was managed through a single `TelemetryClient` and `TelemetryConfiguration`. In OpenTelemetry, each of the three telemetry signals (Traces, Metrics, and Logs) has its own configuration. You can manually create telemetry via the .NET runtime without external libraries. For more information, see the .NET guides on [distributed tracing](https://learn.microsoft.com/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs), [metrics](https://learn.microsoft.com/dotnet/core/diagnostics/metrics), and [logging](https://learn.microsoft.com/dotnet/core/extensions/logging).
 
 * Application Insights used `TelemetryModules` to automatically collect telemetry for your application.
 Instead, OpenTelemetry uses [Instrumentation libraries](https://opentelemetry.io/docs/specs/otel/overview/#instrumentation-libraries) to collect telemetry from specific components (such as [AspNetCore](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.AspNetCore) for Requests and [HttpClient](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Http) for Dependencies).
@@ -977,8 +978,7 @@ Currently only Traces (Requests and Dependencies) can be sampled.
 
 ### Understanding Telemetry DataTypes
 
-You may already be familiar with Application Insights data types.
-This table maps them to OpenTelemetry concepts and their .NET implementations.
+This table maps Application Insights data types to OpenTelemetry concepts and their .NET implementations.
 
 | Azure Monitor Table | Application Insights DataType | OpenTelemetry DataType             | .NET Implementation                  |
 |---------------------|-------------------------------|------------------------------------|--------------------------------------|
@@ -989,7 +989,7 @@ This table maps them to OpenTelemetry concepts and their .NET implementations.
 | requests            | RequestTelemetry              | Spans (Server, Producer)           | System.Diagnostics.Activity          |
 | traces              | TraceTelemetry                | Logs                               | Microsoft.Extensions.Logging.ILogger |
 
-Review these documents to learn more:
+The following documents provide more information.
 
 - [Data Collection Basics of Azure Monitor Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/opentelemetry-overview)
 - [Application Insights telemetry data model](https://learn.microsoft.com/azure/azure-monitor/app/data-model-complete)
@@ -997,11 +997,11 @@ Review these documents to learn more:
 
 ### Telemetry Processors and Initializers
 
-In the Application Insights .NET SDK, telemetry processors are used as filters to modify or discard telemetry, while telemetry initializers are used to add or modify custom properties to telemetry. For more details, refer to the [Azure Monitor documentation](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling). In OpenTelemetry, these concepts are replaced by activity or log processors, which serve similar purposes by enriching and filtering telemetry.
+In the Application Insights .NET SDK, use telemetry processors to filter and modify or discard telemetry. Use telemetry initializers to add or modify custom properties. For more information, see the [Azure Monitor documentation](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling). OpenTelemetry replaces these concepts with activity or log processors, which enrich and filter telemetry.
 
 #### Filtering Traces
 
-To filter telemetry data in OpenTelemetry, you can implement an activity processor. This example is equivalent to the Application Insights example for filtering telemetry data as described in [Azure Monitor documentation](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling?tabs=javascriptwebsdkloaderscript#c), where unsuccessful dependency calls are filtered.
+To filter telemetry data in OpenTelemetry, you can implement an activity processor. This example is equivalent to the Application Insights example for filtering telemetry data as described in [Azure Monitor documentation](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling?tabs=javascriptwebsdkloaderscript#c). The example illustrates where unsuccessful dependency calls are filtered.
 
 ```csharp
 using System.Diagnostics;
@@ -1046,10 +1046,9 @@ filtering](https://docs.microsoft.com/dotnet/core/extensions/logging?tabs=comman
 This filtering lets you control the logs that are sent to each registered
 provider, including the `OpenTelemetryLoggerProvider`. "OpenTelemetry" is the
 [alias](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.provideraliasattribute)
-for `OpenTelemetryLoggerProvider`, that may be used in configuring filtering
-rules.
+for `OpenTelemetryLoggerProvider`, used in configuring filtering rules.
 
-The example below defines "Error" as the default `LogLevel`
+The following example defines "Error" as the default `LogLevel`
 and also defines "Warning" as the minimum `LogLevel` for a user defined category.
 These rules as defined only apply to the `OpenTelemetryLoggerProvider`.
 
@@ -1062,11 +1061,11 @@ For more information, please read the [OpenTelemetry .NET documentation on logs]
 
 #### Adding Custom Properties to Traces
 
-In OpenTelemetry, you can use activity processors to enrich telemetry data with additional properties. This is similar to using telemetry initializers in Application Insights, where you can modify telemetry properties.
+In OpenTelemetry, you can use activity processors to enrich telemetry data with more properties. It's similar to using telemetry initializers in Application Insights, where you can modify telemetry properties.
 
-By default, Azure Monitor Exporter flags any HTTP request with a response code of 400 or greater as failed. However, if you want to treat 400 as a success, you can add an enriching activity processor that sets the success on the activity and adds a tag to include additional telemetry properties. This is similar to adding or modifying properties using an initializer in Application Insights as described in [Azure Monitor documentation](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling?tabs=javascriptwebsdkloaderscript#addmodify-properties-itelemetryinitializer).
+By default, Azure Monitor Exporter flags any HTTP request with a response code of 400 or greater as failed. However, if you want to treat 400 as a success, you can add an enriching activity processor that sets the success on the activity and adds a tag to include more telemetry properties. It's similar to adding or modifying properties using an initializer in Application Insights as described in [Azure Monitor documentation](https://learn.microsoft.com/azure/azure-monitor/app/api-filtering-sampling?tabs=javascriptwebsdkloaderscript#addmodify-properties-itelemetryinitializer).
 
-Here is an example of how to add custom properties and override the default behavior for certain response codes:
+Here's an example of how to add custom properties and override the default behavior for certain response codes:
 
 ```csharp
 using System.Diagnostics;
@@ -1137,7 +1136,7 @@ For code samples detailing how to configure sampling, see our guide [Enable Samp
 
 Traces in Application Insights are stored as `RequestTelemetry` and `DependencyTelemetry`. In OpenTelemetry, traces are modeled as `Span` using the `Activity` class.
 
-OpenTelemetry .NET utilizes the `ActivitySource` and `Activity` classes for tracing, which are part of the .NET runtime. This approach is distinctive because the .NET implementation integrates the tracing API directly into the runtime itself. By incorporating the `System.Diagnostics.DiagnosticSource` package, developers can use `ActivitySource` to create and manage `Activity` instances. This method provides a seamless way to add tracing to .NET applications without relying on external libraries, leveraging the built-in capabilities of the .NET ecosystem. For more detailed information, refer to the [distributed tracing instrumentation walkthroughs](https://learn.microsoft.com/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs).
+OpenTelemetry .NET utilizes the `ActivitySource` and `Activity` classes for tracing, which are part of the .NET runtime. This approach is distinctive because the .NET implementation integrates the tracing API directly into the runtime itself. The `System.Diagnostics.DiagnosticSource` package allows developers to use `ActivitySource` to create and manage `Activity` instances. This method provides a seamless way to add tracing to .NET applications without relying on external libraries, applying the built-in capabilities of the .NET ecosystem. For more detailed information, refer to the [distributed tracing instrumentation walkthroughs](https://learn.microsoft.com/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs).
 
 Here's how to migrate manual tracing:
 
@@ -1254,9 +1253,9 @@ using (var activity = activitySource.StartActivity("RequestName", ActivityKind.S
 
 #### Custom Operations Tracking
 
-In Application Insights, tracking custom operations is done using `StartOperation` and `StopOperation` methods. In OpenTelemetry .NET, this is achieved using `ActivitySource` and `Activity`. For operations with `ActivityKind.Server` and `ActivityKind.Consumer`, Azure Monitor Exporter generates `RequestTelemetry`. For `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal`, Azure Monitor Exporter generates `DependencyTelemetry`. For more detailed information on custom operations tracking in Application Insights, refer to the [Azure Monitor documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/custom-operations-tracking). For more detailed information on using `ActivitySource` and `Activity` in .NET, refer to the [.NET distributed tracing instrumentation walkthroughs](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs#activity).
+In Application Insights, track custom operations using `StartOperation` and `StopOperation` methods. Achieve it using `ActivitySource` and `Activity` in OpenTelemetry .NET. For operations with `ActivityKind.Server` and `ActivityKind.Consumer`, Azure Monitor Exporter generates `RequestTelemetry`. For `ActivityKind.Client`, `ActivityKind.Producer`, and `ActivityKind.Internal`, it generates `DependencyTelemetry`. For more information on custom operations tracking, see the [Azure Monitor documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/app/custom-operations-tracking). For more on using `ActivitySource` and `Activity` in .NET, see the [.NET distributed tracing instrumentation walkthroughs](https://learn.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs#activity).
 
-Here is an example of how to start and stop an activity for custom operations:
+Here's an example of how to start and stop an activity for custom operations:
 
 ```csharp
 using System.Diagnostics;
@@ -1387,21 +1386,18 @@ catch (Exception ex)
 
 Metrics in Application Insights are stored as `MetricTelemetry`. In OpenTelemetry, metrics are modeled as `Meter` from the `System.Diagnostics.DiagnosticSource` package.
 
-Application Insights has both non-pre-aggregating (`TrackMetric()`) and pre-aggregating (`GetMetric().TrackValue()`) Metric APIs. Unlike OpenTelemetry, Application Insights has no notion of [Instruments](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/supplementary-guidelines.md#instrument-selection). Application Insights has the same API for all the metric scenarios.
+Application Insights has both non-pre-aggregating (`TrackMetric()`) and preaggregating (`GetMetric().TrackValue()`) Metric APIs. Unlike OpenTelemetry, Application Insights has no notion of [Instruments](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/supplementary-guidelines.md#instrument-selection). Application Insights has the same API for all the metric scenarios.
 
 OpenTelemetry, on the other hand, requires users to first [pick the right metric instrument](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/supplementary-guidelines.md#instrument-selection) based on the actual semantics of the metric. For example, if the intention is to count something (like the number of total server requests received, etc.), [OpenTelemetry Counter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#counter) should be used. If the intention is to calculate various percentiles (like the P99 value of server latency), then [OpenTelemetry Histogram](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#histogram) instrument should be used. Due to this fundamental difference between Application Insights and OpenTelemetry, no direct comparison is made between them.
 
-Unlike Application Insights, OpenTelemetry does not provide built-in mechanisms to enrich or filter metrics. In Application Insights, telemetry processors and initializers could be used to modify or discard metrics, but this capability is not available in OpenTelemetry.
+Unlike Application Insights, OpenTelemetry doesn't provide built-in mechanisms to enrich or filter metrics. In Application Insights, telemetry processors and initializers could be used to modify or discard metrics, but this capability isn't available in OpenTelemetry.
 
-Additionally, OpenTelemetry does not support sending raw metrics directly, as there is no equivalent to the `TrackMetric()` functionality found in Application Insights.
+Additionally, OpenTelemetry doesn't support sending raw metrics directly, as there's no equivalent to the `TrackMetric()` functionality found in Application Insights.
 
-Migrating from Application Insights to OpenTelemetry involves replacing all Application Insights Metric API usages with that of the OpenTelemetry API. This requires understanding the various OpenTelemetry Instruments and their semantics.
+Migrating from Application Insights to OpenTelemetry involves replacing all Application Insights Metric API usages with the OpenTelemetry API. It requires understanding the various OpenTelemetry Instruments and their semantics.
 
 > **Tip:**
 > The histogram is the most versatile and the closest equivalent to the Application Insights `GetMetric().TrackValue()` API. You can replace Application Insights Metric APIs with Histogram to achieve the same purpose.
-
-TODO: all the examples about Context should be separately covered. Context.Cloud is mapped to Resource, so we should show that. and call out that there is no ability (like classic ai sdk), to override Context.Cloud per telemetry item.
-TODO: Add related links and next steps section.
 
 ### Other Telemetry Types
 
@@ -1442,15 +1438,15 @@ TelemetryClient.TrackPageView()
 * [Azure Monitor Distro Demo project](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/monitor/Azure.Monitor.OpenTelemetry.AspNetCore/tests/Azure.Monitor.OpenTelemetry.AspNetCore.Demo)
 * [OpenTelemetry SDK's getting started guide](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry)
 * [OpenTelemetry's example ASP.NET Core project](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples/AspNetCore)
-* [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging)
-* See this doc for our full getting started guide: [Enable Azure Monitor OpenTelemetry for ASP.NET Core](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore)
+* [C# and .NET Logging](https://learn.microsoft.com/dotnet/core/extensions/logging)
+* [Azure Monitor OpenTelemetry getting started with ASP.NET Core](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore)
 
 ### [ASP.NET](#tab/net)
 
 * [OpenTelemetry SDK's getting started guide](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry)
 * [OpenTelemetry's example ASP.NET project](https://github.com/open-telemetry/opentelemetry-dotnet-contrib/blob/main/examples/AspNet/Global.asax.cs)
-* [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging)
-* See this doc for our full getting started guide: [Enable Azure Monitor OpenTelemetry for .NET](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
+* [C# and .NET Logging](https://learn.microsoft.com/dotnet/core/extensions/logging)
+* [Azure Monitor OpenTelemetry getting started with .NET](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
 
 ### [Console](#tab/console)
 
@@ -1459,13 +1455,13 @@ TelemetryClient.TrackPageView()
   * [Getting Started with Traces](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/getting-started-console)
   * [Getting Started with Metrics](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/metrics/getting-started-console)
   * [Getting Started with Logs](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs/getting-started-console)
-* [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging)
-* See this doc for our full getting started guide: [Enable Azure Monitor OpenTelemetry for .NET](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
+* [C# and .NET Logging](https://learn.microsoft.com/dotnet/core/extensions/logging)
+* [Azure Monitor OpenTelemetry getting started with .NET](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
 
 ### [WorkerService](#tab/workerservice)
 
 * [OpenTelemetry SDK's getting started guide](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/src/OpenTelemetry)
 * [Logging in C# and .NET](https://learn.microsoft.com/dotnet/core/extensions/logging)
-* See this doc for our full getting started guide: [Enable Azure Monitor OpenTelemetry for .NET](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
+* [Azure Monitor OpenTelemetry getting started with .NET](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=net)
 
 ---
