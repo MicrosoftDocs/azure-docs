@@ -27,12 +27,12 @@ Indexes should be created only for queryable fields. Wildcard indexing should be
 When a new document is inserted for the first time or an existing document is updated or deleted, each of the specified fields in the index is also updated. If the indexing policy contains a large number of fields (or all the fields in the document), more resources are consumed by the server in updating the corresponding indexes. When running at scale, only the queryable fields should be indexed while all remaining fields not used in query predicates should remain excluded from the index. 
 
 ## Create the necessary indexes before data ingestion
-For optimal performance, indexes should be created upfront before data is loaded. Documents inserted for the first time and subsequently updated or deleted will have corresponding indexes updated synchronously. If indexes are created after data is ingested, more server resources are consumed to index historical data. Depending on the size of the historical data, this operation is time consuming and impacts steady state read and write performance.
+For optimal performance, indexes should be created upfront before data is loaded. All document writes, updates and deletes will have corresponding indexes updated synchronously. If indexes are created after data is ingested, more server resources are consumed to index historical data. Depending on the size of the historical data, this operation is time consuming and impacts steady state read and write performance.
 
 > [!NOTE]
 For scenarios where read patterns change and indexes need to be added, background indexing should be enabled, which can be done through a support ticket.
 
-## For multiple indexes created on historical data, issue non-blocking createIndex commands for each field
+## For multiple indexes created on historical data, issue nonblocking createIndex commands for each field
 It is not always possible to plan for all query patterns upfront, particularly as application requirements evolve. Changing application needs inevitably requires fields to be added to the index on a cluster with a large amount of historical data. 
 
 In such scenarios, each createIndex command should be issued asynchronously without waiting on a response from the server.
