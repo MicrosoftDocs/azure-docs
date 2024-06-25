@@ -156,11 +156,22 @@ Use the following steps to change the MTU size on a Linux virtual machine:
         altname enP1328p0s2
     ```
 
-1. Set the MTU value on **vm-2** to the highest value supported by the network interface. Use the following example to set the MTU value to **3900**:
+1. Set the MTU value on **vm-2** to the highest value supported by the network interface. 
+
+    * For the Mellanox adapter, use the following example to set the MTU value to **3900**:
 
     ```bash
     echo '3900' | sudo tee /sys/class/net/eth0/mtu || echo "failed: $?"
     ```
+
+    * For the Microsoft Azure Network Adapter, use the following example to set the MTU value to **9000**:
+
+    ```bash
+    echo '9000' | sudo tee /sys/class/net/eth0/mtu || echo "failed: $?"
+    ```
+
+    >[!IMPORTANT]
+    > The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
 
 1. Sign-in to **vm-1**.
 
@@ -353,7 +364,30 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     netsh interface ipv4 set subinterface "Ethernet" mtu=9014 store=persistent
     ```
 
-1. Repeat the previous steps on **vm-2** to set the MTU value for **vm-2** to persist reboots.
+1. Sign-in to **vm-2**.
+
+1. Open a PowerShell window as an administrator.
+
+1. Use the following example to execute the PowerShell command `Test-Connection` test the network path. Replace the value of the destination host with the IP address of **vm-2**.
+
+    ```powershell
+    Test-Connection -TargetName 10.0.0.4 -MtuSize
+    ```
+
+1. If successful, the output is similar to the following example:
+
+    ```output
+    PS C:\Users\azureuser> Test-Connection -MtuSize -TargetName 10.0.0.4
+
+       Destination: 10.0.0.4
+
+    Source           Address                   Latency Status           MtuSize
+                                              (ms)                      (B)
+    ------           -------                   ------- ------           -------
+    vm-1             10.0.0.4                        1 Success             3892
+    ```
+
+1. Use the following steps on **vm-2** to set the MTU value for **vm-2** to persist reboots.
 
      * Mellanox interface:
     
