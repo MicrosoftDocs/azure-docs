@@ -1,5 +1,5 @@
 ---
-title: 'How to deploy a highly available PostgreSQL database on AKS with Azure CLI'
+title: 'Deploy a highly available PostgreSQL database on AKS with Azure CLI'
 description: Learn how to deploy a highly available PostgreSQL database on AKS using the CloudNativePG operator.
 ms.topic: overview
 ms.date: 06/07/2024
