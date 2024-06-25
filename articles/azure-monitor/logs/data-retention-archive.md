@@ -30,7 +30,7 @@ This article explains how to manage data retention at the Log Analytics workspac
 
 ## What is total retention and how do retention modifications work?
 
-**Total retention** is the sum of analytics and auxiliary retention.
+**Total retention** is the sum of interactive and auxiliary retention.
 
 :::image type="content" source="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" lightbox="media/data-retention-configure/interactive-auxiliary-retention-log-analytics-workspace.png" alt-text="Diagram that shows the interactive and auxiliary retention tiers in Azure Monitor Logs.":::
 
