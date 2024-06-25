@@ -12,7 +12,7 @@ ms.author: danlep
 
 ---
 
-# What are workspaces in Azure API Management
+# What are workspaces in Azure API Management?
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
