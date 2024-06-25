@@ -57,7 +57,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token in the Authorization header and must meet the following requirements:
 
 - The token must be either a user token or an application service principal.
-- The token must have the audience set to exactly `https://*.asazure.windows.net`. Note that `*` is not a placeholder or a wildcard, and the audience must have the `*` character as the subdomain. Specifying an invalid audience results in authentication failure.
+- The token must have the audience set to exactly `https://*.asazure.windows.net`. Note that `*` isn't a placeholder or a wildcard, and the audience must have the `*` character as the subdomain. Specifying an invalid audience results in authentication failure.
 - The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
 
     > [!IMPORTANT]
@@ -91,12 +91,12 @@ The body may resemble the following:
 
 ### Parameters
 
-Specifying parameters is not required. The default is applied.
+The default value is applied if the parameter isn't specified.
 
 | Name             | Type  | Description  |Default  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | The type of processing to perform. The types are aligned with the TMSL [refresh command](/analysis-services/tmsl/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
-| `CommitMode`     | Enum  | Determines if objects will be committed in batches or only when complete. Modes include: default, transactional, partialBatch.  |  transactional       |
+| `Type`           | Enum  | The type of processing to perform. The types are aligned with the TMSL [refresh command](/analysis-services/tmsl/refresh-command-tmsl) types: `full`, `clearValues`, `calculate`, `dataOnly`, `automatic`, and `defragment`. `add` type isn't supported.      |   `automatic`      |
+| `CommitMode`     | Enum  | Determines if objects will be committed in batches or only when complete. Modes include: `default`, `transactional`, `partialBatch`.  |  `transactional`       |
 | `MaxParallelism` | Int   | This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](/analysis-services/tmsl/sequence-command-tmsl) or using other methods.       | 10        |
 | `RetryCount`     | Int   | Indicates the number of times the operation retries before failing.      |     0    |
 | `Objects`        | Array | An array of objects to be processed. Each object includes: "table" when processing the entire table or "table" and "partition" when processing a partition. If no objects are specified, the whole model is refreshed. |   Process the entire model      |
