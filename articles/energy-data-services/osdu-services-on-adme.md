@@ -27,7 +27,7 @@ Azure Data Manager for Energy is currently compliant with the M18 OSDU® milesto
 - **Register**: Allow an application to register an action (the function to be triggered). It expects data (context) to come from OSDU to enable the action, and the application can register a filter (enable/disable) to say what data can be used with this action.
 - **Schema**: Enables a centralized governance and management of schema in the Data Ecosystem. It offers an implementation of the schema standard. Schema Service provides all necessary APIs to Fetch, create, update, and mark a schema obsolete.
 - **Search**: Provides a mechanism for searching indexes. Supports full-text search on string fields, range queries on dates, numeric, or string fields, etc., along with geo-spatial search.
-- **Secret**: Facilitates the storage and retrieval of various types of secrets in a specified repository(ies) so that secrets can be secure, separated from the secrets in the infrastructure repository, and be managed easily be interfacing applications.
+- **Secret**: Facilitates the storage and retrieval of various types of secrets in a specified repository(ies) so that secrets can be secure, separated from the secrets in the infrastructure repository, and be managed easily by interfacing applications.
 - **Seismic File Metadata**: Manages metadata associated with seismic data. It annotates dimensions, value channels, and generic key/value pairs.
 - **Storage**: Provides a set of APIs to manage the entire metadata life-cycle such as ingestion (persistence), modification, deletion, versioning, and data schema.
 - **Unit**: Provides dimension/measurement and unit definitions.
@@ -53,7 +53,7 @@ Note: The following OSDU&reg; services are currently unavailable on Azure Data M
 - **Energistics Parser DAG**
 - **Geospatial Consumption Zone**
 - **Manifest Ingestion by Reference DAG**
-- **Partition** Note: Operations can still be performed using the available data partition APIs or through Azure Portal.
+- **Partition** Note: Operations can still be performed using the available data partition APIs or through Azure portal.
 - **Policy Service**
 - **Reservoir DDMS**
 - **WITSML Parser DAG**
