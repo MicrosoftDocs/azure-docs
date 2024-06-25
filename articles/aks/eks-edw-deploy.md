@@ -7,9 +7,9 @@ author: JnHs
 ms.author: jenhayes
 ---
 
-# Deploy the AWS event-driven workflow (EDW) workload to Azure
+# Deploy an AWS event-driven workflow (EDW) workload to Azure
 
-In this article, you deploy the [AWS EDW workload][eks-edw-overview] to Azure.
+In this article, you will deploy an [AWS EDW workload][eks-edw-overview] to Azure.
 
 ## Sign in to Azure
 
