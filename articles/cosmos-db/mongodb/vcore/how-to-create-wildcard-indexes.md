@@ -52,6 +52,7 @@ Consider the json document below:
         }
     ]
 }
+```
 
 The following indices will be created under the covers when wildcard indexing is used.
 - db.collection.createIndex({"firstName", 1})
