@@ -42,16 +42,16 @@ In Azure App Service, you can make on-demand custom backups or configure schedul
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/main.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/outputs.tf":::
 
 1. Create a file named `providers.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/providers.tf":::
 
 1. Create a file named `variables.tf` and insert the following code.
-:::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples_test/quickstart/101-app-service-backup/variables.tf":::
 
 ## Initialize Terraform
 
