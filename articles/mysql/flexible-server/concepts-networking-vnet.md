@@ -120,7 +120,7 @@ You can then use the Azure Database for MySQL flexible server servername (FQDN) 
 
 ## Move from private access (virtual network integrated) network to public access or private link
 
-Azure Database for MySQL - Flexible Server can be transitioned from Private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. 
+Azure Database for MySQL flexible server can be transitioned from private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. 
 
 > [!NOTE]
 > That once the transition is made, it cannot be reversed. The transition involves a downtime of approximately 5-10 minutes for Non-HA servers and about 20 minutes for HA-enabled servers.
