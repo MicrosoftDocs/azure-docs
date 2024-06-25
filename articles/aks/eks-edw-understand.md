@@ -47,7 +47,7 @@ The following resources can help you learn more about the differences between AW
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Rearchitect the event-driven workflow (EDW) scaling workload for AKS][eks-edw-rearchitect]
+> [Rearchitect the workload for AKS][eks-edw-rearchitect]
 
 <!-- LINKS -->
 [azure-rbac]: ../role-based-access-control/overview.md

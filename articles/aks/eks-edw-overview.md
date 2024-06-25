@@ -53,7 +53,7 @@ code .
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Understand platform differences for the event-driven workflow (EDW) scaling workload][eks-edw-understand]
+> [Understand platform differences][eks-edw-understand]
 
 <!-- LINKS -->
 [competing-consumers]: /azure/architecture/patterns/competing-consumers
