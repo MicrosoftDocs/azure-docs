@@ -549,14 +549,14 @@
         href: compiling-scaling-applications.md
     - name: Enable NVMe
       items:
-      - name: Enable NVMe and SCSI interface
-        href: enable-nvme-interface.md
       - name: Enable NVMe FAQ
         href: enable-nvme-faqs.yml
       - name: Temp NVMe Disks FAQ
         href: enable-nvme-temp-faqs.yml
       - name: Remote NVMe Disks FAQ
         href: enable-nvme-remote-faqs.yml
+      - name: OS Images Supported
+        href: enable-nvme-interface.md
     - name: Previous generation and retired sizes
       items:
       - name: Overview
