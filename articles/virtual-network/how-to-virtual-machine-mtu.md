@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 06/25/2024
 
 #customer intent: As a network administrator, I want to change the MTU for my Linux or Windows virtual machine so that I can optimize network performance.
 
@@ -55,7 +55,7 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 ## Precautions
 
-- Virtual machines in Azure can support larger MTUs than the 1,500-byte default only for traffic that stays within the virtual network. A larger MTU isn't supported for scenarios outside of inter-virtual network VM-to-VM traffic. Traffic traversing through gateways, peering’s, or to the internet aren't supported. Configuration of a larger MTU can result in fragmentation and reduction in performance. For traffic utilizing these scenarios, utilize the default 1,500 byte MTU for testing to ensure that a larger MTU is supported across the entire network path. 
+- Virtual machines in Azure can support a larger MTU than the 1,500-byte default only for traffic that stays within the virtual network. A larger MTU isn't supported for scenarios outside of inter-virtual network VM-to-VM traffic. Traffic traversing through gateways, peering’s, or to the internet aren't supported. Configuration of a larger MTU can result in fragmentation and reduction in performance. For traffic utilizing these scenarios, utilize the default 1,500 byte MTU for testing to ensure that a larger MTU is supported across the entire network path. 
 
 - Optimal MTU is operating system, network, and application specific. The maximal supported MTU might not be optimal for your use case.
 
@@ -63,11 +63,11 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 ## Path MTU Discovery
 
-- It is important to understand the MTU supported across the network path(s) your application or machines uses.
+- It's important to understand the MTU supported across the network path your application or machines uses.
 
 - Path MTU discovery is a means to find out the largest MTU supported between a source and destination address.
 
-- Using a larger MTU than is supported between the source and destination address will result in fragmentation which could negatively impact performance.  
+- Using a larger MTU than is supported between the source and destination address results in fragmentation, which could negatively affect performance.  
 
 ## Obtain vm-1 IP address
 
@@ -170,7 +170,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.5
     ```
 
-1. If the output of the script is successful, then the MTU size is set correctly. If the output of the script is not successful, then the mtu size is not set correctly.
+1. If the output of the script is successful, then the MTU size is set correctly. If the output of the script isn't successful, then the MTU size isn't set correctly.
 
     ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.5
@@ -189,7 +189,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     ./GetPathMtu.sh 10.0.0.4
     ```
 
-1. If the output of the script is successful, then the MTU size is set correctly. If the output of the script is not successful, then the mtu size is not set correctly.
+1. If the output of the script is successful, then the MTU size is set correctly. If the output of the script isn't successful, then the MTU size isn't set correctly.
 
      ```output
     azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.4
@@ -249,7 +249,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
     ```
 
-1. ICMP traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-1**:
+1. Internet Control Message Protocol (ICMP) traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-1**:
 
     ```powershell
     $ICMP = Get-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" 
@@ -326,7 +326,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Test-Connection -TargetName 10.0.0.5 -MtuSize
     ```
 
-1. If successful, the output will be similar to the following example:
+1. If successful, the output is similar to the following example:
 
     ```output
     PS C:\Users\azureuser> Test-Connection -MtuSize -TargetName 10.0.0.5
