@@ -24,19 +24,19 @@ features and tools, security updates, and bug fixes.
 
 - Support for ephemeral sessions
 
-  Ephemeral sessions don't require a storage account. When your Cloud Shell session ends, which
-  occurs shortly after the window is closed or when Cloud Shell is restarted, all files you saved
-  are deleted and don't persist across sessions.
+  Ephemeral sessions don't require a storage account. You can upload or create new files in your
+  Cloud Shell session. Those files are removed shortly after the window is closed or when Cloud
+  Shell is restarted.
 
   For more information, see
   [Get started with Azure Cloud Shell ephemeral sessions](./get-started/ephemeral.md?tabs=powershell).
 
 ### Deprecated Packages
 
-The following packages have been removed for security compliance reasons. These packages have been
-deprecated by the package owners or are no longer maintained. If you need to use these tools, you
-can install them in your Cloud Shell session. For installation instructions, consult the
-documentation for the package you require.
+The following packages were removed for security compliance. These packages were deprecated by the
+package owners or are no longer maintained. If you need to use these tools, you can install them in
+your Cloud Shell session. For installation instructions, consult the documentation for the package
+you require.
 
 - [Batch-Shipyard](https://github.com/Azure/batch-shipyard)
 - [blobxfer](https://github.com/Azure/blobxfer)
