@@ -1695,7 +1695,11 @@ telemetryClient.TrackEvent("testEvent");
     } catch (Exception e) {
         telemetryClient.trackException(e);
     }
-    ```
+ 
+   
+#### [Java Native](#tab/java-native)
+
+It's not possible to send custom telemetry using the Application Insights Classic API in Java Native.
 
 #### [Node.js](#tab/nodejs)
 
@@ -2325,6 +2329,10 @@ You might use the following ways to filter out telemetry before it leaves your a
 ### [Java](#tab/java)
 
 See [sampling overrides](java-standalone-config.md#sampling-overrides) and [telemetry processors](java-standalone-telemetry-processors.md).
+
+### [Java Native](#tab/java-native)
+
+It's not possible to filter telemetry in Java Native.
 
 ### [Node.js](#tab/nodejs)
 
