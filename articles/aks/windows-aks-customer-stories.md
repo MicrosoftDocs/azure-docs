@@ -17,10 +17,10 @@ Learn directly from the customer stories listed here.
 
 ## Customer stories 
 - [Finastra](#finastra)
-- [Relativity](#relativity)	- [Relativity](#relativity)
-- [Duck Creek](#duck-creek)	- [Duck Creek](#duck-creek)
-- [Forza (Xbox Game Studios)](#forza)	- [Forza (Xbox Game Studios)](#forza)
-- [Microsoft Experience + Devices](#microsoft-experience--devices)	- [Microsoft Experience + Devices](#microsoft-experience--devices)
+- [Relativity](#relativity)
+- [Duck Creek](#duck-creek)
+- [Forza (Xbox Game Studios)](#forza)
+- [Microsoft Experience + Devices](#microsoft-experience--devices)
 
 
 ### Finastra  
