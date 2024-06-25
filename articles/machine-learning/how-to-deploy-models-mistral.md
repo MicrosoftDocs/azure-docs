@@ -67,15 +67,14 @@ Certain models in the model catalog can be deployed as a service with pay-as-you
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one. The serverless API model deployment offering for _Mistral Large_ is only available with workspaces created in these regions:
 
-    > [!div class="checklist"]
-    > * East US
-    > * East US 2
-    > * France Central
-    > * North Central US
-    > * South Central US
-    > * West US
-    > * West US 3
-    > * Sweden Central
+     * East US
+     * East US 2
+     * France Central
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
 
     For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
@@ -86,14 +85,13 @@ Certain models in the model catalog can be deployed as a service with pay-as-you
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An Azure Machine Learning workspace. If you don't have a workspace, use the steps in the [Quickstart: Create workspace resources](quickstart-create-resources.md) article to create one. The serverless API model deployment offering for _Mistral Small_ is only available with workspaces created in these regions:
 
-    > [!div class="checklist"]
-    > * East US
-    > * East US 2
-    > * North Central US
-    > * South Central US
-    > * West US
-    > * West US 3
-    > * Sweden Central
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
 
     For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
 
