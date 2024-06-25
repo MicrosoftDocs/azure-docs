@@ -4,7 +4,7 @@ description: Learn about Azure role assignments in Azure role-based access contr
 author: johndowns
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 06/27/2024
 ms.author: jodowns
 ---
 # Understand Azure role assignments
