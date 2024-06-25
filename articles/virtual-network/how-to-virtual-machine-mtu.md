@@ -120,10 +120,18 @@ Use the following steps to change the MTU size on a Linux virtual machine:
         altname enP1328p0s2
     ```
 
-1. Set the MTU value on **vm-1** to the highest value supported by the network interface. Use the following example to set the MTU value to **3900**:
+1. Set the MTU value on **vm-1** to the highest value supported by the network interface. 
+
+    * For the Mellanox adapter, use the following example to set the MTU value to **3900**:
 
     ```bash
     echo '3900' | sudo tee /sys/class/net/eth0/mtu || echo "failed: $?"
+    ```
+
+    * For the Microsoft Azure Network Adapter, use the following example to set the MTU value to **9000**:
+
+    ```bash
+    echo '9000' | sudo tee /sys/class/net/eth0/mtu || echo "failed: $?"
     ```
 
     >[!IMPORTANT]
@@ -156,7 +164,7 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 
 1. Sign-in to **vm-1**.
 
-1. Use the following example to run the Linux shell script to determine the largest MTU size that can be used for a specific network path:
+1. Use the following example to execute the Linux shell script to test the largest MTU size that can be used for a specific network path:
 
     ```bash
     ./GetPathMtu.sh 10.0.0.5
@@ -173,12 +181,31 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     3900
     ```
 
-    >[!IMPORTANT]
-    > The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
+1. Sign-in to **vm-2**.
+
+1. Use the following example to run the Linux shell script to test the largest MTU size that can be used for a specific network path:
+
+    ```bash
+    ./GetPathMtu.sh 10.0.0.4
+    ```
+
+1. If the output of the script is successful, then the MTU size is set correctly. If the output of the script is not successful, then the mtu size is not set correctly.
+
+     ```output
+    azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.4
+    destination: 10.0.0.4
+    startSendBufferSize: 1200
+    interfaceName: Default interface
+    Test started ....................................................................................................................................................................................................
+    3900
+    ```
+
+>[!IMPORTANT]
+> The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
 
 # [Windows](#tab/windows)
 
-Use PowerShell to test the connection between **vm-1** and **vm-2**.
+Use PowerShell to test the connection and MTU size between **vm-1** and **vm-2**.
 
 >[!IMPORTANT]
 > You must have the newest version of PowerShell installed in the Windows Server virtual machines. The commands in the article don't work with PowerShell included with Windows Server. For more information about [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows)
@@ -206,12 +233,35 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
     The virtual machine has two network interfaces displayed in the output.
 
-1. Record the value of the MAC address of the Mellanox ConnectX-5 Virtual Adapter. You'll need this value for the next step. For the purposes of this article, the example value is **60-45-BD-CC-77-01**. Replace the value with your own value.
+1. Record the value of the MAC address of the network interface. You'll need this value for the next step. For the purposes of this article, the example value is **60-45-BD-CC-77-01**. Replace the value with your own value.
 
-1. Use the following example to set the MTU value for the Mellanox ConnectX-5 Virtual Adapter to **4088**. Replace the value of the MAC address with your own value.
+1. Windows Virtual machine support both the Mellanox interface and the Microsoft Azure Network Adapter. 
+    
+    * To set the value on the Mellanox interface, use the following example to set the MTU value to **4088**. Replace the value of the MAC address with your own value.
 
     ```powershell
     Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 4088
+    ```
+
+    * To set the value on the Microsoft Azure Network Adapter, use the following example to set the MTU value to **9014**. Replace the value of the MAC address with your own value.
+
+    ```powershell
+    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
+    ```
+
+1. ICMP traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-1**:
+
+    ```powershell
+    $ICMP = Get-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" 
+        If ($ICMP -eq $null)
+        {
+            write-host ("ICMP is not enabled, turning on now")
+            Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
+        }
+            elseif($ICMP -ne $null)
+        {
+            write-host ("ICMP is enabled")
+        }
     ```
 
 1. Sign-in to **vm-2**.
@@ -235,34 +285,86 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 
     The virtual machine has two network interfaces displayed in the output.
 
-1. Record the value of the MAC address of the Mellanox ConnectX-5 Virtual Adapter. You'll need this value for the next step. For the purposes of this article, the example value is **60-45-BD-CC-77-01**. Replace the value with your own value.
+1. Record the value of the MAC address of the network interface. You'll need this value for the next step. For the purposes of this article, the example value is **60-45-BD-CC-77-01**. Replace the value with your own value.
 
-1. Use the following example to set the MTU value for the Mellanox ConnectX-5 Virtual Adapter to **4088**. Replace the value of the MAC address with your own value.
+1. Windows Virtual machine support both the Mellanox interface and the Microsoft Azure Network Adapter. 
+    
+    * To set the value on the Mellanox interface, use the following example to set the MTU value to **4088**. Replace the value of the MAC address with your own value.
 
     ```powershell
     Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 4088
+    ```
+
+    * To set the value on the Microsoft Azure Network Adapter, use the following example to set the MTU value to **9014**. Replace the value of the MAC address with your own value.
+
+    ```powershell
+    Get-NetAdapter | ? {$_.MacAddress -eq "60-45-BD-CC-77-01"} | Set-NetAdapterAdvancedProperty -RegistryKeyword "*JumboPacket" -RegistryValue 9014
+    ```
+
+1. ICMP traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-2**:
+
+    ```powershell
+    $ICMP = Get-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" 
+        If ($ICMP -eq $null)
+        {
+            write-host ("ICMP is not enabled, turning on now")
+            Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
+        }
+            elseif($ICMP -ne $null)
+        {
+            write-host ("ICMP is enabled")
+        }
     ```
 
 1. Sign-in to **vm-1**.
 
 1. Open a PowerShell window as an administrator.
 
-1. Use the following example to run the PowerShell module you downloaded previously to test the network path. Replace the value of the destination host with the IP address of **vm-2**.
+1. Use the following example to execute the PowerShell command `Test-Connection` test the network path. Replace the value of the destination host with the IP address of **vm-2**.
 
     ```powershell
-    Test-Connection -TargetName 10.0.0.5 -MtuSize 9014
+    Test-Connection -TargetName 10.0.0.5 -MtuSize
+    ```
+
+1. If successful, the output will be similar to the following example:
+
+    ```output
+    PS C:\Users\azureuser> Test-Connection -MtuSize -TargetName 10.0.0.5
+
+       Destination: 10.0.0.5
+
+    Source           Address                   Latency Status           MtuSize
+                                              (ms)                      (B)
+    ------           -------                   ------- ------           -------
+    vm-1             10.0.0.5                        1 Success             3892
     ```
 
 1. Use `netsh` to set the MTU value for **vm-1** to persist reboots. 
 
+    * Mellanox interface:
+    
     ```powershell
     netsh interface ipv4 set subinterface "Ethernet" mtu=3900 store=persistent
+    ```
+    
+    * Microsoft Azure Network Adapter:
+    
+    ```powershell
+    netsh interface ipv4 set subinterface "Ethernet" mtu=9014 store=persistent
     ```
 
 1. Repeat the previous steps on **vm-2** to set the MTU value for **vm-2** to persist reboots.
 
+     * Mellanox interface:
+    
     ```powershell
     netsh interface ipv4 set subinterface "Ethernet" mtu=3900 store=persistent
+    ```
+    
+    * Microsoft Azure Network Adapter:
+    
+    ```powershell
+    netsh interface ipv4 set subinterface "Ethernet" mtu=9014 store=persistent
     ```
 
 ---
