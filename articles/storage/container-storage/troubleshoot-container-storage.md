@@ -108,7 +108,7 @@ $ kubectl describe pvc fiopod-ephemeralvolume
 
 In this example, `Insufficient Storage` is shown as the reason for volume provisioning failure.
 
-1. Run the following command to check the available capacity of single node ephemeral disk.
+1. Run the following command to check the available capacity of a single node's ephemeral disk.
 
 ```output
 $ kubectl get diskpool -n acstor
