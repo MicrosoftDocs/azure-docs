@@ -14,6 +14,8 @@
       href: quickstart-bicep.md
     - name: Create resources - Terraform
       href: quickstart-terraform.md
+    - name: Create cross-region replica - Azure portal
+      href: quickstart-cross-region-replica-portal.md
 - name: Tutorials
   items:
     - name: Build web applications
@@ -36,15 +38,19 @@
           href: vector-search-ai.md
     - name: MongoDB feature support
       href: compatibility.md
+    - name: High availability (HA)
+      href: high-availability.md
     - name: Cross-region replication
       href: cross-region-replication.md
     - name: Reliability
       href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
+    - name: Compute and storage
+      href: compute-storage.md 
     - name: Migration options
       href: migration-options.md 
     - name: Security
       items: 
-        - name: Security Overview
+        - name: Security overview
           href: security.md
         - name: Data encryption
           href: database-encryption-at-rest.md

@@ -76,7 +76,11 @@ Results:
 Create an AKS cluster using the [`az aks create`][az-aks-create] command. The following example creates a cluster with one node and enables a system-assigned managed identity.
 
 ```azurecli-interactive
-az aks create --resource-group $MY_RESOURCE_GROUP_NAME --name $MY_AKS_CLUSTER_NAME --enable-managed-identity --node-count 1 --generate-ssh-keys
+az aks create \
+    --resource-group $MY_RESOURCE_GROUP_NAME \
+    --name $MY_AKS_CLUSTER_NAME \
+    --node-count 1 \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]

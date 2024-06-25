@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 09/22/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -149,7 +149,7 @@ Starting in version 3.3.0, it's possible to use Microsoft Entra ID when authenti
 [FunctionName("EventGridAsyncOutput")]
 public static async Task Run(
     [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
-    [EventGrid(Connection = "MyEventGridConnection"]IAsyncCollector<CloudEvent> outputEvents,
+    [EventGrid(Connection = "MyEventGridConnection")]IAsyncCollector<CloudEvent> outputEvents,
     ILogger log)
 {
     for (var i = 0; i < 3; i++)
@@ -165,7 +165,7 @@ When you use the `Connection` property, the `topicEndpointUri` must be specified
 ```json
 {
   "Values": {
-    "myConnection__topicEndpointUri": "{topicEndpointUri}"
+    "MyEventGridConnection__topicEndpointUri": "{topicEndpointUri}"
   }
 }
 ```

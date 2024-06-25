@@ -77,7 +77,12 @@ The following attributes are provided to support dual-stack clusters:
 2. Create a dual-stack AKS cluster using the [`az aks create`][az-aks-create] command with the `--ip-families` parameter set to `ipv4,ipv6`.
 
     ```azurecli-interactive
-    az aks create --location <region> --resource-group <resourceGroupName> --name <clusterName> --ip-families ipv4,ipv6
+    az aks create \
+        --location <region> \
+        --resource-group <resourceGroupName> \
+        --name <clusterName> \
+        --ip-families ipv4,ipv6 \
+        --generate-ssh-keys
     ```
 
 3. Once the cluster is created, get the cluster admin credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.

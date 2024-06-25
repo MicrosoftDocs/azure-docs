@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/20/2023
  ms.author: allensu
- ms.custom: include file
+ms.custom: include file, linux-related-content
 ---
 
 ## Create test virtual machine
@@ -59,6 +59,6 @@ The following procedure creates a test virtual machine (VM) named **vm-1** in th
 1. Review the settings and select **Create**.
 
 >[!NOTE]
->Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../articles/virtual-network/ip-services/remove-public-ip-address-vm.md).
+>Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](/azure/virtual-network/ip-services/remove-public-ip-address-vm).
 
 [!INCLUDE [ephemeral-ip-note.md](./ephemeral-ip-note.md)]

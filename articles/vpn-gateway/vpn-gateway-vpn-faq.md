@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for VPN Gateway cross-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 06/19/2024
 ms.author: cherylmc
 ---
 

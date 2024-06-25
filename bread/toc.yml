@@ -706,6 +706,19 @@ items:
     - name: Azure API for FHIR
       tocHref: /azure/healthcare-apis/azure-api-for-fhir/
       topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
+  - name: Health Insights
+    tocHref: /azure/azure-health-insights/
+    topicHref: /azure/azure-health-insights/
+    items:
+    - name: Onco-Phenotype
+      tocHref: /azure/azure-health-insights/oncophenotype
+      topicHref: /azure/azure-health-insights/oncophenotype/index
+    - name: Radiology Insights
+      tocHref: /azure/azure-health-insights/radiology-insights
+      topicHref: /azure/azure-health-insights/radiology-insights/index      
+    - name: Trial Matcher
+      tocHref: /azure/azure-health-insights/trial-matcher
+      topicHref: /azure/azure-health-insights/trial-matcher/index      
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
@@ -722,6 +735,9 @@ items:
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
+  - name: Azure Business Process Tracking
+    tocHref: /azure/business-process-tracking/
+    topicHref: /azure/business-process-tracking/
   - name: Azure Integration Environments
     tocHref: /azure/integration-environments/
   - name: Azure Logic Apps

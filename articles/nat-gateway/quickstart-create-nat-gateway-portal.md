@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: nat-gateway
 ms.topic: quickstart 
 ms.date: 06/20/2023
-ms.custom: template-quickstart, FY23 content-maintenance
+ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 ---
 
 # Quickstart: Create a NAT gateway using the Azure portal

@@ -3,19 +3,23 @@ title: Release notes for Azure DB for PostgreSQL - Flexible Server
 description: Release notes for Azure DB for PostgreSQL - Flexible Server, including feature additions, engine versions support, extensions, and other announcements.
 author: varun-dhawan
 ms.author: varundhawan
-ms.reviewer: maghan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
-ms.date: 5/29/2024
+ms.date: 6/18/2024
 #customer intent: As a reader, I want the title and description to meet the required length and include the relevant information about the release notes for Azure DB for PostgreSQL - Flexible Server.
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
+
+## Release: June 2024
+* Support for new [minor versions](concepts-supported-versions.md) 16.3, 15.7, 14.12, 13.15, and 12.19 <sup>$</sup>
+* General availability of [IOPS scaling](./concepts-storage.md#iops-scaling) on Azure Database for PostgreSQL flexible server.
+* CMK support for LTR in Public preview [long-term backup retention](concepts-backup-restore.md).
 
 ## Release: May 2024
 * General availability of Postgres [azure_ai](generative-ai-azure-overview.md) extension.

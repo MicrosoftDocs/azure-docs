@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, update-code3
+ms.custom: cliv2, update-code6
 
 author: balapv
 ms.author: balapv

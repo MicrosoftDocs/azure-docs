@@ -15,7 +15,7 @@ ms.custom: references_regions, build-2024
 
 # How to deploy Meta Llama models with Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn about the Meta Llama models. You also learn how to use Azure AI Studio to deploy models from this set either to serverless APIs with pay-as you go billing or to managed compute.
 
@@ -523,6 +523,17 @@ Follow these steps to deploy a model such as `Llama-2-7b-chat` to a real-time en
 ### Consume Llama 2 models deployed to managed compute
 
 For reference about how to invoke Llama models deployed to managed compute, see the model's card in the Azure AI Studio [model catalog](../how-to/model-catalog-overview.md). Each model's card has an overview page that includes a description of the model, samples for code-based inferencing, fine-tuning, and model evaluation.
+
+##### More inference examples
+
+| **Package**       | **Sample Notebook**                             |
+|----------------|----------------------------------------|
+| CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
+| CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
+| OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
+| LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
+| Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
 
 ## Cost and quotas
 

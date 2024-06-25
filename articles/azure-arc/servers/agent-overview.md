@@ -9,6 +9,10 @@ ms.topic: conceptual
 
 The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers.
 
+> [!WARNING]
+> Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
+> 
+
 ## Agent components
 
 :::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Connected Machine agent architectural overview." border="false":::
@@ -28,7 +32,7 @@ The Azure Connected Machine agent package contains several logical components bu
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
 >[!NOTE]
-> The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
+> The [Azure Monitor agent (AMA)](../../azure-monitor/agents/azure-monitor-agent-overview.md) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
 
 ## Agent resources
 

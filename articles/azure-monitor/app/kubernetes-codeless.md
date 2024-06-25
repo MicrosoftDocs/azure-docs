@@ -36,7 +36,7 @@ For the applications in other languages, we currently recommend using the SDKs:
 
 Troubleshoot the following issue.
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 

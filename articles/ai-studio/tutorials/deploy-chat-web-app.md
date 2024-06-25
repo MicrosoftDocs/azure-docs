@@ -16,7 +16,7 @@ author: aahill
 
 # Tutorial: Deploy an Enterprise Chat web app
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you deploy an enterprise chat web app that uses your own data with a large language model in AI Studio.
 

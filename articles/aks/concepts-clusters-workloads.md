@@ -233,7 +233,11 @@ When you create an AKS cluster, you specify an Azure resource group to create th
 The node resource group is assigned a name by default with the following format: *MC_resourceGroupName_clusterName_location*. During cluster creation, you can specify the name assigned to your node resource group. When using an Azure Resource Manager template, you can define the name using the `nodeResourceGroup` property. When using Azure CLI, you use the `--node-resource-group` parameter with the `az aks create` command, as shown in the following example:
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
+az aks create \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --node-resource-group myNodeResourceGroup \
+    --generate-ssh-keys
 ```
 
 When you delete your AKS cluster, the AKS resource provider automatically deletes the node resource group.
