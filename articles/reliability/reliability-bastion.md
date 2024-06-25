@@ -23,7 +23,7 @@ For a more detailed overview of reliability in Azure, see [Azure reliability](/a
 
 Bastion support for availability zones with a [zone-redundant](./availability-zones-overview.md#zonal-and-zone-redundant-services) configuration is currently in preview. 
 
-Previously deployed Bastion resources may be zone-redundant and these are limited to the following regions:
+Previously deployed Bastion resources may be zone-redundant and are limited to the following regions:
 - Korea Central 
 - Southeast Asia
 
@@ -46,7 +46,7 @@ For a zone-redundant deployment, your Bastion resource must be in one of the fol
 
 ### SLA improvements
 
-There is no change to pricing for availability zone support.
+There's no change to pricing for availability zone support.
 
 ### Create a resource with availability zones enabled
 
@@ -70,7 +70,7 @@ When a zone goes down, the VM and Bastion should still be accessible. See [Relia
 
 ### Migrate to availability zone support
 
-Migration from non-availability zone support to availability zone support is not possible. Instead, you'll need to [create a Bastion resource](/azure/bastion/tutorial-create-host-portal) in the new region and delete the old one.
+Migration from non-availability zone support to availability zone support isn't possible. Instead, you need to [create a Bastion resource](/azure/bastion/tutorial-create-host-portal) in the new region and delete the old one.
 
 ### Cross-region disaster recovery and business continuity
 
