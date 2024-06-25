@@ -15,7 +15,7 @@ items:
         href: get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud.md
       - name: Get insights from your data
         href: get-started-end-to-end-sample/quickstart-get-insights.md
-    - name: Deploy Azure IoT Operations components
+    - name: Deploy Azure IoT Operations in a cluster
       items:
       - name: Prepare a cluster
         href: deploy-iot-ops/howto-prepare-cluster.md
