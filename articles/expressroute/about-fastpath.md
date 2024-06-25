@@ -17,7 +17,8 @@ ExpressRoute virtual network gateway is designed to exchange network routes and 
 
 ### Circuits
 
-FastPath is available on all ExpressRoute circuits. Limited general availability (GA) support for Private Endpoint/Private Link connectivity and support for virtual network peering and UDR connectivity over FastPath is only available for connections associated to ExpressRoute Direct circuits.
+FastPath is available on all ExpressRoute circuits. Support for virtual network peering and UDR over FastPath is now generally available. Limited general availability (GA) support for Private Endpoint/Private Link connectivity is only available for connections associated to ExpressRoute Direct circuits. 
+
 ### Gateways
 
 FastPath still requires a virtual network gateway to be created to exchange routes between a virtual network and an on-premises network. For more information about virtual network gateways and ExpressRoute, including performance information, and gateway SKUs, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
@@ -50,7 +51,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 > * Traffic flows through the ExpressRoute gateway when these IP limits are reached.
 
 ## Limited General Availability (GA)
-FastPath support for Virtual Network Peering, User Defined Routes (UDRs) and Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Virtual Network Peering and UDR support are available globally across all Azure regions. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
+FastPath support for Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Virtual Network Peering and UDR support are available globally across all Azure regions. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
 - Australia East
 - East Asia
 - East US
