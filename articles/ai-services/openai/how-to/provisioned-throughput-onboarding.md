@@ -3,7 +3,7 @@ title: Azure OpenAI Service Provisioned Throughput Units (PTU) onboarding
 description: Learn about provisioned throughput units onboarding and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 05/02/2024
+ms.date: 06/25/2024
 manager: nitinme
 author: mrbullwinkle 
 ms.author: mbullwin 
