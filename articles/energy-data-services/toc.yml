@@ -35,6 +35,8 @@
       href: tutorial-petrel-ddms.md
 - name: Concepts
   items:
+    - name: OSDU® services available on Azure Data Manager for Energy
+      href: osdu-services-on-adme.md
     - name: CSV parser ingestion
       href: concepts-csv-parser-ingestion.md
     - name: Manifest ingestion
