@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 By using any programming language that supports REST calls, you can perform asynchronous data-refresh operations on your Azure Analysis Services tabular models, including synchronization of read-only replicas for query scale-out.
 
-Data-refresh operations can take some time depending on many factors including data volume, level of optimization using partitions, etc. Traditionally, these operations been invoked with existing methods such as using [TOM](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, or [TMSL](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). However, these methods can require often unreliable, long-running HTTP connections.
+Data-refresh operations can take some time depending on many factors including data volume, level of optimization using partitions, etc. Traditionally, these operations have been invoked with existing methods such as using [TOM](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, or [TMSL](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). However, these methods can require often unreliable, long-running HTTP connections.
 
 The REST API for Azure Analysis Services enables data-refresh operations to be carried out asynchronously. By using the REST API, long-running HTTP connections from client applications aren't necessary. There are also other built-in features for reliability, such as auto retries and batched commits.
 
@@ -65,7 +65,7 @@ All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token 
 
 ## POST /refreshes
 
-To perform a refresh operation, use the POST verb on the /refreshes collection to add a new refresh item to the collection. The Location header in the response includes the refresh ID. The client application can disconnect and check the status later if necessary because it is asynchronous.
+To perform a refresh operation, use the POST verb on the /refreshes collection to add a new refresh item to the collection. The Location header in the response includes the refresh ID. The client application can disconnect and check the status later if necessary because it's asynchronous.
 
 Only one refresh operation is accepted at a time for a model. If there's a current running refresh operation and another is submitted, the 409 Conflict HTTP status code is returned.
 
@@ -211,7 +211,7 @@ The code sample uses [service principal](#service-principal) authentication.
 
 ### Service principal
 
-See [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info and follow the steps on how to set up a service principal and assign the necessary permissions in Azure AS. Then complete the following additional steps:
+See [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info and follow the steps on how to set up a service principal and assign the necessary permissions in Azure AS. Then complete the following extra steps:
 
 1.    In the code sample, find **string authority = …**, replace **common** with your organization's tenant ID.
 2.    Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.
