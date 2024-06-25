@@ -44,7 +44,7 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings) in our samples, we will create a custom return type:
+To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings) in our samples, we'll create a custom return type:
 
 ```cs
 public static class OutputType
@@ -539,7 +539,7 @@ The following example shows a SQL output binding that adds records to a table, u
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -621,7 +621,7 @@ CREATE TABLE dbo.RequestLog (
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
