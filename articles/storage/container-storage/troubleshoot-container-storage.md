@@ -106,7 +106,7 @@ $ kubectl describe pvc fiopod-ephemeralvolume
   Warning  ProvisioningFailed    107s (x13 over 20m)  containerstorage.csi.azure.com_aks-nodepool1-29463073-vmss000000_7f5bd88d-be76-40d2-a59e-e51ce000e35e  failed to provision volume with StorageClass "acstor-ephemeraldisk-temp": rpc error: code = Internal desc = Operation failed: GenericOperation("error in response: status code '507 Insufficient Storage', content: 'RestJsonError { details: \"Operation failed due to insufficient resources: Not enough suitable pools available, 0/1\", message: \"SvcError :: NotEnoughResources\", kind: ResourceExhausted }'")
 ```
 
-In this example, `Insufiicient Storage` is shown as the reason of volume provisioning failure.
+In this example, `Insufficient Storage` is shown as the reason for volume provisioning failure.
 
 1. Run the following command to check the available capacity of single node ephemeral disk.
 
