@@ -1,6 +1,6 @@
 ---
-title: Relocate Azure Site Recovery to another region
-description: Learn how to relocate an Azure Site Recovery to a new region
+title: Relocate Azure Recovery Vault and Site Recovery to another region
+description: Learn how to relocate an Azure Recovery Vault and Site Recovery to a new region
 services: site-recovery
 author: ankitaduttaMSFT
 ms.service: site-recovery
@@ -11,11 +11,11 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate Azure Site Recovery to another region
+# Relocate Azure Recovery Vault and Site Recovery to another region
 
 
 
-This article shows you how to relocate [Azure Site Recovery](../site-recovery/site-recovery-overview.md) when moving your workload to another region.
+This article shows you how to relocate [Azure Recovery Vault and Site Recovery](../site-recovery/site-recovery-overview.md) when moving your workload to another region.
 
 
 [!INCLUDE [Relocation reasons](includes/service-relocation-reason-include.md)]
@@ -101,4 +101,4 @@ Follow the steps in these articles based on your requirement to relocate Azure V
 
 ## Set up Site Recovery based on the new source region for the VMs
 
-Configure disaster recovery for the Azure VMs that were moved to the new region by following the steps in [Set up disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md).
+Configure disaster recovery for the Azure VMs that were moved to the new region by following the steps in [Set up disaster recovery for Azure VMs](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
