@@ -50,7 +50,7 @@ In this guide, you learn how to:
 
 This diagram illustrates a PostgreSQL cluster setup with one primary replica and two read replicas managed by the CNPG operator. The architecture provides a highly available Postgres running on an AKS cluster that can withstand a zone outage by failing over across replicas.
 
-Backups are stored on Azure Blob Storage, providing another way to restore the database in the event of an issue with streaming replication from the primary replica.
+Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing another way to restore the database in the event of an issue with streaming replication from the primary replica.
 
 ![AKS CNPG Architecture](./media/postgresql-ha-overview/aks-cnpg-arch.png)
 
