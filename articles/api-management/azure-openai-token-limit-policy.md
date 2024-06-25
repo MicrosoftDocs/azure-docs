@@ -8,7 +8,7 @@ ms.service: api-management
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 05/10/2024
+ms.date: 06/25/2024
 ms.author: danlep
 ---
 
@@ -66,7 +66,7 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) classic, v2
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted
 
 ### Usage notes
 
