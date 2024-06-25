@@ -987,6 +987,7 @@ The stored procedure `dbo.DeleteToDo` must be created on the database.  In this 
 # [v2](#tab/python-v2)
 
 ```python
+import json
 import logging
 import azure.functions as func
 from azure.functions.decorators.core import DataType
@@ -995,7 +996,7 @@ app = func.FunctionApp()
 
 @app.function_name(name="DeleteToDo")
 @app.route(route="deletetodo/{id}")
-@app.sql_input(arg_name="products",
+@app.sql_input(arg_name="todo",
                         command_text="DeleteToDo",
                         command_type="StoredProcedure",
                         parameters="@Id={id}",
