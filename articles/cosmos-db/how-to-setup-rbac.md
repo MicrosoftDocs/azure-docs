@@ -465,7 +465,7 @@ When using modes that enable role-based access, please ensure that the signed in
 Also note that changing the mode to one that uses account keys may trigger a request to fetch the primary key on behalf of the identity that is signed in.
 
 > [!NOTE]
-> Previously, role-based access was only supported in Cosmos Explorer using `https://cosmos.azure.com/?feature.enableAadDataPlane=true`. This is still supported and will override the value of the **Enable Entra ID RBAC** setting. Using this query parameter is the equal to using the 'True' mode mentioned above.
+> Previously, role-based access was only supported in Cosmos Explorer using `https://cosmos.azure.com/?feature.enableAadDataPlane=true`. This is still supported and will override the value of the **Enable Entra ID RBAC** setting. Using this query parameter is equal to using the 'True' mode mentioned above.
 
 ## Audit data requests
 
