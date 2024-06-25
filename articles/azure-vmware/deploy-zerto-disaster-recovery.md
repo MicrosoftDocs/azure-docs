@@ -35,10 +35,8 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 > [!TIP]
 > Explore more about ANF datastores and how to [Attach Azure NetApp datastores to Azure VMware Solution hosts](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal).
 
-### AV64 Nodes Not Supported 
-
 > [!IMPORTANT]
-> Our current Zerto installation does not support AV64 nodes both in hybrid and AVS fleet. For further information, please contact Zerto accounting team. Thank you for your understanding and patience.
+> AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
 
 ### Scenario 1: On-premises VMware vSphere to Azure VMware Solution disaster recovery
 
