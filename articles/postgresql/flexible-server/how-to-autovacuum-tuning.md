@@ -323,9 +323,9 @@ Azure Advisor recommendations are a proactive way of identifying if a server has
 
 The recommendations are:
 
-- **High Bloat Ratio**: High bloat ratio can impact server performance in multiple ways. One of these is the PG Engine Optimizer being unable to pick the best route which in turn leads to query performance degradation. 
+- **High Bloat Ratio**: High bloat ratio can impact server performance in multiple ways. One of negative impact is the PG Engine Optimizer being unable to pick the best route which in turn leads to query performance degradation. Hence, a recommendation is triggered when the bloat percentage on a server reaches a threshold.
 
-- **Transaction Wrap around**: This is one of the most serious issues a server can encounter. Once your server is in this state it might stop accepting any more transactions, causing the server to become read-only. 
+- **Transaction Wrap around**: This is one of the most serious issues a server can encounter. Once your server is in this state it might stop accepting any more transactions, causing the server to become read-only. Hence, a recommendation is triggered when we see the server has crossed 1 billion transactions threshold.
 
 ## Related content
 
