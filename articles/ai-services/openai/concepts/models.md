@@ -304,9 +304,7 @@ For Assistants you need a combination of a supported model, and a supported regi
 | East US 2 | ✅ |  | ✅ | ✅ |✅ | |✅|
 | France Central  | ✅ | ✅ | | ✅ |✅ |  | |
 | Japan East | ✅ |  | | | | | |
-| North Central US | ||||||✅|
 | Norway East | |  | | | ✅ |  | |
-| South Central US | ||||||✅|
 | Sweden Central | ✅ |✅ | ✅ |✅ |✅| |✅|
 | UK South | ✅  | ✅ | | | ✅ | ✅ |  |
 | West US |  | ✅ | | | ✅ | |✅|
