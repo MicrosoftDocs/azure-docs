@@ -286,37 +286,46 @@ To view the logs from your workflow, follow these steps:
    | project TIMESTAMP, message
    ```
 
-## Private modules
+## Modules
 
+PowerShell modules are self-contained, reusable units that include various components, for example:
 
+- Cmdlets: Individual commands that perform specific tasks.
+- Providers: Allow access to data stores, such as the registry or file system, as if they were drives.
+- Functions: Reusable code blocks that perform specific actions.
+- Variables: Store data for use within the module.
+- Other types of resources.
+
+Modules organize and make it easier to distribute PowerShell code. You can use modules to package related functionality together, making it more manageable and shareable. The **Execute PowerShell Code** action lets you automatically import both public and private PowerShell modules.
 
 ## Public modules
 
-You can find public modules hosted in the [PowerShell gallery](https://www.powershellgallery.com). A Standard logic app resource can support up to 10 public modules. To use any public module, you must enable this capability by following these steps, although the first step is already enabled by default:
+To find publicly available modules, visit the [PowerShell gallery](https://www.powershellgallery.com). A Standard logic app resource can support up to 10 public modules. To use any public module, you must enable this capability by following these steps:
 
-1. opening the workflow's **host.json** file and setting the **managed dependency** property to **true**, which is enabled by default in a logic app, for example:
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
 
-```javascript
-{
+1. On the **Advanced Tools** page, select **Go**.
 
-    "managedDependency": {
+1. On the **Kudu Plus** toolbar, from the **Debug console** menu, select **CMD**.
 
-        "enabled": true
+1. Browse to your logic app's root level at **C:\home\site\wwwroot** by using the directory structure or the command line.
 
-    }
+1. Open the workflow's **host.json** file, and set the **managed dependency** property to **true**, which should already be set by default.
 
-}
-```
+   ```json
+   "managedDependency": {
+       "enabled": true
+   }
+   ```
 
-1. Next go to advanced tools in your logic apps panel. And go to Kudu and go to the app root level of your Logic App (C:\home\site\wwwroot). Click on the requirements.psd1 file and include the name and version of the module you are trying to reference. The supported syntax is MajorNumber.* or exact module version, as shown in the following requirements.psd1 example: Here is an example:  
+1. Open the file named **requirements.psd1**, and include the name and version for the module that you want to use using the following syntax: **MajorNumber.\*** or the exact module version, for example:
 
-@{ 
-
-Az = '1.*' 
-
-SqlServer = '21.1.18147' 
-
-} 
+   ```powershell
+   @{
+       Az = '1.*'
+       SqlServer = '21.1.18147'
+   } 
+   ```
 
 ### Considerations for public modules
 
@@ -325,6 +334,41 @@ If you use dependency management, the following considerations apply:
 - To download modules, public modules require access to the [PowerShell Gallery](https://www.powershellgallery.com). If you're running a logic app locally, make sure that the Azure Logic Apps runtime can access the gallery's URL (`https://www.powershellgallery.com`) by adding any required firewall rules.
 
 - Managed dependencies currently don't support modules that require you to accept a license, either by accepting the license interactively or by providing the **-AcceptLicense** option when you run **Install-Module**.
+
+## Private modules
+
+You can generate your own private PowerShell modules. To create your first PowerShell module, see [Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
+
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
+
+1. On the **Advanced Tools** page, select **Go**.
+
+1. On the **Kudu Plus** toolbar, from the **Debug console** menu, select **CMD**.
+
+1. Browse to your logic app's root level at **C:\home\site\wwwroot** by using the directory structure or the command line.
+
+1. Create a folder named **Modules**.
+
+1. In the **Modules** folder, create a subfolder with the same name as your private module.
+
+1. In your private module folder, add your private PowerShell module file with the **psm1** file name extension. You can also include an optional PowerShell manifest file with the **psd1** file name extension.
+
+When you're done, your complete logic app file structure appears similar to the following example:
+
+```text
+MyLogicApp
+- execute_powershell_script.ps1
+- host.json
+- Modules
+-- MyPrivateModule
+--- MyPrivateModule.psd1
+--- MyPrivateModule.psm1
+-- MyPrivateModule2
+--- MyPrivateModule2.psd1
+--- MyPrivateModule2.psm1
+- mytestworkflow.json
+- requirements.psd1
+```
 
 ## Compilation errors
 
@@ -338,7 +382,7 @@ Make sure that you use **Push-WorkflowOutput**.
 
 ### Execute PowerShell Code action fails: "The term 'Hello-World' is not recognized..."
 
-The following error happens if you incorrectly add your module to the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{moduleName}.
+If you incorrectly add your module to the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{moduleName}, you get the following error:
 
 **The term 'Hello-World' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again.**
 
@@ -346,65 +390,7 @@ The following error happens if you incorrectly add your module to the **requirem
 
 This error happens when you try to push a null object to the workflow. Confirm whether the object that you're sending with **Push-WorkflowOutput** is null.
 
-## WorkflowContext class
-
-Represents a workflow context.
-
-### Methods
-
-#### GetActionResult(string actionName)
-
-Gets the result from a specific action in the workflow.
-
-The asynchronous version uses [**Task<>**](/dotnet/api/system.threading.tasks.task-1) as the return type, for example:
-
-`Task<WorkflowOperationResult> GetActionResult(string actionName)`
-
-##### Parameters
-
-**`actionName`**: The action name.
-
-##### Returns
-
-The asynchronous version returns a **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object. For information about the **WorkflowOperationResult** object properties, see [WorkflowOperationResult class](#workflowoperationresult-class).
-
-#### RunTriggerResult()
-
-Gets the result from the trigger in the workflow.
-
-The asynchronous version uses [**Task<>**](/dotnet/api/system.threading.tasks.task-1) as the return type, for example:
-
-`Task<WorkflowOperationResult> RunTriggerResult()`
-
-##### Parameters
-
-None.
-
-##### Returns
-
-The asynchronous version returns a **`Task`** object that represents the asynchronous operation. The task result contains a **`WorkflowOperationResult`** object. For information about the **WorkflowOperationResult** object properties, see [WorkflowOperationResult class](#workflowoperationresult-class).
-
-<a name="workflowoperationresult-class"></a>
-
-## WorkflowOperationResult class
-
-Represents the result from a workflow operation.
-
-### Properties
-
-| Name | Type | Description |
-|------|------|-------------|
-| **Name** | String | Gets or sets the operation name. |
-| **Inputs** | JToken | Gets or sets the operation execution inputs. |
-| **Outputs** | JToken | Gets or sets the operation execution outputs. |
-| **StartTime** | DateTime? | Gets or sets the operation start time. |
-| **EndTime** | DateTime? | Gets or sets the operation end time. |
-| **OperationTrackingId** | String | Gets or sets the operation tracking ID. |
-| **Code** | String | Gets or sets the status code for the action. |
-| **Status** | String | Gets or sets the status for the action. |
-| **Error** | JToken | Gets or sets the error for the action. |
-| **TrackedProperties** | JToken | Gets or sets the tracked properties for the action. |
-
 ## Related content
 
-[Add and run JavaScript code snippets](add-run-javascript.md)
+- [Add and run JavaScript code snippets](add-run-javascript.md)
+- [Add and run C# scripts](add-run-csharp-scripts.md)
