@@ -126,7 +126,7 @@ The CNPG operator automatically generates a service account called *postgres* th
 
 To enable backups, the Postgres cluster needs to read and write to an object store. The PostgreSQL cluster running on AKS uses a workload identity to access the storage account via the CNPG operator configuration parameter [`inheritFromAzureAD`][inherit-from-azuread].
 
-1. Get primary resource ID for the storage account using the [`az storage account show`][az-storage-account-show] command.
+1. Get the primary resource ID for the storage account using the [`az storage account show`][az-storage-account-show] command.
 
     ```azurecli-interactive
     export STORAGE_ACCOUNT_PRIMARY_RESOURCE_ID=$(az storage account show \
