@@ -34,7 +34,7 @@ It's a common practice to enable cluster autoscaler for nodes and either the Ver
 * To **effectively run workloads concurrently on both Spot and Fixed node pools**, consider using [*priority expanders*](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders). This approach allows you to schedule pods based on the priority of the node pool.
 * Exercise caution when **assigning CPU/Memory requests on pods**. The cluster autoscaler scales up based on pending pods rather than CPU/Memory pressure on nodes.
 * For **clusters concurrently hosting both long-running workloads, like web apps, and short/bursty job workloads**, we recommend separating them into distinct node pools with [Affinity Rules](./operator-best-practices-advanced-scheduler.md#node-affinity)/[expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) or using [PriorityClass](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/#priorityclass) to help prevent unnecessary node drain or scale down operations.
-* In an autoscaler-enabled node pool, scale down nodes by removing workloads, instead of manually reducing the node count. This can be problematic if the node pool is already at maximum capacity or if there are active workloads running on the nodes, potentially causing unexpected behavior by the cluster autoscaler
+* In an autoscaler-enabled node pool, scale down nodes by removing workloads, instead of manually reducing the node count. This can be problematic if the node pool is already at maximum capacity or if there are active workloads running on the nodes, potentially causing unexpected behavior by the cluster autoscaler.
 * Nodes don't scale up if pods have a PriorityClass value below -10. Priority -10 is reserved for [overprovisioning pods](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-can-i-configure-overprovisioning-with-cluster-autoscaler). For more information, see [Using the cluster autoscaler with Pod Priority and Preemption](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-cluster-autoscaler-work-with-pod-priority-and-preemption).
 * **Don't combine other node autoscaling mechanisms**, such as Virtual Machine Scale Set autoscalers, with the cluster autoscaler.
 * The cluster autoscaler **might be unable to scale down if pods can't move, such as in the following situations**:
@@ -43,8 +43,8 @@ It's a common practice to enable cluster autoscaler for nodes and either the Ver
   * A pod uses node selectors or anti-affinity that can't be honored if scheduled on a different node.
     For more information, see [What types of pods can prevent the cluster autoscaler from removing a node?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node).
 >[!IMPORTANT]
-> **Do not make changes to individual nodes within the autoscaled node pools**. All nodes in the same node group should have uniform capacity, labels, taints and system pods running on them.
-* The cluster autoscaler is not responsible for enforcing a "maximum node count" in a cluster node pool irrespective of pod scheduling considerations. If any non-cluster autoscaler actor sets the node pool count to a number beyond the cluster autoscaler's configured maximum, cluster autoscaler will not automatically remove nodes. Scale down behaviors of cluster autoscaler remain scoped to removing only nodes that have no scheduled pods. The sole purpose of the cluster autoscaler's max node count configuration is to enforce an upper limit for scale up operations. It does not have any effect upon scale down considerations.
+> **Don't make changes to individual nodes within the autoscaled node pools**. All nodes in the same node group should have uniform capacity, labels, taints and system pods running on them.
+* The cluster autoscaler isn't responsible for enforcing a "maximum node count" in a cluster node pool irrespective of pod scheduling considerations. If any non-cluster autoscaler actor sets the node pool count to a number beyond the cluster autoscaler's configured maximum, the cluster autoscaler doesn't automatically remove nodes. The cluster autoscaler scale down behaviors remain scoped to removing only nodes that have no scheduled pods. The sole purpose of the cluster autoscaler's max node count configuration is to enforce an upper limit for scale up operations. It doesn't have any effect on scale down considerations.
 
 ## Cluster autoscaler profile
 
@@ -70,7 +70,7 @@ If you want a [cost-optimized profile](./cluster-autoscaler.md#configure-cluster
 * Increase `scale-down-utilization-threshold`, which is the utilization threshold for removing nodes.
 * Increase `max-empty-bulk-delete`, which is the maximum number of nodes that can be deleted in a single call.
 * Set `skip-nodes-with-local-storage` to false.
-* Increase `ok-total-unready-count`and `max-total-unready-percentage`
+* Increase `ok-total-unready-count`and `max-total-unready-percentage`.
 
 ## Common issues and mitigation recommendations
 View scaling failures and scale-up not triggered events via [CLI or Portal](./cluster-autoscaler.md#retrieve-cluster-autoscaler-logs-and-status).
