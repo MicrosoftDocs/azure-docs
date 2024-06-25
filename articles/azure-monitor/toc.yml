@@ -510,15 +510,19 @@ items:
           href: containers/prometheus-metrics-scrape-scale.md
       - name: Integrations
         items:
-        - name: Monitor Argo CD
+        - name: Setup exporters for common workloads
           displayName: Prometheus
-          href: containers/prometheus-argo-cd-integration.md
-        - name: Monitor Elastic Search
-          displayName: Prometheus
-          href: containers/prometheus-elasticsearch-integration.md
-        - name: Monitor Apache Kafka
-          displayName: Prometheus
-          href: containers/prometheus-kafka-integration.md
+          href: containers/prometheus-exporters.md
+          items:
+          - name: Monitor Apache Kafka
+            displayName: Prometheus
+            href: containers/prometheus-kafka-integration.md
+          - name: Monitor Argo CD
+            displayName: Prometheus
+            href: containers/prometheus-argo-cd-integration.md
+          - name: Monitor Elastic Search
+            displayName: Prometheus
+            href: containers/prometheus-elasticsearch-integration.md
         - name: Scale using KEDA based on Prometheus metrics
           displayName: Prometheus
           href: containers/integrate-keda.md
