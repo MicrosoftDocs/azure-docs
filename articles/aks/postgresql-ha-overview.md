@@ -48,7 +48,7 @@ In this guide, you learn how to:
 
 ## Deployment architecture
 
-This diagram illustrates a PostgreSQL cluster setup with one primary replica and two read replicas managed by the CNPG operator. The architecture provides a highly available PostgreSQL running on an AKS cluster that can withstand a zone outage by failing over across replicas.
+This diagram illustrates a PostgreSQL cluster setup with one primary replica and two read replicas managed by the [CloudNativePG (CNPG)](https://cloudnative-pg.io/) operator. The architecture provides a highly available PostgreSQL running on an AKS cluster that can withstand a zone outage by failing over across replicas.
 
 Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing another way to restore the database in the event of an issue with streaming replication from the primary replica.
 
