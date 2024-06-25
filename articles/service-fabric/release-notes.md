@@ -1,7 +1,7 @@
 ---
 title: Azure Service Fabric releases
 description: Release notes for Azure Service Fabric. Includes information on the latest features and improvements in Service Fabric.
-ms.date: 04/24/2023
+ms.date: 06/25/2024
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
@@ -30,12 +30,14 @@ We're excited to announce that the 10.1 release of the Service Fabric runtime ha
 - Service Fabric runtime defines two client roles - Admin and Client. The Admin role is highly privileged, and undistinguishable from the runtime itself which can be problematic in shared clusters, where all tenants have Admin privileges and can perform unintended destructive operations on the services of another tenant. In this release we are introducing third client role - ElevatedAdmin, which, combined with properly configured Security/ClientAccess section of cluster manifest, can prevent the described scenario.
 - Service Fabric now emits a health event visible in SFX/SFE when Sessions are exhausted.
 - This allows the weight of InBuild Auxiliary replicas to be set when applied to InBuild throttling. A higher weight means that an InBuild Auxiliary replica will take up more of the InBuild limit, and likewise a lower weight would consume less of the limit, allowing more replicas to be placed InBuild before the limit is reached.
+- Starting with Cumulative Update 3.0 (CU3) of the Service Fabric 10.1 runtime, the .NET 8 runtime is supported.
 
 ### Service Fabric 10.1 releases
 | Release date | Release | More info |
 |---|---|---|
 | November 1, 2023 | Azure Service Fabric 10.1 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
 | April 1, 2024 | Azure Service Fabric 10.1 Second Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU2.md) |
+| June 15, 2024 | Azure Service Fabric 10.1 Third Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101CU3.md) |
 
 ## Service Fabric 10.0
 
@@ -56,6 +58,7 @@ We're excited to announce that the 10.0 release of the Service Fabric runtime ha
 | September 09, 2023 | Azure Service Fabric 10.0 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_10.md) |
 | November 1, 2023 | Azure Service Fabric 10.0 First Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU1.md) |
 | April 1, 2024 | Azure Service Fabric 10.1 Third Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU3.md) |
+| June 15, 2024 | Azure Service Fabric 10.0 Fourth Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_100CU4.md) |
 
 ## Service Fabric 9.1
 
@@ -70,15 +73,16 @@ Instead, you should enable Automatic OS upgrades through Virtual Machine Scale S
 ### Service Fabric 9.1 releases
 | Release date | Release | More info |
 |---|---|---|
-| October 24, 2022 | [Azure Service Fabric 9.1](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-1-release/ba-p/3667628)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91.md) |
-| December 8, 2022 | [Azure Service Fabric 9.1 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-9-1-first-refresh-is-now-available/ba-p/3698646)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU1.md) |
-| March 1, 2023 | Azure Service Fabric 9.1 Second Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU2.md) |
-| April 6, 2023 | Azure Service Fabric 9.1 Third Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU3.md) |
-| May 15, 2023 | Azure Service Fabric 9.1 Fourth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU4.md) |
-| June 19, 2023 | Azure Service Fabric 9.1 Fifth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU5.md) |
-| August 30, 2023 | Azure Service Fabric 9.1 Sixth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU6.md) |
-| November 1, 2023 | Azure Service Fabric 9.1 Seventh Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU7.md) |
-| April 1, 2024 | Azure Service Fabric 9.1 Ninth Refresh Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU9.md) |
+| October 24, 2022 | [Azure Service Fabric 9.1](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/microsoft-azure-service-fabric-9-1-release/ba-p/3667628) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91.md) |
+| December 8, 2022 | [Azure Service Fabric 9.1 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric-blog/azure-service-fabric-9-1-first-refresh-is-now-available/ba-p/3698646) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU1.md) |
+| March 1, 2023 | Azure Service Fabric 9.1 Second Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU2.md) |
+| April 6, 2023 | Azure Service Fabric 9.1 Third Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU3.md) |
+| May 15, 2023 | Azure Service Fabric 9.1 Fourth Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU4.md) |
+| June 19, 2023 | Azure Service Fabric 9.1 Fifth Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU5.md) |
+| August 30, 2023 | Azure Service Fabric 9.1 Sixth Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU6.md) |
+| November 1, 2023 | Azure Service Fabric 9.1 Seventh Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU7.md) |
+| April 1, 2024 | Azure Service Fabric 9.1 Ninth Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU9.md) |
+| June 15, 2024 | Azure Service Fabric 9.1 Tenth Refresh Release | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_91CU10.md) |
 
 ## Service Fabric 9.0
 

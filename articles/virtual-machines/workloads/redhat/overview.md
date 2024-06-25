@@ -19,7 +19,7 @@ Red Hat workloads are supported through a variety of offerings on Azure. Red Hat
 
 For more information about running HREL workloads on Azure, see the following video:
 
-> [!VIDEO https://youtu.be/11arYjecfxU?si=IbLLptFgB0MydTaV]
+> [!VIDEO https://www.youtube.com/embed/11arYjecfxU?si=m0X-28xd1-zYUoqG]
 
 ## Red Hat Enterprise Linux images
 

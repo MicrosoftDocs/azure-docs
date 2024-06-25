@@ -1,6 +1,6 @@
 ---
 title: D family (memory-optimized) VM size series
-description: Overview of the memory-optimized 'D' family and sub families of virtual machine sizes
+description: List of sizes in the memory optimized D family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -15,6 +15,11 @@ ms.author: mattmcinnes
 
 [!INCLUDE [d-family-summary](./includes/d-family-summary.md)]
 
+> [!NOTE]
+> Memory optimized D family size series are designed for a specific set of workloads which require more memory than a standard D family "general purpose" instance but otherwise share identical specifications.
+>
+> If you're looking for more common general purpose D family VMs, check out the **[general purpose D family page](../general-purpose/d-family.md)**.
+
 ## Workloads and use cases
 
 [!INCLUDE [d-family-workloads](./includes/d-family-workloads.md)]
@@ -27,3 +32,6 @@ ms.author: mattmcinnes
 [View the full Dv2 and Dsv2-series page](../../dv2-dsv2-series-memory.md).
 
 [!INCLUDE [dv2-dsv2-series-specs](./includes/dv2-dsv2-series-specs.md)]
+
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

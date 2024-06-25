@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Storage options in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 You can create an Azure Database for PostgreSQL flexible server instance using Azure managed disks which are are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest.The available types of disks with flexible server are premium solid-state drives (SSD) and Premium SSD v2 and the pricing is calculated based on the compute, memory, and storage tier you provision.
 
@@ -61,7 +61,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 - During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, or Storage Auto-grow features.
 
-- During early preview, it is not possible to switch between Premium SSD V2 and Premium SSD storage types.
+- During early preview, online migration from PV1 to PV2 is not supported, customers can perform PITR to migrate from PV1 to PV2.
 
 - You can enable Premium SSD V2 only for newly created servers. Enabling Premium SSD V2 on existing servers is currently not supported..
 
@@ -125,12 +125,10 @@ Remember that storage can only be scaled up, not down.
 
   This limitation is due to the underlying Azure Managed disk, which needs a manual disk scaling operation. You receive an informational message in the portal when you approach this limit.
 
--  Storage autogrow currently doesn't work with read-replica-enabled servers.
-
 - Storage autogrow isn't triggered when you have high WAL usage.
 
 > [!NOTE]  
-> Storage auto-grow never triggers an offline increase.
+> Storage auto-grow depends on online disk scaling, so it never causes downtime.
 
 ## IOPS scaling
 

@@ -108,13 +108,13 @@ UAE | UAE North
 United Kingdom | UK South </br> UK West
 United States | Central US </br> East US </br> East US 2</br> North Central US </br> South Central US </br> West Central US </br> West US </br> West US 2 </br> West US 3
 
-#### [Azure for US Government (preview)](#tab/gov)
+#### [Azure for US Government](#tab/gov)
 
 **Geography** | **Supported regions** | **Details** 
 --- | --- | ---
 United States | USGovVirginia </br>  USGovArizona </br> USGovTexas | For both Azure VMs and Azure Arc-enabled servers </br> For both Azure VMs and Azure Arc-enabled servers </br> For Azure VMs only
 
-#### [Azure operated by 21Vianet (preview)](#tab/21via)
+#### [Azure operated by 21Vianet](#tab/21via)
 
 **Geography** | **Supported regions** | **Details** 
 --- | --- | ---

@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/18/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -81,9 +81,7 @@ The load-balancing decision is made per flow. This action is based on the follow
 
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can help when a large number of ports must be load-balanced.
 
-<p align="center">
-  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="HA Ports rules">
-</p>
+:::image type="content" source="media/load-balancer-components/harules.png" alt-text="Diagram of Azure Load Balancer directing all frontend ports to three instances of all backend ports":::
 
 *Figure: HA Ports rules*
 
@@ -121,16 +119,7 @@ Basic load balancer doesn't support outbound rules.
 - Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. 
 - You can only have one Public Load Balancer (NIC based) and one internal Load Balancer (NIC based) per availability set. However, this constraint doesn't apply to IP-based load balancers.  
 
-## Next steps
+## Next step
 
-- See [Create a public Standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
-- Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
-- Learn about [Private IP Address](../virtual-network/ip-services/private-ip-addresses.md)
-- Learn about using [Standard load balancer and Availability Zones](load-balancer-standard-availability-zones.md).
-- Learn about [Standard load balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
-- Learn about [Standard load balancer with HA Ports load balancing rules](load-balancer-ha-ports-overview.md).
-- Learn more about [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-- Learn more about [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
-- Learn about using [Port forwarding](./tutorial-load-balancer-port-forwarding-portal.md).
+> [!div class="nextstepaction"]
+> [Create a public Standard load balancer](quickstart-load-balancer-standard-public-portal.md)

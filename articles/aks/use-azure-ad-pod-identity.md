@@ -37,7 +37,7 @@ You must have the Azure CLI version 2.20.0 or later installed.
 
 ## Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -91,7 +91,12 @@ Create an AKS cluster with Azure CNI and pod-managed identity enabled. The follo
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create --resource-group myResourceGroup --name myAKSCluster --enable-pod-identity --network-plugin azure
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --enable-pod-identity \
+    --network-plugin azure \
+    --generate-ssh-keys
 ```
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your development computer.
@@ -155,7 +160,12 @@ spec:
 Create an AKS cluster with Kubenet network plugin and pod-managed identity enabled.
 
 ```azurecli-interactive
-az aks create --resource-group $MY_RESOURCE_GROUP --name $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+az aks create \
+    --resource-group $MY_RESOURCE_GROUP \
+    --name $MY_CLUSTER \
+    --enable-pod-identity \
+    --enable-pod-identity-with-kubenet \
+    --generate-ssh-keys
 ```
 
 ## Update an existing AKS cluster with Kubenet network plugin

@@ -1,6 +1,6 @@
 ---
-title: FX sub-family VM size series
-description: Overview of the 'FX' sub-family of virtual machine sizes
+title: FX family VM size series
+description: List of size series in the FX family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -27,3 +27,9 @@ ms.author: mattmcinnes
 [View the full FX-series page](../../fx-series.md).
 
 [!INCLUDE [fx-series-specs](./includes/fx-series-specs.md)]
+
+
+### Previous-generation FX family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#compute-optimized-previous-gen-sizes).
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

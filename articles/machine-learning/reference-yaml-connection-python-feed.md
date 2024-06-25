@@ -5,8 +5,7 @@ description: Reference documentation for the CLI (v2) Python feed connections YA
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-python
 ms.topic: reference
 
 author: AmarBadal

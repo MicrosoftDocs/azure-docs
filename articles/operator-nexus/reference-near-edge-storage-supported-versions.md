@@ -4,7 +4,7 @@ description: Learn the storage appliance software versions supported by Azure Op
 ms.topic: article
 ms.date: 05/23/2024
 author: neilverse
-ms.author: soumya.maitra
+ms.author: soumyamaitra
 ms.service: azure-operator-nexus
 ---
 

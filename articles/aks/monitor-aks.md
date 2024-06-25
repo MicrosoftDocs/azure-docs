@@ -178,9 +178,9 @@ When you [enable collection of Prometheus metrics](#integrations) for your clust
 
  Level | Alerts |
 |:---|:---|
-| Pod level | KubePodCrashLooping<br>Job didn't complete in time<br>Pod container restarted in last 1 hour<br>Ready state of pods is less than 80%<br>Number of pods in failed state are greater than 0<br>KubePodNotReadyByController<br>KubeStatefulSetGenerationMismatch<br>KubeJobNotCompleted<br>KubeJobFailed<br>Average CPU usage per container is greater than 95%<br>Average Memory usage per container is greater than 95%<br>KubeletPodStartUpLatencyHigh  |
-| Cluster level | Average PV usage is greater than 80%<br>KubeDeploymentReplicasMismatch<br>KubeStatefulSetReplicasMismatch<br>KubeHpaReplicasMismatch<br>KubeHpaMaxedOut<br>KubeCPUQuotaOvercommit<br>KubeMemoryQuotaOvercommit<br>KubeVersionMismatch<br>KubeClientErrors<br>CPUThrottlingHigh<br>KubePersistentVolumeFillingUp<br>KubePersistentVolumeInodesFillingUp<br>KubePersistentVolumeErrors |
-| Node level | Average node CPU utilization is greater than 80%<br>Working set memory for a node is greater than 80%<br>Number of OOM killed containers is greater than 0<br>KubeNodeUnreachable<br>KubeNodeNotReady<br>KubeNodeReadinessFlapping<br>KubeContainerWaiting<br>KubeDaemonSetNotScheduled<br>KubeDaemonSetMisScheduled<br>KubeletPlegDurationHigh<br>KubeletServerCertificateExpiration<br>KubeletClientCertificateRenewalErrors<br>KubeletServerCertificateRenewalErrors<br>KubeQuotaAlmostFull<br>KubeQuotaFullyUsed<br>KubeQuotaExceeded |
+| Cluster level | KubeCPUQuotaOvercommit<br>KubeMemoryQuotaOvercommit<br>KubeContainerOOMKilledCount<br>KubeClientErrors<br>KubePersistentVolumeFillingUp<br>KubePersistentVolumeInodesFillingUp<br>KubePersistentVolumeErrors<br>KubeContainerWaiting<br>KubeDaemonSetNotScheduled<br>KubeDaemonSetMisScheduled<br>KubeQuotaAlmostFull |
+| Node level | KubeNodeUnreachable<br>KubeNodeReadinessFlapping |
+| Pod level | KubePVUsageHigh<br>KubeDeploymentReplicasMismatch<br>KubeStatefulSetReplicasMismatch<br>KubeHpaReplicasMismatch<br>KubeHpaMaxedOut<br>KubePodCrashLooping<br>KubeJobStale<br>KubePodContainerRestart<br>KubePodReadyStateLow<br>KubePodFailedState<br>KubePodNotReadyByController<br>KubeStatefulSetGenerationMismatch<br>KubeJobFailed<br>KubeContainerAverageCPUHigh<br>KubeContainerAverageMemoryHigh<br>KubeletPodStartUpLatencyHigh |
 
 
 
