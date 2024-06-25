@@ -138,6 +138,28 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 [//]: # "}"
 [//]: # "console.log(str)"
 
+
+#### [Java Native](#tab/java-native)
+
+Requests for Spring Boot native applications
+* Spring Web
+* Spring Web MVC
+* Spring WebFlux
+
+Dependencies for Spring Boot native applications
+* JDBC
+* R2DBC
+* MongoDB
+* Kafka
+
+Metrics
+* Micrometer Metrics
+
+Logs for Spring Boot native applications
+* Logback
+
+For Quartz native applications, please look at the [Quarkus documentation](https://quarkus.io/guides/opentelemetry).
+
 #### [Node.js](#tab/nodejs)
 
 The following OpenTelemetry Instrumentation libraries are included as part of the Azure Monitor Application Insights Distro. For more information, see [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/monitor/monitor-opentelemetry/README.md#instrumentation-libraries).
@@ -277,6 +299,10 @@ var metricsProvider = Sdk.CreateMeterProviderBuilder()
 
 ### [Java](#tab/java)
 You can't extend the Java Distro with community instrumentation libraries. To request that we include another instrumentation library, open an issue on our GitHub page. You can find a link to our GitHub page in [Next Steps](#next-steps).
+
+### [Java Native](#tab/java-native)
+
+You can't use commmunity instrumentation libraries with GraalVM Java native applications.
 
 ### [Node.js](#tab/nodejs)
 
@@ -520,6 +546,39 @@ public class Program {
 }
 ```
 
+#### [Java Native](#tab/java-native)
+
+1. Inject `OpenTelemetry`
+
+   _Spring_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry;
+   
+    @Autowired
+    OpenTelemetry openTelemetry;
+   ```
+
+   _Quarkus_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry; 
+   
+   @Inject
+   OpenTelemetry openTelemetry;
+   ```
+
+
+1. Create an histogram
+```java
+import io.opentelemetry.api.metrics.DoubleHistogram;
+import io.opentelemetry.api.metrics.Meter;
+
+Meter meter = openTelemetry.getMeter("OTEL.AzureMonitor.Demo");
+DoubleHistogram histogram = meter.histogramBuilder("histogram").build();
+histogram.record(1.0);
+histogram.record(100.0);
+histogram.record(30.0);
+```
+
 #### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -683,6 +742,47 @@ public class Program {
         myFruitCounter.add(4, Attributes.of(AttributeKey.stringKey("name"), "lemon", AttributeKey.stringKey("color"), "yellow"));
     }
 }
+```
+#### [Java Native](#tab/java-native)
+
+1. Inject `OpenTelemetry`
+
+   _Spring_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry;
+   
+    @Autowired
+    OpenTelemetry openTelemetry;
+   ```
+
+   _Quarkus_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry; 
+   
+   @Inject
+   OpenTelemetry openTelemetry;
+   ```
+
+1. Create the counter
+
+```Java
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.api.common.Attributes;
+import io.opentelemetry.api.metrics.LongCounter;
+import io.opentelemetry.api.metrics.Meter;
+
+
+Meter meter = openTelemetry.getMeter("OTEL.AzureMonitor.Demo");
+
+LongCounter myFruitCounter = meter.counterBuilder("MyFruitCounter")
+                                  .build();
+
+myFruitCounter.add(1, Attributes.of(AttributeKey.stringKey("name"), "apple", AttributeKey.stringKey("color"), "red"));
+myFruitCounter.add(2, Attributes.of(AttributeKey.stringKey("name"), "lemon", AttributeKey.stringKey("color"), "yellow"));
+myFruitCounter.add(1, Attributes.of(AttributeKey.stringKey("name"), "lemon", AttributeKey.stringKey("color"), "yellow"));
+myFruitCounter.add(2, Attributes.of(AttributeKey.stringKey("name"), "apple", AttributeKey.stringKey("color"), "green"));
+myFruitCounter.add(5, Attributes.of(AttributeKey.stringKey("name"), "apple", AttributeKey.stringKey("color"), "red"));
+myFruitCounter.add(4, Attributes.of(AttributeKey.stringKey("name"), "lemon", AttributeKey.stringKey("color"), "yellow"));
 ```
 
 #### [Node.js](#tab/nodejs)
@@ -858,6 +958,41 @@ public class Program {
                         });
     }
 }
+```
+#### [Java Native](#tab/java-native)
+
+1. Inject `OpenTelemetry`
+
+   _Spring_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry;
+   
+    @Autowired
+    OpenTelemetry openTelemetry;
+   ```
+
+   _Quarkus_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry; 
+   
+   @Inject
+   OpenTelemetry openTelemetry;
+   ```
+
+1.  Create a gauge
+```Java
+import io.opentelemetry.api.common.AttributeKey;
+import io.opentelemetry.api.common.Attributes;
+import io.opentelemetry.api.metrics.Meter;
+
+Meter meter = openTelemetry.getMeter("OTEL.AzureMonitor.Demo");
+
+meter.gaugeBuilder("gauge")
+     .buildWithCallback(
+            observableMeasurement -> {
+                double randomNumber = Math.floor(Math.random() * 100);
+                observableMeasurement.record(randomNumber, Attributes.of(AttributeKey.stringKey("testKey"), "testValue"));
+            });
 ```
 
 #### [Node.js](#tab/nodejs)
@@ -1047,6 +1182,18 @@ You can use `opentelemetry-api` to update the status of a span and record except
     span.recordException(e);
    ```
 
+#### [Java Native](#tab/java-native)
+
+Set status to `error` and record an exception in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.trace.StatusCode;
+
+    Span span = Span.current();
+    span.setStatus(StatusCode.ERROR, "errorMessage");
+    span.recordException(e);
+   ```
 #### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -1265,6 +1412,45 @@ you can add your spans by using the OpenTelemetry API.
     }
    ```
 
+#### [Java Native](#tab/java-native)
+
+1. Inject `OpenTelemetry`
+
+   _Spring_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry;
+   
+    @Autowired
+    OpenTelemetry openTelemetry;
+   ```
+
+   _Quarkus_
+   ```java
+   import io.opentelemetry.api.OpenTelemetry; 
+   @Inject
+   OpenTelemetry openTelemetry;
+   ```
+1.  Create a `Tracer`:
+
+```java
+ import io.opentelemetry.api.trace.Tracer;
+
+ static final Tracer tracer = openTelemetry.getTracer("com.example");
+```
+
+1. Create a span, make it current, and then end it:
+
+   ```java
+    Span span = tracer.spanBuilder("my first span").startSpan();
+    try (Scope ignored = span.makeCurrent()) {
+        // do stuff within the context of this 
+    } catch (Throwable t) {
+        span.recordException(t);
+    } finally {
+        span.end();
+    }
+   ```
+
 #### [Node.js](#tab/nodejs)
 
 ```javascript
@@ -1367,6 +1553,18 @@ You can use `opentelemetry-api` to create span events, which populate the `trace
    ```
 
 1. Add span events in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+
+    Span.current().addEvent("eventName");
+   ```
+
+#### [Java Native](#tab/java-native)
+
+You can use OpenTelemetry API to create span events, which populate the `traces` table in Application Insights. The string passed in to `addEvent()` is saved to the `message` field within the trace.
+
+Add span events in your code:
 
    ```java
     import io.opentelemetry.api.trace.Span;
@@ -1497,7 +1695,11 @@ telemetryClient.TrackEvent("testEvent");
     } catch (Exception e) {
         telemetryClient.trackException(e);
     }
-    ```
+ 
+   
+#### [Java Native](#tab/java-native)
+
+It's not possible to send custom telemetry using the Application Insights Classic API in Java Native.
 
 #### [Node.js](#tab/nodejs)
 
@@ -1726,6 +1928,18 @@ Adding one or more span attributes populates the `customDimensions` field in the
     Span.current().setAttribute(attributeKey, "myvalue1");
    ```
 
+##### [Java Native](#tab/java-native)
+
+Add custom dimensions in your code:
+
+   ```java
+    import io.opentelemetry.api.trace.Span;
+    import io.opentelemetry.api.common.AttributeKey;
+
+    AttributeKey attributeKey = AttributeKey.stringKey("mycustomdimension");
+    Span.current().setAttribute(attributeKey, "myvalue1");
+   ```
+
 ##### [Node.js](#tab/nodejs)
 
 ```typescript
@@ -1833,6 +2047,10 @@ activity.SetTag("http.client_ip", "<IP Address>");
 
 Java automatically populates this field.
 
+##### [Java Native](#tab/java-native)
+
+This field is automatically populated.
+
 ##### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
@@ -1910,6 +2128,18 @@ Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` 
    Span.current().setAttribute("enduser.id", "myuser");
    ```
 
+##### [Java Native](#tab/java-native)
+
+Populate the `user ID` field in the `requests`, `dependencies`, or `exceptions` table.
+
+Set `user_Id` in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span.current().setAttribute("enduser.id", "myuser");
+   ```
+
 #### [Node.js](#tab/nodejs)
 
 Use the add [custom property example](#add-a-custom-property-to-a-span), but replace the following lines of code:
@@ -1959,6 +2189,11 @@ Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching c
 * [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.0/javadoc/log4j-api/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
 * [Log4j 2.0 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
+
+
+#### [Java Native](#tab/java-native)
+
+For Spring Boot native applications, Logback is instrumented out of the box.
 
 #### [Node.js](#tab/nodejs)
 
@@ -2094,6 +2329,10 @@ You might use the following ways to filter out telemetry before it leaves your a
 ### [Java](#tab/java)
 
 See [sampling overrides](java-standalone-config.md#sampling-overrides) and [telemetry processors](java-standalone-telemetry-processors.md).
+
+### [Java Native](#tab/java-native)
+
+It's not possible to filter telemetry in Java Native.
 
 ### [Node.js](#tab/nodejs)
 
@@ -2313,6 +2552,18 @@ You can use `opentelemetry-api` to get the trace ID or span ID.
    String spanId = span.getSpanContext().getSpanId();
    ```
 
+### [Java Native](#tab/java-native)
+
+Get the request trace ID and the span ID in your code:
+
+   ```java
+   import io.opentelemetry.api.trace.Span;
+
+   Span span = Span.current();
+   String traceId = span.getSpanContext().getTraceId();
+   String spanId = span.getSpanContext().getSpanId();
+   ```
+
 ### [Node.js](#tab/nodejs)
 
 Get the request trace ID and the span ID in your code:
@@ -2368,6 +2619,13 @@ span_id = trace.get_current_span().get_span_context().span_id
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).
 - See the [release notes](https://github.com/microsoft/ApplicationInsights-Java/releases) on GitHub.
+
+### [Java Native](#tab/java-native)
+- For details on adding and modifying Azure Monitor OpenTelemetry, see [Add and modify Azure Monitor OpenTelemetry](opentelemetry-add-modify.md).
+- To review the source code, see [Azure Monitor OpenTelemetry Distro in Spring Boot native image Java application](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring/spring-cloud-azure-starter-monitor)
+  and [Quarkus OpenTelemetry Exporter for Azure](https://github.com/quarkiverse/quarkus-opentelemetry-exporter/tree/main/quarkus-opentelemetry-exporter-azure).
+- To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
+- See the [release notes](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/spring-cloud-azure-starter-monitor/CHANGELOG.md) on GitHub.
 
 ### [Node.js](#tab/nodejs)
 
