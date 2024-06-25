@@ -44,7 +44,7 @@ Azure Monitor workspace owners can manage consent requests and the private endpo
 
 To create a private endpoint by using the Azure portal, PowerShell, or the Azure CLI, see the following articles. The articles feature an Azure web app as the target service, but the steps to create a private link are the same for an Azure Monitor workspace.
 
-When you create a private endpoint, make the following selections form the dropdown lists on the basic tab:  
+When you create a private endpoint, make the following selections from the dropdown lists on the basic tab:  
 - **Resource type** - Select  `Microsoft.Monitor/accounts`. Specify the Azure   Monitor workspace to which it connects. 
 - **Target sub-resource** - Select `prometheusMetrics` .
 
