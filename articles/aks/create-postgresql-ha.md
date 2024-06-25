@@ -435,7 +435,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
         --namespace $PG_SYSTEM_NAMESPACE cnpg-controller-manager \
         --context $AKS_PRIMARY_CLUSTER_NAME
     ```
-
+---
 
 
 ## Next steps
