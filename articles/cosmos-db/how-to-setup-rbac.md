@@ -452,12 +452,10 @@ When constructing the [REST API authorization header](/rest/api/cosmos-db/access
 ## Use data explorer
 
 > [!NOTE]
-> The data explorer exposed in the Azure portal does not support the Azure Cosmos DB role-based access control yet. To use your Microsoft Entra identity when exploring your data, you must use the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) instead.
+> As of July 2024, the Data Explorer exposed in the Azure portal does support Azure Cosmos DB role-based access control. The Azure Cosmos DB Explorer at [https://cosmos.azure.com](https://cosmos.azure.com) also supports this without the need to specify a query parameter. The previous method of using `https://cosmos.azure.com/?feature.enableAadDataPlane=true` to enable this functionality is still honored and will force the use of Microsoft Entra identity for your data requests. Details of the support are described below.
 
-When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature.enableAadDataPlane=true) with the specific `?feature.enableAadDataPlane=true` query parameter and sign in, the following logic is used to access your data:
 
-1. A request to fetch the account's primary key is attempted on behalf of the identity signed in. If this request succeeds, the primary key is used to access the account's data.
-1. If the identity signed in isn't allowed to fetch the account's primary key, this identity is directly used to authenticate data access. In this mode, the identity must be [assigned with proper role definitions](#role-assignments) to ensure data access.
+
 
 ## Audit data requests
 
