@@ -9,7 +9,7 @@ ms.custom: devx-track-terraform
 ms.author: deeikele
 author: denniseik
 ms.reviewer: larryfr
-ms.date: 06/17/2024
+ms.date: 06/25/2024
 ms.topic: how-to
 ms.tool: terraform
 ---
@@ -36,9 +36,13 @@ A Terraform configuration file is a document that defines the resources needed f
 
 ## Create the workspace
 
-First, declare the Azure provider in a file named *main.tf* that has the following code.
+Create a file named *main.tf* that has the following code.
 
 :::code language="terraform" source="~/terraform/quickstart/101-machine-learning/main.tf":::
+
+Declare the Azure provider in a file named *providers.tf* that has the following code.
+
+:::code language="terraform" source="~/terraform/quickstart/101-machine-learning/providers.tf":::
 
 ### Configure the workspace
 
