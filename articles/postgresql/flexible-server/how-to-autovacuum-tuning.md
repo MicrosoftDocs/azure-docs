@@ -316,6 +316,17 @@ Autovacuum runs on tables with an insert-only workload. Two new server paramet
 
 Using the feature troubleshooting guides that is available on the Azure Database for PostgreSQL flexible server portal it's possible to monitor bloat at database or individual schema level along with identifying potential blockers to autovacuum process. Two troubleshooting guides are available first one is autovacuum monitoring that can be used to monitor bloat at database or individual schema level. The second troubleshooting guide is autovacuum blockers and wraparound, which helps to identify potential autovacuum blockers. It also provides information on how far the databases on the server are from wraparound or emergency situation. The troubleshooting guides also share recommendations to mitigate potential issues. How to set up the troubleshooting guides to use them follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
+
+## Azure Advisor Recommendations
+
+Azure Advisor recommendations are a proactive way of identifying if a server has a high bloat ratio or the server is approaching transaction wraparound scenario. You can also set alerts for the recommendations using the [Create Azure Advisor alerts on new recommendations using the Azure portal](<https://learn.microsoft.com/azure/advisor/advisor-alerts-portal>)
+
+The recommendations are:
+
+- **High Bloat Ratio**: High bloat ratio can impact server performance in multiple ways. One of these is the PG Engine Optimizer being unable to pick the best route which in turn leads to query performance degradation. 
+
+- **Transaction Wrap around**: This is one of the most serious issues a server can encounter. Once your server is in this state it might stop accepting any more transactions, causing the server to become read-only. 
+
 ## Related content
 
 - [High CPU Utilization](how-to-high-cpu-utilization.md)
