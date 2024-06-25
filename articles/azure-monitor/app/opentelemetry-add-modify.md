@@ -2555,6 +2555,7 @@ Get the request trace ID and the span ID in your code:
    String traceId = span.getSpanContext().getTraceId();
    String spanId = span.getSpanContext().getSpanId();
    ```
+
 ### [Node.js](#tab/nodejs)
 
 Get the request trace ID and the span ID in your code:
