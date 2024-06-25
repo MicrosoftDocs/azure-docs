@@ -109,7 +109,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
 
     1. For **Subscription**, select your Azure subscription.
     1. For **Resource group**, select the same resource group from the previous steps.
-    1. For **Name**, provide a unique name for the custom topic. The topic name must be unique because it's represented by a DNS entry.
+    1. For **Name**, provide a unique name for the custom topic. The topic name must be unique because a Domain Name System (DNS) entry represents it.
 
        Don't use the name shown in the example image. Instead, create your own name. It must be 3-50 characters and contain only the values a-z, A-Z, 0-9, and a hyphen (`-`).
     1. For **Region**, select a location for the Event Grid topic.
@@ -269,7 +269,7 @@ The second example uses Azure PowerShell to perform similar steps.
 
 ### Verify that the function received the event
 
-You've triggered the event, and Event Grid sent the message to the endpoint that you configured when subscribing. Now you can check whether the function received it.
+You triggered the event, and Event Grid sent the message to the endpoint that you configured when subscribing. Now you can check whether the function received it.
 
 1. On the **Monitor** page for your function, find an invocation.
 
