@@ -27,7 +27,7 @@ In this article, you learn how to manage access (authorization) to an Azure AI S
 
 In the Azure AI Studio, there are two levels of access: the hub and the project. The hub is home to the infrastructure (including virtual network setup, customer-managed keys, managed identities, and policies) and where you configure your Azure AI services. Hub access can allow you to modify the infrastructure, create new hubs, and create projects. Projects are a subset of the hub that act as workspaces that allow you to build and deploy AI systems. Within a project you can develop flows, deploy models, and manage project assets. Project access lets you develop AI end-to-end while taking advantage of the infrastructure setup on the hub.
 
-:::image type="content" source="../media/concepts/azureai-hub-project-relationship.png" alt-text="Diagram of the relationship between AI Studio resources." lightbox="../media/concepts/azureai-hub-project-relationship.png":::
+:::image type="content" source="../media/concepts/resource-provider-connected-resources.svg" alt-text="Diagram of the relationship between AI Studio resources.":::
 
 One of the key benefits of the hub and project relationship is that developers can create their own projects that inherit the hub security settings. You might also have developers who are contributors to a project, and can't create new projects.
 
