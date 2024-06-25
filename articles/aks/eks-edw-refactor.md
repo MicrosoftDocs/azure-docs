@@ -167,7 +167,7 @@ table.put_item(
       'data':jsonMessage["<message_data>"],
       'srcStamp':jsonMessage["<source_timestamp_from_message>"],
       'destStamp':'<current_timestamp_now>',
-      'messageProcessingTime':'<duration>')
+      'messageProcessingTime':'<duration>'
     }
 )
 ```
