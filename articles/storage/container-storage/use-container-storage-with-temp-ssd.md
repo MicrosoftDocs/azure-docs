@@ -181,7 +181,7 @@ Now that you've created your storage pool, you can expand or delete it as needed
 
 ### Check node temp disk capacity
 
-An emphemeral volume is allocated on single node. When you configure the size of your emphemeral volumes, the size should be less than the available capacity of single node temp disk.
+An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's temp disk.
 
 Run the following command to check the available capacity of single node temp disk.
 
