@@ -5,7 +5,7 @@ description: Understand RBAC roles assigned by Service Connector when using a ma
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 06/25/2024
 ---
 # Microsoft Entra roles assigned by Service Connector
