@@ -413,7 +413,7 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -488,7 +488,7 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -568,7 +568,7 @@ The stored procedure `dbo.DeleteToDo` must be created on the database.  In this 
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -1148,7 +1148,7 @@ The attribute's constructor takes the SQL command text, the command type, parame
 
 Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding.
 
-If an exception occurs when a SQL input binding is executed then the function code will not execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
+If an exception occurs when a SQL input binding is executed then the function code won't execute.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
 
 ## Next steps
 
