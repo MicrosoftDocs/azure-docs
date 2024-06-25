@@ -118,7 +118,7 @@ ephemeraldisk-temp-diskpool-wzixx   75660001280   75031990272   628011008   5609
 ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
 ```
 
-In this example, the available capacity of single node temp disk is `75031990272` bytes or 69 GiB.
+In this example, the available capacity of temp disk for a single node is `75031990272` bytes or 69 GiB.
 
 1. Adjust the volume storage size below available capacity and re-deploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
 
