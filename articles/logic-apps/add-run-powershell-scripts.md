@@ -5,7 +5,7 @@ ms.service: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 07/01/2024
 # Customer intent: As a logic app workflow developer, I want to write and run PowerShell so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
@@ -17,7 +17,7 @@ ms.date: 06/10/2024
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run PowerShell from your workflow in the Azure portal. For this task, use the **Inline Code** action named **Execute PowerShell Code**. This action returns the result from your PowerShell code so you can use that output in your workflow's subsequent actions.
+To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run PowerShell from your workflow. For this task, use the **Inline Code** action named **Execute PowerShell Code**. This action returns the result from your PowerShell code so you can use that output in your workflow's subsequent actions.
 
 This capability provides the following benefits:
 
@@ -31,7 +31,7 @@ This capability provides the following benefits:
 
 - Deploy scripts alongside your workflows.
 
-This guide shows how to add the action in your workflow and add the PowerShell script code that you want to run.
+This guide shows how to add the action in your workflow and add the PowerShell code that you want to run.
 
 ## Prerequisites
 
@@ -225,9 +225,7 @@ To return any outputs to your workflow, you must use the [**Push-WorkflowOutput*
 
 ## View logs in Application Insights
 
-To view the logs from your workflow, follow these steps:
-
-1. In the Azure portal, on the logic app resource menu, under **Settings**, select **Application Insights**, and then select your logic app.
+1. In the [Azure portal](https://portal.azure.com), on the logic app resource menu, under **Settings**, select **Application Insights**, and then select your logic app.
 
 1. On the **Application Insights** menu, under **Monitoring**, select **Logs**.
 
@@ -262,7 +260,7 @@ To find publicly available modules, visit the [PowerShell gallery](https://www.p
 
 1. Browse to your logic app's root level at **C:\home\site\wwwroot** by using the directory structure or the command line.
 
-1. Open the workflow's **host.json** file, and set the **managed dependency** property to **true**, which should already be set by default.
+1. Open the workflow's **host.json** file, and set the **managed dependency** property to **true**, which is already set by default.
 
    ```json
    "managedDependency": {
@@ -322,9 +320,9 @@ MyLogicApp
 - requirements.psd1
 ```
 
-## Authorize access to Azure resources with a managed identity using PowerShell
+## Authenticate and authorize access with a managed identity using PowerShell
 
-With a [managed identity](/entra/identity/managed-identities-azure-resources/overview), your logic app resource and workflow can authenticate and authorize access to any Azure service and Azure resource that supports Microsoft Entra authentication without including credentials in your code.
+With a [managed identity](/entra/identity/managed-identities-azure-resources/overview), your logic app resource and workflow can authenticate and authorize access to any Azure service and resource that supports Microsoft Entra authentication without including credentials in your code.
 
 From inside the **Execute PowerShell Code** action, you can authenticate and authorize access with a managed identity so that you can perform actions on other Azure resources where you enabled access. For example, you can restart a virtual machine or get the run details of another logic app workflow.
 
