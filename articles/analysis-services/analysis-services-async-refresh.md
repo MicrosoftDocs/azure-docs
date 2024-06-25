@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Asynchronous refresh with the REST API
 
-By using any programming language that supports REST calls, you can perform asynchronous data-refresh operations on your Azure Analysis Services tabular models. This includes synchronization of read-only replicas for query scale-out. 
+By using any programming language that supports REST calls, you can perform asynchronous data-refresh operations on your Azure Analysis Services tabular models, including synchronization of read-only replicas for query scale-out.
 
 Data-refresh operations can take some time depending on many factors including data volume, level of optimization using partitions, etc. These operations have traditionally been invoked with existing methods such as using [TOM](/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](/analysis-services/powershell/analysis-services-powershell-reference) cmdlets, or [TMSL](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). However, these methods can require often unreliable, long-running HTTP connections.
 
@@ -98,10 +98,10 @@ Specifying parameters is not required. The default is applied.
 | `Type`           | Enum  | The type of processing to perform. The types are aligned with the TMSL [refresh command](/analysis-services/tmsl/refresh-command-tmsl) types: full, clearValues, calculate, dataOnly, automatic, and defragment. Add type is not supported.      |   automatic      |
 | `CommitMode`     | Enum  | Determines if objects will be committed in batches or only when complete. Modes include: default, transactional, partialBatch.  |  transactional       |
 | `MaxParallelism` | Int   | This value determines the maximum number of threads on which to run processing commands in parallel. This value aligned with the MaxParallelism property that can be set in the TMSL [Sequence command](/analysis-services/tmsl/sequence-command-tmsl) or using other methods.       | 10        |
-| `RetryCount`     | Int   | Indicates the number of times the operation will retry before failing.      |     0    |
+| `RetryCount`     | Int   | Indicates the number of times the operation retries before failing.      |     0    |
 | `Objects`        | Array | An array of objects to be processed. Each object includes: "table" when processing the entire table or "table" and "partition" when processing a partition. If no objects are specified, the whole model is refreshed. |   Process the entire model      |
 
-CommitMode is equal to partialBatch. It's used when doing an initial load of large datasets that could take hours. If the refresh operation fails after successfully committing one or more batches, the successfully committed batches will remain committed (it will not roll back successfully committed batches).
+Specifying `partialBatch` for `CommitMode` is useful when doing an initial load of large datasets that could take hours. If the refresh operation fails after successfully committing one or more batches, the successfully committed batches will remain committed (it will not roll back successfully committed batches).
 
 > [!NOTE]
 > At time of writing, the batch size is the MaxParallelism value, but this value could change.
