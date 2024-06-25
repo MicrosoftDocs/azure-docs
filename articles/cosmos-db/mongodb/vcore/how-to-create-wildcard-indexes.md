@@ -54,7 +54,7 @@ Consider the json document below:
 }
 ```
 
-The following indices will be created under the covers when wildcard indexing is used.
+The following indices are created under the covers when wildcard indexing is used.
 - db.collection.createIndex({"firstName", 1})
 - db.collection.createIndex({"lastName", 1})
 - db.collection.createIndex({"companyName", 1})
@@ -91,9 +91,9 @@ git clone https://github.com/Azure-Samples/cosmosdb-mongodb-vcore-wildcard-index
 
 The cloned repository does not need to be built if there are no changes to be made to the solution. The built runnable jar named azure-cosmosdb-mongo-data-indexer-1.0-SNAPSHOT.jar is already included in the runnableJar/ folder. The jar can be executed by specifying the following required parameters:
 - Azure Cosmos DB for MongoDB vCore cluster connection string with the username and password used when the cluster was provisioned
-- The database within which the collection has been created
-- The name of the collection to be indexed
-- The location of the local json file containing the document structure for the specified collection. This is the document that will be read by the jar file to extract each field and issue individual createIndex operations.
+- The Azure Cosmos DB for MongoDB vCore database
+- The collection to be indexed
+- The location of the json file with the document structure for the collection. This document is parsed by the jar file to extract every field and issue individual createIndex operations.
 
 ```bash
 java -jar azure-cosmosdb-mongo-data-indexer-1.0-SNAPSHOT.jar mongodb+srv://<user>:<password>@abinav-test-benchmarking.global.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000 cosmicworks employee sampleEmployee.json
