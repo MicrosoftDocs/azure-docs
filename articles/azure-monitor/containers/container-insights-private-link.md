@@ -18,7 +18,7 @@ This article describes how to configure Container insights to use Azure Private 
 
 ### Prerequisites
  - Azure CLI version 2.61.0 or higher.
- - Azure Monitor Private Link Scope (AMPLS)
+ - Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
 
 
 ### Existing AKS Cluster 
@@ -69,7 +69,7 @@ Edit the values in the parameter file and deploy the template using any valid me
  Based on your requirements, you can configure other parameters such `streams`, `enableContainerLogV2`, `enableSyslog`, `syslogLevels`, `syslogFacilities`, `dataCollectionInterval`, `namespaceFilteringModeForDataCollection` and `namespacesForDataCollection`. 
 
 ### Prerequisites
-- Azure Monitor Private Link Scope (AMPLS)
+- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
 - The template must be deployed in the same resource group as the cluster.
 
 ### AKS cluster

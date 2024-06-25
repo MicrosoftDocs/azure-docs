@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 06/20/2023
  ms.author: allensu
- ms.custom: include file
+ms.custom: include file, linux-related-content
 ---
 
 ## Create test virtual machine

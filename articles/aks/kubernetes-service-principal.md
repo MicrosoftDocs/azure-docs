@@ -46,11 +46,11 @@ Create a service principal before you create your cluster.
 
     ```json
     {
-      "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
+      "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "displayName": "myAKSClusterServicePrincipal",
       "name": "http://myAKSClusterServicePrincipal",
-      "password": "e763725a-5eee-40e8-a466-dc88d980f415",
-      "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
+      "password": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
     ```
 
@@ -68,11 +68,11 @@ Create a service principal before you create your cluster.
 
     ```output
     Secret                : System.Security.SecureString
-    ServicePrincipalNames : {559513bd-0c19-4c1a-87cd-851a26afd5fc, http://myAKSClusterServicePrincipal}
-    ApplicationId         : 559513bd-0c19-4c1a-87cd-851a26afd5fc
+    ServicePrincipalNames : {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx, http://myAKSClusterServicePrincipal}
+    ApplicationId         : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ObjectType            : ServicePrincipal
     DisplayName           : myAKSClusterServicePrincipal
-    Id                    : 559513bd-0c19-4c1a-87cd-851a26afd5fc
+    Id                    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     Type                  :
     ```
 
