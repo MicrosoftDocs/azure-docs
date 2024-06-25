@@ -452,8 +452,9 @@ When constructing the [REST API authorization header](/rest/api/cosmos-db/access
 ## Use data explorer
 
 > [!NOTE]
-> As of July 2024, the Data Explorer exposed in the Azure portal does support Azure Cosmos DB role-based access control. The Azure Cosmos DB Explorer at [https://cosmos.azure.com](https://cosmos.azure.com) also supports this without the need to specify a query parameter. The previous method of using `https://cosmos.azure.com/?feature.enableAadDataPlane=true` to enable this functionality is still honored and will force the use of Microsoft Entra identity for your data requests. Details of the support are described below.
+> As of July 2024, the Data Explorer exposed in the Azure portal does support Azure Cosmos DB role-based access control. The Azure Cosmos DB Explorer at [https://cosmos.azure.com](https://cosmos.azure.com) also supports this without the need to specify a query parameter. The previous method of using `https://cosmos.azure.com/?feature.enableAadDataPlane=true` to enable this functionality is still honored and will force the use of Microsoft Entra identity for your data requests.
 
+Azure Cosmos DB role-based access control within Data Explorer (either within the Azure Portal or at [https://cosmos.azure.com](https://cosmos.azure.com)
 
 
 
