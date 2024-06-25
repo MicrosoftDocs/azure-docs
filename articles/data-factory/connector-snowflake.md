@@ -518,7 +518,7 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 > When you specify `storageIntegration` in the sink, ensure that you grant at least **Storage Blob Data Reader** role to the Snowflake service principal in the staging Azure Blob Storage **Access Control (IAM)**. 
 
 > [!NOTE]
-> When you don't specify `storageIntegration` in the sink, the staging Azure Blob storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
+> When you don't specify `storageIntegration` in the sink, the staging Azure Blob Storage linked service need to use shared access signature authentication as required by the Snowflake COPY command.
 
 **Example:**
 
