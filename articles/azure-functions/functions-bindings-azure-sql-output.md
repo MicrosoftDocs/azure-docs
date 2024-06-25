@@ -972,6 +972,8 @@ import json
 import logging
 import azure.functions as func
 
+app = func.FunctionApp()
+
 @app.function_name(name="PostToDo")
 @app.route(route="posttodo")
 @app.sql_output(arg_name="todoItems",
