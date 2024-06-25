@@ -248,7 +248,7 @@ PowerShell modules are self-contained, reusable units that include various com
 
 A module organizes PowerShell code, making it easier to distribute. For example, you can create your own modules to package and make related functionality more manageable and shareable. The **Execute PowerShell Code** action lets you import both public and private PowerShell modules.
 
-## Public modules
+### Public modules
 
 To find publicly available modules, visit the [PowerShell gallery](https://www.powershellgallery.com). A Standard logic app resource can support up to 10 public modules. To use any public module, you must enable this capability by following these steps:
 
@@ -277,7 +277,7 @@ To find publicly available modules, visit the [PowerShell gallery](https://www.p
    } 
    ```
 
-### Considerations for public modules
+#### Considerations for public modules
 
 If you use dependency management, the following considerations apply:
 
@@ -285,7 +285,7 @@ If you use dependency management, the following considerations apply:
 
 - Managed dependencies currently don't support modules that require you to accept a license, either by accepting the license interactively or by providing the **-AcceptLicense** option when you run **Install-Module**.
 
-## Private modules
+### Private modules
 
 You can generate your own private PowerShell modules. To create your first PowerShell module, see [Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
