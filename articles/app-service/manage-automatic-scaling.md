@@ -172,7 +172,7 @@ If your web app returns a 5xx status, these endpoint pings may result in intermi
 
 ## How does ARR Affinity affect Automatic Scaling?
 
-Azure App Service uses Application Request Routing cookies known as an ARR Affinity. ARR Affinity cookies restrict scaling because they send requests only to servers associated with the cookie, rather than any available instance. For apps that store state, it's better to scale up (increase resources on a single instance). For stateless apps, scaling out (adding more instances) offers more flexibility and scalability. Affinity cookies are enabled by default on App Service. Depending on your application needs, you may choose to disable ARR affinity cookies when using Automatic scaling.
+Azure App Service uses Application Request Routing cookies known as an ARR Affinity. ARR Affinity cookies restrict scaling because they send requests only to servers associated with the cookie, rather than any available instance. For apps that store state, it's better to scale up (increase resources on a single instance). For stateless apps, scaling out (adding more instances) offers more flexibility and scalability. ARR Affinity cookies are enabled by default on App Service. Depending on your application needs, you may choose to disable ARR affinity cookies when using Automatic scaling.
 
 To disable ARR Affinity cookies: select your App Service app, and under **Settings**, select **Configuration**. Next select the **General settings** tab. Under **ARR affinity**, select **Off** and then select the **save** button.
 
