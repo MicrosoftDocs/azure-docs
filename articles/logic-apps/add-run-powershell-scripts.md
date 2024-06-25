@@ -21,7 +21,7 @@ To perform custom integration tasks inline with your Standard workflow in Azure 
 
 This capability provides the following benefits:
 
-- Write your own scripts within the workflow designer to solve complex integration challenges. No other service plans are necessary.
+- Write your own scripts within the workflow designer so you can solve complex integration challenges. No other service plans are necessary.
 
   This benefit streamlines workflow development plus reduces the complexity and cost with managing more services.
 
@@ -45,7 +45,7 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 - The Azure portal saves your script as a PowerShell script file (.ps1) in the same folder as your **workflow.json** file, which stores the JSON definition for your workflow, and deploys the file to your logic app resource along with the workflow definition.
 
-  The .ps1 format lets you write less "boilerplate" and focus just on writing PowerShell code. You can rename the .ps1 file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
+  The **.ps1** file format lets you write less "boilerplate" and focus just on writing PowerShell code. You can rename the .ps1 file for easier management during deployment. However, each time you rename the script, the new version overwrites the previous version.
 
 - The script is local to the workflow. To use the same script in other workflows, [view the script file in the **KuduPlus** console](#view-script-file), and then copy the script to reuse in other workflows.
 
@@ -101,7 +101,7 @@ This guide shows how to add the action in your workflow and add the PowerShell c
    Push-ActionOutputs -body $results
    ```
 
-1. When you're done, save your workflow.
+1. When you finish, save your workflow.
 
 <a name="view-script-file"></a>
 
@@ -252,7 +252,7 @@ A module organizes PowerShell code, making it easier to distribute. For example,
 
 To find publicly available modules, visit the [PowerShell gallery](https://www.powershellgallery.com). A Standard logic app resource can support up to 10 public modules. To use any public module, you must enable this capability by following these steps:
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource menus, under Development Tools, select **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
@@ -268,7 +268,7 @@ To find publicly available modules, visit the [PowerShell gallery](https://www.p
    }
    ```
 
-1. Open the file named **requirements.psd1**, and include the name and version for the module that you want to use using the following syntax: **MajorNumber.\*** or the exact module version, for example:
+1. Open the file named **requirements.psd1**. Include the name and version for the module that you want by using the following syntax: **MajorNumber.\*** or the exact module version, for example:
 
    ```powershell
    @{
@@ -289,7 +289,7 @@ If you use dependency management, the following considerations apply:
 
 You can generate your own private PowerShell modules. To create your first PowerShell module, see [Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
-1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under **Development Tools**, select **Advanced Tools**.
+1. In the [Azure portal](https://portal.azure.com), on your logic app resource menu, under Development Tools, selects **Advanced Tools**.
 
 1. On the **Advanced Tools** page, select **Go**.
 
@@ -332,13 +332,13 @@ To use the managed identity from inside the **Execute PowerShell Code** action, 
 
    On the target Azure resource, review the following considerations:
 
-   - On the **Role** tab, selecting a **Contributor** role is usually sufficient.
+   - On the **Role** tab, a **Contributor** role is usually sufficient.
 
    - On the **Add role assignment** page, on the **Members** tab, for the **Assign access to** property, make sure that you select **Managed identity**.
 
    - After you select **Select members**, on the **Select managed identities** pane, select the managed identity that you want to use.
 
-1. In your **Execute PowerShell Code** action, include the following code as the first line:
+1. In your **Execute PowerShell Code** action, include the following code as the first statement:
 
    ```powershell
    Connect-AzAccount -Identity
