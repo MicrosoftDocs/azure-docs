@@ -16,7 +16,7 @@ The enablement of Managed Prometheus automatically deploys the custom resource d
 
 You can configure any Prometheus exporter to work with Azure Managed Prometheus. For more information, see [Configure collection using Service and Pod Monitor custom resources](./prometheus-metrics-scrape-crd.md).
 
-This document lists a set of commonly used workloads which have curated configurations and instructions to help you setup metrics collection from the workload. You can use this only with the managed add-on for Azure Managed Prometheus. For self-managed Prometheus, refer to the relevant exporter documentation for setting up metrics collection.
+This document lists a set of commonly used workloads which have curated configurations and instructions to help you set up metrics collection from the workload. You can use this only with the managed add-on for Azure Managed Prometheus. For self-managed Prometheus, refer to the relevant exporter documentation for setting up metrics collection.
 
 ## Common workloads
 
