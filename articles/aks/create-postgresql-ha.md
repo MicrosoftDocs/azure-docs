@@ -440,7 +440,7 @@ In this section, you install the CNPG operator in the AKS cluster using Helm or 
 
 ## Next steps
 
-Now that you've created the require infrastructure, you can now [Deploy a highly available PostgreSQL database on the AKS cluster][deploy-postgresql].
+Now that you've created the require infrastructure, [deploy a highly available PostgreSQL database on the AKS cluster][deploy-postgresql].
 
 <!-- LINKS -->
 [postgresql-ha-deployment-overview]: ./postgresql-ha-overview.md
