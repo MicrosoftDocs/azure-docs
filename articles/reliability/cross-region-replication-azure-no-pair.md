@@ -77,7 +77,20 @@ For geo-replication in non-paired regions:
 
 ## Azure Database for PostgreSQL
 
-For geo-replication in non-paired regions, copy the database using [pg_dump](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore?tabs=psql).
+For geo-replication in non-paired regions with Azure Database for PostgreSQL, you can use:
+
+Managed Service Offering
+ [Geo-Replication](/azure/postgresql/flexible-server/concepts-read-replicas) : Azure PostgreSQL Managed service supports active geo-replication feature to create a continuously readable secondary replica of your primary server. The readable secondary may be in the same Azure region as the primary or, more commonly, in a different region. This kind of readable secondary replica is also known as geo-replica.
+ 
+Additionally, you can utilize any of the two customer-managed data migration methods listed below to replicate the data to a non-paired region.  
+
+[Copy](/azure/postgresql/migrate/how-to-migrate-using-dump-and-restore?tabs=psql).
+
+[Logical Replication & Logical Decoding](/azure/postgresql/flexible-server/concepts-logical).
+
+
+
+
 
 ## Azure Event Grid
 
