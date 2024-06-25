@@ -35,6 +35,8 @@ From the Azure OpenAI Studio landing page, select **Chat playground**.
 
 Start exploring OpenAI capabilities with a no-code approach through the Azure OpenAI Studio Chat playground. From this page, you can quickly iterate and experiment with the capabilities.
 
+Please note that Azure OpenAI Studio Chat playground is a simple web application for testing REST APIs. When offering it to actual users, please consider using your own web application or other customized methods.
+
 :::image type="content" source="../media/quickstarts/chatgpt-playground-load.png" alt-text="Screenshot of the Chat playground page." lightbox="../media/quickstarts/chatgpt-playground-load.png":::
 
 ### Assistant setup
