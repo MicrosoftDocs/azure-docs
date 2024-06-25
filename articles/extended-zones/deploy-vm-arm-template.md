@@ -318,7 +318,7 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks?pivots=deployment-language-arm-template)
 
 > [!NOTE]
-> Default outbound access is not available to VMs in Extended Zones. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
+> Default outbound access is not available to VMs in Azure Extended Zones. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 
 ## Deploy the template
