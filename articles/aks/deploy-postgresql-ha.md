@@ -788,7 +788,7 @@ In this section, you trigger a sudden failure by deleting the pod running the pr
     pg-primary-cnpg-sryti1qf-3  0/9000060   Standby (sync)  OK      aks-postgres-32388626-vmss000002
     ```
 
-## Delete all resources
+## Clean up resources
 
 Once you're finished reviewing your deployment, delete all the resources you created in this guide using the [`az group delete`][az-group-delete] command.
 
