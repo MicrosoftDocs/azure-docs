@@ -208,7 +208,7 @@ search_index_client = SearchIndexClient(
 ---
 
 
-### Local development
+## Local development
 
 Local development without keylesss includes these steps:
 
@@ -313,7 +313,7 @@ Create an environment variable for your Azure AI Search endpoint. This URL gener
 
 * `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
 
-### Production workloads
+## Production workloads
 
 Deploy production workloads includes these steps:
 
