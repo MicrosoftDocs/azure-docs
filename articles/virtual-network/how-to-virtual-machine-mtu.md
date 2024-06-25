@@ -211,8 +211,6 @@ Use the following steps to change the MTU size on a Linux virtual machine:
     3900
     ```
 
->[!IMPORTANT]
-> The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
 
 # [Windows](#tab/windows)
 
@@ -361,7 +359,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet" mtu=9014 store=persistent
+    netsh interface ipv4 set subinterface "Ethernet" mtu=9000 store=persistent
     ```
 
 1. Sign-in to **vm-2**.
@@ -398,7 +396,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet" mtu=9014 store=persistent
+    netsh interface ipv4 set subinterface "Ethernet" mtu=9000 store=persistent
     ```
 
 ---
