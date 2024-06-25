@@ -266,7 +266,7 @@ In this section, you get the AKS cluster credentials, which serve as the keys th
         --name $AKS_PRIMARY_CLUSTER_NAME
      ```      
 
-1. Create the namespace for the CNPG controller manager services and the Postgres cluster and its related services using the [`kubectl create namespace`][kubectl-create-namespace] command.
+1. Create the namespace for the CNPG controller manager services, the Postgres cluster, and its related services by using the [`kubectl create namespace`][kubectl-create-namespace] command.
 
     ```azurecli-interactive
     kubectl create namespace $PG_NAMESPACE --context $AKS_PRIMARY_CLUSTER_NAME
