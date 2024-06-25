@@ -1,8 +1,8 @@
 ---
-title: Manage lab accounts in Azure Lab Services | Microsoft Docs
-description: Learn how to create a lab account, view all lab accounts, or delete a lab account in an Azure subscription.
+title: Create lab accounts in Azure Lab Services | Microsoft Docs
+description: Learn how to create a lab account in an Azure subscription.
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 06/25/2024
 ---
 
 # Create a lab account
@@ -28,7 +28,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     1. For **Lab account name**, enter a name.
     1. For **Location**, select a location/region in which you want the lab account to be created.
 
-        :::image type="content" source="./media/how-to-creae-lab-accounts/create-lab-account-basics.png" alt-text="Screenshot of the Basics tab in Create lab account wizard.":::
+        :::image type="content" source="./media/how-to-create-lab-accounts/create-lab-account-basics.png" alt-text="Screenshot of the Basics tab in Create lab account wizard.":::
 1. Select **Next: Tags**.
 1. On the Tags tab, add any tags you want to associate with the lab account. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
