@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 06/25/2024
 ---
 
 # Pricing example: Copy data and transform it with Azure Databricks
