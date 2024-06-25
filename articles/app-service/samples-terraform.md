@@ -20,5 +20,5 @@ The following table includes links to terraform scripts.
 |**Create app**||
 | [Create two apps and connect securely with Private Endpoint and VNet integration](./scripts/terraform-secure-backend-frontend.md)| Creates two App Service apps and connect apps together with Private Endpoint and VNet integration. |
 | [Provision App Service and use slot swap to deploy](/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Provision App Service infrastructure with Azure deployment slots. |
-| [Quickstart: Create an Azure windows web app with a backup using Terraform](./scripts/terraform-secure-backend-frontend.md)| Creates two App Service apps and connect apps together with Private Endpoint and VNet integration. |
+| [Create an Azure windows web app with a backup using Terraform](./scripts/terraform-backup.md)| Createscreate an Azure windows web app with a backup schedule. |
 | | |
