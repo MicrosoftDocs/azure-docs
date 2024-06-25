@@ -145,6 +145,8 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
                    storage: 1Gi
    ```
 
+When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's ephemeral disk. See [Check node ephemeral disk capacity](#check-node-ephemeral-disk-capacity).
+
 1. Apply the YAML manifest file to deploy the pod.
    
    ```azurecli-interactive
@@ -175,6 +177,22 @@ You've now deployed a pod that's using local NVMe as its storage, and you can us
 ## Manage storage pools
 
 Now that you've created your storage pool, you can expand or delete it as needed.
+
+### Check node ephemeral disk capacity
+
+An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's ephemeral disk.
+
+Run the following command to check the available capacity of ephemeral disk for a single node.
+
+```output
+$ kubectl get diskpool -n acstor
+NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
+ephemeraldisk-temp-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
+```
+
+In this example, the available capacity of ephemeral disk for a single node is `75031990272` bytes or 69 GiB.
 
 ### Expand a storage pool
 
