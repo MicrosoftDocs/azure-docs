@@ -47,8 +47,8 @@ Using Ctrl + C to interrupt the createIndex command after it has been issued doe
 
 ## Create Compound Indexes for queries with predicates on multiple fields
 Compound indexes should be used in the following scenarios:
-- Queries with filters on any field in the JSON structure making it easier to use wildcard indexing instead of indexing each field individually.
-- Queries with filters on all but a few fields making it is easier to exclude a few fields instead of indexing most of the fields individually.
+- Queries with filters on multiple fields
+- Queries with filters on multiple fields and with one or more fields sorted in ascending or descending order
 
 Consider the following document within the 'cosmicworks' database and 'employee' collection
 ```json
