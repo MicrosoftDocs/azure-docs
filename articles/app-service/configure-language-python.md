@@ -372,7 +372,7 @@ When you're successfully connected to the SSH session, you should see the messag
 
 ## URL rewrites
 
-URL rewrites need to be handled by the app. For example, you can use the [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) in Flask to accomplish this.
+When deploying Python applications on Azure App Service for Linux, you may need to handle URL rewrites within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on external web server configurations. For Flask applications, [URL processors](https://flask.palletsprojects.com/patterns/urlprocessors/) and custom middleware can be used to achieve this. In Django applications, the robust [URL dispatcher](https://docs.djangoproject.com/en/5.0/topics/http/urls/) allows for efficient management of URL rewrites.
 
 ## Troubleshooting
 

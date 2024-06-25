@@ -352,7 +352,8 @@ if (req.secure) {
 
 ## URL rewrites
 
-URL rewrites need to be handled by the app. For example, you can use the [express-urlrewrite](https://www.npmjs.com/package/express-urlrewrite) package to accomplish this.
+When deploying Node.js apps on Azure App Service for Linux, you may need to handle URL rewrites directly within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on web server configurations. There are several ways to accomplish URL rewrites in Node.js. One example is through the [express-urlrewrite](https://www.npmjs.com/package/express-urlrewrite) package.
+
 
 ## Monitor with Application Insights
 
