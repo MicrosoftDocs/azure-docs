@@ -7,7 +7,7 @@ ms.reviewer: guywild
 ms.topic: conceptual 
 ms.date: 06/16/2024
 
-# Customer intent: As an azure administrator, I want to understand the process of migrating from the MMA agent to the AMA agent.
+# Customer intent: As an azure administrator, I want to understand the process of migrating from the MMA agent to the AMA agent. 
 
 ---
 
