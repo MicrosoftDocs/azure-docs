@@ -75,7 +75,7 @@ If you need a persistent volume, where the volume has a lifecycle independent of
 
 An ephemeral volume is allocated on a single node. When you configure the size of ephemeral volumes for your pods, the size should be less than the available capacity of a single node's ephemeral disk. Otherwise, the pod creation will be in pending status.
 
-1. Use the following command to check if your pod creation is pending status.
+1. Use the following command to check if your pod creation is in pending status.
 
 ```output
 $ kubectl get pods
