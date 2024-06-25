@@ -4,7 +4,7 @@ description: Configure the upgrade preference for the Azure App Service Environm
 author: madsd
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 09/19/2022
+ms.date: 06/25/2024
 zone_pivot_groups: app-service-cli-portal
 ---
 
