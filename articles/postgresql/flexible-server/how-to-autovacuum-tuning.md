@@ -37,7 +37,7 @@ Autovacuum reads pages looking for dead tuples, and if none are found, autovacuu
 
 The amount of work autovacuum performs depend on two parameters:
 
-| Parameter                        | Description                                                                   
+| Parameter                        | Description                                                                       
 | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 `autovacuum_vacuum_cost_limit` | The amount of work autovacuum does in one go.
 `autovacuum_vacuum_cost_delay` | Number of milliseconds that autovacuum is asleep after it reaches the cost limit specified by the `autovacuum_vacuum_cost_limit`  parameter.
