@@ -14,7 +14,7 @@ ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 
 Message routing enables users to route different data types, including device telemetry messages, device lifecycle events, and device twin change events, to various endpoints. You can also apply rich queries to this data before routing it to receive the data that matters to you. This article describes the IoT Hub message routing query language, and provides some common query patterns.
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body isn't in JSON format, message routing can still route the message, but queries can't be applied to the message body.  Queries are described as Boolean expressions where, if true, the query succeeds and routes all the incoming data; otherwise, the query fails and the incoming data isn't routed. If the expression evaluates to a null or undefined value, it's treated as a Boolean false value, and generates an error in the IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes). The query syntax must be correct for the route to be saved and evaluated.  
 
