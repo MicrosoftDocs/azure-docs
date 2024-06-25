@@ -33,6 +33,10 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]  
+> `CNAME` record maps a domain name to another domain (or subdomain) whereas `A` record maps a domain name to an IP address. If the IP address changes, a `CNAME` entry is still valid, unlike `A` record.
+
+
 ## Prerequisites
 
 * An Azure account with an active subscription.
