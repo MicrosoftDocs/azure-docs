@@ -37,7 +37,7 @@ Azure Database for MySQL flexible server integrates with Azure [Private DNS zone
 
 In the above diagram,
 
-1. Azure Database for MySQL flexible server instances are injected into a delegated subnet - 10.0.1.0/24 of virtual network **VNet-1**.
+1. Azure Databases for MySQL flexible server instances are injected into a delegated subnet - 10.0.1.0/24 of virtual network **VNet-1**.
 2. Applications deployed on different subnets within the same virtual network can access the Azure Database for MySQL flexible server instances directly.
 3. Applications deployed on a different virtual network **VNet-2** don't have direct access to Azure Database for MySQL flexible server instances. Before they can access an instance, you must perform a [private DNS zone virtual network peering](#private-dns-zone-and-virtual-network-peering).
 
@@ -117,6 +117,20 @@ You can then use the Azure Database for MySQL flexible server servername (FQDN) 
 - After the Azure Database for MySQL flexible server instance is deployed to a virtual network and subnet, you can't move it to another virtual network or subnet. You can't move the virtual network into another resource group or subscription.
 - Private DNS integration config can't be changed after deployment.
 - Subnet size (address spaces) can't be increased after resources exist in the subnet.
+
+## Move from private access (virtual network integrated) network to public access or private link
+
+Azure Database for MySQL - Flexible Server can be transitioned from Private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. 
+
+> [!NOTE]
+> That once the transition is made, it cannot be reversed. The transition involves a downtime of approximately 5-10 minutes for Non-HA servers and about 20 minutes for HA-enabled servers.
+
+The process is conducted in offline mode and consists of two steps:
+
+1. Detaching the server from the virtual network infrastructure. 
+1. Establishing a Private Link or enabling public access.
+
+- For guidance on transitioning from Private access network to Public access or Private Link, refer to the provided tutorial. This resource offers step-by-step instructions to facilitate the process.
 
 ## Next steps
 
