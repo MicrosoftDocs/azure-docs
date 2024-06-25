@@ -71,6 +71,57 @@ Because ephemeral disks (local NVMe and Temp SSD) are ephemeral and not durable,
 
 If you need a persistent volume, where the volume has a lifecycle independent of any individual pod that's using the volume, Azure Container Storage supports replication for NVMe. You can create a storage pool with replication and create persistent volumes from there. See [Create storage pool with volume replication](use-container-storage-with-local-nvme-replication.md) for guidance. Note that because ephemeral disk storage pools consume all the available NVMe disks, you must delete any existing ephemeral disk storage pools before creating a new storage pool with replication enabled. If you don't need persistence, you can create a generic ephemeral volume.
 
+### Pod pending creation due to ephemeral volume size above available capacity
+
+An ephemeral volume is allocated on single node. When you configure the size of emphemeral volumes for your pods, the size should be less than the available capacity of single node ephemeral disk. Otherwise, the pod creation will be in pending status.
+
+1. Use the following command to check if your pod creation is pending status.
+
+```output
+$ kubectl get pods
+NAME     READY   STATUS    RESTARTS   AGE
+fiopod   0/1     Pending   0          17s
+```
+
+In this example, the pod `fiopod` is in `Pending` status.
+
+1. Use the following command to check if the pod has the warning event for persistentvolumeclaim creation.
+
+```output
+$ kubectl describe pod fiopod
+...
+Events:
+  Type     Reason            Age   From               Message
+  ----     ------            ----  ----               -------
+  Warning  FailedScheduling  40s   default-scheduler  0/3 nodes are available: waiting for ephemeral volume controller to create the persistentvolumeclaim "fiopod-ephemeralvolume". preemption: 0/3 nodes are available: 3 Preemption is not helpful for scheduling..
+```
+
+In this example, the pod shows the warning event on creating persistent volume claim `fiopod-ephemeralvolume`.
+
+1. Use the following command to check if the persistent volume claim fails to provision due to insufficient capacity.
+
+```output
+$ kubectl describe pvc fiopod-ephemeralvolume
+...
+  Warning  ProvisioningFailed    107s (x13 over 20m)  containerstorage.csi.azure.com_aks-nodepool1-29463073-vmss000000_7f5bd88d-be76-40d2-a59e-e51ce000e35e  failed to provision volume with StorageClass "acstor-ephemeraldisk-temp": rpc error: code = Internal desc = Operation failed: GenericOperation("error in response: status code '507 Insufficient Storage', content: 'RestJsonError { details: \"Operation failed due to insufficient resources: Not enough suitable pools available, 0/1\", message: \"SvcError :: NotEnoughResources\", kind: ResourceExhausted }'")
+```
+
+In this example, `Insufiicient Storage` is shown as the reason of volume provisioning failure.
+
+1. Run the following command to check the available capacity of single node ephemeral disk.
+
+```output
+$ kubectl get diskpool -n acstor
+NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
+ephemeraldisk-temp-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
+```
+
+In this example, the available capacity of single node temp disk is `75031990272` bytes or 69 GiB.
+
+1. Adjust the volume storage size below available capacity and re-deploy your pod. See [Deploy a pod with a generic ephemeral volume](use-container-storage-with-temp-ssd.md#3-deploy-a-pod-with-a-generic-ephemeral-volume).
+
 ## See also
 
 - [Azure Container Storage FAQ](container-storage-faq.md)
