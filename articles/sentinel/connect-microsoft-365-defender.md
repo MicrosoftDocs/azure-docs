@@ -20,7 +20,9 @@ The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream
 
 Before you begin, you must have the appropriate licensing, access, and configured resources described in this section.
 
-- You must have a valid license for Microsoft Defender XDR, as described in [Microsoft Defender XDR prerequisites](/microsoft-365/security/mtp/prerequisites). 
+- You must have a valid license for Microsoft Defender XDR, as described in [Microsoft Defender XDR prerequisites](/microsoft-365/security/mtp/prerequisites).
+- Your user account must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
+- You must have read and write permissions on your Microsoft Sentinel workspace.
 - To make any changes to the connector settings, your account must be a member of the same Microsoft Entra tenant with which your Microsoft Sentinel workspace is associated.
 - Install the solution for **Microsoft Defender XDR** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 - Grant access to Microsoft Sentinel as appropriate for your organization. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
@@ -28,7 +30,6 @@ Before you begin, you must have the appropriate licensing, access, and configure
 For on-premises Active Directory sync via Microsoft Defender for Identity:
 
 - Your tenant must be onboarded to Microsoft Defender for Identity.
-
 - You must have the Microsoft Defender for Identity sensor installed.
 
 ## Connect to Microsoft Defender XDR
@@ -102,13 +103,13 @@ If you want to collect advanced hunting events from Microsoft Defender for Endpo
     | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table)** | Microsoft 365 email events, including email delivery and blocking events |
     | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table)** | Security events that occur post-delivery, after Microsoft 365 delivers the emails to the recipient mailbox |
     | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table)** | Information about URLs on emails |
+    |**[UrlClickEvents](/defender-xdr/advanced-hunting-urlclickevents-table)**|Events involving URLs clicked, selected, or requested on Microsoft Defender for Office 365|
 
     # [Defender for Identity](#tab/MDI)
 
     | Table name | Events type |
     |-|-|
     | **[IdentityDirectoryEvents](/microsoft-365/security/defender/advanced-hunting-identitydirectoryevents-table)** | Various identity-related events, like password changes, password expirations, and user principal name (UPN) changes, captured from an on-premises Active Directory domain controller<br><br>Also includes system events on the domain controller |
-    | **[IdentityInfo](/microsoft-365/security/defender/advanced-hunting-identityinfo-table)** | Information about user accounts obtained from various services, including Microsoft Entra ID |
     | **[IdentityLogonEvents](/microsoft-365/security/defender/advanced-hunting-identitylogonevents-table)** | Authentication activities made through your on-premises Active Directory, as captured by Microsoft Defender for Identity <br><br>Authentication activities related to Microsoft online services, as captured by Microsoft Defender for Cloud Apps |
     | **[IdentityQueryEvents](/microsoft-365/security/defender/advanced-hunting-identityqueryevents-table)** | Information about queries performed against Active Directory objects such as users, groups, devices, and domains |
 
@@ -122,14 +123,14 @@ If you want to collect advanced hunting events from Microsoft Defender for Endpo
 
     | Table name | Events type |
     |-|-|
-    | **[AlertInfo](/microsoft-365/security/defender/advanced-hunting-alertinfo-table)** | Information about alerts from Microsoft Defender XDR components |
-    | **[AlertEvidence](/microsoft-365/security/defender/advanced-hunting-alertevidence-table)** | Information about various entities - files, IP addresses, URLs, users, devices - associated with alerts from Microsoft Defender XDR components |
+    | **[AlertInfo](/microsoft-365/security/defender/advanced-hunting-alertinfo-table)** | Alerts from Microsoft Defender for Endpoint, Microsoft Defender for Office 365, Microsoft Cloud App Security, and Microsoft Defender for Identity, including severity information and threat categorization|
+    | **[AlertEvidence](/microsoft-365/security/defender/advanced-hunting-alertevidence-table)** | Information about various entities - files, IP addresses, URLs, users, devices - associated with alerts from Microsoft Defender XDR components|
 
     ---
 
 1. Select **Apply Changes**.
 
-1. To query the advanced hunting tables in Log Analytics, enter the table name in the query window.
+To run a query in the advanced hunting tables in Log Analytics, enter the table name in the query window.
 
 ## Verify data ingestion
 
