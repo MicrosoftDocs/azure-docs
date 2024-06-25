@@ -193,10 +193,8 @@ However, if there is a lock on the manifest, you need to run an additional comma
     
 ```azurecli
 az acr repository update \
-   --name myregistry \
-   --image $repo@$digest \
-   --delete-enabled true \ 
-   --write-enabled true
+   --name myregistry --image $repo@$digest \
+   --delete-enabled true --write-enabled true
 ```
 
 ## Next steps
