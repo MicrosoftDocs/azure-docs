@@ -30,7 +30,7 @@ When a new document is inserted for the first time or an existing document is up
 For optimal performance, indexes should be created upfront before data is loaded. All document writes, updates and deletes will synchronously update the corresponding indices. If indexes are created after data is ingested, more server resources are consumed to index historical data. Depending on the size of the historical data, this operation is time consuming and impacts steady state read and write performance.
 
 > [!NOTE]
-For scenarios where read patterns change and indexes need to be added, background indexing should be enabled, which can be done through a support ticket.
+> For scenarios where read patterns change and indexes need to be added, background indexing should be enabled, which can be done through a support ticket.
 
 ## For multiple indexes created on historical data, issue nonblocking createIndex commands for each field
 It is not always possible to plan for all query patterns upfront, particularly as application requirements evolve. Changing application needs inevitably requires fields to be added to the index on a cluster with a large amount of historical data. 
@@ -38,12 +38,12 @@ It is not always possible to plan for all query patterns upfront, particularly a
 In such scenarios, each createIndex command should be issued asynchronously without waiting on a response from the server.
 
 > [!NOTE]
-By default, Azure Cosmos DB for MongoDB vCore responds to a createIndex operation only after the index is fully built on historical data. Depending on the size of the cluster and the volume of data ingested, this can take time and appear as though the server is not responding to the createIndex command. 
+> By default, Azure Cosmos DB for MongoDB vCore responds to a createIndex operation only after the index is fully built on historical data. Depending on the size of the cluster and the volume of data ingested, this can take time and appear as though the server is not responding to the createIndex command. 
 
 If the createIndex commands are being issued through the Mongo Shell, use Ctrl + C to interrupt the command to stop waiting on a response and issue the next set of operations. 
 
 > [!NOTE]
-Using Ctrl + C to interrupt the createIndex command after it has been issued does not terminate the index build operation on the server. It simply stops the Shell from waiting on a response from the server, while the server asynchronously continues to build the index over the existing documents.
+> Using Ctrl + C to interrupt the createIndex command after it has been issued does not terminate the index build operation on the server. It simply stops the Shell from waiting on a response from the server, while the server asynchronously continues to build the index over the existing documents.
 
 ## Create Compound Indexes for queries with predicates on multiple fields
 Compound indexes should be used in the following scenarios:
