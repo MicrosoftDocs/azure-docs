@@ -22,7 +22,9 @@ Use summary rules in Microsoft Sentinel to aggregate large sets of data in the b
 - **Run high performance KQL queries** on summarized data.
 - **Use summary rule results for longer** in historical investigations, hunting, and compliance activities. <!--how does this make sense if you can't access historical data?-->
 
-Summary rule results are stored in analytic logs and are available as other analytic logs, and charged accordingly.
+Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly.
+
+For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
 
 Microsoft Sentinel summary rules are based on Azure Monitor summary rules. For more information, see [Aggregate data in Log Analytics workspaces with summary rules](https://aka.ms/summary-rules-azmon) and **Summary rule limits** in [Service Limits for Log Analytics workspaces](/azure/azure-monitor/service-limits).
 
