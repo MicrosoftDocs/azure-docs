@@ -261,17 +261,8 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 1. Internet Control Message Protocol (ICMP) traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-1**:
 
     ```powershell
-    $ICMP = Get-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" 
-        If ($ICMP -eq $null)
-        {
-            write-host ("ICMP is not enabled, turning on now")
-            Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
-        }
-            elseif($ICMP -ne $null)
-        {
-            write-host ("ICMP is enabled")
-        }
-    ```
+    Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
+    ```  
 
 1. Sign-in to **vm-2**.
 
@@ -313,16 +304,7 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 1. ICMP traffic is required between the source and destination to test the MTU size. Use the following example to enable ICMP traffic on **vm-2**:
 
     ```powershell
-    $ICMP = Get-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" 
-        If ($ICMP -eq $null)
-        {
-            write-host ("ICMP is not enabled, turning on now")
-            Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
-        }
-            elseif($ICMP -ne $null)
-        {
-            write-host ("ICMP is enabled")
-        }
+    Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -enabled True
     ```
 
 1. Sign-in to **vm-1**.
@@ -348,18 +330,33 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     vm-1             10.0.0.5                        1 Success             3892
     ```
 
+1. Use `netsh` to determine the sub-interface name for the subsequent commands.
+
+    ```powershell
+    netsh interface ipv4 show subinterface
+    ```
+
+    ```output
+    C:\Users\azureuser>netsh interface ipv4 show subinterface
+
+           MTU  MediaSenseState      Bytes In     Bytes Out  Interface
+    ----------  ---------------  ------------  ------------  -------------
+    4294967295                1             0             0  Loopback Pseudo-Interface 1
+          4074                1        696088        890076  Ethernet 2
+    ```
+
 1. Use `netsh` to set the MTU value for **vm-1** to persist reboots. 
 
     * Mellanox interface:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet" mtu=3900 store=persistent
+    netsh interface ipv4 set subinterface "Ethernet 2" mtu=3900 store=persistent
     ```
     
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet" mtu=9000 store=persistent
+    netsh interface ipv4 set subinterface "Ethernet 2" mtu=9000 store=persistent
     ```
 
 1. Sign-in to **vm-2**.
@@ -382,7 +379,22 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
     Source           Address                   Latency Status           MtuSize
                                               (ms)                      (B)
     ------           -------                   ------- ------           -------
-    vm-1             10.0.0.4                        1 Success             3892
+    vm-2             10.0.0.4                        1 Success             3892
+    ```
+
+1. Use `netsh` to determine the sub-interface name for the subsequent commands.
+
+    ```powershell
+    netsh interface ipv4 show subinterface
+    ```
+
+    ```output
+    C:\Users\azureuser>netsh interface ipv4 show subinterface
+
+           MTU  MediaSenseState      Bytes In     Bytes Out  Interface
+    ----------  ---------------  ------------  ------------  -------------
+    4294967295                1             0             0  Loopback Pseudo-Interface 1
+          4074                1        696088        890076  Ethernet 2
     ```
 
 1. Use the following steps on **vm-2** to set the MTU value for **vm-2** to persist reboots.
@@ -390,13 +402,13 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
      * Mellanox interface:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet" mtu=3900 store=persistent
+    netsh interface ipv4 set subinterface "Ethernet 2" mtu=3900 store=persistent
     ```
     
     * Microsoft Azure Network Adapter:
     
     ```powershell
-    netsh interface ipv4 set subinterface "Ethernet" mtu=9000 store=persistent
+    netsh interface ipv4 set subinterface "Ethernet 2" mtu=9000 store=persistent
     ```
 
 ---
