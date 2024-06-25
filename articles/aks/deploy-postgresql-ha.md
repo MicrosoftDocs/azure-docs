@@ -12,17 +12,13 @@ ms.custom: innovation-engine, aks-related-content
 
 In this article, you deploy a highly available PostgreSQL database on AKS.
 
-## Prerequisites
-
 * Review the prerequisites and deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview] if you haven't already.
 * If you haven't already created the required infrastructure for this deployment, follow the steps in [Create infrastructure for deploying a highly available PostgreSQL database on AKS][create-infrastructure] to get set up, and then you can return to this article.
 
 
-## Deploy the primary Postgres cluster
+## Create secret for bootstrap app user
 
-### Create secret for bootstrap app user
-
-1. Generate a secret to validate the Postgres deployment by interactive login for a bootstrap "app" user using the [`kubectl create secret`][kubectl-create-secret] command.
+1. Generate a secret to validate the PostgreSQL deployment by interactive login for a bootstrap app user using the [`kubectl create secret`][kubectl-create-secret] command.
 
     ```azurecli-interactive
     PG_DATABASE_APPUSER_SECRET=$(echo -n | openssl rand -base64 16)
@@ -34,15 +30,15 @@ In this article, you deploy a highly available PostgreSQL database on AKS.
         --context $AKS_PRIMARY_CLUSTER_NAME
     ```
 
-1. Validate the secret was successfully created using the [`kubectl get`][kubectl-get] command.
+1. Validate that the secret was successfully created using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get secret db-user-pass --namespace $PG_NAMESPACE --context $AKS_PRIMARY_CLUSTER_NAME
     ```
 
-### Set environment variables for the Postgres cluster
+## Set environment variables for the PostgreSQL cluster
 
-* Deploy a ConfigMap to set environment variables for the Postgres cluster using the following file with the [`kubectl apply`][kubectl-apply] command.
+* Deploy a ConfigMap to set environment variables for the PostgreSQL cluster using the following command with the [`kubectl apply`][kubectl-apply] command.
 
     ```azurecli-interactive
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f -
@@ -76,15 +72,19 @@ The CNPG operator automatically creates PodMonitors for the CNPG instances using
       --kube-context=$AKS_PRIMARY_CLUSTER_NAME
     ```
 
-For reference dump the configured PodMonitor: kubectl -n $PG_NAMESPACE  
+Verify that the pod monitor is created.
+
+```bash
+kubectl -n $PG_NAMESPACE \
     --context $AKS_PRIMARY_CLUSTER_NAME  
     get podmonitors.monitoring.coreos.com  
     $PG_PRIMARY_CLUSTER_NAME  
-    -o yaml  
+    -o yaml
+```  
 
 ## Create a federated credential
 
-In this section, you create a federated identity credential for Postgres backup to allow CNPG to use AKS workload identity to authenticate to the storage account destination for backups. The CNPG operator creates a Kubernetes service account with the same name as the cluster named used in the CNPG Cluster deployment manifest.
+In this section, you create a federated identity credential for PostgreSQL backup to allow CNPG to use AKS workload identity to authenticate to the storage account destination for backups. The CNPG operator creates a Kubernetes service account with the same name as the cluster named used in the CNPG Cluster deployment manifest.
 
 1. Get the OIDC issuer URL of the cluster using the [`az aks show`][az-aks-show] command.
 
@@ -109,9 +109,9 @@ In this section, you create a federated identity credential for Postgres backup 
     #"subject": "system:serviceaccount:cnpg-database:<clustername>"
     ```
 
-## Deploy a highly available Postgres cluster
+## Deploy a highly available PostgreSQL cluster
 
-In this section, you deploy a highly available Postgres cluster using the [CNPG Cluster custom resource definition (CRD)][cluster-crd].
+In this section, you deploy a highly available PostgreSQL cluster using the [CNPG Cluster custom resource definition (CRD)][cluster-crd].
 
 The following table outlines the key properties set in the YAML deployment manifest for the Cluster CRD:
 
@@ -119,17 +119,17 @@ The following table outlines the key properties set in the YAML deployment manif
 | --------- | ------------ |
 | `inheritedMetadata` | Specific to the CNPG operator. Metadata is inherited by all objects related to the cluster. |
 | `annotations: service.beta.kubernetes.io/azure-dns-label-name` | DNS label for use when exposing the read-write and read-only Postgres cluster endpoints. |
-| `labels: azure.workload.identity/use: "true"` | Indicates that AKS should inject workload identity dependencies into the pods hosting the Postgres cluster instances. |
+| `labels: azure.workload.identity/use: "true"` | Indicates that AKS should inject workload identity dependencies into the pods hosting the PostgreSQL cluster instances. |
 | `topologySpreadConstraints` | Require different zones and different nodes with label `"workload=postgres"`. |
 | `resources` | Configures a Quality of Service (QoS) class of *Guaranteed*. In a production environment, these values are key for maximizing usage of the underlying node VM and vary based on the Azure VM SKU used. |
 | `bootstrap` | Specific to the CNPG operator. Initializes with an empty app database. |
 | `storage` / `walStorage` | Specific to the CNPG operator. Defines storage templates for the PersistentVolumeClaims (PVCs) for data and log storage. It's also possible to specify storage for tablespaces to shard out for increased IOPs. |
 | `replicationSlots` | Specific to the CNPG operator. Enables replication slots for high availability. |
 | `postgresql` | Specific to the CNPG operator. Maps settings for `postgresql.conf`, `pg_hba.conf`, and `pg_ident.conf config`. |
-| `serviceAccountTemplate` | Contains the template needed to generate the service accounts and maps the AKS federated identity credential to the UAMI to enable AKS workload identity authentication from the pods hosting the Postgres instances to external Azure resources. |
+| `serviceAccountTemplate` | Contains the template needed to generate the service accounts and maps the AKS federated identity credential to the UAMI to enable AKS workload identity authentication from the pods hosting the PostgreSQL instances to external Azure resources. |
 | `barmanObjectStore` | Specific to the CNPG operator. Configures the barman-cloud tool suite using AKS workload identity for authentication to the Azure Blob Storage object store. |
 
-1. Deploy the Postgres cluster with the Cluster CRD using the [`kubectl apply`][kubectl-apply] command.
+1. Deploy the PostgreSQL cluster with the Cluster CRD using the [`kubectl apply`][kubectl-apply] command.
 
     ```azurecli-interactive
     cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -v 9 -f -
@@ -228,7 +228,7 @@ The following table outlines the key properties set in the YAML deployment manif
     EOF
     ```
 
-1. Validate that the primary Postgres cluster was successfully created using the [`kubectl get`][kubectl-get] command. The CNPG Cluster CRD specified three instances, which can be validated by viewing running pods once each instance is brought up and joined for replication. Be patient as it can take some time for all three instances to come online and join the cluster.
+1. Validate that the primary PostgreSQL cluster was successfully created using the [`kubectl get`][kubectl-get] command. The CNPG Cluster CRD specified three instances, which can be validated by viewing running pods once each instance is brought up and joined for replication. Be patient as it can take some time for all three instances to come online and join the cluster.
 
     ```azurecli-interactive
     kubectl get pods --context $AKS_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
@@ -263,11 +263,43 @@ The CNPG operator automatically creates a PodMonitor for the primary instance us
     ...
     ```
 
-## Inspect the deployed Postgres cluster
+If you are using [Azure Monitor for Managed Prometheus](https://learn.microsoft.com/azure/azure-monitor/essentials/prometheus-metrics-overview), you will need to add another pod monitor using the custom group name. Managed Prometheus does not pick up the custom resource definitions (CRDs) from the Prometheus community. Aside from the group name, the CRDs are the same. This allows pod monitors for Managed Prometheus to exist side-by-side those that use the community pod monitor. If you are not using Managed Prometheus, you can skip this. Create a new pod monitor:
 
-Retrieve the AKS nodes and their respective zones to validate Postgres is spread across multiple availability zones.
+```bash
+cat <<EOF | kubectl apply --context $AKS_PRIMARY_CLUSTER_NAME -n $PG_NAMESPACE -f apply -f -
+apiVersion: azmonitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: cnpg-cluster-metrics-managed-prometheus
+  namespace: ${PG_NAMESPACE}
+  labels:
+    azure.workload.identity/use: "true"
+    cnpg.io/cluster: ${PG_PRIMARY_CLUSTER_NAME}
+spec:
+  selector:
+    matchLabels:
+      azure.workload.identity/use: "true"
+      cnpg.io/cluster: ${PG_PRIMARY_CLUSTER_NAME}
+  podMetricsEndpoints:
+    - port: metrics
+```
 
-* Validate that Postgres is spread across multiple availability zones by retrieving the AKS node details using the [`kubectl get`][kubectl-get] command.
+Verify that the pod monitor is created (note the difference in the group name).
+
+```bash
+kubectl -n $PG_NAMESPACE \
+    --context $AKS_PRIMARY_CLUSTER_NAME \
+    get podmonitors.azmonitoring.coreos.com \
+    $PG_PRIMARY_CLUSTER_NAME \
+    -o yaml
+```
+
+Once you have deployed the Postgres cluster and the pod monitor, you can view the metrics using the Azure portal in an Azure Monitor workspace.
+![Azure Monitor Metrics](./media/deploy-postgresql-ha/cnpg-prom-metrics.png)
+
+## Inspect the deployed PostgreSQL cluster
+
+Validate that PostgreSQL is spread across multiple availability zones by retrieving the AKS node details using the [`kubectl get`][kubectl-get] command.
 
     ```azurecli-interactive
     kubectl get nodes \
@@ -302,9 +334,9 @@ Retrieve the AKS nodes and their respective zones to validate Postgres is spread
     }
     ```
 
-## Connect to Postgres and create a sample dataset
+## Connect to PostgreSQL and create a sample dataset
 
-In this section, you create a table and insert some data into the app database that was created in the CNPG Cluster CRD you deployed earlier. This data you insert into the table is used to validate the backup and restore operations for the Postgres cluster.
+In this section, you create a table and insert some data into the app database that was created in the CNPG Cluster CRD you deployed earlier. This data that is used to validate the backup and restore operations for the PostgreSQL cluster.
 
 * Create a table and insert data into the app database using the following commands:
 
@@ -323,10 +355,10 @@ In this section, you create a table and insert some data into the app database t
     # Type \q to exit psql
     ```
 
-## Connect to Postgres read-only replicas
+## Connect to PostgreSQL read-only replicas
 
 
-* Connect to the Postgres read-only replicas and validate the sample dataset using the following commands:
+* Connect to the PostgreSQL read-only replicas and validate the sample dataset using the following commands:
 
     ```azurecli-interactive
     kubectl cnpg psql --replica $PG_PRIMARY_CLUSTER_NAME --namespace $PG_NAMESPACE
@@ -348,9 +380,9 @@ In this section, you create a table and insert some data into the app database t
     # Type \q to exit psql
     ```
 
-## Set up on-demand and scheduled Postgres backups using Barman
+## Set up on-demand and scheduled PostgreSQL backups using Barman
 
-1. Validate that the Postgres cluster can access the Azure storage account specified in the CNPG Cluster CRD and that `Working WAL archiving` reports as `OK` using the following command:
+1. Validate that the PostgreSQL cluster can access the Azure storage account specified in the CNPG Cluster CRD and that `Working WAL archiving` reports as `OK` using the following command:
 
     ```azurecli-interactive
     kubectl cnpg status $PG_PRIMARY_CLUSTER_NAME 1 --context $AKS_PRIMARY_CLUSTER_NAME --namespace 
@@ -439,7 +471,7 @@ In this section, you create a table and insert some data into the app database t
     az storage blob list --account-name $PG_PRIMARY_STORAGE_ACCOUNT_NAME --container-name backups --query "[*].name" --only-show-errors 
     ```
 
-    Your output should resemble the following example output validating the backup was successful:
+    Your output should resemble the following example output, validating the backup was successful:
 
     ```output
     [
@@ -459,7 +491,7 @@ In this section, you create a table and insert some data into the app database t
     ]
     ```
 
-## Restore the on-demand backup to a new Postgres cluster
+## Restore the on-demand backup to a new PostgreSQL cluster
 
 In this section, you restore the on-demand backup you created earlier using the CNPG operator into a new instance using the bootstrap Cluster CRD. A single instance cluster is used for simplicity. Remember that the AKS workload identity (via CNPG inheritFromAzureAD) accesses the backup files, and that the recovery cluster name is used to generate a new Kubernetes service account specific to the recovery cluster.
 
@@ -577,9 +609,9 @@ You also create a second federated credential to map the new recovery cluster se
         --yes
     ```
 
-## Expose the Postgres cluster using a public load balancer
+## Expose the PostgreSQL cluster using a public load balancer
 
-In this section, you configure the necessary infrastructure to publicly expose the Postgres read-write and read-only endpoints with IP source restrictions to the public IP address of your client workstation.
+In this section, you configure the necessary infrastructure to publicly expose the PostgreSQL read-write and read-only endpoints with IP source restrictions to the public IP address of your client workstation.
 
 You also retrieve the following endpoints from the Cluster IP service:
 
@@ -601,7 +633,7 @@ You also retrieve the following endpoints from the Cluster IP service:
     ```
 
     > [!NOTE]
-    > We have three services: `namespace/cluster-name-ro` mapped to port 5433, `namespace/cluster-name-rw`, and `namespace/cluster-name-r` mapped to port 5433. It’s important to avoid using the same port as the read/write node of the PostgreSQL database cluster. If you want applications to access only the read-only replica of the PostgreSQL database cluster, direct them to port 5433. The final service is typically used for data backups but can also function as a read-only node.
+    > There are three services: `namespace/cluster-name-ro` mapped to port 5433, `namespace/cluster-name-rw`, and `namespace/cluster-name-r` mapped to port 5433. It’s important to avoid using the same port as the read/write node of the PostgreSQL database cluster. If you want applications to access only the read-only replica of the PostgreSQL database cluster, direct them to port 5433. The final service is typically used for data backups but can also function as a read-only node.
 
 1. Get the service details using the [`kubectl get`][kubectl-get] command.
 
@@ -689,19 +721,19 @@ You also retrieve the following endpoints from the Cluster IP service:
     echo $AKS_PRIMARY_CLUSTER_ALB_DNSNAME
     ```
 
-### Validate public Postgres endpoints
+### Validate public PostgreSQL endpoints
 
 In this section, you validate that the Azure Load Balancer is properly set up using the static IP that you created earlier and routing connections to the primary read-write and read-only replicas and use the psql CLI to connect to both.
 
-Remember that the primary read-write endpoint maps to TCP port 5432 and the read-only replica endpoints map to port 5433 to allow the same Postgres DNS name to be used for readers and writers.
+Remember that the primary read-write endpoint maps to TCP port 5432 and the read-only replica endpoints map to port 5433 to allow the same PostgreSQL DNS name to be used for readers and writers.
 
 > [!NOTE]
-> You need the value of the app user password for Postgres basic auth that was generated earlier and stored in the `$PG_DATABASE_APPUSER_SECRET` environment variable.
+> You need the value of the app user password for PostgreSQL basic auth that was generated earlier and stored in the `$PG_DATABASE_APPUSER_SECRET` environment variable.
 
-* Validate the public Postgres endpoints using the following `psql` commands:
+* Validate the public PostgreSQL endpoints using the following `psql` commands:
 
     ```azurecli-interactive
-    echo "Public endpoint for Postgres cluster: $AKS_PRIMARY_CLUSTER_ALB_DNSNAME"
+    echo "Public endpoint for PostgreSQL cluster: $AKS_PRIMARY_CLUSTER_ALB_DNSNAME"
 
     # Query the primary, pg_is_in_recovery = false
     
@@ -728,13 +760,13 @@ Remember that the primary read-write endpoint maps to TCP port 5432 and the read
    (1 row)
     ```
 
-    When successfully connected to the primary read-write endpoint, the Postgres function returns `f` for *false*, indicating that the current connection is writable.
+    When successfully connected to the primary read-write endpoint, the PostgreSQL function returns `f` for *false*, indicating that the current connection is writable.
 
     When connected to a replica, the function returns `t` for *true*, indicating the database is in recovery and read-only.
 
 ## Simulate an unplanned failover
 
-In this section, you trigger a sudden failure by deleting the pod running the primary, which simulates a sudden crash or loss of network connectivity to the node hosting the Postgres primary.
+In this section, you trigger a sudden failure by deleting the pod running the primary, which simulates a sudden crash or loss of network connectivity to the node hosting the PostgreSQL primary.
 
 1. Check the status of the running pod instances using the following command:
 
@@ -794,6 +826,7 @@ Once you're finished reviewing your deployment, delete all the resources you cre
 
 ```azurecli-interactive 
 az group delete --resource-group $RESOURCE_GROUP_NAME --no-wait --yes
+```
 
 ## Next steps
 

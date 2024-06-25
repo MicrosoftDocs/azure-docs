@@ -1,5 +1,5 @@
 ---
-title: 'Deploy a highly available PostgreSQL database on AKS with Azure CLI'
+title: 'Overview of deploying a highly available PostgreSQL database on AKS with Azure CLI'
 description: Learn how to deploy a highly available PostgreSQL database on AKS using the CloudNativePG operator.
 ms.topic: overview
 ms.date: 06/07/2024
@@ -48,7 +48,7 @@ In this guide, you learn how to:
 
 ## Deployment architecture
 
-This diagram illustrates a PostgreSQL cluster setup with one primary replica and two read replicas managed by the CNPG operator. The architecture provides a highly available Postgres running on an AKS cluster that can withstand a zone outage by failing over across replicas.
+This diagram illustrates a PostgreSQL cluster setup with one primary replica and two read replicas managed by the CNPG operator. The architecture provides a highly available PostgreSQL running on an AKS cluster that can withstand a zone outage by failing over across replicas.
 
 Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing another way to restore the database in the event of an issue with streaming replication from the primary replica.
 

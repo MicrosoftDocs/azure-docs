@@ -10,15 +10,14 @@ ms.custom: innovation-engine, aks-related-content
 
 # Create infrastructure for deploying a highly available PostgreSQL database on AKS
 
-In this article, you create the infrastructure needed to deploy a highly available PostgreSQL database on AKS using the CloudNativePG (CNPG) operator.
+In this article, you create the infrastructure needed to deploy a highly available PostgreSQL database on AKS using the [CloudNativePG (CNPG)](https://cloudnative-pg.io/) operator.
 
-## Prerequisites
 
-* Review the prerequisites and deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview].
+* Before you begin, make sure you've met all of the prerequisites and review the deployment overview in [How to deploy a highly available PostgreSQL database on AKS with Azure CLI][postgresql-ha-deployment-overview].
 * [Set environment variables](#set-environment-variables) for use throughout this guide.
 * [Install the required extensions](#install-required-extensions).
 
-### Set environment variables
+## Set environment variables
 
 Set the following environment variables for use throughout this guide:
 
@@ -44,7 +43,7 @@ export ENABLE_AZURE_PVC_UPDATES="true"
 export MY_PUBLIC_CLIENT_IP=$(dig +short myip.opendns.com @resolver3.opendns.com)
 ```
 
-### Install required extensions
+## Install required extensions
 
 The `k8s-extension` and `amg` extensions provide more functionality for managing Kubernetes clusters and querying Azure resources. Install these extensions by using the [`az extension add`][az-extension-add] command:
 
@@ -68,7 +67,7 @@ az group create \
 
 ## Create a user-assigned managed identity
 
-In this section, you create a user-assigned managed identity (UAMI) to allow the CNPG Postgres to use an AKS workload identity to access Azure Blob Storage. This configuration allows the PostgreSQL cluster on AKS to connect to Azure Blob Storage without a secret.
+In this section, you create a user-assigned managed identity (UAMI) to allow the CNPG PostgreSQL to use an AKS workload identity to access Azure Blob Storage. This configuration allows the PostgreSQL cluster on AKS to connect to Azure Blob Storage without a secret.
 
 1. Create a user-assigned managed identity using the [`az identity create`][az-identity-create] command.
 
@@ -96,11 +95,11 @@ In this section, you create a user-assigned managed identity (UAMI) to allow the
 
 The object ID is a unique identifier for the client ID (also known as the application ID) that uniquely identifies a security principal of type *Application* within the Entra ID tenant. The resource ID is a unique identifier to manage and locate a resource in Azure. These values are required to enabled AKS workload identity.
 
-The CNPG operator automatically generates a service account called *postgres* that you use later in the guide to create a federated credential that enables OAuth access from Postgres to Azure Storage.
+The CNPG operator automatically generates a service account called *postgres* that you use later in the guide to create a federated credential that enables OAuth access from PostgreSQL to Azure Storage.
 
 ## Create a storage account in the primary region
 
-1. Create an object storage account to store Postgres backups in the primary region using the [`az storage account create`][az-storage-account-create] command.
+1. Create an object storage account to store PostgreSQL backups in the primary region using the [`az storage account create`][az-storage-account-create] command.
 
     ```azurecli-interactive
     az storage account create \
@@ -113,7 +112,7 @@ The CNPG operator automatically generates a service account called *postgres* th
       --output tsv
       ````
 
-1. Create the storage container to store the Write Ahead Logs (WAL) and regular Postgres on-demand and scheduled backups using the [`az storage container create`][az-storage-container-create] command.
+1. Create the storage container to store the Write Ahead Logs (WAL) and regular PostgreSQL on-demand and scheduled backups using the [`az storage container create`][az-storage-container-create] command.
 
     ```azurecli-interactive
     az storage container create \
@@ -124,7 +123,7 @@ The CNPG operator automatically generates a service account called *postgres* th
 
 ## Assign RBAC to storage accounts
 
-To enable backups, the Postgres cluster needs to read and write to an object store. The PostgreSQL cluster running on AKS uses a workload identity to access the storage account via the CNPG operator configuration parameter [`inheritFromAzureAD`][inherit-from-azuread].
+To enable backups, the PostgreSQL cluster needs to read and write to an object store. The PostgreSQL cluster running on AKS uses a workload identity to access the storage account via the CNPG operator configuration parameter [`inheritFromAzureAD`][inherit-from-azuread].
 
 1. Get the primary resource ID for the storage account using the [`az storage account show`][az-storage-account-show] command.
 
@@ -152,7 +151,7 @@ To enable backups, the Postgres cluster needs to read and write to an object sto
 
 ## Set up monitoring infrastructure
 
-In this section, you deploy an instance of Azure Managed Grafana, an Azure Monitor workspace, and an Azure Monitor Log Analytics workspace to enable monitoring of the Postgres cluster. You also store references to the created monitoring infrastructure to use as input during the AKS cluster creation process later in the guide. This section might take some time to complete.
+In this section, you deploy an instance of [Azure Managed Grafana](/azure/managed-grafana/overview), an [Azure Monitor workspace](azure/azure-monitor/essentials/azure-monitor-workspace-overview), and an [Azure Monitor Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) to enable monitoring of the PostgreSQL cluster. You also store references to the created monitoring infrastructure to use as input during the AKS cluster creation process later in the guide. This section might take some time to complete.
 
 > [!NOTE]
 > Azure Managed Grafana instances and AKS clusters are billed independently. For more pricing information, see [Azure Managed Grafana pricing][azure-managed-grafana-pricing].
@@ -202,11 +201,11 @@ In this section, you deploy an instance of Azure Managed Grafana, an Azure Monit
     echo $ALA_RESOURCE_ID
     ```
 
-## Create the AKS cluster to host the Postgres cluster
+## Create the AKS cluster to host the PostgreSQL cluster
 
 In this section, you create a multizone AKS cluster with a system node pool. The AKS cluster hosts the PostgreSQL cluster primary replica and two standby replicas, each aligned to a different availability zone to enable zonal redundancy.
 
-You also add a user node pool to the AKS cluster to host the Postgres cluster. Using a separate node pool allows for control over the Azure VM SKUs used for Postgres and enables the AKS system pool to optimize performance and costs. You apply a label to the user node pool that you can reference for node selection when deploying the CNPG operator later in this guide. This section might take some time to complete.
+You also add a user node pool to the AKS cluster to host the PostgreSQL cluster. Using a separate node pool allows for control over the Azure VM SKUs used for PostgreSQL and enables the AKS system pool to optimize performance and costs. You apply a label to the user node pool that you can reference for node selection when deploying the CNPG operator later in this guide. This section might take some time to complete.
 
 1. Create an AKS cluster using the [`az aks create`][az-aks-create] command.
 
@@ -256,7 +255,7 @@ You also add a user node pool to the AKS cluster to host the Postgres cluster. U
 
 ## Connect to the AKS cluster and create namespaces
 
-In this section, you get the AKS cluster credentials, which serve as the keys that allow you to authenticate and interact with the cluster. Once connected, you create two namespaces: one for the CNPG controller manager services and one for the Postgres cluster and its related services.
+In this section, you get the AKS cluster credentials, which serve as the keys that allow you to authenticate and interact with the cluster. Once connected, you create two namespaces: one for the CNPG controller manager services and one for the PostgreSQL cluster and its related services.
 
 1. Get the AKS cluster credentials using the [`az aks get-credentials`][az-aks-get-credentials] command.
 
@@ -266,7 +265,7 @@ In this section, you get the AKS cluster credentials, which serve as the keys th
         --name $AKS_PRIMARY_CLUSTER_NAME
      ```      
 
-1. Create the namespace for the CNPG controller manager services, the Postgres cluster, and its related services by using the [`kubectl create namespace`][kubectl-create-namespace] command.
+1. Create the namespace for the CNPG controller manager services, the PostgreSQL cluster, and its related services by using the [`kubectl create namespace`][kubectl-create-namespace] command.
 
     ```azurecli-interactive
     kubectl create namespace $PG_NAMESPACE --context $AKS_PRIMARY_CLUSTER_NAME
@@ -304,7 +303,7 @@ The Azure Monitor workspace for Managed Prometheus and Azure Managed Grafana are
         --query addonProfiles
     ```
 
-    Your output should resemble the following example output, with *six* nodes total (three for the system node pool and three for the Postgres node pool) and the Container insights showing `"enabled": true`:
+    Your output should resemble the following example output, with *six* nodes total (three for the system node pool and three for the PostgreSQL node pool) and the Container insights showing `"enabled": true`:
 
     ```output
     NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR
@@ -325,9 +324,9 @@ The Azure Monitor workspace for Managed Prometheus and Azure Managed Grafana are
     }
     ```
 
-## Create a public static IP for Postgres cluster ingress
+## Create a public static IP for PostgreSQL cluster ingress
 
-To validate deployment of the Postgres cluster and use client Postgres tooling, such as *psql* and *PgAdmin*, you need to expose the primary and read-only replicas to ingress. In this section, you create an Azure public IP resource that you later supply to an Azure load balancer to expose Postgres endpoints for query.
+To validate deployment of the PostgreSQL cluster and use client PostgreSQL tooling, such as *psql* and *PgAdmin*, you need to expose the primary and read-only replicas to ingress. In this section, you create an Azure public IP resource that you later supply to an Azure load balancer to expose PostgreSQL endpoints for query.
 
 1. Get the name of the AKS cluster node resource group using the [`az aks show`][az-aks-show] command.
 
