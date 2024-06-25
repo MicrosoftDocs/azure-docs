@@ -1,5 +1,5 @@
 ---
-title: How to configurate Azure OpenAI Service with Microsoft Entra ID authentication
+title: How to configure Azure OpenAI Service with Microsoft Entra ID authentication
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Microsoft Entra ID
 ms.service: azure-ai-openai
@@ -11,7 +11,7 @@ recommendations: false
 ms.custom: devx-track-azurecli
 ---
 
-# How to configurate Azure OpenAI Service with Microsoft Entra ID authentication
+# How to configure Azure OpenAI Service with Microsoft Entra ID authentication
 
 More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.
 
