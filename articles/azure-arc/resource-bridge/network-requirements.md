@@ -42,6 +42,10 @@ There are only two certificates that should be relevant when deploying the Arc r
 
 In order to deploy Arc resource bridge, images need to be downloaded to the management machine and then uploaded to the on-premises private cloud gallery. If your proxy server throttles download speed, you may not be able to download the required images (~3.5 GB) within the allotted time (90 min).
 
+> [!NOTE]
+> Transparent proxies are currently not supported by Arc resource bridge. Alternative options are to exclude Arc resource bridge traffic from the proxy and not use a proxy for Arc resource bridge or use one of the supported proxy configurations (SSL or non-SSL).
+>
+
 ## Exclusion list for no proxy
 
 If a proxy server is being used, the following table contains the list of addresses that should be excluded from proxy by configuring the `noProxy` settings.
