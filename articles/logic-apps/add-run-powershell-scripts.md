@@ -322,6 +322,32 @@ MyLogicApp
 - requirements.psd1
 ```
 
+## Authorize access to Azure resources with a managed identity using PowerShell
+
+With a [managed identity](/entra/identity/managed-identities-azure-resources/overview), your logic app resource and workflow can authenticate and authorize access to any Azure service and Azure resource that supports Microsoft Entra authentication without including credentials in your code.
+
+From inside the **Execute PowerShell Code** action, you can authenticate and authorize access with a managed identity so that you can perform actions on other Azure resources where you enabled access. For example, you can restart a virtual machine or get the run details of another logic app workflow.
+
+To use the managed identity from inside the **Execute PowerShell Code** action, you must follow these steps:
+
+1. [Follow these steps to set up the managed identity on your logic app and grant the managed identity access on the target Azure resource](authenticate-with-managed-identity.md?tabs=standard).
+
+   On the target Azure resource, review the following considerations:
+
+   - On the **Role** tab, selecting a **Contributor** role is usually sufficient.
+
+   - On the **Add role assignment** page, on the **Members** tab, for the **Assign access to** property, make sure that you select **Managed identity**.
+
+   - After you select **Select members**, on the **Select managed identities** pane, select the managed identity that you want to use.
+
+1. In your **Execute PowerShell Code** action, include the following code as the first line:
+
+   ```powershell
+   Connect-AzAccount -Identity
+   ```
+
+1. Now, you can use the modules and commandlets that you want to work with the Azure resource.
+
 ## Compilation errors
 
 In this release, the web-based editor includes limited IntelliSense support, which is still under improvement. Any compilation errors are detected when you save your workflow, and the Azure Logic Apps runtime compiles your script. These errors appear in your logic app's error logs.
