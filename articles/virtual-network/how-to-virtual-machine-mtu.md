@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 06/20/2024
 
 #customer intent: As a network administrator, I want to change the MTU for my Linux or Windows virtual machine so that I can optimize network performance.
 
@@ -49,6 +49,8 @@ The following table shows the largest MTU size supported on the Azure Network In
 
     - For the purposes of this article, the virtual machines are named **vm-1** and **vm-2**. Replace these values with your values.
 
+- The newest version of PowerShell installed in the Windows Server virtual machines. The commands in the article don't work with PowerShell installed in Windows Server. For more information about [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows)
+
 ---
 
 ## Precautions
@@ -58,6 +60,14 @@ The following table shows the largest MTU size supported on the Azure Network In
 - Optimal MTU is operating system, network, and application specific. The maximal supported MTU might not be optimal for your use case.
 
 - Always test MTU settings changes in a noncritical environment first before applying broadly or to critical environments.
+
+## Path MTU Discovery
+
+- It is important to understand the MTU supported across the network path(s) your application or machines uses.
+
+- Path MTU discovery is a means to find out the largest MTU supported between a source and destination address.
+
+- Using a larger MTU than is supported between the source and destination address will result in fragmentation which could negatively impact performance.  
 
 ## Obtain vm-1 IP address
 
@@ -77,19 +87,17 @@ The following table shows the largest MTU size supported on the Azure Network In
 
 1. In the **Overview** of **vm-2**, in the **Networking** section, record the private IP address of **vm-2**. The IP address of **vm-2** is required to test the network path. For the purposes of this article, the example IP address is **10.0.0.5**. Replace the IP address with your own value.
 
-## Determine the MTU size on a virtual machine
+## Test the MTU size on a virtual machine
 
-A shell script for Linux and a PowerShell module is used to determine the largest MTU size that can be used for a specific network path. The script uses ICMP ping to determine the maximum frame size that can be sent between the source and destination. 
-
-The shell script and PowerShell are available in Azure samples gallery. Download the script for Linux and the module for Windows from the following links to **vm-1**:
-
-- [Linux](link here)
-
-- [Windows](link here)
+A shell script for Linux and the PowerShell command `Test-Connection` is used to test the largest MTU size that can be used for a specific network path.
 
 Use the following steps to determine the largest MTU size that can be used for a specific network path:
 
 # [Linux](#tab/linux)
+
+The shell script is available in the Azure samples gallery. Download the script for Linux from the following link and save to **vm-1** and **vm-2**.
+
+- [Linux](link here)
 
 Use the following steps to change the MTU size on a Linux virtual machine:
 
@@ -151,15 +159,29 @@ Use the following steps to change the MTU size on a Linux virtual machine:
 1. Use the following example to run the Linux shell script to determine the largest MTU size that can be used for a specific network path:
 
     ```bash
-    source LinuxVmUtilities.sh;Get-PathMtu 10.0.0.5 1200 eth0
+    ./GetPathMtu.sh 10.0.0.5
     ```
 
 1. If the output of the script is successful, then the MTU size is set correctly. If the output of the script is not successful, then the mtu size is not set correctly.
+
+    ```output
+    azureuser@vm-1:~/GetPathMTU$ ./GetPathMtu.sh 10.0.0.5
+    destination: 10.0.0.5
+    startSendBufferSize: 1200
+    interfaceName: Default interface
+    Test started ....................................................................................................................................................................................................
+    3900
+    ```
 
     >[!IMPORTANT]
     > The MTU changes made in the previous steps don't persist during a reboot. To make the changes permanent, consult the appropriate documentation for your Linux distribution.
 
 # [Windows](#tab/windows)
+
+Use PowerShell to test the connection between **vm-1** and **vm-2**.
+
+>[!IMPORTANT]
+> You must have the newest version of PowerShell installed in the Windows Server virtual machines. The commands in the article don't work with PowerShell included with Windows Server. For more information about [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows)
 
 Use the following steps to change the MTU size on a Windows Server virtual machine:
 
@@ -228,13 +250,8 @@ Use the following steps to change the MTU size on a Windows Server virtual machi
 1. Use the following example to run the PowerShell module you downloaded previously to test the network path. Replace the value of the destination host with the IP address of **vm-2**.
 
     ```powershell
-    Import-Module UtilityFunctions.psm1
-
-    Get-PathMtu -DestinationHost 10.0.0.5
-
+    Test-Connection -TargetName 10.0.0.5 -MtuSize 9014
     ```
-
-    If the output of the script is successful, then the MTU size is set correctly. If the output of the script is not successful, then the mtu size is not set correctly.
 
 1. Use `netsh` to set the MTU value for **vm-1** to persist reboots. 
 
