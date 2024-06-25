@@ -121,7 +121,7 @@ In this section, you create a virtual network in the Azure Extended Zone that yo
 1. Select **Connect** and then enter the username and password that you created in the previous steps. Accept the certificate if prompted.
 
 > [!NOTE]
-> Default outbound access is not available to VMs in Extended Zones. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
+> Default outbound access is not available to VMs in Azure Extended Zones. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 ## Clean up resources
 
