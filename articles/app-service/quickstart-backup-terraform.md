@@ -86,4 +86,4 @@ Replace `<web_app_name>` with the name of your Azure Windows web app and `<resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about App Service](/app-service)
+> [See more articles about App Service](/azure/app-service)
