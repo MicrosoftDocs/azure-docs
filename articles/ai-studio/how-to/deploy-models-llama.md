@@ -61,16 +61,15 @@ If you need to deploy a different model, [deploy it to managed compute](#deploy-
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Meta Llama 3 is only available with hubs created in these regions:
 
-    > [!div class="checklist"]
-    > * East US
-    > * East US 2
-    > * North Central US
-    > * South Central US
-    > * West US
-    > * West US 3
-    > * Sweden Central
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
   
-    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md).
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 - An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure subscription. Alternatively, your account can be assigned a custom role that has the following permissions:
 
@@ -575,4 +574,4 @@ Models deployed as a serverless API with pay-as-you-go are protected by Azure AI
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Fine-tune a Meta Llama 2 model in Azure AI Studio](fine-tune-model-llama.md)
 - [Azure AI FAQ article](../faq.yml)
-- [Region availability for models in serverless API endpoints](concept-endpoint-serverless-availability.md)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
