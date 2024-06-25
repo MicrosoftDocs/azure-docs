@@ -125,7 +125,7 @@ The most recent version of the Flux v2 extension and the two previous versions (
 > - `.spec.postRenderers.kustomize.patchesStrategicMerge`: replaced by `.spec.postRenderers.kustomize.patches`
 > - `.status.lastAppliedRevision`: replaced by `.status.history.chartVersion`
 >
-> The [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) kind will be promoted from `v1beta2` to `v1` (GA). The `v1` API is backwards compatible with `v1beta2`, with the exception of the `.spec.valuesFile` field, which will be replaced by `.spec.chart.valuesFiles`.
+> The [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) kind will be promoted from `v1beta2` to `v1` (GA). The `v1` API is backwards compatible with `v1beta2`, with the exception of the `.spec.valuesFile` field, which will be replaced by `.spec.valuesFiles`.
 >
 > We recommend updating your deployments as soon as possible to stop using the fields that will be removed, and migrate to the new fields ahead of time. The new fields are already available in the current version of the APIs.
 
