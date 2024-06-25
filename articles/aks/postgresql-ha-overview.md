@@ -16,7 +16,7 @@ This article walks through the prerequisites for setting up a PostgreSQL cluster
 
 ## Prerequisites
 
-This guide assumes a basic understanding of [core Kubernetes concepts][core-kubernetes-concepts] and [PostgreSQL][postegresql].
+This guide assumes a basic understanding of [core Kubernetes concepts][core-kubernetes-concepts] and [PostgreSQL][postgresql].
 
 You need the **Owner** or **User Access Administrator** and the **Contributor** [Azure built-in roles][azure-roles] on a subscription in your Azure account.
 
