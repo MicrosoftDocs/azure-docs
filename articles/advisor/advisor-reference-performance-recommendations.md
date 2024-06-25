@@ -475,37 +475,37 @@ Your server has been configured to output VERBOSE error logs. This can be useful
 
 Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_error_verbosity settings for PostgreSQL on Azure Database](../postgresql/flexible-server/concepts-logging.md).
 
-### Improve PostgreSQL - Flexible Server performance by identifying if Checkpoints are happening too frequently
+### Identify if checkpoints are happening too often to improve PostgreSQL - Flexible Server performance
 
 Your sever is encountering checkpoints frequently. To resolve the issue, we recommend increasing your max_wal_size server parameter.
 
 Learn more about [Azure Database for PostgreSQL flexible server – Increase max_wal_size](../postgresql/flexible-server/server-parameters-table-write-ahead-log---checkpoints?pivots=postgresql-16#max_wal_size).
 
-### Improve PostgreSQL - Flexible Server performance by identifying inactive Logical Replication Slots
+### Identify inactive Logical Replication Slots to improve PostgreSQL - Flexible Server performance
 
 Your server may have inactive logical replication slots which can result in degraded server performance and availability. We recommend deleting inactive replication slots or consuming the changes from the slots so the Log Sequence Number (LSN) advances to closer to the current LSN of the server.
 
 Learn more about [Azure Database for PostgreSQL flexible server – Unused/inactive Logical Replication Slots](../postgresql/flexible-server/how-to-autovacuum-tuning#unused-replication-slots).
 
-### Improve PostgreSQL - Flexible Server performance by identifying Long Running transactions
+### Identify long-running transactions to improve PostgreSQL - Flexible Server performance
 
 There are transactions running for more than 24 hours. Review the High CPU Usage-> Long Running Transactions section in the troubleshooting guides to identify and mitigate the issue.
 
 Learn more about [Azure Database for PostgreSQL flexible server – Long Running transactions using Troubleshooting guides](../postgresql/flexible-server/how-to-troubleshooting-guides). 
 
-### Improve PostgreSQL - Flexible Server performance by identifying Orphaned Prepared transactions
+### Identify Orphaned Prepared transactions to improve PostgreSQL - Flexible Server performance
 
 There are orphaned prepared transactions. Rollback/Commit the prepared transaction.  The recommendations are shared in  Autovacuum Blockers ->  Autovacuum Blockers section in the troubleshooting guides.
 
 Learn more about [Azure Database for PostgreSQL flexible server – Orphaned Prepared transactions using Troubleshooting guides](../postgresql/flexible-server/how-to-troubleshooting-guides). 
 
-### Improve PostgreSQL - Flexible Server performance by identifying Transaction Wraparound
+### Identify Transaction Wraparound to improve PostgreSQL - Flexible Server performance
 
 The server has crossed the 50% wraparound limit, having 1 billion transactions. Refer to the recommendations shared in the Autovacuum Blockers -> Emergency AutoVacuum and Wraparound section of the troubleshooting guides.
 
 Learn more about [Azure Database for PostgreSQL flexible server – Transaction Wraparound using Troubleshooting guides](../postgresql/flexible-server/how-to-troubleshooting-guides).
 
-### Improve PostgreSQL - Flexible Server performance by identifying High Bloat Ratio
+### Identify High Bloat Ratio to improve PostgreSQL - Flexible Server performance
 
 The server has a bloat_ratio (dead tuples/ (live tuples + dead tuples) > 80%). Refer to the recommendations shared in the Autovacuum Monitoring section of the troubleshooting guides. 
 
