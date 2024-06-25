@@ -50,7 +50,7 @@ An Azure Red Hat OpenShift release is available through one of two mechanisms:
 Azure Red Hat OpenShift supports generally available (GA) minor versions of Red Hat OpenShift Container Platform from when an update is available in the OpenShift `stable` channel.  Update availability can be checked at the following page, [Red Hat OpenShift Container Platform Update Graph](https://access.redhat.com/labs/ocpupgradegraph/update_path). 
 
 #### Install availability
-Installable versions can be validated by using the [Azure Red Hat OpenShift release calendar](#azure-red-hat-openshift-release-calendar) below or by running the following command: 
+Installable versions can be validated by using the [Azure Red Hat OpenShift release calendar](#azure-red-hat-openshift-release-calendar) below or by running the following Azure CLI command: 
 ```
 az aro get-versions --location [region]
 ```
@@ -59,7 +59,7 @@ az aro get-versions --location [region]
 The end-of-life date for a version of Azure Red Hat OpenShift can be found in the [Azure Red Hat OpenShift release calendar](#azure-red-hat-openshift-release-calendar) below.
 
 > [!NOTE]
-> Please note that if you are running an unsupported Red Hat OpenShift version, you may be asked to update when requesting support for the cluster. Clusters running unsupported Red Hat OpenShift releases are not covered by the Azure Red Hat OpenShift SLA.
+> If you are running an unsupported Red Hat OpenShift version, you may be asked to update when requesting support for the cluster. Clusters running unsupported Red Hat OpenShift releases are not covered by the Azure Red Hat OpenShift SLA.
 
 ### Mandatory updates
 In extreme circumstances and based on the assessment of the CVE criticality to the environment, a critical patch update may be applied to clusters automatically by Azure Red Hat OpenShift Site Reliability Engineers (SRE) which will then be followed with a notification informing you of the change. It is a best practice to install patch (z-stream) updates as soon as they are available.  
