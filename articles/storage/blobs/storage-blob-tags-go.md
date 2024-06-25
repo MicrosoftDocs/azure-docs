@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 06/10/2024
+ms.date: 06/26/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -39,7 +39,7 @@ You can set tags by using the following method:
 
 - [SetTags](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob#Client.SetTags)
 
-The specified tags in this method will replace existing tags. If existing values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
+The tags specified in this method replace any existing tags. If existing values must be preserved, they must be downloaded and included in the call to this method. The following example shows how to set tags:
 
 :::code language="go" source="~/blob-devguide-go/cmd/blob-index-tags/blob_index_tags.go" id="snippet_set_blob_tags":::
 
