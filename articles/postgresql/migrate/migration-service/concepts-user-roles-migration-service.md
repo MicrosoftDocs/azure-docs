@@ -35,6 +35,8 @@ We removed all privileges for non-superusers on the following pg_catalog tables.
 
 - pg_largeobject 
 
+- pg_statistic
+
 - pg_subscription 
 
 - pg_user_mapping 

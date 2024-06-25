@@ -58,7 +58,7 @@ Here are the limitations of this feature:
 
 + Renaming a SharePoint folder doesn't trigger incremental indexing. A renamed folder is treated as new content.
 
-+ SharePoint supports a granular authorization model that determines per-user access at the document level. The indexer doesn't pull these permissions into the index, and Azure AI Search doesn't support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should consider [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) and automate copying the permissions at a file level to a field in the index.
++ SharePoint supports a granular authorization model that determines per-user access at the document level. The indexer doesn't pull these permissions into the index, and Azure AI Search doesn't support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should consider [security filters to trim results](search-security-trimming-for-azure-search.md) and automate copying the permissions at a file level to a field in the index.
 
 + Indexing user-encrypted files, Information Rights Management (IRM) protected files, ZIP files with passwords or similar encrypted content isn't supported. For encrypted content to be processed, the user with proper permissions to the specific file must remove the encryption so the item can be indexed accordingly when the indexer runs the next scheduled iteration.
 
@@ -287,7 +287,7 @@ There are a few steps to creating the indexer:
     }
     ```
 
-If you're using application permissions, it's necessary to wait until the initial run is complete before starting to query your index. The following instructions provided in this step pertain specifically to delegated permissions, and are not applicable to application permissions.
+   If you're using application permissions, it's necessary to wait until the initial run is complete before starting to query your index. The following instructions provided in this step pertain specifically to delegated permissions, and are not applicable to application permissions.
 
 1. When you create the indexer for the first time, the [Create Indexer (preview)](/rest/api/searchservice/indexers/create-or-update?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) request waits until you complete the next step. You must call [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) to get the link and enter your new device code. 
 
@@ -299,7 +299,7 @@ If you're using application permissions, it's necessary to wait until the initia
 
     If you don’t run the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) within 10 minutes, the code expires and you’ll need to recreate the [data source](#create-data-source).
 
- 1. Copy the device login code from the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) response. The device login can be found in the "errorMessage".
+1. Copy the device login code from the [Get Indexer Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true) response. The device login can be found in the "errorMessage".
 
     ```http
     {
@@ -309,6 +309,7 @@ If you're using application permissions, it's necessary to wait until the initia
         }
     }
     ```
+
 1. Provide the code that was included in the error message.
 
     :::image type="content" source="media/search-howto-index-sharepoint-online/enter-device-code.png" alt-text="Screenshot showing how to enter a device code.":::

@@ -50,7 +50,7 @@ To create the data collection rule in the Azure portal:
 
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
-    - **Data Collection Endpoint** specifies the data collection endpoint used to collect data. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).   
+    - **Data Collection Endpoint** Is an optional field that does not need to be set unless you plan to use Azure Monitor Private Links. If you need it, specifies the data collection endpoint used to collect data. This data collection endpoint must be in the same region as the Log Analytics workspace. For more information, see [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment).     
 
     :::image type="content" source="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" lightbox="media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png" alt-text="Screenshot that shows the Basics tab of the Data Collection Rule screen.":::
 

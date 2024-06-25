@@ -621,13 +621,16 @@ Azure Files doesn't support using managed identity when accessing the file share
 
 ## WEBSITE\_CONTENTOVERVNET
 
-A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. Only required when using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+> [!IMPORTANT]
+> WEBSITE_CONTENTOVERVNET is a legacy app setting that has been replaced by the [vnetContentShareEnabled](#vnetcontentshareenabled) site property.
+
+A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. Only required when using `WEBSITE_CONTENTSHARE` and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTOVERVNET|`1`|
 
-Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher). Not supported when running on a [Consumption plan](consumption-plan.md). 
+This app setting is required on the [Elastic Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher). Not supported when running on a [Consumption plan](consumption-plan.md). 
 
 ## WEBSITE\_CONTENTSHARE
 
@@ -772,7 +775,7 @@ Indicates whether to use a specific [cold start](event-driven-scaling.md#cold-st
 > [!IMPORTANT]
 > WEBSITE_VNET_ROUTE_ALL is a legacy app setting that has been replaced by the [vnetRouteAllEnabled](#vnetrouteallenabled) site setting.
 
-Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md).
+Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all application traffic is routed through the virtual network. You'll need this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated hosting plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md).
 
 |Key|Sample value|
 |---|------------|
@@ -827,9 +830,19 @@ Sets the specific version of PowerShell on which your functions run. For more in
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
+### vnetContentShareEnabled
+
+Apps running in a Premium plan use a file share to store content. The name of this content share is stored in the [`WEBSITE_CONTENTSHARE`](#website_contentshare) app setting and its connection string is stored in [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you must also set `vnetContentShareEnabled` to `true`. Enabling this site property is a requirement when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans.
+
+This site property replaces the legacy [`WEBSITE_CONTENTOVERVNET`](#website_contentovervnet) setting.
+
+### vnetImagePullEnabled
+
+Functions [supports function apps running in Linux containers](functions-how-to-custom-container.md). To connect and pull from a container registry inside a virtual network, you must set `vnetImagePullEnabled` to `true`. This site property is supported in the Elastic Premium and Dedicated hosting plans. The Flex Consumption plan doesn't rely on site properties or app settings to configure Networking. For more information, see [Flex Consumption plan deprecations](#flex-consumption-plan-deprecations).
+
 ### vnetRouteAllEnabled
 
-Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
+Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `true` indicates that all application traffic is routed through the virtual network. Use this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
 This site setting replaces the legacy [WEBSITE\_VNET\_ROUTE\_ALL](#website_vnet_route_all) setting.
 
