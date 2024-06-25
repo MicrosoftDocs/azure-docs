@@ -33,9 +33,12 @@ Durable Functions v3 no longer supports Functions Host v1. If you require Functi
 
 Migrating from Durable Functions v2.x to v3.x is designed to be straightforward and hassle-free. No code changes are required, making the transition smooth for existing applications. Simply update your dependencies to start taking advantage of the new features and improvements in v3.x.
 
-- For .NET in-process users: update to Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0 or later.
-- For .NET out-of-process users: update to Microsoft.Azure.Functions.Worker.Extensions.DurableTask version 1.2.0 or later.
-- For users of other languages with extension bundles, you need to opt out of bundles to manually update to Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0 or later. Please follow the instructions [here](./durable-functions-extension-upgrade.md#upgrade-the-extension-bundle).
+- For .NET in-process users:
+  update to Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0 or later.
+- For .NET out-of-process users:
+  update to Microsoft.Azure.Functions.Worker.Extensions.DurableTask version 1.2.0 or later.
+- For users of other languages with extension bundles:
+  you need to opt out of bundles to manually update to Microsoft.Azure.WebJobs.Extensions.DurableTask version 3.0.0 or later. Please follow the instructions [here](./durable-functions-extension-upgrade.md#upgrade-the-extension-bundle).
 
 ## Future Support and Maintenance
 
