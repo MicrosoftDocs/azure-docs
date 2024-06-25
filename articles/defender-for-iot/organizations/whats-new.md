@@ -15,6 +15,17 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+## June 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Malicious alert path](#malicious-alert-path)<br> |
+
+### Malicious alert path
+
+The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
+
+For more information, this alert is described in the [Malware engine alerts table](alert-engine-messages.md#malware-engine-alerts).  
 
 ## April 2024
 
@@ -22,7 +33,7 @@ Features released earlier than nine months ago are described in the [What's new 
 |---------|---------|
 | **OT networks** | - [Single sign-on for the sensor console](#single-sign-on-for-the-sensor-console)<br>- [Sensor time drift detection](#sensor-time-drift-detection)<br>- [Security update](#security-update) |
 
-#### Single sign-on for the sensor console
+### Single sign-on for the sensor console
 
 You can set up single sign-on (SSO) for the Defender for IoT sensor console using Microsoft Entra ID. SSO allows simple sign in for your organization's users, allows your organization to meet regulation standards, and increases your security posture. With SSO, your users don't need multiple login credentials across different sensors and sites. 
 

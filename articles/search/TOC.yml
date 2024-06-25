@@ -23,10 +23,12 @@
     href:  /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
   - name: Portal
     items:
-    - name: Create an index (Import data wizard)
+    - name: Keyword search wizard
       href: search-get-started-portal.md
-    - name: Import, chunk, and vectorize data
+    - name: Vector search wizard
       href: search-get-started-portal-import-vectors.md
+    - name: Image search wizard
+      href: search-get-started-portal-image-search.md
     - name: Create a demo app
       href: search-create-app-portal.md
     - name: Create a skillset
@@ -165,11 +167,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Keyword queries (BM25 ranking)
+    - name: BM25 ranking
       href: index-similarity-and-scoring.md
-    - name: Vector queries
+    - name: Vector ranking
       href: vector-search-ranking.md
-    - name: Hybrid queries (RRF)
+    - name: Hybrid ranking (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
@@ -330,7 +332,7 @@
     items:
     - name: Create a vector index
       href: vector-search-how-to-create-index.md
-    - name: Index binary data for vector search
+    - name: Index binary data for vector search (preview)
       href: vector-search-how-to-index-binary-data.md
     - name: Query vectors
       href: vector-search-how-to-query.md
@@ -352,8 +354,6 @@
     items:
     - name: Full text query
       href: search-query-create.md
-    - name: Semantic query
-      href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
     - name: Query examples (simple syntax)
@@ -396,16 +396,6 @@
         href: search-pagination-page-layout.md
       - name: Return a semantic answer
         href: semantic-answers.md
-    - name: Relevance
-      items:
-      - name: Enable or disable semantic ranking
-        href: semantic-how-to-enable-disable.md      
-      - name: Configure semantic ranking
-        href: semantic-how-to-configure.md
-      - name: Configure BM25 ranking
-        href: index-ranking-similarity.md
-      - name: Add a scoring profile
-        href: index-add-scoring-profiles.md
     - name: Advanced queries
       items:
       - name: Use full Lucene (examples)
@@ -416,6 +406,18 @@
         href: search-query-fuzzy.md
   - name: Hybrid search
     href: hybrid-search-how-to-query.md
+  - name: Ranking and relevance
+    items:
+    - name: Enable or disable semantic ranking
+      href: semantic-how-to-enable-disable.md      
+    - name: Configure semantic ranking
+      href: semantic-how-to-configure.md
+    - name: Configure BM25 ranking
+      href: index-ranking-similarity.md
+    - name: Add semantic ranking to queries
+      href: semantic-how-to-query-request.md
+    - name: Add a scoring profile
+      href: index-add-scoring-profiles.md
   - name: Security
     items:
     - name: Enable role-based access control
@@ -463,11 +465,7 @@
       - name: Find encrypted objects
         href: search-security-get-encryption-keys.md
     - name: Document-level security
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Microsoft Entra ID
-        href: search-security-trimming-for-azure-search-with-aad.md
+      href: search-security-trimming-for-azure-search.md
   - name: Development
     items:
     - name: API versions
@@ -524,7 +522,7 @@
     href: /legal/search/transparency-note?context=/azure/search/context/context
 - name: Reference
   items:
-  - name: API reference
+  - name: REST API reference
     items:
     - name: Search REST API
       href: /rest/api/searchservice

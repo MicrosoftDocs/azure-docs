@@ -125,9 +125,6 @@
         href: organization-internal-external-commercial-purposes-recommendations.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
-    - name: Host pool load balancing methods
-      href: host-pool-load-balancing.md
-      displayName: load-balancing, lb
     - name: User profile management
       items:
       - name: FSLogix profile container
@@ -348,9 +345,6 @@
         - name: Configure RDP Shortpath
           displayName: network, udp
           href: configure-rdp-shortpath.md
-        - name: Limit RDP Shortpath port range
-          displayName: network, udp
-          href: configure-rdp-shortpath-limit-ports-public-networks.md
         - name: Set up Azure Private Link
           displayName: network, private endpoints
           href: private-link-setup.md

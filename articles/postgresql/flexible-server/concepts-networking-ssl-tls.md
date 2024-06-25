@@ -74,7 +74,7 @@ SELECT datname as "Database name", usename as "User name", ssl, client_addr, app
 
 For testing, you can also use the **openssl** command directly, for example:
 ```bash
-openssl s_client -connect localhost:5432 -starttls postgres
+openssl s_client -starttls postgres -showcerts -connect <your-postgresql-server-name>:5432
 ```
 This command prints numerous low-level protocol information, including the TLS version, cipher, and so on. You must use the option -starttls postgres, or otherwise this command reports that no SSL is in use. Using this command requires at least OpenSSL 1.1.1. 
 

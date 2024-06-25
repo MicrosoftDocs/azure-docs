@@ -150,6 +150,10 @@
           href: concepts-network-services.md
         - name: Ingress
           href: concepts-network-ingress.md
+    - name: AI and machine learning
+      items:
+        - name: Small and large language models
+          href: concepts-ai-ml-language-models.md
     - name: Advanced Container Networking Services 
       items:
         - name: Advanced Container Networking Services overview
@@ -883,6 +887,8 @@
           href: open-ai-secure-access-quickstart.md
         - name: Deploy an AI model with the AI toolchain operator
           href: ai-toolchain-operator.md
+        - name: Deploy data and ML pipelines with Flyte
+          href: use-flyte.md
     - name: DevOps
       items:
         - name: Azure DevOps Project

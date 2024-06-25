@@ -3,8 +3,8 @@ title: Troubleshoot data encryption - Azure Database for MySQL
 description: Learn how to troubleshoot data encryption in Azure Database for MySQL
 ms.service: mysql
 ms.subservice: single-server
-author: mksuni
-ms.author: sumuth
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---
