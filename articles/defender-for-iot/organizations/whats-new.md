@@ -23,7 +23,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Malicious alert path
 
-The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URL's. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
+The new alert, Malicious URL path, allows users to identify malicious paths in legitimate URLs. The Malicious URL path alert expands Defender for IoT's threat identification to include generic URL signatures, crucial for countering a wide range of cyber threats.
 
 For more information, this alert is described in the [Malware engine alerts table](alert-engine-messages.md#malware-engine-alerts).  
 
