@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure windows web app using Terraform'
+title: 'Quickstart: Create an Azure windows web app with a backup using Terraform'
 description: In this quickstart, you create an Azure windows web app with a backup schedule and a .NET application stack.
 ms.topic: quickstart
 ms.date: 06/25/2024
@@ -10,7 +10,7 @@ ms.author: msangapu
 customer intent: As a Terraform user, I want to see how to create an Azure windows web app with a backup schedule and a .NET application stack.
 ---
 
-# Quickstart: Create an Azure windows web app using Terraform
+# Quickstart: Create an Azure windows web app with a backup using Terraform
 
 In Azure App Service, you can make on-demand custom backups or configure scheduled custom backups. In this quickstart, you use Terraform to create an Azure windows web app with a backup schedule and a .NET application stack. For more information about App Service backups and restores, see [Back up and restore your app in Azure App Service](/azure/app-service/manage-backup?tabs=portal).
 
