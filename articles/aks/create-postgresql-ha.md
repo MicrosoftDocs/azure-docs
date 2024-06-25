@@ -68,7 +68,7 @@ az group create \
 
 ## Create a user-assigned managed identity
 
-In this section, you create a user assigned managed identity (UAMI) to allow the CNPG Postgres to use an AKS workload identity to access Azure Blob Storage. This configuration allows the PostgreSQL cluster on AKS to connect to Azure Blob Storage without a secret.
+In this section, you create a user-assigned managed identity (UAMI) to allow the CNPG Postgres to use an AKS workload identity to access Azure Blob Storage. This configuration allows the PostgreSQL cluster on AKS to connect to Azure Blob Storage without a secret.
 
 1. Create a user assigned managed identity using the [`az identity create`][az-identity-create] command.
 
