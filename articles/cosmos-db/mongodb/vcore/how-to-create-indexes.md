@@ -2,8 +2,8 @@
 title:  Indexing Best Practices in Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Use create Indexing for empty collections in Azure Cosmos DB for MongoDB vCore.
-author: abinav2307
-ms.author: abinav2307
+author: abramees
+ms.author: abrameesh
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
