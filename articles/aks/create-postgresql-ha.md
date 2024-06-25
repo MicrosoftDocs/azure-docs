@@ -46,7 +46,7 @@ export MY_PUBLIC_CLIENT_IP=$(dig +short myip.opendns.com @resolver3.opendns.com)
 
 ### Install required extensions
 
-Install the following extensions using the [`az extension add`][az-extension-add] command to provide more functionality to the Azure CLI for managing Kubernetes clusters and querying Azure resources using the resource graph:
+The `k8s-extension` and `amg` extensions provide more functionality for managing Kubernetes clusters and querying Azure resources. Install these extensions by using the [`az extension add`][az-extension-add] command:
 
 ```azurecli-interactive
 az extension add --upgrade --name k8s-extension --yes --allow-preview false
