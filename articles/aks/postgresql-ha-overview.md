@@ -55,7 +55,7 @@ Backups are stored on [Azure Blob Storage](/azure/storage/blobs/), providing ano
 ![AKS CNPG Architecture](./media/postgresql-ha-overview/aks-cnpg-arch.png)
 
 > [!NOTE]
-> The CNPG operator supports only *one database per cluster*. Please plan accordingly for applications that require data separation at the database level.
+> The CNPG operator supports only *one database per cluster*. Plan accordingly for applications that require data separation at the database level.
 
 
 
