@@ -88,8 +88,6 @@ The following steps show how to create a managed identity and assign the **Stora
         --name $managedIdentityName
     ```
 
-   For convenience, save the JSON object produced by the `az identity create` command in a shell variable for later use.
-
 1. Assign the **Storage Queue Data Contributor** role to the managed identity using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
@@ -165,12 +163,13 @@ dynamodb = boto3.resource('dynamodb', region_name='<region>')
 table = dynamodb.Table('<dynamodb_table_name>')
 table.put_item(
     Item = {
-    'id':'<guid>',
-    'data':jsonMessage["<message_data>"],
-    'srcStamp':jsonMessage["<source_timestamp_from_message>"],
-    'destStamp':'<current_timestamp_now>',
-    'messageProcessingTime':'<duration>')
-}
+      'id':'<guid>',
+      'data':jsonMessage["<message_data>"],
+      'srcStamp':jsonMessage["<source_timestamp_from_message>"],
+      'destStamp':'<current_timestamp_now>',
+      'messageProcessingTime':'<duration>')
+    }
+)
 ```
 
 ### Azure implementation
@@ -195,12 +194,14 @@ entity={
     'RowKey': str(messageProcessingTime.total_seconds()),
     'data': jsonMessage['msg'],
     'srcStamp': jsonMessage['srcStamp'],
-    'dateStamp': current_dateTime}
+    'dateStamp': current_dateTime
+}
         
 response = table.insert_entity(
     table_name=azure_table,
     entity=entity,
-    timeout=60)
+    timeout=60
+)
 ```
 
 Unlike DynamoDB, the Azure Storage Table code specifies both `PartitionKey` and `RowKey`. The `PartitionKey` is similar to the ID `uniqueidentifer` in DynamoDB. A `PartitionKey` is a `uniqueidentifier` for a partition in a logical container in Azure Storage Table. The `RowKey` is a `uniqueidentifier` for all the rows in a given partition.

@@ -9,7 +9,7 @@ ms.author: jenhayes
 
 # Replicate an AWS event-driven workflow (EDW) workload with KEDA and Karpenter in Azure Kubernetes Service (AKS)
 
-In this article, you learn how to replicate an Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) event-driven workflow (EDW) workload with KEDA and Karpenter in AKS.
+In this article, you learn how to replicate an Amazon Web Services (AWS) Elastic Kubernetes Service (EKS) event-driven workflow (EDW) workload with [KEDA](https://keda.sh) and [Karpenter](https://karpenter.sh) in AKS.
 
 This workload is an implementation of the [competing consumers][competing-consumers] pattern using a producer/consumer app that facilitates efficient data processing by separating data production from data consumption. You use KEDA to scale pods running consumer processing and Karpenter to autoscale Kubernetes nodes.
 

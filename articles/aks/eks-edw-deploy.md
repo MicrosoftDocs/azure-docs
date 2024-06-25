@@ -58,8 +58,8 @@ The deployment script creates the following Azure resources:
 - **Azure container registry**: The container registry provides a repository for the container that deploys the refactored consumer app code.
 - **Azure Kubernetes Service (AKS) cluster**: The AKS cluster provides Kubernetes orchestration for the consumer app container and has the following features enabled:
 
-  - **Node autoprovisioning (NAP)**: The implementation of the Karpenter node autoscaler on AKS.
-  - **Kubernetes Event-driven Autoscaling (KEDA)**: KEDA enables pod scaling based on events, such as exceeding a specified queue depth threshold.
+  - **Node autoprovisioning (NAP)**: The implementation of the [Karpenter](https://karpenter.sh) node autoscaler on AKS.
+  - **Kubernetes Event-driven Autoscaling (KEDA)**: [KEDA](https://keda.sh) enables pod scaling based on events, such as exceeding a specified queue depth threshold.
   - **Workload identity**: Allows you to attach role-based access policies to pod identities for enhanced security.
   - **Attached Azure container registry**: This feature allows the AKS cluster to pull images from repositories on the specified ACR instance.
 
