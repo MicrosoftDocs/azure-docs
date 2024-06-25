@@ -106,7 +106,7 @@ POST https://[service name].search.windows.net/indexers?api-version=2024-05-01-p
 
 ### Step 3: Reset the indexer
 
-[Reset Indexer](rest/api/searchservice/indexers/reset) is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client for this task.
+[Reset Indexer](/rest/api/searchservice/indexers/reset) is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client for this task.
 
 ```https
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2024-05-01-preview

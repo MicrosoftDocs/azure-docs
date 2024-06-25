@@ -315,7 +315,7 @@ On the Azure AI Search side, you can confirm request approval by revisiting the 
 
    :::image type="content" source="media/search-indexer-howto-secure-access/new-shared-private-link-resource-approved.png" alt-text="Screenshot of the Azure portal, showing an Approved shared private link resource.":::
 
-Alternatively, you can also obtain connection state by using the [GET Shared Private Link API](/rest/api/searchmanagement/2021-06-01-preview/shared-private-link-resources/get).
+Alternatively, you can also obtain connection state by using the [Shared Private Link Resources - Get](/rest/api/searchmanagement/shared-private-link-resources/get).
 
 ```dotnetcli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2023-11-01

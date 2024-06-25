@@ -202,9 +202,9 @@ If the document is enriched through a skillset and has cached data, the  skillse
 
 When you're testing this API for the first time, the following APIs can help you validate and test the behaviors. You can use preview API version 2020-06-30-preview and later. We recommend using the latest preview API.
 
-1. Call [Indexers - Get Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2024-05-01-preview&preserve-version=true) with a preview API version to check reset status and execution status. You can find information about the reset request at the end of the status response.
+1. Call [Indexers - Get Status](/rest/api/searchservice/indexers/get-status?view=rest-searchservice-2024-05-01-preview&preserve-view=true) with a preview API version to check reset status and execution status. You can find information about the reset request at the end of the status response.
 
-1. Call [Indexers - Reset Docs](/rest/api/searchservice/indexers/reset-docs?view=rest-searchservice-2024-05-01-preview&preserve-version=true) with a preview API version to specify which documents to process.
+1. Call [Indexers - Reset Docs](/rest/api/searchservice/indexers/reset-docs?view=rest-searchservice-2024-05-01-preview&preserve-view=true) with a preview API version to specify which documents to process.
 
     ```http
     POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs?api-version=2024-05-01-preview

@@ -299,9 +299,9 @@ Encryption keys are added when you create an object. To add a customer-managed k
 
    + [Create Index](/rest/api/searchservice/indexes/create)
    + [Create Synonym Map](/rest/api/searchservice/synonym-maps/create)
-   + [Create Indexer](//rest/api/searchservice/indexers/create)
+   + [Create Indexer](/rest/api/searchservice/indexers/create)
    + [Create Data Source](/rest/api/searchservice/data-sources/create)
-   + [Create Skillset](/rest/api/searchservice/skillsets/create).
+   + [Create Skillset](/rest/api/searchservice/skillsets/create)
 
 1. Insert the encryptionKey construct into the object definition. This property is a first-level property, on the same level as name and description. The following [REST examples](#rest-examples) show property placement. If you're using the same vault, key, and version, you can paste in the same "encryptionKey" construct into each object definition.
 
@@ -379,7 +379,7 @@ This section shows the JSON for several objects so that you can see where to loc
 
 ### Index encryption
 
-The details of creating a new index via the REST API could be found at [Create Index (REST API)](/rest/api/searchservice/index/create), where the only difference is specifying the encryption key details as part of the index definition:
+The details of creating a new index via the REST API could be found at [Create Index (REST API)](/rest/api/searchservice/indexes/create), where the only difference is specifying the encryption key details as part of the index definition:
 
 ```json
 {
@@ -436,7 +436,7 @@ You can now send the synonym map creation request, and then start using it norma
 
 ### Data source encryption
 
-Create an encrypted data source using the [Create Data Source (REST API)](rest/api/searchservice/data-sources/create). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted data source using the [Create Data Source (REST API)](/rest/api/searchservice/data-sources/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
