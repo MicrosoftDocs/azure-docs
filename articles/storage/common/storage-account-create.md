@@ -300,7 +300,8 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_RAGRS `
   -Kind StorageV2 `
-  -AllowBlobPublicAccess $false
+  -AllowBlobPublicAccess $false `
+  -MinimumTlsVersion TLS1_2
 ```
 
 To create an account with Azure DNS zone endpoints (preview), follow these steps:
@@ -333,6 +334,7 @@ $account = New-AzStorageAccount -ResourceGroupName $rgName `
           -Location <location> `
           -Kind StorageV2 `
           -AllowBlobPublicAccess $false `
+          -MinimumTlsVersion TLS1_2 `
           -DnsEndpointType AzureDnsZone
 
 $account.PrimaryEndpoints
@@ -370,6 +372,7 @@ az storage account create \
   --location eastus \
   --sku Standard_RAGRS \
   --kind StorageV2 \
+  --min-tls-version TLS1_2 \
   --allow-blob-public-access false
 ```
 
@@ -386,6 +389,8 @@ az storage account create \
     --name <account-name> \
     --resource-group <resource-group> \
     --location <location> \
+    --min-tls-version TLS1_2 \
+    --allow-blob-public-access false \
     --dns-endpoint-type AzureDnsZone
 ```
 
