@@ -4,7 +4,7 @@ description: Learn how to ingest incidents, alerts, and raw event data from Micr
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.date: 06/11/2023
+ms.date: 06/25/2023
 appliesto:
 - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
 ms.collection: usx-security
@@ -21,13 +21,9 @@ The Microsoft Defender XDR connector for Microsoft Sentinel allows you to stream
 Before you begin, you must have the appropriate licensing, access, and configured resources described in this section.
 
 - You must have a valid license for Microsoft Defender XDR, as described in [Microsoft Defender XDR prerequisites](/microsoft-365/security/mtp/prerequisites). 
-
-- Your user must be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) or [Security Administrator](../active-directory/roles/permissions-reference.md#security-administrator) roles on the tenant you want to stream the logs from.
-
-- Your user must have read and write permissions on your Microsoft Sentinel workspace.
-
-- To make any changes to the connector settings, your user must be a member of the same Microsoft Entra tenant with which your Microsoft Sentinel workspace is associated.
+- To make any changes to the connector settings, your account must be a member of the same Microsoft Entra tenant with which your Microsoft Sentinel workspace is associated.
 - Install the solution for **Microsoft Defender XDR** from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+- Grant access to Microsoft Sentinel as appropriate for your organization. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 
 For on-premises Active Directory sync via Microsoft Defender for Identity:
 
