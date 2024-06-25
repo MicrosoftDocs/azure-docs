@@ -547,7 +547,7 @@ You also create a second federated credential to map the new recovery cluster se
     EOF
     ```
 
-1. Connect to the recovered instance and validate the dataset created on the original cluster where the full backup was taken is present using the following command:
+1. Connect to the recovered instance, then validate that the dataset created on the original cluster where the full backup was taken is present using the following command:
 
     ```azurecli-interactive
     kubectl cnpg psql $PG_PRIMARY_CLUSTER_NAME_RECOVERED --namespace $PG_NAMESPACE
