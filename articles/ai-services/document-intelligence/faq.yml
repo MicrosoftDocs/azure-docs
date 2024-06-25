@@ -9,10 +9,11 @@ metadata:
   ms.topic: faq
   ms.date: 05/23/2024
   ms.author: lajanuar
-title: Azure AI Document Intelligence FAQ
+title: Frequently asked questions
 summary: |
    [!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
+   Azure AI Document Intelligence is a cloud-based service that uses machine-learning models to extract key/value pairs, text, and tables from your documents. The returned result is a structured JSON output. Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
 
 
 sections:
@@ -22,31 +23,34 @@ sections:
           What is Azure AI Document Intelligence, and what happened to Azure AI Form Recognizer?
         answer: |
 
-          Azure AI Document Intelligence is a cloud-based service that uses machine-learning models to extract key/value pairs, text, and tables from your documents. The returned result is a structured JSON output. Document Intelligence use cases include automated data processing, enhanced data-driven strategies, and enriched document search capabilities.
+          -  **Naming update**. Azure AI Form Recognizer was the previous name for Azure AI Document Intelligence was. Form Recognizer officially became Document Intelligence in July 2023. Some platforms are still awaiting the renaming update. In Microsoft documentation, all mentions of Form Recognizer and Document Intelligence refer to the same Azure service.
 
-          Document Intelligence is part of Azure AI services. Azure AI services encompass all of what were previously known as Azure Cognitive Services and Azure Applied AI Services.
+          -  **Pricing**. There are no changes to pricing. The names Cognitive Services and Applied AI Services continue to be used in Azure billing, cost analysis, price lists, and price APIs.
 
-          The previous name for Document Intelligence was Azure AI Form Recognizer. Form Recognizer officially became Document Intelligence in July 2023.
+          -  **Breaking changes**. There are no breaking changes to APIs or client libraries (SDKs). REST APIs and SDK versions 2024-02-29-preview, 2023-10-31-preview, and later are renamed `document intelligence`.
 
-          There are no changes to pricing. The names Cognitive Services and Applied AI Services continue to be used in Azure billing, cost analysis, price lists, and price APIs.
-
-          There are no breaking changes to APIs or client libraries. REST APIs and SDK versions 2024-02-29-preview, 2023-10-31-preview, and going forward are renamed `document intelligence`.
-
-          Some platforms are still awaiting the renaming update. In Microsoft documentation, all mentions of Form Recognizer and Document Intelligence refer to the same Azure service.
 
       - question: |
-          How is Document Intelligence related to document generative AI?
+          Can I use Document Intelligence with generative AI for document processing?
         answer: |
 
-          You can use a document generative AI solution to chat with your documents, generate captivating content from those documents, and access Azure OpenAI Service models on your data. With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents. Find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
+          - Yes, you can use a document generative AI solution to chat with your documents, generate captivating content from those documents, and access Azure OpenAI Service models on your data.
+
+          - With Azure AI Document Intelligence and Azure OpenAI combined, you can build an enterprise application to seamlessly interact with your documents by using natural languages, easily find answers and gain valuable insights, and generate new and engaging content from your existing documents.
+
+          - You can find more details in the [technical community blog](https://techcommunity.microsoft.com/t5/azure-ai-services-blog/document-generative-ai-the-power-of-azure-ai-document/ba-p/3875015).
 
       - question: |
           How is Document Intelligence related to retrieval-augmented generation?
         answer: |
 
-          Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure its efficient storage and retrieval. The Document Intelligence [layout model](concept-layout.md) offers a comprehensive solution for the capabilities of advanced content extraction and document structure analysis.
+          - Semantic chunking is a key step in retrieval-augmented generation (RAG) to ensure its efficient storage and retrieval.
 
-          With the layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. You can then conveniently output the extracted information to Markdown format, so that you can define your semantic chunking strategy based on provided building blocks. Find more details in the [overview of RAG in Document Intelligence](concept-retrieval-augmented-generation.md).
+          - The Document Intelligence [layout model](concept-layout.md) offers a comprehensive solution for the capabilities of advanced content extraction and document structure analysis.
+            - With the layout model, you can easily extract text and structural elements to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits.
+            -  You can then conveniently output the extracted information to Markdown format, so that you can define your semantic chunking strategy based on provided building blocks.
+
+          - Find more details in the [overview of RAG in Document Intelligence](concept-retrieval-augmented-generation.md).
 
       - question: |
           Which Document Intelligence use cases require special consideration?
@@ -570,8 +574,6 @@ sections:
             If you intend to analyze your private storage account data by using FOTT, you must deploy the tool behind the virtual network or firewall.
 
             Learn how to [create and use a managed identity for your Document Intelligence resource](managed-identities.md).
-
-
 
   - name: Containers
     questions:
