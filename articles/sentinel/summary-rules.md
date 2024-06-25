@@ -107,17 +107,17 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
 ### Quickly find a malicious IP address in your network traffic
 
-**Scenario**: Shay is a threat hunter. One of their team's goals is to identify all instances of when a malicious IP address interacted in the network traffic logs from an active incident, in the last 90 days.
+**Scenario**: You're a threat hunter, and one of your team's goals is to identify all instances of when a malicious IP address interacted in the network traffic logs from an active incident, in the last 90 days.
 
-**Challenge**: Microsoft Sentinel currently ingests multiple terabytes of network logs a day. Shay needs to move through them quickly to find matches for the malicious IP address.
+**Challenge**: Microsoft Sentinel currently ingests multiple terabytes of network logs a day. You needs to move through them quickly to find matches for the malicious IP address.
 
-**Solution**: We recommend that Shay use summary rules to do the following:
+**Solution**: We recommend using summary rules to do the following:
 
 1. **Create a summary data set** for each IP address related to the incident, including the `SourceIP`, `DestinationIP`, `MaliciousIP`, `RemoteIP`, each listing important attributes, such as `IPType`, `FirstTimeSeen`, and `LastTimeSeen`.
 
-    The summary dataset enables Shay to quickly search for a specific IP address and narrow down the time range where the IP address is found. Shay can do this even when the searched events happened more than 90 days ago, which is beyond their workspace retention period.
+    The summary dataset enables you to quickly search for a specific IP address and narrow down the time range where the IP address is found. You can do this even when the searched events happened more than 90 days ago, which is beyond their workspace retention period.
 
-    In this example, Shay configured the summary to run daily, so that the query adds new summary records every day until it expires.
+    In this example, configure the summary to run daily, so that the query adds new summary records every day until it expires.
 
 1. **Create an analytics rule** that runs for less than two minutes against the summary dataset, quickly drilling into the specific time range when the malicious IP address interacted with the company network.
 
@@ -153,17 +153,17 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
 Detect potential Service Principal Name (SPN) scanning in your network traffic.
 
-**Scenario**: Prateek is a SOC engineer who needs to create a highly accurate detection for any SPN scanning performed by a user account. The detection currently does the following:
+**Scenario**: You're a SOC engineer who needs to create a highly accurate detection for any SPN scanning performed by a user account. The detection currently does the following:
 
 1. Looks for Security events with EventID 4796 (A Kerberos service ticket was requested).
 1. Creates a baseline with the number of unique tickets typically requested by a user account per day.
 1. Generates an alert when there's a major deviation from that baseline.
 
-**Challenge**: The current detection runs on 14 days, or the maximum data lookback in the Analytics table, and creates many false positives. While the detection includes thresholds that are designed to prevent false positives, alerts are still generated for legitimate requests as long as there are more requests than usual. This might happen for vulnerability scanners, administration systems, and in misconfigured systems. In Prateek's team, there were so many false positives that they needed to turn off some of the analytics rules. To create a more accurate baseline, Prateek needs more than 14 days of baseline data.
+**Challenge**: The current detection runs on 14 days, or the maximum data lookback in the Analytics table, and creates many false positives. While the detection includes thresholds that are designed to prevent false positives, alerts are still generated for legitimate requests as long as there are more requests than usual. This might happen for vulnerability scanners, administration systems, and in misconfigured systems. On your team, there were so many false positives that they needed to turn off some of the analytics rules. To create a more accurate baseline, you'll need more than 14 days of baseline data.
 
 The current detection also runs a summary query on a separate logic app for each alert. This involves extra work for the setup and maintenance of those logic apps, and incurs extra costs.
 
-**Solution**: We recommend that Prateek use summary rules to do the following:
+**Solution**: We recommend using summary rules to do the following:
 
 1. Generate a daily summary of the count of unique tickets per user. This summarizes the `SecurityEvents` table data for EventID 4769, with extra filtering for specific user accounts.
 
@@ -206,13 +206,13 @@ The current detection also runs a summary query on a separate logic app for each
 
 Generate alerts on threat intelligence matches against noisy, high volume, and low-security value network data.
 
-**Scenario**: Shain needs to build an analytics rule for firewall logs to match domain names in the system that have been visted agsinst a threat intelligece domain name list. 
+**Scenario**: You need to build an analytics rule for firewall logs to match domain names in the system that have been visted agsinst a threat intelligece domain name list. 
 
 Most of the data sources are raw logs that are noisy and have high volume, but have lower security value, including IP addresses, Azure Firewall traffic, Fortigate traffic, and so on. There's a total volume of about 1 TB per day.
 
 **Challenge**: Creating separate rules requires multiple logic apps, requiring extra setup and maintenance overhead and costs.
 
-**Solution**: We recommed that Shain use summary rules to do the following:
+**Solution**: We recommed using summary rules to do the following:
 
 1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. ASIM functions might be helpful in the summary query. <!--why?-->
 
