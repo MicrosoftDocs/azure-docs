@@ -36,10 +36,10 @@ The notifications you send can be native notifications or [template notification
 
 Template examples for each language:
 
-* [C# script - out parameter](#c-script-template-example---out-parameter)
-* [C# script - asynchronous](#c-script-template-example---asynchronous)
-* [C# script - JSON](#c-script-template-example---json)
-* [C# script - library types](#c-script-template-example---library-types)
+* [C# script - out parameter](#c-script-template-example-out-parameter)
+* [C# script - asynchronous](#c-script-template-example-asynchronous)
+* [C# script - JSON](#c-script-template-example-json)
+* [C# script - library types](#c-script-template-example-library-types)
 * [F#](#f-template-example)
 * [JavaScript](#javascript-template-example)
 
