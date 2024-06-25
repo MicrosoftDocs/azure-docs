@@ -1,5 +1,5 @@
 ---
-title: OSDU Concepts - Available and Unavailable Services
+title: OSDU Services Available on Azure Data Manager for Energy
 description: This article provides an overview of the OSDU services available on Azure Data Manager for Energy and the OSDU services that are exclusively available in the community version.
 author: bananibrahim
 ms.service: energy-data-services
@@ -10,10 +10,8 @@ ms.date: 06/14/2024
 ms.custom: template-concept
 ---
 
-# Available and unavailable OSDU&reg; services
-Azure Data Manager for Energy is currently compliant with the M18 OSDU® milestone release. 
-## OSDU&reg; M18 services available on Azure Data Manager for Energy 
-Below you'll find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. This page will be regularly updated as service versions and availability evolve. 
+# OSDU&reg; M18 services available on Azure Data Manager for Energy 
+Azure Data Manager for Energy is currently compliant with the M18 OSDU® milestone release. Below you'll find an overview of the OSDU&reg; services that are currently available on Azure Data Manager for Energy. This page will be regularly updated as service versions and availability evolve. 
 ### Core and helper services
 - **CRS Catalog**: Provides API endpoints to work with geodetic reference data, allowing developers to retrieve CRS definitions, select appropriate CRSs for data ingestion, and search for CRSs based on various constraints. 
 - **CRS Conversion**: Enables the conversion of coordinates from one coordinate reference system (CRS) to another.
