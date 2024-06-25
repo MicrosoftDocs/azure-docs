@@ -73,7 +73,7 @@ If you need a persistent volume, where the volume has a lifecycle independent of
 
 ### Pod pending creation due to ephemeral volume size above available capacity
 
-An ephemeral volume is allocated on single node. When you configure the size of emphemeral volumes for your pods, the size should be less than the available capacity of single node ephemeral disk. Otherwise, the pod creation will be in pending status.
+An ephemeral volume is allocated on a single node. When you configure the size of ephemeral volumes for your pods, the size should be less than the available capacity of a single node's ephemeral disk. Otherwise, the pod creation will be in pending status.
 
 1. Use the following command to check if your pod creation is pending status.
 
