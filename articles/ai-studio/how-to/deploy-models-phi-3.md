@@ -49,7 +49,7 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Phi 3 is only available with hubs created in these regions:
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Phi-3 is only available with hubs created in these regions:
 
     * East US 2
     * Sweden Central
