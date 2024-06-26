@@ -45,7 +45,7 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
    - [Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
    * Deploy and manage Kubernetes applications targeted for Azure Arc-Enabled Kubernetes clusters from Azure Marketplace.
    
-   [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+   [!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
    ## Next steps
 
