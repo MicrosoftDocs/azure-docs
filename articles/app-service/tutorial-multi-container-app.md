@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Connect to Azure Database for MySQL
 > * Troubleshoot errors
 
-[!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
