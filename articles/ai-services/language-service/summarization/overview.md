@@ -26,7 +26,7 @@ Out of the box, the service provides summarization solutions for three types of 
 This documentation contains the following article types:
 
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=text-summarization)** are getting-started instructions to guide you through making requests to the service.
-* **[How-to guides](how-to/text-summarization.md)** contain instructions for using the service in more specific or customized ways.
+* **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
 These features are designed to shorten content that could be considered too long to read.
 
