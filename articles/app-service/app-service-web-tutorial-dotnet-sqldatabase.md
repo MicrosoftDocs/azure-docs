@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

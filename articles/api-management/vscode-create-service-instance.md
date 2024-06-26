@@ -19,7 +19,7 @@ This quickstart describes the steps to create a new API Management instance usin
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 Also, ensure you've installed the following:
 

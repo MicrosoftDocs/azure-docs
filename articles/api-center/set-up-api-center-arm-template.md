@@ -13,7 +13,7 @@ ms.author: danlep
 
 [!INCLUDE [quickstart-intro](includes/quickstart-intro.md)]
 
-[!INCLUDE [resource-manager-quickstart-introduction](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [resource-manager-quickstart-introduction](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -26,7 +26,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * For Azure PowerShell: 
-    [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the template
 
