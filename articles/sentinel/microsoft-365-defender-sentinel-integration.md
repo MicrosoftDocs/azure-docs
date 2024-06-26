@@ -57,8 +57,7 @@ Install the **Microsoft Defender XDR** solution for Microsoft Sentinel from the 
 
 To onboard Microsoft Sentinel to the unified security operations platform in the Defender portal, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).
 
-After you configure the Defender XDR data connector, Defender XDR incidents appear in the Microsoft Sentinel incidents queue, with **Microsoft Defender XDR** (or one of the component services' names) in the **Alert product name** field, shortly after they're generated in Defender XDR.
-
+After you enable alert and incident collection in the Defender XDR data connector, Defender XDR incidents appear in the Microsoft Sentinel incidents queue shortly after they're generated in Defender XDR. In these incidents, the **Alert product name** field contains **Microsoft Defender XDR** or one of the component Defender services' names.
 - It can take up to 10 minutes from the time an incident is generated in Defender XDR to the time it appears in Microsoft Sentinel.
 
 - Alerts and incidents from Defender XDR (those items that populate the *SecurityAlert* and *SecurityIncident* tables) are ingested into and synchronized with Microsoft Sentinel at no charge. For all other data types from individual Defender components (such as the *Advanced hunting* tables *DeviceInfo*, *DeviceFileEvents*, *EmailEvents*, and so on), ingestion is charged.
@@ -67,7 +66,7 @@ After you configure the Defender XDR data connector, Defender XDR incidents appe
 
     The exception to this process is Microsoft Defender for Cloud. Although its integration with Defender XDR means that you receive Defender for Cloud *incidents* through Defender XDR, you need to also have a Microsoft Defender for Cloud connector enabled in order to receive Defender for Cloud *alerts*. For the available options and more information, see the following articles:
     - [Microsoft Defender for Cloud in the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud)
-    - [Ingest  Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md)
+    - [Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md)
 
 - Similarly, to avoid creating *duplicate incidents for the same alerts*, the **Microsoft incident creation rules** setting is turned off for Defender XDR-integrated products when connecting Defender XDR. This is because Defender XDR has its own incident creation rules. This change has the following potential impacts:
 
@@ -90,7 +89,7 @@ In Defender XDR, all alerts from one incident can be transferred to another, res
 
 ## Advanced hunting event collection
 
-The Defender XDR connector also lets you stream **advanced hunting** events - a type of raw event data - from Defender XDR and its component services into Microsoft Sentinel. Collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from all Defender XDR components, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Defender portal. This gives you complete access to the full set of advanced hunting events, and allows you to do the following tasks:
+The Defender XDR connector also lets you stream **advanced hunting** events&mdash;a type of raw event data&mdash;from Defender XDR and its component services into Microsoft Sentinel. Collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from all Defender XDR components, and stream them straight into purpose-built tables in your Microsoft Sentinel workspace. These tables are built on the same schema that is used in the Defender portal. This gives you complete access to the full set of advanced hunting events, and allows you to do the following tasks:
 
 - Easily copy your existing Microsoft Defender for Endpoint/Office 365/Identity/Cloud Apps advanced hunting queries into Microsoft Sentinel.
 
