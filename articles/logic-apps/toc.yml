@@ -91,16 +91,14 @@ items:
       href: designer-overview.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
-    - name: Create Standard workflows - Portal
-      href: create-single-tenant-workflows-azure-portal.md
-    - name: Get AI-powered help from the workflow assistant
-      href: workflow-assistant-standard.md
     - name: Estimate storage costs
       href: estimate-storage-costs.md
     - name: Set up SQL storage
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
     - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Get AI-powered help from the workflow assistant
+      href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
     - name: Create and run .NET code
