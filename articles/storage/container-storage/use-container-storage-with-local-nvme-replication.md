@@ -179,6 +179,8 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
              name: ephemeralpv
    ```
 
+When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's ephemeral disk. See [Check node ephemeral disk capacity](#check-node-ephemeral-disk-capacity).
+
 1. Apply the YAML manifest file to deploy the pod.
    
    ```azurecli-interactive
@@ -210,7 +212,23 @@ You've now deployed a pod that's using local NVMe with volume replication, and y
 
 Now that you've created a persistent volume, you can detach and reattach it as needed. You can also expand or delete a storage pool.
 
-## Detach and reattach a persistent volume
+### Check node ephemeral disk capacity
+
+An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's ephemeral disk.
+
+Run the following command to check the available capacity of ephemeral disk for a single node.
+
+```output
+$ kubectl get diskpool -n acstor
+NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
+ephemeraldisk-temp-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
+```
+
+In this example, the available capacity of ephemeral disk for a single node is `75031990272` bytes or 69 GiB.
+
+### Detach and reattach a persistent volume
 
 To detach a persistent volume, delete the pod that the persistent volume is attached to.
 
@@ -226,7 +244,7 @@ To check which persistent volume a persistent volume claim is bound to, run:
 kubectl get pvc <persistent-volume-claim-name>
 ```
 
-## Expand a storage pool
+### Expand a storage pool
 
 You can expand storage pools backed by local NVMe to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
 
@@ -242,7 +260,7 @@ Because a storage pool backed by Ephemeral Disk uses local storage resources on 
 
 1. Run `kubectl get sp -A` and you should see that the capacity of the storage pool has increased.
 
-## Delete a storage pool
+### Delete a storage pool
 
 If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
 
