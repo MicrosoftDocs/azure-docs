@@ -128,22 +128,20 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ## Version (preview)
 Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview) 
 
-The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
-> change to a built-in policy definition or initiative and state. The format of `version` is:
-> `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
-> `version` property or in another property as a **boolean**. 
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of change to a built-in policy definition or initiative and state. The format of `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the `version` property or in another property as a **boolean**. 
 
 - Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default. 
 - Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding or removing definitions within an initiative. 
 - Patch Version (example: 2.1.4): introduce string or metadata changes and break glass security scenarios (rare).
 
+Built-in initiatives themselves are versioned, and specific versions of built-in policy definitions can be referenced within builtin or custom initiatives as well. For more information, see [reference definition and versions](#policy-definition-properties).
+
+> While in preview, when creating an initiative through the portal, you will not be able to specify versions for built-in policy definition references. All built-in policy references in custom initiatives created through the portal will instead default to the latest version of the policy definition.
+> 
 > For more information about 
 > Azure Policy versions built-ins, see
 > [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 > To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
-
-Built-in initiatives themselves are versioned, but it's possible to reference a specific version of a built-in definition within a builtin or custom initiative. For more information, see [reference definition and versions.](#policy-definition-properties)
-
 
 ## Parameters
 
