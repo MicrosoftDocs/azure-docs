@@ -96,7 +96,7 @@ To create a deployment:
     1. Search for and select **Phi-3-mini-4k-Instruct** to open the model's Details page.
     1. Select **Confirm**, and choose the option **Serverless API** to open a serverless API deployment window for the model. 
  
-1. Select the project in which you want to deploy your model. To deploy the Phi-3 model, your project must be in the *EastUS2* or *Sweden Central* region. 
+1. Select the project in which you want to deploy your model. To deploy the Phi-3 model, your project must belong to one of the regions listed in the [prerequisites](#prerequisites) section.
 
 1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
 
@@ -137,3 +137,4 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)
