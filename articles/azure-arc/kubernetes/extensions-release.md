@@ -116,7 +116,7 @@ For more information, see [Tutorial: Deploy applications using GitOps with Flux 
 The most recent version of the Flux v2 extension and the two previous versions (N-2) are supported. We generally recommend that you use the most recent version of the extension.
 
 > [!IMPORTANT]
-> The [Flux v2.3.0 release](https://fluxcd.io/blog/2024/05/flux-v2.3.0/) includes API changes to the HelmRelease and HelmChart APIs, with deprecated fields removed. The next version of the Microsoft's Flux extension will include these changes, consistent with the upstream OSS Flux project.
+> The [Flux v2.3.0 release](https://fluxcd.io/blog/2024/05/flux-v2.3.0/) includes API changes to the HelmRelease and HelmChart APIs, with deprecated fields removed. An upcoming minor version update of Microsoft's Flux extension will include these changes, consistent with the upstream OSS Flux project.
 >
 > The [HelmRelease](https://fluxcd.io/flux/components/helm/helmreleases/) kind will be promoted from `v2beta1` to `v2` (GA). The `v2` API is backwards compatible with `v2beta1`, with the exception of these deprecated fields, which will be removed:
 >
@@ -127,7 +127,7 @@ The most recent version of the Flux v2 extension and the two previous versions (
 >
 > The [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) kind will be promoted from `v1beta2` to `v1` (GA). The `v1` API is backwards compatible with `v1beta2`, with the exception of the `.spec.valuesFile` field, which will be replaced by `.spec.valuesFiles`.
 >
-> We recommend updating your deployments as soon as possible to stop using the fields that will be removed, and migrate to the new fields ahead of time. The new fields are already available in the current version of the APIs.
+> We recommend updating your deployments before July 22, 2024, to stop using the fields that will be removed, and migrate to the new fields. This will help avoid problems due to breaking changes when the new version is released. The new fields are already available in the current version of the APIs.
 
 > [!NOTE]
 > When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.
