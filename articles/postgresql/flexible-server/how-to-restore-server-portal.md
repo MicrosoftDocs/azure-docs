@@ -87,7 +87,7 @@ If your source server is configured with geo-redundant backup, you can restore t
  
    :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-click.png" alt-text="Screenshot that shows the Restore button.":::
 
-3. Under **Source details**, for **Geo-redundant restore (preview)**, select the **Restore to paired region** checkbox. 
+3. Under **Source details**, for **Geo-redundant restore**, select the **Restore to paired region** checkbox. 
  
    :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-choose-checkbox.png" alt-text="Screenshot that shows the option for restoring to a paired region for geo-redundant restore.":::
  
