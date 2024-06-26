@@ -27,7 +27,7 @@ AI agents are designed to perform specific tasks, answer questions, and automate
 
 ### Copilots
 
-Copilots are a type of AI agent designed to work alongside users rather than operate independently. Unlike fully automated agents, copilots provide suggestions and recommendations to assist users in completing tasks. For instance, when a user is writing an email, a copilot might suggest phrases, sentences, or paragraphs. The user might also ask the copilot to find relevant information in other emails or files to support the suggestion (see retrieval-augmented generation). The user can accept, reject, or edit the suggested passages.
+Copilots are a type of AI agent designed to work alongside users rather than operate independently. Unlike fully automated agents, copilots provide suggestions and recommendations to assist users in completing tasks. For instance, when a user is writing an email, a copilot might suggest phrases, sentences, or paragraphs. The user might also ask the copilot to find relevant information in other emails or files to support the suggestion (see [retrieval-augmented generation](vector-database.md#retrieval-augmented-generation)). The user can accept, reject, or edit the suggested passages.
 
 ### Autonomous agents
 
@@ -118,6 +118,8 @@ Currently, LLM-powered applications often use retrieval-augmented generation tha
 
 For example, if the task is to write code, semantic search may not be able to retrieve the syntax tree, the file system layout, the code summaries, or the API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, semantic search may not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
 
+Weaving together [a web standalone in-memory, relational, and vector databases](#memory-systems) may work for prototypical agent systems; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+
 Therefore, a robust memory system should have the following characteristics:
 
 #### Multi-modal (Part One)
@@ -142,7 +144,7 @@ The above characteristics require AI agent memory systems to be highly scalable 
 
 In place of all the standalone databases, AI agent memory systems can rely on Azure Cosmos DB as a unified solution. Its robustness successfully enabled OpenAI’s ChatGPT service to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed serverless NoSQL, relational, and vector database service. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
 
-### Speed
+#### Speed
 
 Azure Cosmos DB provides single-digit millisecond latency, making it highly suitable for processes requiring rapid data access and management, including caching (traditional and semantic), transactions, and operational workloads. This low latency is crucial for AI agents that need to perform complex reasoning, make real-time decisions, and provide immediate responses. Moreover, its use of state-of-the-art DiskANN algorithm provides accurate and fast vector search with 95% less memory consumption.
 
@@ -168,7 +170,7 @@ Additionally, the built-in support for multi-master writes enables high availabi
 The five available consistency levels (from strong to eventual) can also cater to various distributed workloads depending on the scenario requirements.
 Implementation example
 
-## Implementation Sample
+## AI agent implementation sample
 
 This section explores the implementation of a LangChain Agent using Azure Cosmos DB as the memory system to autonomously process traveler inquiries and bookings in a CruiseLine travel application.
 
