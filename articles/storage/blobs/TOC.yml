@@ -991,6 +991,10 @@ items:
           href: storage-blob-delete-go.md
         - name: Manage blob properties and metadata
           href: storage-blob-properties-metadata-go.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-go.md
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator
