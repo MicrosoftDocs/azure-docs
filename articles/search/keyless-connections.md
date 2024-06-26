@@ -22,7 +22,7 @@ Keyless connections are enabled with the following steps:
 
 ## Prerequisites
 
-The following steps need to be completed for both local development and production workloads.
+The following steps need to be completed for both local development and production workloads:
 
 * [Create an AI Search resource](#create-an-ai-search-resource)
 * [Install Azure Identity client library](#install-azure-identity-client-library)
