@@ -212,12 +212,19 @@ demo.launch(debug=True)
 demo.close()
 ```
 
-## Next Steps
-This quickstart guide is designed to help you set up and get running with Azure Cosmos DB NoSQL API for vector search applications in a few simple steps. If you have any further questions or need assistance, feel free to reach out or consult the Azure documentation. Explore the following use cases and sample applications to further utilize your Azure Cosmos DB setup:
 
-- Retrieval Augmented Generation (RAG) with Azure OpenAI
-- Semantic Search
-- Implementing a Namespace for multitenancy
-- Upserting your own vector embeddings
+### Next steps
+This quickstart guide is designed to help you set up and get running with Azure Cosmos DB NoSQL API for vector search applications in a few simple steps. If you have any further questions or need assistance, check out these resources:
 
+[30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
+
+[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](../ai-advantage.md)
+
+> [!div class="nextstepaction"]
+> [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
+
+### More vector database solutions
+- [Azure PostgreSQL Server pgvector Extension](../../postgresql/flexible-server/how-to-use-pgvector.md)
+
+:::image type="content" source="../media/vector-search/azure-databases-and-ai-search.png" lightbox="../media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::
 
