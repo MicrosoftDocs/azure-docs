@@ -25,7 +25,7 @@ To complete this procedure, you need:
 The following diagram shows the basic operation of collecting log data from a text file. 
 
 1. The agent watches for any log files that match a specified name pattern on the local disk. 
-2. Each entry in the log is collected and sent to Azure Monitor. 
+2. Each entry in the log is collected and sent to Azure Monitor. The incoming stream includes the entire log entry in a single column. 
 3. If the default transformation is used, the entire log entry is sent to a single column in the target table.
 4. If a custom transformation is used, the log entry can be parsed into multiple columns in the target table.
 
