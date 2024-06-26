@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: edge
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 06/26/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 
@@ -154,9 +154,6 @@ Below is a list of URNs for some of the most commonly used images. If you just w
 | Ubuntu Server   | Canonical Ubuntu Server 18.04 LTS       | 18.04.202002180       | Canonical:UbuntuServer:18.04-LTS:18.04.202002180                                          |
 | Ubuntu Server   | Canonical Ubuntu Server 16.04 LTS       | 16.04.202104160       | Canonical:UbuntuServer:16.04-LTS:16.04.202104160                                          |
 | CentOS          | CentOS 8.1                              | 8.1.2020062400        | OpenLogic:CentOS:8_1:8.1.2020062400                                                       |
-| CentOS          | CentOS 7.7                              | 7.7.2020062400        | OpenLogic:CentOS:7.7:7.7.2020062400                                                       |
-
-
 
 ## Create a new managed disk from the Marketplace image
 
