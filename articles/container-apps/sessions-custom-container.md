@@ -5,7 +5,7 @@ services: container-apps
 author: anthonychu
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 06/26/2024
 ms.author: antchu
 ---
 
@@ -200,17 +200,17 @@ Each API request must also include the query string parameter `identifier` with 
 > The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
 > Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
 
-#### Forwarding Requests to the Session's Container:
+#### Forwarding requests to the session's container:
 
 Anything in the path following the base pool management endpoint is forwarded to the session's container.
 
 For example, if you make a call to `<POOL_MANAGEMENT_ENDPOINT>/api/uploadfile`, the request is routed to the session's container at `0.0.0.0:<TARGET_PORT>/api/uploadfile`.
 
-#### Continuous Session Interaction:
+#### Continuous session interaction:
 
 You can continue making requests to the same session. If there are no requests to the session for longer than the cooldown period, the session is automatically deleted.
 
-#### Sample Request
+#### Sample request
 
 The following example shows a request to a custom container session by a user ID.
 
