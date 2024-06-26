@@ -113,11 +113,11 @@ To open Resource Health for one resource:
 
 You can also access Resource Health by selecting **All services** and typing **service health** in the filter text box. In the **Help + support** pane, select [Resource health](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/resourceHealth).
 
-![Opening Resource Health from "All services"](./media/resource-health-overview/service_health.png)
+![Opening Resource Health from "All services"](./media/resource-health-overview/service-health.png)
 
 You can select the subscription and resources type to get the resource health information of a resources
 
-![Opening Resource Health from "All services"](./media/resource-health-overview/resource_health.png)
+![Opening Resource Health from "All services"](./media/resource-health-overview/resource-health.png)
 
 ## Next steps
 
