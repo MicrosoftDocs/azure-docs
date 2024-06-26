@@ -392,32 +392,36 @@ Here's how to assign an application to groups and users using the [Az.DesktopVir
       }
       ```
 
-1. Once you have the object IDs of the users or groups, you can add them to or remove them from the application by using one of the following examples, which assigns the [Desktop Virtualization User](rbac.md#desktop-virtualization-user) RBAC role. You can also assign the Desktop Virtualization User RBAC role to your groups or users using the [New-AzRoleAssignment](../role-based-access-control/role-assignments-powershell.md) cmdlet.
+1. Once you have the object IDs of the users or groups, you can add them to or remove them from the application by using one of the following examples, which assigns the [Desktop Virtualization User](rbac.md#desktop-virtualization-user) RBAC role.
 
    1. To add the groups or users to the application, run the following command:
       
       ```azurepowershell
-      $parameters = @{
-          Name = '<AppName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = '<AzureRegion>'
-          PermissionsToAdd = $Ids
+      $getParameters = @{
+         Name = '<AppName>'
+         ResourceGroupName = '<ResourceGroupName>'
       }
-      
-      Update-AzWvdAppAttachPackage @parameters
+
+      $appAttachPackage = Get-AzWvdAppAttachPackage @getParameters
+
+      foreach ($item in $Ids) {
+         New-AzRoleAssignment -ObjectId $item -RoleDefinitionName "Desktop Virtualization User" -Scope $appAttachPackage.Id
+      }
       ```
 
    1. To remove the groups or users to the application, run the following command:
 
       ```azurepowershell
-      $parameters = @{
-          Name = '<AppName>'
-          ResourceGroupName = '<ResourceGroupName>'
-          Location = '<AzureRegion>'
-          PermissionsToRemove = $objectIds
+      $getParameters = @{
+         Name = '<AppName>'
+         ResourceGroupName = '<ResourceGroupName>'
       }
-      
-      Update-AzWvdAppAttachPackage @parameters
+
+      $appAttachPackage = Get-AzWvdAppAttachPackage @getParameters
+
+      foreach ($item in $Ids) {
+         Remove-AzRoleAssignment -ObjectId $item -RoleDefinitionName "Desktop Virtualization User" -Scope $appAttachPackage.Id
+      }
       ```
 
 ---
@@ -451,8 +455,7 @@ Here's how to change a package's registration type and state using the [Az.Deskt
 
       ```azurepowershell
       $parameters = @{
-          FullName = '<FullName>'
-          HostPoolName = '<HostPoolName>'
+          Name = '<Name>'
           ResourceGroupName = '<ResourceGroupName>'
           Location = '<AzureRegion>'
           IsRegularRegistration = $true
@@ -466,7 +469,6 @@ Here's how to change a package's registration type and state using the [Az.Deskt
       ```azurepowershell
       $parameters = @{
           Name = '<Name>'
-          HostPoolName = '<HostPoolName>'
           ResourceGroupName = '<ResourceGroupName>'
           Location = '<AzureRegion>'
           IsActive = $true
