@@ -25,6 +25,7 @@ Keyless connections are enabled with the following steps:
 The following steps need to be completed for both local development and production workloads:
 
 * [Create an AI Search resource](#create-an-ai-search-resource)
+* [Enable role-based access on your search service](search-security-enable-roles.md)
 * [Install Azure Identity client library](#install-azure-identity-client-library)
 
 ### Create an AI Search resource
@@ -81,7 +82,7 @@ pip install azure-identity
 
 ## Update source code to use DefaultAzureCredential
 
-The Azure Identity library's `DefaultAzureCredential` allows the customer to run the same code in the local development environment and in the Azure Cloud. Create a single credential and reuse the credential instance as needed to take advantage of token caching.
+The Azure Identity library's `DefaultAzureCredential` allows you to run the same code in the local development environment and in the Azure cloud. Create a single credential and reuse the credential instance as needed to take advantage of token caching.
 
 #### [.NET](#tab/csharp)
 
@@ -277,7 +278,7 @@ Find your personal identity with one of the following tools. Use that identity a
 
 1. Use the steps found here: [find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id) in the Azure portal.
     
-2. Use the steps found at [open the Add role assignment page](/azure/role-based-access-control/role-assignments-portal#step-2-open-the-add-role-assignment-page) in the Azure portal.
+2. Use the steps found at [open the Add role assignment page](search-security-rbac.md) in the Azure portal.
     
 ---
     
@@ -322,12 +323,7 @@ Deploy production workloads includes these steps:
 
 ### Roles for production workloads
 
-To create your production resources, you need to create an identity then assign that identity to your resources with the correct roles. 
-
-Production workload [managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) include:
-
-* [User-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity): a standalone Azure resource. 
-* System-assigned managed identity: a hosting resource-based identity that is removed with the parent resource is removed. 
+To create your production resources, you need to create a user-assigend [managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) then assign that identity to your resources with the correct roles. 
 
 The following role is suggested for a production application:
 
