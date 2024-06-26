@@ -11,8 +11,8 @@ ms.custom: engagement-fy24
 
 # Self service maintenance orchestration (public preview)
 
-In this article, you learn about one of the advantages of Azure VMware Solution private cloud. The advantage of the managed platform, with Microsoft handling the lifecycle management of VMware software (ESXi, vCenter Server, and vSAN) and NSX appliances. Microsoft takes care of applying any patches, updates, or upgrades to ESXi, vCenter Server, vSAN, and NSX within your private cloud. 
-Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private cloud. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds#host-maintenance-and-lifecycle-management).
+In this article, you learn about one of the advantages of Azure VMware Solution private cloud. The advantage is the managed platform, with Microsoft handling the lifecycle management of VMware software (ESXi, vCenter Server, and vSAN) and NSX appliances. Microsoft takes care of applying any patches, updates, or upgrades to ESXi, vCenter Server, vSAN, and NSX within your private cloud. 
+Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private cloud. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md).
 
 Microsoft schedules maintenance and notifies customers through Service Health notifications. The details of the planned maintenance are available under the planned maintenance section. Currently, customers must raise a support ticket if they wish to change a scheduled maintenance window.
 The Self-Service Maintenance orchestration feature provides customers with the flexibility to reschedule their planned maintenance directly from the Azure portal.
