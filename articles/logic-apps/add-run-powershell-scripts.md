@@ -3,7 +3,7 @@ title: Add and run PowerShell in Standard workflows
 description: Write and run PowerShell inline from Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
 ms.service: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, azla
+ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
 ms.date: 07/01/2024
 # Customer intent: As a logic app workflow developer, I want to write and run PowerShell so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
