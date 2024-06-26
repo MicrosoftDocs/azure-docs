@@ -1,6 +1,6 @@
 ---
-title: Use Multiple VM Sizes with Flex Mix
-description: Use multiple VM sizes in a scale set using VMSS Flex Mix. Optimize deployments using allocation strategies. 
+title: Use Multiple VM Sizes with Instance Flexibility
+description: Use multiple VM sizes in a scale set using VMSS Instance Flexibility. Optimize deployments using allocation strategies. 
 author: brittanyrowe 
 ms.author: brittanyrowe
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 06/17/2024
 ms.reviewer: jushiman
 ---
 
-# Use Multiple VM Sizes with Instance Flexibility
+# Use Multiple VM Sizes with Instance Flexibility (Preview)
 > [!IMPORTANT]
 > Instance Flexibility for Virtual Machine Scale Sets with Flexible Orchestration Mode is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
@@ -20,6 +20,19 @@ Instance Flexibility is best suited for workloads that are flexible in compute r
 - Optimize your deployments for cost or capacity through allocation strategies.
 - Continue to make use of scale set features, like [Spot Priority Mix](/articles/virtual-machine-scale-sets/spot-priority-mix.md), [Autoscale](/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md), or [Upgrade Policies](/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-set-upgrade-policy.md).
 - Spread a heterogeneous mix of VMs across Availability Zones and Fault Domains for high availability and reliability.
+
+## Enroll in the Preview
+Register for the `FlexVMScaleSetSkuProfileEnabled` feature flag using the [az feature register](/cli/azure/feature#az-feature-register) command:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfileEnabled"
+```
+
+It takes a few moments for the feature to register. Verify the registration status by using the [az feature show](/cli/azure/feature#az-feature-register) command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.Compute" --name "FlexVMScaleSetSkuProfileEnabled"
+```
 
 ## Changes to existing scale set properties
 ### sku.tier
@@ -52,11 +65,14 @@ Following the scale set cost model, usage of Instance Flexibility is free. You'l
 
 ## Limitations
 - Instance Flexibility is currently available in West US, West US2, West US3, East US, East US2, CentralUS, South Central US, North Central US, West Europe, North Europle, UK South, and France Central. More regions will be added during Public Preview.
+- Instance Flexibility is only available for scale sets using Flexible Orchestration Mode.
 -  Instance Flexibility is currently only available through ARM template and in the Azure portal.
 - You must have quota for the VM sizes you're requesting with Instance Flexibility.
 - You can specify **up to** five VM sizes with Instance Flexibility at this time.
 - Existing scale sets cannot be updated to use Instance Flexibility. 
 - VM sizes cannot be changed once the scale set is deployed.
+
+## Troubleshooting
 
 ## FAQs
 ### Can I use Spot and Standard VMs with Instance Flexibility?
