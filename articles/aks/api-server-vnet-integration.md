@@ -30,7 +30,7 @@ API Server VNet Integration is available in all global Azure regions.
 
 ## Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 * Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
 
@@ -232,7 +232,7 @@ This upgrade performs a node-image version upgrade on all node pools and restart
 AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster. The API server hostname doesn't change, but public DNS entries are modified or removed if necessary.
 
 > [!NOTE]
-> `--disable-private-cluster is currently in preview. For more information, see [Reference and support levels][ref-support-levels].
+> `--disable-private-cluster` is currently in preview. For more information, see [Reference and support levels][ref-support-levels].
 
 ### Enable private cluster mode
 

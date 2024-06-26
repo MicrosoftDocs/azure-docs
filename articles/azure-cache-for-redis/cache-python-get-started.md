@@ -27,7 +27,7 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
    - For Windows 11, use the [Windows Store](https://www.microsoft.com/en-us/p/python-3/9nblggh083nz?activetab=pivot:overviewtab).
 
 ## Create an Azure Cache for Redis instance
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 

@@ -1,24 +1,23 @@
 ---
 title: Monitor Azure File Sync
-description: Review how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server.
+description: Monitor Azure File Sync metrics, server health, and cloud tiering by using Azure Monitor, Storage Sync Service, and Windows Server.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/09/2023
+ms.date: 06/05/2024
 ms.author: kendownie
 ---
 
-# Monitor Azure File Sync
+# Monitor Azure File Sync metrics and health
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service and Windows Server.
+This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server. It covers the following scenarios:
 
-The following scenarios are covered in this guide: 
 - View Azure File Sync metrics in Azure Monitor.
 - Create alerts in Azure Monitor to proactively notify you of critical conditions.
 - View health of your Azure File Sync deployment using the Azure portal.
-- How to use the event logs and performance counters on your Windows Servers to monitor the health of your Azure File Sync deployment. 
+- Use the event logs and performance counters on Windows Server to monitor the health of your Azure File Sync deployment. 
 
 ## Azure Monitor
 
@@ -70,7 +69,7 @@ Alerts proactively notify you when important conditions are found in your monito
 5. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 6. Click **Create alert rule** to create the alert.  
 
-  > [!Note]  
+  > [!NOTE] 
   > If you configure an alert using the Server Name dimension and the server is renamed, the alert will need to be updated to monitor the new server name.
 
 The following table lists some example scenarios to monitor and the proper metric to use for the alert:
@@ -136,7 +135,7 @@ To view the health of a **server endpoint** in the portal, navigate to the **Syn
 
 - To learn more, see [Azure Monitor](#azure-monitor).
 
-  > [!Note]  
+  > [!NOTE]
   > The charts in the Storage Sync Service portal have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.
 
 ## Windows Server
@@ -151,7 +150,7 @@ Use the Telemetry event log on the server to monitor registered server, sync, an
 
 - Event ID 9102 is logged once a sync session completes. Use this event to determine if sync sessions are successful (**HResult = 0**) and if there are per-item sync errors (**PerItemErrorCount**). For more information, see the [sync health](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) and  [per-item errors](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) documentation.
 
-  > [!Note]  
+  > [!NOTE]
   > Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount. However, they still make forward progress, and some files sync successfully. You can see this in the Applied fields such as AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes. These fields tell you how much of the session succeeded. If you see multiple sync sessions fail in a row, and they have an increasing Applied count, give sync time to try again before you open a support ticket.
 
 - Event ID 9121 is logged for each per-item error once the sync session completes. Use this event to determine the number of files that are failing to sync with this error (**PersistentCount** and **TransientCount**). Persistent per-item errors should be investigated, see [How do I see if there are specific files or folders that are not syncing?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -196,18 +195,19 @@ The following performance counters for Azure File Sync are available in Performa
 | AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
 
 ## Alert Examples
+
 This section provides some example alerts for Azure File Sync.
 
-  > [!Note]  
+  > [!NOTE]
   > If you create an alert and it's too noisy, adjust the threshold value and alert logic.
 
 ### How to create an alert if the server endpoint health shows an error in the portal
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
-2. Go to the **Monitoring** section and click **Alerts**. 
-3. Click on **+ New alert rule** to create a new alert rule. 
+2. Go to the **Monitoring** section and select **Alerts**. 
+3. Select **+ New alert rule** to create a new alert rule. 
 4. Configure condition by clicking **Select condition**.
-5. Within **Configure signal logic** blade, click **Sync session result** under signal name.  
+5. Within **Configure signal logic** blade, select **Sync session result** under signal name.  
 6. Select the following dimension configuration: 
      - Dimension name: **Server Endpoint Name**  
      - Operator: **=** 
@@ -218,18 +218,18 @@ This section provides some example alerts for Azure File Sync.
      - Aggregation type: **Maximum**  
      - Threshold value: **1** 
      - Evaluated based on: Aggregation granularity = **24 hours** | Frequency of evaluation = **Every hour** 
-     - Click **Done.** 
-8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
-10. Click **Create alert rule**. 
+     - Select **Done.** 
+8. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+10. Select **Create alert rule**. 
 
 ### How to create an alert if files are failing to sync to a server or cloud endpoint
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
-2. Go to the **Monitoring** section and click **Alerts**. 
-3. Click on **+ New alert rule** to create a new alert rule. 
-4. Configure condition by clicking **Select condition**.
-5. Within **Configure signal logic** blade, click **Files not syncing** under signal name.  
+2. Go to the **Monitoring** section and select **Alerts**. 
+3. Select **+ New alert rule** to create a new alert rule. 
+4. Configure condition by selecting **Select condition**.
+5. Within **Configure signal logic** blade, select **Files not syncing** under signal name.  
 6. Select the following dimension configuration: 
      - Dimension name: **Server Endpoint Name**  
      - Operator: **=** 
@@ -241,17 +241,17 @@ This section provides some example alerts for Azure File Sync.
      - Threshold value: **100** 
      - Evaluated based on: Aggregation granularity = **5 minutes** | Frequency of evaluation = **Every 5 minutes** 
      - Click **Done.** 
-8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
-10. Click **Create alert rule**. 
+8. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+10. Select **Create alert rule**. 
 
 ### How to create an alert if a registered server is failing to communicate with the Storage Sync Service
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
-2. Go to the **Monitoring** section and click **Alerts**. 
-3. Click on **+ New alert rule** to create a new alert rule. 
-4. Configure condition by clicking **Select condition**.
-5. Within **Configure signal logic** blade, click **Server online status** under signal name.  
+2. Go to the **Monitoring** section and select **Alerts**. 
+3. Select **+ New alert rule** to create a new alert rule. 
+4. Configure condition by selecting **Select condition**.
+5. Within **Configure signal logic** blade, select **Server online status** under signal name.  
 6. Select the following dimension configuration: 
      - Dimension name: **Server name**  
      - Operator: **=** 
@@ -262,19 +262,19 @@ This section provides some example alerts for Azure File Sync.
      - Aggregation type: **Maximum**  
      - Threshold value (in bytes): **1** 
      - Evaluated based on: Aggregation granularity = **1 hour** | Frequency of evaluation = **Every 30 minutes** 
-         - Note that the metrics are sent to Azure Monitor every 15 to 20 minutes. Do not set the **Frequency of evaluation** to less than 30 minutes (will generate false alerts).
-     - Click **Done.** 
-8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
-10. Click **Create alert rule**. 
+         - Note that the metrics are sent to Azure Monitor every 15 to 20 minutes. Don't set the **Frequency of evaluation** to less than 30 minutes, as doing so will generate false alerts.
+     - Select **Done.** 
+8. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+10. Select **Create alert rule**. 
 
-### How to create an alert if the cloud tiering recall size has exceeded 500GiB in a day
+### How to create an alert if the cloud tiering recall size has exceeded 500 GiB in a day
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
-2. Go to the **Monitoring** section and click **Alerts**. 
-3. Click on **+ New alert rule** to create a new alert rule. 
-4. Configure condition by clicking **Select condition**.
-5. Within **Configure signal logic** blade, click **Cloud tiering recall size** under signal name.  
+2. Go to the **Monitoring** section and select **Alerts**. 
+3. Select **+ New alert rule** to create a new alert rule. 
+4. Configure condition by selecting **Select condition**.
+5. Within **Configure signal logic** blade, select **Cloud tiering recall size** under signal name.  
 6. Select the following dimension configuration: 
      - Dimension name: **Server name**  
      - Operator: **=** 
@@ -285,12 +285,13 @@ This section provides some example alerts for Azure File Sync.
      - Aggregation type: **Total**  
      - Threshold value (in bytes): **67108864000** 
      - Evaluated based on: Aggregation granularity = **24 hours** | Frequency of evaluation = **Every hour** 
-     - Click **Done.** 
-8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
-10. Click **Create alert rule**. 
+     - Select **Done.** 
+8. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+10. Select **Create alert rule**. 
 
 ## Next steps
+
 - [Planning for an Azure File Sync deployment](file-sync-planning.md)
 - [Consider firewall and proxy settings](file-sync-firewall-and-proxy.md)
 - [Deploy Azure File Sync](file-sync-deployment-guide.md)

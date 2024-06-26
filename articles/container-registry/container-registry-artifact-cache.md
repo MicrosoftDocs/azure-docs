@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 #customer intent: As a developer, I want Artifact cache capabilities so that I can efficiently deliver and serve containerized applications to end-users in real-time.
 ---
 
-# Artifact cache in Azure Container Registry (Preview)
+# Artifact cache in Azure Container Registry
 
 Artifact cache feature allows users to cache container images in a private container registry. Artifact cache is available in *Basic*, *Standard*, and *Premium* [service tiers](container-registry-skus.md).
 

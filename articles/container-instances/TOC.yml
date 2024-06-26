@@ -164,7 +164,7 @@
       href: container-instances-update.md
   - name: Monitor and log
     items:
-    - name: Monitor
+    - name: Monitor Container Instances
       href: monitor-azure-container-instances.md
     - name: Monitor CPU and memory usage
       href: container-instances-monitor.md

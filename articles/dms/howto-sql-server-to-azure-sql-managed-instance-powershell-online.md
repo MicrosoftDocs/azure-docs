@@ -25,7 +25,7 @@ In this article, you learn how to:
 > * Create a migration project in an instance of Azure Database Migration Service.
 > * Run the migration online.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This article provides steps for an online migration, but it's also possible to migrate [offline](howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md).
 

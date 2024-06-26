@@ -11,26 +11,28 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-wls, devx-track
 
 # Quickstart: Deploy WebLogic Server on Azure Virtual Machines (VMs)
 
-This article shows you how to quickly deploy WebLogic Application Server (WLS) on Azure Virtual Machines (VM) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS cluster on VM securely visible on the public internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json).
+This article shows you how to quickly deploy WebLogic Server (WLS) on Azure Virtual Machine (VM) with the simplest possible set of configuration choices using the Azure portal. For a more full featured tutorial, including the use of Azure Application Gateway to make WLS cluster on VM securely visible on the public internet, see [Tutorial: Migrate a WebLogic Server cluster to Azure with Azure Application Gateway as a load balancer](/azure/developer/java/migration/migrate-weblogic-with-app-gateway?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
-In this quickstart, you:
+In this quickstart, you will learn how to:
 
-- Deploy WLS with Administration Server on a VM using the Azure portal.
-- Deploy a Java EE sample application with WLS Administration Console portal.
+- Deploy WebLogic Server with Administration Server on a VM using the Azure portal.
+- Deploy a Java EE sample application with WebLogic Server Administration Console portal.
 
-This quickstart assumes a basic understanding of WLS concepts. For more information, see [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/).
+This quickstart assumes a basic understanding of WebLogic Server concepts. For more information, see [Oracle WebLogic Server](https://www.oracle.com/java/weblogic/).
+
+If you're interested in providing feedback or working closely on your migration scenarios with the engineering team developing WebLogic on Azure solutions, fill out this short [survey on WebLogic migration](https://aka.ms/wls-on-azure-survey) and include your contact information. The team of program managers, architects, and engineers will promptly get in touch with you to initiate close collaboration.
 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-## Deploy WLS with Administration Server on a VM
+## Deploy WebLogic Server with Administration Server on a VM
 
-The steps in this section direct you to deploy WLS on VM in the simplest possible way: using the [single node with an admin server](https://aka.ms/wls-vm-admin) offer. Other offers are available to meet different scenarios, including: [single node without an admin server](https://aka.ms/wls-vm-singlenode), [cluster](https://aka.ms/wls-vm-cluster), and [dynamic cluster](https://aka.ms/wls-vm-dynamic-cluster). For more information, see [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic).
+The steps in this section direct you to deploy WebLogic Server on VM in the simplest possible way: using the [single instance with an admin server](https://aka.ms/wls-vm-admin) offer. Other offers are available to meet different scenarios, including: [single instance without an admin server](https://aka.ms/wls-vm-singlenode), [static cluster](https://aka.ms/wls-vm-cluster), and [dynamic cluster](https://aka.ms/wls-vm-dynamic-cluster). For more information, see [What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json).
 
 :::image type="content" source="media/weblogic-server-azure-virtual-machine/portal-start-experience.png" alt-text="Screenshot of the Azure portal that shows the Create WebLogic Server With Admin console on Azure VM page." lightbox="media/weblogic-server-azure-virtual-machine/portal-start-experience.png":::
 
-The following steps show you how to find the WLS with Admin Server offer and fill out the **Basics** pane:
+The following steps show you how to find the WebLogic Server with Admin Server offer and fill out the **Basics** pane:
 
 1. In the search bar at the top of the portal, enter *weblogic*. In the autosuggested search results, in the **Marketplace** section, select **Oracle WebLogic Server With Admin Server**.
 
@@ -82,20 +84,20 @@ If you navigated away from the **Deployment is in progress** page, the following
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png" alt-text="Screenshot of the Azure portal that shows the resource group deployments list." lightbox="media/weblogic-server-azure-virtual-machine/resource-group-deployments.png":::
 
 1. In the left panel, select **Outputs**. This list shows the output values from the deployment. Useful information is included in the outputs.
-1. The **sshCommand** value is the fully qualified, SSH command to connect the VM that runs WLS. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
-1. The **adminConsoleURL** value is the fully qualified, public internet visible link to the WLS admin console. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
+1. The **sshCommand** value is the fully qualified, SSH command to connect the VM that runs WebLogic Server. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
+1. The **adminConsoleURL** value is the fully qualified, public internet visible link to the WebLogic Server admin console. Select the copy icon next to the field value to copy the link to your clipboard. Save this value aside for later.
 
 ## Deploy a Java EE application from Administration Console portal
 
-Use the following steps to run a sample application in the WLS:
+Use the following steps to run a sample application in the WebLogic Server:
 
-1. Download a sample application as a *.war* or *.ear* file. The sample app should be self contained and not have any database, messaging, or other external connection requirements. The sample app from the WLS Kubernetes Operator documentation is a good choice. You can download it from [Oracle](https://aka.ms/wls-aks-testwebapp). Save the file to your local filesystem.
+1. Download a sample application as a *.war* or *.ear* file. The sample app should be self contained and not have any database, messaging, or other external connection requirements. The sample app from the WebLogic Kubernetes Operator documentation is a good choice. You can download it from [Oracle](https://aka.ms/wls-aks-testwebapp). Save the file to your local filesystem.
 
-1. Paste the value of **adminConsoleURL** in an internet-connected web browser. You should see the familiar WLS admin console login screen as shown in the following screenshot:
+1. Paste the value of **adminConsoleURL** in an internet-connected web browser. You should see the familiar WebLogic Server admin console login screen as shown in the following screenshot:
 
    :::image type="content" source="media/weblogic-server-azure-virtual-machine/wls-admin-login.png" alt-text="Screenshot of the WebLogic Server admin login screen.":::
 
-1. Log in with user name *weblogic* and your password (this article uses *wlsVmCluster2022*). You can see the WLS Administration Console overview page.
+1. Log in with user name *weblogic* and your password (this article uses *wlsVmCluster2022*). You can see the WebLogic Server Administration Console overview page.
 
 1. Under **Change Center** on the top left corner, select **Lock & Edit**, as shown in the following screenshot:
 
@@ -142,15 +144,15 @@ Use the following steps to enable port 22:
 
 ## Clean up resources
 
-If you're not going to continue to use the WLS, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
+If you're not going to continue to use the WebLogic Server, navigate back to your working resource group. At the top of the page, under the text **Resource group**, select the resource group. Then, select **Delete resource group**.
 
 ## Next steps
 
-Continue to explore options to run WLS on Azure.
+Continue to explore options to run WebLogic Server on Azure.
 
-> [!div class="nextstepaction"]
-> [Learn more about Oracle WebLogic on Azure](/azure/virtual-machines/workloads/oracle/oracle-weblogic)
-> [!div class="nextstepaction"]
-> [Explore the official documentation from Oracle](https://aka.ms/wls-vm-docs)
-> [!div class="nextstepaction"]
-> [Explore the options for day 2 and beyond](https://aka.ms/wls-vms-day2)
+* [WebLogic Server on virtual machines](/azure/virtual-machines/workloads/oracle/oracle-weblogic?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [WebLogic Server on AKS](/azure/virtual-machines/workloads/oracle/weblogic-aks?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [Migrate WebLogic Server applications to Azure Kubernetes Service](/azure/developer/java/migration/migrate-weblogic-to-virtual-machines?toc=/azure/developer/java/ee/toc.json&bc=/azure/developer/java/breadcrumb/toc.json)
+* [Explore options for day 2 and beyond](https://aka.ms/wls-vms-day2)
+
+For more information about the Oracle WebLogic offers at Azure Marketplace, see [Oracle WebLogic Server on Azure](https://aka.ms/wls-contact-me). These offers are all _Bring-Your-Own-License_. They assume that you already have the appropriate licenses with Oracle and are properly licensed to run offers in Azure.

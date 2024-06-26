@@ -78,6 +78,8 @@ The following code example shows how to set values for [BlockBlobParallelUploadO
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/upload-blob-with-transfer-options.js" id="Snippet_UploadBlobTransferOptions":::
 
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with JavaScript](storage-blobs-tune-upload-download-javascript.md).
+
 ### Upload a block blob with index tags
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data.

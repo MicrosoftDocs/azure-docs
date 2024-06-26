@@ -37,6 +37,32 @@ items:
 - name: How-to
   expanded: true
   items:
+  - name: Create hubs and projects
+    items:
+    - name: Hubs and projects overview
+      href: concepts/ai-resources.md
+    - name: Create your first hub
+      href: how-to/create-azure-ai-resource.md
+    - name: Create a hub with custom security
+      items:
+      - name: Create a hub in the Azure portal
+        href: how-to/create-secure-ai-hub.md
+      - name: Create a hub from template
+        href: how-to/create-azure-ai-hub-template.md
+      - name: Create a hub using the Azure Machine Learning SDK and CLI
+        href: how-to/develop/create-hub-project-sdk.md
+    - name: Create a project
+      href: how-to/create-projects.md
+    - name: Create and manage compute
+      href: how-to/create-manage-compute.md
+    - name: Connect to external resources
+      items:
+      - name: Connections overview
+        href: concepts/connections.md
+      - name: Create a connection
+        href: how-to/connections-add.md
+      - name: Create a connection using the Azure Machine Learning SDK
+        href: how-to/develop/connections-add-sdk.md
   - name: Select and deploy AI models
     items:
     - name: Model catalog
@@ -80,6 +106,8 @@ items:
         href: how-to/fine-tune-model-llama.md
     - name: Deploy JAIS models
       href: how-to/deploy-jais-models.md
+    - name: Deploy Jamba Instruct model
+      href: how-to/deploy-models-jamba.md
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
@@ -90,30 +118,6 @@ items:
     - name: Deploy open models
       href: how-to/deploy-models-open.md
       displayName: oss, open source
-  - name: Create AI Studio projects and resources
-    items:
-    - name: AI Studio hubs and projects overview
-      href: concepts/ai-resources.md
-    - name: Create a project
-      href: how-to/create-projects.md
-    - name: Create and manage a hub
-      href: how-to/create-azure-ai-resource.md
-    - name: Create a secure hub
-      href: how-to/create-secure-ai-hub.md
-    - name: Create a hub and project using the AzureML SDK
-      href: how-to/develop/create-hub-project-sdk.md
-    - name: Create a hub from template
-      href: how-to/create-azure-ai-hub-template.md
-    - name: Create and manage compute
-      href: how-to/create-manage-compute.md
-    - name: Connections
-      items:
-      - name: Connections overview
-        href: concepts/connections.md
-      - name: Create a connection
-        href: how-to/connections-add.md
-      - name: Create a connection using the AzureML SDK
-        href: how-to/develop/connections-add-sdk.md
   - name: Data for your generative AI app
     items:
     - name: Overview of retrieval augmented generation (RAG)
@@ -268,6 +272,8 @@ items:
         href: how-to/configure-managed-network.md
       - name: Configure private link
         href: how-to/configure-private-link.md
+      - name: Configure custom DNS
+        href: ../machine-learning/how-to-custom-dns.md?context=/azure/ai-studio/context/context
       - name: Troubleshoot secure project connectivity
         href: how-to/troubleshoot-secure-connection-project.md
     - name: Data protection & encryption

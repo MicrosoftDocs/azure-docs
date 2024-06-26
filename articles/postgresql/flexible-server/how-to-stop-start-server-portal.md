@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Stop/Start an Azure Database for PostgreSQL - Flexible Server instance using Azure portal
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides step-by-step instructions to stop and start an Azure Database for PostgreSQL flexible server instance.
 

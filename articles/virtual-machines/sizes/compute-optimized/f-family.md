@@ -1,6 +1,6 @@
 ---
 title: F family VM size series
-description: Overview of the 'F' family and sub families of virtual machine sizes
+description: List of size series in the F family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
@@ -35,3 +35,9 @@ ms.author: mattmcinnes
 [View the full Fasv6 and Falsv6-series page](../../fasv6-falsv6-series.md).
 
 [!INCLUDE [fasv6-falsv6-series-specs](./includes/fasv6-falsv6-series-specs.md)]
+
+
+### Previous-generation F family series
+For older sizes, see [previous generation sizes](../previous-gen-sizes-list.md#compute-optimized-previous-gen-sizes).
+
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]
