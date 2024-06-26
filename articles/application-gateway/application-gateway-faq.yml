@@ -565,6 +565,12 @@ sections:
           To satisfy this `Ingress` resource, an ingress controller is required, which listens for any changes to `Ingress` resources and configures the load balancer policies.
           
           The Application Gateway Ingress Controller (AGIC) allows [Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), also known as an AKS cluster.
+
+      - question: Can I change settings directly on Application Gateway?
+        answer: |
+          It is not supported to directly change the settings of Application Gateway.
+          
+          After an Application Gateway is being linked to Application Gateway Ingress Controller (AGIC), all configuration will be synced and controlled by ingress controller. If users trying to manually configure Application Gateway directly, it will be overwritten by ingress controller later. If there is a need to change settings on Application Gateway, you should change the relative settings, like annotations, from ingress controller.
           
       - question: Can a single ingress controller instance manage multiple application gateways?
         answer: Currently, one instance of an ingress controller can only be associated to one application gateway.
