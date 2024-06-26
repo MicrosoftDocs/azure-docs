@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > - Associate a WAF policy with Front Door.
 > - Configure a custom domain.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
