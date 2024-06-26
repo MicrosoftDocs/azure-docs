@@ -39,7 +39,7 @@ For a higher density of tenants and lower isolation, the partition key-per-tenan
 
 ### Hierarchical Partitioning: Enhanced Data Organization
 
-[Hierarchical partitioning](hierarchical-partition-keys.md) builds on the partition key-per-tenant model, adding deeper levels of data organization. This method involves creating multiple levels of partition keys for more granular data management.
+[Hierarchical partitioning](../hierarchical-partition-keys.md) builds on the partition key-per-tenant model, adding deeper levels of data organization. This method involves creating multiple levels of partition keys for more granular data management.
 
 **Advantages:**
 - **Optimized Queries:** More precise targeting of sub-partitions at the parent partition level reduces query latency.
@@ -64,7 +64,7 @@ For maximum isolation, the account-per-tenant model is preferable. Each tenant g
 
 ### Security Isolation with Customer Managed Keys
 
-Azure Cosmos DB enables [customer-managed keys](how-to-setup-customer-managed-keys.md) for data encryption, adding an extra layer of security for multi-tenant environments.
+Azure Cosmos DB enables [customer-managed keys](../how-to-setup-customer-managed-keys.md) for data encryption, adding an extra layer of security for multi-tenant environments.
 
 **Steps to Implement:**
 1. **Set Up Azure Key Vault:** Securely store your encryption keys.
@@ -143,12 +143,12 @@ Azure Cosmos DB provides the tools necessary to build a robust, secure, and scal
 
 [30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
 
-[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](ai-advantage.md)
+[90-day Free Trial and up to $6,000 in throughput credits with Azure AI Advantage](../ai-advantage.md)
 
 > [!div class="nextstepaction"]
-> [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
+> [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
 
 ## More vector database solutions
-- [Azure PostgreSQL Server pgvector Extension](../postgresql/flexible-server/how-to-use-pgvector.md)
+- [Azure PostgreSQL Server pgvector Extension](../../postgresql/flexible-server/how-to-use-pgvector.md)
 
 :::image type="content" source="media/vector-search/azure-databases-and-ai-search.png" lightbox="media/vector-search/azure-databases-and-ai-search.png" alt-text="Diagram of Vector indexing services.":::
