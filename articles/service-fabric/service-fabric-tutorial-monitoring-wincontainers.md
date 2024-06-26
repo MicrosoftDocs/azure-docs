@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Use a Log Analytics workspace to view and query logs from your containers and nodes
 > * Configure the Log Analytics agent to pick up container and node metrics
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
