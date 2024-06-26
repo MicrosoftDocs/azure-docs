@@ -551,3 +551,4 @@ Learn about monitoring the ingress-nginx controller metrics included with the ap
 [azure-dns-overview]: ../dns/dns-overview.md
 [az-keyvault-certificate-show]: /cli/azure/keyvault/certificate#az-keyvault-certificate-show
 [prometheus-in-grafana]: app-routing-nginx-prometheus.md
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
