@@ -17,7 +17,7 @@ ms.date: 01/02/2024
 
 # LLMOps with prompt flow and GitHub
 
-Large Language Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
+Large Language Models Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
 
 Azure Machine Learning allows you to integrate with GitHub to automate the LLM-infused application development lifecycle with prompt flow.
 
