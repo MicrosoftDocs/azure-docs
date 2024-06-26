@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Move from private access (virtual network integrated) to public access or Private Link with the Azure portal_
+# Move from private access (virtual network integrated) to public access or Private Link with the Azure portal
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -23,7 +23,7 @@ This article describes how to move an Azure Database for MySQL flexible server f
 - An Azure Virtual Network with a subnet that has a service endpoint to the Azure Database for MySQL server.
 - An Azure Database for MySQL server with a private endpoint.
 
-## How to move from private access (virtual network integrated) to public access or Private Link with the Azure portal
+## How to move from private access
 
 The steps below describe how to move from private access (virtual network integrated) to public access or Private Link with the Azure portal.
 
@@ -40,7 +40,10 @@ The steps below describe how to move from private access (virtual network integr
 
 1. Once you select **Yes**, you're taken to a wizard that has two steps.
 
-1. Step 1: Detach the server from the virtual network infrastructure and transitioning it to the Private Link or Public access infrastructure.
+
+## Working in teh wizard
+
+1. Detach the server from the virtual network infrastructure and transitioning it to the Private Link or Public access infrastructure.
 
    :::image type="content" source="media/how-to-networking-from-private-to-public/allow-public-access.png" alt-text="Screenshot of":::
 
@@ -54,7 +57,7 @@ The steps below describe how to move from private access (virtual network integr
 
         :::image type="content" source="media/how-to-networking-from-private-to-public/add-private-endpoint.png" alt-text="Screenshot of":::    
 
-      1. In Step 1, when the server detaches from the virtual network, the server is put into an updating state. You can monitor the status of the server in the portal.
+      1. When the server detaches from the virtual network, the server is put into an updating state. You can monitor the status of the server in the portal.
  
 
    > [!NOTE]

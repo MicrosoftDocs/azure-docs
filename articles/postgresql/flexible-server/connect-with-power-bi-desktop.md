@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ---
 
-# Import data from Azure Database for PostgreSQL - Flexible Server in Power BI 
+# Quickstart: Import data from Azure Database for PostgreSQL - Flexible Server in Power BI 
 
 [!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 

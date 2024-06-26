@@ -130,7 +130,7 @@ The process is conducted in offline mode and consists of two steps:
 1. Detaching the server from the virtual network infrastructure. 
 1. Establishing a Private Link or enabling public access.
 
-- For guidance on transitioning from Private access network to Public access or Private Link, refer to the provided tutorial. This resource offers step-by-step instructions to facilitate the process.
+- For guidance on transitioning from Private access network to Public access or Private Link, visit [Move from private access (virtual network integrated) to public access or Private Link with the Azure portal](how-to-networking-from-private-to-public.md). This resource offers step-by-step instructions to facilitate the process.
 
 ## Next steps
 
