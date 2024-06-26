@@ -33,7 +33,7 @@ Before continuing with this article, you need an Azure AI Search resource to wor
 
 ### Install Azure Identity client library
 
-Before working locally without keylesss, update your AI Search enabled code with the Azure Identity client library.
+Before working locally without keyless, update your AI Search enabled code with the Azure Identity client library.
 
 #### [.NET](#tab/csharp)
 
