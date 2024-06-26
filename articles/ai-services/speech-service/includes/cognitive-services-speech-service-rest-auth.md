@@ -170,7 +170,7 @@ Follow the steps here [Use Microsoft Entra authentication](../how-to-configure-a
 > - Get a Microsoft Entra access token
 > - Get the Speech resource ID
 
-After the resource ID and the Microsoft Entra access token have been obtained the actual access token can be constructed following this format:
+After the resource ID and the Microsoft Entra access token was obtained, the actual access token can be constructed following this format:
 ```http
 "aad#YOUR_RESOURCE_ID#YOUR_MICROSOFT_ENTRA_ACCESS_TOKEN";
 ```
