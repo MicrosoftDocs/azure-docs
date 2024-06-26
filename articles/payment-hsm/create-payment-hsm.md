@@ -70,7 +70,7 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
   
-[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]\
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]\
 
 - You must install the Az.DedicatedHsm PowerShell module:
 
@@ -84,11 +84,11 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [Create a resource group with the Azure CLI](~/reusable-content/ce-skilling/azure/includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure CLI](../../includes/cli-rg-create.md)]
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [Create a resource group with the Azure PowerShell](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure PowerShell](../../includes/powershell-rg-create.md)]
 
 ---
 

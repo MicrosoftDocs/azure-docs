@@ -27,7 +27,7 @@ Verify that you have the following configuration already set up in your environm
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ### Set up the environment
 

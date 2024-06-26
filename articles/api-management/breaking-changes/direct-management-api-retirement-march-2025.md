@@ -4,6 +4,7 @@ description: Azure API Management is retiring its direct management API as of Ma
 services: api-management
 author: dlepow
 ms.service: api-management
+ms.custom: devx-track-arm-template
 ms.topic: reference
 ms.date: 05/16/2024
 ms.author: danlep

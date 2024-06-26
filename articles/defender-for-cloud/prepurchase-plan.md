@@ -3,8 +3,7 @@ title: Optimize Microsoft Defender for Cloud costs with a prepurchase plan
 description: Learn how you can optimize Microsoft Defender for Cloud costs with a prepurchase plan.
 ms.topic: how-to
 ms.reviewer: liuyizhu
-ms.service: cost-management-billing
-ms.subservice: reservations
+ms.service: defender-for-cloud
 ms.date: 05/15/2024
 ---
 

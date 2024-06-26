@@ -42,16 +42,19 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 - `apiserver_cache_list_returned_objects_total`
 - `apiserver_flowcontrol_demand_seats_average`
 - `apiserver_flowcontrol_current_limit_seats`
-- `apiserver_request_sli_duration_seconds_bucket`
+- ~~`apiserver_request_sli_duration_seconds_bucket`~~
 - `apiserver_request_sli_duration_seconds_sum`
 - `apiserver_request_sli_duration_seconds_count`
 - `process_start_time_seconds`
-- `apiserver_request_duration_seconds_bucket`
+- ~~`apiserver_request_duration_seconds_bucket`~~
 - `apiserver_request_duration_seconds_sum`
 - `apiserver_request_duration_seconds_count`
 - `apiserver_storage_list_fetched_objects_total`
 - `apiserver_storage_list_returned_objects_total`
 - `apiserver_current_inflight_requests`
+
+> [!NOTE]
+`apiserver_request_sli_duration_seconds_bucket` and `apiserver_request_duration_seconds_bucket`  are not collected now with a recent release. These are high cardinality metrics which may increase the number of metrics stored based on the number of custom resources in the cluster. If you would like to collect these bucket metrics, you can add it to the keep list. We highly recommend not turning off the minimal ingestion profile for the control plane components
 
 **controlplane-etcd**
 

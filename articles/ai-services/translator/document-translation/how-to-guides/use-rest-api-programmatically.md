@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 06/19/2024
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp
@@ -24,7 +24,7 @@ ms.custom: mode-other, build-2023, devx-track-extended-java, devx-track-python
 >
 > * Typically, when you create an Azure AI resource in the Azure portal, you have the option to create a multi-service key or a single-service key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Azure AI services (multi-service) resource.
 >
-> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is supported in the S1 Standard Service Plan (Pay-as-you-go) and C2, C3, C4, and D3 Volume Discount Plans. _See_ [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 To get started, you need:
@@ -313,6 +313,7 @@ gradle init --type basic
 > You may need to update the following fields, depending upon the operation:
 >>>
 >> * `endpoint`
+>> * `basePath`
 >> * `key`
 >> * `sourceURL`
 >> * `targetURL`
@@ -326,11 +327,11 @@ gradle init --type basic
 
 |**Response header**|**Response URL**|
 |-----------------------|----------------|
-|Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version=2024-05-01|
+|Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version={date}|
 
 * You can also use a [get-translations-status](../reference/get-translations-status.md) request to retrieve a list of translation _**jobs**_ and their `id`s.
 
-## Translate documents
+## Start asynchronous batch translation
 
 ### [C#](#tab/csharp)
 
@@ -345,11 +346,11 @@ gradle init --type basic
     class Program
     {
 
-        static readonly string route = "/batches";
+        static readonly string route = "?api-version={date}";
 
-        private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
+        private static readonly string basePath = "{your-document-translation-endpoint}/translator/document/batches";
 
-        private static readonly string key = "<YOUR-KEY>";
+        private static readonly string key = "{your-api-key}";
 
         static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"language\": \"en\"}, \"targets\": [{\"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
 
@@ -362,7 +363,7 @@ gradle init --type basic
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(endpoint + route);
+                request.RequestUri = new Uri(basePath + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
                 request.Content = content;
 
@@ -391,9 +392,9 @@ gradle init --type basic
 
 const axios = require('axios').default;
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
-let route = '/batches';
-let key = '<YOUR-KEY>';
+let basePath = '{your-document-translation-endpoint}/translator/document/batches';
+let route = '?api-version={date}';
+let key = '{your-api-key}';
 
 let data = JSON.stringify({"inputs": [
   {
@@ -412,7 +413,7 @@ let data = JSON.stringify({"inputs": [
 
 let config = {
   method: 'post',
-  baseURL: endpoint,
+  baseURL: basePath,
   url: route,
   headers: {
     'Ocp-Apim-Subscription-Key': key,
@@ -438,10 +439,10 @@ axios(config)
 
 import requests
 
-endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
-key =  '<YOUR-KEY>'
-path = '/batches'
-constructed_url = endpoint + path
+base_path = '{your-document-translation-endpoint}/translator/document/batches'
+key =  '{your-api-key}'
+route = '?api-version={date}'
+constructed_url = base_path + route
 
 payload= {
     "inputs": [
@@ -482,9 +483,9 @@ import java.util.*;
 import com.squareup.okhttp.*;
 
 public class DocumentTranslation {
-    String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
-    String path = endpoint + "/batches";
+    String key = "{your-api-key}";
+    String basePath = "{your-document-translation-endpoint}/translator/document/batches";
+    String route = basePath + "?api-version={date}";
 
     OkHttpClient client = new OkHttpClient();
 
@@ -492,7 +493,7 @@ public class DocumentTranslation {
         MediaType mediaType = MediaType.parse("application/json");
         RequestBody body = RequestBody.create(mediaType,  "{\n \"inputs\": [\n {\n \"source\": {\n \"sourceUrl\": \"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS\",\n  },\n  \"language\": \"en\",\n \"storageSource\": \"AzureBlob\"\n  },\n \"targets\": [\n {\n \"targetUrl\": \"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS\",\n \"category\": \"general\",\n\"language\": \"fr\",\n\"storageSource\": \"AzureBlob\"\n }\n ],\n \"storageType\": \"Folder\"\n }\n  ]\n}");
         Request request = new Request.Builder()
-                .url(path).post(body)
+                .url(route).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", key)
                 .addHeader("Content-type", "application/json")
                 .build();
@@ -525,14 +526,14 @@ import (
 )
 
 func main() {
-endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
-key := "<YOUR-KEY>"
-uri := endpoint + "/batches"
+basePath := "{your-document-translation-endpoint}/translator/document/batches"
+key := "{your-api-key}"
+uri := basePath + "?api-version={date}"
 method := "POST"
 
 var jsonStr = []byte(`{"inputs":[{"source":{"sourceUrl":"https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS","storageSource":"AzureBlob","language":"en"},"targets":[{"targetUrl":"https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS","storageSource":"AzureBlob","category":"general","language":"es"}]}]}`)
 
-req, err := http.NewRequest(method, endpoint, bytes.NewBuffer(jsonStr))
+req, err := http.NewRequest(method, uri, bytes.NewBuffer(jsonStr))
 req.Header.Add("Ocp-Apim-Subscription-Key", key)
 req.Header.Add("Content-Type", "application/json")
 
@@ -555,7 +556,7 @@ if err != nil {
 
 ---
 
-## Get file formats
+## Get supported document formats
 
 Retrieve a list of supported file formats. If successful, this method returns a `200 OK` response code.
 
@@ -572,11 +573,11 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
+    private static readonly string basePath = "{your-document-translation-endpoint}/translator/document/formats";
 
-    static readonly string route = "/documents/formats";
+    static readonly string route = "?api-version={date}&type=document";
 
-    private static readonly string key = "<YOUR-KEY>";
+    private static readonly string key = "{your-api-key}";
 
     static async Task Main(string[] args)
     {
@@ -585,7 +586,7 @@ class Program
             using HttpRequestMessage request = new HttpRequestMessage();
             {
                 request.Method = HttpMethod.Get;
-                request.RequestUri = new Uri(endpoint + route);
+                request.RequestUri = new Uri(basePath + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
@@ -606,13 +607,13 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
-let key = '<YOUR-KEY>';
-let route = '/documents/formats';
+let basePath = '{your-document-translation-endpoint}/translator/document/formats}';
+let key = '{your-api-key}';
+let route = '?api-version={date}&type=document';
 
 let config = {
   method: 'get',
-  url: endpoint + route,
+  url: basePath + route,
   headers: {
     'Ocp-Apim-Subscription-Key': key
   }
@@ -638,9 +639,9 @@ import com.squareup.okhttp.*;
 
 public class GetFileFormats {
 
-    String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
-    String url = endpoint + "/documents/formats";
+    String key = "{your-api-key}";
+    String basePath = "{your-document-translation-endpoint}/translator/document/formats";
+    String url = basePath + "?api-version={date}&type=document";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
@@ -668,9 +669,9 @@ public class GetFileFormats {
 
 import http.client
 
-host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.1/documents/formats'
-key =  '<YOUR-KEY>'
+host = '{your-document-translation-endpoint}/translator/document/formats'
+parameters = '?api-version={date}&type=document'
+key =  '{your-api-key}'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
@@ -698,9 +699,9 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
-  key := "<YOUR-KEY>"
-  uri := endpoint + "/documents/formats"
+  basePath := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1{your-document-translation-endpoint}/translator/document/formats"
+  key := "{your-api-key}"
+  uri := basePath + "?api-version={date}&type=document"
   method := "GET"
 
   client := &http.Client {
@@ -732,7 +733,7 @@ func main() {
 
 ---
 
-## Get job status
+## Get status for a translation job
 
 Get the current status for a single job and a summary of all jobs in a Document Translation request. If successful, this method returns a `200 OK` response code.
 <!-- markdownlint-disable MD024 -->
@@ -750,11 +751,11 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
+    private static readonly string basePath = "{your-document-translation-endpoint}/translator/document/batches/{id}";
 
-    static readonly string route = "/batches/{id}";
+    static readonly string route = "?api-version={date}";
 
-    private static readonly string key = "<YOUR-KEY>";
+    private static readonly string key = "{your-api-key}";
 
     static async Task Main(string[] args)
     {
@@ -763,7 +764,7 @@ class Program
             using HttpRequestMessage request = new HttpRequestMessage();
             {
                 request.Method = HttpMethod.Get;
-                request.RequestUri = new Uri(endpoint + route);
+                request.RequestUri = new Uri(basePath + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
@@ -785,9 +786,9 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
-let key = '<YOUR-KEY>';
-let route = '/batches/{id}';
+let basePath = '{your-document-translation-endpoint}/translator/document/batches/{id}';
+let key = '{your-api-key}';
+let route = '?api-version={date}';
 
 let config = {
   method: 'get',
@@ -818,9 +819,9 @@ import com.squareup.okhttp.*;
 
 public class GetJobStatus {
 
-    String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
-    String url = endpoint + "/batches/{id}";
+    String key = "{your-api-key}";
+    String basePath = "{your-document-translation-endpoint}/translator/document/batches/{id}";
+    String url = basePath + "?api-version={date}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
@@ -848,9 +849,9 @@ public class GetJobStatus {
 
 import http.client
 
-host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.1/batches/{id}'
-key =  '<YOUR-KEY>'
+host = '{your-document-translation-endpoint}/translator/document/batches/{id}'
+parameters = '?api-version={date}'
+key =  '{your-api-key}'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
@@ -878,9 +879,9 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
-  key := "<YOUR-KEY>"
-  uri := endpoint + "/batches/{id}"
+  basePath := "{your-document-translation-endpoint}/translator/document/batches/{id}"
+  key := "{your-api-key}"
+  uri := basePath + "?api-version={date}"
   method := "GET"
 
   client := &http.Client {
@@ -912,11 +913,11 @@ func main() {
 
 ---
 
-## Get document status
+## Get status for a specific document
 
 ### Brief overview
 
-Retrieve the status of a specific document in a Document Translation request. If successful, this method returns a `200 OK` response code.
+Retrieve the status for a specific document in a Document Translation request. If successful, this method returns a `200 OK` response code.
 
 ### [C#](#tab/csharp)
 
@@ -931,11 +932,11 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
+    private static readonly string basePath = "{document-translation-endpoint}/translator/document/batches/{id}/documents/{documentId}";
 
-    static readonly string route = "/{id}/document/{documentId}";
+    static readonly string route = "?api-version={date}";
 
-    private static readonly string key = "<YOUR-KEY>";
+    private static readonly string key = "{your-api-key}";
 
     static async Task Main(string[] args)
     {
@@ -944,7 +945,7 @@ class Program
             using HttpRequestMessage request = new HttpRequestMessage();
             {
                 request.Method = HttpMethod.Get;
-                request.RequestUri = new Uri(endpoint + route);
+                request.RequestUri = new Uri(basePath + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
@@ -965,13 +966,13 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
-let key = '<YOUR-KEY>';
-let route = '/{id}/document/{documentId}';
+let basePath = '{your-document-translation-endpoint}/translator/document/batches/{id}/documents/{documentId}';
+let key = '{your-api-key}';
+let route = '?api-version={date}';
 
 let config = {
   method: 'get',
-  url: endpoint + route,
+  url: basePath + route,
   headers: {
     'Ocp-Apim-Subscription-Key': key
   }
@@ -998,9 +999,9 @@ import com.squareup.okhttp.*;
 
 public class GetDocumentStatus {
 
-    String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
-    String url = endpoint + "/{id}/document/{documentId}";
+    String key = "{your-api-key}";
+    String basePath = "{your-document-translation-endpoint}/translator/document/batches/{id}/documents/{documentId}";
+    String url = endpoint + "?api-version={date}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
@@ -1028,9 +1029,9 @@ public class GetDocumentStatus {
 
 import http.client
 
-host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.1/{id}/document/{documentId}'
-key =  '<YOUR-KEY>'
+host = '{your-document-translation-endpoint}/translator/document/batches/{id}/documents/{documentId}'
+parameters = '?api-version={date}'
+key =  '{your-api-key}'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
@@ -1058,9 +1059,9 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
-  key := "<YOUR-KEY>"
-  uri := endpoint + "/{id}/document/{documentId}"
+  basePath := "{your-document-translation-endpoint}/translator/document/batches/{id}/documents/{documentId}"
+  key := "{your-api-key}"
+  uri := basePath + "?api-version={date}"
   method := "GET"
 
   client := &http.Client {
@@ -1111,11 +1112,11 @@ class Program
 {
 
 
-    private static readonly string endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
+    private static readonly string basePath = "{your-document-translation-endpoint}/translator/document/batches/{id}";
 
-    static readonly string route = "/batches/{id}";
+    static readonly string route = "?api-version={date}";
 
-    private static readonly string key = "<YOUR-KEY>";
+    private static readonly string key = "{your-api-key}";
 
     static async Task Main(string[] args)
     {
@@ -1124,7 +1125,7 @@ class Program
             using HttpRequestMessage request = new HttpRequestMessage();
             {
                 request.Method = HttpMethod.Delete;
-                request.RequestUri = new Uri(endpoint + route);
+                request.RequestUri = new Uri(basePath + route);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 
@@ -1145,13 +1146,13 @@ class Program
 
 const axios = require('axios');
 
-let endpoint = 'https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1';
-let key = '<YOUR-KEY>';
-let route = '/batches/{id}';
+let basePath = '{your-document-translation-endpoint}/translator/document/batches/{id}';
+let key = '{your-api-key}';
+let route = '?api-version={date}';
 
 let config = {
   method: 'delete',
-  url: endpoint + route,
+  url: basePath + route,
   headers: {
     'Ocp-Apim-Subscription-Key': key
   }
@@ -1178,9 +1179,9 @@ import com.squareup.okhttp.*;
 
 public class DeleteJob {
 
-    String key = "<YOUR-KEY>";
-    String endpoint = "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1";
-    String url = endpoint + "/batches/{id}";
+    String key = "{your-api-key}";
+    String basePath = "{your-document-translation-endpoint}/translator/document/batches/{id}";
+    String url = basePath + "?api-version={date}";
     OkHttpClient client = new OkHttpClient();
 
     public void get() throws IOException {
@@ -1208,9 +1209,9 @@ public class DeleteJob {
 
 import http.client
 
-host = '<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com'
-parameters = '//translator/text/batch/v1.1/batches/{id}'
-key =  '<YOUR-KEY>'
+host = '{your-document-translation-endpoint}/translator/document/batches/{id}'
+parameters = '?api-version={date}'
+key =  '{your-api-key}'
 conn = http.client.HTTPSConnection(host)
 payload = ''
 headers = {
@@ -1238,9 +1239,9 @@ import (
 
 func main() {
 
-  endpoint := "https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1"
-  key := "<YOUR-KEY>"
-  uri := endpoint + "/batches/{id}"
+  basePath := "{your-document-translation-endpoint}/translator/document/batches/{id}"
+  key := "{your-api-key}"
+  uri := basePath + "?api-version={date}"
   method := "DELETE"
 
   client := &http.Client {

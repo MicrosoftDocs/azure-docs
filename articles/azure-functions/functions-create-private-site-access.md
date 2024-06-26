@@ -214,7 +214,7 @@ Accessing the function via a web browser (by using the Azure Bastion service) on
 >[!div class="mx-imgBorder"]
 >![Access the Azure Function via Azure Bastion](./media/functions-create-private-site-access/access-function-via-bastion-final.png)
 
-[!INCLUDE [clean-up-section-portal](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

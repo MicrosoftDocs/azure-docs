@@ -27,7 +27,7 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [powershell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## Create a resource group
 
