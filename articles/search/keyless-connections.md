@@ -184,6 +184,7 @@ const indexClient = new SearchIndexClient(
 For more information on `DefaultAzureCredential` for Python, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
 ```python
+import os
 from azure.search.documents import SearchClient
 from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
 
@@ -222,11 +223,9 @@ Local development without keyless includes these steps:
 
 As a local developer, your Azure identity needs full control of your service. This control is provided with RBAC roles. To manage your resource during development, these are the suggested roles:
 
-|Role name|
-|--|
-|Search Service Contributor|
-|Search Index Data Contributor|
-|Search Index Data Reader|
+- Search Service Contributor
+- Search Index Data Contributor
+- Search Index Data Reader
 
 Find your personal identity with one of the following tools. Use that identity as the `<identity-id>` value.
 
@@ -311,9 +310,7 @@ Select a tool for [authentication during local development](/python/api/overview
 
 To connect to Azure AI Search, your code needs to know your resource endpoint. 
 
-Create an environment variable for your Azure AI Search endpoint. This URL generally has the format `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
-
-* `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource.
+Create an environment variable named `AZURE_SEARCH_ENDPOINT` for your Azure AI Search endpoint. This URL generally has the format `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.
 
 ## Production workloads
 
