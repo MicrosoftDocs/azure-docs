@@ -521,7 +521,7 @@ Learn more about [Hyperscale (Citus) server group - MarlinStorageLimitRecommenda
 
 Consider our new offering, Azure Database for PostgreSQL Flexible Server, which provides richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience.
 
-Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](/azure/postgresql/how-to-upgrade-using-dump-and-restore.md).
+Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](/azure/postgresql/how-to-upgrade-using-dump-and-restore).
 
 ### Improve your Cache and application performance when running with high network bandwidth
 
