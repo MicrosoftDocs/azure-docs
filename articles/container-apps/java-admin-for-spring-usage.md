@@ -13,6 +13,11 @@ ms.author:
 
 The Admin for Spring managed component offers an administrative interface for Spring Boot web applications that expose actuator endpoints. Use the following guidance to learn how to configure and manage your Admin for Spring component.
 
+## Prerequisites
+
+Before starting this tutorial, you need to have an Admin for Spring component created. If you haven't done this yet, follow the steps in the tutorial [Tutorial: Connect to a managed Admin for Spring in Azure Container Apps](java-admin.md).
+
+
 ## Show
 
 You can view the details of an individual component by name using the `show` command.
