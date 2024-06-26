@@ -2,12 +2,12 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 04/11/2023
+ms.date: 06/25/2024
 
 ---
 # Nodes and pools in Azure Batch
 
-In an Azure Batch workflow, a *compute node* (or *node*) is a virtual machine that processes a portion of your application's workload. A *pool* is a collection of these nodes for your application to runs on. This article explains more about nodes and pools, along with considerations when creating and using them in an Azure Batch workflow.
+In an Azure Batch workflow, a *compute node* (or *node*) is a virtual machine that processes a portion of your application's workload. A *pool* is a collection of these nodes for your application to run on. This article explains more about nodes and pools, along with considerations when creating and using them in an Azure Batch workflow.
 
 ## Nodes
 
