@@ -439,6 +439,8 @@ The following example shows a Python function that is invoked when there are cha
 
 # [v2](#tab/python-v2)
 
+The following is sample python code for the function_app.py file:
+
 ```python
 import json
 import logging
