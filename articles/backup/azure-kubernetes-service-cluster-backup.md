@@ -212,11 +212,11 @@ To configure backups for AKS cluster:
 
 ### Backup configurations
 
-Azure Backup for AKS allows you define the application boundary within AKS cluster that you want to backup. You can use the filters that are available within backup configuration to choose the resources to back up and also to run custom hooks. The defined backup configuration are referenced by the value for **Backup Instance Name**. You have below filters available to define your application boundary:
+Azure Backup for AKS allows you define the application boundary within AKS cluster that you want to backup. You can use the filters that are available within backup configurations to choose the resources to back up and also to run custom hooks. The defined backup configuration are referenced by the value for **Backup Instance Name**. You have below filters available to define your application boundary:
 
 1. **Select Namespaces to backup**, you can either select **All** to back up all existing and future namespaces in the cluster, or you can select **Choose from list** to select specific namespaces for backup.
 
-     :::image type="content" source="./media/tutorial-configure-backup-aks/backup-instance-name.png" alt-text="Screenshot that shows how to select namespaces to include in the backup." lightbox="./media/tutorial-configure-backup-aks/backup-instance-name.png":::
+     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-instance-name.png" alt-text="Screenshot that shows how to select namespaces to include in the backup." lightbox="./media/azure-kubernetes-service-cluster-backup/backup-instance-name.png":::
 
 2. Expand **Additional Resource Settings** to see filters that you can use to choose cluster resources to back up. You can choose to back up resources based on the following categories:
 
@@ -224,11 +224,11 @@ Azure Backup for AKS allows you define the application boundary within AKS clust
 
    For example, if you enter the labels `env=prod;tier!=web`, the process selects resources that have a label with the `env` key and the `prod` value, and a label with the `tier` key for which the value isn't `web`. 
 
-   - **API groups**: You can also include resources by providing the AKS API group and kind. For example, you can choose for backup AKS resources like Deployments. You can access the list of Kubernetes defined API Groups [here] (https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/)
+   - **API groups**: You can also include resources by providing the AKS API group and kind. For example, you can choose for backup AKS resources like Deployments. You can access the list of Kubernetes defined API Groups [here](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/).
 
    - **Other options**: You can enable or disable backup for cluster-scoped resources, persistent volumes, and secrets. By default, cluster-scoped resources and persistent volumes are enabled
 
-   :::image type="content" source="./media/tutorial-configure-backup-aks/cluster-scope-resources.png" alt-text="Screenshot that shows the Additional Resource Settings pane." lightbox="./media/tutorial-configure-backup-aks/cluster-scope-resources.png":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/cluster-scope-resources.png" alt-text="Screenshot that shows the Additional Resource Settings pane." lightbox="./media/azure-kubernetes-service-cluster-backup/cluster-scope-resources.png":::
 
    > [!NOTE]
    > All these resource settings are combined and applied via `AND` logic.

@@ -190,8 +190,8 @@ spec:
 Learn [how to use hooks during AKS backup](azure-kubernetes-service-cluster-backup.md#use-hooks-during-aks-backup).
 
   > [!NOTE]
-  > 1. During restore, backup extension waits for container to come up and then executes exec commands on them, defined in the restore hooks.
-  > 2. In case you are performing restore to the same namespace that was backed up, the restore hooks will not be executed as it only looks for new container that gets spawned. This is regardless of whether skip or patch policy is opted.
+  > - During restore, backup extension waits for container to come up and then executes exec commands on them, defined in the restore hooks.
+  > - In case you are performing restore to the same namespace that was backed up, the restore hooks will not be executed as it only looks for new container that gets spawned. This is regardless of whether skip or patch policy is opted.
 
 
 

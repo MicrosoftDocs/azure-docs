@@ -171,11 +171,11 @@ These error codes appear due to issues on the Backup Extension installed in the 
 
 **Recommended action**: To address this, we recommend increasing the compute values allocated to this pod. By doing so, it will be automatically provisioned on a different node within your AKS cluster with ample compute resources available.
 
-The current value of compute for this pod is :
+The current value of compute for this pod is:
 
 resources.requests.cpu is 500m
 resources.requests.memory is 128Mi
-Kindly modify the memory allocation to 512Mi by updating the 'resources.requests.memory' parameter. If the issue persist, it is advisable to increase the 'resources.requests.cpu' parameter to 900m, post the memory allocation.You can increase the values for the parameters by following below steps:
+Kindly modify the memory allocation to 512Mi by updating the 'resources.requests.memory' parameter. If the issue persists, it is advisable to increase the 'resources.requests.cpu' parameter to 900m, post the memory allocation. You can increase the values for the parameters by following below steps:
 
 1. Navigate to the AKS cluster blade in the Azure portal.
 2. Click on "Extensions+Applications" and select "azure-aks-backup" extension.
