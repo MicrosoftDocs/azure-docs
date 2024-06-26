@@ -123,65 +123,61 @@ When the resource is created, the success response includes the Arc gateway URL.
     1. In the installation script, add the "id" found in the previous step as the following parameter: `--gateway-id "[Your-gateway’s-Resource-ID]"`
         
     Linux server onboarding script example:
+    This script template includes parameters for you to specify your enterprise proxy server.
     
     ```
-    export subscriptionId="SubscriptionId";
-    export resourceGroup="ResourceGroup";
-    export tenantId="TenantID";
-    export location="Region";
-    export authType="AuthType";
-    export correlationId="CorrelationID";
-    export cloud="AzureCloud";
-    export gatewayID="GatewayResourceID";
-            
-    # Download the installation package
-            
-    output=$(wget https://aka.ms/azcmagent -O /tmp/install_linux_azcmagent.sh 2>&1);
-    if [ $? != 0 ]; then wget -qO- --method=PUT --body-data="{\"subscriptionId\":\"$subscriptionId\",\"resourceGroup\":\"$resourceGroup\",\"tenantId\":\"$tenantId\",\"location\":\"$location\",\"correlationId\":\"$correlationId\",\"authType\":\"$authType\",\"operation\":\"onboarding\",\"messageType\":\"DownloadScriptFailed\",\"message\":\"$output\"}" "https://gbl.his.arc.azure.com/log" &> /dev/null || true; fi;
-    echo "$output"; 
-            
-    # Install the hybrid agent
-    bash /tmp/install_linux_azcmagent.sh;
-            
-    # Run connect command
-    sudo azcmagent connect --resource-group "$resourceGroup" --tenant-id "$tenantId" --location "$location" --subscription-id "$subscriptionId" --cloud "$cloud" --correlation-id "$correlationId" --gateway-id "$gatewayID";
-    ```
-            
-    **For Windows servers:**
+    $global:scriptPath = $myinvocation.mycommand.definition 
     
-    1. Obtain your gateway's Resource ID by running the `az connectedmachine gateway list` command. This command outputs information about all the gateway resources in your subscription. Note the "id" parameter in the output (that is, the full ARM resource ID).
-    1. In the **try** section of the installation script, add the "id" found in the previous step as the following parameter: `--gateway-id "[Your-gateway’s-Resource-ID]"`
-    1. In the **catch** section of the installation script, add the "id" in the following parameter: `gateway-id="[Your-gateway’s-Resource-ID]"`
+    function Restart-AsAdmin { 
+        $pwshCommand = "powershell" 
+        if ($PSVersionTable.PSVersion.Major -ge 6) { 
+            $pwshCommand = "pwsh" 
+        } 
+        
+        try { 
+            Write-Host "This script requires administrator permissions to install the Azure Connected Machine Agent. Attempting to restart script with elevated permissions..." 
+            $arguments = "-NoExit -Command `"& '$scriptPath'`"" 
+            Start-Process $pwshCommand -Verb runAs -ArgumentList $arguments 
+            exit 0 
+        } catch { 
+            throw "Failed to elevate permissions. Please run this script as Administrator." 
+        } 
+    } 
     
-    Windows server onboarding script example:
-        
-    ```
-    try {
-            $env:SUBSCRIPTION_ID = "SubscriptionId";
-            $env:RESOURCE_GROUP = "ResourceGroup";
-            $env:TENANT_ID = "TenantID";
-            $env:LOCATION = "Region";
-            $env:AUTH_TYPE = "AuthType";
-            $env:CORRELATION_ID = "CorrelationID";
-            $env:CLOUD = "AzureCloud";
-            $env:GATEWAY_ID = "GatewayResourceID"; 
-        
-            [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; 
-        
-            # Download the installation package
-            Invoke-WebRequest -UseBasicParsing -Uri "https://aka.ms/azcmagent-windows" -TimeoutSec 30 -OutFile "$env:TEMP\install_windows_azcmagent.ps1"; 
-        
-            # Install the hybrid agent
-            & "$env:TEMP\install_windows_azcmagent.ps1" -AltDownload https://download.microsoft.com/download/2/1/0/210f77ca-e069-412b-bd94-eac02a63255d/AzureConnectedMachineAgent.msi";
-            if ($LASTEXITCODE -ne 0) { exit 1; } 
-        
-            # Run connect command
-            & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "$env:RESOURCE_GROUP" --tenant-id "$env:TENANT_ID" --location "$env:LOCATION" --subscription-id "$env:SUBSCRIPTION_ID" --cloud "$env:CLOUD" --correlation-id "$env:CORRELATION_ID" --gateway-id "$env:GATEWAY_ID";
-        }
-        catch {
-            $logBody = @{subscriptionId="$env:SUBSCRIPTION_ID";resourceGroup="$env:RESOURCE_GROUP";tenantId="$env:TENANT_ID";location="$env:LOCATION";correlationId="$env:CORRELATION_ID";authType="$env:AUTH_TYPE";gatewayId="$env:GATEWAY_ID";operation="onboarding";messageType=$_.FullyQualifiedErrorId;message="$_";};
-            Invoke-WebRequest -UseBasicParsing -Uri "https://gbl.his.arc.azure.com/log" -Method "PUT" -Body ($logBody | ConvertTo-Json) | out-null;
-            Write-Host  -ForegroundColor red $_.Exception;
+    try { 
+        if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { 
+            if ([System.Environment]::UserInteractive) { 
+                Restart-AsAdmin 
+            } else { 
+                throw "This script requires administrator permissions to install the Azure Connected Machine Agent. Please run this script as Administrator." 
+            } 
+        } 
+    
+        $env:SUBSCRIPTION_ID = "SubscriptionId"; 
+        $env:RESOURCE_GROUP = "ResourceGroup"; 
+        $env:TENANT_ID = "TenantID"; 
+        $env:LOCATION = "Region"; 
+        $env:AUTH_TYPE = "AuthType"; 
+        $env:CLOUD = "AzureCloud"; 
+        $env:GATEWAY_ID = "gatewayResourceID"; 
+    
+        [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor 3072; 
+    
+        # Download the installation package 
+        Invoke-WebRequest -UseBasicParsing -Uri "https://aka.ms/azcmagent-windows" -TimeoutSec 30 -OutFile "$env:TEMP\install_windows_azcmagent.ps1" -proxy "[Your Proxy URL]"; 
+     
+        # Install the hybrid agent 
+        & "$env:TEMP\install_windows_azcmagent.ps1" -proxy "[Your Proxy URL]"; 
+        if ($LASTEXITCODE -ne 0) { exit 1; } 
+    
+        # Run connect command 
+        & "$env:ProgramW6432\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "$env:RESOURCE_GROUP" --tenant-id "$env:TENANT_ID" --location "$env:LOCATION" --subscription-id "$env:SUBSCRIPTION_ID" --cloud "$env:CLOUD" --gateway-id "$env:GATEWAY_ID"; 
+    } 
+    catch { 
+        $logBody = @{subscriptionId="$env:SUBSCRIPTION_ID";resourceGroup="$env:RESOURCE_GROUP";tenantId="$env:TENANT_ID";location="$env:LOCATION";authType="$env:AUTH_TYPE";gatewayId="$env:GATEWAY_ID";operation="onboarding";messageType=$_.FullyQualifiedErrorId;message="$_";}; 
+        Invoke-WebRequest -UseBasicParsing -Uri "https://gbl.his.arc.azure.com/log" -Method "PUT" -Body ($logBody | ConvertTo-Json) -proxy "[Your Proxy URL]" | out-null; 
+        Write-Host  -ForegroundColor red $_.Exception; 
+    } 
     ```
   
       
@@ -264,9 +260,5 @@ View gateway Router logs on **Linux**:
 
 ## Known issues
 
-It's not yet possible to use the Azure CLI to disassociate a gateway Resource from an Arc-enabled server unless you: (1) Simultaneously associate it with another gateway Resource or (2) Disconnect the server from Azure Arc and reconnect it without the gateway Association.
+It's not yet possible to use the Azure CLI to disassociate a gateway Resource from an Arc-enabled server. To make an Arc-enabled server stop using an Arc gateway, use the `azcmagent config set connection.type direct` command. This command configures the Arc-enabled resource to use the direct route instead of the Arc gateway.
 
-If you need to disassociate a gateway Resource from an Arc-enabled server and ensure that no gateway Resource is associated with this server, run the following REST command:
-
-`wget https://gw.arc.azure.com/files/gw-cp-scripts/Detach-Arc-GW.ps1`
-`./Detach-Arc-GW.ps1`  
