@@ -33,7 +33,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 ## Setup and Registration
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To begin, [download the latest Azure PowerShell](/powershell/azure/install-azure-powershell).
 
