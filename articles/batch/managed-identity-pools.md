@@ -108,9 +108,6 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
     cancellationToken: default(CancellationToken)).ConfigureAwait(false);
 ```
 
-> [!IMPORTANT]
-> Currently Batch package Microsoft.Azure.Batch 16.2.0 does not support BatchpoolIdentity
-
 ## Use user-assigned managed identities in Batch nodes
 
 Many Azure Batch functions that access other Azure resources directly on the compute nodes, such as Azure Storage or
