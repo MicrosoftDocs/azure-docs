@@ -37,7 +37,7 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 2.  Select **Create**.
 
-3. In the **Create a new flow** menu, select **View Detail** on the Bring your own data Q&A sample.
+3. In the **Explore gallery** menu, select **View Detail** on the _Q&A on Your Data_ sample.
 
 :::image type="content" source="./media/how-to-use-retrieval-augmented-generation/view-detail.png" alt-text="Screenshot showing view details button on the prompt flow sample.":::
 
