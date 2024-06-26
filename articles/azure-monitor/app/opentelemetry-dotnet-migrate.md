@@ -256,11 +256,9 @@ Before continuing with these steps, you should confirm that you have a current b
 
 ---
 
-## Install and configure OpenTelemetry
+## Enable OpenTelemetry
 
 ### [ASP.NET Core](#tab/aspnetcore)
-
-#### Step 2: Install the Azure Monitor Distro and Enable at Application Startup
 
 1. Install the Azure Monitor Distro
 
@@ -300,6 +298,182 @@ Before continuing with these steps, you should confirm that you have a current b
     ```
 
     More options to configure the Connection String are detailed here: [Configure the Application Insights Connection String](./opentelemetry-configuration.md?tabs=aspnetcore#connection-string).
+
+### [ASP.NET](#tab/net)
+
+1. Install the OpenTelemetry SDK via Azure Monitor
+
+    Installing the Azure Monitor Exporter brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
+
+    ```console
+    dotnet add package Azure.Monitor.OpenTelemetry.Exporter
+    ```
+
+2. Configure OpenTelemetry as part of your application startup
+
+    The OpenTelemery SDK must be configured at application startup, typically in the `Global.asax.cs`.
+    OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
+    Each of these signals needs to be configured as part of your application startup.
+    `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
+
+##### Global.asax.cs
+
+The following code sample shows a simple example meant only to show the basics.
+No telemetry is collected at this point.
+
+```csharp
+using Microsoft.Extensions.Logging;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+
+public class Global : System.Web.HttpApplication
+{
+    private TracerProvider? tracerProvider;
+    private MeterProvider? meterProvider;
+    // The LoggerFactory needs to be accessible from the rest of your application.
+    internal static ILoggerFactory loggerFactory;
+
+    protected void Application_Start()
+    {
+        this.tracerProvider = Sdk.CreateTracerProviderBuilder()
+            .Build();
+
+        this.meterProvider = Sdk.CreateMeterProviderBuilder()
+            .Build();
+
+        loggerFactory = LoggerFactory.Create(builder =>
+        {
+            builder.AddOpenTelemetry();
+        });
+    }
+
+    protected void Application_End()
+    {
+        this.tracerProvider?.Dispose();
+        this.meterProvider?.Dispose();
+        loggerFactory?.Dispose();
+    }
+}
+```
+
+### [Console](#tab/console)
+
+1. Install the OpenTelemetry SDK via Azure Monitor
+
+    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
+
+    ```console
+    dotnet add package Azure.Monitor.OpenTelemetry.Exporter
+    ```
+
+2. Configure OpenTelemetry as part of your application startup
+
+    The OpenTelemery SDK must be configured at application startup, typically in the `Program.cs`.
+    OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
+    Each of these signals needs to be configured as part of your application startup.
+    `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
+
+The following code sample shows a simple example meant only to show the basics.
+No telemetry is collected at this point.
+
+##### Program.cs
+
+```csharp
+using Microsoft.Extensions.Logging;
+using OpenTelemetry;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Trace;
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        TracerProvider tracerProvider = Sdk.CreateTracerProviderBuilder()
+            .Build();
+
+        MeterProvider meterProvider = Sdk.CreateMeterProviderBuilder()
+            .Build();
+
+        ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+        {
+            builder.AddOpenTelemetry();
+        });
+
+        Console.WriteLine("Hello, World!");
+
+        // Dispose tracer provider before the application ends.
+        // It will flush the remaining spans and shutdown the tracing pipeline.
+        tracerProvider.Dispose();
+
+        // Dispose meter provider before the application ends.
+        // It will flush the remaining metrics and shutdown the metrics pipeline.
+        meterProvider.Dispose();
+
+        // Dispose logger factory before the application ends.
+        // It will flush the remaining logs and shutdown the logging pipeline.
+        loggerFactory.Dispose();
+    }
+}
+```
+
+### [WorkerService](#tab/workerservice)
+
+1. Install the OpenTelemetry SDK via Azure Monitor
+
+    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
+
+    ```console
+    dotnet add package Azure.Monitor.OpenTelemetry.Exporter
+    ```
+
+    You must also install the [OpenTelemetry Extensions Hosting](https://www.nuget.org/packages/OpenTelemetry.Extensions.Hosting) package.
+
+    ```console
+    dotnet add package OpenTelemetry.Extensions.Hosting
+    ```
+
+2. Configure OpenTelemetry as part of your application startup
+
+    The OpenTelemery SDK must be configured at application startup, typically in the `Program.cs`.
+    OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
+    Each of these signals needs to be configured as part of your application startup.
+    `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
+
+The following code sample shows a simple example meant only to show the basics.
+No telemetry is collected at this point.
+
+##### Program.cs
+
+```csharp
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = Host.CreateApplicationBuilder(args);
+        builder.Services.AddHostedService<Worker>();
+
+        builder.Services.AddOpenTelemetry()
+            .WithTracing()
+            .WithMetrics();
+
+        builder.Logging.AddOpenTelemetry();
+
+        var host = builder.Build();
+        host.Run();
+    }
+}
+```
+
+---
+
+## Configure OpenTelemetry
+
+### [ASP.NET Core](#tab/aspnetcore)
 
 #### Step 3: More configurations
 
@@ -359,63 +533,7 @@ The following scenarios are optional and only apply to advanced users.
 
 ### [ASP.NET](#tab/net)
 
-#### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
-1. Install the OpenTelemetry SDK via Azure Monitor
-
-    Installing the Azure Monitor Exporter brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
-
-    ```console
-    dotnet add package Azure.Monitor.OpenTelemetry.Exporter
-    ```
-
-2. Configure OpenTelemetry as part of your application startup
-
-    The OpenTelemery SDK must be configured at application startup, typically in the `Global.asax.cs`.
-    OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
-    Each of these signals needs to be configured as part of your application startup.
-    `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
-
-##### Global.asax.cs
-
-The following code sample shows a simple example meant only to show the basics.
-No telemetry is collected at this point.
-
-```csharp
-using Microsoft.Extensions.Logging;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-using OpenTelemetry.Trace;
-
-public class Global : System.Web.HttpApplication
-{
-    private TracerProvider? tracerProvider;
-    private MeterProvider? meterProvider;
-    // The LoggerFactory needs to be accessible from the rest of your application.
-    internal static ILoggerFactory loggerFactory;
-
-    protected void Application_Start()
-    {
-        this.tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .Build();
-
-        this.meterProvider = Sdk.CreateMeterProviderBuilder()
-            .Build();
-
-        loggerFactory = LoggerFactory.Create(builder =>
-        {
-            builder.AddOpenTelemetry();
-        });
-    }
-
-    protected void Application_End()
-    {
-        this.tracerProvider?.Dispose();
-        this.meterProvider?.Dispose();
-        loggerFactory?.Dispose();
-    }
-}
-```
 
 #### Step 3: Install and Configure Instrumentation Libraries
 
@@ -560,65 +678,7 @@ More options to configure the Connection String are detailed here: [Configure th
 
 ### [Console](#tab/console)
 
-#### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
-1. Install the OpenTelemetry SDK via Azure Monitor
-
-    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
-
-    ```console
-    dotnet add package Azure.Monitor.OpenTelemetry.Exporter
-    ```
-
-2. Configure OpenTelemetry as part of your application startup
-
-    The OpenTelemery SDK must be configured at application startup, typically in the `Program.cs`.
-    OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
-    Each of these signals needs to be configured as part of your application startup.
-    `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
-
-The following code sample shows a simple example meant only to show the basics.
-No telemetry is collected at this point.
-
-##### Program.cs
-
-```csharp
-using Microsoft.Extensions.Logging;
-using OpenTelemetry;
-using OpenTelemetry.Metrics;
-using OpenTelemetry.Trace;
-
-internal class Program
-{
-    static void Main(string[] args)
-    {
-        TracerProvider tracerProvider = Sdk.CreateTracerProviderBuilder()
-            .Build();
-
-        MeterProvider meterProvider = Sdk.CreateMeterProviderBuilder()
-            .Build();
-
-        ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
-        {
-            builder.AddOpenTelemetry();
-        });
-
-        Console.WriteLine("Hello, World!");
-
-        // Dispose tracer provider before the application ends.
-        // It will flush the remaining spans and shutdown the tracing pipeline.
-        tracerProvider.Dispose();
-
-        // Dispose meter provider before the application ends.
-        // It will flush the remaining metrics and shutdown the metrics pipeline.
-        meterProvider.Dispose();
-
-        // Dispose logger factory before the application ends.
-        // It will flush the remaining logs and shutdown the logging pipeline.
-        loggerFactory.Dispose();
-    }
-}
-```
 
 #### Step 3: Install and Configure Instrumentation Libraries
 
@@ -751,57 +811,7 @@ The following scenarios are optional and apply to advanced users.
 
 ### [WorkerService](#tab/workerservice)
 
-#### Step 2: Install the OpenTelemetry SDK and Enable at Application Startup
 
-1. Install the OpenTelemetry SDK via Azure Monitor
-
-    Installing the [Azure Monitor Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) brings the [OpenTelemetry SDK](https://www.nuget.org/packages/OpenTelemetry) as a dependency.
-
-    ```console
-    dotnet add package Azure.Monitor.OpenTelemetry.Exporter
-    ```
-
-    You must also install the [OpenTelemetry Extensions Hosting](https://www.nuget.org/packages/OpenTelemetry.Extensions.Hosting) package.
-
-    ```console
-    dotnet add package OpenTelemetry.Extensions.Hosting
-    ```
-
-2. Configure OpenTelemetry as part of your application startup
-
-    The OpenTelemery SDK must be configured at application startup, typically in the `Program.cs`.
-    OpenTelemetry has a concept of three signals; Traces, Metrics, and Logs.
-    Each of these signals needs to be configured as part of your application startup.
-    `TracerProvider`, `MeterProvider`, and `ILoggerFactory` should be created once for your application and disposed when your application shuts down.
-
-The following code sample shows a simple example meant only to show the basics.
-No telemetry is collected at this point.
-
-##### Program.cs
-
-```csharp
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = Host.CreateApplicationBuilder(args);
-        builder.Services.AddHostedService<Worker>();
-
-        builder.Services.AddOpenTelemetry()
-            .WithTracing()
-            .WithMetrics();
-
-        builder.Logging.AddOpenTelemetry();
-
-        var host = builder.Build();
-        host.Run();
-    }
-}
-```
 
 #### Step 3: Install and Configure Instrumentation Libraries
 
