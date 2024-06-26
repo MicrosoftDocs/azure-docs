@@ -11,6 +11,10 @@ ms.author: thvankra
 
 # Multi-Tenancy in Azure Cosmos DB
 
+> "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance." 
+> - Satya Nadella
+
+Azure Cosmos DB stands out as the world's first serverless vector search database, offering unparalleled scalability and performance. By leveraging Azure Cosmos DB, users can enhance their vector search capabilities, ensuring high reliability and low maintenance for multi-tenant applications. 
 
 Multi-tenancy enables a single instance of a database to serve multiple customers, or tenants, simultaneously. This approach efficiently shares infrastructure and operational overhead, resulting in cost savings and simplified management. It's a crucial design consideration for SaaS applications and some internal enterprise solutions.
 

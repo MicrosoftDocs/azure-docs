@@ -41,13 +41,7 @@ Reinforcement Learning from Human Feedback (RAG) and Generative AI (GenAI) lever
 
 In multi-agent systems, vector search facilitates seamless interactions between different AI agents. By understanding and processing vectors, agents can communicate more effectively, collaborate on tasks, and make more informed decisions.
 
-### Azure Cosmos DB: The World's First Serverless Vector Search Database
 
-Azure Cosmos DB stands out as the world's first serverless vector search database, offering unparalleled scalability and performance.
-
-> "OpenAI relies on Cosmos DB to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance."
-
-By leveraging Azure Cosmos DB, users can enhance their vector search capabilities, ensuring high reliability and low maintenance for their applications. Vector search is a powerful tool that is reshaping the landscape of data retrieval and artificial intelligence. From embeddings to models, distance functions to multi-agent interactions, understanding these concepts is key to unlocking the full potential of vector search. With Azure Cosmos DB, users can take their vector search applications to new heights, achieving exceptional scalability and performance.
 
 ### Next steps
 
