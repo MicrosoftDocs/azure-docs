@@ -1,6 +1,6 @@
- ---
-title: Collect logs from a text or JSON file with Azure Monitor Agent 
-description: Configure a data collection rule to collect log data from a text or JSON file on a virtual machine using Azure Monitor Agent.
+---
+title: Collect logs from a JSON file with Azure Monitor Agent 
+description: Configure a data collection rule to collect log data from a JSON file on a virtual machine using Azure Monitor Agent.
 ms.topic: conceptual
 ms.date: 03/01/2024
 author: guywi-ms
@@ -8,7 +8,7 @@ ms.author: guywild
 ms.reviewer: jeffwo
 ---
 
-# Collect logs from a text or JSON file with Azure Monitor Agent 
+# Collect logs from a JSON file with Azure Monitor Agent 
 
 Many applications and services will log information to text or JSON files instead of standard logging services such as Windows Event log or Syslog. This data can be collected with [Azure Monitor Agent](azure-monitor-agent-overview.md) and stored in a Log Analytics workspace with data collected from other sources.
 
@@ -23,14 +23,18 @@ To complete this procedure, you need:
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - A data collection endpoint (DCE) if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. See [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment) for details.
 
-## Text or JSON file requirements and best practices
+## Basic operation
+
+
+
+## JSON file requirements and best practices
 The file that the Azure Monitor Agent is monitoring must meet the following requirements:
 
 - The file must be stored on the local drive of the machine with the Azure Monitor Agent in the directory that is being monitored.
 - Each record must be delineated with an end of line. 
 - The file must use ASCII or UTF-8 encoding. Other formats such as UTF-16 aren't supported.
 - New records should be appended to the end of the file and not overwrite old records. Overwriting will cause data loss.
-- JSON text must be contained in a single row. The JSON body format is not supported. For example `{"Element":"Gold","Symbol":"Au","NobleMetal":true,"AtomicNumber":79,"MeltingPointC":1064.18}`. 
+- JSON text must be contained in a single row. The JSON body format is not supported. See sample below.
      
 
 Adhere to the following recommendations to ensure that you don't experience data loss or performance issues:
@@ -45,62 +49,47 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 
 ## Incoming stream
-When you create the DCR using the Azure portal, the incoming stream of data includes the columns in the following table. To modify the incoming stream, you must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream.
+JSON files include a property name with each value, and the incoming stream in the DCR needs to include a column matching the name of each property. If you create the DCR using the Azure portal, you must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream.
 
  | Column | Type | Description |
 |:---|:---|:---|
 | `TimeGenerated` | datetime | The time the record was generated. |
-| `RawData` | string | For a text log, this will include the entire log entry in a single column. You can use a transformation if you want to break down this data into multiple columns. For a JSON file, this column will be empty. |
-| `FilePath` | string | If you add this column to either a text file or a JSON file, it will include the path to the log file. |
-| Additional columns | varies | Add additional columns to the incoming stream of the DCR for a JSON file that match the columns in the log file. |
+| `RawData` | string |  |
+| `FilePath` | string | If you add this column to he incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
-## Create a custom table
-Before you can collect log data from a text or JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the data you are collecting, or you must add a transformation to ensure that the output schema matches the table.
 
-The incoming stream of data from 
+## Custom table
+Before you can collect log data from a JSON file, you must create a custom table in your Log Analytics workspace to receive the data. The table schema must match the columns in the incoming stream, or you must add a transformation to ensure that the output schema matches the table.
 
- The default table schema for log data collected from text files is 'TimeGenerated' and 'RawData'. If you add 
- 
-  Adding the 'FilePath' to either team is optional. If you know your final schema or your source is a JSON log, you can add the final columns in the script before creating the table. You can always [add columns using the Log Analytics table UI](../logs/create-custom-table.md#add-or-delete-a-custom-column) later. 
+For example, you can use the following PowerShell script to create a custom table with with `RawData` and `FilePath`. You wouldn't need a transformation for this table because the schema matches the default schema of the incoming stream. 
 
-The table created in the script has two columns: 
-
-- `TimeGenerated` (datetime) [Required]
-- `RawData` (string) [Optional if table schema provided]
-- 'FilePath' (string) [Optional]
-- `YourOptionalColumn` (string) [Optional]
-
- 
-
-Your column names and JSON attributes must exactly match to automatically parse into the table. Both columns and JSON attributes are case sensitive. For example `Rawdata` will not collect the event data. It must be `RawData`. Ingestion will drop JSON attributes that do not have a corresponding column. 
-
-The easiest way to make the REST call is from an Azure Cloud PowerShell command line (CLI). To open the shell, go to the Azure portal, press the Cloud Shell button, and select PowerShell. If this is your first time using Azure Cloud PowerShell, you'll need to walk through the one-time configuration wizard.
-
-Copy and paste this script into PowerShell to create the table in your workspace: 
-
-```code
+```powershell
 $tableParams = @'
 {
     "properties": {
         "schema": {
                "name": "{TableName}_CL",
                "columns": [
-        {
-                                "name": "TimeGenerated",
-                                "type": "DateTime"
-                        }, 
-                       {
-                                "name": "RawData",
-                                "type": "String"
-                       },
-                       {
-                                "name": "FilePath",
-                                "type": "String"
-                       },
-                      {
-                                "name": "YourOptionalColumn",
-                                "type": "String"
-                     }
+                    {
+                        "name": "TimeGenerated",
+                        "type": "DateTime"
+                    }, 
+                    {
+                        "name": "MyStringColumn",
+                        "type": "string"
+                    },
+                    {
+                        "name": "MyIntegerColumn",
+                        "type": "int"
+                    },
+                    {
+                        "name": "MyRealColumn",
+                        "type": "real"
+                    },
+                    {
+                        "name": "MyBooleanColumn",
+                        "type": "bool"
+                    }
               ]
         }
     }
@@ -110,13 +99,12 @@ $tableParams = @'
 Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{WorkspaceName}/tables/{TableName}_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
 ```
 
-You should receive a 200 response and details about the table you just created. 
 
-## Create a data collection rule for a text or JSON file
+## Create a data collection rule for a JSON file
 
 ### [Portal](#tab/portal)
 
-Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **Custom Text Logs** or **JSON Logs**  from the **Data source type** dropdown. 
+Create a data collection rule, as described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md). In the **Collect and deliver** step, select **JSON Logs**  from the **Data source type** dropdown. 
  
 
 | Setting | Description |
@@ -130,108 +118,39 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
 
 ### [Resource Manager template](#tab/arm)
 
-### Text file
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataCollectionRuleName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "filePatterns": {
+            "type": "string"
+        },
+        "tableName": {
+            "type": "string"
+        },
+        "workspaceResourceId": {
+            "type": "string"
+        }
+    },
+    "variables": {
+      "tableOutputStream": "['Custom-',concat(parameters('tableName'))]"
+    },
     "resources": [
         {
             "type": "Microsoft.Insights/dataCollectionRules",
-            "name": "dataCollectionRuleName",
-            "location": "location",
+            "name": "[parameters('dataCollectionRuleName')]",
+            "location":  "[parameters('location')]",
             "apiVersion": "2022-06-01",
             "properties": {
-                "dataCollectionEndpointId":  "endpointResourceId",
                 "streamDeclarations": {
-                    "Custom-MyLogFileFormat": {
-                        "columns": [
-                            {
-                                "name": "TimeGenerated",
-                                "type": "datetime"
-                            },
-                            {
-                                "name": "RawData",
-                                "type": "string"
-                            },
-                            {
-                                "name": "FilePath",
-                                "type": "String"
-                            },
-                            {
-                                "name": "YourOptionalColumn" ,
-                                "type": "string"
-                            }
-                        ]
-                    }
-                },
-                "dataSources": {
-                    "logFiles": [
-                        {
-                            "streams": [
-                                "Custom-MyLogFileFormat"
-                            ],
-                            "filePatterns": [
-                                "filePatterns"
-                            ],
-                            "format": "text",
-                            "settings": {
-                                "text": {
-                                    "recordStartTimestampFormat": "ISO 8601"
-                                }
-                            },
-                            "name": "myLogFileFormat-Windows"
-                        }
-                    ]
-                },
-                "destinations": {
-                    "logAnalytics": [
-                        {
-                            "workspaceResourceId": "workspaceResourceId",
-                            "name": "workspaceName"
-                        }
-                    ]
-                },
-                "dataFlows": [
-                    {
-                        "streams": [
-                            "Custom-MyLogFileFormat"
-                        ],
-                        "destinations": [
-                            "workspaceName"
-                        ],
-                        "transformKql": "source",
-                        "outputStream": "tableName"
-                    }
-                ]
-            }
-        }
-    ],
-    "outputs": {
-        "dataCollectionRuleId": {
-            "type": "string",
-            "value": "[resourceId('Microsoft.Insights/dataCollectionRules', parameters('dataCollectionRuleName'))]"
-        }
-    }
-}
-```
-
-### JSON file
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Insights/dataCollectionRules",
-            "name": "dataCollectionRuleName",
-            "location":  "location" ,
-            "apiVersion": "2022-06-01",
-            "properties": {
-                "dataCollectionEndpointId":  "endpointResourceId" ,
-                "streamDeclarations": {
-                    "Custom-JSONLog": {
+                    "Custom-JSONLog-stream": {
                         "columns": [
                             {
                                 "name": "TimeGenerated",
@@ -242,12 +161,20 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
                                 "type": "String"
                             },
                             {
-                                "name": "YourFirstAttribute",
+                                "name": "MyStringColumn",
                                 "type": "string"
                             },
                             {
-                                "name": "YourSecondAttribute",
-                                "type": "string"
+                                "name": "MyIntegerColumn",
+                                "type": "int"
+                            },
+                            {
+                                "name": "MyRealColumn",
+                                "type": "real"
+                            },
+                            {
+                                "name": "MyBooleanColumn",
+                                "type": "bool"
                             }
                         ]
                     }
@@ -256,47 +183,39 @@ Create a data collection rule, as described in [Collect data with Azure Monitor 
                     "logFiles": [
                         {
                             "streams": [
-                                "Custom-JSONLog"
+                                "Custom-Json-stream"
                             ],
                             "filePatterns": [
-                                "filePatterns"
+                                "[parameters('filePatterns')]"
                             ],
                             "format": "json",
-                            "settings": {
-                            },
-                            "name": "myLogFileFormat"
+                            "name": "Custom-Json-dataSource"
                         }
                     ]
                 },
                 "destinations": {
                     "logAnalytics": [
                         {
-                            "workspaceResourceId":  "workspaceResourceId" ,
-                            "name": "workspaceName"
+                            "workspaceResourceId":  "[parameters('workspaceResourceId')]",
+                            "name": "workspace"
                         }
                     ]
                 },
                 "dataFlows": [
                     {
                         "streams": [
-                            "Custom-JSONLog"
+                            "Custom-Json-dataSource"
                         ],
                         "destinations": [
-                            "workspaceName"
+                            "workspace"
                         ],
                         "transformKql": "source",
-                        "outputStream": "tableName"
+                        "outputStream": "[variables('tableOutputStream')]"
                     }
                 ]
             }
         }
-    ],
-    "outputs": {
-        "dataCollectionRuleId": {
-            "type": "string",
-            "value": "[resourceId('Microsoft.Insights/dataCollectionRules',  `dataCollectionRuleName`"
-        }
-    }
+    ]
 }
 ```
 
@@ -330,33 +249,6 @@ Change the API version to **2022-06-01**.
 
 
 ---
-
-## Delimited log files
-Many text log files have entries that are delimited by a character such as a comma. To parse this data into separate columns, use a transformation with the [split function](/azure/data-explorer/kusto/query/split-function).
-
-For example, consider a text file with the following comma-delimited data. These fields could desscribed as: `Time`, `Code`, `Severity`,`Module`, and `Message`. 
-
-```plaintext
-2024-06-21 19:17:34,1423,Error,Sales,Unable to connect to pricing service.
-2024-06-21 19:18:23,1420,Information,Sales,Pricing service connection established.
-2024-06-21 21:45:13,2011,Warning,Procurement,Module failed and was restarted.
-2024-06-21 23:53:31,4100,Information,Data,Nightly backup complete.
-```
-
-The following transformation parses the data into separate columns:
-
-```kusto
-source | project d = split(RawData,",") | project TimeGenerated=todatetime(d[0]), Code=toint(d[1]), Severity=tostring(d[2]), Module=tostring(d[3]), Message=tostring(d[4])
-```
-
-:::image type="content" source="media/data-collection-text-log/delimited-results.png" lightbox="media/data-collection-text-log/delimited-resultspng" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
-
-
-
-Because `split` returns dynamic data, you must use functions such as `tostring` and `toint` to convert the data to the correct scalar type. You also need to provide a name for each entry that matches the column name in the target table. Note that this example provides a `TimeGenerated` value. If this was not provided, the ingestion time would be used.
-
-:::image type="content" source="media/data-collection-text-log/delimited-results.png" lightbox="media/data-collection-text-log/delimited-resultspng" alt-text="Screenshot that shows log query returning results of comma-delimited file collection.":::
-
 
 
 ### Sample log queries
