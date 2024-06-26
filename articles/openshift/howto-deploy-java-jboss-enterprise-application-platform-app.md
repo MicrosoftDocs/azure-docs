@@ -4,7 +4,7 @@ description: Shows you how to quickly set up Red Hat JBoss EAP on Azure Red Hat 
 author: KarlErickson
 ms.author: jiangma
 ms.topic: quickstart
-ms.date: 06/21/2024
+ms.date: 06/26/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 #customer intent: As a developer, I want to learn how to deploy JBoss EAP on Azure Red Hat OpenShift quickly.
 ---

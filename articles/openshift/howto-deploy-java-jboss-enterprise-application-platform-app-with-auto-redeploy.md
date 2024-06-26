@@ -5,7 +5,7 @@ description: Shows you how to quickly set up JBoss EAP on Azure Red Hat OpenShif
 author: KarlErickson
 ms.author: zhihaoguo
 ms.topic: quickstart
-ms.date: 06/21/2024
+ms.date: 06/26/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
 # customer intent: As a developer, I want to learn how to auto redeploy JBoss EAP on Azure Red Hat OpenShift using Source-2-Image (S2I) so that I can quickly deploy and update my application.
 ---
@@ -54,7 +54,7 @@ Use the following steps to create a service principal:
    }
    ```
 
-1. Copy the value of the **clientId** and **clientSecret** fields. You use these values later in the deployment process.
+1. Copy the value of the `appId` and `password` fields. You use these values later in the deployment process.
 
 ## Fork the repository on GitHub
 
@@ -94,9 +94,9 @@ Use the following steps to fill out the **ARO** pane shown in the following scre
 
 1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, use the Red Hat pull secret that you obtained in the [Get a Red Hat pull secret](#get-a-red-hat-pull-secret) section. Use the same value for **Confirm secret**.
 
-1. For **Service principal client ID**, use the `appId` that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section.
+1. For **Service principal client ID**, use the `appId` value that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section.
 
-1. For **Service principal client secret**, use the `password` that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section. Use the same value for **Confirm secret**.
+1. For **Service principal client secret**, use the `password` value that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section. Use the same value for **Confirm secret**.
 
 1. Select **Next EAP Application**.
 
