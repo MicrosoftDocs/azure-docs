@@ -1,15 +1,15 @@
 ---
 title: Add and run PowerShell in Standard workflows
-description: Write and run PowerShell inline from Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
+description: Write and run PowerShell script code in Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
 ms.service: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
 ms.date: 07/01/2024
-# Customer intent: As a logic app workflow developer, I want to write and run PowerShell so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
+# Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
-# Add and run PowerShell scripts inline with Standard workflows for Azure Logic Apps (Preview)
+# Add and run PowerShell script code in Standard workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -17,7 +17,7 @@ ms.date: 07/01/2024
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run PowerShell from your workflow. For this task, use the **Inline Code** action named **Execute PowerShell Code**. This action returns the result from your PowerShell code so you can use that output in your workflow's subsequent actions.
+To perform custom integration tasks inline with your Standard workflow in Azure Logic Apps, you can directly add and run PowerShell code from within your workflow. For this task, use the **Inline Code** action named **Execute PowerShell Code**. This action returns the results from your PowerShell code so that you can use this output in your workflow's subsequent actions.
 
 This capability provides the following benefits:
 
