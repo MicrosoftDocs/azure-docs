@@ -56,7 +56,7 @@ The current list of supported commands are
   Command Name: `hardware-rollup-status`\
   Arguments: None
 
-- [Generate Cluster CVE Report](#cluster-cve-report)\
+- [Generate Cluster CVE Report](#generate-cluster-cve-report)\
   Command Name: `cluster-cve-report`\
   Arguments: None
 
