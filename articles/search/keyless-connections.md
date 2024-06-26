@@ -63,7 +63,7 @@ Install the [Azure Identity client library for Java](https://mvnrepository.com/a
 
 #### [JavaScript](#tab/javascript)
 
-Install the JavaScript [Azure Identity client library](https://www.npmjs.com/package/@azure/identity):
+Install the [Azure Identity client library for JavaScript](https://www.npmjs.com/package/@azure/identity):
 
 ```console
 npm install --save @azure/identity
