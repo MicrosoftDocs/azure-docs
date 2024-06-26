@@ -919,6 +919,11 @@
         "source_path_from_root": "/articles/mysql/flexible-server/overview-single.md",
         "redirect_url": "/azure/mysql/flexible-server/overview",
         "redirect_document_id": true
-      }
+      },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/whats-happening-to-mysql-single-server.md",
+        "redirect_url": "/azure/mysql/migrate/whats-happening-to-mysql-single-server",
+        "redirect_document_id": true
+    }
   ]
 }
