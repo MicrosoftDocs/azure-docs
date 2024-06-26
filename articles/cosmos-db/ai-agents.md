@@ -188,32 +188,141 @@ Chatbots have been a long-standing concept, but AI agents are advancing beyond b
 
 All of the code and sample datasets are available on [GitHub](https://github.com/jonathanscholtes/Travel-AI-Agent-React-FastAPI-and-Cosmos-DB-Vector-Store).
 
-- loader: Python code for loading sample documents and vector embeddings in Azure Cosmos DB for MongoDB
+- loader: Python code for loading sample documents and vector embeddings in Azure Cosmos DB
 - api: Python FastAPI for Hosting Travel AI Agent
 - web: Web Interface with React JS
 
 #### Load Travel Documents into Azure Cosmos DB
 
-The GitHub repository contains a Python project located in the **loader** directory intended for loading the sample travel documents into Azure Cosmos DB. This section sets-up the project to load the documents. For a more comprehensive explanation of the code, refer to this [blog post](https://stochasticcoder.com/2024/02/27/langchain-rag-with-react-fastapi-cosmos-db-vector-part-1/).
+The GitHub repository contains a Python project located in the **loader** directory intended for loading the sample travel documents into Azure Cosmos DB. This section sets-up the project to load the documents.
+
+For a more comprehensive explanation of the code, refer to this [blog post](https://stochasticcoder.com/2024/02/27/langchain-rag-with-react-fastapi-cosmos-db-vector-part-1/).
 
 #### Setting Up the Environment for Loader
 
 Setup your Python virtual environment in the **loader** directory by running the following:
-    ```python
+```python
     python -m venv venv
-    ```
+```
 
 Activate your environment and install dependencies in the **loader** directory:
-    ```python
+```python
     venv\Scripts\activate
     python -m pip install -r requirements.txt
-    ```
+```
 
 Create a file, named **.env** in the **loader** directory, to store the following environment variables.
-    ```python
+```python
     OPENAI_API_KEY="**Your Open AI Key**"
     MONGO_CONNECTION_STRING="mongodb+srv:**your connection string from Azure Cosmos DB**"
-    ```
+```
+
+#### Loading Documents and Vectors
+
+Below is the Python file **main.py**; it serves as the central entry point for loading data into Azure Cosmos DB. This code processes the sample travel data from the GitHub repository, including information about ships and destinations. Additionally, it generates travel itinerary packages for each ship and destination, allowing travelers to book them using the AI agent. The CosmosDBLoader is responsible for creating collections, vector embeddings, and indexes in the Azure Cosmos DB instance.
+
+**main.py**
+```python
+from cosmosdbloader import CosmosDBLoader
+from itinerarybuilder import ItineraryBuilder
+import json
+
+
+cosmosdb_loader = CosmosDBLoader(DB_Name='travel')
+
+#read in ship data
+with open('documents/ships.json') as file:
+        ship_json = json.load(file)
+
+#read in destination data
+with open('documents/destinations.json') as file:
+        destinations_json = json.load(file)
+
+builder = ItineraryBuilder(ship_json['ships'],destinations_json['destinations'])
+
+# Create five itinerary pakages
+itinerary = builder.build(5)
+
+# Save itinerary packages to Cosmos DB
+cosmosdb_loader.load_data(itinerary,'itinerary')
+
+# Save destinations to Cosmos DB
+cosmosdb_loader.load_data(destinations_json['destinations'],'destinations')
+
+# Save ships to Cosmos DB, create vector store
+collection = cosmosdb_loader.load_vectors(ship_json['ships'],'ships')
+
+# Add text search index to ship name
+collection.create_index([('name', 'text')])
+```
+
+Load the documents, vectors and create indexes by simply executing the following command from the loader directory:
+```python
+    python main.py
+```
+
+Output:
+--build itinerary--
+--load itinerary--
+--load destinations--
+--load vectors ships--
+
+#### Building Travel AI Agent with Python FastAPI
+
+The AI travel agent will be hosted in a backend API using Python FastAPI, facilitating integration with the frontend user interface. The API project has been configured to process agent requests by grounding the LLM prompts against the data layer, specifically the vectors and documents in Azure Cosmos DB. Furthermore, the agent will make use of various tools, particularly the Python functions provided at the API service layer. This article will focus in on the code necessary for AI agents within the API code.
+
+For a more comprehensive examination of the code related to vector search with Python FastAPI, please refer to this [blog post](https://stochasticcoder.com/2024/02/29/langchain-rag-with-react-fastapi-cosmos-db-vector-part-2/).
+
+The API project in the GitHub repository is structured as follows:
+
+- Model – data modeling components using Pydantic models.
+- Web – web layer components responsible for routing requests and managing communication.
+- Service – service layer components responsible for primary business logic and interaction with data layer; LangChain Agent and Agent Tools.
+- Data – data layer components responsible for interacting with Azure Cosmos DB for Mongo DB documents storage and vector search.
+
+#### Setting Up the Environment for the API
+
+Python version 3.11.4 was utilized for the development and testing of the API.
+
+Setup your python virtual environment in the **api** directory.
+```python
+    python -m venv venv
+```
+
+Activate your environment and install dependencies using the requirements file in the **api** directory:
+```python
+    venv\Scripts\activate
+    python -m pip install -r requirements.txt
+```
+
+Create a file, named **.env** in the **api** directory, to store your environment variables.
+```python
+    OPENAI_API_KEY="**Your Open AI Key**"
+    MONGO_CONNECTION_STRING="mongodb+srv:**your connection string from Azure Cosmos DB**"
+```
+
+With the environment configured and variables set up, we are ready to initiate the FastAPI server. Run the following command from the api directory to initiate the server.
+```python
+    python app.py
+```
+
+The FastAPI server launches on the localhost loopback 127.0.0.1 port 8000 by default. You can access the Swagger documents using the following localhost address: http://127.0.0.1:8000/docs
+
+#### Using a Session for the AI Agent Memory
+It is imperative for the Travel Agent to have the capability to reference previously provided information within the ongoing conversation. This ability is commonly known as "memory" in the context of LLMs, which should not be confused with the concept of computer memory (like volatile, non-volatile, and persistent memory).
+
+To achieve this objective, we will utilize the chat message history, which will be securely stored in our Azure Cosmos DB instance. Each chat session will have its history stored using a session ID to ensure that only messages from the current conversation session are accessible. This necessity is the reason behind the existence of a ‘Get Session’ method in our API. It is a placeholder method for managing web sessions in order to illustrate the use of chat message history.
+
+For the purpose of the AI Agent, we only need to simulate a session, thus the stubbed-out method merely returns a generated session ID for tracking message history. In a practical implementation, this session would be stored in Azure Cosmos DB and potentially in React JS localStorage.
+
+*web/session.py*
+```python
+    @router.get("/")
+    def get_session():
+        return {'session_id':str(uuid.uuid4().hex)}
+```
+
+#### Start a Conversation with the AI Travel Agent
 
 
 If you would like to add semantic caching to this travel agent in order to reduce GPT token consumption for repeatedly asked questions, you may use this Azure Cosmos DB semantic caching connector for LangChain (link connector).
