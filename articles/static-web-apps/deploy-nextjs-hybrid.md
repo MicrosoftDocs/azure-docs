@@ -122,6 +122,12 @@ Once GitHub Actions workflow is complete, you can select the URL link to open th
 
 ## Set up server side rendering
 
+A managed backed is automatically available for every hybrid Next.js deployment in all plans. However, you can fine- tune performance and take more control of the backend by assigning a custom backend to your site. If  you switch between a managed backend to a linked backend, your site experiences no downtime.
+
+### Bring your own backend
+
+You can improve performance and gain more control over the Next.js server side rendering when you bring your backend. Use the following steps to set up a custom backend for your site. 
+
 [!INCLUDE [Server side rendering](../../includes/static-web-apps/static-web-apps-nextjs-backends.md)]
 
 ## Add Server-Rendered data with a Server Component

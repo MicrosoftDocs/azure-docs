@@ -26,7 +26,7 @@ Upgrade instructions focus on code changes that get you through breaking changes
 
 We recommend upgrading API versions in succession, working through each version until you get to the newest one.
 
-`2023-07-01-preview` was the first REST API for vector support. *Do not use this API version*. It's now deprecated and you should migrate to either stable or newer preview REST APIs immediately.
+`2023-07-01-preview` was the first REST API for vector support. **Do not use this API version**. It's now deprecated and you should migrate to either stable or newer preview REST APIs immediately.
 
 > [!NOTE]
 > REST API reference docs are now versioned. For version-specific content, open a reference page and then use the selector located to the right, above the table of contents, to pick your version.
@@ -35,7 +35,7 @@ We recommend upgrading API versions in succession, working through each version 
 
 Azure AI Search breaks backward compatibility as a last resort. Upgrade is necessary when:
 
-+ Your code references a retired or deprecated API version and is subject to one or more breaking changes. You must address breaking changes if your code targets [`2023-07-10-preview`](#code-upgrade-for-vector-indexes-and-queries) for vectors, [`2020-06-01-preview`](#breaking-change-for-semantic-ranking) for semantic ranking, and [`2019-05-06`](#upgrade-to-2019-05-06) for obsolete skills and workarounds. 
++ Your code references a retired or unsupported API version and is subject to one or more breaking changes. You must address breaking changes if your code targets [`2023-07-10-preview`](#code-upgrade-for-vector-indexes-and-queries) for vectors, [`2020-06-01-preview`](#breaking-change-for-semantic-ranking) for semantic ranking, and [`2019-05-06`](#upgrade-to-2019-05-06) for obsolete skills and workarounds. 
 
 + Your code fails when unrecognized properties are returned in an API response. As a best practice, your application should ignore properties that it doesn't understand.
 
