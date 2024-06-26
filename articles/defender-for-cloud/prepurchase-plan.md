@@ -75,7 +75,10 @@ You can buy Defender for Cloud plans in the [Azure portal](https://portal.azure.
 
     :::image type="content" source="media/prepay-reserved-capacity/purchase-reservations.png" alt-text="Screenshot of purchase reservations for Defender for Cloud." lightbox="media/prepay-reserved-capacity/purchase-reservations.png":::
 
-1. The prices listed on the Reservation page are always presented in USD and that Defender Credit Units are deducted at USD retail prices.
+> [!NOTE]
+>
+> - The prices listed on the **Reservation** page are always presented in USD.
+> - Defender Credit Units are deducted at USD retail prices.
 
 ## Change scope and ownership
 
