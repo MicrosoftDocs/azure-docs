@@ -81,7 +81,7 @@ pip install azure-identity
 
 ## Update source code to use DefaultAzureCredential
 
-The Azure Identity library's `DefaultAzureCredential` allows the customer to run the same code in the local development environment and in the Azure Cloud. Create a single credential then reuse it as needed to take advantage of token caching.
+The Azure Identity library's `DefaultAzureCredential` allows the customer to run the same code in the local development environment and in the Azure Cloud. Create a single credential and reuse the credential instance as needed to take advantage of token caching.
 
 #### [.NET](#tab/csharp)
 
