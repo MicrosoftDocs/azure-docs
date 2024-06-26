@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan.
 ms.topic: overview
-ms.date: 06/25/2024
+ms.date: 06/26/2024
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,7 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
-| [Deprecating four security incidents](#deprecating-four-security-incidents) | June 25, 2024 | July 2024 |
+| [Deprecating four security incidents](#deprecating-four-security-incidents) | June 26, 2024 | July 2024 |
 | [General Availability of Checkov IaC Scanning in Defender for Cloud](#general-availability-of-checkov-iac-scanning-in-defender-for-cloud) | June 24, 2024 | July 2024 |
 | [Reminder of the deprecation scope of adaptive recommendations as of MMA deprecation](#reminder-of-the-deprecation-scope-of-adaptive-recommendations-as-of-mma-deprecation) | June 20, 2024 | August 2024 |
 | [SQL vulnerability assessment automatic enablement using express configuration on unconfigured servers](#sql-vulnerability-assessment-automatic-enablement-using-express-configuration-on-unconfigured-servers) | June 10, 2024 | July 10, 2024 |
@@ -52,17 +52,18 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 ## Deprecating four security incidents
 
-**Announcement date: June 25, 2024**
+**Announcement date: June 26, 2024**
 
 **Estimated date for change: July 2024**
 
-The following security incidents are set to be deprecated in the Defender for Cloud portal: 
+The following security incidents are set to be deprecated in the Defender for Cloud portal:
+
 - Security incident detected suspicious source IP activity 
 - Security incident detected on multiple resources
 - Security incident detected
 - Security incident detected suspicious virtual machines. 
 
-The incidents will be available through the Microsoft Defender XDR portal. Learn more about [alerts and incidents in Defender XDR](concept-integration-365.md).
+The security value of the incidents will be available through the Microsoft Defender XDR portal. Learn more about [alerts and incidents in Defender XDR](concept-integration-365.md).
 
 ## General Availability of Checkov IaC Scanning in Defender for Cloud
 
