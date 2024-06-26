@@ -18,11 +18,11 @@ In addition to the built-in code interpreter that Azure Container Apps dynamic s
 
 ## Uses for custom container sessions
 
-Custom containers allow you to build solutions tailored to your needs. They enable you to execute code or applications in environments that are fast and ephemeral and offer secure, sandboxed spaces with Hyper-V. Additionally, they can be configured with optional network isolation. Some examples include:
+Custom containers allow you to build solutions tailored to your needs. They enable you to execute code or run applications in environments that are fast and ephemeral and offer secure, sandboxed spaces with Hyper-V. Additionally, they can be configured with optional network isolation. Some examples include:
 
 * **Code interpreters**: When you need to execute untrusted code in secure sandboxes by a language not supported in the built-in interpreter, or you need full control over the code interpreter environment.
 
-* **Isolated execution**: When you need to run applications in hostile, multitenant scenarios where each tenant or user has their own sandboxed environment. These environments are isolated from each other and from the host application. Some examples include applications that run user-provided code, code that grants end user access to a cloud-based shell, and development environments.
+* **Isolated execution**: When you need to run applications in hostile, multitenant scenarios where each tenant or user has their own sandboxed environment. These environments are isolated from each other and from the host application. Some examples include applications that run user-provided code, code that grants end user access to a cloud-based shell, AI agents, and development environments.
 
 ## Using custom container sessions
 
@@ -34,7 +34,7 @@ When your application requests a session, an instance is instantly allocated fro
 
 To create a custom container session pool, you need to provide a container image and pool configuration settings.
 
-You communicate with each session using HTTP requests. The custom container must expose an HTTP server on a port that you specify to respond to these requests.
+You invoke or communicate with each session using HTTP requests. The custom container must expose an HTTP server on a port that you specify to respond to these requests.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -184,7 +184,6 @@ Your application interacts with a session using the session pool's management AP
 A pool management endpoint for custom container sessions follows this format: `https://<SESSION_POOL>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io`.
 
 To retrieve the session pool's management endpoint, use the `az containerapp sessionpool show` command:
-
 ```bash
 az containerapp sessionpool show \
     --name <SESSION_POOL_NAME> \
@@ -195,16 +194,31 @@ az containerapp sessionpool show \
 
 All requests to the pool management endpoint must include an `Authorization` header with a bearer token. To learn how to authenticate with the pool management API, see [Authentication](sessions.md#authentication).
 
-Every request to the API requires query string parameter of `identifier` with value of the session ID. The session ID is a unique identifier for the session that allows you to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions.md#session-identifiers).
+Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions.md#session-identifiers).
+
+> [!IMPORTANT]
+> The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
+> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
+
+#### Forwarding Requests to the Session's Container:
+
+Anything in the path following the base pool management endpoint is forwarded to the session's container.
+
+For example, if you make a call to `<POOL_MANAGEMENT_ENDPOINT>/api/uploadfile`, the request is routed to the session's container at `0.0.0.0:<TARGET_PORT>/api/uploadfile`.
+
+#### Continuous Session Interaction:
+
+You can continue making requests to the same session. If there are no requests to the session for longer than the cooldown period, the session is automatically deleted.
+
+#### Sample Request
 
 The following example shows a request to a custom container session by a user ID.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
 
 ```http
-POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/api/execute-command?identifier=<USER_ID>
+POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/<API_PATH_EXPOSED_BY_CONTAINER>?identifier=<USER_ID>
 Authorization: Bearer <TOKEN>
-
 {
   "command": "echo 'Hello, world!'"
 }
@@ -212,7 +226,7 @@ Authorization: Bearer <TOKEN>
 
 This request is forwarded to the custom container session with the identifier for the user's ID. If the session isn't already running, Azure Container Apps allocates a session from the pool before forwarding the request.
 
-In the example, the session's container receives the request at `http://0.0.0.0:<INGRESS_PORT>/api/execute-command`.
+In the example, the session's container receives the request at `http://0.0.0.0:<INGRESS_PORT>/<API_PATH_EXPOSED_BY_CONTAINER>`.
 
 ## Next steps
 
