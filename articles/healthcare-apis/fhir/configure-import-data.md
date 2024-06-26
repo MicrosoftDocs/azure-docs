@@ -33,8 +33,6 @@ After you enable the managed identity, a system-assigned GUID value appears.
 
 ![Screenshot that shows selections for enabling a managed identity for the FHIR service.](media/configure-import-data/fhir-mi-enabled.png)
 
-
-
 ## Step 2: Assign permissions to the FHIR service
 
 Use the following steps to assign permissions to access the storage account:
@@ -46,9 +44,7 @@ Use the following steps to assign permissions to access the storage account:
 3. Add the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to the FHIR service.
 4. Select **Save**.
 
-![add-role-assignment-page](media/configure-import-data/add-role-assignment-page.png)
-
-
+![Screenshot of the page for adding a role assignment.](media/configure-import-data/add-role-assignment-page.png)
 
 Now you're ready to select the storage account for import.
 
