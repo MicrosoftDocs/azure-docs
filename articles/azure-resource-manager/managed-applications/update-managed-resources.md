@@ -3,14 +3,14 @@ title: Update managed resources
 description: Describes how to work on resources in the managed resource group for an Azure managed application.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 10/26/2017
+ms.date: 06/24/2024
 ---
 
 # Work with resources in the managed resource group for Azure managed application
 
 This article describes how to update resources that are deployed as part of a managed application. As the publisher of a managed application, you have access to the resources in the managed resource group. To update these resources, you need to find the managed resource group associated with a managed application, and access the resource in that resource group.
 
-This article assumes you have deployed the managed application in the [Managed Web Application (IaaS) with Azure management services](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app) sample project. That managed application includes a **Standard_D1_v2** virtual machine. If you have not deployed that managed application, you can still use this article to become familiar with the steps for updating a managed resource group.
+This article assumes you deployed the managed application in the [Managed Web Application (IaaS) with Azure management services](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app) sample project. That managed application includes a **Standard_D1_v2** virtual machine. If you didn't deploy that managed application, you can still use this article to become familiar with the steps for updating a managed resource group.
 
 The following image shows the deployed managed application.
 
@@ -18,11 +18,11 @@ The following image shows the deployed managed application.
 
 In this article, you use Azure CLI to:
 
-* Identify the managed application
-* Identify the managed resource group
-* Identify the virtual machine resource(s) in the managed resource group
-* Change the VM size (either to a smaller size if not utilized, or a larger to support more load)
-* Assign a policy to the managed resource group that specifies the allowed locations
+- Identify the managed application.
+- Identify the managed resource group.
+- Identify the virtual machine resource in the managed resource group.
+- Change the virtual machine size, either to a smaller size if not utilized, or a larger to support more load.
+- Assign a policy to the managed resource group that specifies the allowed locations.
 
 ## Get managed application and managed resource group
 
@@ -85,5 +85,5 @@ The policy assignment appears in the portal.
 
 ## Next steps
 
-* For an introduction to managed applications, see [Managed application overview](overview.md).
-* For sample projects, see [Sample projects for Azure managed applications](sample-projects.md).
+- For an introduction to managed applications, see [Managed application overview](overview.md).
+- For sample projects, see [Sample projects for Azure managed applications](sample-projects.md).

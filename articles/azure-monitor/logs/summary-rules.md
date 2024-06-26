@@ -24,19 +24,6 @@ A summary rule lets you aggregate log data at a regular cadence and send the agg
 
 This article describes how summary rules work and how to define and view summary rules, and provides some examples of the use and benefits of summary rules.
 
-## Permissions required
-
-| Action | Permissions required |
-| --- | --- |
-| Create or update summary rule | `Microsoft.Operationalinsights/workspaces/summarylogs/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
-| Create or update destination table | `Microsoft.OperationalInsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
-| Enable query in workspace | `Microsoft.OperationalInsights/workspaces/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
-| Query all logs in workspace | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
-| Query logs in table | `Microsoft.OperationalInsights/workspaces/query/<table>/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
-| Query logs in table (table action) | `Microsoft.OperationalInsights/workspaces/tables/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
-| Use queries encrypted in a customer-managed storage account|`Microsoft.Storage/storageAccounts/*` permissions to the storage account, as provided by the [Storage Account Contributor built-in role](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor), for example|
-
-
 ## How summary rules work
 
 Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](basic-logs-configure.md) in your Log Analytics workspace. 
@@ -74,6 +61,19 @@ Here's the aggregated data that the summary rule sends to the destination table:
 
 Instead of logging hundreds of similar entries within an hour, the destination table shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
 
+## Permissions required
+
+| Action | Permissions required |
+| --- | --- |
+| Create or update summary rule | `Microsoft.Operationalinsights/workspaces/summarylogs/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Create or update destination table | `Microsoft.OperationalInsights/workspaces/tables/write` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](manage-access.md#log-analytics-contributor), for example |
+| Enable query in workspace | `Microsoft.OperationalInsights/workspaces/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Query all logs in workspace | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Query logs in table | `Microsoft.OperationalInsights/workspaces/query/<table>/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Query logs in table (table action) | `Microsoft.OperationalInsights/workspaces/tables/query/read` permissions to the Log Analytics workspace, as provided by the [Log Analytics Reader built-in role](manage-access.md#log-analytics-reader), for example |
+| Use queries encrypted in a customer-managed storage account|`Microsoft.Storage/storageAccounts/*` permissions to the storage account, as provided by the [Storage Account Contributor built-in role](/azure/role-based-access-control/built-in-roles/storage#storage-account-contributor), for example|
+
+
 ## Restrictions and limitations
 
 | Category | Limit |
@@ -98,7 +98,7 @@ Instead of logging hundreds of similar entries within an hour, the destination t
 
 ## Pricing model
 
-The cost you incur for summary rules consists of the cost of the query on the source table and the cost of ingesting the results to the destination table:
+There is no direct cost using Summary rules, and cost you incur consists of the cost of the query on the source table and the cost of ingesting the results to the destination table:
 
 | Source table plan | Query cost | Query results ingestion cost |
 | --- | --- | --- |
@@ -117,7 +117,10 @@ For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pr
 
 ## Create or update a summary rule
 
-Before you create a rule, experiment with the query in [Log Analytics](log-analytics-overview.md). Verify that the query doesn't reach or near the query limit. Check that the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
+Before you create a rule, experiment with the query in [Log Analytics](log-analytics-overview.md). Verify that the query doesn't reach or near the query limit. Check that the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume. 
+
+> [!NOTE]
+> Summary rules are most beneficial in term of cost and results consumption when reduced significantly. For example, results volume is 0.01% or less than source.
 
 When you update a query and remove output fields from the results set, Azure Monitor doesn't automatically remove the columns from the destination table. You need to [delete columns from your table](create-custom-table.md#add-or-delete-a-custom-column) manually.
 
@@ -483,9 +486,9 @@ If you don't need the summary results in the destination table, delete the rule 
 
 The destination table schema is defined when you create or update a summary rule. If the query in the summary rule includes operators that allow output schema expansion based on incoming data - for example, if the query uses the `arg_max(expression, *)` function - Azure Monitor doesn't add new columns to the destination table after you create or update the summary rule, and the output data that requires these columns will be dropped. To add the new fields to the destination table, [update the summary rule](#create-or-update-a-summary-rule) or [add a column to your table manually](create-custom-table.md#add-or-delete-a-custom-column).
 
-### Deleted data remains in workspace, subject to retention period
+### Data for removed columns remains in workspace, subject to retention period
 
-When you [delete columns or a custom log table](create-custom-table.md), data remains in the workspace and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. During the retention period, if you create a table with the same name and fields, Azure Monitor recreates the table with the old data. To delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
+When you remove columns in query, the columns and data remain in destination table and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. If the removed columns aren't needed in destination table, [Update schema and remove columns](create-custom-table.md#add-or-delete-a-custom-column) accordingly. During the retention period, if you add columns with the same name, old data that hasn't reached retention policy, shows up.
 
 ## Related content
 
