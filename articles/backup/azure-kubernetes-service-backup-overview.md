@@ -244,9 +244,9 @@ To create and apply resource modification, follow these steps:
 
   ### Operations supported by **Resource Modifier**
 
-   - **Add**
+- **Add**
   
-     You can use the **Add** operation to add a new block to the resource json. In the example below, the operation add a new container details to the spec with a deployment.
+  You can use the **Add** operation to add a new block to the resource json. In the example below, the operation add a new container details to the spec with a deployment.
    
     ```json
     version: v1
@@ -265,30 +265,30 @@ To create and apply resource modification, follow these steps:
     ```
     
 
-   - **Remove**
+- **Remove**
     
-     You can use the **Remove** operation to remove a key from the resource json. In the example below, the operation removes the label with test as key.
+  You can use the **Remove** operation to remove a key from the resource json. In the example below, the operation removes the label with test as key.
 
-      ```json
-      version: v1
-      resourceModifierRules:
-      - conditions:
-           groupResource: persistentvolumeclaims
-           resourceNameRegex: "^mysql.*$"
-           namespaces:
-           - bar
-           - foo
-           labelSelector:
-              matchLabels:
-                 foo: bar
-        patches:
-        - operation: remove
-          path: "/metadata/labels/test"
-      ```
+    ```json
+    version: v1
+    resourceModifierRules:
+    - conditions:
+          groupResource: persistentvolumeclaims
+          resourceNameRegex: "^mysql.*$"
+          namespaces:
+          - bar
+          - foo
+          labelSelector:
+            matchLabels:
+                foo: bar
+      patches:
+      - operation: remove
+        path: "/metadata/labels/test"
+    ```
 
-   - **Replace**
+- **Replace**
     
-     You can use the **Replace** operation to replace a value for the path mentioned to an alternate one. In the example below, the operation replaces the storageClassName in the persistent volume claim with premium.
+  You can use the **Replace** operation to replace a value for the path mentioned to an alternate one. In the example below, the operation replaces the storageClassName in the persistent volume claim with premium.
 
     ```json
     version: v1
@@ -308,9 +308,9 @@ To create and apply resource modification, follow these steps:
         value: "premium"
     ```
 
-   - **Copy**
+- **Copy**
     
-     You can use the **Copy** operation to copy a value from one path from the resources defined to another path.
+  You can use the **Copy** operation to copy a value from one path from the resources defined to another path.
    
     ```json
     version: v1
@@ -327,31 +327,31 @@ To create and apply resource modification, follow these steps:
         path: "/spec/template/spec/containers/1"
     ```
 
-   - **Test**
+- **Test**
 
-     You can use the **Test** operation to check if a particular value is present in the resource. If the value is present, the patch is applied. If the value isn't present, the patch isn't applied. In the example below, the operation checks whether the persistent volume claims have premium as StorageClassName and replaces if with standard, if true.
+  You can use the **Test** operation to check if a particular value is present in the resource. If the value is present, the patch is applied. If the value isn't present, the patch isn't applied. In the example below, the operation checks whether the persistent volume claims have premium as StorageClassName and replaces if with standard, if true.
 
-```json
-version: v1
-resourceModifierRules:
-- conditions:
-    groupResource: persistentvolumeclaims
-    resourceNameRegex: ".*"
-    namespaces:
-    - bar
-    - foo
-  patches:
-  - operation: test
-    path: "/spec/storageClassName"
-    value: "premium"
-  - operation: replace
-    path: "/spec/storageClassName"
-    value: "standard"
-```
+    ```json
+    version: v1
+    resourceModifierRules:
+    - conditions:
+        groupResource: persistentvolumeclaims
+        resourceNameRegex: ".*"
+        namespaces:
+        - bar
+        - foo
+      patches:
+      - operation: test
+        path: "/spec/storageClassName"
+        value: "premium"
+      - operation: replace
+        path: "/spec/storageClassName"
+        value: "standard"
+    ```
 
-   - **JSON Patch**
+- **JSON Patch**
 
-     This *configmap* applies the JSON patch to all the deployments in the namespaces by default and ``nginx` with the name that starts with `nginxdep`. The JSON patch updates the replica count to *12* for all such deployments.
+  This *configmap* applies the JSON patch to all the deployments in the namespaces by default and ``nginx` with the name that starts with `nginxdep`. The JSON patch updates the replica count to *12* for all such deployments.
     
     
     ```json
@@ -369,9 +369,9 @@ resourceModifierRules:
         value: "12"
     ```
 
-   - **JSON Merge Patch**
+- **JSON Merge Patch**
    
-     This config map will apply the JSON Merge Patch to all the deployments in the namespaces default and nginx with the name starting with nginxdep. The JSON Merge Patch will add/update the label "app" with the value "nginx1".
+  This config map will apply the JSON Merge Patch to all the deployments in the namespaces default and nginx with the name starting with nginxdep. The JSON Merge Patch will add/update the label "app" with the value "nginx1".
 
     ```json
     version: v1
@@ -393,9 +393,9 @@ resourceModifierRules:
               }
     ```
 
-  - **Strategic Merge Patch**
+- **Strategic Merge Patch**
     
-    This config map will apply the Strategic Merge Patch to all the pods in the namespace default with the name starting with nginx. The Strategic Merge Patch will update the image of container nginx to mcr.microsoft.com/cbl-mariner/base/nginx:1.22
+  This config map will apply the Strategic Merge Patch to all the pods in the namespace default with the name starting with nginx. The Strategic Merge Patch will update the image of container nginx to mcr.microsoft.com/cbl-mariner/base/nginx:1.22
 
     ```json
     version: v1
