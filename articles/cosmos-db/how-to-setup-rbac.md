@@ -460,7 +460,7 @@ The setting has three possible values:
 
 - **False**: In this mode, account keys will always be used for Data Explorer data requests. If the account has disabled the use of keys, then the requests will fail.
 
-When using modes that enable role-based access, please ensure that the signed in identity has been [assigned with proper role definitions](#role-assignments) to enable data access.
+When using modes that enable role-based access, you must click on the **Enable Entra ID RBAC** button (located on the Data Explorer command bar) prior to making any data requests. Please ensure that the signed in identity has been [assigned with proper role definitions](#role-assignments) to enable data access.
 
 Also note that changing the mode to one that uses account keys may trigger a request to fetch the primary key on behalf of the identity that is signed in.
 
