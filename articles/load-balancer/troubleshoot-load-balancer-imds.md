@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.date: 05/22/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ---
 
@@ -16,7 +16,7 @@ This article describes common deployment errors and how to resolve those errors 
 
 ## Error codes
 
-| Error code | Error message | Details and mitigation |
+| **Error code** | **Error message** | **Details and mitigation** |
 | --- | ---------- | ----------------- |
 | 400 | Missing required parameter "\<ParameterName>". Please fix the request and retry. | The error code indicates a missing parameter. </br> For more information on adding the missing parameter, see [How to retrieve load balancer metadata using the Azure Instance Metadata Service (IMDS)](howto-load-balancer-imds.md#sample-request-and-response).
 | 400 | Parameter value is not allowed, or parameter value "\<ParameterValue>" is not allowed for parameter "ParameterName". Please fix the request and retry. | The error code indicates that the request format is not configured properly. </br> Learn [How to retrieve load balancer metadata using the Azure Instance Metadata Service (IMDS)](howto-load-balancer-imds.md#sample-request-and-response) to fix the request body and issue a retry. |
