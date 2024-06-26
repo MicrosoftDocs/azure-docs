@@ -1,5 +1,5 @@
 ---
-title:  Wildcard Indexes in Azure Cosmos DB for MongoDB vCore
+title:  Wildcard indexes in Azure Cosmos DB for MongoDB vCore
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Sample to create wildcard indexes in Azure Cosmos DB for MongoDB vCore.
 author: abinav2307
@@ -12,7 +12,7 @@ ms.date: 6/25/2024
 ---
 
 
-# Creating Wildcard Indexes in Azure Cosmos DB for MongoDB vCore
+# Create wildcard indexes in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
@@ -22,7 +22,7 @@ Wildcard indexing can be helpful in the following scenarios:
 - Queries filtering on any field in the document making indexing all fields through a single command easier than indexing each field individually.
 - Queries filtering on most fields in the document making indexing all but a few fields through a single easier than indexing most fields individually.
 
-Wildcard indexing will soon be available in Azure Cosmos DB for MongoDB vCore. This sample describes a simple workaround to minimize the effort needed to create individual indexes until wildcar indexing is generally available.
+This sample describes a simple workaround to minimize the effort needed to create individual indexes until wildcard indexing is generally available in Azure Cosmos DB for MongoDB vCore.
 
 ## Solution
 Consider the json document below:
