@@ -488,7 +488,7 @@ The destination table schema is defined when you create or update a summary rule
 
 ### Data for removed columns remains in workspace, subject to retention period
 
-When you [remove columns or a custom log table](create-custom-table.md), data remains in the workspace and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. During the retention period, if you create a table with the same name and fields, Azure Monitor recreates the table with the old data. To delete old data, [update the table retention period](/rest/api/loganalytics/tables/update) with the minimum retention supported (four days) and then delete the table.
+When you remove columns in query, the column and data remain in destination table and is subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. If the removed columns aren't needed in destination table, [Update schema and remove columns](create-custom-table.md#add-or-delete-a-custom-column) accordingly. During the retention period, if you add columns with the same name, old data that hasn't reached retention policy shows up.
 
 ## Related content
 
