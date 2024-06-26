@@ -123,8 +123,40 @@ When the resource is created, the success response includes the Arc gateway URL.
     1. In the installation script, add the "id" found in the previous step as the following parameter: `--gateway-id "[Your-gateway’s-Resource-ID]"`
         
     Linux server onboarding script example:
+
     This script template includes parameters for you to specify your enterprise proxy server.
+        
+    ```
+    export subscriptionId="SubscriptionId"; 
+    export resourceGroup="ResourceGroup"; 
+    export tenantId="TenantID"; 
+    export location="Region"; 
+    export authType="AuthType"; 
+    export cloud="AzureCloud"; 
+    export gatewayID="gatewayResourceID"; 
     
+    # Download the installation package 
+    output=$(wget https://aka.ms/azcmagent -e use_proxy=yes -e https_proxy="[Your Proxy URL]" -O /tmp/install_linux_azcmagent.sh 2>&1); 
+    if [ $? != 0 ]; then wget -qO- -e use_proxy=yes -e https_proxy="[Your Proxy URL]" --method=PUT --body-data="{\"subscriptionId\":\"$subscriptionId\",\"resourceGroup\":\"$resourceGroup\",\"tenantId\":\"$tenantId\",\"location\":\"$location\",\"correlationId\":\"$correlationId\",\"authType\":\"$authType\",\"operation\":\"onboarding\",\"messageType\":\"DownloadScriptFailed\",\"message\":\"$output\"}" "https://gbl.his.arc.azure.com/log" &> /dev/null || true; fi; 
+    echo "$output"; 
+    
+    # Install the hybrid agent 
+    bash /tmp/install_linux_azcmagent.sh --proxy "[Your Proxy URL]"; 
+    
+    # Run connect command 
+    sudo azcmagent connect --resource-group "$resourceGroup" --tenant-id "$tenantId" --location "$location" --subscription-id "$subscriptionId" --cloud "$cloud" --correlation-id "$correlationId" --gateway-id "$gatewayID";
+    ```
+  
+    **For Windows servers:**
+    
+    1. Obtain your gateway's Resource ID by running the `az connectedmachine gateway list` command. This command outputs information about all the gateway resources in your subscription. Note the "id" parameter in the output (that is, the full ARM resource ID).
+    1. In the **try section** of the installation script, add the id found in the previous step as the following parameter: `--gateway-id "[Your-gateway’s-Resource-ID]"` 
+    1. In the **catch section** of the installation script, add the id found in the previous step as the following parameter: `gateway-id="[Your-gateway’s-Resource-ID]"` 
+        
+    Windows server onboarding script example:
+
+    This script template includes parameters for you to specify your enterprise proxy server.
+
     ```
     $global:scriptPath = $myinvocation.mycommand.definition 
     
