@@ -36,8 +36,6 @@ items:
     items:
     - name: Create indoor maps
       href: tutorial-creator-indoor-maps.md
-    - name: Set up a geofence
-      href: tutorial-geofence.md
     - name: Spatial analytics
       href: tutorial-iot-hub-maps.md
     - name: EV routing using Azure Notebooks (Python)

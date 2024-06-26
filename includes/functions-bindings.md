@@ -37,6 +37,6 @@ This table shows the bindings that are supported in the major versions of the Az
 
 <sup>2</sup> Starting with the version 2.x runtime, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md).
 
-<sup>3</sup> Triggers aren't supported in the Consumption plan. Requires [runtime-driven triggers](../articles/azure-functions/functions-networking-options.md#premium-plan-with-virtual-network-triggers).
+<sup>3</sup> Triggers aren't supported in the Consumption plan. Requires [runtime-driven triggers](../articles/azure-functions/functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers).
 
 <sup>4</sup> Supported only in Kubernetes, IoT Edge, and other self-hosted modes only.
