@@ -455,61 +455,61 @@ Learn more about [Azure Database for PostgreSQL flexible server - Upscale Server
 
 Our system shows that you have log_statement enabled, for better performance set it to NONE
 
-Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_statement settings for PostgreSQL on Azure Database](../postgresql/flexible-server/concepts-logging.md).
+Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_statement settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
 
 ### Optimize log_duration settings for PostgreSQL on Azure Database
 
 You may experience potential performance degradation due to logging settings. To optimize these settings, set the log_duration server parameter to OFF.
 
-Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_duration settings for PostgreSQL on Azure Database](../postgresql/flexible-server/concepts-logging.md).
+Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_duration settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
 
 ### Optimize log_min_duration settings for PostgreSQL on Azure Database
 
 Your log_min_duration server parameter is set to less than 60,000 ms (1 minute), which can lead to potential performance degradation. You can optimize logging settings by setting the log_min_duration_statement parameter to -1.
 
-Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_min_duration settings for PostgreSQL on Azure Database](../postgresql/flexible-server/concepts-logging.md).
+Learn more about [Azure Database for PostgreSQL flexible server - Optimize log_min_duration settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
 
 ### Optimize log_error_verbosity settings for PostgreSQL on Azure Database
 
 Your server has been configured to output VERBOSE error logs. This can be useful for troubleshooting your database, but it can also result in reduced database performance. To improve performance, we recommend changing the log_error_verbosity server parameter to the DEFAULT setting.
 
-Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_error_verbosity settings for PostgreSQL on Azure Database](../postgresql/flexible-server/concepts-logging.md).
+Learn more about [Learn more about Azure Database for PostgreSQL flexible server - Optimize log_error_verbosity settings for PostgreSQL on Azure Database](/azure/postgresql/flexible-server/concepts-logging.md).
 
 ### Identify if checkpoints are happening too often to improve PostgreSQL - Flexible Server performance
 
 Your sever is encountering checkpoints frequently. To resolve the issue, we recommend increasing your max_wal_size server parameter.
 
-Learn more about [Azure Database for PostgreSQL flexible server – Increase max_wal_size](../postgresql/flexible-server/server-parameters-table-write-ahead-log---checkpoints?pivots=postgresql-16#max_wal_size).
+Learn more about [Azure Database for PostgreSQL flexible server – Increase max_wal_size](/azure/postgresql/flexible-server/server-parameters-table-write-ahead-log---checkpoints?pivots=postgresql-16#max_wal_size).
 
 ### Identify inactive Logical Replication Slots to improve PostgreSQL - Flexible Server performance
 
 Your server may have inactive logical replication slots which can result in degraded server performance and availability. We recommend deleting inactive replication slots or consuming the changes from the slots so the Log Sequence Number (LSN) advances to closer to the current LSN of the server.
 
-Learn more about [Azure Database for PostgreSQL flexible server – Unused/inactive Logical Replication Slots](../postgresql/flexible-server/how-to-autovacuum-tuning#unused-replication-slots).
+Learn more about [Azure Database for PostgreSQL flexible server – Unused/inactive Logical Replication Slots](/azure/postgresql/flexible-server/how-to-autovacuum-tuning#unused-replication-slots).
 
 ### Identify long-running transactions to improve PostgreSQL - Flexible Server performance
 
 There are transactions running for more than 24 hours. Review the High CPU Usage-> Long Running Transactions section in the troubleshooting guides to identify and mitigate the issue.
 
-Learn more about [Azure Database for PostgreSQL flexible server – Long Running transactions using Troubleshooting guides](../postgresql/flexible-server/how-to-troubleshooting-guides). 
+Learn more about [Azure Database for PostgreSQL flexible server – Long Running transactions using Troubleshooting guides](/azure/postgresql/flexible-server/how-to-troubleshooting-guides). 
 
 ### Identify Orphaned Prepared transactions to improve PostgreSQL - Flexible Server performance
 
 There are orphaned prepared transactions. Rollback/Commit the prepared transaction.  The recommendations are shared in  Autovacuum Blockers ->  Autovacuum Blockers section in the troubleshooting guides.
 
-Learn more about [Azure Database for PostgreSQL flexible server – Orphaned Prepared transactions using Troubleshooting guides](../postgresql/flexible-server/how-to-troubleshooting-guides). 
+Learn more about [Azure Database for PostgreSQL flexible server – Orphaned Prepared transactions using Troubleshooting guides](/azure/postgresql/flexible-server/how-to-troubleshooting-guides). 
 
 ### Identify Transaction Wraparound to improve PostgreSQL - Flexible Server performance
 
 The server has crossed the 50% wraparound limit, having 1 billion transactions. Refer to the recommendations shared in the Autovacuum Blockers -> Emergency AutoVacuum and Wraparound section of the troubleshooting guides.
 
-Learn more about [Azure Database for PostgreSQL flexible server – Transaction Wraparound using Troubleshooting guides](../postgresql/flexible-server/how-to-troubleshooting-guides).
+Learn more about [Azure Database for PostgreSQL flexible server – Transaction Wraparound using Troubleshooting guides](/azure/postgresql/flexible-server/how-to-troubleshooting-guides).
 
 ### Identify High Bloat Ratio to improve PostgreSQL - Flexible Server performance
 
 The server has a bloat_ratio (dead tuples/ (live tuples + dead tuples) > 80%). Refer to the recommendations shared in the Autovacuum Monitoring section of the troubleshooting guides. 
 
-Learn more about [Azure Database for PostgreSQL flexible server – High Bloat Ratio using Troubleshooting guides](../postgresql/flexible-server/how-to-troubleshooting-guides).
+Learn more about [Azure Database for PostgreSQL flexible server – High Bloat Ratio using Troubleshooting guides](/azure/postgresql/flexible-server/how-to-troubleshooting-guides).
 
 ### Increase the storage limit for Hyperscale (Citus) server group
 
@@ -521,7 +521,7 @@ Learn more about [Hyperscale (Citus) server group - MarlinStorageLimitRecommenda
 
 Consider our new offering, Azure Database for PostgreSQL Flexible Server, which provides richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience.
 
-Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](../postgresql/how-to-upgrade-using-dump-and-restore.md).
+Learn more about [Azure Database for PostgreSQL flexible server - OrcasPostgreSqlMeruMigration (Migrate your database from SSPG to FSPG)](/azure/postgresql/how-to-upgrade-using-dump-and-restore.md).
 
 ### Improve your Cache and application performance when running with high network bandwidth
 
