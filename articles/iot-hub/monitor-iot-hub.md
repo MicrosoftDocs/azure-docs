@@ -50,7 +50,7 @@ The information presented on the **Overview pane** is useful, but represents onl
 
 ## Monitor per-device disconnects with Event Grid
 
-Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub. This metric triggers an alert when the number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections) that you can use to monitor device connects, disconnects, and connection errors. While these events might be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
+Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub. This metric triggers an alert when the number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections-category) that you can use to monitor device connects, disconnects, and connection errors. While these events might be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
 
 With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides a much lower event latency than Azure Monitor, so you can monitor on a per-device basis rather than for all connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
 
@@ -144,7 +144,7 @@ For common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-querie
 
 Some operations in IoT Hub resource logs return an `sdkVersion` property in their `properties` object. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK being used, the SDK version, and the platform on which the SDK is running. 
 
-The following examples show the `sdkVersion` property emitted for a [`deviceConnect`](monitor-iot-hub-reference.md#connections) operation using:
+The following examples show the `sdkVersion` property emitted for a [`deviceConnect`](monitor-iot-hub-reference.md#connections-category) operation using:
 
 - The Node.js device SDK: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"`
 - The .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"`.

@@ -117,7 +117,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## Troubleshoot via Device Streams resource logs
 
-You can set up Azure Monitor to collect the [resource logs for device streams](monitor-iot-hub-reference.md#device-streams-preview) emitted by your IoT Hub. This can be very helpful in troubleshooting scenarios.
+You can set up Azure Monitor to collect the [resource logs for device streams](monitor-iot-hub-reference.md#device-streams-category-preview) emitted by your IoT Hub. This can be very helpful in troubleshooting scenarios.
 
 Follow the steps below to create a diagnostics setting to send device streams logs for your IoT Hub to Azure Monitor Logs:
 
