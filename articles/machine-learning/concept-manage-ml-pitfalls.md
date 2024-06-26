@@ -25,7 +25,7 @@ Overfitting in machine learning occurs when a model fits the training data too w
 Consider the following trained models and their corresponding train and test accuracies:
 
 | Model | Train accuracy | Test accuracy |
-|-------|----------------|---------------|
+| :---: | :---: | :---: |
 | A | 99.9% | 95% |
 | B | 87%   | 87% |
 | C | 99.9% | 45% |
@@ -43,7 +43,7 @@ In the most egregious cases, an overfitted model assumes the feature value combi
 The following table summarizes common best practices:
 
 | Best practice | Implementation | Automated ML |
-| --- | --- | --- |
+| --- | :---: | :---: |
 | Use more training data, and eliminate statistical bias | X | | 
 | Prevent target leakage | X | | 
 | Incorporate fewer features | X | | 
@@ -51,7 +51,7 @@ The following table summarizes common best practices:
 | Apply model complexity limitations | | X |
 | Use cross-validation | | X |
 
-## Best practices to prevent overfitting
+## Apply best practices to prevent overfitting
 
 The following sections describe best practices you can use in your machine learning model implementation to prevent overfitting.
 
@@ -67,7 +67,7 @@ Target leakage is a similar issue. You might not see overfitting between the tra
 
 Removing features can also help with overfitting by preventing the model from having too many fields to use to memorize specific patterns, thus causing it to be more flexible. It can be difficult to measure quantitatively. If you can remove features and retain the same accuracy, your model can be more flexible and reduce the risk of overfitting.
 
-## Best practices offered in Automated ML
+## Review Automated ML features to prevent overfitting
 
 The following sections describe best practices provided by default in Automated ML to help prevent overfitting.
 
@@ -94,9 +94,9 @@ In addition, Automated ML jobs generate the following charts automatically. Thes
 
 | Chart | Description |
 | --- | --- |
-| [Confusion Matrix](how-to-understand-automated-ml.md#confusion-matrix) | Evaluates the correctly classified labels against the actual labels of the data. |
+| [Confusion matrix](how-to-understand-automated-ml.md#confusion-matrix) | Evaluates the correctly classified labels against the actual labels of the data. |
 | [Precision-recall](how-to-understand-automated-ml.md#precision-recall-curve) | Evaluates the ratio of correct labels against the ratio of found label instances of the data. |
-| [ROC Curves](how-to-understand-automated-ml.md#roc-curve) | Evaluates the ratio of correct labels against the ratio of false-positive labels. |
+| [ROC curves](how-to-understand-automated-ml.md#roc-curve) | Evaluates the ratio of correct labels against the ratio of false-positive labels. |
 
 ## Handle imbalanced data 
 
@@ -117,5 +117,5 @@ The following techniques are other options to handle imbalanced data outside of 
 ## Related content
 
 - Complete the [Tutorial: Train an object detection model with automated machine learning and Python](tutorial-auto-train-image-models.md)
-- [Configure settings for automatic training experiment (Azure Machine Learning studio)](how-to-use-automated-ml-for-ml-models.md)
-- [Configure settings for automatic training experiment (Python SDK)](how-to-configure-auto-train.md)
+- [Set up no-code Automated ML training for tabular data with Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md)
+- [Configure settings for automatic training experiment with the Python SDK)](how-to-configure-auto-train.md)
