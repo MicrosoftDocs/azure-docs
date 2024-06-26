@@ -117,7 +117,7 @@ You can also access Resource Health by selecting **All services** and typing **s
 
 You can select the subscription and resources type to get the resource health information of a resources
 
-![Opening Resource Health from "All services"](./media/resource-health-overview/resource-health.png)
+![Opening Resource Health from "All services"](./media/resource-health-overview/resource-health1.png)
 
 ## Next steps
 
