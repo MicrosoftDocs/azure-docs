@@ -27,7 +27,7 @@ AI agents are designed to perform specific tasks, answer questions, and automate
 
 ### Copilots
 
-Copilots are a type of AI agent designed to work alongside users rather than operate independently. Unlike fully automated agents, copilots provide suggestions and recommendations to assist users in completing tasks. For instance, when a user is writing an email, a copilot might suggest phrases, sentences, or paragraphs. The user might also ask the copilot to find relevant information in other emails or files to support the suggestion (see [retrieval-augmented generation](vector-database.md#retrieval-augmented-generation)). The user can accept, reject, or edit the suggested passages.
+Copilots are a type of AI agent designed to work alongside users rather than operate independently. Unlike fully automated agents, copilots provide suggestions and recommendations to assist users in completing tasks. For instance, when a user is writing an email, a copilot might suggest phrases, sentences, or paragraphs. The user might also ask the copilot to find relevant information in other emails or files to support the suggestion (see [retrieval-augmented generation](vector-database#retrieval-augmented-generation)). The user can accept, reject, or edit the suggested passages.
 
 ### Autonomous agents
 
@@ -98,7 +98,7 @@ In-memory databases are excellent for speed but may struggle with the large-scal
 
 Relational databases are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding.
 
-Pure vector databases tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular pure vector database services nowadays typically offe
+[Pure vector databases](vector-database#integrated-vector-database-vs-pure-vector-database) tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular pure vector database services nowadays typically offe
 - no guarantee on reads & writes
 - limited ingestion throughput
 - low availability (below 99.9%, which equals annualized outage of almost 9 hours or more)
@@ -114,11 +114,11 @@ The next section dives deeper into what makes a robust AI agent memory system.
 
 Just as efficient database management systems are critical to software applications’ performances, it is critical to provide LLM-powered agents with relevant and useful information to guide their inference. Robust memory systems enable organizing and storing different kinds of information that the agents can retrieve at inference time.
 
-Currently, LLM-powered applications often use retrieval-augmented generation that uses basic semantic search or vector search to retrieve passages or documents. Vector search can be useful for finding general information, but it may not capture the specific context, structure, or relationships that are relevant for a particular task or domain.
+Currently, LLM-powered applications often use [retrieval-augmented generation](vector-database#retrieval-augmented-generation) that uses basic semantic search or vector search to retrieve passages or documents. [Vector search](vector-database#vector-search) can be useful for finding general information, but it may not capture the specific context, structure, or relationships that are relevant for a particular task or domain.
 
 For example, if the task is to write code, semantic search may not be able to retrieve the syntax tree, the file system layout, the code summaries, or the API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, semantic search may not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
 
-Weaving together [a web standalone in-memory, relational, and vector databases](#memory-systems) may work for prototypical agent systems; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+Weaving together [a web of standalone in-memory, relational, and vector databases](#memory-systems) may work for prototypical agent systems; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 Therefore, a robust memory system should have the following characteristics:
 
@@ -140,7 +140,7 @@ Not only are memory systems critical to AI agents; they are also important for t
 
 ## Implementing AI agent memory systems
 
-The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together a plethora of disparate in-memory, relational, and vector databases may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together [a plethora of disparate in-memory, relational, and vector databases]((#memory-systems)) may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 In place of all the standalone databases, AI agent memory systems can rely on Azure Cosmos DB as a unified solution. Its robustness successfully enabled OpenAI’s ChatGPT service to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed serverless NoSQL, relational, and vector database service. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
 
@@ -174,8 +174,47 @@ Implementation example
 
 This section explores the implementation of a LangChain Agent using Azure Cosmos DB as the memory system to autonomously process traveler inquiries and bookings in a CruiseLine travel application.
 
-Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent, developed using LangChain’s agent framework, will utilize the robust vector database and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings. It will operate within a Python FastAPI backend and support user interactions through a React JS user interface.
-(Content from Empower your AI Agent with Azure Cosmos DB)
+Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent, developed using LangChain's agent framework, will utilize the robust vector database and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings. It will operate within a Python FastAPI backend and support user interactions through a React JS user interface.
+
+#### Prerequisites
+
+- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/en-us/free/) before you begin.
+- Setup account for OpenAI API or Azure OpenAI Service.
+- Create a vCore cluster in Azure Cosmos DB for MongoDB by following this [QuickStart](mongodb/vcore/quickstart-portal).
+- An IDE for Development, such as VS Code.
+- Python 3.11.4 installed on development environment.
+
+#### Download the Project
+
+All of the code and sample datasets are available on [GitHub](https://github.com/jonathanscholtes/Travel-AI-Agent-React-FastAPI-and-Cosmos-DB-Vector-Store).
+
+- loader: Python code for loading sample documents and vector embeddings in Azure Cosmos DB for MongoDB
+- api: Python FastAPI for Hosting Travel AI Agent
+- web: Web Interface with React JS
+
+#### Load Travel Documents into Azure Cosmos DB
+
+The GitHub repository contains a Python project located in the **loader** directory intended for loading the sample travel documents into Azure Cosmos DB. This section sets-up the project to load the documents. For a more comprehensive explanation of the code, refer to this [blog post](https://stochasticcoder.com/2024/02/27/langchain-rag-with-react-fastapi-cosmos-db-vector-part-1/).
+
+#### Setting Up the Environment for Loader
+
+Setup your Python virtual environment in the **loader** directory by running the following:
+    ```python
+    python -m venv venv
+    ```
+
+Activate your environment and install dependencies in the **loader** directory:
+    ```python
+    venv\Scripts\activate
+    python -m pip install -r requirements.txt
+    ```
+
+Create a file, named **.env** in the **loader** directory, to store the following environment variables.
+    ```python
+    OPENAI_API_KEY="**Your Open AI Key**"
+    MONGO_CONNECTION_STRING="mongodb+srv:**your connection string from Azure Cosmos DB**"
+    ```
+
 
 If you would like to add semantic caching to this travel agent in order to reduce GPT token consumption for repeatedly asked questions, you may use this Azure Cosmos DB semantic caching connector for LangChain (link connector).
 (Content from Improve LLM Performance Using Semantic Cache with Cosmos DB)
