@@ -156,8 +156,10 @@ For more information on `DefaultAzureCredential` for JavaScript, see [Azure Iden
 
 ```javascript
 import { DefaultAzureCredential } from "@azure/identity";
-import { SearchClient,
-  SearchIndexClient } from "@azure/search-documents";
+import {
+  SearchClient,
+  SearchIndexClient
+} from "@azure/search-documents";
 
 const AZURE_SEARCH_ENDPOINT = process.env.AZURE_SEARCH_ENDPOINT;
 const index = "my-index";
