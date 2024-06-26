@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 06/25/2024
 ms.devlang: csharp
 ms.custom:
 ---
@@ -105,6 +105,9 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
     parameters: poolParameters,
     cancellationToken: default(CancellationToken)).ConfigureAwait(false);
 ```
+
+> [!IMPORTANT]
+> Currently Batch package Microsoft.Azure.Batch 16.2.0 does not support BatchpoolIdentity
 
 ## Use user-assigned managed identities in Batch nodes
 
