@@ -346,6 +346,9 @@ az cosmosdb show \
 
 ---
 
+> [!IMPORTANT]
+> Depending on your network configuration, you may need to allow access to Azure Cosmos DB from other Azure services.
+
 ## Using a managed identity in the Azure Key Vault access policy
 
 This access policy ensures that your encryption keys can be accessed by your Azure Cosmos DB account. The access policy is implemented by granting access to a specific Microsoft Entra identity. Two types of identities are supported:
