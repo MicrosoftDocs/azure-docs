@@ -10,19 +10,23 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: reference
-ms.date: 05/28/2024
+ms.date: 06/26/2024
 ---
 
 # AML skill in an Azure AI Search enrichment pipeline
 
-> [!IMPORTANT] 
-> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this skill.
+> [!IMPORTANT]
+> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview REST APIs support this skill.
 
 The **AML** skill allows you to extend AI enrichment with a custom [Azure Machine Learning (AML)](../machine-learning/overview-what-is-azure-machine-learning.md) model. Once an AML model is [trained and deployed](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), an **AML** skill integrates it into AI enrichment.
 
 Like other built-in skills, an **AML** skill has inputs and outputs. The inputs are sent to your deployed AML online endpoint as a JSON object, which outputs a JSON payload as a response along with a success status code. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. The response is expected to have the outputs specified by your **AML** skill. Any other response is considered an error and no enrichments are performed.
 
-If you're using the [Azure AI Studio model catalog vectorizer (preview)](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for integrated vectorization at query time, you should also use the **AML** skill for integrated vectorization during indexing. See [How to implement integrated vectorization using models from Azure AI Studio](vector-search-integrated-vectorization-ai-studio.md) for instructions. This scenario is supported through the 2024-05-01-preview REST API and the Azure portal.
+The **AML** skill is a preview feature, but depending on the endpoint, you can call it in a skillset that targets a stable API version. For example, if the endpoint is a deployed model in an AML workspace, the skillset can be created using 2023-11-01 stable API, and the **AML** skill works even though it is a preview feature.
+
+Starting in 2024-05-01-preview REST API and in the Azure portal (which also targets the 2024-05-01-preview), you can use the **AML** skill to connect to a model in the Azure AI Studio model catalog. For this paticular endpoint, your skillset must target the 2024-05-01-preview API version. 
+
+Connections to models hosted in the Azure AI Studio model catalog are supported for integrated vectorization workflows. This workflow generates embeddings automatically at indexing and query time. During indexing, the **AML** skill can connect to the model catalog to generate vectors for the index. At query time, queries can target the [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) that vectorizes a text input so that it can be used in a vector query. In this workflow, the **AML** skill and the model catalog vectorizer should be used together so that you're using the same embedding model for both indexing and queries. See [How to implement integrated vectorization using models from Azure AI Studio](vector-search-integrated-vectorization-ai-studio.md) for details on this workfow.
 
 > [!NOTE]
 > The indexer will retry twice for certain standard HTTP status codes returned from the AML online endpoint. These HTTP status codes are:
