@@ -88,25 +88,25 @@ For tool usage and perception that do not require sophisticated planning and mem
 For advanced and autonomous planning and execution workflows, AutoGen propelled the multi-agent wave that began in late 2022. OpenAI’s Assistants API allow their users to create agents natively within the GPT ecosystem. Popular LLM orchestrator frameworks like LangChain and LlamaIndex also added multi-agent modules.
 
 > [!TIP]
-> See the implementation example section at the end provides an example for building a simple multi-agent system using one of the popular frameworks and a unified agent memory system.
+> See the implementation sample section at the end for tutorial on building a simple multi-agent system using one of the popular frameworks and a unified agent memory system.
 
-### Memory systems
+### Agent memory system
 
-The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a pure vector database for embedding management. However, this practice of using a complex web of standalone databases can hurt AI agent memory system’s speed and scalability. Each type of database’s individual weaknesses are also exacerbated in multi-agent systems:
+The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a pure vector database for embedding management.
 
-In-memory databases are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
+However, this practice of using a complex web of standalone databases can hurt AI agent memory system’s speed and scalability. Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself. Moreover, each type of database’s individual weaknesses are also exacerbated in multi-agent systems:
 
-Relational databases are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding.
+**In-memory databases** are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
 
-[Pure vector databases](vector-database.md#integrated-vector-database-vs-pure-vector-database) tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular pure vector database services nowadays typically offe
+**Relational databases** are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding.
+
+**Pure vector databases** tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular [pure vector databases](vector-database.md#integrated-vector-database-vs-pure-vector-database) nowadays typically offer
 - no guarantee on reads & writes
 - limited ingestion throughput
 - low availability (below 99.9%, which equals annualized outage of almost 9 hours or more)
 - one consistency level (eventual)
 - resource-intensive in-memory vector index
 - limited options for multitenancy
-
-Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself.
 
 The next section dives deeper into what makes a robust AI agent memory system.
 
@@ -138,11 +138,11 @@ At the macro level, memory systems should enable multiple AI agents to collabora
 
 Not only are memory systems critical to AI agents; they are also important for the humans who develop, maintain, and use these agents. For example, humans may need to supervise agents’ planning and execution workflows in near real-time. While supervising, humans may interject with guidance or make in-line edits of agents’ dialogues or monologues. Humans may also need to audit the reasoning and actions of agents to verify the validity of the final output. Human-agent interactions are likely in natural or programming languages, while agents "think," "learn," and "remember" through embeddings. This poses another requirement on memory systems’ consistency across data modalities.
 
-## Implementing AI agent memory systems
+## Infastructure for a robust memory system
 
 The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together [a plethora of disparate in-memory, relational, and vector databases](#memory-systems) may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
-In place of all the standalone databases, AI agent memory systems can rely on Azure Cosmos DB as a unified solution. Its robustness successfully [enabled OpenAI’s ChatGPT service](https://www.youtube.com/watch?v=6IIUtEFKJec&t) to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed serverless [NoSQL](distributed-nosql.md), [relational](distributed-relational.md), and [vector database](vector-database.md) service. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
+In place of all the standalone databases, AI agent memory systems can rely on Azure Cosmos DB as a unified solution. Its robustness successfully [enabled OpenAI’s ChatGPT service](https://www.youtube.com/watch?v=6IIUtEFKJec&t) to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed [NoSQL](distributed-nosql.md), [relational](distributed-relational.md), and [vector database](vector-database.md) service that offers a serverless mode. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
 
 #### Speed
 
@@ -170,18 +170,21 @@ Additionally, the built-in support for multi-master writes enables high availabi
 The five available [consistency levels](consistency-levels.md) (from strong to eventual) can also cater to various distributed workloads depending on the scenario requirements.
 Implementation example
 
+> [!TIP]
+> You may choose from two Azure Cosmos DB APIs to build your AI agent memory system: Azure Cosmos DB for NoSQL, and vCore-based Azure Cosmos DB for MongoDB. The former provides 99.999% availability and [three vector search algorithms](nosql/vector-search.md): IVF, HNSW, and the state-of-the-art DiskANN. The latter provides 99.995% availability and [two vector search algorithms](mongodb/vcore/vector-search.md): IVF and HNSW.
+
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](free-tier.md)
 
-## AI agent implementation sample
+## Implementation sample
 
-This section explores the implementation of a LangChain Agent using Azure Cosmos DB as the memory system to autonomously process traveler inquiries and bookings in a CruiseLine travel application.
+This section explores the implementation of an autonomous agent to process traveler inquiries and bookings in a CruiseLine travel application. It uses the popular LangChain Agent framework. Azure Cosmos DB serves as the [unified and robust memory system](#memory-can-make-or-break-ai-agents) that ensures [speed, scale, and simplicity](#infastructure-for-a-robust-memory-system).
 
 Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent, developed using LangChain's agent framework, will utilize the robust vector database and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings. It will operate within a Python FastAPI backend and support user interactions through a React JS user interface.
 
 ### Prerequisites
 
-- If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, you may [try Azure Cosmos DB free](#try-free.md) for 30 days without creating an Azure account; no credit card is required, and no commitment follows when the trial period ends.
 - Setup account for OpenAI API or Azure OpenAI Service.
 - Create a vCore cluster in Azure Cosmos DB for MongoDB by following this [QuickStart](mongodb/vcore/quickstart-portal.md).
 - An IDE for Development, such as VS Code.
@@ -222,7 +225,7 @@ Create a file, named **.env** in the **loader** directory, to store the followin
 
 Below is the Python file **main.py**; it serves as the central entry point for loading data into Azure Cosmos DB. This code processes the sample travel data from the GitHub repository, including information about ships and destinations. Additionally, it generates travel itinerary packages for each ship and destination, allowing travelers to book them using the AI agent. The CosmosDBLoader is responsible for creating collections, vector embeddings, and indexes in the Azure Cosmos DB instance.
 
-**main.py**
+*main.py*
 ```python
 from cosmosdbloader import CosmosDBLoader
 from itinerarybuilder import ItineraryBuilder
@@ -263,9 +266,13 @@ Load the documents, vectors and create indexes by simply executing the following
 ```
 
 Output:
+
 --build itinerary--
+
 --load itinerary--
+
 --load destinations--
+
 --load vectors ships--
 
 ### Building Travel AI Agent with Python FastAPI
@@ -316,7 +323,9 @@ To achieve this objective, we will utilize the chat message history, which will 
 Click Try It out for /session/.
 
 {
+
   "session_id": "0505a645526f4d68a3603ef01efaab19"
+  
 }
 
 For the purpose of the AI Agent, we only need to simulate a session, thus the stubbed-out method merely returns a generated session ID for tracking message history. In a practical implementation, this session would be stored in Azure Cosmos DB and potentially in React JS localStorage.
@@ -348,8 +357,11 @@ The initial execution will result in a recommendation for the Tranquil Breeze Cr
 The similarity search scores are displayed as output from the API for debugging purposes.
 
 Output when calling ```data.mongodb.travel.similarity_search()```
+
 0.8394561085977978
+
 0.8086545112328692
+
 2
 
 > [!TIP]
