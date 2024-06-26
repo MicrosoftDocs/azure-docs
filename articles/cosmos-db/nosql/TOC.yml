@@ -283,24 +283,30 @@
           href: ../integrated-cache.md
         - name: Integrated cache FAQ
           href: ../integrated-cache-faq.md
-    - name: Analytics with Azure Synapse Link
+    - name: Analytics
       items:
-        - name: Azure Synapse Link for Azure Cosmos DB
-          href: ../synapse-link.md
-        - name: Azure Synapse Link supported features
-          href: ../../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Synapse Link use cases
-          href: ../synapse-link-use-cases.md
-        - name: Custom partitioning - Overview
-          href: ../custom-partitioning-analytical-store.md
-        - name: Azure Synapse Link FAQ
-          href: ../synapse-link-frequently-asked-questions.yml
-        - name: Analytical store - overview
-          href: ../analytical-store-introduction.md
-        - name: Change data capture (CDC)
-          href: ../analytical-store-change-data-capture.md
-        - name: Time travel (preview)
-          href: ../synapse-link-time-travel.md
+        - name: Analytics overview
+          href: analytics.md
+        - text: Mirroring in Microsoft Fabric
+          url: /fabric/database/mirrored-database/azure-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
+        - name: Azure Synapse Link
+          items:
+            - name: Azure Synapse Link for Azure Cosmos DB
+              href: ../synapse-link.md
+            - name: Azure Synapse Link supported features
+              href: ../../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Synapse Link use cases
+              href: ../synapse-link-use-cases.md
+            - name: Custom partitioning - Overview
+              href: ../custom-partitioning-analytical-store.md
+            - name: Azure Synapse Link FAQ
+              href: ../synapse-link-frequently-asked-questions.yml
+            - name: Analytical store - overview
+              href: ../analytical-store-introduction.md
+            - name: Change data capture (CDC)
+              href: ../analytical-store-change-data-capture.md
+            - name: Time travel (preview)
+              href: ../synapse-link-time-travel.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
