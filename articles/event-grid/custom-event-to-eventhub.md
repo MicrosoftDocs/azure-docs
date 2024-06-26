@@ -125,7 +125,7 @@ If you plan to continue working with this event, don't clean up the resources th
 az group delete --name gridResourceGroup
 ```
 
-## Next steps
+## Related content
 
 Now that you know how to create topics and event subscriptions, learn more about what Event Grid can help you do:
 
