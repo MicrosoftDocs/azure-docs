@@ -50,7 +50,7 @@ The following table lists the Bing Maps _Get a Static Map_ request parameters an
 | format | fmt | format | TRUE | String | Bing Maps Get a Static Map API provides static maps in PNG, JPEG and GIF image formats. Azure Maps Get Map Static Image API provides static maps in PNG and JPEG image formats. |
 | heading | | Not supported | Not supported | Not supported | In Bing Maps, this parameter is used for imagerySet Birdseye, BirdseyeWithLabels, BirdseyeV2, BirdseyeV2WithLabels, OrdnanceSurvey, Streetside. Azure Maps doesn't support these maps styles. |
 | highlightEntity | he | Not supported | Not supported | Not supported | In Bing Maps Get a Static Map API, this parameter is used to get a polygon of the location input (entity) displayed on the map natively. Azure Maps Get a Map Static Image API doesn't support this feature, however, you can get a polygon of a location (locality) from the Azure Maps [Get Polygon] API and then display that on the static map. |
-| imagerySet | | tilesetID | TRUE | TilesetId | |
+| imagerySet | | tilesetID | TRUE | [TilesetId] | |
 | mapArea | ma | bbox | True (if not using center) | number[] | A bounding box, defined by two longitudes and two latitudes, represents the four sides of a rectangular area on the Earth, in the format of `minLon, minLat, maxLon, maxLat`. <br><br>Note: Either `center` or `bbox` are required parameters. They're mutually exclusive. `bbox` shouldn’t be used with `height` or `width`. |
 | mapLayer | ml | trafficLayer | FALSE | TrafficTilesetId | Optional. If `TrafficLayer` is provided, it returns map image with corresponding traffic layer. For more information, see [tilesetId]. |
 | mapSize | ms | height | TRUE | integer int32 | |
@@ -115,21 +115,22 @@ Support
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps service geographic scope]: geographic-scope.md
-[Get Polygon]: /rest/api/maps/search/get-polygon
-[Get a Static Map]: /bingmaps/rest-services/imagery/get-a-static-map
-[Get Route Directions]: /rest/api/maps/route/get-route-directions
-[Post Route Directions]: /rest/api/maps/route/post-route-directions
 [GeoJSON]: https://geojson.org
+[Get a Static Map]: /bingmaps/rest-services/imagery/get-a-static-map
 [Get Map Static Image]: /rest/api/maps/render/get-map-static-image
+[Get Polygon]: /rest/api/maps/search/get-polygon
+[Get Route Directions]: /rest/api/maps/route/get-route-directions
 [ISO 3166-1 Alpha-2 region/country code]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [Microsoft Entra ID]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers
+[Post Route Directions]: /rest/api/maps/route/post-route-directions
+[Render custom data on a raster map]: how-to-render-custom-data.md
 [request header]: /rest/api/maps/render/get-map-static-image?#request-headers
 [Security]: /rest/api/maps/render/get-map-static-image#security
 [Shared Access Signature (SAS) Token]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Supported Languages]: supported-languages.md
 [Supported Views]: supported-languages.md#azure-maps-supported-views
+[TilesetId]: /rest/api/maps/render/get-map-static-image#tilesetid
 [Understanding Azure Maps Transactions]: understanding-azure-maps-transactions.md
 [URI Parameters]: /rest/api/maps/render/get-map-static-image#uri-parameters
-[Render custom data on a raster map]: how-to-render-custom-data.md
