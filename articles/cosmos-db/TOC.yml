@@ -22,6 +22,8 @@
   items:
     - name: Quickstart - build a RAG chatbot
       href: genai/quickstart.md
+    - name: What is vector search?
+      href: genai/vector-search-intro.md
     - name: Vector Databases in Azure Cosmos DB
       expanded: true
       items:
