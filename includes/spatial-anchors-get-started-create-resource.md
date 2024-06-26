@@ -121,7 +121,7 @@ az spatial-anchors-account delete --resource-group myResourceGroup --name MySpat
 
 Start by preparing your environment for Azure PowerShell:
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](./azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 > [!IMPORTANT]
 > While the **Az.MixedReality** PowerShell module is in preview, you must install it separately using
