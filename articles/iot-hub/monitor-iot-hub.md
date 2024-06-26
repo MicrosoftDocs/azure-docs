@@ -9,28 +9,6 @@ ms.author: kgremban
 ms.service: iot-hub
 ---
 
-<!-- 
-According to the Content Pattern guidelines all comments must be removed before publication!!!
-IMPORTANT 
-To make this template easier to use, first:
-1. Search and replace [TODO-replace-with-service-name] with the official name of your service.
-2. Search and replace [TODO-replace-with-service-filename] with the service name to use in GitHub filenames.-->
-
-<!-- VERSION 3.0 2024_01_07
-For background about this template, see https://review.learn.microsoft.com/en-us/help/contribute/contribute-monitoring?branch=main -->
-
-<!-- All sections are required unless otherwise noted. Add service-specific information after the includes.
-Your service should have the following two articles:
-1. The overview monitoring article (based on this template)
-   - Title: "Monitor [TODO-replace-with-service-name]"
-   - TOC title: "Monitor"
-   - Filename: "monitor-[TODO-replace-with-service-filename].md"
-2. A reference article that lists all the metrics and logs for your service (based on the template data-reference-template.md).
-   - Title: "[TODO-replace-with-service-name] monitoring data reference"
-   - TOC title: "Monitoring data reference"
-   - Filename: "monitor-[TODO-replace-with-service-filename]-reference.md".
--->
-
 # Monitor Azure IoT Hub
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
@@ -56,18 +34,15 @@ With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **Dev
 
 For more information about monitoring device connectivity with Event Grid and Azure Monitor, see [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
-## Collection and routing
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+
+For more information about the resource types for IoT Hub, see [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md).
+
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+
+### Collection and routing
 
 Platform metrics, the Activity log, and resource logs have unique collection, storage, and routing specifications.
-
-- Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.
-
-- Resource logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
-
-- Metrics and logs can be routed to several locations including:
-  - The Azure Monitor Logs store via an associated Log Analytics workspace. There they can be analyzed using Log Analytics.
-  - Azure Storage for archiving and offline analysis 
-  - An Event Hubs endpoint where external applications can read them, for example, partner security information and event management (SIEM) tools.
 
 In the Azure portal from your IoT hub under **Monitoring**, you can select **Diagnostic settings** followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your IoT hub.
 
@@ -81,15 +56,9 @@ For more information on creating a diagnostic setting using the Azure portal, CL
 
 When routing IoT Hub platform metrics to other locations:
 
-- These platform metrics aren't exportable via diagnostic settings: *Connected devices* and *Total devices*.
+- These platform metrics aren't exportable by using diagnostic settings: *Connected devices* and *Total devices*.
 
 - Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more information, see [Exporting platform metrics to other locations](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations).
-
-[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-
-For more information about the resource types for IoT Hub, see [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md).
-
-[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
@@ -105,14 +74,9 @@ For IoT Hub platform metrics that are collected in units of count, some aggregat
 
 Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](../azure-monitor/essentials/metrics-charts.md#filters) and [splitting](../azure-monitor/essentials/metrics-charts.md#apply-splitting) to your charts based on a dimension.
 
-For a list of available metrics for IoT Hub, see [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md#metrics).
-
-
 <!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
 If your service uses any non-Azure Monitor based metrics, add the following include and more information.
 [!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
-
-<!-- ## Azure Monitor resource logs -->
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
@@ -134,7 +98,7 @@ The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform lo
 
 When routing IoT Hub platform metrics to Azure Monitor Logs:
 
-- The following platform metrics aren't exportable via diagnostic settings: *Connected devices* and *Total devices*.
+- The following platform metrics aren't exportable by using diagnostic settings: *Connected devices* and *Total devices*.
 
 - Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
@@ -260,12 +224,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-### Sample Kusto queries
-
-Use the following [Kusto](/azure/data-explorer/kusto/query/) queries to help you monitor your IoT hub.
-
-> [!IMPORTANT]
-> Selecting **Logs** from the **IoT Hub** menu opens **Log Analytics** and includes data solely from your IoT hub resource. For queries that include data from other IoT hubs or Azure services, select **Logs** from the [**Azure Monitor** menu](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/logs). For more information, see [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md).
+Use the following Kusto queries to help you monitor your IoT hub.
 
 - **Connectivity Errors**: Identify device connection errors.
 
@@ -356,4 +315,4 @@ The following table lists some suggested alert rules for IoT Hub. These alerts a
 
 - See [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md) for a reference of the metrics, logs, and other important values created for IoT Hub.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
-- See [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md)for monitoring device connectivity.
+- See [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md) for monitoring device connectivity.
