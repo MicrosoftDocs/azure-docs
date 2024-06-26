@@ -45,7 +45,7 @@ dotnet add package Azure.Identity
 
 #### [Java](#tab/java)
 
-Install the Java [Azure Identity client library](https://mvnrepository.com/artifact/com.azure/azure-identity) with the following POM file:
+Install the [Azure Identity client library for Java](https://mvnrepository.com/artifact/com.azure/azure-identity) with the following POM file:
 
 ```xml
 <dependencyManagement>
