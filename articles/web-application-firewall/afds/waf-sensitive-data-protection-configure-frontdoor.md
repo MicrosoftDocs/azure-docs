@@ -1,14 +1,14 @@
 ---
-title: How to mask sensitive data on Azure Web Application Firewall on Azure Front Door (preview)
+title: How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
 description: Learn how to mask sensitive data on Azure Web Application Firewall on Azure Front Door.
 author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 06/24/2024
 ---
 
-# How to mask sensitive data on Azure Web Application Firewall on Azure Front Door (preview)
+# How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
 
 The Web Application Firewall's (WAF) Log Scrubbing tool helps you remove sensitive data from your WAF logs. It works by using a rules engine that allows you to build custom rules to identify specific portions of a request that contain sensitive data. Once identified, the tool scrubs that information from your logs and replaces it with _*******_.
 
