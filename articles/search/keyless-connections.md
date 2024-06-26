@@ -37,7 +37,7 @@ Before working locally without keyless, update your AI Search enabled code with 
 
 #### [.NET](#tab/csharp)
 
-Install the .NET [Azure Identity client library](https://www.nuget.org/packages/Azure.Identity):
+Install the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity):
 
 ```dotnetcli
 dotnet add package Azure.Identity
