@@ -171,7 +171,7 @@ When an indexer is reset to refresh its change tracking state, a separate histor
 
 For more information about status codes and indexer monitoring information, see the following API reference:
 
-* [Indexers - Get Status (REST API)](//rest/api/searchservice/indexers/get-status)
+* [Indexers - Get Status (REST API)](/rest/api/searchservice/indexers/get-status)
 * [IndexerStatus](/dotnet/api/azure.search.documents.indexes.models.indexerstatus)
 * [IndexerExecutionStatus](/dotnet/api/azure.search.documents.indexes.models.indexerexecutionstatus)
 * [IndexerExecutionResult](/dotnet/api/azure.search.documents.indexes.models.indexerexecutionresult)
