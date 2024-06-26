@@ -118,7 +118,7 @@ Currently, LLM-powered applications often use [retrieval-augmented generation](v
 
 For example, if the task is to write code, semantic search may not be able to retrieve the syntax tree, the file system layout, the code summaries, or the API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, semantic search may not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
 
-Weaving together [a web of standalone in-memory, relational, and vector databases](#memory-systems) may work for prototypical agent systems; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+Weaving together [a web of standalone in-memory, relational, and vector databases](#agent-memory-system) may work for prototypical agent systems; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 Therefore, a robust memory system should have the following characteristics:
 
@@ -140,7 +140,7 @@ Not only are memory systems critical to AI agents; they are also important for t
 
 ## Infastructure for a robust memory system
 
-The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together [a plethora of disparate in-memory, relational, and vector databases](#memory-systems) may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together [a plethora of disparate in-memory, relational, and vector databases](#agent-memory-system) may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
 In place of all the standalone databases, AI agent memory systems can rely on Azure Cosmos DB as a unified solution. Its robustness successfully [enabled OpenAI’s ChatGPT service](https://www.youtube.com/watch?v=6IIUtEFKJec&t) to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed [NoSQL](distributed-nosql.md), [relational](distributed-relational.md), and [vector database](vector-database.md) service that offers a serverless mode. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
 
@@ -178,13 +178,13 @@ Implementation example
 
 ## Implementation sample
 
-This section explores the implementation of an autonomous agent to process traveler inquiries and bookings in a CruiseLine travel application. It uses the popular LangChain Agent framework. Azure Cosmos DB serves as the [unified and robust memory system](#memory-can-make-or-break-ai-agents) that ensures [speed, scale, and simplicity](#infastructure-for-a-robust-memory-system).
+This section explores the implementation of an autonomous agent to process traveler inquiries and bookings in a CruiseLine travel application. It uses the LangChain Agent framework for agent planning, tool usage, and perception. Its [unified memory system](#memory-can-make-or-break-ai-agents) uses Azure Cosmos DB for its [speed, scale, and simplicity](#infastructure-for-a-robust-memory-system).
 
 Chatbots have been a long-standing concept, but AI agents are advancing beyond basic human conversation to carry out tasks based on natural language, traditionally requiring coded logic. This AI travel agent, developed using LangChain's agent framework, will utilize the robust vector database and document store capabilities of Azure Cosmos DB to address traveler inquiries and facilitate trip bookings. It will operate within a Python FastAPI backend and support user interactions through a React JS user interface.
 
 ### Prerequisites
 
-- If you don't have an Azure subscription, you may [try Azure Cosmos DB free](#try-free.md) for 30 days without creating an Azure account; no credit card is required, and no commitment follows when the trial period ends.
+- If you don't have an Azure subscription, you may [try Azure Cosmos DB free](try-free.md) for 30 days without creating an Azure account; no credit card is required, and no commitment follows when the trial period ends.
 - Setup account for OpenAI API or Azure OpenAI Service.
 - Create a vCore cluster in Azure Cosmos DB for MongoDB by following this [QuickStart](mongodb/vcore/quickstart-portal.md).
 - An IDE for Development, such as VS Code.
