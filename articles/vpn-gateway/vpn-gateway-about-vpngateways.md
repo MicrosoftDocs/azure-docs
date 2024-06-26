@@ -38,6 +38,8 @@ Here are some of the key scenarios for VPN Gateway:
 
   * **ExpressRoute + VPN Gateway:** A combination of ExpressRoute + VPN Gateway connections (coexisting connections).
 
+* Use VPN Gateway as [a hub](./vpn-gateway-peering-gateway-transit.md) to connect with spokes such as peered networks, site-to-site connections, point-to-site connections and VNet-to-VNet connections. 
+
 ## <a name="connectivity"></a> Planning and design
 
 Because you can create multiple connection configurations using VPN Gateway, you need to determine which configuration best fits your needs. Point-to-site, site-to-site, and coexisting ExpressRoute/site-to-site connections all have different instructions and resource configuration requirements.
