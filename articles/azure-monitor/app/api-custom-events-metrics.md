@@ -156,12 +156,12 @@ If [sampling](./sampling.md) is in operation, the `itemCount` property shows a v
 
 ## GetMetric
 
-To learn how to effectively use the `GetMetric()` call to capture locally pre-aggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
+To learn how to effectively use the `GetMetric()` call to capture locally preaggregated metrics for .NET and .NET Core applications, see [Custom metric collection in .NET and .NET Core](./get-metric.md).
 
 ## TrackMetric
 
 > [!NOTE]
-> `Microsoft.ApplicationInsights.TelemetryClient.TrackMetric` isn't the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the `GetMetric(..)` overloads to get a metric object for accessing SDK pre-aggregation capabilities.
+> `Microsoft.ApplicationInsights.TelemetryClient.TrackMetric` isn't the preferred method for sending metrics. Metrics should always be preaggregated across a time period before being sent. Use one of the `GetMetric(..)` overloads to get a metric object for accessing SDK pre-aggregation capabilities.
 >
 > If you're implementing your own pre-aggregation logic, you can use the `TrackMetric()` method to send the resulting aggregates. If your application requires sending a separate telemetry item on every occasion without aggregation across time, you likely have a use case for event telemetry. See `TelemetryClient.TrackEvent
 (Microsoft.ApplicationInsights.DataContracts.EventTelemetry)`.

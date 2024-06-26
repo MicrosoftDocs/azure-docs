@@ -167,11 +167,11 @@
     items:
     - name: Semantic ranking
       href: semantic-search-overview.md
-    - name: Keyword queries (BM25 ranking)
+    - name: BM25 ranking
       href: index-similarity-and-scoring.md
-    - name: Vector queries
+    - name: Vector ranking
       href: vector-search-ranking.md
-    - name: Hybrid queries (RRF)
+    - name: Hybrid ranking (RRF)
       href: hybrid-search-ranking.md
   - name: Security
     items:
@@ -354,8 +354,6 @@
     items:
     - name: Full text query
       href: search-query-create.md
-    - name: Semantic query
-      href: semantic-how-to-query-request.md
     - name: Typeahead query
       href: search-add-autocomplete-suggestions.md
     - name: Query examples (simple syntax)
@@ -398,16 +396,6 @@
         href: search-pagination-page-layout.md
       - name: Return a semantic answer
         href: semantic-answers.md
-    - name: Relevance
-      items:
-      - name: Enable or disable semantic ranking
-        href: semantic-how-to-enable-disable.md      
-      - name: Configure semantic ranking
-        href: semantic-how-to-configure.md
-      - name: Configure BM25 ranking
-        href: index-ranking-similarity.md
-      - name: Add a scoring profile
-        href: index-add-scoring-profiles.md
     - name: Advanced queries
       items:
       - name: Use full Lucene (examples)
@@ -418,6 +406,18 @@
         href: search-query-fuzzy.md
   - name: Hybrid search
     href: hybrid-search-how-to-query.md
+  - name: Ranking and relevance
+    items:
+    - name: Enable or disable semantic ranking
+      href: semantic-how-to-enable-disable.md      
+    - name: Configure semantic ranking
+      href: semantic-how-to-configure.md
+    - name: Configure BM25 ranking
+      href: index-ranking-similarity.md
+    - name: Add semantic ranking to queries
+      href: semantic-how-to-query-request.md
+    - name: Add a scoring profile
+      href: index-add-scoring-profiles.md
   - name: Security
     items:
     - name: Enable role-based access control
@@ -465,11 +465,7 @@
       - name: Find encrypted objects
         href: search-security-get-encryption-keys.md
     - name: Document-level security
-      items:
-      - name: Security filters
-        href: search-security-trimming-for-azure-search.md
-      - name: Security filters with Microsoft Entra ID
-        href: search-security-trimming-for-azure-search-with-aad.md
+      href: search-security-trimming-for-azure-search.md
   - name: Development
     items:
     - name: API versions
