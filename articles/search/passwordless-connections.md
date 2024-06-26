@@ -6,15 +6,15 @@ ms.date: 06/05/2024
 author: HeidiSteen
 ms.author: heidist
 ms.reviewer: scaddie
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, keylessless-dotnet, keylessless-java, keylessless-js, keylessless-python, build-2024-intelligent-apps
-#customer intent: As a developer, I want to use keylessless connections so that I don't leak secrets.
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, Keyless-dotnet, Keyless-java, Keyless-js, Keyless-python, build-2024-intelligent-apps
+#customer intent: As a developer, I want to use keyless connections so that I don't leak secrets.
 ---
 
 # Use Azure AI Search without keys 
 
-In your application code, you can set up a keylessless connection to Azure AI Search that uses Microsoft Entra ID and roles for authentication and authorization. Application requests to most Azure services must be authenticated with keys or [keylessless connections](https://aka.ms/delete-keylesss). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. keylessless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
+In your application code, you can set up a keyless connection to Azure AI Search that uses Microsoft Entra ID and roles for authentication and authorization. Application requests to most Azure services must be authenticated with keys or [keyless connections](https://aka.ms/delete-keylesss). Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate to the service. Keyless authentication offers improved management and security benefits over the account key because there's no key (or connection string) to store.
 
-keylessless connections are enabled with the following steps: 
+Keyless connections are enabled with the following steps: 
 
 * Configure your authentication.
 * Set environment variables, as needed. 
@@ -394,5 +394,5 @@ To connect to Azure AI Search, your code needs to know your resource endpoint, a
 
 ## Related content
 
-* [Keylessless connections developer guide](/azure/developer/intro/passwordless-overview)
+* [Keyless connections developer guide](/azure/developer/intro/passwordless-overview)
 * [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
