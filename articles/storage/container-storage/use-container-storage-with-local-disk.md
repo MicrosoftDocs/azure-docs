@@ -4,7 +4,7 @@ description: Configure Azure Container Storage for use with Ephemeral Disk using
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 06/26/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -145,6 +145,8 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
                    storage: 1Gi
    ```
 
+   When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's ephemeral disk. See [Check node ephemeral disk capacity](#check-node-ephemeral-disk-capacity).
+
 1. Apply the YAML manifest file to deploy the pod.
    
    ```azurecli-interactive
@@ -172,9 +174,25 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 You've now deployed a pod that's using local NVMe as its storage, and you can use it for your Kubernetes workloads.
 
-## Manage storage pools
+## Manage volumes and storage pools
 
-Now that you've created your storage pool, you can expand or delete it as needed.
+In this section, you'll learn how to check the available capacity of ephemeral disk for a single node, and how to expand or delete a storage pool.
+
+### Check node ephemeral disk capacity
+
+An ephemeral volume is allocated on a single node. When you configure the size of your ephemeral volumes, the size should be less than the available capacity of the single node's ephemeral disk.
+
+Run the following command to check the available capacity of ephemeral disk for a single node.
+
+```output
+$ kubectl get diskpool -n acstor
+NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
+ephemeraldisk-nvme-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-nvme-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-nvme-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
+```
+
+In this example, the available capacity of ephemeral disk for a single node is `75031990272` bytes or 69 GiB.
 
 ### Expand a storage pool
 

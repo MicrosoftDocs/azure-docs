@@ -6,6 +6,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/15/2024
 ms.author: pafarley
+ms.custom: references_regions
 ---
 
 ## Prerequisites

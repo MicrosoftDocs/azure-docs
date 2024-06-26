@@ -6,8 +6,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/13/2024
-ms.custom: engagement-fy23, devx-track-azurepowershell, UpdateFrequency2
-
+ms.custom: engagement-fy23, devx-track-azurepowershell, UpdateFrequency2, devx-track-arm-template
 #customer intent: As a developer, I want to use ARM templates in Azure DevTest Labs so that I can create virtual machines or PaaS resources.
 ---
 
