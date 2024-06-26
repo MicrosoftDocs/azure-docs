@@ -4,7 +4,7 @@ description: How to configure, implement, and manage file uploads from your devi
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/27/2023
+ms.date: 06/18/2024
 ms.topic: how-to
 ms.service: iot-central
 
@@ -16,7 +16,7 @@ IoT Central lets you upload media and other files from connected devices to clou
 
 Optionally, you can manage and preview files uploaded by your devices inside your IoT Central application.
 
-To learn how to upload files by using the IoT Central REST API, see [How to use the IoT Central REST API to upload a file.](../core/howto-upload-file-rest-api.md)
+To learn how to configure file uploads by using the IoT Central REST API, see [Add a file upload storage account configuration](howto-manage-iot-central-with-rest-api.md#add-a-file-upload-storage-account-configuration).
 
 ## Prerequisites
 
@@ -80,11 +80,87 @@ To preview the content of the file and get more information about the file, sele
 
 :::image type="content" source="media/howto-configure-file-uploads/file-upload-preview.png" alt-text="Screenshot that shows a preview of a text file." lightbox="media/howto-configure-file-uploads/file-upload-preview.png":::
 
-## Next steps
+## Test file upload
 
-Now that you know how to configure and implement device file uploads in IoT Central, a suggested next step is to learn more device file uploads:
+After you [configure file uploads](#configure-device-file-uploads) in your IoT Central application, you can test it with the sample code. If you haven't already cloned the file upload sample repository, use the following commands to clone it to a suitable location on your local machine and install the dependent packages:
 
-- [Upload files from your device to the cloud with IoT Hub (.NET)](../../iot-hub/iot-hub-csharp-csharp-file-upload.md)
-- [Upload files from your device to the cloud with IoT Hub (Java)](../../iot-hub/iot-hub-java-java-file-upload.md)
-- [Upload files from your device to the cloud with IoT Hub (Node.js)](../../iot-hub/iot-hub-node-node-file-upload.md)
-- [Upload files from your device to the cloud with IoT Hub (Python)](../../iot-hub/iot-hub-python-python-file-upload.md)
+```cmd/sh
+git clone https://github.com/azure-Samples/iot-central-file-upload-device
+cd iotc-file-upload-device
+npm i
+npm build
+```
+
+### Create the device template and import the model
+
+To test the file upload, you run a sample device application. Create a device template for the sample device to use.
+
+1. Open your application in IoT Central UI.
+
+1. Navigate to the **Device Templates** tab in the left pane, select **+ New**:
+
+1. Choose **IoT device** as the template type.
+
+1. On the **Customize** page of the wizard, enter a name such as *File Upload Device Sample* for the device template.
+
+1. On the **Review** page, select **Create**.
+
+1. Select **Import a model** and upload the *FileUploadDeviceDcm.json* model file from the folder `iotc-file-upload-device\setup` in the repository you downloaded previously.
+
+1. Select **Publish** to publish the device template.
+
+### Add a device
+
+To add a device to your Azure IoT Central application:
+
+1. Choose **Devices** on the left pane.
+
+1. Select the *File Upload Device Sample* device template that you created earlier.
+
+1. Select + **New** and select **Create**.
+
+1. Select the device that you created and Select **Connect**
+
+Copy the values for `ID scope`, `Device ID`, and `Primary key`. You use these values in the device sample code.
+
+### Run the sample code
+
+Open the git repository you downloaded in VS Code. Create an ".env" file at the root of your project and add the values you copied previously. The file should look like the following sample with the values you made a note of previously.
+
+```cmd/sh
+scopeId=<YOUR_SCOPE_ID>
+deviceId=<YOUR_DEVICE_ID>
+deviceKey=<YOUR_PRIMARY_KEY>
+modelId=dtmi:IoTCentral:IotCentralFileUploadDevice;1
+```
+
+Open the git repository you downloaded in VS Code. Press F5 to run/debug the sample. In your terminal window you see that the device is registered and is connected to IoT Central:
+
+```cmd/sh
+Starting IoT Central device...
+ > Machine: Windows_NT, 8 core, freemem=6674mb, totalmem=16157mb
+Starting device registration...
+DPS registration succeeded
+Connecting the device...
+IoT Central successfully connected device: 7z1xo26yd8
+Sending telemetry: {
+    "TELEMETRY_SYSTEM_HEARTBEAT": 1
+}
+Sending telemetry: {
+    "TELEMETRY_SYSTEM_HEARTBEAT": 1
+}
+Sending telemetry: {
+    "TELEMETRY_SYSTEM_HEARTBEAT": 1
+}
+
+```
+
+The sample project comes with a sample file named *datafile.json*. This file is uploaded when you use the **Upload File** command in your IoT Central application.
+
+To test the upload, open your application and select the device you created. Select the **Command** tab and you see a button named **Run**. When you select that button the IoT Central app calls a direct method on your device to upload the file. You can see this direct method in the sample code in the /device.ts file. The method is named *uploadFileCommand*.
+
+Select the **Raw data** tab to verify the file upload status.
+
+:::image type="content" source="media/howto-configure-file-uploads/raw-data.png" alt-text="Screenshot showing the U I of how to verify a file upload." border="false":::
+
+You can also make a [REST API](/rest/api/storageservices/list-blobs) call to verify the file upload status in the storage container.
