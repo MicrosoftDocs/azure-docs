@@ -40,7 +40,7 @@ You can create a schedule trigger to schedule a pipeline to run periodically, su
 
 ---
 
-1. Select **Trigger** on the menu, and then select **New/Edit**.
+2. Select **Trigger** on the menu, and then select **New/Edit**.
 
     :::image type="content" source="./media/how-to-create-schedule-trigger/new-trigger-menu.png" alt-text="Screenshot that shows the New trigger menu.":::
 
@@ -62,7 +62,7 @@ You can create a schedule trigger to schedule a pipeline to run periodically, su
     1. Specify **Recurrence** for the trigger. Select one of the values from the dropdown list (**Every minute**, **Hourly**, **Daily**, **Weekly**, or **Monthly**). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute** and enter **15** in the text box.
     1. Under **Recurrence**, if you choose **Day(s)**, **Week(s)**, or **Month(s)** from the dropdown list, you can see **Advanced recurrence options**.
 
-    :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Screenshot that shows the advanced recurrence options of Day(s), Week(s), and Month(s).":::
+       :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Screenshot that shows the advanced recurrence options of Day(s), Week(s), and Month(s).":::
 
     1. To specify an end-date time, select **Specify an end date**. Specify the **Ends On** information, and then select **OK**.
 
@@ -95,7 +95,7 @@ You can create a schedule trigger to schedule a pipeline to run periodically, su
 
 ---
 
-1. Switch to the **Trigger runs** > **Schedule** view.
+9. Switch to the **Trigger runs** > **Schedule** view.
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -517,7 +517,7 @@ Here are some of the time zones supported for schedule triggers.
 | India Standard Time (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 | China Standard Time | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
-This list is incomplete. For a complete list of time-zone options, see the [Trigger creation page](#azure-data-factory-and-synapse-portal-experience) in the portal.
+This list is incomplete. For a complete list of time-zone options, see the [Trigger creation page](#azure-data-factory-and-azure-synapse-portal-experience) in the portal.
 
 ### startTime property
 
@@ -536,7 +536,7 @@ The first execution time is the same even if the `startTime` value is `2017-04-0
 
 Finally, when the hours or minutes aren't set in the schedule for a trigger, the hours or minutes of the first execution are used as the defaults.
 
-### The schedule property
+### schedule property
 
 The use of a schedule can limit the number of trigger executions. For example, if a trigger with a monthly frequency is scheduled to run only on day 31, the trigger runs only in those months that have a 31st day.
 
