@@ -19,7 +19,7 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 ## Why use cluster auto-upgrade
 
-Cluster auto-upgrade provides a "set once and forget" mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest features or patches from AKS and upstream Kubernetes.
+Cluster auto-upgrade provides a "set once and forget" mechanism that yields tangible time and operational cost benefits. You don't need to stop your workloads, create a new AKS cluster or redeploy your workloads. By enabling auto-upgrade, you can ensure your clusters are up to date seamlessly and don't miss the latest features or patches from AKS and upstream Kubernetes. 
 
 AKS follows a strict supportability versioning window. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Alias minor versions][supported-kubernetes-versions].
 
