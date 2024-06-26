@@ -7,7 +7,9 @@ ms.topic: how-to
 
 # Simplify network configuration requirements through Azure Arc gateway (Limited preview)
 
-**This is a Limited Public Preview, so customer subscriptions must be allowed by Microsoft to use the feature. To participate, complete the [Azure Arc gateway Limited Public Preview Sign-up form](https://forms.office.com/r/bfTkU2i0Qw).**
+> [!NOTE]
+> **This is a Limited Public Preview, so customer subscriptions must be allowed by Microsoft to use the feature. To participate, complete the [Azure Arc gateway Limited Public Preview Sign-up form](https://forms.office.com/r/bfTkU2i0Qw).**
+> 
 
 If you use enterprise firewalls or proxies to manage outbound traffic, the Azure Arc gateway lets you onboard infrastructure to Azure Arc using only seven (7) endpoints. With Azure Arc gateway, you can:
 
@@ -149,9 +151,9 @@ When the resource is created, the success response includes the Arc gateway URL.
   
     **For Windows servers:**
     
-    1. Obtain your gateway's Resource ID by running the `az connectedmachine gateway list` command. This command outputs information about all the gateway resources in your subscription. Note the "id" parameter in the output (that is, the full ARM resource ID).
-    1. In the **try section** of the installation script, add the id found in the previous step as the following parameter: `--gateway-id "[Your-gateway’s-Resource-ID]"` 
-    1. In the **catch section** of the installation script, add the id found in the previous step as the following parameter: `gateway-id="[Your-gateway’s-Resource-ID]"` 
+    1. Obtain your gateway's Resource ID by running the `az connectedmachine gateway list` command. This command outputs information about all the gateway resources in your subscription. Note the ID parameter in the output (that is, the full ARM resource ID).
+    1. In the **try section** of the installation script, add the ID found in the previous step as the following parameter: `--gateway-id "[Your-gateway’s-Resource-ID]"` 
+    1. In the **catch section** of the installation script, add the ID found in the previous step as the following parameter: `gateway-id="[Your-gateway’s-Resource-ID]"` 
         
     Windows server onboarding script example:
 
@@ -215,7 +217,7 @@ When the resource is created, the success response includes the Arc gateway URL.
       
 1. Run the installation script to onboard your servers to Azure Arc.
 
-**To configure an existing machine to use Arc gateway**, follow these steps:
+To configure an existing machine to use Arc gateway, follow these steps:
 
 > [!NOTE]
 > The existing machine must be using the Arc-enabled servers connected machine agent version 1.43 or higher to use the Arc gateway Limited Public preview.
@@ -236,9 +238,10 @@ When the resource is created, the success response includes the Arc gateway URL.
 
     Once your machines have been updated to use the Arc gateway, some Azure Arc endpoints that were previously allowed in your enterprise proxy or firewalls won't be needed. However, there's a transition period, so allow **1 hour** before removing unneeded endpoints from your firewall/enterprise proxy.
     
-### Step 5: Verify that the setup succeeded.
+### Step 5: Verify that the setup succeeded
 On the onboarded server, run the following command: `azcmagent show`
-        The result should indicate the following values:
+    The result should indicate the following values:
+
     - **Agent Status** should show as **Connected**.
     - **Using HTTPS Proxy** should show as **http://localhost:40343**
     - **Upstream Proxy** should show as your enterprise proxy (if you set one)
@@ -246,7 +249,7 @@ On the onboarded server, run the following command: `azcmagent show`
 Additionally, to verify successful set-up, you can run the following command: `azcmagent check`
         The result should indicate that the `connection.type` is set to gateway, and the **Reachable** column should indicate **true** for all URLs.
 
-### Step 6: Ensure additional scenarios use the Arc gateway. (Linux only)
+### Step 6: Ensure additional scenarios use the Arc gateway (Linux only)
 
 On Linux, to use Azure Monitor or Microsoft Defender for Endpoint, additional commands need to be executed to work with the Azure Arc gateway (Limited preview).
 
