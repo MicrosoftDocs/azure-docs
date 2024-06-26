@@ -60,7 +60,7 @@ While both scenarios have a dependency on Azure Private Link, they're independen
 
 When evaluating shared private links for your scenario, remember these constraints.
 
-+ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview`, `2021-04-01-preview`, `2024-03-01-preview`, and `2024-06-01-preview`. We recommend the latest preview version.
++ Several of the resource types used in a shared private link are in preview. If you're connecting to a preview resource (Azure Database for MySQL, Azure Functions, or Azure SQL Managed Instance), use a preview version of the Management REST API to create the shared private link. These versions include `2020-08-01-preview`, `2021-04-01-preview`, `2024-03-01-preview`, and `2024-06-01-preview`. We recommend the latest preview API.
 
 + Indexer execution must use the private execution environment that's specific to your search service. Private endpoint connections aren't supported from the multitenant environment. The configuration setting for this requirement is covered in this article.
 
