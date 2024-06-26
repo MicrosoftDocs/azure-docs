@@ -47,16 +47,10 @@ Use the following steps to create a service principal:
 
    ```output
    {
-     "clientID": <client-ID>,
-     "clientSecret": <client-secret>,
-     "subscriptionID": <subscription-ID>,
-     "tenantID": <tenant-ID>,
-     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-     "resourceManagerEndpointUrl": "https://management.azure.com/",
-     "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-     "galleryEndpointUrl": "https://gallery.azure.com/",
-     "managementEndpointUrl": "https://management.core.windows.net/"
+     "appId": <app-ID>,
+     "displayName": <display-Name>,
+     "password": <password>,
+     "tenant": <tenant>
    }
    ```
 
@@ -100,9 +94,9 @@ Use the following steps to fill out the **ARO** pane shown in the following scre
 
 1. Under **Provide information to create a new cluster**, for **Red Hat pull secret**, use the Red Hat pull secret that you obtained in the [Get a Red Hat pull secret](#get-a-red-hat-pull-secret) section. Use the same value for **Confirm secret**.
 
-1. For **Service principal client ID**, use the service principal Application (client) ID that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section.
+1. For **Service principal client ID**, use the `appId` that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section.
 
-1. For **Service principal client secret**, use the service principal Application secret that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section. Use the same value for **Confirm secret**.
+1. For **Service principal client secret**, use the `password` that you obtained in the [Create a Microsoft Entra service principal](#create-a-microsoft-entra-service-principal) section. Use the same value for **Confirm secret**.
 
 1. Select **Next EAP Application**.
 
