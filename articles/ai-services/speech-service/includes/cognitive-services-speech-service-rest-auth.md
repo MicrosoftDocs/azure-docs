@@ -13,13 +13,13 @@ Each request requires an authorization header. This table illustrates which head
 | `Ocp-Apim-Subscription-Key` | Yes | Yes |
 | `Authorization: Bearer` | Yes | Yes |
 
-When you're using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your resource key. For example:
+When you're using the `Ocp-Apim-Subscription-Key` header, only the your resource key must be provided. For example:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-When you're using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your resource key for an access token that's valid for 10 minutes.
+When you're using the `Authorization: Bearer` header, you need to make a request to the `issueToken` endpoint. In this request, you exchange your resource key for an access token that's valid for 10 minutes.
 
 Another option is to use Microsoft Entra authentication that also uses the `Authorization: Bearer` header, but with a token issued via Microsoft Entra ID. See [Use Microsoft Entra authentication](#Use-Microsoft-Entra-authentication).
 
@@ -170,7 +170,7 @@ Follow the steps here [Use Microsoft Entra authentication](../how-to-configure-a
 > - Get a Microsoft Entra access token
 > - Get the Speech resource ID
 
-When the resource ID and the Microsoft Entra access token are known the actual access token can be constructed following this format:
+After the resource ID and the Microsoft Entra access token have been obtained the actual access token can be constructed following this format:
 ```http
 "aad#YOUR_RESOURCE_ID#YOUR_MICROSOFT_ENTRA_ACCESS_TOKEN";
 ```
