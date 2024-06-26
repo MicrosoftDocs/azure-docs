@@ -33,13 +33,9 @@
       expanded: true
       items:
       - name: What is a vector database?
-        href: genai/vector-database.md
-      - name: Core concepts
-        href: genai/core-concepts.md
-      - name: Vector stores in Azure Cosmos DB
-        href: genai/vector-stores.md
-      - name: Vector search in Azure Cosmos DB
-        href: genai/vector-search.md  
+        href: vector-database.md
+      - name: Vector Search in Azure Cosmos DB NoSQL
+        href: nosql/vector-search.md
            
 - name: NoSQL
   href: nosql/toc.yml
