@@ -109,14 +109,12 @@ Like Bing Maps Get a Static Map API, Azure Maps Get Map Static Image API logs on
 
 Support
 
-- [Bing Maps to Azure Maps Migration FAQ]
 - [Microsoft Q&A Forum]
 
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps service geographic scope]: geographic-scope.md
-[Bing Maps to Azure Maps Migration FAQ]: tbd.md
 [Get Polygon]: /rest/api/maps/search/get-polygon
 [Get a Static Map]: /bingmaps/rest-services/imagery/get-a-static-map
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
