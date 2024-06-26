@@ -89,7 +89,8 @@ For tool usage and perception that do not require sophisticated planning and mem
 
 For advanced and autonomous planning and execution workflows, AutoGen propelled the multi-agent wave that began in late 2022. OpenAI’s Assistants API allow their users to create agents natively within the GPT ecosystem. Popular LLM orchestrator frameworks like LangChain and LlamaIndex have also incorporated multi-agent framework modules.
 
-See the implementation example section at the end provides an example for building a simple multi-agent system using one of the popular frameworks and a unified agent memory system.
+> [!TIP]
+> See the implementation example section at the end provides an example for building a simple multi-agent system using one of the popular frameworks and a unified agent memory system.
 
 ### Memory systems
 
