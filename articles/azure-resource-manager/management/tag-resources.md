@@ -20,7 +20,7 @@ This article describes the conditions and limitations for using tags. For steps 
 
 ## Tag usage and recommendations
 
-You can apply tags to your Azure resources, resource groups, and subscriptions.
+You can apply tags to your Azure resources, resource groups, and subscriptions but not to management groups.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
