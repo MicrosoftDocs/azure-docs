@@ -1058,6 +1058,8 @@
     href: investigate-incidents.md
   - name: Investigate incidents (Legacy)
     href: investigate-cases.md
+  - name: Investigate incidents in Copilot for Security
+    href: sentinel-security-copilot.md
   - name: Tutorial - Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Relate alerts to incidents
