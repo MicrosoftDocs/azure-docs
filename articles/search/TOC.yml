@@ -429,7 +429,7 @@
       - name: Connect using Azure roles
         href: search-security-rbac.md
       - name: Code without keys
-        href: passwordless-connections.md       
+        href: keyless-connections.md       
       - name: Configure apps for Microsoft Entra ID
         href: search-howto-aad.md
       - name: Configure an IP firewall
