@@ -4,7 +4,7 @@ description: Learn to use the Azure SQL input binding in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 6/20/2024
+ms.date: 6/26/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
@@ -818,6 +818,8 @@ The following example shows a SQL input binding in a function.json file and a Py
 
 # [v2](#tab/python-v2)
 
+The following is sample python code for the function_app.py file:
+
 ```python
 import json
 import logging
@@ -898,6 +900,8 @@ def main(req: func.HttpRequest, todoItems: func.SqlRowList) -> func.HttpResponse
 The following example shows a SQL input binding in a Python function that is [triggered by an HTTP](./functions-bindings-http-webhook-trigger.md) request and reads from a query filtered by a parameter from the query string and returns the row in the HTTP response.
 
 # [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
 
 ```python
 import json
@@ -985,6 +989,8 @@ The stored procedure `dbo.DeleteToDo` must be created on the database.  In this 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="11-25":::
 
 # [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
 
 ```python
 import json
