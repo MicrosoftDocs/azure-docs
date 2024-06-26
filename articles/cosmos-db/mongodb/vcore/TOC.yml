@@ -42,6 +42,10 @@
       href: high-availability.md
     - name: Cross-region replication
       href: cross-region-replication.md
+    - name: Indexing
+      href: indexing-basics.md
+    - name: Background indexing
+      href: background-indexing.md
     - name: Reliability
       href: /azure/reliability/reliability-cosmos-mongodb?toc=/azure/cosmos-db/mongodb/vcore/toc.json
     - name: Compute and storage
