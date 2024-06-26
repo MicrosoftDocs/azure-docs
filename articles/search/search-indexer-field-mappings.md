@@ -11,7 +11,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 06/14/2024
+ms.date: 06/25/2024
 ---
 
 # Field mappings and transformations using Azure AI Search indexers
@@ -74,7 +74,7 @@ You can use the REST API or an Azure SDK to define field mappings.
 
 ### [**REST APIs**](#tab/rest)
 
-Use [Create Indexer (REST)](/rest/api/searchservice/create-Indexer) or [Update Indexer (REST)](/rest/api/searchservice/update-indexer), any API version.
+Use [Create Indexer (REST)](/rest/api/searchservice/indexers/create) or [Update Indexer (REST)](/rest/api/searchservice/indexers/create-or-update), any API version.
 
 This example handles a field name discrepancy.
 
@@ -146,12 +146,12 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 #### Example: Base-encoding a document key
 
-Only URL-safe characters can appear in an Azure AI Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/lookup-document)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
+Only URL-safe characters can appear in an Azure AI Search document key (so that you can address the document using the [Lookup API](/rest/api/searchservice/documents/get)). If the source field for your key contains URL-unsafe characters, such as `-` and `\`, use the `base64Encode` function to convert it at indexing time. 
 
 The following example specifies the base64Encode function on `metadata_storage_name` to handle unsupported characters.
 
 ```http
-PUT /indexers?api-version=2020-06-30
+PUT /indexers?api-version=2023-11-01
 {
   "dataSourceName" : "my-blob-datasource ",
   "targetIndexName" : "my-search-index",
@@ -175,7 +175,7 @@ A document key (both before and after conversion) can't be longer than 1,024 cha
 There are times when you need to use an encoded version of a field like `metadata_storage_path` as the key, but also need an unencoded version for full text search. To support both scenarios, you can map `metadata_storage_path` to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as `searchable` in the index schema.
 
 ```http
-PUT /indexers/blob-indexer?api-version=2020-06-30
+PUT /indexers/blob-indexer?api-version=2023-11-01
 {
     "dataSourceName" : " blob-datasource ",
     "targetIndexName" : "my-target-index",
