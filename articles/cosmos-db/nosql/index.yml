@@ -66,6 +66,22 @@ landingContent:
             url: tutorial-spark-connector.md
           - text: Mirror database to Microsoft Fabric
             url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+  - title: Analytics
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Analytics overview
+            url: analytics.md
+      - linkListType: concept
+        links:
+          - text: Mirroring in Microsoft Fabric
+            url: /fabric/database/mirrored-database/azure-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
+          - text: Azure Synapse Link
+            url: ../synapse-link.md
+      - linkListType: tutorial
+        links:
+          - text: Mirror database to Microsoft Fabric
+            url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
   - title: Query items from a container
     linkLists:
       - linkListType: concept
