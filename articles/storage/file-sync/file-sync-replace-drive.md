@@ -71,6 +71,6 @@ Removing user access to your server endpoints on the temporary VM causes downtim
 
 3. On Server A, change the startup type of the Storage Sync Agent Service from **Disabled** to **Automatic**, and then put it in the **Started** state.
 4. Enable SMB access to the server endpoints on Server A.
-5. Sign in to the Azure portal. Go to the sync group and verify that the cloud endpoint is syncing to the server endpoints on Server A.
+5. Sign in to the Azure portal. Go to the sync group and verify that the cloud endpoint is syncing to the server endpoints on Server A. Users should now be able to access the file share from your registered server.
 
-   Users should now be able to access the file share from your registered server. Remember to change your volume free space policy to a reasonable level, such as 10-20%.
+   Remember to change your volume free space policy to a reasonable level, such as 10-20%.
