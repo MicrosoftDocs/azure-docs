@@ -71,7 +71,7 @@ npm install --save @azure/identity
 
 #### [Python](#tab/python)
 
-Install the Python [Azure Identity client library](https://pypi.org/project/azure-identity/):
+Install the [Azure Identity client library for Python](https://pypi.org/project/azure-identity/):
 
 ```console
 pip install azure-identity
