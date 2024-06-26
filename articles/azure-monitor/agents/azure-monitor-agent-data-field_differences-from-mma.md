@@ -17,16 +17,12 @@ Each of the data changes was carefully considered and the rational for each chan
 # Log Analytics Workspace Tables
 ## W3CIISLog Table
 This table collects log data from the Internet Information Service on Window systems.
+
 |LAW Field | Difference | Reason| Additional Information |
+|---|---|---|---|
 | sSiteName | may not be populated | depends on customer data collection configuration | The MMA agent could turn on collection by default, but the AMA is prevented by principle from making configuration changes in other services.<p>Enable the `Service Name (s-sitename)` field in W3C logging of IIS, see [Select W3C Fields to Log](/iis/manage/provisioning-and-managing-iis/configure-logging-in-iis#select-w3c-fields-to-log).|
 | Fileuri | No longer populated | not required for MMA parity | This field was only populated for IIS logs collected from Azure Cloud Services through the Azure Diagnostics Extension. It was not collected by MMA and thus is not collected by AMA|
 
-> [!IMPORTANT]
-> The 
-
-## Before 
-
-## High level guidance
 
 ## Next steps
 - [Azure Monitor Agent migration helper workbook](./azure-monitor-agent-migration-helper-workbook.md)
