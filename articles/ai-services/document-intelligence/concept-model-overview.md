@@ -41,6 +41,11 @@ ms.author: lajanuar
  Azure AI Document Intelligence supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt domain-specific model or train a custom model tailored to your specific business need and use cases. Document Intelligence can be used with the REST API or Python, C#, Java, and JavaScript client libraries.
 ::: moniker-end
 
+> [!NOTE]
+>
+> * Document processing projects that involve financial data, protected health data, personal data, or highly sensitive data require careful attention.
+> * Be sure to comply with all [national/regional and industry-specific requirements](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+
 ## Model overview
 
 The following table shows the available models for each current preview and stable API:
@@ -72,6 +77,10 @@ The following table shows the available models for each current preview and stab
 |All models|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
 
 \* - Contains sub-models. See the model specific information for supported variations and sub-types.
+
+### Latency
+
+Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. The time to analyze a document depends on the size (for example, number of pages) and associated content on each page. Document Intelligence is a multi-tenant service where latency for similar documents is comparable but not always identical. Occasional variability in latency and performance is inherent in any microservice-based, stateless, asynchronous service that processes images and large documents at scale. Although we're continuously scaling up the hardware and capacity and scaling capabilities, you might still have latency issues at runtime.
 
 |**Add-on Capability**| **Add-On/Free**|&bullet; [2024-02-29-preview](/rest/api/aiservices/document-models/build-model?view=rest-aiservices-2024-02-29-preview&preserve-view=true&branch=docintelligence&tabs=HTTP) <br>&bullet [2023-10-31-preview](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true|[`2023-07-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[`2022-08-31` (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)|[v2.1 (GA)](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)|
 |----------------|-----------|---|--|---|---|
@@ -111,6 +120,14 @@ Add-On* - Query fields are priced differently than the other add-on features. Se
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the documents within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
+### Bounding box and polygon coordinates
+
+A bounding box (`polygon` in v3.0 and later versions) is an abstract rectangle that surrounds text elements in a document used as a reference point for object detection.
+
+* The bounding box specifies position by using an x and y coordinate plane presented in an array of four numerical pairs. Each pair represents a corner of the box in the following order: upper left, upper right, lower right, lower left.
+
+* For an image, coordinates are presented in pixels. For a PDF, coordinates are presented in inches.
+
 For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are seven add-on capabilities available for the `2023-07-31` (GA) and later API version:
 
 * [`ocrHighResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
@@ -121,7 +138,22 @@ For all models, except Business card model, Document Intelligence now supports a
 * [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2024-02-29-preview, 2023-10-31-preview)
 * [`queryFields`](concept-add-on-capabilities.md#query-fields) (2024-02-29-preview, 2023-10-31-preview) `Not available with the US.Tax models`
 
-## Model details 
+## Language support
+
+The deep-learning-based universal models in Document Intelligence support many languages that can extract multilingual text from your images and documents, including text lines with mixed languages.
+Language support varies by Document Intelligence service functionality. For a complete list, see the following articles:
+
+* [Language support: document analysis models](language-support-ocr.md)
+* [Language support: prebuilt models](language-support-prebuilt.md)
+* [Language support: custom models](language-support-custom.md)
+
+## Regional availability
+
+Document Intelligence is generally available in many of the [60+ Azure global infrastructure regions](https://azure.microsoft.com/global-infrastructure/services/?products=metrics-advisor&regions=all#select-product).
+
+For more information, see our [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/#overview) page to help choose the region that's best for you and your customers.
+
+## Model details
 
 This section describes the output you can expect from each model. Please note that you can extend the output of most models with add-on features.
 
@@ -295,7 +327,7 @@ Custom models can be broadly classified into two types. Custom classification mo
 
 Custom document models analyze and extract data from forms and documents specific to your business. They're trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need one example of the form type to get started.
 
-Version v3.0 custom model supports signature detection in custom template (form) and cross-page tables in both template and neural models.
+Version v3.0 and later custom models support signature detection in custom template (form) and cross-page tables in both template and neural models. [Signature detection](quickstarts/try-document-intelligence-studio.md#signature-detection) looks for the presence of a signature, not the identity of the person who signs the document. If the model returns **unsigned** for signature detection, the model didn't find a signature in the defined field.
 
 ***Sample custom template processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 

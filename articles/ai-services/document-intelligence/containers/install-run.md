@@ -683,6 +683,8 @@ The Document Intelligence containers send billing information to Azure by using 
 
 Queries to the container are billed at the pricing tier of the Azure resource used for the API `Key`. You're billed for each container instance used to process your documents and images.
 
+If you receive the error *Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota' API key is out of quota* it is an indicator that your containers are not communication wit the billing endpoint.
+
 ### Connect to Azure
 
 The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run, but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. See the [Azure AI container FAQ](../../../ai-services/containers/container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.

@@ -47,7 +47,7 @@ items:
   - name: Pricing
     displayName: cost, free, F0, tiers, standard, S0
     href: https://azure.microsoft.com/pricing/details/form-recognizer/
-  - name: Service limits
+  - name: Service limits and billing
     displayName: quota, tiers, throttle, max, adjustments, requests, support, ocr
     href: service-limits.md
   - name: What's new

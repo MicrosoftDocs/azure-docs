@@ -103,6 +103,28 @@ If the language of your documents and extraction scenarios supports custom neura
 
 * For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
 
+### Optimal training data
+
+Training input data is the foundation of any machine learning model. It determines the quality, accuracy, and performance of the model. Therefore, it is crucial to create the best training input data possible for your Document Intelligence project. When you use the Document Intelligence custom model, you provide your own training data. Here are a few tips to help train your models effectively:
+
+* Use text*based instead of image*based PDFs when possible. One way to identify an image*based PDF is to try selecting specific text in the document. If you can select only the entire image of the text, the document is image based, not text based.
+
+* Organize your training documents by using a subfolder for each format (JPEG/JPG, PNG, BMP, PDF, or TIFF).
+
+* Use forms that have all of the available fields completed.
+
+* Use forms with differing values in each field.
+
+* If your images are low quality, use a larger dataset (more than five training documents).
+
+* Determine if you need to use a single model or multiple models composed into a single model.
+
+* Model accuracy can decrease when you have different formats analyzed with a single model. Plan on segmenting your dataset into folders, where each folder is a unique template. Train one model per folder, and compose the resulting models into a single endpoint.
+
+* Custom forms rely on a consistent visual template. If your form has variations with formats and page breaks, consider segmenting your dataset to train multiple models.
+
+* Ensure that you have a balanced dataset by accounting for formats, document types, and structure.
+
 ### Build mode
 
 The build custom model operation adds support for the *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
@@ -148,6 +170,10 @@ Document Intelligence v3.1 and later models support the following tools, applica
 | Feature | Resources | Model ID|
 |---|---|:---|
 |Custom model| &bullet; [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</br>&bullet; [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)</br>&bullet; [C# SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet; [Python SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|***custom-model-id***|
+
+## Custom model life cycle
+
+The life cycle of a custom model depends on the API version that is used to train it. If the API version is a general availability (GA) version, the custom model will have the same life cycle as that version. The custom model will not be available for inference when the API version is deprecated. If the API version is a preview version, the custom model will have the same life cycle as the preview version of the API.
 
 :::moniker-end
 

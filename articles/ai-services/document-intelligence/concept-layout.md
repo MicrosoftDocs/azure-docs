@@ -573,6 +573,16 @@ if page.selection_marks:
 
 Extracting tables is a key requirement for processing documents containing large volumes of data typically formatted as tables. The Layout model extracts tables in the `pageResults` section of the JSON output. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding polygon is output along with information whether the area is recognized as a `columnHeader` or not. The model supports extracting tables that are rotated. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top-level content that contains the full text from the document.
 
+Here are a few factors to consider when using the Document Intelligence bale extraction capability:
+
+* Is the data that you want to extract presented as a table, and is the table structure meaningful?
+
+* If the data isn't in a table format, can the data fit in a two-dimensional grid?
+
+* Do your tables span multiple pages? If so, to avoid having to label all the pages, split the PDF into pages before sending it to Document Intelligence. After the analysis, post-process the pages to a single table.
+
+* If you're creating custom models, refer to [Labeling as tables](quickstarts/try-document-intelligence-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each column. Fixed tables have a constant number of rows for each column.
+
 > [!NOTE]
 > Table is not supported if the input file is XLSX.
 

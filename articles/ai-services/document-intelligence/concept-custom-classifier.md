@@ -6,7 +6,7 @@ author: vkurpad
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 06/26/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -49,9 +49,9 @@ Custom classification models are deep-learning-model types that combine layout a
 
 Custom classification models can analyze a single- or multi-file documents to identify if any of the trained document types are contained within an input file. Here are the currently supported scenarios:
 
-* A single file containing one document. For instance, a loan application form.
+* A single file containing one document type, such as a loan application form.
 
-* A single file containing multiple documents. For instance, a loan application package containing a loan application form, payslip, and bank statement.
+* A single file containing multiple document types. For instance, a loan application package that contains a loan application form, payslip, and bank statement.
 
 * A single file containing multiple instances of the same document. For instance, a collection of scanned invoices.
 
