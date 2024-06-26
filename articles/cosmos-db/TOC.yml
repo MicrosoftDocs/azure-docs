@@ -17,13 +17,6 @@
       href: distributed-nosql.md
     - name: Distributed relational
       href: distributed-relational.md
-    - name: Vector databases in Azure Cosmos DB
-      expanded: true
-      items:
-      - name: Vector Databases
-        href: vector-database.md
-      - name: Vector Search in Azure Cosmos DB NoSQL
-        href: nosql/vector-search.md
 - name: Generative AI
   expanded: true
   items:
@@ -37,8 +30,7 @@
       - name: Vector Search in Azure Cosmos DB NoSQL
         href: nosql/vector-search.md
     - name: Building multi-tenant GenAI apps
-      href: genai/multi-tenancy.md       
-           
+      href: genai/multi-tenancy.md                  
 - name: NoSQL
   href: nosql/toc.yml
 - name: MongoDB
