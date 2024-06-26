@@ -2,7 +2,7 @@
 title: Register Azure Functions binding extensions
 description: Learn to register an Azure Functions binding extension based on your environment.
 ms.topic: reference
-ms.date: 03/19/2022
+ms.date: 06/26/2024
 ---
 
 # Register Azure Functions binding extensions
@@ -45,11 +45,11 @@ The following table lists the currently available version ranges of the default 
 
 
 > [!NOTE]
-> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[4.0.0, 5.0.0)`.
+> Even though host.json supports custom ranges for `version`, you should use a version range value from this table, such as  `[4.0.0, 5.0.0)`. For a complete list of extension bundle releases and extension versions in each release, see the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases). 
 
 ## Explicitly install extensions
 
-For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings).  
+For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings). See the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases) to review combinations of extension versions that are verified compatible.
 
 For non-.NET languages and C# script, when you can't use extension bundles you need to manually install required binding extensions in your local project. The easiest way is to use Azure Functions Core Tools. For more information, see [func extensions install](functions-core-tools-reference.md#func-extensions-install).  
 
