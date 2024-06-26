@@ -125,6 +125,6 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 >If you use any programming/scripting logic to list and select a minor version of Kubernetes before creating clusters with the `ListKubernetesVersions` API, note that starting from Kubernetes v1.27, the API returns `SupportPlan` as `[KubernetesOfficial, AKSLongTermSupport]`. Please ensure you update any logic to exclude `AKSLongTermSupport` versions to avoid any breaks and choose `KubernetesOfficial` support plan versions.  Otherwise, if LTS is indeed your path forward please first opt-into the Premium tier and the `AKSLongTermSupport` support plan versions from the `ListKubernetesVersions` API before creating clusters.
 
 > [!NOTE]
-> The next Long Term Support Version after 1.27 is to be determined. However Customers will get a minimum 6 months of overlap between 1.27 LTS and the next LTS version to plan upgrades.  
+> 1.30 is the next LTS version after 1.27. Customers will have at least 6 months of migration time available between 1.27 LTS to 1.30 LTS i.e before the 1.27 LTS goes End of Life by July 2025.  
 > Kubernetes 1.32.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
 
