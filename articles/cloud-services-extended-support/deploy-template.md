@@ -1,6 +1,6 @@
 ---
-title: Deploy a Azure Cloud Service (extended support) - Templates
-description: Deploy a Azure Cloud Service (extended support) by using ARM templates
+title: Deploy Azure Cloud Services (extended support) - Templates
+description: Deploy Azure Cloud Services (extended support) by using ARM templates
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw

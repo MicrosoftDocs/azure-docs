@@ -5,8 +5,8 @@ description: Learn how to create pipeline component deployment for Batch Endpoin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-author: santiagxf
-ms.author: fasantia
+author: ccrestana
+ms.author: cacrest
 reviewer: msakande
 ms.reviewer: mopeakande
 ms.topic: how-to

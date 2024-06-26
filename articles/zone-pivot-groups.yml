@@ -3171,6 +3171,15 @@ groups:
     title: Apache Gremlin
   - id: api-table
     title: Table
+# Owner: maghan
+- id: azure-database-postgresql-portal-cli
+  title: Azure Database for PostgreSQL tool
+  prompt: Choose what tool you want to use
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
 # Owner: franlanglois
 - id: cache-redis-zone-pivot-group
   title: Programming languages
