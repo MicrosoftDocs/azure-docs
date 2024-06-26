@@ -26,4 +26,4 @@ TODO
 
 ## Related content
 
-- [Mirror database to Microsoft Fabric](fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json)
+- [Mirror database to Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json)

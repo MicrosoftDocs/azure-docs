@@ -287,8 +287,8 @@
       items:
         - name: Analytics overview
           href: analytics.md
-        - text: Mirroring in Microsoft Fabric
-          url: /fabric/database/mirrored-database/azure-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
+        - name: Mirroring in Microsoft Fabric
+          href: /fabric/database/mirrored-database/azure-cosmos-db?toc=%2Fazure%2Fcosmos-db%2Ftoc.json&bc=%2Fazure%2Fcosmos-db%2Fbreadcrumb%2Ftoc.json
         - name: Azure Synapse Link
           items:
             - name: Azure Synapse Link for Azure Cosmos DB
