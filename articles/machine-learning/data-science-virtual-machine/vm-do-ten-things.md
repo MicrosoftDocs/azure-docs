@@ -42,7 +42,7 @@ In this article, you learn how to use your DSVM to both handle data science task
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/services/machine-learning/) before you begin.
 - A provisioned DSVM on the Azure portal. For more information, visit the [Creating a virtual machine](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016) resource.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Use Jupyter Notebooks
 
