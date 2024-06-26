@@ -12,7 +12,7 @@ ms.author: danlep
 
 ---
 
-# What are workspaces in Azure API Management
+# What are workspaces in Azure API Management?
 
 [!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
 
@@ -82,7 +82,9 @@ Key features and constraints of workspace gateways are in the following sections
 ### Gateway constraints
 
 * A gateway can be associated only with one workspace
+* Currently, if a workspace gateway is configured in a VNet, the VNet can't be updated
 * A workspace can't be associated with a self-hosted gateway
+* Workspace gateways don't support inbound private endpoints
 * Workspace gateways need to be in the same Azure region and subscription as the API Management service
 * Workspace gateways can be scaled to accommodate capacity needs but autoscale isn't supported
 * Workspace gateways can't currently be assigned custom hostnames; only the default hostname is supported

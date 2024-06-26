@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/23/2024
+ms.date: 06/24/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -161,6 +161,9 @@ Enterprise administrators and partner administrators use the Download Usage + Ch
 - **Marketplace Store Charge** - The Marketplace Store Charge CSV file contains the usage-based Marketplace charges breakdown by day for the specified billing period.
 - **Price sheet** - The Price Sheet CSV file contains the applicable rate for each meter for the given Enrollment and Billing Period.
 - **Balance and Summary** - The Balance and Summary CSV file contains a monthly summary of information for balances, new purchases, Marketplace service charges, adjustments, and overage charges.
+
+>[!NOTE]
+> The download URI for all the CSV files is valid for one hour. Ensure that you download the file before it expires. Otherwise, you'll have to retry the download.
 
 1. Select the **Download** symbol next to the month's report.  
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-usage-charges-csv.png" alt-text="Screenshot showing the Download option." :::
