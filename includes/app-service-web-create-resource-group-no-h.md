@@ -10,6 +10,7 @@ ms.author: cephalin
 ms.custom: "include file"
 ---
 
+
 [!INCLUDE [resource group intro text](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
 
 In the Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group) command. The following example creates a resource group named *myResourceGroup* in the *West Europe* location. To see all supported locations for App Service in **Free** tier, run the [`az appservice list-locations --sku FREE`](/cli/azure/appservice) command.
