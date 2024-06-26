@@ -210,7 +210,7 @@ search_index_client = SearchIndexClient(
 
 ## Local development
 
-Local development without keylesss includes these steps:
+Local development without keyless includes these steps:
 
 - Assign your personal identity with RBAC roles on the specific resource.
 - Use a tool to authenticate with Azure.
