@@ -73,7 +73,7 @@ This documentation contains the following article types:
 Conversation summarization supports the following features:
 
 * [**Recap**](how-to/conversation-summarization.md#get-recap-and-follow-up-task-summarization): Summarizes a conversation into a brief paragraph.
-* [**Issue/resolution summarization**](quickstart?tabs=conversation-summarization%2Cwindows&pivots=rest-api#conversation-issue-and-resolution-summarization): Call center specific features that give a summary of issues and resolutions in conversations between customer-service agents and your customers.
+* [**Issue/resolution summarization**](quickstart?tabs=conversation-summarization.md%2Cwindows&pivots=rest-api#conversation-issue-and-resolution-summarization): Call center specific features that give a summary of issues and resolutions in conversations between customer-service agents and your customers.
 * [**Chapter title summarization**](how-to/conversation-summarization.md#get-chapter-titles): Segments a conversation into chapters based on the topics discussed in the conversation, and gives suggested chapter titles of the input conversation.
 * [**Narrative summarization**](how-to/conversation-summarization.md#get-narrative-summarization): Generates detail call notes, meeting notes or chat summaries of the input conversation.
 
