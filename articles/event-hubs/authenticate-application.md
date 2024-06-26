@@ -47,7 +47,7 @@ When you register your client application, you supply information about the appl
 
 After you register your application, you see the **Application (client) ID** under **Settings**:
 
-:::image type="content" source="./media/authenticate-application/application-id.png" alt-text="Screenshot showing the app registration page with application ID highlighted." lightbox="./media/authenticate-application/application-id.png"":::
+:::image type="content" source="./media/authenticate-application/application-id.png" alt-text="Screenshot showing the app registration page with application ID highlighted." lightbox="./media/authenticate-application/application-id.png":::
 
 
 ### Create a client secret   
