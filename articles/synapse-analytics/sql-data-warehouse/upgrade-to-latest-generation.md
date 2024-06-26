@@ -57,7 +57,7 @@ You can now seamlessly upgrade to the dedicated SQL pool (formerly SQL DW) Compu
 
 ### Before you begin
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
 - Ensure that dedicated SQL pool (formerly SQL DW) is running - it must be to migrate to Gen2
@@ -204,7 +204,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## Restore from an Azure geographical region using PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To recover a database, use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet.
 
