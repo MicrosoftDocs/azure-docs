@@ -60,7 +60,7 @@ There's no first-class way to move an existing Recovery Services vault configura
 - Make sure that you remove and delete the Site Recovery configuration before you try to move the Azure VMs to a different region. 
 
   > [!NOTE]
-  > If your new target region for the Azure VM is the same as the Site Recovery target region, you can use your existing replication configuration and move it. Follow the steps in [Move Azure IaaS VMs to another Azure region](azure-to-azure-tutorial-migrate.md).
+  > If your new target region for the Azure VM is the same as the Site Recovery target region, you can use your existing replication configuration and move it. Follow the steps in [Move Azure IaaS VMs to another Azure region](../site-recovery/azure-to-azure-tutorial-migrate.md).
 
 - Ensure that you're making an informed decision and that stakeholders are informed. Your VM won't be protected against disasters until the move of the VM is complete.
 
@@ -90,14 +90,14 @@ For each Azure VM that's being replicated, go to **Protected Items** > **Replica
 
 1. Go to the Recovery Services vault.
 2. Select **Delete**.
-3. Delete all the other resources you [previously identified](#identify-the-resources-that-were-used-by-azure-site-recovery).
+3. Delete all the other resources you [previously identified](#identify-azure-site-recovery-dependencies).
  
 ## Relocate Azure VMs to the new target region
 
 Follow the steps in these articles based on your requirement to relocate Azure VMs to the target region:
 
-- [Move Azure VMs to another region](azure-to-azure-tutorial-migrate.md)
-- [Move Azure VMs into Availability Zones](move-azure-VMs-AVset-Azone.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move Azure VMs into Availability Zones](../site-recovery/move-azure-VMs-AVset-Azone.md)
 
 ## Set up Site Recovery based on the new source region for the VMs
 
