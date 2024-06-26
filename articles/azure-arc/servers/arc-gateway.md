@@ -70,7 +70,7 @@ There are six main steps to use the feature:
 1. Ensure the required URLs are allowed in your environment.
 1. Associate new or existing Azure Arc resources with your Arc gateway resource.
 1. Verify that the setup succeeded.
-1. Ensure other scenarios use the Arc gateway (Linux only)
+1. Ensure other scenarios use the Arc gateway (Linux only).
 
 ### Step 1: Download the az connectedmachine.whl file
 
@@ -240,14 +240,14 @@ To configure an existing machine to use Arc gateway, follow these steps:
     
 ### Step 5: Verify that the setup succeeded
 On the onboarded server, run the following command: `azcmagent show`
-    The result should indicate the following values:
+The result should indicate the following values:
 
-    - **Agent Status** should show as **Connected**.
-    - **Using HTTPS Proxy** should show as **http://localhost:40343**
-    - **Upstream Proxy** should show as your enterprise proxy (if you set one)
+- **Agent Status** should show as **Connected**.
+- **Using HTTPS Proxy** should show as **http://localhost:40343**
+- **Upstream Proxy** should show as your enterprise proxy (if you set one)
 
 Additionally, to verify successful set-up, you can run the following command: `azcmagent check`
-        The result should indicate that the `connection.type` is set to gateway, and the **Reachable** column should indicate **true** for all URLs.
+The result should indicate that the `connection.type` is set to gateway, and the **Reachable** column should indicate **true** for all URLs.
 
 ### Step 6: Ensure additional scenarios use the Arc gateway (Linux only)
 
@@ -289,7 +289,7 @@ To view gateway Router logs on **Windows**:
 1. Run `azcmagent logs` in PowerShell.
 1. In the resulting .zip file, the logs are located in the `C:\ProgramData\Microsoft\ArcGatewayRouter` folder.
 
-View gateway Router logs on **Linux**:
+To view gateway Router logs on **Linux**:
 1. Run `sudo azcmagent logs`. 
 1. In the resulting log file, the logs are located in the `/usr/local/arcrtr/logs/` folder.
 
