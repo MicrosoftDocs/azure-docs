@@ -382,7 +382,7 @@ resource role 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 
 To connect to Azure AI Search, your code needs to know your resource endpoint, and the ID of the managed identity. 
 
-Create environment variables for your Azure AI Search endpoint:
+Create environment variables for your deployed and keyless Azure AI Search resource:
 
 - `AZURE_SEARCH_ENDPOINT`: This URL is the access point for your Azure AI Search resource. This URL generally has the format `https://<YOUR-RESOURCE-NAME>.search.windows.net/`.   
 - `AZURE_CLIENT_ID`: This is the identity to authenticate as.
