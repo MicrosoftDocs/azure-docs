@@ -53,8 +53,10 @@ While FastPath supports most configurations, it doesn't support the following fe
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
 > * Traffic flows through the ExpressRoute gateway when these IP limits are reached.
+> * You can configure alerts through Azure Monitor to notify when the [number of FastPath routes](expressroute-monitoring-metrics-alerts.md#fastpath-routes-count-at-circuit-level) are nearing the threshold limit.
 
 ## Limited General Availability (GA)
+
 FastPath support for Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Virtual Network Peering and UDR support are available globally across all Azure regions. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
 - Australia East
 - East Asia
