@@ -184,6 +184,7 @@ const indexClient = new SearchIndexClient(
 For more information on `DefaultAzureCredential` for Python, see [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#defaultazurecredential).
 
 ```python
+import os
 from azure.search.documents import SearchClient
 from azure.identity import DefaultAzureCredential, AzureAuthorityHosts
 
