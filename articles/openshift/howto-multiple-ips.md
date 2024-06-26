@@ -1,16 +1,16 @@
 ---
-title: Configure multiple IP addresses for ARO cluster load balancers (Preview)
+title: Configure multiple IP addresses for ARO cluster load balancers
 description: Discover how to configure multiple IP addresses for ARO cluster load balancers.
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: article
-ms.date: 03/05/2024
+ms.date: 06/26/2024
 #Customer intent: As an ARO SRE, I need to configure multiple outbound IP addresses per ARO cluster load balancers
 ---
-# Configure multiple IP addresses per ARO cluster load balancer (Preview)
+# Configure multiple IP addresses per ARO cluster load balancer
 
-ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of nodes, you need to assign multiple additional public IP addresses to the load balancer.
+ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 120. To be able to scale your cluster to the maximum supported number of nodes, you need to assign multiple additional public IP addresses to the load balancer.
 
 You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
 
@@ -36,7 +36,7 @@ az network lb list -g $CLUSTER_RESOURCEGROUP -o table
 
 If you have a loadbalancer named `$CLUSTER-public-lb`, the cluster has the older network architecture and can't use the multiple public IP feature.
 
-### Download ARO extension wheel file (Preview only)
+### Download ARO extension wheel file
 
 In order to run the commands in this article, you must first download the ARO extension wheel file from [https://aka.ms/az-aroext-latest](https://aka.ms/az-aroext-latest). To install the extension, run the following command:
 
