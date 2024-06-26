@@ -187,9 +187,9 @@ Run the following command to check the available capacity of ephemeral disk for 
 ```output
 $ kubectl get diskpool -n acstor
 NAME                                CAPACITY      AVAILABLE     USED        RESERVED    READY   AGE
-ephemeraldisk-temp-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
-ephemeraldisk-temp-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
-ephemeraldisk-temp-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-nvme-diskpool-jaxwb   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-nvme-diskpool-wzixx   75660001280   75031990272   628011008   560902144   True    21h
+ephemeraldisk-nvme-diskpool-xbtlj   75660001280   75031990272   628011008   560902144   True    21h
 ```
 
 In this example, the available capacity of ephemeral disk for a single node is `75031990272` bytes or 69 GiB.
