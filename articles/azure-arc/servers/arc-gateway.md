@@ -1,7 +1,7 @@
 ---
 title: How to simplify network configuration requirements through Azure Arc gateway (Limited preview)
 description: Learn how to simplify network configuration requirements through Azure Arc gateway (Limited preview).
-ms.date: 06/20/2024
+ms.date: 06/26/2024
 ms.topic: how-to
 ---
 
@@ -91,7 +91,7 @@ az login --use-device-code
 az account set --subscription [subscription name or id]
 az connectedmachine gateway create --name [Your gateway’s Name] --resource-group [Your Resource Group] --location [Location] --gateway-type public --allowed-features * --subscription [subscription name or id]
 ```
-The gateway creation process takes 4-5 minutes to complete.
+The gateway creation process takes 9-10 minutes to complete.
 
 ### Step 3: Ensure the required URLs are allowed in your environment
 
@@ -262,7 +262,7 @@ If you’re deploying Azure Monitor through the Azure portal, be sure to select 
 
 For **Microsoft Defender for Endpoint**, run the following command:
 
-`mdatp config proxy set --value http://127.0.0.1:403` 
+`mdatp config proxy set --value http://127.0.0.1:40343` 
 
 ## Cleanup instructions
 
@@ -287,7 +287,7 @@ To view gateway Router logs on **Windows**:
 1. In the resulting .zip file, the logs are located in the `C:\ProgramData\Microsoft\ArcGatewayRouter` folder.
 
 View gateway Router logs on **Linux**:
-1. Run `sudo azcmagent logs` and share the resulting file. 
+1. Run `sudo azcmagent logs`. 
 1. In the resulting log file, the logs are located in the `/usr/local/arcrtr/logs/` folder.
 
 ## Known issues
