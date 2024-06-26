@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 [README](https://download.bls.gov/pub/time.series/cu/cu.txt) containing file for detailed information about this dataset is available at [original dataset location](https://download.bls.gov/pub/time.series/cu/).
 

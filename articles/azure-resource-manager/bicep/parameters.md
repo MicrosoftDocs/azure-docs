@@ -79,6 +79,8 @@ You can use another parameter value to build a default value. The following temp
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
+However, you can't reference a [variable](./variables.md) as the default value.
+
 ## Decorators
 
 Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. You can mark a parameter as secure, specify allowed values, set the minimum and maximum length for a string, set the minimum and maximum value for an integer, and provide a description of the parameter.

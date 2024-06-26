@@ -31,6 +31,7 @@ The preview of cross-zone replication is available in the following regions:
 * France Central 
 * Germany West Central 
 * Israel Central
+* Italy North
 * Japan East
 * Korea Central
 * North Europe
@@ -59,6 +60,9 @@ Cross-zone replication supports three replication schedules: 10 minutes, hourly,
 * For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes. 
 * For the hourly replication schedule, the typical RPO is less than two hours. 
 * For the daily replication schedule, the typical RPO is less than two days. 
+
+> [!IMPORTANT]
+> The 10-minute replication schedule isn't supported for [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) using cross-zone replication. 
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute. 
 

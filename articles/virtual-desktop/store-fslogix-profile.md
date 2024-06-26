@@ -77,7 +77,7 @@ In order to provision the optimal tier and volume size, consider using [this cal
 
 ## Next steps
 
-To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
+To learn more about FSLogix profile containers, user profile disks, and other user profile technologies, see the table in [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 If you're ready to create your own FSLogix profile containers, get started with one of these tutorials:
 

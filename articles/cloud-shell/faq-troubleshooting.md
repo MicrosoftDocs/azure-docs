@@ -2,7 +2,7 @@
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
 ms.contributor: jahelmic
 ms.date: 11/08/2023
-ms.topic: article
+ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
 title: Azure Cloud Shell Frequently Asked Questions (FAQ)

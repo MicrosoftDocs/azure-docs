@@ -14,18 +14,17 @@ ms.subservice: calling
 ---
 # Call Recording overview
 
-> [!NOTE]
->  Call Recording for [Teams interoperability](../call-automation/call-automation-teams-interop.md) is now in Public Preview.
-
-Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from your server-side business logic. Also, recordings can be triggered by a user action that tells the server application to start recording. 
+Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause, and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from your server-side business logic. Also, recordings can be triggered by a user action that tells the server application to start recording. 
 
 Depending on your business needs, you can use Call Recording for different Azure Communication Services calling implementations.
+
 For example, you can record 1:1 or 1:N audio and video calls:
 
 ![Diagram showing a call that it's being recorded.](../media/call-recording-client.png)
 
-But also, you can use Call Recording to record complex PSTN or VoIP inbound and outbound calling workflows managed by [Call Automation](../call-automation/call-automation.md).
-Regardless of how you established the call, Call Recording allows you to produce mixed or unmixed media files that are stored for 24 hours on a built-in temporary storage. You can retrieve the files , move it your own Azure Blob Store [Bring Your Own Storage](../../quickstarts\call-automation\call-recording\bring-your-own-storage.md) or a storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
+You can also use Call Recording to record complex PSTN or VoIP inbound and outbound calling workflows managed by [Call Automation](../call-automation/call-automation.md).
+
+Regardless of how you established the call, Call Recording enables you to produce mixed or unmixed media files that are stored for 24 hours on a built-in temporary storage. You can retrieve the files, move them in your own Azure Blob Store [Bring Your Own Storage](../../quickstarts\call-automation\call-recording\bring-your-own-storage.md), or a storage solution of your choice. Call Recording supports all Azure Communication Services data regions.
 
 
 ![Diagram showing call recording architecture.](../media/call-recording-with-call-automation.png)
@@ -48,12 +47,12 @@ Call Recording supports multiple media outputs and content types to address your
 | unmixed | wav | 16 kHz | 256 kbps | 1.92 MB/min* per channel | single file, up to 5 wav channels | unmixed audio, one participant per channel, up to five channels |
 
 > [*NOTE]
-> Mp3 and Mp4 formats use lossy compression that results in variable bitrate; therefore, data rate values in the tables above reflect the theoretical maximum. WAV format is uncompressed and bitrate is fixed, so the data rate calculations are exact. 
+> Mp3 and Mp4 formats use lossy compression that results in variable bitrate; therefore, data rate values in the preceding tables reflect the theoretical maximum. WAV format is uncompressed and bitrate is fixed, so the data rate calculations are exact. 
 
 
 ## Get full control over your recordings with our Call Recording APIs
-Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
-A `recordingId` is returned when recording is started, which is then used for follow-on operations like pause and resume.  
+You can use Call Recording APIs to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
+A `recordingId` is returned when recording is started, which can then be used for follow-on operations like pause and resume.  
 
 
 | Operation                            | Operates On            | Comments                       |
@@ -70,10 +69,9 @@ A `recordingId` is returned when recording is started, which is then used for fo
 Call Recording use [Azure Event Grid](../../../event-grid/event-schema-communication-services.md) to provide you with notifications related to media and metadata.
 
 > [!NOTE]
-> Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 24 hours.** After 24 hours, recordings will no longer be available.
+> Azure Communication Services provides short term media storage for recordings. **Recordings are available to download for 24 hours.** After 24 hours, recordings are no longer available.
 
-
-An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file. 
+An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process completes, such as meeting ended, or recording stopped. Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file. 
 
 ### Notification Schema Reference
 
@@ -143,7 +141,7 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 
 Many countries/regions and states have laws and regulations that apply to call recording. PSTN, voice, and video calls often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
-Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the Azure Communication Services User Identity in the `participants` array with your internal user identities to identify participants in a call. 
+Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the `participantId` for each call participant in the `participants` array. You can cross-reference the Azure Communication Services User Identity in the `participants` array with your internal user identities to identify participants in a call. 
 
 ## Next steps
 

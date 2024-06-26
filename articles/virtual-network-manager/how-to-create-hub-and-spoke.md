@@ -5,15 +5,13 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 05/07/2023
+ms.date: 05/07/2024
 ms.custom: template-concept, engagement-fy23
 ---
 
 # Create a hub and spoke topology in Azure - Portal
 
 In this article, you learn how to create a hub and spoke network topology with Azure Virtual Network Manager. With this configuration, you select a virtual network to act as a hub and all spoke virtual networks have bi-directional peering with only the hub by default. You also can enable direct connectivity between spoke virtual networks and enable the spoke virtual networks to use the virtual network gateway in the hub.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 

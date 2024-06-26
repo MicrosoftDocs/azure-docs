@@ -118,6 +118,6 @@ The new API creates a CSV file for you. See the following file fields.
 | usageDate | UsageDate |  |
 | usedHours | UsedHours |  |
 
-## Next steps
+## Related content
 
 - Read the [Migrate from EA Reporting to ARM APIs overview](migrate-ea-reporting-arm-apis-overview.md) article.

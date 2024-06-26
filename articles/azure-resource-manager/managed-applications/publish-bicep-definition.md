@@ -3,7 +3,7 @@ title: Use Bicep to create and publish an Azure Managed Application definition
 description: Describes how to use Bicep to create and publish an Azure Managed Application definition in your service catalog.
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 05/12/2023
+ms.date: 06/24/2024
 ---
 
 # Quickstart: Use Bicep to create and publish an Azure Managed Application definition
@@ -13,7 +13,7 @@ This quickstart describes how to use Bicep to create and publish an Azure Manage
 To create and publish a managed application definition to your service catalog, do the following tasks:
 
 - Use Bicep to develop your template and convert it to an Azure Resource Manager template (ARM template). The template defines the Azure resources deployed by the managed application.
-- Convert Bicep to JSON with the Bicep `build` command. After the file is converted to JSON, it's recommended to verify the code for accuracy.
+- Convert Bicep to JSON with the Bicep `build` command. After the file is converted to JSON, verify the code for accuracy.
 - Define the user interface elements for the portal when deploying the managed application.
 - Create a _.zip_ package that contains the required JSON files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
 - Publish the managed application definition so it's available in your service catalog.
@@ -67,7 +67,7 @@ var appServiceName = '${appServiceNamePrefix}${uniqueString(resourceGroup().id)}
 var storageAccountName = '${storageAccountNamePrefix}${uniqueString(resourceGroup().id)}'
 var appServiceStorageConnectionString = 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};EndpointSuffix=${environment().suffixes.storage};Key=${storageAccount.listKeys().keys[0].value}'
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: appServicePlanName
   location: location
   sku: {
@@ -76,7 +76,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 
-resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
+resource appServiceApp 'Microsoft.Web/sites@2023-12-01' = {
   name: appServiceName
   location: location
   properties: {
@@ -93,7 +93,7 @@ resource appServiceApp 'Microsoft.Web/sites@2022-03-01' = {
   }
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -102,6 +102,8 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   kind: 'StorageV2'
   properties: {
     accessTier: 'Hot'
+    allowSharedKeyAccess: false
+    minimumTlsVersion: 'TLS1_2'
   }
 }
 
@@ -139,8 +141,8 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.17.1.54307",
-      "templateHash": "1234567891234567890"
+      "version": "0.27.1.19265",
+      "templateHash": "1262990362980206722"
     }
   },
   "parameters": {
@@ -190,7 +192,7 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2023-12-01",
       "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -200,7 +202,7 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2023-12-01",
       "name": "[variables('appServiceName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -210,7 +212,7 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
           "appSettings": [
             {
               "name": "AppServiceStorageConnectionString",
-              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').keys[0].value)]"
+              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-04-01').keys[0].value)]"
             }
           ]
         }
@@ -222,7 +224,7 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-04-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -230,7 +232,9 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
       },
       "kind": "StorageV2",
       "properties": {
-        "accessTier": "Hot"
+        "accessTier": "Hot",
+        "allowSharedKeyAccess": false,
+        "minimumTlsVersion": "TLS1_2"
       }
     }
   ],
@@ -241,11 +245,11 @@ After the Bicep file is converted to JSON, your _mainTemplate.json_ file should 
     },
     "appServiceApp": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2022-03-01').defaultHostName]"
+      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2023-12-01').defaultHostName]"
     },
     "storageAccount": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').primaryEndpoints.blob]"
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-04-01').primaryEndpoints.blob]"
     }
   }
 }
@@ -360,7 +364,7 @@ To learn more, go to [Get started with CreateUiDefinition](create-uidefinition-o
 
 Add the two files to a package file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
 
-Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name.
+Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<pkgstorageaccountname>` including the angle brackets (`<>`), with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -375,31 +379,47 @@ The command opens your default browser and prompts you to sign in to Azure. For 
 After you connect, run the following commands.
 
 ```azurepowershell
-New-AzResourceGroup -Name packageStorageRG -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus
 
-$storageAccount = New-AzStorageAccount `
-  -ResourceGroupName packageStorageRG `
-  -Name "<demostorageaccount>" `
-  -Location westus3 `
-  -SkuName Standard_LRS `
-  -Kind StorageV2 `
-  -AllowBlobPublicAccess $true
+$pkgstorageparms = @{
+  ResourceGroupName = "packageStorageGroup"
+  Name = "<pkgstorageaccountname>"
+  Location = "westus"
+  SkuName = "Standard_LRS"
+  Kind = "StorageV2"
+  MinimumTlsVersion = "TLS1_2"
+  AllowBlobPublicAccess = $true
+  AllowSharedKeyAccess = $false
+}
 
-$ctx = $storageAccount.Context
+$pkgstorageaccount = New-AzStorageAccount @pkgstorageparms
+```
 
-New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
+The `$pkgstorageparms` variable uses PowerShell [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to improve readability for the parameter values used in the command to create the new storage account. Splatting is used in other PowerShell commands that use multiple parameter values.
 
-Set-AzStorageBlobContent `
-  -File "app.zip" `
-  -Container appcontainer `
-  -Blob "app.zip" `
-  -Context $ctx
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
+
+After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then create the context needed to create the container and upload the file.
+
+```azurepowershell
+$pkgstoragecontext = New-AzStorageContext -StorageAccountName $pkgstorageaccount.StorageAccountName -UseConnectedAccount
+
+New-AzStorageContainer -Name appcontainer -Context $pkgstoragecontext -Permission blob
+
+$blobparms = @{
+  File = "app.zip"
+  Container = "appcontainer"
+  Blob = "app.zip"
+  Context = $pkgstoragecontext
+}
+
+Set-AzStorageBlobContent @blobparms
 ```
 
 Use the following command to store the package file's URI in a variable named `packageuri`. You use the variable's value when you deploy the managed application definition.
 
 ```azurepowershell
-$packageuri=(Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+$packageuri=(Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $pkgstoragecontext).ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -415,16 +435,26 @@ The command opens your default browser and prompts you to sign in to Azure. For 
 After you connect, run the following commands.
 
 ```azurecli
-az group create --name packageStorageRG --location westus3
+az group create --name packageStorageGroup --location westus
 
 az storage account create \
-    --name <demostorageaccount> \
-    --resource-group packageStorageRG \
-    --location westus3 \
-    --sku Standard_LRS \
-    --kind StorageV2 \
-    --allow-blob-public-access true
+  --name <pkgstorageaccountname> \
+  --resource-group packageStorageGroup \
+  --location westus \
+  --sku Standard_LRS \
+  --kind StorageV2 \
+  --min-tls-version TLS1_2 \
+  --allow-blob-public-access true \
+  --allow-shared-key-access false
+
+pkgstgacct=$(az storage account show \
+  --resource-group packageStorageGroup \
+  --name <pkgstorageaccountname> \
+  --query name \
+  --output tsv)
 ```
+
+The backslash (`\`) is a line continuation character to improve readability of the command's parameters and is used in many of the Azure CLI commands. The `pkgstgacct` variable contains the storage account name for use in other commands.
 
 After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, go to [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
 
@@ -432,17 +462,17 @@ After you add the role to the storage account, it takes a few minutes to become 
 
 ```azurecli
 az storage container create \
-    --account-name <demostorageaccount> \
-    --name appcontainer \
-    --auth-mode login \
-    --public-access blob
+  --account-name $pkgstgacct \
+  --name appcontainer \
+  --auth-mode login \
+  --public-access blob
 
 az storage blob upload \
-    --account-name <demostorageaccount> \
-    --container-name appcontainer \
-    --auth-mode login \
-    --name "app.zip" \
-    --file "app.zip"
+  --account-name $pkgstgacct \
+  --container-name appcontainer \
+  --auth-mode login \
+  --name "app.zip" \
+  --file "app.zip"
 ```
 
 For more information about storage authentication, go to [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
@@ -451,7 +481,7 @@ Use the following command to store the package file's URI in a variable named `p
 
 ```azurecli
 packageuri=$(az storage blob url \
-  --account-name <demostorageaccount> \
+  --account-name $pkgstgacct \
   --container-name appcontainer \
   --auth-mode login \
   --name app.zip --output tsv)
@@ -554,29 +584,17 @@ The `lockLevel` on the managed resource group prevents the customer from perform
 
 The managed application definition's deployment template needs input for several parameters. The deployment command prompts you for the values or you can create a parameter file for the values. In this example, we use a parameter file to pass the parameter values to the deployment command.
 
-In Visual Studio Code, create a new file named _deployDefinition.parameters.json_ and save it.
+In Visual Studio Code, create a new file named _deployDefinition-parameters.bicepparam_ and save it.
 
 Add the following to your parameter file and save it. Then, replace the `<placeholder values>` including the angle brackets (`<>`), with your values.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "managedApplicationDefinitionName": {
-      "value": "sampleBicepManagedApplication"
-    },
-    "packageFileUri": {
-      "value": "<placeholder for the packageFileUri>"
-    },
-    "principalId": {
-      "value": "<placeholder for principalid value>"
-    },
-    "roleId": {
-      "value": "<placeholder for roleid value>"
-    }
-  }
-}
+```bicep
+using './deployDefinition.bicep'
+
+param managedApplicationDefinitionName = 'sampleBicepManagedApplication'
+param packageFileUri = '<placeholder for the packageFileUri>'
+param principalId = '<placeholder for principalid value>'
+param roleId = '<placeholder for roleid value>'
 ```
 
 The following table describes the parameter values for the managed application definition.
@@ -596,28 +614,33 @@ To get your variable values:
 
 When you deploy the managed application's definition, it becomes available in your service catalog. This process doesn't deploy the managed application's resources.
 
-Create a resource group named _bicepDefinitionRG_ and deploy the managed application definition.
+Create a resource group named _bicepDefinitionGroup_ and deploy the managed application definition.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name bicepDefinitionRG -Location westus3
+New-AzResourceGroup -Name bicepDefinitionGroup -Location westus
 
-New-AzResourceGroupDeployment `
-  -ResourceGroupName bicepDefinitionRG `
-  -TemplateFile deployDefinition.bicep `
-  -TemplateParameterFile deployDefinition.parameters.json
+$deployparms = @{
+  ResourceGroupName = "bicepDefinitionGroup"
+  TemplateFile = "deployDefinition.bicep"
+  TemplateParameterFile = "deployDefinition-parameters.bicepparam"
+  Name = "deployDefinition"
+}
+
+New-AzResourceGroupDeployment @deployparms
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name bicepDefinitionRG --location westus3
+az group create --name bicepDefinitionGroup --location westus
 
 az deployment group create \
-  --resource-group bicepDefinitionRG \
+  --resource-group bicepDefinitionGroup \
   --template-file deployDefinition.bicep \
-  --parameters @deployDefinition.parameters.json
+  --parameters deployDefinition-parameters.bicepparam \
+  --name "deployDefinition"
 ```
 
 ---
@@ -629,7 +652,7 @@ Run the following command to verify the definition is published in your service 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionRG
+Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionGroup
 ```
 
 `Get-AzManagedApplicationDefinition` lists all the available definitions in the specified resource group, like _sampleBicepManagedApplication_.
@@ -637,7 +660,7 @@ Get-AzManagedApplicationDefinition -ResourceGroupName bicepDefinitionRG
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az managedapp definition list --resource-group bicepDefinitionRG
+az managedapp definition list --resource-group bicepDefinitionGroup
 ```
 
 The command lists all the available definitions in the specified resource group, like _sampleBicepManagedApplication_.
@@ -646,22 +669,22 @@ The command lists all the available definitions in the specified resource group,
 
 ## Make sure users can access your definition
 
-You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They might have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, go to [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Clean up resources
 
 If you're going to deploy the definition, continue with the **Next steps** section that links to the article to deploy the definition with Bicep.
 
-If you're finished with the managed application definition, you can delete the resource groups you created named _packageStorageRG_ and _bicepDefinitionRG_.
+If you're finished with the managed application definition, you can delete the resource groups you created named _packageStorageGroup_ and _bicepDefinitionGroup_.
 
 # [PowerShell](#tab/azure-powershell)
 
 The command prompts you to confirm that you want to remove the resource group.
 
 ```azurepowershell
-Remove-AzResourceGroup -Name packageStorageRG
+Remove-AzResourceGroup -Name packageStorageGroup
 
-Remove-AzResourceGroup -Name bicepDefinitionRG
+Remove-AzResourceGroup -Name bicepDefinitionGroup
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -669,16 +692,16 @@ Remove-AzResourceGroup -Name bicepDefinitionRG
 The command prompts for confirmation, and then returns you to command prompt while resources are being deleted.
 
 ```azurecli
-az group delete --resource-group packageStorageRG --no-wait
+az group delete --resource-group packageStorageGroup --no-wait
 
-az group delete --resource-group bicepDefinitionRG --no-wait
+az group delete --resource-group bicepDefinitionGroup --no-wait
 ```
 
 ---
 
 ## Next steps
 
-You've published the managed application definition. The next step is to learn how to deploy an instance of that definition.
+You published the managed application definition. The next step is to learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Use Bicep to deploy an Azure Managed Application definition](deploy-bicep-definition.md).

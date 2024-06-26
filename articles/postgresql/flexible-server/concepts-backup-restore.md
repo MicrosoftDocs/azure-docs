@@ -4,7 +4,7 @@ description: Learn about the concepts of backup and restore with Azure Database 
 author: AwdotiaRomanowna
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/06/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.custom:
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Backups form an essential part of any business continuity strategy. They help protect data from accidental corruption or deletion. 
 
@@ -151,7 +151,7 @@ If your source server is configured with a *private access* virtual network, you
 
 ### Geo-restore
 
-If your source server is configured with a *public access* network, you can only restore to public access. Also, you have to apply firewall rules after the restore operation is complete. 
+If your source server is configured with a *public access* network, you can only restore to public access. Existing firewall rules in the source server are copied over to the restored server. Private endpoints are not taken over. After the restore operation is complete, review if you need to adjust any of the firewall rules carried over, and create any private endpoints you may need. 
 
 If your source server is configured with a *private access* virtual network, you can only restore to a different virtual network, because virtual networks can't span regions. You can't perform geo-restore across public and private access.
 
@@ -161,7 +161,7 @@ After you restore the database, you can perform the following tasks to get your 
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server. Change the server name of your connection string to point to the new server.
 
-- Ensure that appropriate server-level firewall and virtual network rules are in place for user connections. These rules are not copied over from the original server.
+- Ensure that appropriate server-level firewall, private endpoints and virtual network rules are in place for user connections. In *public access* network, rules are copied over from the original server, but those might not ne the ones required in the restored environment. So, adjust them as per your requirements. Private endpoints are not carried over. Create any private endpoints you may need in the restored server. In *private access* virtual network, the restore doesn't copy over any network infrastructure artifacts from source to restored server networks. Anything related to configuration of VNET, subnets, or Network Security Groups, must be taken care of as a post-restore task.
   
 - Scale up or scale down the restored server's compute as needed.
 
@@ -185,7 +185,6 @@ Azure Backup and Azure Database for PostgreSQL flexible server services have bui
 
 - In preview, LTR restore is currently available as RestoreasFiles to storage accounts. RestoreasServer capability will be added in the future.
 - In preview, you can perform LTR backups for all databases, single db backup support will be added in the future.
-- LTR backup is currently not supported for CMK-enabled servers. This capability will be added in the future.
 - LTR backup is currently not supported on geo-replicas. You can still perform LTR backups from the primary servers.
 
 

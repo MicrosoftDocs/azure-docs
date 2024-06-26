@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server with private access (VNET Integration)
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes connectivity and networking concepts for Azure Database for PostgreSQL flexible server.
 

@@ -3,7 +3,7 @@ title: Create a security automation for specific security alerts by using an Azu
 description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Defender for Cloud alerts by using an Azure Resource Manager template (ARM template) or Bicep.
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep, devx-track-arm-template
-ms.date: 01/09/2023
+ms.date: 05/30/2024
 ---
 
 # Quickstart: Create an automatic response to a specific security alert using an ARM template or Bicep

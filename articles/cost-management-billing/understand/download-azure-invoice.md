@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/30/2024
+ms.date: 06/04/2024
 ms.author: banders
 ---
 
@@ -49,7 +49,7 @@ An MOSP billing account can have the following invoices:
 
 **Azure service charges** - An invoice is generated for each Azure subscription that contains Azure resources used by the subscription. The invoice contains charges for a billing period. The billing period gets determined by the day of the month when the subscription is created.
 
-For example, John creates *Azure sub 01* on 5 March and *Azure sub 02* on 10 March. The invoice for *Azure sub 01* will have charges from the fifth day of a month to the fourth day of next month. The invoice for *Azure sub 02* will have charges from the tenth day of a month to the ninth day of next month. The invoices for all Azure subscriptions are normally generated on the day of the month that the account was created but can be up to two days later. In this example, if John created his account on 2 February, the invoices for both *Azure sub 01* and *Azure sub 02* will normally be generated on the second day of each month. However, it could be up to two days later.
+For example, a billing administrator creates *Azure sub 01* on 5 March and *Azure sub 02* on 10 March. The invoice for *Azure sub 01* will have charges from the fifth day of a month to the fourth day of next month. The invoice for *Azure sub 02* will have charges from the tenth day of a month to the ninth day of next month. The invoices for all Azure subscriptions are normally generated on the day of the month that the account was created but can be up to two days later. In this example, if the billing administrator created their account on 2 February, the invoices for both *Azure sub 01* and *Azure sub 02* will normally be generated on the second day of each month. However, it could be up to two days later.
 
 **Azure Marketplace, reservations, and spot VMs** - An invoice is generated for reservations, marketplace products, and spot VMs purchased using a subscription. The invoice shows respective charges from the previous month. For example, John purchased a reservation on 1 March and another reservation on 30 March. A single invoice is generated for both the reservations in April. The invoice for Azure Marketplace, reservations, and spot VMs are always generated around the ninth day of the month.
 
@@ -67,11 +67,11 @@ Azure Government customers can’t request their invoice by email. They can only
 
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal.
 1. Select **Invoices** from the billing section.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/select-subscription-invoice.png" alt-text="Screenshot that shows a user selecting invoices option for a subscription.":::
+    :::image type="content" border="true" source="./media/download-azure-invoice/select-subscription-invoice.png" alt-text="Screenshot that shows a user selecting invoices option for a subscription." lightbox="./media/download-azure-invoice/select-subscription-invoice.png":::
 1. Select the invoice that you want to download and then select **Download invoices**.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/downloadinvoice-subscription.png" alt-text="Screenshot that the download option for an M O S P invoice.":::
+    :::image type="content" border="true" source="./media/download-azure-invoice/downloadinvoice-subscription.png" alt-text="Screenshot that shows the download option for an M O S P invoice." lightbox="./media/download-azure-invoice/downloadinvoice-subscription.png":::
 1. You can also download a daily breakdown of consumed quantities and charges by selecting the download icon and then selecting **Prepare Azure usage file** button under the usage details section. It might take a few minutes to prepare the CSV file.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/usage-and-invoice-subscription.png" alt-text="Screenshot that shows the Download invoice and usage page.":::
+    :::image type="content" border="true" source="./media/download-azure-invoice/usage-and-invoice-subscription.png" alt-text="Screenshot that shows the Download invoice and usage page." lightbox="./media/download-azure-invoice/usage-and-invoice-subscription.png" :::
 
 For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help identify unusual costs, see [Analyze unexpected charges](analyze-unexpected-charges.md).
 
@@ -88,26 +88,20 @@ You must have an account admin role on the support plan subscription to download
 1. Select your support plan subscription.  
     :::image type="content" border="true" source="./media/download-azure-invoice/cmb-invoices.png" lightbox="./media/download-azure-invoice/cmb-invoices-zoomed-in.png" alt-text="Screenshot that shows an MOSP support plan invoice billing profile list.":::
 1. Select the invoice that you want to download and then select **Download invoices**.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/download-invoice-support-plan.png" alt-text="Screenshot that shows the download option for an M O S P support plan invoice.":::
+    :::image type="content" border="true" source="./media/download-azure-invoice/download-invoice-support-plan.png" alt-text="Screenshot that shows the download option for an M O S P support plan invoice." lightbox="./media/download-azure-invoice/download-invoice-support-plan.png":::
 
 ## Allow others to download your subscription invoice
 
 To download an invoice:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) as an account admin for the subscription.
-
-2.  Search for **Cost Management + Billing**.
-
+2.  Search for **Cost Management + Billing**.  
     :::image type="content" border="true" source="./media/download-azure-invoice/search-cmb.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + Billing.":::
-
 3.  Select **Invoices** from the left-hand side.
-
-4.  Select your Azure subscription and then select **Allow others to download invoice**.
-
-    :::image type="content" border="true" source="./media/download-azure-invoice/cmb-select-access-to-invoice.png" lightbox="./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png" alt-text="Screenshot showing Allow others to download invoice.":::
-
-5.  Select **On** and then **Save** at the top of the page.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/cmb-access-to-invoice.png" alt-text="Screenshot showing the Access to invoice On option.":::
+1. At the top of the page, select **Edit invoice details**, and then select **Allow others to download invoice**.  
+    :::image type="content" border="true" source="./media/download-azure-invoice/cmb-select-access-to-invoice.png" lightbox="./media/download-azure-invoice/cmb-select-access-to-invoice.png" alt-text="Screenshot showing Allow others to download invoice.":::
+5.  Select the subscription to allow others to download invoices for and then select whether to allow users and groups with subscription-level access to download invoices and then select **Save**.  
+    :::image type="content" border="true" source="./media/download-azure-invoice/cmb-access-to-invoice.png" alt-text="Screenshot showing the Allow others to download invoice dialog." lightbox="./media/download-azure-invoice/cmb-access-to-invoice.png":::
     
 > [!NOTE]
 > Microsoft doesn’t recommend sharing any of your confidential or personally identifiable information with third parties. This recommendation applies to sharing your Azure bill or invoice with a third party for cost optimizations. For more information, see https://azure.microsoft.com/support/legal/ and https://www.microsoft.com/trust-center.
@@ -229,7 +223,7 @@ There could be several reasons that you don't see an invoice:
 
 - Your account doesn't support an invoice.
 
-    - You only get an invoice when you exceed the monthly credit amount if you have a Microsoft Online Services Program (MOSP) agreement and you signed up for an Azure Free Account, or when you have a subscription with a monthly credit amount.
+    - Under a Microsoft Online Services Program (MOSP) agreement, you receive an invoice only if your usage exceeds the monthly credit amount. This situation applies if you signed up for an Azure Free Account or have a subscription that includes a monthly credit.
 
     - If you have a billing account for a Microsoft Customer Agreement (MCA) or a Microsoft Partner Agreement (MPA), you always receive an invoice.
 
@@ -259,7 +253,7 @@ There could be several reasons that you don't see an invoice:
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about your invoice and charges, see:
 

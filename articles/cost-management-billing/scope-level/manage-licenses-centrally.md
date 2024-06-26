@@ -40,7 +40,7 @@ The following diagram shows how the assigned SQL Server licenses apply over time
 
 :::image type="content" source="./media/manage-licenses-centrally/ncl-utilization-over-time.png" alt-text="Diagram showing NC use over time." border="false" lightbox="./media/manage-licenses-centrally/ncl-utilization-over-time.png":::
 
-## Next steps
+## Related content
 
 - Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).

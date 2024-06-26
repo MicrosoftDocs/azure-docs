@@ -18,7 +18,7 @@ ms.custom: devplatv2, event-tier1-build-2023, build-2023
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-In this article, you'll learn about data collection from models that are deployed to Azure Machine Learning online endpoints.
+In this article, you learn about data collection from models that are deployed to Azure Machine Learning online endpoints.
 
 Azure Machine Learning **Data collector** provides real-time logging of input and output data from models that are deployed to managed online endpoints or Kubernetes online endpoints. Azure Machine Learning stores the logged inference data in Azure blob storage. This data can then be seamlessly used for model monitoring, debugging, or auditing, thereby, providing observability into the performance of your deployed models.
 
@@ -43,7 +43,7 @@ Data collector has the following limitations:
 - Data collector only supports logging for online (or real-time) Azure Machine Learning endpoints (Managed or Kubernetes).
 - The Data collector Python SDK only supports logging tabular data via pandas DataFrames.
 
-## Next steps
+## Related content
 
 - [How to collect data from models in production](how-to-collect-production-data.md)
 - [What are Azure Machine Learning endpoints?](concept-endpoints.md)

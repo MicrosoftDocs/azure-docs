@@ -13,65 +13,65 @@ ms.devlang: azurecli
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## Create Azure function app
+## Create an Azure function with Azure Event Grid trigger using Visual Studio Code
+In this section, you use Visual Studio Code to create an Azure function with an Azure Event Grid trigger.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the left navigational menu, select **All services**.
-1. Select **Compute** in the list of **Categories**.
-1. Hover (not select) the mouse over **Function App**, and select **+**.
+### Prerequisites
 
-    :::image type="content" source="./media/custom-event-to-function/create-function-app-link.png" lightbox="./media/custom-event-to-function/create-function-app-link.png" alt-text="Screenshot showing the select of Create link for a Function App.":::    
-1. On the **Basics** page of the **Create Function App** wizard, follow these steps: 
-    1. Select your **Azure subscription** in which you want to create the function app.
-    1. Create a new **resource group** or select an existing resource group.
-    1. Specify a **name** for the function app.
-    1. Select **.NET** for **Runtime stack**.
-    1. For **Version**, select **6 (LTS), in-process model**.
-    1. Select the **region** closest to you. 
-    1. Select **Next: Storage** at the bottom of the page. 
-    
-        :::image type="content" source="./media/custom-event-to-function/create-function-app-page.png" alt-text="Screenshot showing the Basics tab of the Create Function App page.":::    
-1. On the **Storage** page, create a new storage account or select an existing storage account to be associated with the function app, and then select **Review + create** at the bottom of the page. 
-        
-    :::image type="content" source="./media/custom-event-to-function/create-function-app-hosting-page.png" alt-text="Screenshot showing the Storage tab of the Create Function App page.":::  
-1. On the **Review + create** page, review settings, and select **Create** at the bottom of the page to create the function app.   
-1. Once the deployment is successful, select **Go to resource** to navigate to the home page for the function app. 
+* [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+* [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). 
 
-## Create a function
-Before subscribing to the custom topic, create a function to handle the events. 
+### Create an Azure function
 
-1. On the **Function App** page, in the **Create in Azure portal** section, select **Create function** link in the right pane.
+1. Launch Visual Studio Code. 
+1. On the left bar, select **Azure**. 
+1. In the left pane, In the **WORKSPACE** section, select Azure Functions button on the command bar, and then select **Create Function**. 
 
-    :::image type="content" source="./media/custom-event-to-function/create-function-link.png" alt-text="Screenshot showing the selection of Create function link.":::      
-1. On the **Create Function** page, follow these steps:
-    1. In the **Select a template** section, in the filter or search box, type **Azure Event Grid trigger**.
-    1. Select **Azure Event Grid Trigger** template in the template list.
-    1. Select **Next** at the bottom of the page.
+    :::image type="content" source="./media/custom-event-to-function/visual-studio-code-new-function-menu.png" alt-text="Screenshot that shows the Azure tab of Visual Studio Code with New function menu selected.":::
+1. Select a folder where you want the Azure function code to be saved. 
+1. For the **Create new project** command, for **language**, select **C#**, and press ENTER. 
 
-        :::image type="content" source="./media/custom-event-to-function/function-trigger.png" lightbox="./media/custom-event-to-function/function-trigger.png" alt-text="Screenshot showing select Event Grid trigger.":::
-    1. On the **Template details** page, enter a name for the function. In this example, it's **HandleEventsFunc**. 
-    1. Select **Create**.
-    
-        :::image type="content" source="./media/custom-event-to-function/create-function-template-details.png" lightbox="./media/custom-event-to-function/create-function-template-details.png" alt-text="Screenshot showing Template details page.":::
-1. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu, replace the code with the following code, and then select **Save** on the command bar.
+    :::image type="content" source="./media/custom-event-to-function/select-function-language.png" alt-text="Screenshot that shows the selection of C# for the language used to develop the Azure function."  lightbox="./media/custom-event-to-function/select-function-language.png":::
+1. For **.NET runtime**, select **.NET 8.0 Isolated LTS**, and press ENTER. 
+1. For the **template for the function**, select **Azure Event Grid trigger**, and press ENTER. 
+1. For **function name**, enter a name for your Azure function, and press ENTER.  
+1. Enter a name for the **namespace** for the function, and press ENTER.
+1. Open the project in the current window or a new window or add to a workspace. 
+1. Wait for the function to be created. You see the status of the function creation in the bottom-right corner.
+     
+    :::image type="content" source="./media/custom-event-to-function/function-creation-status.png" alt-text="Screenshot that shows the status of the function creation."  lightbox="./media/custom-event-to-function/function-creation-status.png":::
+1. View the code in the YourFunctionName.cs file, specifically the `Run` method. It prints the information using a logger. 
 
     ```csharp
-    #r "Azure.Messaging.EventGrid"
-    #r "System.Memory.Data"
-    
-    using Azure.Messaging.EventGrid;
-    using System;
-    
-    public static void Run(EventGridEvent eventGridEvent, ILogger log)
+    [Function(nameof(MyEventGridTriggerFunc))]
+    public void Run([EventGridTrigger] CloudEvent cloudEvent)
     {
-        log.LogInformation(eventGridEvent.Data.ToString());
-    }        
+        _logger.LogInformation("Event type: {type}, Event subject: {subject}", cloudEvent.Type, cloudEvent.Subject);
+    }
     ```
 
-    :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
-6. Select **Monitor** on the left menu, and switch to the **Logs** tab. Keep this window or tab of the browser open so that you can see the received event information. 
+### Deploy the function to Azure
 
-    :::image type="content" source="./media/custom-event-to-function/monitor-page.png" alt-text="Screenshot showing the Monitor view the Azure function.":::
+1. Select the Azure button on the left bar if it's not already open. 
+1. Hover the mouse over your project, and select the **Deploy to Azure** button.
+
+    :::image type="content" source="./media/custom-event-to-function/deploy-to-azure-button.png" alt-text="Screenshot that shows selection of the Deploy to Azure button."  lightbox="./media/custom-event-to-function/deploy-to-azure-button.png":::
+1. In the drop-down of the command palette, select **+ Create new function app**, and press ENTER. 
+1. Enter a **globally unique name** for the new function app, and press ENTER.
+1. For **runtime stack**, select **.NET 8 Isolated**. 
+1. For **location** for your Azure resources, select a region that's close to you.
+1. Now, you see the status of Azure Functions app creation in the **AZURE** tab of the bottom pane. After the function app is created, you see the status of deploying the Azure function you created locally to the Functions app you created. 
+1. After the deployment succeeds, expand the **Create Function App succeeded** message and select **Click to view resource**. You see that your Azure function is selected in the **RESOURCES** section on the left pane. 
+1. Right-click on your Azure function, and select **Open in Portal**. 
+
+    :::image type="content" source="./media/custom-event-to-function/click-to-view-functions-app.png" alt-text="Screenshot that shows the selection of Click to view resource in the AZURE tab in the bottom pane."  lightbox="./media/custom-event-to-function/click-to-view-functions-app.png":::
+1. Sign-in to Azure if needed, and you should see the **Function App** page for your Azure function. 
+1. Select your **function** in the bottom page as shown in the following image. 
+
+    :::image type="content" source="./media/custom-event-to-function/select-function.png" alt-text="Screenshot that shows the selection of an Azure function on the Function App page."  lightbox="./media/custom-event-to-function/select-function.png":::
+1. Switch to the **Logs** tab and keep this tab or window open so that you can see logged messages when you send an event to an Event Grid later in this tutorial. 
+
+    :::image type="content" source="./media/custom-event-to-function/function-logs-window.png" alt-text="Screenshot that shows Logs tab of an Azure function in the Azure portal."  lightbox="./media/custom-event-to-function/function-logs-window.png":::
 
 ## Create a custom topic
 
@@ -83,11 +83,11 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
     :::image type="content" source="./media/custom-event-to-function/select-topics.png" alt-text="Image showing the selection of Event Grid topics." lightbox="./media/custom-event-to-function/select-topics.png" :::
 3. On the **Event Grid Topics** page, select **+ Create** on the command bar.
 
-    :::image type="content" source="./media/custom-event-to-function/add-topic-button.png" alt-text="Screenshot showing the Create button to create an Event Grid topic.":::
+    :::image type="content" source="./media/custom-event-to-function/add-topic-button.png" alt-text="Screenshot showing the Create button to create an Event Grid topic." lightbox="./media/custom-event-to-function/add-topic-button.png":::
 4. On the **Create Topic** page, follow these steps:
     1. Select your **Azure subscription**.
     2. Select the same **resource group** from the previous steps.
-    3. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-".
+    3. Provide a unique **name** for the custom topic. The topic name must be unique because it's represented by a DNS entry. Don't use the name shown in the image. Instead, create your own name - it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and `-`.
     4. Select a **location** for the Event Grid topic.
     5. Select **Review + create**. 
     
@@ -103,19 +103,25 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 
 1. Now, on the **Event Grid Topic** page for your custom topic, select **+ Event Subscription** on the toolbar.
 
-    :::image type="content" source="./media/custom-event-to-function/new-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription on the toolbar.":::
+    :::image type="content" source="./media/custom-event-to-function/new-event-subscription.png" alt-text="Image showing the selection of Add Event Subscription on the toolbar." lightbox="./media/custom-event-to-function/new-event-subscription.png":::
 2. On the **Create Event Subscription** page, follow these steps:
     1. Enter a **name** for the event subscription.
-    3. Select **Azure Function** for the **Endpoint type**. 
-    4. Choose **Configure an endpoint**. 
+    1. For **Event Schema**, select **Cloud Event Schema v1.0**.
+    1. Select **Azure Function** for the **Endpoint type**. 
+    1. Choose **Configure an endpoint**. 
 
         :::image type="content" source="./media/custom-event-to-function/provide-subscription-values.png" alt-text="Image showing event subscription values.":::
-    5. For the function endpoint, select the Azure Subscription and Resource Group your Function App is in and then select the Function App and function you created earlier. Select **Confirm Selection**.
+    5. On the **Select Azure Function** page, follow these steps:
+        1. Select the **Azure Subscription** that has the Azure function.
+        1. Select the **resource group** that has the function. 
+        1. Select your Azure **Functions app**.
+        1. Select the Azure **function** in the Functions app. 
+        1. Select **Confirm Selection**.
 
-        :::image type="content" source="./media/custom-event-to-function/provide-endpoint.png" alt-text="Image showing the Select Azure Function page showing the selection of function you created earlier.":::
+            :::image type="content" source="./media/custom-event-to-function/provide-endpoint.png" alt-text="Image showing the Select Azure Function page showing the selection of function you created earlier.":::
     6. This step is optional, but recommended for production scenarios. On the **Create Event Subscription** page, switch to the **Advanced Features** tab, and set values for **Max events per batch** and **Preferred batch size in kilobytes**. 
     
-        Batching can give you high-throughput. For **Max events per batch**, set maximum number of events that a subscription will include in a batch. Preferred batch size sets the preferred upper bound of batch size in kilo bytes, but can be exceeded if a single event is larger than this threshold.
+        Batching can give you high-throughput. For **Max events per batch**, set the maximum number of events that a subscription will include in a batch. Preferred batch size sets the preferred upper bound of batch size in kilo bytes, but can be exceeded if a single event is larger than this threshold.
     
         :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Image showing batching settings for an event subscription.":::
     6. On the **Create Event Subscription** page, select **Create**.
@@ -128,10 +134,10 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
 
 
 ### Azure CLI
-1. In the Azure portal, select **Cloud Shell**. Select **Bash** in the top-left corner of the Cloud Shell window. 
+1. In the Azure portal, select **Cloud Shell**. If you are in the PowerShell mode, select **Switch to Bash**. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Image showing Cloud Shell - Bash window":::
-1. Set the `topicname` and `resourcegroupname` variables that will be used in the commands. 
+1. Set the `topicname` and `resourcegroupname` variables that are used in the commands. 
 
     Replace `TOPICNAME` with the name of your Event Grid topic. 
 
@@ -164,11 +170,14 @@ The first example uses Azure CLI. It gets the URL and key for the custom topic, 
     ```
     curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
     ```
+5. Confirm that you see the message from the Azure function in the **Logs** tab of your Azure function in the Azure portal.
+
+    :::image type="content" source="./media/custom-event-quickstart-portal/function-log-output.png" alt-text="Screenshot that shows the Logs tab of an Azure function." lightbox="./media/custom-event-quickstart-portal/function-log-output.png":::
 
 ### Azure PowerShell
 The second example uses PowerShell to perform similar steps.
 
-1. In the Azure portal, select **Cloud Shell** (alternatively go to `https://shell.azure.com/`). Select **PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
+1. In the Azure portal, select **Cloud Shell** (alternatively go to `https://shell.azure.com/`). Select **Switch to PowerShell** in the top-left corner of the Cloud Shell window. See the sample **Cloud Shell** window image in the Azure CLI section.
 2. Set the following variables. After you copy and paste each command, update the **topic name** and **resource group name** before you run the command:
 
     ```powershell
@@ -214,6 +223,9 @@ The second example uses PowerShell to perform similar steps.
     ```powershell
     Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
     ```
+5. Confirm that you see the message from the Azure function in the **Logs** tab of your Azure function in the Azure portal.
+
+    :::image type="content" source="./media/custom-event-quickstart-portal/function-log-output.png" alt-text="Screenshot that shows the Logs tab of an Azure function." lightbox="./media/custom-event-quickstart-portal/function-log-output.png":::
 
 ### Verify that function received the event
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing.

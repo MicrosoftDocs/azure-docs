@@ -52,7 +52,7 @@ When the prepurchase discount applies to your Databricks usage, on-demand charge
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Next steps
+## Related content
 
 - To learn how to manage a reservation, see [Manage Azure Reservations](manage-reserved-vm-instance.md).
 - To learn more about prepurchasing Azure Databricks to save money, see [Optimize Azure Databricks costs with a prepurchase](prepay-databricks-reserved-capacity.md).

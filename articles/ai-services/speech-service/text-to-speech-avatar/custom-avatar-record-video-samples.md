@@ -93,6 +93,7 @@ This video clip is important if you build a real-time conversation with the cust
   - Maintain status 0, don't speak, but still feel relaxed.
   - Even remaining in status 0, don't keep completely still; you can move a little bit but not too much. Perform like you're waiting.
   - Maintain a smile as if listening or waiting patiently.
+  - Avoid nodding frequently.
   - Length: 1 minute.
     
 **Samples of silent status:** 

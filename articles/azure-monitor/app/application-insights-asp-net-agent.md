@@ -661,6 +661,10 @@ In this example;
 - **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Application Insights Agent detected the SDK and doesn't monitor this site.
 
 
+- The presence of `AppAlreadyInstrumented : true` signifies that the Application Insights agent identified a [conflicting dll](/troubleshoot/azure/azure-monitor/app-insights/agent/status-monitor-v2-troubleshoot) loaded in the web application, assumed that the web app is manually instrumented, and the agent has backed-off and is not instrumenting this process.
+
+- `Instrumented : true` indicates that the Application Insights agent successfully instrumented the web app running in the specified w3wp.exe process.
+
 ##### Example: PowerShell module information
 
 Run the command `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` to display information about the current module:
@@ -1006,7 +1010,7 @@ Each of these options is described in the [detailed instructions](?tabs=detailed
 
 ### How do I verify that the enablement succeeded?
 
-  - You can use the [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
+- You can use the [Get-ApplicationInsightsMonitoringStatus](?tabs=api-reference#get-applicationinsightsmonitoringstatus) cmdlet to verify that enablement succeeded.
   - Use [Live Metrics](./live-stream.md) to quickly determine if your app is sending telemetry.
   - You can also use [Log Analytics](../logs/log-analytics-tutorial.md) to list all the cloud roles currently sending telemetry:
 
@@ -1033,7 +1037,7 @@ Example Web.config:
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 
