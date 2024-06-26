@@ -1,6 +1,6 @@
 ---
 title: Use keyless connections with Azure AI Search
-description: Use keyless connections with Azure Identity for authentication and authorization with Azure AI Search.
+description: Use keyless connections with an Azure Identity library for authentication and authorization with Azure AI Search.
 ms.topic: how-to
 ms.date: 06/05/2024
 author: HeidiSteen
