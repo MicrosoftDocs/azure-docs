@@ -71,7 +71,7 @@ For most metrics, all aggregation types are valid. For count metrics with a **Un
 | Result         | Either `success` or `failure` |
 | RoutingSource  | `Device Messages`, `Twin Change Events`, `Device Lifecycle Events` |
 
-<a name="device-telemetry-metrics"></a><a name="routing-metric"></a><a name="device-metrics"></a>
+<a name="device-telemetry-metrics"></a><a name="routing-metrics"></a><a name="device-metrics"></a>
 ### Metrics display name and aggregation
 
 The following tables provide more information about the metrics described in the preceding table. They show the IoT Hub platform metrics by general category and list metrics by their display name as assigned in the Azure portal.
