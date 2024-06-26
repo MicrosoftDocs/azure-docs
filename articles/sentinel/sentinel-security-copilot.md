@@ -16,7 +16,7 @@ appliesto:
 ms.date: 06/26/2024
 ---
 
-# Access your Microsoft Sentinel data in Copilot for Security
+# Investigate Microsoft Sentinel incidents in Copilot for Security
 
 Microsoft Copilot for Security is a platform that helps you defend your organization at machine speed and scale. Microsoft Sentinel provides a plugin for Copilot to help analyze incidents and generate hunting queries.
 
@@ -25,6 +25,10 @@ Together with the iterative processing of other sophisticated Copilot for Securi
 > [!IMPORTANT]
 > The "Microsoft Sentinel" and "Natural Language to KQL for Microsoft Sentinel" plugins are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+For more information on Copilot for Security, see the following articles:
+- [Get started with Microsoft Copilot for Security](/security-copilot/get-started-security-copilot)
+- [Understand authentication in Microsoft Copilot for Security](/security-copilot/authentication)
 
 ## Microsoft Copilot in Microsoft Sentinel (Preview)
 
@@ -48,13 +52,16 @@ To view these capabilities in Copilot, select the **Prompts** :::image type="ico
 ### Enable the Microsoft Sentinel plugins in Copilot
 
 1. Navigate to Copilot for Security at [https://securitycopilot.microsoft.com/](https://securitycopilot.microsoft.com/).
+
 1. Open **Sources** :::image type="icon" source="media/sentinel-security-copilot/sources.png"::: in the prompt bar.
+
 1. On the **Manage plugins** page, set the **Microsoft Sentinel (Preview)** toggle to **On**.
+
 1. Optionally, set the **Natural language to KQL for Microsoft Sentinel (Preview)** toggle to **On**.
 
-### Configure the Microsoft Sentinel source
+### Configure a default Microsoft Sentinel workspace
 
-Increase your prompt accuracy when you have access to multiple Microsoft Sentinel workspaces by configuring one of them as the default.
+If you have access to multiple Microsoft Sentinel workspaces, increase your prompt accuracy by configuring one of them as the default.
 
 1. On the **Manage plugins** page, select the gear icon on the Microsoft Sentinel (Preview) plugin.
 
@@ -78,7 +85,7 @@ For more information, see [Using promptbooks](/copilot/security/using-promptbook
 
 For general guidance on writing effective prompts, see [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot). Here are some examples that incorporate that guidance:
 
-The second part of this prompt nudges Copilot to provide human readable information instead of responding with object IDs.<br>
+The second part of the following prompt nudges Copilot to provide human readable information instead of responding with object IDs.<br>
 `Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.`
 
 Copilot knows who you are.<br>
@@ -93,3 +100,6 @@ A useful way to summarize the prompts and responses so far.<br>
 For more information on sample prompts, see [Rod Trent's Copilot for Security GitHub](https://github.com/rod-trent/Copilot-for-Security/blob/main/Prompts/Plugins/Sentinel.md).
 
 ### Related articles
+
+- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
+- [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md)
