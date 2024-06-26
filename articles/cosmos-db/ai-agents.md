@@ -267,13 +267,12 @@ Load the documents, vectors and create indexes by simply executing the following
 
 Output:
 
+```markdown
 --build itinerary--
-
 --load itinerary--
-
 --load destinations--
-
 --load vectors ships--
+```
 
 ### Building Travel AI Agent with Python FastAPI
 
@@ -322,11 +321,11 @@ To achieve this objective, we will utilize the chat message history, which will 
 :::image type="content" source="media/gen-ai/ai-agent/FastAPI-get-session.png" lightbox="media/gen-ai/ai-agent/FastAPI-get-session.png" alt-text="Python FastAPI – Get Session.":::
 Click Try It out for /session/.
 
+```python
 {
-
   "session_id": "0505a645526f4d68a3603ef01efaab19"
-  
 }
+```
 
 For the purpose of the AI Agent, we only need to simulate a session, thus the stubbed-out method merely returns a generated session ID for tracking message history. In a practical implementation, this session would be stored in Azure Cosmos DB and potentially in React JS localStorage.
 
@@ -358,11 +357,11 @@ The similarity search scores are displayed as output from the API for debugging 
 
 Output when calling ```data.mongodb.travel.similarity_search()```
 
+```markdown
 0.8394561085977978
-
 0.8086545112328692
-
 2
+```
 
 > [!TIP]
 > If documents are not being returned for vector search modify the ```similarity_search_with_score``` limit or the score filter value as needed (```[doc for doc, score  in docs if score >=.78]```). in ```data.mongodb.travel.similarity_search()```
