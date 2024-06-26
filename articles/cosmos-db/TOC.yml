@@ -36,6 +36,8 @@
         href: vector-database.md
       - name: Vector Search in Azure Cosmos DB NoSQL
         href: nosql/vector-search.md
+    - name: Building multi-tenant GenAI apps
+      href: genai/multi-tenancy.md       
            
 - name: NoSQL
   href: nosql/toc.yml

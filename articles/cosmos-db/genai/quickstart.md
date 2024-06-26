@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 06/26/2024
-ms.author: kuthapar
+ms.author: thvankra
 ---
 
 # Build a RAG chatbot - Quickstart
@@ -15,15 +15,15 @@ Azure Cosmos DB provides a fully managed NoSQL database for high-performance AI 
 
 This guide shows you how to set up and use an Azure Cosmos DB vector database in minutes.
 
-## 1. Sign Up for Azure Cosmos DB or Log In
+### 1. Sign Up for Azure Cosmos DB or Log In
 Sign up for a free Azure Cosmos DB account or log in to your existing account.
 
 You will need your Azure Cosmos DB connection string and key, which will be used in the next steps.
 
-## 2. Get Your Connection Information
+### 2. Get Your Connection Information
 You need the connection string and key to make API calls to your Azure Cosmos DB instance. These can be found in the Azure portal.
 
-## 3. Install Required Packages
+### 3. Install Required Packages
 Install the necessary Python packages to interact with Azure Cosmos DB and other services.
 
 ```bash
@@ -34,7 +34,7 @@ pip install openai
 pip install gradio
 ```
 
-## 4. Initialize Your Client Connection
+### 4. Initialize Your Client Connection
 Using your connection string and key, initialize your client connection to Azure Cosmos DB.
 
 ```python
@@ -75,7 +75,7 @@ openai_completions_deployment = config['openai_completions_deployment']
 openai_client = AzureOpenAI(azure_endpoint=openai_endpoint, api_key=openai_key, api_version=openai_api_version)
 ```
 
-## 5. Set Up Databases and Containers
+### 5. Set Up Databases and Containers
 Ensure your Azure Cosmos DB account has the necessary databases and containers set up for vector search. 
 
 ```python
@@ -85,7 +85,7 @@ movies_container = db.get_container_client(cosmos_collection)
 cache_container = db.get_container_client(cosmos_cache)
 ```
 
-## 6. Generate Embeddings from Azure OpenAI
+### 6. Generate Embeddings from Azure OpenAI
 Use Azure OpenAI to vectorize user input for vector search.
 
 ```python
@@ -96,7 +96,7 @@ def generate_embeddings(text):
     return embeddings['data'][0]['embedding']
 ```
 
-## 7. Perform Vector Search
+### 7. Perform Vector Search
 Define a function for vector search in Azure Cosmos DB.
 
 ```python
@@ -116,7 +116,7 @@ def vector_search(container, vectors, similarity_score=0.02, num_results=3):
     return formatted_results
 ```
 
-## 8. Get Recent Chat History
+### 8. Get Recent Chat History
 Retrieve recent chat history for better conversational context.
 
 ```python
@@ -126,7 +126,7 @@ def get_chat_history(history_container, completions=3):
     return items
 ```
 
-## 9. Chat Completion Function
+### 9. Chat Completion Function
 Define the function to handle the chat completion process, including caching responses.
 
 ```python
@@ -156,7 +156,7 @@ def chat_completion(cache_container, movies_container, user_input):
         return completions_results['choices'][0]['message']['content']
 ```
 
-## 10. Cache Generated Responses
+### 10. Cache Generated Responses
 Save the user prompts and generated completions to the cache for faster future responses.
 
 ```python
@@ -175,7 +175,7 @@ def cache_response(cache_container, user_prompt, prompt_vectors, response):
     cache_container.create_item(body=chat_document)
 ```
 
-## 11. Create a Simple UX in Gradio
+### 11. Create a Simple UX in Gradio
 Build a user interface using Gradio for interacting with the AI application.
 
 ```python
