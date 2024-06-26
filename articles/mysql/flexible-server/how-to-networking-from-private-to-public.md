@@ -36,15 +36,23 @@ The steps below describe how to move from private access (virtual network integr
    > [!NOTE]
    > A warning appears explaining that this operation is irreversible and has downtime.
 
+   :::image type="content" source="media/how-to-networking-from-private-to-public/network-page.png" alt-text="Screenshot of":::
+
 1. Once you select **Yes**, you're taken to a wizard that has two steps.
 
-   1. Step 1: Detach the server from the virtual network infrastructure and transitioning it to the Private Link or Public access infrastructure.
+1. Step 1: Detach the server from the virtual network infrastructure and transitioning it to the Private Link or Public access infrastructure.
+
+   :::image type="content" source="media/how-to-networking-from-private-to-public/allow-public-access.png" alt-text="Screenshot of":::
 
       1. If you need public access only, you need to check `Allow public access to this resource through the internet using a public IP address`, or If you need private access only, then move to step 2 and don't check `Allow public access to this resource through the internet using a public IP address`. If you need public and private access, check the box for `Allow public access to this resource through the internet using a public IP address` and move to Step 2 to create a private link.
 
-      1. Once you Select Next then the process of detaching the server is initiated
+      1. Once you select **Next** then the process of detaching the server is initiated.
+
+        :::image type="content" source="media/how-to-networking-from-private-to-public/move-to-private-link.png" alt-text="sCREENSHOT OF":::
 
       1. Once it's detached, you can create a private link.
+
+        :::image type="content" source="media/how-to-networking-from-private-to-public/add-private-endpoint.png" alt-text="Screenshot of":::    
 
       1. In Step 1, when the server detaches from the virtual network, the server is put into an updating state. You can monitor the status of the server in the portal.
  
