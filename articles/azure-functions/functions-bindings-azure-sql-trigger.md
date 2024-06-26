@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 6/24/2024
+ms.date: 6/26/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -438,6 +438,8 @@ The SQL trigger binds to a variable `todoChanges`, a list of objects each with t
 The following example shows a Python function that is invoked when there are changes to the `ToDo` table.
 
 # [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
 
 ```python
 import json
