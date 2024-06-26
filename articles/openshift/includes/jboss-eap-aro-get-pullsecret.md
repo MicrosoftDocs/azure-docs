@@ -2,6 +2,7 @@
 author: backwind1233
 ms.author: zhihaoguo
 ms.date: 06/26/2024
+ms.topic: include
 ---
 
 ## Get a Red Hat pull secret

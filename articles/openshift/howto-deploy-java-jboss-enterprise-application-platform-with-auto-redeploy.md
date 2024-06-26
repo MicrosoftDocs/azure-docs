@@ -1,18 +1,18 @@
 ---
-title: Auto-redeploy JBoss EAP with Source-2-Image
+title: Auto-redeploy JBoss EAP with Source-to-Image
 titleExtension: Azure Red Hat OpenShift
-description: Shows you how to quickly set up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal and deploy an app with the Source-2-Image (S2I) feature.
+description: Shows you how to quickly set up JBoss EAP on Azure Red Hat OpenShift (ARO) using the Azure portal and deploy an app with the Source-to-Image (S2I) feature.
 author: KarlErickson
 ms.author: zhihaoguo
 ms.topic: quickstart
 ms.date: 06/26/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-javaee, devx-track-javaee-jbosseap, devx-track-javaee-jbosseap-aro, devx-track-azurecli
-# customer intent: As a developer, I want to learn how to auto redeploy JBoss EAP on Azure Red Hat OpenShift using Source-2-Image (S2I) so that I can quickly deploy and update my application.
+# customer intent: As a developer, I want to learn how to auto redeploy JBoss EAP on Azure Red Hat OpenShift using Source-to-Image (S2I) so that I can quickly deploy and update my application.
 ---
 
-# Quickstart: Auto-redeploy JBoss EAP on Azure Red Hat OpenShift with Source-2-Image (S2I)
+# Quickstart: Auto-redeploy JBoss EAP on Azure Red Hat OpenShift with Source-to-Image (S2I)
 
-This article shows you how to quickly set up JBoss Enterprise Application Platform (EAP) on Azure Red Hat OpenShift (ARO) and deploy an app with the Source-2-Image (S2I) feature. The Source-2-Image feature enables you to build container images from source code without having to write Dockerfiles. The article uses a sample application that you can fork from GitHub and deploy to Azure Red Hat OpenShift. The article also shows you how to set up a webhook in GitHub to trigger a new build in OpenShift every time you push a change to the repository.
+This article shows you how to quickly set up JBoss Enterprise Application Platform (EAP) on Azure Red Hat OpenShift (ARO) and deploy an app with the Source-to-Image (S2I) feature. The Source-to-Image feature enables you to build container images from source code without having to write Dockerfiles. The article uses a sample application that you can fork from GitHub and deploy to Azure Red Hat OpenShift. The article also shows you how to set up a webhook in GitHub to trigger a new build in OpenShift every time you push a change to the repository.
 
 This article uses the Azure Marketplace offer for JBoss EAP to accelerate your journey to ARO. The offer automatically provisions resources including an ARO cluster with a built-in OpenShift Container Registry (OCR), the JBoss EAP Operator, and optionally a container image including JBoss EAP and your application using Source-to-Image (S2I). To see the offer, visit the [Azure portal](https://aka.ms/eap-aro-portal). If you prefer manual step-by-step guidance for running JBoss EAP on ARO that doesn't use the automation enabled by the offer, see [Deploy a Java application with Red Hat JBoss Enterprise Application Platform (JBoss EAP) on an Azure Red Hat OpenShift 4 cluster](/azure/developer/java/ee/jboss-eap-on-aro).
 
@@ -102,7 +102,7 @@ Use the following steps to fill out the **ARO** pane shown in the following scre
 
 The following steps show you how to fill out the **EAP Application** pane shown in the following screenshot, and then start the deployment.
 
-:::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application-s2i.png" alt-text="Screenshot of the Azure portal that shows JBoss EAP on Azure Red Hat OpenShift EAP Application pane." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application-s2i.png":::
+:::image type="content" source="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application-source-to-image.png" alt-text="Screenshot of the Azure portal that shows JBoss EAP on Azure Red Hat OpenShift EAP Application pane." lightbox="media/howto-deploy-java-jboss-enterprise-application-platform-app/eap-application-source-to-image.png":::
 
 1. Select **YES** for **Deploy an application to OpenShift using Source-to-Image (S2I)?**.
 1. For **Deploy your own application or a sample application?**, select **Your own application**.

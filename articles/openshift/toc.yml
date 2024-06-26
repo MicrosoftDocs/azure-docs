@@ -122,7 +122,7 @@
         - name: Deploy a JBoss EAP Java app
           href: howto-deploy-java-jboss-enterprise-application-platform-app.md
         - name: Deploy a JBoss EAP Java app from source code with automatic deployment
-          href: howto-deploy-java-jboss-enterprise-application-platform-app-with-auto-redeploy.md
+          href: howto-deploy-java-jboss-enterprise-application-platform-with-auto-redeploy.md
 - name: Concepts
   items:
     - name: Networking
