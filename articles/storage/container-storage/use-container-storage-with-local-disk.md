@@ -145,7 +145,7 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
                    storage: 1Gi
    ```
 
-When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's ephemeral disk. See [Check node ephemeral disk capacity](#check-node-ephemeral-disk-capacity).
+   When you change the storage size of your volumes, make sure the size is less than the available capacity of a single node's ephemeral disk. See [Check node ephemeral disk capacity](#check-node-ephemeral-disk-capacity).
 
 1. Apply the YAML manifest file to deploy the pod.
    
