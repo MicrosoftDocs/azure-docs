@@ -64,11 +64,9 @@ This guide shows how to add the action in your workflow and add the PowerShell c
 
 1. After the action information pane opens, on the **Parameters** tab, in the **Code File** box, update the prepopluated sample code with your own code.
 
-     - To access data coming from your workflow, see [Access trigger outputs, preceding action outputs, and your workflow](#access-trigger-action-outputs) later in this guide.
+     - To access data coming from your workflow, see [Access workflow trigger and action outputs in your script](#access-trigger-action-outputs) later in this guide.
 
      - To return the script's results or other data to your workflow, see [Return data to your workflow](#return-data-to-workflow).
-
-1. To review the workflow output in Application Insights, see [View output in Application Insights](#log-output-application-insights).
 
    The following example shows the action's **Parameters** tab with the sample script code:
 
@@ -77,19 +75,19 @@ This guide shows how to add the action in your workflow and add the PowerShell c
    The following example shows the sample script code:
 
    ```powershell
-   # Use these cmdlets to retrieve outputs from prior steps
-   # oldActionOutput = Get-ActionOutput -ActionName <name of old action>
-   # oldTriggerOutput = Get-TriggerOutput
+   # Use the following cmdlets to retrieve outputs from prior steps.
+   # $triggerOutput = Get-TriggerOutput
+   # $ActionOutput = Get-ActionOutput -ActionName <action-name>
 
    $customResponse =  [PSCustomObject]@{
       Message = "Hello world!"
    }
 
-   # Use Write-Host/ Write-Output/Write-Debug to log messages to application insights
-   # Write-Host/Write-Output/Write-Debug and 'returns' will not return an output to the workflow
-   # Write-Host "Sending to application insight logs"
+   # Use Write-Debug/Write-Host/Write-Output/ to log messages to Application Insights.
+   # Write-Host/Write-Output/Write-Debug and 'return' won't return an output to the workflow.
+   # Write-Host "Sending to Application Insight logs"
 
-   # Use Push-WorkflowOutput to push outputs forward to subsequent actions
+   # Use Push-WorkflowOutput to push outputs into subsequent actions.
    Push-WorkflowOutput -Output $customResponse
    ```
 
@@ -98,89 +96,18 @@ This guide shows how to add the action in your workflow and add the PowerShell c
    ```powershell
    $action = Get-TriggerOutput
    $results = "Hello from PowerShell!"
-   Push-ActionOutputs -body $results
+   Push-WorkflowOutput -Output $results
    ```
 
 1. When you finish, save your workflow.
 
-<a name="view-script-file"></a>
-
-## View the script file
-
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
-
-1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
-
-1. On the **Advanced Tools** page, select **Go**, which opens the **KuduPlus** console.
-
-1. Open the **Debug console** menu, and select **CMD**.
-
-1. Go to your logic app's root location: **site/wwwroot**
-
-1. Go to your workflow's folder, which contains the .ps1 file, along this path: **site/wwwroot/{workflow-name}**
-
-1. Next to the file name, select **Edit** to open and view the file.
-
-## Custom PowerShell commandlets
-
-### Get-TriggerOutput
-
-Gets the output from the workflow's trigger.
-
-#### Syntax
-
-```azurepowershell
-`Get-TriggerOutput`
-```
-
-#### Parameters
-
-None.
-
-### Get-ActionOutput
-
-Gets the output from another action in the workflow and returns an object named **PowershellWorkflowOperationResult**.
-
-#### Syntax
-
-```azurepowershell
-Get-ActionOutput [ -ActionName <String> ]
-```
-
-#### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| **ActionName** | String | The name of the action in the workflow with the output that you want to reference. |
-
-### Push-WorkflowOutput
-
-Pushes output from the **Execute PowerShell Code** action to your workflow, which can pass back any object type. If the return value is null, you get a null object error from the commandlet.
-
-> [!NOTE]
->
-> The **Write-Host**, **Write-Debug**, and **Write-Output** commandlets don't return values to your workflow. 
-> The **return** statement also doesn't return values to your workflow. However, you can use these commandlets 
-> to write trace messages that appear in Application Insights.
-
-#### Syntax
-
-```azurepowershell
-Push-WorkflowOutput [-Output <Object>] [-Clobber]
-```
-
-#### Parameters
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| **Output** | Varies. | The output that you want to return to the workflow. This output can have any type. |
-| **Clobber** | Varies. | An optional switch parameter that you can use to override the previously pushed output. |
+After you run your workflow, you can review the workflow output in Application Insights, if enabled. For more information, see [View output in Application Insights](#log-output-application-insights).
 
 <a name="access-trigger-action-outputs"></a>
 
 ## Access workflow trigger and action outputs in your script
 
-The output values from the trigger and preceding actions are returned using a custom object, which have multiple parameters. To access these outputs and make sure that you return the value that you want, use the [**Get-TriggerOutput**](#get-triggeroutput), [**Get-ActionOutput**](#get-actionoutput), and [**Push-WorkflowOutput**](#push-workflowoutput) commandlets plus any appropriate parameters described in the following table, for example:
+The output values from the trigger and preceding actions are returned using a custom object, which have multiple parameters. To access these outputs and make sure that you return the value that you want, use the [**Get-TriggerOutput**](#get-triggeroutput), [**Get-ActionOutput**](#get-actionoutput), and [**Push-WorkflowOutput**](#push-workflowoutput) cmdlets plus any appropriate parameters described in the following table, for example:
 
 ```powershell
 $trigger = Get-TriggerOutput
@@ -219,7 +146,109 @@ Push-WorkflowOutput -Output $populatedString
 
 ## Return outputs to your workflow
 
-To return any outputs to your workflow, you must use the [**Push-WorkflowOutput** commandlet](#push-workflowoutput).
+To return any outputs to your workflow, you must use the [**Push-WorkflowOutput** cmdlet](#push-workflowoutput).
+
+## Custom PowerShell commands
+
+The **Execute PowerShell Code** action includes following custom [PowerShell commands (cmdlets)](/powershell/scripting/powershell-commands) for interacting with your workflow and other operations in your workflow:
+
+### Get-TriggerOutput
+
+Gets the output from the workflow's trigger.
+
+#### Syntax
+
+```azurepowershell
+`Get-TriggerOutput`
+```
+
+#### Parameters
+
+None.
+
+### Get-ActionOutput
+
+Gets the output from another action in the workflow and returns an object named **PowershellWorkflowOperationResult**.
+
+#### Syntax
+
+```azurepowershell
+Get-ActionOutput [ -ActionName <String> ]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| **ActionName** | String | The name of the action in the workflow with the output that you want to reference. |
+
+### Push-WorkflowOutput
+
+Pushes output from the **Execute PowerShell Code** action to your workflow, which can pass back any object type. If the return value is null, you get a null object error from the cmdlet.
+
+> [!NOTE]
+>
+> The **Write-Debug**, **Write-Host**, and **Write-Output** cmdlets don't return values 
+> to your workflow. The **return** statement also doesn't return values to your workflow. 
+> However, you can use these cmdlets to write trace messages that appear in Application Insights. 
+> For more information, see [Microsoft.PowerShell.Utility](/powershell/module/microsoft.powershell.utility).
+
+#### Syntax
+
+```azurepowershell
+Push-WorkflowOutput [-Output <Object>] [-Clobber]
+```
+
+#### Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| **Output** | Varies. | The output that you want to return to the workflow. This output can have any type. |
+| **Clobber** | Varies. | An optional switch parameter that you can use to override the previously pushed output. |
+
+## Authenticate and authorize access with a managed identity using PowerShell
+
+With a [managed identity](/entra/identity/managed-identities-azure-resources/overview), your logic app resource and workflow can authenticate and authorize access to any Azure service and resource that supports Microsoft Entra authentication without including credentials in your code.
+
+From inside the **Execute PowerShell Code** action, you can authenticate and authorize access with a managed identity so that you can perform actions on other Azure resources where you enabled access. For example, you can restart a virtual machine or get the run details of another logic app workflow.
+
+To use the managed identity from inside the **Execute PowerShell Code** action, you must follow these steps:
+
+1. [Follow these steps to set up the managed identity on your logic app and grant the managed identity access on the target Azure resource](authenticate-with-managed-identity.md?tabs=standard).
+
+   On the target Azure resource, review the following considerations:
+
+   - On the **Role** tab, a **Contributor** role is usually sufficient.
+
+   - On the **Add role assignment** page, on the **Members** tab, for the **Assign access to** property, make sure that you select **Managed identity**.
+
+   - After you select **Select members**, on the **Select managed identities** pane, select the managed identity that you want to use.
+
+1. In your **Execute PowerShell Code** action, include the following code as the first statement:
+
+   ```powershell
+   Connect-AzAccount -Identity
+   ```
+
+1. Now, you can work with the Azure resource using cmdlets and modules.
+
+<a name="view-script-file"></a>
+
+## View the script file
+
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource that has the workflow you want.
+
+1. On the logic app resource menu, under **Development Tools**, select **Advanced Tools**.
+
+1. On the **Advanced Tools** page, select **Go**, which opens the **KuduPlus** console.
+
+1. Open the **Debug console** menu, and select **CMD**.
+
+1. Go to your logic app's root location: **site/wwwroot**
+
+1. Go to your workflow's folder, which contains the .ps1 file, along this path: **site/wwwroot/{workflow-name}**
+
+1. Next to the file name, select **Edit** to open and view the file.
 
 <a name="log-output-application-insights"></a>
 
@@ -320,32 +349,6 @@ MyLogicApp
 - requirements.psd1
 ```
 
-## Authenticate and authorize access with a managed identity using PowerShell
-
-With a [managed identity](/entra/identity/managed-identities-azure-resources/overview), your logic app resource and workflow can authenticate and authorize access to any Azure service and resource that supports Microsoft Entra authentication without including credentials in your code.
-
-From inside the **Execute PowerShell Code** action, you can authenticate and authorize access with a managed identity so that you can perform actions on other Azure resources where you enabled access. For example, you can restart a virtual machine or get the run details of another logic app workflow.
-
-To use the managed identity from inside the **Execute PowerShell Code** action, you must follow these steps:
-
-1. [Follow these steps to set up the managed identity on your logic app and grant the managed identity access on the target Azure resource](authenticate-with-managed-identity.md?tabs=standard).
-
-   On the target Azure resource, review the following considerations:
-
-   - On the **Role** tab, a **Contributor** role is usually sufficient.
-
-   - On the **Add role assignment** page, on the **Members** tab, for the **Assign access to** property, make sure that you select **Managed identity**.
-
-   - After you select **Select members**, on the **Select managed identities** pane, select the managed identity that you want to use.
-
-1. In your **Execute PowerShell Code** action, include the following code as the first statement:
-
-   ```powershell
-   Connect-AzAccount -Identity
-   ```
-
-1. Now, you can use the modules and commandlets that you want to work with the Azure resource.
-
 ## Compilation errors
 
 In this release, the web-based editor includes limited IntelliSense support, which is still under improvement. Any compilation errors are detected when you save your workflow, and the Azure Logic Apps runtime compiles your script. These errors appear in your logic app's error logs.
@@ -354,7 +357,7 @@ In this release, the web-based editor includes limited IntelliSense support, whi
 
 ### A workflow action doesn't return any output.
 
-Make sure that you use **Push-WorkflowOutput**.
+Make sure that you use the **Push-WorkflowOutput** cmdlet.
 
 ### Execute PowerShell Code action fails: "The term '{some-text}' is not recognized..."
 
