@@ -23,7 +23,7 @@ Microsoft Copilot for Security is a platform that helps you defend your organiza
 Together with the iterative processing of other sophisticated Copilot for Security sources you enable, your Microsoft Sentinel incidents and data provide wider visibility into threats and their context for your organization.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel and Natural Language to KQL for Microsoft Sentinel plugins are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The "Microsoft Sentinel" and "Natural Language to KQL for Microsoft Sentinel" plugins are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Microsoft Copilot in Microsoft Sentinel (Preview)
@@ -75,15 +75,19 @@ Increase your prompt accuracy when you have access to multiple Microsoft Sentine
 For guidance on writing effective prompts, see [Prompting in Microsoft Copilot for Security](/security-copilot/prompting-security-copilot). Here are some examples:
 
 - The second part of this prompt nudges Copilot to provide human readable information instead of responding with object IDs.
+
    `*Show me Sentinel incidents that were closed as a false positive. Supply the Incident number, Incident Title, and the time they were created.*`
 
 - Copilot knows who you are. 
+
    `*What Sentinel incidents created in the last 24 hours are assigned to me? List them with highest priority incidents at the top.*`
 
 - When you narrow a prompt response down to a single incident, Copilot knows the context.
+
    `*Tell me about the entities associated with that incident.*`
 
 - A useful way to summarize the prompts and responses so far.
+
    `*Write an executive report summarizing this investigation. It should be suited for a nontechnical audience.*`
 
 For more information on sample prompts, see [Rod Trent's Copilot for Security GitHub](https://github.com/rod-trent/Copilot-for-Security/blob/main/Prompts/Plugins/Sentinel.md).
