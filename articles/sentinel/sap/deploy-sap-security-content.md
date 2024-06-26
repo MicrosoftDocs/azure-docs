@@ -27,15 +27,13 @@ To deploy the Microsoft Sentinel solution for SAP applications from the content 
 
 ## Deploy the security content from the content hub
 
-Deploy the [SAP security content](sap-solution-security-content.md) from the Microsoft Sentinel **Content hub** and **Watchlists** areas.
+Deploy the [SAP security content](sap-solution-security-content.md) from the Microsoft Sentinel **Content hub**.
 
 Deploying the Microsoft Sentinel solution for SAP applications causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
 
 To deploy SAP solution security content:
 
-1. From the unified security operations platform, select **Microsoft Sentinel > Content management > Content hub**. In the Azure portal, in Microsoft Sentinel, select **Content hub**.
-
-    The **Content hub** page displays a filtered, searchable list of solutions.
+1. In Microsoft Sentinel, select **Content management > Content hub** to display a filtered, searchable list of solutions.
 
 1. To open the SAP solution page, search for and select **SAP applications**. In the side pane, scroll down and select either **Install** to open the solution details page. For example:
 
@@ -43,7 +41,7 @@ To deploy SAP solution security content:
 
 1. To start the solution deployment wizard, select **Create**, and then enter the details of the Azure subscription and resource group.
 
-1. For the **Deployment target workspace**, select the Log Analytics workspace (the one that Microsoft Sentinel uses) where you want to deploy the solution.<a id="multi-workspace"></a>
+1. For the **Deployment target workspace**, select the Log Analytics workspace used by Microsoft Sentinel, and where you want to deploy the solution.<a id="multi-workspace"></a>
 
 1. If you want to [work with the Microsoft Sentinel solution for SAP applications in multiple workspaces](cross-workspace.md) (preview), select **Some of the data is on a different workspace**, and then do the following steps:
 
@@ -55,19 +53,16 @@ To deploy SAP solution security content:
 
    :::image type="content" source="./media/deploy-sap-security-content/sap-multi-workspace.png" alt-text="Screenshot that shows how to configure the Microsoft Sentinel solution for SAP applications to work across multiple workspaces.":::
 
-   > [!NOTE]
-   > If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. If you want the SOC and SAP data to be kept on the same workspace, but to apply additional access controls, review [this scenario](cross-workspace.md#scenario-2-sap-data-kept-only-in-the-soc-workspace).
+   > [!TIP]
+   > If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. You might want the SOC and SAP data to be kept on the same workspace, but to apply additional access controls. In such cases, for more information, see [Store SAP data only in the SOC workspace](cross-workspace.md#store-sap-data-only-in-the-soc-workspace).
 
 1. Select **Next** to cycle through the **Data Connectors**, **Analytics**, and **Workbooks** tabs, where you can learn about the components that are deployed with this solution.
 
    For more information, see [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md).
 
-1. On the **Review + create tab** pane, wait for the **Validation Passed** message, and then select **Create** to deploy the solution.
+1. On the **Review + create tab** pane, wait for the **Validation Passed** message, and then select **Create** to deploy the solution. Alternately, select **Download a template** for a link to deploy the solution as code.
 
-   > [!TIP]
-   > You can also select **Download a template** for a link to deploy the solution as code.
-
-1. When deployment is finished, to display the newly deployed content:
+1. When the deployment is finished, to display the newly deployed content:
 
     - For the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks), go to **Threat Management** > **Workbooks** > **My workbooks**.
 
@@ -83,22 +78,21 @@ To deploy SAP solution security content:
 
     For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
 
-## Troubleshooting and reference
+## Troubleshooting references and related content
 
-For troubleshooting information, see these articles:
+If you need help troubleshooting your deployment, see:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
 - [Microsoft Sentinel solutions](../sentinel-solutions.md)
 
-For reference, see these articles:
-
-- [Microsoft Sentinel solution for SAP applications solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel solution for SAP applications: Security content reference](sap-solution-security-content.md)
-- [Update script reference](reference-update.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md)
-
-## Related content
+For more information, see:
 
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
-- [Prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
-- [Deploy SAP change requests and configure authorization](preparing-sap.md)
+- [Microsoft Sentinel solution for SAP applications solution data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel solution for SAP applications: Security content reference](sap-solution-security-content.md)
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Configure Microsoft Sentinel solution for SAP applications](deployment-solution-configuration.md)
+
