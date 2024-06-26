@@ -1,6 +1,6 @@
 ---
 title: AI agents
-description: AI agent key concepts and implementation of AI agent memeory system.
+description: AI agent key concepts and implementation of AI agent memory system.
 author: wmwxwa
 ms.author: wangwilliam
 ms.reviewer: sidandrews
@@ -11,16 +11,14 @@ ms.date: 06/26/2024
 
 # AI agents
 
-[!INCLUDE[NoSQL, MongoDB vCore](includes/appliesto-nosql-mongodbvcore.md)]
-
 ## What are AI Agents?
 
 AI agents are designed to perform specific tasks, answer questions, and automate processes for users. These agents vary widely in complexity, ranging from simple chatbots, to copilots, to advanced AI assistants in the form of digital or robotic systems that can execute complex workflows autonomously.
 
 ### Common features of AI agents
 
--	Planning. AI agents can plan and sequence actions to achieve specific goals. The integration of large language models (LLMs) has significantly enhanced their planning capabilities.
--	Tool usage. Advanced AI agents can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. This is often done by function calling.
+-	Planning. AI agents can plan and sequence actions to achieve specific goals. The integration of large language models (LLMs) has revolutionized their planning capabilities.
+-	Tool usage. Advanced AI agents can utilize various tools, such as code execution, search, and computation capabilities, to perform tasks effectively. Tool usage is often done through function calling.
 -	Perception. AI agents can perceive and process information from their environment, including visual, auditory, and other sensory data, making them more interactive and context aware.
 -	Memory. AI agents possess the ability to remember past interactions (tool usage and perception) and behaviors (tool usage and planning). They store these experiences and even perform self-reflection to inform future actions. This memory component allows for continuity and improvement in agent performance over time.
 
@@ -29,18 +27,18 @@ AI agents are designed to perform specific tasks, answer questions, and automate
 
 ### Copilots
 
-Copilots are a type of AI agent designed to work alongside users rather than operate independently. Unlike fully automated agents, copilots provide suggestions and recommendations to assist users in completing tasks. For instance, when a user is writing an email, a copilot might suggest phrases, sentences, or paragraphs; it might also be instructed to identify relevant information in other emails or files for incorporation into the suggestion (see retrieval-augmented generation). The user can accept, reject, or edit the suggested passages.
+Copilots are a type of AI agent designed to work alongside users rather than operate independently. Unlike fully automated agents, copilots provide suggestions and recommendations to assist users in completing tasks. For instance, when a user is writing an email, a copilot might suggest phrases, sentences, or paragraphs. The user might also ask the copilot to find relevant information in other emails or files to support the suggestion (see retrieval-augmented generation). The user can accept, reject, or edit the suggested passages.
 
 ### Autonomous agents
 
 Autonomous agents can operate more independently. When you set up autonomous agents to assist with email composition, you could enable them to perform the following tasks:
 
--	Consult existing emails, chats, files, and other information that are related to the subject matter; this may involve searching the appropriate storage or the Internet in accordance with access permissions
+-	Consult existing emails, chats, files, and other information that are related to the subject matter, which may involve searching the appropriate storage or the Internet in accordance with access permissions
 -	Perform qualitative or quantitative analysis on the collected information, and draw conclusions that are relevant to the email
 - Write the complete email based on the conclusions and incorporate supporting evidence
 -	Attach relevant files to the email
 -	Review the email to ensure that all the incorporated information is factually accurate, and that the assertions are valid
--	Select the appropriate recipients for “To,” “Cc,” and/or “Bcc” and look up their email addresses
+-	Select the appropriate recipients for "To," "Cc," and/or "Bcc" and look up their email addresses
 -	Schedule an appropriate time to send the email
 -	Perform follow-ups if responses are expected but not received
 
@@ -48,7 +46,7 @@ You may configure the agents to perform each of the above steps with or without 
 
 ### Multi-agent systems
 
-Currently, the prevailing strategy for achieving performant autonomous agents is through multi-agent systems. In multi-agent systems, multiple autonomous agents, whether in digital or robotic form, interact or work together to achieve individual or collective goals. Each agent in the system operates independently, possesses its own knowledge or information, and has the capability to perceive its environment, make decisions, and execute actions based on its objectives.
+Currently, the prevailing strategy for achieving performant autonomous agents is through multi-agent systems. In multi-agent systems, multiple autonomous agents, whether in digital or robotic form, interact or work together to achieve individual or collective goals. Agents in the system can operate independently and possess their own knowledge or information. Each agent may also have the capability to perceive its environment, make decisions, and execute actions based on its objectives.
 
 Key characteristics of multi-agent systems:
 
@@ -85,29 +83,38 @@ Complex reasoning and planning are the hallmark of advanced autonomous agents. P
 
 Various frameworks and tools can facilitate the development and deployment of AI agents.
 
-For tool usage and perception that do not require sophisticated planning and memory, some popular frameworks that provide robust task orchestration capabilities are LangChain, LlamaIndex, Promptflow, and Semantic Kernel.
+For tool usage and perception that do not require sophisticated planning and memory, some popular frameworks that provide robust task orchestration capabilities are LangChain, LlamaIndex, Prompt Flow, and Semantic Kernel.
 
-For advanced and autonomous planning and execution workflows, AutoGen propelled the multi-agent wave that began in late 2022. OpenAI’s Assistants API allow their users to create agents natively within the GPT ecosystem. Popular LLM orchestrator frameworks like LangChain and LlamaIndex have also incorporated multi-agent framework modules.
+For advanced and autonomous planning and execution workflows, AutoGen propelled the multi-agent wave that began in late 2022. OpenAI’s Assistants API allow their users to create agents natively within the GPT ecosystem. Popular LLM orchestrator frameworks like LangChain and LlamaIndex also added multi-agent modules.
 
 > [!TIP]
 > See the implementation example section at the end provides an example for building a simple multi-agent system using one of the popular frameworks and a unified agent memory system.
 
 ### Memory systems
 
-The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types: e.g., an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a pure vector database for embedding management. However, this practice of using a complex web of standalone databases can hurt AI agent memory system’s speed and scalability. Each type of database’s individual weaknesses are also exacerbated in multi-agent systems:
+The prevalent practice for experimenting with AI-enhanced applications in 2022 through 2024 has been using standalone database management systems for various data workflows or types. For example, an in-memory database for caching, a relational database for operational data (including tracing/activity logs and LLM conversation history), and a pure vector database for embedding management. However, this practice of using a complex web of standalone databases can hurt AI agent memory system’s speed and scalability. Each type of database’s individual weaknesses are also exacerbated in multi-agent systems:
 
--	In-memory databases are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
--	Relational databases are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding. 
--	Pure vector databases tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular pure vector database services nowadays typically offer no guarantee on reads & writes, limited ingestion throughput, low availability (below 99.9%, which equals annualized outage of almost 9 hours or more), one consistency level (eventual), resource-intensive in-memory vector index, and limited options for multitenancy.
--	Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself.
+In-memory databases are excellent for speed but may struggle with the large-scale data persistence that AI agents require.
+
+Relational databases are not ideal for the varied modalities and fluid schemas of data handled by agents. Moreover, relational databases require manual efforts and even downtime to manage provisioning, partitioning, and sharding.
+
+Pure vector databases tend to be less effective for transactional operations, real-time updates, and distributed workloads. The popular pure vector database services nowadays typically offe
+- no guarantee on reads & writes
+- limited ingestion throughput
+- low availability (below 99.9%, which equals annualized outage of almost 9 hours or more)
+- one consistency level (eventual)
+- resource-intensive in-memory vector index
+- limited options for multitenancy
+
+Integrating all these disparate databases into a cohesive, interoperable, and resilient memory system for AI agents is a significant challenge in and of itself.
 
 The next section dives deeper into what makes a robust AI agent memory system.
 
 ## Memory can make or break AI agents
 
-Just as efficient database management systems are critical to software applications’ performances, it is critical to provide LLM-powered agents with relevant and useful information to guide their inference. Robust memory systems enable organizing and storing different kinds of information that can be retrieved by the LLMs at inference time, depending on the task and the user's needs.
+Just as efficient database management systems are critical to software applications’ performances, it is critical to provide LLM-powered agents with relevant and useful information to guide their inference. Robust memory systems enable organizing and storing different kinds of information that the agents can retrieve at inference time.
 
-Currently, LLM-powered applications often use retrieval-augmented generation that leverages basic semantic search or vector search to retrieve passages or documents. Vector search can be useful for finding general information, but it may not capture the specific context, structure, or relationships that are relevant for a particular task or domain.
+Currently, LLM-powered applications often use retrieval-augmented generation that uses basic semantic search or vector search to retrieve passages or documents. Vector search can be useful for finding general information, but it may not capture the specific context, structure, or relationships that are relevant for a particular task or domain.
 
 For example, if the task is to write code, semantic search may not be able to retrieve the syntax tree, the file system layout, the code summaries, or the API signatures that are important for generating coherent and correct code. Similarly, if the task is to work with tabular data, semantic search may not be able to retrieve the schema, the foreign keys, the stored procedures, or the reports that are useful for querying or analyzing the data.
 
@@ -119,21 +126,21 @@ AI agent memory systems should provide different collections that store metadata
 
 #### Operational
 
-Memory systems should provide different memory banks that store information that is relevant for the interaction with the user and the environment, such as chat history, user preferences, sensory data, decisions made, facts learned, or other operational data that are updated with high frequency and at high volumes. These memory banks can help the agents remember short-term and long-term information, avoid repeating or contradicting themselves, and maintain task coherence. Such requirements must hold true even if the agents have performed a multitude of unrelated tasks in succession, or if the agents have gone through numerous branch plans for the same goal that diverge or converge at different points.
+Memory systems should provide different memory banks that store information that is relevant for the interaction with the user and the environment. Such information may include chat history, user preferences, sensory data, decisions made, facts learned, or other operational data that are updated with high frequency and at high volumes. These memory banks can help the agents remember short-term and long-term information, avoid repeating or contradicting themselves, and maintain task coherence. These requirements must hold true even if the agents perform a multitude of unrelated tasks in succession. Further complicating the requirements are scenarios where the agents go through numerous branch plans for the same goal that diverge or converge at different points.
 
-#### Sharable as well as separable
+#### Sharable but also separable
 
 At the macro level, memory systems should enable multiple AI agents to collaborate on a problem or process different aspects of the problem by providing shared memory that is accessible to all the agents. This can facilitate the exchange of information and the coordination of actions among the agents. At the same time, the memory system must allow agents to preserve their own persona and characteristics, such as their unique collections of prompts and memories.
 
 #### Multi-modal (Part Two)
 
-Not only are memory systems critical to AI agents; they are also important for the humans who develop, maintain, and use these agents. For example, humans may need to supervise agents’ planning and execution workflows in near real-time, interjecting with guidance or making in-line edits of agents’ dialogues or monologues. Humans may also need to audit the reasoning and actions of agents to verify the validity of the final output. Note that humans’ interactions with agents are likely in natural or programming languages, while agents “think,” “learn,” and “remember” through embeddings. This poses an additional requirement on memory systems’ consistency across data modalities.
+Not only are memory systems critical to AI agents; they are also important for the humans who develop, maintain, and use these agents. For example, humans may need to supervise agents’ planning and execution workflows in near real-time. While supervising, humans may interject with guidance or make in-line edits of agents’ dialogues or monologues. Humans may also need to audit the reasoning and actions of agents to verify the validity of the final output. Human-agent interactions are likely in natural or programming languages, while agents "think," "learn," and "remember" through embeddings. This poses another requirement on memory systems’ consistency across data modalities.
 
 ## Implementing AI agent memory systems
 
-The above characteristics require AI agent memory systems to be highly scalable and very swift. Painstakingly weaving together a plethora of disparate in-memory, relational, and vector databases may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
+The above characteristics require AI agent memory systems to be highly scalable and swift. Painstakingly weaving together a plethora of disparate in-memory, relational, and vector databases may work for early-stage AI-enabled applications; however, this approach adds complexity and performance bottlenecks that can hamper the performance of advanced autonomous agents.
 
-In place of all the standalone databases, AI agent memory systems can rely on Azure Cosmos DB as a unified solution. Its robustness has successfully enabled OpenAI’s ChatGPT service to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed serverless NoSQL, relational, and vector database service. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
+In place of all the standalone databases, AI agent memory systems can rely on Azure Cosmos DB as a unified solution. Its robustness successfully enabled OpenAI’s ChatGPT service to scale dynamically with high reliability and low maintenance. Powered by an atom-record-sequence engine, it is the world’s first globally distributed serverless NoSQL, relational, and vector database service. AI agents built on top of Azure Cosmos DB enjoy speed, scale, and simplicity.
 
 ### Speed
 
@@ -141,7 +148,7 @@ Azure Cosmos DB provides single-digit millisecond latency, making it highly suit
 
 #### Scale
 
-With support for multi-region I/O and multitenancy, Azure Cosmos DB is engineered for global distribution and horizontal scalability with SLA-backed 99.999% availability (less than 5 minutes of downtime per year, contrasting 9 hours or more for pure vector database services), ensuring that memory systems can expand seamlessly and keep up with rapidly growing data and agents. At the same time, its various service models like Reserved Capacity or Serverless drastically lower financial costs.
+With support for multi-region I/O and multitenancy, Azure Cosmos DB is engineered for global distribution and horizontal scalability, ensuring that memory systems can expand seamlessly and keep up with rapidly growing data and agents. Its SLA-backed 99.999% availability (less than 5 minutes of downtime per year, contrasting 9 hours or more for pure vector database services) provides a solid foundation fro mission-critical workloads. At the same time, its various service models like Reserved Capacity or Serverless drastically lower financial costs.
 
 #### Simplicity
 
@@ -150,15 +157,15 @@ Its integrated vector database capabilities can store, index, and query embeddin
 
 Its flexibility easily supports the varied modalities and fluid schemas of the metadata, relationships, entities, summaries, chat history, user preferences, sensory data, decisions made, facts learned, or other operational data involved in agent workflows. The database automatically indexes all data without requiring schema or index management, allowing AI agents to perform complex queries quickly and efficiently.
 
-Lastly, its fully managed service eliminates the overhead of database administration, including tasks such as scaling, patching, and backups. This allows developers to focus on building and optimizing AI agents without worrying about the underlying data infrastructure.
+Lastly, its fully managed service eliminates the overhead of database administration, including tasks such as scaling, patching, and backups. Thus, developers can focus on building and optimizing AI agents without worrying about the underlying data infrastructure.
 
 #### Advanced features
 
-Azure Cosmos DB incorporates advanced features such as change feed, which allows tracking and responding to changes in data in real-time. This capability is particularly useful for AI agents that need to react to new information promptly.
+Azure Cosmos DB incorporates advanced features such as change feed, which allows tracking and responding to changes in data in real-time. This capability is useful for AI agents that need to react to new information promptly.
 
 Additionally, the built-in support for multi-master writes enables high availability and resilience, ensuring continuous operation of AI agents even in the face of regional failures.
 
-The five available consistency levels (from strong to eventual) can also cater to a variety of distributed workloads depending on the scenario requirements.
+The five available consistency levels (from strong to eventual) can also cater to various distributed workloads depending on the scenario requirements.
 Implementation example
 
 ## Implementation Sample
